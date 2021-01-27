@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c29c043a3af46086751629b31ce68217e7226442
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355060"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880410"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Najlepsze rozwiązania w zakresie optymalnej wydajności Azure Database for MySQL pojedynczego serwera
 
@@ -46,9 +46,9 @@ Ustanowienie nowego połączenia jest zawsze kosztownym i czasochłonnym zadanie
 
 Najlepszym rozwiązaniem w zakresie wydajności Azure Database for MySQL jest przydzielenie wystarczającej ilości pamięci RAM, aby zestaw roboczy był już całkowicie w pamięci. 
 
-- Sprawdź, czy procent pamięci używany do osiągnięcia [limitów](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) przy użyciu [metryk dla serwera MySQL](https://docs.microsoft.com/azure/mysql/concepts-monitoring). 
+- Sprawdź, czy procent pamięci używany do osiągnięcia [limitów](./concepts-pricing-tiers.md) przy użyciu [metryk dla serwera MySQL](./concepts-monitoring.md). 
 - Skonfiguruj alerty dotyczące tych numerów, aby upewnić się, że w miarę jak serwery osiągnieją limity, aby rozwiązać ten problem. Na podstawie zdefiniowanych limitów Sprawdź, czy skalowanie w górę jednostki SKU bazy danych jest większe niż w przypadku wyższego rozmiaru lub do lepszej warstwy cenowej, co powoduje znaczący wzrost wydajności. 
-- Skaluj w górę do momentu, aż numery wydajności nie znikną znacznie po operacji skalowania. Aby uzyskać informacje na temat monitorowania metryk wystąpienia bazy danych, zobacz [metryki bazy danych MySQL](https://docs.microsoft.com/azure/mysql/concepts-monitoring#metrics).
+- Skaluj w górę do momentu, aż numery wydajności nie znikną znacznie po operacji skalowania. Aby uzyskać informacje na temat monitorowania metryk wystąpienia bazy danych, zobacz [metryki bazy danych MySQL](./concepts-monitoring.md#metrics).
 
 ## <a name="next-steps"></a>Następne kroki
 

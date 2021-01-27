@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e1b29d901630156471bbb9cb8b939bb4bb29c836
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724236"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879851"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -52,7 +52,7 @@ W przypadku klientów migrowania z lokalnych serwerów plików lub tworzenia now
 
 Jeśli zamierzasz korzystać z klucza konta magazynu w celu uzyskania dostępu do udziałów plików platformy Azure, zalecamy używanie punktów końcowych usługi zgodnie z opisem w sekcji dotyczącej [sieci](#networking) .
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 Udziały plików platformy Azure są dostępne z dowolnego miejsca za pośrednictwem publicznego punktu końcowego konta magazynu. Oznacza to, że uwierzytelnione żądania, takie jak żądania autoryzowane przez tożsamość logowania użytkownika, mogą bezpiecznie pochodziły z platformy Azure lub spoza niej. W wielu środowiskach klienta początkowa instalacja udziału plików platformy Azure na lokalnej stacji roboczej zakończy się niepowodzeniem, nawet jeśli instalacje z maszyn wirtualnych platformy Azure powiodą się. Przyczyną tego jest to, że wiele organizacji i usługodawców internetowych (ISP) blokują port wykorzystywany przez protokół SMB do komunikacji, port 445. Aby zobaczyć podsumowanie usługodawców internetowych, którzy nie zezwalają na dostęp z portu 445, przejdź do witryny [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Aby odblokować dostęp do udziału plików platformy Azure, masz dwie opcje główne:
@@ -72,7 +72,7 @@ Aby zaplanować sieć skojarzoną z wdrażaniem udziału plików platformy Azure
 ## <a name="encryption"></a>Szyfrowanie
 Azure Files obsługuje dwa różne typy szyfrowania: szyfrowanie podczas przesyłania, które odnosi się do szyfrowania używanego podczas instalowania/uzyskiwania dostępu do udziału plików platformy Azure oraz szyfrowania w spoczynku, które odnosi się do sposobu szyfrowania danych przechowywanych na dysku. 
 
-### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
+### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
 
 > [!IMPORTANT]
 > Ta sekcja zawiera szczegółowe informacje dotyczące szyfrowania dla udziałów SMB. Aby uzyskać szczegółowe informacje dotyczące szyfrowania podczas przesyłania z udziałami NFS, zobacz [zabezpieczenia](storage-files-compare-protocols.md#security).
@@ -131,6 +131,6 @@ W wielu przypadkach nie zostanie nadany nowy udział plików w sieci dla organiz
 
 ## <a name="next-steps"></a>Następne kroki
 * [Planowanie wdrożenia Azure File Sync](storage-sync-files-planning.md)
-* [Wdrażanie Azure Files](storage-files-deployment-guide.md)
+* [Wdrażanie Azure Files](./storage-how-to-create-file-share.md)
 * [Wdrażanie Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Zapoznaj się z artykułem Omówienie migracji, aby znaleźć przewodnik migracji dla danego scenariusza](storage-files-migration-overview.md)

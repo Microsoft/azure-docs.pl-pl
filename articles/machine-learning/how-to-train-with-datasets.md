@@ -12,18 +12,18 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 688bec24cbcd88130470634abff0688ead8005ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539669"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881690"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Uczenie modeli za pomocą zestawów danych Azure Machine Learning 
 
 W tym artykule dowiesz się, jak korzystać z [Azure Machine Learning zestawów danych](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) w celu uczenia modeli uczenia maszynowego.  Możesz użyć zestawów danych w lokalnym lub zdalnym miejscu docelowym, bez obaw o parametry połączenia lub ścieżki danych. 
 
-Zestawy danych Azure Machine Learning zapewniają bezproblemową integrację z funkcjami szkolenia Azure Machine Learning, takimi jak [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [predrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) i [Azure Machine Learning Pipelines](how-to-create-your-first-pipeline.md).
+Zestawy danych Azure Machine Learning zapewniają bezproblemową integrację z funkcjami szkolenia Azure Machine Learning, takimi jak [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [predrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) i [Azure Machine Learning Pipelines](./how-to-create-machine-learning-pipelines.md).
 
 Jeśli nie masz gotowości do udostępnienia danych do szkolenia modeli, ale chcesz załadować dane do notesu w celu eksplorowania danych, zobacz jak [eksplorować dane w zestawie](how-to-create-register-datasets.md#explore-data)danych. 
 
@@ -263,7 +263,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 * **Nie można zainicjować zestawu danych: upłynął limit czasu oczekiwania na gotowość punktu instalacji**: 
-  * Jeśli nie masz żadnych reguł [sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) dla ruchu wychodzącego i korzystasz z usługi `azureml-sdk>=1.12.0` , zaktualizuj `azureml-dataset-runtime` i jej zależności jako najnowsze dla konkretnej wersji pomocniczej lub jeśli używasz go w przebiegu, Utwórz ponownie środowisko, aby mogło ono mieć najnowszą poprawkę z poprawkami. 
+  * Jeśli nie masz żadnych reguł [sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md) dla ruchu wychodzącego i korzystasz z usługi `azureml-sdk>=1.12.0` , zaktualizuj `azureml-dataset-runtime` i jej zależności jako najnowsze dla konkretnej wersji pomocniczej lub jeśli używasz go w przebiegu, Utwórz ponownie środowisko, aby mogło ono mieć najnowszą poprawkę z poprawkami. 
   * Jeśli używasz programu `azureml-sdk<1.12.0` , przeprowadź uaktualnienie do najnowszej wersji.
   * Jeśli istnieją reguły sieciowej grupy zabezpieczeń wychodzącego, upewnij się, że istnieje reguła ruchu wychodzącego zezwalająca na cały ruch dla tagu usługi `AzureResourceMonitor` .
 
@@ -293,4 +293,4 @@ Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer dan
 
 * [Uczenie modeli klasyfikacji obrazów](https://aka.ms/filedataset-samplenotebook) przy użyciu FileDatasets.
 
-* [Uczenie się z zestawami danych przy użyciu potoków](how-to-create-your-first-pipeline.md).
+* [Uczenie się z zestawami danych przy użyciu potoków](./how-to-create-machine-learning-pipelines.md).

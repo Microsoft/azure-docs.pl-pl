@@ -2,15 +2,15 @@
 title: Rozwiązywanie problemów z wdrażaniem funkcji Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów, które powstają podczas wdrażania Azure Automation funkcji.
 services: automation
+ms.subservice: ''
 ms.date: 06/30/2020
-ms.topic: conceptual
-ms.service: automation
-ms.openlocfilehash: a6b8384193e821e6c41a0d4d979cda51f6c65b3a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.topic: troubleshooting
+ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070490"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896515"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem funkcji
 

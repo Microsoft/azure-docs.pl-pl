@@ -1,25 +1,11 @@
 ---
-title: Szablon ARM konta Media Services
-titleSuffix: Azure Media Services
-description: W tym artykule pokazano, jak utworzyć konto usługi Media Services przy użyciu szablonu ARM.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: quickstart
-ms.date: 11/24/2020
-ms.author: inhenkel
-ms.custom: subject-armqs
-ms.openlocfilehash: 541a4c17a3212f711be7e2cf096ce3a2d632ee64
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879650"
+title: Media Services szablon ARM konta: Azure Media Services opis: w tym artykule przedstawiono sposób użycia szablonu usługi ARM do utworzenia konta usług Media Services.
+usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
+
+MS. Service: Media-Services MS. obciążenie: MS. Subject: Szybki Start MS. Date: 11/24/2020 MS. Author: inhenkel MS. Custom: subject-armqs
+
 ---
+
 # <a name="quickstart-media-services-account-arm-template"></a>Szybki Start: szablon ARM konta Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

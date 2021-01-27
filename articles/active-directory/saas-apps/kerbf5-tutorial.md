@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 139366277feab0a04c47311b4f0210223b2bc8d9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933102"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892035"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
 
@@ -174,7 +174,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -279,7 +279,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
 1. Na karcie Główny kliknij pozycję **zasady dostępu > serwery AAA > Active Directory**. Zostanie otwarty ekran listy serwerów Active Directory.
 
-2. Kliknij przycisk **Utwórz**. Zostanie otwarty ekran nowe właściwości serwera.
+2. Kliknij pozycję **Utwórz**. Zostanie otwarty ekran nowe właściwości serwera.
 
 3. W polu **Nazwa** wpisz unikatową nazwę serwera uwierzytelniania.
 
@@ -493,3 +493,9 @@ Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować si�
 - [Konfigurowanie logowania jednokrotnego dla aplikacji na podstawie nagłówka](headerf5-tutorial.md)
 
 - [Konfigurowanie logowania jednokrotnego w przypadku zaawansowanej aplikacji Kerberos](advance-kerbf5-tutorial.md)
+
+- [F5 BIG-IP APM i integracja z usługą Azure AD na potrzeby bezpiecznego dostępu hybrydowego](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+
+- [Samouczek pozwalający wdrożyć MASZYNę wirtualną z wirtualnym wydaniem F5 BIG-IP w usłudze Azure IaaS na potrzeby bezpiecznego dostępu hybrydowego](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+
+- [Samouczek dotyczący Azure Active Directory integracji z logowaniem jednokrotnym przy użyciu protokołu F5 BIG-IP dla sieci VPN bez hasła](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)

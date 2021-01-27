@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: ffc056a97d3c0fd14bab186614015a9352a34077
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 74e09e61a6132858d716686bdb6687bb670f0d33
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015151"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879514"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Samouczek: uruchamianie Azure Functions z Azure Stream Analytics zadań 
 
@@ -23,7 +23,7 @@ Usługa Stream Analytics wywołuje usługę Functions za pomocą wyzwalaczy prot
 > [!NOTE]
 > Połączenie z Azure Functions wewnątrz sieci wirtualnej (VNet) z zadania Stream Analytics uruchomionego w klastrze z wieloma dzierżawcami nie jest obsługiwane.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie i uruchamianie zadania Stream Analytics
@@ -53,7 +53,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Tworzenie funkcji w usłudze Azure Functions, która może zapisywać dane w pamięci podręcznej Azure Cache for Redis
 
-1. Zobacz sekcję [Tworzenie aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) w dokumentacji usługi Functions. W tej sekcji omówiono sposób tworzenia aplikacji funkcji i [funkcji wyzwalanej przez protokół HTTP w Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function)przy użyciu języka CSharp.  
+1. Zobacz sekcję [Tworzenie aplikacji funkcji](../azure-functions/functions-get-started.md) w dokumentacji usługi Functions. W tej sekcji omówiono sposób tworzenia aplikacji funkcji i [funkcji wyzwalanej przez protokół HTTP w Azure Functions](../azure-functions/functions-get-started.md)przy użyciu języka CSharp.  
 
 2. Przejdź do funkcji **run.csx**. Zaktualizuj ją za pomocą następującego kodu. Zastąp element **" \<your Azure Cache for Redis connection string goes here\> "** za pomocą usługi Azure cache for Redis podstawowe parametry połączenia, które zostały pobrane w poprzedniej sekcji. 
 

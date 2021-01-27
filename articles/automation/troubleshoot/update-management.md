@@ -2,15 +2,15 @@
 title: Rozwiązywanie problemów dotyczących Update Management Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Update Management.
 services: automation
+ms.subservice: update-management
 ms.date: 01/13/2021
-ms.topic: conceptual
-ms.service: automation
-ms.openlocfilehash: 55e58c92004f4f4cf4ba6a96620b4f037c80cdb4
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.topic: troubleshooting
+ms.openlocfilehash: 9ccaddec73a9c74123471c34b1b973b78eacfff8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246268"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890785"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 02ce065c9eecf4b4bf616e40913fc5abd319c5a8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4714d9e089094e8990ac71d94107a20e0b7be776
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442307"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876313"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Wersja zapoznawcza: Tworzenie obrazu systemu Linux i dystrybuowanie go do galerii obrazów udostępnionych za pomocą interfejsu wiersza polecenia platformy Azure
 
-W tym artykule pokazano, jak można użyć konstruktora obrazów platformy Azure i interfejsu wiersza polecenia platformy Azure, aby utworzyć wersję obrazu w [galerii obrazów udostępnionych](../windows/shared-image-galleries.md), a następnie dystrybuować obraz globalnie. Można to również zrobić przy użyciu [Azure PowerShell](../windows/image-builder-gallery.md).
+W tym artykule pokazano, jak można użyć konstruktora obrazów platformy Azure i interfejsu wiersza polecenia platformy Azure, aby utworzyć wersję obrazu w [galerii obrazów udostępnionych](../shared-image-galleries.md), a następnie dystrybuować obraz globalnie. Można to również zrobić przy użyciu [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Aby skonfigurować obraz, będziemy używać szablonu przykład. JSON. Używany plik JSON jest tutaj: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -298,4 +298,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat [udostępnionych galerii obrazów platformy Azure](shared-image-galleries.md).
+Dowiedz się więcej na temat [udostępnionych galerii obrazów platformy Azure](../shared-image-galleries.md).

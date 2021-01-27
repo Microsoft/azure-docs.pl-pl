@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 3513ba0cd1a894b55da604d54964affa79b6adf4
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 2391a36c02e0bdfe0ea98be7f19fc64f1fbb676f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555971"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879935"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Rejestrowanie i skanowanie Azure SQL Database wystąpienia zarządzanego
 
@@ -34,13 +34,13 @@ Usługa Azure kontrolą nie obsługuje skanowania [widoków](/sql/relational-dat
 
 - Utwórz nowe konto kontrolą, jeśli jeszcze go nie masz.
 
-- [Skonfiguruj publiczny punkt końcowy w wystąpieniu zarządzanym Azure SQL](/azure/azure-sql/managed-instance/public-endpoint-configure)
+- [Skonfiguruj publiczny punkt końcowy w wystąpieniu zarządzanym Azure SQL](../azure-sql/managed-instance/public-endpoint-configure.md)
     > [!Note]
     > Organizacja musi mieć możliwość zezwalania na publiczny punkt końcowy, ponieważ **prywatny punkt końcowy nie jest jeszcze obsługiwany** przez kontrolą. W przypadku korzystania z prywatnego punktu końcowego skanowanie nie powiedzie się.
 
 ### <a name="setting-up-authentication-for-a-scan"></a>Konfigurowanie uwierzytelniania na potrzeby skanowania
 
-Uwierzytelnianie do skanowania Azure SQL Database wystąpieniem zarządzanym. Jeśli musisz utworzyć nowe uwierzytelnianie, musisz [autoryzować dostęp do bazy danych do SQL Database wystąpienia zarządzanego](/azure/azure-sql/database/logins-create-manage). Istnieją trzy metody uwierzytelniania, które kontrolą obecnie obsługuje:
+Uwierzytelnianie do skanowania Azure SQL Database wystąpieniem zarządzanym. Jeśli musisz utworzyć nowe uwierzytelnianie, musisz [autoryzować dostęp do bazy danych do SQL Database wystąpienia zarządzanego](../azure-sql/database/logins-create-manage.md). Istnieją trzy metody uwierzytelniania, które kontrolą obecnie obsługuje:
 
 - Uwierzytelnianie SQL
 - Jednostka usługi
@@ -85,8 +85,8 @@ Aby użyć nazwy głównej usługi, można użyć istniejącej lub utworzyć now
 ##### <a name="configure-azure-ad-authentication-in-the-database-account"></a>Konfigurowanie uwierzytelniania usługi Azure AD na koncie bazy danych
 
 Nazwa główna usługi lub zarządzana tożsamość musi mieć uprawnienia do pobierania metadanych dla bazy danych, schematów i tabel. Ponadto musi być w stanie zbadać tabele, aby uzyskać przykład klasyfikacji.
-- [Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
-- Utwórz użytkownika usługi Azure AD w Azure SQL Database wystąpieniu zarządzanym, postępując zgodnie z wymaganiami wstępnymi i samouczkiem dotyczącym [tworzenia zawartych użytkowników mapowanych na tożsamości usługi Azure AD](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- [Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Utwórz użytkownika usługi Azure AD w Azure SQL Database wystąpieniu zarządzanym, postępując zgodnie z wymaganiami wstępnymi i samouczkiem dotyczącym [tworzenia zawartych użytkowników mapowanych na tożsamości usługi Azure AD](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Przypisanie `db_owner` (**zalecane**) uprawnienia do tożsamości
 
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Dodaj nazwę główną usługi do magazynu kluczy i poświadczenia kontrolą

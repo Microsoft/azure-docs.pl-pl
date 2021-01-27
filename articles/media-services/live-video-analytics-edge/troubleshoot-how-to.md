@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060235"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878294"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Rozwiązywanie problemów z analizą filmów wideo na żywo na IoT Edge
 
@@ -66,7 +66,7 @@ Możesz użyć Azure Portal, aby uruchomić diagnostykę grafu mediów przy uży
     * 500 — Wystąpił błąd w czasie wykonywania IoT Edge.
 
     > [!TIP]
-    > Jeśli napotykasz problemy z uruchamianiem modułów Azure IoT Edge w środowisku, użyj **[Azure IoT Edge standardowych kroków diagnostycznych](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** jako przewodnika dotyczącego rozwiązywania problemów i diagnostyki.
+    > Jeśli napotykasz problemy z uruchamianiem modułów Azure IoT Edge w środowisku, użyj **[Azure IoT Edge standardowych kroków diagnostycznych](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** jako przewodnika dotyczącego rozwiązywania problemów i diagnostyki.
 ### <a name="post-deployment-direct-method-error-code"></a>Po wdrożeniu: kod błędu metody bezpośredniej
 1. W przypadku uzyskania stanu `501 code` Sprawdź, czy nazwa metody bezpośredniej jest dokładna. Jeśli nazwa metody i ładunek żądania są dokładne, należy uzyskać wyniki wraz z kodem sukcesu = 200. 
 1. Jeśli ładunek żądania jest niedokładny, zostanie wyświetlony stan `400 code` i ładunek odpowiedzi wskazujący kod błędu i komunikat, który powinien pomóc w diagnozowaniu problemu z wywołaniem metody bezpośredniej.
@@ -96,7 +96,7 @@ Usługa Analiza filmów wideo na żywo jest wdrażana jako moduł IoT Edge na ur
 * [Moduł IoT Edge został pomyślnie wdrożony, a następnie znika z urządzenia](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
     > [!TIP]
-    > Jeśli napotykasz problemy z uruchamianiem modułów Azure IoT Edge w środowisku, użyj **[Azure IoT Edge standardowych kroków diagnostycznych](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** jako przewodnika dotyczącego rozwiązywania problemów i diagnostyki.
+    > Jeśli napotykasz problemy z uruchamianiem modułów Azure IoT Edge w środowisku, użyj **[Azure IoT Edge standardowych kroków diagnostycznych](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** jako przewodnika dotyczącego rozwiązywania problemów i diagnostyki.
 ### <a name="live-video-analytics-working-with-external-modules"></a>Analiza wideo na żywo pracująca z modułami zewnętrznymi
 
 Analiza wideo na żywo za pośrednictwem procesorów rozszerzeń grafu multimediów może rozszerzać wykres multimedialny, aby wysyłać i odbierać dane z innych modułów IoT Edge przy użyciu protokołów HTTP lub gRPC. Na [przykład](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)ten Graf multimedialny może wysyłać ramki wideo jako obrazy do modułu wnioskowania zewnętrznego, takiego jak Yolo v3 i odbierać wyniki analizy oparte na notacji JSON przy użyciu protokołu HTTP. W takiej topologii miejsce docelowe dla zdarzeń jest w większości Centrum IoT Hub. W sytuacjach, w których nie widzisz zdarzeń wnioskowania w centrum, sprawdź następujące kwestie:
@@ -213,7 +213,7 @@ Aby skonfigurować usługę Live Video Analytics na IoT Edge module do generowan
 
 1. Wybierz pozycję **Aktualizuj**.
 1. Wybierz pozycję **Przejrzyj i utwórz**. Komunikat o pomyślnym sprawdzeniu poprawności jest ogłaszany na zielonym banerze.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Zaktualizuj **sznury identyfikacyjne modułu** , aby wskazywały na DebugLogsDirectory parametr, który wskazuje katalog, w którym zbierane są dzienniki:
 
     a. W obszarze tabela **modułów** wybierz pozycję **lvaEdge**.  
@@ -272,7 +272,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ``` 
 
-[Rejestrowanie i Diagnostyka w programie gRPC na platformie .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) zawiera wskazówki dotyczące zbierania niektórych dzienników diagnostycznych z serwera gRPC. 
+[Rejestrowanie i Diagnostyka w programie gRPC na platformie .NET](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1) zawiera wskazówki dotyczące zbierania niektórych dzienników diagnostycznych z serwera gRPC. 
 
 ### <a name="a-failed-grpc-connection"></a>Niepowodzenie połączenia gRPC 
 
@@ -282,7 +282,7 @@ Jeśli wykres jest aktywny i przesyła strumieniowo z aparatu, połączenie będ
 
 Analiza wideo na żywo nie monitoruje ani nie zapewnia monitorowania zasobów sprzętowych. Deweloperzy będą musieli korzystać z rozwiązań do monitorowania producentów sprzętu. Jeśli jednak korzystasz z kontenerów Kubernetes, możesz monitorować urządzenie przy użyciu [pulpitu nawigacyjnego Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-gRPC w dokumentach .NET Core również udostępniają pewne cenne informacje dotyczące najlepszych rozwiązań w zakresie [wydajności](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) i [równoważenia obciążenia](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true).  
+gRPC w dokumentach .NET Core również udostępniają pewne cenne informacje dotyczące najlepszych rozwiązań w zakresie [wydajności](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1) i [równoważenia obciążenia](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1#load-balancing).  
 
 ### <a name="troubleshooting-an-inference-server-when-it-does-not-receive-any-frames-and-you-are-receiving-an-unknown-protocol-error"></a>Rozwiązywanie problemów z serwerem wnioskowania, gdy nie odebrano żadnych ramek i otrzymujesz komunikat o błędzie "nieznany" 
 
@@ -296,7 +296,7 @@ Istnieje kilka rzeczy, które można zrobić, aby uzyskać więcej informacji o 
    ```
 
    Jeśli polecenie wyprowadza krótki ciąg tekstu Jumbled, program Telnet pomyślnie mógł otworzyć połączenie z serwerem wnioskowania i otworzyć binarny kanał gRPC. Jeśli ta wartość nie jest wyświetlana, program Telnet zgłosi błąd sieciowy. 
-* Na serwerze wnioskowania można włączyć dodatkowe rejestrowanie w bibliotece gRPC. Może to spowodować dodanie dodatkowych informacji o kanale gRPC. W ten sposób różnią się w zależności od języka, poniżej przedstawiono instrukcje w języku [C#](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true). 
+* Na serwerze wnioskowania można włączyć dodatkowe rejestrowanie w bibliotece gRPC. Może to spowodować dodanie dodatkowych informacji o kanale gRPC. W ten sposób różnią się w zależności od języka, poniżej przedstawiono instrukcje w języku [C#](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1). 
 
 ### <a name="picking-more-images-from-buffer-of-grpc-without-sending-back-result-for-first-buffer"></a>Pobieranie większej liczby obrazów z bufora gRPC bez wysyłania wyniku z tyłu dla pierwszego buforu
 

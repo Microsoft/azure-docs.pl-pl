@@ -1,24 +1,8 @@
 ---
-title: Przechowywanie zdarzeń Azure Media Services na platformie Azure Log Analytics
-titleSuffix: Azure Media Services
-description: Dowiedz się, jak przechowywać zdarzenia Azure Media Services w usłudze Azure Log Analytics.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: tutorial
-ms.date: 08/24/2020
-ms.author: inhenkel
-ms.openlocfilehash: cc3060c9253b23b97089ea35625aceb26737baba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016999"
+title: przechowywanie zdarzeń Azure Media Services na platformie Azure Log Analytics: Opis Azure Media Services: informacje na temat przechowywania zdarzeń Azure Media Services na platformie Azure Log Analytics.
+usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: "" MS. Service: Media-Services MS. obciążenie: MS. temat: samouczek MS. Date: 08/24/2020 MS. Author: inhenkel
 ---
+
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Samouczek: przechowywanie zdarzeń Azure Media Services na platformie Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Zdarzenia Azure Media Services
@@ -114,7 +98,7 @@ Teraz, gdy subskrybujesz zdarzenia, Utwórz akcję.
 
 1. W drugiej karcie lub oknie przeglądarki wklej *klucz obszaru roboczego* w polu **klucz obszaru roboczego** .
 
-1. Wybierz pozycję **Utwórz**. Teraz utworzysz treść żądania JSON i nazwę dziennika niestandardowego.
+1. Wybierz przycisk **Utwórz**. Teraz utworzysz treść żądania JSON i nazwę dziennika niestandardowego.
 
 1. Wybierz pole **treści żądania JSON** .  Zostanie wyświetlony link umożliwiający **dodanie zawartości dynamicznej** .
 
@@ -144,7 +128,7 @@ Teraz, gdy subskrybujesz zdarzenia, Utwórz akcję.
     > [!div class="mx-imgBorder"]
     > ![Zobacz wszystkie nowe zasoby w grupie zasobów](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
-## <a name="test"></a>Testowanie
+## <a name="test"></a>Test
 
 Aby sprawdzić, jak faktycznie działa, Utwórz wydarzenie na żywo w Azure Media Services. Utwórz wydarzenie RTMP na żywo i użyj narzędzia FFmpeg do wypchnięcia strumienia "Live" na podstawie przykładowego pliku. MP4. Po utworzeniu zdarzenia Uzyskaj adres URL pozyskiwania RTMP.
 

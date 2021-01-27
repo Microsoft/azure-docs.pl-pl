@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 0114c75d99d79041631e5078deb33f77863dc35a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 84d98eedb3ea6f3faaeaecf832811f9f4c78c7c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043782"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880359"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migracja rozwiązań do sprzedaży ze OCP GTM do komercyjnej witryny Marketplace
 
@@ -44,7 +44,7 @@ Po zarejestrowaniu się w komercyjnej witrynie Marketplace Przygotuj się do mig
 
 Przed zaimportowaniem rozwiązań z GTM OCP należy wykonać następujące czynności:
 
-1. Odwiedź [listę wydawców](https://partner.microsoft.com/dashboard/account/v3/publishers/list)firmy. Obejmuje właściciela konta, menedżerów i deweloperów, którzy mają dostęp do publikowania. Dowiedz się więcej na temat [ról użytkowników Centrum partnerskiego](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
+1. Odwiedź [listę wydawców](https://partner.microsoft.com/dashboard/account/v3/publishers/list)firmy. Obejmuje właściciela konta, menedżerów i deweloperów, którzy mają dostęp do publikowania. Dowiedz się więcej na temat [ról użytkowników Centrum partnerskiego](./partner-center-portal/manage-account.md#define-user-roles-and-permissions).
 2. Podawaj jeden z wymienionych kontaktów, aby [dodać użytkowników](https://partner.microsoft.com/dashboard/account/usermanagement) do komercyjnej witryny Marketplace jako *menedżerów* lub *deweloperów*, ponieważ tylko te role mogą edytować i publikować rozwiązania.
 3. Współpracuj z programistami, aby przenieść swoje rozwiązania z konta OCP GTM do komercyjnej witryny Marketplace.
 4. Zdecyduj, które z poniższych czynności chcesz wykonać:
@@ -156,4 +156,3 @@ Szczegółowe instrukcje dotyczące informacji, które należy podać przed opub
 - [Odsprzedaż za pośrednictwem partnerów CSP](cloud-solution-providers.md)
 - [Jak przesłać materiały towarzyszące w centrum partnerskim](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - Wyświetlanie tych [często zadawanych pytań](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
-

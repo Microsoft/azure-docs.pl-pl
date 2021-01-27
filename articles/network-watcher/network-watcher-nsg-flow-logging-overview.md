@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 987281bd13b7ac053f07a4ef1fb7605c85686d56
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4deda838d229081ccd23c123f75d0c0ada2383bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898627"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878667"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -362,7 +362,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Przepływy przychodzące zarejestrowane z Internetu adresów IP na maszynach wirtualnych bez publicznych** adresach IP: maszyny wirtualne, które nie mają publicznego adresu do sieci, są przypisane za pośrednictwem publicznego adresu IP SKOJARZONEGO z kartą sieciową jako publiczny adres IPv4 na poziomie wystąpienia lub które są częścią puli zaplecza usługi równoważenia obciążenia, użyj [domyślnego](../load-balancer/load-balancer-outbound-connections.md) , a także adresu IP przypisanego przez platformę Azure. W związku z tym mogą pojawić się wpisy dziennika przepływu dla przepływów z internetowych adresów IP, jeśli przepływ jest przeznaczony do portu w zakresie portów przypisanych do tego elementu. Mimo że platforma Azure nie zezwala na te przepływy na maszynę wirtualną, próba zostanie zarejestrowana i zostanie wyświetlona Network Watcher w dzienniku przepływu sieciowej grupy zabezpieczeń przez zaprojektowanie. Zalecamy, aby niepożądane przychodzące ruch internetowy został jawnie zablokowany przy użyciu sieciowej grupy zabezpieczeń.
 
-**Problem z sieciowej grupy zabezpieczeńą podsieci Application Gateway v2**: rejestrowanie przepływu w podsieci sieciowej grupy zabezpieczeń w usłudze Application Gateway v2 nie jest obecnie [obsługiwane](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) . Ten problem nie ma wpływu na Application Gateway v1.
+**Problem z sieciowej grupy zabezpieczeńą podsieci Application Gateway v2**: rejestrowanie przepływu w podsieci sieciowej grupy zabezpieczeń w usłudze Application Gateway v2 nie jest obecnie [obsługiwane](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) . Ten problem nie ma wpływu na Application Gateway v1.
 
 **Niezgodne usługi**: ze względu na bieżące ograniczenia platformy, mały zestaw usług platformy Azure nie jest obsługiwany przez dzienniki przepływów sieciowej grupy zabezpieczeń. Bieżąca lista niezgodnych usług jest
 - [Usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/)

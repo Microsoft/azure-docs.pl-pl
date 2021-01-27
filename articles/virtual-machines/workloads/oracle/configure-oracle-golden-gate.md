@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 3fff58c240341776a3bb99c059c179cc4f9d96e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6b3f4ef82813fd4c0e5b3b24be59b68a2dc5b2a7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999148"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880393"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementowanie bramy Oracle na maszynie wirtualnej platformy Azure z systemem Linux 
 
@@ -42,7 +42,7 @@ Poniżej znajduje się podsumowanie konfiguracji środowiska:
 > | **Proces tworzenia bramy** |EXTORA |REPORA|
 
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure 
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
 
 Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index) . Następnie postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -817,4 +817,4 @@ az group delete --name myResourceGroup
 
 [Samouczek dotyczący tworzenia maszyn wirtualnych o wysokiej dostępności](../../linux/create-cli-complete.md)
 
-[Przegląd przykładowych poleceń interfejsu wiersza polecenia umożliwiających wdrożenie maszyny wirtualnej](../../linux/cli-samples.md)
+[Przegląd przykładowych poleceń interfejsu wiersza polecenia umożliwiających wdrożenie maszyny wirtualnej](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

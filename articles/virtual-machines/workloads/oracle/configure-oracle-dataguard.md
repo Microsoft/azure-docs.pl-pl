@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: cc7579b48307325e25d8914ea4c722a9641883f3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 303244d153877ba71796ff1f075e2e58a5084469
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952152"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880325"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platformy Azure z systemem Linux 
 
@@ -31,7 +31,7 @@ Aby zainstalować funkcję Oracle Data Guard, należy utworzyć dwie maszyny wir
 
 Obraz portalu Marketplace używany do tworzenia maszyn wirtualnych to Oracle: Oracle-Database-EE: 12.1.0.2: Najnowsze.
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure 
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
 
 Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -697,4 +697,4 @@ az group delete --name myResourceGroup
 
 [Samouczek: Tworzenie maszyn wirtualnych o wysokiej dostępności](../../linux/create-cli-complete.md)
 
-[Eksplorowanie przykładów interfejsu wiersza polecenia platformy Azure wdrożenia maszyny wirtualnej](../../linux/cli-samples.md)
+[Eksplorowanie przykładów interfejsu wiersza polecenia platformy Azure wdrożenia maszyny wirtualnej](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2eb109078728b8a9070b3991733450c1da790d9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019229"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879599"
 ---
 # <a name="table-design-patterns"></a>Wzorce projektowe tabel
 W tym artykule opisano niektóre wzorce odpowiednie do użycia z rozwiązaniami Table service. Ponadto zobaczysz, jak można praktycznie rozwiązać niektóre problemy i wady, które omówiono w innych artykułach dotyczących projektowania magazynów tabel. Poniższy diagram podsumowuje relacje między różnymi wzorcami:  
@@ -534,7 +534,7 @@ Innym podejściem jest użycie **PartitionKey** , która zapewnia, że aplikacja
 Jednak problem z tym schematem polega na tym, że pobranie wszystkich komunikatów dziennika dla określonego przedziału czasu wymaga przeszukania każdej partycji w tabeli.
 
 ### <a name="solution"></a>Rozwiązanie
-W poprzedniej sekcji został wyróżniony problem polegający na tym, że próba użycia Table service do przechowywania wpisów dziennika i sugerowanych dwóch, niezadowalających projektów. Jedno rozwiązanie prowadzi do gorącej partycji z ryzykiem, w którym są zapisywane komunikaty dziennika zapisu wydajności. inne rozwiązanie spowodowało niską wydajność zapytań, ponieważ wymaga skanowania każdej partycji w tabeli w celu pobrania komunikatów dziennika dla określonego przedziału czasu. Magazyn obiektów BLOB oferuje lepsze rozwiązanie tego typu, dlatego w analityka magazynu platformy Azure są przechowywane zbierane dane dziennika.  
+W poprzedniej sekcji został wyróżniony problem polegający na tym, że próba użycia Table service do przechowywania wpisów dziennika i sugerowanych dwóch, niezadowalających projektów. Jedno rozwiązanie prowadzi do gorącej partycji z ryzykiem, w którym są zapisywane komunikaty dziennika zapisu wydajności. inne rozwiązanie spowodowało niską wydajność zapytań, ponieważ wymaga skanowania każdej partycji w tabeli w celu pobrania komunikatów dziennika dla określonego przedziału czasu. Magazyn obiektów BLOB oferuje lepsze rozwiązanie tego typu, dlatego w Azure Storage Analytics są przechowywane zbierane dane dziennika.  
 
 W tej sekcji opisano sposób, w jaki analityka magazynu przechowuje dane dziennika w usłudze BLOB Storage jako ilustrację tego podejścia do przechowywania danych, które są zwykle wykonywane przez wiele zapytań.  
 
@@ -711,7 +711,7 @@ Wyjątki zgłaszane, gdy biblioteka klienta magazynu wykonuje EGT zazwyczaj zawi
 Należy również rozważyć, jak projekt ma wpływ na sposób, w jaki Twoja aplikacja kliencka obsługuje operacje współbieżności i aktualizacji.  
 
 ### <a name="managing-concurrency"></a>Zarządzanie współbieżnością
-Domyślnie usługa Table Service implementuje optymistyczne kontrole współbieżności na poziomie poszczególnych jednostek dla operacji **wstawiania**, **scalania** i **usuwania** , chociaż istnieje możliwość, aby klient wymusił ominięcie tych sprawdzeń przez klienta. Aby uzyskać więcej informacji o tym, jak usługa Table zarządza współbieżnością, zobacz  [Zarządzanie współbieżnością w Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
+Domyślnie usługa Table Service implementuje optymistyczne kontrole współbieżności na poziomie poszczególnych jednostek dla operacji **wstawiania**, **scalania** i **usuwania** , chociaż istnieje możliwość, aby klient wymusił ominięcie tych sprawdzeń przez klienta. Aby uzyskać więcej informacji o tym, jak usługa Table zarządza współbieżnością, zobacz  [Zarządzanie współbieżnością w Microsoft Azure Storage](../blobs/concurrency-manage.md).  
 
 ### <a name="merge-or-replace"></a>Scal lub Zamień
 Metoda **replace** klasy **TableOperation** zawsze zastępuje kompletną jednostkę w Table Service. Jeśli nie dołączysz właściwości w żądaniu, gdy ta właściwość istnieje w przechowywanej jednostce, żądanie usunie tę właściwość z przechowywanej jednostki. Jeśli nie chcesz usunąć właściwości jawnie z przechowywanej jednostki, musisz dołączyć każdą właściwość w żądaniu.  

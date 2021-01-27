@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8346edd0f6016f1751a392213e5d6321f875baf2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 091feacceb510038786ae487c0895f9ff1e47aba
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455664"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880342"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 
@@ -22,7 +22,7 @@ Portal Cloud Partner przeszedł do Centrum partnerskiego. Centrum partnerskie of
 
 Możesz kontynuować działalność w centrum partnerskim:
 
-| Obszar<img src="" width=200px> | Zmiany |
+| Warstwowy<img src="" width=200px> | Zmiany |
 | --- | --- |
 | Konto | Nie ma potrzeby tworzenia nowego konta Centrum partnerskiego; Możesz użyć istniejących poświadczeń portal Cloud Partner, aby zalogować się do Centrum partnerskiego, w którym będziesz teraz zarządzać kontem, użytkownikami, uprawnieniami i rozliczeniami. Informacje o umowie dotyczące publikowania i profilu firmy są migrowane do nowego konta Centrum partnerskiego wraz z informacjami o profilu wypłaty, kontami użytkowników i uprawnieniami oraz aktywnymi ofertami. Dowiedz się więcej na temat [zarządzania kontem komercyjnej witryny Marketplace w centrum partnerskim](partner-center-portal/manage-account.md). |
 | Oferowanie funkcji publikowania i zarządzania ofertami | Twoje dane oferty zostały przeniesione z portal Cloud Partner do Centrum partnerskiego. Teraz będziesz uzyskiwać dostęp do ofert w centrum partnerskim, które oferują Ulepszone środowisko użytkownika i intuicyjny interfejs. Dowiedz się [, jak zaktualizować istniejącą ofertę w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md). |
@@ -87,7 +87,7 @@ W przypadku typów ofert obsługiwanych w centrum partnerskim wszystkie oferty z
 | Moduł IoT Edge | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej o [tworzeniu, konfigurowaniu i publikowaniu oferty modułu IoT Edge w portalu Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
 | Kontener | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty kontenera platformy Azure](./create-azure-container-offer.md). |
 | Usługa konsultingowa | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty usługi konsultingowej](./create-consulting-service-offer.md). |
-| Usługa zarządzana | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty usługi zarządzanej](partner-center-portal/create-new-managed-service-offer.md). |
+| Usługa zarządzana | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty usługi zarządzanej](./plan-managed-service-offer.md). |
 | Usługa zarządzana w programie Dynamics NAV | Nie | Firma Microsoft przyłączyła usługę zarządzaną przez program Dynamics NAV do usługi [dynamics 365 Business Central](/dynamics365/business-central/) Oferty te nie są już odnajdywane przez klientów i nie zostały przeniesione do Centrum partnerskiego. Aby udostępnić oferty w usłudze AppSource, dostosuj je do oferty Dynamics 365 Business Central i prześlij je do [Centrum partnerskiego](https://partner.microsoft.com/). Dowiedz się więcej na temat [tworzenia oferty Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Cortana Intelligence | Nie | Firma Microsoft wyłączyła mapę drogową dotyczącą produktu, aby uzyskać Cortana Intelligence, więc nie mamy na żywo Cortana Intelligence z AppSource. Oferty te nie są już odnajdywane przez klientów i nie zostały przeniesione do Centrum partnerskiego. Aby udostępnić oferty w komercyjnej witrynie Marketplace, Dostosuj oferty do oprogramowania jako usługi (SaaS) oferty i prześlij je w [centrum partnerskim](https://partner.microsoft.com/). Dowiedz się więcej na temat [listy kontrolnej tworzenia oferty SaaS w centrum partnerskim](./plan-saas-offer.md). |
 
@@ -103,7 +103,7 @@ Oferty utworzone w portal Cloud Partner są dostępne w centrum partnerskim w ra
 
     Przykład: Załóżmy, że masz dostęp do trzech programów: MPN programu, programu referencyjnego i komercyjnego programu Marketplace. Po zalogowaniu się do Centrum partnerskiego zobaczysz te trzy programy w okienku nawigacji.
 
-2. Wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** , aby uzyskać dostęp do ofert.
+2. Wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >   , aby uzyskać dostęp do ofert.
 
     Jeśli nie widzisz komercyjnego programu Marketplace w okienku nawigacji po lewej stronie, może to być na niewłaściwym koncie. Postępuj zgodnie z instrukcjami w następnej sekcji, aby uzyskać dostęp do odpowiedniego konta.
 

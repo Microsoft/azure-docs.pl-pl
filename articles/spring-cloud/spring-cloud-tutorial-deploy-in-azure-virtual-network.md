@@ -1,5 +1,5 @@
 ---
-title: Samouczek — Wdrażanie chmury Azure wiosennej w sieci wirtualnej
+title: Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej
 description: Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej (wstrzykiwanie wirtualnej).
 author: MikeDodaro
 ms.author: brendm
@@ -7,14 +7,14 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d72d60bd3a1ef23b8122b2bc5ba4f0c5c701254
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587727"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880605"
 ---
-# <a name="tutorial-deploy-azure-spring-cloud-in-a-virtual-network"></a>Samouczek: Wdrażanie chmury wiosennej platformy Azure w sieci wirtualnej
+# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej
 
 **Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
@@ -25,6 +25,9 @@ Wdrożenie umożliwia:
 * Izolacja aplikacji w chmurze i środowiska uruchomieniowego usługi Azure wiosny z Internetu w sieci firmowej.
 * Usługa Azure Wiosenna w chmurze współpracuje z systemami w lokalnych centrach danych lub usługach platformy Azure w innych sieciach wirtualnych.
 * Umożliwienie klientom kontrolowania przychodzącej i wychodzącej komunikacji sieciowej dla chmury wiosennej platformy Azure.
+
+> [!Note]
+> Sieć wirtualną platformy Azure można wybrać tylko podczas tworzenia nowego wystąpienia usługi w chmurze Azure wiosny. Po utworzeniu chmury Azure wiosennej nie można zmienić innej sieci wirtualnej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -74,9 +77,10 @@ Jeśli masz już sieć wirtualną do hostowania wystąpienia chmury ze sprężyn
 
 1. Ponownie wybierz pozycję **Dodaj podsieć** , a następnie wprowadź **nazwę podsieci** i **zakres adresów podsieci**. Na przykład wprowadź **aplikacje-Subnet** i **10.1.1.0/28**. Następnie wybierz pozycję **Dodaj**.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Pozostaw pozostałe jako domyślne, a następnie wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Pozostaw pozostałe jako domyślne, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Udziel uprawnienia usługi do sieci wirtualnej
+Chmura sprężynowa platformy Azure wymaga uprawnień **właściciela** do Twojej sieci wirtualnej, aby przyznać dedykowaną i dynamiczną jednostkę usługi w sieci wirtualnej w celu dodatkowego wdrożenia i konserwacji.
 
 Wybierz wcześniej utworzoną sieć wirtualną **Azure-sprężynę i chmurę** .
 
@@ -160,9 +164,9 @@ Te zasoby sieciowe są połączone z siecią wirtualną utworzoną na powyższym
    > [!Important]
    > Grupy zasobów są w pełni zarządzane przez usługę w chmurze Azure wiosną. Nie usuwaj ręcznie ani *nie* Modyfikuj żadnego zasobu w ramach.
 
-## <a name="limitations"></a>Ograniczenia
+## <a name="using-smaller-subnet-ranges"></a>Używanie mniejszych zakresów podsieci
 
-Mały zakres podsieci zapisuje adresy IP, ale ogranicza maksymalną liczbę wystąpień aplikacji, które mogą być przechowywane w chmurze Azure wiosennej.
+W tej tabeli przedstawiono maksymalną liczbę wystąpień aplikacji w chmurze Azure wiosennej obsługiwanych przy użyciu mniejszych zakresów podsieci.
 
 | Routing CIDR podsieci aplikacji | Łączna liczba adresów IP | Dostępne adresy IP | Maksymalna liczba wystąpień aplikacji                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |

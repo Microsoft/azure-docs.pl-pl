@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8454c5a5bb5b44d2a60ae0095a9b82a19ed27c8d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185555"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896650"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Przenoszenie konta Azure Automation do innej subskrypcji
 
@@ -41,7 +41,7 @@ Aby odłączyć obszar roboczy od konta usługi Automation, musisz usunąć zaso
 
     ![Zrzut ekranu przedstawiający usuwanie zasobów funkcji z Azure Portal](../media/move-account/delete-solutions.png)
 
-Jeśli wolisz, możesz usunąć zasoby za pomocą polecenia cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
+Jeśli wolisz, możesz usunąć zasoby za pomocą polecenia cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource) :
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -80,7 +80,7 @@ W przypadku Start/Stop VMs during off-hours należy również usunąć reguły a
 
     ![Zrzut ekranu strony grupy akcji](../media/move-account/delete-action-group.png)
 
-Jeśli wolisz, możesz usunąć grupę akcji przy użyciu polecenia cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) :
+Jeśli wolisz, możesz usunąć grupę akcji przy użyciu polecenia cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup) :
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
@@ -90,7 +90,7 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 Teraz możesz odłączyć obszar roboczy:
 
-1. W Azure Portal wybierz opcję **Automation account**  >  **Related Resources**  >  **połączony obszar roboczy**zasoby powiązane z kontem usługi Automation. 
+1. W Azure Portal wybierz opcję   >    >  **połączony obszar roboczy** zasoby powiązane z kontem usługi Automation. 
 
 2. Wybierz opcję **Odłącz obszar roboczy** , aby odłączyć obszar roboczy od konta usługi Automation.
 
@@ -135,7 +135,7 @@ Po ponownym utworzeniu konta Uruchom jako należy ponownie włączyć funkcje, k
 
     ![Zrzut ekranu przedstawiający funkcje ponownego włączania w przenoszonym koncie usługi Automation](../media/move-account/reenable-solutions.png)
 
-3. Maszyny z włączonymi funkcjami są widoczne po połączeniu istniejącego obszaru roboczego Log Analytics. Aby włączyć funkcję Start/Stop VMs during off-hours, należy ją ponownie włączyć. W obszarze **pokrewne zasoby**wybierz kolejno pozycje **Start/zatrzymywanie maszyn wirtualnych**  >  **Dowiedz się więcej na temat i Włącz**  >  **Tworzenie** rozwiązania, aby rozpocząć wdrażanie.
+3. Maszyny z włączonymi funkcjami są widoczne po połączeniu istniejącego obszaru roboczego Log Analytics. Aby włączyć funkcję Start/Stop VMs during off-hours, należy ją ponownie włączyć. W obszarze **pokrewne zasoby** wybierz kolejno pozycje **Start/zatrzymywanie maszyn wirtualnych**  >  **Dowiedz się więcej na temat i Włącz**  >  **Tworzenie** rozwiązania, aby rozpocząć wdrażanie.
 
 4. Na stronie Dodawanie rozwiązania wybierz obszar roboczy Log Analytics i konto usługi Automation.
 

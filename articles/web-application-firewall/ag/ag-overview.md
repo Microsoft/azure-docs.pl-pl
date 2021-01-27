@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621029"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879431"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Co to jest Zapora aplikacji sieci Web platformy Azure w usłudze Azure Application Gateway?
 
@@ -25,7 +25,7 @@ Wszystkie funkcje WAF wymienione poniżej istnieją w zasadach WAF. Można utwor
 
 ![Application Gateway diagram WAF](../media/ag-overview/waf1.png)
 
-Application Gateway działa jako kontroler dostarczania aplikacji (ADC). Oferuje on Transport Layer Security (TLS), wcześniej znany jako SSL (SSL), zakończenie, koligację sesji na podstawie plików cookie, dystrybucję obciążeń z uwzględnieniem zawartości, możliwość hostowania wielu witryn sieci Web i ulepszeń zabezpieczeń.
+Application Gateway działa jako kontroler dostarczania aplikacji (ADC). Oferuje on Transport Layer Security (TLS), wcześniej znany jako Secure Sockets Layer (SSL), zakończenie, koligację sesji na podstawie plików cookie, dystrybucję obciążeń z uwzględnieniem zawartości, możliwość hostowania wielu witryn sieci Web i ulepszeń zabezpieczeń.
 
 Ulepszenia zabezpieczeń Application Gateway obejmują zarządzanie zasadami protokołu TLS i kompleksową obsługę protokołu TLS. Zabezpieczenia aplikacji są wzmacniane przez integrację WAF w Application Gateway. Połączenie chroni aplikacje sieci Web przed typowymi lukami w zabezpieczeniach. Udostępnia ona łatwą do skonfigurowania centralną lokalizację do zarządzania.
 
@@ -157,7 +157,7 @@ Dzienniki Application Gateway są zintegrowane z [Azure monitor](../../azure-mon
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Security Center](../../security-center/security-center-introduction.md) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie. Zapewnia ona lepszy wgląd w zabezpieczenia zasobów platformy Azure i kontrolę nad nimi. Application Gateway jest [zintegrowana z Security Center](../../application-gateway/application-gateway-integration-security-center.md). Security Center skanuje środowisko w celu wykrywania niechronionych aplikacji sieci Web. Może być zalecane Application Gateway WAF do ochrony tych zasobów. Zapory są tworzone bezpośrednio z Security Center. Te wystąpienia WAF są zintegrowane z Security Center. Wysyłają one alerty i informacje o kondycji w celu Security Center na potrzeby raportowania.
+[Security Center](../../security-center/security-center-introduction.md) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie. Zapewnia ona lepszy wgląd w zabezpieczenia zasobów platformy Azure i kontrolę nad nimi. Application Gateway jest [zintegrowana z Security Center](../../security-center/security-center-partner-integration.md#integrated-azure-security-solutions). Security Center skanuje środowisko w celu wykrywania niechronionych aplikacji sieci Web. Może być zalecane Application Gateway WAF do ochrony tych zasobów. Zapory są tworzone bezpośrednio z Security Center. Te wystąpienia WAF są zintegrowane z Security Center. Wysyłają one alerty i informacje o kondycji w celu Security Center na potrzeby raportowania.
 
 ![Okno przeglądu Security Center](../media/ag-overview/figure1.png)
 

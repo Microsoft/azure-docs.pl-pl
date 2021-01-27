@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695435"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879363"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Samouczek: prognozowanie popytu przy użyciu automatycznej uczenia maszynowego
 
@@ -90,7 +90,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
 
         1. Również dla tego przykładu pozostaw wartości domyślne **Właściwości** i **typu**. 
         
-        1. Wybierz pozycję **Dalej**.
+        1. Wybierz opcję **Dalej**.
 
     1. Na formularzu **Potwierdź szczegóły** Sprawdź, czy informacje są zgodne z informacjami o tym, co zostało wcześniej wypełnione w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** .
 
@@ -134,7 +134,7 @@ Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybi
 
         1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
-    1. Wybierz pozycję **Dalej**.
+    1. Wybierz opcję **Dalej**.
 
 ## <a name="select-forecast-settings"></a>Wybierz ustawienia prognozy
 
@@ -240,7 +240,7 @@ W tym samouczku użyto zautomatyzowanej ML w Azure Machine Learning Studio, aby 
 Zapoznaj się z tym artykułem, aby zapoznać się z procedurą tworzenia Power BI obsługiwanego schematu w celu ułatwienia użycia nowo wdrożonej usługi sieci Web:
 
 > [!div class="nextstepaction"]
-> [Używanie usługi internetowej](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Używanie usługi internetowej](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Dowiedz się więcej o [automatycznym uczeniu maszynowym](concept-automated-ml.md).
 + Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md) .

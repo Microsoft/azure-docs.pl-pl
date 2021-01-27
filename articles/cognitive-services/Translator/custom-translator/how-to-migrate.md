@@ -2,19 +2,19 @@
 title: Przeprowadzić migrację obszaru roboczego i projektów centrum usługi Microsoft Translator? — Translator niestandardowy
 titleSuffix: Azure Cognitive Services
 description: W tym artykule wyjaśniono, jak przeprowadzić migrację obszaru roboczego i projektów centrum do usługi Azure Cognitive Services Custom translator.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 64c449bdefe6fb067a7c0e26b155b58b6f00c399
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 89658ce88b4f1ac9d5bacac7bd45511b4aa0a1be
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368291"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895715"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrowanie obszaru roboczego i projektów centrum do translatora niestandardowego
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac9a1b43ba4ffb537afd658c84edb48ed59a3694
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683486"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880948"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 
@@ -76,7 +76,7 @@ Zdefiniuj iteracje, ustawienia parametrów, cechowania i inne ustawienia. Podcza
 Potoki uczenia maszynowego mogą korzystać z wymienionych wcześniej metod szkoleniowych. Potoki zawierają więcej informacji na temat tworzenia przepływu pracy, co obejmuje więcej niż tylko szkolenia modeli. W potoku można szkolić model przy użyciu zautomatyzowanej uczenia maszynowego lub uruchamiania konfiguracji.
 
 * [Co to są potoki ML w Azure Machine Learning?](concept-ml-pipelines.md)
-* [Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning](how-to-create-your-first-pipeline.md)
+* [Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 * [Samouczek: korzystanie z potoków Azure Machine Learning na potrzeby oceniania partii](tutorial-pipeline-batch-scoring-classification.md)
 * [Przykłady: Jupyter Notebook przykłady potoków uczenia maszynowego](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Przykłady: potok z automatyczną usługą uczenia maszynowego](https://aka.ms/pl-automl)

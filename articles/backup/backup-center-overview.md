@@ -3,14 +3,14 @@ title: Omówienie centrum kopii zapasowych
 description: Ten artykuł zawiera omówienie centrum kopii zapasowych na platformie Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173730"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893613"
 ---
-# <a name="overview-of-backup-center"></a>Omówienie centrum kopii zapasowych
+# <a name="overview-of-backup-center-preview"></a>Omówienie centrum kopii zapasowych (wersja zapoznawcza)
 
 Centrum kopii zapasowych zapewnia **jednolite środowisko zarządzania** na platformie Azure dla przedsiębiorstw, które ułatwiają monitorowanie, obsługę i analizowanie kopii zapasowych na dużą skalę. W związku z tym jest to zgodne z natywnymi środowiskami zarządzania platformy Azure.
 
@@ -22,10 +22,10 @@ Niektóre z najważniejszych zalet centrum kopii zapasowych obejmują:
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowej maszyny wirtualnej platformy Azure i kopii zapasowej serwera Azure Database for PostgreSQL.
+* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowych maszyny wirtualnej platformy Azure, bazy danych SQL w usłudze Kopia zapasowa maszyny wirtualnej platformy Azure, SAP HANA w ramach kopii zapasowej maszyny wirtualnej platformy Azure, Azure Files Azure Database for PostgreSQL tworzenia
 * Zapoznaj się z [matrycą pomocy technicznej](backup-center-support-matrix.md) , aby uzyskać szczegółową listę obsługiwanych i nieobsługiwanych scenariuszy.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby rozpocząć pracę z usługą Backup Center, Wyszukaj pozycję **centrum kopii zapasowych** w Azure Portal i przejdź do pulpitu nawigacyjnego **centrum kopii zapasowych (wersja zapoznawcza)** .
 

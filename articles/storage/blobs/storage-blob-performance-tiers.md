@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cf0b5d29e0dc375a07fe024ef0763c8200275055
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95526123"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880712"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Warstwy wydajności dla magazynu blokowych obiektów blob
 
@@ -26,7 +26,7 @@ Magazyn blokowych obiektów blob platformy Azure oferuje dwie różne warstwy wy
 
 Poniższe uwagi dotyczą różnych warstw wydajności:
 
-| Obszar |Wydajność standardowa  |Wydajność warstwy Premium  |
+| Warstwowy |Wydajność standardowa  |Wydajność warstwy Premium  |
 |---------|---------|---------|
 |Dostępność w danym regionie     |   Wszystkie regiony      | W obszarze [Wybieranie regionów](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
 |Obsługiwane [typy kont magazynu](../common/storage-account-overview.md#types-of-storage-accounts)     |     Ogólnego przeznaczenia w wersji 2, BlobStorage, ogólnego przeznaczenia w wersji 1    |    BlockBlobStorage     |
@@ -65,7 +65,7 @@ Standardowa wydajność obsługuje różne [warstwy dostępu](storage-blob-stora
 
 Nie można przekonwertować istniejącego konta magazynu wydajności standardowej na konto magazynu blokowych obiektów BLOB o wydajności Premium. Aby przeprowadzić migrację do konta magazynu wydajności w warstwie Premium, należy utworzyć konto BlockBlobStorage i przeprowadzić migrację danych do nowego konta. Aby uzyskać więcej informacji, zobacz [Tworzenie konta BlockBlobStorage](storage-blob-create-account-block-blob.md).
 
-Aby skopiować obiekty blob między kontami magazynu, można użyć najnowszej wersji narzędzia wiersza polecenia [AzCopy](../common/storage-use-azcopy-blobs.md) . Inne narzędzia, takie jak Azure Data Factory, są również dostępne do przenoszenia i przekształcania danych.
+Aby skopiować obiekty blob między kontami magazynu, można użyć najnowszej wersji narzędzia wiersza polecenia [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) . Inne narzędzia, takie jak Azure Data Factory, są również dostępne do przenoszenia i przekształcania danych.
 
 ## <a name="blob-lifecycle-management"></a>Zarządzanie cyklem życia obiektów BLOB
 

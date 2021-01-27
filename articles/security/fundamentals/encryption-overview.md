@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410219"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879718"
 ---
 # <a name="azure-encryption-overview"></a>Omówienie szyfrowania na platformie Azure
 
@@ -45,11 +45,11 @@ Dzięki szyfrowaniu po stronie klienta dostawcy usług w chmurze nie mają dost�
 
 Trzy modele szyfrowania po stronie serwera oferują różne charakterystyki zarządzania kluczami, które można wybrać zgodnie z wymaganiami:
 
-- **Klucze zarządzane przez usługę** : zapewniają kombinację kontroli i wygody z niskim obciążeniem.
+- **Klucze zarządzane przez usługę**: zapewniają kombinację kontroli i wygody z niskim obciążeniem.
 
-- **Klucze zarządzane przez klienta** : zapewnia kontrolę nad kluczami, w tym przeprowadzenie obsługi własnych kluczy (BYOK), lub umożliwia generowanie nowych.
+- **Klucze zarządzane przez klienta**: zapewnia kontrolę nad kluczami, w tym przeprowadzenie obsługi własnych kluczy (BYOK), lub umożliwia generowanie nowych.
 
-- **Klucze zarządzane przez klienta** : umożliwiają zarządzanie kluczami w repozytorium zastrzeżonym poza kontrolą firmy Microsoft. Ta cecha jest nazywana własnym kluczem hosta (HYOK). Jednak konfiguracja jest złożona i większość usług platformy Azure nie obsługuje tego modelu.
+- **Klucze zarządzane przez klienta**: umożliwiają zarządzanie kluczami w repozytorium zastrzeżonym poza kontrolą firmy Microsoft. Ta cecha jest nazywana własnym kluczem hosta (HYOK). Jednak konfiguracja jest złożona i większość usług platformy Azure nie obsługuje tego modelu.
 
 ### <a name="azure-disk-encryption"></a>Szyfrowanie dysków Azure
 
@@ -181,7 +181,7 @@ Połączenie sieci VPN typu lokacja-lokacja można skonfigurować w sieci wirtua
 
 Aby uzyskać więcej informacji, zobacz:
 
-[Utwórz połączenie lokacja-lokacja w Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Utwórz połączenie lokacja-lokacja w Azure Portal](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 [Tworzenie połączenia typu lokacja-lokacja w programie PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 

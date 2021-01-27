@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: bfcd8b3c482b4d429a9e3a4d7bc75e27ada63a98
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c1cdafe2929502293aada32dbae06e342761862b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134402"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876702"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP shortpath (wersja zapoznawcza)
 
@@ -58,7 +58,7 @@ Na poniższym diagramie przedstawiono ogólne omówienie połączenia sieci shor
 Aby zapewnić obsługę protokołu RDP shortpath, Klient pulpitu wirtualnego systemu Windows musi mieć bezpośredni wgląd w szczegółowe informacje na temat hosta sesji. Bezpośredni wgląd w szczegółowe informacje można uzyskać, korzystając z jednej z następujących technologii:
 
 * [Prywatna Komunikacja równorzędna ExpressRoute](../expressroute/expressroute-circuit-peerings.md)
-* [Sieć VPN typu lokacja-lokacja (oparta na protokole IPsec)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Sieć VPN typu lokacja-lokacja (oparta na protokole IPsec)](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Sieć VPN typu punkt-lokacja (oparta na protokole IPsec)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Przypisywanie publicznego adresu IP](../virtual-network/virtual-network-public-ip-address.md)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621352"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880274"
 ---
 # <a name="publish-an-integrated-solution"></a>Publikowanie zintegrowanego rozwiązania
 
@@ -32,8 +32,8 @@ Aby zapoznać się z omówieniem programu zintegrowanych rozwiązań, Obejrzyj [
 ## <a name="eligibility-criteria"></a>Kryteria kwalifikacji
 
 * Partnerzy uczestniczący muszą mieć identyfikator MPN.
-* Dostawcy usług uczestniczących powinni mieć [przygotowaną wspólną sprzedaż](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
-* Uczestniczący dostawca oprogramowania powinien być gotowy do współdziałania [z adresem IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Dostawcy usług uczestniczących powinni mieć [przygotowaną wspólną sprzedaż](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
+* Uczestniczący dostawca oprogramowania powinien być gotowy do współdziałania [z adresem IP](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 * Co najmniej jeden partner uczestniczący musi mieć kompetencje Gold w jednym z następujących obszarów:
     - Projektowanie aplikacji
     - Integracja aplikacji
@@ -74,7 +74,7 @@ Po zatwierdzeniu nominacji Użyj zasobów połączonego programu, aby opracować
     Dyskusje na temat podejścia do integracji powinny dotyczyć następujących punktów:
     * Punkty integracji
     * Architektura rozwiązania
-    * Uwierzytelnianie
+    * Authentication
     * Interfejs użytkownika
     * Monitorowanie
     * Mechanizm wdrażania

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 349456b0a4de65520dd633efe0573d24ea1c89c4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f945699256b4de9bd87ee4ab7500268302e93089
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409029"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880173"
 ---
 # <a name="security-control-secure-configuration"></a>Kontrola zabezpieczeń: Konfiguracja zabezpieczona
 
@@ -22,7 +22,7 @@ Ustanów, Implementuj i aktywnie Zarządzaj (śledź, Przetwarzaj, Popraw) konfi
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.1 | 5,1 | Klient |
+| 7.1 | 5,1 | Customer |
 
 Użyj aliasów Azure Policy, aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji zasobów platformy Azure. Możesz również użyć wbudowanych definicji Azure Policy.
 
@@ -42,7 +42,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.2 | 5,1 | Klient |
+| 7.2 | 5,1 | Customer |
 
 Użyj zaleceń Azure Security Center, aby zachować konfiguracje zabezpieczeń we wszystkich zasobach obliczeniowych.  Ponadto możesz użyć niestandardowych obrazów systemu operacyjnego lub Azure Automation konfiguracji stanu, aby określić konfigurację zabezpieczeń systemu operacyjnego wymaganego przez organizację.
 
@@ -60,7 +60,7 @@ Użyj zaleceń Azure Security Center, aby zachować konfiguracje zabezpieczeń w
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.3 | 5.2 | Klient |
+| 7.3 | 5.2 | Customer |
 
 Aby wymusić bezpieczne ustawienia w ramach zasobów platformy Azure, użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje].  Ponadto możesz użyć szablonów Azure Resource Manager, aby zachować konfigurację zabezpieczeń zasobów platformy Azure wymaganych przez organizację. 
 
@@ -88,15 +88,15 @@ Należy również pamiętać, że obrazy maszyn wirtualnych portalu Azure Market
 
 - [Tworzenie maszyny wirtualnej z systemem Windows w Azure Portal](../../virtual-machines/windows/quick-create-portal.md)
 
-- [Informacje na temat pobierania szablonu maszyny wirtualnej](../../virtual-machines/windows/download-template.md)
+- [Informacje na temat pobierania szablonu maszyny wirtualnej](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Przykładowy skrypt do przekazania wirtualnego dysku twardego na platformę Azure i utworzenia nowej maszyny wirtualnej](../../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Przykładowy skrypt do przekazania wirtualnego dysku twardego na platformę Azure i utworzenia nowej maszyny wirtualnej](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 ## <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: bezpiecznie przechowuj konfigurację zasobów platformy Azure
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,5 | 5.3 | Klient |
+| 7,5 | 5.3 | Customer |
 
 Za pomocą usługi Azure DevOps bezpiecznie przechowuj swój kod, taki jak niestandardowe zasady platformy Azure, szablony Azure Resource Manager i skrypty konfiguracji żądanego stanu, i zarządzaj nimi. Aby uzyskać dostęp do zasobów zarządzanych w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.
 
@@ -108,7 +108,7 @@ Za pomocą usługi Azure DevOps bezpiecznie przechowuj swój kod, taki jak niest
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,6 | 5.3 | Klient |
+| 7,6 | 5.3 | Customer |
 
 W przypadku używania obrazów niestandardowych Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom. Za pomocą udostępnionej galerii obrazów możesz udostępnić swoje obrazy innym użytkownikom, podmiotom usług lub grupom usługi AD w organizacji.  W przypadku obrazów kontenerów Zapisz je w Azure Container Registry i Skorzystaj z usługi Azure RBAC, aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom.  
 
@@ -118,17 +118,17 @@ W przypadku używania obrazów niestandardowych Użyj kontroli dostępu opartej 
 
 - [Jak skonfigurować usługę Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Omówienie galerii obrazów udostępnionych](../../virtual-machines/windows/shared-image-galleries.md)
+- [Omówienie galerii obrazów udostępnionych](../../virtual-machines/shared-image-galleries.md)
 
 ## <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Wdrażanie narzędzi do zarządzania konfiguracją dla zasobów platformy Azure
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,7 | 5.4 | Klient |
+| 7,7 | 5.4 | Customer |
 
 Zdefiniuj i Implementuj standardowe konfiguracje zabezpieczeń dla zasobów platformy Azure przy użyciu Azure Policy. Użyj aliasów Azure Policy, aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci zasobów platformy Azure. Mogą również korzystać z wbudowanych definicji zasad związanych z konkretnymi zasobami.  Ponadto można użyć Azure Automation do wdrożenia zmian konfiguracji.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak używać aliasów](../../governance/policy/concepts/definition-structure.md#aliases)
 
@@ -136,7 +136,7 @@ Zdefiniuj i Implementuj standardowe konfiguracje zabezpieczeń dla zasobów plat
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,8 | 5.4 | Klient |
+| 7,8 | 5.4 | Customer |
 
 Azure Automation konfiguracja stanu to usługa zarządzania konfiguracją dla węzłów konfiguracji żądanego stanu (DSC) w dowolnym chmurze lub lokalnym centrum danych. Można łatwo dołączać maszyny, przypisywać do nich konfiguracje deklaracyjne i wyświetlać raporty pokazujące zgodność poszczególnych maszyn z wybranym określonym stanem. 
 
@@ -146,7 +146,7 @@ Azure Automation konfiguracja stanu to usługa zarządzania konfiguracją dla w�
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,9 | 5,5 | Klient |
+| 7,9 | 5,5 | Customer |
 
 Użyj Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla zasobów platformy Azure.  Ponadto należy używać Azure Policy do powiadamiania i inspekcji konfiguracji zasobów platformy Azure.
 
@@ -156,7 +156,7 @@ Użyj Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla zas
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,10 | 5,5 | Klient |
+| 7,10 | 5,5 | Customer |
 
 Użyj Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla ustawień systemu operacyjnego i platformy Docker dla kontenerów.
 
@@ -166,7 +166,7 @@ Użyj Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla ust
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,11 | 13,1 | Klient |
+| 7,11 | 13,1 | Customer |
 
 Użyj tożsamość usługi zarządzanej w połączeniu z Azure Key Vault, aby uprościć i zabezpieczyć tajne Zarządzanie aplikacjami w chmurze.
 
@@ -182,7 +182,7 @@ Użyj tożsamość usługi zarządzanej w połączeniu z Azure Key Vault, aby up
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,12 | 4.1 | Klient |
+| 7,12 | 4.1 | Customer |
 
 Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure AD. Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
 
@@ -192,9 +192,9 @@ Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automat
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,13 | 18,1, 18,7 | Klient |
+| 7,13 | 18,1, 18,7 | Customer |
 
-Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault. 
+Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń ułatwia również przenoszenie odnalezionych poświadczeń do bezpieczniejszych lokalizacji, takich jak usługa Azure Key Vault. 
 
 - [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 

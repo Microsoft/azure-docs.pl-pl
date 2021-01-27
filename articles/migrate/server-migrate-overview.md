@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 130fcaacedc8aaea7790f6aa9ca7463b4e378e02
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: cf3a3d3fdfcd03f068224c93643d364cd2646290
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070715"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895632"
 ---
 # <a name="select-a-vmware-migration-option"></a>Wybierz opcję migracji VMware
 
@@ -43,7 +43,7 @@ Po przejrzeniu ograniczeń można zrozumieć kroki związane z wdrażaniem poszc
 **Zadanie** | **Szczegóły** |**Bez agenta** | **Na podstawie agenta**
 --- | --- | --- | ---
 **Wdrażanie urządzenia usługi Azure Migrate** | Lekkie urządzenie działające na maszynie wirtualnej VMware.<br/><br/> Urządzenie służy do odnajdywania i oceniania maszyn oraz do migrowania maszyn przy użyciu migracji bez agentów. | Wymagane.<br/><br/> Jeśli urządzenie zostało już skonfigurowane do oceny, można użyć tego samego urządzenia do migracji bez wykorzystania agentów. | Niewymagane.<br/><br/> Jeśli skonfigurowano urządzenie do oceny, można je pozostawić na miejscu lub usunąć, jeśli skończysz ocenianie.
-**Korzystanie z narzędzia do oceny serwera** | Oceń maszyny za pomocą narzędzia do oceny serwera Azure Migrate:. | Przed przeprowadzeniem migracji maszyn można ocenić je, ale nie musisz. | Ocena jest opcjonalna.
+**Korzystanie z narzędzia do oceny serwera** | Oceń maszyny za pomocą narzędzia do oceny serwera Azure Migrate:. | Ocena jest opcjonalna. | Ocena jest opcjonalna.
 **Korzystanie z narzędzia do migracji serwera** | Dodaj narzędzie do migracji Azure Migrate Server w projekcie Azure Migrate. | Wymagane | Wymagane
 **Przygotuj oprogramowanie VMware do migracji** | Skonfiguruj ustawienia na serwerach i maszynach wirtualnych VMware. | Wymagane | Wymagane
 **Instalowanie usługi mobilności na maszynach wirtualnych** | Usługa mobilności jest uruchamiana na każdej maszynie wirtualnej, która ma zostać zreplikowana | Niewymagane | Wymagane

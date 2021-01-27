@@ -8,14 +8,14 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 82e154d8261d5fb24ce63e6266f2dfe8d8622e70
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8bfa7c164f5b974a8cf8974b3ff346f3401dd218
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787066"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880223"
 ---
-# <a name="create-a-cloud-service-extended-support-using-azure-powershell"></a>Tworzenie usługi w chmurze (obsługa rozszerzona) przy użyciu Azure PowerShell
+# <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu Azure PowerShell
 
 W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdrożyć Cloud Services (rozszerzoną obsługę) na platformie Azure, która ma wiele ról (webrole i rola procesu roboczego) i rozszerzenie pulpitu zdalnego. 
 
@@ -23,28 +23,31 @@ W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdr
 > Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona) i Utwórz skojarzone zasoby. 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-3. Zainstaluj AZ. CloudService PowerShell module  
+Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona) i Utwórz skojarzone zasoby. 
+
+## <a name="deploy-a-cloud-services-extended-support"></a>Wdrażanie Cloud Services (obsługa rozszerzona)
+1. Zainstaluj AZ. CloudService PowerShell module  
 
     ```powershell
     Install-Module -Name Az.CloudService 
     ```
 
-4. Tworzenie nowej grupy zasobów Ten krok jest opcjonalny w przypadku korzystania z istniejącej grupy zasobów.   
+2. Tworzenie nowej grupy zasobów Ten krok jest opcjonalny w przypadku korzystania z istniejącej grupy zasobów.   
 
     ```powershell
     New-AzResourceGroup -ResourceGroupName “ContosOrg” -Location “East US” 
     ```
 
-5. Utwórz konto magazynu i kontener, które będą używane do przechowywania plików pakietu usługi w chmurze (. cspkg) i pliku konfiguracji usługi (. cscfg). Musisz użyć unikatowej nazwy dla nazwy konta magazynu. 
+3. Utwórz konto magazynu i kontener, które będą używane do przechowywania plików pakietu usługi w chmurze (. cspkg) i pliku konfiguracji usługi (. cscfg). Musisz użyć unikatowej nazwy dla nazwy konta magazynu. 
 
     ```powershell
     $storageAccount = New-AzStorageAccount -ResourceGroupName “ContosOrg” -Name “contosostorageaccount” -Location “East US” -SkuName “Standard_RAGRS” -Kind “StorageV2” 
     $container = New-AzStorageContainer -Name “ContosoContainer” -Context $storageAccount.Context -Permission Blob 
     ```
 
-6. Przekaż swój pakiet usługi w chmurze (cspkg) do konta magazynu.
+4. Przekaż swój pakiet usługi w chmurze (cspkg) do konta magazynu.
 
     ```powershell
     $tokenStartTime = Get-Date 
@@ -55,7 +58,7 @@ W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdr
     ```
  
 
-7.  Przekaż konfigurację usługi w chmurze (cscfg) do konta magazynu. 
+5.  Przekaż konfigurację usługi w chmurze (cscfg) do konta magazynu. 
 
     ```powershell
     $cscfgBlob = Set-AzStorageBlobContent -File “./ContosoApp/ContosoApp.cscfg” -Container ContosoContainer -Blob “ContosoApp.cscfg” -Context $storageAccount.Context 
@@ -63,20 +66,20 @@ W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdr
     $cscfgUrl = $cscfgBlob.ICloudBlob.Uri.AbsoluteUri + $cscfgToken 
     ```
 
-8. Utwórz sieć wirtualną i podsieć. Ten krok jest opcjonalny w przypadku korzystania z istniejącej sieci i podsieci. Ten przykład używa pojedynczej sieci wirtualnej i podsieci dla ról usługi w chmurze (webrole i rola procesu roboczego). 
+6. Utwórz sieć wirtualną i podsieć. Ten krok jest opcjonalny w przypadku korzystania z istniejącej sieci i podsieci. Ten przykład używa pojedynczej sieci wirtualnej i podsieci dla ról usługi w chmurze (webrole i rola procesu roboczego). 
 
     ```powershell
     $subnet = New-AzVirtualNetworkSubnetConfig -Name "ContosoWebTier1" -AddressPrefix "10.0.0.0/24" -WarningAction SilentlyContinue 
     $virtualNetwork = New-AzVirtualNetwork -Name “ContosoVNet” -Location “East US” -ResourceGroupName “ContosOrg” -AddressPrefix "10.0.0.0/24" -Subnet $subnet 
     ```
  
-9. Utwórz publiczny adres IP i (opcjonalnie) ustaw właściwość etykieta DNS publicznego adresu IP. Jeśli używasz statycznego adresu IP, musi on być przywoływany jako Zastrzeżony adres IP w pliku konfiguracji usługi.  
+7. Utwórz publiczny adres IP i (opcjonalnie) ustaw właściwość etykieta DNS publicznego adresu IP. Jeśli używasz statycznego adresu IP, musi on być przywoływany jako Zastrzeżony adres IP w pliku konfiguracji usługi.  
 
     ```powershell
     $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “contosoappdns” -Sku Basic 
     ```
 
-10. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem usługi równoważenia obciążenia utworzoną przez platformę.  
+8. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem usługi równoważenia obciążenia utworzoną przez platformę.  
 
     ```powershell
     $publicIP = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp  
@@ -85,13 +88,13 @@ W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdr
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-11. Tworzenie usługi Key Vault. Ten Key Vault będzie używany do przechowywania certyfikatów skojarzonych z rolami usługi w chmurze (obsługa rozszerzona). Key Vault musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
+9. Tworzenie usługi Key Vault. Ten Key Vault będzie używany do przechowywania certyfikatów skojarzonych z rolami usługi w chmurze (obsługa rozszerzona). Key Vault musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US” 
     ```
 
-13. Zaktualizuj zasady dostępu Key Vault i przyznaj uprawnienia certyfikatów do konta użytkownika. 
+10. Zaktualizuj zasady dostępu Key Vault i przyznaj uprawnienia certyfikatów do konta użytkownika. 
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosoOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
@@ -104,14 +107,14 @@ W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdr
     ```
  
 
-14. Na potrzeby tego przykładu dodamy certyfikat z podpisem własnym do Key Vault. Odcisk palca certyfikatu musi zostać dodany w pliku konfiguracji usługi w chmurze (cscfg) do wdrożenia w rolach usługi w chmurze. 
+11. Na potrzeby tego przykładu dodamy certyfikat z podpisem własnym do Key Vault. Odcisk palca certyfikatu musi zostać dodany w pliku konfiguracji usługi w chmurze (cscfg) do wdrożenia w rolach usługi w chmurze. 
 
     ```powershell
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -CertificatePolicy $Policy 
     ```
  
-15. Utwórz profil systemu operacyjnego dla obiektu w pamięci. Profil systemu operacyjnego określa certyfikaty, które są skojarzone z rolami usługi w chmurze. Będzie to ten sam certyfikat, który został utworzony w poprzednim kroku. 
+12. Utwórz profil systemu operacyjnego dla obiektu w pamięci. Profil systemu operacyjnego określa certyfikaty, które są skojarzone z rolami usługi w chmurze. Będzie to ten sam certyfikat, który został utworzony w poprzednim kroku. 
 
     ```powershell
     $keyVault = Get-AzKeyVault -ResourceGroupName ContosOrg -VaultName ContosKeyVault 
@@ -120,7 +123,7 @@ W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdr
     $osProfile = @{secret = @($secretGroup)} 
     ```
 
-16. Utwórz profil roli w pamięci. Profil roli definiuje odpowiednie właściwości jednostki SKU, takie jak nazwa, pojemność i warstwa. W tym przykładzie zdefiniowano dwie role: frontendRole i backendRole. Informacje o profilu roli powinny być zgodne z konfiguracją roli zdefiniowaną w pliku Configuration (cscfg) i plikiem definicji usługi (csdef). 
+13. Utwórz profil roli w pamięci. Profil roli definiuje odpowiednie właściwości jednostki SKU, takie jak nazwa, pojemność i warstwa. W tym przykładzie zdefiniowano dwie role: frontendRole i backendRole. Informacje o profilu roli powinny być zgodne z konfiguracją roli zdefiniowaną w pliku Configuration (cscfg) i plikiem definicji usługi (csdef). 
 
     ```powershell
     $frontendRole = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
@@ -128,7 +131,7 @@ W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdr
     $roleProfile = @{role = @($frontendRole, $backendRole)} 
     ```
 
-17. Obowiązkowe Utwórz profil rozszerzenia w pamięci, który ma zostać dodany do usługi w chmurze. Na potrzeby tego przykładu dodamy rozszerzenie RDP. 
+14. Obowiązkowe Utwórz profil rozszerzenia w pamięci, który ma zostać dodany do usługi w chmurze. Na potrzeby tego przykładu dodamy rozszerzenie RDP. 
 
     ```powershell
     $credential = Get-Credential 
@@ -138,13 +141,13 @@ W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdr
     $wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
     $extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
     ```
-18. Obowiązkowe Zdefiniuj Tagi jako tabelę skrótów programu PowerShell, którą chcesz dodać do usługi w chmurze. 
+15. Obowiązkowe Zdefiniuj Tagi jako tabelę skrótów programu PowerShell, którą chcesz dodać do usługi w chmurze. 
 
     ```powershell
     $tag=@{"Owner" = "Contoso"} 
     ```
 
-19. Utwórz wdrożenie usługi w chmurze przy użyciu obiektów profilów & adresów URL sygnatury dostępu współdzielonego.
+17. Utwórz wdrożenie usługi w chmurze przy użyciu obiektów profilów & adresów URL sygnatury dostępu współdzielonego.
 
     ```powershell
     $cloudService = New-AzCloudService ` 
@@ -164,3 +167,4 @@ W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdr
 ## <a name="next-steps"></a>Następne kroki 
 - Zapoznaj się z [często zadawanymi pytaniami](faq.md) dotyczącymi Cloud Services (obsługa rozszerzona).
 - Wdróż usługę w chmurze (obsługę rozszerzoną) przy użyciu [Azure Portal](deploy-portal.md), [programu PowerShell](deploy-powershell.md), [szablonu](deploy-template.md) lub [programu Visual Studio](deploy-visual-studio.md).
+- Odwiedź [repozytorium przykładów Cloud Services (obsługa rozszerzona)](https://github.com/Azure-Samples/cloud-services-extended-support)

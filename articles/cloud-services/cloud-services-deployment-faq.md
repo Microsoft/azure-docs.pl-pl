@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dd7b19a2c9e872b811c1aab6e504accb7de383b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742220"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896481"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemy z wdrażaniem w usłudze Azure Cloud Services (klasyczny): często zadawane pytania
 
@@ -52,7 +52,7 @@ Wdrożenie usługi w chmurze może zakończyć się niepowodzeniem, jeśli zasob
 
 Możesz również śledzić bieżące użycie/przydział dla subskrypcji w portalu: Azure Portal => subscriptions => \<appropriate subscription>   => "użycie + przydział".
 
-Informacje dotyczące użycia zasobów/zużycia można także pobrać za pośrednictwem interfejsy API rozliczeń platformy Azure. Zobacz [interfejs API użycia zasobów platformy Azure (wersja zapoznawcza)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Informacje dotyczące użycia zasobów/zużycia można także pobrać za pośrednictwem interfejsy API rozliczeń platformy Azure. Zobacz [Omówienie interfejsu API użycia platformy Azure](../cost-management-billing/manage/consumption-api-overview.md).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Jak zmienić rozmiar wdrożonej maszyny wirtualnej usługi w chmurze bez jej ponownego wdrażania?
 Nie można zmienić rozmiaru maszyny wirtualnej wdrożonej usługi w chmurze bez jej ponownego wdrożenia. Rozmiar maszyny wirtualnej jest wbudowany w CSDEF, który można zaktualizować tylko przy użyciu ponownego wdrożenia.

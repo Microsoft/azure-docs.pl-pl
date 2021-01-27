@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services zadania (kodowanie i analizowanie) kody błędów | Microsoft Docs
+title: Azure Media Services zadania (kodowanie i analizowanie) kody błędów
 description: Ten artykuł zawiera linki do dokumentacji kodów błędów zadań i zapewnia przydatne linki do powiązanych tematów.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 272f32ebdba04009a67bf03d5e830ad8f9e649f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64d8d889d3b9b55d6e47bb96afc7f9badac9e2ee
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289566"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895377"
 ---
 # <a name="media-services-job-error-codes"></a>Kody błędów zadań Media Services
 
@@ -34,7 +34,7 @@ Poniższy dokument REST zawiera szczegółowe wyjaśnienia dotyczące [kodów b�
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Kody błędów punktów końcowych przesyłania strumieniowego](streaming-endpoint-error-codes.md)
 - [Koncepcje Azure Media Services](concepts-overview.md)

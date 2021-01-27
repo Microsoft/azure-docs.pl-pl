@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję języka Python, a następnie o
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 9e4ddc479b0adcb88e846b92e6603dfdf3c99baa
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0d7b98c44b85e17d084994bbcaa285c55c7a5e4d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967994"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880848"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji na platformie Azure przy użyciu języka Python za pomocą Visual Studio Code
 
@@ -29,40 +29,40 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) w wersji 3. x.
 
-+ Środowisko [python 3,8](https://www.python.org/downloads/release/python-381/), [Python 3,7](https://www.python.org/downloads/release/python-375/), [python 3,6](https://www.python.org/downloads/release/python-368/) jest obsługiwane przez Azure Functions (x64).
++ [Wersje języka Python obsługiwane przez Azure Functions](supported-languages.md#languages-by-runtime-version)
 
-+ [Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
++ [Program Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + [Rozszerzenie Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) dla Visual Studio Code.  
 
-+ [Azure Functions rozszerzenie](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) Visual Studio Code.
++ [Rozszerzenie obsługujące usługę Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) dla programu Visual Studio Code.
 
 ## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Utwórz projekt lokalny
 
 W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure Functions w języku Python. W dalszej części tego artykułu opublikujesz kod funkcji na platformie Azure.
 
-1. Wybierz ikonę platformy Azure na pasku działania, a następnie w obszarze **Azure: Functions** wybierz ikonę **Utwórz nowy projekt...** .
+1. Wybierz ikonę platformy Azure na pasku działań, a następnie w obszarze **Azure: Funkcje** wybierz ikonę **Utwórz nowy projekt...**.
 
-    ![Wybierz pozycję Utwórz nowy projekt](./media/functions-create-first-function-vs-code/create-new-project.png)
+    ![Wybieranie pozycji Utwórz nowy projekt](./media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz **pozycję Wybierz**.
+1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz pozycję **Wybierz**.
 
     > [!NOTE]
     > Te kroki zostały zaprojektowane do ukończenia poza obszarem roboczym. W takim przypadku nie wybieraj folderu projektu, który jest częścią obszaru roboczego.
 
-1. Podaj następujące informacje na ekranie:
+1. Podaj następujące informacje po wyświetleniu monitów:
 
-    + **Wybierz język projektu funkcji**: Wybierz `Python` .
+    + **Wybierz język dla projektu funkcji**: Wybierz plik `Python`.
 
     + **Wybierz alias języka Python, aby utworzyć środowisko wirtualne**: Wybierz lokalizację interpretera języka Python. Jeśli lokalizacja nie jest wyświetlana, wpisz pełną ścieżkę do pliku binarnego języka Python.  
 
-    + **Wybierz szablon dla pierwszej funkcji projektu**: Wybierz `HTTP trigger` .
+    + **Wybierz szablon dla pierwszej funkcji projektu**: Wybierz plik `HTTP trigger`.
 
-    + **Podaj nazwę funkcji**: type `HttpExample` .
+    + **Podaj nazwę funkcji**: Wpisz `HttpExample`.
 
     + **Poziom autoryzacji**: Wybierz `Anonymous` , co umożliwi wszystkim wywoływanie punktu końcowego funkcji. Aby dowiedzieć się więcej o poziomie autoryzacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-    + **Wybierz, w jaki sposób chcesz otworzyć projekt**: Wybierz `Add to workspace` .
+    + **Wybierz, jak chcesz otworzyć projekt**: Wybierz plik `Add to workspace`.
 
 1. Korzystając z tych informacji, Visual Studio Code generuje projekt Azure Functions z wyzwalaczem HTTP. Pliki projektu lokalnego można wyświetlić w Eksploratorze. Aby dowiedzieć się więcej na temat tworzonych plików, zobacz [pliki wygenerowanego projektu](functions-develop-vs-code.md#generated-project-files).
 
@@ -83,13 +83,13 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
     ![Publikowanie projektu na platformie Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
 
-1. Podaj następujące informacje na ekranie:
+1. Podaj następujące informacje po wyświetleniu monitów:
 
     + **Wybierz folder**: Wybierz folder z obszaru roboczego lub przejdź do folderu, który zawiera aplikację funkcji. Nie zobaczysz tego, jeśli masz już otwartą prawidłową aplikację funkcji.
 
     + **Wybierz subskrypcję**: wybierz subskrypcję do użycia. Nie zobaczysz tego, jeśli masz tylko jedną subskrypcję.
 
-    + **Wybierz Aplikacja funkcji na platformie Azure**: wybierz opcję `+ Create new Function App` . (Nie należy wybierać `Advanced` opcji, która nie jest objęta tym artykułem).
+    + **Wybierz aplikację funkcji na platformie Azure**: Wybierz plik `+ Create new Function App`. (Nie należy wybierać `Advanced` opcji, która nie jest objęta tym artykułem).
 
     + **Wprowadź globalnie unikatową nazwę aplikacji funkcji**: wpisz nazwę, która jest prawidłowa w ścieżce URL. Wpisana nazwa zostanie sprawdzona, aby upewnić się, że jest ona unikatowa w Azure Functions. 
 

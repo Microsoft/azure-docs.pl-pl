@@ -7,18 +7,18 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: bb4987550e4962ba044e0a6aafbfd00145319e94
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804940"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895972"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
 
 ## <a name="overview"></a>Omówienie
-Po skonfigurowaniu eksportu danych dla obszaru roboczego Log Analytics wszystkie nowe dane wysyłane do wybranych tabel w obszarze roboczym zostaną automatycznie wyeksportowane do konta magazynu lub do centrum zdarzeń w czasie niemal rzeczywistym.
+Po skonfigurowaniu eksportu danych dla obszaru roboczego Log Analytics wszystkie nowe dane wysyłane do wybranych tabel w obszarze roboczym zostaną automatycznie wyeksportowane do konta magazynu w ciągu godzinowo dołączanych obiektów blob lub do centrum zdarzeń w czasie niemal rzeczywistym.
 
 ![Eksportowanie danych — omówienie](media/logs-data-export/data-export-overview.png)
 
@@ -67,7 +67,7 @@ Nie są obecnie naliczane dodatkowe opłaty za funkcję eksportowania danych. Ce
 ## <a name="export-destinations"></a>Eksportuj miejsca docelowe
 
 ### <a name="storage-account"></a>Konto magazynu
-Dane są wysyłane do kont magazynu niemal w czasie rzeczywistym, gdy osiągnie Azure Monitor. Konfiguracja eksportu danych tworzy kontener dla każdej tabeli na koncie magazynu o nazwie, po *której następuje nazwa* tabeli. Na przykład tabela *SecurityEvent* będzie wysyłana do kontenera o nazwie *am-SecurityEvent*.
+Dane są wysyłane do kont magazynu, gdy dotrze do Azure Monitor i przechowywane w godzinie dołączanych obiektów BLOB. Konfiguracja eksportu danych tworzy kontener dla każdej tabeli na koncie magazynu o nazwie, po *której następuje nazwa* tabeli. Na przykład tabela *SecurityEvent* będzie wysyłana do kontenera o nazwie *am-SecurityEvent*.
 
 Ścieżka obiektu BLOB konta magazynu to *WorkspaceResourceId =/subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.js*. Ponieważ dołączane obiekty blob są ograniczone do 50 000 zapisów w magazynie, liczba eksportowanych obiektów BLOB może zostać rozszerzona, jeśli liczba dołączeń jest wysoka. Wzorzec nazewnictwa dla obiektów BLOB w takich przypadkach zostałby PT1H_ #. JSON, gdzie # to przyrostowa liczba obiektów BLOB.
 

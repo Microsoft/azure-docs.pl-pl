@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: db4f49c1b788cd7a55fd6fbbd48f845f2c94d757
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: df19f32be41b17e13a9da575e828830e29da4e55
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073533"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894766"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Uruchamianie elementu runbook z poziomu elementu webhook
 
@@ -148,10 +148,10 @@ Można rozciągnąć element webhook, który nie osiągnął czasu wygaśnięcia
 
 ## <a name="sample-runbook"></a>Przykładowy element Runbook
 
-Następujący przykładowy element Runbook akceptuje dane elementu webhook i uruchamia maszyny wirtualne określone w treści żądania. Aby przetestować ten element Runbook, na koncie usługi Automation w obszarze **elementy Runbook**kliknij pozycję **Utwórz element Runbook**. Jeśli nie wiesz, jak utworzyć element Runbook, zobacz [Tworzenie elementu Runbook](automation-quickstart-create-runbook.md).
+Następujący przykładowy element Runbook akceptuje dane elementu webhook i uruchamia maszyny wirtualne określone w treści żądania. Aby przetestować ten element Runbook, na koncie usługi Automation w obszarze **elementy Runbook** kliknij pozycję **Utwórz element Runbook**. Jeśli nie wiesz, jak utworzyć element Runbook, zobacz [Tworzenie elementu Runbook](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
+> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
 
 ```powershell
 param

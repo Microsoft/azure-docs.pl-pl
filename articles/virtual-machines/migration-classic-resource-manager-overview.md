@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 137670715af8b90d8a867459fa50249cd9be8e70
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 44b89aae2f446a13207c8e3b586892ad085bd790
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897120"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879414"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migracja zasobów IaaS z wersji klasycznej do Azure Resource Manager w systemie Linux obsługiwana przez platformę
 
@@ -24,7 +24,7 @@ ms.locfileid: "97897120"
 
 Ten artykuł zawiera omówienie narzędzia do migracji obsługiwanego przez platformę, sposób migrowania zasobów z modeli wdrażania usługi Azure Service Manager (ASM) z wersji klasycznej do Menedżer zasobów (ARM) i szczegółowe informacje dotyczące sposobu łączenia zasobów z dwóch modeli wdrożenia, które współdziałają z subskrypcją za pomocą bram sieci VPN lokacja-lokacja. Więcej informacji o [Azure Resource Manager funkcjach i korzyściach](../azure-resource-manager/management/overview.md)można znaleźć w artykule. 
 
-ASM obsługuje dwa różne produkty obliczeniowe: Azure Virtual Machines (klasyczne) Aliasy maszyn wirtualnych IaaS & [platformy azure Cloud Services (klasyczne)](https://docs.microsoft.com/azure/cloud-services/) aliasy PaaS maszyn wirtualnych lub ról sieci Web/procesu roboczego. Ten dokument nastąpi tylko w przypadku migrowania Virtual Machines platformy Azure (klasyczne).
+ASM obsługuje dwa różne produkty obliczeniowe: Azure Virtual Machines (klasyczne) Aliasy maszyn wirtualnych IaaS & [platformy azure Cloud Services (klasyczne)](../cloud-services/index.yml) aliasy PaaS maszyn wirtualnych lub ról sieci Web/procesu roboczego. Ten dokument nastąpi tylko w przypadku migrowania Virtual Machines platformy Azure (klasyczne).
 
 ## <a name="goal-for-migration"></a>Cel migracji
 Menedżer zasobów umożliwia wdrażanie złożonych aplikacji za pośrednictwem szablonów, Konfigurowanie maszyn wirtualnych przy użyciu rozszerzeń maszyny wirtualnej oraz zarządzanie dostępem i tagowanie. Azure Resource Manager obejmuje skalowalne, równoległe wdrożenie maszyn wirtualnych w zestawach dostępności. Nowy model wdrażania zapewnia także niezależne Zarządzanie cyklem życia zasobów obliczeniowych, sieci i magazynu. Na koniec należy włączyć zabezpieczenia domyślnie przy użyciu wymuszania maszyn wirtualnych w sieci wirtualnej.
@@ -39,7 +39,7 @@ Prawie wszystkie funkcje z klasycznego modelu wdrażania są obsługiwane w przy
 * Konta magazynu
 * Sieci wirtualne
 * Bramy sieci VPN
-* [Bramy usługi Express Route](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(w tej samej subskrypcji tylko w przypadku Virtual Network)_
+* [Bramy usługi Express Route](../expressroute/expressroute-howto-move-arm.md) _(w tej samej subskrypcji tylko w przypadku Virtual Network)_
 * Grupy zabezpieczeń sieci
 * Tabele tras
 * Zastrzeżone adresy IP
@@ -118,8 +118,8 @@ Następujące funkcje nie są obecnie obsługiwane. Opcjonalnie można usunąć 
 
 | Dostawca zasobów | Cechy | Zalecenie |
 | --- | --- | --- |
-| Compute | Nieskojarzone dyski maszyny wirtualnej. | Po przeprowadzeniu migracji konta magazynu zostaną zmigrowane obiekty blob VHD znajdujące się za tymi dyskami |
-| Compute | Obrazy maszyn wirtualnych. | Po przeprowadzeniu migracji konta magazynu zostaną zmigrowane obiekty blob VHD znajdujące się za tymi dyskami |
+| Obliczenia | Nieskojarzone dyski maszyny wirtualnej. | Po przeprowadzeniu migracji konta magazynu zostaną zmigrowane obiekty blob VHD znajdujące się za tymi dyskami |
+| Obliczenia | Obrazy maszyn wirtualnych. | Po przeprowadzeniu migracji konta magazynu zostaną zmigrowane obiekty blob VHD znajdujące się za tymi dyskami |
 | Sieć | Listy ACL punktów końcowych. | Usuń listy ACL punktów końcowych i ponów próbę migracji. |
 | Sieć | Application Gateway | Przed rozpoczęciem migracji Usuń Application Gateway, a następnie ponownie utwórz Application Gateway po zakończeniu migracji. |
 | Sieć | Sieci wirtualne korzystające z komunikacji równorzędnej VNet. | Przeprowadź migrację Virtual Network do Menedżer zasobów, elementu równorzędnego. Dowiedz się więcej o [komunikacji równorzędnej sieci](../virtual-network/virtual-network-peering-overview.md)wirtualnych. |
@@ -130,22 +130,22 @@ Następujące konfiguracje nie są obecnie obsługiwane.
 | Usługa | Konfigurowanie | Zalecenie |
 | --- | --- | --- |
 | Resource Manager |Role-Based Access Control (RBAC) dla zasobów klasycznych |Ponieważ identyfikator URI zasobów jest modyfikowany po migracji, zaleca się zaplanowanie aktualizacji zasad RBAC, które muszą wystąpić po migracji. |
-| Compute |Wiele podsieci skojarzonych z maszyną wirtualną |Zaktualizuj konfigurację podsieci, aby odwoływać się tylko do jednej podsieci. Może to wymagać usunięcia pomocniczej karty sieciowej (odwołującej się do innej podsieci) z maszyny wirtualnej i ponownego dołączenia jej po zakończeniu migracji. |
-| Compute |Maszyny wirtualne należące do sieci wirtualnej, ale nie mają przypisanej bezpośredniej podsieci |Opcjonalnie można usunąć maszynę wirtualną. |
-| Compute |Maszyny wirtualne z alertami, zasady automatycznego skalowania |Migracja przechodzi przez te ustawienia. Zdecydowanie zaleca się oszacowanie środowiska przed przeprowadzeniem migracji. Alternatywnie można ponownie skonfigurować ustawienia alertów po zakończeniu migracji. |
-| Compute |Maszyny wirtualne XML Extensions (BGInfo 1. *, debuger programu Visual Studio, Web Deploy i zdalne debugowanie) |To nie jest obsługiwane. Zaleca się usunięcie tych rozszerzeń z maszyny wirtualnej, aby kontynuować migrację, lub zostaną one usunięte automatycznie podczas procesu migracji. |
-| Compute |Diagnostyka rozruchu z magazynem w warstwie Premium |Przed kontynuowaniem migracji Wyłącz funkcję diagnostyki rozruchu dla maszyn wirtualnych. Po zakończeniu migracji można ponownie włączyć diagnostykę rozruchu w stosie Menedżer zasobów. Ponadto obiekty blob, które są używane na potrzeby zrzutu ekranu i dzienników seryjnych, powinny zostać usunięte, aby nie były już naliczane opłaty za te obiekty blob. |
-| Compute | Usługi w chmurze zawierające role sieci Web/procesu roboczego | Nie jest to obecnie obsługiwane. |
-| Compute | Usługi w chmurze, które zawierają więcej niż jeden zestaw dostępności lub wiele zestawów dostępności. |Nie jest to obecnie obsługiwane. Aby przeprowadzić migrację, Przenieś Virtual Machines do tego samego zestawu dostępności. |
-| Compute | Maszyna wirtualna z rozszerzeniem Azure Security Center | Azure Security Center automatycznie instaluje rozszerzenia na Virtual Machines w celu monitorowania ich zabezpieczeń i zgłaszania alertów. Rozszerzenia te zwykle są instalowane automatycznie, jeśli zasady Azure Security Center są włączone w ramach subskrypcji. Aby przeprowadzić migrację Virtual Machines, wyłącz zasady usługi Security Center w subskrypcji, co spowoduje usunięcie rozszerzenia monitorowania Security Center z Virtual Machines. |
-| Compute | Maszyna wirtualna z rozszerzeniem kopii zapasowej lub migawek | Te rozszerzenia są instalowane na maszynie wirtualnej skonfigurowanej przy użyciu usługi Azure Backup. Mimo że migracja tych maszyn wirtualnych nie jest obsługiwana, postępuj zgodnie z poniższymi wskazówkami [, aby zachować](./migration-classic-resource-manager-faq.md#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) kopie zapasowe, które zostały wykonane przed migracją.  |
-| Compute | Maszyna wirtualna z rozszerzeniem Azure Site Recovery | Te rozszerzenia są instalowane na maszynie wirtualnej skonfigurowanej przy użyciu usługi Azure Site Recovery. Migracja magazynu używanego z Site Recovery będzie działać, ale będzie to miało wpływ na bieżącą replikację. Po migracji magazynu należy wyłączyć i włączyć replikację maszyny wirtualnej. |
+| Obliczenia |Wiele podsieci skojarzonych z maszyną wirtualną |Zaktualizuj konfigurację podsieci, aby odwoływać się tylko do jednej podsieci. Może to wymagać usunięcia pomocniczej karty sieciowej (odwołującej się do innej podsieci) z maszyny wirtualnej i ponownego dołączenia jej po zakończeniu migracji. |
+| Obliczenia |Maszyny wirtualne należące do sieci wirtualnej, ale nie mają przypisanej bezpośredniej podsieci |Opcjonalnie można usunąć maszynę wirtualną. |
+| Obliczenia |Maszyny wirtualne z alertami, zasady automatycznego skalowania |Migracja przechodzi przez te ustawienia. Zdecydowanie zaleca się oszacowanie środowiska przed przeprowadzeniem migracji. Alternatywnie można ponownie skonfigurować ustawienia alertów po zakończeniu migracji. |
+| Obliczenia |Maszyny wirtualne XML Extensions (BGInfo 1. *, debuger programu Visual Studio, Web Deploy i zdalne debugowanie) |To nie jest obsługiwane. Zaleca się usunięcie tych rozszerzeń z maszyny wirtualnej, aby kontynuować migrację, lub zostaną one usunięte automatycznie podczas procesu migracji. |
+| Obliczenia |Diagnostyka rozruchu z magazynem w warstwie Premium |Przed kontynuowaniem migracji Wyłącz funkcję diagnostyki rozruchu dla maszyn wirtualnych. Po zakończeniu migracji można ponownie włączyć diagnostykę rozruchu w stosie Menedżer zasobów. Ponadto obiekty blob, które są używane na potrzeby zrzutu ekranu i dzienników seryjnych, powinny zostać usunięte, aby nie były już naliczane opłaty za te obiekty blob. |
+| Obliczenia | Usługi w chmurze zawierające role sieci Web/procesu roboczego | Nie jest to obecnie obsługiwane. |
+| Obliczenia | Usługi w chmurze, które zawierają więcej niż jeden zestaw dostępności lub wiele zestawów dostępności. |Nie jest to obecnie obsługiwane. Aby przeprowadzić migrację, Przenieś Virtual Machines do tego samego zestawu dostępności. |
+| Obliczenia | Maszyna wirtualna z rozszerzeniem Azure Security Center | Azure Security Center automatycznie instaluje rozszerzenia na Virtual Machines w celu monitorowania ich zabezpieczeń i zgłaszania alertów. Rozszerzenia te zwykle są instalowane automatycznie, jeśli zasady Azure Security Center są włączone w ramach subskrypcji. Aby przeprowadzić migrację Virtual Machines, wyłącz zasady usługi Security Center w subskrypcji, co spowoduje usunięcie rozszerzenia monitorowania Security Center z Virtual Machines. |
+| Obliczenia | Maszyna wirtualna z rozszerzeniem kopii zapasowej lub migawek | Te rozszerzenia są instalowane na maszynie wirtualnej skonfigurowanej przy użyciu usługi Azure Backup. Mimo że migracja tych maszyn wirtualnych nie jest obsługiwana, postępuj zgodnie z poniższymi wskazówkami [, aby zachować](./migration-classic-resource-manager-faq.md#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) kopie zapasowe, które zostały wykonane przed migracją.  |
+| Obliczenia | Maszyna wirtualna z rozszerzeniem Azure Site Recovery | Te rozszerzenia są instalowane na maszynie wirtualnej skonfigurowanej przy użyciu usługi Azure Site Recovery. Migracja magazynu używanego z Site Recovery będzie działać, ale będzie to miało wpływ na bieżącą replikację. Po migracji magazynu należy wyłączyć i włączyć replikację maszyny wirtualnej. |
 | Sieć |Sieci wirtualne zawierające maszyny wirtualne i role sieci Web/proces roboczy |Nie jest to obecnie obsługiwane. Przed przeprowadzeniem migracji przenieś role sieci Web/proces roboczy do ich własnych Virtual Network. Po przeprowadzeniu migracji Virtual Network klasycznej Virtual Network zmigrowanego Azure Resource Manager można połączyć się za pomocą komunikacji równorzędnej z klasycznym Virtual Network w celu osiągnięcia podobnej konfiguracji zgodnie z wcześniejszym użyciem.|
 | Sieć | Klasyczne obwody usługi Express Route |Nie jest to obecnie obsługiwane. Przed rozpoczęciem migracji IaaS należy zmigrować te obwody do Azure Resource Manager. Aby dowiedzieć się więcej, zobacz [Przechodzenie obwodów usługi ExpressRoute z klasycznego modelu wdrażania do Menedżer zasobów](../expressroute/expressroute-move.md).|
 | Azure App Service |Sieci wirtualne, które zawierają środowiska App Service |Nie jest to obecnie obsługiwane. |
 | Azure HDInsight |Sieci wirtualne, które zawierają usługi HDInsight |Nie jest to obecnie obsługiwane. |
 | Usługi Microsoft Dynamics cykl życia |Sieci wirtualne z maszynami wirtualnymi zarządzanymi przez usługi Dynamics cykle życia |Nie jest to obecnie obsługiwane. |
-| Azure API Management |Sieci wirtualne zawierające wdrożenia usługi Azure API Management |Nie jest to obecnie obsługiwane. Aby przeprowadzić migrację sieci wirtualnej IaaS, Zmień sieć wirtualną wdrożenia API Management, która nie jest operacją przestoju. |
+| Usługa Azure API Management |Sieci wirtualne zawierające wdrożenia usługi Azure API Management |Nie jest to obecnie obsługiwane. Aby przeprowadzić migrację sieci wirtualnej IaaS, Zmień sieć wirtualną wdrożenia API Management, która nie jest operacją przestoju. |
 
 ## <a name="next-steps"></a>Następne kroki
 

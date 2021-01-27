@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 028250e25f4d67628c08970e25b4621e78526b6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0291b18952efc643de18e111154ebe58f041af
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440831"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880088"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Zdalna współpraca przy użyciu usługi Azure VPN Gateway Point-to-site
 
@@ -65,7 +65,7 @@ Na wysokim poziomie następujące kroki są niezbędne, aby umożliwić użytkow
 4. Skonfiguruj urządzenie lokalne w celu nawiązania połączenia z bramą sieci wirtualnej platformy Azure.
 5. Pobierz profil punkt-lokacja z Azure Portal i Dystrybuuj do klientów
 
-Aby dowiedzieć się, jak skonfigurować tunel VPN typu lokacja-lokacja, zobacz [ten link](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Aby dowiedzieć się, jak skonfigurować tunel VPN typu lokacja-lokacja, zobacz [ten link](./tutorial-site-to-site-portal.md).
 
 ## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>Często zadawane pytania dotyczące natywnego uwierzytelniania certyfikatu platformy Azure
 

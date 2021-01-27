@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 58f1c2621165a7074c04752832c6560b2fd3e423
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011969"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880139"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Przykład: Utwórz niestandardową umiejętność aparatu rozpoznawania formularzy
 
@@ -30,7 +30,7 @@ Na tym przykładzie usługi Azure Wyszukiwanie poznawcze zestawu umiejętności 
 
 ## <a name="train-your-model"></a>Szkolenie modelu
 
-Przed rozpoczęciem korzystania z tej umiejętności należy przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu formularzy wejściowych. Postępuj zgodnie z [przewodnikiem Szybki Start](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) , aby dowiedzieć się, jak szkolić model. Możesz użyć przykładowych formularzy dostarczonych w tym przewodniku szybki start lub można użyć własnych danych. Po przeszkoleniu modelu skopiuj jego wartość identyfikatora do bezpiecznej lokalizacji.
+Przed rozpoczęciem korzystania z tej umiejętności należy przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu formularzy wejściowych. Postępuj zgodnie z [przewodnikiem Szybki Start](../cognitive-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api) , aby dowiedzieć się, jak szkolić model. Możesz użyć przykładowych formularzy dostarczonych w tym przewodniku szybki start lub można użyć własnych danych. Po przeszkoleniu modelu skopiuj jego wartość identyfikatora do bezpiecznej lokalizacji.
 
 ## <a name="set-up-the-custom-skill"></a>Skonfiguruj niestandardową umiejętność
 

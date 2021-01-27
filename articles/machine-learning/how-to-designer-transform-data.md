@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70f5e17c4cc42201e9aa3d36c9937f6ceb9527d0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554019"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880207"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Przekształcanie danych w projektancie Azure Machine Learning
 
@@ -52,11 +52,7 @@ Aby zaimportować przykładowy zestaw danych, wykonaj następujące kroki.
 
 1. Przeciągnij i upuść **binarny zestaw danych klasyfikacji dochodów dla dorosłych** na kanwę.
 
-1. Wybierz moduł zestawu danych **dochodów dla dorosłych spisu** .
-
-1. W okienku szczegółów, które pojawia się po prawej stronie kanwy, wybierz pozycję dane **wyjściowe**.
-
-1. Wybierz ikonę wizualizacji ![ikona wizualizacji](media/how-to-designer-transform-data/visualize-icon.png).
+1. Kliknij prawym przyciskiem myszy moduł zestawu danych **dochodów z spisu dla dorosłych** , a następnie wybierz polecenie **Wizualizuj**  >  **zestaw danych wyjściowych**
 
 1. Użyj okna podglądu danych, aby eksplorować zestaw danych. Zwróć szczególną uwagę na wartości kolumny "rodzime kraje".
 
@@ -74,7 +70,7 @@ W tej sekcji użyjesz [modułu Split Data](algorithm-module-reference/split-data
 
 1. W okienku Szczegóły modułu z prawej strony kanwy Ustaw **tryb dzielenia** na **wyrażenie regularne**.
 
-1. Wprowadź **wyrażenie regularne** : `\"native-country" United-States` .
+1. Wprowadź **wyrażenie regularne**: `\"native-country" United-States` .
 
     Tryb **wyrażenia regularnego** testuje pojedynczą kolumnę dla wartości. Aby uzyskać więcej informacji na temat modułu Split Data (podział danych), zobacz [stronę referencyjną modułu algorytmu](algorithm-module-reference/split-data.md)powiązanego.
 
@@ -107,9 +103,9 @@ Teraz, gdy potok został skonfigurowany tak, aby podzielił dane, musisz określ
 
     **Magazyn** danych: wybierz istniejący magazyn danych lub wybierz pozycję "nowy magazyn danych", aby utworzyć go teraz.
 
-    **Ścieżka** : `/data/us-income`
+    **Ścieżka**: `/data/us-income`
 
-    **Format pliku** : CSV
+    **Format pliku**: CSV
 
     > [!NOTE]
     > W tym artykule przyjęto założenie, że masz dostęp do magazynu danych zarejestrowanego w bieżącym obszarze roboczym Azure Machine Learning. Aby uzyskać instrukcje dotyczące sposobu konfigurowania magazynu danych, zobacz [nawiązywanie połączenia z usługami Azure Storage](how-to-connect-data-ui.md#create-datastores).
@@ -124,9 +120,9 @@ Teraz, gdy potok został skonfigurowany tak, aby podzielił dane, musisz określ
 
     **Magazyn** danych: Wybierz ten sam magazyn danych, jak powyżej
 
-    **Ścieżka** : `/data/non-us-income`
+    **Ścieżka**: `/data/non-us-income`
 
-    **Format pliku** : CSV
+    **Format pliku**: CSV
 
 1. Upewnij się, że moduł **eksportu danych** połączony z lewym portem **danych z podziałem** ma **ścieżkę** `/data/us-income` .
 

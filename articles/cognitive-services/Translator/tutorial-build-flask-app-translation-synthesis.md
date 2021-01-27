@@ -3,20 +3,20 @@ title: 'Samouczek: Tworzenie aplikacji do kolby do translacji, wytłumaczania i 
 titleSuffix: Azure Cognitive Services
 description: W tym samouczku utworzysz aplikację sieci Web opartą na kolbie, która umożliwia tłumaczenie tekstu, analizowanie tonacji i syntezę przetłumaczonego tekstu w mowę.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 1cbe4d44f5e1c8b34a3d7bb9d05b9546f320b81c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 755e6370883bf39596850b45dc10f7efd3c9b55b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023475"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896684"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Samouczek: Tworzenie aplikacji do kolby za pomocą usługi Azure Cognitive Services
 

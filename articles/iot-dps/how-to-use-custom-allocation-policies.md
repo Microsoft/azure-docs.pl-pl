@@ -3,17 +3,17 @@ title: Niestandardowe zasady alokacji przy użyciu usługi Azure IoT Hub Device 
 description: Jak używać niestandardowych zasad alokacji przy użyciu usługi Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2019
+ms.date: 01/26/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 4931258af0dd50d091bec98824df5da0e91dbf53
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571644"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895770"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Jak używać niestandardowych zasad alokacji
 
@@ -66,7 +66,7 @@ W tej sekcji użyjesz Azure Cloud Shell, aby utworzyć usługę aprowizacji i dw
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Użyj Azure Cloud Shell, aby utworzyć usługę Device Provisioning za pomocą polecenia [AZ IoT DPS Create](/cli/azure/iot/dps#az-iot-dps-create) . Usługa aprowizacji zostanie dodana do *grupy contoso-US-Resource-Group*.
+2. Użyj Azure Cloud Shell, aby utworzyć usługę Device Provisioning (DPS) za pomocą polecenia [AZ IoT DPS Create](/cli/azure/iot/dps#az-iot-dps-create) . Usługa aprowizacji zostanie dodana do *grupy contoso-US-Resource-Group*.
 
     Poniższy przykład tworzy usługę aprowizacji o nazwie *contoso-Provisioning-Service-1098* w lokalizacji *zachodniej* . Musisz użyć unikatowej nazwy usługi. Utwórz własny sufiks w nazwie usługi zamiast **1098**.
 
@@ -96,6 +96,25 @@ W tej sekcji użyjesz Azure Cloud Shell, aby utworzyć usługę aprowizacji i dw
 
     Wykonanie tego polecenia może potrwać kilka minut.
 
+5. Centra IoT muszą być połączone z zasobem DPS. 
+
+    Uruchom następujące dwa polecenia, aby uzyskać parametry połączenia dla właśnie utworzonych centrów:
+
+    ```azurecli-interactive 
+    hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
+    hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
+    ```
+
+    Uruchom następujące polecenia, aby połączyć centra z zasobem DPS:
+
+    ```azurecli-interactive 
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubHeatpumpsConnectionString --location westus
+    ```
+
+
+
+
 ## <a name="create-the-custom-allocation-function"></a>Utwórz niestandardową funkcję alokacji
 
 W tej sekcji utworzysz funkcję platformy Azure, która implementuje niestandardowe zasady alokacji. Ta funkcja decyduje o tym, które Centrum IoT Hub powinno być zarejestrowane na podstawie tego, czy jego identyfikator rejestracji zawiera ciąg **-contoso-tstrsd-007** lub **-contoso-hpsd-088**. Ustawia również początkowy stan sznurka urządzenia w zależności od tego, czy urządzenie jest wyskakującym, czy pompą cieplną.
@@ -114,6 +133,8 @@ W tej sekcji utworzysz funkcję platformy Azure, która implementuje niestandard
 
     **Stos środowiska uruchomieniowego**: wybierz z listy rozwijanej pozycję **.NET Core** .
 
+    **Wersja**: wybierz pozycję **3,1** z listy rozwijanej.
+
     **Region**: Wybierz ten sam region, w którym znajduje się grupa zasobów. W tym przykładzie zastosowano **zachodnie stany USA**.
 
     > [!NOTE]
@@ -123,19 +144,15 @@ W tej sekcji utworzysz funkcję platformy Azure, która implementuje niestandard
 
 4. Na stronie **Podsumowanie** wybierz pozycję **Utwórz** , aby utworzyć aplikację funkcji. Wdrożenie może potrwać kilka minut. Po zakończeniu wybierz pozycję **Przejdź do zasobu**.
 
-5. W lewym okienku strony **Przegląd** aplikacji funkcji wybierz pozycję **+** obok pozycji **funkcje** , aby dodać nową funkcję.
+5. W lewym okienku strony **Przegląd** aplikacji funkcji kliknij pozycję **funkcje** , a następnie przycisk **Dodaj** , aby dodać nową funkcję.
 
-    ![Dodaj funkcję do aplikacja funkcji](./media/how-to-use-custom-allocation-policies/create-function.png)
+6. Na stronie **Dodawanie funkcji** kliknij pozycję **wyzwalacz http**, a następnie kliknij przycisk **Dodaj** .
 
-6. Na stronie **Azure Functions dla platformy .NET — wprowadzenie** w ramach kroku **Wybierz środowisko wdrożenia** wybierz kafelek **w portalu** , a następnie wybierz pozycję **Kontynuuj**.
+7. Na następnej stronie kliknij pozycję **Code + test**. Pozwala to na edycję kodu dla funkcji o nazwie **HttpTrigger1**. Plik kodu **Run. CSX** powinien zostać otwarty do edycji.
 
-    ![Wybierz środowisko programistyczne portalu](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
+8. Odwołuje się do wymaganych pakietów NuGet. Aby utworzyć początkową sznurek urządzenia, funkcja niestandardowej alokacji używa klas, które są zdefiniowane w dwóch pakietach NuGet, które muszą zostać załadowane do środowiska hostingu. W Azure Functions pakiety NuGet są wywoływane przy użyciu pliku *Function. proj* . W tym kroku zostanie zapisany i przekazany plik *Function. proj* dla wymaganych zestawów.  Aby uzyskać więcej informacji, zobacz [Używanie pakietów NuGet z Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
 
-7. Na następnej stronie dla kroku **Utwórz funkcję** wybierz kafelek **WEBHOOK i interfejs API** , a następnie wybierz pozycję **Utwórz**. Zostanie utworzona funkcja o nazwie **HttpTrigger1** , a w portalu zostanie wyświetlona zawartość pliku z kodem **Run. CSX** .
-
-8. Odwołuje się do wymaganych pakietów NuGet. Aby utworzyć początkową sznurek urządzenia, funkcja niestandardowej alokacji używa klas, które są zdefiniowane w dwóch pakietach NuGet, które muszą zostać załadowane do środowiska hostingu. W Azure Functions pakiety NuGet są wywoływane przy użyciu *funkcji. plik hosta* . W tym kroku zostanie zapisany i przekazany plik *funkcji. host* .
-
-    1. Skopiuj następujące wiersze do ulubionego edytora i Zapisz plik na komputerze jako *Function. host*.
+    1. Skopiuj następujące wiersze do ulubionego edytora i Zapisz plik na komputerze jako *Function. proj*.
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -143,21 +160,15 @@ W tej sekcji utworzysz funkcję platformy Azure, która implementuje niestandard
                 <TargetFramework>netstandard2.0</TargetFramework>  
             </PropertyGroup>  
             <ItemGroup>  
-                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.5.0" />  
-                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.16.0" />  
+                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.16.3" />
+                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.27.0" />
             </ItemGroup>  
         </Project>
         ```
 
-    2. W funkcji **HttpTrigger1** rozwiń kartę **Wyświetl pliki** po prawej stronie okna.
+    2. Kliknij przycisk **Przekaż** znajdujący się powyżej edytora kodu, aby przekazać plik *Function. proj* . Po przekazaniu wybierz plik w edytorze kodu przy użyciu pola rozwijanego, aby sprawdzić zawartość.
 
-        ![Otwórz pliki widoku](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
-
-    3. Wybierz pozycję **Przekaż**, przejdź do pliku **Function. proj** i wybierz pozycję **Otwórz** , aby przekazać plik.
-
-        ![Wybieranie pliku przekazywania](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
-
-9. Zastąp kod funkcji **HttpTrigger1** następującym kodem i wybierz pozycję **Zapisz**:
+9. Upewnij się, że w edytorze kodu została wybrana wartość *Run. CSX* dla **HttpTrigger1** . Zastąp kod funkcji **HttpTrigger1** następującym kodem i wybierz pozycję **Zapisz**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -314,29 +325,15 @@ W tej sekcji utworzysz nową grupę rejestracji, która używa niestandardowych 
 
     **Wybierz sposób przypisywania urządzeń do centrów**: wybierz pozycję **niestandardowa (Użyj funkcji platformy Azure)**.
 
+    **Subskrypcja**: wybierz subskrypcję, w której została utworzona funkcja platformy Azure.
+
+    **Aplikacja funkcji**: Wybierz aplikację funkcji według nazwy. w tym przykładzie użyto **contoso-Function-App-1098** .
+
+    **Funkcja**: wybierz funkcję **HttpTrigger1** .
+
     ![Dodaj grupę rejestracji niestandardowej alokacji na potrzeby zaświadczania klucza symetrycznego](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. W obszarze **Dodaj grupę rejestracji** wybierz pozycję **Połącz nowe centrum IoT Hub** , aby połączyć oba nowe centra usługi IoT.
-
-    Wykonaj ten krok dla obu centrów obsługi IoT.
-
-    **Subskrypcja**: Jeśli masz wiele subskrypcji, wybierz subskrypcję, w której utworzono centra usługi IoT.
-
-    **Centrum IoT**: Wybierz jeden z utworzonych centrów rozdziałowych.
-
-    **Zasady dostępu**: Wybierz **iothubowner**.
-
-    ![Łączenie centrów IoT z usługą aprowizacji](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
-
-5. Na stronie **Dodawanie grupy rejestracji**, gdy oba centra usługi IoT zostały połączone, należy je wybrać jako grupę IoT Hub grupy rejestracji, jak pokazano poniżej:
-
-    ![Tworzenie grupy centrów rozdziałowych na potrzeby rejestracji](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
-
-6. Na stronie **Dodaj grupę rejestracji** przewiń w dół do sekcji **Wybierz funkcję platformy Azure** , a następnie wybierz aplikację funkcji utworzoną w poprzedniej sekcji. Następnie wybierz utworzoną funkcję i wybierz pozycję Zapisz, aby zapisać grupę rejestracji.
-
-    ![Wybierz funkcję i Zapisz grupę rejestracji](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
-
-7. Po zapisaniu rejestracji Otwórz ją ponownie i zanotuj **klucz podstawowy**. Musisz najpierw zapisać rejestrację, aby generować klucze. Ten klucz zostanie użyty do wygenerowania unikatowych kluczy urządzeń dla symulowanych urządzeń.
+4. Po zapisaniu rejestracji Otwórz ją ponownie i zanotuj **klucz podstawowy**. Musisz najpierw zapisać rejestrację, aby generować klucze. Ten klucz zostanie użyty do wygenerowania unikatowych kluczy urządzeń dla symulowanych urządzeń.
 
 ## <a name="derive-unique-device-keys"></a>Utwórz unikatowe klucze urządzeń
 
@@ -386,7 +383,7 @@ Jeśli używasz stacji roboczej z systemem Windows, możesz użyć programu Powe
     $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
     $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $hmacsha256.key = [Convert]::FromBase64String($KEY)
     $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
     $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
     $derivedkey1 = [Convert]::ToBase64String($sig1)

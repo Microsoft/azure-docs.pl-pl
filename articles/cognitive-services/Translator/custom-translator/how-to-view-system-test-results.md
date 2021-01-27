@@ -2,19 +2,19 @@
 title: Wyświetlanie wyników testu systemu i wdrożenia — translator niestandardowy
 titleSuffix: Azure Cognitive Services
 description: Po pomyślnym zakończeniu szkolenia Przejrzyj testy systemowe, aby przeanalizować wyniki szkolenia. Jeśli masz zadowalające wyniki szkolenia, umieść żądanie wdrożenia dla modelu przeszkolonego.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 542f62f04adc7d4858e4b4621b0ae85e906434ad
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: cae2c95e56312c58d396d1e578f4677ce2b14aa2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369328"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895938"
 ---
 # <a name="view-system-test-results"></a>Wyświetlanie wyników testu systemu
 

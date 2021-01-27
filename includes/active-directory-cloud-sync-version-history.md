@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 35cb7ba4523cfbc88daf958fd972b127519385ce
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 69f0da2f1528ad1f45762a8f754cc2020b4cb880
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792396"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901088"
 ---
 W tym artykule wymieniono wersje i funkcje agenta aprowizacji Azure Active Directory Connect, który został wystawiony. Zespół usługi Azure AD regularnie aktualizuje agenta aprowizacji za pomocą nowych funkcji i funkcjonalności. Agent aprowizacji jest automatycznie aktualizowany po wydaniu nowej wersji. 
 
@@ -99,5 +99,3 @@ Firma Microsoft zapewnia bezpośrednią pomoc techniczną dotyczącą najnowszej
 * Odnowionych agenta aprowizacji i architektury łącznika w celu zapewnienia lepszej wydajności, stabilności i niezawodności 
 * Uproszczona konfiguracja agenta aprowizacji przy użyciu Kreatora instalacji opartej na interfejsie użytkownika 
 * Dodano obsługę automatycznych aktualizacji agenta
-
-

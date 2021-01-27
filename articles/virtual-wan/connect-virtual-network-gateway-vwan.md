@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 469d7ba9e86751312ebf6a6c82b35f065ee6cb50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922965"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880376"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Łączenie VPN Gateway (Brama sieci wirtualnej) z wirtualną siecią WAN
 
@@ -20,7 +20,7 @@ Ten artykuł ułatwia skonfigurowanie łączności z usługą Azure VPN Gateway 
 
 Aby zminimalizować możliwe pomyłki między dwoma funkcjami, firma Microsoft ponosi bramę o nazwie funkcji, do której się odwołuje. Na przykład VPN Gateway bramy sieci wirtualnej i bramy sieci VPN wirtualnej sieci WAN.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem Utwórz następujące zasoby:
 
@@ -91,7 +91,7 @@ W tej sekcji pobrano plik konfiguracji sieci VPN dla każdej lokacji utworzonej 
 
 W tej sekcji utworzysz dwie bramy sieci lokalnej na platformie Azure VPN Gateway. Pliki konfiguracji z poprzedniego kroku zawierają ustawienia konfiguracji bramy. Te ustawienia służą do tworzenia i konfigurowania bram sieci lokalnej platformy Azure VPN Gateway.
 
-1. Utwórz bramę sieci lokalnej przy użyciu tych ustawień. Aby uzyskać informacje dotyczące sposobu tworzenia VPN Gateway bramy sieci lokalnej, zobacz artykuł VPN Gateway [Tworzenie bramy sieci lokalnej](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway).
+1. Utwórz bramę sieci lokalnej przy użyciu tych ustawień. Aby uzyskać informacje dotyczące sposobu tworzenia VPN Gateway bramy sieci lokalnej, zobacz artykuł VPN Gateway [Tworzenie bramy sieci lokalnej](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
 
    * **Adres IP** — Użyj adresu IP Instance0 podanego dla *gatewayconfiguration* z pliku konfiguracji.
    * **BGP** — Jeśli połączenie jest nawiązywane za pośrednictwem protokołu BGP, wybierz pozycję **Konfiguruj ustawienia protokołu BGP** i wprowadź numer ASN "65515". Wprowadź adres IP elementu równorzędnego BGP. Użyj "Instance0 BgpPeeringAddresses" dla *gatewayconfiguration* z pliku konfiguracyjnego.
@@ -105,7 +105,7 @@ W tej sekcji utworzysz dwie bramy sieci lokalnej na platformie Azure VPN Gateway
 
 ## <a name="5-create-connections"></a><a name="createlocalgateways"></a>5. Utwórz połączenia
 
-W tej sekcji utworzysz połączenie między bramami sieci lokalnej VPN Gateway i bramą sieci wirtualnej. Aby uzyskać instrukcje dotyczące sposobu tworzenia połączenia VPN Gateway, zobacz [Configure a Connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection).
+W tej sekcji utworzysz połączenie między bramami sieci lokalnej VPN Gateway i bramą sieci wirtualnej. Aby uzyskać instrukcje dotyczące sposobu tworzenia połączenia VPN Gateway, zobacz [Configure a Connection](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection).
 
 1. W portalu przejdź do bramy sieci wirtualnej, a następnie kliknij pozycję **połączenia**. W górnej części strony Połączenia kliknij pozycję **+Dodaj**, aby otworzyć stronę **Dodawanie połączenia**.
 2. Na stronie **Dodawanie połączenia** skonfiguruj następujące wartości dla połączenia:
