@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84a3ef7b41b17e85c594213246211d45911ac56a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953053"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918215"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Samouczek: rejestrowanie aplikacji sieci Web w Azure Active Directory B2C
 
@@ -98,6 +98,14 @@ W przypadku aplikacji sieci Web należy utworzyć klucz tajny aplikacji. Ten klu
 1. Wybierz pozycję **Zapisz** , aby wyświetlić klucz. Zanotuj wartość pola **Klucz aplikacji**. Ta wartość jest używana jako klucz tajny aplikacji w kodzie aplikacji.
 
 * * *
+
+## <a name="enable-id-token-implicit-grant"></a>Włącz niejawne przyznanie tokenu identyfikatora
+
+Definiowanie cech charakterystycznych niejawnego udzielenia to tokeny, takie jak identyfikatory i tokeny dostępu, są zwracane bezpośrednio z Azure AD B2C do aplikacji. W przypadku aplikacji sieci Web, takich jak ASP.NET Core Web Apps i [https://jwt.ms](https://jwt.ms) , które żądają tokenu identyfikatora bezpośrednio od punktu końcowego autoryzacji, należy włączyć przepływ niejawnego przydzielenia w rejestracji aplikacji.
+
+1. W menu po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+1. W obszarze niejawne przyznanie zaznacz pola wyboru **tokeny dostępu** i **tokeny identyfikatora** .
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

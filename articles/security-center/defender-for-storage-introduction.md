@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 675751433657a7d630d0c42482716702f520ff82
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 42e8a1f4ff06f6ca6af4afd428008ca174823c5f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881388"
+ms.locfileid: "98916425"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Wprowadzenie do usługi Azure Defender dla magazynu
 
@@ -25,7 +25,7 @@ Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie w aktywności. Te al
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|**Usługa Azure Defender dla magazynu** jest rozliczana zgodnie z opisem na [stronie cennika](security-center-pricing.md)|
 |Chronione typy magazynów:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|

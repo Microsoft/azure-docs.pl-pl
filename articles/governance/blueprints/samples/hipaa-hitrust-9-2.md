@@ -1,14 +1,14 @@
 ---
 title: Przykładowy plan HIPAA HITRUST 9,2 — Omówienie
 description: Omówienie przykładu planu HIPAA HITRUST 9,2. Ten przykładowy plan ułatwia klientom ocenę określonych kontrolek HIPAA HITRUST 9,2.
-ms.date: 09/04/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 4df6f05019976b3de1172cc5127c27ac00fe3c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd65b6113f291457096bacc02bdbcfd92d6e0f84
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89493694"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915549"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>Przykład planu HIPAA HITRUST 9,2
 
@@ -18,7 +18,7 @@ Przykład planu HIPAA HITRUST 9,2 zawiera funkcję ładu Guard-szyny używające
 
 [Mapowanie formantów Azure Policy](../../policy/samples/hipaa-hitrust-9-2.md) zawiera szczegółowe informacje dotyczące definicji zasad uwzględnionych w ramach tego planu oraz sposób mapowania tych definicji zasad do **domen zgodności** i **kontrolek** w HIPAA HiTRUST 9,2. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Wdrażanie
+## <a name="deploy"></a>Wdróż
 
 Aby wdrożyć przykład planów platformy Azure HIPAA HITRUST 9,2, należy wykonać następujące czynności:
 
@@ -41,7 +41,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
-   - **Nazwa**planu: Podaj nazwę kopii przykładu planu HIPAA HiTRUST 9,2.
+   - **Nazwa** planu: Podaj nazwę kopii przykładu planu HIPAA HiTRUST 9,2.
    - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
@@ -60,7 +60,7 @@ Twoja kopia przykładu strategii została utworzona w środowisku. Została ona 
 
 ### <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
-Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
+Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -76,7 +76,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
        Jeśli chcesz, możesz ją zmienić lub pozostawić.
      - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Wersja definicji**planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
+     - **Wersja definicji** planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
 
    - Przypisanie blokady
 

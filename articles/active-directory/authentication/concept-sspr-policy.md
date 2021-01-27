@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 980e830716b66b63c8f2dc6e641a88af26d44871
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 80be5ca22f3dfb673f09327108e66fccc9de6ddd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027068"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918047"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Zasady haseł i ograniczenia kont w Azure Active Directory
 
@@ -75,6 +75,7 @@ Zasady dwóch bram wymagają dwóch danych uwierzytelniania, takich jak adres e-
   * Obsługa pomoc partnera
   * Obsługa SVR partnera
   * Administrator programu Exchange
+  * Administrator skrzynek pocztowych
   * Administrator programu Skype dla firm
   * Administrator użytkowników
   * Autorzy katalogów
@@ -85,10 +86,12 @@ Zasady dwóch bram wymagają dwóch danych uwierzytelniania, takich jak adres e-
   * Administrator zabezpieczeń
   * Administrator ról uprzywilejowanych
   * Administrator usługi Intune
+  * Lokalny administrator urządzenia przyłączonego do usługi Azure AD
   * Administrator usługi serwera proxy aplikacji
   * Administrator systemu Dynamics 365
   * Administrator usługi Power BI
   * Administrator uwierzytelniania
+  * Administrator haseł
   * Administrator uprzywilejowanego uwierzytelniania
 
 * W przypadku upływu 30 dni od subskrypcji próbnej oraz

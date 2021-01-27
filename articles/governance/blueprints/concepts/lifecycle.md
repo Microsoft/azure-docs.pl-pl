@@ -1,14 +1,14 @@
 ---
 title: Zapoznaj się z cyklem życia planu
 description: Dowiedz się więcej na temat cyklu życia, przez który przechodzą definicje planu i szczegółowe informacje o każdym z etapów, w tym aktualizowanie i usuwanie przypisań strategii.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721a198b5732af01c6712e86bc0c8e8ef543b404
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049710"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918521"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Zapoznaj się z cyklem życia Azure Blueprint
 
@@ -34,7 +34,7 @@ Utwórz i Edytuj plan za pomocą [Azure Portal](../create-blueprint-portal.md#cr
 
 ## <a name="publishing-a-blueprint"></a>Publikowanie strategii
 
-Gdy wszystkie planowane zmiany zostały wprowadzone do planu w trybie **wersji roboczej** , można je **opublikować** i udostępnić do przypisania. **Opublikowana** wersja planu nie może zostać zmieniona. Po **opublikowaniu**plan jest wyświetlany z inną ikoną niż szkice **robocze** i wyświetla podany numer wersji w kolumnie **Najnowsza wersja** .
+Gdy wszystkie planowane zmiany zostały wprowadzone do planu w trybie **wersji roboczej** , można je **opublikować** i udostępnić do przypisania. **Opublikowana** wersja planu nie może zostać zmieniona. Po **opublikowaniu** plan jest wyświetlany z inną ikoną niż szkice **robocze** i wyświetla podany numer wersji w kolumnie **Najnowsza wersja** .
 
 Opublikuj plan za pomocą [Azure Portal](../create-blueprint-portal.md#publish-a-blueprint) lub [interfejsu API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
 
@@ -79,7 +79,7 @@ Usuń plan z [Azure portalem](../create-blueprint-portal.md#delete-a-blueprint) 
 
 ## <a name="assignments"></a>Przypisania
 
-W trakcie cyklu życia można przypisać plan do subskrypcji. Po **opublikowaniu**trybu wersji planu ta wersja może być przypisana do subskrypcji. Ten cykl życia umożliwia korzystanie z wersji planu i aktywnie przypisywania podczas tworzenia nowszej wersji.
+W trakcie cyklu życia można przypisać plan do subskrypcji. Po **opublikowaniu** trybu wersji planu ta wersja może być przypisana do subskrypcji. Ten cykl życia umożliwia korzystanie z wersji planu i aktywnie przypisywania podczas tworzenia nowszej wersji.
 
 Gdy są przypisane wersje planów, ważne jest, aby zrozumieć, gdzie są przypisane, i z którymi parametrami zostały przypisane. Parametry mogą być statyczne lub dynamiczne. Aby dowiedzieć się więcej, zobacz [Parametry statyczne i dynamiczne](./parameters.md).
 

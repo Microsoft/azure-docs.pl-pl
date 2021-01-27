@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak tworzyć i konfigurować magazyny 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387738"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915730"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Tworzenie i Konfigurowanie magazynu Recovery Services
 
@@ -46,9 +46,9 @@ Przywrócenie opcji przywracania **między regionami (CRR)** umożliwia przywró
 
 Obsługuje następujące źródła danych:
 
-- Maszyny wirtualne platformy Azure
-- Bazy danych SQL hostowane na maszynach wirtualnych platformy Azure
-- SAP HANA baz danych hostowanych na maszynach wirtualnych platformy Azure
+- Maszyny wirtualne platformy Azure (ogólna dostępność)
+- Bazy danych SQL hostowane na maszynach wirtualnych Azure (wersja zapoznawcza)
+- SAP HANA baz danych hostowanych na maszynach wirtualnych Azure (wersja zapoznawcza)
 
 Użycie funkcji przywracania między regionami umożliwia:
 
@@ -65,11 +65,12 @@ Ponieważ ten proces jest na poziomie magazynu, istnieją [implikacje cenowe](ht
 >Przed rozpoczęciem:
 >
 >- Zapoznaj się z [matrycą pomocy technicznej](backup-support-matrix.md#cross-region-restore) , aby zapoznać się z listą obsługiwanych typów i regionów zarządzanych.
->- Funkcja przywracania między regionami (CRR) jest teraz wyświetlana we wszystkich publicznych regionach platformy Azure.
+>- Funkcja przywracania między regionami (CRR) dla maszyn wirtualnych platformy Azure jest teraz ogólnie dostępna we wszystkich regionach publicznych platformy Azure.
+>- Przywracanie między regionami dla baz danych SQL i SAP HANA jest w wersji zapoznawczej we wszystkich regionach publicznych platformy Azure.
 >- CRR to funkcja wyboru poziomu magazynu dla dowolnego magazynu GRS (domyślnie wyłączona).
 >- Po przypisaniu elementów kopii zapasowych w regionach pomocniczych może upłynąć do 48 godzin.
 >- Obecnie CRR dla maszyn wirtualnych platformy Azure są obsługiwane tylko dla maszyn wirtualnych platformy Azure z usługą Azure Resource Manager. Klasyczne maszyny wirtualne platformy Azure nie będą obsługiwane.  Gdy dodatkowe typy zarządzania obsługują CRR, zostaną one **automatycznie** zarejestrowane.
->- Nie można obecnie przywrócić operacji przywracania między regionami do GRS lub LRS po zainicjowaniu ochrony po raz pierwszy.
+>- **Nie można obecnie** przywrócić operacji przywracania między regionami do GRS lub LRS po zainicjowaniu ochrony po raz pierwszy.
 
 ### <a name="configure-cross-region-restore"></a>Konfigurowanie przywracania między regionami
 

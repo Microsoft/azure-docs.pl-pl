@@ -1,14 +1,14 @@
 ---
 title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem definicji zasad, różnymi zestawami SDK i dodatkiem dla Kubernetes.
-ms.date: 12/01/2020
+ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6f31f6e6f8d24f83f44dc14112f1bdc90c8af859
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897075"
+ms.locfileid: "98917747"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Rozwiązywanie problemów z używaniem Azure Policy
 
@@ -36,13 +36,14 @@ W definicji zasad użyto nieprawidłowego lub nieistniejącego aliasu.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Najpierw sprawdź, czy właściwość Menedżer zasobów ma alias. Aby wyszukać dostępne aliasy, przejdź do [Azure Policy rozszerzenia Visual Studio Code](../how-to/extension-for-vscode.md) lub zestawu SDK. Jeśli alias dla właściwości Menedżer zasobów nie istnieje, Utwórz bilet pomocy technicznej.
+Najpierw sprawdź, czy właściwość Menedżer zasobów ma alias. Aby wyszukać dostępne aliasy, przejdź do [Azure Policy rozszerzenia Visual Studio Code](../how-to/extension-for-vscode.md) lub zestawu SDK.
+Jeśli alias dla właściwości Menedżer zasobów nie istnieje, Utwórz bilet pomocy technicznej.
 
 ### <a name="scenario-evaluation-details-arent-up-to-date"></a>Scenariusz: Szczegóły oceny są nieaktualne
 
 #### <a name="issue"></a>Problem
 
-Zasób jest w stanie *nieuruchomionym* lub szczegóły zgodności nie są aktualne.
+Zasób jest w stanie _nieuruchomionym_ lub szczegóły zgodności nie są aktualne.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -90,7 +91,8 @@ Zasób, którego oczekujesz, Azure Policy na działanie nie działa, a w [dzienn
 
 #### <a name="cause"></a>Przyczyna
 
-Przypisanie zasad zostało skonfigurowane dla ustawienia [**wymuszania**](../concepts/assignment-structure.md#enforcement-mode) _wyłączone_. Gdy **wymuszanie** jest wyłączone, efekt zasad nie jest wymuszany, a w dzienniku aktywności nie ma wpisu.
+Przypisanie zasad zostało skonfigurowane dla ustawienia [**wymuszania**](../concepts/assignment-structure.md#enforcement-mode) _wyłączone_.
+Gdy **wymuszanie** jest wyłączone, efekt zasad nie jest wymuszany, a w dzienniku aktywności nie ma wpisu.
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -186,7 +188,7 @@ Definicje zasad, które były wcześniej używane w definicjach DeployIfNotExist
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Definicje, które wcześniej powodowały ten problem, są wyświetlane jako *[przestarzałe]* i zostały zastąpione przez definicje zasad, które zarządzają wymaganiami wstępnymi bez usuwania tożsamości zarządzanych przypisanych przez użytkownika. Wymagany jest krok ręczny. Usuń wszystkie istniejące przypisania zasad, które są oznaczone jako *[przestarzałe]*, i zastąp je uaktualnioną zasadą wymagań wstępnych i definicjami zasad, które mają taką samą nazwę jak oryginalna.
+Definicje, które wcześniej powodowały ten problem, są wyświetlane jako _\[ przestarzałe \]_ i są zastępowane przez definicje zasad, które zarządzają wymaganiami wstępnymi bez usuwania tożsamości zarządzanych przypisanych przez użytkownika. Wymagany jest krok ręczny. Usuń wszystkie istniejące przypisania zasad, które są oznaczone jako _\[ przestarzałe \]_, i zastąp je za pomocą zaktualizowanej inicjatywy zasad i definicji zasad, które mają taką samą nazwę jak oryginalna.
 
 Aby uzyskać szczegółowe opisy, zobacz wpis w blogu [ważna zmiana dotycząca zasad inspekcji konfiguracji gościa](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316).
 
@@ -226,11 +228,11 @@ Dodatek nie może nawiązać połączenia z punktem końcowym usługi Azure Poli
 Ten błąd występuje, gdy w klastrze jest zainstalowana wartość _Add-pod-Identity_ i _polecenia-systemowe_ nie są wykluczone w _usłudze AAD-pod-Identity_.
 
 Identyfikator zarządzania (NMI) w _usłudze AAD-pod-Identity_ (usługa) — dołączenie iptables umożliwia modyfikację węzłów w celu przechwycenia wywołań do punktu końcowego metadanych wystąpienia platformy Azure. Ta konfiguracja oznacza, że wszystkie żądania wykonywane w punkcie końcowym metadanych są przechwytywane przez NMI, nawet jeśli nie korzystają z usługi _AAD-pod-Identity_.
-*AzurePodIdentityException* CUSTOMRESOURCEDEFINITION (CRD) można skonfigurować tak, aby informować usługi _AAD-pod-Identity_ , że wszystkie żądania kierowane do punktu końcowego metadanych, które pochodzą ze zgodnych etykiet zdefiniowanych w CRD, powinny być serwerem proxy bez żadnego przetwarzania w NMI.
+_AzurePodIdentityException_ CUSTOMRESOURCEDEFINITION (CRD) można skonfigurować tak, aby informować usługi _AAD-pod-Identity_ , że wszystkie żądania kierowane do punktu końcowego metadanych, które pochodzą ze zgodnych etykiet zdefiniowanych w CRD, powinny być serwerem proxy bez żadnego przetwarzania w NMI.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Wyklucz systemowe nazwy systemu, które mają `kubernetes.azure.com/managedby: aks` etykietę w _polecenia-systemową_ przestrzeń nazw w _usłudze AAD-pod-Identity_ , konfigurując *AzurePodIdentityException* CRD.
+Wyklucz systemowe nazwy systemu, które mają `kubernetes.azure.com/managedby: aks` etykietę w _polecenia-systemową_ przestrzeń nazw w _usłudze AAD-pod-Identity_ , konfigurując _AzurePodIdentityException_ CRD.
 
 Aby uzyskać więcej informacji, zobacz temat [wyłączanie tożsamości usługi Azure Active Directory (Azure AD) pod kątem określonego elementu/aplikacji](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
 
@@ -264,11 +266,11 @@ spec:
 Dodatek może nawiązać połączenie z punktem końcowym usługi Azure Policy, ale dzienniki dodatków zawierają jeden z następujących błędów:
 
 - `The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
-https://aka.ms/policy-register-subscription for how to register subscriptions.`
+  https://aka.ms/policy-register-subscription for how to register subscriptions.`
 
 - `policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
-StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
-Code="InternalServerError" Message="Encountered an internal server error.`
+  StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+  Code="InternalServerError" Message="Encountered an internal server error.`
 
 #### <a name="cause"></a>Przyczyna
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dcfbacb788225d936b236c901e9477a9bbb23b94
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: ecbccf2ba9f49699b89782cfb687f5790841eb9e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585296"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918314"
 ---
 # <a name="updated-ndv2-series"></a>Zaktualizowana seria NDv2
 
@@ -38,6 +38,7 @@ Krytycznie, NDv2 jest zbudowany na potrzeby skalowania w górę i skalowalnego w
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 2<br>
+[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
 InfiniBand: obsługiwane<br>
 NVIDIA NVLink Interconnect: obsługiwane<br>
 <br>

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 01/27/2021
 ms.author: memildin
-ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5dd58dd5f43481184b17ca4bdd694a1df76697db
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784952"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916471"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -46,6 +46,7 @@ Aktualizacje w styczniu obejmują:
 - [35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [Eksport CSV przefiltrowanej listy zaleceń](#csv-export-of-filtered-list-of-recommendations)
 - [Zasoby "nie dotyczy" są teraz zgłaszane jako "zgodne" w Azure Policy oceny](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
+- [Eksportuj cotygodniowe migawki bezpiecznego oceny i danych zgodności z przepisami przy użyciu eksportu ciągłego (wersja zapoznawcza)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
 
 
 ### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>Usługa Azure Security test jest teraz domyślną inicjatywy zasad dla Azure Security Center
@@ -224,6 +225,18 @@ Wcześniej zasoby, które zostały ocenione pod kątem rekomendacji i nie są **
 Jedyny wpływ będzie widoczny w Azure Policy, w którym zostanie zwiększona liczba zgodnych zasobów. Nie będzie to miało wpływu na Twój bezpieczny wynik w Azure Security Center.
 
 
+### <a name="export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview"></a>Eksportuj cotygodniowe migawki bezpiecznego oceny i danych zgodności z przepisami przy użyciu eksportu ciągłego (wersja zapoznawcza)
+
+Dodaliśmy nową funkcję w wersji zapoznawczej do narzędzi [eksportu ciągłego](continuous-export.md) do eksportowania cotygodniowych migawek bezpiecznego oceny i danych zgodności z przepisami.
+
+Podczas definiowania eksportu ciągłego należy ustawić częstotliwość eksportowania:
+
+:::image type="content" source="media/release-notes/export-frequency.png" alt-text="Wybieranie częstotliwości eksportu ciągłego":::
+
+- **Przesyłanie strumieniowe** — oceny są wysyłane w czasie rzeczywistym, gdy stan kondycji zasobu zostanie zaktualizowany (jeśli nie wystąpią żadne aktualizacje, nie będą wysyłane żadne dane).
+- **Migawki** — migawka bieżącego stanu wszystkich ocen zgodności z przepisami będzie wysyłana co tydzień (jest to funkcja w wersji zapoznawczej dla cotygodniowych migawek bezpiecznych ocen i danych zgodności z przepisami).
+
+Dowiedz się więcej na temat pełnych możliwości tej funkcji w [sposób ciągły eksportujący dane Security Center](continuous-export.md)
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 

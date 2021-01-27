@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341757"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916188"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Adaptacyjne Zabezpieczanie sieci w Azure Security Center
 Dowiedz się, jak konfigurować adaptacyjną ochronę sieci w Security Center.
@@ -26,7 +26,7 @@ Dowiedz się, jak konfigurować adaptacyjną ochronę sieci w Security Center.
 ## <a name="availability"></a>Dostępność
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
 |Wymagane role i uprawnienia:|Uprawnienia do zapisu na sieciowych grup zabezpieczeń komputera|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
@@ -60,7 +60,7 @@ Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń m
       * Brak **wystarczającej ilości danych**: w celu wygenerowania dokładnego zalecenia dotyczącego ograniczania ruchu, Security Center wymaga co najmniej 30 dni danych ruchu.
       * **Maszyna wirtualna nie jest chroniona przez usługę Azure Defender**: dla tej funkcji kwalifikują się tylko maszyny wirtualne chronione za pomocą [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md) .
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Uzyskiwanie dostępu do narzędzi adaptacyjnego zabezpieczania sieci":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Strona szczegółów rekomendacji rekomendacji dotyczącej ograniczania przepustowości sieci należy stosować w przypadku maszyn wirtualnych mających dostęp do Internetu.":::
 
 1. Na karcie **zasoby w złej kondycji** wybierz maszynę wirtualną, aby wyświetlić jej alerty i zalecane reguły ograniczania funkcjonalności, które mają zostać zastosowane.
 
@@ -71,19 +71,19 @@ Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń m
 
     - [Modyfikowanie reguły](#modify-rule)
     - [Usuwanie reguły](#delete-rule) 
-    - [Dodawanie reguły](#add-rule)
+    - [Dodaj regułę](#add-rule)
 
 3. Wybierz reguły, które chcesz zastosować w sieciowej grupy zabezpieczeń, a następnie kliknij pozycję **Wymuszaj**.
 
     > [!TIP]
     > Jeśli dozwolone źródłowe zakresy adresów IP są wyświetlane jako "Brak", oznacza to, że zalecaną regułą jest reguła *Odmów* , w przeciwnym razie jest to reguła *zezwalania* .
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Uzyskiwanie dostępu do narzędzi adaptacyjnego zabezpieczania sieci":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Zarządzanie regułami adaptacyjnego zabezpieczania sieci":::
 
       > [!NOTE]
       > Zasady wymuszane są dodawane do sieciowej grupy ZABEZPIECZEŃów chroniących maszynę wirtualną. (Maszyna wirtualna może być chroniona przez sieciowej grupy zabezpieczeń, która jest skojarzona z kartą sieciową lub podsieć, w której znajduje się maszyna wirtualna, lub obie)
 
-### <a name="modify-a-rule"></a>Modyfikowanie reguły <a name ="modify-rule"> </a>
+### <a name="modify-a-rule"></a>Modyfikowanie reguły <a name ="modify-rule"></a>
 
 Możesz chcieć zmodyfikować parametry reguły, która została zalecana. Na przykład możesz chcieć zmienić zalecane zakresy adresów IP.
 
@@ -108,7 +108,7 @@ Niektóre ważne wskazówki dotyczące modyfikowania reguły ograniczania funkcj
 1. W oknie **Edytowanie reguły** Zaktualizuj szczegóły, które chcesz zmienić, a następnie kliknij przycisk **Zapisz**.
 
    > [!NOTE]
-   > Po kliknięciu przycisku **Zapisz**pomyślnie zmieniono regułę. *Nie została jednak zastosowana do sieciowej grupy zabezpieczeń.* Aby go zastosować, należy wybrać regułę z listy i wybrać pozycję **Wymuszaj** (zgodnie z opisem w następnym kroku).
+   > Po kliknięciu przycisku **Zapisz** pomyślnie zmieniono regułę. *Nie została jednak zastosowana do sieciowej grupy zabezpieczeń.* Aby go zastosować, należy wybrać regułę z listy i wybrać pozycję **Wymuszaj** (zgodnie z opisem w następnym kroku).
 
    ![Wybieranie pozycji Zapisz](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
@@ -116,7 +116,7 @@ Niektóre ważne wskazówki dotyczące modyfikowania reguły ograniczania funkcj
 
     ![Wymuś regułę](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### <a name="add-a-new-rule"></a>Dodaj nową regułę <a name ="add-rule"> </a>
+### <a name="add-a-new-rule"></a>Dodaj nową regułę <a name ="add-rule"></a>
 
 Można dodać regułę "Zezwalaj", która nie jest zalecana przez Security Center.
 
@@ -132,14 +132,14 @@ Można dodać regułę "Zezwalaj", która nie jest zalecana przez Security Cente
 1. W oknie **Nowa reguła** wprowadź szczegóły, a następnie kliknij przycisk **Dodaj**.
 
    > [!NOTE]
-   > Po kliknięciu przycisku **Dodaj**reguła została pomyślnie dodana i zostanie wyświetlona na liście z innymi zalecanymi regułami. Nie została jednak zastosowana w sieciowej grupy zabezpieczeń. Aby go uaktywnić, należy wybrać regułę z listy, a następnie kliknąć pozycję **Wymuszaj** (zgodnie z opisem w następnym kroku).
+   > Po kliknięciu przycisku **Dodaj** reguła została pomyślnie dodana i zostanie wyświetlona na liście z innymi zalecanymi regułami. Nie została jednak zastosowana w sieciowej grupy zabezpieczeń. Aby go uaktywnić, należy wybrać regułę z listy, a następnie kliknąć pozycję **Wymuszaj** (zgodnie z opisem w następnym kroku).
 
 3. Aby zastosować nową regułę, z listy wybierz nową regułę, a następnie kliknij pozycję **Wymuszaj**.
 
     ![Wymuś regułę](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### <a name="delete-a-rule"></a>Usuwanie reguły <a name ="delete-rule"> </a>
+### <a name="delete-a-rule"></a>Usuwanie reguły <a name ="delete-rule"></a>
 
 W razie potrzeby można usunąć zalecaną regułę dla bieżącej sesji. Na przykład można określić, że stosowanie sugerowanej reguły może blokować wiarygodny ruch.
 

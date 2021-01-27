@@ -1,15 +1,15 @@
 ---
 title: Praca z dużymi zestawami danych
 description: Informacje na temat pobierania, formatowania, wyświetlania i pomijania rekordów w dużych zestawach danych podczas pracy z wykresem zasobów platformy Azure.
-ms.date: 09/30/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59f69738bf9fe25cb739539b7a1f93e4499d781a
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826020"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917694"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Praca z dużymi zestawami danych zasobów platformy Azure
 
@@ -65,7 +65,7 @@ W [interfejsie API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/
 ## <a name="paging-results"></a>Stronicowanie wyników
 
 Gdy konieczne jest przerwanie zestawu wyników w mniejszych zestawach rekordów do przetworzenia lub ponieważ zestaw wyników będzie przekroczyć maksymalną dozwoloną wartość _1000_ zwracanych rekordów, należy użyć stronicowania. [Interfejs API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 
- **QueryResponse** udostępnia wartości wskazujące, że zestaw wyników został podzielony: **resultTruncated** i **$skipToken**. **resultTruncated** jest wartością logiczną, która informuje odbiorcę, jeśli w odpowiedzi nie zostały zwrócone dodatkowe rekordy. Ten stan można również zidentyfikować, gdy właściwość **Count** jest mniejsza niż Właściwość **totalRecords** . **totalRecords** definiuje liczbę rekordów, które pasują do zapytania.
+ **QueryResponse** udostępnia wartości wskazujące, że zestaw wyników został podzielony: **resultTruncated** i **$skipToken**. **resultTruncated** jest wartością logiczną, która informuje odbiorcę, jeśli w odpowiedzi występuje więcej rekordów, które nie zostały zwrócone. Ten stan można również zidentyfikować, gdy właściwość **Count** jest mniejsza niż Właściwość **totalRecords** . **totalRecords** definiuje liczbę rekordów, które pasują do zapytania.
 
  **resultTruncated** ma **wartość true** , Jeśli stronicowanie jest wyłączone lub niemożliwe, ponieważ nie ma żadnej `id` kolumny lub gdy nie są dostępne mniej zasobów niż żądanie zapytania. Gdy **resultTruncated** ma **wartość true**, właściwość **$skipToken** nie jest ustawiona.
 

@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 76b83a608c7178b42b762d5fd5bb94d14a6ee41b
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: a19e90a15991cdc03999bf43d5bece63325aab05
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797762"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916578"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Wprowadzenie do usługi Azure Defender dla Kubernetes
 
@@ -28,7 +28,7 @@ Wykrywanie zagrożeń na poziomie hosta dla węzłów AKS systemu Linux jest dos
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|**Usługa Azure Defender for Kubernetes** jest rozliczana zgodnie z opisem na [stronie cennika](security-center-pricing.md)|
 |Wymagane role i uprawnienia:|**Administrator zabezpieczeń** może odrzucić alerty.<br>**Czytelnik zabezpieczeń** może przeglądać wyniki.|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|

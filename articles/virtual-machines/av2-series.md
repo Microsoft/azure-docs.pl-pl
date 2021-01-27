@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3419b54fa18058583d81909f7fca0f20dc4b0dd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650752"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917137"
 ---
 # <a name="av2-series"></a>Seria Av2
 
@@ -24,6 +24,7 @@ Maszyny wirtualne z serii Av2 można wdrażać na różnych typach sprzętu i pr
 [Migracja na żywo](maintenance-and-updates.md): obsługiwane <br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane <br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 <br>
+[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): nieobsługiwane<br>
 <br>
 
 | Rozmiar | Rdzenie wirtualne | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu: IOPS/Odczyt MB/s/zapis MB/s | Maksymalna liczba dysków danych/przepływność: IOPS | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s)

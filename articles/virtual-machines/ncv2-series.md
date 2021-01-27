@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 97fa5148d7de7cac67a69c8d9c21721cb57951d3
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2b37b69390c75b30575377dddf7ffb1d2cf5b9cf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585393"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917365"
 ---
 # <a name="ncv2-series"></a>Seria NCv2
 
@@ -25,6 +25,7 @@ Konfiguracja NC24rs v2 zapewnia małe opóźnienia i wysoką przepływność int
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): nieobsługiwane<br>
 NVIDIA NVLink Interconnect: nieobsługiwane
 
 > [!IMPORTANT]

@@ -1,14 +1,14 @@
 ---
 title: Uzyskiwanie zmian zasobów
 description: Dowiedz się, jak znaleźć, kiedy zasób został zmieniony, uzyskać listę właściwości, które uległy zmianie, i Oceń różnice.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 58dcb7256b0876d5e7fa9d7569db102538f92bab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203470"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917425"
 ---
 # <a name="get-resource-changes"></a>Uzyskiwanie zmian zasobów
 
@@ -144,7 +144,7 @@ Każde wykryte zdarzenie zmiany dla **ResourceID** ma następujące właściwoś
 - **changeId** — ta wartość jest unikatowa dla tego zasobu. Ciąg **changeId** może czasami zawierać inne właściwości, dlatego jest tylko unikatowy.
 - **beforeSnapshot** — zawiera **snapshotId** i **sygnaturę czasową** migawki zasobu, która została wykonana przed wykryciem zmiany.
 - **afterSnapshot** — zawiera **snapshotId** i **sygnaturę czasową** migawki zasobu, która została wykonana po wykryciu zmiany.
-- **ChangeType** — opisuje typ zmiany wykryty dla całego rekordu zmiany między **beforeSnapshot** i **afterSnapshot**. Wartości to: _Tworzenie_, _Aktualizowanie_i _usuwanie_. Tablica właściwości **propertyChanges** jest uwzględniana tylko wtedy, gdy **ChangeType** jest _aktualizacją_.
+- **ChangeType** — opisuje typ zmiany wykryty dla całego rekordu zmiany między **beforeSnapshot** i **afterSnapshot**. Wartości to: _Tworzenie_, _Aktualizowanie_ i _usuwanie_. Tablica właściwości **propertyChanges** jest uwzględniana tylko wtedy, gdy **ChangeType** jest _aktualizacją_.
 - **propertyChanges** — ta tablica właściwości zawiera szczegóły wszystkich właściwości zasobów, które zostały zaktualizowane między **beforeSnapshot** i **afterSnapshot**:
   - **PropertyName** — nazwa właściwości zasobu, która została zmieniona.
   - **changeCategory** — opisuje, jak została wprowadzona zmiana. Wartości to: _system_ i _użytkownik_.

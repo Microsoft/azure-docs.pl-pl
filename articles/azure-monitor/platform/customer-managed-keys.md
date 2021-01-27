@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757546"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917836"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -30,9 +30,6 @@ Klucz zarządzany przez klienta jest dostarczany w [dedykowanych klastrach](../l
 Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft niezależnie od konfiguracji klucza zarządzanego przez klienta, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#key-revocation). Pracujemy nad zaszyfrowaniem danych SSD z kluczem zarządzanym przez klienta w pierwszej połowie 2021.
 
 Log Analytics dedykowane klastry używają [modelu cenowego](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
-
-> [!IMPORTANT]
-> Ze względu na tymczasowe ograniczenia pojemności firma Microsoft wymaga wstępnego zarejestrowania się przed utworzeniem klastra. Użyj swoich kontaktów do firmy Microsoft lub Otwórz żądanie pomocy technicznej, aby zarejestrować identyfikatory subskrypcji.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Jak działa klucz zarządzany przez klienta w Azure Monitor
 
@@ -68,7 +65,6 @@ Mają zastosowanie następujące zasady:
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Procedura inicjowania obsługi klucza Customer-Managed
 
-1. Rejestrowanie subskrypcji w celu zezwolenia na tworzenie klastra
 1. Tworzenie Azure Key Vault i przechowywanie klucza
 1. Tworzenie klastra
 1. Przyznawanie uprawnień do Key Vault
@@ -107,10 +103,6 @@ Authorization: Bearer <token>
 ```
 
 ---
-
-### <a name="allowing-subscription"></a>Zezwalanie na subskrypcję
-
-Użyj swoich kontaktów do firmy Microsoft lub Otwórz żądanie pomocy technicznej w Log Analytics, aby podać swoje identyfikatory subskrypcji.
 
 ## <a name="storing-encryption-key-kek"></a>Przechowywanie klucza szyfrowania (KEK)
 

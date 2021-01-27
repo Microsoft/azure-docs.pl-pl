@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 833837c317d22bf031aee4608ff4c93775736a34
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9e20c21694678acf7be13ccbbe9cce9af38c32c5
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757444"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915713"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -150,8 +150,8 @@ Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia d
 
 | Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    | Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Maszyna wirtualna platformy Azure               | Obsługiwane w przypadku maszyn wirtualnych platformy Azure z dyskami zarządzanymi i niezarządzanymi. Nieobsługiwane w przypadku klasycznych maszyn wirtualnych. | Wszystkie regiony publiczne platformy Azure.  |
-| SQL/SAP HANA | Tak                                                          | Wszystkie regiony publiczne poza Francją |
+| Maszyna wirtualna platformy Azure               | Obsługiwane w przypadku maszyn wirtualnych platformy Azure z dyskami zarządzanymi i niezarządzanymi. Nieobsługiwane w przypadku klasycznych maszyn wirtualnych. | Dostępne we wszystkich regionach publicznych platformy Azure, z wyjątkiem Francji środkowe, Australia Środkowa, Północna Republika Południowej Afryki, Zjednoczone Emiraty Arabskie, Szwajcaria Północna, Niemcy Środkowo-Zachodnie, Norwegia Wschodnia. <br>Aby uzyskać informacje o używaniu w tych regionach, skontaktuj się z [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| SQL/SAP HANA | W wersji zapoznawczej                                                      | Dostępne we wszystkich regionach publicznych platformy Azure, z wyjątkiem Francji środkowe, Australia Środkowa, Północna Republika Południowej Afryki, Zjednoczone Emiraty Arabskie, Szwajcaria Północna, Niemcy Środkowo-Zachodnie, Norwegia Wschodnia. <br>Aby uzyskać informacje o używaniu w tych regionach, skontaktuj się z [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | Agent MARS/lokalnie  | Nie                                                           | Nie dotyczy               |
 | AFS (udziały plików platformy Azure)                 | Nie                                                           | Nie dotyczy               |
 

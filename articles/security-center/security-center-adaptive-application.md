@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 473353c3f61d1096beb11c521c08ac723d54b780
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071610"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916137"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -50,7 +50,7 @@ Przez Definiowanie list znanych bezpiecznych aplikacji oraz generowanie alertów
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
 |Obsługiwane maszyny:|![Tak na ](./media/icons/yes-icon.png) platformie Azure i na maszynach spoza platformy Azure z systemem Windows i Linux<br>![Tak — ](./media/icons/yes-icon.png) maszyny [usługi Azure Arc](../azure-arc/index.yml)|
 |Wymagane role i uprawnienia:|Role czytnika i **czytnika** **zabezpieczeń** mogą wyświetlać grupy i listy znanych bezpiecznych aplikacji<br>Role administratora **współautora** i **zabezpieczeń** mogą edytować grupy i listy znanych bezpiecznych aplikacji|
@@ -209,7 +209,7 @@ Po przeniesieniu maszyny z jednej grupy do innej zasady kontroli aplikacji zasto
 
 1. Wybierz grupę docelową, a następnie wybierz pozycję **Przenieś maszynę**.
 
-1. Aby zapisać zmiany, wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**, aby zapisać zmiany.
 
 
 

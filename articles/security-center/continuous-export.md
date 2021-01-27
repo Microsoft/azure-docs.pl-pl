@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832713"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916792"
 ---
 # <a name="continuously-export-security-center-data"></a>Ciągłe eksportowanie danych Security Center
 
@@ -25,6 +25,8 @@ Azure Security Center generuje szczegółowe alerty zabezpieczeń i zalecenia. M
 - Wszystkie informacje o średnim lub wyższym znaczeniu dotyczące skanowania w celu oceny luk w zabezpieczeniach serwerów SQL są wysyłane do określonego obszaru roboczego Log Analytics
 - Konkretne zalecenia są dostarczane do centrum zdarzeń lub Log Analytics obszaru roboczego, gdy są generowane 
 - Wynik bezpiecznego dla subskrypcji jest wysyłany do obszaru roboczego Log Analytics, gdy wynik kontrolki zmieni się o 0,01 lub więcej 
+
+Mimo że funkcja jest wywoływana jako *ciągła*, istnieje również opcja eksportu cotygodniowych migawek danych dotyczących zgodności z wynikami lub zgodność z przepisami.
 
 W tym artykule opisano sposób konfigurowania eksportu ciągłego do Log Analytics obszarów roboczych lub Event Hubs platformy Azure.
 
@@ -39,7 +41,7 @@ W tym artykule opisano sposób konfigurowania eksportu ciągłego do Log Analyti
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|<ul><li>**Administrator zabezpieczeń** lub **właściciel** w grupie zasobów</li><li>Uprawnienia do zapisu dla zasobu docelowego</li><li>Jeśli używasz zasad "DeployIfNotExist" Azure Policy "opisanych poniżej, będziesz mieć również uprawnienia do przypisywania zasad</li></ul>|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov, inne gov<br>![Tak](./media/icons/yes-icon.png) Chiny gov (do centrum zdarzeń)|
@@ -78,6 +80,10 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
     W tym miejscu są wyświetlane opcje eksportowania. Dla każdego dostępnego elementu docelowego eksportu istnieje karta. 
 
 1. Wybierz typ danych, który chcesz wyeksportować, i wybierz spośród filtrów dla każdego typu (na przykład wyeksportuj tylko alerty o wysokiej ważności).
+1. Wybierz odpowiednią częstotliwość eksportu:
+    - **Przesyłanie strumieniowe** — oceny są wysyłane w czasie rzeczywistym, gdy stan kondycji zasobu zostanie zaktualizowany (jeśli nie wystąpią żadne aktualizacje, nie będą wysyłane żadne dane).
+    - **Migawki** — migawka bieżącego stanu wszystkich ocen zgodności z przepisami będzie wysyłana co tydzień (jest to funkcja w wersji zapoznawczej dla cotygodniowych migawek bezpiecznych ocen i danych zgodności z przepisami).
+
 1. Opcjonalnie, jeśli wybór zawiera jedno z tych zaleceń, można dołączyć do nich wyniki oceny luk w zabezpieczeniach:
     - Oceny luk w zabezpieczeniach baz danych SQL należy skorygować
     - Oceny luk w zabezpieczeniach na serwerach SQL na maszynach należy skorygować (wersja zapoznawcza)

@@ -1,14 +1,14 @@
 ---
 title: Używanie parametrów do tworzenia planów dynamicznych
 description: Poznaj parametry statyczne i dynamiczne oraz sposób ich używania do tworzenia bezpiecznych i dynamicznych planów.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dbf7ec02e89eac791ec3e17202a5ab13a04b81d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651961"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918538"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Tworzenie dynamicznych planów za poorednictwem parametrów
 
@@ -28,7 +28,7 @@ Za pomocą interfejsu API REST, parametry można tworzyć na podstawie samego pl
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Używanie parametrów secureString i secureobject
 
-Chociaż _artefakt_ szablonu ARM obsługuje parametry typu **secureString** i **secureobject** , plany platformy Azure wymagają, aby każdy z nich był połączony z Azure Key vaultem. Ta miara zabezpieczeń zapobiega niebezpiecznemu wykorzystaniu wpisów tajnych wraz z planem i zachęcaniu do pracy z bezpiecznymi wzorcami. Plany platformy Azure wspierają ten pomiar zabezpieczeń, co umożliwia wykrywanie dołączania dowolnego zabezpieczonego parametru w _artefaktie_szablonu ARM. Podczas przypisywania zostanie wyświetlony komunikat o następujących właściwościach Key Vault na wykryty bezpieczny parametr:
+Chociaż _artefakt_ szablonu ARM obsługuje parametry typu **secureString** i **secureobject** , plany platformy Azure wymagają, aby każdy z nich był połączony z Azure Key vaultem. Ta miara zabezpieczeń zapobiega niebezpiecznemu wykorzystaniu wpisów tajnych wraz z planem i zachęcaniu do pracy z bezpiecznymi wzorcami. Plany platformy Azure wspierają ten pomiar zabezpieczeń, co umożliwia wykrywanie dołączania dowolnego zabezpieczonego parametru w _artefaktie_ szablonu ARM. Podczas przypisywania zostanie wyświetlony komunikat o następujących właściwościach Key Vault na wykryty bezpieczny parametr:
 
 - Identyfikator zasobu Key Vault
 - Key Vault nazwa klucza tajnego
@@ -65,7 +65,7 @@ Wartość parametru zdefiniowana w definicji strategii jest nazywana **parametre
 
 1. Na stronie **Edytowanie artefaktu** są wyświetlane opcje wartości odpowiednie dla wybranego artefaktu. Każdy parametr artefaktu ma tytuł, pole wartości i pole wyboru. Ustaw pole tak, aby nie było sprawdzane jako **parametr statyczny**. W poniższym przykładzie tylko _Lokalizacja_ jest **parametrem statycznym** , ponieważ nie jest zaznaczone i sprawdzana jest _Nazwa grupy zasobów_ .
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Zrzut ekranu przedstawiający definicję planu oraz wyróżnione &quot;X of Y Parameters&quot;." border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Zrzut ekranu przedstawiający parametry statyczne w artefaktie planu." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Ustawianie parametrów statycznych z interfejsu API REST
 
@@ -176,11 +176,11 @@ Przeciwieństwem parametru statycznego jest **parametr dynamiczny**. Ten paramet
 
 1. Na stronie **Przypisz plan** Znajdź sekcję **Parametry artefaktu** . Każdy artefakt z co najmniej jednym **parametrem dynamicznym** wyświetla artefakt i opcje konfiguracji. Podaj wymagane wartości parametrów przed przypisaniem planu. W poniższym przykładzie _Nazwa_ jest **parametrem dynamicznym** , który musi być zdefiniowany, aby można było wykonać przypisanie do planu.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Zrzut ekranu przedstawiający definicję planu oraz wyróżnione &quot;X of Y Parameters&quot;." border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Zrzut ekranu przedstawiający Ustawianie parametrów dynamicznych podczas przypisywania planu." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ustawianie parametrów dynamicznych z interfejsu API REST
 
-Ustawienie **parametrów dynamicznych** podczas przypisywania jest wykonywane przez bezpośrednie wprowadzenie wartości. Zamiast używać funkcji, takiej jak [Parametry ()](../reference/blueprint-functions.md#parameters), podana wartość jest odpowiednim ciągiem. Artefakty dla grupy zasobów są definiowane przy użyciu właściwości "Nazwa szablonu", **Nazwa**i **Lokalizacja** . Wszystkie inne parametry dla dołączonego artefaktu są zdefiniowane w **parametrach** z **\<name\>** parą kluczy i. **value** Jeśli plan jest skonfigurowany dla parametru dynamicznego, który nie jest dostarczany podczas przypisywania, przypisanie zakończy się niepowodzeniem.
+Ustawienie **parametrów dynamicznych** podczas przypisywania jest wykonywane przez bezpośrednie wprowadzenie wartości. Zamiast używać funkcji, takiej jak [Parametry ()](../reference/blueprint-functions.md#parameters), podana wartość jest odpowiednim ciągiem. Artefakty dla grupy zasobów są definiowane przy użyciu właściwości "Nazwa szablonu", **Nazwa** i **Lokalizacja** . Wszystkie inne parametry dla dołączonego artefaktu są zdefiniowane w **parametrach** z **\<name\>** parą kluczy i.  Jeśli plan jest skonfigurowany dla parametru dynamicznego, który nie jest dostarczany podczas przypisywania, przypisanie zakończy się niepowodzeniem.
 
 - Identyfikator URI interfejsu API REST
 

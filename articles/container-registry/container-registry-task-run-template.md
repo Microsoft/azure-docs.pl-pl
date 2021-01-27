@@ -3,12 +3,12 @@ title: Szybkie uruchamianie zadań z szablonem
 description: Zakolejkowanie uruchomienia zadania ACR w celu skompilowania obrazu przy użyciu szablonu Azure Resource Manager
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e8023c088ac328c2b6e95fccd0230c4d40325c1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82927772"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916069"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Uruchamianie zadań ACR przy użyciu szablonów Menedżer zasobów
 
@@ -46,7 +46,7 @@ Na potrzeby tego przykładu podaj wartości dla następujących parametrów szab
 |taskRunName     |Nazwa uruchomienia zadania, która określa tag obrazu |
 |sourceLocation     |Kontekst zdalny dla zadania kompilacji, na przykład https://github.com/Azure-Samples/acr-build-helloworld-node . Pliku dockerfile w katalogu głównym repozytorium tworzy obraz kontenera dla małej Node.js aplikacji sieci Web. W razie potrzeby użyj rozwidlenia repozytorium jako kontekstu kompilacji.         |
 
-### <a name="deploy-the-template"></a>Wdrażanie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wdróż szablon za pomocą polecenia [AZ Deployment Group Create][az-deployment-group-create] . Ten przykład kompiluje i wypycha plik *HelloWorld-Node: przebiegu testowego* do rejestru o nazwie *mycontainerregistry*.
 
@@ -58,7 +58,7 @@ az deployment group create \
     registryName=mycontainerregistry \
     repository=helloworld-node \
     taskRunName=testrun \
-    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git
+    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
  ```
 
 Poprzednie polecenie przekazuje parametry w wierszu polecenia. W razie potrzeby Przekaż je do [pliku parametrów](../azure-resource-manager/templates/parameter-files.md).
@@ -112,7 +112,7 @@ Dane wyjściowe przedstawiają dziennik uruchomienia zadania.
 Możesz również wyświetlić dziennik przebiegu zadania w Azure Portal. 
 
 1. Przejdź do rejestru kontenerów
-2. W obszarze **usługi**wybierz pozycję **zadania**  >  **uruchomienia**.
+2. W obszarze **usługi** wybierz pozycję **zadania**  >  **uruchomienia**.
 3. Wybierz identyfikator przebiegu, w tym przypadku *CA1*. 
 
 W portalu jest wyświetlany dziennik uruchamiania zadań.
@@ -187,10 +187,10 @@ Na potrzeby tego przykładu podaj wartości dla następujących parametrów szab
 |userAssignedIdentity |Identyfikator zasobu tożsamości przypisanej przez użytkownika w zadaniu|
 |customRegistryIdentity | Identyfikator klienta dla tożsamości przypisanej przez użytkownika w zadaniu, używany do uwierzytelniania za pomocą rejestru niestandardowego |
 |customRegistry |Nazwa serwera logowania rejestru niestandardowego, do którego można uzyskać dostęp w zadaniu, na przykład *mybaseregistry.azurecr.IO*|
-|sourceLocation     |Kontekst zdalny dla zadania kompilacji, na przykład * https://github.com/ \<your-GitHub-ID\> /ACR-Build-HelloWorld-Node.* |
+|sourceLocation     |Kontekst zdalny dla zadania kompilacji, na przykład *https://github.com/ \<your-GitHub-ID\> /ACR-Build-HelloWorld-Node.* |
 |dockerFilePath | Ścieżka do pliku dockerfile w kontekście zdalnym, użyta do utworzenia obrazu. |
 
-### <a name="deploy-the-template"></a>Wdrażanie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wdróż szablon za pomocą polecenia [AZ Deployment Group Create][az-deployment-group-create] . Ten przykład kompiluje i wypycha plik *HelloWorld-Node: przebiegu testowego* do rejestru o nazwie *mycontainerregistry*. Obraz podstawowy jest pobierany z *mybaseregistry.azurecr.IO*.
 
@@ -204,7 +204,7 @@ az deployment group create \
     taskRunName=basetask \
     userAssignedIdentity=$resourceID \
     customRegistryIdentity=$clientID \
-    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git \
+    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git#main \
     dockerFilePath=Dockerfile-test \
     customRegistry=mybaseregistry.azurecr.io
 ```

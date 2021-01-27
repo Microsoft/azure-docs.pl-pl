@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: zarządzanie zapytaniami w Azure Portal'
 description: W tym samouczku utworzysz zapytanie grafu zasobów i udostępnisz nowe zapytanie innym osobom w Azure Portal.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7240a843cfa041137b28284e396c8a4b62a81926
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057930"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916682"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Samouczek: Tworzenie i udostępnianie kwerendy wykresu zasobów platformy Azure w Azure Portal
 
@@ -62,7 +62,7 @@ Zapytania prywatne są dostępne i widoczne tylko dla konta, które je tworzy. P
 
 W przeciwieństwie do zapytania prywatnego, udostępnione zapytanie jest zasobem Menedżer zasobów. Oznacza to, że zapytanie jest zapisywane w grupie zasobów, można je zarządzać i kontrolować przy użyciu funkcji RBAC na platformie Azure i nawet być chronione przy użyciu blokad zasobów. Jako zasób, każdy, kto ma odpowiednie uprawnienia, może go zobaczyć i używać. Aby utworzyć nowe zapytanie udostępnione, wykonaj następujące kroki:
 
-1. W menu portalu wybierz pozycję **wszystkie usługi**lub użyj pola wyszukiwania Azure w górnej części wszystkich stron, aby wyszukać i wybrać pozycję **Eksplorator grafów zasobów**.
+1. W menu portalu wybierz pozycję **wszystkie usługi** lub użyj pola wyszukiwania Azure w górnej części wszystkich stron, aby wyszukać i wybrać pozycję **Eksplorator grafów zasobów**.
 
 1. Na karcie **zapytanie 1** na stronie Eksplorator zasobów platformy Azure wprowadź następujące zapytanie:
 
@@ -82,13 +82,13 @@ W przeciwieństwie do zapytania prywatnego, udostępnione zapytanie jest zasobem
 
 1. W okienku **Zapisz zapytanie** wprowadź wartość w polu **Liczba maszyn wirtualnych według systemu operacyjnego** .
 
-1. Zmień typ na **zapytanie udostępnione**, Ustaw opis na **Liczba maszyn wirtualnych według typu systemu operacyjnego**i ustaw **subskrypcję** , aby określić miejsce utworzenia zasobu zapytania.
+1. Zmień typ na **zapytanie udostępnione**, Ustaw opis na **Liczba maszyn wirtualnych według typu systemu operacyjnego** i ustaw **subskrypcję** , aby określić miejsce utworzenia zasobu zapytania.
 
 1. Pozostaw zaznaczone pole wyboru **Publikuj do zasobów-Graph-zapytania** , a w **pozycji Grupa zasobów** ustaw wartość **(Stany Zjednoczone) zachodnie stany USA**.
 
 1. Wybierz pozycję **Zapisz** w dolnej części okienka **Zapisz zapytanie** . Tytuł karty zostanie zmieniony z **zapytania 1** na **liczbę maszyn wirtualnych według systemu operacyjnego**. Przy pierwszym użyciu grupy zasobów **zapytania z wykresem zasobów** czas zapisywania trwa dłużej niż oczekiwano, gdy grupa zasobów zostanie utworzona.
    
-   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Zapisz nowe zapytanie przy użyciu przycisku Zapisz" border="false":::
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Zapisz nowe zapytanie jako zapytanie udostępnione" border="false":::
 
    > [!NOTE] 
    > Możesz wyczyścić pole wyboru **Publikuj do zasobów-Graph-** querys, jeśli chcesz podać nazwę istniejącej grupy zasobów, w której ma zostać zapisane zapytanie udostępnione. Użycie domyślnej nazwy grupy zasobów dla zapytań sprawia, że zapytania udostępnione są łatwiejsze do odnajdywania. Umożliwia również dokładniejsze przeznaczenie tej grupy zasobów. Można jednak wybrać istniejącą grupę zasobów ze względów bezpieczeństwa na podstawie istniejących uprawnień.
@@ -97,7 +97,7 @@ W przeciwieństwie do zapytania prywatnego, udostępnione zapytanie jest zasobem
 
 1. Wybierz pozycję **Otwórz zapytanie**. Sprawdź, czy typ jest ustawiony na **zapytanie udostępnione** i czy kombinacja **subskrypcji** i **grupy zasobów** jest zgodna z miejscem, w którym zapisano zapytanie. Liczba zapisanych **maszyn wirtualnych według elementu systemu operacyjnego** zostanie teraz wyświetlona na liście **Nazwa zapytania** . Wybierz łącze tytuł zapisanego zapytania, aby załadować je do nowej karty zawierającej nazwę tego zapytania. Jako zapytanie udostępnione wyświetla ikonę na karcie obok tytułu, oznaczając ją jako udostępnioną.
 
-   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Zapisz nowe zapytanie przy użyciu przycisku Zapisz" border="false":::
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Pokaż udostępnione zapytanie z ikoną" border="false":::
 
    > [!NOTE] 
    > Gdy zapisane zapytanie jest otwarte, a karta wyświetla jego nazwę, przycisk **Zapisz** aktualizuje go przy użyciu wszelkich wprowadzonych zmian. Aby utworzyć nowe zapisane zapytanie, wybierz pozycję **Zapisz jako** i postępuj zgodnie z tym, jeśli zapisano zupełnie nowe zapytanie.

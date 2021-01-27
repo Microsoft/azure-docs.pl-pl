@@ -1,14 +1,14 @@
 ---
 title: Omówienie przykładu strategii NIST SP 800-53 R4
 description: Omówienie przykładu strategii NIST SP 800-53 R4. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli NIST SP 800-53 R4.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: f40451e1e82833aba4f626052e708f2c1136f832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b773013c61a8bed3c5c5f4e8b24878f10889f954
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048775"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918131"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Przykładowy plan NIST SP 800-53 R4
 
@@ -18,7 +18,7 @@ Przykład strategii NIST SP 800-53 R4 udostępnia wytyczne dotyczące ładu w us
 
 [Mapowanie formantów Azure Policy](../../policy/samples/nist-sp-800-53-r4.md) zawiera szczegółowe informacje o definicjach zasad uwzględnionych w ramach tego planu oraz o tym, jak te definicje zasad są mapowane do **domen zgodności** i **kontroli** w ramach NIST SP 800-53 R4. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Wdrażanie
+## <a name="deploy"></a>Wdróż
 
 Aby wdrożyć usługę Azure Plans NIST SP 800-53 R4, należy wykonać następujące czynności:
 
@@ -41,7 +41,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
-   - **Nazwa**planu: Podaj nazwę kopii przykładowej strategii NIST SP 800-53 R4.
+   - **Nazwa** planu: Podaj nazwę kopii przykładowej strategii NIST SP 800-53 R4.
    - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
@@ -60,7 +60,7 @@ Twoja kopia przykładu strategii została utworzona w środowisku. Została ona 
 
 ### <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
-Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
+Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -76,7 +76,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
        Jeśli chcesz, możesz ją zmienić lub pozostawić.
      - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Wersja definicji**planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
+     - **Wersja definicji** planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
 
    - Przypisanie blokady
 

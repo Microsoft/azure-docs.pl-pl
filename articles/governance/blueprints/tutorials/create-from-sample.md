@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: przykład strategii do nowego środowiska'
 description: W tym samouczku użyto przykładu strategii do utworzenia definicji planu, która konfiguruje dwie grupy zasobów i konfiguruje przypisanie roli dla każdego z nich.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea3760128221d42e092e4ca45200874d54da54a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048736"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915560"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Samouczek: Tworzenie środowiska na podstawie przykładu strategii
 
@@ -39,7 +39,7 @@ Najpierw Zaimplementuj przykład strategii. Importowanie powoduje utworzenie now
 
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
-   - **Nazwa**planu: Podaj nazwę kopii przykładu strategii. W tym samouczku zostanie użyta nazwa _2-RGS-with-role-przypisań_.
+   - **Nazwa** planu: Podaj nazwę kopii przykładu strategii. W tym samouczku zostanie użyta nazwa _2-RGS-with-role-przypisań_.
    - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania lub subskrypcję, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
@@ -68,7 +68,7 @@ Po **pomyślnym** wyświetleniu powiadomienia portalu publikowanie definicji str
 
 ## <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
-Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
+Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -84,7 +84,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy definicji planu.
      - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
        Na potrzeby tego samouczka wybierz pozycję _Wschodnie stany USA 2_.
-     - **Wersja definicji**planu: Wybierz **opublikowaną** wersję _1,0_ kopii przykładowej definicji planu.
+     - **Wersja definicji** planu: Wybierz **opublikowaną** wersję _1,0_ kopii przykładowej definicji planu.
 
    - Przypisanie blokady
 
@@ -144,7 +144,7 @@ Przypisanie planu tworzy i śledzi artefakty zdefiniowane w definicji strategii.
 
 1. Zaznacz pozycję Odmów przypisania, a następnie wybierz stronę **odmowa uprawnień** po lewej stronie.
 
-   Przypisanie Odmów uniemożliwia wszystkie operacje z **\*** konfiguracją i akcjami, ale zezwala na dostęp do odczytu przez wykluczenie **NotActions** ** \* /Read** za pośrednictwem **noactions** .
+   Przypisanie odmowy uniemożliwia wszystkie operacje z konfiguracją **\* akcji *_ i _*** , ale zezwala na dostęp do odczytu przez wykluczenie **\* /Read** **za pośrednictwem** noiss.
 
 1. Ze stron nadrzędnych Azure Portal wybierz pozycję **Kontrola dostępu PreProductionRG (IAM)**. Następnie wybierz stronę **Przegląd** po lewej stronie, a następnie przycisk **Usuń grupę zasobów** . Wprowadź nazwę _PreProductionRG_ , aby potwierdzić usunięcie, a następnie wybierz pozycję **Usuń** w dolnej części okienka.
 

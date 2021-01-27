@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: Ochrona nowych zasobów przy użyciu blokad'
 description: W tym samouczku użyto opcji blokowania zasobów usługi Azure Plans tylko do odczytu i nie usuwaj, aby chronić nowo wdrożone zasoby.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048574"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915410"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Samouczek: Ochrona nowych zasobów przy użyciu blokad zasobów usługi Azure Plans
 
@@ -35,12 +35,12 @@ Najpierw Utwórz definicję planu.
 
 1. Na stronie **pierwsze kroki** z lewej strony wybierz pozycję **Utwórz** w obszarze **Utwórz plan**.
 
-1. Znajdź **pustą** przykładową strategię planów w górnej części strony. Wybierz pozycję **Rozpocznij od pustego**planu.
+1. Znajdź **pustą** przykładową strategię planów w górnej części strony. Wybierz pozycję **Rozpocznij od pustego** planu.
 
 1. Wprowadź te informacje na karcie **podstawowe** :
 
-   - **Nazwa**planu: Podaj nazwę kopii przykładu strategii. W tym samouczku użyjemy nazwy **"locked-storageaccount"**.
-   - **Opis**planu: Dodaj opis definicji planu. Służy **do testowania blokowania zasobów planu dla wdrożonych zasobów**.
+   - **Nazwa** planu: Podaj nazwę kopii przykładu strategii. W tym samouczku użyjemy nazwy **"locked-storageaccount"**.
+   - **Opis** planu: Dodaj opis definicji planu. Służy **do testowania blokowania zasobów planu dla wdrożonych zasobów**.
    - **Lokalizacja definicji**: wybierz przycisk wielokropka (...), a następnie wybierz grupę zarządzania lub subskrypcję, w której ma zostać zapisana definicja planu.
 
 1. Wybierz kartę **artefakty** w górnej części strony lub wybierz pozycję **Dalej: artefakty** w dolnej części strony.
@@ -54,7 +54,7 @@ Najpierw Utwórz definicję planu.
 
 1. Dodaj szablon do grupy zasobów:
    1. Wybierz **Dodaj wiersz artefaktu** w ramach wpisu **RGtoLock** .
-   1. Wybierz **szablon Azure Resource Manager** w obszarze **Typ artefaktu**, ustaw **nazwę wyświetlaną artefaktu** na **StorageAccount**i pozostaw pole **Opis** puste.
+   1. Wybierz **szablon Azure Resource Manager** w obszarze **Typ artefaktu**, ustaw **nazwę wyświetlaną artefaktu** na **StorageAccount** i pozostaw pole **Opis** puste.
    1. Na karcie **szablon** wklej następujący szablon ARM do pola Edytor. Po wklejeniu szablonu wybierz pozycję **Dodaj** , aby dodać artefakt do planu.
 
    ```json
@@ -113,7 +113,7 @@ Twoja definicja planu została teraz utworzona w Twoim środowisku. Jest on twor
 
 1. Po lewej stronie wybierz stronę **Definicje strategii**. Użyj filtrów, aby znaleźć definicję planu **storageaccount** , a następnie wybierz ją.
 
-1. W górnej części strony wybierz pozycję **Publikuj strategię**. W nowym okienku po prawej stronie wprowadź **1,0** jako **wersję**. Ta właściwość jest przydatna, jeśli wprowadzisz zmiany później. Wprowadź **Informacje o zmianach**, takie jak **Pierwsza wersja opublikowana do blokowania zasobów wdrożonych w**planie. Następnie wybierz pozycję **Publikuj** w dolnej części strony.
+1. W górnej części strony wybierz pozycję **Publikuj strategię**. W nowym okienku po prawej stronie wprowadź **1,0** jako **wersję**. Ta właściwość jest przydatna, jeśli wprowadzisz zmiany później. Wprowadź **Informacje o zmianach**, takie jak **Pierwsza wersja opublikowana do blokowania zasobów wdrożonych w** planie. Następnie wybierz pozycję **Publikuj** w dolnej części strony.
 
 Ten krok umożliwia przypisanie planu do subskrypcji. Po opublikowaniu definicji planu można nadal wprowadzać zmiany. W przypadku wprowadzenia zmian należy opublikować definicję z nową wartością wersji, aby śledzić różnice między wersjami tej samej definicji planu.
 
@@ -137,7 +137,7 @@ Po opublikowaniu definicji planu można przypisać ją do subskrypcji w grupie z
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniana na podstawie nazwy definicji planu. To przypisanie reprezentuje zablokowanie nowej grupy zasobów, dlatego należy zmienić nazwę przypisania na **przypisanie-storageaccount-TestingBPLocks**.
      - **Lokalizacja**: Wybierz region, w którym chcesz utworzyć zarządzaną tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
        Na potrzeby tego samouczka wybierz pozycję **Wschodnie stany USA 2**.
-     - **Wersja definicji**planu: Wybierz opublikowaną wersję **1,0** definicji planu.
+     - **Wersja definicji** planu: Wybierz opublikowaną wersję **1,0** definicji planu.
 
    - **Przypisanie blokady**
 
@@ -187,7 +187,7 @@ Przypisanie tworzy _TestingBPLocks_ grupy zasobów i konto magazynu wdrożone pr
 
 1. Zaznacz pozycję Odmów przypisania, a następnie wybierz stronę **odmowa uprawnień** po lewej stronie.
 
-   Przypisanie Odmów uniemożliwia wszystkie operacje z **\*** konfiguracją **akcji** i, ale zezwala na dostęp do odczytu przez wykluczenie ** \* /Read** za **NotActions**pośrednictwem nostąps.
+   Przypisanie Odmów uniemożliwia wszystkie operacje z konfiguracją **\* akcji *_ i _*** , ale umożliwia dostęp do odczytu przez wykluczenie **\* /Read** **za pośrednictwem** nostąpes.
 
 1. Na stronie nawigacyjnej Azure Portal wybierz pozycję **Kontrola dostępu TestingBPLocks (IAM)**. Następnie wybierz stronę **Przegląd** po lewej stronie, a następnie przycisk **Usuń grupę zasobów** . Wprowadź nazwę **TestingBPLocks** , aby potwierdzić usunięcie, a następnie wybierz pozycję **Usuń** w dolnej części okienka.
 

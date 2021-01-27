@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 07564955e9cfa6931e461df00ef50a237a66b9b3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1a0943c9f87960f9fcec074941b6e8ead81d92af
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500686"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917913"
 ---
 # <a name="ev3-and-esv3-series"></a>Serie Ev3 i Esv3
 
@@ -32,6 +32,7 @@ Technologia technologii EV3 firmy Intel® Hyper-Threading.
 [Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
 <br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba kart sieciowych / przepustowość sieci |
@@ -62,6 +63,7 @@ Technologia technologii Esv3 firmy Intel® Hyper-Threading.
 [Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
 <br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s<sup>3</sup> | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę |  Przepływność dysków niebuforowanych w pamięci podręcznej: liczba IOPS/MB/s<sup>3</sup>| Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |

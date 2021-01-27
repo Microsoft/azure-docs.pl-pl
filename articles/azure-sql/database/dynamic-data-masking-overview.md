@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787692"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918098"
 ---
 # <a name="dynamic-data-masking"></a>Dynamiczne maskowanie danych 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i usługa Azure S
 
 Dynamiczne maskowanie danych pomaga zapobiec nieautoryzowanemu dostępowi do danych poufnych, umożliwiając klientom wyznaczenie, jaka część danych poufnych może zostać odsłonięta, przy minimalnym wpływie na warstwę aplikacji. Jest to funkcja zabezpieczeń oparta na zasadach, która ukrywa dane poufne w zestawie wyników zapytania w wyznaczonych polach bazy danych, przy czym dane w bazie danych pozostają bez zmian.
 
-Na przykład przedstawiciel usługi w centrum telefonicznym może identyfikować wywoływania według kilku cyfr adresu e-mail, ale te elementy danych nie powinny być w pełni ujawnione dla przedstawiciela usługi. Można zdefiniować regułę maskowania, która będzie maskować wszystkie adresy e-mail w zestawie wyników dowolnego zapytania. Innym przykładem może być zdefiniowanie odpowiedniej maski danych w celu ochrony danych osobowych, dzięki czemu deweloper może wysyłać zapytania dotyczące środowisk produkcyjnych w celu rozwiązywania problemów bez naruszania przepisów dotyczących zgodności.
+Na przykład przedstawiciel usługi w centrum wywołującym może identyfikować obiekt wywołujący przez potwierdzenie kilku znaków ich adresu e-mail, ale pełny adres e-mail nie powinien być ujawniony przedstawicielowi usługi. Można zdefiniować regułę maskowania, która będzie maskować wszystkie adresy e-mail w zestawie wyników dowolnego zapytania. Innym przykładem może być zdefiniowanie odpowiedniej maski danych w celu ochrony danych osobowych, dzięki czemu deweloper może wysyłać zapytania dotyczące środowisk produkcyjnych w celu rozwiązywania problemów bez naruszania przepisów dotyczących zgodności.
 
 ## <a name="dynamic-data-masking-basics"></a>Dynamiczne maskowanie danych — podstawy
 

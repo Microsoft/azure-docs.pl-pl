@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować usługę Azure CNI (Advanced) Netw
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0a6ea45156477c0d0e95b9d345cffe1a75c773b6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000576"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917811"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurowanie sieci Azure CNI w usłudze Azure Kubernetes Service (AKS)
 
@@ -96,6 +96,8 @@ Podczas tworzenia klastra AKS następujące parametry można skonfigurować dla 
 **Sieć wirtualna**: Sieć wirtualna, w której ma zostać wdrożony klaster Kubernetes. Jeśli chcesz utworzyć nową sieć wirtualną dla klastra, wybierz pozycję *Utwórz nową* i postępuj zgodnie z instrukcjami w sekcji *Tworzenie sieci wirtualnej* . Aby uzyskać informacje o limitach i przydziałach dla sieci wirtualnej platformy Azure, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Podsieć**: podsieć w sieci wirtualnej, w której ma zostać wdrożony klaster. Jeśli chcesz utworzyć nową podsieć w sieci wirtualnej klastra, wybierz pozycję *Utwórz nową* i postępuj zgodnie z instrukcjami w sekcji *Tworzenie podsieci* . W przypadku łączności hybrydowej zakres adresów nie powinien pokrywać się z innymi sieciami wirtualnymi w danym środowisku.
+
+**Wtyczka sieciowa platformy Azure**: w przypadku korzystania z wtyczki sieciowej platformy Azure nie można uzyskać dostępu do wewnętrznej usługi równoważenia obciążenia z użyciem "ExternalTrafficPolicy = local" z maszyn wirtualnych z adresem IP w clusterCIDR, który nie należy do klastra AKS.
 
 **Zakres adresów usługi Kubernetes**: jest to zestaw wirtualnych adresów IP, które Kubernetes przypisuje do [usług][services] wewnętrznych w klastrze. Możesz użyć dowolnego prywatnego zakresu adresów, który spełnia następujące wymagania:
 
@@ -188,7 +190,7 @@ Dowiedz się więcej o sieci w AKS w następujących artykułach:
 - [Utwórz kontroler transferu danych przychodzących z dynamicznym publicznym adresem IP, a następnie skonfiguruj szyfrowanie, aby automatycznie generować certyfikaty TLS][aks-ingress-tls]
 - [Utwórz kontroler transferu danych przychodzących ze statycznym publicznym adresem IP i skonfiguruj szyfrowanie, aby automatycznie generować certyfikaty TLS][aks-ingress-static-tls]
 
-### <a name="aks-engine"></a>Aparat AKS
+### <a name="aks-engine"></a>Aparat usługi AKS
 
 [Aparat usługi Kubernetes platformy Azure (aparat AKS)][aks-engine] to projekt open-source, który generuje szablony Azure Resource Manager, których można użyć do wdrażania klastrów Kubernetes na platformie Azure.
 

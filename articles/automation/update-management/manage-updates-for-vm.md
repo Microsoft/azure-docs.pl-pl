@@ -4,14 +4,13 @@ description: W tym artykule opisano, jak używać Update Management do zarządza
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.custom: mvc
-ms.openlocfilehash: 24dcb501872aabf9fac3da0cccc2a1af9c9b06ff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 01/27/2021
+ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222838"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915986"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych
 
@@ -35,11 +34,13 @@ Update Management używa konfiguracji zakresu w obszarze roboczym, aby określi�
 
 Przed wdrożeniem aktualizacji oprogramowania na maszynach Przejrzyj wyniki oceny zgodności aktualizacji dla włączonych maszyn. Dla każdej aktualizacji oprogramowania jej stan zgodności jest rejestrowany, a następnie po zakończeniu oceny jest zbierane i przekazywane zbiorczo do Azure Monitor dzienników.
 
-Na komputerze z systemem Windows skanowanie zgodności jest domyślnie uruchamiane co 12 godzin. Oprócz zaplanowanego skanowania skanowanie pod kątem zgodności z aktualizacjami jest inicjowane w ciągu 15 minut od Log Analytics agenta dla ponownego uruchomienia systemu Windows, przed zainstalowaniem aktualizacji i po zainstalowaniu aktualizacji. Warto również zapoznać się z naszymi zaleceniami dotyczącymi [konfigurowania klienta Windows Update](configure-wuagent.md) przy użyciu Update Management, aby uniknąć problemów, które uniemożliwiają prawidłowe zarządzanie nimi.
+W przypadku maszyny z systemem Windows skanowanie zgodności jest domyślnie uruchamiane co 12 godzin i jest inicjowane w ciągu 15 minut od Log Analytics agenta dla systemu Windows jest uruchamiany ponownie. Dane oceny są następnie przekazywane do obszaru roboczego i odświeżają tabelę **aktualizacje** . Przed i po zainstalowaniu aktualizacji przeprowadzane jest skanowanie zgodności aktualizacji w celu zidentyfikowania brakujących aktualizacji, ale wyniki nie są używane do aktualizowania danych oceny w tabeli.
+
+Ważne jest zapoznanie się z naszymi zaleceniami dotyczącymi sposobu [konfigurowania klienta Windows Update](configure-wuagent.md) przy użyciu Update Management, aby uniknąć problemów, które uniemożliwiają prawidłowe zarządzanie nimi.
 
 W przypadku maszyny z systemem Linux skanowanie zgodności jest wykonywane co godzinę domyślnie. Jeśli Agent Log Analytics dla systemu Linux zostanie ponownie uruchomiony, skanowanie zgodności zostanie zainicjowane w ciągu 15 minut.
 
-Wyniki zgodności są prezentowane w Update Management dla każdej ocenianej maszyny. W przypadku nowej maszyny z możliwością zarządzania może upłynąć do 30 minut, aż na pulpicie nawigacyjnym będą wyświetlane zaktualizowane dane.
+Wyniki zgodności są prezentowane w Update Management dla każdej ocenianej maszyny. Wyświetlenie zaktualizowanych danych z nowej maszyny z włączoną obsługą zarządzania przez pulpit nawigacyjny może potrwać do 30 minut.
 
 Przejrzyj [aktualizacje oprogramowania monitorowania](view-update-assessments.md) , aby dowiedzieć się, jak wyświetlić wyniki sprawdzania zgodności.
 

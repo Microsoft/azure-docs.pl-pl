@@ -1,14 +1,14 @@
 ---
 title: Etapy wdrażania strategii
-description: Zapoznaj się z tematami dotyczącymi zabezpieczeń i artefaktów, które są wykonywane przez usługi platformy Azure podczas tworzenia przypisania planu.
-ms.date: 08/27/2020
+description: Zapoznaj się z zabezpieczeniami i krokami związanymi z artefaktem, które są wykonywane przez usługi platformy Azure podczas tworzenia przypisania planu.
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e686dec1c9d79e42dafee17d8a937284aac4fdd6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049778"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918555"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapy wdrażania strategii
 

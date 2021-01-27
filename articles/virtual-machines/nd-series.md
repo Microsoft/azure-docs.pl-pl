@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f37341233eec45a22fe92450e69d486e61f26eb4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6428f3eafc9d19060fb065082ea3cbe06bb74d81
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585313"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917014"
 ---
 # <a name="nd-series"></a>Seria ND
 
@@ -23,6 +23,7 @@ Maszyny wirtualne z serii ND to nowe dodanie do rodziny procesorów GPU zaprojek
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): nieobsługiwane<br>
 NVIDIA NVLink Interconnect: nieobsługiwane<br>
 
 > [!IMPORTANT]

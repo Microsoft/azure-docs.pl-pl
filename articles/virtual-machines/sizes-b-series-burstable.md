@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 14c8584699ddc981fc24cc29b78c187288c6fb57
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 31a65cab7dfdd478560b7babba156cec7645cf33
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203392"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917255"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -27,8 +27,12 @@ Seria B obejmuje następujące rozmiary maszyn wirtualnych:
 [Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+[Przyspieszona sieć](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane * *<br>
+
+* Maszyny wirtualne z serii B są szeregowe, a tym samym liczby ACU są różne w zależności od obciążeń i podstawowych zastosowań.<br>
+* * Przyspieszona sieć jest obsługiwana tylko w przypadku *Standard_B12ms*, *Standard_B16ms* i *Standard_B20ms*.
 <br>
-* Maszyny wirtualne z serii B są szeregowe, a tym samym liczby ACU są różne w zależności od obciążeń i podstawowych zastosowań.
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Podstawowa wydajność procesora CPU maszyny wirtualnej | Maksymalna wydajność procesora dla maszyny wirtualnej | Kredyty początkowe | Środki na kredyt/godzinę | Maksymalna liczba kredytów w banku | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

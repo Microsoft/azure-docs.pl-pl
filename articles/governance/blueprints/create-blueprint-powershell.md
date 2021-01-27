@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: Tworzenie strategii przy użyciu programu PowerShell'
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu programu PowerShell.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 339cd4628cda5f469a783db02c10f86259c93941
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051512"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918283"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu programu PowerShell
 
@@ -16,9 +16,9 @@ Informacje na temat tworzenia i przypisywania planów umożliwiają definiowanie
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
-
-Jeśli nie jest jeszcze zainstalowana, postępuj zgodnie z instrukcjami w temacie [Dodawanie modułu AZ. plan](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) w celu zainstalowania i sprawdzenia poprawności modułu **AZ. plan** z poziomu Galeria programu PowerShell.
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
+- Jeśli nie jest jeszcze zainstalowana, postępuj zgodnie z instrukcjami w temacie [Dodawanie modułu AZ. plan](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) w celu zainstalowania i sprawdzenia poprawności modułu **AZ. plan** z poziomu Galeria programu PowerShell.
+- Jeśli nie korzystasz już z planów platformy Azure, zarejestruj dostawcę zasobów za pomocą Azure PowerShell w usłudze `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint` .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

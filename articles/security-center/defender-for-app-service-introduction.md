@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 99da711038e1fcea3e14584fde09ccd1f79feffa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796627"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916717"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Wprowadzenie do usługi Azure Defender dla App Service
 
@@ -25,7 +25,7 @@ Azure App Service to w pełni zarządzana platforma do tworzenia i hostowania ap
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|[Usługa Azure Defender dla App Service](azure-defender.md) jest rozliczana zgodnie z opisem na [stronie cennika](security-center-pricing.md)<br>Na stronie Cennik i ustawienia wyświetlana jest liczba wystąpień dla **ilości zasobów**. Ta liczba to łączna liczba wystąpień obliczeniowych w ramach wszystkich App Service planów w ramach tej subskrypcji, uruchomiona w momencie otwarcia strony warstwy cenowej.<br>Aby sprawdzić poprawność liczby, Otwórz **App Service plany** w Azure Portal i sprawdź liczbę wystąpień obliczeniowych używanych przez każdy plan.|
 |Obsługiwane App Service plany:|![Tak — ](./media/icons/yes-icon.png) podstawowa, standardowa, Premium, izolowany lub Linux<br>![Brak ](./media/icons/no-icon.png) wolnego, współdzielonego lub zużycia<br>[Dowiedz się więcej o planach App Service](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|

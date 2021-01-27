@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
-ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f2749a18a5ac6aed0822553d59beaacc9060228
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77111771"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915951"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Korzystanie z tożsamości zarządzanej przez platformę Azure w zadaniach ACR 
 
@@ -58,7 +58,7 @@ Aby włączyć tożsamość przypisaną do systemu, należy przekazać `--assign
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false \
     --assign-identity
@@ -70,7 +70,7 @@ Aby włączyć tożsamość przypisaną przez użytkownika, należy przekazać `
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false
     --assign-identity <resourceID>
@@ -84,7 +84,7 @@ Identyfikator zasobu tożsamości można uzyskać, uruchamiając polecenie [AZ I
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure
 
-W zależności od wymagań zadania Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure. Przykłady:
+W zależności od wymagań zadania Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure. Przykłady obejmują:
 
 * Przypisywanie tożsamości zarządzanej roli za pomocą ściągania, wypychania i ściągania lub innych uprawnień do rejestru kontenerów docelowych na platformie Azure. Pełną listę ról rejestru można znaleźć w temacie [Azure Container Registry role i uprawnienia](container-registry-roles.md). 
 * Przypisanie tożsamości zarządzanej roli do odczytu wpisów tajnych w magazynie kluczy platformy Azure.
