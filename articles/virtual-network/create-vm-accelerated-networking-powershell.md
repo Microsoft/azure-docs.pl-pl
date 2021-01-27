@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223639"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919973"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows z przyspieszoną siecią przy użyciu programu Azure PowerShell
 
@@ -61,11 +61,9 @@ Następujące dystrybucje są obsługiwane bezpośrednio z galerii platformy Azu
 
 ### <a name="supported-vm-instances"></a>Obsługiwane wystąpienia maszyn wirtualnych
 
-Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o rozmiarach wystąpień zoptymalizowanych pod kątem obliczeń przy użyciu co najmniej dwóch procesorów wirtualnych (procesorów wirtualnych vCPU).  Obsługiwane są następujące serie: Dv2/DSv2 i F/FS.
+Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o rozmiarach wystąpień zoptymalizowanych pod kątem obliczeń przy użyciu co najmniej dwóch procesorów wirtualnych vCPU. W wystąpieniach, które obsługują wielowątkowość, przyspieszona sieć jest obsługiwana w wystąpieniach maszyn wirtualnych z 4 lub więcej procesorów wirtualnych vCPU. 
 
-W wystąpieniach, które obsługują wielowątkowość, przyspieszona sieć jest obsługiwana w wystąpieniach maszyn wirtualnych z co najmniej czterema procesorów wirtualnych vCPU. Obsługiwane są następujące serie: D/Dsv3, D/Dsv4, da/Dasv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS i MS/Mmsv2.
-
-Aby uzyskać więcej informacji na temat wystąpień maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Obsługę przyspieszonej sieci można znaleźć w dokumentacji poszczególnych [rozmiarów maszyn wirtualnych](../virtual-machines/sizes.md) . 
 
 ### <a name="custom-images"></a>Obrazy niestandardowe
 
@@ -90,7 +88,7 @@ Chociaż w tym artykule przedstawiono procedurę tworzenia maszyny wirtualnej z 
 > [!NOTE]
 > Tylko obsługiwane systemy operacyjne można włączyć za pomocą portalu. Jeśli używasz obrazu niestandardowego, a obraz obsługuje przyspieszone sieci, Utwórz maszynę wirtualną przy użyciu interfejsu wiersza polecenia lub programu PowerShell. 
 
-Po utworzeniu maszyny wirtualnej można sprawdzić, czy jest włączona szybsza sieć. Wykonaj następujące instrukcje:
+Po utworzeniu maszyny wirtualnej można sprawdzić, czy jest włączona szybsza sieć. Postępuj zgodnie z tymi instrukcjami:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com) , aby zarządzać maszynami wirtualnymi. Wyszukaj i wybierz pozycję **maszyny wirtualne**.
 
@@ -252,13 +250,13 @@ Po utworzeniu maszyny wirtualnej na platformie Azure Nawiąż połączenie z mas
 
 5. Otwórz plik RDP, a następnie zaloguj się do maszyny wirtualnej przy użyciu poświadczeń wprowadzonych w sekcji [Tworzenie maszyny wirtualnej i dołączanie interfejsu sieciowego](#create-a-vm-and-attach-the-network-interface) . Jeśli nigdy nie nawiązano połączenia z maszyną wirtualną z systemem Windows na platformie Azure, zobacz [nawiązywanie połączenia z maszyną wirtualną](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
-6. Gdy zostanie wyświetlona sesja pulpitu zdalnego dla maszyny wirtualnej, kliknij prawym przyciskiem myszy przycisk Start systemu Windows i wybierz **Menedżer urządzeń**.
+6. Gdy zostanie wyświetlona sesja pulpitu zdalnego dla maszyny wirtualnej, kliknij prawym przyciskiem myszy przycisk Start systemu Windows i wybierz **Device Manager**.
 
-7. W oknie **Menedżer urządzeń** rozwiń węzeł **karty sieciowe** .
+7. W oknie **Device Manager** rozwiń węzeł **karty sieciowe** .
 
 8. Upewnij się, że zostanie wyświetlona **karta Ethernet funkcji wirtualnej Mellanox ConnectX-3** , jak pokazano na poniższej ilustracji:
 
-    ![Karta Ethernet Mellanox ConnectX-3 z funkcją wirtualną, Nowa karta sieciowa dla przyspieszonej sieci, Menedżer urządzeń](./media/create-vm-accelerated-networking/device-manager.png)
+    ![Karta Ethernet Mellanox ConnectX-3 z funkcją wirtualną, Nowa karta sieciowa dla przyspieszonej sieci, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 
 Przyspieszona sieć jest teraz włączona dla maszyny wirtualnej.
 

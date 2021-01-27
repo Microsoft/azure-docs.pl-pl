@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a82e8031f118f48f7c19cfc283c1be13d5d6f89d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56bd41aaa607a3bc0f319f46ce5d0c3f8c78d27a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757597"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919610"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -25,6 +25,7 @@ Usługa Azure Backup umożliwia przywracanie maszyny wirtualnej na kilka sposob�
 **Przywracanie dysku** | Przywraca dysk maszyny wirtualnej, za pomocą którego można następnie utworzyć nową maszynę wirtualną.<br/><br/> Usługa Azure Backup udostępnia szablon ułatwiający dostosowanie i utworzenie maszyny wirtualnej. <br/><br> Zadanie przywracania generuje szablon, który można pobrać i użyć, aby określić niestandardowe ustawienia maszyny wirtualnej i utworzyć maszynę wirtualną.<br/><br/> Dyski są kopiowane do określonej grupy zasobów.<br/><br/> Alternatywnie możesz dołączyć dysk do istniejącej maszyny wirtualnej lub utworzyć nową maszynę wirtualną przy użyciu programu PowerShell.<br/><br/> Ta opcja jest przydatna, jeśli chcesz dostosować maszynę wirtualną, dodać ustawienia konfiguracji, których nie było w czasie tworzenia kopii zapasowej, lub dodać ustawienia, które należy skonfigurować za pomocą szablonu lub programu PowerShell.
 **Zamiana istniejącego** | Można przywrócić dysk i użyć go do zamienienia dysku na istniejącej maszynie wirtualnej.<br/><br/> Wymaga to istnienia bieżącej maszyny wirtualnej. Jeśli została ona usunięta, nie można użyć tej opcji.<br/><br/> Azure Backup tworzy migawkę istniejącej maszyny wirtualnej przed zastąpieniem dysku i zapisuje ją w określonej lokalizacji przemieszczania. Istniejące dyski połączone z maszyną wirtualną są zastępowane wybranym punktem przywracania.<br/><br/> Migawka jest kopiowana do magazynu i zachowywana zgodnie z zasadami przechowywania. <br/><br/> Po zakończeniu operacji Zamień dysk oryginalny dysk jest zachowywany w grupie zasobów. Możesz wybrać opcję ręcznego usuwania dysków oryginalnych, jeśli nie są one potrzebne. <br/><br/>Polecenie replace exist jest obsługiwane w przypadku nieszyfrowanych zarządzanych maszyn wirtualnych, w tym maszyn wirtualnych [utworzonych przy użyciu obrazów niestandardowych](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). Nie jest to obsługiwane w przypadku klasycznych maszyn wirtualnych.<br/><br/> Jeśli punkt przywracania ma więcej lub mniej dysków niż bieżąca maszyna wirtualna, liczba dysków w punkcie przywracania będzie uwzględniać tylko konfigurację maszyny wirtualnej.<br><br> Zastąp istniejący jest również obsługiwany w przypadku maszyn wirtualnych z połączonymi zasobami, takimi jak [zarządzana tożsamość przypisana przez użytkownika](../active-directory/managed-identities-azure-resources/overview.md) lub [Key Vault](../key-vault/general/overview.md).
 **Między regionami (region pomocniczy)** | W celu przywrócenia maszyn wirtualnych platformy Azure w regionie pomocniczym, które jest [sparowanym regionem platformy Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions), można użyć funkcji przywracania między regionami.<br><br> Jeśli kopia zapasowa jest wykonywana w regionie pomocniczym, można przywrócić wszystkie maszyny wirtualne platformy Azure dla wybranego punktu odzyskiwania.<br><br> Podczas tworzenia kopii zapasowej migawki nie są replikowane do regionu pomocniczego. Replikowane są tylko dane przechowywane w magazynie. Dlatego przywrócenie regionu pomocniczego jest przywracane tylko w [warstwie magazynu](about-azure-vm-restore.md#concepts) . Czas przywracania dla regionu pomocniczego będzie niemal taki sam jak czas przywracania warstwy magazynu dla regionu podstawowego.  <br><br> Ta funkcja jest dostępna dla poniższych opcji:<br> <li> [Tworzenie maszyny wirtualnej](#create-a-vm) <br> <li> [Przywracanie dysków](#restore-disks) <br><br> Nie obsługujemy obecnie opcji [Zamień istniejące dyski](#replace-existing-disks) .<br><br> Uprawnienia<br> Operacja przywracania w regionie pomocniczym może być wykonywana przez administratorów kopii zapasowych i administratorów aplikacji.
+**Przywracanie między strefami** | Przywracanie międzystrefowe może służyć do przywracania [maszyn wirtualnych przypiętych strefy platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) w każdej [strefie dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview) tego samego regionu. <br> <br> Możesz przywrócić wszystkie maszyny wirtualne przypięte strefy platformy Azure dla wybranego punktu odzyskiwania, którego kopia zapasowa została utworzona po wydaniu tej funkcji, do wybranej strefy. Domyślnie zostanie ono przywrócone w tej samej strefie, w której utworzono kopię zapasową. <br> <br> Ta wartość może być używana podczas scenariuszy odzyskiwania po awarii, jeśli przypięta strefa maszyny wirtualnej stanie się niedostępna.
 
 > [!NOTE]
 > Można także odzyskać określone pliki i foldery na maszynie wirtualnej platformy Azure. [Dowiedz się więcej](backup-azure-restore-files-from-vm.md).
@@ -138,7 +139,7 @@ Jako jedną z [opcji przywracania](#restore-options)można zastąpić istniejąc
 
 Jako jedna z [opcji przywracania](#restore-options), przywracanie między regionami (CRR) umożliwia przywracanie maszyn wirtualnych platformy Azure w regionie pomocniczym, który jest sparowanym regionem platformy Azure.
 
-Aby dołączyć do funkcji w wersji zapoznawczej, zapoznaj się z [sekcją przed rozpoczęciem](./backup-create-rs-vault.md#set-cross-region-restore).
+Aby rozpocząć korzystanie z funkcji, zapoznaj się z [sekcją przed rozpoczęciem](./backup-create-rs-vault.md#set-cross-region-restore).
 
 Aby sprawdzić, czy CRR jest włączona, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie przywracania między regionami](backup-create-rs-vault.md#configure-cross-region-restore).
 
@@ -160,6 +161,8 @@ Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regio
 
 Środowisko użytkownika do przywracania regionu pomocniczego będzie podobne do środowiska użytkownika w regionie podstawowym. Podczas konfigurowania szczegółów w okienku Przywracanie konfiguracji w celu skonfigurowania przywracania zostanie wyświetlony monit o podanie tylko parametrów regionu pomocniczego.
 
+Obecnie punkt [odzyskiwania](azure-backup-glossary.md#rpo-recovery-point-objective) regionu pomocniczego to do 12 godzin z regionu podstawowego, nawet jeśli replikacja [geograficznie nadmiarowa do odczytu (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) jest 15 minut.
+
 ![Wybierz maszynę wirtualną do przywrócenia](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
 ![Wybierz punkt przywracania](./media/backup-azure-arm-restore-vms/sec-rp.png)
@@ -176,6 +179,14 @@ Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regio
 >- Po wyzwoleniu przywracania i fazie transferu danych nie można anulować zadania przywracania.
 >- Funkcja przywracania między regionami przywraca maszyny wirtualne platformy Azure, których kopie zapasowe są włączone przy użyciu CMK (klucze zarządzane przez klienta), które nie są tworzone w magazynie Recovery Services, jako maszyny wirtualne z włączonym systemem innym niż CMK
 >- Role platformy Azure, które muszą zostać przywrócone w regionie pomocniczym, są takie same jak w regionie podstawowym.
+
+## <a name="cross-zonal-restore"></a>Przywracanie między strefami
+
+Przywracanie międzystrefowe może służyć do przywracania [maszyn wirtualnych przypiętych strefy platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) w każdej [strefie dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview) tego samego regionu.
+
+W procesie przywracania zostanie wyświetlona **strefa dostępności opcji.** Najpierw zobaczysz strefę domyślną. Aby wybrać inną strefę, wybierz wybraną liczbę wybranych stref. Wybierz inną strefę, jeśli domyślna strefa dostępności nie jest dostępna z powodu awarii lub z innego powodu, aby przywrócić w innej strefie.
+
+![Wybierz strefę dostępności](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorowanie zadań przywracania regionu pomocniczego
 

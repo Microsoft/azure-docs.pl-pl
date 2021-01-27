@@ -225,7 +225,7 @@
           href: livestream.md
     - name: Usuwanie usługi Azure Sentinel
       href: offboard.md
-- name: Dokumentacja (nowość!)
+- name: Dokumentacja
   items:
     - name: Role RBAC platformy Azure
       items:
@@ -241,10 +241,20 @@
           href: hunting-with-rest-api.md
         - name: Zarządzanie watchlists za pomocą interfejsu REST API
           href: watchlist-with-rest-api.md
+    - name: Odwołanie do danych Azure Monitor
+      href: /azure/azure-monitor/reference/
     - name: Łącznik usługi Logic Apps dla usługi Azure Sentinel
       href: /connectors/azuresentinel/
     - name: Schemat normalizacji sieci
       href: normalization-schema.md
+    - name: Odwołanie do schematu źródła danych
+      href: data-source-schema-reference.md
+    - name: Język zapytań Kusto
+      items:
+        - name: Przegląd zapytania Kusto
+          href: /azure/data-explorer/kusto/query/
+        - name: Krótki przewodnik po języku zapytań Kusto
+          href: /azure/data-explorer/kql-quick-reference
     - name: Wzbogacanie z użyciem analizy behawioralnej użytkowników i jednostek
       href: ueba-enrichments.md
 - name: Zasoby

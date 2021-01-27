@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 01/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e64b0af455ab1f84653093b26654530ee3dfab
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232781"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919633"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -26,11 +26,11 @@ Zasady użytkowania usługi Azure AD zapewniają prostą metodę, która może b
 
 ## <a name="overview-videos"></a>Wideo z omówieniem
 
-Poniższy klip wideo zawiera krótkie omówienie warunków użytkowania.
+Poniższy klip wideo zawiera krótkie omówienie zasad warunków użytkowaniaymi.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-Aby uzyskać dodatkowe filmy wideo, zobacz:
+Aby uzyskać więcej filmów wideo, zobacz:
 - [Jak wdrożyć zasady warunków użytkowania w programie Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
 - [Jak wdrożyć zasady użytkowania w Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
@@ -183,7 +183,7 @@ Aby rozpocząć pracę z dziennikami inspekcji usługi Azure AD, wykonaj czynno�
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>Jakie warunki użytkowania wyglądają dla użytkowników
 
-Gdy zasady użytkowania zostaną utworzone i wymuszone, użytkownicy, którzy znajdują się w zakresie, zobaczą następujący ekran podczas logowania.
+Gdy zasady warunków użytkowania są tworzone i wymuszane, użytkownicy, którzy znajdują się w zakresie, będą widzieć następujący ekran podczas logowania.
 
 ![Przykładowe warunki użytkowania, które pojawiają się po zalogowaniu się użytkownika](./media/terms-of-use/user-tou.png)
 
@@ -191,7 +191,7 @@ Użytkownicy mogą wyświetlać warunki użytkowania zasad i, w razie potrzeby, 
 
 ![Widok warunków użytkowania z przyciskami powiększenia](./media/terms-of-use/zoom-buttons.png)
 
-Na poniższym ekranie przedstawiono sposób, w jaki zasady użytkowania są używane na urządzeniach przenośnych.
+Na poniższym ekranie przedstawiono sposób wyszukiwania zasad warunków użytkowania na urządzeniach przenośnych.
 
 ![Przykładowe warunki użytkowania, które pojawiają się, gdy użytkownik loguje się na urządzeniu przenośnym](./media/terms-of-use/mobile-tou.png)
 
@@ -249,7 +249,7 @@ Można edytować niektóre szczegóły zasad użytkowania, ale nie można modyfi
 7.  Po przekazaniu nowego pliku PDF i podjęciu decyzji o ponownym zaakceptowaniu kliknij pozycję Dodaj w dolnej części okienka.
 8.  Zobaczysz teraz najnowszą wersję w kolumnie dokument.
 
-## <a name="view-previous-versions-of-a-terms-of-use"></a>Wyświetlanie poprzednich wersji warunków użytkowania
+## <a name="view-previous-versions-of-a-tou"></a>Wyświetlanie poprzednich wersji elementu warunków użytkowania
 
 1.  Zaloguj się do platformy Azure i przejdź do **warunków użytkowania** na stronie https://aka.ms/catou.
 2.  Wybierz zasady użytkowania, dla których chcesz wyświetlić historię wersji.
@@ -269,7 +269,7 @@ Można edytować niektóre szczegóły zasad użytkowania, ale nie można modyfi
 5.  Alternatywnie możesz wybrać określoną wersję z listy rozwijanej **wersja**  , aby zobaczyć, kto zaakceptował tę określoną wersję.
 
 
-## <a name="add-a-terms-of-use-language"></a>Dodawanie języka warunków użytkowania
+## <a name="add-a-tou-language"></a>Dodawanie języka warunków użytkowania
 
 Poniższa procedura opisuje sposób dodawania języka warunków użytkowania.
 
@@ -344,9 +344,13 @@ Stare warunki użytkowania zasad można usunąć, korzystając z następującej 
 
    Zasady użytkowania nie powinny już być widoczne.
 
-## <a name="deleted-users-and-active-terms-of-use"></a>Usunięci Użytkownicy i aktywne warunki użytkowania
+## <a name="user-acceptance-record-deletion"></a>Usuwanie rekordu akceptacji użytkownika
 
-Domyślnie usunięty użytkownik jest w stanie usunięcia w usłudze Azure AD przez 30 dni i w tym okresie administrator może przywrócić go w razie potrzeby. Po 30 dniach użytkownik jest trwale usuwany. Ponadto przy użyciu portalu Azure Active Directory Administrator globalny może jawnie [usunąć niedawno usuniętego użytkownika](../fundamentals/active-directory-users-restore.md) przed osiągnięciem tego okresu. Jeden użytkownik został trwale usunięty. kolejne dane dotyczące tego użytkownika zostaną usunięte z zasad aktywnych warunków użytkowania. Informacje inspekcji dotyczące usuniętych użytkowników pozostają w dzienniku inspekcji.
+Rekordy akceptacji użytkowników są usuwane:
+
+- Gdy administrator jawnie usunie warunków użytkowania. W takim przypadku wszystkie rekordy akceptacji skojarzone z tym konkretnym warunków użytkowania również zostaną usunięte.
+- Gdy dzierżawca utraci licencję Azure Active Directory — wersja Premiumą.
+- Po usunięciu dzierżawy.
 
 ## <a name="policy-changes"></a>Zmiany zasad
 

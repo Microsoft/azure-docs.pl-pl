@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900836"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919531"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatyzowanie odpowiedzi na wyzwalacze Security Center
 
@@ -26,7 +26,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|**Rola administratora zabezpieczeń** lub **właściciel** grupy zasobów<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego<br><br>Aby można było korzystać z przepływów pracy Azure Logic Apps, należy mieć również następujące role/uprawnienia Logic Apps:<br> - Wymagane są uprawnienia [operatora aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-operator) lub dostęp do odczytu/wyzwalacza aplikacji logiki (Ta rola nie może tworzyć ani edytować aplikacji logiki; można *uruchamiać* tylko istniejące)<br> - Uprawnienia [współautora aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-contributor) są wymagane do utworzenia i modyfikacji aplikacji logiki<br>Jeśli chcesz używać łączników aplikacji logiki, możesz potrzebować dodatkowych poświadczeń, aby zalogować się do odpowiednich usług (na przykład wystąpień programu Outlook/zespołów/zapasowych).|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
@@ -36,24 +36,24 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Tworzenie aplikacji logiki i Definiowanie jej automatycznego uruchamiania 
 
-1. Na pasku bocznym Security Center wybierz pozycję **Automatyzacja przepływu pracy** .
+1. Na pasku bocznym Security Center wybierz pozycję **Automatyzacja przepływu pracy**.
 
     :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista automatyzacji przepływu pracy":::
 
     Na tej stronie można tworzyć nowe reguły automatyzacji, a także włączać, wyłączać lub usuwać istniejące.
 
-1. Aby zdefiniować nowy przepływ pracy, kliknij przycisk **Dodaj automatyzację przepływu pracy** . 
+1. Aby zdefiniować nowy przepływ pracy, kliknij przycisk **Dodaj automatyzację przepływu pracy**. 
 
     Zostanie wyświetlone okienko z opcjami nowej automatyzacji. W tym miejscu możesz wprowadzić:
     1. Nazwa i Opis automatyzacji.
     1. Wyzwalacze, które będą inicjować ten automatyczny przepływ pracy. Na przykład może być konieczne uruchomienie aplikacji logiki po wygenerowaniu alertu zabezpieczeń zawierającego "SQL".
 
         > [!NOTE]
-        > Jeśli wyzwalacz jest zaleceniem zawierającym "podrekomendacje", na przykład **oceny luk w zabezpieczeniach baz danych SQL należy skorygować** , aplikacja logiki nie będzie wyzwalać dla każdego nowego odnajdowania zabezpieczeń; tylko wtedy, gdy stan zaleceń nadrzędnych ulega zmianie.
+        > Jeśli wyzwalacz jest zaleceniem zawierającym "podrekomendacje", na przykład **oceny luk w zabezpieczeniach baz danych SQL należy skorygować**, aplikacja logiki nie będzie wyzwalać dla każdego nowego odnajdowania zabezpieczeń; tylko wtedy, gdy stan zaleceń nadrzędnych ulega zmianie.
 
     1. Aplikacja logiki, która będzie uruchamiana po spełnieniu warunków wyzwalacza. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Lista automatyzacji przepływu pracy":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Dodawanie okienka automatyzacji przepływu pracy":::
 
 1. W sekcji Actions (akcje) kliknij pozycję **Utwórz nową** , aby rozpocząć proces tworzenia aplikacji logiki.
 
@@ -61,7 +61,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 
     [![Tworzenie nowej aplikacji logiki](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
-1. Wprowadź nazwę, grupę zasobów i lokalizację, a następnie kliknij przycisk **Utwórz** .
+1. Wprowadź nazwę, grupę zasobów i lokalizację, a następnie kliknij przycisk **Utwórz**.
 
 1. W nowej aplikacji logiki można wybrać opcję z wbudowanych, wstępnie zdefiniowanych szablonów z kategorii zabezpieczenia. Można też zdefiniować niestandardowy przepływ zdarzeń, które mają być wykonywane w momencie wyzwolenia tego procesu.
 
@@ -90,7 +90,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 
 Logic Apps można również uruchomić ręcznie podczas wyświetlania alertów zabezpieczeń lub zaleceń.
 
-Aby ręcznie uruchomić aplikację logiki, Otwórz alert lub zalecenie i kliknij pozycję **Wyzwalaj aplikację logiki** :
+Aby ręcznie uruchomić aplikację logiki, Otwórz alert lub zalecenie i kliknij pozycję **Wyzwalaj aplikację logiki**:
 
 [![Ręczne wyzwalanie aplikacji logiki](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
@@ -116,11 +116,11 @@ Aby zaimplementować te zasady:
     > [!TIP]
     > Można je również znaleźć, wyszukując Azure Policy:
     > 1. Otwórz Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Lista automatyzacji przepływu pracy":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Uzyskiwanie dostępu Azure Policy":::
     > 2. Z menu Azure Policy wybierz pozycję **definicje** i wyszukaj je według nazwy. 
 
-1. Na odpowiedniej stronie Azure Policy wybierz pozycję **Przypisz** .
-    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Lista automatyzacji przepływu pracy":::
+1. Na odpowiedniej stronie Azure Policy wybierz pozycję **Przypisz**.
+    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Przypisywanie Azure Policy":::
 
 1. Otwórz każdą kartę i ustaw parametry zgodnie z potrzebami:
     1. Na karcie **podstawy** Ustaw zakres dla zasad. Aby użyć funkcji scentralizowanego zarządzania, przypisz zasady do grupy zarządzania zawierającej subskrypcje, które będą korzystać z konfiguracji automatyzacji przepływu pracy. 
@@ -129,11 +129,11 @@ Aby zaimplementować te zasady:
         > Każdy parametr zawiera etykietkę narzędzia opisującą dostępne opcje.
         >
         > Karta parametry Azure Policy (1) zapewnia dostęp do podobnych opcji konfiguracji jako strony automatyzacji przepływu pracy Security Center (2).
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Lista automatyzacji przepływu pracy" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Porównywanie parametrów w automatyzacji przepływu pracy z Azure Policy" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. Opcjonalnie, aby zastosować to przypisanie do istniejących subskrypcji, Otwórz kartę **korygowanie** i wybierz opcję utworzenia zadania korygowania.
 
-1. Przejrzyj stronę Podsumowanie i wybierz pozycję **Utwórz** .
+1. Przejrzyj stronę Podsumowanie i wybierz pozycję **Utwórz**.
 
 
 ## <a name="data-types-schemas"></a>Schematy typów danych

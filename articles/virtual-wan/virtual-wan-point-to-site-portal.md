@@ -7,23 +7,24 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: e7e65d5d2941765df98b3bf3b7fb8ff2e89b7e9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411205"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919072"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Samouczek: Tworzenie połączenia sieci VPN użytkownika przy użyciu wirtualnej sieci WAN platformy Azure
 
 W tym samouczku pokazano, w jaki sposób przy użyciu usługi Azure Virtual WAN utworzyć połączenie z zasobami na platformie Azure za pośrednictwem połączenia sieci VPN protokołu IPsec/IKE (IKEv2) lub OpenVPN. Ten typ połączenia wymaga, aby klient sieci VPN był skonfigurowany na komputerze klienckim. Aby uzyskać więcej informacji na temat usługi Virtual WAN, zobacz [Omówienie usługi Virtual WAN](virtual-wan-about.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie wirtualnej sieci WAN
 > * Tworzenie konfiguracji P2S
 > * Tworzenie koncentratora wirtualnego
+> * Wybieranie pul adresów klienta
 > * Określ serwery DNS
 > * Generuj pakiet konfiguracyjny profilu klienta sieci VPN
 > * Konfigurowanie klientów sieci VPN
@@ -49,6 +50,11 @@ Konfiguracja typu punkt-lokacja (P2S) definiuje parametry połączenia klientów
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
+
+## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Wybierz P2S pule adresów klienta
+
+[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
+
 ## <a name="specify-dns-server"></a><a name="dns"></a>Określ serwer DNS
 
 To ustawienie można skonfigurować podczas tworzenia centrum lub w późniejszym czasie. Aby zmodyfikować, zlokalizuj centrum wirtualne. W obszarze **Sieć VPN użytkownika (wskaż lokację)** wybierz pozycję **Konfiguruj** i wprowadź adresy IP serwera DNS w polu tekstowym **niestandardowe serwery DNS** . Można określić maksymalnie 5 serwerów DNS.
@@ -73,6 +79,8 @@ Po zakończeniu konfigurowania klienta można nawiązać połączenie.
 1. Przejdź do wirtualnej sieci WAN.
 1. Na stronie **Przegląd** każdy punkt na mapie reprezentuje centrum.
 1. W sekcji **centra i połączenia** można wyświetlić stan centrum, lokację, region, stan połączenia sieci VPN oraz liczbę bajtów do i wychodzące.
+
+
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
 

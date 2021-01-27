@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 85dffd4d96a78bab9dd890d9ad37572f3e524f06
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 72ded01b141aafb7fd3e4d761882a10eaf0c4b33
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487936"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920413"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń 
 
@@ -41,7 +41,7 @@ Aby uniknąć zmęczenia alertów, Security Center ogranicza ilość wychodzący
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|**Administrator zabezpieczeń**<br>**Właściciel subskrypcji** |
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
@@ -62,7 +62,7 @@ Powiadomienia e-mail mogą być wysyłane do osób indywidualnych lub wszystkich
 1. Aby zastosować informacje o kontakcie zabezpieczeń do subskrypcji, wybierz pozycję **Zapisz**.
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat alertów zabezpieczeń, zobacz następujące strony:
 
 - [Alerty zabezpieczeń — Przewodnik referencyjny](alerts-reference.md)— informacje na temat alertów zabezpieczeń, które mogą zostać wyświetlone w module ochrony przed zagrożeniami w Azure Security Center

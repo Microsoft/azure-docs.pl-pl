@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: pierwsze zapytanie w portalu'
 description: W tym przewodniku szybki start wykonaj kroki, aby uruchomić pierwsze zapytanie z Azure Portal przy użyciu Eksploratora Azure Resource Graph.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: b5f5203b3842ebc3edbd97bca1ca3c101f47e397
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: cb62a1ae3a29a7aae793fcee6fd896fe0260dc10
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057386"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920103"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph
 
@@ -47,7 +47,7 @@ Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że nic 
 Przeglądarka schematów znajduje się w lewym okienku Eksploratora grafów zasobów. Ta lista zasobów zawiera wszystkie _typy_ zasobów platformy Azure, które są obsługiwane przez usługę Azure Resource Graph i które istnieją w dzierżawie, do której masz dostęp. Rozszerzanie typu zasobu lub podwłaściwości pokazuje właściwości podrzędne, których można użyć do utworzenia kwerendy wykresu zasobów.
 
 Wybór typu zasobu `where type =="<resource type>"` do pola zapytania. Wybranie jednej z właściwości podrzędnych powoduje dodanie `where <propertyName> == "INSERT_VALUE_HERE"` do pola zapytania.
-Przeglądarka schematów to doskonały sposób odnajdywania właściwości do użycia w zapytaniach. Pamiętaj, aby w _ \_ \_ tym miejscu zastąpić wartość Wstaw_ przy użyciu własnej wartości, Dostosuj zapytanie o warunki, operatory i funkcje, aby osiągnąć zamierzone wyniki.
+Przeglądarka schematów to doskonały sposób odnajdywania właściwości do użycia w zapytaniach. Pamiętaj, aby w _\_ \_ tym miejscu zastąpić wartość Wstaw_ przy użyciu własnej wartości, Dostosuj zapytanie o warunki, operatory i funkcje, aby osiągnąć zamierzone wyniki.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Tworzenie wykresu na podstawie zapytania wykresu zasobów
 
@@ -94,7 +94,7 @@ Aby przedstawić przykłady zapytań dotyczących wykresów zasobów i jak możn
 
 - [Eksplorator grafów zasobów — przykładowy pulpit nawigacyjny #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Przykład obrazu dla przykładowego pulpitu nawigacyjnego #1" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Przykład obrazu dla przykładowego pulpitu nawigacyjnego #2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > Liczniki i wykresy w powyższym przykładowym zrzucie ekranu nawigacyjnego różnią się w zależności od środowiska platformy Azure.

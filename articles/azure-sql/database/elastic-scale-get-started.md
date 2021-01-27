@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786721"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919548"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Wprowadzenie do narzędzi Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -85,13 +85,15 @@ Aby pobrać i uruchomić przykład, wykonaj następujące kroki:
 
 1. Pobierz [Narzędzie Elastic DB Tools for Azure SQL — przykład wprowadzenie](https://github.com/Azure/elastic-db-tools). Rozpakuj przykład do wybranej lokalizacji.
 
-2. Aby utworzyć projekt, Otwórz rozwiązanie *ElasticScaleStarterKit. sln* z katalogu *języka C#* .
+2. Aby utworzyć projekt, Otwórz rozwiązanie *ElasticDatabaseTools. sln* z katalogu *Elastic-DB-Tools-Master* . 
 
-3. W rozwiązaniu dla przykładowego projektu Otwórz plik *app.config* . Następnie postępuj zgodnie z instrukcjami w pliku, aby dodać nazwę serwera i informacje logowania (nazwa użytkownika i hasło).
+3. Ustaw projekt *ElasticScaleStarterKit* jako projekt startowy.
 
-4. Skompiluj i uruchom aplikację. Po wyświetleniu monitu włącz program Visual Studio, aby przywrócić pakiety NuGet rozwiązania. Ta akcja spowoduje pobranie najnowszej wersji biblioteki klienta Elastic Database z narzędzia NuGet.
+4. W projekcie *ElasticScaleStarterKit* otwórz plik *App.config* . Następnie postępuj zgodnie z instrukcjami w pliku, aby dodać nazwę serwera i informacje logowania (nazwa użytkownika i hasło).
 
-5. Aby dowiedzieć się więcej o możliwościach biblioteki klienta, należy eksperymentować z różnymi opcjami. Należy zwrócić uwagę na kroki wykonywane przez aplikację w danych wyjściowych w konsoli, aby poznać kod w tle.
+5. Skompiluj i uruchom aplikację. Po wyświetleniu monitu włącz program Visual Studio, aby przywrócić pakiety NuGet rozwiązania. Ta akcja spowoduje pobranie najnowszej wersji biblioteki klienta Elastic Database z narzędzia NuGet.
+
+6. Aby dowiedzieć się więcej o możliwościach biblioteki klienta, należy eksperymentować z różnymi opcjami. Należy zwrócić uwagę na kroki wykonywane przez aplikację w danych wyjściowych w konsoli, aby poznać kod w tle.
 
    ![Postęp][4]
 
@@ -102,19 +104,19 @@ Gratulacje! Pomyślnie skompilowano i uruchomiono pierwszą aplikację podzielon
 
 ## <a name="key-pieces-of-the-code-sample"></a>Najważniejsze fragmenty przykładu kodu
 
-* **Zarządzanie mapami fragmentów i fragmentu** : kod ilustruje sposób pracy z fragmentów, zakresami i mapowaniami w pliku *ShardManagementUtils.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).  
+* **Zarządzanie mapami fragmentów i fragmentu**: kod ilustruje sposób pracy z fragmentów, zakresami i mapowaniami w pliku *ShardManagementUtils.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).  
 
-* **Routing zależny od danych** : Routing transakcji do prawej fragmentu jest wyświetlany w pliku *DataDependentRoutingSample.cs* . Aby uzyskać więcej informacji, zobacz [Routing zależny od danych](https://go.microsoft.com/?linkid=9862596).
+* **Routing zależny od danych**: Routing transakcji do prawej fragmentu jest wyświetlany w pliku *DataDependentRoutingSample.cs* . Aby uzyskać więcej informacji, zobacz [Routing zależny od danych](https://go.microsoft.com/?linkid=9862596).
 
-* **Wykonywanie zapytania dotyczącego wielu fragmentów** : zapytania w fragmentów są zilustrowane w pliku *MultiShardQuerySample.cs* . Aby uzyskać więcej informacji, zobacz [zapytania dotyczące wielu fragmentu](https://go.microsoft.com/?linkid=9862597).
+* **Wykonywanie zapytania dotyczącego wielu fragmentów**: zapytania w fragmentów są zilustrowane w pliku *MultiShardQuerySample.cs* . Aby uzyskać więcej informacji, zobacz [zapytania dotyczące wielu fragmentu](https://go.microsoft.com/?linkid=9862597).
 
-* **Dodawanie pustego fragmentów** : iteracyjne Dodawanie nowej pustej fragmentów jest wykonywane przez kod w pliku *CreateShardSample.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).
+* **Dodawanie pustego fragmentów**: iteracyjne Dodawanie nowej pustej fragmentów jest wykonywane przez kod w pliku *CreateShardSample.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Inne operacje skalowania elastycznego
 
-* **Dzielenie istniejącej fragmentu** : możliwość podziału fragmentów jest zapewniana przez narzędzie Split-Merge. Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych między skalowanymi bazami danych w chmurze](elastic-scale-overview-split-and-merge.md).
+* **Dzielenie istniejącej fragmentu**: możliwość podziału fragmentów jest zapewniana przez narzędzie Split-Merge. Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych między skalowanymi bazami danych w chmurze](elastic-scale-overview-split-and-merge.md).
 
-* **Scalanie istniejących fragmentów** : scalanie fragmentu odbywa się również przy użyciu narzędzia Split-Merge. Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych między skalowanymi bazami danych w chmurze](elastic-scale-overview-split-and-merge.md).
+* **Scalanie istniejących fragmentów**: scalanie fragmentu odbywa się również przy użyciu narzędzia Split-Merge. Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych między skalowanymi bazami danych w chmurze](elastic-scale-overview-split-and-merge.md).
 
 ## <a name="cost"></a>Koszt
 

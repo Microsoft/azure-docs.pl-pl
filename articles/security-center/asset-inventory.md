@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: d5820af1efd91efd79fb2a860d6aad8d2eeed80d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740882"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920430"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów
 
@@ -40,7 +40,7 @@ Możliwości zarządzania zasobami dla tego narzędzia są znaczne i nadal rosn�
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|Wszyscy użytkownicy|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|

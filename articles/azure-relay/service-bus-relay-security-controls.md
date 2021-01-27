@@ -3,12 +3,12 @@ title: Kontrolki zabezpieczeń dla Azure Relay
 description: W tym artykule przedstawiono listę kontrolną wbudowanych mechanizmów zabezpieczeń do oceniania Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 5d55026bfb6e3d6fe955a540b7596a85707398d6
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: ce5053366ac1d3536a152610d8ed7f76fad62b84
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133348"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919582"
 ---
 # <a name="security-controls-for-azure-relay"></a>Kontrolki zabezpieczeń dla Azure Relay
 
@@ -20,9 +20,9 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Relay.
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja |
 |---|---|--|--|
-| Obsługa prywatnego punktu końcowego| Nie |  |   |
-| Izolacja sieci i obsługa zapór| Nie |  |   |
-| Obsługa tunelowania wymuszonego| Brak | Przekaźnik jest tunelem TLS  |   |
+| Obsługa prywatnego punktu końcowego| Tak |  |   |
+| Izolacja sieci i obsługa zapór| Tak |  |   |
+| Obsługa tunelowania wymuszonego| Nie dotyczy | Przekaźnik jest tunelem TLS  |   |
 
 ## <a name="monitoring--logging"></a>Monitorowanie rejestrowania &
 
@@ -43,9 +43,9 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Relay.
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja |
 |---|---|--|--|
-| Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft |  Brak | Przekaźnik jest gniazdem internetowym i nie utrzymuje danych. |   |
+| Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft |  Nie dotyczy | Przekaźnik jest gniazdem internetowym i nie utrzymuje danych. |   |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Nie | Używa tylko certyfikatów Microsoft TLS.  |   |
-| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Brak | |   |
+| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy | |   |
 | Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie VNet-VNet)| Tak | Usługa wymaga protokołu TLS. |   |
 | Wywołania interfejsu API są szyfrowane| Tak | Schemat. |
 

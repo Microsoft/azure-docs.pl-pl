@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2019
+ms.date: 01/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 2465cf74dbf4fbf074aed8f8e4097a236e628425
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 11c5c77623fcc693210d5a42bf94c968e884fec3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660648"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920024"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Przydatne zasoby do pracy z platformą Azure — wskaźnikiem
 
@@ -28,7 +28,7 @@ ms.locfileid: "94660648"
 
 W tym artykule wymieniono zasoby, które mogą pomóc uzyskać więcej informacji na temat pracy z platformą Azure — wskaźnikiem.
 
-Łączniki Azure Logic Apps: <https://docs.microsoft.com/connectors/>
+- **Łączniki Azure Logic Apps**: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Inspekcja i raportowanie
@@ -78,7 +78,7 @@ Te dane można wyświetlić, przesyłając je strumieniowo z dziennika aktywnoś
 
 ## <a name="vendor-documentation"></a>Dokumentacja dostawcy
 
-| **Dostawca**  | **Korzystanie z zdarzeń na platformie Azure — wskaźnik** | **Łącze**|
+| **Dostawca**  | **Korzystanie z zdarzeń na platformie Azure — wskaźnik** | **Link**|
 |----|----|----|
 | GitHub| Służy do uzyskiwania dostępu do strony społeczności| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Konfigurowanie CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
@@ -86,10 +86,25 @@ Te dane można wyświetlić, przesyłając je strumieniowo z dziennika aktywnoś
 
 ## <a name="blogs-and-forums"></a>Blogi i fora
 
-Opublikuj swoje pytania w [obszarze TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) na potrzeby platformy Azure.
+Chętnie poznamy od naszych użytkowników!
 
-Wyświetl wpisy w blogu dotyczące platformy Azure wskaźnikowego z [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) i [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+- **Opublikuj swoje pytania** w [obszarze TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) na potrzeby platformy Azure. 
+
+- **Prześlij sugestie dotyczące ulepszeń** za pośrednictwem naszego programu [głosowego użytkownika](https://feedback.azure.com/forums/920458-azure-sentinel) .
+
+- **Wyświetlaj** wpisy w blogu systemu Azure wskaźnikowego i Skomentuj je:
+
+    - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
+    - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
+
+Aby uzyskać więcej informacji na temat zabezpieczeń i zgodności platformy Azure, zobacz Blog dotyczący [zabezpieczeń i zgodności Microsoft Azure](https://techcommunity.microsoft.com/t5/microsoft-security-and/bg-p/MicrosoftSecurityandCompliance).
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie przedstawiono listę zasobów, które są przydatne podczas pracy z platformą Azure — wskaźnikiem. Dodatkowe informacje na temat zabezpieczeń i zgodności platformy Azure można znaleźć na [blogu Microsoft Azure zabezpieczenia i zgodność](/archive/blogs/azuresecurity/).
+
+> [!div class="nextstepaction"]
+> [Zapoznaj się z certyfikatem.](/learn/paths/security-ops-sentinel/)
+
+> [!div class="nextstepaction"]
+> [Odczytaj historie przypadku użycia klienta](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)
+

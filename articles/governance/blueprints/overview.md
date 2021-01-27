@@ -1,14 +1,14 @@
 ---
 title: Omówienie usługi Azure Blueprints
 description: Dowiedz się, w jaki sposób usługa Azure Plans umożliwia tworzenie, Definiowanie i wdrażanie artefaktów w środowisku platformy Azure.
-ms.date: 09/30/2020
+ms.date: 01/27/2021
 ms.topic: overview
-ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f4ba77f5fcb376bf600d94997b0d6ba569f04f82
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892731"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919346"
 ---
 # <a name="what-is-azure-blueprints"></a>Czym jest usługa Azure Blueprints?
 
@@ -31,7 +31,7 @@ Niemal wszystkie elementy, które chcesz dołączyć do wdrożenia w planach pla
 
 Dzięki planom platformy Azure relacja między definicją strategii (co _należy_ wdrożyć) a przypisaniem planu (co _zostało_ wdrożone) jest zachowywana. To połączenie obsługuje ulepszone śledzenie i inspekcję wdrożeń. Plany platformy Azure mogą również uaktualnić kilka subskrypcji jednocześnie, które podlegają temu samemu planowi.
 
-Nie trzeba wybierać między szablonem ARM a planem. Każdy plan może składać się z co najmniej zero _artefaktów_szablonu ARM. Ta pomoc techniczna oznacza, że poprzednie wysiłki w zakresie opracowywania i konserwowania biblioteki szablonów ARM są wielokrotnego użytku w planach platformy Azure.
+Nie trzeba wybierać między szablonem ARM a planem. Każdy plan może składać się z co najmniej zero _artefaktów_ szablonu ARM. Ta pomoc techniczna oznacza, że poprzednie wysiłki w zakresie opracowywania i konserwowania biblioteki szablonów ARM są wielokrotnego użytku w planach platformy Azure.
 
 ## <a name="how-its-different-from-azure-policy"></a>Czym różni się od usługi Azure Policy
 

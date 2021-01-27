@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 1792535fab79ed20bdf77f96b4fc39f13b0c7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2578b47d27ef062d83ba8621a49e9a8f439897c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016008"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919029"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Odwołanie — Wybieranie protokołu komunikacyjnego
 
@@ -42,7 +42,7 @@ W poniższej tabeli przedstawiono zalecenia wysokiego poziomu dla wybranych prot
 
 Podczas wybierania protokołu dla komunikacji po stronie urządzenia należy wziąć pod uwagę następujące kwestie:
 
-* **Wzorzec z chmury do urządzenia**. Protokół HTTPS nie ma wydajnej metody implementacji wypychania serwera. W związku z tym podczas korzystania z protokołu HTTPS IoT Hub sondowania urządzeń w przypadku komunikatów z chmury do urządzenia. Takie podejście jest nieefektywne dla urządzeń i IoT Hub. W obszarze bieżące wytyczne protokołu HTTPS każde urządzenie powinno sondować komunikaty co 25 minut lub dłużej. MQTT i AMQP obsługują wypychanie serwera podczas otrzymywania komunikatów z chmury do urządzenia. Umożliwiają natychmiastowe wypychanie komunikatów z IoT Hub do urządzenia. Jeśli opóźnienie dostarczania jest problemem, MQTT lub AMQP są najlepszymi protokołami do użycia. W przypadku rzadko połączonych urządzeń działa również protokół HTTPS.
+* **Wzorzec z chmury do urządzenia**. Protokół HTTPS nie ma wydajnej metody implementacji wypychania serwera. W związku z tym podczas korzystania z protokołu HTTPS IoT Hub sondowania urządzeń w przypadku komunikatów z chmury do urządzenia. Takie podejście jest nieefektywne dla urządzeń i IoT Hub. W obszarze bieżące wytyczne protokołu HTTPS każde urządzenie powinno sondować komunikaty co 25 minut lub dłużej. Wydawanie większej liczby odbieranych przez protokół HTTPS powoduje IoT Hub ograniczanie żądań. MQTT i AMQP obsługują wypychanie serwera podczas otrzymywania komunikatów z chmury do urządzenia. Umożliwiają natychmiastowe wypychanie komunikatów z IoT Hub do urządzenia. Jeśli opóźnienie dostarczania jest problemem, MQTT lub AMQP są najlepszymi protokołami do użycia. W przypadku rzadko połączonych urządzeń działa również protokół HTTPS.
 
 * **Bramy pól**. MQTT i HTTPS obsługują tylko pojedynczą tożsamość urządzenia (identyfikator urządzenia i poświadczenia) na połączenie TLS. Z tego powodu te protokoły nie są obsługiwane w [scenariuszach z bramą pola](iot-hub-devguide-endpoints.md#field-gateways) , które wymagają buforowania komunikatów przy użyciu wielu tożsamości urządzeń w ramach jednej lub puli połączeń nadrzędnych do IoT Hub. Takie bramy mogą korzystać z protokołu, który obsługuje wiele tożsamości urządzeń na połączenie, takich jak AMQP, dla ruchu nadrzędnego.
 

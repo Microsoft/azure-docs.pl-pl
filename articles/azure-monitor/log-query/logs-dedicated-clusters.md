@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98609948"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920227"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -25,9 +25,6 @@ Możliwości, które wymagają dedykowanych klastrów, to:
 - **[Wiele obszarów roboczych](../log-query/cross-workspace-query.md)** — Jeśli klient korzysta z więcej niż jednego obszaru roboczego dla środowiska produkcyjnego, warto mieć sens, aby użyć dedykowanego klastra. Zapytania między obszarami roboczymi będą działać szybciej, jeśli wszystkie obszary robocze znajdują się w tym samym klastrze. Korzystanie z dedykowanego klastra może być również tańsze, ponieważ przypisana warstwa rezerwacji pojemności uwzględnia całe pozyskiwanie klastra i ma zastosowanie do wszystkich obszarów roboczych, nawet jeśli niektóre z nich są małe i nie kwalifikują się do rabatu rezerwacji pojemności.
 
 Dedykowane klastry wymagają od klientów zatwierdzeń przy użyciu pojemności co najmniej 1 TB pozyskiwania danych dziennie. Migracja do dedykowanego klastra jest prosta. Brak utraty danych lub przerw w świadczeniu usług. 
-
-> [!IMPORTANT]
-> Dedykowane klastry są zatwierdzane i w pełni obsługiwane w przypadku wdrożeń produkcyjnych. Jednak ze względu na tymczasowe ograniczenia pojemności do korzystania z tej funkcji wymagane jest wstępne zarejestrowanie. Użyj swoich kontaktów do firmy Microsoft, aby podać identyfikatory subskrypcji.
 
 ## <a name="management"></a>Zarządzanie 
 

@@ -1,18 +1,18 @@
 ---
 title: Przykład strategii testu porównawczego zabezpieczeń platformy Azure — omówienie
 description: Omówienie przykładu strategii testu porównawczego zabezpieczeń platformy Azure. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 6b147ffd4efbf814b6119f5d7e90dc7af2ea2687
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 38a50970999965b6a86b8ce8882006c169f2dc5a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057590"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919242"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Przykładowy plan usługi Azure Security test
 
-Przykład strategii testu porównawczego zabezpieczeń platformy Azure zapewnia wytyczne dotyczące ładu w usłudze [Azure Policy](../../policy/overview.md), które ułatwiają ocenę określonych mechanizmów kontroli [testu porównawczego zabezpieczeń platformy Azure](../../../security/benchmarks/overview.md). Ta strategia ułatwia klientom wdrażanie podstawowego zestawu zasad dla dowolnej architektury wdrożonej przez platformę Azure, w której planowane jest zaimplementowanie mechanizmów kontroli testu porównawczego zabezpieczeń platformy Azure.
+Przykładowy plan usługi Azure Security Tests oferuje funkcję ładu Guard — szyny używające [Azure Policy](../../policy/overview.md) , które ułatwiają ocenę określonych kontrolek [usługi Azure Security test w wersji 1](../../../security/benchmarks/overview.md) . Ta strategia ułatwia klientom wdrażanie podstawowego zestawu zasad dla dowolnej architektury wdrożonej przez platformę Azure, w której planowane jest zaimplementowanie mechanizmów kontroli testu porównawczego zabezpieczeń platformy Azure.
 
 ## <a name="control-mapping"></a>Mapowanie kontrolek
 
@@ -37,11 +37,11 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 1. Na stronie **Wprowadzenie** z lewej strony wybierz przycisk **Utwórz** w obszarze _Tworzenie strategii_.
 
-1. Znajdź przykład planu **testu porównawczego zabezpieczeń platformy Azure** pod _innymi_ przykładami i wybierz nazwę, aby wybrać ten przykład.
+1. Znajdź przykład planu **usługi Azure Security test w wersji 1** pod _innymi przykładami_ i wybierz nazwę, aby wybrać ten przykład.
 
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
-   - **Nazwa**planu: Podaj nazwę kopii przykładowego planu usługi Azure Security test.
+   - **Nazwa** planu: Podaj nazwę kopii przykładowego planu usługi Azure Security test.
    - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
@@ -60,7 +60,7 @@ Twoja kopia przykładu strategii została utworzona w środowisku. Została ona 
 
 ### <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
-Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
+Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -76,7 +76,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
        Jeśli chcesz, możesz ją zmienić lub pozostawić.
      - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Wersja definicji**planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
+     - **Wersja definicji** planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
 
    - Przypisanie blokady
 

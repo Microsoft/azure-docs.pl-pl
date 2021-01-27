@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie przypisaniami przy użyciu programu PowerShell
 description: Dowiedz się, jak zarządzać przypisaniami planów przy użyciu oficjalnego modułu programu PowerShell platformy Azure, AZ. plan.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bcb3731bd1270497945fa86406d08b2f9750c85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d60fb887e07b4697b8e86a4e2fd74a735ac0bb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051410"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919380"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Zarządzanie przypisaniami przy użyciu programu PowerShell
 
@@ -164,11 +164,11 @@ Jeśli przypisanie planu nie istnieje jeszcze, można je utworzyć za pomocą `N
   - Jeśli nie podano parametru grupy zasobów i nie ma on wartości **DefaultValue**, parametr grupy zasobów nie jest opcjonalny
 - **AssignmentFile** (opcjonalnie)
   - Ścieżka do reprezentacji pliku JSON przypisania planu
-  - Ten parametr jest częścią zestawu parametrów programu PowerShell, który zawiera tylko **nazwę**, **Plan**i identyfikator **subskrypcji**oraz wspólne parametry.
+  - Ten parametr jest częścią zestawu parametrów programu PowerShell, który zawiera tylko **nazwę**, **Plan** i identyfikator **subskrypcji** oraz wspólne parametry.
 
 ### <a name="example-1-provide-parameters"></a>Przykład 1: podaj parametry
 
-Poniższy przykład tworzy nowe przypisanie wersji "1,1" w definicji planu "My-strategii" pobranej z `Get-AzBlueprint` , ustawia lokalizację zarządzaną tożsamości i obiektu przypisania na "westus2", blokuje zasoby z _AllResourcesReadOnly_i ustawia tabele skrótów dla **parametrów** i **ResourceGroupParameter** dla określonej subskrypcji reprezentowanej jako `{subId}` :
+Poniższy przykład tworzy nowe przypisanie wersji "1,1" w definicji planu "My-strategii" pobranej z `Get-AzBlueprint` , ustawia lokalizację zarządzaną tożsamości i obiektu przypisania na "westus2", blokuje zasoby z _AllResourcesReadOnly_ i ustawia tabele skrótów dla **parametrów** i **ResourceGroupParameter** dla określonej subskrypcji reprezentowanej jako `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -250,7 +250,7 @@ Przykład pliku definicji przypisania JSON dla tożsamości zarządzanej przypis
 
 ## <a name="update-blueprint-assignments"></a>Aktualizowanie przypisań planów
 
-Czasami trzeba zaktualizować przypisanie planu, które zostało już utworzone. `Set-AzBlueprintAssignment`Polecenie cmdlet obsługuje tę akcję. Polecenie cmdlet pobiera większość z tych samych parametrów, które są używane przez `New-AzBlueprintAssignment` polecenie cmdlet, co umożliwia zaktualizowanie wszystkich elementów ustawionych w przypisaniu. Wyjątkami są _nazwy_, _plany_i identyfikator _subskrypcji_. Tylko podane wartości są aktualizowane.
+Czasami trzeba zaktualizować przypisanie planu, które zostało już utworzone. `Set-AzBlueprintAssignment`Polecenie cmdlet obsługuje tę akcję. Polecenie cmdlet pobiera większość z tych samych parametrów, które są używane przez `New-AzBlueprintAssignment` polecenie cmdlet, co umożliwia zaktualizowanie wszystkich elementów ustawionych w przypisaniu. Wyjątkami są _nazwy_, _plany_ i identyfikator _subskrypcji_. Tylko podane wartości są aktualizowane.
 
 Aby zrozumieć, co się dzieje w przypadku aktualizowania przypisania planu, zobacz [reguły dotyczące aktualizowania przypisań](./update-existing-assignments.md#rules-for-updating-assignments).
 

@@ -3,13 +3,13 @@ title: Włączanie szyfrowania opartego na hoście w usłudze Azure Kubernetes S
 description: Dowiedz się, jak skonfigurować szyfrowanie oparte na hoście w klastrze usługi Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: 531d1dc4169b5f4adecfb29c3e116049cb99c3c9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/27/2021
+ms.openlocfilehash: 1d071305b457cddde56a11982e08c9331e1d5463
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787828"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919652"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Szyfrowanie oparte na hoście w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli 
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- Upewnij się, że jest `aks-preview` zainstalowany interfejs wiersza polecenia w wersji 0.4.55 lub nowszej
+- Upewnij się, że jest `aks-preview` zainstalowany interfejs wiersza polecenia w wersji 0.4.73 lub nowszej
 - Upewnij się, że masz `EnableEncryptionAtHostPreview` flagę funkcji w obszarze `Microsoft.ContainerService` włączone.
 
 Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail do encryptionAtHost@microsoft . com z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji.
@@ -35,18 +35,18 @@ Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zest
 > [!IMPORTANT]
 > Musisz wysłać wiadomość e-mail encryptionAtHost@microsoft . com z identyfikatorami subskrypcji, aby włączyć funkcję dla zasobów obliczeniowych. Nie można włączyć go samodzielnie dla tych zasobów. Możesz samodzielnie włączyć ją w usłudze Container Service.
 
-Aby utworzyć klaster AKS, który korzysta z szyfrowania opartego na hoście, należy włączyć `EnableEncryptionAtHostPreview` `EncryptionAtHost` flagi i funkcji w subskrypcji.
+Aby utworzyć klaster AKS, który korzysta z szyfrowania opartego na hoście, należy włączyć `EncryptionAtHost` flagę funkcji w subskrypcji.
 
 Zarejestruj `EncryptionAtHost` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHost"
 ```
 
 Wyświetlenie stanu *rejestracji* może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHost')].{Name:name,State:properties.state}"
 ```
 
 Gdy wszystko będzie gotowe, Odśwież rejestrację `Microsoft.ContainerService` `Microsoft.Compute` dostawców i zasobów przy użyciu polecenia [AZ Provider Register][az-provider-register] :
@@ -80,7 +80,7 @@ az extension update --name aks-preview
 Skonfiguruj węzły agenta klastra do używania szyfrowania opartego na hoście podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi, aby ustawić `EnableEncryptionAtHost` nagłówek.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers --enable-encryption-at-host
 ```
 
 Jeśli chcesz utworzyć klastry bez szyfrowania opartego na hoście, możesz to zrobić, pomijając `--aks-custom-headers` parametr niestandardowy.
@@ -90,7 +90,7 @@ Jeśli chcesz utworzyć klastry bez szyfrowania opartego na hoście, możesz to 
 Można włączyć szyfrowanie oparte na hoście dla istniejących klastrów, dodając do klastra nową pulę węzłów. Skonfiguruj nową pulę węzłów do korzystania z szyfrowania opartego na hoście przy użyciu `--aks-custom-headers` flagi.
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers --enable-encryption-at-host
 ```
 
 Jeśli chcesz utworzyć nowe pule węzłów bez funkcji szyfrowania opartego na hoście, możesz to zrobić, pomijając `--aks-custom-headers` parametr niestandardowy.

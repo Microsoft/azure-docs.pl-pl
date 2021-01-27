@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: Tworzenie strategii przy użyciu interfejsu wiersza polecenia platformy Azure'
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu interfejsu wiersza polecenia platformy Azure.
-ms.date: 01/26/2021
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: a0e44925bdec78b8b02a50c8b3f91db0bb764976
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875215"
+ms.locfileid: "98920244"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -167,6 +167,9 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
         --parameters artifacts\policyTags.json
      ```
 
+     > [!NOTE]
+     > W przypadku używania `az blueprint` na komputerze Mac Zamień `\` na `/` wartości parametrów, które zawierają ścieżkę. W takim przypadku wartość **parametrów** `artifacts/policyTags.json` .
+
 1. Dodaj kolejne przypisanie zasad dla tagu magazynu (używając ponownie parametru _storageAccountType_) w subskrypcji. Ten dodatkowy artefakt przypisania zasad pokazuje, że parametr zdefiniowany w strategii może być używany przez więcej niż jeden artefakt. W tym przykładzie parametr **storageAccountType** służy do określania tagu w grupie zasobów. Ta wartość zawiera informacje o koncie magazynu, które zostanie tworzone w następnym kroku. W tym przykładzie użyto wbudowanych zasad _Zastosuj tag i jego wartość domyślną do grup zasobów_ o identyfikatorze GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - Plik JSON — artifacts\policyStorageTags.json
@@ -193,6 +196,9 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
         --description 'Apply storage tag and the parameter also used by the template to resource groups' \
         --parameters artifacts\policyStorageTags.json
      ```
+
+     > [!NOTE]
+     > W przypadku używania `az blueprint` na komputerze Mac Zamień `\` na `/` wartości parametrów, które zawierają ścieżkę. W takim przypadku wartość **parametrów** `artifacts/policyStorageTags.json` .
 
 1. Dodaj szablon w grupie zasobów. Parametr **szablonu** dla szablonu ARM zawiera normalne składniki JSON szablonu. Szablon używa również wielokrotnie parametrów strategii **storageAccountType**, **tagName** i **tagValue**, przekazując każdy z nich do szablonu. Parametry planu są dostępne dla szablonu za pomocą **parametrów** parametru i w formacie JSON szablonu, którego para klucz-wartość służy do iniekcji wartości. Nazwy planów i parametrów szablonu mogą być takie same.
 
@@ -276,6 +282,9 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
         --parameters artifacts\templateStorageParams.json \
         --resource-group-art 'storageRG'
      ```
+
+     > [!NOTE]
+     > W przypadku używania `az blueprint` na komputerze Mac Zamień `\` na `/` wartości parametrów, które zawierają ścieżkę. W takim przypadku wartość **szablonu** zmieni się, `artifacts/templateStorage.json` a **Parametry** staną się `artifacts/templateStorageParams.json` .
 
 1. Dodaj przypisanie roli w grupie zasobów. Podobnie jak w poprzednim wpisie przypisania roli, w poniższym przykładzie użyto identyfikatora definicji dla roli **Właściciel** i podano mu inny parametr ze strategii. W tym przykładzie użyto wbudowanej roli _Właściciel_ o identyfikatorze GUID `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 

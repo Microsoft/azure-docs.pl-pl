@@ -4,12 +4,12 @@ description: Dowiedz się, jak połączyć się prywatnie z kontem Azure Batch p
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 38d92d787a8d01dd3f87e1cdcacd336982c8c910
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579559"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920007"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Używanie prywatnych punktów końcowych z kontami usługi Azure Batch
 
@@ -20,11 +20,11 @@ Za pomocą [prywatnego linku platformy Azure](../private-link/private-link-overv
 Link prywatny umożliwia użytkownikom dostęp do konta Azure Batch z poziomu sieci wirtualnej lub z dowolnej równorzędnej sieci wirtualnej. Zasoby mapowane do linku prywatnego są również dostępne lokalnie przez prywatną komunikację równorzędną za pośrednictwem sieci VPN lub [Azure ExpressRoute](../expressroute/expressroute-introduction.md). Można nawiązać połączenie z kontem Azure Batch skonfigurowanym za pomocą linku prywatnego przy użyciu [metody zatwierdzania automatyczne lub ręczne](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
 > [!IMPORTANT]
-> Obsługa łączności prywatnej w Azure Batch jest obecnie dostępna dla wszystkich regionów publicznych, z wyjątkiem Niemiec Środkowej i Niemiec.
+> Obsługa łączności prywatnej w Azure Batch jest obecnie dostępna dla wszystkich regionów, z wyjątkiem Niemiec Central, Niemiec północ, Chiny Wschodnie, Chiny Wschodnie 2, Chiny Północne i Chiny Północne 2.
 
 W tym artykule opisano kroki tworzenia prywatnego konta usługi Batch i uzyskiwania dostępu do niego przy użyciu prywatnego punktu końcowego.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Witryna Azure Portal
 
 Wykonaj następujące kroki, aby utworzyć prywatne konto usługi Batch przy użyciu Azure Portal:
 
@@ -37,11 +37,11 @@ Wykonaj następujące kroki, aby utworzyć prywatne konto usługi Batch przy uż
 6. W okienku **zasobów** Ustaw **typ zasobu** na **Microsoft.Batch/batchAccounts**. Wybierz konto prywatnej partii, do którego chcesz uzyskać dostęp, a następnie wybierz kolejno pozycje **Dalej: Konfiguracja**.
    :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Tworzenie prywatnego punktu końcowego — okienko zasobów":::
 7. W okienku **Konfiguracja** wprowadź lub wybierz następujące informacje:
-   - **Sieć wirtualna** : Wybierz sieć wirtualną.
-   - **Podsieć** : wybierz podsieć.
-   - **Integracja z prywatną strefą DNS** : wybierz pozycję **tak**. Aby połączyć się prywatnie z prywatnym punktem końcowym, potrzebny jest rekord DNS. Zalecamy integrację prywatnego punktu końcowego z prywatną strefą DNS. Możesz również użyć własnych serwerów DNS lub utworzyć rekordy DNS przy użyciu plików hosta na maszynach wirtualnych.
-   - **Prywatna strefa DNS strefa** : wybierz pozycję privatelink. \<region\> . batch.azure.com. Prywatna strefa DNS jest określana automatycznie. Nie można go zmienić za pomocą Azure Portal.
-8. Wybierz pozycję **Recenzja + Utwórz** , a następnie poczekaj na platformę Azure, aby sprawdzić poprawność konfiguracji.
+   - **Sieć wirtualna**: Wybierz sieć wirtualną.
+   - **Podsieć**: wybierz podsieć.
+   - **Integracja z prywatną strefą DNS**: wybierz pozycję **tak**. Aby połączyć się prywatnie z prywatnym punktem końcowym, potrzebny jest rekord DNS. Zalecamy integrację prywatnego punktu końcowego z prywatną strefą DNS. Możesz również użyć własnych serwerów DNS lub utworzyć rekordy DNS przy użyciu plików hosta na maszynach wirtualnych.
+   - **Prywatna strefa DNS strefa**: wybierz pozycję privatelink. \<region\> . batch.azure.com. Prywatna strefa DNS jest określana automatycznie. Nie można go zmienić za pomocą Azure Portal.
+8. Wybierz pozycję **Recenzja + Utwórz**, a następnie poczekaj na platformę Azure, aby sprawdzić poprawność konfiguracji.
 9. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 Po udostępnieniu prywatnego punktu końcowego można uzyskać dostęp do konta usługi Batch z maszyn wirtualnych w tej samej sieci wirtualnej przy użyciu prywatnego punktu końcowego.

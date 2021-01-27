@@ -3,12 +3,12 @@ title: Zmień ustawienia klastra Service Fabric platformy Azure
 description: W tym artykule opisano ustawienia sieci szkieletowej oraz zasady uaktualniania sieci szkieletowej, które można dostosować.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: c055ad1dad8b9574c8d811284a34619ee3648a10
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095274"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919786"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Dostosowywanie ustawień klastra usługi Service Fabric
 W tym artykule opisano różne ustawienia sieci szkieletowej dla klastra Service Fabric, które można dostosować. W przypadku klastrów hostowanych na platformie Azure można dostosować ustawienia za pomocą [Azure Portal](https://portal.azure.com) lub szablonu Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra platformy Azure](service-fabric-cluster-config-upgrade-azure.md). W przypadku klastrów autonomicznych można dostosować ustawienia przez aktualizację *ClusterConfig.jsw* pliku i przeprowadzanie uaktualnienia konfiguracji w klastrze. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -521,7 +521,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |AutoDetectAvailableResources|bool, wartość domyślna to TRUE|Static|Ta konfiguracja spowoduje wyzwolenie automatycznego wykrywania dostępnych zasobów w węźle (procesor i pamięć), gdy ta konfiguracja zostanie ustawiona na wartość true — będziemy odczytywać rzeczywiste pojemności i poprawiać je, jeśli użytkownik określił nieprawidłowe pojemności węzłów lub nie zdefiniowano ich w ogóle, jeśli ta konfiguracja zostanie ustawiona na wartość false — zostanie wyświetlone ostrzeżenie informujące o tym, że użytkownik określił nieprawidłowe pojemności węzłów; ale nie zostaną one poprawione. oznacza to, że użytkownik chce mieć pojemności określone jako > niż w rzeczywistości czy w przypadku niezdefiniowania pojemności; przyjmie ona nieograniczoną pojemność |
 |BalancingDelayAfterNewNode | Czas w sekundach, wartość domyślna to 120 |Dynamiczny|Określ wartość TimeSpan w sekundach. Nie uruchamiaj działań równoważenia obciążenia w tym okresie po dodaniu nowego węzła. |
 |BalancingDelayAfterNodeDown | Czas w sekundach, wartość domyślna to 120 |Dynamiczny|Określ wartość TimeSpan w sekundach. Nie uruchamiaj działań równoważenia obciążenia w tym okresie po zdarzeniu w dół węzła. |
-|BlockNodeInUpgradeConstraintPriority | Int, wartość domyślna to 0 |Dynamiczny|Określa priorytet ograniczenia pojemności: 0: twarda; 1: nietrwałe; wartość ujemna: Ignoruj  |
+|BlockNodeInUpgradeConstraintPriority | Int, wartość domyślna to-1 |Dynamiczny|Określa priorytet ograniczenia pojemności: 0: twarda; 1: nietrwałe; wartość ujemna: Ignoruj  |
 |CapacityConstraintPriority | Int, wartość domyślna to 0 | Dynamiczny|Określa priorytet ograniczenia pojemności: 0: twarda; 1: nietrwałe; wartość ujemna: Ignoruj. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, wartość domyślna to 20 | Dynamiczny|Określa liczbę kolejnych porzuconych przesunięć ResourceBalancer przed wykonaniem diagnostyki i wyemitowaniu ostrzeżeń dotyczących kondycji. Wartość ujemna: żadne ostrzeżenia nie są emitowane w tym stanie. |
 |ConstraintFixPartialDelayAfterNewNode | Czas w sekundach, wartość domyślna to 120 |Dynamiczny| Określ wartość TimeSpan w sekundach. DDo nie naprawiaj naruszeń ograniczenia FaultDomain i UpgradeDomain w tym okresie po dodaniu nowego węzła. |
@@ -879,7 +879,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |FrameHeaderErrorCheckingEnabled|bool, wartość domyślna to TRUE|Static|Domyślne ustawienie sprawdzania błędów w nagłówku ramki w trybie niezabezpieczonym; ustawienie składnika zastępuje ten element. |
 |MessageErrorCheckingEnabled|bool, wartość domyślna to TRUE|Static|Ustawienie domyślne do sprawdzania błędów w nagłówku komunikatu i treści w trybie niezabezpieczonym; ustawienie składnika zastępuje ten element. |
 |ResolveOption|ciąg, wartość domyślna to "nieokreślone"|Static|Określa sposób rozwiązywania nazwy FQDN.  Prawidłowe wartości to "nieokreślone/IPv4/IPv6". |
-|Właściwości SendTimeout|TimeSpan, wartość domyślna to common:: TimeSpan:: FromSeconds (300)|Dynamiczny|Określ wartość TimeSpan w sekundach. Wysłano limit czasu podczas wykrywania zablokowanego połączenia. Raporty o błędach TCP nie są niezawodne w niektórych środowiskach. Może być konieczne dostosowanie w zależności od dostępnej przepustowości sieci i rozmiaru danych wychodzących ( \* MaxMessageSize \/ \* SendQueueSizeLimit). |
+|SendTimeout|TimeSpan, wartość domyślna to common:: TimeSpan:: FromSeconds (300)|Dynamiczny|Określ wartość TimeSpan w sekundach. Wysłano limit czasu podczas wykrywania zablokowanego połączenia. Raporty o błędach TCP nie są niezawodne w niektórych środowiskach. Może być konieczne dostosowanie w zależności od dostępnej przepustowości sieci i rozmiaru danych wychodzących ( \* MaxMessageSize \/ \* SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 

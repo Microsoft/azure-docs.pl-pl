@@ -2,13 +2,13 @@
 title: Samouczek — prywatne środowiska lokalne do chmury prywatnej
 description: Dowiedz się, jak utworzyć ExpressRoute Global Reach komunikacji równorzędnej w chmurze prywatnej w rozwiązaniu VMware platformy Azure.
 ms.topic: tutorial
-ms.date: 1/5/2021
-ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/27/2021
+ms.openlocfilehash: e7b1e349f67fe63f63183c0ff6d1522498c65f8c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913162"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918724"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Samouczek: środowiska lokalne w chmurze do chmury prywatnej
 
@@ -16,14 +16,14 @@ ExpressRoute Global Reach nawiązuje połączenie środowiska lokalnego z chmur�
 
 Obwód usługi ExpressRoute używany podczas [konfigurowania sieci Azure-to-Private w chmurze](tutorial-configure-networking.md) wymaga utworzenia kluczy autoryzacji i korzystania z nich.  Już użyto jednego klucza autoryzacji z obwodu usługi ExpressRoute, a w tym samouczku utworzysz drugi element do komunikacji równorzędnej z lokalnym obwodem usługi ExpressRoute.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie drugiego klucza autoryzacji _obwodu 2_— obwodu usługi ExpressRoute w chmurze prywatnej
 > * Użyj [Azure Portal](#azure-portal-method) lub [interfejsu wiersza polecenia platformy Azure w metodzie Cloud Shell](#azure-cli-in-a-cloud-shell-method) w subskrypcji _obwodu 1_ , aby włączyć komunikację równorzędną w chmurze Global REACH ExpressRoute
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed włączeniem łączności między dwoma obwodami usługi ExpressRoute przy użyciu usługi ExpressRoute Global Reach zapoznaj się z dokumentacją dotyczącą sposobu [włączania łączności w różnych subskrypcjach platformy Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
 
@@ -33,7 +33,7 @@ Przed włączeniem łączności między dwoma obwodami usługi ExpressRoute przy
 - Nawiązano połączenie z i z chmury prywatnej rozwiązań VMware platformy Azure z obwodem usługi ExpressRoute za pomocą komunikacji równorzędnej z bramą ExpressRoute w sieci wirtualnej platformy Azure — jest to _obwód 2_ z procedur komunikacji równorzędnej.  
 - Oddzielny, działający obwód ExpressRoute używany do łączenia środowisk lokalnych z platformą Azure — który jest _obwodem 1_ z perspektywy procedur komunikacji równorzędnej.
 - /29 nienakładający się [blok adresów sieciowych](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) dla komunikacji równorzędnej ExpressRoute Global REACH.
-- Upewnij się, że wszystkie routery, w tym usługa dostawcy ExpressRoute, obsługują 4-bajtowy numer systemu autonomicznego (ASN). Rozwiązanie VMware platformy Azure używa 4-bajtowego publicznego WPW do anonsowania tras.
+- Upewnij się, że wszystkie bramy, w tym usługa dostawcy ExpressRoute, obsługują 4-bajtowy numer systemu autonomicznego (ASN). Rozwiązanie VMware platformy Azure używa 4-bajtowego publicznego WPW do anonsowania tras.
 
 > [!TIP]
 > W kontekście tych wymagań wstępnych lokalny obwód usługi ExpressRoute to _obwód 1_, a obwód prywatny usługi ExpressRoute w chmurze znajduje się w innej subskrypcji i z oznaczeniem _obwodu 2_. 

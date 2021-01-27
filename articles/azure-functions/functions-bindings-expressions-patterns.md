@@ -6,16 +6,16 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927417"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920294"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Wzorce wyrażeń powiązań Azure Functions
 
-Jedną z najbardziej zaawansowanych funkcji [wyzwalaczy i powiązań](./functions-triggers-bindings.md) jest *wyrażenie wiążące* . W *function.jsna* pliku i w parametrach i kodzie funkcji można używać wyrażeń, które rozwiązują wartości z różnych źródeł.
+Jedną z najbardziej zaawansowanych funkcji [wyzwalaczy i powiązań](./functions-triggers-bindings.md) jest *wyrażenie wiążące*. W *function.jsna* pliku i w parametrach i kodzie funkcji można używać wyrażeń, które rozwiązują wartości z różnych źródeł.
 
 Większość wyrażeń identyfikuje się przez umieszczenie ich w nawiasach klamrowych. Na przykład, w funkcji wyzwalacza kolejki, jest `{queueTrigger}` rozpoznawana jako tekst komunikatu w kolejce. Jeśli `path` Właściwość dla powiązania danych wyjściowych obiektu BLOB ma wartość, `container/{queueTrigger}` a funkcja jest wyzwalana przez komunikat w kolejce `HelloWorld` , tworzony jest obiekt BLOB o nazwie `HelloWorld` .
 
@@ -164,6 +164,7 @@ Na przykład wyzwalacz usługi Azure queue storage obsługuje następujące wła
 Te wartości metadanych są dostępne w *function.jsna* właściwościach pliku. Załóżmy na przykład, że używasz wyzwalacza kolejki, a komunikat kolejki zawiera nazwę obiektu BLOB, który ma zostać odczytany. W *function.js* pliku można użyć `queueTrigger` Właściwości Metadata we właściwości obiektu BLOB `path` , jak pokazano w następującym przykładzie:
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -179,6 +180,7 @@ Te wartości metadanych są dostępne w *function.jsna* właściwościach pliku.
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
 Szczegóły właściwości metadanych każdego wyzwalacza są opisane w odpowiednim artykule referencyjnym. Aby zapoznać się z przykładem, zobacz [metadane wyzwalacza kolejki](functions-bindings-storage-queue-trigger.md#message-metadata). Dokumentacja jest również dostępna na karcie **integracja** w portalu, w sekcji **Dokumentacja** pod obszarem Konfiguracja powiązania.  
@@ -292,7 +294,7 @@ public class BlobName
 
 ## <a name="create-guids"></a>Tworzenie identyfikatorów GUID
 
-`{rand-guid}`Wyrażenie powiązania tworzy identyfikator GUID. Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *50710cb5-84b9-4d87-9d83-a03d6976a682.txt* .
+`{rand-guid}`Wyrażenie powiązania tworzy identyfikator GUID. Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
 
 ```json
 {
@@ -305,7 +307,7 @@ public class BlobName
 
 ## <a name="current-time"></a>Bieżący czas
 
-Wyrażenie powiązania jest `DateTime` rozpoznawane jako `DateTime.UtcNow` . Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *2018-02-16T17-59-55Z.txt* .
+Wyrażenie powiązania jest `DateTime` rozpoznawane jako `DateTime.UtcNow` . Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *2018-02-16T17-59-55Z.txt*.
 
 ```json
 {
