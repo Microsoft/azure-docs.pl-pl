@@ -43,6 +43,8 @@
       href: automation-runbook-types.md
     - name: Rozszerzenie DSC programu PowerShell
       href: /powershell/scripting/dsc/overview/overview
+    - name: Szczegóły konfiguracji sieci usługi Automation
+      href: automation-network-configuration.md
     - name: Zabezpieczenia
       items:
         - name: Kontrole zabezpieczeń usługi Azure Policy

@@ -3,20 +3,20 @@ title: 'Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF, C#-transl
 titleSuffix: Azure Cognitive Services
 description: W tym samouczku utworzysz aplikację WPF do przeprowadzenia tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni przy użyciu jednego klucza subskrypcji.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d239b89aaf0bc140916d38583f4263f7bf660f1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9ebcbadbc8b502121b25393c7761794bcd3f07e8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023620"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897109"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF
 

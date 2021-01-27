@@ -1,5 +1,5 @@
 ---
-title: Lokalizatory przesyłania strumieniowego w Azure Media Services | Microsoft Docs
+title: Lokalizatory przesyłania strumieniowego w Azure Media Services
 description: Ten artykuł zawiera wyjaśnienie, co to są lokalizatory przesyłania strumieniowego i jak są używane przez Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b711b9a6923a1923562a282dcaffe7cecb0c58b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297964"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898142"
 ---
 # <a name="streaming-locators"></a>Lokalizatory przesyłania strumieniowego
 
@@ -25,7 +25,7 @@ Aby udostępnić klientom filmy wideo w wyjściowym elemencie zawartości w celu
 
 Proces tworzenia **lokalizatora przesyłania strumieniowego** jest nazywany publikowaniem. Domyślnie **lokalizator przesyłania strumieniowego** jest ważny natychmiast po wykonaniu wywołań interfejsu API i aż do jego usunięcia, chyba że skonfigurujesz opcjonalne czasy rozpoczęcia i zakończenia. 
 
-Podczas tworzenia **lokalizatora przesyłania strumieniowego**należy określić nazwę **zasobu** i nazwę **zasad przesyłania strumieniowego** . Aby uzyskać więcej informacji, zobacz następujące tematy:
+Podczas tworzenia **lokalizatora przesyłania strumieniowego** należy określić nazwę **zasobu** i nazwę **zasad przesyłania strumieniowego** . Aby uzyskać więcej informacji, zobacz następujące tematy:
 
 * [Elementy zawartości](assets-concept.md)
 * [Zasady przesyłania strumieniowego](streaming-policy-concept.md)
@@ -99,7 +99,7 @@ Aby uzyskać lokalizatory przesyłania strumieniowego na podstawie nazwy skojarz
 |Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Elementy zawartości](assets-concept.md)
 * [Zasady przesyłania strumieniowego](streaming-policy-concept.md)

@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017240"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879177"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Używanie zapory platformy Azure do sprawdzania ruchu kierowanego do prywatnego punktu końcowego
 
@@ -92,7 +92,7 @@ Istnieją pewne ograniczenia dotyczące implementacji: migracja do architektury 
 Tę architekturę można zaimplementować, jeśli skonfigurowano łączność z siecią lokalną przy użyciu: 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
-* [Sieć VPN między lokacjami](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+* [Sieć VPN między lokacjami](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 Jeśli wymagania dotyczące zabezpieczeń wymagają ruchu klienckiego do usług ujawnianych za pośrednictwem prywatnych punktów końcowych, należy wdrożyć ten scenariusz.
 
@@ -176,7 +176,7 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
     | Nazwa maszyny wirtualnej | Wprowadź **myVM**. |
     | Region (Region) | Wybierz pozycję **(USA) Południowo-środkowe stany USA**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Obraz | Wybierz pozycję **Ubuntu Server 18,04 LTS-Gen1**. |
+    | Image (Obraz) | Wybierz pozycję **Ubuntu Server 18,04 LTS-Gen1**. |
     | Rozmiar | Wybierz **Standard_B2s**. |
     | **Konto administratora** |  |
     | Typ uwierzytelniania | Wybierz pozycję **hasło**. |
@@ -339,7 +339,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla bazy danych Azure SQL Databas
 
 10. Wybierz kartę **Recenzja + tworzenie** lub wybierz pozycję **Przegląd + Utwórz** w dolnej części strony.
 
-11. Wybierz pozycję **Utwórz**.
+11. Wybierz przycisk **Utwórz**.
 
 12. Po utworzeniu punktu końcowego wybierz pozycję **zapory i sieci wirtualne** w obszarze **zabezpieczenia**.
 
@@ -377,7 +377,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **MyPEVNet** z usługą 
     | Zezwalaj na tranzyt bramy | Pozostaw niezaznaczone |
     |||
 
-4. Wybierz pozycję **OK**.
+4. Wybierz przycisk **OK**.
 
 5. Wybierz pozycję **+ Dodaj**.
 
@@ -402,7 +402,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **MyPEVNet** z usługą 
     | **Konfigurowanie ustawień tranzytu bramy** | |
     | Zezwalaj na tranzyt bramy | Pozostaw niezaznaczone |
 
-7. Wybierz pozycję **OK**.
+7. Wybierz przycisk **OK**.
 
 ## <a name="link-the-virtual-networks-to-the-private-dns-zone"></a>Łączenie sieci wirtualnych z prywatną strefą DNS
 
@@ -434,7 +434,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **myAzFwVNet** z prywatn
     | Włącz rejestrację autorejestrowania | Pozostaw niezaznaczone.    |
 
 
-6. Wybierz pozycję **OK**.
+6. Wybierz przycisk **OK**.
 
 ## <a name="configure-an-application-rule-with-sql-fqdn-in-azure-firewall"></a>Konfigurowanie reguły aplikacji przy użyciu nazwy FQDN programu SQL w zaporze platformy Azure
 
@@ -520,7 +520,7 @@ Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej
     | Typ następnego przeskoku | Wybierz pozycję **Urządzenie wirtualne**. |
     | Adres następnego skoku | Wprowadź **10.0.0.4**. |
 
-11. Wybierz pozycję **OK**.
+11. Wybierz przycisk **OK**.
 
 12. W obszarze **Ustawienia** wybierz pozycję **podsieci** .
 
@@ -533,7 +533,7 @@ Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej
     | Sieć wirtualna | Wybierz pozycję **myVMVNet**. |
     | Podsieć | Wybierz pozycję **podsieć VMSubnet**.  |
 
-15. Wybierz pozycję **OK**.
+15. Wybierz przycisk **OK**.
 
 ## <a name="connect-to-the-virtual-machine-from-your-client-computer"></a>Nawiązywanie połączenia z maszyną wirtualną z komputera klienckiego
 

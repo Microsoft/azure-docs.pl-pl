@@ -1,21 +1,25 @@
 ---
 title: Zarządzanie serwerem Azure Portal-Azure Database for MySQL
 description: Dowiedz się, jak zarządzać serwerem Azure Database for MySQL przy użyciu Azure Portal.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/18/2020
-ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541457"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897989"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Zarządzanie serwerem Azure Database for MySQL przy użyciu Azure Portal
 
 W tym artykule pokazano, jak zarządzać serwerami Azure Database for MySQL. Zadania zarządzania obejmują skalowanie obliczeniowe i magazynowe, Resetowanie hasła administratora oraz wyświetlanie szczegółów serwera.
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku _podrzędnego_, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
+>
 
 ## <a name="sign-in"></a>Zaloguj
 
@@ -35,7 +39,7 @@ Możesz skalować od Ogólnego przeznaczenia do zoptymalizowanej pod kątem pami
 
 1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa** znajdująca się w sekcji **Ustawienia** .
 
-2. Wybierz **ogólnego przeznaczenia** lub **zoptymalizowane pod kątem pamięci** , w zależności od tego, na czym polegasz skalowaniu.
+2. Wybierz **ogólnego przeznaczenia** lub **zoptymalizowane pod kątem pamięci**, w zależności od tego, na czym polegasz skalowaniu.
 
    :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for MySQL":::
 
@@ -83,6 +87,13 @@ Hasło roli administratora można zmienić przy użyciu Azure Portal.
    :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Zrzut ekranu przedstawiający Azure Portal resetowania hasła i zapisywania w Azure Database for MySQL":::
 
 3. Wybierz **przycisk OK** , aby zapisać nowe hasło.
+ 
+
+> [!IMPORTANT]
+> Resetowanie hasła administratora serwera spowoduje automatyczne zresetowanie uprawnień administratora serwera do domyślnych. Jeśli przypadkowo odwołano co najmniej jedno z uprawnień administratora serwera, należy rozważyć zresetowanie hasła administratora serwera.
+   
+> [!NOTE]
+> Administrator serwera domyślnie ma następujące uprawnienia: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCEs, INDEX, ALTER, SHOW Databases, CREATE Tables Tables, LOCK TABLEs, EXECUTE, CREATE USER, EVENT, TRIGGER
 
 ## <a name="delete-a-server"></a>Usuwanie serwera
 

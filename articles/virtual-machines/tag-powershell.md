@@ -7,17 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 1efb512923caed97126bdb4ee6267c6a9b57f251
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bf13d5c0caeb0bf31a383cd23155a6856c81c53b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594972"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897395"
 ---
 # <a name="how-to-tag-a-virtual-machine-in-azure-using-powershell"></a>Jak oznaczyć maszynę wirtualną na platformie Azure przy użyciu programu PowerShell
 
 W tym artykule opisano, jak oznaczyć maszynę wirtualną na platformie Azure przy użyciu programu PowerShell. Tagi to zdefiniowane przez użytkownika pary klucz/wartość, które mogą być umieszczone bezpośrednio w ramach zasobu lub grupy zasobów. Platforma Azure obsługuje obecnie do 50 tagów na zasób i grupę zasobów. Tagi mogą być umieszczane na zasobie w momencie tworzenia lub dodawane do istniejącego zasobu. Jeśli chcesz oznaczyć maszynę wirtualną za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [jak oznaczyć maszynę wirtualną na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure](tag-cli.md).
-
 
 Użyj `Get-AzVM` polecenia cmdlet, aby wyświetlić bieżącą listę tagów dla maszyny wirtualnej.
 
@@ -84,8 +83,7 @@ Environment   Production
 Location      MyLocation
 ```
 
-
-**Następne kroki**
+### <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się więcej o znakowaniu zasobów platformy Azure, zobacz [Azure Resource Manager omówienie](../azure-resource-manager/management/overview.md) i [Używanie tagów do organizowania zasobów platformy Azure](../azure-resource-manager/management/tag-resources.md).
-- Aby dowiedzieć się, jak tagi mogą ułatwić zarządzanie użyciem zasobów platformy Azure, zobacz [Opis rachunku na korzystanie z platformy Azure](../cost-management-billing/understand/review-individual-bill.md) i [Uzyskiwanie szczegółowych informacji o zużyciu zasobów Microsoft Azure](../cost-management-billing/manage/usage-rate-card-overview.md).
+- Aby dowiedzieć się, jak tagi mogą ułatwić zarządzanie użyciem zasobów platformy Azure, zobacz [Opis rachunku na korzystanie z platformy Azure](../cost-management-billing/understand/review-individual-bill.md).

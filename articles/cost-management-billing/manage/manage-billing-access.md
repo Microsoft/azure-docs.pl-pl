@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 01/26/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
-ms.translationtype: HT
+ms.openlocfilehash: 23e3adad12a726b03f6efe309dde0ec4a93bcd5b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166220"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897429"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Zarządzanie dostępem do informacji rozliczeniowych dla platformy Azure
 
@@ -38,7 +38,7 @@ Administrator konta może udzielać innym osobom dostępu do informacji rozlicze
 - Czytelnik
 - Czytelnik rozliczeń
 
-Role te mają dostęp do informacji dotyczących rozliczeń w witrynie [Azure Portal](https://portal.azure.com/). Osoby, którym przypisano te role, mogą również używać [interfejsów API](usage-rate-card-overview.md) do programistycznego uzyskiwania informacji o fakturach i użyciu.
+Role te mają dostęp do informacji dotyczących rozliczeń w witrynie [Azure Portal](https://portal.azure.com/). Osoby, którym przypisano te role, mogą również używać [interfejsów API](consumption-api-overview.md#usage-details-api) do programistycznego uzyskiwania informacji o fakturach i użyciu.
 
 Aby przypisać role, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -51,15 +51,15 @@ Po przypisaniu przez administratora konta odpowiednich ról innym użytkownikom 
 
 1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) jako administrator konta.
 
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
     ![Zrzut ekranu, na którym wyróżniono usługę Cost Management + Billing w sekcji Usługi.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Wybierz pozycję **Subskrypcje** w okienku po lewej stronie. W zależności od dostępu może być konieczne wybranie zakresu rozliczeniowego, a następnie wybranie pozycji **Subskrypcje** .
+1. Wybierz pozycję **Subskrypcje** w okienku po lewej stronie. W zależności od dostępu może być konieczne wybranie zakresu rozliczeniowego, a następnie wybranie pozycji **Subskrypcje**.
 
     ![Zrzut ekranu pokazujący wybieranie subskrypcji](./media/manage-billing-access/billing-select-subscriptions.png)
 
-1. Wybierz pozycję **Faktury** , a następnie pozycję **Dostęp do faktury** .
+1. Wybierz pozycję **Faktury**, a następnie pozycję **Dostęp do faktury**.
 
     ![Zrzut ekranu przedstawia sposób delegowania dostępu do faktur](./media/manage-billing-access/aa-optin01.png)
 
@@ -77,11 +77,11 @@ Funkcja czytelnika rozliczeń jest dostępna w wersji zapoznawczej i nie obsług
 
 1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) jako administrator konta.
 
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
     ![Zrzut ekranu przedstawiający wyszukiwanie w witrynie Azure Portal](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Wybierz pozycję **Subskrypcje** w okienku po lewej stronie. W zależności od dostępu może być konieczne wybranie zakresu rozliczeniowego, a następnie wybranie pozycji **Subskrypcje** .
+1. Wybierz pozycję **Subskrypcje** w okienku po lewej stronie. W zależności od dostępu może być konieczne wybranie zakresu rozliczeniowego, a następnie wybranie pozycji **Subskrypcje**.
 
     ![Zrzut ekranu pokazujący wybieranie subskrypcji](./media/manage-billing-access/billing-select-subscriptions.png)
 
@@ -90,10 +90,10 @@ Funkcja czytelnika rozliczeń jest dostępna w wersji zapoznawczej i nie obsług
 
     ![Zrzut ekranu pokazujący kliknięcie pozycji Dodaj przypisanie roli](./media/manage-billing-access/billing-click-add-role-assignment.png)
 
-1. Z listy rozwijanej **Rola** wybierz pozycję **Czytelnik rozliczeń** .
+1. Z listy rozwijanej **Rola** wybierz pozycję **Czytelnik rozliczeń**.
 1. W polu tekstowym **Wybierz** wpisz nazwę lub adres e-mail dla użytkownika, którego chcesz dodać.
 1. Wybierz użytkownika.
-1. Wybierz pozycję **Zapisz** .
+1. Wybierz pozycję **Zapisz**.
     ![Zrzut ekranu, na którym wyróżniono przycisk Zapisz.](./media/manage-billing-access/billing-save-role-assignment.png)
 
 1. Po kilku chwilach użytkownikowi zostanie przypisana rola czytelnika rozliczeń dla subskrypcji.

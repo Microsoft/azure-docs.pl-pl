@@ -3,16 +3,16 @@ title: Uzyskiwanie szczegółowych informacji przy użyciu centrum kopii zapasow
 description: Dowiedz się, jak analizować trendy historyczne i uzyskiwać dokładniejsze informacje o kopiach zapasowych przy użyciu centrum kopii zapasowych.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: c0f687ee123abe2f95ad0d23a6fe302f4a5c22e1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: c5f707ce3bc8d1172805ac14958a50bf59d1412d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173758"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893697"
 ---
-# <a name="obtain-insights-using-backup-center"></a>Uzyskiwanie szczegółowych informacji przy użyciu centrum kopii zapasowych
+# <a name="obtain-insights-using-backup-center-preview"></a>Uzyskaj wgląd w dane za pomocą centrum kopii zapasowych (wersja zapoznawcza)
 
-Aby analizować trendy historyczne i uzyskiwać dokładniejsze informacje o kopiach zapasowych, usługa Backup Center udostępnia interfejs do [raportów kopii zapasowych](configure-reports.md), który używa [dzienników Azure monitor](../azure-monitor/platform/data-platform-logs.md) i [skoroszytów platformy Azure](../azure-monitor/platform/workbooks-overview.md). Raporty kopii zapasowych oferują następujące możliwości:
+Aby analizować trendy historyczne i uzyskiwać dokładniejsze informacje o kopiach zapasowych, usługa Backup Center udostępnia interfejs do [raportów kopii zapasowych (wersja zapoznawcza)](configure-reports.md), który używa [dzienników Azure monitor](../azure-monitor/platform/data-platform-logs.md) i [skoroszytów platformy Azure](../azure-monitor/platform/workbooks-overview.md). Raporty kopii zapasowych oferują następujące możliwości:
 
 - Przydzielanie i prognozowanie zużytego magazynu w chmurze.
 
@@ -24,11 +24,11 @@ Aby analizować trendy historyczne i uzyskiwać dokładniejsze informacje o kopi
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-- Raporty kopii zapasowych nie są obecnie dostępne dla Azure Database for PostgreSQL kopii zapasowej serwera.
+- Raporty kopii zapasowych (wersja zapoznawcza) nie są obecnie dostępne dla Azure Database for PostgreSQL kopii zapasowej serwera.
 
 - Zapoznaj się z [matrycą pomocy technicznej](backup-center-support-matrix.md) , aby uzyskać szczegółową listę obsługiwanych i nieobsługiwanych scenariuszy.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="configure-your-vaults-to-send-data-to-a-log-analytics-workspace"></a>Konfigurowanie magazynów w celu wysyłania danych do obszaru roboczego Log Analytics
 

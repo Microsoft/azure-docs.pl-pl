@@ -101,13 +101,11 @@
   items:
     - name: Zarządzanie kontami usługi Batch
       items:
-        - name: Zarządzanie kontem
-          href: batch-manage-account-basics.md
-        - name: Zarządzanie kontami usługi Batch przy użyciu portalu
+        - name: Zarządzanie kontami zadań wsadowych w Azure Portal
           href: batch-account-create-portal.md
         - name: Zarządzanie kontami Batch przy użyciu funkcji zarządzania partiami platformy .NET
           href: batch-management-dotnet.md
-        - name: Analiza kosztów i budżety
+        - name: Uzyskiwanie analizy kosztów i Ustawianie budżetów
           href: budget.md
         - name: Używanie prywatnych punktów końcowych z kontami usługi Batch
           href: private-connectivity.md

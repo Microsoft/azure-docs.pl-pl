@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services kodów błędów zdarzeń na żywo | Microsoft Docs
+title: Kody błędów zdarzeń na żywo Azure Media Services
 description: W tym artykule wymieniono kody błędów zdarzeń na żywo.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 13277c3d46d5b68aa5705699f45a2bf9e97a78d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 310e70bc8c7ddbf3bcd37d4f0276fe04c2979e73
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291539"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897853"
 ---
 # <a name="media-services-live-event-error-codes"></a>Kody błędów zdarzeń na żywo Media Services
 
@@ -56,7 +56,7 @@ Może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveE
 |Nieznane kody błędów|Te kody błędów mogą należeć do zakresu od błędu pamięci do zduplikowanych wpisów w mapie skrótów.|
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Kody błędów punktu końcowego przesyłania strumieniowego (Źródło)](streaming-endpoint-error-codes.md)
 

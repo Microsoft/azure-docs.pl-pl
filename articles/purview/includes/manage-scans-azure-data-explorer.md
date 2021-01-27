@@ -1,16 +1,16 @@
 ---
-author: hophanms
-ms.author: hophan
+author: amberz
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 1/20/2021
-ms.openlocfilehash: ac83f455d2af82c3f6970077fccb17f07e53cccc
+ms.author: amberz
+ms.openlocfilehash: bf872feae9c3a7ca94e5252872adee2b653f5524
 ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98901111"
+ms.locfileid: "98896123"
 ---
 ## <a name="creating-and-running-a-scan"></a>Tworzenie i Uruchamianie skanowania
 
@@ -27,19 +27,19 @@ Aby utworzyć i uruchomić nowe skanowanie, wykonaj następujące czynności:
 
 1. Wybierz poświadczenie, aby nawiązać połączenie ze źródłem danych. 
 
-   :::image type="content" source="media/manage-scans/set-up-scan.png" alt-text="Konfigurowanie skanowania":::
+   :::image type="content" source="media/manage-scans/set-up-scan-data-explorer.png" alt-text="Konfigurowanie skanowania":::
 
 1. Można ograniczyć skanowanie do określonych części źródła danych, takich jak foldery, kolekcje lub schematy, sprawdzając odpowiednie pozycje na liście.
 
-   :::image type="content" source="media/manage-scans/scope-your-scan.png" alt-text="Określanie zakresu skanowania":::
+   :::image type="content" source="media/manage-scans/scope-your-scan-data-explorer.png" alt-text="Określanie zakresu skanowania":::
 
 1. Wybrany zestaw reguł skanowania. Można wybrać jedną z domyślnych ustawień systemowych, istniejące niestandardowe lub utworzyć nową.
 
-   :::image type="content" source="media/manage-scans/scan-rule-set.png" alt-text="Skanuj zestaw reguł":::
+   :::image type="content" source="media/manage-scans/scan-rule-set-data-explorer.png" alt-text="Skanuj zestaw reguł":::
 
 1. Wybierz wyzwalacz skanowania. Można skonfigurować harmonogram lub uruchomić skanowanie jeden raz.
 
-   :::image type="content" source="media/manage-scans/trigger-scan.png" alt-text="uruchamiać":::
+   :::image type="content" source="media/manage-scans/trigger-scan-data-explorer.png" alt-text="uruchamiać":::
 
 1. Przejrzyj skanowanie i wybierz pozycję **Zapisz i uruchom**.
 

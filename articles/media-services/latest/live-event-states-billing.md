@@ -1,5 +1,5 @@
 ---
-title: Stany wydarzeń na żywo i rozliczanie w Azure Media Services | Microsoft Docs
+title: Stany wydarzeń na żywo i rozliczanie w Azure Media Services
 description: Ten temat zawiera omówienie Azure Media Services stanów i rozliczeń dotyczących zdarzeń na żywo.
 services: media-services
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d3d3f5c56bd42aeb148c19fefebc0e7d364cd1c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c9fa12e1ee3778d0865c75662064bd4067e56d89
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782369"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897819"
 ---
 # <a name="live-event-states-and-billing"></a>Stany wydarzeń na żywo i rozliczenia
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-W Azure Media Services wydarzenie na żywo rozpoczyna rozliczanie od razu po zmianie stanu na **uruchomiony** lub w **stanie wstrzymania** . Opłaty są naliczane nawet wtedy, gdy nie przepływają w ramach usługi. Aby zatrzymać rozliczanie wydarzenia na żywo, należy zatrzymać wydarzenie na żywo. Transkrypcja na żywo jest rozliczana w taki sam sposób jak w przypadku zdarzenia na żywo.
+W Azure Media Services wydarzenie na żywo rozpoczyna rozliczanie od razu po zmianie stanu na **uruchomiony** lub w **stanie wstrzymania**. Opłaty są naliczane nawet wtedy, gdy nie przepływają w ramach usługi. Aby zatrzymać rozliczanie wydarzenia na żywo, należy zatrzymać wydarzenie na żywo. Transkrypcja na żywo jest rozliczana w taki sam sposób jak w przypadku zdarzenia na żywo.
 
-Gdy **LiveEventEncodingType** w [zdarzeniu na żywo](/rest/api/media/liveevents) ma wartość standardowa lub Premium1080p, Media Services automatycznie zamyka wszystkie zdarzenia na żywo, które nadal w stanie **uruchomienia** 12 godzin po utracie danych wejściowych, i nie ma żadnych uruchomionych **danych wyjściowych na żywo** . Jednak nadal będą naliczane opłaty za czas **działania** zdarzenia na żywo.
+Gdy **LiveEventEncodingType** w [zdarzeniu na żywo](/rest/api/media/liveevents) ma wartość standardowa lub Premium1080p, Media Services automatycznie zamyka wszystkie zdarzenia na żywo, które nadal w stanie **uruchomienia** 12 godzin po utracie danych wejściowych, i nie ma żadnych uruchomionych **danych wyjściowych na żywo**. Jednak nadal będą naliczane opłaty za czas **działania** zdarzenia na żywo.
 
 > [!NOTE]
 > Zdarzenia przekazywane na żywo nie są automatycznie wyłączane i muszą zostać jawnie zatrzymane za pomocą interfejsu API, aby uniknąć nadmiernego rozliczania.

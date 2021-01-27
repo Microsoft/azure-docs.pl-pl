@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a47f720344a16d0f77559d6aabfb2b0245e62976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee4a09df0f95cb809db0e5c0e63d195ee5cfdff
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426337"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896939"
 ---
 # <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrowanie z programu Orchestrator do usługi Azure Automation (wersja beta)
 
@@ -24,7 +24,7 @@ Pierwszym krokiem w ramach migracji jest pobranie [zestawu narzędzi System Cent
 
 ## <a name="import-the-standard-activities-module"></a>Importowanie modułu działań standardowych
 
-Zaimportuj [moduł działań standardowych](/system-center/orchestrator/standard-activities?view=sc-orch-2019) do Azure Automation. Obejmuje to przekonwertowane wersje standardowych działań programu Orchestrator, których można użyć do przekonwertowania graficznych elementów Runbook.
+Zaimportuj [moduł działań standardowych](/system-center/orchestrator/standard-activities) do Azure Automation. Obejmuje to przekonwertowane wersje standardowych działań programu Orchestrator, których można użyć do przekonwertowania graficznych elementów Runbook.
 
 ## <a name="import-orchestrator-integration-modules"></a>Importuj moduły integracji programu Orchestrator
 
@@ -32,7 +32,7 @@ Firma Microsoft udostępnia [pakiety integracyjne](/previous-versions/system-cen
 
 ## <a name="convert-integration-packs"></a>Konwertuj pakiety integracyjne
 
-[Konwerter pakietu integracyjnego](/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard?view=sc-orch-2019) umożliwia konwertowanie wszelkich pakietów integracyjnych utworzonych przy użyciu [Orchestrator Integration Toolkit (OIT)](/previous-versions/system-center/developer/hh855853(v=msdn.10)) na moduły integracji oparte na programie PowerShell, które można importować do Azure Automation lub Service Management Automation. Po uruchomieniu konwertera pakietu integracyjnego zostanie wyświetlony Kreator, który umożliwia wybranie pliku pakietu integracyjnego (. OIP). Następnie Kreator wyświetla listę działań objętych tym pakietem integracyjnym i umożliwia wybranie działań do migracji. Po zakończeniu pracy Kreatora tworzy moduł integracji zawierający odpowiednie polecenie cmdlet dla każdego działania w oryginalnym pakiecie integracyjnym.
+[Konwerter pakietu integracyjnego](/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard) umożliwia konwertowanie wszelkich pakietów integracyjnych utworzonych przy użyciu [Orchestrator Integration Toolkit (OIT)](/previous-versions/system-center/developer/hh855853(v=msdn.10)) na moduły integracji oparte na programie PowerShell, które można importować do Azure Automation lub Service Management Automation. Po uruchomieniu konwertera pakietu integracyjnego zostanie wyświetlony Kreator, który umożliwia wybranie pliku pakietu integracyjnego (. OIP). Następnie Kreator wyświetla listę działań objętych tym pakietem integracyjnym i umożliwia wybranie działań do migracji. Po zakończeniu pracy Kreatora tworzy moduł integracji zawierający odpowiednie polecenie cmdlet dla każdego działania w oryginalnym pakiecie integracyjnym.
 
 > [!NOTE]
 > Nie można użyć konwertera pakietu integracyjnego do przekonwertowania pakietów integracyjnych, które nie zostały utworzone za pomocą OIT. Istnieją także pakiety integracyjne udostępniane przez firmę Microsoft, które nie są obecnie konwertowane za pomocą tego narzędzia. Przekonwertowane wersje tych pakietów integracyjnych są udostępniane do pobrania, aby można je było zainstalować w Azure Automation lub Service Management Automation.
@@ -118,7 +118,7 @@ Ta strategia jest używana w celu najlepszego dublowania funkcji w elemencie Run
 
 ### <a name="invoke-runbook-activity"></a>Wywołaj działanie elementu Runbook
 
-Elementy Runbook w programie Orchestrator uruchamiają inne elementy Runbook za pomocą `Invoke Runbook` działania. Jeśli element Runbook, który jest konwertowany, obejmuje to działanie, a `Wait for completion` opcja jest ustawiona, dla niego zostanie utworzone działanie elementu Runbook w przekonwertowanym elemencie Runbook.  Jeśli ta `Wait for completion` opcja nie jest ustawiona, zostanie utworzone działanie skryptu przepływu pracy z poleceniem [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) w celu uruchomienia elementu Runbook. Po zaimportowaniu przekonwertowanego elementu Runbook do Azure Automation należy zmodyfikować to działanie za pomocą informacji określonych w działaniu.
+Elementy Runbook w programie Orchestrator uruchamiają inne elementy Runbook za pomocą `Invoke Runbook` działania. Jeśli element Runbook, który jest konwertowany, obejmuje to działanie, a `Wait for completion` opcja jest ustawiona, dla niego zostanie utworzone działanie elementu Runbook w przekonwertowanym elemencie Runbook.  Jeśli ta `Wait for completion` opcja nie jest ustawiona, zostanie utworzone działanie skryptu przepływu pracy z poleceniem [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) w celu uruchomienia elementu Runbook. Po zaimportowaniu przekonwertowanego elementu Runbook do Azure Automation należy zmodyfikować to działanie za pomocą informacji określonych w działaniu.
 
 ## <a name="create-orchestrator-assets"></a>Utwórz zasoby programu Orchestrator
 

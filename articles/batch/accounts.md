@@ -2,13 +2,13 @@
 title: Konta usługi Batch i konta magazynu Azure
 description: Dowiedz się więcej o kontach Azure Batch i sposobach ich użycia w przypadku rozwoju punktu widzenia.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 20a2a28d0eaa2c7997ea93e66d07ecb99bf297a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/26/2021
+ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83791148"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896752"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Konta usługi Batch i konta magazynu Azure
 
@@ -20,9 +20,10 @@ Wszystkie procesy przetwarzania i zasobów są skojarzone z kontem wsadowym. Gdy
 
 Można uruchomić wiele obciążeń wsadowych na jednym koncie w usłudze Batch. Możesz również dystrybuować obciążenia między kontami usługi Batch, które znajdują się w tej samej subskrypcji, ale znajdują się w różnych regionach platformy Azure.
 
+Konto usługi Batch można utworzyć przy użyciu [Azure Portal](batch-account-create-portal.md) lub programowo, na przykład w przypadku [biblioteki zarządzania usługą Batch dla platformy .NET](batch-management-dotnet.md). Podczas tworzenia konta możesz skojarzyć konto magazynu platformy Azure w celu przechowywania związanych z pracą danych wejściowych i wyjściowych lub aplikacji.
+
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-Konto usługi Batch można utworzyć przy użyciu [Azure Portal](batch-account-create-portal.md) lub programowo, na przykład w przypadku [biblioteki zarządzania usługą Batch dla platformy .NET](batch-management-dotnet.md). Podczas tworzenia konta możesz skojarzyć konto magazynu platformy Azure w celu przechowywania związanych z pracą danych wejściowych i wyjściowych lub aplikacji.
 
 ## <a name="azure-storage-accounts"></a>Konta usługi Azure Storage
 
@@ -41,4 +42,5 @@ Konto magazynu można skojarzyć z kontem usługi Batch podczas tworzenia konta 
 ## <a name="next-steps"></a>Następne kroki
 
 - Poznaj [węzły i pule](nodes-and-pools.md).
-- Dowiedz się, jak utworzyć konto usługi Batch przy użyciu [Azure Portal](batch-account-create-portal.md).
+- Dowiedz się, jak tworzyć konta usługi Batch i zarządzać nimi za pomocą [Azure Portal](batch-account-create-portal.md) lub [Batch Management .NET](batch-management-dotnet.md).
+- Dowiedz się, jak używać [prywatnych punktów końcowych](private-connectivity.md) z kontami Azure Batch.

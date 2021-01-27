@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0e98078fe2799d1c524190c8ced36588f35498b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f5e92aa8aa211782bc238781c59b9ca0511173
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186439"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897245"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Wprowadzenie do konfiguracji stanu Azure Automation
 
@@ -115,7 +115,7 @@ Po rozpoczęciu kompilacji można wyświetlić ją na kafelku **zadania kompilac
 1. Po lewej stronie kliknij pozycję **wszystkie zasoby** , a następnie nazwę konta usługi Automation.
 1. Na stronie konto usługi Automation kliknij pozycję **Konfiguracja stanu (DSC)** w obszarze **Zarządzanie konfiguracją**.
 1. Na stronie Konfiguracja stanu (DSC) kliknij kartę **konfiguracje** , a następnie kliknij pozycję **TestConfig**. Jest to nazwa wcześniej zaimportowanej konfiguracji.
-1. W obszarze **zadania kompilacji**wybierz zadanie kompilacji do wyświetlenia. Zostanie otwarte okienko zadania kompilacji z etykietą z datą rozpoczęcia zadania kompilacji.
+1. W obszarze **zadania kompilacji** wybierz zadanie kompilacji do wyświetlenia. Zostanie otwarte okienko zadania kompilacji z etykietą z datą rozpoczęcia zadania kompilacji.
 
    ![Zrzut ekranu strony zadania kompilacji](./media/automation-dsc-getting-started/CompilationJob.png)
 
@@ -237,4 +237,4 @@ Jeśli nie chcesz już zarządzać węzłem za pomocą konfiguracji stanu, może
 - Aby włączyć funkcję dla maszyn wirtualnych w środowisku, zobacz [Włączanie konfiguracji stanu Azure Automation](automation-dsc-onboarding.md).
 - Aby poznać program PowerShell DSC, zobacz [Omówienie konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 - Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation).

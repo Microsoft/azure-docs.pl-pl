@@ -7,19 +7,19 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b338b8ee93fb24cff54968630d4ff00deca0b64b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 675751433657a7d630d0c42482716702f520ff82
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606729"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881388"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Wprowadzenie do usługi Azure Defender dla magazynu
 
 
 **Usługa Azure Defender for Storage** to oparta na platformie Azure warstwa analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Wykorzystuje zaawansowane funkcje zabezpieczeń AI i [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) , aby zapewnić kontekstowe alerty i zalecenia dotyczące zabezpieczeń.
 
-Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty są zintegrowane z usługą Azure Security Center i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń.
+Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie w aktywności. Te alerty są zintegrowane z usługą Azure Security Center i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń.
 
 ## <a name="availability"></a>Dostępność
 
@@ -54,7 +54,7 @@ Alerty zabezpieczeń są wyzwalane w przypadku:
 Alerty obejmują szczegółowe informacje o zdarzeniu, które je wywołały, a także zalecenia dotyczące sposobu badania i korygowania zagrożeń. Alerty można eksportować do usługi Azure wskaźnikowej lub innego SIEM innej firmy lub dowolnego innego narzędzia zewnętrznego.
 
 > [!TIP]
-> Najlepszym rozwiązaniem jest [skonfigurowanie usługi Azure Defender for Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) na poziomie subskrypcji, ale można [ją również skonfigurować na poszczególnych kontach magazynu](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal).
+> Najlepszym rozwiązaniem jest [skonfigurowanie usługi Azure Defender for Storage](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center) na poziomie subskrypcji, ale można [ją również skonfigurować na poszczególnych kontach magazynu](../storage/common/azure-defender-storage-configure.md?tabs=azure-portal).
 
 
 ## <a name="what-is-hash-reputation-analysis-for-malware"></a>Co to jest analiza reputacji w przypadku złośliwego oprogramowania?

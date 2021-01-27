@@ -3,19 +3,19 @@ title: Nieobsługiwane wdrożenia języka — translator niestandardowy
 titleSuffix: Azure Cognitive Services
 description: W tym artykule opisano sposób wdrażania nieobsługiwanych par języka na platformie Azure Cognitive Services translatorem niestandardowym.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: swmachan
-ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369039"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898074"
 ---
 # <a name="unsupported-language-deployments"></a>Wdrożenia w nieobsługiwanych językach
 

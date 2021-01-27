@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: ae268534a18a921cca012881fa172261c7ba1063
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0dc68bd7dacf0cd7f4be9732d45831e2dbb712c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186405"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897007"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Włącz konfigurację stanu Azure Automation
 
@@ -40,7 +40,7 @@ Aby umożliwić maszynie wirtualnej platformy Azure konfigurację stanu za pomoc
 
 4. Jeśli na komputerze nie zainstalowano rozszerzenia żądanego stanu programu PowerShell, a stan jest uruchomiony, kliknij przycisk **Połącz**.
 
-5. W obszarze **rejestracja**wprowadź [wartości lokalnych Configuration Manager programu PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig) , które są wymagane w przypadku użycia. Opcjonalnie możesz wprowadzić konfigurację węzła, która ma zostać przypisana do maszyny wirtualnej.
+5. W obszarze **rejestracja** wprowadź [wartości lokalnych Configuration Manager programu PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig) , które są wymagane w przypadku użycia. Opcjonalnie możesz wprowadzić konfigurację węzła, która ma zostać przypisana do maszyny wirtualnej.
 
 ![Włączanie maszyny wirtualnej](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
@@ -73,7 +73,7 @@ Serwery z systemem Windows działające lokalnie lub w innych środowiskach w ch
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
    ```
 
-1. Jeśli nie można zastosować zdalnego konfigurowania konfiguracji DSC programu PowerShell, skopiuj folder **konfiguracje** do maszyn, które są włączane. Następnie Dodaj kod do wywołania [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) lokalnie na maszynach.
+1. Jeśli nie można zastosować zdalnego konfigurowania konfiguracji DSC programu PowerShell, skopiuj folder **konfiguracje** do maszyn, które są włączane. Następnie Dodaj kod do wywołania [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) lokalnie na maszynach.
 1. Za pomocą Azure Portal lub poleceń cmdlet Sprawdź, czy maszyny są wyświetlane jako węzły konfiguracji stanu zarejestrowane na koncie usługi Azure Automation.
 
 ## <a name="enable-physicalvirtual-linux-machines"></a>Włącz fizyczne/wirtualne maszyny z systemem Linux
@@ -123,7 +123,7 @@ Aby włączyć konfigurację stanu dowolnego komputera, można wygenerować [kon
 > [!NOTE]
 > Konfiguracje konfiguracji DSC zawierają wpisy tajne, które są konieczne do włączenia komputera na koncie usługi Automation na potrzeby zarządzania. Upewnij się, że wszystkie utworzone konfiguracje konfiguracji DSC są prawidłowo chronione, lub usuń je po użyciu.
 
-Obsługa serwera proxy dla konfiguracji z systemem jest kontrolowana przez [Configuration Manager lokalnego](/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), który jest aparatem DSC środowiska Windows PowerShell. LCM działa na wszystkich węzłach docelowych i jest odpowiedzialny za wywoływanie zasobów konfiguracyjnych, które znajdują się w skrypcie konfiguracji DSC. Obsługę proxy można uwzględnić w konfiguracji, przez uwzględnienie definicji `ProxyURL` i `ProxyCredential` właściwości zgodnie z wymaganiami w `ConfigurationRepositoryWeb` `ResourceRepositoryWeb` `ReportServerWeb` blokach, i. Przykładem ustawienia adresu URL jest `ProxyURL = "http://172.16.3.6:3128";` . `ProxyCredential`Właściwość jest ustawiona na `PSCredential` obiekt, zgodnie z opisem w temacie [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md). 
+Obsługa serwera proxy dla konfiguracji z systemem jest kontrolowana przez [Configuration Manager lokalnego](/powershell/scripting/dsc/managing-nodes/metaconfig), który jest aparatem DSC środowiska Windows PowerShell. LCM działa na wszystkich węzłach docelowych i jest odpowiedzialny za wywoływanie zasobów konfiguracyjnych, które znajdują się w skrypcie konfiguracji DSC. Obsługę proxy można uwzględnić w konfiguracji, przez uwzględnienie definicji `ProxyURL` i `ProxyCredential` właściwości zgodnie z wymaganiami w `ConfigurationRepositoryWeb` `ResourceRepositoryWeb` `ReportServerWeb` blokach, i. Przykładem ustawienia adresu URL jest `ProxyURL = "http://172.16.3.6:3128";` . `ProxyCredential`Właściwość jest ustawiona na `PSCredential` obiekt, zgodnie z opisem w temacie [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md). 
 
 ### <a name="generate-dsc-metaconfigurations-using-a-dsc-configuration"></a>Generuj konfiguracje konfiguracji DSC przy użyciu konfiguracji DSC
 
@@ -260,7 +260,7 @@ Obsługa serwera proxy dla konfiguracji z systemem jest kontrolowana przez [Conf
 Jeśli domyślne ustawienia LCM platformy PowerShell są zgodne z przypadkiem użycia i chcesz umożliwić komputerom zarówno ściąganie, jak i raporty, aby Azure Automation konfigurację stanu, można wygenerować wymagane konfiguracje konfiguracji DSC za pomocą Azure Automation poleceń cmdlet.
 
 1. Otwórz konsolę programu PowerShell lub programu vscode jako administrator na komputerze w środowisku lokalnym.
-2. Połącz się z Azure Resource Manager przy użyciu polecenia [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0).
+2. Połącz się z Azure Resource Manager przy użyciu polecenia [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount).
 3. Pobierz konfiguracje konfiguracji DSC programu PowerShell dla maszyn, które chcesz włączyć z konta usługi Automation, w którym konfigurujesz węzły.
 
    ```powershell
@@ -317,7 +317,7 @@ Konfiguracja stanu umożliwia łatwe włączenie maszyn wirtualnych systemu Wind
 Aby wyświetlić stan rozszerzenia konfiguracji żądanego stanu maszyny wirtualnej platformy Azure:
 
 1. W Azure Portal przejdź do maszyny wirtualnej, która jest włączona.
-2. W obszarze **Ustawienia**kliknij pozycję **rozszerzenia** . 
+2. W obszarze **Ustawienia** kliknij pozycję **rozszerzenia** . 
 3. Teraz wybierz opcję **DSC** lub **DSCForLinux**, w zależności od używanego systemu operacyjnego. 
 4. Aby uzyskać więcej informacji, kliknij pozycję **Wyświetl szczegółowy stan**.
 
@@ -325,7 +325,7 @@ Aby wyświetlić stan rozszerzenia konfiguracji żądanego stanu maszyny wirtual
 
 - Aby rozpocząć, zobacz Wprowadzenie do [konfiguracji stanu Azure Automation](automation-dsc-getting-started.md).
 - Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
-- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation).
 - Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Przykład użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania można znaleźć w temacie [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md).
 - Aby uzyskać informacje dotyczące rozwiązywania problemów, zobacz [Rozwiązywanie problemów z konfiguracją stanu Azure Automation](./troubleshoot/desired-state-configuration.md).

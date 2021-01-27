@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 7bb0b9b4645be7e548fe116d9e9a2c92fae7dc96
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120958"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898498"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio w usłudze Azure Synapse Analytics
 
@@ -303,6 +303,8 @@ Nieobsługiwane.
 # <a name="preview-notebook"></a>[Notes w wersji zapoznawczej](#tab/preview)
 
 Możesz użyć ```%run <notebook path>``` Magic polecenia, aby odwołać się do innego notesu w kontekście bieżącego notesu. Wszystkie zmienne zdefiniowane w notesie referencyjnym są dostępne w bieżącym notesie. ```%run``` Magic polecenie obsługuje wywołania zagnieżdżone, ale nie obsługuje wywołań cyklicznych. Jeśli głębokość instrukcji jest większa niż pięć, zostanie wyświetlony wyjątek. ```%run``` polecenie obecnie obsługuje tylko przekazywanie ścieżki notesu jako parametru. 
+
+Przykład: ``` %run /path/notebookA ```.
 
 ---
 

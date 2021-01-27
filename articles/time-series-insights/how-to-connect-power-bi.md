@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 07e79dbde142400677901ee02903144f9a42cd6b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740768"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879565"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Wizualizuj dane z Azure Time Series Insights w Power BI
 
@@ -112,10 +112,10 @@ Teraz, gdy dane zostały zaimportowane do Power BI, można utworzyć raport z wi
 Po utworzeniu raportu można go opublikować, aby Power BI usługi Reporting Services i udostępniać je innym osobom w organizacji.
 
 ## <a name="advanced-editing"></a>Edycja zaawansowana
-Jeśli zestaw danych został już załadowany w Power BI ale chcesz zmodyfikować zapytanie (takie jak parametry daty/godziny lub identyfikatora środowiska), możesz to zrobić za pomocą funkcji Edytor zaawansowany Power BI. Zapoznaj się z [dokumentacją Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview) , aby dowiedzieć się więcej na temat wprowadzania zmian przy użyciu **edytora Power Query**. 
+Jeśli zestaw danych został już załadowany w Power BI ale chcesz zmodyfikować zapytanie (takie jak parametry daty/godziny lub identyfikatora środowiska), możesz to zrobić za pomocą funkcji Edytor zaawansowany Power BI. Zapoznaj się z [dokumentacją Power BI](/power-bi/desktop-query-overview) , aby dowiedzieć się więcej na temat wprowadzania zmian przy użyciu **edytora Power Query**. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [Power BI pulpicie](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Dowiedz się więcej o [Power BI pulpicie](/power-bi/desktop-query-overview).
 
 * Dowiedz się więcej o wysyłaniu [zapytań do danych](concepts-query-overview.md) w Azure Time Series Insights Gen2.

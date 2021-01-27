@@ -3,19 +3,19 @@ title: Tłumaczenie za zapory — translator
 titleSuffix: Azure Cognitive Services
 description: Usługa Azure Cognitive Services translator może przetłumaczyć za zapory za pomocą nazwy domeny lub filtrowania adresów IP.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 78a53c99f5f184c1b6b45d59d86c23efb898d7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: f5dd72328180574809c812d670f8165ad84963ae
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83996962"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897751"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-translator"></a>Jak przetłumaczyć zapory IP za pomocą translatora
 

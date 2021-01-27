@@ -1,26 +1,9 @@
 ---
-title: Transkrypcja na żywo
-titleSuffix: Azure Media Services
-description: Dowiedz się więcej na temat Azure Media Services transkrypcji na żywo.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
-ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291419"
+Tytuł: transkrypcja dynamiczna: Opis Azure Media Services: informacje na temat Azure Media Services transkrypcji na żywo.  
+usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: "" MS. Service: Media-Services MS. obciążeni: Media ms.tgt_pltfrm: na MS. devlang: ne MS. temat: How-to MS. Date: 08/31/2020 MS. Author: inhenkel
+
 ---
+
 # <a name="live-transcription-preview"></a>Transkrypcja dynamiczna (wersja zapoznawcza)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -42,7 +25,7 @@ Transkrypcja na żywo jest dostępna w następujących regionach:
 - Central US
 - South Central US
 - Zachodnie stany USA 2
-- Brazil South
+- Brazylia Południowa
 
 Jest to lista dostępnych języków, które mogą być uzyskanego, przy użyciu kodu języka w interfejsie API.
 
@@ -56,7 +39,7 @@ Jest to lista dostępnych języków, które mogą być uzyskanego, przy użyciu 
 | Angielski (Zjednoczone Królestwo) | en-GB |
 | Angielski (Indie) | dodatek EN-IN |
 | Angielski (Nowa Zelandia) | EN-NZ |
-| Angielski (Stany Zjednoczone) | pl-PL |
+| Angielski (Stany Zjednoczone) | en-US |
 | hiszpański (Hiszpania) | es-ES |
 | Hiszpański (Meksyk) | es — MX |
 | Fiński (Finlandia) | fi-FI |

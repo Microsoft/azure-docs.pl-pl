@@ -4,12 +4,12 @@ description: Jak wybrać dostępne rozmiary maszyn wirtualnych i wersje systemu 
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bb54a4db62f56f442f7cec81e6768241a05ffee
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 59218361c5fff51b33131fdd2455c599dd12b06a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895234"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897497"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Wybieranie rozmiaru i obrazu maszyny wirtualnej dla węzłów obliczeniowych w puli Azure Batch
 
@@ -35,40 +35,38 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie [roz
 | DC | Nieobsługiwane |
 | Dv2, DSv2 | Wszystkie rozmiary |
 | Dv3, Dsv3 | Wszystkie rozmiary |
-| Dav4<sup>1</sup> | Wszystkie rozmiary |
-| Dasv4<sup>1</sup> | Wszystkie rozmiary |
+| Dav4 | Wszystkie rozmiary |
+| Dasv4 | Wszystkie rozmiary |
 | Ddv4, Ddsv4 |  Wszystkie rozmiary |
 | Dv4, Dsv4 | Nieobsługiwane |
 | EV3, Esv3 | Wszystkie rozmiary, z wyjątkiem E64is_v3 |
-| Eav4<sup>1</sup> | Wszystkie rozmiary |
-| Easv4<sup>1</sup> | Wszystkie rozmiary |
+| Eav4 | Wszystkie rozmiary |
+| Easv4 | Wszystkie rozmiary |
 | Edv4, Edsv4 |  Wszystkie rozmiary |
 | Ev4, Esv4 | Nieobsługiwane |
 | F, FS | Wszystkie rozmiary |
 | Fsv2 | Wszystkie rozmiary |
 | G, GS | Wszystkie rozmiary |
 | H | Wszystkie rozmiary |
-| HB<sup>1</sup> | Wszystkie rozmiary |
-| HBv2<sup>1</sup> | Wszystkie rozmiary |
-| HC<sup>1</sup> | Wszystkie rozmiary |
+| HB | Wszystkie rozmiary |
+| HBv2 | Wszystkie rozmiary |
+| WĘGLOWODOR | Wszystkie rozmiary |
 | Ls | Wszystkie rozmiary |
-| Lsv2<sup>1</sup> | Wszystkie rozmiary |
-| M<sup>1</sup> | Wszystkie rozmiary |
-| Mv2<sup>1, 2</sup> | Wszystkie rozmiary |
+| Lsv2 | Wszystkie rozmiary |
+| M | Wszystkie rozmiary |
+| Mv2<sup>1</sup> | Wszystkie rozmiary |
 | NC | Wszystkie rozmiary |
-| NCv2<sup>1</sup> | Wszystkie rozmiary |
-| Seria NCV3<sup>1</sup> | Wszystkie rozmiary |
+| NCv2 | Wszystkie rozmiary |
+| Seria NCV3 | Wszystkie rozmiary |
 | NCasT4_v3 | Brak — nie jest jeszcze dostępna |
-| ND<sup>1</sup> | Wszystkie rozmiary |
-| NDv2<sup>1</sup> | Brak — nie jest jeszcze dostępna |
+| ND | Wszystkie rozmiary |
+| NDv2 | Brak — nie jest jeszcze dostępna |
 | NV | Wszystkie rozmiary |
-| NVv3<sup>1</sup> | Wszystkie rozmiary |
-| NVv4<sup>1</sup> | Wszystkie rozmiary |
+| NVv3 | Wszystkie rozmiary |
+| NVv4 | Wszystkie rozmiary |
 | SAP HANA | Nieobsługiwane |
 
-<sup>1</sup> te serie maszyn wirtualnych można przydzielyć w pulach wsadowym w konfiguracji maszyny wirtualnej, ale należy utworzyć nowe konto w usłudze Batch i zażądać [zwiększenia limitu przydziału](batch-quota-limit.md#increase-a-quota). To ograniczenie zostanie usunięte, gdy przydział vCPU na serię maszyn wirtualnych jest w pełni obsługiwany dla kont usługi Batch.
-
-<sup>2</sup> te serie maszyn wirtualnych mogą być używane tylko z obrazami maszyn wirtualnych generacji 2.
+<sup>1</sup> te serie maszyn wirtualnych mogą być używane tylko z obrazami maszyn wirtualnych generacji 2.
 
 ### <a name="using-generation-2-vm-images"></a>Używanie obrazów maszyn wirtualnych generacji 2
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1403c514f5a278fd406769f1d5271cc95a5c1df
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 5ed932488551918bb0bfeb7dc9ffcb2f59b6d152
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195742"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878905"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architektura sieci SAP HANA (duże wystąpienia)
 
@@ -76,7 +76,7 @@ Różnice dotyczące wdrożeń SAP na platformie Azure:
 
 W przypadku poprawki 3 sygnatury dużych wystąpień platformy HANA opóźnienie sieci między maszynami wirtualnymi i jednostkami dużych wystąpień platformy HANA może być większe niż typowe opóźnienie rundy sieci maszyny wirtualnej na maszynę wirtualną. W zależności od regionu świadczenia usługi Azure mierzone wartości mogą przekroczyć czas oczekiwania na 0,7 MS, sklasyfikowany poniżej poniżej średniej w programie [SAP uwaga #1100926 — często zadawane pytania: wydajność sieci](https://launchpad.support.sap.com/#/notes/1100926/E). Zależnie od regionu i narzędzia platformy Azure do mierzenia opóźnienia sieci między MASZYNami wirtualnymi platformy Azure i jednostką dużego wystąpienia HANA mierzone opóźnienie może wynosić maksymalnie 2 milisekund. Niemniej jednak klienci wdrażają aplikacje SAP oparte na SAP HANA na SAP HANA dużym wystąpieniu. Pamiętaj o gruntownym przetestowaniu procesów firmy w dużym wystąpieniu platformy Azure HANA. Nowe funkcje, o nazwie ExpressRoute Fast Path, umożliwiają zredukowanie opóźnienia sieci między dużymi wystąpieniami i maszynami wirtualnymi aplikacji platformy Azure w znacznym stopniu (patrz poniżej). 
 
-W przypadku poprawki 4 sygnatur dużego wystąpienia usługi HANA opóźnienie sieci między maszynami wirtualnymi platformy Azure wdrożonymi w pobliżu sygnatury dużego wystąpienia HANA jest zgodne ze średnią lub lepszą niż średnia klasyfikacja, zgodnie z opisem w temacie [SAP uwagi #1100926 — często zadawane pytania: wydajność sieci](https://launchpad.support.sap.com/#/notes/1100926/E) , jeśli usługa Azure ExpressRoute Fast Path jest skonfigurowana (patrz poniżej). Aby można było wdrażać maszyny wirtualne platformy Azure w pobliżu jednostek z dużą ilością wystąpień w wersji HANA 4, należy skorzystać z [grup umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md). Sposób, w jaki można używać grup umieszczania zbliżeniowe do lokalizowania warstwy aplikacji SAP w tym samym centrum danych platformy Azure, ponieważ wersja 4 hostowanych jednostek dużego wystąpienia HANA jest opisana w [grupach umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
+W przypadku poprawki 4 sygnatur dużego wystąpienia usługi HANA opóźnienie sieci między maszynami wirtualnymi platformy Azure wdrożonymi w pobliżu sygnatury dużego wystąpienia HANA jest zgodne ze średnią lub lepszą niż średnia klasyfikacja, zgodnie z opisem w temacie [SAP uwagi #1100926 — często zadawane pytania: wydajność sieci](https://launchpad.support.sap.com/#/notes/1100926/E) , jeśli usługa Azure ExpressRoute Fast Path jest skonfigurowana (patrz poniżej). Aby można było wdrażać maszyny wirtualne platformy Azure w pobliżu jednostek z dużą ilością wystąpień w wersji HANA 4, należy skorzystać z [grup umieszczania usługi Azure zbliżeniowe](../../co-location.md). Sposób, w jaki można używać grup umieszczania zbliżeniowe do lokalizowania warstwy aplikacji SAP w tym samym centrum danych platformy Azure, ponieważ wersja 4 hostowanych jednostek dużego wystąpienia HANA jest opisana w [grupach umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
 
 Aby zapewnić niejednoznaczne opóźnienie sieci między maszynami wirtualnymi i usługą HANA, wybór jednostki SKU bramy ExpressRoute jest istotny. W przeciwieństwie do wzorców ruchu między środowiskiem lokalnym i maszynami wirtualnymi, wzorzec ruchu między maszynami wirtualnymi i dużym wystąpieniem HANA może tworzyć małe, ale wysokie obciążenia żądań i woluminów danych do przesłania. W celu obsługi takich serii zdecydowanie zalecamy użycie jednostki SKU bramy UltraPerformance. W przypadku klasy typu II jednostek SKU o dużej instancji HANA użycie jednostki SKU bramy UltraPerformance jako bramy ExpressRoute jest obowiązkowe.
 

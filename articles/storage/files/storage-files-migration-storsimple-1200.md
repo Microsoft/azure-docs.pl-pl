@@ -1,5 +1,5 @@
 ---
-title: StorSimple 1200 migracja do Azure File Sync
+title: Migracja urządzeń StorSimple 1200 do usługi Azure File Sync
 description: Dowiedz się, jak przeprowadzić migrację urządzenia wirtualnego z serii StorSimple 1200 do Azure File Sync.
 author: fauhse
 ms.service: storage
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630485"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882284"
 ---
-# <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migracja do Azure File Sync
+# <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migracja urządzeń StorSimple 1200 do usługi Azure File Sync
 
 Seria 1200 StorSimple jest urządzeniem wirtualnym, które jest uruchamiane w lokalnym centrum danych. Możliwe jest Migrowanie danych z tego urządzenia do środowiska Azure File Syncowego. Azure File Sync to domyślna i strategiczna usługa platformy Azure, w ramach której można migrować urządzenia StorSimple.
 
@@ -155,7 +155,7 @@ Tle
       /MIR
    :::column-end:::
    :::column span="1":::
-      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i " *usunięcia* " zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Jest to doskonałe rozwiązanie dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
+      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i "*usunięcia*" zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Jest to doskonałe rozwiązanie dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -210,7 +210,7 @@ Zakończono Migrowanie udziału/grupy udziałów do wspólnego katalogu główne
 Można spróbować uruchomić kilka z tych kopii równolegle. Zalecamy przetwarzanie zakresu jednego udziału plików platformy Azure w danym momencie.
 
 > [!WARNING]
-> Po przeniesieniu wszystkich danych z StorSimple do systemu Windows Server i zakończeniu migracji: Wróć do * **wszystkie** grupy synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do wartości lepiej dopasowanej do wykorzystania pamięci podręcznej, powiedz 20%. 
+> Po przeniesieniu wszystkich danych z StorSimple do systemu Windows Server i zakończeniu migracji: Wróć do ***wszystkie** grupy synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do wartości lepiej dopasowanej do wykorzystania pamięci podręcznej, powiedz 20%. 
 
 Zasady wolnego miejsca na woluminie w chmurze działają na poziomie woluminu z potencjalnie wieloma punktami końcowymi serwera. Jeśli zapomnisz o dostosowaniu wolnego miejsca w nawet jednym punkcie końcowym serwera, synchronizacja będzie nadal stosowała najbardziej restrykcyjną regułę i podejmie próbę utrzymania 99% wolnego miejsca na dysku, dzięki czemu lokalna pamięć podręczna nie będzie działała zgodnie z oczekiwaniami. O ile nie jest to cel, aby mieć tylko przestrzeń nazw dla woluminu, który zawiera tylko rzadko używane dane archiwalne.
 
@@ -234,5 +234,5 @@ Zawartość migracji:
 Azure File Sync zawartość:
 
 * [Omówienie usługi AFS](./storage-sync-files-planning.md)
-* [Podręcznik wdrażania AFS](storage-files-deployment-guide.md)
+* [Podręcznik wdrażania AFS](./storage-how-to-create-file-share.md)
 * [Rozwiązywanie problemów z systemem AFS](storage-sync-files-troubleshoot.md)

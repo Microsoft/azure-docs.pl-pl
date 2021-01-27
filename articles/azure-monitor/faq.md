@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: bc229974cf14ba364e5e7111dc1d2704e03c3635
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746802"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878939"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -380,6 +380,12 @@ Użyj pojedynczego zasobu dla wszystkich składników lub ról w jednym systemie
 * Jeśli nie istnieje skrypt po stronie klienta, można [ustawić pliki cookie na serwerze](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * Jeśli jeden z rzeczywistych użytkowników korzysta z witryny w różnych przeglądarkach lub korzysta z funkcji przeglądania w trybie prywatnym/incognito lub różnych maszyn, zostaną one zliczone więcej niż jeden raz.
 * Aby zidentyfikować zalogowanego użytkownika na maszynach i w przeglądarkach, należy dodać wywołanie do [setAuthenticatedUserContext ()](app/api-custom-events-metrics.md#authenticated-users).
+
+### <a name="how-does-application-insights-generate-device-information-browser-os-language-model"></a>Jak Application Insights generować informacje o urządzeniu (przeglądarka, system operacyjny, język, model)?
+
+Przeglądarka przekazuje ciąg agenta użytkownika w nagłówku HTTP żądania, a usługa pozyskiwania Application Insights używa [analizatora UA](https://github.com/ua-parser/uap-core) do wygenerowania pól, które są widoczne w tabelach i środowiskach danych. W związku z tym Application Insights użytkownicy nie mogą zmienić tych pól.
+
+Czasami te dane mogą być niedostępne lub niedokładne, jeśli użytkownik lub przedsiębiorstwo nie wyłączy nadawcy wysyłającego agenta użytkownika w ustawieniach przeglądarki. Ponadto [wyrażenia regularne analizatora UA](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) mogą nie zawierać wszystkich informacji o urządzeniu lub Application Insights mogą nie przyjąć najnowszych aktualizacji.
 
 ### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Czy mam wszystko, co jest dostępne w Application Insights?
 | Co powinno zostać wyświetlone | Jak uzyskać | Dlaczego chcesz |

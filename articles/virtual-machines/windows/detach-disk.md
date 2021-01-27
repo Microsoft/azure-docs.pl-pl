@@ -6,14 +6,14 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: cae75c88b4803912565e010f744a7757a3b98f04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 95f6ce2fefacd20102abe9bbe818f228139ca33d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201556"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898515"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>How to detach a data disk from a Windows virtual machine (Jak odłączyć dysk od maszyny wirtualnej systemu Windows)
 
@@ -60,4 +60,6 @@ Dysk pozostaje w magazynie, ale nie jest już dołączony do maszyny wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz ponownie użyć dysku z danymi, możesz po prostu [dołączyć go do innej maszyny wirtualnej](attach-managed-disk-portal.md)
+Jeśli chcesz ponownie użyć dysku z danymi, możesz [dołączyć go do innej maszyny wirtualnej](attach-managed-disk-portal.md).
+
+Jeśli chcesz usunąć dysk, dzięki czemu nie będą już naliczane koszty magazynowania, zobacz [Znajdowanie i usuwanie niedołączonych dysków zarządzanych i niezarządzanych platformy Azure — Azure Portal](../disks-find-unattached-portal.md).

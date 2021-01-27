@@ -1,29 +1,11 @@
 ---
-title: Omówienie usługi Azure Media Services w wersji 3
-titleSuffix: Azure Media Services
-description: Ogólne omówienie Azure Media Services v3 z linkami do przewodników Szybki Start, samouczków i przykładów kodu.
-services: media-services
-documentationcenter: na
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-tags: ''
-keywords: azure media services, stream, broadcast, live, offline
-ms.service: media-services
-ms.devlang: multiple
-ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: media
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: mvc
-ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308967"
+title: Azure Media Services wersja 3 — Omówienie: Azure Media Services opis: ogólne omówienie Azure Media Services v3 z linkami do przewodników Szybki Start, samouczków i przykładów kodu.
+usługi: Media-Services documentationcenter: na Author: IngridAtMicrosoft Manager: femila Editor: "" Tags: "" słowa kluczowe: usługi Azure Media Services, Stream, broadcast, Live, offline
+
+MS. Service: Media-Services MS. devlang: Multiple MS. temat: przegląd ms.tgt_pltfrm: wiele MS. obciążenie: Media MS. Date: 08/31/2020 MS. Author: inhenkel MS. Custom: MVC
+#<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Intencja klienta: jako deweloper lub dostawca zawartości chcę kodować, przesyłać strumieniowo (na żądanie lub na żywo), analizować zawartość multimedialną, aby moi klienci mogli: wyświetlać zawartość w wielu różnych przeglądarkach i urządzeniach, uzyskiwać cenne informacje z zapisanej zawartości.
 ---
+
 # <a name="azure-media-services-v3-overview"></a>Omówienie usługi Azure Media Services w wersji 3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

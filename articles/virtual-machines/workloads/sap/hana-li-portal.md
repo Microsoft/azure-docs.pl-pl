@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827516"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882488"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Sterowania oprogramowaniem Azure HANA — duże wystąpienia za pośrednictwem witryny Azure Portal
 
@@ -94,7 +94,7 @@ Dodatkowe dane w prawej dolnej części to poprawka sygnatury dużego wystąpien
 - Wersja 4
 
 Poprawka 4 to najnowsza architektura wydawana w dużych wystąpieniach platformy HANA z istotnymi ulepszeniami opóźnień sieci między maszynami wirtualnymi Azure i jednostkami dużych wystąpień usługi HANA wdrożonymi w ramach poprawek lub wierszy poprawki 4.
-Inne bardzo ważne informacje znajdują się w prawym dolnym rogu omówienia z nazwą grupy rozmieszczenia usługi Azure zbliżeniowe, która jest tworzona automatycznie dla każdej wdrożonej jednostki w dużej instancji HANA. Ta grupa umieszczania sąsiedztwa musi być przywoływana podczas wdrażania maszyn wirtualnych platformy Azure, które obsługują warstwę aplikacji SAP. Za pomocą [grupy umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md) skojarzonej z jednostką dużego wystąpienia Hana należy upewnić się, że maszyny wirtualne platformy Azure są wdrożone w pobliżu jednostki usługi Hana duże wystąpienie. Sposób, w jaki można używać grup umieszczania zbliżeniowe do lokalizowania warstwy aplikacji SAP w tym samym centrum danych platformy Azure, ponieważ wersja 4 hostowanych jednostek dużego wystąpienia HANA jest opisana w [grupach umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
+Inne bardzo ważne informacje znajdują się w prawym dolnym rogu omówienia z nazwą grupy rozmieszczenia usługi Azure zbliżeniowe, która jest tworzona automatycznie dla każdej wdrożonej jednostki w dużej instancji HANA. Ta grupa umieszczania sąsiedztwa musi być przywoływana podczas wdrażania maszyn wirtualnych platformy Azure, które obsługują warstwę aplikacji SAP. Za pomocą [grupy umieszczania usługi Azure zbliżeniowe](../../co-location.md) skojarzonej z jednostką dużego wystąpienia Hana należy upewnić się, że maszyny wirtualne platformy Azure są wdrożone w pobliżu jednostki usługi Hana duże wystąpienie. Sposób, w jaki można używać grup umieszczania zbliżeniowe do lokalizowania warstwy aplikacji SAP w tym samym centrum danych platformy Azure, ponieważ wersja 4 hostowanych jednostek dużego wystąpienia HANA jest opisana w [grupach umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
 
 Dodatkowe pole w prawej kolumnie nagłówka informuje o stanie mocy jednostki dużego wystąpienia HANA.
 

@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a1732f42ea95c16cdec7a1d7569c954667e52cb4
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 416f997475e35f8e784679ca0826f7af38d756c7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750904"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880308"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
 
@@ -29,7 +29,7 @@ Postępując zgodnie z tym przewodnikiem Szybki Start, dowiesz się, jak:
 > * Generowanie podstawowego projektu steeltoe .NET Core
 > * Inicjowanie obsługi administracyjnej wystąpienia usługi w chmurze ze sprężyną Azure
 > * Kompilowanie i wdrażanie aplikacji za pomocą publicznego punktu końcowego
-> * Rejestrowanie strumieni w czasie rzeczywistym
+> * Przesyłanie strumieniowe dzienników w czasie rzeczywistym
 
 Kod aplikacji używany w tym przewodniku szybki start to prosta aplikacja skompilowana przy użyciu szablonu projektu interfejsu API sieci Web platformy .NET Core. Po ukończeniu tego przykładu aplikacja będzie dostępna w trybie online i może być zarządzana za pośrednictwem Azure Portal i interfejsu wiersza polecenia platformy Azure.
 
@@ -216,7 +216,7 @@ Poniższa procedura umożliwia utworzenie wystąpienia chmury wiosennej platform
 
    ![Dodawanie ikony ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
-1. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej.  Należy wziąć pod uwagę następujące wytyczne:
+1. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej.  Należy uwzględnić następujące wytyczne:
 
    * **Subskrypcja**: wybierz subskrypcję, dla której chcesz naliczać opłaty za ten zasób.
    * **Grupa zasobów**: Utwórz nową grupę zasobów. Wprowadzona nazwa zostanie użyta w kolejnych krokach **\<resource group name\>** .
@@ -269,7 +269,7 @@ Aplikacja zwraca dane JSON podobne do poniższego przykładu:
 [{"date":"2020-09-08T21:01:50.0198835+00:00","temperatureC":14,"temperatureF":57,"summary":"Bracing"},{"date":"2020-09-09T21:01:50.0200697+00:00","temperatureC":-14,"temperatureF":7,"summary":"Bracing"},{"date":"2020-09-10T21:01:50.0200715+00:00","temperatureC":27,"temperatureF":80,"summary":"Freezing"},{"date":"2020-09-11T21:01:50.0200717+00:00","temperatureC":18,"temperatureF":64,"summary":"Chilly"},{"date":"2020-09-12T21:01:50.0200719+00:00","temperatureC":16,"temperatureF":60,"summary":"Chilly"}]
 ```
 
-## <a name="stream-logs-in-real-time"></a>Rejestrowanie strumieni w czasie rzeczywistym
+## <a name="stream-logs-in-real-time"></a>Przesyłanie strumieniowe dzienników w czasie rzeczywistym
 
 Użyj poniższego polecenia, aby uzyskać dzienniki czasu rzeczywistego z aplikacji.
 
@@ -332,7 +332,7 @@ Ten przewodnik Szybki Start wyjaśnia, jak:
 > * Generowanie podstawowego projektu chmurowego
 > * Inicjowanie obsługi administracyjnej wystąpienia usługi
 > * Kompilowanie i wdrażanie aplikacji za pomocą publicznego punktu końcowego
-> * Rejestrowanie strumieni w czasie rzeczywistym
+> * Przesyłanie strumieniowe dzienników w czasie rzeczywistym
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -351,9 +351,6 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 ```
 
   ![Strona Initializr](media/spring-cloud-quickstart-java/initializr-page.png)
-
-> [!NOTE]
-> Zidentyfikowano problem związany z rozruchem wiosny 2,4 na potrzeby uwierzytelniania TLS między aplikacjami i Eureka i pracujemy obecnie ze społecznością wiosenną w celu jej rozwiązania. Zapoznaj się z naszymi [często zadawanymi pytaniami](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) dotyczącymi obejścia.
 
 1. Po ustawieniu wszystkich zależności kliknij przycisk **Generuj** . Pobierz i Rozpakuj pakiet, a następnie utwórz Kontroler sieci Web dla prostej aplikacji sieci Web, dodając `src/main/java/com/example/hellospring/HelloController.java` następujący sposób:
 
@@ -389,7 +386,7 @@ Poniższa procedura umożliwia utworzenie wystąpienia chmury wiosennej platform
 
     ![Dodawanie ikony ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
-5. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej.  Należy wziąć pod uwagę następujące wytyczne:
+5. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej.  Należy uwzględnić następujące wytyczne:
     - **Subskrypcja**: wybierz subskrypcję, dla której chcesz naliczać opłaty za ten zasób.
     - **Grupa zasobów**: najlepszym rozwiązaniem jest utworzenie nowych grup zasobów dla nowych zasobów. Ta procedura zostanie użyta w kolejnych krokach **\<resource group name\>** .
     - **Szczegóły/nazwa usługi**: Określ **\<service instance name\>** .  Nazwa musi mieć długość od 4 do 32 znaków i może zawierać tylko małe litery, cyfry i łączniki.  Pierwszy znak nazwy usługi musi być literą, a ostatni znak musi być literą lub cyfrą.
@@ -517,7 +514,7 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 > * Generowanie podstawowego projektu Azure wiosny Cloud
 > * Inicjowanie obsługi administracyjnej wystąpienia usługi
 > * Kompilowanie i wdrażanie aplikacji za pomocą publicznego punktu końcowego
-> * Rejestrowanie strumieni w czasie rzeczywistym
+> * Przesyłanie strumieniowe dzienników w czasie rzeczywistym
 
 Aby dowiedzieć się, jak korzystać z większej liczby funkcji sprężyny platformy Azure, przejdź do serii szybkiego startu, która wdraża przykładową aplikację w chmurze Azure wiosną:
 

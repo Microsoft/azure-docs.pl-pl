@@ -1,24 +1,9 @@
 ---
-title: Konta usługi Azure Storage
-titleSuffix: Azure Media Services
-description: Dowiedz się, jak utworzyć konto usługi Azure Storage do użycia z usługą Azure Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 01/05/2021
-ms.author: inhenkel
-ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882250"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Pola obowiązkowe. Zobacz więcej na temat aka.ms/skyeye/meta.
+title: konta usługi Azure Storage: Opis Azure Media Services: informacje na temat tworzenia konta usługi Azure Storage do użycia z Azure Media Services.
+usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: "" MS. Service: Media-Services MS. obciążenie: MS. temat: koncepcyjne MS. Date: 01/05/2021 MS. Author: inhenkel
 ---
+
 # <a name="azure-storage-accounts"></a>Konta usługi Azure Storage
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

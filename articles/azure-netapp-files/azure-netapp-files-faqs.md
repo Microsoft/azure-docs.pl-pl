@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: a8286768dac33e48bc4d7c4dce0d9934da08c319
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736075"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881422"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -263,7 +263,7 @@ Nie. Usługa Azure Import/Export nie obsługuje obecnie Azure NetApp Files.
 
 ### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Czy mogę używać Azure NetApp Files woluminów NFS lub SMB z rozwiązaniem Azure VMware (Automatyczna synchronizacja)?
 
-Woluminy systemu plików NFS można Azure NetApp Files instalować na maszynach wirtualnych z systemem Windows lub na maszynach wirtualnych systemu Linux. Można mapować Azure NetApp Files udziały SMB na maszynach wirtualnych z systemem Windows. Aby uzyskać więcej informacji, zobacz [Azure NetApp Files z rozwiązaniem VMware platformy Azure]( ../azure-vmware/net-app-files-with-azure-vmware-solution.md).  
+Woluminy systemu plików NFS można Azure NetApp Files instalować na maszynach wirtualnych z systemem Windows lub na maszynach wirtualnych systemu Linux. Można mapować Azure NetApp Files udziały SMB na maszynach wirtualnych z systemem Windows. Aby uzyskać więcej informacji, zobacz [Azure NetApp Files z rozwiązaniem VMware platformy Azure]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
 
 ### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Jakie regiony są obsługiwane do używania Azure NetApp Files NFS lub woluminów SMB z rozwiązaniem Azure VMware (Automatyczna synchronizacja)?
 

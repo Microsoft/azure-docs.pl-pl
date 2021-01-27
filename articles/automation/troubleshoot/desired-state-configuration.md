@@ -2,19 +2,15 @@
 title: Rozwiązywanie problemów z konfiguracją stanu Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów z konfiguracją stanu Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/16/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8043369ebfef23ed84ccff8e7428fbd2048e10b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: e6caf3fed708e89b55a88719ca5358f6174c2ac8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187221"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896532"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Rozwiązywanie problemów z konfiguracją stanu Azure Automation
 
@@ -42,7 +38,7 @@ Moduł [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) może po
 
 Moduł można zainstalować `xDscDiagnostics` na komputerze lokalnym, postępując zgodnie z instrukcjami w temacie [Instalowanie stabilnej wersji modułu](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-Aby zainstalować `xDscDiagnostics` moduł na maszynie platformy Azure, użyj polecenie [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). Można również użyć opcji **Uruchom polecenie** w Azure Portal, wykonując czynności opisane w temacie [Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom](../../virtual-machines/windows/run-command.md).
+Aby zainstalować `xDscDiagnostics` moduł na maszynie platformy Azure, użyj polecenie [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand). Można również użyć opcji **Uruchom polecenie** w Azure Portal, wykonując czynności opisane w temacie [Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom](../../virtual-machines/windows/run-command.md).
 
 Aby uzyskać informacje na temat korzystania z programu **xDscDiagnostics**, zobacz [Używanie xDscDiagnostics do analizowania dzienników DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). Zobacz również [polecenia cmdlet xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
@@ -66,13 +62,13 @@ Ten błąd jest tymczasowym problemem, który został zaplanowany do rozwiązani
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Użyj polecenia cmdlet [Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0) , aby usunąć konfigurację.
+Użyj polecenia cmdlet [Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration) , aby usunąć konfigurację.
 
 ## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>Scenariusz: nie można zarejestrować agenta DSC
 
 ### <a name="issue"></a>Problem
 
-Po [ustawieniu-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) lub innym poleceniu cmdlet DSC zostanie wyświetlony komunikat o błędzie:
+Po [ustawieniu-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) lub innym poleceniu cmdlet DSC zostanie wyświetlony komunikat o błędzie:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -111,7 +107,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Ten problem jest spowodowany przez zły lub wygasły certyfikat. Zobacz [Ponowne rejestrowanie węzła](../automation-dsc-onboarding.md#re-register-a-node).
 
-Przyczyną tego problemu może być również konfiguracja serwera proxy, która nie zezwala na dostęp do ***. Azure-Automation.NET**. Aby uzyskać więcej informacji, zobacz [Konfiguracja sieci prywatnych](../automation-dsc-overview.md#network-planning). 
+Przyczyną tego problemu może być również konfiguracja serwera proxy, która nie zezwala na dostęp do **_. Azure-Automation.NET_*. Aby uzyskać więcej informacji, zobacz [Konfiguracja sieci prywatnych](../automation-dsc-overview.md#network-planning). 
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -119,8 +115,8 @@ Wykonaj następujące kroki, aby ponownie zarejestrować węzeł niepowodzenia k
 
 #### <a name="step-1-unregister-the-node"></a>Krok 1. Wyrejestruj węzeł
 
-1. W Azure Portal przejdź do pozycji **Home**  >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
-1. Wybierz **węzły**i wybierz węzeł z problemami.
+1. W Azure Portal przejdź do pozycji   >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
+1. Wybierz **węzły** i wybierz węzeł z problemami.
 1. Wybierz pozycję **Wyrejestruj** , aby wyrejestrować węzeł.
 
 #### <a name="step-2-uninstall-the-dsc-extension-from-the-node"></a>Krok 2. odinstalowanie rozszerzenia DSC z węzła
@@ -151,7 +147,7 @@ If (($certs.Count) -gt 0)
 
 #### <a name="step-4-reregister-the-failing-node"></a>Krok 4. ponowne zarejestrowanie węzła, który kończy się niepowodzeniem
 
-1. W Azure Portal przejdź do pozycji **Home**  >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
+1. W Azure Portal przejdź do pozycji   >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
 1. Wybierz **węzły**.
 1. Wybierz pozycję **Dodaj**.
 1. Wybierz węzeł z niepowodzeniem.
@@ -169,15 +165,15 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje zazwyczaj, gdy węzeł jest przypisany do nazwy konfiguracji, na przykład **ABC**, zamiast nazwy węzła konfiguracji (pliku MOF), na przykład **ABC. Serwer**Web.
+Ten błąd występuje zazwyczaj, gdy węzeł jest przypisany do nazwy konfiguracji, na przykład **ABC**, zamiast nazwy węzła konfiguracji (pliku MOF), na przykład **ABC. Serwer** Web.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 * Upewnij się, że przypiszesz węzeł z nazwą konfiguracji węzła, a nie nazwą konfiguracji.
 * Konfigurację węzła można przypisać do węzła przy użyciu Azure Portal lub polecenia cmdlet programu PowerShell.
 
-  * W Azure Portal przejdź do pozycji **Home**  >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**. Następnie wybierz węzeł i wybierz pozycję **Przypisz konfigurację węzła**.
-  * Użyj polecenia cmdlet [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0) .
+  * W Azure Portal przejdź do pozycji   >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**. Następnie wybierz węzeł i wybierz pozycję **Przypisz konfigurację węzła**.
+  * Użyj polecenia cmdlet [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode) .
 
 ## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>Scenariusz: podczas kompilowania konfiguracji nie zostały utworzone żadne konfiguracje węzłów (pliki MOF)
 
@@ -259,7 +255,7 @@ Ten błąd występuje zazwyczaj, gdy do węzła jest przypisana nazwa konfigurac
 
 ### <a name="issue"></a>Problem
 
-Po zarejestrowaniu węzła przy użyciu polecenia [register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) lub [register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0)pojawia się następujący błąd:
+Po zarejestrowaniu węzła przy użyciu polecenia [register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode) lub [register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode)pojawia się następujący błąd:
 
 ```error
 One or more errors occurred.
@@ -338,7 +334,7 @@ W przypadku konfiguracji DSC, które mogą być czasochłonne, może to spowodow
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Konfiguracje DSC można szybko przeanalizować przez jawne dołączenie `ModuleName` parametru do dowolnego wywołania [Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1) .
+Konfiguracje DSC można szybko przeanalizować przez jawne dołączenie `ModuleName` parametru do dowolnego wywołania [Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource) .
 
 ## <a name="next-steps"></a>Następne kroki
 
