@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: a952bfa45515b9d35549d03d18fd94103679344d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349473"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873573"
 ---
 # <a name="cognitive-services-development-options"></a>Opcje programowania usług Cognitive Services
 
@@ -35,7 +35,7 @@ Zanim przejdziemy do usługi, ważne jest, aby wiedzieć, że Cognitive Services
 
 ## <a name="development-options-for-prediction-and-analysis"></a>Opcje programowania na potrzeby przewidywania i analizy 
 
-Narzędzia, które będą używane do dostosowywania i konfigurowania modeli, są inne niż te, które będą używane do wywoływania Cognitive Services. Najprawdopodobniej, większość Cognitive Services pozwala na wysyłanie danych i uzyskiwanie wglądu bez żadnego dostosowania. Przykład: 
+Narzędzia, które będą używane do dostosowywania i konfigurowania modeli, są inne niż te, które będą używane do wywoływania Cognitive Services. Najprawdopodobniej, większość Cognitive Services pozwala na wysyłanie danych i uzyskiwanie wglądu bez żadnego dostosowania. Na przykład: 
 
 * Można wysłać obraz do usługi przetwarzanie obrazów, aby wykryć słowa i frazy lub liczbę osób w ramce.
 * Można wysłać plik audio do usługi mowy i uzyskać transkrypcje i przetłumaczyć mowę na tekst w tym samym czasie
@@ -114,7 +114,7 @@ Aby zarządzać wdrożeniami, możesz użyć akcji Azure DevOps i GitHub. W [pon
 
 ## <a name="tools-to-customize-and-configure-models"></a>Narzędzia do dostosowywania i konfigurowania modeli
 
-W miarę postępów tworzenia aplikacji lub przepływu pracy przy użyciu Cognitive Services może się okazać, że konieczne jest dostosowanie modelu w celu osiągnięcia odpowiedniej wydajności. Wiele naszych usług pozwala na tworzenie wbudowanych modeli w celu spełnienia określonych potrzeb firmy. W przypadku wszystkich naszych dostosowywalnych usług udostępniamy zarówno środowisko oparte na interfejsie użytkownika, jak i interfejsy API dla szkoleń opartych na kodzie. Przykład:
+W miarę postępów tworzenia aplikacji lub przepływu pracy przy użyciu Cognitive Services może się okazać, że konieczne jest dostosowanie modelu w celu osiągnięcia odpowiedniej wydajności. Wiele naszych usług pozwala na tworzenie wbudowanych modeli w celu spełnienia określonych potrzeb firmy. W przypadku wszystkich naszych dostosowywalnych usług udostępniamy zarówno środowisko oparte na interfejsie użytkownika, jak i interfejsy API dla szkoleń opartych na kodzie. Na przykład:
 
 * Chcesz przeszkolić model Custom Speech, aby prawidłowo rozpoznawał terminy medyczne z użyciem współczynnika błędów wyrazów (WER) poniżej 3%
 * Chcesz utworzyć klasyfikator obrazu z Custom Vision, które mogą odróżnić różnice między drzewami iglastymi i liściaste
@@ -125,7 +125,7 @@ Narzędzia, które będą używane do uczenia i konfiguracji modeli, są inne ni
 | Filar | Usługa | Interfejs użytkownika dostosowywania | Szybki start |
 |--------|---------|------------------|------------|
 | Obraz | Niestandardowe przetwarzanie obrazów | https://www.customvision.ai/ | [Szybki start](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Obraz | Rozpoznawanie formularzy | Przykładowe narzędzie do etykietowania | [Szybki start](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Obraz | Rozpoznawanie formularzy | [Przykładowe narzędzie do etykietowania](https://fott-preview.azurewebsites.net/) | [Szybki start](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
 | Decyzja | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Szybki start](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decyzja | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Szybki start](./metrics-advisor/quickstarts/web-portal.md) |
 | Decyzja | Personalizacja | Interfejs użytkownika jest dostępny w Azure Portal w obszarze zasobu narzędzia Personalizacja. | [Szybki start](./personalizer/quickstart-personalizer-sdk.md) |

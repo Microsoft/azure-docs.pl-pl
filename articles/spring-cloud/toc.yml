@@ -33,8 +33,6 @@
       href: spring-cloud-tutorial-custom-domain.md
     - name: Używanie tożsamości zarządzanej do łączenia usługi Key Vault z aplikacją Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-    - name: Wdrażanie usługi Azure Spring Cloud w sieci wirtualnej
-      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
     - name: Używanie tożsamości zarządzanej do wywoływania usługi Azure Functions z aplikacji Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Pojęcia
@@ -101,6 +99,18 @@
           href: spring-cloud-howto-application-insights.md
         - name: Metryki wyłącznika Resilience4J
           href: spring-cloud-howto-circuit-breaker-metrics.md
+    - name: Sieć
+      items:
+        - name: Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej
+          href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+        - name: Uzyskiwanie dostępu do aplikacji w sieci prywatnej
+          href: spring-cloud-access-app-virtual-network.md
+        - name: Uwidacznianie aplikacji w Internecie
+          href: spring-cloud-expose-apps-gateway-azure-firewall.md
+        - name: Obowiązki klienta działające w chmurze Azure wiosennej w sieci wirtualnej
+          href: spring-cloud-vnet-customer-responsibilities.md
+        - name: Rozwiązywanie problemów z chmurą wiosenną platformy Azure w sieciach wirtualnych
+          href: spring-cloud-troubleshooting-vnet.md
     - name: Bezpieczeństwo
       items:
         - name: Włączanie tożsamości zarządzanej przypisanej przez system
@@ -140,7 +150,7 @@
         - name: Spring Boot
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
 - name: Wdrożenie usługi DevOps
   items:
     - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure DevOps

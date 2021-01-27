@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 01/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: a6ee4c08a7ecf9bcfcbc9cf6f630efe126248e9f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e3f92f445068b98c12069577ddf61a71568e403b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185710"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871557"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Co to są Azure Machine Learning potoki?
 
@@ -118,7 +118,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-Fragment kodu rozpoczyna się od typowego Azure Machine Learning obiektów, a `Workspace` , a `Datastore` , [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)i `Experiment` . Następnie kod tworzy obiekty do zatrzymania `input_data` i `output_data` . `input_data`Jest wystąpieniem elementu [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) i `output_data` jest wystąpieniem elementu [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). W przypadku `OutputFileDatasetConfig` domyślnego zachowania należy skopiować dane wyjściowe do magazynu danych `workspaceblobstore` pod ścieżką `/dataset/{run-id}/{output-name}` , gdzie `run-id` jest identyfikatorem uruchomienia i `output-name` jest wartością wygenerowaną automatycznie, jeśli nie została określona przez dewelopera.
+Fragment kodu rozpoczyna się od typowego Azure Machine Learning obiektów, a `Workspace` , a `Datastore` , [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)i `Experiment` . Następnie kod tworzy obiekty do zatrzymania `input_data` i `output_data` . `input_data`Jest wystąpieniem elementu [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) i `output_data` jest wystąpieniem elementu [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). W przypadku `OutputFileDatasetConfig` domyślnego zachowania należy skopiować dane wyjściowe do magazynu danych `workspaceblobstore` pod ścieżką `/dataset/{run-id}/{output-name}` , gdzie `run-id` jest identyfikatorem uruchomienia i `output-name` jest wartością wygenerowaną automatycznie, jeśli nie została określona przez dewelopera.
 
 Tablica `steps` zawiera pojedynczy element, `PythonScriptStep` który będzie używać obiektów danych i jest uruchamiany na `compute_target` . Następnie kod tworzy wystąpienie `Pipeline` samego obiektu, przekazując w obszarze roboczym i w tablicy kroków. Wywołanie `experiment.submit(pipeline)` rozpoczynające uruchomienie potoku usługi Azure ml. Wywołanie bloków do `wait_for_completion()` momentu zakończenia potoku. 
 
@@ -149,7 +149,7 @@ Najważniejsze zalety używania potoków dla przepływów pracy usługi Machine 
 
 Potoki Azure Machine Learning są zaawansowaną funkcją, która rozpoczyna dostarczanie wartości na wczesnych etapach tworzenia oprogramowania. Wartość zwiększa się wraz ze wzrostem zespołu i projektu. W tym artykule wyjaśniono, jak potoki są określone za pomocą zestawu SDK języka Python Azure Machine Learning i zorganizowane na platformie Azure. Widzisz prosty kod źródłowy i został wprowadzony do kilku `PipelineStep` dostępnych klas. W przypadku używania potoków Azure Machine Learning i sposobu ich uruchamiania na platformie Azure należy mieć sens. 
 
-+ Dowiedz się, jak [utworzyć pierwszy potok](how-to-create-your-first-pipeline.md).
++ Dowiedz się, jak [utworzyć pierwszy potok](./how-to-create-machine-learning-pipelines.md).
 
 + Dowiedz się, jak [uruchamiać przewidywania wsadowe w przypadku dużych ilości danych](tutorial-pipeline-batch-scoring-classification.md ).
 

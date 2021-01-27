@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63c9bd93e75533e54c42c2041cb9f55a1f0036b6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75862564"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872149"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Troubleshooting: połączenie lokacja-lokacja w sieci VPN na platformie Azure jest sporadycznie rozłączane
 
@@ -66,6 +66,5 @@ Funkcja **doskonałe utajnienie przekazywania dalej** może spowodować problemy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Konfigurowanie połączenia typu lokacja-lokacja z siecią wirtualną](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Konfigurowanie połączenia typu lokacja-lokacja z siecią wirtualną](./tutorial-site-to-site-portal.md)
 - [Konfigurowanie zasad protokołu IPsec/IKE dla połączeń sieci VPN typu lokacja-lokacja](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-

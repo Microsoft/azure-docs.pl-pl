@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539900"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872013"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
@@ -101,8 +101,8 @@ Zestawy danych umożliwiają wykonywanie wielu zadań uczenia maszynowego poprze
      + [zautomatyzowane eksperymenty ML](how-to-use-automated-ml-for-ml-models.md)
      + [Projektant](tutorial-designer-automobile-price-train-score.md#import-data)
      + [żadnym](how-to-train-with-datasets.md)
-     + [Potoki Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Uzyskaj dostęp do zestawów danych do oceniania za pomocą [wnioskowania wsadowego](./tutorial-pipeline-batch-scoring-classification.md) w [potokach uczenia maszynowego](how-to-create-your-first-pipeline.md).
+     + [Potoki Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
++ Uzyskaj dostęp do zestawów danych do oceniania za pomocą [wnioskowania wsadowego](./tutorial-pipeline-batch-scoring-classification.md) w [potokach uczenia maszynowego](./how-to-create-machine-learning-pipelines.md).
 + Skonfiguruj monitor zestawu danych na potrzeby wykrywania [dryfowania danych](#drift) .
 
 <a name="label"></a>

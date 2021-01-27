@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe0280e302882fd5e50830950b531ea9ca169618
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660546"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872404"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu witryny Azure Portal
 
@@ -44,7 +44,7 @@ Podczas tworzenia połączenia sieć wirtualna-sieć wirtualna przestrzeń adres
 
 ### <a name="site-to-site-ipsec"></a>Lokacja-lokacja (IPsec)
 
-W przypadku pracy ze złożoną konfiguracją sieci lepszym rozwiązaniem może być połączenie sieci wirtualnych za pomocą połączenia [lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md). W przypadku korzystania z procedury tworzenia połączenia IPsec typu lokacja-lokacja bramy sieci lokalnej są tworzone i konfigurowane ręcznie. Każda z bram sieci lokalnej sieci wirtualnej traktuje drugą sieć wirtualną jako lokację lokalną. Te kroki umożliwiają określenie dodatkowych przestrzeni adresowych dla bramy sieci lokalnej w celu kierowania ruchem. W przypadku zmiany przestrzeni adresowej sieci wirtualnej należy ręcznie zaktualizować odpowiednią bramę sieci lokalnej.
+W przypadku pracy ze złożoną konfiguracją sieci lepszym rozwiązaniem może być połączenie sieci wirtualnych za pomocą połączenia [lokacja-lokacja](./tutorial-site-to-site-portal.md). W przypadku korzystania z procedury tworzenia połączenia IPsec typu lokacja-lokacja bramy sieci lokalnej są tworzone i konfigurowane ręcznie. Każda z bram sieci lokalnej sieci wirtualnej traktuje drugą sieć wirtualną jako lokację lokalną. Te kroki umożliwiają określenie dodatkowych przestrzeni adresowych dla bramy sieci lokalnej w celu kierowania ruchem. W przypadku zmiany przestrzeni adresowej sieci wirtualnej należy ręcznie zaktualizować odpowiednią bramę sieci lokalnej.
 
 ### <a name="vnet-peering"></a>Komunikacja równorzędna sieci wirtualnych
 
@@ -76,7 +76,7 @@ W tym artykule przedstawiono sposób łączenia sieci wirtualnych przy użyciu t
 * **Ustawienia sieci wirtualnej**
   * **Nazwa**: VNet1
   * **Przestrzeń adresowa**: 10.1.0.0/16
-  * **Subskrypcja**: wybierz subskrypcję, której chcesz użyć.
+  * **Subskrypcja**: Wybierz subskrypcję, której chcesz użyć.
   * **Grupa zasobów**: TestRG1
   * **Lokalizacja**: Wschodnie stany USA
   * **Podsieć**
@@ -104,7 +104,7 @@ W tym artykule przedstawiono sposób łączenia sieci wirtualnych przy użyciu t
 * **Ustawienia sieci wirtualnej**
   * **Nazwa**: sieci vnet4
   * **Przestrzeń adresowa**: 10.41.0.0/16
-  * **Subskrypcja**: wybierz subskrypcję, której chcesz użyć.
+  * **Subskrypcja**: Wybierz subskrypcję, której chcesz użyć.
   * **Grupa zasobów**: TestRG4
   * **Lokalizacja**: zachodnie stany USA
   * **Podsieć**
@@ -200,7 +200,7 @@ Następnie utwórz połączenie od sieci vnet4 do VNet1. W portalu Znajdź bram�
 
 ## <a name="add-additional-connections"></a>Dodawanie kolejnych połączeń
 
-Jeśli chcesz dodać więcej połączeń, przejdź do bramy sieci wirtualnej, z której chcesz utworzyć połączenie, a następnie wybierz pozycję **Połączenia**. Możesz utworzyć kolejne połączenie sieć wirtualna-sieć wirtualna lub połączenie IPsec lokacja-lokacja do lokalizacji lokalnej. Pamiętaj, aby dopasować wartość w polu **Typ połączenia** do typu połączenia, które chcesz utworzyć. Przed utworzeniem dodatkowych połączeń sprawdź, czy przestrzeń adresowa Twojej sieci wirtualnej nie nakłada się na żadne przestrzenie adresowe, z którymi chcesz nawiązać połączenie. Aby zapoznać się z procedurą tworzenia połączenia lokacja-lokacja, zobacz [Tworzenie połączenia typu lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Jeśli chcesz dodać więcej połączeń, przejdź do bramy sieci wirtualnej, z której chcesz utworzyć połączenie, a następnie wybierz pozycję **Połączenia**. Możesz utworzyć kolejne połączenie sieć wirtualna-sieć wirtualna lub połączenie IPsec lokacja-lokacja do lokalizacji lokalnej. Pamiętaj, aby dopasować wartość w polu **Typ połączenia** do typu połączenia, które chcesz utworzyć. Przed utworzeniem dodatkowych połączeń sprawdź, czy przestrzeń adresowa Twojej sieci wirtualnej nie nakłada się na żadne przestrzenie adresowe, z którymi chcesz nawiązać połączenie. Aby zapoznać się z procedurą tworzenia połączenia lokacja-lokacja, zobacz [Tworzenie połączenia typu lokacja-lokacja](./tutorial-site-to-site-portal.md).
 
 ## <a name="vnet-to-vnet-faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
 

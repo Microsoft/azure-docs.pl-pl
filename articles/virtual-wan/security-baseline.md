@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0f124c0b4af69338ad10f7247a4260b4a348beb5
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a0acbe84a98bc63e5806d25241811c0a7591b897
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131206"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872625"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>Podstawa zabezpieczeń platformy Azure dla wirtualnej sieci WAN
 
@@ -22,7 +22,7 @@ Aby sprawdzić, jak wirtualne sieci WAN są całkowicie mapowane na test porówn
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: bezpieczeństwo sieci](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: bezpieczeństwo sieci](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: implementowanie zabezpieczeń dla ruchu wewnętrznego
 
@@ -62,9 +62,9 @@ Używanie zapory platformy Azure do ochrony aplikacji i usług przed potencjalni
 
 Wybierz DDoS Protection udostępnione przez platformę Azure, aby chronić swoje zasoby przed atakami w sieci wirtualnych platformy Azure. Użyj Azure Security Center, aby wykryć niepowodowane konfiguracje związane z zasobami związanymi z siecią.
 
-- [Dokumentacja zapory platformy Azure](/azure/firewall)
+- [Dokumentacja zapory platformy Azure](../firewall/index.yml)
 
-- [Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal](/azure/virtual-network/manage-ddos-protection) 
+- [Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal](../ddos-protection/manage-ddos-protection.md) 
 
 - [Rekomendacje usługi Azure Security Center](../security-center/recommendations-reference.md#recs-networking)
 
@@ -88,9 +88,9 @@ Wybierz DDoS Protection udostępnione przez platformę Azure, aby chronić swoje
 
 - [Zrozumienie i używanie tagów usługi](../virtual-network/service-tags-overview.md)
 
-- [Zrozumienie i używanie grup zabezpieczeń aplikacji](/azure/virtual-network/security-overview#application-security-groups)
+- [Zrozumienie i używanie grup zabezpieczeń aplikacji](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-- [Dokumentacja zapory platformy Azure](/azure/firewall/)
+- [Dokumentacja zapory platformy Azure](../firewall/index.yml)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -100,9 +100,9 @@ Wybierz DDoS Protection udostępnione przez platformę Azure, aby chronić swoje
 
 **Wskazówki**: bezpieczne funkcje systemu DNS są udostępniane wirtualnej sieci WAN przy użyciu zapory platformy Azure. Skonfiguruj zaporę platformy Azure, która będzie działać jako serwer proxy DNS, który jest pośrednikiem dla żądań DNS od maszyn wirtualnych klienta do serwera DNS. W przypadku niestandardowych konfiguracji serwera DNS Włącz serwer proxy DNS, aby uniknąć niezgodności rozpoznawania nazw DNS, i Włącz w pełni kwalifikowane filtrowanie nazw domen w regułach sieci. 
 
-- [Dokumentacja zapory platformy Azure](/azure/firewall/)
+- [Dokumentacja zapory platformy Azure](../firewall/index.yml)
 
-- [Ustawienia usługi DNS zapory platformy Azure](/azure/firewall/dns-settings)
+- [Ustawienia usługi DNS zapory platformy Azure](../firewall/dns-settings.md)
 
 - [Używanie zapory platformy Azure jako usługi przesyłania dalej DNS z linkiem prywatnym](https://github.com/adstuart/azure-privatelink-dns-azurefirewall)
 
@@ -112,7 +112,7 @@ Wybierz DDoS Protection udostępnione przez platformę Azure, aby chronić swoje
 
 ## <a name="identity-management"></a>Zarządzanie tożsamością
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie tożsamościami](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie tożsamościami](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standaryzacja usługi Azure Active Directory jako centralnego systemu tożsamości i uwierzytelniania
 
@@ -189,7 +189,7 @@ W usłudze GitHub można używać funkcji skanowania natywnego wpisu tajnego do 
 
 ## <a name="privileged-access"></a>Dostęp uprzywilejowany
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: dostęp uprzywilejowany](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: dostęp uprzywilejowany](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Ogranicz dostęp administracyjny do systemów o krytycznym znaczeniu dla firmy
 
@@ -211,7 +211,7 @@ Wszystkie typy kontroli dostępu powinny być wyrównane do strategii segmentacj
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ochrona danych](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ochrona danych](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Szyfrowanie poufnych informacji podczas przesyłania
 
@@ -229,7 +229,7 @@ Wszystkie typy kontroli dostępu powinny być wyrównane do strategii segmentacj
 
 ## <a name="asset-management"></a>Zarządzanie zasobami
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie elementami zawartości](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie elementami zawartości](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>ZZ-1: Upewnij się, że zespół ds. zabezpieczeń ma wgląd w ryzyko związane z zasobami
 
@@ -253,7 +253,7 @@ Uwaga: Do uzyskania wglądu w obciążenia i usługi mogą być wymagane dodatko
 
 **Wskazówki**: Zastosuj znaczniki do zasobów platformy Azure, grup zasobów i subskrypcji, aby logicznie zorganizować je w taksonomię. Każdy tag składa się z nazwy i pary wartości. Na przykład można zastosować nazwę „Środowisko” i wartość „Produkcyjne” do wszystkich zasobów w środowisku produkcyjnym. Wirtualna sieć WAN platformy Azure obsługuje również wdrożenia zasobów oparte na Azure Resource Managerach, za pomocą których można eksportować szablony zasobów. 
 
-- [Przewodnik po decyzjach dotyczących nazewnictwa i tagowania zasobów](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Przewodnik po decyzjach dotyczących nazewnictwa i tagowania zasobów](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 - [Azure Security Center zarządzanie spisem zasobów](../security-center/asset-inventory.md)
 
@@ -284,7 +284,7 @@ Uwaga: Do uzyskania wglądu w obciążenia i usługi mogą być wymagane dodatko
 
 ## <a name="logging-and-threat-detection"></a>Rejestrowanie i wykrywanie zagrożeń
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: rejestrowanie i wykrywanie zagrożeń](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Włączanie wykrywania zagrożeń dla zasobów platformy Azure
 
@@ -337,7 +337,7 @@ Wiele dzienników diagnostycznych jest również dostępnych dla wirtualnej siec
 
 - [Wirtualne dzienniki i metryki sieci WAN](logs-metrics.md)
 
-- [Dzienniki i metryki usługi Azure Firewall](/azure/firewall/logs-and-metrics)
+- [Dzienniki i metryki usługi Azure Firewall](../firewall/logs-and-metrics.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -368,11 +368,11 @@ Wiele dzienników diagnostycznych jest również dostępnych dla wirtualnej siec
 
 - [Wirtualne dzienniki i metryki sieci WAN](logs-metrics.md)
 
-- [Dzienniki i metryki usługi Azure Firewall](/azure/firewall/logs-and-metrics)
+- [Dzienniki i metryki usługi Azure Firewall](../firewall/logs-and-metrics.md)
 
 Zabezpieczenia wirtualnej sieci WAN platformy Azure są udostępniane za pomocą zapory platformy Azure. 
 
-- [Dokumentacja zapory platformy Azure](/azure/firewall/overview)
+- [Dokumentacja zapory platformy Azure](../firewall/overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -394,7 +394,7 @@ Zabezpieczenia wirtualnej sieci WAN platformy Azure są udostępniane za pomocą
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: reagowanie na zdarzenia](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: reagowanie na zdarzenia](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Przygotowanie — aktualizowanie procesu reagowania na zdarzenia na platformie Azure
 
@@ -476,7 +476,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../security-center/security-center-alerts-overview.md)
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -498,7 +498,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 ## <a name="posture-and-vulnerability-management"></a>Stan zabezpieczeń i zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: stan zabezpieczeń i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: stan zabezpieczeń i zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: Przeprowadzanie regularnej symulacji ataków
 
@@ -517,7 +517,7 @@ Postępuj zgodnie z regułami testowania penetracji w chmurze firmy Microsoft, a
 
 ## <a name="endpoint-security"></a>Zabezpieczenia punktu końcowego
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: zabezpieczenia punktu końcowego](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
+*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: zabezpieczenia punktu końcowego](../security/benchmarks/security-controls-v2-endpoint-security.md).*
 
 ### <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: korzystanie z wykrywania i odpowiedzi punktów końcowych (EDR)
 
@@ -535,7 +535,7 @@ Postępuj zgodnie z regułami testowania penetracji w chmurze firmy Microsoft, a
 
 ## <a name="governance-and-strategy"></a>Ład i strategia
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ład i strategia](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ład i strategia](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definiowanie strategii zarządzania elementami zawartości i ochrony danych 
 
@@ -560,15 +560,15 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 -   Odpowiednie standardy kryptograficzne
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
-- [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Podstawy zabezpieczeń platformy Azure — zabezpieczenia, szyfrowanie i magazynowanie danych platformy Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie elementami zawartości](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie elementami zawartości](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Test porównawczy zabezpieczeń platformy Azure — ochrona danych](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Test porównawczy zabezpieczeń platformy Azure — ochrona danych](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -596,7 +596,7 @@ Upewnij się, że strategia segmentacji jest zaimplementowana spójnie dla róż
 
 **Wskazówka**: Nieustannie mierz i ograniczaj ryzyko dla poszczególnych elementów zawartości i środowiska, w którym są hostowane. Ustalaj priorytety elementów zawartości o wysokiej wartości i wysoce narażonych na ataki obszarów, takich jak opublikowane aplikacje, punkty danych przychodzących i wychodzących sieci, punkty końcowe użytkowników i administratorów itp.
 
-- [Test porównawczy zabezpieczeń platformy Azure — stan i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Test porównawczy zabezpieczeń platformy Azure — stan i zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -637,7 +637,7 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Test porównawczy zabezpieczeń platformy Azure — zabezpieczenia sieci](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Test porównawczy zabezpieczeń platformy Azure — zabezpieczenia sieci](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Omówienie zabezpieczeń sieci platformy Azure](../security/fundamentals/network-overview.md)
 
@@ -665,9 +665,9 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
-- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie tożsamością](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie tożsamością](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Test porównawczy zabezpieczeń platformy Azure — dostęp uprzywilejowany](/azure/security/benchmarks//security-controls-v2-privileged-access)
+- [Test porównawczy zabezpieczeń platformy Azure — dostęp uprzywilejowany](../security/benchmarks//security-controls-v2-privileged-access.md)
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -699,9 +699,9 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
-- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Test porównawczy zabezpieczeń platformy Azure — reagowanie na zdarzenia](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Test porównawczy zabezpieczeń platformy Azure — reagowanie na zdarzenia](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 4 — proces. Aktualizowanie procesów reagowania na zdarzenia dla chmury](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -715,5 +715,5 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

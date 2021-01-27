@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca2a844364d11dbb5ac2a244945e07d8ca725c1c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 944e687c27d46a9cf3250cb21024b4e5a52dc62c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728444"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871523"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -137,7 +137,7 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
         - Przetestuj i Oceń opóźnienia sieci między maszynami wirtualnymi i maszynami wirtualnymi w warstwie aplikacji SAP zgodnie z uwagami dotyczącymi obsługi SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) i [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Oceń wyniki na wskazówki dotyczące opóźnień sieci w programie [SAP support uwagi #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Opóźnienie sieci powinno być w zakresie umiarkowanym lub dobrym. Wyjątki dotyczą ruchu między maszynami wirtualnymi i jednostkami dużych wystąpień platformy HANA, zgodnie z opisem w [tym artykule](./hana-network-architecture.md#networking-architecture-for-hana-large-instance).
         - Upewnij się, że wdrożenia ILB są skonfigurowane do używania bezpośredniego powrotu do serwera. To ustawienie spowoduje skrócenie opóźnienia, gdy usługa Azure ILB będzie używana do konfiguracji wysokiej dostępności na warstwie DBMS.
         - Jeśli używasz Azure Load Balancer razem z systemami operacyjnymi gościa z systemem Linux, sprawdź, czy parametr sieci systemu Linux **net.IPv4.tcp_timestamps** ma wartość **0**. To zalecenie powoduje konflikt z zaleceniami we wcześniejszych wersjach programu [SAP uwagi #2382421](https://launchpad.support.sap.com/#/notes/2382421). Uwaga dotycząca oprogramowania SAP jest teraz aktualizowana do stanu, w którym ten parametr musi być ustawiony na **wartość 0** , aby pracować z modułami równoważenia obciążenia platformy Azure.
-        - W celu uzyskania optymalnego opóźnienia sieci należy rozważyć użycie [grup umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md) . Aby uzyskać więcej informacji, zobacz [grupy umieszczania zbliżeniowe platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
+        - W celu uzyskania optymalnego opóźnienia sieci należy rozważyć użycie [grup umieszczania usługi Azure zbliżeniowe](../../co-location.md) . Aby uzyskać więcej informacji, zobacz [grupy umieszczania zbliżeniowe platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
    4. Wdrożenia wysokiej dostępności i odzyskiwania po awarii.
         - W przypadku wdrażania warstwy aplikacji SAP bez definiowania określonej strefy dostępności platformy Azure upewnij się, że wszystkie maszyny wirtualne, które uruchamiają wystąpienia okna dialogowego SAP lub wystąpienia oprogramowania pośredniczącego pojedynczego systemu SAP są wdrożone w [zestawie dostępności](../../manage-availability.md).
         - Jeśli nie potrzebujesz wysokiej dostępności dla usług SAP Central i systemu DBMS, możesz wdrożyć te maszyny wirtualne w tym samym zestawie dostępności co warstwa aplikacji SAP.
@@ -209,7 +209,7 @@ W tej fazie zwykle wdrażane są systemy deweloperskie, systemy testowania jedno
 8.  Sprawdź [witrynę sieci Web SAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) pod kątem nowych jednostek SKU certyfikowanych przez platformę Hana na platformie Azure. Porównaj ceny nowych jednostek SKU z zaplanowanymi do użycia. Ostatecznie wprowadź niezbędne zmiany, aby użyć tych, które mają najlepszy współczynnik cen/wydajności.
 9.  Dostosuj skrypty wdrażania do używania nowych typów maszyn wirtualnych i Uwzględnij nowe funkcje platformy Azure, których chcesz użyć.
 10. Po wdrożeniu infrastruktury Przetestuj i Oceń opóźnienia sieci między maszynami wirtualnymi z warstwy aplikacji SAP i maszynami wirtualnymi DBMS, zgodnie z uwagami dotyczącymi pomocy technicznej SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) i [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Oceń wyniki na wskazówki dotyczące opóźnień sieci w programie [SAP support uwagi #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Opóźnienie sieci powinno być w zakresie umiarkowanym lub dobrym. Wyjątki dotyczą ruchu między maszynami wirtualnymi i jednostkami dużych wystąpień platformy HANA, zgodnie z opisem w [tym artykule](./hana-network-architecture.md#networking-architecture-for-hana-large-instance). Upewnij się, że żadne ograniczenia wymienione w temacie [uwagi dotyczące wdrażania systemu azure Virtual Machines DBMS dla obciążeń SAP](./dbms_guide_general.md#azure-network-considerations) i [SAP HANA konfiguracje infrastruktury i operacje na platformie Azure](./hana-vm-operations.md) mają zastosowanie do wdrożenia.
-11. Upewnij się, że maszyny wirtualne są wdrożone w poprawnej [grupie umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md), zgodnie z opisem w [grupach umieszczania usługi Azure zbliżeniowe w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md)
+11. Upewnij się, że maszyny wirtualne są wdrożone w poprawnej [grupie umieszczania usługi Azure zbliżeniowe](../../co-location.md), zgodnie z opisem w [grupach umieszczania usługi Azure zbliżeniowe w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md)
 11. Przed zastosowaniem obciążenia należy wykonać wszystkie pozostałe kontrole wymienione na etapie fazy koncepcji.
 12. W miarę jak obowiązuje obciążenie, należy zarejestrować użycie zasobów przez systemy na platformie Azure. Porównaj to użycie z rekordami ze starej platformy. Dostosuj rozmiary maszyn wirtualnych w przyszłych wdrożeniach, Jeśli zobaczysz, że masz duże różnice. Należy pamiętać, że w przypadku, gdy Downsize, magazyn i przepustowość sieci maszyn wirtualnych zostaną również zredukowane.
     - [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -251,7 +251,7 @@ W tej fazie należy zebrać informacje o doświadczeniu i Poznaniu w ramach wdro
     - Żadne [urządzenia wirtualne sieci platformy Azure](https://azure.microsoft.com/solutions/network-appliances/) nie znajdują się w ścieżce komunikacji między aplikacją SAP a warstwą DBMS systemów SAP w oparciu o SAP NetWeaver, Hybris lub S/4HANA.
     - Reguły grupy zabezpieczeń aplikacji i sieciowej grupy zabezpieczeń umożliwiają komunikację zgodnie z potrzebami i planowanych i zablokowanych komunikacji, gdy jest to wymagane.
     - Ustawienia limitu czasu są ustawiane poprawnie, zgodnie z wcześniejszym opisem.
-    - Maszyny wirtualne są wdrażane w poprawnej [grupie umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md), zgodnie z opisem w [grupach umieszczania usługi Azure zbliżeniowe w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md)
+    - Maszyny wirtualne są wdrażane w poprawnej [grupie umieszczania usługi Azure zbliżeniowe](../../co-location.md), zgodnie z opisem w [grupach umieszczania usługi Azure zbliżeniowe w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md)
     - Opóźnienie sieci między maszynami wirtualnymi warstwy aplikacji SAP i maszynami wirtualnymi DBMS jest testowane i sprawdzane zgodnie z opisem w temacie Informacje o pomocy technicznej SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) i [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Oceń wyniki na wskazówki dotyczące opóźnień sieci w programie [SAP support uwagi #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Opóźnienie sieci powinno być w zakresie umiarkowanym lub dobrym. Wyjątki dotyczą ruchu między maszynami wirtualnymi i jednostkami dużych wystąpień platformy HANA, zgodnie z opisem w [tym artykule](./hana-network-architecture.md#networking-architecture-for-hana-large-instance).
     - Szyfrowanie zostało zaimplementowane w razie potrzeby i z odpowiednią metodą szyfrowania.
     - Interfejsy i inne aplikacje mogą łączyć nowo wdrożoną infrastrukturę.

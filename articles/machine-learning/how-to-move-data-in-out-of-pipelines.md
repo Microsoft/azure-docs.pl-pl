@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 7285ab338e978f0de467f79bbce1d41409683b1e
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 80a995b488f335ac2eb60ae18621acb2b1df58e2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132957"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871540"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Przenoszenie danych do kroków potoku uczenia maszynowego i między nimi (Python)
 
@@ -53,7 +53,7 @@ Potrzebne będą następujące elementy:
 
 - Niektóre istniejące wcześniej dane. W tym artykule krótko przedstawiono użycie [kontenera obiektów blob platformy Azure](../storage/blobs/storage-blobs-overview.md).
 
-- Opcjonalnie: istniejący potok uczenia maszynowego, taki jak opisany w temacie [Tworzenie i uruchamianie potoków uczenia maszynowego z zestawem SDK Azure Machine Learning](how-to-create-your-first-pipeline.md).
+- Opcjonalnie: istniejący potok uczenia maszynowego, taki jak opisany w temacie [Tworzenie i uruchamianie potoków uczenia maszynowego z zestawem SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>Użyj `Dataset` obiektów dla wstępnie istniejących danych 
 
@@ -154,7 +154,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>Użyj `OutputFileDatasetConfig` dla danych pośrednich
 
-Gdy `Dataset` obiekty reprezentują tylko trwałe dane, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) można używać obiektów do tymczasowego wyprowadzania danych z kroków potoku **i** trwałych danych wyjściowych. `OutputFileDatasetConfig` obsługuje zapisywanie danych do magazynu obiektów blob, plików adlsgen1 lub adlsgen2. Obsługuje zarówno tryb instalacji, jak i tryb przekazywania. W trybie instalacji pliki zapisane w zainstalowanym katalogu są trwale przechowywane, gdy plik jest zamknięty. W trybie przekazywania pliki zapisywane w katalogu wyjściowym są przekazywane na końcu zadania. Jeśli zadanie nie powiedzie się lub zostanie anulowane, katalog wyjściowy nie zostanie przekazany.
+Gdy `Dataset` obiekty reprezentują tylko trwałe dane, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) można używać obiektów do tymczasowego wyprowadzania danych z kroków potoku **i** trwałych danych wyjściowych. `OutputFileDatasetConfig` obsługuje zapisywanie danych do magazynu obiektów blob, plików adlsgen1 lub adlsgen2. Obsługuje zarówno tryb instalacji, jak i tryb przekazywania. W trybie instalacji pliki zapisane w zainstalowanym katalogu są trwale przechowywane, gdy plik jest zamknięty. W trybie przekazywania pliki zapisywane w katalogu wyjściowym są przekazywane na końcu zadania. Jeśli zadanie nie powiedzie się lub zostanie anulowane, katalog wyjściowy nie zostanie przekazany.
 
  `OutputFileDatasetConfig` domyślne zachowanie obiektu to zapis w domyślnym magazynie danych obszaru roboczego. Przekaż swoje `OutputFileDatasetConfig` obiekty do `PythonScriptStep` `arguments` parametru.
 
@@ -184,7 +184,7 @@ OutputFileDatasetConfig(name="clean_data", destination=blob_store).as_upload(ove
 
 ### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>Użyj `OutputFileDatasetConfig` jako wyjścia kroku szkoleniowego
 
-W ramach potoku `PythonScriptStep` można pobrać dostępne ścieżki wyjściowe przy użyciu argumentów programu. Jeśli ten krok jest pierwszy i spowoduje zainicjowanie danych wyjściowych, należy utworzyć katalog w określonej ścieżce. Następnie można napisać wszystkie pliki, które mają być zawarte w `OutputFileDatasetConfig` .
+W kroku `PythonScriptStep` potoku możesz pobrać dostępne ścieżki wyjściowe, używając argumentów programu. Jeśli ten krok jest pierwszy i powoduje inicjowanie danych wyjściowych, należy utworzyć katalog w określonej ścieżce. Następnie można napisać wszystkie pliki, które mają być zawarte w `OutputFileDatasetConfig` .
 
 ```python
 parser = argparse.ArgumentParser()
@@ -244,4 +244,4 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie zestawu danych usługi Azure Machine Learning](how-to-create-register-datasets.md)
-* [Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning](how-to-create-your-first-pipeline.md)
+* [Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7418e5578450367e9fa37a87adb6e7036619877b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: e098256a43add6df026ab136bcd6a6b549c147e7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827453"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871319"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfiguracje obciążenia SAP ze strefami dostępności platformy Azure
 Oprócz wdrożenia różnych warstw architektury SAP w zestawach dostępności platformy Azure, bardziej ostatnio wprowadzone [strefy dostępności platformy Azure](../../../availability-zones/az-overview.md) można również użyć do wdrożeń obciążeń SAP. Strefa dostępności platformy Azure jest definiowana jako: "unikatowe lokalizacje fizyczne w regionie. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależną moc, chłodzenie i sieć. Strefy dostępności platformy Azure nie są dostępne we wszystkich regionach. W przypadku regionów platformy Azure, które zapewniają Strefy dostępności, sprawdź [mapę regionów platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/). Ta mapa pokazuje, które regiony zapewniają lub są ogłaszane w celu zapewnienia Strefy dostępności. 
@@ -56,7 +56,7 @@ Podczas wdrażania maszyn wirtualnych platformy Azure w ramach Strefy dostępno�
 
 - Podczas wdrażania programu do Strefy dostępności platformy Azure należy użyć [usługi Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) . 
 - Mapowanie wyliczeń stref na strefy fizyczne zostało rozwiązane w oparciu o subskrypcję platformy Azure. Jeśli używasz różnych subskrypcji do wdrażania systemów SAP, musisz zdefiniować idealne strefy dla każdej subskrypcji.
-- Zestawów dostępności platformy Azure nie można wdrażać w ramach strefy dostępności platformy Azure, chyba że zostanie użyta [Grupa umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md). Sposób wdrażania warstwy systemu SAP DBMS i centralnych usług w różnych strefach i w tym samym czasie wdrażają warstwę aplikacji SAP przy użyciu zestawów dostępności i nadal zbliżają się bliskość maszyn wirtualnych, które są opisane w artykule [usługi zbliżeniowe platformy Azure, aby zapewnić optymalne opóźnienie sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md). Jeśli nie korzystasz z grup umieszczania bliskości platformy Azure, musisz wybrać jedną lub drugą jako strukturę wdrażania dla maszyn wirtualnych.
+- Zestawów dostępności platformy Azure nie można wdrażać w ramach strefy dostępności platformy Azure, chyba że zostanie użyta [Grupa umieszczania usługi Azure zbliżeniowe](../../co-location.md). Sposób wdrażania warstwy systemu SAP DBMS i centralnych usług w różnych strefach i w tym samym czasie wdrażają warstwę aplikacji SAP przy użyciu zestawów dostępności i nadal zbliżają się bliskość maszyn wirtualnych, które są opisane w artykule [usługi zbliżeniowe platformy Azure, aby zapewnić optymalne opóźnienie sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md). Jeśli nie korzystasz z grup umieszczania bliskości platformy Azure, musisz wybrać jedną lub drugą jako strukturę wdrażania dla maszyn wirtualnych.
 - Nie można użyć [podstawowego Load Balancer platformy Azure](../../../load-balancer/load-balancer-overview.md) do tworzenia rozwiązań klastra trybu failover opartych na systemie Windows Server Failover Clustering lub Linux Pacemaker. Zamiast tego należy użyć [jednostki SKU usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-standard-availability-zones.md).
 
 
@@ -130,7 +130,7 @@ Uproszczony schemat aktywnego/aktywnego wdrożenia w dwóch strefach może wygl�
 
 W tej konfiguracji są stosowane następujące zagadnienia:
 
-- Nie przy użyciu [grupy umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md), strefy dostępności platformy Azure jako domeny błędów i aktualizacji dla wszystkich maszyn wirtualnych, ponieważ zestawy dostępności nie mogą zostać wdrożone w strefy dostępności platformy Azure.
+- Nie przy użyciu [grupy umieszczania usługi Azure zbliżeniowe](../../co-location.md), strefy dostępności platformy Azure jako domeny błędów i aktualizacji dla wszystkich maszyn wirtualnych, ponieważ zestawy dostępności nie mogą zostać wdrożone w strefy dostępności platformy Azure.
 - Jeśli chcesz połączyć wdrożenia stref dla warstwy DBMS i usług centralnych, ale chcesz korzystać z zestawów dostępności platformy Azure dla warstwy aplikacji, musisz użyć grup bliskości platformy Azure, zgodnie z opisem w artykule [grupy umieszczenia bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
 - W przypadku modułów równoważenia obciążenia klastrów pracy awaryjnej usług SAP Central i warstwy DBMS należy użyć [standardowej jednostki SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Podstawowa Load Balancer nie będzie działała między strefami.
 - Sieć wirtualna platformy Azure wdrożona w celu hostowania systemu SAP wraz z jego podsieciami jest rozciągana między strefami. Dla każdej strefy nie są potrzebne oddzielne sieci wirtualne.

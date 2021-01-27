@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 38bf12b46002e767bba50cf833637e2c8ace078f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564110"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872336"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Często zadawane pytania dotyczące usługi Azure poufnego przetwarzania
 
@@ -37,13 +37,21 @@ Nie. Maszyny wirtualne można wdrażać tylko na maszynach operacyjnych generacj
 **Maszyny wirtualne DCsv2 są wyszarzone w portalu i nie można ich wybrać**
 
 W oparciu o dymek informacyjny obok maszyny wirtualnej istnieją różne akcje do wykonania:
-   -    **UnsupportedGeneration** : Zmień generację obrazu maszyny wirtualnej na "Gen2".
-   -    **NotAvailableForSubscription** : region nie jest jeszcze dostępny dla Twojej subskrypcji. Wybierz dostępny region.
-   -    **InsufficientQuota** : [Utwórz żądanie pomocy technicznej w celu zwiększenia limitu przydziału](../azure-portal/supportability/per-vm-quota-requests.md). Subskrypcje bezpłatnej wersji próbnej nie mają przydziału dla maszyn wirtualnych służących do przetwarzania poufnego. 
+   -    **UnsupportedGeneration**: Zmień generację obrazu maszyny wirtualnej na "Gen2".
+   -    **NotAvailableForSubscription**: region nie jest jeszcze dostępny dla Twojej subskrypcji. Wybierz dostępny region.
+   -    **InsufficientQuota**: [Utwórz żądanie pomocy technicznej w celu zwiększenia limitu przydziału](../azure-portal/supportability/per-vm-quota-requests.md). Subskrypcje bezpłatnej wersji próbnej nie mają przydziału dla maszyn wirtualnych służących do przetwarzania poufnego. 
 
 **DCsv2 maszyny wirtualne nie są wyświetlane podczas próby wyszukania ich w selektorze rozmiaru portalu**
 
 Upewnij się, że wybrano [dostępny region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Upewnij się również, że wybrano opcję "Wyczyść wszystkie filtry" w selektorze rozmiarów. 
+
+**Czy mogę włączyć przyspieszoną sieć przy użyciu danych poufnych platformy Azure?**
+
+ Nie. Przyspieszona sieć nie jest obsługiwana w przypadku maszyn wirtualnych DC-Series ani DCsv2-Series. Nie można włączyć przyspieszonej sieci dla żadnego poufnego wdrożenia maszyny wirtualnej lub wdrożenia klastra usługi Kubernetes platformy Azure działającego w ramach poufnych danych.
+
+**Czy można używać dedykowanego hosta platformy Azure z tymi maszynami?**
+
+Tak. Dedykowany Host platformy Azure obsługuje maszyny wirtualne z serii DCsv2. Dedykowany Host platformy Azure udostępnia serwer fizyczny z jedną dzierżawą, na którym można uruchamiać maszyny wirtualne. Użytkownicy zazwyczaj używają dedykowanego hosta platformy Azure, aby sprostać wymaganiom zgodności między bezpieczeństwem fizycznym, integralnością danych i monitorowaniem. 
 
 **Otrzymuję błąd wdrażania szablonu Azure Resource Manager: "nie można ukończyć operacji, ponieważ spowoduje to przekroczenie zatwierdzonego limitu przydziału rdzeni rodziny DcsV2**
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 817f9a88bd3536e9c0ec8a1057098e6b4a96716e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a3ed7979584787627c97cfec3bb2e19c147f7152
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676361"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872670"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Odkrywanie, łączenie i Eksplorowanie danych w programie Synapse przy użyciu usługi Azure kontrolą 
 
@@ -32,6 +32,8 @@ Korzystanie z usługi Azure kontrolą w Synapse wymaga posiadania dostępu do te
 ### <a name="data-discovery-search-datasets"></a>Odnajdywanie danych: Przeszukaj zbiory 
 
 Aby odnajdywać dane zarejestrowane i przeskanowane przez usługę Azure kontrolą, możesz użyć paska wyszukiwania w górnym centrum obszaru roboczego Synapse. Upewnij się, że wybrano pozycję Azure kontrolą, aby wyszukać wszystkie dane organizacji. 
+
+[![Wyszukaj zasoby usługi Azure kontrolą](./media/purview-access.png)](./media/purview-access.png#lightbox)
 
 ## <a name="azure-purview-actions"></a>Akcje usługi Azure kontrolą 
 

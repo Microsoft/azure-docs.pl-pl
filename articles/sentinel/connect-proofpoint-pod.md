@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0e256f2fe4b8d4275e331e0fe1fadd67e1d96655
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: bdc9cbf942b88af93befa34f73eb3a90469cfcef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567957"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873505"
 ---
 # <a name="connect-your-proofpoint-on-demand-email-security-pod-solution-to-azure-sentinel"></a>Połącz swoje rozwiązanie z zabezpieczeniami poczty E-mail Proofpoint na żądanie (POD) z platformą Azure — wskaźnikiem
 
@@ -37,7 +37,7 @@ W tym artykule wyjaśniono, jak połączyć urządzenie zabezpieczeń poczty E-m
 
 - Użytkownik musi mieć uprawnienia do odczytu kluczy udostępnionych dla obszaru roboczego. [Dowiedz się więcej o kluczach obszarów roboczych](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
-- Aby można było utworzyć aplikacja funkcji, musisz mieć uprawnienia do odczytu i zapisu w Azure Functions. [Dowiedz się więcej o Azure Functions](/azure/azure-functions/).
+- Aby można było utworzyć aplikacja funkcji, musisz mieć uprawnienia do odczytu i zapisu w Azure Functions. [Dowiedz się więcej o Azure Functions](../azure-functions/index.yml).
 
 - Wymagane są następujące poświadczenia interfejsu API protokołu WebSocket: ProofpointClusterID, ProofpointToken. [Dowiedz się więcej o interfejsie API protokołu WebSocket](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API).
 

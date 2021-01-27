@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2fc12385c78135269b6a73038fd0ad810ebaedd6
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 73a7d76de34d29b2d51c54569b234cd8221b08f8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576204"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872183"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurowanie tranzytu bramy sieci VPN na potrzeby wirtualnych sieci równorzędnych
 
@@ -43,15 +43,15 @@ Przed rozpoczęciem upewnij się, że masz następujące sieci wirtualne i upraw
 
 |Sieć wirtualna|Model wdrażania| Brama sieci wirtualnej|
 |---|---|---|---|
-| Hub-RM| [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| [Tak](tutorial-create-gateway-portal.md)|
-| Szprych-RM | [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| Nie |
-| Spoke-Classic | [Klasyczny](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | Nie |
+| Hub-RM| [Resource Manager](./tutorial-site-to-site-portal.md)| [Tak](tutorial-create-gateway-portal.md)|
+| Szprych-RM | [Resource Manager](./tutorial-site-to-site-portal.md)| Nie |
+| Spoke-Classic | [Motyw](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | Nie |
 
 ### <a name="permissions"></a><a name="permissions"></a>Uprawnienia
 
 Konta używane do tworzenia wirtualnych sieci równorzędnych muszą mieć niezbędne role lub uprawnienia. W poniższym przykładzie, jeśli Komunikacja równorzędna była dwie sieci wirtualne o nazwach **Hub-RM** i **szprych-klasyczny**, Twoje konto musi mieć następujące role lub uprawnienia dla każdej sieci wirtualnej:
 
-|Sieć wirtualna|Model wdrażania|Role|Uprawnienia|
+|Sieć wirtualna|Model wdrażania|Rola|Uprawnienia|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Klasyczny|[Współautor klasycznej sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Nie dotyczy|
