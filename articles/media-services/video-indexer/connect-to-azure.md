@@ -8,16 +8,16 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 8e110ba9818b48d66c5f17bb524bada567d808ab
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702633"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897160"
 ---
-# <a name="create-a-video-indexer-account-connected-to-azure"></a>Utwórz konto Video Indexer połączone z platformą Azure
+# <a name="create-a-video-indexer-account"></a>Utwórz konto Video Indexer
 
 Podczas tworzenia konta w usłudze Video Indexer można wybrać konto bezpłatnej wersji próbnej (w ramach którego otrzymuje się określoną liczbę bezpłatnych minut indeksowania) lub opcję płatną (w przypadku której nie ma ograniczeń przydziału). Usługa Video Indexer w bezpłatnej wersji próbnej udostępnia do 600 minut bezpłatnego indeksowania u użytkowników witryn internetowych oraz do 2400 minut bezpłatnego indeksowania u użytkowników interfejsów API. Za pomocą opcji płatne można utworzyć konto Video Indexer, które jest połączone z subskrypcją platformy Azure. Płacisz za minuty, aby uzyskać więcej informacji, zobacz [Cennik usługi Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
@@ -25,7 +25,9 @@ W tym artykule pokazano, jak utworzyć konto Video Indexer połączone z subskry
 
 W przypadku przechodzenia z *wersji próbnej* do *płatnego* konta Video Indexer można skopiować wszystkie filmy wideo i dostosowania modelu do nowego konta, jak to opisano w sekcji [Importowanie zawartości z konta wersji próbnej](#import-your-content-from-the-trial-account) .
 
-## <a name="prerequisites"></a>Wymagania wstępne
+Artykuł obejmuje również [łączenie Video Indexer konta z Azure Government](#video-indexer-in-azure-government).
+
+## <a name="prerequisites-for-connecting-to-azure"></a>Wymagania wstępne dotyczące nawiązywania połączenia z platformą Azure
 
 * Subskrypcja platformy Azure.
 
@@ -37,7 +39,7 @@ W przypadku przechodzenia z *wersji próbnej* do *płatnego* konta Video Indexer
 
     Ten użytkownik powinien być użytkownikiem usługi Azure AD przy użyciu konta służbowego. Nie używaj konta osobistego, takiego jak outlook.com, live.com lub hotmail.com.
 
-    ![Wszyscy użytkownicy usługi AAD](./media/create-account/all-aad-users.png)
+    ![Wszyscy użytkownicy usługi Azure AD](./media/create-account/all-aad-users.png)
 
 ### <a name="additional-prerequisites-for-automatic-flow"></a>Dodatkowe wymagania wstępne dotyczące automatycznego przepływu
 
@@ -59,7 +61,7 @@ W przypadku przechodzenia z *wersji próbnej* do *płatnego* konta Video Indexer
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="create-a-new-account"></a>Tworzenie nowego konta
+## <a name="create-a-new-account-on-azure"></a>Utwórz nowe konto na platformie Azure 
 
 > [!NOTE]
 > Jeśli subskrypcja platformy Azure korzysta z uwierzytelniania wieloskładnikowego opartego na certyfikatach, należy wykonać następujące czynności na urządzeniu, na którym zainstalowano wymagane certyfikaty.
@@ -155,7 +157,7 @@ W oknie dialogowym podaj następujące informacje:
 |Identyfikator aplikacji|Identyfikator aplikacji usługi Azure AD (z uprawnieniami dla określonego konta Media Services), które zostały utworzone w poprzedniej sekcji.|
 |Klucz aplikacji|Klucz aplikacji usługi Azure AD utworzony w poprzedniej sekcji. |
 
-## <a name="import-your-content-from-the-trial-account"></a>Importowanie zawartości z konta *wersji próbnej*
+### <a name="import-your-content-from-the-trial-account"></a>Importowanie zawartości z konta *wersji próbnej*
 
 Podczas tworzenia nowego konta możesz zaimportować zawartość z konta *próbnego* do nowego konta. Jeśli zaznaczono opcję *Importuj* w oknie dialogowym **Tworzenie nowego konta w ramach subskrypcji platformy Azure** , wszystkie dostosowania nośników i modeli zawartości zostaną skopiowane z konta *próbnego* na nowe konto.
 
@@ -163,16 +165,10 @@ Możliwość importowania zawartości jest ważna zarówno w przypadku zautomaty
 
 > [!NOTE]
 > Zawartość można zaimportować tylko raz z każdego konta.
+>
+> Konto *wersji próbnej* nie jest availagle w chmurze Azure Government.
 
-## <a name="delete-the-account"></a>Usuń konto
-
-Jeśli chcesz później usunąć konto, możesz je usunąć z witryny sieci Web Video Indexer. Aby usunąć konto, musisz być właścicielem.
-
-Wybierz pozycję konto **— >**  ->  **usunąć to konto**. 
-
-Konto zostanie trwale usunięte w ciągu 90 dni.
-
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="azure-media-services-considerations"></a>Zagadnienia dotyczące Azure Media Services
 
 Stosuje się następujące Azure Media Services powiązane zagadnienia:
 
@@ -201,9 +197,52 @@ Aby zautomatyzować tworzenie konta, należy wykonać dwa kroki:
     Zapoznaj się z przykładem [szablonu tworzenia konta Media Services](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 1. Wywołaj [Tworzenie konta za pomocą aplikacji Media Services i usługi Azure AD](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
 
+## <a name="video-indexer-in-azure-government"></a>Video Indexer w Azure Government
+
+### <a name="prerequisites-for-connecting-to-azure-government"></a>Wymagania wstępne dotyczące nawiązywania połączenia z usługą Azure Government
+
+-   Subskrypcja platformy Azure w [Azure Government](https://docs.microsoft.com/azure/azure-government/).
+- Konto usługi Azure AD w Azure Government.
+- Wszystkie wymagania wstępne dotyczące uprawnień i zasobów zgodnie z powyższym opisem w sekcji [wymagania wstępne dotyczące nawiązywania połączenia z platformą Azure](#prerequisites-for-connecting-to-azure).
+
+### <a name="create-new-account-via-the-azure-government-portal"></a>Utwórz nowe konto za pośrednictwem portalu Azure Government
+
+> [!NOTE]
+> W chmurze Azure Government nie są dostępne środowiska *próbne* Video Indexer.
+
+Aby utworzyć płatne konto za pośrednictwem portalu Video Indexer:
+
+1. Przejdź do strony https://videoindexer.ai.azure.us 
+1. Zaloguj się przy użyciu konta usługi Azure Government Azure AD.
+1.  Jeśli nie masz żadnych kont Video Indexer w Azure Government, których jesteś właścicielem lub współautorem, uzyskasz puste środowisko, z którego można rozpocząć tworzenie konta. 
+
+    Pozostała część przepływu jest opisana powyżej, tylko regiony do wyboru będą regionami rządowymi, w których dostępny jest indeksator wideo 
+
+    Jeśli już jesteś współautorem lub administratorem istniejącego konta Video Indexer w usłudze Azure Government, nastąpi przekierowanie do tego konta. w razie potrzeby można rozpocząć wykonywanie kroków w celu utworzenia dodatkowego konta, zgodnie z powyższym opisem.
+    
+### <a name="create-new-account-via-the-api-on-azure-government"></a>Utwórz nowe konto za pośrednictwem interfejsu API na Azure Government
+
+Aby utworzyć płatne konto w Azure Government, postępuj zgodnie z instrukcjami w temacie [Create-wpłacony-Account](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). Ten punkt końcowy interfejsu API obejmuje tylko regiony w chmurze dla instytucji rządowych.
+
+### <a name="limitations-of-video-indexer-on-azure-government"></a>Ograniczenia Video Indexer na Azure Government
+
+*   W chmurze dla instytucji rządowych nie są dostępne żadne ręczne moderowanie zawartości. 
+
+    W chmurze publicznej, gdy zawartość jest uznawana za obraźliwą w oparciu o moderowanie zawartości, klient może poprosił o ludzi, aby przyjrzeć się tej zawartości i potencjalnie spowodować przywrócenie tej decyzji.  
+*   Brak kont w wersji próbnej. 
+* Opis usługi Bing — w chmurze gov nie będzie prezentowany opis zidentyfikowanych osobistości i nazwanych jednostek. Jest to tylko funkcja interfejsu użytkownika. 
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Usuń zasoby, których nie planujesz używać.
+
+### <a name="delete-a-video-indexer-account"></a>Usuwanie konta Video Indexer
+
+Jeśli chcesz usunąć konto Video Indexer, możesz je usunąć z witryny internetowej Video Indexer. Aby usunąć konto, musisz być właścicielem.
+
+Wybierz pozycję konto **— >**  ->  **usunąć to konto**. 
+
+Konto zostanie trwale usunięte w ciągu 90 dni.
 
 ## <a name="next-steps"></a>Następne kroki
 

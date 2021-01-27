@@ -3,14 +3,14 @@ title: Przegląd Change Tracking Azure Automation i spisu
 description: W tym artykule opisano Change Tracking i funkcję spisu, która pomaga identyfikować zmiany oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/10/2020
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445425"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896633"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -32,7 +32,7 @@ Change Tracking i spis używają [Azure Security Center monitorowania integralno
 - Usługi firmy Microsoft
 - Demony systemu Linux
 
-Włączenie wszystkich funkcji uwzględnionych w Change Tracking i spisie może spowodować naliczenie dodatkowych opłat. Przed kontynuowaniem zapoznaj się z [cennikiem usługi Automation](https://azure.microsoft.com/pricing/details/automation/) i [cenami Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). 
+Włączenie wszystkich funkcji uwzględnionych w Change Tracking i spisie może spowodować naliczenie dodatkowych opłat. Przed kontynuowaniem zapoznaj się z [cennikiem usługi Automation](https://azure.microsoft.com/pricing/details/automation/) i [cenami Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 Change Tracking i spis przekazuje dane do dzienników Azure Monitor, a zebrane dane są przechowywane w Log Analytics obszarze roboczym. Funkcja monitorowania integralności plików (FIM) jest dostępna tylko wtedy, gdy **usługa Azure Defender dla serwerów** jest włączona. Aby dowiedzieć się więcej, zobacz [cennik](../../security-center/security-center-pricing.md) Azure Security Center. KOD programu FIM przekazuje dane do tego samego obszaru roboczego Log Analytics jak ten utworzony w celu przechowywania danych z Change Tracking i spisu. Zalecamy monitorowanie połączonego obszaru roboczego Log Analytics, aby śledzić dokładne użycie. Aby uzyskać więcej informacji na temat analizowania danych dzienników Azure Monitor, zobacz [Zarządzanie użyciem i kosztem](../../azure-monitor/platform/manage-cost-storage.md).
 
@@ -74,16 +74,7 @@ Plik wykonywalny python2 musi mieć alias do języka *Python*.
 
 ## <a name="network-requirements"></a>Wymagania dotyczące sieci
 
-Poniższe adresy są wymagane dla Change Tracking i spisu. Komunikacja z tymi adresami odbywa się za pośrednictwem portu 443.
-
-|Azure — publiczna  |Azure Government  |
-|---------|---------|
-|*.ods.opinsights.azure.com    | *. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
-|*.azure-automation.net | *. azure-automation.us|
-
-Podczas tworzenia reguł zabezpieczeń grupy sieciowej lub konfigurowania zapory platformy Azure, aby zezwalać na ruch do usługi Automation i obszaru roboczego Log Analytics, należy użyć [znacznika usługi](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** i **AzureMonitor**. Upraszcza to ciągłe zarządzanie regułami zabezpieczeń sieci. Aby bezpiecznie i prywatnie połączyć się z usługą Automation z maszyn wirtualnych platformy Azure, zapoznaj się z tematem [Korzystanie z prywatnego linku platformy Azure](../how-to/private-link-security.md). Aby uzyskać bieżący tag usługi i informacje o zakresie do uwzględnienia w ramach konfiguracji lokalnych zapór, zobacz [pliki JSON do pobrania](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Sprawdź [konfigurację sieci Azure Automation](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory) , aby uzyskać szczegółowe informacje dotyczące portów, adresów URL i innych szczegółów sieci wymaganych do Change Tracking i spisu.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Włączanie rozwiązania Change Tracking and Inventory
 
@@ -129,7 +120,7 @@ Change Tracking i spis umożliwia monitorowanie zmian kluczy rejestru systemu Wi
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitoruje 32-bitowe sterowniki skojarzone z wavemapper, wave1 i Wave2, msacm. imaadpcm,. msadpcm,. msgsm610 i vidc. Podobnie jak w sekcji [Drivers] w pliku **system.ini** .
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitoruje 32-bitowe sterowniki skojarzone z wavemapper, wave1 i Wave2, msacm. imaadpcm,. msadpcm,. msgsm610 i vidc dla aplikacji 32-bitowych uruchomionych na komputerach 64-bitowych. Podobnie jak w sekcji [Drivers] w pliku **system.ini** .
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitoruje listę znanych lub powszechnie używanych systemowych bibliotek DLL. Monitorowanie uniemożliwia użytkownikom wykorzystywanie słabych uprawnień katalogu aplikacji przez porzucanie w systemie plików DLL systemu koń trojański.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoruje listę pakietów, które mogą odbierać powiadomienia o zdarzeniach z **winlogon.exe** , modelu obsługi logowania interaktywnego dla systemu Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoruje listę pakietów, które mogą odbierać powiadomienia o zdarzeniach z **winlogon.exe**, modelu obsługi logowania interaktywnego dla systemu Windows.
 
 ## <a name="recursion-support"></a>Obsługa rekursji
 
@@ -159,7 +150,7 @@ W następnej tabeli przedstawiono częstotliwość zbierania danych dla typów z
 
 W poniższej tabeli przedstawiono limity śledzonych elementów na maszynę dla Change Tracking i spisu.
 
-| **Zasób** | **Limit** |
+| **Zasób** | **Granice** |
 |---|---|---|
 |Plik|500|
 |Rejestr|250|

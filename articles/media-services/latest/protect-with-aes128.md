@@ -1,25 +1,9 @@
 ---
-title: Szyfrowanie wideo przy użyciu algorytmu AES-128
-titleSuffix: Azure Media Services
-description: Dowiedz się, jak szyfrować wideo przy użyciu szyfrowania AES 128-bitowego oraz jak korzystać z usługi Key Delivery w Azure Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 5347479d32dc9f4909483dc63891e8057fd7ff86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289346"
+title: Szyfruj wideo przy użyciu algorytmu AES-128: Azure Media Services opis: informacje na temat szyfrowania wideo przy użyciu szyfrowania AES 128-bitowego oraz sposobu korzystania z usługi Key Delivery w programie Azure Media Services.
+usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
+
+MS. Service: Media-Services MS. obciążeń: Media ms.tgt_pltfrm: na MS. devlang: na MS. temat: samouczek MS. Date: 08/31/2020 MS. Author: inhenkel
+
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Samouczek: szyfrowanie wideo przy użyciu algorytmu AES-128 i korzystanie z usługi dostarczania kluczy
 

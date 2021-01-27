@@ -1,6 +1,5 @@
 ---
 title: Filtrowanie, porządkowanie i stronicowanie jednostek Media Services
-titleSuffix: Azure Media Services
 description: Dowiedz się więcej na temat filtrowania, porządkowania i stronicowania jednostek Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f562927fcbcf66ca7006ac2d100520311ac917
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300191"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897887"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrowanie, porządkowanie i stronicowanie jednostek Media Services
 
@@ -47,7 +46,7 @@ Operatory zakresu:
 - `ge`: Sprawdź, czy pole jest *większe niż lub równe* wartości stałej.
 - `le`: Sprawdź, czy pole jest *mniejsze niż lub równe* wartości stałej.
 
-## <a name="filter"></a>Filtrowanie
+## <a name="filter"></a>Filtr
 
 Użyj `$filter` , aby podać parametr filtru OData, aby znaleźć tylko te obiekty, które Cię interesują.
 
@@ -72,7 +71,7 @@ Służy `$orderby` do sortowania zwracanych obiektów przez określony parametr.
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Aby posortować wyniki w kolejności rosnącej lub malejącej, Dołącz `asc` albo `desc` do nazwy pola, oddzielone spacją. Przykład: `$orderby properties/created desc`.
+Aby posortować wyniki w kolejności rosnącej lub malejącej, Dołącz `asc` albo `desc` do nazwy pola, oddzielone spacją. Na przykład: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Pomiń token
 
@@ -158,7 +157,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 W poniższej tabeli przedstawiono sposób stosowania opcji filtrowania i porządkowania do różnych jednostek:
 
-|Nazwa jednostki|Nazwa właściwości|Filtrowanie|Zamówienie|
+|Nazwa jednostki|Nazwa właściwości|Filtr|Zamówienie|
 |---|---|---|---|
 |[Elementy zawartości](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` i `desc`|
 ||Właściwości. alternateId |`eq`||

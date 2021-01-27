@@ -1,6 +1,5 @@
 ---
 title: Analizowanie plików wideo i audio
-titleSuffix: Azure Media Services
 description: Dowiedz się, jak analizować zawartość audio i wideo przy użyciu AudioAnalyzerPreset i VideoAnalyzerPreset w Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 61f5a470046ba3ddca157e83737a29ed936a0c3a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 25b5c3163b657633ca78215468f4c2a2e40949b7
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656329"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897228"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizowanie plików wideo i audio przy użyciu Azure Media Services
 
@@ -171,7 +170,7 @@ Przykład:
 |identyfikator|Identyfikator kroju.|
 |name|Nazwa kroju. Może to być "nieznany #0", zidentyfikowanego osobistości lub osoby przeszkolonej przez klienta.|
 |ufność|Niepewność identyfikacji kroju.|
-|description|Opis osobistości. |
+|description (opis)|Opis osobistości. |
 |thumbnailId|Identyfikator miniatury tej czołowej.|
 |knownPersonId|Wewnętrzny identyfikator (jeśli jest znaną osobą).|
 |referenceId|Identyfikator Bing (jeśli jest to osobistości Bing).|

@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 87504625c298c4fb858ff90430d707081e87cd5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb5f7b5e8214bd3b04bd7b9544ab4bc589f6c4bf
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186575"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896329"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurowanie ciągłego wdrażania za pomocą narzędzia Chocolatey
 
@@ -126,7 +126,7 @@ W dołączonym przykładzie są implementowane następujące kroki dla cChoco i 
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Krok 4. Dodawanie konfiguracji węzła do serwera ściągania
 
-Nie ma żadnych specjalnych informacji o tym, jak po raz pierwszy zaimportować konfigurację do serwera ściągania i skompilować. Wszystkie późniejsze Importy lub kompilacje tej samej konfiguracji wyglądają dokładnie tak samo. Za każdym razem, gdy aktualizujesz pakiet i konieczne jest wypchnięcie go do środowiska produkcyjnego, wykonaj ten krok po upewnieniu się, że plik konfiguracji jest prawidłowy — w tym nowej wersji pakietu. Oto **ISVBoxConfig.ps1**pliku konfiguracji:
+Nie ma żadnych specjalnych informacji o tym, jak po raz pierwszy zaimportować konfigurację do serwera ściągania i skompilować. Wszystkie późniejsze Importy lub kompilacje tej samej konfiguracji wyglądają dokładnie tak samo. Za każdym razem, gdy aktualizujesz pakiet i konieczne jest wypchnięcie go do środowiska produkcyjnego, wykonaj ten krok po upewnieniu się, że plik konfiguracji jest prawidłowy — w tym nowej wersji pakietu. Oto **ISVBoxConfig.ps1** pliku konfiguracji:
 
 ```powershell
 Configuration ISVBoxConfig
@@ -213,5 +213,5 @@ Od tego momentu do maszyn wirtualnych, które są zależne od tej konfiguracji, 
 - Aby zapoznać się z omówieniem, zobacz [Omówienie konfiguracji stanu Azure Automation](automation-dsc-overview.md).
 - Aby rozpocząć korzystanie z tej funkcji, zobacz Rozpoczynanie [pracy z konfiguracją stanu Azure Automation](automation-dsc-getting-started.md).
 - Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
-- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation).
 - Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).

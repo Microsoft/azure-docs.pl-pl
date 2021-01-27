@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: a489902372b0b88a0ffec07fa685ee745ec59c50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567707"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880461"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Przegląd oceny serwera (Migrowanie do rozwiązania Azure VMware)
 
@@ -207,7 +207,7 @@ Po ustaleniu wartości efektywnego wykorzystania magazyn, Sieć i rozmiar oblicz
 
 Jeśli używasz *jako lokalizacji lokalnej*, Ocena serwera nie uwzględnia historii wydajności maszyn wirtualnych i dysków. Zamiast tego przydziela węzły automatycznej synchronizacji na podstawie rozmiaru przydzielonego lokalnie. Domyślny typ magazynu to sieci vSAN w wersji zaautomatycznej.
 
-[Dowiedz się więcej](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) na temat sposobu przeglądania oceny rozwiązań VMware platformy Azure.
+[Dowiedz się więcej](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) na temat sposobu przeglądania oceny rozwiązań VMware platformy Azure.
 
 ## <a name="confidence-ratings"></a>Klasyfikacje zaufania
 

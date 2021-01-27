@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d6b786ffaf309e147de27e8cd8be314a3d8a5fb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186354"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896990"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Edytowanie tekstowych elementów Runbook w Azure Automation
 
@@ -29,7 +29,7 @@ Ten artykuł zawiera szczegółowe instrukcje dotyczące wykonywania różnych f
 ## <a name="edit-a-runbook-with-the-azure-portal"></a>Edytowanie elementu Runbook za pomocą Azure Portal
 
 1. W Azure Portal wybierz konto usługi Automation.
-2. W obszarze **Automatyzacja procesów**wybierz pozycję **elementy Runbook** , aby otworzyć listę elementów Runbook.
+2. W obszarze **Automatyzacja procesów** wybierz pozycję **elementy Runbook** , aby otworzyć listę elementów Runbook.
 3. Wybierz element Runbook do edycji, a następnie kliknij przycisk **Edytuj**.
 4. Edytuj element Runbook.
 5. Po zakończeniu edycji kliknij przycisk **Zapisz** .
@@ -101,4 +101,4 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Poświadczenia](./shared-resources/credentials.md).
 * [Harmonogramy](./shared-resources/schedules.md).
 * [Zmienne](./shared-resources/variables.md).
-* [Dokumentacja poleceń cmdlet programu PowerShell](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Dokumentacja poleceń cmdlet programu PowerShell](/powershell/module/az.automation).

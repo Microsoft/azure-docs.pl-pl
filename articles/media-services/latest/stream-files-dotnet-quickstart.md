@@ -1,5 +1,5 @@
 ---
-title: Przesyłanie strumieniowe plików wideo za pomocą usługi Azure Media Services — .NET | Microsoft Docs
+title: Przesyłanie strumieniowe plików wideo za pomocą Azure Media Services — .NET
 description: Wykonaj kroki tego samouczka, aby utworzyć nowe konto Azure Media Services, zakodować plik i przesłać strumieniowo do Azure Media Player przy użyciu platformy .NET.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6b240a2d97e0b4aa313f858b3965f241dd0b08
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268693"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898192"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — .NET
 
@@ -54,7 +54,7 @@ Otwórz [appsettings.js](https://github.com/Azure-Samples/media-services-v3-dotn
 W przykładzie są wykonywane następujące akcje:
 
 1. Tworzenie **przekształcenia** (najpierw następuje sprawdzenie, czy podane przekształcenie istnieje). 
-2. Tworzy element **zawartości** wyjściowej, który jest używany jako dane wyjściowe **zadania**kodowania.
+2. Tworzy element **zawartości** wyjściowej, który jest używany jako dane wyjściowe **zadania** kodowania.
 3. Tworzenie danych wejściowych **zadania** opartych na adresie URL protokołu HTTPS.
 4. Przesłanie **zadania** kodowania przy użyciu danych przychodzących i wychodzących, które zostały utworzone wcześniej.
 5. Sprawdzanie stanu zadania.

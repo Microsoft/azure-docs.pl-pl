@@ -2,16 +2,16 @@
 title: Rozwiązywanie problemów dotyczących Azure Automation elementu Runbook
 description: W tym artykule opisano sposób rozwiązywania problemów z elementami Runbook Azure Automation.
 services: automation
+ms.subservice: ''
 ms.date: 11/03/2020
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: c7ab093f601ebcd33d184b9a9008f9de447534a1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 116677354009c538eece02184d801cfda11574a0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368087"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896312"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
 
@@ -291,7 +291,7 @@ Ten błąd może być spowodowany użyciem nieaktualnych modułów platformy Azu
 
 Możesz rozwiązać ten problem, aktualizując moduły platformy Azure do najnowszej wersji:
 
-1. Na koncie usługi Automation wybierz pozycję **moduły** , a następnie wybierz pozycję **Aktualizuj moduły platformy Azure**.
+1. Na koncie usługi Automation wybierz pozycję **moduły**, a następnie wybierz pozycję **Aktualizuj moduły platformy Azure**.
 1. Aktualizacja trwa około 15 minut. Po zakończeniu uruchom ponownie element Runbook, który się nie powiódł.
 
 Aby dowiedzieć się więcej na temat aktualizowania modułów, zobacz temat [aktualizowanie modułów platformy Azure w Azure Automation](../automation-update-azure-modules.md).
@@ -505,7 +505,7 @@ Jeśli chcesz użyć więcej niż 500 minut przetwarzania miesięcznie, Zmień s
 
 1. Zaloguj się do subskrypcji platformy Azure.
 1. Wybierz konto usługi Automation, które ma zostać uaktualnione.
-1. Wybierz pozycję **Ustawienia** , a następnie wybierz pozycję **Cennik**.
+1. Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **Cennik**.
 1. Wybierz pozycję **Włącz** na dole strony, aby uaktualnić konto do warstwy Podstawowa.
 
 ## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scenariusz: strumień wyjściowy elementu Runbook o rozmiarze większym niż 1 MB

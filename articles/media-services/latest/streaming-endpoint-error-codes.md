@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services błędy pakowania i pochodzenia | Microsoft Docs
+title: Azure Media Services pakowanie i błędy pierwotne
 description: W tym temacie opisano błędy, które mogą pojawić się w usłudze Azure Media Services Streaming Endpoint (ORGIN).
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
-ms.openlocfilehash: 8442c52052a2016da002d392c6fe0834b3813229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 994e5ae0647f350e0a64f35318bd5803f4ed79b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295329"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894987"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Błędy punktu końcowego przesyłania strumieniowego (źródło)
 
@@ -198,7 +198,7 @@ Serwer nie może obecnie odbierać żądań. Ten błąd może być spowodowany p
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Kody błędów kodowania](/rest/api/media/jobs/get#joberrorcode)
 - [Koncepcje Azure Media Services](concepts-overview.md)

@@ -2,19 +2,19 @@
 title: Co to są dokumenty równoległe? — Translator niestandardowy
 titleSuffix: Azure Cognitive Services
 description: Dokumenty równoległe to pary dokumentów, które są tłumaczeniami innych. Jeden dokument w parze zawiera zdania w języku źródłowym, a drugi dokumentu zawiera te zdania tłumaczone na język docelowy.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 6477432636db9592d9b0d9c1f90f5eee7d6e00db
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 64192014c9dfe5bb958e730dae62e504f0976fa1
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369005"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895598"
 ---
 # <a name="what-are-parallel-documents"></a>Co to są dokumenty równoległe?
 

@@ -4,15 +4,15 @@ description: Aby utworzyć aplikacje o wysokiej dostępności i odporności na p
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/26/2021
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5883dc8b34cd1aa00ba1c5de25a09a017a130c0a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874612"
+ms.locfileid: "98896888"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Usługi platformy Azure obsługujące strefy dostępności
 
@@ -58,7 +58,7 @@ Aby zapewnić kompleksową ciągłość biznesową na platformie Azure, skompilu
 | Zachodnie stany USA 2        |                |                      |                     |                |
 
 
-Aby dowiedzieć się więcej na temat pomocy technicznej dotyczącej usług Strefy dostępności i dostępnych w tych regionach, skontaktuj się z przedstawicielem firmy Microsoft ds. sprzedaży lub klienta. W przypadku nadchodzących regionów, które będą obsługiwać Strefy dostępności, zobacz [Azure lokalizacje geograficzne](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* Aby dowiedzieć się więcej na temat pomocy technicznej dotyczącej usług Strefy dostępności i dostępnych w tych regionach, skontaktuj się z przedstawicielem firmy Microsoft ds. sprzedaży lub klienta. W przypadku nadchodzących regionów, które będą obsługiwać Strefy dostępności, zobacz [Azure lokalizacje geograficzne](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>Usługi platformy Azure obsługujące Strefy dostępności

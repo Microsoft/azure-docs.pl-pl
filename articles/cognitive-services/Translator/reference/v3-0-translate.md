@@ -3,19 +3,19 @@ title: Metoda tłumaczenia translatora
 titleSuffix: Azure Cognitive Services
 description: Informacje o parametrach, nagłówkach i komunikatach treści dla metody tłumaczenia w usłudze Azure Cognitive Services translator w celu tłumaczenia tekstu.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 15f20bab91a4feab056a9f8cd6b012792f036be2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: d46fef0159b983f2685be40e2a0ab5471b96883b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016551"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895445"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: tłumaczenie
 
@@ -391,7 +391,7 @@ W przypadku <code>ProfanityMarker=Tag</code> , wulgarne słowa są otoczone prze
   </tr>
 </table> 
 
-Przykład:
+Na przykład:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"

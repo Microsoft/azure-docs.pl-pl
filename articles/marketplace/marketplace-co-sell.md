@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 3693ff8ea213d0823237956c532e65d5094bf1ce
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746322"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880291"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -49,14 +49,14 @@ W tej tabeli wymieniono kroki i wymagania, które należy spełnić w celu udost
 ||Dynamics|<ul><li>Masz aktywną rejestrację w warstwie Premium programu ISV Connect.</li></ul>|Business Applications współsprzedaż zachęcani|
 |||
 
-Aby uzyskać więcej informacji na temat wymagań dla ofert współsprzedawanych rozwiązań, zobacz [wymagania dotyczące stanu współsprzedażu](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+Aby uzyskać więcej informacji na temat wymagań dla ofert współsprzedawanych rozwiązań, zobacz [wymagania dotyczące stanu współsprzedażu](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Jak przesłać materiały towarzyszące w centrum partnerskim
 
 Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonując poniższe kroki. Aby uzyskać więcej informacji, zobacz [opcję współsprzedaży w portalu komercyjnym](commercial-marketplace-co-sell.md).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**, a następnie wybierz ofertę, którą chcesz utworzyć.
+1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  , a następnie wybierz ofertę, którą chcesz utworzyć.
 
     > [!NOTE]
     > Możesz dołączyć do programu do współsprzedaży z nową ofertą, która nie została jeszcze opublikowana, lub z już opublikowaną ofertą.

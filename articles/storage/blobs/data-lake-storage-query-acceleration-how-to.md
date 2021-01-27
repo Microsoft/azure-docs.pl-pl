@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc63a9787a3611f28e6466564735d029bf65b757
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0340ab0a13d7c639d5e5bba49b3cdd445bad5a83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968402"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879885"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrowanie danych za pomocą przyspieszania zapytań Azure Data Lake Storage
 
@@ -437,7 +437,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
 
 ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Ten przykład wysyła zapytanie do interfejsu API przyspieszenia zapytania, a następnie przesyła strumieniowo wyniki. `blob`Obiekt przeszedł do `queryHemingway` funkcji pomocnika jest typu [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient). Aby dowiedzieć się więcej o tym, jak uzyskać obiekt [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient) , zobacz [Szybki Start: Zarządzanie obiektami BLOB za pomocą języka JavaScript v12 SDK w Node.js](storage-quickstart-blobs-nodejs.md).
+Ten przykład wysyła zapytanie do interfejsu API przyspieszenia zapytania, a następnie przesyła strumieniowo wyniki. `blob`Obiekt przeszedł do `queryHemingway` funkcji pomocnika jest typu [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). Aby dowiedzieć się więcej o tym, jak uzyskać obiekt [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) , zobacz [Szybki Start: Zarządzanie obiektami BLOB za pomocą języka JavaScript v12 SDK w Node.js](storage-quickstart-blobs-nodejs.md).
 
 ```javascript
 async function queryHemingway(blob)

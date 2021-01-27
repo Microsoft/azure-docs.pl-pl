@@ -2,19 +2,15 @@
 title: Rozwiązywanie problemów dotyczących Azure Automation hybrydowych procesów roboczych elementu Runbook
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation hybrydowych procesów roboczych elementów Runbook.
 services: automation
-ms.service: automation
 ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/25/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.topic: troubleshooting
+ms.openlocfilehash: 214501c447632232dc00b61643ea21083bd0e4ac
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428391"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896498"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu runbook
 
@@ -46,7 +42,7 @@ Możliwe są następujące przyczyny:
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Sprawdź, czy komputer ma dostęp wychodzący do ** \* . Azure-Automation.NET** na porcie 443.
+Sprawdź, czy komputer ma dostęp wychodzący do **\* . Azure-Automation.NET** na porcie 443.
 
 Komputery z uruchomionym hybrydowym procesem roboczym elementu Runbook powinny spełniać minimalne wymagania sprzętowe, zanim proces roboczy zostanie skonfigurowany do obsługi tej funkcji. Elementy Runbook i proces w tle, których używają, mogą spowodować nadużycie systemu i spowodować opóźnienia zadań elementu Runbook lub przekroczenia limitu czasu.
 
@@ -58,7 +54,7 @@ Sprawdź w dzienniku zdarzeń **Microsoft-SMA** odpowiednie zdarzenie z opisem `
 
 #### <a name="issue"></a>Problem
 
-Hybrydowy proces roboczy elementu Runbook odbiera zdarzenie 15011, co oznacza, że wynik zapytania jest nieprawidłowy. Następujący błąd pojawia się, gdy proces roboczy próbuje otworzyć połączenie z [serwerem sygnałów](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Hybrydowy proces roboczy elementu Runbook odbiera zdarzenie 15011, co oznacza, że wynik zapytania jest nieprawidłowy. Następujący błąd pojawia się, gdy proces roboczy próbuje otworzyć połączenie z [serwerem sygnałów](/aspnet/core/signalr/introduction).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -226,7 +222,7 @@ W dzienniku zdarzeń programu **Application and Services Logs\Operations Manager
 
 #### <a name="cause"></a>Przyczyna
 
-Przyczyną tego problemu może być Microsoft Azure przez serwer proxy lub zaporę sieciową. Sprawdź, czy komputer ma dostęp wychodzący do ** \* . Azure-Automation.NET** na porcie 443.
+Przyczyną tego problemu może być Microsoft Azure przez serwer proxy lub zaporę sieciową. Sprawdź, czy komputer ma dostęp wychodzący do **\* . Azure-Automation.NET** na porcie 443.
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -238,7 +234,7 @@ Hybrydowe procesy robocze wysyłają [dane wyjściowe i komunikaty elementu Runb
 
 #### <a name="issue"></a>Problem
 
-Skrypt uruchomiony w hybrydowym procesie roboczym elementu Runbook systemu Windows nie może nawiązać połączenia zgodnie z oczekiwaniami, aby Microsoft 365 w piaskownicy programu Orchestrator. Skrypt używa polecenia [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) w celu nawiązania połączenia. 
+Skrypt uruchomiony w hybrydowym procesie roboczym elementu Runbook systemu Windows nie może nawiązać połączenia zgodnie z oczekiwaniami, aby Microsoft 365 w piaskownicy programu Orchestrator. Skrypt używa polecenia [Connect-MsolService](/powershell/module/msonline/connect-msolservice) w celu nawiązania połączenia. 
 
 W przypadku dostosowania **Orchestrator.Sandbox.exe.config** , aby ustawić serwer proxy i listę pomijania, Piaskownica nadal nie będzie się poprawnie łączyć. Plik **Powershell_ise.exe.config** z tymi samymi ustawieniami serwera proxy i listy obejścia wygląda prawdopodobnie zgodnie z oczekiwaniami. Dzienniki Service Management Automation (SMA) i dzienniki programu PowerShell nie zawierają żadnych informacji dotyczących serwera proxy.
 
@@ -250,7 +246,7 @@ Połączenie z Active Directory Federation Services (AD FS) na serwerze nie moż
 
 Problem związany z piaskownicą programu Orchestrator można rozwiązać przez przeprowadzenie migracji skryptu w celu użycia modułów Azure Active Directory zamiast modułu MSOnline dla poleceń cmdlet programu PowerShell. Aby uzyskać więcej informacji, zobacz [Migrowanie z programu Orchestrator do Azure Automation (beta)](../automation-orchestrator-migration.md).
 
-Jeśli chcesz kontynuować korzystanie z poleceń cmdlet modułu MSOnline, Zmień skrypt, aby używał [polecenia Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Określ wartości `ComputerName` `Credential` parametrów i. 
+Jeśli chcesz kontynuować korzystanie z poleceń cmdlet modułu MSOnline, Zmień skrypt, aby używał [polecenia Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Określ wartości `ComputerName` `Credential` parametrów i. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
@@ -339,7 +335,7 @@ Aby rozwiązać ten problem:
 
 1. Usuń agenta `sudo sh onboard_agent.sh --purge` .
 
-1. Uruchom te polecenia:
+1. Uruchom następujące polecenia:
 
    ```
    sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old

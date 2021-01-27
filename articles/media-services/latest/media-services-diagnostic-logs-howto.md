@@ -1,5 +1,5 @@
 ---
-title: Monitoruj Media Services dzienników diagnostycznych za pomocą Azure Monitor | Microsoft Docs
+title: Monitoruj Media Services dzienników diagnostycznych za pomocą Azure Monitor
 description: W tym artykule przedstawiono sposób kierowania i wyświetlania dzienników diagnostycznych za pośrednictwem Azure Monitor.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c666228a8a82083c319aa6c2d7fd161f7e623f4
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707765"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897972"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorowanie dzienników diagnostycznych Media Services
 
@@ -52,7 +52,7 @@ W tym artykule pokazano, jak skierować dane do konta magazynu, a następnie wy�
 
    ![Sekcja ustawień diagnostycznych](media/media-services-diagnostic-logs/logs02.png)
 1. Ustaw suwak **Okres przechowywania (w dniach)** na wartość 30. Suwak umożliwia ustawienie liczby dni przechowywania danych monitorowania na koncie magazynu. Starsze dane są automatycznie usuwane przez usługę Azure Monitor. Wpisanie wartości zero powoduje, że dane są przechowywane przez nieograniczony czas.
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 Dane monitorowania z zasobu będą teraz przepływać do konta magazynu.
 
@@ -181,9 +181,9 @@ Może upłynąć nawet pięć minut, zanim zdarzenie pojawi się na koncie magaz
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Metryki Azure Monitor](../../azure-monitor/platform/data-platform.md)
+* [Metryki usługi Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md)
 * [Jak zbierać i zużywać dane dzienników z zasobów platformy Azure](../../azure-monitor/platform/platform-logs-overview.md)
 

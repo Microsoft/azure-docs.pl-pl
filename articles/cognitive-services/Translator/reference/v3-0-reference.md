@@ -3,23 +3,23 @@ title: Dokumentacja usługi Translator w wersji 3.0
 titleSuffix: Azure Cognitive Services
 description: Dokumentacja dotycząca usługi Translator w wersji 3.0. Wersja 3 usługi Translator udostępnia nowoczesny internetowy interfejs API oparty na notacji JSON.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
-ms.author: swmachan
-ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024504"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895462"
 ---
 # <a name="translator-v30"></a>Translator — wersja 3.0
 
-## <a name="whats-new"></a>Co nowego?
+## <a name="whats-new"></a>Co nowego
 
 Wersja 3 usługi Translator udostępnia nowoczesny internetowy interfejs API oparty na notacji JSON. Zwiększa użyteczność i wydajność dzięki konsolidacji istniejących funkcji do mniejszej liczby operacji i udostępnia nowe funkcje.
 
@@ -39,9 +39,9 @@ Usługi Microsoft Translator są obsługiwane z wielu lokalizacji centrów danyc
 
 Żądania kierowane do usługi Microsoft Translator są w większości przypadków obsługiwane przez centrum danych, które znajdują się najbliżej lokalizacji, z której pochodzi żądanie. W przypadku awarii centrum danych żądanie może być kierowane poza lokalizację geograficzną platformy Azure.
 
-Aby wymusić obsługę żądania przez określoną lokalizację geograficzną platformy Azure, Zmień globalny punkt końcowy w żądaniu interfejsu API na żądany regionalny punkt końcowy:
+Aby wymusić obsługę żądania przez określoną lokalizację geograficzną platformy Azure, Zmień globalny punkt końcowy w żądaniu interfejsu API na żądany geograficzny punkt końcowy:
 
-|Opis|Lokalizacja geograficzna platformy Azure|Podstawowy adres URL|
+|Opis|Lokalizacja geograficzna platformy Azure|Podstawowy adres URL (geograficzny punkt końcowy)|
 |:--|:--|:--|
 |Azure|Globalne (nieregionalne)|   api.cognitive.microsofttranslator.com|
 |Azure|Stany Zjednoczone|   api-nam.cognitive.microsofttranslator.com|

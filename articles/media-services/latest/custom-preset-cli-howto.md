@@ -1,5 +1,5 @@
 ---
-title: Kodowanie przekształcenia niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure Media Services w wersji v3 | Microsoft Docs
+title: Kodowanie przekształcenia niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 3 Media Services
 description: W tym temacie przedstawiono sposób kodowania niestandardowego przekształcenia przy użyciu interfejsu wiersza polecenia platformy Azure przy użyciu Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c61ac8c7cf85b1fae4c9b531f16b951dd2b80876
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9758ed7403e11ca30732377a65bbde1944368cb2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295789"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897194"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Jak kodować przy użyciu niestandardowej transformacji — interfejs wiersza polecenia platformy Azure
 
@@ -142,6 +142,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Aby Media Services zastosować transformację do określonego wideo lub audio, należy przesłać zadanie w ramach tej transformacji. Pełny przykład pokazujący, jak przesłać zadanie w ramach przekształcenia, zobacz [Szybki Start: przesyłanie strumieniowe plików wideo — interfejs wiersza polecenia platformy Azure](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Interfejs wiersza polecenia platformy Azure](/cli/azure/ams)

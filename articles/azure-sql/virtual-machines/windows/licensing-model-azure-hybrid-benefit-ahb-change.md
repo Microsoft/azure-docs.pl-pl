@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: da136c1f3ce36bf85592c3c73c9e8f92c41c7442
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357912"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879834"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Zmienianie modelu licencjonowania maszyny wirtualnej z programem SQL na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,11 +37,11 @@ Istnieją trzy modele licencji dla maszyny wirtualnej platformy Azure, która ob
 
 Korzyść użycia hybrydowego platformy Azure umożliwia korzystanie z licencji SQL Server z programem Software Assurance ("kwalifikowana Licencja") na maszynach wirtualnych platformy Azure. W przypadku Korzyść użycia hybrydowego platformy Azure klienci nie są obciążani opłatami za korzystanie z licencji SQL Server na maszynie wirtualnej. Jednak nadal muszą płacić za koszt zasobów obliczeniowych w chmurze (czyli stawka podstawowa), magazyn i kopie zapasowe. Muszą również uiścić opłaty za we/wy powiązane z użyciem usług (stosownie do obowiązujących).
 
-Zgodnie z postanowieniami produktu firmy Microsoft: "klienci muszą wskazywać, że używają Azure SQL Database (wystąpienie zarządzane, Pula elastyczna i pojedyncza baza danych), Azure Data Factory, SQL Server Integration Services lub SQL Server Virtual Machines w korzyść użycia hybrydowego platformy Azure dla SQL Server podczas konfigurowania obciążeń na platformie Azure".
+Zgodnie z [postanowieniami produktu](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzureServices/EAEAS)firmy Microsoft: "klienci muszą wskazywać, że używają Azure SQL Database (wystąpienie zarządzane, Pula elastyczna i pojedyncza baza danych), Azure Data Factory, SQL Server Integration Services lub SQL Server Virtual Machines w Korzyść użycia hybrydowego platformy Azure dla SQL Server podczas konfigurowania obciążeń na platformie Azure".
 
 Aby wskazać użycie Korzyść użycia hybrydowego platformy Azure dla SQL Server na maszynie wirtualnej platformy Azure i być zgodne, masz trzy opcje:
 
-- Zainicjuj obsługę administracyjną maszyny wirtualnej, korzystając z obrazu "Przenieś własne SQL Server licencji" z witryny Azure Marketplace. Ta opcja jest dostępna tylko dla klientów, którzy mają Umowa Enterprise.
+- Zainicjuj obsługę administracyjną maszyny wirtualnej, korzystając z obrazu "Przenieś własne SQL Server licencji" z witryny Azure Marketplace. Ta opcja jest dostępna tylko dla klientów, którzy mają Enterprise Agreement.
 - Zainicjuj obsługę administracyjną maszyny wirtualnej przy użyciu obrazu z opcją płatność zgodnie z SQL Server rzeczywistym użyciem z witryny Azure Marketplace i aktywuj Korzyść użycia hybrydowego platformy Azure.
 - Samoinstalując SQL Server na maszynie wirtualnej platformy Azure, [zarejestruj się ręcznie przy użyciu rozszerzenia agenta SQL IaaS](sql-agent-extension-manually-register-single-vm.md)i aktywuj korzyść użycia hybrydowego platformy Azure.
 

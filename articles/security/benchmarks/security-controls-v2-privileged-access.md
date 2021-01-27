@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7721100d902948364c9e4b1373f1fa805c680a50
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 619f2c2670d8e376ad0bca7cf8b93b971be067a0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202219"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880729"
 ---
 # <a name="security-control-v2-privileged-access"></a>Kontrola zabezpieczeń v2: uprzywilejowany dostęp
 
@@ -159,7 +159,7 @@ Zabezpieczone, izolowane stacje robocze mają kluczowe znaczenie dla bezpieczeń
 
 - [Informacje na temat stacji roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](/security/compass/privileged-access-deployment)
 
 **Odpowiedzialność**: Klient
 
@@ -217,4 +217,3 @@ W przypadku scenariuszy, w których firma Microsoft potrzebuje dostępu do danyc
 - [Zarządzanie zgodnością zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 
 - [Zarządzanie tożsamościami i kluczami](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
-

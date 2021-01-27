@@ -6,18 +6,18 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 933b71d75eacdca015a38524870f25a345e76d22
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 820482a268af038737557c517ccda086cd65d943
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746169"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880562"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Samouczek: Tworzenie bramy VPN Gateway i zarządzanie nią przy użyciu Azure Portal
 
 Bramy sieci VPN na platformie Azure zapewniają łączność między lokalizacjami klienta a platformą Azure. Ten samouczek obejmuje podstawowe etapy wdrażania bramy sieci VPN, takie jak tworzenie bramy i zarządzanie nią. Bramę można również utworzyć przy użyciu [interfejsu wiersza polecenia platformy Azure](create-routebased-vpn-gateway-cli.md) lub [Azure PowerShell](create-routebased-vpn-gateway-powershell.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej
@@ -74,7 +74,7 @@ Utwórz bramę sieci wirtualnej przy użyciu następujących wartości:
 
 Publiczny adres IP bramy można wyświetlić na stronie **Przegląd** bramy.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Strona przeglądu":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Strona omówienia":::
 
 Aby wyświetlić dodatkowe informacje na temat obiektu publicznego adresu IP, kliknij link nazwa/adres IP obok pozycji **publiczny adres IP**.
 
@@ -103,7 +103,7 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji lub przejdź do następnego s
 Po skonfigurowaniu bramy sieci VPN można skonfigurować połączenia. Poniższe artykuły pomogą Ci utworzyć kilka typowych konfiguracji:
 
 > [!div class="nextstepaction"]
-> [Połączenia sieci VPN typu lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> [Połączenia sieci VPN typu lokacja-lokacja](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
 > [Połączenia sieci VPN typu punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

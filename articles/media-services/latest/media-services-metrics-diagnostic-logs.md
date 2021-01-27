@@ -1,26 +1,11 @@
 ---
-title: Media Services metryki i dzienników diagnostycznych z Azure Monitor
-titleSuffix: Azure Media Services
-description: Informacje na temat monitorowania Azure Media Services metryk i dzienników diagnostycznych za pośrednictwem Azure Monitor.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 11/02/2020
-ms.author: inhenkel
-ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685192"
+title: Media Services metryki i dzienników diagnostycznych z Azure Monitor: Azure Media Services opis: informacje na temat monitorowania metryk Azure Media Services i dzienników diagnostycznych za pośrednictwem Azure Monitor.
+usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
+
+MS. Service: Media-Services MS. obciążeń: Media ms.tgt_pltfrm: na MS. devlang: na MS. temat: koncepcyjne MS. Date: 11/02/2020 MS. Author: inhenkel
+
 ---
+
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorowanie metryk Media Services i dzienników diagnostycznych za pomocą Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

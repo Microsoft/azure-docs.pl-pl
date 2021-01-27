@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7ebe56b95b0c4b938c31c0ece04d27fd1b234b05
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729916"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880797"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
 
@@ -159,8 +159,6 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [ZESTAWIE](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-
-
 ### <a name="azure-event-grid"></a>Azure Event Grid
 
 Typ tożsamości zarządzanej |Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
@@ -168,13 +166,12 @@ Typ tożsamości zarządzanej |Wszystkie ogólnie dostępne<br>Globalne regiony 
 | Przypisana przez system | Wersja zapoznawcza | Wersja zapoznawcza | Niedostępne | Wersja zapoznawcza |
 | Przypisana przez użytkownika | Niedostępne | Niedostępne  | Niedostępne  | Niedostępne |
 
+### <a name="azure-firewall-policy"></a>Zasady zapory platformy Azure
 
-
-
-
-
-
-
+Typ tożsamości zarządzanej |Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Przypisana przez system | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
+| Przypisana przez użytkownika | Wersja zapoznawcza | Niedostępne  | Niedostępne  | Niedostępne |
 
 ### <a name="azure-functions"></a>Azure Functions
 

@@ -3,14 +3,14 @@ title: Azure Automation przegląd hybrydowego procesu roboczego elementu Runbook
 description: Ten artykuł zawiera omówienie hybrydowego procesu roboczego elementu Runbook, którego można użyć do uruchamiania elementów Runbook na maszynach w lokalnym centrum danych lub dostawcy chmury.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/11/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: a23d30047a13b1d176b086a9923e140e7f8d3e45
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 7cf18b6b677daaf97d425c86a0cad91b3abcb225
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072143"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896956"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Omówienie hybrydowych procesów roboczych elementów Runbook
 
@@ -54,16 +54,7 @@ Zalecana metoda instalacji dla komputera z systemem Windows polega na użyciu Az
 
 ## <a name="network-planning"></a><a name="network-planning"></a>Planowanie sieci
 
-Dla systemu i użytkownika hybrydowego procesu roboczego elementu Runbook w celu nawiązania połączenia i zarejestrowania się w Azure Automation musi on mieć dostęp do numeru portu i adresów URL opisanych w tej sekcji. Proces roboczy musi mieć również dostęp do [portów i adresów URL wymaganych przez agenta log Analytics](../azure-monitor/platform/agent-windows.md) , aby połączyć się z obszarem roboczym Azure Monitor Log Analytics.
-
-Następujący port i adresy URL są wymagane dla hybrydowego procesu roboczego elementu Runbook:
-
-* Port: tylko protokół TCP 443 wymagany do wychodzącego dostępu do Internetu
-* Globalny adres URL: `*.azure-automation.net`
-* Globalny adres URL US Gov Wirginia: `*.azure-automation.us`
-* Usługa agenta: `https://<workspaceId>.agentsvc.azure-automation.net`
-
-Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu, możesz ograniczyć komunikację hybrydowego procesu roboczego elementu Runbook do tego regionalnego centrum danych. Przejrzyj [rekordy DNS używane przez Azure Automation](how-to/automation-region-dns-records.md) dla wymaganych rekordów DNS.
+Sprawdź [konfigurację sieci Azure Automation](automation-network-configuration.md#network-planning-for-hybrid-runbook-worker) , aby uzyskać szczegółowe informacje na temat portów, adresów URL i innych szczegółów sieci wymaganych dla hybrydowego procesu roboczego elementu Runbook.
 
 ### <a name="proxy-server-use"></a>Użycie serwera proxy
 
@@ -94,7 +85,7 @@ Azure Automation hybrydowego procesu roboczego elementu Runbook można użyć w 
 * [Dedykowane hosty platformy Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host), które udostępniają serwery fizyczne, które mogą hostować co najmniej jedną maszynę wirtualną, która jest przeznaczona dla jednej subskrypcji platformy Azure.
 
 >[!NOTE]
->Izolacja obliczeniowa za pomocą roli hybrydowego procesu roboczego elementu Runbook jest dostępna dla chmur dla instytucji rządowych platformy Azure. 
+>Izolacja obliczeniowa za pomocą roli hybrydowego procesu roboczego elementu Runbook jest dostępna dla chmur dla instytucji rządowych platformy Azure.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Adresy Update Management dla hybrydowego procesu roboczego elementu Runbook
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cbbbf4ddc651c535cb1266257990f149c80b4742
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: caa0390dfd3a98e6537a7a60a2895461e2efd52a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562501"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879868"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Usługi platformy Azure, które obsługują Azure Data Lake Storage Gen2
 
@@ -39,14 +39,14 @@ Ta tabela zawiera listę usług platformy Azure, których można używać z usł
 |HDInsight |Ogólnie dostępne|Tak|Tak|[Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Korzystanie z interfejsu wiersza polecenia systemu plików HDFS z Data Lake Storage Gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu Apache Hive w usłudze Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)|
 |Usługa IoT Hub |Ogólnie dostępne|Tak|Tak|[Używanie routingu komunikatów IoT Hub do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|Ogólnie dostępne|Tak|Tak|[Analizowanie danych w Data Lake Storage Gen2 przy użyciu Power BI](/power-query/connectors/datalakestorage)|
-|Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)|Ogólnie dostępne|Tak|Tak|[Analizowanie danych na koncie magazynu](/azure/synapse-analytics/get-started-analyze-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)|Ogólnie dostępne|Tak|Tak|[Analizowanie danych na koncie magazynu](../../synapse-analytics/get-started-analyze-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Usługi SQL Server Integration Services (SSIS)|Ogólnie dostępne|Tak|Tak|[Menedżer połączeń usługi Azure Storage](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
 |Azure Data Explorer|Ogólnie dostępne|Tak|Tak|[Wykonywanie zapytań dotyczących danych w Azure Data Lake przy użyciu usługi Azure Eksplorator danych](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|Wersja zapoznawcza|Tak|Tak|[Indeksowanie i Wyszukiwanie Azure Data Lake Storage Gen2 dokumentów (wersja zapoznawcza)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Azure Content Delivery Network|Jeszcze nieobsługiwane|Nie dotyczy|Nie dotyczy|[Indeksowanie i Wyszukiwanie Azure Data Lake Storage Gen2 dokumentów (wersja zapoznawcza)](../../cdn/cdn-overview.md)|
-|Azure SQL Database|Jeszcze nieobsługiwane|Nie dotyczy|Nie dotyczy|[Co to jest usługa Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)|
+|Azure SQL Database|Jeszcze nieobsługiwane|Nie dotyczy|Nie dotyczy|[Co to jest usługa Azure SQL Database?](../../azure-sql/database/sql-database-paas-overview.md)|
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Znane problemy z Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)

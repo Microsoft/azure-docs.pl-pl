@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 382adb36712fbf4bee83044c8b2d096223eb6269
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 20da05399eed4cb9c5a4b69a82b0b1e799997751
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630041"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880122"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Pobieranie obiektów blob z usługi Azure Blob Storage za pomocą AzCopy v10
 
@@ -21,7 +21,7 @@ Obiekty blob i katalogi można pobrać z usługi BLOB Storage za pomocą narzęd
 
 Aby zobaczyć przykłady dla innych typów zadań, takich jak przekazywanie plików, synchronizacja z magazynem obiektów blob lub kopiowanie obiektów BLOB między kontami, zobacz linki przedstawione w sekcji [następne kroki](#next-steps) w tym artykule.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w celu pobrania AzCopy i Dowiedz się więcej na temat sposobów dostarczania poświadczeń autoryzacji do usługi magazynu.
 
@@ -143,7 +143,7 @@ Następnie użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--list-o
 
 #### <a name="download-a-blob-snapshot"></a>Pobierz migawkę obiektu BLOB
 
-[Migawkę obiektu BLOB](/azure/storage/blobs/snapshots-overview) można pobrać, odwołując się do wartości **DateTime** migawki obiektu BLOB. 
+[Migawkę obiektu BLOB](../blobs/snapshots-overview.md) można pobrać, odwołując się do wartości **DateTime** migawki obiektu BLOB. 
 
 |    |     |
 |--------|-----------|

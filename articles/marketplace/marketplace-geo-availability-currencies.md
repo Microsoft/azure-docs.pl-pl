@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 12/07/2020
-ms.openlocfilehash: 118fe70abf52a6c96f4f2dc47e3ad23a388f3598
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c71c13701d064110be0ef976920c0cc01f2fa308
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853751"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879768"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -108,7 +108,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Mongolia                            | MN        | USD          | EUR, MNT, USD |
 | Czarnogóra                          | ME        | USD          | EUR, USD |
 | Maroko                             | MA        | USD          | EUR, MAD —, USD |
-| Namibia                             | Nie dotyczy        | USD          | EUR, NAD, USD, ZAR |
+| Namibia                             | NA        | USD          | EUR, NAD, USD, ZAR |
 | Nepal                               | NP        | USD          | EUR, NPR, USD |
 | Holandia                         | NL        | EUR          | EUR, USD |
 | Nowa Zelandia                         | NZ        | NZD          | EUR, NZD, USD |
@@ -195,13 +195,13 @@ Indywidualne ceny (w zależności od tego, jak zostały one ustawione) mogą by�
 Aby uzyskać szczegółowe informacje na temat wprowadzania cen dla określonych typów ofert, zobacz następujące artykuły:
 
 - [Tworzenie oferty aplikacji platformy Azure](create-new-azure-apps-offer.md)
-- [Tworzenie oferty kontenera platformy Azure](partner-center-portal/create-azure-container-offer.md)
+- [Tworzenie oferty kontenera platformy Azure](./create-azure-container-offer.md)
 - [Tworzenie oferty maszyny wirtualnej platformy Azure](azure-vm-create.md)
 - [Tworzenie oferty usługi konsultingowej](./create-consulting-service-offer.md)
 - [Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Tworzenie oferty Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Tworzenie oferty Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
 - [Tworzenie oferty modułu usługi IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
-- [Tworzenie oferty usługi zarządzanej](partner-center-portal/create-new-managed-service-offer.md)
+- [Tworzenie oferty usługi zarządzanej](./plan-managed-service-offer.md)
 - [Tworzenie aplikacji Power BI](partner-center-portal/create-power-bi-app-offer.md)
 - [Tworzenie oferty SaaS](./create-new-saas-offer.md)

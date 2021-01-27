@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie kontami Azure Media Services v3 | Microsoft Docs
+title: Zarządzaj kontami Azure Media Services v3
 description: Aby rozpocząć zarządzanie, szyfrowanie, kodowanie, analizowanie i przesyłanie strumieniowe zawartości multimedialnej na platformie Azure, musisz utworzyć konto Media Services. W tym artykule wyjaśniono, jak zarządzać kontami Azure Media Services v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -10,12 +10,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: inhenkel
-ms.openlocfilehash: 77453aa2d8989a0542beffb1c88ebe7ee53d1506
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 49cdee15923123ced03c2c6bc750e1b98dd42887
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96008331"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896380"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Zarządzaj kontami Azure Media Services v3
 

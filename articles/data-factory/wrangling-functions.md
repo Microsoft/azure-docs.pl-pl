@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: a88f9fab2b10271aa7856a6d0b5ee114f46cfb49
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634137"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896667"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funkcje transformacji w Power Query danych przetwarzanie
 
@@ -24,7 +24,7 @@ Usługa Data przetwarzanie w Azure Data Factory umożliwia wykonywanie bezobsłu
 
 Obecnie nie wszystkie Power Query funkcje M są obsługiwane dla przetwarzanie danych, mimo że są dostępne podczas tworzenia. Podczas kompilowania swoich różny zostanie wyświetlony monit z następującym komunikatem o błędzie, jeśli funkcja nie jest obsługiwana:
 
-`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
+`UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
 Poniżej znajduje się lista obsługiwanych Power Query funkcji M.
 
@@ -96,7 +96,7 @@ Zachowuj i usuwaj najważniejsze, zachowuj zakres (odpowiadające funkcje M, tyl
 | Table.Distinct | Usuwanie zduplikowanych wierszy nie jest obsługiwane. |
 | Table.RemoveLastN | Usuwanie dolnych wierszy nie jest obsługiwane. |
 | Table.RowCount | Nieobsługiwane, ale można je osiągnąć przez dodanie kolumny niestandardowej zawierającej wartość 1, a następnie agregowanie tej kolumny z listą. sum. Tabela. Grupa jest obsługiwana. | 
-| Obsługa błędów na poziomie wiersza | Obsługa błędów na poziomie wiersza nie jest obecnie obsługiwana. Na przykład, aby odfiltrować wartości inne niż liczbowe z kolumny, jednym z metod jest przekształcenie kolumny tekstowej na liczbę. Każda komórka, której nie można przekształcić, będzie w stanie błędu i musi zostać przefiltrowana. Ten scenariusz nie jest możliwy w przepływie danych przetwarzanie. |
+| Obsługa błędów na poziomie wiersza | Obsługa błędów na poziomie wiersza nie jest obecnie obsługiwana. Na przykład, aby odfiltrować wartości inne niż liczbowe z kolumny, jednym z metod jest przekształcenie kolumny tekstowej na liczbę. Każda komórka, której nie można przekształcić, będzie w stanie błędu i musi zostać przefiltrowana. Ten scenariusz nie jest możliwy w skalowaniu w poziomie M. |
 | Table.Transpose | Nieobsługiwane |
 | Table.Pivot | Nieobsługiwane |
 

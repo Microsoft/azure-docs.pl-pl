@@ -7,15 +7,14 @@ ms.workload: infrastructure-services
 ms.author: cynthn
 author: cynthn
 ms.date: 10/26/2018
-ms.openlocfilehash: d1acbe82a086574a102e7897bbd3b99683c1185e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e7dd75a025b76773a0bf1e3b4f752b5a77db6786
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594982"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897378"
 ---
 # <a name="tagging-a-vm-using-a-template"></a>Tagowanie maszyny wirtualnej przy użyciu szablonu
-
 
 W tym artykule opisano, jak oznaczyć maszynę wirtualną na platformie Azure przy użyciu szablonu Menedżer zasobów. Tagi to zdefiniowane przez użytkownika pary klucz/wartość, które mogą być umieszczone bezpośrednio w ramach zasobu lub grupy zasobów. Platforma Azure obsługuje obecnie do 50 tagów na zasób i grupę zasobów. Tagi mogą być umieszczane na zasobie w momencie tworzenia lub dodawane do istniejącego zasobu.
 
@@ -25,7 +24,7 @@ Kliknij przycisk **Wdróż na platformie Azure** w [linku szablonu](https://gith
 
 ![Proste wdrożenie ze znacznikami](./media/tag/deploy-to-azure-tags.png)
 
-Ten szablon zawiera następujące znaczniki: *dział* , *aplikacja* i *utworzone przez*. Możesz dodawać lub edytować te Tagi bezpośrednio w szablonie, jeśli chcesz zmienić nazwy tagów.
+Ten szablon zawiera następujące znaczniki: *dział*, *aplikacja* i *utworzone przez*. Możesz dodawać lub edytować te Tagi bezpośrednio w szablonie, jeśli chcesz zmienić nazwy tagów.
 
 ![Tagi platformy Azure w szablonie](./media/tag/azure-tags-in-a-template.png)
 
@@ -46,8 +45,7 @@ Następnie w sekcji **Edytuj parametry** można wypełnić wartości dla tagów.
 
 Kliknij przycisk **Utwórz** , aby wdrożyć ten szablon z wartościami tagów.
 
-
-**Następne kroki**
+### <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się więcej o znakowaniu zasobów platformy Azure, zobacz [Azure Resource Manager omówienie](../azure-resource-manager/management/overview.md) i [Używanie tagów do organizowania zasobów platformy Azure](../azure-resource-manager/management/tag-resources.md).
-- Aby dowiedzieć się, jak tagi mogą ułatwić zarządzanie użyciem zasobów platformy Azure, zobacz [Opis rachunku na korzystanie z platformy Azure](../cost-management-billing/understand/review-individual-bill.md) i [Uzyskiwanie szczegółowych informacji o zużyciu zasobów Microsoft Azure](../cost-management-billing/manage/usage-rate-card-overview.md).
+- Aby dowiedzieć się, jak tagi mogą ułatwić zarządzanie użyciem zasobów platformy Azure, zobacz [Opis rachunku na korzystanie z platformy Azure](../cost-management-billing/understand/review-individual-bill.md).

@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 5f2f3cfc5ccbdd6a3d3d3ede5bb39a3f6f548b19
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c4d04e25bf8f7d981c998baafb468f04b66eaf1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913100"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879902"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Wprowadzenie do usługi Azure Data Lake Storage Gen2
 
@@ -39,7 +39,7 @@ Ponadto Data Lake Storage Gen2 jest bardzo opłacalne, ponieważ jest ona oparta
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Najważniejsze funkcje Data Lake Storage Gen2
 
--   **Dostęp zgodny** z usługą Hadoop: Data Lake Storage Gen2 umożliwia zarządzanie danymi i uzyskiwanie do nich dostępu tak samo jak w przypadku [rozproszony system plików Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Nowy [Sterownik ABFS](data-lake-storage-abfs-driver.md) (używany do uzyskiwania dostępu do danych) jest dostępny w ramach wszystkich środowisk Apache Hadoop. Te środowiska obejmują [usługi Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/)i [Azure Synapse Analytics](/azure/synapse-analytics).
+-   **Dostęp zgodny** z usługą Hadoop: Data Lake Storage Gen2 umożliwia zarządzanie danymi i uzyskiwanie do nich dostępu tak samo jak w przypadku [rozproszony system plików Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Nowy [Sterownik ABFS](data-lake-storage-abfs-driver.md) (używany do uzyskiwania dostępu do danych) jest dostępny w ramach wszystkich środowisk Apache Hadoop. Te środowiska obejmują [usługi Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/)i [Azure Synapse Analytics](../../synapse-analytics/index.yml).
 
 -   **Nadzbiór uprawnień systemu POSIX**: model zabezpieczeń dla Data Lake Gen2 obsługuje uprawnienia ACL i POSIX oraz niezbędny stopień szczegółowości Data Lake Storage Gen2. Ustawienia można skonfigurować za poorednictwem Eksplorator usługi Storage lub platform, takich jak Hive i Spark.
 
@@ -82,7 +82,7 @@ Data Lake Storage Gen2 obsługuje kilka usług platformy Azure. Można ich używ
 
 Kilka platform Open Source obsługuje Data Lake Storage Gen2. Aby uzyskać pełną listę, zobacz [platformy typu "open source" obsługujące Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Znane problemy z Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Dostęp z wieloprotokołem do Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

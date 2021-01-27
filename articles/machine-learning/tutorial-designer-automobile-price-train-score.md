@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796112"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879800"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Samouczek: Przewidywanie ceny samochodów w projektancie
 
@@ -103,7 +103,7 @@ Projektant zawiera kilka przykładowych zestawów danych, z którymi można eksp
 
 Możesz wizualizować dane, aby zrozumieć zestaw danych, który będzie używany.
 
-1. Kliknij prawym przyciskiem myszy **dane cen samochodów (RAW)** i wybierz polecenie **Wizualizuj**.
+1. Kliknij prawym przyciskiem myszy **dane cen samochodów (RAW)** i wybierz polecenie **Wizualizuj**  >  **zestaw danych wyjściowych**.
 
 1. Wybierz różne kolumny w oknie dane, aby wyświetlić informacje o każdej z nich.
 
@@ -284,7 +284,7 @@ Teraz, gdy potok jest skonfigurowany, możesz przesłać uruchomienie potoku w c
 
 Po zakończeniu przebiegu można wyświetlić wyniki uruchomienia potoku. Najpierw zapoznaj się z przewidywaniami wygenerowanymi przez model regresji.
 
-1. Kliknij prawym przyciskiem myszy moduł **model oceny** i wybierz polecenie **Wizualizacja** , aby wyświetlić jego dane wyjściowe.
+1. Kliknij prawym przyciskiem myszy moduł **model oceny** i wybierz polecenie **Wizualizuj**  >  **wynikowy zestaw danych** , aby wyświetlić jego dane wyjściowe.
 
     W tym miejscu możesz zobaczyć przewidywane ceny i rzeczywiste ceny z danych testowych.
 
@@ -294,7 +294,7 @@ Po zakończeniu przebiegu można wyświetlić wyniki uruchomienia potoku. Najpie
 
 Użyj **modelu szacowania** , aby zobaczyć, jak dobrze szkolony model jest wykonywany na testowym zestawie danych.
 
-1. Kliknij prawym przyciskiem myszy moduł **Oceń model** i wybierz polecenie **Wizualizacja** , aby wyświetlić jego dane wyjściowe.
+1. Kliknij prawym przyciskiem myszy moduł **oceny modelu** i wybierz polecenie **Wizualizuj**  >  **wyniki oceny** , aby wyświetlić jego dane wyjściowe.
 
 Następujące statystyki są wyświetlane dla modelu:
 

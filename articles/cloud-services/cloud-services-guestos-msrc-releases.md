@@ -10,48 +10,98 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/21/2020
+ms.date: 1/26/2021
 ms.author: yohaddad
-ms.openlocfilehash: 7f683b5002fd31b599ae6fadeb82e5c6f5ce56a0
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 7384b902e1bde46c55bcfa30b2aa46122445b05e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708910"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877513"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
 
-## <a name="december-2020-guest-os"></a>System operacyjny gościa z grudnia 2020
->[!NOTE] 
-
->System operacyjny gościa w grudniu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w grudniu uwzględniono następujące poprawki. Ta lista może ulec zmianie. 
+## <a name="january-2021-guest-os"></a>System operacyjny gościa w styczniu 2021
+>[!NOTE]
+>System operacyjny gościa w styczniu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w styczniu uwzględniono następujące poprawki. Ta lista może ulec zmianie ".
 
 | Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 20-12 |  [4592440]  |  Najnowsza aktualizacja zbiorcza | 6,26 | 8 grudnia 2020 |
-|  Rel 20-12 |  [4580325]  |  Aktualizacja Flash | 3,92, 4,85, 5,50, 6,26 | 13 października 2020 |
-|  Rel 20-12 |  [4586768]  |  Aktualizacje zbiorcze programu IE | 2,105, 3,92, 4,85 | Lis 10, 2020 |
-|  Rel 20-12 |  [4593226]  |  Najnowsza aktualizacja zbiorcza | 5,50 | 8 grudnia 2020 |
-|  Rel 20-12 |  [4052623]  |  Usługa Defender | 5,50, 6,26 | 13 grudnia 2020 |
-|  Rel 20-12 |  [4578952]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 2,105 | Lis 10, 2020 |
-|  Rel 20-12 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,105 | Lis 10, 2020 |
-|  Rel 20-12 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 4,85 | Lis 10, 2020 |
-|  Rel 20-12 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 4,85 | Lis 10, 2020 |
-|  Rel 20-12 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,92 | Lis 10, 2020 |
-|  Rel 20-12 |  [4578954]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 3,92 | Lis 10, 2020 |
-|  Rel 20-12 |  [4578966]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | 6,26 | 13 października 2020 |
-|  Rel 20-12 |  [4592471]  |  Zestawienie miesięczne | 2,105 | 8 grudnia 2020 |
-|  Rel 20-12 |  [4592468]  |  Zestawienie miesięczne | 3,92 | 8 grudnia 2020 |
-|  Rel 20-12 |  [4592484]  |  Zestawienie miesięczne | 4,85 | 8 grudnia 2020 |
-|  Rel 20-12 |  [4566426]  |  Obsługa aktualizacji stosu | 3,92 | 14 lipca 2020 |
-|  Rel 20-12 |  [4566425]  |  Obsługa aktualizacji stosu | 4,85 | 14 lipca 2020 |
-|  Rel 20-12 OOB |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | 4,85 | 19 sierpnia 2020 |
-|  Rel 20-12 |  [4576750]  |  Obsługa aktualizacji stosu | 5,50 | 8 SEP, 2020 |
-|  Rel 20-12 |  [4592510]  |  Obsługa aktualizacji stosu | 2,105 | 8 grudnia 2020 |
-|  Rel 20-12 |  [4587735]  |  Obsługa aktualizacji stosu | 6,26 | Lis 10, 2020 |
-|  Rel 20-12 |  [4494175]  |  Włączenia mikrokodu | 5,50 | 1, 2020 |
-|  Rel 20-12 |  [4494174]  |  Włączenia mikrokodu | 6,26 | 3, 2020 |
+|  Rel 21-01 |  [4598230]  |  Najnowsza aktualizacja zbiorcza (LCU) | 6,27 | 12 stycznia 2021 |
+|  Rel 21-01 |  [4580325]  |  Aktualizacja Flash | 3,93, 4,86, 5,51, 6,27 | 13 października 2020 |
+|  Rel 21-01 |  [4586768]  |  Aktualizacje zbiorcze programu IE | 2,106, 3,93, 4,86 | Lis 10, 2020 |
+|  Rel 21-01 |  [4598243]  |  Najnowsza aktualizacja zbiorcza (LCU) | 5,51 | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578952]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 2,106 | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,106 | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 4,86 | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 4,86 | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,93 | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578954]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 3,93 | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578966]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | 6,27 | 13 października 2020 |
+|  Rel 21-01 |  [4598279]  |  Zestawienie miesięczne | 2,106 | 12 stycznia 2020 |
+|  Rel 21-01 |  [4598278]  |  Zestawienie miesięczne | 3,93 | 12 stycznia 2020 |
+|  Rel 21-01 |  [4598285]  |  Zestawienie miesięczne | 4,86 | 12 stycznia 2020 |
+|  Rel 21-01 |  [4566426]  |  Obsługa aktualizacji stosu | 3,93 | 14 lipca 2020 |
+|  Rel 21-01 |  [4566425]  |  Obsługa aktualizacji stosu | 4,86 | 14 lipca 2020 |
+|  Rel 21-01 OOB |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | 4,86 | 19 sierpnia 2020 |
+|  Rel 21-01 |  [4576750]  |  Obsługa aktualizacji stosu | 5,51 | 8 SEP, 2020 |
+|  Rel 21-01 |  [4592510]  |  Obsługa aktualizacji stosu | 2,106 | 8 grudnia 2020 |
+|  Rel 21-01 |  [4598480]  |  Obsługa aktualizacji stosu | 6,27 | 12 stycznia 2021 |
+|  Rel 21-01 |  [4494175]  |  Włączenia mikrokodu | 5,51 | 1, 2020 |
+|  Rel 21-01 |  [4494174]  |  Włączenia mikrokodu | 6,27 | 3, 2020 |
+
+[4598230]: https://support.microsoft.com/kb/4598230
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4598243]: https://support.microsoft.com/kb/4598243
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4598279]: https://support.microsoft.com/kb/4598279
+[4598278]: https://support.microsoft.com/kb/4598278
+[4598285]: https://support.microsoft.com/kb/4598285
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4598480]: https://support.microsoft.com/kb/4598480
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
+## <a name="december-2020-guest-os"></a>System operacyjny gościa z grudnia 2020
+
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| --- | --- | --- | --- | --- |
+|  Rel 20-12 |  [4592440]  |  Najnowsza aktualizacja zbiorcza | [6,26] | 8 grudnia 2020 |
+|  Rel 20-12 |  [4580325]  |  Aktualizacja Flash | [3,92], [4,85], [5,50], [6,26] | 13 października 2020 |
+|  Rel 20-12 |  [4586768]  |  Aktualizacje zbiorcze programu IE | [2,105], [3,92], [4,85] | Lis 10, 2020 |
+|  Rel 20-12 |  [4593226]  |  Najnowsza aktualizacja zbiorcza | [5,50] | 8 grudnia 2020 |
+|  Rel 20-12 |  [4052623]  |  Usługa Defender | [5,50], [6,26] | 13 grudnia 2020 |
+|  Rel 20-12 |  [4578952]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [2,105] | Lis 10, 2020 |
+|  Rel 20-12 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [2,105] | Lis 10, 2020 |
+|  Rel 20-12 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [4,85] | Lis 10, 2020 |
+|  Rel 20-12 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [4,85] | Lis 10, 2020 |
+|  Rel 20-12 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [3,92] | Lis 10, 2020 |
+|  Rel 20-12 |  [4578954]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [3,92] | Lis 10, 2020 |
+|  Rel 20-12 |  [4578966]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | [6,26] | 13 października 2020 |
+|  Rel 20-12 |  [4592471]  |  Zestawienie miesięczne | [2,105] | 8 grudnia 2020 |
+|  Rel 20-12 |  [4592468]  |  Zestawienie miesięczne | [3,92] | 8 grudnia 2020 |
+|  Rel 20-12 |  [4592484]  |  Zestawienie miesięczne | [4,85] | 8 grudnia 2020 |
+|  Rel 20-12 |  [4566426]  |  Obsługa aktualizacji stosu | [3,92] | 14 lipca 2020 |
+|  Rel 20-12 |  [4566425]  |  Obsługa aktualizacji stosu | [4,85] | 14 lipca 2020 |
+|  Rel 20-12 OOB |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | [4,85] | 19 sierpnia 2020 |
+|  Rel 20-12 |  [4576750]  |  Obsługa aktualizacji stosu | [5,50] | 8 SEP, 2020 |
+|  Rel 20-12 |  [4592510]  |  Obsługa aktualizacji stosu | [2,105] | 8 grudnia 2020 |
+|  Rel 20-12 |  [4587735]  |  Obsługa aktualizacji stosu | [6,26] | Lis 10, 2020 |
+|  Rel 20-12 |  [4494175]  |  Włączenia mikrokodu | [5,50] | 1, 2020 |
+|  Rel 20-12 |  [4494174]  |  Włączenia mikrokodu | [6,26] | 3, 2020 |
 
 [4592440]: https://support.microsoft.com/kb/4592440
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -76,7 +126,11 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [4587735]: https://support.microsoft.com/kb/4587735
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2,105]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,92]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,85]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,50]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,26]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="november-2020-guest-os"></a>System operacyjny gościa w listopadzie 2020
 
@@ -1876,7 +1930,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS15 — 075 |[3072633] |Luki w zabezpieczeniach OLE mogą pozwolić na podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
 | MS15 — 076 |[3067505] |Luka w zabezpieczeniach w zdalnym wywołaniu procedury systemu Windows umożliwia podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
 | MS15 — 077 |[3077657] |Luka w zabezpieczeniach sterownika czcionki ATM może pozwolić na podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
-| Nie dotyczy |[3057154] |Aktualizowanie w celu ograniczenia użycia szyfrowania DES |4,22, 3,29, 2,41 |14 lipca 2015 |
+| NA |[3057154] |Aktualizowanie w celu ograniczenia użycia szyfrowania DES |4,22, 3,29, 2,41 |14 lipca 2015 |
 
 ## <a name="june-2015-guest-os"></a>OS systemu operacyjnego gościa 2015
 | Identyfikator biuletynu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
@@ -1909,7 +1963,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS15 — 040 |[3045711] |Luki w zabezpieczeniach usług AD FS mogą umożliwić ujawnienie informacji |4,20, 3,27, 2,39 |Kwi 17, 2015 |
 | MS15 — 041 |[3048010] |Luki w zabezpieczeniach .NET Framework mogą umożliwić ujawnienie informacji |4,20, 3,27, 2,39 |Kwi 17, 2015 |
 | MS15 — 042 |[3047234] |Luka w zabezpieczeniach w systemie Windows Hyper-V umożliwia odmowę usługi |4,20, 3,27, 2,39 |Kwi 17, 2015 |
-| Nie dotyczy |[3045755] |Aktualizowanie w celu usprawnienia uwierzytelniania protokołu PKU2U |4,20, 3,27, 2,39 |Kwi 17, 2015 |
+| NA |[3045755] |Aktualizowanie w celu usprawnienia uwierzytelniania protokołu PKU2U |4,20, 3,27, 2,39 |Kwi 17, 2015 |
 
 ## <a name="april-2015-guest-os"></a>System operacyjny gościa z kwietnia 2015
 | Identyfikator biuletynu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |

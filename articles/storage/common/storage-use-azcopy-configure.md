@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897862"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881048"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 
@@ -22,7 +22,7 @@ AzCopy to narzędzie wiersza polecenia, przy użyciu którego można kopiować o
 > [!NOTE]
 > Jeśli szukasz zawartości ułatwiającej rozpoczęcie pracy z usługą AzCopy, zobacz dowolny z następujących artykułów:
 > - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
-> - [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
+> - [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](./storage-use-azcopy-v10.md#transfer-data)
 > - [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 > - [Transferowanie danych za pomocą zasobników AzCopy i Amazon S3](storage-use-azcopy-s3.md)
 
@@ -220,5 +220,3 @@ Dostępne poziomy dziennika:,,,,, `NONE` `DEBUG` `INFO` `WARNING` `ERROR` `PANIC
 Jeśli chcesz usunąć wszystkie pliki planu i dziennika z komputera lokalnego, aby zaoszczędzić miejsce na dysku, użyj `azcopy jobs clean` polecenia.
 
 Aby usunąć pliki planu i dziennika skojarzone tylko z jednym zadaniem, użyj `azcopy jobs rm <job-id>` . Zastąp `<job-id>` symbol zastępczy w tym przykładzie identyfikatorem zadania zadania.
-
-

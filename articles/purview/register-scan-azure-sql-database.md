@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 36781e7f975ee9d4a03cf899650701bf2d3940ac
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555954"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879734"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Rejestrowanie i skanowanie Azure SQL Database
 
@@ -39,7 +39,7 @@ Usługa Azure kontrolą nie obsługuje skanowania [widoków](/sql/relational-dat
 
 ### <a name="set-up-authentication-for-a-scan"></a>Konfigurowanie uwierzytelniania na potrzeby skanowania
 
-Uwierzytelnianie do skanowania Azure SQL Database. Jeśli musisz utworzyć nowe uwierzytelnianie, musisz [autoryzować dostęp do bazy danych do SQL Database](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). Istnieją trzy metody uwierzytelniania, które kontrolą obecnie obsługuje:
+Uwierzytelnianie do skanowania Azure SQL Database. Jeśli musisz utworzyć nowe uwierzytelnianie, musisz [autoryzować dostęp do bazy danych do SQL Database](../azure-sql/database/logins-create-manage.md). Istnieją trzy metody uwierzytelniania, które kontrolą obecnie obsługuje:
 
 - Uwierzytelnianie SQL
 - Jednostka usługi
@@ -88,8 +88,8 @@ Aby użyć nazwy głównej usługi, można użyć istniejącej lub utworzyć now
 
 Nazwa główna usługi lub zarządzana tożsamość musi mieć uprawnienia do pobierania metadanych dla bazy danych, schematów i tabel. Ponadto musi być w stanie zbadać tabele, aby uzyskać przykład klasyfikacji.
 
-- [Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Jeśli używasz tożsamości zarządzanej, konto usługi kontrolą ma swoją własną tożsamość zarządzaną, która stanowi zasadniczo swoją nazwę kontrolą podczas jego tworzenia. Należy utworzyć użytkownika usługi Azure AD w Azure SQL Database z tożsamością zarządzaną kontrolą lub własną jednostką usługi zgodnie z poniższym samouczkiem dotyczącym [tworzenia użytkownika jednostki usługi w programie Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Musisz przypisać odpowiednie uprawnienia (np. `db_owner` lub `db_datareader` ) do tożsamości. Przykładowa składnia SQL służąca do tworzenia uprawnień użytkownika i udzielania:
+- [Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Jeśli używasz tożsamości zarządzanej, konto usługi kontrolą ma swoją własną tożsamość zarządzaną, która stanowi zasadniczo swoją nazwę kontrolą podczas jego tworzenia. Należy utworzyć użytkownika usługi Azure AD w Azure SQL Database z tożsamością zarządzaną kontrolą lub własną jednostką usługi zgodnie z poniższym samouczkiem dotyczącym [tworzenia użytkownika jednostki usługi w programie Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Musisz przypisać odpowiednie uprawnienia (np. `db_owner` lub `db_datareader` ) do tożsamości. Przykładowa składnia SQL służąca do tworzenia uprawnień użytkownika i udzielania:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER

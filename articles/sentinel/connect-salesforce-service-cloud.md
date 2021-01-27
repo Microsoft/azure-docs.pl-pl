@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: d323af2695a41e685e722c98603cf5df09866a15
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 152fee2e4e72cee6a7bc1c768c0a8ca7b031ec39
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567974"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878922"
 ---
 # <a name="connect-your-salesforce-service-cloud-to-azure-sentinel"></a>Połącz chmurę usługi Salesforce z platformą Azure — wskaźnikiem
 
@@ -37,7 +37,7 @@ W tym artykule wyjaśniono, jak połączyć rozwiązanie w chmurze usługi Sales
 
 - Użytkownik musi mieć uprawnienia do odczytu kluczy udostępnionych dla obszaru roboczego. [Dowiedz się więcej o kluczach obszarów roboczych](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
-- Aby można było utworzyć aplikacja funkcji, musisz mieć uprawnienia do odczytu i zapisu w Azure Functions. [Dowiedz się więcej o Azure Functions](/azure/azure-functions/).
+- Aby można było utworzyć aplikacja funkcji, musisz mieć uprawnienia do odczytu i zapisu w Azure Functions. [Dowiedz się więcej o Azure Functions](../azure-functions/index.yml).
 
 - Wymagane są następujące poświadczenia interfejsu API REST usługi Salesforce: **Nazwa użytkownika interfejsu** API usługi Salesforce, **hasło interfejsu API** usługi Salesforce, **token zabezpieczający** usługi Salesforce, **klucz klienta** usługi Salesforce, **wpis tajny klienta usługi Salesforce**. [Dowiedz się więcej o interfejsie API REST usługi Salesforce](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm).
 

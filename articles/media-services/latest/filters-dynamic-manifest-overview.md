@@ -1,6 +1,5 @@
 ---
 title: Filtrowanie manifestów przy użyciu Pakowarki dynamicznej
-titleSuffix: Azure Media Services
 description: Dowiedz się, jak tworzyć filtry przy użyciu Pakowarki dynamicznego do filtrowania i selektywnego przesyłania strumieniowego manifestów.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: acb30c1659c4c29e0af83da5594bdd9a7e3465d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ffdb41752630e0e5e22303ff58ecd798595a890
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299035"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897666"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrowanie manifestów przy użyciu Pakowarki dynamicznej
 
@@ -141,7 +140,7 @@ Aby uzyskać więcej informacji, zobacz [ten wpis w blogu](https://azure.microso
 
 ## <a name="considerations-and-limitations"></a>Istotne zagadnienia i ograniczenia
 
-- Wartości dla **forceEndTimestamp**, **presentationWindowDuration**i **liveBackoffDuration** nie należy ustawiać dla filtru VOD. Są one używane tylko w scenariuszach filtrowania na żywo.
+- Wartości dla **forceEndTimestamp**, **presentationWindowDuration** i **liveBackoffDuration** nie należy ustawiać dla filtru VOD. Są one używane tylko w scenariuszach filtrowania na żywo.
 - Manifest dynamiczny działa w granicach grupę GOP (klatek kluczowych), dlatego przycinanie ma dokładność grupę GOP.
 - Możesz użyć tej samej nazwy filtru dla kont i filtrów zasobów. Filtry zasobów mają wyższy priorytet i przesłonią filtry konta.
 - W przypadku aktualizacji filtru może upłynąć do 2 minut, zanim punkt końcowy przesyłania strumieniowego odświeża reguły. W przypadku użycia filtrów do obsłużenia zawartości (i przepełnienia zawartości w pamięci podręcznej serwerów proxy i sieci CDN) aktualizowanie tych filtrów może skutkować awariami odtwarzacza. Zalecamy wyczyszczenie pamięci podręcznej po zaktualizowaniu filtru. Jeśli ta opcja nie jest możliwa, należy rozważyć użycie innego filtru.

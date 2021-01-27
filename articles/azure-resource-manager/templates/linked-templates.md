@@ -2,13 +2,13 @@
 title: Łączenie szablonów do wdrożenia
 description: Opisuje sposób używania połączonych szablonów w szablonie Azure Resource Manager (szablon ARM) do tworzenia rozwiązania szablonu modularnego. Pokazuje, jak przekazać wartości parametrów, określić plik parametrów i dynamicznie tworzone adresy URL.
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.openlocfilehash: 7d4df67b7f69b3e58799f45ad72bd9ed68540dc2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/26/2021
+ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790939"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880439"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure
 
@@ -495,6 +495,91 @@ Aby przekazać wartości parametrów w tekście, użyj `parameters` właściwoś
 ```
 
 Nie można użyć obu parametrów wbudowanych i linku do pliku parametrów. Wdrożenie nie powiedzie się z powodu błędu `parametersLink` , gdy oba i `parameters` są określone.
+
+### <a name="use-relative-path-for-linked-templates"></a>Użyj ścieżki względnej dla połączonych szablonów
+
+`relativePath`Właściwość `Microsoft.Resources/deployments` ułatwia tworzenie połączonych szablonów. Ta właściwość może służyć do wdrożenia zdalnego szablonu połączonego w lokalizacji względnej względem elementu nadrzędnego. Ta funkcja wymaga, aby wszystkie pliki szablonów były przygotowane i dostępne przy użyciu zdalnego identyfikatora URI, takiego jak GitHub lub konto usługi Azure Storage. Gdy główny szablon jest wywoływany przy użyciu identyfikatora URI z Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, identyfikator URI wdrożenia podrzędnego jest kombinacją elementów nadrzędnych i relativePath.
+
+> [!NOTE]
+> Podczas tworzenia templateSpec wszystkie szablony, do których odwołuje się `relativePath` Właściwość, są spakowane w zasobie templateSpec przez Azure PowerShell lub interfejs wiersza polecenia platformy Azure. Pliki nie wymagają przemieszczania. Aby uzyskać więcej informacji, zobacz [Tworzenie specyfikacji szablonu z połączonymi szablonami](./template-specs.md#create-a-template-spec-with-linked-templates).
+
+Przyjmij strukturę folderu w następujący sposób:
+
+![ścieżka względna szablonu połączonego z Menedżerem zasobów](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
+
+Poniższy szablon pokazuje, w jaki sposób *mainTemplate.js* wdrożenia *nestedChild.jsna* zilustrowany na powyższym obrazie.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "childLinked",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "children/nestedChild.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+W poniższym wdrożeniu identyfikator URI połączonego szablonu w poprzednim szablonie to **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json** .
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+---
+
+Aby wdrożyć połączone szablony ze ścieżką względną przechowywaną na koncie usługi Azure Storage, użyj `QueryString` / `query-string` parametru, aby określić token sygnatury dostępu współdzielonego, który ma być używany z parametrem TemplateUri. Ten parametr jest obsługiwany tylko w interfejsie wiersza polecenia platformy Azure w wersji 2,18 lub nowszej i Azure PowerShell w wersji 5,4 lub nowszej.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
+  -QueryString $sasToken
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+---
+
+Upewnij się, że w ciągu QueryString nie występuje wiodący znak "?". Wdrożenie dodaje je podczas składania identyfikatora URI dla wdrożeń.
 
 ## <a name="template-specs"></a>Specyfikacje szablonu
 

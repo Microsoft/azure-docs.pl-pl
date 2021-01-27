@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 29f7f241f119ca7fab50409881b517961b00cf20
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610475"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880579"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -310,7 +310,7 @@ Azure File Sync jest dostępny w następujących regionach:
 | Publiczne | Azja | Southeast Asia | `southeastasia` |
 | Publiczne | Australia | Australia Wschodnia | `australiaeast` |
 | Publiczne | Australia | Australia Południowo-Wschodnia | `australiasoutheast` |
-| Publiczne | Brazylia | Brazil South | `brazilsouth` |
+| Publiczne | Brazylia | Brazylia Południowa | `brazilsouth` |
 | Publiczne | Kanada | Kanada Środkowa | `canadacentral` |
 | Publiczne | Kanada | Kanada Wschodnia | `canadaeast` |
 | Publiczne | Europa | Europa Północna | `northeurope` |
@@ -387,6 +387,6 @@ Jeśli wolisz używać lokalnego rozwiązania do tworzenia kopii zapasowych, kop
 ## <a name="next-steps"></a>Następne kroki
 * [Rozważ użycie ustawień zapory i serwera proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
-* [Wdrażanie usługi Pliki Azure](storage-files-deployment-guide.md)
+* [Wdrażanie usługi Pliki Azure](./storage-how-to-create-file-share.md)
 * [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)

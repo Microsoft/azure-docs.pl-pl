@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 1ee179efbe936c742f1eb51b998c10f9349c14fb
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 29dbdb896d1a6063fec277afa33327c84cb2f0cd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763391"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880931"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Używanie wykrywania znaków animowanych (wersja zapoznawcza) z portalem i interfejsem API 
 
@@ -35,7 +35,7 @@ Jeśli masz konto płatne Video Indexer, musisz najpierw połączyć konto Custo
 > [!NOTE]
 > Oba konta muszą znajdować się w tym samym regionie. Integracja Custom Vision nie jest obecnie obsługiwana w regionie Japonii.
 
-Płatne konta, które mają dostęp do konta Custom Vision, mogą zobaczyć modele i obrazy otagowane. Dowiedz się więcej o [ulepszaniu klasyfikatora w Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). 
+Płatne konta, które mają dostęp do konta Custom Vision, mogą zobaczyć modele i obrazy otagowane. Dowiedz się więcej o [ulepszaniu klasyfikatora w Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
 
 Należy pamiętać, że szkolenie modelu powinno odbywać się tylko za pośrednictwem Video Indexer, a nie za pośrednictwem Custom Vision witryny sieci Web. 
 
@@ -108,7 +108,7 @@ Przed znakowaniem i uczeniem modelu wszystkie animowane znaki będą nazwane "ni
 1. Tylko płatne konta: Przejrzyj grupy w Custom Vision 
 
     > [!NOTE]
-    > Płatne konta, które mają dostęp do konta Custom Vision, mogą zobaczyć modele i obrazy otagowane. Dowiedz się więcej o [ulepszaniu klasyfikatora w Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). Należy pamiętać, że szkolenie modelu powinno odbywać się tylko za pośrednictwem Video Indexer (zgodnie z opisem w tym Topid), a nie za pośrednictwem witryny Custom Vision. 
+    > Płatne konta, które mają dostęp do konta Custom Vision, mogą zobaczyć modele i obrazy otagowane. Dowiedz się więcej o [ulepszaniu klasyfikatora w Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). Należy pamiętać, że szkolenie modelu powinno odbywać się tylko za pośrednictwem Video Indexer (zgodnie z opisem w tym Topid), a nie za pośrednictwem witryny Custom Vision. 
 
     1. Przejdź do strony **modele niestandardowe** w Video Indexer a następnie wybierz kartę **animowane znaki** . 
     1. Kliknij przycisk Edytuj dla modelu, nad którym pracujesz, aby zarządzać nim w Custom Vision. 

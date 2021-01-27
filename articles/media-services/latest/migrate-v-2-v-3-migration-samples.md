@@ -1,5 +1,5 @@
 ---
-title: Porównanie przykładów migracji Media Services V2 i V3 | Microsoft Docs
+title: Porównanie przykładów migracji Media Services V2 i V3
 description: Zestaw przykładów ułatwiających porównanie różnic kodu między Azure Media Services V2 i v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 7705443bbe810866cd5b52946b310b5b79bfa072
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 640b9b40295ae9b9aea865f7b6159da6ff4a3251
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690524"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898311"
 ---
 # <a name="media-services-migration-code-sample-comparison"></a>Porównanie przykładów kodu migracji Media Services
 

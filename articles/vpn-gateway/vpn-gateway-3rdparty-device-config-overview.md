@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 01ceb067f589ef04b04ff0bf05e2971ee30f407c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400164"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880156"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Omówienie konfiguracji urządzeń partnerskiej sieci VPN
 Ten artykuł zawiera omówienie konfigurowania lokalnych urządzeń sieci VPN w celu nawiązania połączenia z bramami sieci VPN platformy Azure. Przykładowa konfiguracja sieci wirtualnej platformy Azure i bramy sieci VPN służy do pokazywania sposobu nawiązywania połączenia z różnymi konfiguracjami lokalnych urządzeń sieci VPN przy użyciu tych samych parametrów.
@@ -27,7 +27,7 @@ Pierwsza konfiguracja w przykładzie składa się z pojedynczego tunelu sieci VP
 
 ![Diagram pojedynczego tunelu sieci VPN S2S](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania pojedynczego tunelu sieci VPN, zobacz [Konfigurowanie połączenia lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md). W poniższych sekcjach opisano parametry połączenia dla konfiguracji przykładowej oraz podano skrypt programu PowerShell, który pomoże Ci rozpocząć pracę.
+Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania pojedynczego tunelu sieci VPN, zobacz [Konfigurowanie połączenia lokacja-lokacja](./tutorial-site-to-site-portal.md). W poniższych sekcjach opisano parametry połączenia dla konfiguracji przykładowej oraz podano skrypt programu PowerShell, który pomoże Ci rozpocząć pracę.
 
 ### <a name="connection-parameters"></a>Parametry połączenia
 Ta sekcja zawiera listę parametrów, które zostały opisane w poprzednich sekcjach.
@@ -150,4 +150,3 @@ Podczas tworzenia połączenia sieci VPN S2S można opcjonalnie użyć [protoko�
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania bram sieci VPN w usłudze Active-Active, zobacz [Konfigurowanie aktywnych i aktywnych bram sieci VPN dla połączeń między różnymi lokalizacjami i połączeniami typu sieć wirtualna-sieć wirtualna](vpn-gateway-activeactive-rm-powershell.md).
-

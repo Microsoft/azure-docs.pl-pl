@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 5a2a7abf0227812826428557b86c4468f7693c82
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600396"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880746"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
@@ -90,7 +90,7 @@ Ta opcja umożliwia korzystanie z wyższych lub niższych cen niż publicznie do
 
 Opłata za usługę magazynu w warstwie Standardowa jest naliczana 20%, gdy klienci kupują ofertę Transact z komercyjnej witryny Marketplace. Aby uzyskać szczegółowe informacje o tej opłacie, zobacz sekcję 5c [umowy Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-W przypadku niektórych ofert transakcyjnych publikowanych na rynku komercyjnym możesz zakwalifikować się do obniżenia opłaty za usługę magazynu o 10%. Aby oferta zakwalifikować się, musi zostać wystawiona przez firmę Microsoft jako usługa Azure IP zachęcani. Aby otrzymać obniżoną opłatę za usługę Marketplace, należy spełnić co najmniej pięć dni roboczych przed końcem każdego miesiąca kalendarzowego. Po osiągnięciu uprawnień zmniejszona opłata za usługę zostanie naliczona wszystkim transakcjom, które zaczęły obowiązywać pierwszego dnia następnego dnia miesiąca, do momentu utraty zachęcani stanu usługi Azure IP współsprzedażowej. Aby uzyskać szczegółowe informacje na temat uprawnień do współsprzedawanych adresów IP, zobacz [wymagania dotyczące stanu współsprzedażu](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+W przypadku niektórych ofert transakcyjnych publikowanych na rynku komercyjnym możesz zakwalifikować się do obniżenia opłaty za usługę magazynu o 10%. Aby oferta zakwalifikować się, musi zostać wystawiona przez firmę Microsoft jako usługa Azure IP zachęcani. Aby otrzymać obniżoną opłatę za usługę Marketplace, należy spełnić co najmniej pięć dni roboczych przed końcem każdego miesiąca kalendarzowego. Po osiągnięciu uprawnień zmniejszona opłata za usługę zostanie naliczona wszystkim transakcjom, które zaczęły obowiązywać pierwszego dnia następnego dnia miesiąca, do momentu utraty zachęcani stanu usługi Azure IP współsprzedażowej. Aby uzyskać szczegółowe informacje na temat uprawnień do współsprzedawanych adresów IP, zobacz [wymagania dotyczące stanu współsprzedażu](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 Zmniejszona opłata za usługę Marketplace dotyczy współsprzedaży platformy Azure z zachęcani SaaS, maszyn wirtualnych, aplikacji zarządzanych i innych, które są dostępne w ramach komercyjnych rozwiązań IaaS dostępnych w portalu komercyjnym. Płatne oferty SaaS skojarzone z jedną aplikacją Microsoft Teams lub co najmniej dwoma dodatkami Microsoft 365 (Excel, PowerPoint, Word, Outlook i SharePoint) i opublikowane w Microsoft AppSource również otrzymują rabat.
 
@@ -156,13 +156,13 @@ W tym scenariuszu firma Microsoft Bills $100,00 na potrzeby licencji na oprogram
 
 **Fakturowanie i płatność** — za pomocą preferowanej metody fakturowania klienta możesz dostarczać subskrypcję lub PAYGO opłaty za licencje na oprogramowanie.
 
-**Umowa Enterprise** — Jeśli preferowana metoda fakturowania klienta to Microsoft Umowa Enterprise, opłaty za licencje na oprogramowanie będą naliczane przy użyciu tej metody fakturowania jako koszt określony przez użytkownika, niezależnie od kosztów użycia specyficznych dla platformy Azure.
+**Enterprise Agreement** — Jeśli preferowana metoda fakturowania klienta to Microsoft Enterprise Agreement, opłaty za licencje na oprogramowanie będą naliczane przy użyciu tej metody fakturowania jako koszt określony przez użytkownika, niezależnie od kosztów użycia specyficznych dla platformy Azure.
 
-**Karty kredytowe i faktury miesięczne** — klienci mogą również skorzystać z karty kredytowej i faktury miesięcznej. W tym przypadku opłaty za licencję na oprogramowanie będą rozliczane w taki sam sposób jak scenariusz Umowa Enterprise, jako koszt określony, niezależnie od kosztów użycia specyficznych dla platformy Azure.
+**Karty kredytowe i faktury miesięczne** — klienci mogą również skorzystać z karty kredytowej i faktury miesięcznej. W tym przypadku opłaty za licencję na oprogramowanie będą rozliczane w taki sam sposób jak scenariusz Enterprise Agreement, jako koszt określony, niezależnie od kosztów użycia specyficznych dla platformy Azure.
 
-**Bezpłatne kredyty i przedpłata na platformę Azure** — niektórzy klienci wybierają przedpłatę platformy Azure z zaliczką na korzystanie z platformy Azure (wcześniej zwaną zobowiązaniem pieniężnym) w ramach Umowa Enterprise lub za bezpłatne kredyty do użycia z platformą Azure. Chociaż te kredyty mogą być używane do płacenia za użycie platformy Azure, nie mogą być używane do płacenia opłat za licencje na oprogramowanie wydawcy.
+**Bezpłatne kredyty i przedpłata na platformę Azure** — niektórzy klienci wybierają przedpłatę platformy Azure z zaliczką na korzystanie z platformy Azure (wcześniej zwaną zobowiązaniem pieniężnym) w ramach Enterprise Agreement lub za bezpłatne kredyty do użycia z platformą Azure. Chociaż te kredyty mogą być używane do płacenia za użycie platformy Azure, nie mogą być używane do płacenia opłat za licencje na oprogramowanie wydawcy.
 
-**Rozliczenia i kolekcje** — rozliczanie licencji na oprogramowanie wydawcy jest prezentowane przy użyciu metody fakturowania w wybranym przez klienta i postępuj według czasu fakturowania. Klienci bez Umowa Enterprise są rozliczani miesięcznie za licencje na oprogramowanie w portalu Marketplace. Klienci z Umowa Enterprise są rozliczani miesięcznie za pośrednictwem faktury prezentowanej kwartalnie.
+**Rozliczenia i kolekcje** — rozliczanie licencji na oprogramowanie wydawcy jest prezentowane przy użyciu metody fakturowania w wybranym przez klienta i postępuj według czasu fakturowania. Klienci bez Enterprise Agreement są rozliczani miesięcznie za licencje na oprogramowanie w portalu Marketplace. Klienci z Enterprise Agreement są rozliczani miesięcznie za pośrednictwem faktury prezentowanej kwartalnie.
 
 W przypadku wybrania modeli cenowych subskrypcja lub płatność zgodnie z rzeczywistym użyciem firma Microsoft działa jako agent wydawcy i odpowiada za wszystkie aspekty rozliczeń, płatności i kolekcji.
 
@@ -170,7 +170,7 @@ W przypadku wybrania modeli cenowych subskrypcja lub płatność zgodnie z rzecz
 
 Wszelkie opłaty za licencje na oprogramowanie zebrane przez firmę Microsoft jako agent podlegają 20% opłatą za transakcję, chyba że określono inaczej i są one odejmowane w momencie wypłaty wydawcy.
 
-Klienci zazwyczaj kupują przy użyciu Umowa Enterprise lub z włączoną kartą kredytową płatność zgodnie z rzeczywistym użyciem. Typ umowy określa rozliczenia, fakturowanie, zbieranie i czas wypłaty.
+Klienci zazwyczaj kupują przy użyciu Enterprise Agreement lub z włączoną kartą kredytową płatność zgodnie z rzeczywistym użyciem. Typ umowy określa rozliczenia, fakturowanie, zbieranie i czas wypłaty.
 
 >[!NOTE]
 >Wszystkie raporty i szczegółowe informacje dotyczące opcji publikowania Transact są dostępne za pośrednictwem sekcji Analiza w centrum partnerskim.

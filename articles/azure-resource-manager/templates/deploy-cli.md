@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure i szablonu
 description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platformy Azure, aby wdrożyć zasoby na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: d79a5c93bf79c5851beabbba2eb3a663c6ab5999
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/26/2021
+ms.openlocfilehash: f01409db36ca29deb2f6938ce3118cdcb20cd1a1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251084"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881303"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
 
@@ -103,6 +103,18 @@ az deployment group create \
 ```
 
 Poprzedni przykład wymaga publicznie dostępnego identyfikatora URI dla szablonu, który działa w większości scenariuszy, ponieważ szablon nie powinien zawierać poufnych danych. Jeśli musisz określić dane poufne (na przykład hasło administratora), przekaż tę wartość jako bezpieczny parametr. Jeśli jednak chcesz zarządzać dostępem do szablonu, rozważ użycie [specyfikacji szablonu](#deploy-template-spec).
+
+Aby wdrożyć zdalne połączone szablony ze ścieżką względną, które są przechowywane na koncie magazynu, użyj, `query-string` Aby określić token sygnatury dostępu współdzielonego:
+
+```azurepowershell
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+Aby uzyskać więcej informacji, zobacz [Używanie ścieżki względnej dla połączonych szablonów](./linked-templates.md#linked-template).
 
 ## <a name="deployment-name"></a>Nazwa wdrożenia
 

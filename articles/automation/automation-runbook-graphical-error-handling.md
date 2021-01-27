@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8af64f2189625bcff5271855d6c0102551d1a535
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24c7aaf08b4d22706bee8f37025b12a656ceaff5
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185963"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895904"
 ---
 # <a name="handle-errors-in-graphical-runbooks"></a>Obsługa błędów w graficznych elementach runbook
 
@@ -47,7 +47,7 @@ Zalecaną metodą jest utworzenie dedykowanego elementu Runbook obsługi błęd�
 1. Wysyła powiadomienie o tym problemie.
 2. Uruchamia inny element Runbook, który zamiast tego automatycznie inicjuje nową maszynę wirtualną.
 
-Jednym z rozwiązań jest posiadanie linku błędu w elemencie Runbook wskazującego na działanie, które obsługuje krok jeden. Na przykład element Runbook może podłączyć `Write-Warning` polecenie cmdlet do działania dla kroku 2, takiego jak polecenie cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
+Jednym z rozwiązań jest posiadanie linku błędu w elemencie Runbook wskazującego na działanie, które obsługuje krok jeden. Na przykład element Runbook może podłączyć `Write-Warning` polecenie cmdlet do działania dla kroku 2, takiego jak polecenie cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) .
 
 Można również uogólnić to zachowanie w wielu elementach Runbook, umieszczając te dwa działania w oddzielnym elemencie Runbook obsługującym błędy. Zanim oryginalny element Runbook wywoła ten błąd obsługi elementu Runbook, może utworzyć niestandardowy komunikat z jego danych, a następnie przekazać go jako parametr do elementu Runbook obsługującego błędy.
 
@@ -59,7 +59,7 @@ Po włączeniu ustawienia konfiguracji należy utworzyć element Runbook, który
 
 W poniższym przykładzie element Runbook pobiera zmienną, która zawiera nazwę komputera maszyny wirtualnej. Następnie próbuje uruchomić maszynę wirtualną przy użyciu następnego działania.<br><br> ![Przykład obsługi błędu elementu Runbook usługi Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-`Get-AutomationVariable`Działanie i polecenie cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) są skonfigurowane do konwertowania wyjątków na błędy. Jeśli wystąpią problemy z pobraniem zmiennej lub uruchomieniem maszyny wirtualnej, kod generuje błędy.<br><br> ![Ustawienia działania obsługi błędów elementu Runbook usługi Automation ](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png) .
+`Get-AutomationVariable`Działanie i polecenie cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM) są skonfigurowane do konwertowania wyjątków na błędy. Jeśli wystąpią problemy z pobraniem zmiennej lub uruchomieniem maszyny wirtualnej, kod generuje błędy.<br><br> ![Ustawienia działania obsługi błędów elementu Runbook usługi Automation ](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png) .
 
 Linki błędów przepływają z tych działań do jednego `error management` działania związanego z kodem. To działanie jest skonfigurowane za pomocą prostego wyrażenia programu PowerShell, które używa `throw` słowa kluczowego, aby zatrzymać przetwarzanie, oraz `$Error.Exception.Message` uzyskać komunikat, który opisuje bieżący wyjątek.<br><br> ![Przykład kodu obsługi błędu elementu Runbook usługi Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

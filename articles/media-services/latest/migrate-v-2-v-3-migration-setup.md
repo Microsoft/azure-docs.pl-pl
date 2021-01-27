@@ -1,5 +1,5 @@
 ---
-title: Lista kontrolna migracji Media Services V2 do wersji v3 | Microsoft Docs
+title: Lista kontrolna migracji Media Services V2 do wersji v3
 description: Ten artykuł zawiera listę kontrolną, która pomoże Ci w minimalnej migracji z Azure Media Services V2 do wersji v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 7d9597c16778a4ded7c1e2a7ed3ad5535b75cfde
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: bd1488a1e89bb7d5c8a3a2dedda60bd5a226e02e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690485"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898260"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Krok 3 — Konfigurowanie do migracji do interfejsu API REST v3 lub zestawu SDK klienta
 

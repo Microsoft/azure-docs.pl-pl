@@ -393,7 +393,7 @@
     - name: Scenariusze automatyzacji rozliczeń
       href: manage/cost-management-automation-scenarios.md
     - name: Omówienie interfejsu API rozliczeń platformy Azure
-      href: manage/usage-rate-card-overview.md
+      href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: Interfejs API REST rozliczeń platformy Azure
       href: /rest/api/billing
     - name: Przegląd interfejsu API użycia platformy Azure

@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii funkcji Hyper-
 description: W tym artykule podsumowano typowe pytania dotyczące konfigurowania odzyskiwania po awarii dla lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure przy użyciu witryny Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4f5ee71fc56cad247b57f94bf08a68bed8775f9
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 649bd69f14cdf8d81fe05d3a5f5cac3389419fc3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754355"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879448"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Często zadawane pytania — odzyskiwanie po awarii z funkcji Hyper-V do platformy Azure
 
@@ -167,7 +167,7 @@ Maszyny wirtualne funkcji Hyper-V mogą być replikowane co 30 sekund (z wyjątk
 
 ### <a name="can-azure-site-recovery-and-hyper-v-replica-be-configured-together-on-a-hyper-v-machine"></a>Czy Azure Site Recovery i funkcja Hyper-V Replica można skonfigurować razem na komputerze funkcji Hyper-V?
 
-Tak, zarówno Azure Site Recovery, jak i funkcja Hyper-V Replica można skonfigurować razem dla komputera. Jednak maszyna będzie musiała być chroniona jako maszyna fizyczna i będzie replikowana na platformę Azure przy użyciu serwera konfiguracji/procesu. Więcej informacji o ochronie maszyn fizycznych [znajdziesz tutaj](https://docs.microsoft.com/azure/site-recovery/physical-azure-architecture).
+Tak, zarówno Azure Site Recovery, jak i funkcja Hyper-V Replica można skonfigurować razem dla komputera. Jednak maszyna będzie musiała być chroniona jako maszyna fizyczna i będzie replikowana na platformę Azure przy użyciu serwera konfiguracji/procesu. Więcej informacji o ochronie maszyn fizycznych [znajdziesz tutaj](./physical-azure-architecture.md).
 
 ### <a name="can-i-extend-replication"></a>Czy mogę zwiększyć replikację?
 Replikacja rozszerzona lub łańcuchowa nie jest obsługiwana. Zażądaj tej funkcji na [forum opinii](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

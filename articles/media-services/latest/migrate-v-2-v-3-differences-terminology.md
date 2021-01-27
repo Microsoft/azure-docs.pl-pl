@@ -1,5 +1,5 @@
 ---
-title: Terminologia i zmiany jednostek między Azure Media Services V2 a v3 | Microsoft Docs
+title: Terminologia i zmiany jednostek między Azure Media Services V2 a v3
 description: W tym artykule opisano różnice w terminologii między Azure Media Services V2 a v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9f657b853298cf0065da931835ea56ef2e0e0fe7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b53fbcb62004a8af9b2470c76f64f1ace845c1a8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690601"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898396"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Terminologia i zmiany jednostek między Media Services V2 i V3
 

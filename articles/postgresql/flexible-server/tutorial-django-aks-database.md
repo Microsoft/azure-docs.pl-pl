@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc
-ms.openlocfilehash: 15e94b647b0f12baceffc60ad1c6ab81cc84cf22
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b4aa23079661150f40b39ff65117b7f4229a67e2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631962"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880898"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Samouczek: wdrażanie aplikacji Django na AKS przy użyciu serwera Azure Database for PostgreSQL — elastyczny
 
@@ -109,7 +109,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="create-an-azure-database-for-postgresql---flexible-server"></a>Utwórz serwer elastyczny Azure Database for PostgreSQL
-Utwórz elastyczny serwer przy użyciu polecenia [AZ PostgreSQL elastyczny-Server Create](/azure/postgresql/flexible-server?view=azure-cli-latest&preserve-view=true). Następujące polecenie tworzy serwer przy użyciu wartości domyślnych usługi i z lokalnego kontekstu interfejsu wiersza polecenia platformy Azure:
+Utwórz elastyczny serwer przy użyciu polecenia [AZ PostgreSQL elastyczny-Server Create](./index.yml?preserve-view=true&view=azure-cli-latest). Następujące polecenie tworzy serwer przy użyciu wartości domyślnych usługi i z lokalnego kontekstu interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli-interactive
 az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>

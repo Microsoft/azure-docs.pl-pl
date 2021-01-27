@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 90862a74e5fb6521a95292d50fc5cc11bd0082b5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8c90427e2dd4ecf23cb803c4f75dbee34c38f992
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547660"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898583"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informacje o usłudze mobilności dla maszyn wirtualnych VMware i serwerów fizycznych
 
@@ -52,7 +52,7 @@ Podczas instalacji wypychanej usługi mobilności wykonywane są następujące c
    - Jeśli spełniono wszystkie wymagania wstępne, rozpocznie się instalacja.
    - Instalacja nie powiedzie się, jeśli nie spełniono co najmniej jednego z [wymagań wstępnych](vmware-physical-azure-support-matrix.md) .
 1. W ramach instalacji agenta Usługa kopiowania woluminów w tle (VSS) Provider for Azure Site Recovery jest zainstalowany. Dostawca usługi VSS jest używany do generowania punktów odzyskiwania spójnych na poziomie aplikacji. Jeśli instalacja dostawcy usługi VSS nie powiedzie się, ten krok zostanie pominięty, a Instalacja agenta będzie kontynuowana.
-1. Jeśli instalacja agenta zakończy się pomyślnie, ale instalacja dostawcy VSS nie powiedzie się, stan zadania zostanie oznaczony jako **Ostrzeżenie** . Nie ma to wpływu na generowanie punktu odzyskiwania spójnego na poziomie awarii.
+1. Jeśli instalacja agenta zakończy się pomyślnie, ale instalacja dostawcy VSS nie powiedzie się, stan zadania zostanie oznaczony jako **Ostrzeżenie**. Nie ma to wpływu na generowanie punktu odzyskiwania spójnego na poziomie awarii.
 
     - Aby wygenerować punkty odzyskiwania spójne z aplikacją, zapoznaj się z [naszymi wskazówkami](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) , aby przeprowadzić ręczną instalację dostawcy usługi VSS Site Recovery.
     - Aby nie generować punktów odzyskiwania spójnych na poziomie aplikacji, należy [zmodyfikować zasady replikacji](vmware-azure-set-up-replication.md#create-a-policy) w celu wyłączenia punktów odzyskiwania spójnych na poziomie aplikacji.
@@ -78,22 +78,22 @@ Podczas instalacji wypychanej usługi mobilności wykonywane są następujące c
 > Nie używaj metody instalacji interfejsu użytkownika, jeśli replikujesz maszynę wirtualną usługi Azure Infrastructure as (IaaS) z jednego regionu platformy Azure do innego. Użyj instalacji [wiersza polecenia](#install-the-mobility-service-using-command-prompt) .
 
 1. Skopiuj plik instalacyjny na komputer i uruchom go.
-1. W obszarze **Instalacja** wybierz opcję **Zainstaluj usługę mobilności** .
-1. Wybierz lokalizację instalacji i wybierz pozycję **Zainstaluj** .
+1. W obszarze **Instalacja** wybierz opcję **Zainstaluj usługę mobilności**.
+1. Wybierz lokalizację instalacji i wybierz pozycję **Zainstaluj**.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility1.png" alt-text="Strona opcji instalacji usługi mobilności.":::
 
-1. Monitoruj instalację w **trakcie instalacji** . Po zakończeniu instalacji wybierz pozycję **Kontynuuj do konfiguracji** , aby zarejestrować usługę na serwerze konfiguracji.
+1. Monitoruj instalację w **trakcie instalacji**. Po zakończeniu instalacji wybierz pozycję **Kontynuuj do konfiguracji** , aby zarejestrować usługę na serwerze konfiguracji.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Strona opcji instalacji usługi mobilności.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Zrzut ekranu pokazujący postęp instalacji i aktywny przycisk Zastosuj do konfiguracji po zakończeniu instalacji.":::
 
 1. W obszarze **Szczegóły serwera konfiguracji** Określ adres IP i hasło, które zostały skonfigurowane.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Strona opcji instalacji usługi mobilności.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Strona rejestracji usługi mobilności.":::
 
 1. Wybierz pozycję **zarejestruj** , aby zakończyć rejestrację.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Strona opcji instalacji usługi mobilności.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Ostatnia strona rejestracji usługi mobilności.":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Instalowanie usługi mobilności przy użyciu wiersza polecenia
 
@@ -104,7 +104,7 @@ Podczas instalacji wypychanej usługi mobilności wykonywane są następujące c
 
 ### <a name="windows-machine"></a>Komputer z systemem Windows
 
-- W wierszu polecenia Uruchom następujące polecenia, aby skopiować Instalatora do folderu lokalnego, takiego jak _C:\Temp_ , na serwerze, który ma być chroniony. Zastąp nazwę pliku Instalatora rzeczywistą nazwą pliku.
+- W wierszu polecenia Uruchom następujące polecenia, aby skopiować Instalatora do folderu lokalnego, takiego jak _C:\Temp_, na serwerze, który ma być chroniony. Zastąp nazwę pliku Instalatora rzeczywistą nazwą pliku.
 
   ```cmd
   cd C:\Temp
@@ -134,7 +134,7 @@ Składnia | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location
 Dzienniki instalacji | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Obowiązkowy parametr instalacji. Określa, czy należy zainstalować usługę mobilności (MS), czy główny cel (MT).
 `/InstallLocation`| Parametr opcjonalny. Określa lokalizację instalacji usługi mobilności (dowolny folder).
-`/Platform` | Obowiązkowy. Określa platformę, na której zainstalowano usługę mobilności: <br/> **Oprogramowanie VMware** dla maszyn wirtualnych VMware/serwerów fizycznych. <br/> **Platforma Azure** dla maszyn wirtualnych platformy Azure.<br/><br/> W przypadku traktowania maszyn wirtualnych platformy Azure jako maszyn fizycznych należy określić program **VMware** .
+`/Platform` | Obowiązkowy. Określa platformę, na której zainstalowano usługę mobilności: <br/> **Oprogramowanie VMware** dla maszyn wirtualnych VMware/serwerów fizycznych. <br/> **Platforma Azure** dla maszyn wirtualnych platformy Azure.<br/><br/> W przypadku traktowania maszyn wirtualnych platformy Azure jako maszyn fizycznych należy określić program **VMware**.
 `/Silent`| Opcjonalny. Określa, czy Instalator ma być uruchamiany w trybie dyskretnym.
 
 #### <a name="registration-settings"></a>Ustawienia rejestracji
@@ -187,12 +187,12 @@ Składnia | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \
 
 ## <a name="azure-virtual-machine-agent"></a>Agent maszyny wirtualnej platformy Azure
 
-- **Maszyny wirtualne z systemem Windows** : z wersji 9.7.0.0 usługi mobilności [Agent maszyny wirtualnej platformy Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) jest instalowany przez Instalatora usługi mobilności. Dzięki temu w przypadku przełączenia maszyny do trybu failover na platformie Azure maszyna wirtualna platformy Azure spełnia wymagania wstępne instalacji agenta dotyczące korzystania z dowolnego rozszerzenia maszyny wirtualnej.
-- **Maszyny wirtualne z systemem Linux** :  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) należy instalować ręcznie na maszynie wirtualnej platformy Azure po przejściu do trybu failover.
+- **Maszyny wirtualne z systemem Windows**: z wersji 9.7.0.0 usługi mobilności [Agent maszyny wirtualnej platformy Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) jest instalowany przez Instalatora usługi mobilności. Dzięki temu w przypadku przełączenia maszyny do trybu failover na platformie Azure maszyna wirtualna platformy Azure spełnia wymagania wstępne instalacji agenta dotyczące korzystania z dowolnego rozszerzenia maszyny wirtualnej.
+- **Maszyny wirtualne z systemem Linux**:  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) należy instalować ręcznie na maszynie wirtualnej platformy Azure po przejściu do trybu failover.
 
 ## <a name="locate-installer-files"></a>Lokalizowanie plików Instalatora
 
-Na serwerze konfiguracji przejdź do folderu _%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository_ . Sprawdź, jakiego Instalatora potrzebujesz w zależności od systemu operacyjnego. Poniższa tabela zawiera podsumowanie plików Instalatora dla każdej maszyny wirtualnej VMware i systemu operacyjnego serwera fizycznego. Przed rozpoczęciem można przejrzeć [obsługiwane systemy operacyjne](vmware-physical-azure-support-matrix.md#replicated-machines).
+Na serwerze konfiguracji przejdź do folderu _%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository_. Sprawdź, jakiego Instalatora potrzebujesz w zależności od systemu operacyjnego. Poniższa tabela zawiera podsumowanie plików Instalatora dla każdej maszyny wirtualnej VMware i systemu operacyjnego serwera fizycznego. Przed rozpoczęciem można przejrzeć [obsługiwane systemy operacyjne](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 > [!NOTE]
 > Nazwy plików używają składni pokazanej w poniższej tabeli z _wersjami_ i _datami_ jako symbolami zastępczymi dla rzeczywistych wartości. Rzeczywiste nazwy plików będą wyglądać podobnie jak w następujących przykładach:
@@ -228,7 +228,7 @@ Plik Instalatora | System operacyjny (tylko 64-bitowy)
 Jako **warunek wstępny do aktualizacji lub ochrony maszyn SUSE Linux Enterprise Server 11 z dodatkiem SP3** z wersji 9,36 lub nowszej:
 
 1. Upewnij się, że najnowszy Instalator agenta mobilności został pobrany z centrum pobierania firmy Microsoft i umieszczony w repozytorium instalacji wypychanej na serwerze konfiguracji i na wszystkich serwerach procesów skalowania w poziomie
-2. [Pobierz](site-recovery-whats-new.md) najnowszą wersję instalatora agenta SUSE Linux Enterprise Server 11 z dodatkiem SP3. Najnowsza wersja agenta mobilności to [9,37](https://support.microsoft.com/help/4582666/)
+2. [Pobierz](site-recovery-whats-new.md) najnowszą wersję Instalatora agenta programu SUSE Linux Enterprise Server 11 z dodatkiem SP3.
 3. Przejdź do serwera konfiguracji, skopiuj instalatora agenta SUSE Linux Enterprise Server 11 SP3 na ścieżce INSTALL_DIR \home\svsystems\pushinstallsvc\repository
 1. Po skopiowaniu najnowszego Instalatora Uruchom ponownie usługę InMage PushInstall. 
 1. Teraz przejdź do skojarzonych serwerów przetwarzania skalowalnego w poziomie, powtórz kroki 3 i 4.
@@ -240,7 +240,7 @@ Jako **warunek wstępny do aktualizacji lub ochrony maszyn SUSE Linux Enterprise
 Jako **warunek wstępny do aktualizowania lub ochrony RHEL 5 maszyn** z wersji 9,36 lub nowszej:
 
 1. Upewnij się, że najnowszy Instalator agenta mobilności został pobrany z centrum pobierania firmy Microsoft i umieszczony w repozytorium instalacji wypychanej na serwerze konfiguracji i na wszystkich serwerach procesów skalowania w poziomie
-2. [Pobierz](site-recovery-whats-new.md) najnowszą wersję Instalatora agenta RHEL 5 lub CentOS 5. Najnowsza wersja agenta mobilności to [9,37](https://support.microsoft.com/help/4582666/)
+2. [Pobierz](site-recovery-whats-new.md) najnowszą wersję Instalatora agenta programu RHEL 5 lub CentOS 5. 
 3. Przejdź do serwera konfiguracji, skopiuj instalatora agenta RHEL 5 lub CentOS 5 na ścieżce-INSTALL_DIR \home\svsystems\pushinstallsvc\repository
 1. Po skopiowaniu najnowszego Instalatora Uruchom ponownie usługę InMage PushInstall. 
 1. Teraz przejdź do skojarzonych serwerów przetwarzania skalowalnego w poziomie, powtórz kroki 3 i 4.
@@ -252,7 +252,7 @@ Jako **warunek wstępny do aktualizowania lub ochrony RHEL 5 maszyn** z wersji 9
 Jako **warunek wstępny do aktualizowania lub ochrony maszyn Debian 7** w wersji 9,36 lub nowszej:
 
 1. Upewnij się, że najnowszy Instalator agenta mobilności został pobrany z centrum pobierania firmy Microsoft i umieszczony w repozytorium instalacji wypychanej na serwerze konfiguracji i na wszystkich serwerach procesów skalowania w poziomie
-2. [Pobierz](site-recovery-whats-new.md) najnowszą wersję Instalatora agenta Debian 7. Najnowsza wersja agenta mobilności to [9,37](https://support.microsoft.com/help/4582666/)
+2. [Pobierz](site-recovery-whats-new.md) najnowszą wersję Instalatora agenta programu Debian 7.
 3. Przejdź do serwera konfiguracji, skopiuj instalatora agenta Debian 7 na ścieżce INSTALL_DIR \home\svsystems\pushinstallsvc\repository
 1. Po skopiowaniu najnowszego Instalatora Uruchom ponownie usługę InMage PushInstall. 
 1. Teraz przejdź do skojarzonych serwerów przetwarzania skalowalnego w poziomie, powtórz kroki 3 i 4.

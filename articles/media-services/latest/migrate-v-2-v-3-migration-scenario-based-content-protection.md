@@ -1,5 +1,5 @@
 ---
-title: Wskazówki dotyczące migracji opartej na scenariuszu ochrony zawartości | Microsoft Docs
+title: Wskazówki dotyczące migracji opartej na scenariuszu ochrony zawartości
 description: Ten artykuł zawiera wskazówki dotyczące scenariusza ochrony zawartości, które ułatwiają minimalną migrację z Azure Media Services V2 do wersji v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: a546120a93f311be29083d5f23d4716316bf64f4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: d1e8c8d1f7f710acff75fa1d78aab68df03c954d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690500"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898294"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu ochrony zawartości
 

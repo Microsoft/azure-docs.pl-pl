@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: e7dfc6db50432b19d515671fabe26edf9cfb45ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c35306d3e0d874218b9ea03fbfeaaff722eacf76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345672"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896464"
 ---
 # <a name="service-configuration"></a>Konfiguracja usługi
 
@@ -34,6 +34,7 @@ Można ustawić pojedyncze ustawienie za pomocą listy ustawień aplikacji lub z
 |UserAppInsightsAppId|Dziennik i dane telemetryczne rozmowy|
 |UserAppInsightsKey|Dziennik i dane telemetryczne rozmowy|
 |UserAppInsightsName|Dziennik i dane telemetryczne rozmowy|
+|QNAMAKER_EXTENSION_VERSION|Zawsze ustawiono wartość _Najnowsza_. To ustawienie spowoduje zainicjowanie rozszerzenia witryny QnAMaker w App Service.|
 
 Po zakończeniu wprowadzania zmian należy **ponownie uruchomić** usługę na stronie z **omówieniem** Azure Portal.
 
