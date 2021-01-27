@@ -9,12 +9,12 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6d0392cd8e94ba8a9026f557b90e740fbed7f50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee54357250e3f31ef9db633d933d897fff362f48
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809086"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878565"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Sprawdzanie stanu szyfrowania obiektu BLOB
 
@@ -26,7 +26,7 @@ W tym artykule pokazano, jak ustalić, czy dany obiekt BLOB został zaszyfrowany
 
 Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia platformy Azure, aby określić, czy obiekt BLOB jest szyfrowany bez kodu.
 
-### <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+### <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby użyć Azure Portal do sprawdzenia, czy obiekt BLOB został zaszyfrowany, wykonaj następujące kroki:
 
@@ -94,7 +94,7 @@ Example:
 azcopy copy 'C:\temp\blob1.txt' 'https://storagesamples.blob.core.windows.net/sample-container/blob1.txt'
 ```
 
-Aby uzyskać więcej informacji o korzystaniu z AzCopy do kopiowania danych obiektów blob, zobacz [transfer danych za pomocą AzCopy i usługi BLOB Storage](../common/storage-use-azcopy-blobs.md).
+Aby uzyskać więcej informacji o korzystaniu z AzCopy do kopiowania danych obiektów blob, zobacz [transfer danych za pomocą AzCopy i usługi BLOB Storage](../common/storage-use-azcopy-v10.md#transfer-data).
 
 ## <a name="next-steps"></a>Następne kroki
 

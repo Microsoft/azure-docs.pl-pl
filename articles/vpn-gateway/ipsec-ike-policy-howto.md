@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
-ms.openlocfilehash: eda920640667abc6620c5c90ee7d04a44789353e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996757"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878548"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Skonfiguruj zasady protokołu IPsec/IKE dla połączeń sieci VPN S2S lub komunikacji wirtualnej z siecią wirtualną: Azure Portal
 
@@ -28,13 +28,11 @@ Ten artykuł zawiera instrukcje dotyczące tworzenia i konfigurowania zasad prot
 ### <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Zasady protokołu IPsec/IKE działają tylko w następujących jednostkach SKU bramy:
-  * ***VpnGw1 ~ 5 i VpnGw1AZ ~ 5AZ***
-  * ***Standard*** i ***HighPerformance***
-* Można określić tylko ***jedną*** kombinację zasad dla danego połączenia.
-* Należy określić wszystkie algorytmy i parametry dla IKE (tryb główny) i IPsec (tryb szybki). Określenie zasad częściowych nie jest dozwolone.
+  * ***VpnGw1 ~ 5 i VpnGw1AZ ~ 5AZ**+ _ ***Standard** _ i _*_HighPerformance_*_ _ można określić tylko ***jedną** _ kombinacji zasad dla danego połączenia.
+  _ Należy określić wszystkie algorytmy i parametry dla IKE (tryb główny) i IPsec (tryb szybki). Określenie zasad częściowych nie jest dozwolone.
 * Zapoznaj się z wymaganiami dostawcy urządzeń sieci VPN, aby upewnić się, że zasady są obsługiwane na lokalnych urządzeniach sieci VPN. Połączenia S2S lub VNet-Sieć wirtualna nie mogą ustalić, czy zasady są niezgodne.
 
-## <a name="workflow"></a><a name ="workflow"></a>Przepływ pracy
+## <a name="workflow"></a><a name ="workflow"></a>Utworzonego
 
 Ta sekcja zawiera opis przepływu pracy w celu utworzenia i zaktualizowania zasad protokołu IPsec/IKE w połączeniu sieci VPN S2S lub połączenia między siecią wirtualną:
 
@@ -116,27 +114,27 @@ Więcej informacji można znaleźć w artykułach [RFC3526](https://tools.ietf.o
 
 W tej sekcji omówiono procedurę tworzenia połączenia sieci VPN typu lokacja-lokacja za pomocą zasad protokołu IPsec/IKE. Poniższe kroki tworzą połączenie, jak pokazano na poniższym diagramie:
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Diagram zasad protokołu IPsec/IKE" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Zasady lokacja-lokacja" border="false":::
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Krok 1. Tworzenie sieci wirtualnej, bramy sieci VPN i bramy sieci lokalnej
 
-Utwórz następujące zasoby, jak pokazano na poniższym zrzucie ekranu. Aby uzyskać instrukcje, zobacz [Tworzenie połączenia sieci VPN typu lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Utwórz następujące zasoby, jak pokazano na poniższym zrzucie ekranu. Aby uzyskać instrukcje, zobacz [Tworzenie połączenia sieci VPN typu lokacja-lokacja](./tutorial-site-to-site-portal.md).
 
 * **Sieć wirtualna:**  Sieci testvnet1
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="Environment":::
 
 * **Brama sieci VPN:** VNet1GW
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Brama":::
 
 * **Brama sieci lokalnej:** Site6
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Witryna":::
 
 * **Połączenie:** VNet1 do Site6
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Połączenie":::
 
 ### <a name="step-2---configure-ipsecike-policy-on-the-s2s-vpn-connection"></a><a name="s2sconnection"></a>Krok 2. Konfigurowanie zasad protokołu IPsec/IKE dla połączenia sieci VPN S2S
 
@@ -147,15 +145,15 @@ W tej sekcji Skonfiguruj zasady protokołu IPsec/IKE przy użyciu następującyc
 
 1. Przejdź do zasobu połączenia, **VNet1toSite6**, w Azure Portal. Wybierz pozycję **Konfiguracja** , a następnie wybierz pozycję **niestandardowe** zasady protokołu IPSec/IKE, aby wyświetlić wszystkie opcje konfiguracji. Na poniższym zrzucie ekranu przedstawiono konfigurację zgodną z listą:
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Witryna 6":::
 
 1. Jeśli używasz GCMAES dla protokołu IPsec, należy użyć tego samego algorytmu GCMAES i długości klucza dla szyfrowania i integralności protokołu IPsec. Na przykład poniższy zrzut ekranu określa GCMAES128 dla szyfrowania IPsec i integralności protokołu IPsec:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="GCMAES dla protokołu IPsec":::
 
 1. Opcjonalnie można wybrać opcję **Włącz** dla opcji **Użyj selektorów ruchu opartych na zasadach** , aby umożliwić bramie sieci VPN platformy Azure Łączenie się z urządzeniami sieci VPN opartymi na zasadach, zgodnie z powyższym opisem.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Wybór ruchu oparty na zasadach":::
 
 1. Po wybraniu wszystkich opcji wybierz pozycję **Zapisz** , aby zatwierdzić zmiany w zasobie połączenia. Zasady zostaną wymuszone w ciągu około minuty.
 
@@ -170,13 +168,13 @@ W tej sekcji Skonfiguruj zasady protokołu IPsec/IKE przy użyciu następującyc
 
 Kroki tworzenia połączenia między sieciami wirtualnymi za pomocą zasad protokołu IPsec/IKE są podobne do połączeń sieci VPN S2S.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagram zasad protokołu IPsec/IKE" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagram zasad połączeń między sieciami wirtualnymi" border="false":::
 
 1. Aby utworzyć połączenie między sieciami wirtualnymi, wykonaj kroki opisane w artykule [Tworzenie połączenia Sieć wirtualna-sieć](vpn-gateway-vnet-vnet-rm-ps.md) wirtualna.
 
 2. Po wykonaniu tych kroków zobaczysz dwie połączenia między sieciami wirtualnymi, jak pokazano na poniższym zrzucie ekranu z zasobu VNet2GW:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Połączenia między sieciami wirtualnymi":::
 
 3. Przejdź do zasobu połączenia i przejdź do strony **konfiguracji** w portalu. Wybierz pozycję **niestandardowe** w **zasadach protokołu IPSec/IKE** , aby wyświetlić opcje zasad niestandardowych. Wybierz algorytmy kryptograficzne o odpowiednich długościach kluczy.
 
@@ -184,7 +182,7 @@ Kroki tworzenia połączenia między sieciami wirtualnymi za pomocą zasad proto
    * IKE: AES128, SHA1, DHGroup14, DPD timeout 45 s
    * IPsec: GCMAES128, GCMAES128, PFS14, okres istnienia SA 14400 sekund & 102400000KB
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Zasady połączenia":::
 
 4. Wybierz pozycję **Zapisz** , aby zastosować zmiany zasad dla zasobu połączenia.
 
@@ -203,7 +201,7 @@ Kroki tworzenia połączenia między sieciami wirtualnymi za pomocą zasad proto
 
 2. Wybierz pozycję **domyślne** w opcji **zasady protokołu IPSec/IKE** . Spowoduje to usunięcie wszystkich zasad niestandardowych określonych wcześniej w połączeniu i przywrócenie domyślnych ustawień protokołu IPsec/IKE dla tego połączenia:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Diagram zasad protokołu IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Usuń zasady":::
 
 3. Wybierz pozycję **Zapisz** , aby usunąć zasady niestandardowe i przywrócić domyślne ustawienia protokołu IPSec/IKE w połączeniu.
 

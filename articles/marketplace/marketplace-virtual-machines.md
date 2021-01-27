@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: d9e26b6388223ae252a5e85e6e9fb9783a3b8429
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600411"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879330"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Planowanie oferty maszyny wirtualnej
 
@@ -30,10 +30,10 @@ Proces projektowania, kompilowania i testowania ofert trwa od czasu i wymaga zna
   - [Maszyny wirtualne z systemem Windows](../virtual-machines/windows/tutorial-manage-vm.md)
 
 - Samples
-  - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Linux](../virtual-machines/linux/cli-samples.md)
-  - [Azure PowerShell dla maszyn wirtualnych z systemem Linux](../virtual-machines/linux/powershell-samples.md)
-  - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Windows](../virtual-machines/windows/cli-samples.md)
-  - [Azure PowerShell dla maszyn wirtualnych z systemem Windows](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
+  - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Linux](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell dla maszyn wirtualnych z systemem Linux](https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine)
+  - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Windows](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell dla maszyn wirtualnych z systemem Windows](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ## <a name="technical-requirements"></a>Wymagania techniczne
 
@@ -73,7 +73,7 @@ Oferty maszyn wirtualnych wymagają co najmniej jednego planu. Plan definiuje za
 Maszyny wirtualne są w pełni obsługiwane w handlu z opcją płatność zgodnie z rzeczywistym użyciem lub BYOL. Firma Microsoft hostuje transakcję handlową i rozlicza klienta w Twoim imieniu. Korzyści wynikające z korzystania z preferowanej relacji płatności między klientem i firmą Microsoft, w tym dowolnymi umowami Enterprise Agreement. Aby uzyskać więcej informacji, zobacz [komercyjne funkcje Transact Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
-> Przedpłata na platformę Azure (wcześniej nazywana zobowiązanie pieniężne) skojarzona z Umowa Enterprise może być używana w odniesieniu do użycia platformy Azure przez maszynę wirtualną, ale nie z opłatami za licencje na oprogramowanie.
+> Przedpłata na platformę Azure (wcześniej nazywana zobowiązanie pieniężne) skojarzona z Enterprise Agreement może być używana w odniesieniu do użycia platformy Azure przez maszynę wirtualną, ale nie z opłatami za licencje na oprogramowanie.
 
 ### <a name="licensing-options"></a>Opcje licencjonowania
 

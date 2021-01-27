@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8e657386c417ce3407aea9b3765419e1d2b70bb9
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962452"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878514"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
 
@@ -263,7 +263,7 @@ Podczas próby przetransferowania plików do usługi plików platformy Azure mo�
 -   Jeśli znasz końcowy rozmiar pliku, który jest rozszerzany przy użyciu zapisu, a oprogramowanie nie ma problemów ze zgodnością, gdy niezapisany ogon w pliku zawiera zera, a następnie ustaw rozmiar pliku z góry, zamiast wprowadzać każdy zapis rozszerzający.
 -   Użyj odpowiedniej metody copy:
     -   Użyj [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) do dowolnego transferu między dwoma udziałami plików.
-    -   Użyj [Robocopy](./storage-files-deployment-guide.md#robocopy) między udziałami plików na komputerze lokalnym.
+    -   Użyj [Robocopy](./storage-how-to-create-file-share.md) między udziałami plików na komputerze lokalnym.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Zagadnienia dotyczące Windows 8.1 lub systemu Windows Server 2012 R2
 
@@ -406,8 +406,8 @@ Polecenie cmdlet wykonuje poniższe testy w sekwencji i zawiera wskazówki dotyc
 5. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD. Jeśli chcesz sprawdzić, czy określony użytkownik usługi AD jest synchronizowany z usługą Azure AD, możesz określić parametry-UserName i-Domain w parametrach wejściowych. 
 6. CheckGetKerberosTicket: spróbuj uzyskać bilet protokołu Kerberos, aby nawiązać połączenie z kontem magazynu. Jeśli nie ma prawidłowego tokenu Kerberos, uruchom polecenie cmdlet Klist-CIFS/Storage-account-name. plik. Core. Windows. NET i Przeanalizuj kod błędu do katalogu głównego — spowoduje to niepowodzenie pobierania biletu.
 7. CheckStorageAccountDomainJoined: Sprawdź, czy uwierzytelnianie usługi AD zostało włączone i czy są wypełniane właściwości usługi AD konta. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](./storage-files-identity-ad-ds-enable.md) , aby włączyć uwierzytelnianie AD DS w Azure Files. 
-8. CheckUserRbacAssignment: Sprawdź, czy użytkownik usługi AD ma odpowiednie przypisanie roli RBAC, aby zapewnić uprawnienia dostępu do Azure Files. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions) , aby skonfigurować uprawnienie na poziomie udziału. (Obsługiwane w programie AzFilesHybrid v 0.2.3 + version)
-9. CheckUserFileAccess: Sprawdź, czy użytkownik usługi AD ma odpowiednie uprawnienie katalogu/pliku (listy ACL systemu Windows), aby uzyskać dostęp do Azure Files. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions) , aby skonfigurować uprawnienie na poziomie katalogu/pliku. (Obsługiwane w programie AzFilesHybrid v 0.2.3 + version)
+8. CheckUserRbacAssignment: Sprawdź, czy użytkownik usługi AD ma odpowiednie przypisanie roli RBAC, aby zapewnić uprawnienia dostępu do Azure Files. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](./storage-files-identity-ad-ds-assign-permissions.md) , aby skonfigurować uprawnienie na poziomie udziału. (Obsługiwane w programie AzFilesHybrid v 0.2.3 + version)
+9. CheckUserFileAccess: Sprawdź, czy użytkownik usługi AD ma odpowiednie uprawnienie katalogu/pliku (listy ACL systemu Windows), aby uzyskać dostęp do Azure Files. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](./storage-files-identity-ad-ds-configure-permissions.md) , aby skonfigurować uprawnienie na poziomie katalogu/pliku. (Obsługiwane w programie AzFilesHybrid v 0.2.3 + version)
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Nie można skonfigurować uprawnień na poziomie katalogu/pliku (listy ACL systemu Windows) przy użyciu Eksploratora plików systemu Windows
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b487dcad83ccbc31adf2d7ec2dd77c490db2c68e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935204"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901100"
 ---
 Azure Functions umożliwia tworzenie zadań replikacji przeznaczonych tylko do konfiguracji, które są pochylenie w przedbudowanym punkcie wejścia. [Przykłady replikacji opartej na konfiguracji dla Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) ilustrują sposób korzystania z [prebudowanych pomocników](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) w własnym kodzie lub uniknąć całkowitego obsługi kodu i samego użycia konfiguracji.
 
@@ -218,13 +218,12 @@ Poniższa tabela zawiera poprawne wartości kombinacji źródeł i elementów do
 
 ### <a name="retry-policy"></a>Zasady ponawiania
 
-Aby skonfigurować zasady ponawiania prób, zapoznaj się z [dokumentacją Azure Functions](/azure/azure-functions/functions-bindings-error-pages) . Ustawienia zasad wybrane w ramach projektów w tym repozytorium konfigurują wykładniczą strategię wycofywania z interwałami ponawiania prób od 5 sekund do 5 minut z nieskończoną ponowną próbą, aby uniknąć utraty danych.
+Aby skonfigurować zasady ponawiania prób, zapoznaj się z [dokumentacją Azure Functions](../articles/azure-functions/functions-bindings-error-pages.md) . Ustawienia zasad wybrane w ramach projektów w tym repozytorium konfigurują wykładniczą strategię wycofywania z interwałami ponawiania prób od 5 sekund do 5 minut z nieskończoną ponowną próbą, aby uniknąć utraty danych.
 
-Aby uzyskać Service Bus, zapoznaj się z sekcją ["Używanie obsługi ponowień na poziomie odporności na wyzwalacze"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) , aby zrozumieć interakcję wyzwalaczy i maksymalną liczbę dostaw zdefiniowaną dla kolejki.
+Aby uzyskać Service Bus, zapoznaj się z sekcją ["Używanie obsługi ponowień na poziomie odporności na wyzwalacze"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) , aby zrozumieć interakcję wyzwalaczy i maksymalną liczbę dostaw zdefiniowaną dla kolejki.
 
 ### <a name="build-deploy-and-configure"></a>Kompiluj, wdrażaj i Konfiguruj
 
 Podczas skoncentrowania się na konfiguracji zadania nadal wymagają skompilowania aplikacji możliwej do wdrożenia i skonfigurowania hostów Azure Functions, tak że mają wszystkie wymagane informacje, aby połączyć się z poszczególnymi punktami końcowymi. 
 
 Jest to zilustrowane razem ze skryptami wielokrotnego użytku w przykładach [replikacji opartych na konfiguracji dla Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config).
-

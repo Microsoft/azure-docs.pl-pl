@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 49184778c7d6592f074e04df535b9bc221f3162e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539239"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878803"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -206,8 +206,8 @@ Na serwerze, który jest wyświetlany jako "pojawia się w trybie offline" w por
     - Jeśli serwer znajduje się za serwerem proxy, skonfiguruj ustawienia serwera proxy dotyczące całego komputera lub aplikacji, wykonując czynności opisane w [dokumentacji](./storage-sync-files-firewall-and-proxy.md#proxy)serwera proxy.
     - Użyj polecenia cmdlet Test-StorageSyncNetworkConnectivity, aby sprawdzić łączność sieciową z punktami końcowymi usługi. Aby dowiedzieć się więcej, zobacz [test łączności sieciowej z punktami końcowymi usługi](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
     - Jeśli na serwerze jest skonfigurowane zamówienie szyfrowania TLS, można użyć zasad grupy lub poleceń cmdlet protokołu TLS w celu dodania mechanizmów szyfrowania:
-        - Aby użyć zasad grupy, zobacz [Konfigurowanie kolejności szyfrowania TLS przy użyciu zasady grupy](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
-        - Aby użyć poleceń cmdlet protokołu TLS, zobacz [Konfigurowanie kolejności szyfrowania TLS przy użyciu poleceń cmdlet programu PowerShell protokołu TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+        - Aby użyć zasad grupy, zobacz [Konfigurowanie kolejności szyfrowania TLS przy użyciu zasady grupy](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Aby użyć poleceń cmdlet protokołu TLS, zobacz [Konfigurowanie kolejności szyfrowania TLS przy użyciu poleceń cmdlet programu PowerShell protokołu TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         Azure File Sync obecnie obsługuje następujące mechanizmy szyfrowania dla protokołu TLS 1,2:  
         - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
@@ -931,7 +931,7 @@ Ten błąd występuje, gdy nazwa katalogu użyta jako ścieżka punktu końcoweg
 Jeśli katalog został usunięty, wykonaj następujące kroki, aby usunąć istniejący punkt końcowy serwera i utworzyć nowy punkt końcowy serwera przy użyciu nowej ścieżki:
 
 1. Usuń punkt końcowy serwera w grupie synchronizacji, wykonując czynności opisane w temacie [Usuwanie punktu końcowego serwera](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
-2. Utwórz nowy punkt końcowy serwera w grupie synchronizacji, wykonując kroki opisane w temacie [Dodawanie punktu końcowego serwera](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
+2. Utwórz nowy punkt końcowy serwera w grupie synchronizacji, wykonując kroki opisane w temacie [Dodawanie punktu końcowego serwera](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Typowe kroki rozwiązywania problemów
 <a id="troubleshoot-storage-account"></a>**Sprawdź, czy konto magazynu istnieje.**  

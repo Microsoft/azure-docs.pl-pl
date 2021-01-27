@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
-ms.openlocfilehash: a99d4f6a3957ca5dd4d07a50ff239b1988940fbe
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 968d8ad6e76956a12e1f8ddcf091eb905686d245
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96582652"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901091"
 ---
 - Konto magazynu powinno być fizycznie najbliższe regionowi, w którym urządzenie jest wdrożone (może się różnić od lokalizacji wdrożenia usługi).
-- Przeniesienie zasobu usługi Data Box Gateway do innej subskrypcji lub grupy zasobów nie jest obsługiwane. Aby uzyskać więcej informacji, przejdź do obszaru [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- Przeniesienie zasobu usługi Data Box Gateway do innej subskrypcji lub grupy zasobów nie jest obsługiwane. Aby uzyskać więcej informacji, przejdź do obszaru [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../articles/azure-resource-manager/management/move-resource-group-and-subscription.md).

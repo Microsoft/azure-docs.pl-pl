@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 223fdc215bc391bea5cad5d4cb9999b9d14ba570
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842621"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878786"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Przełączanie i tworzenie obrazów systemu Linux na platformie Azure
 
@@ -29,7 +29,7 @@ System Azure umożliwia przeniesienie dysku VHD na platformę, użycie go jako [
 
 Azure Managed disks to pojedyncze wirtualne dyski twarde. Można albo utworzyć istniejący wirtualny dysk twardy i utworzyć na jego dysku zarządzanym. Maszyny wirtualne można tworzyć na podstawie dysków zarządzanych, dołączając dysk do maszyny wirtualnej, ale można używać dysku VHD tylko z jedną maszyną wirtualną. Nie możesz modyfikować żadnych właściwości systemu operacyjnego, platforma Azure podejmie próbę włączenia maszyny wirtualnej i uruchomienia jej przy użyciu tego dysku. 
 
-Obrazy platformy Azure mogą składać się z wielu dysków systemu operacyjnego i dysków z danymi. W przypadku tworzenia maszyny wirtualnej przy użyciu obrazu zarządzanego platforma tworzy kopię obrazu i używa jej do utworzenia maszyny wirtualnej, dzięki czemu obsługa obrazów zarządzanych jest używana ponownie w przypadku wielu maszyn wirtualnych. System Azure zapewnia także zaawansowane funkcje zarządzania dla obrazów, takich jak replikacja globalna i przechowywanie wersji za pomocą [galerii obrazów udostępnionych](shared-image-galleries.md). 
+Obrazy platformy Azure mogą składać się z wielu dysków systemu operacyjnego i dysków z danymi. W przypadku tworzenia maszyny wirtualnej przy użyciu obrazu zarządzanego platforma tworzy kopię obrazu i używa jej do utworzenia maszyny wirtualnej, dzięki czemu obsługa obrazów zarządzanych jest używana ponownie w przypadku wielu maszyn wirtualnych. System Azure zapewnia także zaawansowane funkcje zarządzania dla obrazów, takich jak replikacja globalna i przechowywanie wersji za pomocą [galerii obrazów udostępnionych](../shared-image-galleries.md). 
 
 
 
@@ -65,7 +65,7 @@ Agenci aprowizacji nie są zobowiązani do tych obrazów, ale mogą chcieć mie�
 Podczas przełączania obrazu systemu Linux dostępne są dwie opcje:
 
 - Zarządzane obrazy do tworzenia prostych maszyn wirtualnych w środowisku deweloperskim i testowym.
-- [Udostępniona Galeria obrazów](shared-image-galleries.md) na potrzeby tworzenia i udostępniania obrazów na dużą skalę.
+- [Udostępniona Galeria obrazów](../shared-image-galleries.md) na potrzeby tworzenia i udostępniania obrazów na dużą skalę.
 
 
 ### <a name="managed-images"></a>Zarządzane obrazy
@@ -76,7 +76,7 @@ Obrazy zarządzane mogą służyć do tworzenia i testowania środowisk, w któr
 
 ### <a name="azure-shared-image-gallery-sig"></a>Galeria udostępnionych obrazów systemu Azure (SIG)
 
-[Udostępnione Galerie obrazów](shared-image-galleries.md) są zalecane do tworzenia i udostępniania obrazów oraz zarządzania nimi na dużą skalę. Udostępnione Galerie obrazów ułatwiają tworzenie struktury i organizacji na obrazach.  
+[Udostępnione Galerie obrazów](../shared-image-galleries.md) są zalecane do tworzenia i udostępniania obrazów oraz zarządzania nimi na dużą skalę. Udostępnione Galerie obrazów ułatwiają tworzenie struktury i organizacji na obrazach.  
 
 - Obsługa obrazów uogólnionych i wyspecjalizowanych.
 - Obsługa obrazów 1 i 2 generacji.

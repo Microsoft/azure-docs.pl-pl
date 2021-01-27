@@ -3,14 +3,14 @@ title: Zapewnianie ładu w zakresie kopii zapasowych przy użyciu centrum kopii 
 description: Dowiedz się, jak zarządzać środowiskiem platformy Azure, aby upewnić się, że wszystkie zasoby są zgodne z perspektywą tworzenia kopii zapasowych z centrum kopii zapasowych.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173811"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893850"
 ---
-# <a name="govern-your-backup-estate-using-backup-center"></a>Zapewnianie ładu w zakresie kopii zapasowych przy użyciu centrum kopii zapasowych
+# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Zarządzanie brakiem kopii zapasowej za pomocą centrum kopii zapasowych (wersja zapoznawcza)
 
 Centrum kopii zapasowych pomaga zarządzać środowiskiem platformy Azure, aby upewnić się, że wszystkie zasoby są zgodne z perspektywą tworzenia kopii zapasowych. Poniżej wymieniono niektóre funkcje ładu centrum kopii zapasowych:
 
@@ -43,6 +43,11 @@ Kliknięcie elementu menu zgodność kopii zapasowej ułatwia wyświetlanie [zgo
 Wybranie elementu menu możliwe do **ochrony źródła** danych umożliwia wyświetlenie wszystkich źródeł danych, które nie zostały skonfigurowane do tworzenia kopii zapasowej. Można filtrować listę według subskrypcji DataSource, grupy zasobów, lokalizacji, typu i tagów. Po zidentyfikowaniu źródła danych, którego kopię zapasową należy wykonać, można kliknąć prawym przyciskiem myszy odpowiedni element siatki i wybrać pozycję **kopia zapasowa** , aby skonfigurować kopię zapasową zasobu.
 
 ![Menu z chronionymi źródłami danych](./media/backup-center-govern-environment/protectable-datasources.png)
+
+> [!NOTE]
+> W przypadku wybrania opcji **SQL na maszynie wirtualnej platformy Azure** jako typu źródła danych w widoku "możliwe do **ochrony źródła** danych" zostanie wyświetlona lista wszystkich maszyn wirtualnych z galerii, dla których nie zostały skonfigurowane usługi SQL Database.
+> W przypadku wybrania opcji **usługa Azure Storage (Azure Files)** jako typ źródła danych w widoku dane możliwe do **zabezpieczenia** zostanie wyświetlona lista wszystkich kont magazynu (obsługujących udziały plików), które nie mają żadnych udziałów plików skonfigurowanych do tworzenia kopii zapasowych.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

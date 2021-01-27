@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 512130928c8e18aad90bce351e3be85d6fbe03f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71057268"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878650"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Rozwiązywanie problemów z protokołem RDP
 
@@ -36,7 +36,7 @@ W tej sekcji omówiono następujące problemy związane z tworzeniem protokołu 
 - [Rozwiązywanie problemów z błędem wewnętrznym](Troubleshoot-rdp-internal-error.md)
 - [Rozwiązywanie problemów z często zrywanym połączeniem](troubleshoot-rdp-intermittent-connectivity.md)
 - [Rozwiązywanie problemów z błędem ogólnym](troubleshoot-rdp-general-error.md)
-- [Rozwiązywanie problemów z uwierzytelnianiem](troubleshoot-authentication-error-rdp-vm.md)
+- [Rozwiązywanie problemów z uwierzytelnianiem](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm)
 - [Rozwiązywanie problemów z połączeniem RDP maszyny wirtualnej platformy Azure według identyfikatora zdarzenia](event-id-troubleshoot-vm-rdp-connecton.md)
 - [Rozwiązywanie problemów z błędem protokołu RDP na maszynie wirtualnej spowodowanym statycznym adresem IP](troubleshoot-rdp-static-ip.md)
 - [Rozwiązywanie problemów z błędem protokołu RDP na maszynie wirtualnej spowodowanym wyłączoną kartą sieciową](troubleshoot-rdp-nic-disabled.md)
@@ -46,4 +46,3 @@ W tej sekcji omówiono następujące problemy związane z tworzeniem protokołu 
 - [Zapora systemu operacyjnego gościa blokuje ruch przychodzący](guest-os-firewall-blocking-inbound-traffic.md)
 - [Zapora systemu operacyjnego gościa jest błędnie skonfigurowana](guest-os-firewall-misconfigured.md) 
 - [Rozwiązywanie problemów z błędem protokołu RDP spowodowanym przez plik netvsc.sys](troubleshoot-rdp-driver-netvsc.md)
-

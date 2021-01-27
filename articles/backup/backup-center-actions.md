@@ -3,14 +3,14 @@ title: Wykonywanie akcji przy użyciu centrum kopii zapasowych
 description: W tym artykule wyjaśniono, jak wykonywać akcje przy użyciu centrum kopii zapasowych
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854430"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894579"
 ---
-# <a name="perform-actions-using-backup-center"></a>Wykonywanie akcji przy użyciu centrum kopii zapasowych
+# <a name="perform-actions-using-backup-center-preview"></a>Wykonywanie akcji przy użyciu centrum kopii zapasowych (wersja zapoznawcza)
 
 Centrum kopii zapasowych umożliwia wykonywanie akcji związanych z tworzeniem kopii zapasowej z poziomu centralnego interfejsu bez konieczności nawigowania do pojedynczego magazynu. Niektóre akcje, które można wykonać z poziomu centrum kopii zapasowych, to:
 
@@ -23,26 +23,28 @@ Centrum kopii zapasowych umożliwia wykonywanie akcji związanych z tworzeniem k
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowej maszyny wirtualnej platformy Azure i kopii zapasowej serwera Azure Database for PostgreSQL.
+* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowych maszyny wirtualnej platformy Azure, bazy danych SQL w usłudze Kopia zapasowa maszyny wirtualnej platformy Azure, SAP HANA w ramach kopii zapasowej maszyny wirtualnej platformy Azure, Azure Files Azure Database for PostgreSQL tworzenia
 * Zapoznaj się z [matrycą pomocy technicznej](backup-center-support-matrix.md) , aby uzyskać szczegółową listę obsługiwanych i nieobsługiwanych scenariuszy.
 
 ## <a name="configure-backup"></a>Konfigurowanie kopii zapasowych
 
+W przypadku tworzenia kopii zapasowych maszyn wirtualnych platformy Azure, SQL na maszynach wirtualnych platformy Azure, SAP HANA na maszynach wirtualnych platformy Azure lub Azure Files, należy użyć magazynu Recovery Services. W przypadku tworzenia kopii zapasowych baz danych platformy Azure dla serwera PostgreSQL należy użyć magazynu kopii zapasowych. 
+
 W zależności od typu źródła danych, dla którego chcesz utworzyć kopię zapasową, postępuj zgodnie z odpowiednimi instrukcjami opisanymi poniżej.
 
-### <a name="configure-backup-for-azure-virtual-machines"></a>Konfigurowanie kopii zapasowej dla usługi Azure Virtual Machines
+### <a name="configure-backup-to-a-recovery-services-vault"></a>Konfigurowanie kopii zapasowej w magazynie Recovery Services
 
 1. Przejdź do centrum kopii zapasowych i wybierz pozycję **+ kopia zapasowa** w górnej części karty **Przegląd** .
 
     ![Omówienie centrum kopii zapasowych](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
-2. Wybierz typ źródła danych, dla którego chcesz utworzyć kopię zapasową (w tym przypadku maszynę wirtualną platformy Azure).
+2. Wybierz typ źródła danych, dla którego chcesz utworzyć kopię zapasową.
 
     ![Wybierz źródło danych, aby skonfigurować kopię zapasową maszyny wirtualnej](./media/backup-center-actions/backup-select-datasource-vm.png)
 
 3. Wybierz magazyn Recovery Services a następnie wybierz pozycję **Zastosuj**. Prowadzi to do pracy z konfiguracją kopii zapasowej, która jest identyczna z tą, która jest dostępna w magazynie Recovery Services. [Dowiedz się więcej na temat konfigurowania kopii zapasowych dla maszyn wirtualnych platformy Azure z magazynem Recovery Services](tutorial-backup-vm-at-scale.md).
 
-### <a name="configure-backup-for-azure-database-for-postgresql-server"></a>Konfigurowanie kopii zapasowej dla serwera Azure Database for PostgreSQL
+### <a name="configure-backup-to-a-backup-vault"></a>Konfigurowanie kopii zapasowej w magazynie kopii zapasowych
 
 1. Przejdź do centrum kopii zapasowych i wybierz pozycję **+ kopia zapasowa** w górnej części karty **Przegląd** .
 2. Wybierz typ źródła danych, dla którego chcesz utworzyć kopię zapasową (w tym przypadku Azure Database for PostgreSQL serwera).
@@ -55,19 +57,19 @@ W zależności od typu źródła danych, dla którego chcesz utworzyć kopię za
 
 W zależności od typu źródła danych, które chcesz przywrócić, postępuj zgodnie z odpowiednimi instrukcjami opisanymi poniżej.
 
-### <a name="if-youre-restoring-an-azure-virtual-machine"></a>Jeśli przywracasz maszynę wirtualną platformy Azure
+### <a name="if-youre-restoring-from-a-recovery-services-vault"></a>Jeśli przywracasz z magazynu Recovery Servicesowego
 
 1. Przejdź do centrum kopii zapasowych i wybierz pozycję **Przywróć** w górnej części karty **Przegląd** .
 
     ![Omówienie centrum kopii zapasowych w celu przywrócenia maszyny wirtualnej](./media/backup-center-actions/backup-center-overview-restore.png)
 
-2. Wybierz typ źródła danych, które chcesz przywrócić (w tym przypadku maszynę wirtualną platformy Azure).
+2. Wybierz typ źródła danych, które chcesz przywrócić.
 
     ![Wybieranie źródła danych na potrzeby przywracania maszyny wirtualnej](./media/backup-center-actions/restore-select-datasource-vm.png)
 
 3. Wybierz wystąpienie kopii zapasowej i wybierz pozycję **Wykonaj**. Prowadzi to do funkcji przywracania ustawień, która jest taka sama jak ta, która jest dostępna w magazynie Recovery Services. [Dowiedz się więcej o tym, jak przywrócić maszynę wirtualną platformy Azure z magazynem Recovery Services](backup-azure-arm-restore-vms.md#before-you-start).
 
-### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Jeśli przywracasz serwer Azure Database for PostgreSQL
+### <a name="if-youre-restoring-from-a-backup-vault"></a>W przypadku przywracania z magazynu kopii zapasowych
 
 1. Przejdź do centrum kopii zapasowych i wybierz pozycję **Przywróć** w górnej części karty **Przegląd** .
 2. Wybierz typ źródła danych, które chcesz przywrócić (w tym przypadku Azure Database for PostgreSQL serwera).
@@ -89,19 +91,19 @@ Nowy magazyn można utworzyć, przechodząc do centrum kopii zapasowych i wybier
 
 W zależności od typu źródła danych, dla którego chcesz utworzyć kopię zapasową, postępuj zgodnie z odpowiednimi instrukcjami opisanymi poniżej.
 
-### <a name="if-youre-backing-up-an-azure-virtual-machine"></a>Jeśli tworzysz kopię zapasową maszyny wirtualnej platformy Azure
+### <a name="if-youre-backing-up-to-a-recovery-services-vault"></a>Jeśli tworzysz kopię zapasową w magazynie Recovery Services
 
 1. Przejdź do centrum kopii zapasowych i wybierz pozycję **+ zasady** w górnej części karty **Przegląd** .
 
     ![Omówienie centrum kopii zapasowych dla zasad tworzenia kopii zapasowych](./media/backup-center-actions/backup-center-overview-policy.png)
 
-2. Wybierz typ źródła danych, dla którego chcesz utworzyć kopię zapasową (w tym przypadku maszynę wirtualną platformy Azure).
+2. Wybierz typ źródła danych, dla którego chcesz utworzyć kopię zapasową.
 
     ![Wybierz źródło danych dla zasad tworzenia kopii zapasowej maszyny wirtualnej](./media/backup-center-actions/policy-select-datasource-vm.png)
 
 3. Wybierz magazyn usługi Recovery Services i wybierz pozycję **Zastosuj**. Prowadzi to do funkcji tworzenia zasad, która jest taka sama jak ta, która jest dostępna w magazynie Recovery Services. [Dowiedz się więcej na temat tworzenia nowych zasad tworzenia kopii zapasowych dla maszyny wirtualnej platformy Azure przy użyciu magazynu usługi Recovery Services](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-### <a name="if-youre-backing-up-an-azure-database-for-postgresql-server"></a>Jeśli tworzysz kopię zapasową serwera Azure Database for PostgreSQL
+### <a name="if-youre-backing-up-to-a-backup-vault"></a>W przypadku tworzenia kopii zapasowej w magazynie kopii zapasowych
 
 1. Przejdź do centrum kopii zapasowych i wybierz pozycję **+ zasady** w górnej części karty **Przegląd** .
 2. Wybierz typ źródła danych, dla którego chcesz utworzyć kopię zapasową (w tym przypadku Azure Database for PostgreSQL serwera).

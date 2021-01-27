@@ -10,12 +10,12 @@ metadata:
   author: mimckitt
   ms.author: mimckitt
   ms.date: 03/06/2020
-  ms.openlocfilehash: 7013158692883a002c16a2ad3c24735d2223b59e
-  ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+  ms.openlocfilehash: efbdf689b895278445f022d15473591e09a691f9
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 01/24/2021
-  ms.locfileid: "98746785"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98878735"
 landingContent:
 - title: Informacje o Cloud Services (obsługa rozszerzona)
   linkLists:
@@ -65,6 +65,8 @@ landingContent:
   linkLists:
   - linkListType: sample
     links:
+    - text: Przykładowe szablony
+      url: https://github.com/Azure-Samples/cloud-services-extended-support
     - text: Tworzenie wdrożenia usługi w chmurze
       url: sample-create-cloud-service.md
     - text: Pobieranie informacji o wdrożeniu usługi w chmurze

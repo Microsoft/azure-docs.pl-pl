@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
-ms.openlocfilehash: f52d684d1e6ef63fdf4287c610608061f30395f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db19b1ae017fa7981747b0e7b4c82e97efc61ed3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996870"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878888"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Jak skonfigurować protokół BGP na bramach sieci VPN platformy Azure
 
@@ -45,19 +45,19 @@ W tej sekcji utworzysz i skonfigurujesz sieć wirtualną, tworzysz i konfiguruje
 
 **Diagram 2**
 
-:::image type="content" source="./media/bgp-howto/bgp-gateway.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-gateway.png" alt-text="Diagram przedstawiający ustawienia bramy sieci wirtualnej" border="false":::
 
 ### <a name="1-create-and-configure-testvnet1"></a>1. Utwórz i skonfiguruj sieci testvnet1
 
-W tym kroku utworzysz i skonfigurujesz sieci testvnet1. Wykonaj kroki opisane w [samouczku tworzenie bramy](vpn-gateway-tutorial-create-gateway-powershell.md) , aby utworzyć i skonfigurować usługę Azure Virtual Network i bramę sieci VPN. Użyj ustawień referencyjnych na zrzutach ekranu poniżej.
+W tym kroku utworzysz i skonfigurujesz sieci testvnet1. Wykonaj kroki opisane w [samouczku tworzenie bramy](./tutorial-create-gateway-portal.md) , aby utworzyć i skonfigurować usługę Azure Virtual Network i bramę sieci VPN. Użyj ustawień referencyjnych na zrzutach ekranu poniżej.
 
 * Sieć wirtualna:
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci":::
+   :::image type="content" source="./media/bgp-howto/testvnet-1.png" alt-text="Sieci testvnet1 z odpowiednimi prefiksami adresów":::
 
 * Podsieci:
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1-subnets.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci":::
+   :::image type="content" source="./media/bgp-howto/testvnet-1-subnets.png" alt-text="Podsieci sieci testvnet1":::
 
 ### <a name="2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>2. Utwórz bramę sieci VPN dla usługi sieci testvnet1 przy użyciu parametrów protokołu BGP
 
@@ -67,11 +67,11 @@ W tym kroku utworzysz bramę sieci VPN z odpowiednimi parametrami protokołu BGP
 
 1. Wypełnij parametry, jak pokazano poniżej:
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci":::
+   :::image type="content" source="./media/bgp-howto/create-gateway-1.png" alt-text="Utwórz VNG1":::
 
 1. W wyróżnionej sekcji **Skonfiguruj protokół BGP** skonfiguruj następujące ustawienia:
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1-bgp.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci":::
+   :::image type="content" source="./media/bgp-howto/create-gateway-1-bgp.png" alt-text="Konfigurowanie protokołu BGP":::
 
    * Wybierz pozycję **Konfiguruj protokół BGP**  -  **włączony** , aby wyświetlić sekcję Konfiguracja protokołu BGP.
 
@@ -96,7 +96,7 @@ Po utworzeniu bramy można uzyskać adresy IP elementów równorzędnych BGP w b
 
 1. Przejdź do zasobu bramy sieci wirtualnej i wybierz stronę **Konfiguracja** , aby wyświetlić informacje o konfiguracji protokołu BGP, jak pokazano na poniższym zrzucie ekranu. Na tej stronie można wyświetlić wszystkie informacje o konfiguracji protokołu BGP bramy sieci VPN platformy Azure: ASN, publiczny adres IP i odpowiadające im adresy IP elementów równorzędnych BGP po stronie platformy Azure (domyślne i APIPA).
 
-   :::image type="content" source="./media/bgp-howto/vnet-1-gw-bgp.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci":::
+   :::image type="content" source="./media/bgp-howto/vnet-1-gw-bgp.png" alt-text="Brama BGP":::
 
 1. Na stronie **Konfiguracja** można wprowadzić następujące zmiany w konfiguracji:
 
@@ -107,17 +107,17 @@ Po utworzeniu bramy można uzyskać adresy IP elementów równorzędnych BGP w b
 
 ## <a name="part-2-configure-bgp-on-cross-premises-s2s-connections"></a><a name ="crosspremises"></a>Część 2: Konfigurowanie protokołu BGP dla wielu lokalizacji połączeń S2S
 
-Aby nawiązać połączenie między różnymi lokalizacjami, należy utworzyć *bramę sieci lokalnej* do reprezentowania lokalnego urządzenia sieci VPN oraz *połączenie* z bramą sieci VPN z bramą sieci lokalnej zgodnie z opisem w temacie [Tworzenie połączenia lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Ten artykuł zawiera dodatkowe właściwości wymagane do określenia parametrów konfiguracji protokołu BGP.
+Aby nawiązać połączenie między różnymi lokalizacjami, należy utworzyć *bramę sieci lokalnej* do reprezentowania lokalnego urządzenia sieci VPN oraz *połączenie* z bramą sieci VPN z bramą sieci lokalnej zgodnie z opisem w temacie [Tworzenie połączenia lokacja-lokacja](./tutorial-site-to-site-portal.md). Ten artykuł zawiera dodatkowe właściwości wymagane do określenia parametrów konfiguracji protokołu BGP.
 
 **Diagram 3**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-crosspremises.png" alt-text="Diagram przedstawiający protokół IPsec" border="false":::
 
 ### <a name="1-configure-bgp-on-the-local-network-gateway"></a>1. Skonfiguruj protokół BGP na bramie sieci lokalnej
 
 W tym kroku skonfigurujesz protokół BGP na bramie sieci lokalnej. Na przykład użyj poniższego zrzutu ekranu. Zrzut ekranu przedstawia bramę sieci lokalnej (site5) z parametrami określonymi w diagramie 3.
 
-:::image type="content" source="./media/bgp-howto/create-local-bgp.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci":::
+:::image type="content" source="./media/bgp-howto/create-local-bgp.png" alt-text="Konfigurowanie protokołu BGP dla bramy sieci lokalnej":::
 
 #### <a name="important-configuration-considerations"></a>Ważne zagadnienia dotyczące konfiguracji
 
@@ -130,7 +130,7 @@ W tym kroku skonfigurujesz protokół BGP na bramie sieci lokalnej. Na przykład
 
 W tym przykładzie używa adresu APIPA (169.254.100.1) jako lokalnego adresu IP elementu równorzędnego BGP:
 
-:::image type="content" source="./media/bgp-howto/local-apipa.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci":::
+:::image type="content" source="./media/bgp-howto/local-apipa.png" alt-text="Funkcja APIPA i protokół BGP bramy sieci lokalnej":::
 
 ### <a name="2-configure-a-s2s-connection-with-bgp-enabled"></a>2. Skonfiguruj połączenie S2S z włączonym protokołem BGP
 
@@ -140,13 +140,13 @@ W tym kroku utworzysz nowe połączenie z włączonym protokołem BGP. Jeśli ma
 
 Aby utworzyć nowe połączenie z włączonym protokołem BGP, na stronie **Dodawanie połączenia** Wypełnij wartości, a następnie zaznacz pole wyboru **Włącz protokół BGP** , aby włączyć protokół BGP dla tego połączenia. Kliknij przycisk **OK**, aby utworzyć połączenie.
 
-:::image type="content" source="./media/bgp-howto/ipsec-connection-bgp.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci":::
+:::image type="content" source="./media/bgp-howto/ipsec-connection-bgp.png" alt-text="Połączenie między lokalizacjami protokołu IPsec z protokołem BGP":::
 
 #### <a name="to-update-an-existing-connection"></a><a name ="update"></a>Aby zaktualizować istniejące połączenie
 
 Jeśli chcesz zmienić opcję protokołu BGP dla połączenia, przejdź do strony **Konfiguracja** zasobu połączenia, a następnie Przełącz opcję protokołu **BGP** jako wyróżnioną w poniższym przykładzie. Wybierz pozycję **Zapisz** , aby zapisać zmiany.
 
-:::image type="content" source="./media/bgp-howto/update-bgp.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci":::
+:::image type="content" source="./media/bgp-howto/update-bgp.png" alt-text="Aktualizowanie protokołu BGP dla połączenia":::
 
 ## <a name="part-3-configure-bgp-on-vnet-to-vnet-connections"></a><a name ="v2v"></a>Część 3: Konfigurowanie połączeń BGP w połączeniach między sieciami wirtualnymi
 
@@ -160,7 +160,7 @@ W przypadku kontekstu odnoszącego się do **diagramu 4**, jeśli protokół BGP
 
 **Diagram 4**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="Diagram przedstawiający architekturę i ustawienia sieci" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="Diagram przedstawiający pełną sieć" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

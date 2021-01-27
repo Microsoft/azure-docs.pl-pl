@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: e188c74c6eba5e4182f7b72277db8dd8e08db8d4
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 714b7bccea9b1e0c18ad78a4d98ed3526a279f5f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913939"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879262"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
@@ -250,7 +250,7 @@ W poniższym przykładzie przedstawiono przykładowy podział kosztów i wypłat
 | Firma Microsoft płaci 80% kosztu licencji<br>`*` W przypadku kwalifikujących się aplikacji SaaS firma Microsoft płaci 90% kosztu licencji| $80,00 miesięcznie<br>``*`` $90,00 miesięcznie |
 |||
 
-**`*` Zmniejszona opłata za usługę Marketplace** — w przypadku niektórych ofert SaaS opublikowanych w komercyjnej witrynie Marketplace firma Microsoft obniży opłatę za usługę portalu Marketplace z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%. Oferty, które chcesz zakwalifikować, muszą zostać wystawione przez firmę Microsoft jako usługa Azure IP zachęcani. Aby otrzymać obniżoną opłatę za usługę Marketplace, należy spełnić co najmniej pięć dni roboczych przed końcem każdego miesiąca kalendarzowego. Po osiągnięciu uprawnień zmniejszona opłata za usługę zostanie naliczona wszystkim transakcjom, które zaczęły obowiązywać pierwszy dzień następnego miesiąca, i będzie nadal stosowana do momentu utraty zachęcani stanu usługi Azure IP. Aby uzyskać szczegółowe informacje na temat uprawnień do współsprzedawanych adresów IP, zobacz [wymagania dotyczące stanu współsprzedażu](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Zmniejszona opłata za usługę Marketplace ma również zastosowanie do zachęcani maszyn wirtualnych platformy Azure, aplikacji zarządzanych i innych oferowanych z nich ofert IaaS z obsługą transakcji dostępnych za pośrednictwem komercyjnej witryny Marketplace.
+**`*` Zmniejszona opłata za usługę Marketplace** — w przypadku niektórych ofert SaaS opublikowanych w komercyjnej witrynie Marketplace firma Microsoft obniży opłatę za usługę portalu Marketplace z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%. Oferty, które chcesz zakwalifikować, muszą zostać wystawione przez firmę Microsoft jako usługa Azure IP zachęcani. Aby otrzymać obniżoną opłatę za usługę Marketplace, należy spełnić co najmniej pięć dni roboczych przed końcem każdego miesiąca kalendarzowego. Po osiągnięciu uprawnień zmniejszona opłata za usługę zostanie naliczona wszystkim transakcjom, które zaczęły obowiązywać pierwszy dzień następnego miesiąca, i będzie nadal stosowana do momentu utraty zachęcani stanu usługi Azure IP. Aby uzyskać szczegółowe informacje na temat uprawnień do współsprzedawanych adresów IP, zobacz [wymagania dotyczące stanu współsprzedażu](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Zmniejszona opłata za usługę Marketplace ma również zastosowanie do zachęcani maszyn wirtualnych platformy Azure, aplikacji zarządzanych i innych oferowanych z nich ofert IaaS z obsługą transakcji dostępnych za pośrednictwem komercyjnej witryny Marketplace.
 
 ## <a name="additional-sales-opportunities"></a>Dodatkowe możliwości sprzedaży
 
@@ -258,7 +258,7 @@ Możesz zrezygnować z obsługi kanałów marketingowych i sprzedaży obsługiwa
 
 - Odsprzedaż **za pomocą dostawców CSP**: Użyj tej opcji, aby zezwolić partnerom dostawcy rozwiązań Microsoft Cloud (CSP) na odsprzedaż Twojego rozwiązania w ramach powiązanej oferty. Aby uzyskać więcej informacji o tym programie, zobacz [program Cloud Solution Provider](cloud-solution-providers.md).
 
-- **Sprzedawanie z firmą Microsoft**: Ta opcja umożliwia zespołom ds. sprzedaży firmy Microsoft rozpatrywanie odpowiednich rozwiązań dla adresów IP podczas oceny potrzeb klientów. Aby uzyskać szczegółowe informacje o kwalifikującym się sprzedawaniu, zobacz [wymagania dotyczące stanu współsprzedażu](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Aby uzyskać szczegółowe informacje na temat przygotowywania oferty do oceny, zobacz [opcja co do sprzedaży w centrum partnerskim](commercial-marketplace-co-sell.md).
+- **Sprzedawanie z firmą Microsoft**: Ta opcja umożliwia zespołom ds. sprzedaży firmy Microsoft rozpatrywanie odpowiednich rozwiązań dla adresów IP podczas oceny potrzeb klientów. Aby uzyskać szczegółowe informacje o kwalifikującym się sprzedawaniu, zobacz [wymagania dotyczące stanu współsprzedażu](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Aby uzyskać szczegółowe informacje na temat przygotowywania oferty do oceny, zobacz [opcja co do sprzedaży w centrum partnerskim](commercial-marketplace-co-sell.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

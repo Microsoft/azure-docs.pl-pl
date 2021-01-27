@@ -5,29 +5,30 @@ author: dbakevlar
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 12/17/2020
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 5e9ddecd694a9051e746d07cbc1bee4d98bf5829
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.reviewer: tigorman
+ms.openlocfilehash: 0b6f4e652ca8fef7bee4165bcd0673be2fa11eac
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484434"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890768"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projektowanie i implementowanie bazy danych Oracle na platformie Azure
 
 ## <a name="assumptions"></a>Założenia
 
 - Planujesz przeprowadzić migrację bazy danych Oracle ze środowiska lokalnego na platformę Azure.
-- Masz [pakiet diagnostyczny](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) dla Oracle Database, który chcesz zmigrować
-- Masz świadomość różnych metryk w raportach programu Oracle AWR.
+- Masz [pakiet diagnostyczny](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) lub [repozytorium obciążeń automatycznych](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) dla Oracle Database, które chcesz zmigrować
+- Znasz różne metryki w programie Oracle.
 - Masz podstawowe informacje na temat wydajności aplikacji i wykorzystania platformy.
 
 ## <a name="goals"></a>Cele
 
 - Dowiedz się, jak zoptymalizować wdrożenie oprogramowania Oracle na platformie Azure.
 - Poznaj opcje dostrajania wydajności bazy danych Oracle w środowisku platformy Azure.
+- Wyznaczanie wyraźnych oczekiwań między granicami dostosowywania fizycznego poprzez architekturę i zalety albo logiczne dostrojenie kodu bazy danych, (SQL) i ogólnego projektu bazy danych.
 
 ## <a name="the-differences-between-an-on-premises-and-azure-implementation"></a>Różnice między wdrożeniem lokalnym i platformą Azure 
 
@@ -52,8 +53,9 @@ W poniższej tabeli wymieniono niektóre różnice między implementacją lokaln
 
 ### <a name="requirements"></a>Wymagania
 
-- Określ rozmiar bazy danych i szybkość wzrostu.
-- Określ wymagania IOPS, które można oszacować na podstawie raportów Oracle AWR lub innych narzędzi do monitorowania sieci.
+- Określ rzeczywiste użycie procesora, ponieważ licencja Oracle jest licencjonowana przez rdzeń, a rozmiary vCPUu mogą być istotnym rozwiązaniem w zakresie oszczędności kosztów. 
+- Określ rozmiar bazy danych, magazyn kopii zapasowych i szybkość wzrostu.
+- Określ wymagania we/wy, które można oszacować na podstawie raportów Oracle Statspack i AWR lub z narzędzi monitorowania magazynu na poziomie systemu operacyjnego.
 
 ## <a name="configuration-options"></a>Opcje konfiguracji
 
@@ -66,33 +68,44 @@ Istnieją cztery potencjalne obszary, które można dostosować w celu zwiększe
 
 ### <a name="generate-an-awr-report"></a>Generowanie raportu AWR
 
-Jeśli masz istniejącą bazę danych Oracle i planujesz migrację do platformy Azure, masz kilka opcji. Jeśli masz [pakiet diagnostyczny](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) dla wystąpień programu Oracle, możesz uruchomić raport Oracle AWR, aby uzyskać metryki (IOPS, MB/s, gibs itd.). Następnie wybierz maszynę wirtualną na podstawie zebranych metryk. Możesz też skontaktować się z zespołem infrastruktury, aby uzyskać podobne informacje.
+Jeśli masz istniejącą bazę danych programu Oracle Enterprise Edition i planujesz migrację do platformy Azure, masz kilka opcji. Jeśli masz [pakiet diagnostyczny](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) dla wystąpień programu Oracle, możesz uruchomić raport Oracle AWR, aby uzyskać metryki (IOPS, MB/s, gibs itd.). W przypadku tych baz danych bez licencji pakietu diagnostycznego lub bazy danych w wersji Standard Edition te same ważne metryki mogą być zbierane z raportem Statspack po zebraniu migawek ręcznych.  Główną różnicą między tymi dwiema metodami raportowania jest to, że AWR jest automatycznie zbierane i zawiera więcej informacji na temat bazy danych niż opcja raportowania poprzedników Statspack.
 
-Możesz rozważyć uruchomienie raportu AWR w ramach obciążeń zwykłych i szczytowych, aby można było porównać. Na podstawie tych raportów można zmienić rozmiar maszyn wirtualnych na podstawie średniego obciążenia lub maksymalnego obciążenia.
+Możesz rozważyć uruchomienie raportu AWR w ramach obciążeń zwykłych i szczytowych, aby można było porównać. Aby zebrać dokładniejsze obciążenie, należy wziąć pod uwagę rozszerzony raport okna o jeden tydzień, a także przebieg 24-godzinny i pamiętać, że AWR dostarcza średnie w ramach obliczeń w raporcie.  W przypadku migracji centrum danych zalecamy zebranie raportów dotyczących określania rozmiarów w systemach produkcyjnych i oszacowanie pozostałych kopii bazy danych używanych do testowania, testowania, programowania itp. według wartości procentowych (przeprowadzających równe produkcji, testy i opracowywanie 50% wielkości produkcji itp.)
 
-Poniżej przedstawiono przykład sposobu generowania raportu AWR (generowanie raportów AWR przy użyciu programu Oracle Enterprise Manager, jeśli aktualna instalacja jest taka):
+Domyślnie repozytorium AWR zachowuje 8-dniowe dane i wykonuje migawki w odstępach czasu.  Aby uruchomić raport AWR z wiersza polecenia, można wykonać następujące czynności z poziomu terminalu:
 
 ```bash
 $ sqlplus / as sysdba
-SQL> EXEC DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT;
-SQL> @?/rdbms/admin/awrrpt.sql
+SQL> @$ORACLE_HOME/rdbms/admin/awrrpt.sql;
 ```
 
 ### <a name="key-metrics"></a>Kluczowe metryki
 
+Raport wyświetli monit o podanie następujących informacji:
+- Typ raportu: HTML lub TEXT (HTML w 12,1 i zawiera dodatkowe informacje niż format tekstu).
+- Liczba dni migawek do wyświetlenia (w ciągu jednej godziny, Raport z jednego tygodnia będzie 168 różny w identyfikatorach migawek)
+- SnapshotID początku okna raportu.
+- Końcowa SnapshotId dla okna raportu.
+- Nazwa raportu, który ma zostać utworzony przez skrypt AWR.
+
+W przypadku uruchamiania AWR w klastrze aplikacji w rzeczywistości (RAC) raport wiersza polecenia jest awrgrpt. SQL zamiast awrrpt. SQL.  Raport "g" utworzy raport dla wszystkich węzłów w bazie danych RAC w jednym raporcie i musi on być uruchamiany w każdym węźle z certyfikatem RAC.
+
 Poniżej przedstawiono metryki, które można uzyskać z raportu AWR:
 
-- Łączna liczba rdzeni
-- Szybkość zegara procesora
+- Nazwa bazy danych, nazwa wystąpienia i nazwa hosta
+- Wersja bazy danych, (obsługa przez firmę Oracle)
+- Procesor CPU/rdzenie
+- SGA/PGA, (i doradcy informujące o tym, czy nie są one niewymiarowe)
 - Całkowita ilość pamięci w GB
-- Wykorzystanie procesora
-- Szczytowy współczynnik transferu danych
-- Częstotliwość zmian we/wy (odczyt i zapis)
-- Częstotliwość ponownego rejestrowania (MB/s)
+- Procesor CPU% zajęty
+- Procesory DB
+- Operacje we/wy (odczyt/zapis)
+- MB/s (odczyt/zapis)
 - Przepływność sieci
 - Częstotliwość opóźnień sieci (niska/wysoka)
-- Rozmiar bazy danych w GB
-- Bajty odebrane za pośrednictwem programu SQL * NET od/do klienta
+- Najważniejsze zdarzenia oczekiwania 
+- Ustawienia parametrów dla bazy danych
+- Jest certyfikatem RAC, Exadata, przy użyciu zaawansowanych funkcji lub konfiguracji
 
 ### <a name="virtual-machine-size"></a>Rozmiar maszyny wirtualnej
 
@@ -146,25 +159,19 @@ Na podstawie wymagań dotyczących przepustowości sieci istnieją różne typy 
 
 - *Domyślne dyski systemu operacyjnego*: te typy dysków oferują trwałe dane i buforowanie. Są one zoptymalizowane pod kątem dostępu do systemu operacyjnego przy uruchamianiu i nie są przeznaczone do obciążeń transakcyjnych lub magazynu danych (analitycznych).
 
-- *Dyski niezarządzane*: przy użyciu tych typów dysków można zarządzać kontami magazynu, które przechowują pliki wirtualnego dysku twardego (VHD), które odpowiadają DYSKOM maszyny wirtualnej. Pliki VHD są przechowywane jako stronicowe obiekty blob na kontach usługi Azure Storage.
-
-- *Dyski zarządzane*: platforma Azure zarządza kontami magazynu używanymi dla dysków maszyny wirtualnej. Należy określić typ dysku (Premium lub standardowa) oraz wymagany rozmiar dysku. Platforma Azure tworzy dysk i zarządza nim.
-
-- *Dyski usługi Premium Storage*: te typy dysków najlepiej nadają się do obciążeń produkcyjnych. Usługa Premium Storage obsługuje dyski maszyn wirtualnych, które mogą być dołączone do określonych maszyn wirtualnych serii rozmiarów, takich jak usługi DS, DSv2, GS i maszyny wirtualne z serii F. Dysk w warstwie Premium ma różne rozmiary i można wybrać między dyskami od 32 GB do 4 096 GB. Każdy rozmiar dysku ma własne specyfikacje wydajności. W zależności od wymagań aplikacji można dołączyć jeden lub więcej dysków do maszyny wirtualnej.
-
-Podczas tworzenia nowego dysku zarządzanego w portalu można wybrać **Typ konta** dla typu dysku, który ma być używany. Należy pamiętać, że nie wszystkie dostępne dyski są wyświetlane w menu rozwijanym. Po wybraniu określonego rozmiaru maszyny wirtualnej w menu zostaną wyświetlone tylko dostępne jednostki SKU magazynu w warstwie Premium, które są oparte na tym rozmiarze maszyny wirtualnej.
+- *Dyski zarządzane*: platforma Azure zarządza kontami magazynu używanymi dla dysków maszyny wirtualnej. Należy określić typ dysku (najczęściej jest to dysk SSD w warstwie Premium dla obciążeń Oracle) i rozmiar potrzebnego dysku. Platforma Azure tworzy dysk i zarządza nim.  SSD w warstwie Premium dysk zarządzany jest dostępny tylko dla zoptymalizowanej pod kątem pamięci i specjalnie zaprojektowanej serii maszyn wirtualnych. Po wybraniu określonego rozmiaru maszyny wirtualnej w menu zostaną wyświetlone tylko dostępne jednostki SKU magazynu w warstwie Premium, które są oparte na tym rozmiarze maszyny wirtualnej.
 
 ![Zrzut ekranu przedstawiający stronę dysk zarządzany](./media/oracle-design/premium_disk01.png)
 
 Po skonfigurowaniu magazynu na maszynie wirtualnej warto przetestować je przed utworzeniem bazy danych. Znajomość współczynnika we/wy pod względem opóźnień i przepływności może pomóc w ustaleniu, czy maszyny wirtualne obsługują oczekiwaną przepływność z obiektami docelowymi opóźnienia.
 
-Istnieje wiele narzędzi do testowania obciążenia aplikacji, takich jak Oracle Orion, Sysbench i FIO.
+Istnieje wiele narzędzi do testowania obciążenia aplikacji, takich jak Oracle Orion, Sysbench, SLOB i FIO.
 
-Uruchom test obciążenia ponownie po wdrożeniu bazy danych Oracle. Zacznij od zwykłych i szczytowych obciążeń, a wyniki przedstawiają linię bazową środowiska.
+Uruchom test obciążenia ponownie po wdrożeniu bazy danych Oracle. Zacznij od zwykłych i szczytowych obciążeń, a wyniki przedstawiają linię bazową środowiska.  Być realistyczne w teście obciążenia — nie ma sensu uruchamiania obciążeń, które nie są takie same, jak to, co zostanie uruchomione na maszynie wirtualnej.
 
-Może być bardziej ważne, aby rozmiar magazynu był większy od szybkości operacji we/wy, a nie rozmiaru magazynu. Jeśli na przykład wymagana liczba operacji we/wy to 5 000, ale potrzebna jest tylko 200 GB, można nadal uzyskać dysk klasy P30 Premium nawet wtedy, gdy ma on więcej niż 200 GB miejsca w magazynie.
+Ponieważ Oracle to baza danych intensywnie korzystających z operacji we/wy dla wielu, bardzo ważne jest, aby rozmiar magazynu był oparty na szybkości IOPS, a nie w rozmiarze magazynu. Jeśli na przykład wymagana liczba operacji we/wy to 5 000, ale potrzebna jest tylko 200 GB, można nadal uzyskać dysk klasy P30 Premium nawet wtedy, gdy ma on więcej niż 200 GB miejsca w magazynie.
 
-Stawkę IOPS można uzyskać z raportu AWR. Jest ona określana przez dziennik ponownego wykonywania, odczyty fizyczne i szybkość zapisywania.
+Stawkę IOPS można uzyskać z raportu AWR. Jest ona określana przez dziennik ponownego wykonywania, odczyty fizyczne i szybkość zapisywania.  Zawsze sprawdzaj, czy wybrana seria maszyn wirtualnych ma możliwość obsługi zbyt dużej liczby operacji we/wy na żądanie.  Jeśli maszyna wirtualna ma niższy limit operacji we/wy niż w przypadku magazynu, wartość maksymalna zostanie ustawiona przez maszynę wirtualną.
 
 ![Zrzut ekranu strony raportu AWR](./media/oracle-design/awr_report.png)
 
@@ -176,34 +183,28 @@ Po wybraniu jasnego obrazu wymagań we/wy możesz wybrać kombinację dysków, k
 **Zalecenia**
 
 - W przypadku obszaru tabel danych rozłożenie obciążenia we/wy na kilka dysków przy użyciu zarządzanego magazynu lub zestawu Oracle ASM.
-- Ponieważ rozmiar bloku we/wy zwiększa się w przypadku operacji wymagających intensywnego odczytu i intensywnego zapisu, Dodaj więcej dysków danych.
-- Zwiększ rozmiar bloku dla dużych procesów sekwencyjnych.
-- Używaj kompresji danych, aby zmniejszyć liczbę operacji we/wy (dla danych i indeksów).
-- Rozdziel dzienniki ponownego wykonywania, system i temp, a następnie Cofnij TS na oddzielnych dyskach danych.
+- Użyj zaawansowanej kompresji Oracle, aby zmniejszyć liczbę operacji we/wy (dla danych i indeksów).
+- Oddziel dzienniki ponownego wykonywania, tymczasowe i cofaj obszary tabel na oddzielnych dyskach danych.
 - Nie umieszczaj żadnych plików aplikacji na domyślnych dyskach systemu operacyjnego (/dev/SDA). Te dyski nie są zoptymalizowane pod kątem krótkich czasów rozruchu maszyn wirtualnych i mogą nie zapewniać dobrej wydajności aplikacji.
 - W przypadku korzystania z maszyn wirtualnych serii M w usłudze Premium Storage Włącz [Akcelerator zapisu](../../how-to-enable-write-accelerator.md) na dysku dzienników ponownego wykonywania.
+- Rozważ przeniesienie dzienników ponownego wykonywania z dużym opóźnieniem do Ultra Disk.
 
 ### <a name="disk-cache-settings"></a>Ustawienia pamięci podręcznej dysku
 
-Istnieją trzy opcje buforowania hosta:
+Istnieją trzy opcje buforowania hosta, ale dla bazy danych Oracle zaleca się tylko buforowanie tylko do odczytu dla obciążenia bazy danych.  ReadWrite może wprowadzić znaczące luki w zabezpieczeniach pliku, gdzie celem zapisu bazy danych jest zapisanie go w postaci pliku pliku, a nie buforowanie informacji.
 
-- *Tylko do odczytu*: wszystkie żądania są buforowane na potrzeby przyszłych operacji odczytu. Wszystkie zapisy są utrwalane bezpośrednio w usłudze Azure Blob Storage.
-
-- *ReadWrite*: jest to algorytm "Ready". Operacje odczytu i zapisu są buforowane na potrzeby przyszłych operacji odczytu. Operacje zapisu inne niż Write-through są najpierw utrwalane w lokalnej pamięci podręcznej. Zapewnia również najniższe opóźnienie dysku dla obciążeń lekkich. Używanie pamięci podręcznej ReadWrite z aplikacją, która nie obsługuje utrwalania wymaganych danych może spowodować utratę danych, jeśli maszyna wirtualna ulegnie awarii.
-
-- *Brak* (wyłączone): za pomocą tej opcji można ominąć pamięć podręczną. Wszystkie dane są przekazywane na dysk i utrwalane w usłudze Azure Storage. Ta metoda zapewnia najwyższą szybkość operacji we/wy dla obciążeń intensywnie korzystających z operacji we/wy. Należy również wziąć pod uwagę "koszt transakcji".
+W przeciwieństwie do systemu plików lub aplikacji dla bazy danych, zalecenia dotyczące buforowania hosta są *tylko do odczytu*: wszystkie żądania są buforowane na potrzeby przyszłych operacji odczytu. Wszystkie zapisy są nadal zapisywane na dysku.
 
 **Zalecenia**
 
-Aby zmaksymalizować przepływność, zalecamy rozpoczęcie od **braku** dla buforowania hosta. W przypadku Premium Storage należy pamiętać o wyłączeniu "barier" podczas instalowania systemu plików z opcjami **ReadOnly** lub **none** . Zaktualizuj plik/etc/fstab za pomocą identyfikatora UUID na dyskach.
+Aby zmaksymalizować przepływność, zalecamy rozpoczęcie od **tylko do odczytu** pamięci podręcznej hosta, gdy jest to możliwe. W przypadku Premium Storage należy pamiętać o wyłączeniu "barier" podczas instalowania systemu plików z opcjami **tylko do odczytu** . Zaktualizuj plik/etc/fstab za pomocą identyfikatora UUID na dyskach.
 
 ![Zrzut ekranu przedstawiający stronę dysk zarządzany z opcjami ReadOnly i none.](./media/oracle-design/premium_disk02.png)
 
-- W przypadku dysków systemu operacyjnego Użyj domyślnego buforowania **odczytu i zapisu** .
-- Dla opcji SYSTEM, TEMP i UNDO **nie** można używać buforowania.
-- W przypadku danych Użyj opcji **Brak** do buforowania. Ale jeśli baza danych jest w trybie tylko do odczytu lub do odczytu, należy użyć buforowania **tylko do odczytu** .
+- W przypadku dysków systemu operacyjnego Użyj domyślnego buforowania **odczytu/zapisu** i Użyj dysku SSD w warstwie Premium dla maszyn wirtualnych obciążeń Oracle.  Należy również upewnić się, że wolumin używany do wymiany jest również na dysk SSD w warstwie Premium.
+- Dla wszystkich DATAFILES Użyj **tylko** do buforowania. Buforowanie tylko do odczytu jest dostępne tylko dla dysku zarządzanego w warstwie Premium, P30 i nowszych.  Istnieje limit 4095GiB woluminu, który może być używany z buforowaniem tylko do odczytu.  Wszystkie większe alokacje spowodują wyłączenie buforowania hosta.
 
-Po zapisaniu ustawienia dysku z danymi nie można zmienić ustawienia pamięci podręcznej hosta, jeśli dysk nie zostanie odinstalowany na poziomie systemu operacyjnego, a następnie ponownie zainstalowany po dokonaniu zmiany.
+Jeśli obciążenia różnią się znacznie między dniem i wieczór, a obciążenie we/wy może je obsługiwać, SSD w warstwie Premium P1-P20 z rozbiciem może zapewnić wydajność wymaganą podczas ładowania partii w porze nocnej lub ograniczone wymagania we/wy.  
 
 ## <a name="security"></a>Zabezpieczenia
 
@@ -229,4 +230,4 @@ Po skonfigurowaniu i skonfigurowaniu środowiska platformy Azure następnym krok
 ## <a name="next-steps"></a>Następne kroki
 
 - [Samouczek: Tworzenie maszyn wirtualnych o wysokiej dostępności](../../linux/create-cli-complete.md)
-- [Eksplorowanie przykładów interfejsu wiersza polecenia platformy Azure wdrożenia maszyny wirtualnej](../../linux/cli-samples.md)
+- [Eksplorowanie przykładów interfejsu wiersza polecenia platformy Azure wdrożenia maszyny wirtualnej](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

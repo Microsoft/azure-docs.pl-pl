@@ -1,25 +1,10 @@
 ---
-title: Przekazywanie, kodowanie i przesyłanie strumieniowe z Media Services v3
-titleSuffix: Azure Media Services
-description: Samouczek pokazujący, jak przekazać plik, zakodować wideo i przesyłać strumieniowo zawartość z Azure Media Services v3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: eedbb63f4928c0397150b40a47fdc7c3e87d1991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256773"
+title: przekazywanie, kodowanie i przesyłanie strumieniowe z Media Services v3: Azure Media Services Description: samouczek pokazujący, jak przekazać plik, zakodować wideo i przesyłać strumieniowo zawartość z Azure Media Services v3.
+usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
+
+MS. Service: Media-Services MS. obciążenie: MS. temat: samouczek MS. Custom: MVC MS. Date: 08/31/2020 MS. Author: inhenkel
 ---
+
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo z Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -67,7 +52,7 @@ W tej sekcji są analizowane funkcje zdefiniowane w pliku [Program.cs](https://g
 W przykładzie są wykonywane następujące akcje:
 
 1. Tworzy nowe **przekształcenie** (najpierw sprawdza, czy istnieje określone przekształcenie).
-2. Tworzy element **zawartości** wyjściowej, który jest używany jako dane wyjściowe **zadania**kodowania.
+2. Tworzy element **zawartości** wyjściowej, który jest używany jako dane wyjściowe **zadania** kodowania.
 3. Tworzenie **zasobu** danych wejściowych oraz przekazanie do niego wybranego lokalnego pliku wideo. Zasób jest używany jako dane wejściowe zadania.
 4. Przesyłanie zadania kodowania przy użyciu utworzonych danych wejściowych i wyjściowych.
 5. Sprawdza stan zadania.

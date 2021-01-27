@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6af68f51e76f60c807be2008ae61e27879ebbb11
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5012e90aae316897454ffc7933efc88d83afdf6e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703211"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893387"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
@@ -74,6 +74,7 @@ W celu zapewnienia bezpieczeństwa partnerzy firmy Microsoft z następującymi d
 | Partner niezależnego dostawcy oprogramowania | Wskazówki dotyczące opisu i integracji |
 |:-------------------------|:--------------|
 | ![Zrzut ekranu przedstawiający logo laboratorium Arkose](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) to dostawca rozwiązań zapobiegania oszustwom, który pomaga organizacjom chronić przed atakami bot, atakami polegającymi na przejęciu kont i nieuczciwych otwartych kontach. |
+| ![Zrzut ekranu przedstawiający logo polecenia ping](./media/partner-gallery/ping-logo.png) | [Polecenie ping Identity](./partner-ping-identity.md) umożliwia bezpieczny dostęp hybrydowy do lokalnych starszych aplikacji w wielu chmurach. |
 | ![Zrzut ekranu przedstawiający logo warstwy strat](./media/partner-gallery/strata-logo.png) | Firma [strat](./partner-strata.md) zapewnia bezpieczny dostęp hybrydowy do aplikacji lokalnych przez wymuszanie spójnych zasad dostępu, utrzymywanie tożsamości w synchronizacji oraz proste przenoszenie aplikacji ze starszych systemów tożsamości do opartych na standardach uwierzytelniania i kontroli dostępu zapewnianych przez Azure AD B2C. |
 | ![Zrzut ekranu przedstawiający logo rozwiązania Zscaler](./media/partner-gallery/zscaler-logo.png) | [Rozwiązania Zscaler](./partner-zscaler.md) zapewnia oparte na zasadach, bezpieczny dostęp do prywatnych aplikacji i zasobów bez konieczności ponoszenia kosztów, problemów lub zagrożeń bezpieczeństwa sieci VPN. |
 

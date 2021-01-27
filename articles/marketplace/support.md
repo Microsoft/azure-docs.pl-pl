@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602561"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879245"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Wsparcie dla komercyjnego programu w witrynie Marketplace w centrum partnerskim
 
 Firma Microsoft zapewnia pomoc techniczną dla wielu różnych produktów i usług. Znalezienie odpowiedniego zespołu pomocy technicznej jest ważne, aby zapewnić odpowiednią i terminową odpowiedź. Należy wziąć pod uwagę następujące scenariusze, które powinny pomóc w kierowaniu zapytania do odpowiedniego zespołu:
 
 - Jeśli jesteś wydawcą i masz pytania od klienta, poproś klienta o zażądanie pomocy technicznej za pomocą linków pomocy technicznej w [Azure Portal](https://portal.azure.com/).
-- Jeśli jesteś wydawcą i wykryjesz problem z zabezpieczeniami aplikacji działającej na platformie Azure, zobacz [jak rejestrować bilet pomocy technicznej dotyczącej zdarzeń zabezpieczeń](/azure/security/fundamentals/event-support-ticket). Wydawcy muszą zgłaszać podejrzane zdarzenia zabezpieczeń, w tym zdarzenia dotyczące zabezpieczeń i luki w zabezpieczeniach oprogramowania i usług portalu Azure Marketplace, z najwcześniejszą możliwością.
+- Jeśli jesteś wydawcą i wykryjesz problem z zabezpieczeniami aplikacji działającej na platformie Azure, zobacz [jak rejestrować bilet pomocy technicznej dotyczącej zdarzeń zabezpieczeń](../security/fundamentals/event-support-ticket.md). Wydawcy muszą zgłaszać podejrzane zdarzenia zabezpieczeń, w tym zdarzenia dotyczące zabezpieczeń i luki w zabezpieczeniach oprogramowania i usług portalu Azure Marketplace, z najwcześniejszą możliwością.
 - Jeśli jesteś wydawcą i masz pytanie dotyczące Twojej aplikacji lub usługi, zapoznaj się z następującymi opcjami pomocy technicznej.
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Uzyskaj pomoc lub Otwórz bilet pomocy technicznej

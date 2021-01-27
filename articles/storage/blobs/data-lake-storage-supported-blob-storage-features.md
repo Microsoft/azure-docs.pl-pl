@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 58a907a2ae17966f50a037f49a807ac0a3ad6867
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545835"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879313"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2
 
@@ -35,17 +35,17 @@ W poniższej tabeli przedstawiono, w jaki sposób każda funkcja magazynu obiekt
 |Polecenia programu PowerShell dotyczące magazynu obiektów BLOB|Ogólnie dostępne|Ogólnie dostępne|[Szybki Start: przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą programu PowerShell](storage-quickstart-blobs-powershell.md)|
 |Polecenie interfejsu wiersza polecenia platformy Azure dla usługi BLOB Storage|Ogólnie dostępne|Ogólnie dostępne|[Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure](storage-quickstart-blobs-cli.md)|
 |Interfejsy API magazynu obiektów BLOB|Ogólnie dostępne|Ogólnie dostępne|[Szybki start: Biblioteka kliencka usługi Azure Blob Storage V12 dla platformy .NET](storage-quickstart-blobs-dotnet.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Java](storage-quickstart-blobs-java.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Python](storage-quickstart-blobs-python.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK języka JavaScript V12 w Node.js](storage-quickstart-blobs-nodejs.md)|
-|Dzienniki diagnostyczne|Ogólnie dostępne|Wersja zapoznawcza |[Rejestrowanie analityki magazynu platformy Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Dzienniki diagnostyczne|Ogólnie dostępne|Wersja zapoznawcza |[Rejestrowanie usługi Azure Storage Analytics](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Archiwizowanie warstwy dostępu|Ogólnie dostępne|Nieobsługiwane|[Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum](storage-blob-storage-tiers.md)|
 |Zasady zarządzania cyklem życia (Obsługa warstw)|Ogólnie dostępne|Jeszcze nieobsługiwane|[Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Zasady zarządzania cyklem życia (usuwanie obiektu BLOB)|Ogólnie dostępne|Ogólnie dostępne|[Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Logowanie Azure Monitor|Wersja zapoznawcza |Wersja zapoznawcza|[Monitorowanie usługi Azure Storage](./monitor-blob-storage.md)|
 |Migawki|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Migawki obiektów BLOB](snapshots-overview.md)|
 |Statyczne witryny internetowe|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Hostowanie statycznej witryny internetowej w usłudze Azure Storage](storage-blob-static-website.md)|
-|Niezmienny magazyn|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](storage-blob-immutable-storage.md)|
+|Niezmienny magazyn|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Przechowywanie danych obiektów blob kluczowych dla działalności za pomocą magazynu niezmiennego](storage-blob-immutable-storage.md)|
 |Usuwanie nietrwałe kontenera|Wersja zapoznawcza|Wersja zapoznawcza|[Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md)|
 |Spis usługi Azure Storage|Wersja zapoznawcza|Wersja zapoznawcza|[Używanie spisu usługi Azure Storage do zarządzania danymi obiektów BLOB (wersja zapoznawcza)](blob-inventory.md)|
-|Usuwanie nietrwałe obiektów BLOB|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Usuwanie nietrwałe dla obiektów blob](storage-blob-soft-delete.md)|
+|Usuwanie nietrwałe obiektów BLOB|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Usuwanie nietrwałe dla obiektów blob](./soft-delete-blob-overview.md)|
 |Blobfuse|Ogólnie dostępne|Ogólnie dostępne|[Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse](storage-how-to-mount-container-linux.md)|
 |Anonimowy dostęp publiczny |Ogólnie dostępne|Ogólnie dostępne| Zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md).|
 |Tryb failover konta zarządzanego przez klienta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Odzyskiwanie po awarii i tryb failover konta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

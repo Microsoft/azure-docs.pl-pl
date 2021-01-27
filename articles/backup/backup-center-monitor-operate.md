@@ -3,20 +3,20 @@ title: Monitorowanie i obsługa kopii zapasowych w centrum kopii zapasowych
 description: W tym artykule wyjaśniono, jak monitorować i obsługiwać kopie zapasowe na dużą skalę przy użyciu centrum kopii zapasowych
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3b0f00c51e9b466a9ed040b677df811448b1d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996673"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893782"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorowanie i obsługa kopii zapasowych w centrum kopii zapasowych
+# <a name="monitor-and-operate-backups-using-backup-center-preview"></a>Monitorowanie i wykonywanie kopii zapasowych za pomocą centrum kopii zapasowych (wersja zapoznawcza)
 
 Jako administrator kopii zapasowej można użyć centrum kopii zapasowych jako jednego okienka Glass do monitorowania zadań i spisu kopii zapasowych w codziennym okresie. Centrum kopii zapasowych umożliwia również wykonywanie zwykłych operacji, takich jak reagowanie na żądania kopii zapasowych na żądanie, przywracanie kopii zapasowych, tworzenie zasad tworzenia kopii zapasowych i tak dalej.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowej maszyny wirtualnej platformy Azure i kopii zapasowej serwera Azure Database for PostgreSQL.
+* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowych maszyny wirtualnej platformy Azure, bazy danych SQL w usłudze Kopia zapasowa maszyny wirtualnej platformy Azure, SAP HANA w ramach kopii zapasowej maszyny wirtualnej platformy Azure, Azure Files Azure Database for PostgreSQL tworzenia
 * Zapoznaj się z [matrycą pomocy technicznej](backup-center-support-matrix.md) , aby uzyskać szczegółową listę obsługiwanych i nieobsługiwanych scenariuszy.
 
 ## <a name="backup-instances"></a>Wystąpienia kopii zapasowej

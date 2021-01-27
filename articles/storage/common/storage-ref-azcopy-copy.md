@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356178"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879160"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -37,7 +37,7 @@ Aby uzyskać więcej informacji, zobacz sekcję przykłady w tym artykule.
 ## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
-- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
+- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 - [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
@@ -284,7 +284,7 @@ Transferuj pliki i katalogi do konta usługi Azure Storage i ustaw odpowiednie T
 
 **--ciąg include-Pattern** zawiera tylko te pliki podczas kopiowania. Ta opcja obsługuje symbole wieloznaczne (*). Oddziel pliki przy użyciu `;` .
 
-**--ciąg listy wersji** określa plik, w którym każdy identyfikator wersji jest wymieniony w osobnym wierszu. Upewnij się, że źródło musi wskazywać na pojedynczy obiekt BLOB, a wszystkie identyfikatory wersji określone w pliku używające tej flagi muszą należeć tylko do źródłowego obiektu BLOB. Program AzCopy pobierze określone wersje w udostępnionym folderze docelowym. Aby uzyskać więcej informacji, zobacz [pobieranie poprzednich wersji obiektu BLOB](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+**--ciąg listy wersji** określa plik, w którym każdy identyfikator wersji jest wymieniony w osobnym wierszu. Upewnij się, że źródło musi wskazywać na pojedynczy obiekt BLOB, a wszystkie identyfikatory wersji określone w pliku używające tej flagi muszą należeć tylko do źródłowego obiektu BLOB. Program AzCopy pobierze określone wersje w udostępnionym folderze docelowym. Aby uzyskać więcej informacji, zobacz [pobieranie poprzednich wersji obiektu BLOB](./storage-use-azcopy-v10.md#transfer-data).
 
 **--ciąg na poziomie dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: info (wszystkie żądania/odpowiedzi), ostrzeżenie (wolne odpowiedzi), błąd (tylko Nieudane żądania) i brak (bez dzienników wyjściowych). (wartość domyślna `INFO` ). 
 
@@ -324,6 +324,6 @@ Transferuj pliki i katalogi do konta usługi Azure Storage i ustaw odpowiednie T
 
 **--Zaufane — ciąg sufiksów firmy Microsoft** określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [AzCopy](storage-ref-azcopy.md)

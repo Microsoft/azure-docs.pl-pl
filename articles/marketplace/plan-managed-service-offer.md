@@ -8,12 +8,12 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: a504969d23fce8000119aadf9e45d599da0894f0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918182"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879279"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Planowanie oferty usługi zarządzanej dla portalu komercyjnego firmy Microsoft
 
@@ -25,7 +25,7 @@ Usługi zarządzane to oferty w portalu Azure Marketplace, które umożliwiają 
 
 Aby opublikować usługę zarządzaną, należy uzyskać kompetencje firmy Microsoft dotyczące złota lub srebra na platformie chmury. Ta kompetencja pokazuje Twoją wiedzę dla klientów. Aby uzyskać więcej informacji, zobacz [Microsoft Partner Network kompetencji](https://partner.microsoft.com/membership/competencies).
 
-Oferty muszą spełniać wszystkie odpowiednie [komercyjne zasady certyfikacji portalu Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies) , które mają zostać opublikowane w portalu Azure Marketplace.
+Oferty muszą spełniać wszystkie odpowiednie [komercyjne zasady certyfikacji portalu Marketplace](/legal/marketplace/certification-policies) , które mają zostać opublikowane w portalu Azure Marketplace.
 
 ## <a name="customer-leads"></a>Potencjalni klienci
 

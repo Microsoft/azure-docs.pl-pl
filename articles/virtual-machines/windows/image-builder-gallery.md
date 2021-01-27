@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 6699db280c4d82867d5559255eab08fd6b55b65a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e3a7ea2cd696f54b032a3f17eceff466a6201436
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201522"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878684"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Wersja zapoznawcza: Tworzenie obrazu systemu Windows i dystrybuowanie go do galerii obrazów udostępnionych 
 
-W tym artykule opisano, jak można użyć programu Azure Image Builder i Azure PowerShell, aby utworzyć wersję obrazu w [galerii obrazów udostępnionych](shared-image-galleries.md), a następnie dystrybuować obraz globalnie. Można to również zrobić przy użyciu [interfejsu wiersza polecenia platformy Azure](../linux/image-builder-gallery.md).
+W tym artykule opisano, jak można użyć programu Azure Image Builder i Azure PowerShell, aby utworzyć wersję obrazu w [galerii obrazów udostępnionych](../shared-image-galleries.md), a następnie dystrybuować obraz globalnie. Można to również zrobić przy użyciu [interfejsu wiersza polecenia platformy Azure](../linux/image-builder-gallery.md).
 
 Aby skonfigurować obraz, będziemy używać szablonu JSON. Używany plik JSON jest tutaj: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Będziemy pobierać i edytować lokalną wersję szablonu, więc ten artykuł zostanie zapisany przy użyciu lokalnej sesji programu PowerShell.
 

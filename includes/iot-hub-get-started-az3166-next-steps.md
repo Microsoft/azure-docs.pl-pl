@@ -4,16 +4,16 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 06/09/2018
 ms.author: liydu
-ms.openlocfilehash: 096764ce56e1812bc96be9a344a4d4ccb17a4db6
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1383f976e73fd9a59b87201cac8aeeb043f3c1cc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95560516"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901087"
 ---
 Aby kontynuować Rozpoczynanie pracy z usługą Azure IoT Hub i poznać inne scenariusze IoT przy użyciu usługi IoT DevKit, zobacz następujące tematy:
 
-- [Łączenie programu IoT DevKit z akceleratorem rozwiązania do zdalnego monitorowania usługi Azure IoT](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)
+- [Łączenie programu IoT DevKit z akceleratorem rozwiązania do zdalnego monitorowania usługi Azure IoT](/previous-versions/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2)
 - [Tłumaczenie wiadomości głosowych za pomocą usług Azure Cognitive Services](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-translator.md)
 - [Pobieranie wiadomości z usługi Twitter za pomocą usługi Azure Functions](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 - [Wysyłanie komunikatów do serwera MQTT przy użyciu interfejsów Eclipse Paho API](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)

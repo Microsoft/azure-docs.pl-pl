@@ -11,23 +11,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: axelg
-ms.openlocfilehash: 247324c30bbe0edaef78c0b0d5e6a6d593e8cac9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 62b462d8e75fc291ac599ac99dbe4fb3a74fde2b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586401"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878701"
 ---
 # <a name="troubleshoot-the-azure-linux-agent"></a>Rozwiązywanie problemów z agentem systemu Azure Linux
 
-[Agent systemu Azure Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) umożliwia maszynie wirtualnej komunikację z kontrolerem sieci szkieletowej (na serwerze fizycznym, na którym jest HOSTOWANA maszyna wirtualna) na adresie IP 168.63.129.16.
+[Agent systemu Azure Linux](../extensions/agent-linux.md) umożliwia maszynie wirtualnej komunikację z kontrolerem sieci szkieletowej (na serwerze fizycznym, na którym jest HOSTOWANA maszyna wirtualna) na adresie IP 168.63.129.16.
 
 >[!NOTE]
 >Ten adres IP jest wirtualnym publicznym adresem IP, który ułatwia komunikację i nie powinien być blokowany. Aby uzyskać więcej informacji, zobacz [co to jest adres IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Sprawdź stan i wersję agenta, aby upewnić się, że jest ono nadal obsługiwane. Zobacz [minimalną obsługę wersji dla agentów maszyny wirtualnej na platformie Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) , aby sprawdzić obsługę wersji, lub zobacz temat [WALinuxAgent — często zadawane pytania](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) , aby znaleźć informacje o stanie i wersji.
+Sprawdź stan i wersję agenta, aby upewnić się, że jest ono nadal obsługiwane. Zobacz [minimalną obsługę wersji dla agentów maszyny wirtualnej na platformie Azure](/troubleshoot/azure/virtual-machines/support-extensions-agent-version) , aby sprawdzić obsługę wersji, lub zobacz temat [WALinuxAgent — często zadawane pytania](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) , aby znaleźć informacje o stanie i wersji.
 
 ## <a name="troubleshoot-a-not-ready-status"></a>Rozwiązywanie problemów z niegotowym stanem
 
@@ -64,7 +64,7 @@ Sprawdź stan i wersję agenta, aby upewnić się, że jest ono nadal obsługiwa
    AutoUpdate.Enabled=y
    ```
 
-   Aby uzyskać więcej informacji na temat aktualizowania agenta systemu Azure Linux, zobacz [jak zaktualizować agenta systemu Linux platformy Azure na maszynie wirtualnej](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent).
+   Aby uzyskać więcej informacji na temat aktualizowania agenta systemu Azure Linux, zobacz [jak zaktualizować agenta systemu Linux platformy Azure na maszynie wirtualnej](../extensions/update-linux-agent.md).
 
 1. Upewnij się, że maszyna wirtualna może połączyć się z kontrolerem sieci szkieletowej. Użyj narzędzia, takiego jak zwinięcie, aby sprawdzić, czy maszyna wirtualna może się połączyć z 168.63.129.16 na portach 80, 443 i 32526. Jeśli maszyna wirtualna nie nawiąże połączenia zgodnie z oczekiwaniami, sprawdź, czy w lokalnej zaporze na maszynie wirtualnej jest otwarta komunikacja wychodząca przez porty 80, 443 i 32526. Jeśli ten adres IP jest zablokowany, Agent maszyny wirtualnej może wyświetlić nieoczekiwane zachowanie.
 

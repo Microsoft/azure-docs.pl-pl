@@ -11,12 +11,12 @@ ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 78cc0aa6beb9ab83fea2039b271b071de1662fc1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629184"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878956"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie przydziałami i zwiększanie limitów zasobów przy użyciu Azure Machine Learning
 
@@ -82,7 +82,7 @@ Dostępne zasoby:
 + **Klastry na region** mają domyślny limit 200. Są one współużytkowane przez klaster szkoleniowy i wystąpienie obliczeniowe. (Wystąpienie obliczeniowe jest traktowane jako klaster z jednym węzłem na potrzeby przydziałów).
 
 > [!TIP]
-> Aby dowiedzieć się więcej o tym, której rodziny maszyn wirtualnych należy zażądać zwiększenia limitu przydziału, wypróbuj [rozmiary maszyn wirtualnych na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Na przykład rodziny maszyn wirtualnych GPU zaczynają się od "N" w nazwie rodziny (np. Seria Seria NCV3)
+> Aby dowiedzieć się więcej o tym, której rodziny maszyn wirtualnych należy zażądać zwiększenia limitu przydziału, wypróbuj [rozmiary maszyn wirtualnych na platformie Azure](../virtual-machines/sizes.md). Na przykład rodziny maszyn wirtualnych GPU zaczynają się od "N" w nazwie rodziny (np. Seria Seria NCV3)
 
 W poniższej tabeli przedstawiono dodatkowe limity na platformie. Skontaktuj się z zespołem produktu Azure, **korzystając z biletu pomocy technicznej** , aby zażądać wyjątku.
 

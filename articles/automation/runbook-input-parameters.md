@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 84e2eaf71326f59102800428479768aeba9ef9ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73e4dbb24b4e7c0c651f7d082c75b0f4a17158b5
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042145"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890885"
 ---
 # <a name="configure-runbook-input-parameters"></a>Konfigurowanie parametrów wejściowych elementu runbook
 
@@ -26,7 +26,7 @@ Elementy Runbook programu PowerShell i programu PowerShell w programie Azure Aut
 
 | **Właściwość** | **Opis** |
 |:--- |:--- |
-| Type |Wymagane. Oczekiwano typu danych dla wartości parametru. Dowolny typ .NET jest prawidłowy. |
+| Typ |Wymagane. Oczekiwano typu danych dla wartości parametru. Dowolny typ .NET jest prawidłowy. |
 | Nazwa |Wymagane. Nazwa parametru. Ta nazwa musi być unikatowa w elemencie Runbook, musi zaczynać się od litery i może zawierać tylko litery, cyfry lub znaki podkreślenia. |
 | Obowiązkowy |Opcjonalny. Wartość logiczna określająca, czy parametr wymaga wartości. W przypadku wybrania tej opcji na wartość true należy podać wartość, gdy element Runbook zostanie uruchomiony. W przypadku ustawienia tej opcji na wartość false wartość jest opcjonalna. Jeśli nie określisz wartości dla `Mandatory` właściwości, program PowerShell traktuje parametr wejściowy opcjonalny domyślnie. |
 | Wartość domyślna |Opcjonalny. Wartość, która jest używana dla parametru, jeśli podczas uruchamiania elementu Runbook nie zostanie przeniesiona żadna wartość wejściowa. Element Runbook może ustawić wartość domyślną dla każdego parametru. |
@@ -75,7 +75,7 @@ Aby zilustrować konfigurację parametrów wejściowych dla graficznego elementu
 Graficzny element Runbook używa tych głównych działań elementu Runbook:
 
 * Konfiguracja konta Uruchom jako platformy Azure do uwierzytelniania na platformie Azure. 
-* Definicja polecenia cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) , aby uzyskać właściwości maszyny wirtualnej.
+* Definicja polecenia cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm) , aby uzyskać właściwości maszyny wirtualnej.
 * Użycie działania [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) do wyprowadzania nazw maszyn wirtualnych. 
 
 `Get-AzVM`Działanie definiuje dwa dane wejściowe, nazwę maszyny wirtualnej i nazwę grupy zasobów. Ponieważ te nazwy mogą być różne przy każdym uruchomieniu elementu Runbook, należy dodać parametry wejściowe do elementu Runbook, aby akceptowały te dane wejściowe. Zapoznaj się z tematem [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md).
@@ -140,7 +140,7 @@ W etykiecie poniżej pola wejściowego można zobaczyć właściwości, które z
 
 #### <a name="start-a-published-runbook-using-powershell-cmdlets-and-assign-parameters"></a>Uruchom opublikowany element Runbook za pomocą poleceń cmdlet programu PowerShell i przypisz parametry
 
-* **Polecenia cmdlet Azure Resource Manager:** Można uruchomić element Runbook usługi Automation, który został utworzony w grupie zasobów za pomocą polecenia [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0).
+* **Polecenia cmdlet Azure Resource Manager:** Można uruchomić element Runbook usługi Automation, który został utworzony w grupie zasobów za pomocą polecenia [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook).
 
    ```powershell
      $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
@@ -272,7 +272,7 @@ Po wykonaniu elementu Runbook za pomocą elementu webhook jest wysyłany wstępn
 
 Może być przydatne do przechowywania danych, które mają zostać przekazane do elementu Runbook w pliku JSON. Można na przykład utworzyć plik JSON zawierający wszystkie parametry, które mają zostać przekazane do elementu Runbook. W tym celu należy przekonwertować kod JSON na ciąg, a następnie przekonwertować ciąg na obiekt programu PowerShell przed przekazaniem go do elementu Runbook.
 
-W tej sekcji jest używany przykład, w którym skrypt programu PowerShell wywołuje polecenie [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) , aby uruchomić element Runbook programu PowerShell, przekazując zawartość pliku JSON do elementu Runbook. Element Runbook programu PowerShell uruchamia maszynę wirtualną platformy Azure przez pobranie parametrów dla maszyny wirtualnej z obiektu JSON.
+W tej sekcji jest używany przykład, w którym skrypt programu PowerShell wywołuje polecenie [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) , aby uruchomić element Runbook programu PowerShell, przekazując zawartość pliku JSON do elementu Runbook. Element Runbook programu PowerShell uruchamia maszynę wirtualną platformy Azure przez pobranie parametrów dla maszyny wirtualnej z obiektu JSON.
 
 ### <a name="create-the-json-file"></a>Utwórz plik JSON
 
@@ -327,7 +327,7 @@ Teraz można wywołać element Runbook z komputera lokalnego przy użyciu Azure 
 1. Pobierz zawartość zapisanego pliku JSON i przekonwertuj go na ciąg. `JsonPath` wskazuje ścieżkę, w której zapisano plik JSON.
 
    ```powershell
-   $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
+   $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
    ```
 
 1. Przekonwertuj zawartość ciągu `$json` na obiekt programu PowerShell.

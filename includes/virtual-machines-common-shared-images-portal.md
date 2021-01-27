@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016013"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878831"
 ---
 ## <a name="create-an-image-gallery"></a>Tworzenie galerii obrazów
 
@@ -35,7 +35,7 @@ Poniższy przykład tworzy galerię o nazwie Moja *Gallery* w grupie zasobów *m
 
 ## <a name="create-an-image-definition"></a>Tworzenie definicji obrazu 
 
-Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do zarządzania informacjami o wersjach obrazu, które są w nich tworzone. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions).
+Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do zarządzania informacjami o wersjach obrazu, które są w nich tworzone. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
 
 Utwórz definicję obrazu galerii w galerii. W tym przykładzie obraz galerii ma nazwę *myImageDefinition*.
 
@@ -44,7 +44,7 @@ Utwórz definicję obrazu galerii w galerii. W tym przykładzie obraz galerii ma
 1. W obszarze **Nazwa definicji obrazu** wpisz *myImageDefinition*.
 1. W obszarze **system operacyjny** Wybierz poprawną opcję w oparciu o ŹRÓDŁową maszynę wirtualną.  
 1. W przypadku **generacji maszyny wirtualnej** wybierz opcję opartą na ŹRÓDŁOWEJ maszynie wirtualnej. W większości przypadków jest to *generacji 1*. Aby uzyskać więcej informacji, zobacz [Obsługa maszyn wirtualnych 2. generacji](../articles/virtual-machines/generation-2.md).
-1. W przypadku **stanu systemu operacyjnego** wybierz opcję w oparciu o ŹRÓDŁową maszynę wirtualną. Aby uzyskać więcej informacji, zobacz [uogólnione i wyspecjalizowane](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
+1. W przypadku **stanu systemu operacyjnego** wybierz opcję w oparciu o ŹRÓDŁową maszynę wirtualną. Aby uzyskać więcej informacji, zobacz [uogólnione i wyspecjalizowane](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
 1. W przypadku **wydawcy** wpisz *polecenie*. 
 1. W obszarze **Oferta** wpisz *ofertę*.
 1. W przypadku **jednostki SKU** wpisz *mySKU*.

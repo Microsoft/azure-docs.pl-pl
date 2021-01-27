@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: b3d24ce4dd42ea8122610943379160ca93406c21
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7cf3d86eeea9d1b0f5fcbb757d3597e21cbcc369
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548060"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901109"
 ---
 Aparat rozpoznawania formularzy działa na dokumentach wejściowych, które spełniają następujące wymagania:
 
@@ -25,8 +25,3 @@ Aparat rozpoznawania formularzy działa na dokumentach wejściowych, które spe�
 * Tekst musi używać alfabetu łacińskiego (znaki angielskie).
 * W przypadku nienadzorowanej uczenia (bez etykiet danych) dane muszą zawierać klucze i wartości.
 * W przypadku nienadzorowanej uczenia (bez etykiet danych) klucze muszą znajdować się powyżej lub z lewej strony wartości; nie mogą występować poniżej ani w prawo.
-
-Aparat rozpoznawania formularzy obecnie nie obsługuje następujących typów danych wejściowych:
-
-* Tabele złożone (tabele zagnieżdżone, scalone nagłówki lub komórki itd.).
-* Pola wyboru lub przyciski radiowe.
