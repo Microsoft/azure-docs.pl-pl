@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 6aeb4e29390b5b456d3aa820e4b3b8be762dbddd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dea881acc4cec90c4a8ad6169d94734f24d5b759
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115790"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880037"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Szybki Start: Tworzenie konta usługi Azure kontrolą w Azure Portal
 
@@ -25,7 +25,7 @@ W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą.
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Własna [dzierżawa usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Własna [dzierżawa usługi Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 * Twoje konto musi mieć uprawnienia do tworzenia zasobów w ramach subskrypcji
 
@@ -35,7 +35,7 @@ W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą.
     > Nie trzeba wykonywać tego kroku, jeśli nie masz Azure Policy lub istniejący Azure Policy nie blokuje tworzenia **konta magazynu** i **przestrzeni nazw EventHub**.
 
     1. Przejdź do Azure Portal i Wyszukaj **zasady**
-    1. Wykonaj instrukcje [tworzenia niestandardowej definicji zasad](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) lub zmodyfikuj istniejące zasady, aby dodać dwa wyjątki z `not` operatorem i `resourceBypass` tagiem:
+    1. Wykonaj instrukcje [tworzenia niestandardowej definicji zasad](../governance/policy/tutorials/create-custom-policy-definition.md) lub zmodyfikuj istniejące zasady, aby dodać dwa wyjątki z `not` operatorem i `resourceBypass` tagiem:
 
         ```json
         {
@@ -83,7 +83,7 @@ W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą.
 
         :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia definicji zasad.":::
 
-    1. [Utwórz przypisanie zasad](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) przy użyciu utworzonych zasad niestandardowych.
+    1. [Utwórz przypisanie zasad](../governance/policy/assign-policy-portal.md) przy użyciu utworzonych zasad niestandardowych.
 
         [![Zrzut ekranu przedstawiający sposób tworzenia przypisania zasad](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
@@ -155,7 +155,7 @@ Jeśli po kliknięciu pozycji Dodaj zobaczysz dwie opcje pokazujące (wyłączon
 
 1. Wybierz pozycję **Dodaj przypisanie roli**.
 
-1. W przypadku typu roli w roli **kontrolą Data Curator** lub **administratora źródła danych kontrolą** w zależności od tego, co podmiot zabezpieczeń ma być używany (Aby uzyskać szczegółowe informacje, zobacz [uprawnienia katalogu](catalog-permissions.md) i [obiekty główne aplikacji i usługi w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) ).
+1. W przypadku typu roli w roli **kontrolą Data Curator** lub **administratora źródła danych kontrolą** w zależności od tego, co podmiot zabezpieczeń ma być używany (Aby uzyskać szczegółowe informacje, zobacz [uprawnienia katalogu](catalog-permissions.md) i [obiekty główne aplikacji i usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) ).
 
 1. W przypadku **uprawnienia do przypisywania** pozostaw wartość domyślną, **użytkownika, grupy lub nazwy głównej usługi**.
 

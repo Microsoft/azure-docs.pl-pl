@@ -39,8 +39,6 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Ponowne uruchamianie, zamykanie lub zatrzymywanie usług'
       href: boot-error-troubleshoot-windows.md
-    - name: Problemy z pełnym dyskiem systemu operacyjnego na maszynie wirtualnej z systemem Linux
-      href: os-disk-full-linux.md
 - name: Nieoczekiwane ponowne uruchomienie
   items:
     - name: Nieoczekiwane ponowne uruchamianie maszyn wirtualnych z dołączonymi dyskami VHD
@@ -153,7 +151,7 @@
         - name: Rozwiązywanie problemów z błędem ogólnym
           href: troubleshoot-rdp-general-error.md
         - name: Rozwiązywanie problemów z uwierzytelnianiem
-          href: troubleshoot-authentication-error-rdp-vm.md
+          href: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
         - name: Rozwiązywanie problemów z połączeniem RDP maszyny wirtualnej platformy Azure według identyfikatora zdarzenia
           href: event-id-troubleshoot-vm-rdp-connecton.md
         - name: Rozwiązywanie problemów z błędem protokołu RDP na maszynie wirtualnej spowodowanym statycznym adresem IP

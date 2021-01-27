@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 11/24/2020
 ms.author: inhenkel
 ms.custom: subject-armqs
-ms.openlocfilehash: 6a23c3a20e79fe6fff7de8faccf4e4ef78f02585
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 541a4c17a3212f711be7e2cf096ce3a2d632ee64
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185044"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879650"
 ---
 # <a name="quickstart-media-services-account-arm-template"></a>Szybki Start: szablon ARM konta Media Services
 
@@ -41,7 +41,7 @@ Czytelnicy znający szablony ARM mogą przejść do [sekcji Wdrażanie](#deploy-
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Jeśli szablon ARM nie został wcześniej wdrożony, warto zapoznać się z [szablonami usługi Azure ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/) i przejść przez [samouczek](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell).
+Jeśli szablon ARM nie został wcześniej wdrożony, warto zapoznać się z [szablonami usługi Azure ARM](../../azure-resource-manager/templates/index.yml) i przejść przez [samouczek](../../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell).
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
@@ -118,8 +118,8 @@ The syntax for the JSON code fence is:
 
 Trzy typy zasobów platformy Azure są zdefiniowane w szablonie:
 
-- [Microsoft. Media/MediaServices](https://docs.microsoft.com/azure/templates/microsoft.media/mediaservices): tworzenie konta Media Services
-- [Microsoft. Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): Tworzenie konta magazynu
+- [Microsoft. Media/MediaServices](/azure/templates/microsoft.media/mediaservices): tworzenie konta Media Services
+- [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Tworzenie konta magazynu
 
 ## <a name="set-the-account"></a>Ustawianie konta
 
@@ -262,7 +262,7 @@ W Azure Portal upewnij się, że zasoby zostały utworzone.
 
 ![utworzono zasoby szybkiego startu](./media/quickstart-arm-template-account/quickstart-arm-template-resources.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie planujesz używania właśnie utworzonych zasobów, możesz usunąć grupę zasobów.
 
@@ -277,4 +277,4 @@ az group delete --name {name of the resource group}
 Aby dowiedzieć się więcej o korzystaniu z szablonu ARM przez następujący proces tworzenia szablonu z parametrami, zmiennymi i innymi, spróbuj
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
