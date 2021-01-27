@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 0542d7e0ea204d1e9279e89c9f36b9bc6c6c88fa
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c34410fcb5e1992f8b7a358801a354a1e1cf190c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165862"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808003"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,13 @@ Klienci będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal ró
 ## <a name="status-updates"></a>Aktualizacje stanu
 
 # <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
+## <a name="february-2021"></a>Luty 2021
+Nowe bramy SQL są dodawane do następujących regionów:
+
+- Środkowe stany USA: 13.89.169.20
+
+Te bramy SQL zaczynają akceptować ruch klienta w dniu 28 lutego 2021.
+
 ## <a name="january-2021"></a>Styczeń 2021 r.
 Nowe bramy SQL są dodawane do następujących regionów:
 
@@ -41,7 +48,7 @@ Nowe bramy SQL są dodawane do następujących regionów:
 - Korea Środkowa: 52.231.17.22, 52.231.17.23
 - Indie Zachodnie: 104.211.144.4
 
-Te bramy SQL zaczynają akceptować ruch klienta na dzień 31 stycznia 2021
+Te bramy SQL zaczynają akceptować ruch klienta w dniu 31 stycznia 2021.
 
 # <a name="completed"></a>[Ukończone](#tab/completed-ip)
 Następujące migracje bramy zostały ukończone: 
@@ -100,8 +107,8 @@ Nowe bramy SQL są dodawane do następujących regionów:
 
 Te bramy SQL zaczynają akceptować ruch klienta w dniu 10 sierpnia 2020. 
 
-### <a name="october-2019"></a>Październik 2019 r.
-- Brazil South
+### <a name="october-2019"></a>Październik 2019 r.
+- Brazylia Południowa
 - Zachodnie stany USA
 - West Europe
 - East US
@@ -111,7 +118,7 @@ Te bramy SQL zaczynają akceptować ruch klienta w dniu 10 sierpnia 2020.
 - Europa Północna
 - Północno-środkowe stany USA
 - Japonia Zachodnia
-- Japan East
+- Japonia Wschodnia
 - Wschodnie stany USA 2
 - Azja Wschodnia
 

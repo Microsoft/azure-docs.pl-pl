@@ -4,12 +4,12 @@ description: W tym artykule poznasz informacje o kopii zapasowej i przywracaniu 
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 1f4d27563cf292632c6b14c82e36542b86c5d356
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 38ead1591bf2ecadc8bfca5875ac1fa3e69d56ef
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127723"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806365"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure
 
@@ -337,4 +337,4 @@ Funkcja tworzenia kopii zapasowych na dysku selektywnym jest funkcją oferowaną
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tabela obsługi kopii zapasowych maszyn wirtualnych platformy Azure](backup-support-matrix-iaas.md)
-- [Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vm-backup-faq.md)
+- [Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vm-backup-faq.yml)

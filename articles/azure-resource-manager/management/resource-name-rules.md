@@ -2,13 +2,13 @@
 title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
-ms.date: 12/29/2020
-ms.openlocfilehash: bd8ba72d43b7e3e5a9145d756741436f0a49e18b
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 01/26/2021
+ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762485"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806875"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -635,7 +635,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | --- | --- | --- | --- |
 > | managedInstances | global | 1-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. <br><br> Nie może zawierać żadnych znaków specjalnych, takich jak `@` . |
 > | serwerem | global | 1-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. |
-> | serwery/Administratorzy | serwer |  | Musi być `ActiveDirectory` . <br><br> Nie może zawierać żadnych znaków specjalnych, takich jak `@` .|
+> | serwery/Administratorzy | serwer |  | Musi być `ActiveDirectory` . |
 > | Serwery/bazy danych | serwer | 1-128 | Nie można użyć:<br>`<>*%&:\/?`<br><br>Nie może kończyć się kropką ani spacją. |
 > | Serwery/bazy danych/syncGroups | database | 1-150 | Alfanumeryczne, łączniki i podkreślenia. |
 > | serwery/elasticPools | serwer | 1-128 | Nie można użyć:<br>`<>*%&:\/?`<br><br>Nie może kończyć się kropką ani spacją. |

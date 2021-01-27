@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936485"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806167"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Przewodnik wdrażania platformy SAP BusinessObjects BI dla systemu Linux na platformie Azure
 
@@ -37,7 +37,7 @@ W tym przykładzie użyto wersji produktu i układu systemu plików
 - Azure Database for MySQL (wersja: 8.0.15)
 - Łącznik interfejsu API MySQL C — libmysqlclient (wersja: 6.1.11)
 
-| System plików        | Opis                                                                                                               | Rozmiar (GB)             | Właściciel  | Grupa  | Magazyn                    |
+| System plików        | Opis                                                                                                               | Rozmiar (GB)             | Właściciel  | Group (Grupa)  | Magazyn                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | System plików na potrzeby instalacji wystąpienia SAP BOBI, domyślnej aplikacji sieci Web Tomcat i sterowników bazy danych (w razie potrzeby) | Wytyczne dotyczące ustalania wielkości SAP | bl1adm | sapsys | Zarządzany dysk w warstwie Premium — SSD |
 | /usr/sap/frsinput  | Katalog instalacji jest przeznaczony dla plików udostępnionych na wszystkich hostach BOBI, które będą używane jako katalog repozytorium plików wejściowych  | Potrzeby biznesowe         | bl1adm | sapsys | Azure NetApp Files         |
@@ -555,7 +555,7 @@ W poniższej sekcji opisano sposób implementacji strategii tworzenia kopii zapa
 
 Najprostszym sposobem tworzenia kopii zapasowych serwerów aplikacji i wszystkich dołączonych dysków jest użycie usługi [Azure Backup](../../../backup/backup-overview.md) na platformie Azure. Zapewnia niezależne i izolowane kopie zapasowe w celu ochrony niezamierzonego zniszczenia danych na maszynach wirtualnych. Kopie zapasowe są przechowywane w magazynie usługi Recovery Services z wbudowanymi funkcjami zarządzania punktami odzyskiwania. Konfiguracja i skalowanie są proste, kopie zapasowe są optymalizowane i mogą być łatwo przywracane w razie potrzeby.
 
-W ramach procesu tworzenia kopii zapasowej wykonywana jest migawka, a dane są przesyłane do magazynu usługi Recovery Service bez wpływu na obciążenia produkcyjne. Migawka zapewnia różny poziom spójności, zgodnie z opisem w artykule [spójności migawek](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) . Można również utworzyć kopię zapasową podzbioru dysków danych w maszynie wirtualnej, używając funkcji tworzenia kopii zapasowych i przywracania dysków selektywnych. Aby uzyskać więcej informacji, zobacz dokument i często zadawane pytania dotyczące [usługi Azure VM](../../../backup/backup-azure-vms-introduction.md) [— Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../../../backup/backup-azure-vm-backup-faq.md).
+W ramach procesu tworzenia kopii zapasowej wykonywana jest migawka, a dane są przesyłane do magazynu usługi Recovery Service bez wpływu na obciążenia produkcyjne. Migawka zapewnia różny poziom spójności, zgodnie z opisem w artykule [spójności migawek](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) . Można również utworzyć kopię zapasową podzbioru dysków danych w maszynie wirtualnej, używając funkcji tworzenia kopii zapasowych i przywracania dysków selektywnych. Aby uzyskać więcej informacji, zobacz dokument i często zadawane pytania dotyczące [usługi Azure VM](../../../backup/backup-azure-vms-introduction.md) [— Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../../../backup/backup-azure-vm-backup-faq.yml).
 
 #### <a name="backup--restore-for-file-repository-server"></a>Przywracanie & kopii zapasowej dla serwera repozytorium plików
 
@@ -586,7 +586,7 @@ Implementacja tego rozwiązania różni się w zależności od rodzaju konfigura
 
 Wysoka dostępność odnosi się do zestawu technologii, które mogą zminimalizować zakłócenia, zapewniając ciągłość działania aplikacji/usług za pomocą nadmiarowych, odpornych na uszkodzenia lub składników chronionych przez tryb failover w tym samym centrum danych. W naszym przypadku centra danych znajdują się w obrębie jednego regionu świadczenia usługi Azure. [Architektura i scenariusze wysokiej dostępności artykułu dla oprogramowania SAP](sap-high-availability-architecture-scenarios.md) zapewniają wstępny wgląd w różne techniki wysokiej dostępności i rekomendacje oferowane w przypadku aplikacji SAP na platformie Azure, które pomogą wykonać instrukcje podane w tej sekcji.
 
-Na podstawie wyniku zmiany wielkości platformy SAP BOBI należy zaprojektować krajobraz i określić dystrybucję składników analizy biznesowej między Virtual Machinesami i podsieciami platformy Azure. Poziom nadmiarowości w architekturze rozproszonej zależy od wymaganego przez firmę celu czasu odzyskiwania (RTO) i celu punktu odzyskiwania. Platforma SAP BOBI obejmuje różne warstwy i składniki w każdej warstwie, powinny być zaprojektowane w celu zapewnienia nadmiarowości. W związku z tym, jeśli jeden składnik ulegnie awarii, nie ma przerw w działaniu aplikacji SAP BOBI. Przykład:
+Na podstawie wyniku zmiany wielkości platformy SAP BOBI należy zaprojektować krajobraz i określić dystrybucję składników analizy biznesowej między Virtual Machinesami i podsieciami platformy Azure. Poziom nadmiarowości w architekturze rozproszonej zależy od wymaganego przez firmę celu czasu odzyskiwania (RTO) i celu punktu odzyskiwania. Platforma SAP BOBI obejmuje różne warstwy i składniki w każdej warstwie, powinny być zaprojektowane w celu zapewnienia nadmiarowości. W związku z tym, jeśli jeden składnik ulegnie awarii, nie ma przerw w działaniu aplikacji SAP BOBI. Na przykład
 
 - Nadmiarowe serwery aplikacji, takie jak serwery aplikacji analizy biznesowej i serwer sieci Web
 - Unikatowe składniki, takie jak CMS Database, serwer repozytorium plików, Load Balancer

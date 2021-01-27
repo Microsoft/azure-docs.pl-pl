@@ -1,16 +1,16 @@
 ---
 title: Opcje sieciowe usługi Azure Functions
 description: Przegląd wszystkich opcji sieciowych dostępnych w Azure Functions.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.author: jehollan
-ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 1/21/2021
+ms.author: cachai
+ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936881"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806983"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -85,12 +85,9 @@ Aby zapewnić wyższy poziom zabezpieczeń, można ograniczyć liczbę usług pl
 
 Aby dowiedzieć się więcej, zobacz [punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Ogranicz konto magazynu do sieci wirtualnej (wersja zapoznawcza)
+## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Ograniczanie konta magazynu do sieci wirtualnej 
 
-Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel.  Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego.  Ta funkcja w wersji zapoznawczej obecnie działa tylko z planami systemu Windows Premium w regionie Europa Zachodnia.  Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
-
-> [!NOTE]
-> Ograniczanie konta magazynu aktualnie działa tylko w przypadku funkcji premium przy użyciu systemu Windows w Europie zachodniej
+Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel.  Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego.  Ta funkcja działa obecnie tylko z planami systemu Windows Premium.  Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
 
 1. Utwórz funkcję z kontem magazynu, które nie ma włączonych punktów końcowych usługi.
 1. Skonfiguruj funkcję do łączenia się z siecią wirtualną.
@@ -177,7 +174,7 @@ Ograniczenia wychodzącego adresu IP są dostępne w planie Premium, planie App 
 
 W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia aplikacji `WEBSITE_VNET_ROUTE_ALL=1` wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 Poniższe interfejsy API umożliwiają programowe zarządzanie integracją regionalnej sieci wirtualnej:
 
 + **Interfejs wiersza polecenia platformy Azure**: Użyj [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) poleceń, aby dodać, wyświetlić lub usunąć integrację regionalnej sieci wirtualnej.  

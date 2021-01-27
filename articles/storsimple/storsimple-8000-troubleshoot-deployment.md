@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 600934e2d46c1a84a83fa1290db13b3d0d1508f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bed1c8fd77e84c69571cfad7dd6b7eeb6607209f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995407"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808041"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem urządzeń StorSimple
 ## <a name="overview"></a>Omówienie
@@ -33,7 +33,7 @@ Te informacje dotyczą zarówno urządzenia fizycznego z serii StorSimple 8000, 
 W tym artykule opisano także narzędzia do rozwiązywania problemów z wdrożeniami StorSimple i przedstawiono przykład rozwiązywania problemów krok po kroku.
 
 ## <a name="first-time-deployment-issues"></a>Problemy z wdrażaniem pierwszego czasu
-Jeśli wystąpi problem podczas wdrażania urządzenia po raz pierwszy, należy wziąć pod uwagę następujące kwestie:
+Jeśli wystąpi problem podczas wdrażania urządzenia po raz pierwszy, należy wziąć pod uwagę następujące wskazówki:
 
 * W przypadku rozwiązywania problemów z urządzeniem fizycznym upewnij się, że sprzęt został zainstalowany i skonfigurowany zgodnie z opisem w artykule [Instalowanie urządzenia z systemem StorSimple 8100](storsimple-8100-hardware-installation.md) lub [Instalowanie urządzenia z systemem StorSimple 8600](storsimple-8600-hardware-installation.md).
 * Sprawdź wymagania wstępne dotyczące wdrażania. Upewnij się, że masz wszystkie informacje opisane na liście [kontrolnej konfiguracji wdrożenia](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist).
@@ -41,13 +41,13 @@ Jeśli wystąpi problem podczas wdrażania urządzenia po raz pierwszy, należy 
 
 Podczas wdrażania urządzenia najczęstsze problemy występujące podczas uruchamiania Kreatora instalacji i rejestrowania urządzenia za pośrednictwem program Windows PowerShell dla usługi StorSimple. (W celu zarejestrowania i skonfigurowania urządzenia StorSimple służy program Windows PowerShell dla usługi StorSimple. Aby uzyskać więcej informacji na temat rejestracji urządzeń, zobacz [krok 3. Konfigurowanie i rejestrowanie urządzenia w program Windows PowerShell dla usługi StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
 
-Poniższe sekcje mogą pomóc w rozwiązywaniu problemów występujących podczas konfigurowania urządzenia StorSimple po raz pierwszy.
+Poniższe sekcje mogą pomóc w rozwiązywaniu problemów, które są dostępne podczas konfigurowania urządzenia StorSimple po raz pierwszy.
 
 ## <a name="first-time-setup-wizard-process"></a>Proces Kreatora instalacji pierwszego czasu
 Poniższe kroki podsumowują proces Kreatora instalacji. Aby uzyskać szczegółowe informacje dotyczące instalacji, zobacz [wdrażanie lokalnego urządzenia StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 
 1. Uruchom polecenie cmdlet [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) , aby uruchomić Kreatora instalacji, który przeprowadzi Cię przez pozostałe kroki. 
-2. Konfigurowanie sieci: Kreator instalacji umożliwia skonfigurowanie ustawień sieciowych dla interfejsu sieciowego 0 na urządzeniu StorSimple. Są to m.in. następujące ustawienia:
+2. Konfigurowanie sieci: Kreator instalacji umożliwia skonfigurowanie ustawień sieciowych dla interfejsu sieciowego 0 na urządzeniu StorSimple. Dostępne są następujące ustawienia:
    * Wirtualny adres IP (VIP), maska podsieci i Brama — polecenie cmdlet [Set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) jest wykonywane w tle. Konfiguruje adres IP, maskę podsieci i bramę dla interfejsu sieciowego DATA 0 na urządzeniu StorSimple.
    * Podstawowy serwer DNS — polecenie cmdlet [Set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) jest wykonywane w tle. Konfiguruje ustawienia DNS dla rozwiązania StorSimple.
    * Serwer NTP — polecenie cmdlet [Set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) jest wykonywane w tle. Konfiguruje ustawienia serwera NTP dla rozwiązania StorSimple.
@@ -58,10 +58,10 @@ Poniższe kroki podsumowują proces Kreatora instalacji. Aby uzyskać szczegół
      > [!IMPORTANT]
      > Hasła są zbierane przed rejestracją, ale są stosowane dopiero po pomyślnym zarejestrowaniu urządzenia. Jeśli wystąpi błąd podczas stosowania hasła, zostanie wyświetlony monit o podanie hasła ponownie do momentu zebrania wymaganych haseł (spełniających wymagania dotyczące złożoności).
      
-4. Zarejestruj urządzenie: ostatnim krokiem jest zarejestrowanie urządzenia w usłudze StorSimple Menedżer urządzeń działającej w Microsoft Azure. Rejestracja wymaga [pobrania klucza rejestracji usługi](storsimple-8000-manage-service.md#get-the-service-registration-key) z Azure Portal i udostępnienia go w Kreatorze instalacji. **Po pomyślnym zarejestrowaniu urządzenia jest dostarczany klucz szyfrowania danych usługi. Pamiętaj, aby zachować ten klucz szyfrowania w bezpiecznej lokalizacji, ponieważ będzie on wymagany do zarejestrowania wszystkich kolejnych urządzeń w usłudze.**
+4. Zarejestruj urządzenie: ostatnim krokiem jest zarejestrowanie urządzenia w usłudze StorSimple Device Manager działającej w Microsoft Azure. Rejestracja wymaga [pobrania klucza rejestracji usługi](storsimple-8000-manage-service.md#get-the-service-registration-key) z Azure Portal i udostępnienia go w Kreatorze instalacji. **Po pomyślnym zarejestrowaniu urządzenia jest dostarczany klucz szyfrowania danych usługi. Pamiętaj, aby zachować ten klucz szyfrowania w bezpiecznej lokalizacji, ponieważ będzie on wymagany do zarejestrowania wszystkich przyszłych urządzeń w usłudze.**
 
 ## <a name="common-errors-during-device-deployment"></a>Typowe błędy podczas wdrażania urządzenia
-W poniższej tabeli wymieniono typowe błędy, które mogą wystąpić podczas:
+W poniższych tabelach wymieniono typowe błędy, które można napotkać podczas:
 
 * Skonfiguruj wymagane ustawienia sieci.
 * Skonfiguruj opcjonalne ustawienia serwera proxy sieci Web.
@@ -94,12 +94,12 @@ Domyślne hasło administratora urządzenia to **Password1**. To hasło wygasa p
 Upewnij się, że hasła spełniają następujące wymagania:
 
 * Hasło administratora urządzenia powinno mieć długość od 8 do 15 znaków.
-* Hasła powinny zawierać 3 z następujących 4 typów znaków: małe litery, wielkie litery, cyfry i znaki specjalne. 
+* Hasła powinny zawierać trzy z następujących typów znaków: małe litery, wielkie litery, cyfry i znaki specjalne. 
 * Hasło nie może być takie samo jak w przypadku ostatnich 24 haseł.
 
 Ponadto należy pamiętać, że hasła wygasają co rok i mogą być zmieniane dopiero po pomyślnym zarejestrowaniu urządzenia. Jeśli rejestracja nie powiedzie się z jakiegokolwiek powodu, hasła nie zostaną zmienione.
 
-Aby uzyskać więcej informacji na temat hasła administratora urządzenia, przejdź do [usługi StorSimple Menedżer urządzeń, aby zmienić hasło StorSimple](storsimple-8000-change-passwords.md).
+Aby uzyskać więcej informacji na temat hasła administratora urządzenia, przejdź do [usługi StorSimple Device Manager, aby zmienić hasło StorSimple](storsimple-8000-change-passwords.md).
 
 Podczas konfigurowania administratora urządzenia i StorSimple Snapshot Manager hasła może wystąpić co najmniej jeden z następujących błędów.
 
@@ -121,16 +121,16 @@ Hasła są zbierane przed zarejestrowaniem urządzenia, ale są stosowane dopier
 > Ogólnie rzecz biorąc, jeśli próba zastosowania hasła nie powiedzie się, oprogramowanie wielokrotnie próbuje zebrać hasło do momentu jego pomyślnego przeprowadzenia. W rzadkich przypadkach nie można zastosować hasła. W takiej sytuacji możesz zarejestrować urządzenie i wykonać operację, ale hasła nie zostaną zmienione. Po rejestracji z Azure Portal można zmienić hasło administratora urządzenia.
 
 
-Możesz zresetować hasło w Azure Portal za pośrednictwem usługi StorSimple Menedżer urządzeń. Aby uzyskać więcej informacji, przejdź do [obszaru zmiana hasła administratora urządzenia](storsimple-8000-change-passwords.md#change-the-device-administrator-password).
+Możesz zresetować hasło w Azure Portal za pośrednictwem usługi StorSimple Device Manager. Aby uzyskać więcej informacji, przejdź do [obszaru zmiana hasła administratora urządzenia](storsimple-8000-change-passwords.md#change-the-device-administrator-password).
 
 ## <a name="errors-during-device-registration"></a>Błędy podczas rejestracji urządzenia
-Aby zarejestrować urządzenie, należy użyć usługi StorSimple Menedżer urządzeń działającej w programie Microsoft Azure. Wystąpił co najmniej jeden z następujących problemów podczas rejestracji urządzenia.
+Aby zarejestrować urządzenie, należy użyć usługi StorSimple Device Manager działającej w programie Microsoft Azure. Wystąpił co najmniej jeden z następujących problemów podczas rejestracji urządzenia.
 
 | Nie. | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 | --- | --- | --- | --- |
-| 1 |Błąd 350027: nie można zarejestrować urządzenia w Menedżer urządzeń StorSimple. | |Poczekaj kilka minut, a następnie spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzać, [skontaktuj się z firmą pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md). |
+| 1 |Błąd 350027: nie można zarejestrować urządzenia w Device Manager StorSimple. | |Poczekaj kilka minut, a następnie spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzać, [skontaktuj się z firmą pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md). |
 | 2 |Błąd 350013: Wystąpił błąd podczas rejestrowania urządzenia. Może to być spowodowane niepoprawnym kluczem rejestracji usługi. | |Zarejestruj urządzenie ponownie przy użyciu poprawnego klucza rejestracji usługi. Aby uzyskać więcej informacji, zobacz [Pobieranie klucza rejestracji usługi.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
-| 3 |Błąd 350063: uwierzytelnianie w usłudze StorSimple Menedżer urządzeń zostało przesłane, ale rejestracja nie powiodła się. Spróbuj ponownie wykonać operację po pewnym czasie. |Ten błąd wskazuje, że uwierzytelnianie za pomocą usługi ACS zakończyło się pomyślnie, ale wywołanie Register zostało zakończone niepowodzeniem. Może to być spowodowane sporadycznym błędem sieci. |Jeśli problem będzie się powtarzać, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md). |
+| 3 |Błąd 350063: uwierzytelnianie w usłudze StorSimple Device Manager zostało przesłane, ale rejestracja nie powiodła się. Spróbuj ponownie wykonać operację po pewnym czasie. |Ten błąd wskazuje, że uwierzytelnianie za pomocą usługi ACS zakończyło się pomyślnie, ale wywołanie Register zostało zakończone niepowodzeniem. Może to być spowodowane sporadycznym błędem sieci. |Jeśli problem będzie się powtarzać, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md). |
 | 4 |Błąd 350049: nie można nawiązać połączenia z usługą podczas rejestracji. |Po wywołaniu usługi zostanie odebrany wyjątek sieci Web. W niektórych przypadkach może to zostać naprawione przez ponowną próbę wykonania operacji później. |Sprawdź adres IP i nazwę DNS, a następnie spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzał, [skontaktuj się z pomoc techniczna firmy Microsoft.](storsimple-8000-contact-microsoft-support.md) |
 | 5 |Błąd 350031: urządzenie zostało już zarejestrowane. | |Nie trzeba podejmować żadnych działań. |
 | 6 |Błąd 350016: Rejestracja urządzenia nie powiodła się. | |Upewnij się, że klucz rejestracji jest prawidłowy. |
@@ -139,10 +139,10 @@ Aby zarejestrować urządzenie, należy użyć usługi StorSimple Menedżer urz�
 | 9 |Ostrzeżenie: nie można aktywować urządzenia. Hasła administratora urządzenia i StorSimple Snapshot Manager nie zostały zmienione. |Jeśli rejestracja nie powiedzie się, hasła administratora i StorSimple Snapshot Manager nie są zmieniane. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Narzędzia do rozwiązywania problemów z wdrożeniami usługi StorSimple
-StorSimple zawiera kilka narzędzi, których można użyć do rozwiązywania problemów z rozwiązaniem StorSimple. Są one następujące:
+StorSimple zawiera kilka narzędzi, których można użyć do rozwiązywania problemów z rozwiązaniem StorSimple. Do tych narzędzi należą:
 
 * Obsługa pakietów i dzienników urządzeń.
-* Polecenia cmdlet przeznaczone specjalnie do rozwiązywania problemów.
+* Polecenia cmdlet przeznaczone do rozwiązywania problemów.
 
 ## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>Pakiety pomocy technicznej i dzienniki urządzeń dostępne do rozwiązywania problemów
 Pakiet pomocy technicznej zawiera wszystkie odpowiednie dzienniki, które mogą pomóc zespołowi pomoc techniczna firmy Microsoftemu rozwiązywać problemy z urządzeniem. Za pomocą program Windows PowerShell dla usługi StorSimple można wygenerować zaszyfrowany pakiet pomocy technicznej, który można następnie udostępnić pracownikowi pomocy technicznej.
@@ -153,7 +153,7 @@ Pakiet pomocy technicznej zawiera wszystkie odpowiednie dzienniki, które mogą 
 3. Użyj tej [procedury krok po kroku](storsimple-8000-create-manage-support-package.md#edit-a-support-package) , aby otworzyć i odszyfrować pakiet pomocy technicznej.
 4. Odszyfrowane dzienniki pakietów pomocy technicznej są w formacie ETW/etvx. Aby wyświetlić te pliki w systemie Windows Podgląd zdarzeń, można wykonać następujące czynności:
    
-   1. Uruchom polecenie **eventvwr** na kliencie systemu Windows. Spowoduje to uruchomienie Podgląd zdarzeń.
+   1. Uruchom polecenie **eventvwr** na kliencie systemu Windows, aby uruchomić Podgląd zdarzeń.
    2. W okienku **Akcje** kliknij pozycję **Otwórz zapisany dziennik** i wskaż pliki dziennika w formacie etvx/ETW (pakiet pomocy technicznej). Teraz możesz wyświetlić plik. Po otwarciu pliku możesz kliknąć prawym przyciskiem myszy i zapisać plik jako tekst.
       
       > [!IMPORTANT]
@@ -178,7 +178,7 @@ Aby wykryć błędy łączności, użyj następujących poleceń cmdlet programu
 * `Get-HcsRoutingTable`: Użyj tego polecenia cmdlet, aby wyświetlić tabelę lokalnego routingu IP.
 
 ## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Get-NetAdapter
-W przypadku konfigurowania interfejsów sieciowych na potrzeby wdrożenia urządzenia po raz pierwszy stan sprzętu nie jest dostępny w interfejsie użytkownika usługi StorSimple Menedżer urządzeń, ponieważ urządzenie nie zostało jeszcze zarejestrowane w usłudze. Ponadto blok **kondycji sprzętu** może nie zawsze odzwierciedlać stan urządzenia, szczególnie w przypadku problemów mających wpływ na synchronizację usługi. W takich sytuacjach można użyć `Get-NetAdapter` polecenia cmdlet w celu określenia kondycji i stanu interfejsów sieciowych.
+W przypadku konfigurowania interfejsów sieciowych na potrzeby wdrożenia urządzenia po raz pierwszy stan sprzętu nie jest dostępny w interfejsie użytkownika usługi StorSimple Device Manager, ponieważ urządzenie nie zostało jeszcze zarejestrowane w usłudze. Ponadto blok **kondycji sprzętu** może nie zawsze odzwierciedlać stan urządzenia, szczególnie w przypadku problemów mających wpływ na synchronizację usługi. W takich sytuacjach można użyć `Get-NetAdapter` polecenia cmdlet w celu określenia kondycji i stanu interfejsów sieciowych.
 
 ### <a name="to-see-a-list-of-all-the-network-adapters-on-your-device"></a>Aby wyświetlić listę wszystkich kart sieciowych na urządzeniu
 1. Rozpocznij program Windows PowerShell dla usługi StorSimple, a następnie wpisz `Get-NetAdapter` . 
@@ -187,9 +187,9 @@ W przypadku konfigurowania interfejsów sieciowych na potrzeby wdrożenia urząd
    * Jeśli interfejs jest w dobrej kondycji i włączony, stan **numer IfIndex** jest wyświetlany **jako.**
    * Jeśli interfejs jest w dobrej kondycji, ale nie jest fizycznie połączony (przez kabel sieciowy), **numer IfIndex** jest pokazywany jako **wyłączony**.
    * Jeśli interfejs jest w dobrej kondycji, ale nie jest włączony, stan **numer IfIndex** jest pokazywany jako **NotPresent**.
-   * Jeśli interfejs nie istnieje, nie jest wyświetlany na tej liście. Interfejs użytkownika usługi StorSimple Menedżer urządzeń w dalszym ciągu będzie wyświetlał tego interfejsu w stanie niepowodzenia.
+   * Jeśli interfejs nie istnieje, nie jest wyświetlany na tej liście. Interfejs użytkownika usługi StorSimple Device Manager w dalszym ciągu będzie wyświetlał tego interfejsu w stanie niepowodzenia.
 
-Aby uzyskać więcej informacji na temat korzystania z tego polecenia cmdlet, przejdź do polecenia [Get-adapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) w dokumentacji poleceń cmdlet programu Windows PowerShell.
+Aby uzyskać więcej informacji na temat korzystania z tego polecenia cmdlet, przejdź do polecenia [Get-adapter](/powershell/module/netadapter/get-netadapter?view=win10-ps&preserve-view=true) w dokumentacji poleceń cmdlet programu Windows PowerShell.
 
 W poniższych sekcjach przedstawiono przykłady danych wyjściowych z `Get-NetAdapter` polecenia cmdlet.
 
@@ -206,7 +206,7 @@ Kontroler 1 jest aktywnym kontrolerem i został skonfigurowany w następujący s
 
 **Przykładowe dane wyjściowe — kontroler 0**
 
-Poniżej przedstawiono dane wyjściowe z kontrolera 0 (kontroler pasywny). DANE 1, dane 2 i dane 3 nie są połączone. DANE 4 i 5 nie są wyświetlane, ponieważ nie znajdują się one na urządzeniu.
+Następujące przykładowe dane są danymi wyjściowymi kontrolera 0 (kontroler pasywny). DANE 1, dane 2 i dane 3 nie są połączone. DANE 4 i 5 nie są wyświetlane, ponieważ nie znajdują się one na urządzeniu.
 
 ```output
 Controller0>Get-NetAdapter
@@ -222,7 +222,7 @@ DATA0                Intel(R) 82574L Gigabit Network Conn...     15       Up
 
 **Przykładowe dane wyjściowe — kontroler 1**
 
-Poniżej przedstawiono dane wyjściowe z kontrolera 1 (aktywny kontroler). Tylko interfejs sieciowy DATA 0 na urządzeniu jest skonfigurowany i działa.
+Następujące przykładowe dane są danymi wyjściowymi kontrolera 1 (aktywnym kontrolerem). Tylko interfejs sieciowy DATA 0 na urządzeniu jest skonfigurowany i działa.
 
 ```output
 Controller1>Get-NetAdapter
@@ -241,7 +241,7 @@ DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPre
 ## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Test-Connection
 Za pomocą `Test-Connection` polecenia cmdlet można określić, czy urządzenie StorSimple może nawiązać połączenie z siecią zewnętrzną. Jeśli wszystkie parametry sieci, w tym DNS, są poprawnie skonfigurowane w Kreatorze instalacji, można użyć `Test-Connection` polecenia cmdlet do pingowania znanego adresu spoza sieci, na przykład Outlook.com.
 
-Należy włączyć polecenie ping, aby rozwiązać problemy z łącznością z tym poleceniem cmdlet, jeśli polecenie ping jest wyłączone.
+Jeśli polecenie cmdlet ping jest wyłączone, należy włączyć polecenie ping do użycia w rozwiązywaniu problemów z łącznością.
 
 Zapoznaj się z poniższymi przykładami danych wyjściowych z `Test-Connection` polecenia cmdlet.
 
@@ -250,7 +250,7 @@ Zapoznaj się z poniższymi przykładami danych wyjściowych z `Test-Connection`
 
 **Przykładowe dane wyjściowe — Nieprawidłowa usługa DNS**
 
-W poniższym przykładzie nie ma danych wyjściowych dla adresów IPV4 i IPV6, co oznacza, że serwer DNS nie został rozpoznany. Oznacza to, że nie ma łączności z siecią zewnętrzną i należy podać prawidłowy serwer DNS.
+Poniższy przykład nie zawiera żadnych danych wyjściowych dla adresów IPV4 i IPV6, co oznacza, że serwer DNS nie został rozpoznany. Nie ma łączności z siecią zewnętrzną i należy podać prawidłowy serwer DNS.
 
 ```output
 Source        Destination     IPV4Address      IPV6Address
@@ -263,7 +263,7 @@ HCSNODE0      outlook.com
 
 **Przykładowe dane wyjściowe — poprawna usługa DNS**
 
-W poniższym przykładzie serwer DNS zwraca adres IPV4, co oznacza, że serwer DNS jest prawidłowo skonfigurowany. Pozwala to upewnić się, że istnieje łączność z siecią zewnętrzną.
+W poniższym przykładzie serwer DNS zwraca adres IPV4, co oznacza, że serwer DNS jest prawidłowo skonfigurowany. Dane wyjściowe potwierdzają, że istnieje łączność z siecią zewnętrzną.
 
 ```output
 Source        Destination     IPV4Address      IPV6Address
@@ -275,35 +275,35 @@ HCSNODE0      outlook.com     132.245.92.194
 ```
 
 ## <a name="troubleshoot-with-the-test-hcsmconnection-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Test-HcsmConnection
-Użyj `Test-HcsmConnection` polecenia cmdlet dla urządzenia, które jest już połączone i zarejestrowane w usłudze StorSimple Menedżer urządzeń. To polecenie cmdlet umożliwia zweryfikowanie łączności między zarejestrowanym urządzeniem i odpowiadającą StorSimple Menedżer urządzeń usługą. To polecenie można uruchomić na program Windows PowerShell dla usługi StorSimple.
+Użyj `Test-HcsmConnection` polecenia cmdlet dla urządzenia, które jest już połączone i zarejestrowane w usłudze StorSimple Device Manager. To polecenie cmdlet umożliwia zweryfikowanie łączności między zarejestrowanym urządzeniem i odpowiadającą StorSimple Device Manager usługą. To polecenie można uruchomić na program Windows PowerShell dla usługi StorSimple.
 
 ### <a name="to-run-the-test-hcsmconnection-cmdlet"></a>Aby uruchomić Test-HcsmConnection polecenie cmdlet
 1. Upewnij się, że urządzenie jest zarejestrowane.
 2. Sprawdź stan urządzenia. Jeśli urządzenie zostanie zdezaktywowane, w trybie konserwacji lub offline może zostać wyświetlony jeden z następujących błędów:
    
-   * ErrorCode. CiSDeviceDecommissioned — wskazuje, że urządzenie zostało zdezaktywowane.
-   * ErrorCode. DeviceNotReady — wskazuje, że urządzenie jest w trybie konserwacji.
-   * ErrorCode. DeviceNotReady — wskazuje, że urządzenie nie jest w trybie online.
-3. Sprawdź, czy usługa Menedżer urządzeń StorSimple jest uruchomiona (Użyj polecenia cmdlet [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) ). Jeśli usługa nie jest uruchomiona, mogą zostać wyświetlone następujące błędy:
+   * ErrorCode. CiSDeviceDecommissioned: wskazuje, że urządzenie zostało zdezaktywowane.
+   * ErrorCode. DeviceNotReady: wskazuje, że urządzenie jest w trybie konserwacji.
+   * ErrorCode. DeviceNotReady: wskazuje, że urządzenie nie jest w trybie online.
+3. Sprawdź, czy usługa Device Manager StorSimple jest uruchomiona (Użyj polecenia cmdlet [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) ). Jeśli usługa nie jest uruchomiona, mogą zostać wyświetlone następujące błędy:
    
    * ErrorCode. CiSApplianceAgentNotOnline
-   * ErrorCode. CisPowershellScriptHcsError — wskazuje, że wystąpił wyjątek podczas wykonywania Get-ClusterResource.
+   * ErrorCode. CisPowershellScriptHcsError: wskazuje, że wystąpił wyjątek podczas wykonywania Get-ClusterResource.
 4. Sprawdź token Access Control Service (ACS). Jeśli zgłasza wyjątek sieci Web, może to być spowodowane problemem z bramą, brakującym uwierzytelnianiem serwera proxy, nieprawidłowym systemem DNS lub błędem uwierzytelniania. Mogą pojawić się następujące błędy:
    
-   * ErrorCode. CiSApplianceGateway — wskazuje wyjątek HttpStatusCode. BadGateway: usługa rozpoznawania nazw nie mogła rozpoznać nazwy hosta.
-   * ErrorCode. CiSApplianceProxy — wskazuje wyjątek HttpStatusCode. ProxyAuthenticationRequired (kod stanu HTTP 407): klient nie może uwierzytelnić się na serwerze proxy.
-   * ErrorCode. CiSApplianceDNSError — wskazuje wyjątek WebExceptionStatus. NameResolutionFailure: usługa rozpoznawania nazw nie mogła rozpoznać nazwy hosta.
-   * ErrorCode. CiSApplianceACSError — wskazuje, że usługa zwróciła błąd uwierzytelniania, ale istnieje łączność.
+   * ErrorCode. CiSApplianceGateway: wskazuje wyjątek HttpStatusCode. BadGateway: usługa rozpoznawania nazw nie mogła rozpoznać nazwy hosta.
+   * ErrorCode. CiSApplianceProxy: wskazuje wyjątek HttpStatusCode. ProxyAuthenticationRequired (kod stanu HTTP 407): klient nie może uwierzytelnić się na serwerze proxy.
+   * ErrorCode. CiSApplianceDNSError: wskazuje wyjątek WebExceptionStatus. NameResolutionFailure: usługa rozpoznawania nazw nie mogła rozpoznać nazwy hosta.
+   * ErrorCode. CiSApplianceACSError: wskazuje, że usługa zwróciła błąd uwierzytelniania, ale istnieje łączność.
      
-     Jeśli nie zgłasza wyjątku sieci Web, sprawdź, czy jest to ErrorCode. CiSApplianceFailure. Oznacza to, że urządzenie nie powiodło się.
+     Jeśli nie zgłasza wyjątku sieci Web, sprawdź, czy nie wystąpił błąd ErrorCode. CiSApplianceFailure, co oznacza, że urządzenie nie powiodło się.
 5. Sprawdź łączność z usługą w chmurze. Jeśli usługa zgłasza wyjątek sieci Web, mogą zostać wyświetlone następujące błędy:
    
-   * ErrorCode. CiSApplianceGateway — to oznacza wyjątek HttpStatusCode. BadGateway: pośredni serwer proxy otrzymał Nieprawidłowe żądanie od innego serwera proxy lub z oryginalnego serwera.
-   * ErrorCode. CiSApplianceProxy — wskazuje wyjątek HttpStatusCode. ProxyAuthenticationRequired (kod stanu HTTP 407): klient nie może uwierzytelnić się na serwerze proxy.
-   * ErrorCode. CiSApplianceDNSError — wskazuje wyjątek WebExceptionStatus. NameResolutionFailure: usługa rozpoznawania nazw nie mogła rozpoznać nazwy hosta.
-   * ErrorCode. CiSApplianceACSError — wskazuje, że usługa zwróciła błąd uwierzytelniania, ale istnieje łączność.
+   * ErrorCode. CiSApplianceGateway: wskazuje wyjątek HttpStatusCode. BadGateway: pośredni serwer proxy otrzymał Nieprawidłowe żądanie od innego serwera proxy lub z oryginalnego serwera.
+   * ErrorCode. CiSApplianceProxy: wskazuje wyjątek HttpStatusCode. ProxyAuthenticationRequired (kod stanu HTTP 407): klient nie może uwierzytelnić się na serwerze proxy.
+   * ErrorCode. CiSApplianceDNSError: wskazuje wyjątek WebExceptionStatus. NameResolutionFailure: usługa rozpoznawania nazw nie mogła rozpoznać nazwy hosta.
+   * ErrorCode. CiSApplianceACSError: wskazuje, że usługa zwróciła błąd uwierzytelniania, ale nastąpiła łączność.
      
-     Jeśli nie zgłasza wyjątku sieci Web, sprawdź, czy jest to ErrorCode. CiSApplianceSaasServiceError. Wskazuje to na problem z usługą StorSimple Menedżer urządzeń.
+     Jeśli nie zgłosi wyjątku sieci Web, sprawdź, czy jest wyświetlany kod ErrorCode. CiSApplianceSaasServiceError, który wskazuje na problem z usługą StorSimple Device Manager.
 6. Sprawdź łączność Azure Service Bus. ErrorCode. CiSApplianceServiceBusError wskazuje, że urządzenie nie może nawiązać połączenia z Service Bus.
 
 Pliki dziennika CiSCommandletLog0Curr. errlog i CiSAgentsvc0Curr. errlog będą miały więcej informacji, takich jak szczegóły wyjątku.
@@ -357,7 +357,7 @@ Device is registered successfully
 Checking connectivity from device to SaaS.. Failure
 ```
 
-Urządzenie nie może nawiązać połączenia przy użyciu bieżącej konfiguracji serwera proxy sieci Web. Może to być problem z konfiguracją serwera proxy sieci Web lub problemem z łącznością sieciową. W takim przypadku należy upewnić się, że ustawienia serwera proxy sieci Web są prawidłowe, a serwery proxy sieci Web są w trybie online i dostępne.
+Urządzenie nie może nawiązać połączenia przy użyciu bieżącej konfiguracji serwera proxy sieci Web. Może wystąpić problem z konfiguracją serwera proxy sieci Web lub problemem z łącznością sieciową. W takim przypadku należy upewnić się, że ustawienia serwera proxy sieci Web są prawidłowe, a serwery proxy sieci Web są w trybie online i dostępne.
 
 ## <a name="troubleshoot-with-the-sync-hcstime-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Sync-HcsTime
 Użyj tego polecenia cmdlet, aby wyświetlić czas urządzenia. Jeśli czas urządzenia ma przesunięcie z serwerem NTP, możesz użyć tego polecenia cmdlet, aby wymusić synchronizację czasu z serwerem NTP.
@@ -419,11 +419,11 @@ Trace complete.
 ## <a name="troubleshoot-with-the-get-hcsroutingtable-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Get-HcsRoutingTable
 Użyj tego polecenia cmdlet, aby wyświetlić tabelę routingu urządzenia StorSimple. Tabela routingu to zestaw reguł, które mogą pomóc w ustaleniu, gdzie będą kierowane pakiety danych przesyłane przez sieć protokołu IP.
 
-W tabeli routingu są wyświetlane interfejsy i Brama, która kieruje dane do określonych sieci. Zapewnia również metrykę routingu, która jest producentem decyzji dla ścieżki, która ma dotrzeć do określonego miejsca docelowego. Im niższa jest Metryka routingu, tym wyższy poziom preferencji.
+W tabeli routingu są wyświetlane interfejsy i Brama, która kieruje dane do określonych sieci. Zapewnia również metrykę routingu, która jest producentem decyzji w celu uzyskania dostępu do określonego miejsca docelowego. Im niższa jest Metryka routingu, tym wyższy poziom preferencji.
 
-Na przykład jeśli masz 2 interfejsy sieciowe, dane 2 i dane 3 połączone z Internetem. Jeśli metryki routingu dla danych 2 i danych 3 są odpowiednio 15 i 261, wówczas dane 2 z niższą metryką routingu są preferowanym interfejsem używanym do nawiązywania połączenia z Internetem.
+Załóżmy na przykład, że masz dwa interfejsy sieciowe, dane 2 i dane 3 połączone z Internetem. Jeśli metryki routingu dla danych 2 i danych 3 są odpowiednio 15 i 261, wówczas dane 2 z niższą metryką routingu są preferowanym interfejsem używanym do nawiązywania połączenia z Internetem.
 
-Jeśli na urządzeniu StorSimple jest uruchomiona Aktualizacja Update 1, interfejs sieciowy DATA 0 ma najwyższy poziom preferencji ruchu w chmurze. Oznacza to, że nawet jeśli istnieją inne interfejsy obsługujące chmurę, ruch w chmurze byłby kierowany przez dane 0.
+Jeśli na urządzeniu StorSimple jest uruchomiona Aktualizacja Update 1, interfejs sieciowy DATA 0 ma najwyższy poziom preferencji ruchu w chmurze. W przypadku tej konfiguracji, nawet jeśli istnieją inne interfejsy obsługujące chmurę, większość ruchu w chmurze będzie kierowana przez dane 0.<!--This implies that even if there are other cloud-enabled interfaces, the cloud traffic would be routed through DATA 0. - Preceding sentence replaces this one. Use of "This implies" is a bit murky. DATA 0 will be the preferred network interface? Is my translation OK?-->
 
 Jeśli `Get-HcsRoutingTable` polecenie cmdlet zostanie uruchomione bez określenia żadnych parametrów (jak pokazano w poniższym przykładzie), polecenie cmdlet będzie wyprowadzać tabele routingu IPv4 i IPv6. Alternatywnie możesz określić `Get-HcsRoutingTable -IPv4` lub `Get-HcsRoutingTable -IPv6`  uzyskać odpowiednią tabelę routingu.
 
@@ -504,7 +504,7 @@ Invoke-HcsSetupWizard: An error has occurred while registering the device. This 
 +FullyQualifiedErrorID: CiSClientCommunicationErros, Microsoft.HCS.Management.PowerShell.Cmdlets.InvokeHcsSetupWizardCommand
 ```
 
-Przyczyną błędu może być dowolny z następujących elementów:
+Przyczyną błędu może być dowolny z następujących problemów:
 
 * Nieprawidłowa instalacja sprzętu
 * Błędne interfejsy sieciowe
@@ -526,9 +526,10 @@ Przyczyną błędu może być dowolny z następujących elementów:
 3. Sprawdź kondycję interfejsu sieciowego:
    
    * Użyj polecenia cmdlet Get-NetAdapter, aby wykryć kondycję interfejsów sieciowych dla danych 0. 
-   * Jeśli łącze nie działa, stan **numer IfIndex** będzie wskazywać, że interfejs nie działa. Następnie należy sprawdzić połączenie sieciowe portu z urządzeniem i przełącznikiem. Konieczne jest również wyróżnienie nieprawidłowych kabli. 
-   * Jeśli podejrzewasz, że port danych 0 na aktywnym kontrolerze zakończył się niepowodzeniem, możesz to potwierdzić, łącząc się z portem danych 0 na kontrolerze 1. Aby to potwierdzić, odłącz kabel sieciowy od tyłu urządzenia od kontrolera 0, podłącz kabel do kontrolera 1, a następnie ponownie uruchom Get-NetAdapter polecenie cmdlet.
-     Jeśli port DATA 0 kontrolera nie powiedzie się, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) w celu wykonania następnych kroków. Może być konieczne zastąpienie kontrolera w systemie.
+   * Jeśli łącze nie działa, `ifindex` stan będzie wskazywać, że interfejs nie działa. Następnie należy sprawdzić połączenie sieciowe portu z urządzeniem i przełącznikiem. Konieczne jest również wyróżnienie nieprawidłowych kabli. 
+   * Jeśli podejrzewasz, że port danych 0 na aktywnym kontrolerze zakończył się niepowodzeniem, możesz potwierdzić, że przez połączenie z portem danych 0 na kontrolerze 1. Odłącz kabel sieciowy od tylnej części urządzenia od kontrolera 0, podłącz kabel do kontrolera 1, a następnie ponownie uruchom Get-NetAdapter polecenie cmdlet.
+   
+     Jeśli port DATA 0 na kontrolerze kończy się niepowodzeniem, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) w celu wykonania następnych kroków. Może być konieczne zastąpienie kontrolera w systemie.
 4. Sprawdź łączność z przełącznikiem:
    
    * Upewnij się, że interfejsy sieciowe DATA 0 na kontrolerze 0 i kontrolerze 1 w obudowie podstawowej znajdują się w tej samej podsieci. 
@@ -537,14 +538,14 @@ Przyczyną błędu może być dowolny z następujących elementów:
 5. Eliminowanie wszystkich błędów użytkownika:
    
    * Uruchom ponownie Kreatora instalacji (Uruchom polecenie **Invoke-HcsSetupWizard**), a następnie wprowadź wartości ponownie, aby upewnić się, że nie występują żadne błędy. 
-   * Sprawdź używany klucz rejestracji. Ten sam klucz rejestracji może służyć do łączenia wielu urządzeń z usługą StorSimple Menedżer urządzeń. Aby upewnić się, że używasz prawidłowego klucza rejestracji, użyj procedury w temacie [Pobieranie klucza rejestracji usługi](storsimple-8000-manage-service.md#get-the-service-registration-key) .
+   * Sprawdź używany klucz rejestracji. Ten sam klucz rejestracji może służyć do łączenia wielu urządzeń z usługą StorSimple Device Manager. Aby upewnić się, że używasz prawidłowego klucza rejestracji, użyj procedury w temacie [Pobieranie klucza rejestracji usługi](storsimple-8000-manage-service.md#get-the-service-registration-key) .
      
      > [!IMPORTANT]
-     > Jeśli masz uruchomioną wiele usług, musisz się upewnić, że klucz rejestracji odpowiedniej usługi jest używany do zarejestrowania urządzenia. Jeśli urządzenie zostało zarejestrowane z nieprawidłową usługą StorSimple Menedżer urządzeń, musisz [skontaktować się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) , aby uzyskać kolejne kroki. Może być konieczne przeprowadzenie resetowania urządzenia do ustawień fabrycznych (co może spowodować utratę danych), a następnie nawiązanie połączenia z zamierzoną usługą.
+     > Jeśli masz uruchomioną wiele usług, musisz się upewnić, że klucz rejestracji odpowiedniej usługi jest używany do zarejestrowania urządzenia. Jeśli urządzenie zostało zarejestrowane z nieprawidłową usługą StorSimple Device Manager, musisz [skontaktować się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) , aby uzyskać kolejne kroki. Może być konieczne przeprowadzenie resetowania urządzenia do ustawień fabrycznych (co może spowodować utratę danych), a następnie nawiązanie połączenia z zamierzoną usługą.
      > 
      > 
 6. Użyj polecenia cmdlet Test-Connection, aby sprawdzić, czy masz połączenie z siecią zewnętrzną. Aby uzyskać więcej informacji, przejdź do [rozwiązywania problemów za pomocą polecenia cmdlet Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
-7. Sprawdź, czy istnieją zakłócenia zapory. Jeśli sprawdzono, że ustawienia wirtualnego adresu IP (VIP), podsieci, bramy i DNS są poprawne i nadal występują problemy z łącznością, istnieje możliwość, że zapora blokuje komunikację między urządzeniem a zewnętrzną siecią. Należy upewnić się, że porty 80 i 443 są dostępne na urządzeniu StorSimple na potrzeby komunikacji wychodzącej. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące sieci dla urządzenia StorSimple](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
+7. Sprawdź, czy istnieją zakłócenia zapory. Jeśli sprawdzono, że ustawienia wirtualnego adresu IP (VIP), podsieci, bramy i DNS są poprawne i nadal występują problemy z łącznością, istnieje możliwość, że zapora blokuje komunikację między urządzeniem a siecią zewnętrzną. Upewnij się, że porty 80 i 443 są dostępne na urządzeniu StorSimple na potrzeby komunikacji wychodzącej. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące sieci dla urządzenia StorSimple](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 8. Sprawdź dzienniki. Przejdź do usługi [support Packages i dzienników urządzeń dostępnych do rozwiązywania problemów](#support-packages-and-device-logs-available-for-troubleshooting).
 9. Jeśli powyższe kroki nie rozwiązują problemu, [skontaktuj się z](storsimple-8000-contact-microsoft-support.md) pomocą techniczną pomoc techniczna firmy Microsoft.
 

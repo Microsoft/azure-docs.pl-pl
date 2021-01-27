@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 722c02dc47dfea1376f216e7f5335051aea85af6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: bedb152a8fecfdb1ee699f431e4e43ef3ceed564
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98738845"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807548"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -19,3 +19,4 @@ ms.locfileid: "98738845"
 |[Sieć wirtualna zarządzanego obszaru roboczego w obszarze roboczym usługi Azure Synapse powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |Włączenie zarządzanej sieci wirtualnej obszaru roboczego gwarantuje, że obszar roboczy jest odizolowany od innych obszarów roboczych. Integracja danych i zasoby platformy Spark wdrożone w tej sieci wirtualnej również zapewniają izolację poziomu użytkownika dla działań Spark. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
 |[Połączenia prywatnych punktów końcowych w obszarach roboczych usługi Azure Synapse powinny być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Prywatne punkty końcowe można skonfigurować tak, aby łączyły się prywatnie z obszarem roboczym usługi Azure Synapse. Służy do wymuszania bezpiecznego kanału komunikacyjnego z obszarem roboczym usługi Azure Synapse. |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |[Zarządzane prywatne punkty końcowe Synapse powinny łączyć się tylko z zasobami w zatwierdzonych dzierżawach Azure Active Directory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Ochrona obszaru roboczego usługi Synapse przez umożliwienie połączeń z zasobami w zatwierdzonych dzierżawach Azure Active Directory (Azure AD). Zatwierdzone dzierżawy usługi Azure AD można zdefiniować podczas przypisywania zasad. |Inspekcja, wyłączona, Odmów |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |
+|[Ocena luk w zabezpieczeniach powinna być włączona w obszarach roboczych Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |Wykrywaj, śledź i Koryguj potencjalne luki w zabezpieczeniach, konfigurując cykliczne skanowania w ramach oceny luk w programie SQL w obszarach roboczych Synapse. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |

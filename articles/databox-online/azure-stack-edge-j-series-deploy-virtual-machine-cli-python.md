@@ -1,19 +1,19 @@
 ---
 title: Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU za pomocą interfejsu wiersza polecenia platformy Azure i języka Python
-description: Zawiera opis sposobu tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu z systemem Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python.
+description: W tym artykule opisano sposób tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu z systemem Azure Stack Edge w systemie GPU przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 54a4a938be18d39993652cecb87b3604e268fcef
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: daf44afbb322cb30ab3a663dce4e935aefa7be13
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678957"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808055"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 
@@ -70,9 +70,9 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
 3. Utworzono i zainstalowano wszystkie certyfikaty na urządzeniu Azure Stack EDGE Pro i w zaufanym magazynie Twojego klienta. Postępuj zgodnie z procedurą opisaną w [kroku 2: Tworzenie i instalowanie certyfikatów](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. Utworzono certyfikat *CER* z kodowaniem Base-64 (format PEM) dla urządzenia Azure Stack EDGE Pro. Ten element został już przekazany jako łańcuch podpisywania na urządzeniu i zainstalowany w zaufanym magazynie głównym na komputerze klienckim. Ten certyfikat jest również wymagany w formacie *PEM* , aby można było korzystać z tego klienta w języku Python.
+4. Utworzono certyfikat *CER* z kodowaniem Base-64 (format PEM) dla urządzenia Azure Stack EDGE Pro. Ten certyfikat został już przekazany jako łańcuch podpisywania na urządzeniu i zainstalowany w zaufanym magazynie głównym na komputerze klienckim. Ten certyfikat jest również wymagany w formacie *PEM* , aby można było korzystać z tego klienta w języku Python.
 
-    Przekonwertuj ten certyfikat na format PEM przy użyciu `certutil` polecenia. Należy uruchomić to polecenie w katalogu, który zawiera certyfikat.
+    Przekonwertuj ten certyfikat na `pem` format przy użyciu `certutil` polecenia. Należy uruchomić to polecenie w katalogu, który zawiera certyfikat.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
@@ -86,9 +86,9 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
     CertUtil: -encode command completed successfully.
     PS C:\Certificates>
     ```    
-    Ten PEM zostanie również dodany do sklepu w języku Python później.
+    Później zostanie również dodany `pem` do sklepu w języku Python.
 
-5. Adres IP urządzenia został przypisany do strony **sieci** w lokalnym interfejsie użytkownika sieci Web urządzenia. Musisz dodać ten adres IP do:
+5. Adres IP urządzenia został przypisany do strony **sieci** w lokalnym interfejsie użytkownika sieci Web urządzenia. Dodaj ten adres IP do:
 
     - Plik hosta na kliencie lub,
     - Konfiguracja serwera DNS
@@ -117,11 +117,11 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Weryfikowanie profilu i Instalowanie interfejsu wiersza polecenia platformy Azure
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
 1. Zainstaluj interfejs wiersza polecenia platformy Azure na kliencie. W tym przykładzie zainstalowano interfejs wiersza polecenia platformy Azure 2.0.80. Aby sprawdzić wersję interfejsu wiersza polecenia platformy Azure, uruchom `az --version` polecenie.
 
-    Poniżej przedstawiono przykładowe dane wyjściowe powyższego polecenia:
+    Poniżej przedstawiono przykładowe dane wyjściowe z powyższego polecenia:
 
     ```output
     PS C:\windows\system32> az --version
@@ -149,7 +149,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
     Jeśli nie masz interfejsu wiersza polecenia platformy Azure, Pobierz i [Zainstaluj interfejs wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows). Interfejs wiersza polecenia platformy Azure można uruchomić przy użyciu wiersza poleceń systemu Windows lub środowiska Windows PowerShell.
 
-2. Zanotuj lokalizację języka Python interfejsu wiersza polecenia. Należy to zrobić, aby określić lokalizację zaufanego głównego magazynu certyfikatów dla interfejsu wiersza polecenia platformy Azure.
+2. Zanotuj lokalizację języka Python interfejsu wiersza polecenia. Do określenia lokalizacji zaufanego głównego magazynu certyfikatów dla interfejsu wiersza polecenia platformy Azure potrzebna jest lokalizacja języka Python.
 
 3. Do uruchomienia przykładowego skryptu używanego w tym artykule potrzebne są następujące wersje biblioteki języka Python:
 
@@ -203,7 +203,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
 1. Znajdź lokalizację certyfikatu na swojej maszynie. Lokalizacja może się różnić w zależności od tego, gdzie zainstalowano `az cli` . Uruchom program Windows PowerShell jako administrator. Przejdź do ścieżki, w której `az cli` zainstalowano Język Python: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe` .
 
-    Aby pobrać lokalizację certyfikatu, wpisz następujące polecenie:
+    Aby uzyskać lokalizację certyfikatu, wpisz następujące polecenie:
 
     ```powershell
     .\python -c "import certifi; print(certifi.where())"
@@ -342,7 +342,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-   Zanotuj `id` wartości i, `tenantId` tak jak odpowiadają one identyfikatorowi subskrypcji Azure Resource Manager i Azure Resource Manager identyfikator dzierżawy i zostaną użyte w późniejszym kroku.
+   Zanotuj `id` wartości i, `tenantId` ponieważ wartości te ODPOWIADAją identyfikatorowi subskrypcji Azure Resource Manager i Azure Resource Manager identyfikator dzierżawy i będą używane w późniejszym kroku.
        
    Następujące zmienne środowiskowe muszą zostać ustawione tak, aby działały jako nazwa *główna usługi*:
 

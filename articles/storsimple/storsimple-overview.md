@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 01/11/2021
 ms.author: timlt
-ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 286f00318715764a5943387e6b362b3c8e69a82e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021842"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808142"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Seria StorSimple 8000: rozwiązanie hybrydowego magazynu w chmurze
 
@@ -44,12 +44,12 @@ W poniższej tabeli opisano niektóre z najważniejszych korzyści zapewnianych 
 | Integracja przezroczysta |Używa protokołu iSCSI do niewidocznego łączenia obiektów magazynu danych. Dzięki temu dane przechowywane w chmurze, w centrum danych lub na serwerach zdalnych, są przechowywane w jednej lokalizacji. |
 | Zmniejszone koszty magazynowania |Przydziela wystarczającą ilość miejsca w magazynie lokalnym lub w chmurze w celu spełnienia bieżących wymagań i rozszerza magazyn w chmurze tylko w razie potrzeby. Znacznie zmniejsza wymagania dotyczące magazynu i wydatków, eliminując nadmiarowe wersje tych samych danych (deduplikacji) i przy użyciu kompresji. |
 | Uproszczone zarządzanie magazynem |Program udostępnia narzędzia do administrowania systemem, które umożliwiają konfigurowanie danych przechowywanych lokalnie, na serwerze zdalnym i w chmurze oraz zarządzanie nimi. Ponadto można zarządzać funkcjami wykonywania kopii zapasowych i przywracania z przystawki programu Microsoft Management Console (MMC).|
-| Udoskonalone odzyskiwanie po awarii i zgodność |Nie wymaga rozszerzonego czasu odzyskiwania. Zamiast tego przywraca dane, gdy jest to konieczne. Oznacza to, że normalne operacje można kontynuować z minimalnym zakłóceniem. Ponadto można skonfigurować zasady, aby określić harmonogramy kopii zapasowych i przechowywanie danych. |
+| Udoskonalone odzyskiwanie po awarii i zgodność |Nie wymaga rozszerzonego czasu odzyskiwania. Zamiast tego przywraca dane w miarę potrzeby, aby normalne operacje mogły kontynuować minimalne zakłócenia. Ponadto można skonfigurować zasady, aby określić harmonogramy kopii zapasowych i przechowywanie danych. |
 | Mobilność danych |Do danych przekazywanych do usług w chmurze Microsoft Azure można uzyskać dostęp z innych lokacji na potrzeby odzyskiwania i migracji. Ponadto można użyć usługi StorSimple do skonfigurowania urządzeń w chmurze StorSimple na maszynach wirtualnych działających w Microsoft Azure. Maszyny wirtualne mogą następnie używać urządzeń wirtualnych do uzyskiwania dostępu do danych przechowywanych na potrzeby testowania lub odzyskiwania. |
 | Ciągłość działalności biznesowej |Umożliwia użytkownikom serii StorSimple 5000-7000 Migrowanie danych do urządzenia z serii StorSimple 8000. |
 | Dostępność w portalu Azure Government |StorSimple jest dostępny w portalu Azure Government. Aby uzyskać więcej informacji, zobacz [wdrażanie lokalnego urządzenia StorSimple w portalu dla instytucji rządowych](storsimple-8000-deployment-walkthrough-gov-u2.md). |
 | Ochrona i dostępność danych |Seria StorSimple 8000 obsługuje magazyn strefowo nadmiarowy (ZRS), a także Magazyn lokalnie nadmiarowy (LRS) i magazyn Geograficznie nadmiarowy (GRS). Zapoznaj się z [tym artykułem dotyczącym opcji nadmiarowości usługi Azure Storage](../storage/common/storage-redundancy.md) , aby uzyskać szczegółowe informacje o ZRS. |
-| Obsługa aplikacji o znaczeniu krytycznym |StorSimple pozwala identyfikować odpowiednie woluminy jako przypięte lokalnie, co z kolei gwarantuje, że dane wymagane przez krytyczne aplikacje nie są warstwową chmurą. Woluminy przypięte lokalnie nie są objęte opóźnieniami w chmurze lub problemami z łącznością. Aby uzyskać więcej informacji na temat woluminów przypiętych lokalnie, zobacz [Używanie usługi StorSimple Menedżer urządzeń do zarządzania woluminami](storsimple-8000-manage-volumes-u2.md). |
+| Obsługa aplikacji o znaczeniu krytycznym |StorSimple pozwala identyfikować odpowiednie woluminy jako przypięte lokalnie, co z kolei gwarantuje, że dane wymagane przez krytyczne aplikacje nie są warstwową chmurą. Woluminy przypięte lokalnie nie są objęte opóźnieniami w chmurze lub problemami z łącznością. Aby uzyskać więcej informacji na temat woluminów przypiętych lokalnie, zobacz [Używanie usługi StorSimple Device Manager do zarządzania woluminami](storsimple-8000-manage-volumes-u2.md). |
 | Małe opóźnienia i wysoka wydajność |Możesz tworzyć urządzenia w chmurze wykorzystujące funkcje wysokiej wydajności i małych opóźnień w usłudze Azure Premium Storage. Aby uzyskać więcej informacji na temat urządzeń w chmurze StorSimple Premium, zobacz [wdrażanie i zarządzanie urządzeniem w chmurze StorSimple na platformie Azure](storsimple-8000-cloud-appliance-u2.md). |
 
 
@@ -58,9 +58,9 @@ Rozwiązanie Microsoft Azure StorSimple obejmuje następujące składniki:
 
 * **Urządzenie Microsoft Azure StorSimple** — tablica magazynów w lokalnej hybrydowej, która zawiera dysków SSD i HDD, wraz z nadmiarowymi kontrolerami i funkcją automatycznej pracy awaryjnej. Kontrolery zarządzają warstwami magazynowania, umieszczając aktualnie używane (lub gorącą) dane w lokalnym magazynie (na urządzeniach lub serwerach lokalnych), jednocześnie przenosząc rzadziej używane dane do chmury.
 * Urządzenie w **chmurze StorSimple** — nazywane również urządzeniem wirtualnym StorSimple, jest to wersja oprogramowania urządzenia StorSimple, która replikuje architekturę i większość funkcji fizycznego hybrydowego urządzenia magazynującego. Urządzenie w chmurze StorSimple działa na jednym węźle na maszynie wirtualnej platformy Azure. Urządzenia wirtualne w warstwie Premium, które korzystają z usługi Azure Premium Storage, są dostępne w Update 2 i nowszych wersjach.
-* **Usługa StorSimple Menedżer urządzeń** — rozszerzenie Azure Portal, które pozwala zarządzać urządzeniem StorSimple lub StorSimple urządzeniu w chmurze z poziomu jednego interfejsu sieci Web. Usługi StorSimple Menedżer urządzeń można użyć do tworzenia usług i zarządzania nimi, wyświetlania i zarządzania urządzeniami, wyświetlania alertów, zarządzania woluminami oraz wyświetlania i zarządzania zasadami tworzenia kopii zapasowych oraz wykazem kopii zapasowych.
+* **Usługa StorSimple Device Manager** — rozszerzenie Azure Portal, które pozwala zarządzać urządzeniem StorSimple lub StorSimple urządzeniu w chmurze z poziomu jednego interfejsu sieci Web. Usługi StorSimple Device Manager można użyć do tworzenia usług i zarządzania nimi, wyświetlania i zarządzania urządzeniami, wyświetlania alertów, zarządzania woluminami oraz wyświetlania i zarządzania zasadami tworzenia kopii zapasowych oraz wykazem kopii zapasowych.
 * **Program Windows PowerShell dla usługi StorSimple** — interfejs wiersza polecenia, którego można użyć do zarządzania urządzeniem StorSimple. Program Windows PowerShell dla usługi StorSimple zawiera funkcje, które umożliwiają rejestrację urządzenia z systemem StorSimple, Konfigurowanie interfejsu sieciowego na urządzeniu, instalowanie niektórych typów aktualizacji, rozwiązywanie problemów z urządzeniem przez uzyskanie dostępu do sesji pomocy technicznej oraz zmianę stanu urządzenia. Dostęp do program Windows PowerShell dla usługi StorSimple można uzyskać, łącząc się z konsolą szeregową lub przy użyciu funkcji komunikacji zdalnej programu Windows PowerShell.
-* **Azure PowerShell polecenia cmdlet StorSimple** — kolekcja poleceń cmdlet programu Windows PowerShell, które umożliwiają automatyzację zadań na poziomie usług i migracji z wiersza polecenia. Aby uzyskać więcej informacji na temat Azure PowerShell poleceń cmdlet dla StorSimple, przejdź do [dokumentacji poleceń cmdlet](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0#azure).
+* **Azure PowerShell polecenia cmdlet StorSimple** — kolekcja poleceń cmdlet programu Windows PowerShell, które umożliwiają automatyzację zadań na poziomie usług i migracji z wiersza polecenia. Aby uzyskać więcej informacji na temat Azure PowerShell poleceń cmdlet dla StorSimple, przejdź do [dokumentacji poleceń cmdlet](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0&preserve-view=true#azure).
 * **StorSimple Snapshot Manager** — przystawka programu MMC, która używa grup woluminów i usługa kopiowania woluminów w tle Windows do generowania kopii zapasowych spójnych na poziomie aplikacji. Ponadto można użyć Snapshot Manager StorSimple do tworzenia harmonogramów tworzenia kopii zapasowych i klonowania lub przywracania woluminów.
 * **StorSimple adapter for SharePoint** — narzędzie, które w sposób przezroczysty rozszerza Microsoft Azure StorSimple magazynu i ochrony danych do farmy serwerów programu SharePoint, jednocześnie umożliwiając Zarządzanie magazynem StorSimple w portalu administracji centralnej programu SharePoint.
 
@@ -73,7 +73,7 @@ W poniższych sekcjach szczegółowo opisano każdy z tych składników i wyjaś
 ## <a name="storsimple-device"></a>Urządzenie StorSimple
 Urządzenie Microsoft Azure StorSimple to lokalna hybrydowa macierz magazynowa, która zapewnia magazyn podstawowy i dostęp iSCSI do danych przechowywanych na tym serwerze. Zarządza on komunikacją z magazynem w chmurze i pomaga w zapewnianiu bezpieczeństwa i poufności wszystkich danych przechowywanych w rozwiązaniu Microsoft Azure StorSimple.
 
-Urządzenie StorSimple obejmuje dysków SSD i dysk twardy HDD, a także obsługę klastrowania i automatyczne przełączanie do trybu failover. Zawiera współużytkowany procesor, magazyn udostępniony i dwa dublowane kontrolery. Każdy kontroler udostępnia następujące elementy:
+Urządzenie StorSimple obejmuje dysków SSD i stacje dysków twardych (HDD), a także obsługę klastrów i automatyczne przełączanie w tryb failover. Zawiera współużytkowany procesor, magazyn udostępniony i dwa dublowane kontrolery. Każdy kontroler udostępnia następujące elementy:
 
 * Połączenie z komputerem-hostem
 * Do sześciu portów sieciowych do nawiązania połączenia z siecią lokalną (LAN)
@@ -95,12 +95,12 @@ Urządzenie w chmurze ma następujące funkcje:
 * W chmurze można utworzyć nieograniczoną liczbę urządzeń w chmurze oraz włączyć ją i wyłączyć w razie potrzeby.
 * Może to pomóc w symulowaniu środowisk lokalnych w przypadku odzyskiwania po awarii, programowania i scenariuszy testowania, a także ułatwia pobieranie kopii zapasowych na poziomie elementu.
 
-Urządzenie w chmurze StorSimple jest dostępne w dwóch modelach: urządzenie 8010 (wcześniej znane jako model 1100) i urządzenie 8020. Maksymalna pojemność urządzenia 8010 to 30 TB. Urządzenie 8020, które korzysta z usługi Azure Premium Storage, ma maksymalną pojemność wynoszącą 64 TB. (W warstwach lokalnych usługa Azure Premium Storage przechowuje dane w witrynie dysków SSD, a w przypadku magazynu w warstwie Standardowa są przechowywane dane HDD). Pamiętaj, że musisz mieć konto usługi Azure Premium Storage, aby korzystać z magazynu Premium Storage.
+Urządzenie w chmurze StorSimple jest dostępne w dwóch modelach: urządzenie 8010 (wcześniej znane jako model 1100) i urządzenie 8020. Maksymalna pojemność urządzenia 8010 to 30 TB. Urządzenie 8020, które korzysta z usługi Azure Premium Storage, ma maksymalną pojemność wynoszącą 64 TB. (W warstwach lokalnych usługa Azure Premium Storage przechowuje dane w witrynie dysków SSD, a w przypadku magazynu w warstwie Standardowa są przechowywane dane HDD). Musisz mieć konto usługi Azure Premium Storage, aby korzystać z magazynu Premium Storage.
 
 Aby uzyskać więcej informacji o urządzeniu w chmurze StorSimple, przejdź do [wdrażania i zarządzania urządzeniem StorSimple w chmurze na platformie Azure](storsimple-8000-cloud-appliance-u2.md).
 
 ## <a name="storsimple-device-manager-service"></a>Usługa Menedżer urządzeń StorSimple
-Microsoft Azure StorSimple udostępnia interfejs użytkownika oparty na sieci Web (Usługa StorSimple Menedżer urządzeń), który umożliwia centralne zarządzanie magazynem centrów danych i w chmurze. Za pomocą usługi StorSimple Menedżer urządzeń można wykonywać następujące zadania:
+Microsoft Azure StorSimple udostępnia interfejs użytkownika oparty na sieci Web (Usługa StorSimple Device Manager), który umożliwia centralne zarządzanie magazynem centrów danych i w chmurze. Za pomocą usługi StorSimple Device Manager można wykonywać następujące zadania:
 
 * Skonfiguruj ustawienia systemowe dla urządzeń StorSimple.
 * Skonfiguruj ustawienia zabezpieczeń dla urządzeń StorSimple i zarządzaj nimi.
@@ -111,9 +111,9 @@ Microsoft Azure StorSimple udostępnia interfejs użytkownika oparty na sieci We
 * Monitorowanie wydajności.
 * Przejrzyj ustawienia systemowe i zidentyfikuj możliwe problemy.
 
-Za pomocą usługi StorSimple Menedżer urządzeń można wykonywać wszystkie zadania administracyjne, z wyjątkiem tych, które wymagają systemu, na przykład początkowej instalacji i instalacji aktualizacji.
+Za pomocą usługi StorSimple Device Manager można wykonywać wszystkie zadania administracyjne, z wyjątkiem tych, które wymagają systemu, na przykład początkowej instalacji i instalacji aktualizacji.
 
-Aby uzyskać więcej informacji, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+Aby uzyskać więcej informacji, przejdź do [korzystania z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 
 ## <a name="windows-powershell-for-storsimple"></a>program Windows PowerShell dla usługi StorSimple
 Program Windows PowerShell dla usługi StorSimple udostępnia interfejs wiersza polecenia, którego można użyć do tworzenia usługi Microsoft Azure StorSimple i zarządzania nią oraz konfigurowania i monitorowania urządzeń StorSimple. Jest to oparty na interfejsie wiersza polecenia programu Windows PowerShell, który obejmuje dedykowane polecenia cmdlet służące do zarządzania urządzeniem StorSimple. Program Windows PowerShell dla usługi StorSimple zawiera funkcje, które umożliwiają:
@@ -124,12 +124,12 @@ Program Windows PowerShell dla usługi StorSimple udostępnia interfejs wiersza 
 * Rozwiązywanie problemów z urządzeniem przez uzyskanie dostępu do sesji pomocy technicznej.
 * Zmień stan urządzenia.
 
-Dostęp do program Windows PowerShell dla usługi StorSimple można uzyskać za pomocą konsoli szeregowej (na komputerze hosta połączonym bezpośrednio z urządzeniem) lub zdalnie przy użyciu komunikacji zdalnej programu Windows PowerShell. Należy pamiętać, że niektóre program Windows PowerShell dla usługi StorSimple zadania, takie jak początkowa rejestracja urządzeń, można wykonać tylko w konsoli szeregowej.
+Dostęp do program Windows PowerShell dla usługi StorSimple można uzyskać za pomocą konsoli szeregowej (na komputerze hosta połączonym bezpośrednio z urządzeniem) lub zdalnie przy użyciu komunikacji zdalnej programu Windows PowerShell. Niektóre program Windows PowerShell dla usługi StorSimple zadania, takie jak początkowa rejestracja urządzeń, można wykonać tylko w konsoli szeregowej.
 
 Aby uzyskać więcej informacji, przejdź do obszaru [użycie program Windows PowerShell dla usługi StorSimple w celu administrowania urządzeniem](storsimple-8000-windows-powershell-administration.md).
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>Azure PowerShell polecenia cmdlet StorSimple
-Polecenia cmdlet programu Azure PowerShell StorSimple to zbiór poleceń cmdlet programu Windows PowerShell, które umożliwiają automatyzację zadań na poziomie usług i migracji z wiersza polecenia. Aby uzyskać więcej informacji na temat Azure PowerShell poleceń cmdlet dla StorSimple, przejdź do [dokumentacji poleceń cmdlet](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0).
+Polecenia cmdlet programu Azure PowerShell StorSimple to zbiór poleceń cmdlet programu Windows PowerShell, które umożliwiają automatyzację zadań na poziomie usług i migracji z wiersza polecenia. Aby uzyskać więcej informacji na temat Azure PowerShell poleceń cmdlet dla StorSimple, przejdź do [dokumentacji poleceń cmdlet](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0&preserve-view=true).
 
 ## <a name="storsimple-snapshot-manager"></a>StorSimple Snapshot Manager
 StorSimple Snapshot Manager jest przystawką programu Microsoft Management Console (MMC), której można użyć do utworzenia spójnych kopii zapasowych danych lokalnych i w chmurze. Przystawka jest uruchamiana na hoście z systemem Windows Server. Snapshot Manager StorSimple można użyć do:
@@ -148,7 +148,7 @@ Aby uzyskać więcej informacji, przejdź do [co to jest StorSimple Snapshot Man
 ## <a name="storsimple-adapter-for-sharepoint"></a>Adapter usługi StorSimple dla programu SharePoint
 Microsoft Azure StorSimple obejmuje adapter StorSimple dla programu SharePoint, składnik opcjonalny, który w sposób przezroczysty rozszerza funkcje magazynu StorSimple i ochrony danych do farmy serwerów programu SharePoint. Karta współpracuje z dostawcą zdalnego Blob Storage (SPZ) i funkcją SQL Server SPZ, umożliwiając przenoszenie obiektów BLOB do serwera, którego kopia zapasowa jest wykonywana przez system Microsoft Azure StorSimple. Microsoft Azure StorSimple następnie przechowuje dane obiektów BLOB lokalnie lub w chmurze na podstawie użycia.
 
-Adapter StorSimple dla programu SharePoint jest zarządzany z poziomu portalu administracji centralnej programu SharePoint. W związku z tym zarządzanie programem SharePoint pozostaje scentralizowane, a cały magazyn jest widoczny w farmie programu SharePoint.
+Adapter StorSimple dla programu SharePoint jest zarządzany z poziomu portalu administracji centralnej programu SharePoint. Zarządzanie programem SharePoint pozostaje scentralizowane, a wszystkie magazyny będą widoczne w farmie programu SharePoint.
 
 Aby uzyskać więcej informacji, przejdź do [karty StorSimple dla programu SharePoint](storsimple-adapter-for-sharepoint.md). 
 
@@ -175,7 +175,7 @@ StorSimple dostosowuje i zmienia przydziały danych i magazynu w miarę zmiany w
 Proces obsługi warstw magazynowania odbywa się w następujący sposób:
 
 1. Administrator systemu konfiguruje konto magazynu w chmurze Microsoft Azure.
-2. Administrator korzysta z konsoli szeregowej i usługi StorSimple Menedżer urządzeń (działającej w Azure Portal) w celu skonfigurowania urządzenia i serwera plików, tworzenia woluminów i zasad ochrony danych. Na maszynach lokalnych (takich jak serwery plików) do uzyskiwania dostępu do urządzenia StorSimple służy interfejs systemu Small Computer System (iSCSI) z Internetu.
+2. Administrator korzysta z konsoli szeregowej i usługi StorSimple Device Manager (działającej w Azure Portal) w celu skonfigurowania urządzenia i serwera plików, tworzenia woluminów i zasad ochrony danych. Na maszynach lokalnych (takich jak serwery plików) do uzyskiwania dostępu do urządzenia StorSimple służy interfejs systemu Small Computer System (iSCSI) z Internetu.
 3. Początkowo StorSimple przechowuje dane w szybkiej warstwie dysków SSD na urządzeniu.
 4. Ponieważ warstwa dysków SSD zbliża się do pojemności, StorSimple deduplikowane i kompresuje najstarsze bloki danych i przenosi je do warstwy dysków twardych.
 5. Ponieważ warstwa dysków twardych zbliża się do pojemności, StorSimple szyfruje najstarsze bloki danych i bezpiecznie wysyła je do konta magazynu Microsoft Azure za pośrednictwem protokołu HTTPS.
@@ -186,7 +186,7 @@ Proces obsługi warstw magazynowania odbywa się w następujący sposób:
 
 StorSimple deduplikuje dane klientów w ramach wszystkich migawek i danych głównych (dane zapisywane przez hosty). Podczas gdy Deduplikacja jest doskonałym rozwiązaniem w zakresie wydajności magazynu, warto zadać pomysł "co to jest w chmurze". Dane podstawowe warstwy i dane migawki nakładają się na siebie nawzajem. Pojedynczy fragment danych w chmurze może być używany jako dane podstawowe warstwy, a także być przywoływany przez kilka migawek. Każda migawka w chmurze gwarantuje, że kopia wszystkich danych w danym momencie jest zablokowana w chmurze do momentu usunięcia tej migawki.
 
-Dane są usuwane tylko z chmury, gdy nie ma odwołań do tych danych. Na przykład, jeśli zajmiemy się migawką wszystkich danych znajdujących się na urządzeniu StorSimple, a następnie usuniesz niektóre dane podstawowe, natychmiast zostanie wyświetlone _podstawowe dane_ upuszczania. _Dane w chmurze_ , które obejmują dane warstwowe i kopie zapasowe, pozostają takie same. Wynika to z faktu, że istnieje migawka nadal odwołująca się do danych w chmurze. Po usunięciu migawki w chmurze (oraz wszelkich innych migawek, które odwołują się do tych samych danych), zużycie w chmurze zostanie porzucane. Przed usunięciem danych w chmurze sprawdzimy, że żadne migawki nadal odwołują się do tych danych. Ten proces jest nazywany _odzyskiwaniem pamięci_ i jest usługą w tle uruchomioną na urządzeniu. Usuwanie danych w chmurze nie jest natychmiastowe, ponieważ usługa odzyskiwania pamięci sprawdza inne odwołania do tych danych przed usunięciem. Szybkość odzyskiwania pamięci zależy od łącznej liczby migawek i całkowitej ilości danych. Zwykle dane w chmurze są czyszczone w czasie krótszym niż tydzień.
+Dane są usuwane tylko z chmury, gdy nie ma odwołań do tych danych. Na przykład, jeśli zajmiemy się migawką wszystkich danych znajdujących się na urządzeniu StorSimple, a następnie usuniesz niektóre dane podstawowe, natychmiast zostanie wyświetlone _podstawowe dane_ upuszczania. _Dane w chmurze_, w tym dane warstwowe i kopie zapasowe, pozostają takie same. Wynika to z faktu, że istnieje migawka nadal odwołująca się do danych w chmurze. Po usunięciu migawki w chmurze (oraz wszelkich innych migawek, które odwołują się do tych samych danych), zużycie w chmurze zostanie porzucane. Przed usunięciem danych w chmurze sprawdzimy, że żadne migawki nadal odwołują się do tych danych. Ten proces jest nazywany _odzyskiwaniem pamięci_ i jest usługą w tle uruchomioną na urządzeniu. Usuwanie danych w chmurze nie jest natychmiastowe, ponieważ usługa odzyskiwania pamięci sprawdza inne odwołania do tych danych przed usunięciem. Szybkość odzyskiwania pamięci zależy od łącznej liczby migawek i całkowitej ilości danych. Zwykle dane w chmurze są czyszczone w czasie krótszym niż tydzień.
 
 
 ### <a name="thin-provisioning"></a>Alokowanie elastyczne
@@ -245,7 +245,7 @@ Poniżej znajduje się lista obsługiwanych składników infrastruktury StorSimp
 
 *Tak&#42; — należy zastosować wytyczne i ograniczenia dotyczące rozwiązań.*
 
-Poniżej znajduje się lista innych programów, które są używane z usługą StorSimple do kompilowania rozwiązań.
+Poniżej znajduje się lista innych programów używanych z programem StorSimple do kompilowania rozwiązań.
 
 | Typ obciążenia | Oprogramowanie używane z StorSimple | Obsługiwane wersje|Link do przewodnika po rozwiązaniu| 
 | --- | --- | --- | --- |
@@ -264,7 +264,7 @@ Przed wdrożeniem rozwiązania Microsoft Azure StorSimple zalecamy zapoznanie si
 | AES 256 |Algorytm 256-bitowy Advanced Encryption Standard (AES) służący do szyfrowania danych w trakcie ich przenoszenia do i z chmury. |
 | rozmiar jednostki alokacji (Australia) |Najmniejsza ilość miejsca na dysku, którą można przydzielić do przechowywania pliku w systemach plików Windows. Jeśli rozmiar pliku nie jest parzystym wielokrotnością rozmiaru klastra, należy użyć dodatkowego miejsca do przechowywania pliku (aż do następnej wielokrotności rozmiaru klastra), co spowodowało utratę miejsca i fragmentację dysku twardego. <br>Zalecana dla woluminów StorSimple platformy Azure to 64 KB, ponieważ dobrze działa z algorytmami deduplikacji. |
 | automatyczne przechowywanie warstw magazynowania |Automatyczne przeniesienie mniej aktywnych danych z dysków SSD do HDD, a następnie do warstwy w chmurze, a następnie włączenie zarządzania wszystkimi magazynem za pomocą centralnego interfejsu użytkownika. |
-| wykaz kopii zapasowych |Kolekcja kopii zapasowych, zwykle odnosząca się do używanego typu aplikacji. Ta kolekcja jest wyświetlana w bloku wykazu kopii zapasowych interfejsu użytkownika usługi StorSimple Menedżer urządzeń. |
+| wykaz kopii zapasowych |Kolekcja kopii zapasowych, zwykle odnosząca się do używanego typu aplikacji. Ta kolekcja jest wyświetlana w bloku wykazu kopii zapasowych interfejsu użytkownika usługi StorSimple Device Manager. |
 | plik wykazu kopii zapasowej |Plik zawierający listę dostępnych migawek obecnie przechowywanych w kopii zapasowej bazy danych StorSimple Snapshot Manager. |
 | zasady tworzenia kopii zapasowych |Wybór woluminów, typ kopii zapasowej i harmonogram, który umożliwia tworzenie kopii zapasowych zgodnie ze wstępnie zdefiniowanym harmonogramem. |
 | duże obiekty binarne (obiekty blob) |Kolekcja danych binarnych przechowywanych jako jedna jednostka w systemie zarządzania bazami danych. Obiekty blob są zwykle obrazami, dźwiękami lub innymi obiektami multimedialnymi, chociaż czasami binarny kod wykonywalny jest przechowywany jako obiekt BLOB. |
@@ -292,12 +292,12 @@ Przed wdrożeniem rozwiązania Microsoft Azure StorSimple zalecamy zapoznanie si
 | wolumin przypięty lokalnie |wolumin, który znajduje się na urządzeniu i nigdy nie jest warstwą chmury. |
 | migawka lokalna |Kopia danych woluminu w danym momencie przechowywana na urządzeniu Microsoft Azure StorSimple. |
 | Microsoft Azure StorSimple |Zaawansowane rozwiązanie składające się z urządzenia magazynu centrum danych i oprogramowania, które umożliwia organizacjom IT Korzystanie z magazynu w chmurze, tak jakby był to magazyn centrów danych. StorSimple upraszcza ochronę danych i zarządzanie danymi przy jednoczesnym obniżeniu kosztów. Rozwiązanie konsoliduje podstawowe magazyny, archiwum, kopie zapasowe i odzyskiwanie po awarii (DR) przez bezproblemowe integrację z chmurą. Łącząc magazyn sieci SAN i zarządzanie danymi w chmurze na platformie klasy korporacyjnej, urządzenia StorSimple zapewniają szybkość, prostotę i niezawodność wszystkich potrzeb związanych z magazynem. |
-| Moduł energetyczny i chłodzenia (PCM) |Składniki sprzętowe urządzenia StorSimple, składające się z zasilaczy i dmuchawy chłodzącej, w związku z czym jest to nazwa i moduł chłodzenia. Podstawowa obudowa urządzenia ma dwie 764W PCMs, a obudowa EBOD ma dwa 580W PCMs. |
+| Moduł energetyczny i chłodzenia (PCM) |Składniki sprzętowe urządzenia StorSimple składające się z zasilaczy i dmuchawy chłodzącej; w związku z tym modułem nazwa elektryczności i chłodzenia. Podstawowa obudowa urządzenia ma dwie 764W PCMs, a obudowa EBOD ma dwa 580W PCMs. |
 | Obudowa podstawowa |Główna Obudowa urządzenia StorSimple, która zawiera kontrolery platformy aplikacji. |
 | cel czasu odzyskiwania (RTO) |Maksymalny czas, jaki należy wykonać, zanim proces biznesowy lub system zostanie całkowicie przywrócony po awarii. |
 | Serial Attached SCSI (SAS) |Typ dysku twardego (dysk twardy). |
-| klucz szyfrowania danych usługi |Klucz udostępniony każdemu nowemu urządzeniu StorSimple, które rejestruje się w usłudze StorSimple Menedżer urządzeń. Dane konfiguracyjne transferowane między usługą StorSimple Menedżer urządzeń i urządzeniem są szyfrowane przy użyciu klucza publicznego, a następnie można je odszyfrować tylko na urządzeniu przy użyciu klucza prywatnego. Klucz szyfrowania danych usługi umożliwia usłudze uzyskanie tego klucza prywatnego w celu odszyfrowania. |
-| klucz rejestracji usługi |Klucz, który pomaga zarejestrować urządzenie z systemem StorSimple w usłudze StorSimple Menedżer urządzeń, tak aby pojawiło się w Azure Portal do dalszych akcji zarządzania. |
+| klucz szyfrowania danych usługi |Klucz udostępniony każdemu nowemu urządzeniu StorSimple, które rejestruje się w usłudze StorSimple Device Manager. Dane konfiguracyjne transferowane między usługą StorSimple Device Manager i urządzeniem są szyfrowane przy użyciu klucza publicznego, a następnie można je odszyfrować tylko na urządzeniu przy użyciu klucza prywatnego. Klucz szyfrowania danych usługi umożliwia usłudze uzyskanie tego klucza prywatnego w celu odszyfrowania. |
+| klucz rejestracji usługi |Klucz, który pomaga zarejestrować urządzenie z systemem StorSimple w usłudze StorSimple Device Manager, tak aby pojawiło się w Azure Portal do dalszych akcji zarządzania. |
 | Small Computer System Interface (SCSI) |Zestaw standardów do fizycznego łączenia komputerów i przekazywania danych między nimi. |
 | dysk półprzewodnikowy (SSD) |Dysk, który nie zawiera ruchomych części; na przykład dysk flash. |
 | konto magazynu |Zestaw poświadczeń dostępu połączony z kontem magazynu dla danego dostawcy usług w chmurze. |
@@ -307,7 +307,7 @@ Przed wdrożeniem rozwiązania Microsoft Azure StorSimple zalecamy zapoznanie si
 | Utwórz kopię zapasową |Funkcja, która umożliwia użytkownikowi wykonywanie interaktywnej kopii zapasowej woluminu. Jest to alternatywna metoda ręcznego tworzenia kopii zapasowej woluminu w przeciwieństwie do tworzenia zautomatyzowanej kopii zapasowej za pomocą zdefiniowanych zasad. |
 | Alokowanie elastyczne |Metoda optymalizacji wydajności, z którą jest używane miejsce do magazynowania w systemach magazynowania. W przypadku alokowania elastycznego magazyn jest przydzielany między wieloma użytkownikami na podstawie minimalnej ilości miejsca wymaganego przez każdego użytkownika w danym momencie. Zobacz również *Inicjowanie obsługi systemu FAT*. |
 | warstw |Rozmieszczanie danych w grupach logicznych na podstawie bieżącego użycia, wieku i relacji z innymi danymi. StorSimple automatycznie rozmieszcza dane w warstwach. |
-| wolumin |Obszary magazynu logicznego prezentowane w postaci dysków. Woluminy StorSimple odpowiadają woluminom zainstalowanym przez hosta, w tym odnajdywanym za pomocą interfejsu iSCSI i urządzenia StorSimple. |
+| wolumin |Obszary magazynu logicznego prezentowane w postaci dysków. Woluminy StorSimple odpowiadają woluminom zainstalowanym przez hosta, w tym woluminy wykryte za pomocą interfejsu iSCSI i urządzenia StorSimple. |
 | kontener woluminów |Grupowanie woluminów i ustawienia, które mają do nich zastosowanie. Wszystkie woluminy na urządzeniu StorSimple są pogrupowane w kontenery woluminów. Ustawienia kontenera woluminów obejmują konta magazynu, ustawienia szyfrowania danych wysyłanych do chmury ze skojarzonymi kluczami szyfrowania, a także przepustowość zużywaną na potrzeby operacji obejmujących chmurę. |
 | Grupa woluminów |W StorSimple Snapshot Manager Grupa woluminów to zbiór woluminów skonfigurowanych do ułatwienia przetwarzania kopii zapasowych. |
 | Usługa kopiowania woluminów w tle (VSS) |Usługa systemu operacyjnego Windows Server, która ułatwia spójność aplikacji przez komunikowanie się z aplikacjami obsługującymi usługę VSS w celu koordynowania tworzenia migawek przyrostowych. Usługa VSS zapewnia, że aplikacje są tymczasowo nieaktywne podczas tworzenia migawek. |

@@ -6,24 +6,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: fd55110bbfaed72051bfc388692421cd8209609d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0985779aeb14fd4f3d6a12cf152e4c63c909d613
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763868"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806680"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Tworzenie niestandardowych obrazów maszyn wirtualnych dla urządzenia z Azure Stack EDGE Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Aby wdrażać maszyny wirtualne na urządzeniu Azure Stack EDGE Pro, musisz mieć możliwość tworzenia niestandardowych obrazów maszyn wirtualnych, których można użyć do tworzenia maszyn wirtualnych. W tym artykule opisano kroki wymagane do utworzenia niestandardowych obrazów maszyn wirtualnych z systemem Linux lub Windows, których można użyć do wdrożenia maszyn wirtualnych na urządzeniu Azure Stack EDGE Pro.
+Aby wdrażać maszyny wirtualne na urządzeniu Azure Stack EDGE Pro, musisz mieć możliwość tworzenia niestandardowych obrazów maszyn wirtualnych, których można użyć do tworzenia maszyn wirtualnych. W tym artykule opisano kroki wymagane do utworzenia niestandardowych obrazów maszyn wirtualnych z systemem Linux lub Windows, których można użyć do wdrożenia maszyn wirtualnych na urządzeniu Azure Stack Edge.
 
 ## <a name="vm-image-workflow"></a>Przepływ pracy obrazu maszyny wirtualnej
 
-Przepływ pracy wymaga utworzenia maszyny wirtualnej na platformie Azure, dostosowania maszyny wirtualnej, uogólnienia, a następnie pobrania wirtualnego dysku twardego odpowiadającego danej maszynie wirtualnej. Ten uogólniony wirtualny dysk twardy jest przekazywany do Azure Stack EDGE Pro, dysk zarządzany jest tworzony na podstawie tego wirtualnego dysku twardego, a na końcu tworzone są maszyny wirtualne na podstawie tego obrazu.   
+Przepływ pracy wymaga utworzenia maszyny wirtualnej na platformie Azure, dostosowania maszyny wirtualnej, uogólnienia, a następnie pobrania wirtualnego dysku twardego odpowiadającego danej maszynie wirtualnej. Ten uogólniony wirtualny dysk twardy jest przekazywany do Azure Stack EDGE Pro. Dysk zarządzany jest tworzony na podstawie tego wirtualnego dysku twardego. Obraz jest tworzony z dysku zarządzanego. Ponadto maszyny wirtualne są tworzone na podstawie tego obrazu.
 
 Aby uzyskać więcej informacji, przejdź do [wdrożenia maszyny wirtualnej na urządzeniu z systemem Azure Stack brzeg Pro przy użyciu Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
@@ -76,7 +76,7 @@ Użyj tego wirtualnego dysku twardego, aby teraz utworzyć i wdrożyć maszynę 
 |[Serwer Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Serwer Ubuntu to najpopularniejsze w świecie środowisko Linux dla środowisk chmurowych.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux to jedna z najpopularniejszych dystrybucji systemu Linux.     |credativ|
 
-Aby zapoznać się z pełną listą obrazów portalu Azure Marketplace, które mogą być używane (nie zostały przetestowane), przejdź do [pozycji Azure Marketplace dostępne dla Azure Stack centrum](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+Aby zapoznać się z pełną listą obrazów portalu Azure Marketplace, które mogą być używane (nie zostały przetestowane), przejdź do [pozycji Azure Marketplace dostępne dla Azure Stack centrum](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
 
 ## <a name="next-steps"></a>Następne kroki

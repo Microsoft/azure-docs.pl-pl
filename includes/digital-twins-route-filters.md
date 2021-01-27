@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: e06e660a43aaa0ff5eb79bc00bd8a5d2c61c6580
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045323"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98859538"
 ---
 | Nazwa filtru | Opis | Filtruj schemat tekstu | Obsługiwane wartości | 
 | --- | --- | --- | --- |
@@ -22,10 +22,6 @@ ms.locfileid: "98045323"
 | Typ zawartości | Typ zawartości wartości danych | `datacontenttype = '<contentType>'` | Typ zawartości to `application/json` |
 | Wersja specyfikacji | Wersja schematu zdarzeń, którego używasz | `specversion = '<version>'` | Wersja musi być `1.0` . Oznacza to, że schemat CloudEvents w wersji 1,0 |
 | Treść powiadomienia | Odwoływanie się do dowolnej właściwości w `data` polu powiadomienia | `$body.<property>` | Zapoznaj się z tematem [*How to: zrozumieć dane zdarzenia*](../articles/digital-twins/how-to-interpret-event-data.md) dotyczące przykładów powiadomień. Do każdej właściwości w `data` polu można odwoływać się za pomocą `$body`
-
-Należy zauważyć, że do żądania można dodać wiele filtrów: 
-
-:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter-multiple.json":::
 
 Następujące typy danych są obsługiwane jako wartości zwracane przez odwołania do danych powyżej:
 

@@ -407,7 +407,7 @@
           href: connector-shopify.md
         - name: Snowflake
           href: connector-snowflake.md
-        - name: Spark
+        - name: platforma Spark
           href: connector-spark.md
         - name: SQL Server
           href: connector-sql-server.md
@@ -796,6 +796,10 @@
       href: /python/api/overview/azure/datafactory
 - name: Zasoby
   items:
+    - name: Informacje o zarezerwowanej pojemności przepływu danych
+      href: data-flow-reserved-capacity-overview.md
+    - name: Przepływ danych — informacje o opłatach rezerwacji
+      href: data-flow-understand-reservation-charges.md
     - name: Oficjalne dokumenty
       href: whitepapers.md
     - name: Często zadawane pytania

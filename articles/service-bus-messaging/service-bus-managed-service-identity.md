@@ -2,13 +2,13 @@
 title: Zarządzane tożsamości dla zasobów platformy Azure z Service Bus
 description: W tym artykule opisano sposób używania tożsamości zarządzanych do uzyskiwania dostępu do Azure Service Bus jednostek (kolejek, tematów i subskrypcji).
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 01/21/2021
+ms.openlocfilehash: 22be57a0108b6a8511a64165ad365675d006fb8f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425524"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808230"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Azure Service Bus
 [Zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) to funkcja obejmująca wiele platform Azure, która umożliwia tworzenie bezpiecznej tożsamości skojarzonej z wdrożeniem, w ramach którego działa kod aplikacji. Następnie można powiązać tę tożsamość z rolami kontroli dostępu, które przyznają niestandardowe uprawnienia dostępu do określonych zasobów platformy Azure wymaganych przez aplikację.
@@ -45,7 +45,7 @@ Przed przypisaniem roli platformy Azure do podmiotu zabezpieczeń należy okreś
 
 Na poniższej liście opisano poziomy, w których można określić zakres dostępu do zasobów Service Bus, rozpoczynając od najwęższego zakresu:
 
-- **Kolejka**, **temat**lub **subskrypcja**: przypisanie roli dotyczy konkretnej jednostki Service Bus. Obecnie Azure Portal nie obsługuje przypisywania użytkowników/grup/tożsamości zarządzanych do Service Bus ról platformy Azure na poziomie subskrypcji. Oto przykład użycia interfejsu wiersza polecenia platformy Azure: [AZ-role-Assign-Create](/cli/azure/role/assignment?#az-role-assignment-create) w celu przypisania tożsamości do Service Bus roli platformy Azure: 
+- **Kolejka**, **temat** lub **subskrypcja**: przypisanie roli dotyczy konkretnej jednostki Service Bus. Obecnie Azure Portal nie obsługuje przypisywania użytkowników/grup/tożsamości zarządzanych do Service Bus ról platformy Azure na poziomie subskrypcji. Oto przykład użycia interfejsu wiersza polecenia platformy Azure: [AZ-role-Assign-Create](/cli/azure/role/assignment?#az-role-assignment-create) w celu przypisania tożsamości do Service Bus roli platformy Azure: 
 
     ```azurecli
     az role assignment create \
@@ -107,18 +107,20 @@ Aby przypisać rolę do przestrzeni nazw Service Bus, przejdź do przestrzeni na
 1. W Azure Portal przejdź do przestrzeni nazw Service Bus i Wyświetl **Przegląd** dla przestrzeni nazw. 
 1. Wybierz pozycję **Access Control (IAM)** w menu po lewej stronie, aby wyświetlić ustawienia kontroli dostępu dla przestrzeni nazw Service Bus.
 1.  Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról.
-3.  Wybierz pozycję **Dodaj** , aby dodać nową rolę.
-4.  Na stronie **Dodawanie przypisania roli** wybierz role Azure Service Bus, które chcesz przypisać. Następnie wyszukaj w celu zlokalizowania tożsamości usługi, która została zarejestrowana w celu przypisania roli.
-    
-    ![Dodawanie strony przypisania roli](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-5.  Wybierz pozycję **Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji przedstawiono tożsamość usługi ma Azure Service Bus właściciel danych.
-    
-    ![Tożsamość przypisana do roli](./media/service-bus-managed-service-identity/role-assigned.png)
+3.  Wybierz pozycję **Dodaj**, a następnie wybierz pozycję **Dodaj przypisanie roli**.
+4.  Na stronie **Dodawanie przypisania roli** wykonaj następujące kroki:
+    1. W polu **rola** wybierz rolę Service Bus, którą chcesz przypisać. W tym przykładzie jest **Azure Service Bus właściciel danych**.
+    1. W polu **Przypisz dostęp do** wybierz pozycję **App Service** w obszarze **przypisana przez system tożsamość zarządzana**. 
+    1. Wybierz **subskrypcję** , w ramach której utworzono zarządzaną tożsamość aplikacji sieci Web.
+    1. Wybierz **zarządzaną tożsamość** utworzonej aplikacji sieci Web. Nazwa domyślna tożsamości jest taka sama jak nazwa aplikacji sieci Web. 
+    1. Następnie wybierz pozycję **Zapisz**.
+        
+        ![Dodawanie strony przypisania roli](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
 
-Po przypisaniu roli aplikacja sieci Web będzie miała dostęp do Service Bus jednostek w ramach zdefiniowanego zakresu. 
+    Po przypisaniu roli aplikacja sieci Web będzie miała dostęp do Service Bus jednostek w ramach zdefiniowanego zakresu. 
 
-
-
+    > [!NOTE]
+    > Aby uzyskać listę usług, które obsługują tożsamości zarządzane, zobacz [usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### <a name="run-the-app"></a>Uruchamianie aplikacji
 Teraz Zmodyfikuj domyślną stronę utworzonej aplikacji ASP.NET. Możesz użyć kodu aplikacji sieci Web z [tego repozytorium GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  

@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: 3ed290cc35195dfb02db9fbb72f092f6f4688291
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9f39988375f58f75dad2b623cd3d937022a072e7
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757309"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806182"
 ---
 # <a name="what-is-azure-security-center"></a>Co to jest usługa Azure Security Center?
 
@@ -105,9 +105,8 @@ Ochrona przed zagrożeniami w usłudze Security Center obejmuje kompleksową ana
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integracja z usługą Microsoft Defender dla punktu końcowego
 
-Security Center obejmuje automatyczną, natywną integrację z usługą Microsoft Defender dla punktu końcowego. Oznacza to, że bez żadnej konfiguracji maszyny z systemami Windows i Linux są w pełni zintegrowane z zaleceniami i ocenami Security Center.
+Usługa Azure Defender dla serwerów zawiera automatyczną, natywną integrację z usługą Microsoft Defender dla punktu końcowego. Dowiedz się więcej, [Chroń punkty końcowe przy użyciu zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint](security-center-wdatp.md)
 
-Ponadto usługa Security Center pozwala zautomatyzować zasady kontroli aplikacji w środowisku serwera. Funkcje adaptacyjnego sterowania aplikacjami w Security Center umożliwiają kompleksową listę zatwierdzania aplikacji na serwerach z systemem Windows. Nie musisz tworzyć reguł i sprawdzać naruszeń, ponieważ wszystko odbywa się automatycznie.
 
 ### <a name="protect-paas"></a>Ochrona usług PaaS
 

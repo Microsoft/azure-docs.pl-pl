@@ -4,20 +4,20 @@ description: Dowiedz się, jak za pomocą program Windows PowerShell dla usługi
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/09/2018
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 65e9657c3948d8ce5883cd33ca8720f501352105
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e41d2e531a051738a31325b4ea33961bfb39e7f9
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995435"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808029"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Używanie programu Windows PowerShell dla usługi StorSimple do administrowania urządzeniem
 
 ## <a name="overview"></a>Omówienie
 
-Program Windows PowerShell dla usługi StorSimple udostępnia interfejs wiersza polecenia, którego można użyć do zarządzania urządzeniem Microsoft Azure StorSimple. Jak sugeruje nazwa, jest to oparty na interfejsie wiersza polecenia programu Windows PowerShell, który jest zbudowany w ograniczonym obszarze działania. Z punktu widzenia użytkownika w wierszu polecenia ograniczone obszaru działania są wyświetlane jako ograniczona wersja środowiska Windows PowerShell. Przy zachowaniu niektórych podstawowych możliwości środowiska Windows PowerShell ten interfejs ma dodatkowe dedykowane polecenia cmdlet, które są dostosowane do zarządzania urządzeniem Microsoft Azure StorSimple.
+Program Windows PowerShell dla usługi StorSimple udostępnia interfejs wiersza polecenia, którego można użyć do zarządzania urządzeniem Microsoft Azure StorSimple. Jak sugeruje nazwa, jest to oparty na interfejsie wiersza polecenia programu Windows PowerShell, który jest zbudowany w ograniczonym obszarze działania. Z punktu widzenia użytkownika w wierszu polecenia ograniczone obszaru działania są wyświetlane jako ograniczona wersja środowiska Windows PowerShell. Przy zachowaniu niektórych podstawowych funkcji środowiska Windows PowerShell ten interfejs ma inne, dedykowane polecenia cmdlet, które są dostosowane do zarządzania urządzeniem Microsoft Azure StorSimple.
 
 W tym artykule opisano funkcje program Windows PowerShell dla usługi StorSimple, w tym sposób nawiązywania połączenia z tym interfejsem oraz linki do procedur krok po kroku lub przepływów pracy, które można wykonywać za pomocą tego interfejsu. Przepływy pracy obejmują sposób rejestrowania urządzenia, konfigurowania interfejsu sieciowego na urządzeniu, instalowania aktualizacji, które wymagają, aby urządzenie było w trybie konserwacji, zmieniać stan urządzenia i rozwiązywać wszelkie problemy, które mogą wystąpić.
 
@@ -28,8 +28,8 @@ Po przeczytaniu tego artykułu będzie można:
 * Uzyskaj pomoc w program Windows PowerShell dla usługi StorSimple.
 
 > [!NOTE]
-> * Polecenia cmdlet program Windows PowerShell dla usługi StorSimple umożliwiają zarządzanie urządzeniem StorSimple z poziomu konsoli szeregowej lub zdalnie za pośrednictwem komunikacji zdalnej programu Windows PowerShell. Aby uzyskać więcej informacji na temat poszczególnych poleceń cmdlet, które mogą być używane w tym interfejsie, przejdź do [dokumentacji poleceń cmdlet dla program Windows PowerShell dla usługi StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
-> * Polecenia cmdlet programu Azure PowerShell StorSimple są różnymi kolekcjami poleceń cmdlet, które umożliwiają automatyzację StorSimple zadań dotyczących poziomu usług i migracji z wiersza polecenia. Aby uzyskać więcej informacji na temat Azure PowerShell poleceń cmdlet dla StorSimple, przejdź do [dokumentacji poleceń cmdlet platformy Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
+> * Polecenia cmdlet program Windows PowerShell dla usługi StorSimple umożliwiają zarządzanie urządzeniem StorSimple z poziomu konsoli szeregowej lub zdalnie za pośrednictwem komunikacji zdalnej programu Windows PowerShell. Aby uzyskać więcej informacji na temat poszczególnych poleceń cmdlet, które mogą być używane w tym interfejsie, przejdź do [dokumentacji poleceń cmdlet dla program Windows PowerShell dla usługi StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps&preserve-view=true).
+> * Polecenia cmdlet programu Azure PowerShell StorSimple są różnymi kolekcjami poleceń cmdlet, które umożliwiają automatyzację StorSimple zadań dotyczących poziomu usług i migracji z wiersza polecenia. Aby uzyskać więcej informacji na temat Azure PowerShell poleceń cmdlet dla StorSimple, przejdź do [dokumentacji poleceń cmdlet platformy Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0&preserve-view=true#azure).
 
 
 Dostęp do program Windows PowerShell dla usługi StorSimple można uzyskać przy użyciu jednej z następujących metod:
@@ -48,7 +48,7 @@ Aby nawiązać połączenie z interfejsem programu Windows PowerShell z poziomu 
 #### <a name="to-configure-putty"></a>Aby skonfigurować
 
 1. W oknie dialogowym wyznaczanie ponownej **konfiguracji** w okienku **Kategoria** wybierz pozycję **Klawiatura**.
-2. Upewnij się, że wybrano następujące opcje (są to ustawienia domyślne podczas uruchamiania nowej sesji).
+2. Upewnij się, że wybrano następujące opcje (ustawienia domyślne podczas uruchamiania nowej sesji).
    
    | Element klawiatury | Wybierz pozycję |
    | --- | --- |
@@ -89,12 +89,15 @@ Na poniższej ilustracji przedstawiono różne opcje obszaru działania, które 
 
 Można wybrać jedną z następujących ustawień:
 
-1. **Zaloguj się z pełnymi prawami dostępu** Ta opcja umożliwia nawiązanie połączenia (z odpowiednimi poświadczeniami) z obszarem działania **SSAdminConsole** na kontrolerze lokalnym. (Kontroler lokalny jest kontrolerem, do którego aktualnie uzyskuje się dostęp za pomocą konsoli szeregowej urządzenia StorSimple). Ta opcja umożliwia również umożliwienie pomoc techniczna firmy Microsoft dostępu do nieograniczonego obszaru działania (sesji obsługi) w celu rozwiązywania problemów z urządzeniami. Po użyciu opcji 1, aby zalogować się, można zezwolić pomoc techniczna firmy Microsoft inżynierowi na dostęp do nieograniczonego obszaru działania przez uruchomienie określonego polecenia cmdlet. Aby uzyskać szczegółowe informacje, zobacz [Uruchamianie sesji obsługi](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
+1. **Zaloguj się z pełnymi prawami dostępu.**
+   Ta opcja umożliwia nawiązanie połączenia (z odpowiednimi poświadczeniami) z obszarem działania **SSAdminConsole** na kontrolerze lokalnym. (Kontroler lokalny jest kontrolerem, do którego aktualnie uzyskuje się dostęp za pomocą konsoli szeregowej urządzenia StorSimple). Ta opcja umożliwia również umożliwienie pomoc techniczna firmy Microsoft dostępu do nieograniczonego obszaru działania (sesji obsługi) w celu rozwiązywania problemów z urządzeniami. Po użyciu opcji 1, aby zalogować się, można zezwolić pomoc techniczna firmy Microsoft inżynierowi na dostęp do nieograniczonego obszaru działania przez uruchomienie określonego polecenia cmdlet. Aby uzyskać szczegółowe informacje, zobacz [Uruchamianie sesji obsługi](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
    
-2. **Logowanie do kontrolera równorzędnego z pełnymi prawami dostępu** Ta opcja jest taka sama jak opcja 1, z tą różnicą, że można nawiązać połączenie (z odpowiednimi poświadczeniami) do obszaru działania **SSAdminConsole** na kontrolerze równorzędnym. Ponieważ urządzenie StorSimple jest urządzeniem wysokiej dostępności z dwoma kontrolerami w konfiguracji aktywne-pasywne, element równorzędny odwołuje się do innego kontrolera na urządzeniu, do którego uzyskujesz dostęp za pomocą konsoli szeregowej.
+2. **Zaloguj się do kontrolera równorzędnego z pełnymi prawami dostępu.**
+   Ta opcja jest taka sama jak opcja 1, z tą różnicą, że można nawiązać połączenie (z odpowiednimi poświadczeniami) do obszaru działania **SSAdminConsole** na kontrolerze równorzędnym. Ponieważ urządzenie StorSimple jest urządzeniem wysokiej dostępności z dwoma kontrolerami w konfiguracji aktywne-pasywne, element równorzędny odwołuje się do innego kontrolera na urządzeniu, do którego uzyskujesz dostęp za pomocą konsoli szeregowej.
    Podobnie jak w przypadku opcji 1, ta opcja umożliwia także umożliwienie pomoc techniczna firmy Microsoft dostępu do nieograniczonego obszaru działania w kontrolerze równorzędnym.
 
-3. **Łączenie z ograniczonym dostępem** Ta opcja służy do uzyskiwania dostępu do interfejsu programu Windows PowerShell w trybie ograniczonym. Nie zostanie wyświetlony monit o podanie poświadczeń dostępu. Ta opcja nawiązuje połączenie z bardziej ograniczonym obszarem działania w porównaniu z opcjami 1 i 2.  Niektóre z zadań, które są dostępne za pomocą opcji 1 **nie można* wykonać w tym obszarze działania:
+3. **Nawiąż połączenie z ograniczonym dostępem.**
+   Ta opcja służy do uzyskiwania dostępu do interfejsu programu Windows PowerShell w trybie ograniczonym. Nie zostanie wyświetlony monit o podanie poświadczeń dostępu. Ta opcja nawiązuje połączenie z bardziej ograniczonym obszarem działania w porównaniu z opcjami 1 i 2.  Niektóre z zadań dostępnych w ramach opcji 1, które *nie mogą* zostać wykonane w tym obszarze działania, to:
    
    * Resetowanie do ustawień fabrycznych
    * Zmień hasło
@@ -105,7 +108,8 @@ Można wybrać jedną z następujących ustawień:
      > [!NOTE]
      > Jest to preferowana opcja, jeśli zapomniano hasła administratora urządzenia i nie można nawiązać połączenia za pomocą opcji 1 lub 2.
 
-4. **Zmień język** Ta opcja umożliwia zmianę języka wyświetlania w interfejsie programu Windows PowerShell. Języki obsługiwane są w języku angielskim, japońskim, rosyjskim, francuskim, koreańskim, angielskim, hiszpańskim, włoskim, niemieckim, chińskim i portugalskim.
+4. **Zmień język.**
+   Ta opcja umożliwia zmianę języka wyświetlania w interfejsie programu Windows PowerShell. Języki obsługiwane są w języku angielskim, japońskim, rosyjskim, francuskim, koreańskim, angielskim, hiszpańskim, włoskim, niemieckim, chińskim i portugalskim.
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Zdalne nawiązywanie połączenia z usługą StorSimple przy użyciu program Windows PowerShell dla usługi StorSimple
 
@@ -124,10 +128,10 @@ Przy użyciu protokołu HTTP lub HTTPS można nawiązać połączenie za pośred
 
 ## <a name="connection-security-considerations"></a>Zagadnienia dotyczące zabezpieczeń połączeń
 
-Podczas podejmowania decyzji o sposobie nawiązywania połączenia z usługą program Windows PowerShell dla usługi StorSimple należy wziąć pod uwagę następujące kwestie:
+Podczas podejmowania decyzji o sposobie nawiązywania połączenia z program Windows PowerShell dla usługi StorSimple należy wziąć pod uwagę następujące czynniki:
 
 * Bezpośrednie łączenie z konsolą szeregową urządzenia jest bezpieczne, ale połączenie z konsolą szeregową przez przełączniki sieciowe nie jest obsługiwane. Należy zachować ostrożność w przypadku nawiązywania połączenia z usługą KlawiszeSzeregowe przy użyciu przełączników sieciowych.
-* Połączenie za pośrednictwem sesji HTTP może oferować lepsze zabezpieczenia niż łączenie za pośrednictwem konsoli szeregowej za pośrednictwem sieci. Chociaż nie jest to najbezpieczniejsza Metoda, jest ona akceptowalna dla zaufanych sieci.
+* Połączenie za pośrednictwem sesji HTTP może oferować lepsze zabezpieczenia niż łączenie za pośrednictwem konsoli szeregowej za pośrednictwem sieci. Mimo że sesja HTTP nie jest najbezpieczniejsza, jest akceptowalna dla zaufanych sieci.
 * Nawiązywanie połączenia za pośrednictwem sesji HTTPS jest najbezpieczniejszym i zalecanym rozwiązaniem.
 
 ## <a name="administer-your-storsimple-device-using-windows-powershell-for-storsimple"></a>Administruj urządzeniem StorSimple za pomocą program Windows PowerShell dla usługi StorSimple
@@ -151,9 +155,9 @@ W poniższej tabeli przedstawiono podsumowanie wszystkich typowych zadań zarzą
 
 W program Windows PowerShell dla usługi StorSimple jest dostępna pomoc poleceń cmdlet. Dostępna jest również w trybie online wersja tej pomocy, której można użyć do zaktualizowania pomocy w systemie.
 
-Uzyskiwanie pomocy w tym interfejsie jest podobne do programu w programie Windows PowerShell i większość poleceń cmdlet związanych z pomocą będzie działała. Pomoc dotyczącą programu Windows PowerShell online można znaleźć w [witrynie Microsoft. PowerShell. Core](/powershell/module/Microsoft.PowerShell.Core/).
+Uzyskiwanie pomocy w tym interfejsie jest podobne do uzyskania pomocy w programie Windows PowerShell i większość poleceń cmdlet związanych z pomocą będzie działała. Pomoc dotyczącą programu Windows PowerShell online można znaleźć w [witrynie Microsoft. PowerShell. Core](/powershell/module/Microsoft.PowerShell.Core/).
 
-Poniżej znajduje się krótki opis typów pomocy dla tego interfejsu programu Windows PowerShell, w tym informacje dotyczące sposobu aktualizowania pomocy.
+<!--The following is a brief description of the types of Help for this Windows PowerShell interface, including how to update the Help. - OK to remove? Transition not needed.-->
 
 ### <a name="to-get-help-for-a-cmdlet"></a>Aby uzyskać pomoc dotyczącą polecenia cmdlet
 
@@ -169,7 +173,7 @@ Możesz łatwo zaktualizować pomoc w interfejsie programu Windows PowerShell. W
 1. Uruchom program Windows PowerShell przy użyciu opcji **Uruchom jako administrator** .
 2. W wierszu polecenia wpisz:  `Update-Help`
 3. Zaktualizowane pliki pomocy zostaną zainstalowane.
-4. Po zainstalowaniu plików pomocy wpisz: `Get-Help Get-Command` . Zostanie wyświetlona lista poleceń cmdlet, dla których pomoc jest dostępna.
+4. Po zainstalowaniu plików pomocy wpisz:, `Get-Help Get-Command` Aby wyświetlić listę poleceń cmdlet, dla których pomoc jest dostępna.
 
 > [!NOTE]
 > Aby uzyskać listę wszystkich dostępnych poleceń cmdlet w obszarze działania, zaloguj się do odpowiadającej opcji menu i uruchom `Get-Command` polecenie cmdlet.

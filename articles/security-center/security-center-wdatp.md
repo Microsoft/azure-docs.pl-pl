@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 9fde0ecd8b6670e43aa3970b2df27a402b9c1a5c
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 4b8141d99d654705450a14767b04ae6265766af9
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747244"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807081"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -43,7 +43,8 @@ Microsoft Defender for Endpoint to całościowe, dostarczone w chmurze rozwiąza
 | Stan wydania:                  | Ogólnie dostępna (GA)                                                                                                                                                                                                                                                                                      |
 | Wpisaną                        | Wymaga [usługi Azure Defender dla serwerów](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Obsługiwane platformy:            | Maszyny platformy Azure z systemem Windows<br>Komputery z systemem Windows w usłudze Azure Arc|
-| Obsługiwane wersje systemu Windows:  |  • Security Center obsługuje wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 z dodatkiem SP1<br> • Monitorowanie punktu końcowego serwera przy użyciu tej integracji zostało wyłączone dla klientów z pakietem Office 365 w zatoce<br> • Brak obsługi systemu Windows Server 2019, Windows 10 1703 (i nowszego) lub Linux|
+| Obsługiwane wersje systemu Windows:  |  • Security Center obsługuje wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 z dodatkiem SP1<br> • Monitorowanie punktu końcowego serwera przy użyciu tej integracji zostało wyłączone dla klientów z pakietem Office 365 w zatoce|
+| Nieobsługiwane systemy operacyjne:  |  • Windows Server 2019<br> • Windows 10<br> • System Linux|
 | Wymagane role i uprawnienia: | Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji** lub **współautor subskrypcji**|
 | Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov<br>![Nie](./media/icons/no-icon.png) Klienci korzystający z usług w ramach usługi w chmurze w globalnych chmurach platformy Azure                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
@@ -105,7 +106,7 @@ Po skonfigurowaniu lokalizacji nie można jej zmienić. Jeśli masz własną lic
 Aby wygenerować niegroźny alert dotyczący programu Microsoft Defender for Endpoint test:
 
 1. Utwórz folder "C:\test-MDATP-test".
-1. Użyj Pulpit zdalny, aby uzyskać dostęp do maszyny wirtualnej z systemem Windows Server 2012 R2 lub z maszyną wirtualną z systemem Windows Server 2016.
+1. Użyj Pulpit zdalny, aby uzyskać dostęp do komputera.
 1. Otwórz okno wiersza polecenia.
 1. W wierszu polecenia skopiuj i uruchom następujące polecenie. Okno wiersza polecenia zostanie zamknięte automatycznie.
 

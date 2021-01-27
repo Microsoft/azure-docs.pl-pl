@@ -1,16 +1,16 @@
 ---
 title: Wbudowane definicje zasad dla Azure Logic Apps
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Logic Apps. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: reference
 ms.suite: integration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 48b427703f174771af7ef584e392a8c376042a68
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: a04d5bffd6c2a4b358bb12bbc4c1bbed32c57d77
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702006"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806470"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-logic-apps"></a>Azure Policy wbudowane definicje Azure Logic Apps
 

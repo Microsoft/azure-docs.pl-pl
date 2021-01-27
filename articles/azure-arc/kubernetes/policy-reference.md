@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure ARC z włączonym Kubernetes
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla usługi Azure ARC z włączonym Kubernetes. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.service: azure-arc
 author: mlearned
 ms.author: mlearned
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a5ba88f9508135d75777883715f61eeb817022d0
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8da49c4c410207cebd6613cbbaf8a80c4359bb68
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703308"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808326"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>Azure Policy wbudowane definicje dla usługi Azure ARC z włączonym Kubernetes
 

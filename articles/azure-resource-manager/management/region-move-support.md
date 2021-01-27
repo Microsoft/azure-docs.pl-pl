@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 83cd36683a0487f13ab5707e4b1534cc7f20a88a
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 49c5828e02bf96a536ff14f6b84e81f7adbe3090
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948531"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806901"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Obsługa przemieszczania zasobów platformy Azure między regionami
 
@@ -21,32 +21,44 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="op_single_selector"]
 > - [Microsoft. AAD](#microsoftaad)
 > - [Microsoft. aadiam](#microsoftaadiam)
+> - [Microsoft. Dodatki](#microsoftaddons)
+> - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
+> - [Microsoft. Advisor](#microsoftadvisor)
 > - [Microsoft. AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft. AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft. ApiManagement](#microsoftapimanagement)
 > - [Microsoft. AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft. AppPlatform](#microsoftappplatform)
 > - [Microsoft. AppService](#microsoftappservice)
+> - [Microsoft. zaświadczanie](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft. Automation](#microsoftautomation)
+> - [Microsoft. Automatyczna synchronizacja](#microsoftavs)
 > - [Microsoft. usługi azureactivedirectory](#microsoftazureactivedirectory)
 > - [Microsoft. AzureData](#microsoftazuredata)
 > - [Microsoft. AzureStack](#microsoftazurestack)
+> - [Microsoft. AzureStackHCI](#microsoftazurestackhci)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.BatchAI](#microsoftbatchai)
+> - [Microsoft. rozliczenia](#microsoftbilling)
 > - [Microsoft. BingMaps](#microsoftbingmaps)
 > - [Microsoft. BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft. łańcucha bloków](#microsoftblockchain)
+> - [Microsoft. BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft. plan](#microsoftblueprint)
 > - [Microsoft. BotService](#microsoftbotservice)
 > - [Microsoft. cache](#microsoftcache)
+> - [Microsoft. Pojemność](#microsoftcapacity)
 > - [Microsoft. CDN](#microsoftcdn)
 > - [Microsoft. CertificateRegistration](#microsoftcertificateregistration)
 > - [Microsoft.ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft. ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
 > - [Microsoft. ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft. ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft. ClassicSubscription](#microsoftclassicsubscription)
 > - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft. Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft. Container](#microsoftcontainer)
+> - [Microsoft. zużycie](#microsoftconsumption)
 > - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft. ContainerService](#microsoftcontainerservice)
@@ -54,6 +66,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft. CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CustomerInsights](#microsoftcustomerinsights)
+> - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
 > - [Microsoft. DataBox](#microsoftdatabox)
 > - [Microsoft. DataBoxEdge](#microsoftdataboxedge)
@@ -66,30 +79,43 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft. kontach datalakestore](#microsoftdatalakestore)
 > - [Migracja Microsoft.](#microsoftdatamigration)
+> - [Microsoft. dataprotection](#microsoftdataprotection)
 > - [Microsoft. dataudział](#microsoftdatashare)
 > - [Microsoft. DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft. DBforMySQL](#microsoftdbformysql)
 > - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft. Deploymentmanager](#microsoftdeploymentmanager)
+> - [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization)
 > - [Microsoft.Devices](#microsoftdevices)
+> - [Microsoft. DevOps](#microsoftdevops)
 > - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft. wspólny](#microsoftdevtestlab)
+> - [Microsoft. DigitalTwins](#microsoftdigitaltwins)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft. DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft. EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft. EventGrid](#microsofteventgrid)
 > - [Microsoft. EventHub](#microsofteventhub)
+> - [Microsoft. eksperymentowanie](#microsoftexperimentation)
+> - [Microsoft. Falcon](#microsoftfalcon)
+> - [Microsoft. Features](#microsoftfeatures)
 > - [Microsoft. genomika](#microsoftgenomics)
+> - [Microsoft. GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft. HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft. HardwareSecurityModules](#microsofthardwaresecuritymodules)
 > - [Microsoft. HDInsight](#microsofthdinsight)
 > - [Microsoft. HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft. HybridCompute](#microsofthybridcompute)
 > - [Microsoft. HybridData](#microsofthybriddata)
+> - [Microsoft. HybridNetwork](#microsofthybridnetwork)
+> - [Microsoft. Hydra](#microsofthydra)
 > - [Microsoft. ImportExport](#microsoftimportexport)
 > - [Microsoft. Insights](#microsoftinsights)
 > - [Microsoft. IoTCentral](#microsoftiotcentral)
 > - [Microsoft. IoTSpaces](#microsoftiotspaces)
 > - [Microsoft. kluczy — magazyn](#microsoftkeyvault)
+> - [Microsoft. Kubernetes](#microsoftkubernetes)
+> - [Microsoft. KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft. LabServices](#microsoftlabservices)
 > - [Microsoft. LocationBasedServices](#microsoftlocationbasedservices)
@@ -99,42 +125,56 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. MachineLearningCompute](#microsoftmachinelearningcompute)
 > - [Microsoft. MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
 > - [Microsoft. MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
-> - [Microsoft. MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft. Maintenance](#microsoftmaintenance)
 > - [Microsoft. ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft. ManagedNetwork](#microsoftmanagednetwork)
+> - [Microsoft. ManagedServices](#microsoftmanagedservices)
+> - [Microsoft. Management](#microsoftmanagement)
 > - [Microsoft. Maps](#microsoftmaps)
+> - [Microsoft. Marketplace](#microsoftmarketplace)
 > - [Microsoft. MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft. MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft. Media](#microsoftmedia)
 > - [Microsoft. Microservices4Spring](#microsoftmicroservices4spring)
 > - [Microsoft. Migrowanie](#microsoftmigrate)
+> - [Microsoft. MixedReality](#microsoftmixedreality)
 > - [Microsoft. NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft. NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft. ObjectStore](#microsoftobjectstore)
+> - [Microsoft. OffAzure](#microsoftoffazure)
 > - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft. OperationsManagement](#microsoftoperationsmanagement)
 > - [Microsoft. Komunikacja równorzędna](#microsoftpeering)
+> - [Microsoft. PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft. Portal](#microsoftportal)
-> - [Microsoft. PortalSdk](#microsoftportalsdk)
 > - [Microsoft. PowerBI](#microsoftpowerbi)
 > - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft. ProjectOxford](#microsoftprojectoxford)
+> - [Microsoft. ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft. ProviderHub](#microsoftproviderhub)
+> - [Microsoft. Quantum](#microsoftquantum)
 > - [Microsoft. RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft. RedHatOpenShift](#microsoftredhatopenshift)
 > - [Microsoft. Relay](#microsoftrelay)
 > - [Microsoft. ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft. ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft. resources](#microsoftresources)
 > - [Microsoft. SaaS](#microsoftsaas)
-> - [Microsoft. Scheduler](#microsoftscheduler)
 > - [Microsoft. Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
+> - [Microsoft. SecurityInsights](#microsoftsecurityinsights)
+> - [Microsoft. SerialConsole](#microsoftserialconsole)
 > - [Microsoft. ServerManagement](#microsoftservermanagement)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft. servicefabric](#microsoftservicefabric)
 > - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft. Services](#microsoftservices)
 > - [Microsoft. SignalRService](#microsoftsignalrservice)
+> - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft. Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft. SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft. StorageCache](#microsoftstoragecache)
 > - [Microsoft. StorageSync](#microsoftstoragesync)
@@ -143,30 +183,73 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. StorSimple](#microsoftstorsimple)
 > - [Microsoft. StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft. StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
-> - [Microsoft. TerraformOSS](#microsoftterraformoss)
+> - [Microsoft. Subscription](#microsoftsubscription)
+> - [Microsoft. Support](#microsoftsupport)
+> - [Microsoft. Synapse](#microsoftsynapse)
 > - [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft. token](#microsofttoken)
 > - [Microsoft. VirtualMachineImages](#microsoftvirtualmachineimages)
 > - [Microsoft. VisualStudio](#microsoftvisualstudio)
+> - [Microsoft. VMware](#microsoftvmware)
 > - [Microsoft. VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft. VnfManager](#microsoftvnfmanager)
+> - [Microsoft. VSOnline](#microsoftvsonline)
 > - [Microsoft. Web](#microsoftweb)
+> - [Microsoft. WindowsESU](#microsoftwindowsesu)
 > - [Microsoft. WindowsIoT](#microsoftwindowsiot)
-> - [Microsoft. WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
+> - [Microsoft. WorkloadBuilder](#microsoftworkloadbuilder)
+> - [Microsoft. Monitor obciążenia został](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft. AAD
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- | 
+> | ------------- | ----------- |
 > | domainservices | Nie | 
-> | domainservices / replicasets | Nie | 
+
 
 ## <a name="microsoftaadiam"></a>Microsoft. aadiam
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | dzierżaw | Nie |
+> | diagnosticsettings | Nie |
+> | diagnosticsettingscategories | Nie |
+> | privatelinkforazuread | Nie |
+> | dzierżaw |  Nie |
+
+## <a name="microsoftaddons"></a>programu. Addons
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- |
+> | supportproviders | Nie |
+
+## <a name="microsoftadhybridhealthservice"></a>Microsoft. ADHybridHealthService
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | aadsupportcases | Nie |
+> | addsservices | Nie | 
+> | pracownicy | Nie | 
+> | anonymousapiusers | Nie |
+> | konfiguracja | Nie | 
+> | dzienniki | Nie | 
+> | raporty | Nie | 
+> | servicehealthmetrics | Nie | 
+> | services | Nie | 
+
+## <a name="microsoftadvisor"></a>Microsoft. Advisor
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | komputerów | Nie | 
+> | generaterecommendations | Nie |
+> | metadane | Nie |
+> | zalecenia | Nie |
+> | pominięć | Nie | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
@@ -174,6 +257,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | actionrules | Nie | 
+> | alerts | Nie | 
+> | alertslist | Nie | 
+> | alertsmetadata | Nie | 
+> | alertssummary | Nie | 
+> | alertssummarylist | Nie | 
+> | smartdetectoralertrules | Nie | 
+> | smartgroups | Nie | 
 
 ## <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
@@ -187,6 +277,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | reportfeedback | Nie |
 > | usługa |  Tak (przy użyciu szablonu) <br/><br/> [Przenieś API Management między regionami](../../api-management/api-management-howto-migrate.md). | 
 
 ## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
@@ -195,6 +286,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | configurationstores | Nie | 
+> | configurationstores / eventgridfilters | Nie |
+
+## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | Spring | Nie | 
 
 ## <a name="microsoftappservice"></a>Microsoft. AppService
 
@@ -205,13 +304,33 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | appidentities | Nie | 
 > | bram | Nie | 
 
+## <a name="microsoftattestation"></a>Microsoft. zaświadczanie
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | attestationproviders | Nie | 
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | policyassignments | Nie |
+> | classicadministrators | Nie | 
+> | aliasy | Nie | 
+> | denyassignments | Nie | 
+> | elevateaccess | Nie | 
+> | findorphanroleassignments | Nie | 
+> | Zamki | Nie | 
+> | uprawnienia | Nie | 
+> | policyassignments | Nie | 
+> | policydefinitions | Nie | 
+> | policysetdefinitions | Nie | 
+> | privatelinkassociations | Nie | 
+> | resourcemanagementprivatelinks | Nie | 
+> | RoleAssignments | Nie | 
+> | roleassignmentsusagemetrics | Nie | 
+> | roledefinitions | Nie | 
 
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 
@@ -222,6 +341,12 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | automationaccounts/konfiguracje | Nie | 
 > | automationaccounts/elementy Runbook | Nie | 
 
+## <a name="microsoftavs"></a>Microsoft. Automatyczna synchronizacja
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | Subskrypcja |
+> | ------------- | ----------- | 
+> | privateclouds | Nie | 
 
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft. usługi azureactivedirectory
@@ -230,12 +355,19 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | b2cdirectories | Nie | 
+> | b2ctenants | Nie | 
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | Kontrolery datacontrollers | Nie | 
+> | hybriddatamanagers | Nie | 
+> | postgresinstances | Nie | 
+> | wystąpienia sqlinstances | Nie | 
+> | sqlmanagedinstances | Nie |
+> | sqlserverinstances | Nie | 
 > | sqlserverregistrations | Nie |
 
 ## <a name="microsoftazurestack"></a>Microsoft. AzureStack
@@ -243,7 +375,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | cloudmanifestfiles | Nie |
 > | rejestracje | Nie | 
+
+## <a name="microsoftazurestackhci"></a>Microsoft. AzureStackHCI
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | oparty | Nie | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -252,15 +392,21 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | batchaccounts |  Kont usługi Batch nie można przenieść bezpośrednio z jednego regionu do innego, ale można użyć szablonu do wyeksportowania szablonu, zmodyfikowania go i wdrożenia szablonu w nowym regionie. <br/><br/> Dowiedz się więcej o [przenoszeniu konta w usłudze Batch w różnych regionach](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
 
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
+## <a name="microsoftbilling"></a>Microsoft. rozliczenia
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | oparty | Nie <br/><br/> Usługa Azure Batch AI zostanie [wycofana](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
-> | fileservers | Nie | 
-> | zadania | Nie | 
-> | obszary robocze | Nie | 
+> | ------------- | ----------- | 
+> | billingaccounts | Nie | 
+> | billingperiods | Nie | 
+> | billingpermissions | Nie | 
+> | billingproperty | Nie | 
+> | billingroleassignments | Nie | 
+> | billingroledefinitions | Nie | 
+> | działów | Nie | 
+> | enrollmentaccounts | Nie | 
+> | faktur | Nie | 
+> | sunięcia | Nie | 
 
 ## <a name="microsoftbingmaps"></a>Microsoft. BingMaps
 
@@ -282,7 +428,16 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | blockchainmembers | Nie <br/><br/> Sieć łańcucha bloków nie może mieć węzłów w różnych regionach. 
+> | cordamembers | Nie |
 > | obserwatorów | Nie | 
+
+## <a name="microsoftblockchaintokens"></a>Microsoft. BlockchainTokens
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- |
+> | tokenservices | Nie |
+
 
 ## <a name="microsoftblueprint"></a>Microsoft. plan
 
@@ -290,6 +445,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | blueprintassignments | Nie | 
+> | plany | Nie |
 
 ## <a name="microsoftbotservice"></a>Microsoft. BotService
 
@@ -304,7 +460,24 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | Redis | Nie | 
+> | redisenterprise | Nie | 
 
+## <a name="microsoftcapacity"></a>Microsoft. Pojemność
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | appliedreservations | Nie | 
+> | calculateexchange | Nie | 
+> | calculateprice | Nie | 
+> | calculatepurchaseprice | Nie | 
+> | wykazy | Nie | 
+> | commercialreservationorders | Nie | 
+> | zamian | Nie |
+> | reservationorders | Nie | 
+> | dokonując | Nie | 
+> | zasoby | Nie | 
+> | validatereservationorder | Nie | 
 
 ## <a name="microsoftcdn"></a>Microsoft. CDN
 
@@ -312,6 +485,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | cdnwebapplicationfirewallpolicies | Nie |
+> | edgenodes | Nie
 > | Profil | Nie | 
 > | Profile/punkty końcowe | Nie | 
 
@@ -328,17 +502,31 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | domainnames | Nie zaplanowano żadnych zadań dla usług klasycznych.
-> | virtualmachines | Nie | 
+> | możliwości | Nie | 
+> | domainnames | Tak | Nie |
+> | quotas | Nie | 
+> | resourcetypes | Nie |
+> | validatesubscriptionmoveavailability | Nie | 
+> | virtualmachines | Nie 
 
+## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft. ClassicInfrastructureMigrate
 
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | classicinfrastructureresources | Nie | 
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft. ClassicNetwork
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | networksecuritygroups | Nie zaplanowano żadnych zadań dla usług klasycznych.
+> | możliwości | Nie | 
+> | expressroutecrossconnections | Nie | 
+> | expressroutecrossconnections/Komunikacja równorzędna | Nie | 
+> | gatewaysupporteddevices | Nie | 
+> | networksecuritygroups | Nie |
+> | quotas | Nie |
 > | reservedips | Nie | 
 > | virtualnetworks | Nie | 
 
@@ -347,8 +535,21 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | dysku | Nie | 
+> | images | Nie | 
+> | osimages | Nie | 
+> | osplatformimages | Nie | 
+> | publicimages | Nie | 
+> | quotas | Nie | 
 > | storageaccounts | Tak |  
+> | vmimages | Nie |
 
+## <a name="microsoftclassicsubscription"></a>Microsoft. ClassicSubscription
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | operacje | Nie | 
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft. CognitiveServices
 
@@ -358,12 +559,21 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Konta | Nie | 
 > | Cognitive Search | Obsługiwane z ręcznymi krokami.<br/><br/> Dowiedz się więcej o [przenoszeniu usługi Wyszukiwanie poznawcze platformy Azure do innego regionu](../../search/search-howto-move-across-regions.md)
 
+## <a name="microsoftcommerce"></a>Microsoft. Commerce
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | ratecard | Nie | 
+> | usageaggregates | Nie | 
+
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | availabilitysets | Tak <br/><br/> Przenoszenie zestawów dostępności przy użyciu [usługi Azure Resource przeprowadzki](../../resource-mover/tutorial-move-region-virtual-machines.md) . | 
+> | diskaccesses | Nie |
 > | diskencryptionsets | Nie | 
 > | dysku | Tak <br/><br/> Przenoszenie maszyn wirtualnych platformy Azure i powiązanych dysków za pomocą [usługi Azure Resource Recovery](../../resource-mover/tutorial-move-region-virtual-machines.md) . | 
 > | znajduj | Nie | 
@@ -377,16 +587,38 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | sharedvmimages | Nie | 
 > | sharedvmimages/wersje | Nie | 
 > | Migawki | Nie | 
+> | sshpublickeys | Nie |
 > | virtualmachines | Tak <br/><br/> Przenoszenie maszyn wirtualnych platformy Azure przy użyciu [usługi Azure Resource Recovery](../../resource-mover/tutorial-move-region-virtual-machines.md) . | 
 > | virtualmachines/rozszerzenia | Nie | 
 > | virtualmachinescalesets | Nie | 
 
-## <a name="microsoftcontainer"></a>Microsoft. Container
+## <a name="microsoftconsumption"></a>Microsoft. zużycie
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | containergroups | Nie | 
+> | ------------- | ----------- | 
+> | aggregatedcost | Nie | 
+> | równoważy | Nie | 
+> | budżetów | Nie | 
+> | odsetk | Nie | 
+> | costtags | Nie | 
+> | środki | Nie | 
+> | zdarzenia | Nie | 
+> | prognozy | Nie | 
+> | ilości | Nie | 
+> | platform handlowych | Nie | 
+> | pricesheets | Nie | 
+> | wyrobów | Nie | 
+> | reservationdetails | Nie | 
+> | reservationrecommendationdetails | Nie | 
+> | reservationrecommendations | Nie | 
+> | reservationsummaries | Nie | 
+> | reservationtransactions | Nie | 
+> | tags | Nie | 
+> | dzierżaw | Nie | 
+> | odsetk | Nie | 
+> | usagedetails | Nie | 
+
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -394,6 +626,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | containergroups | Nie | 
+> | serviceassociationlinks | Nie |
+
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft. ContainerRegistry
 
@@ -401,6 +635,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | wołuje | Nie |  
+> | rejestry/agentpools | Nie | 
 > | rejestry/BuildTasks | Nie |  
 > | rejestry/replikacje | Nie | 
 > | rejestry/zadania | Nie |  
@@ -411,7 +646,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | containerservices | Nie.<br/><br/> Usługa została [wycofana](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
+> | containerservices | Nie |
 > | managedclusters | Nie | 
 > | openshiftmanagedclusters | Nie | 
 
@@ -434,7 +669,24 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | konta integracji | Nie |  
+> | alerts | Nie | 
+> | billingaccounts | Nie | 
+> | budżetów | Nie | 
+> | cloudconnectors | Nie | 
+> | konta integracji | Nie | 
+> | działów | Nie | 
+> | Wymiary | Nie | 
+> | enrollmentaccounts | Nie | 
+> | Eksportowanie | Nie | 
+> | externalbillingaccounts | Nie | 
+> | forecast | Nie | 
+> | query | Nie | 
+> | zarejestruj | Nie | 
+> | reportconfigs | Nie | 
+> | raporty | Nie | 
+> | ustawienia | Nie | 
+> | showbackrules | Nie | 
+> | widoki | Nie | 
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft. CustomerInsights
 
@@ -443,11 +695,19 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | koncentratory, | Nie |  
 
+## <a name="microsoftcustomerlockbox"></a>Microsoft. CustomerLockbox
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | żądań | Nie | 
+
 ## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | związku | Nie |
 > | resourceproviders | Nie | 
 
 ## <a name="microsoftdatabox"></a>Microsoft. DataBox
@@ -462,6 +722,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | availableskus | Nie |
 > | databoxedgedevices | Nie | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft. datacegły
@@ -532,6 +793,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | usługi/projekty | Nie | 
 > | czasów | Nie | 
 
+## <a name="microsoftdataprotection"></a>Microsoft. dataprotection
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | ---------- |
+> | backupvaults | Nie | 
+
 ## <a name="microsoftdatashare"></a>Microsoft. dataudział
 
 > [!div class="mx-tableFixed"]
@@ -574,6 +842,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | servicetopologie/usługi/serviceunits | Nie | 
 > | kroki | Nie | 
 
+
+## <a name="microsoftdesktopvirtualization"></a>Microsoft. DesktopVirtualization
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | applicationgroups | Nie | 
+> | obszary robocze | Nie | 
+
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
@@ -583,6 +860,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | elasticpools / iothubtenants | Nie. Zasób nie jest ujawniony.
 > | iothubs | Tak. [Dowiedz się więcej](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | Nie | 
+
+## <a name="microsoftdevops"></a>Microsoft. DevOps
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- |
+> | kontrolery | Nie | 
+
 
 ## <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
 
@@ -604,11 +889,19 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Labs/virtualmachines | Nie |  
 > | Uruchamianie | Nie |  
 
+## <a name="microsoftdigitaltwins"></a>Microsoft. DigitalTwins
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | digitaltwinsinstances | Tak, przez ponowne utworzenie zasobów w nowym regionie. [Dowiedz się więcej](../../digital-twins/how-to-move-regions.md) |
+
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | databaseaccounts | Nie | 
 > | databaseaccounts | Nie | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft. DomainRegistration
@@ -617,6 +910,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | 3.x | Nie | 
+> | generatessorequest | Nie | 
+> | topleveldomains | Nie | 
+> | validatedomainregistrationinformation | Nie |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
@@ -630,8 +926,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | 3.x | Nie |  
+> | 3.x | Nie | 
+> | eventsubscriptions | Nie |
+> | extensiontopics | Nie | 
+> | partnernamespaces | Nie | 
+> | partnerregistrations | Nie | 
+> | partnertopics | Nie | 
+> | systemtopics | Nie | 
 > | opisano | Nie | 
+> | topictypes | Nie | 
 
 ## <a name="microsofteventhub"></a>Microsoft. EventHub
 
@@ -640,6 +943,31 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | oparty | Nie |  
 > | przestrzeni | Tak (z szablonem)<br/><br/> [Przenoszenie przestrzeni nazw centrum zdarzeń do innego regionu](../../event-hubs/move-across-regions.md) | 
+> | sku | Nie |  
+
+## <a name="microsoftexperimentation"></a>Microsoft. eksperymentowanie
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | experimentworkspaces | Nie | 
+
+## <a name="microsoftfalcon"></a>Microsoft. Falcon
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | przestrzeni | Nie | 
+
+## <a name="microsoftfeatures"></a>Microsoft. Features
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | featureproviders | Nie | 
+> | funkcje | Nie | 
+> | dostawców | Nie | 
+> | subscriptionfeatureregistrations | Nie | 
 
 ## <a name="microsoftgenomics"></a>Microsoft. genomika
 
@@ -648,6 +976,18 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | Konta | Nie | 
 
+## <a name="microsoftguestconfiguration"></a>Microsoft. GuestConfiguration
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | automanagedaccounts | Nie | 
+> | automanagedvmconfigurationprofiles | Nie | 
+> | guestconfigurationassignments | Nie | 
+> | programy | Nie | 
+> | softwareupdateprofile | Nie | 
+> | softwareupdates | Nie | 
+
 ## <a name="microsofthanaonazure"></a>Microsoft. HanaOnAzure
 
 > [!div class="mx-tableFixed"]
@@ -655,6 +995,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | hanainstances | Nie | 
 > | sapmonitors | Nie |  
+
+## <a name="microsofthardwaresecuritymodules"></a>Microsoft. HardwareSecurityModules
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | modułów dedicatedhsms | Nie | 
+
 
 ## <a name="microsofthdinsight"></a>Microsoft. HDInsight
 
@@ -676,6 +1024,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | Win64 | Nie | 
+> | Maszyny/rozszerzenia | Nie |
 
 ## <a name="microsofthybriddata"></a>Microsoft. HybridData
 
@@ -683,6 +1032,22 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | datamanagers |  Nie | 
+
+## <a name="microsofthybridnetwork"></a>Microsoft. HybridNetwork
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | devices | Nie | 
+> | vnfs | Nie | 
+
+## <a name="microsofthydra"></a>Microsoft. Hydra
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | komponentów | Nie | 
+> | networkscopes | Nie | 
 
 ## <a name="microsoftimportexport"></a>Microsoft. ImportExport
 
@@ -701,14 +1066,39 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | activitylogalerts | Nie | 
 > | alertrules |  Nie | 
 > | autoscalesettings |  Nie | 
+> | punkt odniesienia | Nie |
 > | komponentów |  Nie |  
+> | datacollectionrules | Nie | 
+> | diagnosticsettings | Nie | 
+> | diagnosticsettingscategories | Nie | 
+> | eventcategories | Nie | 
+> | Typ zdarzenia | Nie | 
+> | extendeddiagnosticsettings | Nie | |
 > | guestdiagnosticsettings | Nie | 
+> | listmigrationdate | Nie | 
+> | logdefinitions | Nie | 
+> | logprofiles | Nie | 
+> | dzienniki | Nie | Nie |
 > | metricalerts | Nie | 
+> | metricbaselines | Nie | 
+> | metricbatch | Nie | 
+> | metricdefinitions | Nie | 
+> | metricnamespaces | Nie | 
+> | metrics | Nie | 
+> | migratealertrules | Nie |
+> | migratetonewpricingmodel | Nie | 
+> | Moje skoroszyty | Nie |
 > | notificationgroups | Nie | 
-> | notificationrules | Nie | 
+> | privatelinkscopes | Nie |
+> | rollbacktolegacypricingmodel | Nie |
 > | scheduledqueryrules |  Nie | 
+> | topology | Nie |
+> | transakcje | Nie |
+> | vminsightsonboardingstatuses | Nie |
 > | testów internetowych |  Nie | 
+> | webtests/gettestresultfile | Nie |
 > | skoroszyty |  Nie |  
+> | workbooktemplates | Nie |
 
 
 ## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral
@@ -716,8 +1106,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | checknameavailability |  Nie.<br/><br/> IoT Central współpracuje z lokalizacje geograficzneą, a nie regionami.
-> | ziół | Nie
+> | apptemplates | Nie | 
+> | iotapps | Nie | 
+
+
 
 ## <a name="microsoftiothub"></a>Microsoft.IoTHub
 
@@ -729,19 +1121,34 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 ## <a name="microsoftiotspaces"></a>Microsoft. IoTSpaces
 
 > [!div class="mx-tableFixed"]
-> | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | checknameavailability |  Nie |  
-> | ziół |  Nie | 
+> | Typ zasobu | Przeniesienie regionu |
+> | ------------- | ----------- | 
+> | ziół | Nie | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft. kluczy — magazyn
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | deletedvaults | Nie |
 > | hsmpools | Nie | 
+> | managedhsms | Nie |
 > | magazynów |  Nie | 
 
+## <a name="microsoftkubernetes"></a>Microsoft. Kubernetes
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | connectedclusters | Nie | 
+> | registeredsubscriptions | Nie | 
+
+## <a name="microsoftkubernetesconfiguration"></a>Microsoft. KubernetesConfiguration
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | sourcecontrolconfigurations | Nie | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -756,6 +1163,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | labaccounts | Nie | 
+> | users | Nie | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft. LocationBasedServices
 
@@ -779,6 +1187,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | hostingenvironments | Nie | 
 > | integrationaccounts |  Nie |  
 > | integrationserviceenvironments | Nie | 
+> | integrationserviceenvironments/managedapis | Nie |
 > | isolatedenvironments | Nie | 
 > | przebieg |  Nie |  
 
@@ -804,11 +1213,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | Konta | Nie | 
-> | konta/obszary robocze | Nie | 
-> | konta/obszary robocze/projekty | Nie | 
 > | teamaccounts | Nie | 
-> | teamaccounts/obszary robocze | Nie | 
-> | teamaccounts/obszary robocze/projekty | Nie | 
+
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft. MachineLearningModelManagement
 
@@ -817,12 +1223,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | Konta | Nie | 
 
-## <a name="microsoftmachinelearningoperationalization"></a>Microsoft. MachineLearningOperationalization
-
-> [!div class="mx-tableFixed"]
-> | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | hostingaccounts | Nie | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
@@ -831,12 +1231,53 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | obszary robocze | Nie | 
 
+## <a name="microsoftmaintenance"></a>Microsoft. Maintenance
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- |
+> | configurationassignments | Tak. [Dowiedz się więcej](../../virtual-machines/move-region-maintenance-configuration.md) | 
+> | maintenanceconfigurations | Tak. [Dowiedz się więcej](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
+> | aktualizacje | Nie | 
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | osob | Nie | 
 > | resourceidentity | Nie | 
+
+## <a name="microsoftmanagednetwork"></a>Microsoft. ManagedNetwork
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | managednetworks | Nie | 
+> | managednetworks / managednetworkgroups | Nie |
+> | managednetworks / managednetworkpeeringpolicies | Nie | 
+> | powiadomienie | Nie | 
+
+## <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | marketplaceregistrationdefinitions | Nie | 
+> | registrationassignments | Nie |
+> | registrationdefinitions | Nie | 
+
+## <a name="microsoftmanagement"></a>Microsoft. Management
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | getentities | Nie | 
+> | managementgroups | Nie | 
+> | managementgroups/ustawienia | Nie | 
+> | zasoby | Nie | 
+> | starttenantbackfill | Nie | 
+> | tenantbackfillstatus | Nie | 
 
 ## <a name="microsoftmaps"></a>Microsoft. Maps
 
@@ -844,13 +1285,36 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | Konta |  Nie, Azure Maps jest usługą geograficznym. 
+> | konta/privateatlases | Nie
+
+## <a name="microsoftmarketplace"></a>Microsoft. Marketplace
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- |
+> | otrzymane | Nie | 
+> | offertypes | Nie | 
+> | privategalleryitems | Nie | 
+> | privatestoreclient | Nie | 
+> | privatestores | Nie | 
+> | wyrobów | Nie | 
+> | wydawcy | Nie | 
+> | zarejestruj | Nie | 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft. MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | classicdevservices | Nie zaplanowano żadnych zadań dla usług klasycznych 
+> | ------------- | ----------- | 
+> | classicdevservices | Nie | 
+
+## <a name="microsoftmarketplaceordering"></a>Microsoft. MarketplaceOrdering
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | kontrakt | Nie | 
+> | offertypes | Nie | 
 
 ## <a name="microsoftmedia"></a>Microsoft. Media
 
@@ -875,7 +1339,18 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | assessmentprojects | Nie | 
 > | migrateprojects | Nie | 
+> | movecollections | Nie
 > | projektami | Nie | 
+
+## <a name="microsoftmixedreality"></a>Microsoft. MixedReality
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | ---------- |
+> | holographicsbroadcastaccounts | Nie | 
+> | objectunderstandingaccounts | Nie | 
+> | remoterenderingaccounts | Nie | 
+> | spatialanchorsaccounts | Nie | 
 
 ## <a name="microsoftnetapp"></a>Microsoft. NetApp
 
@@ -893,43 +1368,50 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | applicationgateways | Nie | 
+> | applicationgateways | Nie |
 > | applicationgatewaywebapplicationfirewallpolicies | Nie | 
 > | applicationsecuritygroups |  Nie |  
 > | azurefirewalls |  Nie |  
 > | bastionhosts | Nie | 
+> | bgpservicecommunities | Nie |
 > | Licznik |  Nie | 
 > | ddoscustompolicies |  Nie | 
 > | ddosprotectionplans | Nie | 
 > | dnszones |  Nie | 
 > | expressroutecircuits | Nie | 
-> | expressroutecrossconnections | Nie | 
 > | expressroutegateways | Nie | 
-> | expressrouteports | Nie | 
+> | expressrouteserviceproviders | Nie | 
+> | firewallpolicies | Nie |
 > | usługi frontdoor | Nie | 
-> | frontdoorwebapplicationfirewallpolicies | Nie | 
+> | ipallocations | Nie |
+> | ipgroups | Nie |
 > | loadbalancers | Tak <br/><br/> Przenoszenie wewnętrznych i zewnętrznych modułów równoważenia obciążenia przy użyciu [usługi Azure Resource Recovery](../../resource-mover/tutorial-move-region-virtual-machines.md) . |
 > | localnetworkgateways |  Nie | 
 > | natgateways |  Nie | 
+> | networkexperimentprofiles | Nie |
 > | networkintentpolicies |  Nie | 
 > | networkinterfaces | Tak <br/><br/> Przenoszenie kart sieciowych za pomocą [usługi Azure Resource](../../resource-mover/tutorial-move-region-virtual-machines.md) przenoszącej. | 
 > | networkprofiles | Nie | 
 > | networksecuritygroups | Tak <br/><br/> Przenoszenie sieciowych grup zabezpieczeń (NGSs) przy użyciu [usługi Azure Resource](../../resource-mover/tutorial-move-region-virtual-machines.md) . | 
 > | networkwatchers |  Nie |  
 > | networkwatchers / connectionmonitors |  Nie | 
-> | networkwatchers/soczewki |  Nie | 
+> | networkwatchers / flowlogs |  Nie | 
 > | networkwatchers / pingmeshes |  Nie | 
 > | p2svpngateways | Nie | 
 > | privatednszones |  Nie |  
-> | privatednszones / virtualnetworklinks |  Nie |  
+> | privatednszones / virtualnetworklinks | Nie |> | privatednszonesinternal | Nie |
+> | privateendpointredirectmaps | Nie |
 > | privateendpoints | Nie | 
 > | privatelinkservices | Nie | 
 > | adresów publicipaddress | Tak<br/><br/> Przenoszenie publicznych adresów IP za pomocą [usługi Azure Resource Recovery](../../resource-mover/tutorial-move-region-virtual-machines.md) . |
 > | publicipprefixes | Nie | 
 > | routefilters | Nie | 
 > | routetables |  Nie | 
+> | securitypartnerproviders | Nie |
 > | serviceendpointpolicies |  Nie | 
+> | trafficmanagergeographichierarchies | Nie | 
 > | trafficmanagerprofiles |  Nie | 
+> | trafficmanagerusermetricskeys | Nie |
 > | virtualhubs | Nie | 
 > | virtualnetworkgateways |  Nie |  
 > | virtualnetworks |  Nie | 
@@ -937,7 +1419,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | virtualwans | Nie | 
 > | vpngateways (wirtualna sieć WAN) | Nie | 
 > | vpnsites (wirtualna sieć WAN) | Nie | 
-> | webapplicationfirewallpolicies |  Nie | 
+> | vpnsites (wirtualna sieć WAN) | Nie |
 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft. NotificationHubs
@@ -948,12 +1430,33 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | przestrzeni |  Nie | 
 > | przestrzenie nazw/notificationhubs |  Nie |  
 
+## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | osnamespaces | Nie | 
+
+## <a name="microsoftoffazure"></a>Microsoft. OffAzure
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | hypervsites | Nie | 
+> | importsites | Nie | 
+> | serversites | Nie | 
+> | vmwaresites | Nie | 
+
 ## <a name="microsoftoperationalinsights"></a>Microsoft. OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | obszary robocze |  Nie | 
+> | oparty | Nie | 
+> | deletedworkspaces | Nie | 
+> | linktargets | Nie | 
+> | storageinsightconfigs | Nie |
+> | obszary robocze | Nie |
 
 
 
@@ -962,7 +1465,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | managementassociations | Nie |
 > | managementconfigurations |  Nie | 
+> | rozwiązania | Nie |
 > | widoki |  Nie | 
 
 ## <a name="microsoftpeering"></a>Microsoft. Komunikacja równorzędna
@@ -970,21 +1475,34 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | legacypeerings | Nie | 
+> | peerasns | Nie | 
+> | peeringlocations | Nie | 
 > | komunikacje równorzędne | Nie | 
+> | peeringservicecountries | Nie | 
+> | peeringservicelocations | Nie | 
+> | peeringserviceproviders | Nie | 
+> | peeringservices | Nie | 
+
+## <a name="microsoftpolicyinsights"></a>Microsoft. PolicyInsights
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | policyevents | Nie | 
+> | policystates | Nie | 
+> | policytrackedresources | Nie | 
+> | korygowania | Nie | 
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | Konsole programu | Nie |
 > | pulpity nawigacyjne | Nie | 
+> | usersettings | Nie | 
 
-## <a name="microsoftportalsdk"></a>Microsoft. PortalSdk
-
-> [!div class="mx-tableFixed"]
-> | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | rootresources | Nie | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft. PowerBI
 
@@ -1000,20 +1518,43 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | produkcyjnych |  Nie | 
 
-## <a name="microsoftprojectoxford"></a>Microsoft. ProjectOxford
+## <a name="microsoftprojectbabylon"></a>Microsoft. ProjectBabylon
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | Konta | Nie | 
 
+## <a name="microsoftproviderhub"></a>Microsoft. ProviderHub
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | availableaccounts | Nie | 
+> | providerregistrations | Nie | 
+> | wprowadzanie | Nie | 
+
+## <a name="microsoftquantum"></a>Microsoft. Quantum
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | obszary robocze | Nie | 
+
 ## <a name="microsoftrecoveryservices"></a>Microsoft. RecoveryServices
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | replicationeligibilityresults | Nie |
 > | magazynów | Nie.<br/><br/> Przeniesienie Recovery Services magazynów dla Azure Backup w regionach platformy Azure nie jest obsługiwane.<br/><br/> W Recovery Services magazynach Azure Site Recovery można [wyłączyć i utworzyć ponownie magazyn](../../site-recovery/move-vaults-across-regions.md) w regionie docelowym. | 
 
+## <a name="microsoftredhatopenshift"></a>Microsoft. RedHatOpenShift
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | openshiftclusters | Nie | 
 
 ## <a name="microsoftrelay"></a>Microsoft. Relay
 
@@ -1028,6 +1569,22 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | wybiera |  Nie |  
+> | resourcechangedetails | Nie | 
+> | resourcechanges | Nie | 
+> | zasoby | Nie | 
+> | resourceshistory | Nie | 
+> | subscriptionsstatus | Nie | 
+
+## <a name="microsoftresourcehealth"></a>Microsoft. ResourceHealth
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | childresources | Nie | 
+> | emergingissues | Nie | 
+> | zdarzenia | Nie | 
+> | metadane | Nie | 
+> | powiadomienia | Nie | 
 
 ## <a name="microsoftresources"></a>Microsoft. resources
 
@@ -1043,20 +1600,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | aplikacje |  Nie | 
+> | saasresources | Nie | 
 
-## <a name="microsoftscheduler"></a>Microsoft. Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | flows (przepływy) |  Nie |  
-> | jobcollections |  Nie | 
 
 ## <a name="microsoftsearch"></a>Microsoft. Search
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | resourcehealthmetadata | Nie |
 > | searchservices |  Nie | 
 
 
@@ -1065,8 +1617,69 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | iotsecuritysolutions |  Nie | 
-> | playbookconfigurations | Nie | 
+> | adaptivenetworkhardenings | Nie | 
+> | advancedthreatprotectionsettings | Nie | 
+> | alerts | Nie | 
+> | allowedconnections | Nie | 
+> | applicationwhitelistings | Nie | 
+> | assessmentmetadata | Nie | 
+> | oceny | Nie | 
+> | autodismissalertsrules | Nie | 
+> | automatyzacji | Nie | 
+> | autoprovisioningsettings | Nie |
+> | complianceresults | Nie | 
+> | zachowania zgodności prawnymi | Nie | 
+> | datacollectionagents | Nie | 
+> | devicesecuritygroups | Nie | 
+> | discoveredsecuritysolutions | Nie | 
+> | externalsecuritysolutions | Nie | 
+> | informationprotectionpolicies | Nie | 
+> | iotsecuritysolutions | Nie | 
+> | iotsecuritysolutions / analyticsmodels | Nie | 
+> | iotsecuritysolutions / analyticsmodels / aggregatedalerts | Nie | 
+> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | Nie | 
+> | jitnetworkaccesspolicies | Nie | 
+> | policies | Nie | 
+> | cen | Nie | 
+> | regulatorycompliancestandards | Nie | 
+> | regulatorycompliancestandards / regulatorycompliancecontrols | Nie | 
+> | regulatorycompliancestandards / regulatorycompliancecontrols / regulatorycomplianceassessments | Nie | 
+> | securitycontacts | Nie | 
+> | securitysolutions | Nie | 
+> | securitysolutionsreferencedata | Nie | 
+> | securitystatuses | Nie | 
+> | securitystatusessummaries | Nie | 
+> | servervulnerabilityassessments | Nie | 
+> | ustawienia | Nie | 
+> | podoceny | Nie |
+> | zadania | Nie | 
+> | replikacji | Nie | 
+> | workspacesettings | Nie | 
+
+## <a name="microsoftsecurityinsights"></a>Microsoft. SecurityInsights
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | agregacji | Nie | 
+> | alertrules | Nie | 
+> | alertruletemplates | Nie | 
+> | automationrules | Nie |
+> | padkach | Nie | 
+> | połączenia dataconnecters | Nie | 
+> | obiekty | Nie | 
+> | entityqueries | Nie |
+> | zdarzenia | Nie | 
+> | officeconsents | Nie | 
+> | ustawienia | Nie | 
+> | threatintelligence | Nie | 
+
+## <a name="microsoftserialconsole"></a>Microsoft. SerialConsole
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | consoleservices | Nie | 
 
 ## <a name="microsoftservermanagement"></a>Microsoft. ServerManagement
 
@@ -1082,6 +1695,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | przestrzeni |  Nie | 
+> | premiummessagingregions | Nie | 
+> | sku | Nie | 
 
 ## <a name="microsoftservicefabric"></a>Microsoft. servicefabric
 
@@ -1089,11 +1704,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | aplikacje | Nie | 
-> | oparty |  Nie | 
-> | klastry/aplikacje | Nie | 
+> | oparty |  Nie |  
 > | containergroups | Nie | 
 > | containergroupsets | Nie | 
 > | edgeclusters | Nie | 
+> | managedclusters | Nie |
 > | sieci | Nie | 
 > | secretstores | Nie | 
 > | volumes | Nie | 
@@ -1110,12 +1725,26 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | wpisy tajne |  Nie | 
 > | volumes |  Nie |  
 
+## <a name="microsoftservices"></a>Microsoft. Services
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | wprowadzanie | Nie | 
+
 ## <a name="microsoftsignalrservice"></a>Microsoft. SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | SignalR |  Nie |  
+
+## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | hybridusebenefits | Nie | 
 
 ## <a name="microsoftsolutions"></a>Microsoft. Solutions
 
@@ -1124,8 +1753,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | appliancedefinitions | Nie | 
 > | gotowania | Nie | 
-> | applicationdefinitions | Nie | 
-> | aplikacje | Nie | 
 > | jitrequests | Nie | 
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
@@ -1134,6 +1761,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | instancepools | Nie | 
+> | locations | Nie |
 > | managedinstances | Tak <br/><br/> [Dowiedz się więcej](../../azure-sql/database/move-resources-across-regions.md) o przenoszeniu wystąpień zarządzanych między regionami. | 
 > | ManagedInstances/bazy danych | Tak | 
 > | serwerem | Tak | 
@@ -1149,12 +1777,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | sqlvirtualmachinegroups |  Nie |  
 > | sqlvirtualmachines |  Nie |  
 
-## <a name="microsoftsqlvm"></a>Microsoft. SqlVM
-
-> [!div class="mx-tableFixed"]
-> | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | dwvm | Nie | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -1203,6 +1825,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | oparty | Nie |
 > | streamingjobs |  Nie |  
 
 
@@ -1212,18 +1835,32 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | wiejski | Nie | 
-> | środowiska/źródła zdarzeń | Nie | 
 > | Liczba | Nie | 
-> | wystąpienia/środowiska | Nie | 
-> | wystąpienia/środowiska/obiekty EventSource | Nie | 
 
-## <a name="microsoftterraformoss"></a>Microsoft. TerraformOSS
+## <a name="microsoftsubscription"></a>Microsoft. Subscription
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | providerregistrations | Nie | 
-> | zasoby | Nie | 
+> | ------------- | ----------- | 
+> | opłaty | Nie | 
+
+## <a name="microsoftsupport"></a>Microsoft. Support
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | services | Nie | 
+> | supporttickets | Nie | 
+
+## <a name="microsoftsynapse"></a>Microsoft. Synapse
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | obszary robocze | Nie | 
+> | obszary robocze/bigdatapools | Nie | 
+> | obszary robocze/pule | Nie | 
+
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft. TimeSeriesInsights
 
@@ -1257,7 +1894,17 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | konto/rozszerzenie |  Nie | 
 > | konto/projekt |  Nie | 
 
+## <a name="microsoftvmware"></a>Microsoft. VMware
 
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | arczones | Nie | 
+> | resourcepools | Nie | 
+> | serwery vCenter | Nie | 
+> | virtualmachines | Nie | 
+> | virtualmachinetemplates | Nie | 
+> | virtualnetworks | Nie | 
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft. VMwareCloudSimple
 
@@ -1268,21 +1915,58 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | dedicatedcloudservices | Nie | 
 > | virtualmachines | Nie | 
 
+## <a name="microsoftvnfmanager"></a>Microsoft. VnfManager
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | devices | Nie | 
+> | vnfs | Nie | 
+
+## <a name="microsoftvsonline"></a>Microsoft. VSOnline
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | Konta | Nie | 
+> | pakiety | Nie | 
+> | registeredsubscriptions | Nie |
+
+
 ## <a name="microsoftweb"></a>Microsoft. Web
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
+> | availablestacks | Nie | 
+> | billingmeters | Nie | 
 > | certyfikaty | Nie | 
 > | connectiongateways |  Nie |  
 > | Licznik |  Nie |  
 > | customapis |  Nie | 
+> | deletedsites | Nie | 
+> | deploymentlocations | Nie | 
+> | Georegiony | Nie | 
 > | hostingenvironments | Nie | 
-> | dopuszczalna |  Nie |  
+> | kubeenvironments | Nie | 
+> | publishingusers | Nie |
+> | zalecenia | Nie | 
+> | resourcehealthmetadata | Nie | 
+> | Runtime | Nie | 
+> | dopuszczalna | Nie |  
+> | dopuszczalna/eventgridfilters | N
 > | lokacje |  Nie | 
 > | Lokacje/premieraddons |  Nie |  
 > | Lokacje/miejsca |  Nie |  
+> | sourcecontrols | Nie |
+> | staticsites | Nie | 
 
+## <a name="microsoftwindowsesu"></a>Microsoft. WindowsESU
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | multipleactivationkeys | Nie |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft. WindowsIoT
 
@@ -1291,15 +1975,28 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | deviceservices | Nie | 
 
-## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft. WindowsVirtualDesktop
+## <a name="microsoftworkloadbuilder"></a>Microsoft. WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
-> | ------------- | ----------- |
-> | applicationgroups | Nie | 
-> | hostpools | Nie | 
-> | obszary robocze | Nie | 
+> | ------------- | ----------- | 
+> | obciążeń | Nie | 
 
+## <a name="microsoftworkloadmonitor"></a>Microsoft. Monitor obciążenia został
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- | 
+> | komponentów | Nie |
+> | componentssummary | Nie | 
+> | monitorinstances | Nie | 
+> | monitorinstancessummary | Nie | 
+> | monitora | Nie | 
 ## <a name="third-party-services"></a>Usługi innych firm
 
 Usługi innych firm obecnie nie obsługują operacji przenoszenia.
+
+## <a name="next-steps"></a>Następne kroki
+
+[Dowiedz się więcej](../../resource-mover/overview.md) o usłudze przenoszenia zasobów.
+
