@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat regionów i Strefy dostępności na p
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 01/26/2021
+ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 0b67f113fb8ab3835419a75697e60a732d4ee390
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: b19f5c3ae0666a0b0e9b0255f848f5924d9d3910
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896057"
+ms.locfileid: "98874743"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
 
