@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: d601c6191da9d555e54c1d58c122420510d288fc
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955556"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804856"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Wdróż niestandardowe rozszerzenie skryptu na maszynach wirtualnych działających na urządzeniu z systemem Azure Stack Edge
 
@@ -62,13 +62,13 @@ If your script is on a local server, then you may still need additional firewall
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. [Pobierz szablony maszyn wirtualnych i pliki parametrów](https://aka.ms/ase-vm-templates) na komputer kliencki. Rozpakuj go do katalogu, który będzie używany jako katalog roboczy.
+1. [Pobierz szablony maszyn wirtualnych i pliki parametrów](https://aka.ms/ase-vm-templates) na komputer kliencki. Rozpakuj pobieranie do katalogu, który będzie używany jako katalog roboczy.
 
-1. Na urządzeniu powinna być utworzona i wdrożona maszyna wirtualna. Aby utworzyć maszyny wirtualne, wykonaj wszystkie kroki opisane w sekcji [Wdrażanie maszyny wirtualnej na Azure Stack EDGE Pro przy użyciu szablonów](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
+1. Na urządzeniu powinna być utworzona i wdrożona maszyna wirtualna. Aby utworzyć maszyny wirtualne, wykonaj wszystkie kroki opisane w temacie [Wdrażanie maszyny wirtualnej na Azure Stack EDGE Pro przy użyciu szablonów](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
 
-    Jeśli konieczne jest pobranie skryptu z zewnątrz, takiego jak z usługi GitHub lub Azure Storage, podczas konfigurowania sieci obliczeniowej należy włączyć port połączony z Internetem w celu obliczenia. Pozwala to na pobranie skryptu.
+    Jeśli musisz pobrać skrypt, taki jak z witryny GitHub lub z usługi Azure Storage zewnętrznie, podczas konfigurowania sieci obliczeniowej Włącz port połączony z Internetem w celu obliczenia. Pozwala to na pobranie skryptu.
 
-    Oto przykład, w którym port 2 został połączony z Internetem i został użyty do włączenia sieci obliczeniowej. Jeśli zidentyfikowano, że Kubernetes nie jest wymagany w poprzednim kroku, można pominąć przypisanie adresu IP i usług zewnętrznych węzła Kubernetes.    
+    W poniższym przykładzie port 2 został połączony z Internetem i został użyty do włączenia sieci obliczeniowej. Jeśli zidentyfikowano, że Kubernetes nie jest wymagany w poprzednim kroku, można pominąć przypisanie adresu IP węzła Kubernetes i usługi zewnętrznej.
 
     ![Włącz ustawienia obliczeń na porcie połączonym z Internetem](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 
@@ -115,7 +115,7 @@ Plik `addCSExtWindowsVM.parameters.json` przyjmuje następujące parametry:
 ```
 Podaj nazwę maszyny wirtualnej, nazwę rozszerzenia i polecenie, które chcesz wykonać.
 
-Oto przykładowy plik parametrów, który został użyty w tym artykule. 
+Oto przykładowy plik parametrów, który został użyty w tym artykule.
 
 ```powershell
 {
@@ -396,4 +396,4 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Polecenia cmdlet Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Polecenia cmdlet Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: c2a14c12baac29d73754bb17e3ca386cc48e1ba0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5704f88d8099966eedcb7143085130ad1376d742
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449222"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804898"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes przy użyciu PersistentVolume na urządzeniu Azure Stack EDGE Pro
 
@@ -26,7 +26,7 @@ Azure Stack EDGE Pro obsługuje również uruchamianie kontenerów usługi Azure
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed wdrożeniem aplikacji stanowej upewnij się, że zostały spełnione następujące wymagania wstępne na urządzeniu oraz klient, który będzie używany do uzyskiwania dostępu do urządzenia:
+Przed wdrożeniem aplikacji stanowej wykonaj następujące wymagania wstępne na urządzeniu oraz klienta, który będzie używany do uzyskiwania dostępu do urządzenia:
 
 ### <a name="for-device"></a>Na potrzeby urządzenia
 
@@ -37,7 +37,7 @@ Przed wdrożeniem aplikacji stanowej upewnij się, że zostały spełnione nast�
 ### <a name="for-client-accessing-the-device"></a>Do uzyskiwania dostępu do urządzenia przez klienta
 
 - Masz system klienta systemu Windows, który będzie używany do uzyskiwania dostępu do urządzenia z systemem Azure Stack Edge.
-    - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - Możesz również mieć dowolnego innego klienta z [obsługiwanym systemem operacyjnym](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. 
     
@@ -50,7 +50,7 @@ Przed wdrożeniem aplikacji stanowej upewnij się, że zostały spełnione nast�
     - Upewnij się, że `kubectl` wersja klienta jest skośna nie więcej niż jedna wersja z wersji głównej Kubernetes działającej na urządzeniu Azure Stack EDGE Pro. 
         - Użyj, `kubectl version` Aby sprawdzić wersję polecenia kubectl działającą na kliencie. Zanotuj pełną wersję.
         - W lokalnym interfejsie użytkownika urządzenia z usługą Azure Stack Edge, przejdź do **omówienia** i zanotuj numer oprogramowania Kubernetes. 
-        - Sprawdź te dwie wersje pod kątem zgodności z mapowania podanego w obsługiwanej wersji Kubernetes <!-- insert link-->. 
+        - Sprawdź te dwie wersje pod kątem zgodności z mapowania podanego w obsługiwanej wersji Kubernetes.<!-- insert link--> 
 
 
 Możesz przystąpić do wdrażania aplikacji stanowej na urządzeniu, na którym znajduje się Azure Stack Edge. 
@@ -327,7 +327,7 @@ kubectl delete deployment <deployment-name>,svc <service-name> -n <your-namespac
 kubectl delete pvc <your-pvc-name> -n <your-namespace>
 ```
 
-Poniżej przedstawiono przykładowe dane wyjściowe po usunięciu wdrożenia i usługi.
+Oto przykładowe dane wyjściowe po usunięciu wdrożenia i usługi.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
@@ -335,13 +335,13 @@ deployment.apps "mysql" deleted
 service "mysql" deleted
 C:\Users\user>
 ```
-Poniżej przedstawiono przykładowe dane wyjściowe po usunięciu obwodu PVC.
+Oto przykładowe dane wyjściowe po usunięciu obwodu PVC.
 
 ```powershell
 C:\Users\user>kubectl delete pvc mysql-pv-claim -n userns1
 persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
-```                                                                                         
+```
 
 Funkcja PV nie jest już powiązana z obwodem PVC w przypadku usunięcia obwodu PVC. Ponieważ funkcja PV została zainicjowana podczas tworzenia udziału, należy usunąć udział. Wykonaj następujące kroki:
 

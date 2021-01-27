@@ -1,31 +1,31 @@
 ---
-title: Wdrażanie aplikacji w języku PHP w systemie ARC z włączonym Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro GPU | Microsoft Docs
-description: Opisuje sposób wdrażania bezstanowej aplikacji w języku PHP przy użyciu usługi Redis za pomocą GitOps w klastrze z włączonym centrum Kubernetes na urządzeniu Azure Stack EDGE Pro.
+title: Wdrażanie `PHP Guestbook` aplikacji na łuku z włączonym Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro GPU | Microsoft Docs
+description: Zawiera opis sposobu wdrażania `Guestbook` bezstanowej aplikacji PHP przy użyciu usługi Redis za pomocą GitOps w klastrze z włączonym centrum Kubernetes na urządzeniu Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ba72617444a2c7ec30e4d1d25afe1edcda16ff35
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882963"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804878"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Wdróż bezstanową aplikację w języku PHP przy użyciu Redis na łuku z włączonym klastrem Kubernetes w systemie Azure Stack Edge — procesor GPU
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Wdróż `Guestbook` bezstanową aplikację PHP z Redis na łuku z włączonym klastrem Kubernetes w systemie Azure Stack Edge — procesor GPU
 
 W tym artykule pokazano, jak skompilować i wdrożyć prostą wielowarstwową aplikację sieci Web przy użyciu Kubernetes i Azure Arc. Ten przykład składa się z następujących składników:
 
-- Wzorzec Redis z jednym wystąpieniem do przechowywania wpisów księgi gościa
+- Redis wzorzec pojedynczego wystąpienia do przechowywania `guestbook` wpisów
 - Wiele zreplikowanych wystąpień Redis do obsługiwania operacji odczytu
 - Wiele wystąpień frontonu sieci Web
 
 Wdrożenie jest wykonywane przy użyciu GitOps w klastrze Kubernetes z włączonym łukiem na urządzeniu z systemem Azure Stack EDGE Pro. 
 
-Ta procedura jest przeznaczona dla osób, które sprawdziły [obciążenia Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) i znają koncepcje [co to jest usługa Azure Arc Kubernetes (wersja zapoznawcza)](../azure-arc/kubernetes/overview.md).
+Ta procedura jest przeznaczona dla osób, które sprawdziły [obciążenia Kubernetes na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) i znają koncepcje [co to jest usługa Azure Arc Kubernetes (wersja zapoznawcza)](../azure-arc/kubernetes/overview.md).
 
 > [!NOTE]
 > Ten artykuł zawiera odwołania do warunku podrzędnego, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
@@ -49,18 +49,18 @@ Przed wdrożeniem bezstanowej aplikacji upewnij się, że zostały spełnione na
 
 1. Masz system klienta systemu Windows, który będzie używany do uzyskiwania dostępu do urządzenia z systemem Azure Stack Edge.
   
-    - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view = true).
     
     - Możesz również mieć dowolnego innego klienta z [obsługiwanym systemem operacyjnym](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. 
     
 1. Procedura opisana w artykule [Uzyskiwanie dostępu do klastra Kubernetes na urządzeniu z systemem Azure Stack Edge w systemie](azure-stack-edge-gpu-create-kubernetes-cluster.md). Masz:
     
-    - Zainstalowane `kubectl` na kliencie  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
+    - Zainstalowane `kubectl` na kliencie programu. <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
     - Upewnij się, że `kubectl` wersja klienta jest skośna nie więcej niż jedna wersja z wersji głównej Kubernetes działającej na urządzeniu Azure Stack EDGE Pro. 
       - Użyj, `kubectl version` Aby sprawdzić wersję polecenia kubectl działającą na kliencie. Zanotuj pełną wersję.
       - W lokalnym interfejsie użytkownika urządzenia z usługą Azure Stack Edge, przejdź do **omówienia** i zanotuj numer oprogramowania Kubernetes. 
-      - Sprawdź te dwie wersje pod kątem zgodności z mapowania podanego w obsługiwanej wersji Kubernetes <!--insert link-->.
+      - Sprawdź te dwie wersje pod kątem zgodności z mapowania podanego w obsługiwanej wersji Kubernetes. <!--insert link-->
 
 1. Istnieje [Konfiguracja GitOps, której można użyć do uruchomienia wdrożenia usługi Azure Arc](https://github.com/kagoyal/dbehaikudemo). W tym przykładzie zostaną użyte następujące `yaml` pliki do wdrożenia na urządzeniu Azure Stack EDGE Pro.
 
@@ -86,18 +86,18 @@ Wykonaj następujące kroki, aby skonfigurować zasób usługi Azure Arc do wdra
 
     ![Zrzut ekranu przedstawia klaster Kubernetes z włączoną funkcją Azure ARC z wybraną pozycją Dodaj konfigurację.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. W obszarze **Dodaj konfigurację** wprowadź odpowiednie wartości dla pól i wybierz pozycję **Zastosuj**.
+1. W obszarze **Dodaj konfigurację** wprowadź odpowiednie wartości pól, a następnie wybierz pozycję **Zastosuj**.
 
     |Parametr  |Opis |
     |---------|---------|
     |Nazwa konfiguracji     | Nazwa zasobu konfiguracji.        |
     |Nazwa wystąpienia operatora     |Nazwa wystąpienia operatora służącego do identyfikowania określonej konfiguracji. Nazwa jest ciągiem zawierającym maksymalnie 253 znaków, które muszą zawierać małe litery, alfanumeryczne, łączniki i kropki.         |
-    |Przestrzeń nazw operatora     | Ustaw wartość **demotestguestbook** jako zgodną z przestrzenią nazw określoną we wdrożeniu `yaml` . <br> Pole definiuje przestrzeń nazw, w której zainstalowano operatora. Nazwa jest ciągiem zawierającym maksymalnie 253 znaków, które muszą zawierać małe litery, alfanumeryczne, łączniki i kropki.         |
+    |Przestrzeń nazw operatora     | Ustaw wartość **demotestguestbook** na zgodną z przestrzenią nazw określoną we wdrożeniu `yaml` . <br> Pole definiuje przestrzeń nazw, w której zainstalowano operatora. Nazwa jest ciągiem zawierającym maksymalnie 253 znaków, które muszą zawierać małe litery, alfanumeryczne, łączniki i kropki.         |
     |Adres URL repozytorium     |<br>Ścieżka do repozytorium Git w `http://github.com/username/repo` lub w `git://github.com/username/repo` formacie, w którym znajduje się konfiguracja GitOps.         |
-    |Zakres operatorów     | Wybierz pozycję **przestrzeń nazw**. <br>Określa zakres, w którym zainstalowano operatora. Wybierz tę opcję jako przestrzeń nazw. Operator zostanie zainstalowany w przestrzeni nazw określonej w plikach wdrożenia YAML.       |
-    |Typ operatora     | Pozostaw domyślnie. <br>Określa typ operatora, domyślnie ustawia się jako strumień.        |
-    |Parametry operatora     | Pozostaw to pole puste. <br>To pole zawiera parametry, które mają zostać przekazane do operatora strumienia.        |
-    |Helm     | Ustaw tę wartość na **wyłączone**. <br>Włącz tę opcję, jeśli będą wykonywane wdrożenia oparte na wykresach.        |
+    |Zakres operatorów     | Wybierz pozycję **przestrzeń nazw**. <br>Ten parametr określa zakres, w którym zainstalowano operatora. Wybierz przestrzeń nazw, aby zainstalować operator w przestrzeni nazw określonej w plikach wdrożenia YAML.       |
+    |Typ operatora     | Pozostaw domyślnie. <br>Ten parametr określa typ operatora — domyślnie ustawia się jako strumień.        |
+    |Parametry operatora     | Pozostaw to pole puste. <br>Ten parametr zawiera parametry, które mają zostać przekazane do operatora strumienia.        |
+    |Helm     | Ustaw ten parametr na **wyłączony**. <br>Włącz tę opcję, jeśli będziesz wykonywać wdrożenia oparte na wykresach.        |
 
 
     ![Dodawanie konfiguracji](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)
@@ -136,7 +136,7 @@ Wdrożenie za pośrednictwem konfiguracji GitOps tworzy `demotestguestbook` prze
     [10.128.44.240]: PS>
     ```  
 
-1. W tym przykładzie usługa frontonu została wdrożona jako typ: moduł równoważenia obciążenia. Aby wyświetlić księgę gościa, należy znaleźć adres IP tej usługi. Uruchom następujące polecenie.
+1. W tym przykładzie usługa frontonu została wdrożona jako typ: moduł równoważenia obciążenia. Musisz znaleźć adres IP tej usługi, aby wyświetlić `guestbook` . Uruchom następujące polecenie.
 
     `kubectl get service -n <your-namespace>`
     
@@ -149,13 +149,13 @@ Wdrożenie za pośrednictwem konfiguracji GitOps tworzy `demotestguestbook` prze
     redis-slave    ClusterIP      10.104.215.146   <none>          6379/TCP       85m
     [10.128.44.240]: PS>
     ```
-1. Usługa frontonu `type:LoadBalancer` ma zewnętrzny adres IP. Ten adres IP pochodzi z zakresu adresów IP określonego dla usług zewnętrznych podczas konfigurowania ustawień sieciowych obliczeń na urządzeniu. Użyj tego adresu IP, aby wyświetlić księgę gościa pod adresem URL: `https://<external-IP-address>` .
+1. Usługa frontonu `type:LoadBalancer` ma zewnętrzny adres IP. Ten adres IP pochodzi z zakresu adresów IP określonego dla usług zewnętrznych podczas konfigurowania ustawień sieciowych obliczeń na urządzeniu. Użyj tego adresu IP, aby wyświetlić `guestbook` adres URL: `https://<external-IP-address>` .
 
     ![Wyświetlanie księgi Gości](media/azure-stack-edge-gpu-connect-powershell-interface/view-guestbook-1.png)
 
 ## <a name="delete-deployment"></a>Usuń wdrożenie
 
-Aby usunąć wdrożenie, można usunąć konfigurację z Azure Portal. Spowoduje to usunięcie utworzonych obiektów, w tym wdrożeń i usług.
+Aby usunąć wdrożenie, można usunąć konfigurację z Azure Portal. Usunięcie konfiguracji spowoduje usunięcie obiektów, które zostały utworzone, w tym wdrożeń i usług.
 
 1. W Azure Portal przejdź do konfiguracji > zasobów usługi Azure Arc. 
 1. Znajdź konfigurację, którą chcesz usunąć. Wybierz... Aby wywołać menu kontekstowe i wybrać pozycję **Usuń**.

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822321"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805952"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Trasy w usłudze Azure static Web Apps Preview
 
@@ -36,7 +36,7 @@ W poniższej tabeli wymieniono odpowiednie lokalizacje, w których należy umie�
 
 |Struktura/Biblioteka | Lokalizacja  |
 |---------|----------|
-| Angular | _stanu_   |
+| Angular | _zasoby_   |
 | React   | _public_  |
 | Svelte  | _public_   |
 | Vue     | _public_ |
@@ -50,8 +50,8 @@ Trasy są zdefiniowane w _routes.jsw_ pliku jako tablica reguł tras we `routes`
 
 | Właściwość reguły  | Wymagane | Wartość domyślna | Komentarz                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Tak      | nie dotyczy          | Wzorzec trasy żądany przez wywołującego.<ul><li>[Symbole wieloznaczne](#wildcards) są obsługiwane na końcu ścieżek tras. Na przykład _administrator trasy/ \* _ dopasowuje dowolną trasę pod ścieżką _administratora_ .<li>Domyślny plik trasy to _index.html_.</ul>|
-| `serve`        | Nie       | nie dotyczy          | Definiuje plik lub ścieżkę zwracaną z żądania. Ścieżka i nazwa pliku mogą się różnić od żądanej ścieżki. Jeśli `serve` wartość nie jest zdefiniowana, zostanie użyta żądana ścieżka. Parametry QueryString nie są obsługiwane; `serve` wartości muszą wskazywać na rzeczywiste pliki.  |
+| `route`        | Tak      | n/d          | Wzorzec trasy żądany przez wywołującego.<ul><li>[Symbole wieloznaczne](#wildcards) są obsługiwane na końcu ścieżek tras. Na przykład _administrator trasy/ \*_ dopasowuje dowolną trasę pod ścieżką _administratora_ .<li>Domyślny plik trasy to _index.html_.</ul>|
+| `serve`        | Nie       | n/d          | Definiuje plik lub ścieżkę zwracaną z żądania. Ścieżka i nazwa pliku mogą się różnić od żądanej ścieżki. Jeśli `serve` wartość nie jest zdefiniowana, zostanie użyta żądana ścieżka. Parametry QueryString nie są obsługiwane; `serve` wartości muszą wskazywać na rzeczywiste pliki.  |
 | `allowedRoles` | Nie       | anonimowe     | Tablica nazw ról. <ul><li>Prawidłowe znaki to `a-z` , `A-Z` , `0-9` , i `_` .<li>Wbudowana rola `anonymous` ma zastosowanie do wszystkich nieuwierzytelnionych użytkowników.<li>Wbudowana rola `authenticated` ma zastosowanie do każdego zalogowanego użytkownika.<li>Użytkownicy muszą należeć do co najmniej jednej roli.<li>Role są dopasowane na zasadzie _lub_ . Jeśli użytkownik znajduje się w dowolnej z wymienionych ról, zostanie udzielony dostęp.<li>Indywidualni użytkownicy są skojarzeni z rolami przy użyciu [zaproszeń](authentication-authorization.md).</ul> |
 | `statusCode`   | Nie       | 200           | Odpowiedź na [kod stanu HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) dla żądania. |
 
@@ -210,7 +210,7 @@ Podanie wartości nagłówka powoduje dodanie lub zmodyfikowanie nagłówka. Pod
 }
 ```
 
-W powyższym przykładzie `content-security-policy` zostanie dodany nowy nagłówek, zostanie `cache-control` zmodyfikowana wartość domyślna serwera, a `x-dns-prefectch-control` nagłówek zostanie usunięty.
+W powyższym przykładzie `content-security-policy` zostanie dodany nowy nagłówek, zostanie `cache-control` zmodyfikowana wartość domyślna serwera, a `x-dns-prefetch-control` nagłówek zostanie usunięty.
 
 Poniższe zagadnienia są ważne podczas pracy z nagłówkami:
 
@@ -222,7 +222,7 @@ Poniższe zagadnienia są ważne podczas pracy z nagłówkami:
 
 ## <a name="example-route-file"></a>Przykładowy plik trasy
 
-Poniższy przykład pokazuje, jak utworzyć reguły tras dla zawartości statycznej i interfejsów API w _routes.js_ pliku. Niektóre trasy używają [folderu systemowego _/.auth_ ](authentication-authorization.md) , który uzyskuje dostęp do punktów końcowych powiązanych z uwierzytelnianiem.
+Poniższy przykład pokazuje, jak utworzyć reguły tras dla zawartości statycznej i interfejsów API w _routes.js_ pliku. Niektóre trasy używają [folderu systemowego _/.auth_](authentication-authorization.md) , który uzyskuje dostęp do punktów końcowych powiązanych z uwierzytelnianiem.
 
 ```json
 {
@@ -290,9 +290,9 @@ W poniższych przykładach opisano, co się dzieje, gdy żądanie jest zgodne z 
 | Żądania do... | Wynik... |
 |--|--|--|
 | _/Profile_ | Uwierzytelnieni użytkownicy obsługują plik _/profile/index.html_ . Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
-| _/admin/reports_ | Użytkownicy uwierzytelnieni w roli _administratorzy_ są obsługiwani _/admin/Reports/index.html_ . Uwierzytelnieni użytkownicy, którzy nie należą do roli _administratorzy_ , są obsługiwani 401 Błąd<sup>2</sup>. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
+| _/admin/reports_ | Użytkownicy uwierzytelnieni w roli _administratorzy_ są obsługiwani _/admin/Reports/index.html_ . Uwierzytelnieni użytkownicy, którzy nie należą do roli _administratorzy_ , są obsługiwani 401 Błąd <sup>2</sup>. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
 | _/api/admin_ | Żądania od uwierzytelnionych użytkowników w roli _administratorzy_ są wysyłane do interfejsu API. Uwierzytelnieni użytkownicy, którzy nie znajdują się w roli _administratorzy_ , a nieuwierzytelnieni użytkownicy są obsługiwani błędem 401. |
-| _/customers/contoso_ | Użytkownicy uwierzytelnieni, którzy należą do roli firmy _ \_ contoso lub klienci_ _, są_ obsługiwani _/Customers/contoso/index.html_ pliku<sup>2</sup>. Uwierzytelnieni użytkownicy, którzy nie _znajdują się w_ rolach firmy _ \_ contoso lub klienci_ , są obsługiwani 401 błędu. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
+| _/customers/contoso_ | Użytkownicy uwierzytelnieni, którzy należą do roli firmy _\_ contoso lub klienci_ _, są_ obsługiwani _/Customers/contoso/index.html_ pliku <sup>2</sup>. Uwierzytelnieni użytkownicy, którzy nie _znajdują się w_ rolach firmy _\_ contoso lub klienci_ , są obsługiwani 401 błędu. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
 | _/Login_ | Nieuwierzytelnionym użytkownikom wzywa się do uwierzytelnienia w usłudze GitHub. |
 | _/.auth/login/twitter_ | Autoryzacja za pomocą usługi Twitter jest wyłączona. Serwer reaguje na błąd 404. |
 | _/logout_ | Użytkownicy są wyrejestrowani z dowolnego dostawcy uwierzytelniania. |

@@ -12,18 +12,18 @@ ms.date: 01/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1dc5b8dc8930d75456f307324ef97bd60e78eca9
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 96772020e70aeb32fa1a8ae18bf3818396887877
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660161"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805238"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C przy użyciu Microsoft Graph
 
 Microsoft Graph umożliwia zarządzanie zasobami w katalogu Azure AD B2C. Następujące Microsoft Graph operacje interfejsu API są obsługiwane na potrzeby zarządzania zasobami Azure AD B2C, w tym użytkownikami, dostawcami tożsamości, przepływami użytkowników, zasadami niestandardowymi i kluczami zasad. Każdy link w poniższych sekcjach odwołuje się do odpowiedniej strony w ramach odwołania do interfejsu API Microsoft Graph dla tej operacji. 
 
-## <a name="perquisites"></a>Perquisites
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby korzystać z programu MS interfejs API programu Graph i korzystać z zasobów w dzierżawie Azure AD B2C, potrzebna jest rejestracja aplikacji, która przyznaje uprawnienia. Wykonaj kroki opisane w artykule [zarządzanie Azure AD B2C w programie Microsoft Graph](microsoft-graph-get-started.md) , aby utworzyć rejestrację aplikacji, która może być używana przez aplikację zarządzania. 
 

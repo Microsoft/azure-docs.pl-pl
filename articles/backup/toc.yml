@@ -79,7 +79,7 @@
         - name: Często zadawane pytania — centrum kopii zapasowych
           href: backup-center-faq.yml
         - name: Często zadawane pytania — kopia zapasowa maszyny wirtualnej platformy Azure
-          href: backup-azure-vm-backup-faq.md
+          href: backup-azure-vm-backup-faq.yml
         - name: Często zadawane pytania — agent usługi MARS
           href: backup-azure-file-folder-backup-faq.md
         - name: Często zadawane pytania — tworzenie kopii zapasowej plików w usłudze Azure Files

@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Data Box
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Data Box. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: ce607d8036fa7dd4f6c0878d9ec028b880089355
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 9c0c8b9b123116bc9f7ce76639ed7adf45cfba99
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703800"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804815"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-box"></a>Azure Policy wbudowane definicje Azure Data Box
 

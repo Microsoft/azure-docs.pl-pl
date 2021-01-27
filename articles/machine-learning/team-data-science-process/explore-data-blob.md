@@ -1,5 +1,5 @@
 ---
-title: Eksplorowanie danych w usłudze Azure Blob Storage za pomocą procesu nauki o danych Pandas-Team
+title: Eksplorowanie danych w usłudze Azure Blob Storage przy użyciu procesu nauki o danych Pandas-Team
 description: Jak eksplorować dane przechowywane w kontenerze obiektów blob platformy Azure przy użyciu pakietu języka Python Pandas.
 services: machine-learning
 author: marktab
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3d80ff9f5f96bbc642aed6598c86cb682d606695
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 855998b887f1d446ee8d196ff4628e066cb5d675
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410678"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805677"
 ---
-# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Eksplorowanie danych w usłudze Azure Blob Storage za pomocą Pandas
+# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Eksplorowanie danych w usłudze Azure Blob Storage przy użyciu usługi Pandas
 
 W tym artykule opisano, jak eksplorować dane przechowywane w kontenerze obiektów blob platformy Azure przy użyciu pakietu języka Python [Pandas](https://pandas.pydata.org/) .
 
@@ -28,7 +28,7 @@ To zadanie jest krokiem w [procesie nauki danych zespołu](overview.md).
 W tym artykule założono, że masz:
 
 * Utworzono konto usługi Azure Storage. Jeśli potrzebujesz instrukcji, zobacz [Tworzenie konta usługi Azure Storage](../../storage/common/storage-account-create.md)
-* Dane przechowywane na koncie usługi Azure Blob Storage. Jeśli potrzebujesz instrukcji, zobacz temat [przeniesienie danych do i z usługi Azure Storage](../../storage/common/storage-choose-data-transfer-solution.md)
+* Dane są przechowywane na koncie usługi Azure Blob Storage. Jeśli potrzebujesz instrukcji, zobacz temat [przeniesienie danych do i z usługi Azure Storage](../../storage/common/storage-choose-data-transfer-solution.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Załaduj dane do Pandas Dataframe
 Aby eksplorować zestaw danych i manipulować nim, najpierw należy go pobrać ze źródła obiektów BLOB do pliku lokalnego, który następnie można załadować w Pandas Dataframe. Poniżej przedstawiono kroki, które należy wykonać w przypadku tej procedury:

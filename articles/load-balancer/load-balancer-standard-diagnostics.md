@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 90443a898ffdebf33a0c967719ba25a2ccc6f9a7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 43d83d994c9a4ee3cf89b584f6c3835a62fa2cfe
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792103"
+ms.locfileid: "98805994"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostyka usługi Load Balancer w warstwie Standardowa przy użyciu metryk, alertów i kondycji zasobów
 
@@ -26,7 +26,6 @@ Usługa Azure usługa Load Balancer w warstwie Standardowa udostępnia następuj
 * **Wielowymiarowe metryki i alerty**: zapewniają wielowymiarowe funkcje diagnostyczne, [Azure monitor](../azure-monitor/overview.md) w przypadku konfiguracji usługi równoważenia obciążenia w warstwie Standardowa. Możesz monitorować zasoby standardowego modułu równoważenia obciążenia, zarządzać nimi i rozwiązywać problemy.
 
 * **Kondycja zasobów**: Resource Health stan Load Balancer jest dostępny na stronie Resource Health w obszarze monitorowanie. To automatyczne sprawdzenie informuje o bieżącej dostępności zasobu Load Balancer.
-
 Ten artykuł zawiera krótki przewodnik po tych możliwościach i oferuje sposoby ich używania do usługa Load Balancer w warstwie Standardowa. 
 
 ## <a name="multi-dimensional-metrics"></a><a name = "MultiDimensionalMetrics"></a>Metryki wielowymiarowe
@@ -73,7 +72,7 @@ Aby wyświetlić metryki dla zasobów usługa Load Balancer w warstwie Standardo
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Programowe pobieranie metryk wielowymiarowych za pośrednictwem interfejsów API
 
-Aby uzyskać wskazówki dotyczące interfejsu API na potrzeby pobierania wielowymiarowych definicji i wartości metryk, zobacz [Przewodnik po interfejsie API REST monitorowania platformy Azure](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Te metryki można zapisywać na koncie magazynu za pośrednictwem tylko opcji "wszystkie metryki". 
+Aby uzyskać wskazówki dotyczące interfejsu API na potrzeby pobierania wielowymiarowych definicji i wartości metryk, zobacz [Przewodnik po interfejsie API REST monitorowania platformy Azure](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Te metryki mogą być zapisywane na koncie magazynu przez dodanie [ustawień diagnostycznych](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) dla kategorii "wszystkie metryki". 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Konfigurowanie alertów dla wielowymiarowych metryk ###
 
@@ -85,9 +84,6 @@ Aby skonfigurować alerty:
     1.  Skonfiguruj warunek alertu
     1.  Obowiązkowe Dodaj grupę akcji dla automatycznej naprawy
     1.  Przypisywanie ważności, nazwy i opisu alertu, który umożliwia intuicyjną reagowanie
-
-  >[!NOTE]
-  >W oknie Konfiguracja stanu alertu zostanie wyświetlona seria czasowa dla historii sygnałów. Istnieje możliwość filtrowania tej szeregu czasowego według wymiarów, takich jak adres IP zaplecza. Spowoduje to odfiltrowanie wykresu szeregów czasowych, ale **nie** samego alertu. Nie można skonfigurować alertów dla określonych adresów IP zaplecza.
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Typowe scenariusze diagnostyczne i zalecane widoki
 
@@ -147,7 +143,7 @@ Liczba nieudanych połączeń w liczbie większej niż zero oznacza wyczerpanie 
 
 Aby uzyskać statystyki połączeń z podłączaniem adresów sieciowych:
 1. Wybierz typ metryki połączenia z podłączaniem **adresów sieciowych** i **sumę** jako agregację. 
-2. Grupuj według **stanu połączenia** dla zakończonych powodzeniem i niepowodzeniem liczby połączeń z dołączonym translatorem adresów sieciowych, które są reprezentowane przez różne wiersze. 
+2. Grupuj według **stanu połączenia** dla zakończonych powodzeniem i niepowodzeniem liczby połączeń z przydziałem adresów sieciowych do reprezentowania przez różne wiersze. 
 
 ![Połączenie z przywiązaniem](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
@@ -202,7 +198,7 @@ Metryki bajtów i pakietów opisują ilość bajtów i pakietów, które są wys
 Użyj **sum** jako agregacji dla większości scenariuszy.
 
 Aby uzyskać statystykę liczby bajtów lub pakietów:
-1. Wybierz **liczbę bajtów** i/lub typ metryki **Liczba pakietów** , z **średnim** jako agregacją. 
+1. Wybierz **liczbę bajtów** i/lub typ metryki **Liczba pakietów** , z **sumą** jako agregację. 
 2. Wykonaj jedną z następujących czynności:
    * Zastosuj filtr dla określonego adresu IP frontonu, portu frontonu, adresu IP zaplecza lub portu zaplecza.
    * Uzyskaj ogólne statystyki dla zasobu modułu równoważenia obciążenia bez filtrowania.
@@ -239,8 +235,8 @@ Stan kondycji zasobów usługa Load Balancer w warstwie Standardowa jest udostę
 | Stan kondycji zasobu | Opis |
 | --- | --- |
 | Dostępne | Zasób standardowego modułu równoważenia obciążenia jest w dobrej kondycji i jest dostępny. |
-| Obniżona wydajność | Moduł równoważenia obciążenia w warstwie Standardowa ma zdarzenia zainicjowane przez platformę lub użytkownika, które mają wpływ na wydajność. Metryka Dostępność ścieżki danych od co najmniej dwóch minut zgłasza kondycję niższą niż 90%, ale wyższą niż 25%. Zostanie napotkany umiarkowany wpływ na wydajność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](./troubleshoot-rhc.md) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które powodują wpływ na dostępność.
-| Niedostępny | Zasób standardowego modułu równoważenia obciążenia nie jest w dobrej kondycji. Metryka dostępności ścieżki datapath zgłosiła mniej niż 25% kondycji przez co najmniej dwie minuty. Wystąpi znaczny wpływ na wydajność lub brak dostępności dla łączności przychodzącej. Mogą istnieć zdarzenia użytkownika lub platformy powodujące niedostępność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](./troubleshoot-rhc.md) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które mają wpływ na dostępność. |
+| Obniżona wydajność | Moduł równoważenia obciążenia w warstwie Standardowa ma zdarzenia zainicjowane przez platformę lub użytkownika, które mają wpływ na wydajność. Metryka Dostępność ścieżki danych od co najmniej dwóch minut zgłasza kondycję niższą niż 90%, ale wyższą niż 25%. Zostanie napotkany umiarkowany wpływ na wydajność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które powodują wpływ na dostępność.
+| Niedostępny | Zasób standardowego modułu równoważenia obciążenia nie jest w dobrej kondycji. Metryka dostępności ścieżki datapath zgłosiła mniej niż 25% kondycji przez co najmniej dwie minuty. Wystąpi znaczny wpływ na wydajność lub brak dostępności dla łączności przychodzącej. Mogą istnieć zdarzenia użytkownika lub platformy powodujące niedostępność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które mają wpływ na dostępność. |
 | Nieznane | Stan kondycji zasobu dla zasobu standardowego modułu równoważenia obciążenia nie został jeszcze zaktualizowany lub nie otrzymał informacji o dostępności ścieżki danych dla ostatnich 10 minut. Ten stan powinien występować przejściowo i zmienić się na prawidłowy stan po otrzymaniu danych. |
 
 Aby wyświetlić kondycję publicznych zasobów usługa Load Balancer w warstwie Standardowa:
@@ -267,6 +263,7 @@ Opis ogólnego stanu kondycji zasobu jest dostępny w [dokumentacji systemie RHC
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Dowiedz się więcej o korzystaniu z usługi [Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) , aby wyświetlić te metryki wstępnie skonfigurowane dla Load Balancer
 - Dowiedz się więcej o [usłudze Load Balancer w warstwie Standardowa](./load-balancer-overview.md).
 - Dowiedz się więcej o [łączności wychodzącej modułu równoważenia obciążenia](./load-balancer-outbound-connections.md).
 - Dowiedz się więcej na temat [Azure monitor](../azure-monitor/overview.md).

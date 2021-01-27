@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 69d5a0a69bcd820fd59da0a18b3838b65a6a0460
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763437"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805200"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu szablonów
 
@@ -29,7 +29,7 @@ Aby wdrożyć maszyny wirtualne z systemem Azure Stack Edge na wielu urządzenia
 
 Podsumowanie wysokiego poziomu przepływu pracy wdrożenia przy użyciu szablonów jest następujące:
 
-1. **Konfigurowanie wymagań wstępnych** — istnieją 3 typy wymagań wstępnych; urządzenie, klient i dla maszyny wirtualnej.
+1. **Konfigurowanie wymagań wstępnych** — istnieją trzy typy wymagań wstępnych: urządzenie, klient i maszyna wirtualna.
 
     1. **Wymagania wstępne dotyczące urządzeń**
 
@@ -47,7 +47,7 @@ Podsumowanie wysokiego poziomu przepływu pracy wdrożenia przy użyciu szablon�
         1. Utwórz grupę zasobów w lokalizacji urządzenia, która będzie zawierać wszystkie zasoby maszyn wirtualnych.
         1. Utwórz konto magazynu, aby przekazać dysk VHD użyty do utworzenia obrazu maszyny wirtualnej.
         1. Dodaj identyfikator URI konta magazynu lokalnego do serwera DNS lub pliku Hosts na kliencie, który uzyskuje dostęp do urządzenia.
-        1. Zainstaluj na urządzeniu certyfikat magazynu obiektów blob, a także lokalny klient uzyskujący dostęp do urządzenia. Opcjonalnie Zainstaluj certyfikat magazynu obiektów BLOB na Eksplorator usługi Storage.
+        1. Zainstaluj certyfikat magazynu obiektów BLOB na urządzeniu oraz na lokalnym kliencie, który uzyskuje dostęp do urządzenia. Opcjonalnie Zainstaluj certyfikat magazynu obiektów BLOB na Eksplorator usługi Storage.
         1. Utwórz i przekaż dysk VHD do utworzonego wcześniej konta magazynu.
 
 2. **Tworzenie maszyny wirtualnej na podstawie szablonów**
@@ -71,7 +71,7 @@ Skonfiguruj te wymagania wstępne na kliencie, które będą używane w celu uzy
 
 ## <a name="vm-prerequisites"></a>Wymagania wstępne maszyny wirtualnej
 
-Skonfiguruj te wymagania wstępne, aby utworzyć zasoby, które będą wymagane do utworzenia maszyny wirtualnej. 
+Skonfiguruj te wymagania wstępne, aby utworzyć zasoby wymagane do utworzenia maszyny wirtualnej. 
 
     
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
@@ -101,7 +101,7 @@ PS C:\windows\system32>
 
 ### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Utwórz nowe konto magazynu przy użyciu grupy zasobów utworzonej w poprzednim kroku. Jest to **konto magazynu lokalnego** , które zostanie użyte do przekazania obrazu dysku wirtualnego dla maszyny wirtualnej.
+Utwórz nowe konto magazynu przy użyciu grupy zasobów utworzonej w poprzednim kroku. To konto jest kontem **magazynu lokalnego** , które zostanie użyte do przekazania obrazu dysku wirtualnego dla maszyny wirtualnej.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -185,17 +185,17 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
     ![Łączenie z usługą Azure Storage 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Dalej**.
+5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz opcję **Dalej**.
 
     ![Nawiązywanie połączenia z usługą Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. W oknie **łączenie z nazwą i kluczem** Podaj **nazwę wyświetlaną**, **nazwę konta magazynu** i **klucz konta** usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Dalej**.
+6. W oknie **łączenie z nazwą i kluczem** Podaj **nazwę wyświetlaną**, **nazwę konta magazynu** i **klucz konta** usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz opcję **Dalej**.
 
     ![Nawiązywanie połączenia przy użyciu nazwy i klucza](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
 7. Przejrzyj **Podsumowanie połączenia** i wybierz pozycję **Połącz**.
 
-8. Konto magazynu zostanie wyświetlone w okienku po lewej stronie. Wybierz i rozwiń konto magazynu. Wybierz **kontenery obiektów BLOB**, kliknij prawym przyciskiem myszy i wybierz pozycję **Utwórz kontener obiektów BLOB**. Podaj nazwę kontenera obiektów BLOB.
+8. Konto magazynu zostanie wyświetlone w okienku po lewej stronie. Wybierz i rozwiń konto magazynu. Wybierz pozycję **kontenery obiektów BLOB**, kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Utwórz kontener obiektów BLOB**. Podaj nazwę kontenera obiektów BLOB.
 
 9. Wybierz kontener, który został właśnie utworzony, a następnie w okienku po prawej stronie wybierz pozycję **przekaż > Przekaż pliki**. 
 
@@ -209,7 +209,7 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
     ![Przekaż plik VHD 3](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
 
-12. Skopiuj i Zapisz **Identyfikator URI** , ponieważ będzie on używany w dalszych krokach.
+12. Skopiuj i Zapisz **Identyfikator URI**, który będzie używany w dalszych krokach.
 
     ![Kopiuj identyfikator URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
@@ -237,7 +237,7 @@ Plik `CreateImage.parameters.json` przyjmuje następujące parametry:
     }
 ```
 
-Edytuj plik, `CreateImage.parameters.json` Aby uwzględnić następujące elementy na urządzeniu Azure Stack EDGE Pro:
+Edytuj plik, `CreateImage.parameters.json` Aby uwzględnić następujące wartości dla urządzenia z Azure Stack brzeg Pro:
 
 1. Podaj typ systemu operacyjnego odpowiadający dyskowi VHD, który zostanie przekazany. Typem systemu operacyjnego może być Windows lub Linux.
 
@@ -250,16 +250,17 @@ Edytuj plik, `CreateImage.parameters.json` Aby uwzględnić następujące elemen
 
 2. Zmień identyfikator URI obrazu na identyfikator URI obrazu przekazanego we wcześniejszym kroku:
 
-    ```json
-    "imageUri": {
-        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-        },
-    ```
-    Jeśli używasz *protokołu HTTP* z Eksplorator usługi Storage, zmień go na identyfikator URI *protokołu HTTP* .
+   ```json
+   "imageUri": {
+       "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
+       },
+   ```
+
+   Jeśli używasz *protokołu HTTP* z Eksplorator usługi Storage, Zmień identyfikator URI na identyfikator URI *protokołu HTTP* .
 
 3. Podaj unikatową nazwę obrazu. Ten obraz służy do tworzenia maszyny wirtualnej w dalszych krokach. 
 
-    Oto przykładowy kod JSON, który jest używany w tym artykule.
+   Oto przykładowy kod JSON, który jest używany w tym artykule.
 
     ```json
     {
@@ -278,6 +279,7 @@ Edytuj plik, `CreateImage.parameters.json` Aby uwzględnić następujące elemen
       }
     }
     ```
+
 5. Zapisz plik parametrów.
 
 
@@ -588,4 +590,4 @@ Wykonaj następujące kroki, aby nawiązać połączenie z maszyną wirtualną z
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Polecenia cmdlet Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Polecenia cmdlet Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

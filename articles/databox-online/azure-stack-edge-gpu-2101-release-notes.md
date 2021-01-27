@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/19/2021
 ms.author: alkohli
-ms.openlocfilehash: d0b7f871b2ea62c810a6d20f6e20a5e8d3f6306e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8158868a39bf8a1fe03a620f37e4dcb1c9adc14e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791917"
+ms.locfileid: "98805178"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Azure Stack Edge 2101 — informacje o wersji
 
@@ -45,12 +45,12 @@ Poniższa tabela zawiera podsumowanie znanych problemów w wersji 2101.
 |**1.**|Funkcje w wersji zapoznawczej |W tej wersji w wersji zapoznawczej są dostępne następujące funkcje: lokalne Azure Resource Manager, maszyny wirtualne, zarządzanie chmurą maszyn wirtualnych, usługa Azure ARC z obsługą Kubernetes, Sieć VPN dla Azure Stack EDGE Pro R i Azure Stack Edge mini R, wiele procesów (MPS) dla Azure Stack EDGE Pro GPU  |Te funkcje będą ogólnie dostępne w nowszych wersjach. |
 |**2.**|Pulpit nawigacyjny Kubernetes | Punkt końcowy *https* dla pulpitu nawigacyjnego Kubernetes z certyfikatem SSL nie jest obsługiwany. | |
 |**3.**|Kubernetes |Rejestr kontenerów krawędzi nie działa, gdy jest włączony serwer proxy sieci Web.|Ta funkcja będzie dostępna w przyszłych wydaniach. |
-|**4.**|Kubernetes |Rejestr kontenerów brzegowych nie działa z modułami IoT Edge.| |
-|**5000.**|Kubernetes |Kubernetes nie obsługuje ":" w nazwach zmiennych środowiskowych, które są używane przez aplikacje platformy .NET. Jest to również wymagane przez moduł IoT Edge Event Grid do działania na Azure Stack urządzeniu brzegowym i innych aplikacjach. Aby uzyskać więcej informacji, zobacz [dokumentację ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Zamień ciąg ":" przez podwójne podkreślenie. Aby uzyskać więcej informacji, zobacz [Kubernetes Issue](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**ust.** |Azure Arc + klaster Kubernetes |Domyślnie, gdy zasób `yamls` jest usuwany z repozytorium git, odpowiednie zasoby nie są usuwane z klastra Kubernetes.  |Należy ustawić `--sync-garbage-collection` w łuku OperatorParams, aby zezwolić na usunięcie zasobów po ich usunięciu z repozytorium git. Aby uzyskać więcej informacji, zobacz [Usuwanie konfiguracji](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
-|**7.**|NFS |Aplikacje korzystające z instalacji udziałów NFS na urządzeniu do zapisywania danych powinny używać zapisu wyłącznego. Użycie zapisu wyłącznego gwarantuje, że zapisy są zapisywane na dysku.| |
+|**4.**|Kubernetes |Rejestr kontenerów krawędzi nie działa z modułami IoT Edge.| |
+|**5000.**|Kubernetes |Kubernetes nie obsługuje ":" w nazwach zmiennych środowiskowych, które są używane przez aplikacje platformy .NET. Jest to również wymagane w przypadku, gdy moduł IoT Edge Event Grid może działać na Azure Stack urządzeniu brzegowym i innych aplikacjach. Aby uzyskać więcej informacji, zobacz [dokumentację ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Zamień ciąg ":" przez podwójne podkreślenie. Aby uzyskać więcej informacji, zobacz [Kubernetes Issue](https://github.com/kubernetes/kubernetes/issues/53201)|
+|**ust.** |Azure Arc + klaster Kubernetes |Domyślnie po `yamls` usunięciu zasobu z repozytorium git odpowiednie zasoby nie są usuwane z klastra Kubernetes.  |Należy ustawić `--sync-garbage-collection`  w łuku OperatorParams, aby zezwolić na usunięcie zasobów po usunięciu z repozytorium git. Aby uzyskać więcej informacji, zobacz [Usuwanie konfiguracji](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**7.**|NFS |Aplikacje korzystające z instalacji udziałów NFS na urządzeniu do zapisywania danych powinny używać zapisu wyłącznego. Dzięki temu zapis jest zapisywany na dysku.| |
 |**0,8.**|Konfiguracja obliczeń |Konfiguracja obliczeń kończy się niepowodzeniem w konfiguracjach sieci, w których bramy lub przełączniki lub routery odpowiadają na żądania protokołu ARP (Address Resolution Protocol) dla systemów, które nie istnieją w sieci.| |
-|**9.**|Obliczenia i Kubernetes |Jeśli Kubernetes jest najpierw skonfigurowany na urządzeniu, przejmuje wszystkie dostępne procesory GPU. W związku z tym nie można tworzyć maszyn wirtualnych Azure Resource Manager przy użyciu procesorów GPU po skonfigurowaniu Kubernetes. |Jeśli urządzenie ma 2 procesory GPU, można utworzyć 1 maszynę wirtualną, która używa procesora GPU, a następnie skonfigurować Kubernetes. W takim przypadku Kubernetes będzie używać pozostałego dostępnego 1 procesora GPU. |
+|**9.**|Obliczenia i Kubernetes |Jeśli Kubernetes jest najpierw skonfigurowany na urządzeniu, przejmuje wszystkie dostępne procesory GPU. W związku z tym nie jest możliwe tworzenie Azure Resource Manager maszyn wirtualnych przy użyciu procesorów GPU po skonfigurowaniu Kubernetes. |Jeśli urządzenie ma 2 procesory GPU, można utworzyć 1 maszynę wirtualną, która używa procesora GPU, a następnie skonfigurować Kubernetes. W takim przypadku Kubernetes będzie używać pozostałego dostępnego 1 procesora GPU. |
 
 
 ## <a name="known-issues-from-previous-releases"></a>Znane problemy z poprzednich wersji

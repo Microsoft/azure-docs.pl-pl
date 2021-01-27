@@ -601,24 +601,24 @@
           href: dedicated-hosts-portal.md
         - name: PowerShell
           href: ./windows/dedicated-hosts-powershell.md
+    - name: Virtual Machines na miejscu
+      displayName: 'pre-empt, preempt, spot'
+      items:
+        - name: Omówienie
+          href: spot-vms.md
+        - name: Interfejs wiersza polecenia
+          href: ./linux/spot-cli.md
+        - name: Portal
+          href: spot-portal.md
+        - name: PowerShell
+          href: ./windows/spot-powershell.md
+        - name: Szablon ARM
+          displayName: template ARM
+          href: ./linux/spot-template.md
+        - name: Kody błędów
+          href: error-codes-spot.md
     - name: Opcje zakupu
       items:
-        - name: Maszyny wirtualne typu spot
-          displayName: 'pre-empt, preempt, spot'
-          items:
-            - name: Omówienie
-              href: spot-vms.md
-            - name: Interfejs wiersza polecenia
-              href: ./linux/spot-cli.md
-            - name: Portal
-              href: spot-portal.md
-            - name: PowerShell
-              href: ./windows/spot-powershell.md
-            - name: Szablon ARM
-              displayName: template ARM
-              href: ./linux/spot-template.md
-            - name: Kody błędów
-              href: error-codes-spot.md
         - name: Korzyść użycia hybrydowego platformy Azure
           items:
             - name: Linux
@@ -1340,7 +1340,7 @@
           items:
             - name: Interfejs wiersza polecenia platformy Azure
               href: ./linux/add-disk.md
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: ./linux/attach-disk-portal.md
         - name: Windows
           items:
@@ -1747,7 +1747,7 @@
         - name: Cennik
           href: ../backup/azure-backup-pricing.md
         - name: Często zadawane pytania
-          href: ../backup/backup-azure-vm-backup-faq.md
+          href: ../backup/backup-azure-vm-backup-faq.yml
     - name: Odzyskiwanie po awarii
       items:
         - name: Omówienie

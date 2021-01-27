@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 6bf0da8716233178889d47ec3d57e9b29bc2658f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763221"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805794"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Nawiązywanie połączenia z usługą Azure Resource Manager na urządzeniu z systemem Azure Stack EDGE Pro
 
@@ -138,9 +138,9 @@ Klient systemu Windows musi spełniać następujące wymagania wstępne:
 
     Porównaj wersję **główną** i upewnij się, że jest ona 5,0 lub nowsza.
 
-    Jeśli masz nieaktualną wersję, zobacz [Upgrading existing Windows PowerShell (Uaktualnianie istniejącego programu Windows PowerShell)](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Jeśli masz nieaktualną wersję, zobacz [Upgrading existing Windows PowerShell (Uaktualnianie istniejącego programu Windows PowerShell)](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
 
-    Jeśli nie \' masz programu PowerShell 5,0, postępuj zgodnie z tematem [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Jeśli nie \' masz programu PowerShell 5,0, postępuj zgodnie z tematem [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
 
     Poniżej pokazano przykładowe dane wyjściowe.
 
@@ -156,7 +156,7 @@ Klient systemu Windows musi spełniać następujące wymagania wstępne:
     
 2. Możesz uzyskać dostęp do Galeria programu PowerShell.
 
-    Uruchom program PowerShell jako administrator. Sprawdź, czy PSGallery jest zarejestrowany jako repozytorium.
+    Uruchom program PowerShell jako administrator. Sprawdź, czy `PSGallery` element jest zarejestrowany jako repozytorium.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -175,7 +175,7 @@ Klient systemu Windows musi spełniać następujące wymagania wstępne:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Jeśli repozytorium nie jest zaufane lub potrzebujesz więcej informacji, zobacz [Sprawdzanie dostępności Galeria programu PowerShell](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Jeśli repozytorium nie jest zaufane lub potrzebujesz więcej informacji, zobacz [Sprawdzanie dostępności Galeria programu PowerShell](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Krok 4. Konfigurowanie Azure PowerShell na kliencie 
 
@@ -327,7 +327,7 @@ Ustaw środowisko Azure Resource Manager i sprawdź, czy urządzenie do komunika
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Aby uzyskać więcej informacji, przejdź do pozycji [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Aby uzyskać więcej informacji, przejdź do pozycji [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
 
     - Zdefiniuj środowisko w tekście dla każdego wykonywanego polecenia cmdlet. Dzięki temu wszystkie wywołania interfejsu API przechodzą przez poprawne środowisko. Domyślnie wywołania przechodzą przez publiczną platformę Azure, ale chcesz, aby przechodzą przez środowisko, które zostało ustawione dla Azure Stack Edge na urządzeniu.
 

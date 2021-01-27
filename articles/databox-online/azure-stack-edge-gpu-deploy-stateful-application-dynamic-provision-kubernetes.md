@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 81a52b26c5291f788ac81caeb2ca5416a2f58d36
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e009369f6223e171984d1142419101fdd82879b0
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448872"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804913"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes z StorageClass na urządzeniu z systemem Azure Stack Edge
 
@@ -24,7 +24,7 @@ Ta procedura jest przeznaczona dla osób, które sprawdziły [Magazyn Kubernetes
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed wdrożeniem aplikacji stanowej upewnij się, że zostały spełnione następujące wymagania wstępne na urządzeniu oraz klient, który będzie używany do uzyskiwania dostępu do urządzenia:
+Przed wdrożeniem aplikacji stanowej wykonaj następujące wymagania wstępne na urządzeniu oraz klienta, który będzie używany do uzyskiwania dostępu do urządzenia:
 
 ### <a name="for-device"></a>Na potrzeby urządzenia
 
@@ -35,7 +35,7 @@ Przed wdrożeniem aplikacji stanowej upewnij się, że zostały spełnione nast�
 ### <a name="for-client-accessing-the-device"></a>Do uzyskiwania dostępu do urządzenia przez klienta
 
 - Masz system klienta systemu Windows, który będzie używany do uzyskiwania dostępu do urządzenia z systemem Azure Stack Edge.
-    - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - Możesz również mieć dowolnego innego klienta z [obsługiwanym systemem operacyjnym](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. 
     
@@ -157,7 +157,7 @@ Wszystkie `kubectl` polecenia używane do tworzenia i zarządzania wdrożeniami 
     persistentvolumeclaim/mysql-pv-claim-sc created
     C:\Users\user>
     ```
-   Zanotuj nazwę utworzonego obwodu PVC `mysql-pv-claim-sc` . Zostanie ona użyta w późniejszym kroku. 
+   Zanotuj nazwę utworzonego obwodu PVC — w tym przykładzie `mysql-pv-claim-sc` . Zostanie ona użyta w późniejszym kroku.
 
 4. Wdróż zawartość `mysql-deployment.yml` pliku.
 
@@ -307,7 +307,7 @@ kubectl delete deployment <deployment-name>,svc <service-name> -n <your-namespac
 kubectl delete pvc <your-pvc-name> -n <your-namespace>
 ```
 
-Poniżej przedstawiono przykładowe dane wyjściowe po usunięciu wdrożenia i usługi.
+Oto przykładowe dane wyjściowe po usunięciu wdrożenia i usługi.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
@@ -315,7 +315,7 @@ deployment.apps "mysql" deleted
 service "mysql" deleted
 C:\Users\user>
 ```
-Poniżej przedstawiono przykładowe dane wyjściowe po usunięciu obwodu PVC.
+Oto przykładowe dane wyjściowe po usunięciu obwodu PVC.
 
 ```powershell
 C:\Users\user>kubectl delete pvc mysql-pv-claim-sc -n userns1

@@ -1,5 +1,5 @@
 ---
-title: Ulepszanie rozpoznawania nazw portów i sieci VLAN
+title: Ulepszanie rozpoznawania nazw sieci wirtualnych i portów
 description: Dostosuj nazwy portów i sieci VLAN na czujników, aby wzbogacać rozdzielczość urządzeń.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 1747af77468ebe41f59892dea4bb49ce24757f37
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842427"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803571"
 ---
-# <a name="enhance-port-and-vlan-name-resolution"></a>Ulepszanie rozpoznawania nazw portów i sieci VLAN
+# <a name="enhance-port-and-vlan-name-resolution"></a>Ulepszanie rozpoznawania nazw sieci wirtualnych i portów
 
 Możesz dostosować nazwy portów i sieci VLAN na czujników, aby wzbogacać rozdzielczość urządzeń.
 
@@ -84,7 +84,8 @@ Aby skonfigurować sieci VLAN:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wyświetl wzbogacone informacje o urządzeniu w raportach dotyczących spisu urządzeń i wyszukiwania danych:
+Wyświetlaj wzbogacone informacje o urządzeniach w różnych raportach:
 
-- [Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Generowanie raportów](how-to-generate-reports.md)
+- [Badanie wykryć czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Trendy czujnika i raporty statystyczne](how-to-create-trends-and-statistics-reports.md)
+- [Zapytania wyszukiwania danych czujników](how-to-create-data-mining-queries.md)

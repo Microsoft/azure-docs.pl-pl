@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 6356089daed02270a14903639afee8001153b195
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b199fdbac4aca7637e07a18383cc7e254f702019
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447380"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804839"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Wdrażanie bezstanowej aplikacji Kubernetes za pośrednictwem polecenia kubectl na urządzeniu z systemem Azure Stack EDGE Pro GPU
 
@@ -25,7 +25,7 @@ Aby można było utworzyć klaster Kubernetes i użyć `kubectl` narzędzia wier
 
 - Poświadczenia logowania są dostępne na urządzeniu z 1 węzłem Azure Stack Edge.
 
-- Program Windows PowerShell 5,0 lub nowszy jest zainstalowany w systemie klienta systemu Windows w celu uzyskania dostępu do urządzenia Azure Stack EDGE Pro. Możesz również mieć dowolnego innego klienta z obsługiwanym systemem operacyjnym. W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do temat [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Program Windows PowerShell 5,0 lub nowszy jest zainstalowany w systemie klienta systemu Windows w celu uzyskania dostępu do urządzenia Azure Stack EDGE Pro. Możesz również mieć dowolnego innego klienta z obsługiwanym systemem operacyjnym. W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do temat [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
 
 - Obliczenia są włączane na urządzeniu Azure Stack EDGE Pro. Aby włączyć obliczenia, przejdź do strony **obliczenia** w lokalnym interfejsie użytkownika urządzenia. Następnie wybierz interfejs sieciowy, który chcesz włączyć dla obliczeń. Wybierz pozycję **Włącz**. Włączenie obliczeń powoduje utworzenie przełącznika wirtualnego na urządzeniu w tym interfejsie sieciowym. Aby uzyskać więcej informacji, zobacz [Włączanie usługi COMPUTE Network w Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
@@ -55,7 +55,7 @@ Aby sprawdzić wersję programu `kubectl` :
    kubectl version
    ```
     
-   Oto przykład danych wyjściowych:
+   Poniżej przedstawiono przykład danych wyjściowych:
     
    ```powershell
    PS C:\WINDOWS\system32> C:\windows\system32\kubectl.exe version
@@ -63,7 +63,7 @@ Aby sprawdzić wersję programu `kubectl` :
    Server Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.1", GitCommit:"4485c6f18cee9a5d3c3b4e523bd27972b1b53892", GitTreeState:"clean", BuildDate:"2019-07-18T09:09:21Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
    ```
 
-   W takim przypadku wersja klienta polecenia kubectl jest 1.15.2 i jest zgodna, aby można było wykonać operację.
+   W takim przypadku wersja klienta polecenia kubectl jest 1.15.2 i jest zgodna, aby kontynuować.
 
 2. Pobierz listę zasobników uruchomionych w klastrze Kubernetes. Jest to kontener aplikacji lub proces uruchomiony w klastrze Kubernetes.
 
@@ -71,7 +71,7 @@ Aby sprawdzić wersję programu `kubectl` :
    kubectl get pods -n <namespace-string>
    ```
     
-   Oto przykład użycia polecenia:
+   Poniżej przedstawiono przykładowe użycie poleceń:
     
    ```powershell
    PS C:\WINDOWS\system32> kubectl get pods -n "test1"
@@ -103,7 +103,7 @@ Aby sprawdzić wersję programu `kubectl` :
 
 ### <a name="create-a-stateless-application-using-a-deployment"></a>Tworzenie bezstanowej aplikacji przy użyciu wdrożenia
 
-Po sprawdzeniu, czy wersja wiersza polecenia polecenia kubectl jest poprawna i czy są wymagane pliki konfiguracji, można utworzyć wdrożenie aplikacji bezstanowej.
+Teraz, gdy została sprawdzona, że wersja wiersza polecenia polecenia kubectl jest poprawna i masz wymagane pliki konfiguracji, można utworzyć wdrożenie aplikacji bezstanowej.
 
 A pod jest podstawową jednostką wykonywania aplikacji Kubernetes, najmniejszą i najprostszą jednostką w modelu obiektu Kubernetes, który tworzysz lub wdrażasz. W obszarze jest również hermetyzowane zasoby magazynu, unikatowy adres IP sieci i opcje, które regulują sposób działania kontenerów.
 
@@ -123,7 +123,7 @@ Wykonaj następujące kroki, aby utworzyć wdrożenie Nginx:
 
    W tym przykładzie ścieżka do pliku YAML aplikacji jest źródłem zewnętrznym.
 
-   Oto przykładowe użycie polecenia i danych wyjściowych:
+   Oto przykładowe użycie polecenia i jego danych wyjściowych:
 
    ```powershell
    PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment.yaml -n "test1"
@@ -131,7 +131,7 @@ Wykonaj następujące kroki, aby utworzyć wdrożenie Nginx:
    deployment.apps/nginx-deployment created
    ```
 
-   Alternatywnie można zapisać niższą wartość promocji na komputerze lokalnym i zastąpić ścieżkę i nazwę pliku w parametrze *-f* . Na przykład "C:\Kubernetes\deployment.yaml". Poniżej przedstawiono konfigurację wdrożenia aplikacji:
+   Alternatywnie można zapisać niższą wartość promocji na komputerze lokalnym i zastąpić ścieżkę i nazwę pliku w parametrze *-f* . Na przykład "C:\Kubernetes\deployment.yaml". Konfiguracja wdrożenia aplikacji będzie:
 
    ```markdown
    apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -163,7 +163,7 @@ Wykonaj następujące kroki, aby utworzyć wdrożenie Nginx:
    kubectl describe deployment nginx-deployment -n <namespace-string>
    ```
 
-   Poniżej przedstawiono przykładowe użycie polecenia i danych wyjściowych:
+   Poniżej przedstawiono przykładowe użycie polecenia z danymi wyjściowymi:
     
    ```powershell
    PS C:\Users\user> kubectl describe deployment nginx-deployment -n "test1"
@@ -203,13 +203,13 @@ Wykonaj następujące kroki, aby utworzyć wdrożenie Nginx:
      Normal  ScalingReplicaSet  2m22s  deployment-controller  Scaled up replica set nginx-deployment-5754944d6c to 2
    ```
 
-   Jeśli dokładnie zaobserwujesz ustawienie *repliki* , zobaczysz:
+   W przypadku ustawienia *repliki* zobaczysz:
     
    ```powershell
    Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
    ```
 
-   Ustawienie *repliki* wskazuje, że Specyfikacja wdrożenia wymaga dwóch zasobników, które zostały utworzone i zaktualizowane oraz że są gotowe do użycia.
+   Ustawienie *repliki* wskazuje, że Specyfikacja wdrożenia wymaga dwóch zasobników i że te zasobniki zostały utworzone i zaktualizowane i są gotowe do użycia.
 
    > [!NOTE]
    > Zestaw replik zastępuje te, które zostały usunięte z jakiegokolwiek powodu, na przykład w przypadku awarii węzła urządzenia lub nieprzerwanego uaktualnienia urządzenia. Z tego powodu zalecamy użycie zestawu replik, nawet jeśli aplikacja wymaga tylko jednego elementu.
@@ -220,7 +220,7 @@ Wykonaj następujące kroki, aby utworzyć wdrożenie Nginx:
    kubectl get pods -l app=nginx -n <namespace-string>
    ```
     
-   Poniżej przedstawiono przykładowe użycie polecenia i danych wyjściowych:
+   Poniżej przedstawiono przykładowe użycie polecenia z danymi wyjściowymi:
     
    ```powershell
    PS C:\Users\user> kubectl get pods -l app=nginx -n "test1"
@@ -238,7 +238,7 @@ Wykonaj następujące kroki, aby utworzyć wdrożenie Nginx:
    kubectl describe pod <podname-string> -n <namespace-string>
    ```
 
-   Poniżej przedstawiono przykładowe użycie polecenia i danych wyjściowych:
+  Poniżej przedstawiono przykładowe użycie polecenia z danymi wyjściowymi:
 
    ```powershell
    PS C:\Users\user> kubectl describe pod "nginx-deployment-5754944d6c-7wqjd" -n "test1"
@@ -295,14 +295,14 @@ Wykonaj następujące kroki, aby utworzyć wdrożenie Nginx:
 
 ### <a name="rescale-the-application-deployment-by-increasing-the-replica-count"></a>Ponowne skalowanie wdrożenia aplikacji przez zwiększenie liczby replik
 
-Każdy element pod jest przeznaczony do uruchamiania pojedynczego wystąpienia danej aplikacji. Jeśli chcesz skalować aplikację w poziomie w celu uruchomienia wielu wystąpień, możesz zwiększyć liczbę zasobników, jeden dla każdego wystąpienia. W Kubernetes jest to nazywane replikacją.
+Każdy element pod jest przeznaczony do uruchamiania pojedynczego wystąpienia danej aplikacji. Jeśli chcesz skalować aplikację w poziomie w celu uruchomienia wielu wystąpień, możesz zwiększyć liczbę zasobników do jednego dla każdego wystąpienia. W Kubernetes jest to nazywane replikacją.
 Można zwiększyć liczbę zasobników we wdrożeniu aplikacji, stosując nowy plik YAML. Plik YAML zmienia ustawienia replik na 4, co zwiększa liczbę zasobników we wdrożeniu do czterech zasobników. Aby zwiększyć liczbę numerów z 2 do 4:
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment-scale.yaml -n "test1"
 ```
 
-Alternatywnie można zapisać niższą wartość promocji na komputerze lokalnym i zastąpić ścieżkę i nazwę pliku dla parametru *-f* `kubectl apply` . Na przykład "C:\Kubernetes\deployment-scale.yaml". Poniżej przedstawiono konfigurację skalowania wdrożenia aplikacji:
+Alternatywnie można zapisać niższą wartość promocji na komputerze lokalnym i zastąpić ścieżkę i nazwę pliku dla parametru *-f* `kubectl apply` . Na przykład "C:\Kubernetes\deployment-scale.yaml". Konfiguracją skalowania wdrożenia aplikacji będą:
 
 ```markdown
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -332,7 +332,7 @@ Aby sprawdzić, czy wdrożenie ma cztery zasobniki:
 kubectl get pods -l app=nginx
 ```
 
-Oto przykładowe dane wyjściowe wdrożenia ponownego skalowania z dwóch do czterech zasobników:
+Poniżej przedstawiono przykładowe dane wyjściowe dla wdrożenia ponownego skalowania z dwóch do czterech zasobników:
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl get pods -l app=nginx
@@ -354,7 +354,7 @@ Aby usunąć wdrożenie, w tym wszystkie zasobniki, należy uruchomić polecenie
    kubectl delete deployment nginx-deployment -n <namespace-string>
    ```
 
-Oto przykład użycia polecenia i danych wyjściowych:
+Poniżej przedstawiono przykładowe użycie poleceń z danymi wyjściowymi:
 
 ```powershell
 PS C:\Users\user> kubectl delete deployment nginx-deployment -n "test1"
