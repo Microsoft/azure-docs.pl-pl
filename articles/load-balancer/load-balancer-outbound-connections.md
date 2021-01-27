@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: d30998e0d99ba7b1eeb55bdc47cd5cc54690156f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032919"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878226"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Używanie do połączeń wychodzących
 
@@ -22,7 +22,7 @@ Adresy IP frontonu publicznego modułu równoważenia obciążenia platformy Azu
 Przydziały adresów IP włączają **podszywającanie** się w ramach wystąpienia zaplecza. Takie zamaskowane uniemożliwia ze źródeł zewnętrznych adresowanie do wystąpień zaplecza. Udostępnianie adresu IP między wystąpieniami zaplecza zmniejsza koszt statycznych publicznych adresów IP i obsługuje scenariusze, takie jak uproszczenie listy dozwolonych adresów IP z ruchem ze znanych publicznych adresów IP. 
 
 >[!Note]
-> W przypadku aplikacji, które wymagają dużej liczby połączeń wychodzących lub klientów korporacyjnych, którzy wymagają jednego zestawu adresów IP do użycia z danej sieci wirtualnej, zalecanym rozwiązaniem jest [Virtual Network translator adresów sieciowych](../virtual-network/nat-overview.md) . Jest to dynamiczna alokacja umożliwiająca prostą konfigurację i > najbardziej wydajnym sposobem korzystania z portów ze wszystkich adresów IP. Umożliwia również wszystkim zasobom w sieci wirtualnej udostępnianie zestawu adresów IP bez potrzeby udostępniania > modułu równoważenia obciążenia.
+> W przypadku aplikacji wymagających dużej liczby połączeń wychodzących lub klientów korporacyjnych, którzy wymagają jednego zestawu adresów IP do użycia z danej sieci wirtualnej, zalecanym rozwiązaniem jest [Virtual Network translator adresów sieciowych](../virtual-network/nat-overview.md) . Jest to dynamiczna alokacja umożliwiająca prostą konfigurację i > najbardziej wydajnym sposobem korzystania z portów ze wszystkich adresów IP. Umożliwia również wszystkim zasobom w sieci wirtualnej udostępnianie zestawu adresów IP bez potrzeby udostępniania > modułu równoważenia obciążenia.
 
 >[!Important]
 > Nawet bez skonfigurowanego wychodzącego programu Resource kont usługi Azure Storage w tym samym regionie nadal będą dostępne, a zasoby zaplecza nadal będą mieć dostęp do usług firmy Microsoft, takich jak aktualizacje systemu Windows.

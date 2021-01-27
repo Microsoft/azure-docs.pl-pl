@@ -1,25 +1,11 @@
 ---
-title: Programowanie przy użyciu interfejsów API v3
-titleSuffix: Azure Media Services
-description: Informacje o regułach, które są stosowane do jednostek i interfejsów API podczas tworzenia z Media Services v3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 10/23/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790580"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Pola obowiązkowe. Zobacz więcej na temat aka.ms/skyeye/meta.
+title: Programowanie za pomocą interfejsów API v3: Opis Azure Media Services: informacje o regułach, które są stosowane do jednostek i interfejsów API podczas tworzenia z Media Services v3. usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
+
+MS. Service: Media-Services MS. obciążenie: MS. temat: koncepcyjne MS. Date: 10/23/2020 MS. Author: inhenkel MS. Custom: seodec18
+
 ---
+
 # <a name="develop-with-media-services-v3-apis"></a>Programowanie przy użyciu interfejsu API usługi Media Services w wersji 3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -32,10 +18,10 @@ W tym artykule omówiono reguły dotyczące jednostek i interfejsów API podczas
 
 Aby uzyskać prawa dostępu do zasobów usługi Media Services i do interfejsu API usługi Media Services, należy się najpierw uwierzytelnić. Usługa Media Services obsługuje uwierzytelnianie [oparte na usłudze Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Dostępne są dwie typowe opcje uwierzytelniania:
  
-* **Uwierzytelnianie jednostki usługi** : Służy do uwierzytelniania usług (na przykład: aplikacji internetowych, aplikacji funkcji, aplikacji logiki, interfejsu API i mikrousług). Aplikacje, które często korzystają z tej metody uwierzytelniania, to aplikacje uruchamiające usługi demonów, usługi warstwy środkowej lub zaplanowane zadania. Na przykład w przypadku aplikacji sieci Web zawsze powinna być warstwą średnią, która łączy się z Media Services za pomocą nazwy głównej usługi.
-* **Uwierzytelnianie użytkowników** : Służy do uwierzytelniania osoby korzystającej z aplikacji w celu współdziałania z zasobami usługi Media Services. Aplikacja interaktywna powinna najpierw monitować użytkownika o podanie poświadczeń. Przykładem jest aplikacja konsoli zarządzania używana przez autoryzowanych użytkowników do monitorowania zadań kodowania lub przesyłania strumieniowego na żywo.
+* **Uwierzytelnianie jednostki usługi**: Służy do uwierzytelniania usług (na przykład: aplikacji internetowych, aplikacji funkcji, aplikacji logiki, interfejsu API i mikrousług). Aplikacje, które często korzystają z tej metody uwierzytelniania, to aplikacje uruchamiające usługi demonów, usługi warstwy środkowej lub zaplanowane zadania. Na przykład w przypadku aplikacji sieci Web zawsze powinna być warstwą średnią, która łączy się z Media Services za pomocą nazwy głównej usługi.
+* **Uwierzytelnianie użytkowników**: Służy do uwierzytelniania osoby korzystającej z aplikacji w celu współdziałania z zasobami usługi Media Services. Aplikacja interaktywna powinna najpierw monitować użytkownika o podanie poświadczeń. Przykładem jest aplikacja konsoli zarządzania używana przez autoryzowanych użytkowników do monitorowania zadań kodowania lub przesyłania strumieniowego na żywo.
 
-Interfejs API usługi Media Services wymaga, aby użytkownik lub aplikacja wykonująca żądania interfejsu API REST mieli dostęp do zasobu konta usługi Media Services i korzystali z roli **Współautor** lub **Właściciel** . Dostęp do interfejsu API można uzyskać, korzystając z roli **Czytelnik** , ale w takiej sytuacji dostępne będą tylko operacje **Get** i **List** . Aby uzyskać więcej informacji, zobacz temat [Kontrola dostępu oparta na rolach (Azure RBAC) dla kont Media Services](rbac-overview.md).
+Interfejs API usługi Media Services wymaga, aby użytkownik lub aplikacja wykonująca żądania interfejsu API REST mieli dostęp do zasobu konta usługi Media Services i korzystali z roli **Współautor** lub **Właściciel**. Dostęp do interfejsu API można uzyskać, korzystając z roli **Czytelnik**, ale w takiej sytuacji dostępne będą tylko operacje **Get** i **List**.Aby uzyskać więcej informacji, zobacz temat [Kontrola dostępu oparta na rolach (Azure RBAC) dla kont Media Services](rbac-overview.md).
 
 Zamiast tworzyć jednostkę usługi, należy rozważyć użycie tożsamości zarządzanych na potrzeby zasobów platformy Azure w celu uzyskania dostępu do interfejsu API usługi Media Services za pośrednictwem usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat tożsamości zarządzanych na potrzeby zasobów platformy Azure, zobacz [Czym są tożsamości zarządzane dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 

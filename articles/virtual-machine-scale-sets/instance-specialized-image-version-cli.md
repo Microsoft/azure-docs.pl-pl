@@ -10,16 +10,16 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f0f9b79e193c06b6492cfffcbf25811edb5c40d3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 2ecc2bfe6bdc06ede61e6c4d1e6eccfc9ef6323a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967025"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878006"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Tworzenie zestawu skalowania za pomocą wyspecjalizowanej wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Utwórz zestaw skalowania z [wersji obrazu specjalistycznej](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) przechowywanej w galerii obrazów udostępnionych. Jeśli chcesz utworzyć zestaw skalowania przy użyciu uogólnionej wersji obrazu, zobacz [Tworzenie zestawu skalowania na podstawie uogólnionego obrazu](instance-generalized-image-version-cli.md).
+Utwórz zestaw skalowania z [wersji obrazu specjalistycznej](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) przechowywanej w galerii obrazów udostępnionych. Jeśli chcesz utworzyć zestaw skalowania przy użyciu uogólnionej wersji obrazu, zobacz [Tworzenie zestawu skalowania na podstawie uogólnionego obrazu](instance-generalized-image-version-cli.md).
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.4.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -54,7 +54,7 @@ az vmss create \
 
 
 ## <a name="next-steps"></a>Następne kroki
-[Usługa Azure Image Builder (wersja zapoznawcza)](../virtual-machines/linux/image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
+[Usługa Azure Image Builder (wersja zapoznawcza)](../virtual-machines/image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
 Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów. Dostępnych jest kilka szablonów szybkiego startu platformy Azure: 
 

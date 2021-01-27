@@ -1,24 +1,10 @@
 ---
-title: Punkty końcowe przesyłania strumieniowego (Źródło)
-titleSuffix: Azure Media Services
-description: Dowiedz się więcej na temat punktów końcowych przesyłania strumieniowego (pochodzenia), dynamicznego tworzenia pakietów i usługi przesyłania strumieniowego, które dostarczają zawartość bezpośrednio do aplikacji odtwarzacza klienta lub Content Delivery Network (CDN).
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 02/13/2020
-ms.author: inhenkel
-ms.openlocfilehash: f7307b95912a982bb36efbf2ce18668bd88e1195
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882878"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Pola obowiązkowe. Zobacz więcej na temat aka.ms/skyeye/meta.
+title: punkty końcowe przesyłania strumieniowego (Źródło): Azure Media Services opis: informacje na temat punktów końcowych przesyłania strumieniowego (pochodzenia), dynamicznego tworzenia pakietów i usługi przesyłania strumieniowego, które dostarczają zawartość bezpośrednio do aplikacji odtwarzacza klienta lub Content Delivery Network (CDN). usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
+
+MS. Service: Media-Services MS. obciążenie: MS. temat: koncepcyjne MS. Date: 02/13/2020 MS. Author: inhenkel
 ---
+
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Punkty końcowe przesyłania strumieniowego (Źródło) w Azure Media Services
 
 W Microsoft Azure Media Services [punkt końcowy przesyłania strumieniowego](/rest/api/media/streamingendpoints) reprezentuje dynamiczny (just-in-Time) pakiet i pierwotną usługę, która umożliwia dostarczanie zawartości na żywo i na żądanie bezpośrednio do aplikacji odtwarzacza klienta przy użyciu jednego z popularnych protokołów multimediów przesyłania strumieniowego (HLS lub pauzy). Ponadto **punkt końcowy przesyłania strumieniowego** zapewnia dynamiczne (just-in-Time) szyfrowanie do wiodących w branży protokołów DRM. 
@@ -67,7 +53,7 @@ Cechy|Standardowa (Standard)|Premium
 ---|---|---
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
-Opłaty są naliczane proporcjonalnie| Codzienne|Codzienne
+Opłaty są naliczane proporcjonalnie| Codziennie|Codziennie
 Szyfrowanie dynamiczne|Tak|Tak
 Dynamiczne tworzenie pakietów|Tak|Tak
 Skalowanie|Automatycznie Skaluj do dostosowanej przepływności.|Dodatkowe usługi SUs

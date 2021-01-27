@@ -12,18 +12,19 @@ ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 63bd44140ea5c355c3bb1a891a21e6c2e73ab041
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bf1057276a543c18b746bb60b7e7a54bf28dec6f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679504"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892573"
 ---
-# <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
+# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Samouczek: opracowywanie i planowanie aprowizacji dla punktu końcowego Standard scim
 
 Jako deweloper aplikacji możesz użyć interfejsu API zarządzania użytkownikami (standard scim) między domenami, aby włączyć automatyczną obsługę administracyjną użytkowników i grup między aplikacją a usługą Azure AD. W tym artykule opisano sposób tworzenia punktu końcowego Standard scim i integracji z usługą Azure AD Provisioning. Specyfikacja Standard scim zawiera wspólny schemat użytkownika na potrzeby aprowizacji. W połączeniu z standardami Federacji, takimi jak SAML lub OpenID Connect Connect, standard scim zapewnia administratorom kompleksowe, oparte na standardach rozwiązanie do zarządzania dostępem.
 
-Standard scim jest standardową definicją dwóch punktów końcowych:/Users punkt końcowy i punkt końcowy/groups. Używa typowych czasowników REST do tworzenia, aktualizowania i usuwania obiektów oraz wstępnie zdefiniowanego schematu dla wspólnych atrybutów, takich jak nazwa grupy, username, imię, nazwisko i adres e-mail. Aplikacje oferujące interfejs API REST w systemie Standard scim 2,0 mogą zmniejszyć lub wyeliminować możliwości pracy z własnym interfejsem API zarządzania użytkownikami. Na przykład każdy zgodny klient Standard scim wie, jak wykonać wpis HTTP obiektu JSON do punktu końcowego/users, aby utworzyć nowy wpis użytkownika. Zamiast niepotrzebnego nieco innego interfejsu API dla tych samych podstawowych akcji, aplikacje zgodne z standardem Standard scim mogą natychmiast korzystać z istniejących klientów, narzędzi i kodu. 
+Standard scim jest standardową definicją dwóch punktów końcowych: `/Users` punkt końcowy i `/Groups` punkt końcowy. Używa typowych czasowników REST do tworzenia, aktualizowania i usuwania obiektów oraz wstępnie zdefiniowanego schematu dla wspólnych atrybutów, takich jak nazwa grupy, username, imię, nazwisko i adres e-mail. Aplikacje oferujące interfejs API REST w systemie Standard scim 2,0 mogą zmniejszyć lub wyeliminować możliwości pracy z własnym interfejsem API zarządzania użytkownikami. Na przykład każdy zgodny klient Standard scim wie, jak wykonać wpis HTTP obiektu JSON do `/Users` punktu końcowego, aby utworzyć nowy wpis użytkownika. Zamiast niepotrzebnego nieco innego interfejsu API dla tych samych podstawowych akcji, aplikacje zgodne z standardem Standard scim mogą natychmiast korzystać z istniejących klientów, narzędzi i kodu. 
 
 ![Inicjowanie obsługi administracyjnej z usługi Azure AD do aplikacji za pomocą Standard scim](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
@@ -330,7 +331,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
-##### <a name="response"></a><a name="response-2"></a>Reakcja
+##### <a name="response"></a><a name="response-2"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -371,7 +372,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
-##### <a name="response"></a><a name="response-3"></a>Reakcja
+##### <a name="response"></a><a name="response-3"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -408,7 +409,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-4"></a>Reakcja
+##### <a name="response"></a><a name="response-4"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -452,7 +453,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-5"></a>Reakcja
+##### <a name="response"></a><a name="response-5"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -501,7 +502,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-14"></a>Reakcja
+##### <a name="response"></a><a name="response-14"></a>Reakcji
 
 ```json
 {
@@ -541,7 +542,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-6"></a>Reakcja
+##### <a name="response"></a><a name="response-6"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -568,7 +569,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-7"></a>Reakcja
+##### <a name="response"></a><a name="response-7"></a>Reakcji
 
 *Utworzono protokół HTTP/1.1 201*
 ```json
@@ -593,7 +594,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
-##### <a name="response"></a><a name="response-8"></a>Reakcja
+##### <a name="response"></a><a name="response-8"></a>Reakcji
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -614,7 +615,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ##### <a name="request"></a><a name="request-9"></a>Żądanie
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
-##### <a name="response"></a><a name="response-9"></a>Reakcja
+##### <a name="response"></a><a name="response-9"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -654,7 +655,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-10"></a>Reakcja
+##### <a name="response"></a><a name="response-10"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -677,7 +678,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-11"></a>Reakcja
+##### <a name="response"></a><a name="response-11"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -700,7 +701,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-12"></a>Reakcja
+##### <a name="response"></a><a name="response-12"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -710,7 +711,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-13"></a>Reakcja
+##### <a name="response"></a><a name="response-13"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -748,7 +749,9 @@ Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usłu
 
 Teraz, Po zaprojektowaniu schematu i zrozumieniu implementacji usługi Azure AD Standard scim, możesz rozpocząć tworzenie punktu końcowego Standard scim. Zamiast zaczynać od początku i całkowicie samodzielnie kompilować implementację, możesz polegać na wielu bibliotekach Standard scim typu open source opublikowanych przez społeczność Standard scim.
 
-[Kod referencyjny](https://aka.ms/SCIMReferenceCode) programu .NET Core typu open source Opublikowany przez zespół aprowizacji usługi Azure AD jest jednym z zasobów, które mogą szybko rozpocząć programowanie. Po skompilowaniu punktu końcowego Standard scim należy go przetestować. Można użyć kolekcji [testów post](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) dostarczonych jako część kodu odwołania lub wykonać przez przykładowe żądania/odpowiedzi podane [powyżej](#user-operations).  
+Aby uzyskać wskazówki dotyczące sposobu tworzenia punktu końcowego Standard scim, w tym przykładów, zobacz [Tworzenie przykładowego punktu końcowego Standard scim](use-scim-to-build-users-and-groups-endpoints.md).
+
+[Przykładowy kod referencyjny](https://aka.ms/SCIMReferenceCode) programu .NET Core typu open source Opublikowany przez zespół aprowizacji usługi Azure AD jest jednym z zasobów, które mogą szybko rozpocząć programowanie. Po skompilowaniu punktu końcowego Standard scim należy go przetestować. Można użyć kolekcji [testów post](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) dostarczonych jako część kodu odwołania lub wykonać przez przykładowe żądania/odpowiedzi podane [powyżej](#user-operations).  
 
    > [!Note]
    > Kod referencyjny ma pomóc w rozpoczęciu tworzenia punktu końcowego Standard scim i jest dostarczany "w takiej postaci, w jakiej jest". Wkłady ze społeczności pomogą Ci pomóc w tworzeniu i utrzymaniu kodu.
@@ -1127,11 +1130,17 @@ Aplikacje obsługujące profil Standard scim opisany w tym artykule mogą być p
 
 1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com). Należy pamiętać, że możesz uzyskać dostęp do bezpłatnej wersji próbnej Azure Active Directory z licencjami P2, rejestrując się w [programie dla deweloperów](https://developer.microsoft.com/office/dev-program)
 2. W okienku po lewej stronie wybierz pozycję **aplikacje dla przedsiębiorstw** . Zostanie wyświetlona lista wszystkich skonfigurowanych aplikacji, w tym aplikacji, które zostały dodane z galerii.
-3. Wybierz pozycję **+ Nowa aplikacja**  >  **wszystkie**  >  **aplikacje spoza galerii**.
-4. Wprowadź nazwę aplikacji, a następnie wybierz pozycję **Dodaj** , aby utworzyć obiekt aplikacji. Nowa aplikacja zostanie dodana do listy aplikacji dla przedsiębiorstw i zostanie otwarta na swoim ekranie zarządzania aplikacjami.
+3. Wybierz pozycję **+ Nowa aplikacja**  >  **i Utwórz własną aplikację**.
+4. Wprowadź nazwę aplikacji, wybierz opcję "*Zintegruj każdą inną aplikację, której nie ma w galerii*", a następnie wybierz pozycję **Dodaj** , aby utworzyć obiekt aplikacji. Nowa aplikacja zostanie dodana do listy aplikacji dla przedsiębiorstw i zostanie otwarta na swoim ekranie zarządzania aplikacjami.
 
-   ![Zrzut ekranu przedstawia galerię aplikacji usługi Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
-   *Galeria aplikacji usługi Azure AD*
+   ![Zrzut ekranu przedstawia galerię aplikacji usługi Azure AD Galeria aplikacji usługi ](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
+    *Azure AD*
+
+   > [!NOTE]
+   > Jeśli używasz starego środowiska galerii aplikacji, postępuj zgodnie z poniższym przewodnikiem ekranu.
+   
+   ![Zrzut ekranu przedstawia galerię starych aplikacji usługi Azure AD środowisko ](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
+    *galerii starych aplikacji w usłudze Azure AD*
 
 5. Na ekranie Zarządzanie aplikacjami wybierz opcję **Inicjowanie obsługi** w lewym panelu.
 6. W menu **tryb aprowizacji** wybierz pozycję **automatycznie**.
@@ -1235,6 +1244,7 @@ Aby zwiększyć świadomość i zapotrzebowanie naszej integracji, Zalecamy zakt
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
+* [Opracowywanie przykładowego punktu końcowego Standard scim](use-scim-to-build-users-and-groups-endpoints.md)
 * [Automatyzowanie aprowizacji użytkowników i anulowanie obsługi aplikacji SaaS](user-provisioning.md)
 * [Dostosuj mapowania atrybutów na potrzeby aprowizacji użytkowników](customize-application-attributes.md)
 * [Pisanie wyrażeń do mapowania atrybutów](functions-for-customizing-application-data.md)

@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 22bd1ed88f61689eec9312392f7f58d137f703e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9edade1aa54d6f4f8160a107f84e6da2e6cf316e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331526"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878023"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Tworzenie zestawu skalowania na podstawie uogólnionego obrazu przy użyciu programu PowerShell 
 
-Utwórz maszynę wirtualną na podstawie uogólnionej wersji obrazu przechowywanej w [galerii obrazów udostępnionych](shared-image-galleries.md). Jeśli chcesz utworzyć zestaw skalowania przy użyciu wyspecjalizowanego obrazu, zobacz [Tworzenie wystąpień zestawu skalowania na podstawie obrazu specjalistycznego](instance-specialized-image-version-powershell.md).
+Utwórz maszynę wirtualną na podstawie uogólnionej wersji obrazu przechowywanej w [galerii obrazów udostępnionych](../virtual-machines/shared-image-galleries.md). Jeśli chcesz utworzyć zestaw skalowania przy użyciu wyspecjalizowanego obrazu, zobacz [Tworzenie wystąpień zestawu skalowania na podstawie obrazu specjalistycznego](instance-specialized-image-version-powershell.md).
 
 Po utworzeniu uogólnionego obrazu można utworzyć zestaw skalowania maszyn wirtualnych za pomocą polecenia cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss) . 
 
@@ -27,7 +27,7 @@ W tym przykładzie używamy identyfikatora definicji obrazu, aby upewnić się, 
 Należy pamiętać, że użycie określonej wersji obrazu oznacza, że Automatyzacja może się nie powieść, jeśli określona wersja obrazu jest niedostępna, ponieważ została usunięta lub usunięta z regionu. Zalecamy użycie identyfikatora definicji obrazu do tworzenia nowej maszyny wirtualnej, o ile nie jest wymagana określona wersja obrazu.
 
 
-W poniższych przykładach przedstawiono tworzenie zestawu skalowania o nazwie *myScaleSet*w grupie zasobów *MyVMSSRG* w lokalizacji *SouthCentralUS* . Zestaw skalowania zostanie utworzony na podstawie obrazu *myImageDefinition* w *galerii obrazów galerii* w grupie zasobów *myGalleryRG* . Po wyświetleniu monitu Ustaw własne poświadczenia administracyjne dla wystąpień maszyn wirtualnych w zestawie skalowania.
+W poniższych przykładach przedstawiono tworzenie zestawu skalowania o nazwie *myScaleSet* w grupie zasobów *MyVMSSRG* w lokalizacji *SouthCentralUS* . Zestaw skalowania zostanie utworzony na podstawie obrazu *myImageDefinition* w *galerii obrazów galerii* w grupie zasobów *myGalleryRG* . Po wyświetleniu monitu Ustaw własne poświadczenia administracyjne dla wystąpień maszyn wirtualnych w zestawie skalowania.
 
 
 ## <a name="simplified-parameter-set"></a>Uproszczony zestaw parametrów
@@ -173,7 +173,7 @@ New-AzVmss `
 Utworzenie i skonfigurowanie wszystkich zasobów zestawu skalowania i maszyn wirtualnych trwa kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
-[Usługa Azure Image Builder (wersja zapoznawcza)](../virtual-machines/linux/image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
+[Usługa Azure Image Builder (wersja zapoznawcza)](../virtual-machines/image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
 Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów. Dostępnych jest kilka szablonów szybkiego startu platformy Azure: 
 
@@ -181,4 +181,4 @@ Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu 
 - [Tworzenie definicji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Tworzenie wersji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](../virtual-machines/troubleshooting-shared-images.md).
+Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](../virtual-machines/shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](../virtual-machines/troubleshooting-shared-images.md).

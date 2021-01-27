@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 68dc7c36159523bcc46e93a4784e9d038037a919
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b5ce8e3d6482c13a8ba02065f2a97074610c25bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201216"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877718"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Podstawa zabezpieczeń platformy Azure dla Virtual Machine Scale Sets
 
@@ -582,7 +582,7 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 * [Kontrola dostępu na podstawie ról platformy Azure](../role-based-access-control/overview.md)
 
-* [Role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Wbudowane role platformy Azure](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -848,7 +848,7 @@ Obecnie adaptacyjne kontrolki aplikacji nie są dostępne dla Virtual Machine Sc
 
 * [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informacje na temat pobierania szablonu maszyny wirtualnej](../virtual-machines/windows/download-template.md)
+* [Informacje na temat pobierania szablonu maszyny wirtualnej](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -892,7 +892,7 @@ Obecnie adaptacyjne kontrolki aplikacji nie są dostępne dla Virtual Machine Sc
 
 W przypadku większości scenariuszy szablony maszyn wirtualnych firmy Microsoft połączone z konfiguracją żądanego stanu Azure Automation mogą pomóc w spotkaniu i utrzymaniu wymagań w zakresie zabezpieczeń.
 
-* [Informacje na temat pobierania szablonu maszyny wirtualnej](../virtual-machines/windows/download-template.md)
+* [Informacje na temat pobierania szablonu maszyny wirtualnej](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informacje na temat tworzenia szablonów ARM](../virtual-machines/windows/ps-template.md)
 

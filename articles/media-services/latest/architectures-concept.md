@@ -1,6 +1,5 @@
 ---
-title: Architektury Media Services
-titleSuffix: Azure Media Services
+title: Architektury usługi Media Services
 description: W tym artykule opisano architektury dla Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,14 +11,14 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
-ms.openlocfilehash: c14dbe4253696e01e99111a24319e455c1d551e9
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: ad464eb1c0b6dec694c7c40868a0f95fcfeaf6e8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533999"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98891492"
 ---
-# <a name="media-services-architectures"></a>Architektury Media Services
+# <a name="media-services-architectures"></a>Architektury usługi Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -29,7 +28,7 @@ Rozwiązanie przesyłania strumieniowego na żywo umożliwia Przechwytywanie wid
 
 To rozwiązanie jest oparte na usługach zarządzanych platformy Azure: Media Services i Content Delivery Network. Te usługi działają w środowisku o wysokiej dostępności, z poprawkami i obsługiwanymi, co pozwala skupić się na rozwiązaniu, a nie w środowisku, w którym są uruchamiane.
 
-Zobacz [multimedia cyfrowe przesyłania strumieniowego na żywo](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) w centrum architektury platformy Azure.
+Zobacz [multimedia cyfrowe przesyłania strumieniowego na żywo](/azure/architecture/solution-ideas/articles/digital-media-live-stream) w centrum architektury platformy Azure.
 
 ## <a name="video-on-demand-digital-media"></a>Wideo na żądanie — multimedia cyfrowe
 
@@ -37,13 +36,13 @@ Podstawowe rozwiązanie wideo na żądanie zapewniające możliwość przesyłan
 
 To rozwiązanie jest oparte na usługach zarządzanych platformy Azure: Blob Storage, Content Delivery Network i Azure Media Player. Te usługi działają w środowisku o wysokiej dostępności, z poprawkami i obsługiwanymi, co pozwala skupić się na rozwiązaniu, a nie w środowisku, w którym są uruchamiane.
 
-Zobacz [wideo na żądanie multimedia cyfrowe](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-video) w centrum architektury platformy Azure.
+Zobacz [wideo na żądanie multimedia cyfrowe](/azure/architecture/solution-ideas/articles/digital-media-video) w centrum architektury platformy Azure.
 
 ## <a name="gridwich-media-processing-system"></a>System przetwarzania multimediów Gridwich
 
 System Gridwich jest oparty na najlepszych rozwiązaniach dotyczących przetwarzania i dostarczania zasobów multimedialnych na platformie Azure. Chociaż system Gridwich jest specyficzny dla nośnika, przetwarzanie komunikatów i struktura zdarzeń mogą być stosowane do dowolnego przepływu pracy przetwarzania zdarzeń bezstanowych.
 
-Zobacz [Gridwiching Media processing system](https://docs.microsoft.com/azure/architecture/reference-architectures/media-services/gridwich-architecture) w centrum architektury platformy Azure.
+Zobacz [Gridwiching Media processing system](/azure/architecture/reference-architectures/media-services/gridwich-architecture) w centrum architektury platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

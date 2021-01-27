@@ -45,6 +45,14 @@
           href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Akcje klienta
+      items:
+        - name: Wyświetlanie dostawców usług i zarządzanie nimi
+          displayName: 'customer, update, visibility, control'
+          href: ./how-to/view-manage-service-providers.md
+        - name: Wyświetlanie działań dostawcy usług
+          displayName: 'monitor, log, customer, visibility, transparency, control'
+          href: ./how-to/view-service-provider-activity.md
     - name: Dołączanie klienta do usługi Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
@@ -87,14 +95,6 @@
           href: ./how-to/deploy-policy-remediation.md
     - name: Integracja z usługą Azure Sentinel
       href: ./how-to/manage-sentinel-workspaces.md
-    - name: Akcje klienta
-      items:
-        - name: Wyświetlanie dostawców usług i zarządzanie nimi
-          displayName: 'customer, update'
-          href: ./how-to/view-manage-service-providers.md
-        - name: Wyświetlanie działań dostawcy usług
-          displayName: 'monitor, log'
-          href: ./how-to/view-service-provider-activity.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

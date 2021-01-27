@@ -1,5 +1,5 @@
 ---
-title: Kodery przesyłania strumieniowego na żywo zalecane przez Media Services — Azure | Microsoft Docs
+title: Kodery przesyłania strumieniowego na żywo zalecane przez Media Services — Azure
 description: Dowiedz się więcej o koderach lokalnych dotyczących przesyłania strumieniowego na żywo zalecanych przez Media Services
 services: media-services
 keywords: kodowanie; kodery; nośnik
@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 88de41ae62e3a81fdb51981afe42135649bf34b4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 6d54a4167739775d3c09740f25a883314e048c65
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734314"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895173"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Zweryfikowane lokalne kodery przesyłania strumieniowego na żywo
 

@@ -1,5 +1,5 @@
 ---
-title: Schemat metadanych danych wyjściowych Azure Media Services | Microsoft Docs
+title: Schemat metadanych danych wyjściowych Azure Media Services
 description: Ten artykuł zawiera omówienie schematu metadanych danych wyjściowych Azure Media Services v3.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a27db81866760bff56c900a908162f356c01a66
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336415"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895207"
 ---
 # <a name="output-metadata"></a>Metadane wyjściowe
 
@@ -38,7 +38,7 @@ Kolekcja wpisów AssetFile dla zadania kodowania.
 
 | Nazwa | Opis |
 | --- | --- |
-| **Źródeł** |Kolekcja plików nośnika danych wejściowych/źródłowych, które zostały przetworzone w celu utworzenia tego AssetFile.<br />Przykład: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
+| **Źródła** |Kolekcja plików nośnika danych wejściowych/źródłowych, które zostały przetworzone w celu utworzenia tego AssetFile.<br />Przykład: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wideo z przeplotem do odpowiedniego formatu kontenera. <br />Zobacz [VideoTracks](#videotracks). |
 | **AudioTracks**|Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek audio przeplatanych w odpowiedni format kontenera. To jest kolekcja wszystkich ścieżek audio.<br /> Aby uzyskać więcej informacji, zobacz [AudioTracks](#audiotracks). |
 | **Nazwa**<br />Wymagane |Nazwa pliku zasobów nośnika. <br /><br />Przykład: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
@@ -55,8 +55,8 @@ Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wide
 | **FourCC**<br />Wymagane | Kod kodera-dekoder wideo, który jest raportowany przez narzędzia FFmpeg.  <br /><br />Przykład: `"FourCC": "avc1"`|
 | **Profil** |Profil wielokrotna H264 (dotyczy tylko kodera-dekoder wielokrotna H264).  <br /><br />Przykład: `"Profile": "High"` |
 | **Poziomie** |Poziom wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec).  <br /><br />Przykład: `"Level": "3.2"`|
-| **Szerokość**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach).  <br /><br />Przykład: `"Width": "1280"`|
-| **Proporcj**<br />Wymagane |Zakodowana wysokość wideo w pikselach.  <br /><br />Przykład: `"Height": "720"`|
+| **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach).  <br /><br />Przykład: `"Width": "1280"`|
+| **Height**<br />Wymagane |Zakodowana wysokość wideo w pikselach.  <br /><br />Przykład: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Wymagane|Licznik współczynnik proporcji wyświetlania wideo.  <br /><br />Przykład: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Wymagane |Mianownik współczynnika proporcji wyświetlania wideo.  <br /><br />Przykład: `"DisplayAspectRatioDenominator": 9.0`|
 | **Framerate**<br />Wymagane |Mierzona szybkość klatek wideo w formacie. 3F.  <br /><br />Przykład: `"Framerate": 29.970`|

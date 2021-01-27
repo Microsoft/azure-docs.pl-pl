@@ -1,26 +1,9 @@
 ---
-title: Azure Media Services szyfrowanie DRM i usługa dostarczania licencji
-titleSuffix: Azure Media Services
-description: Dowiedz się, jak korzystać z szyfrowania dynamicznego DRM i usługi dostarczania licencji, aby dostarczać strumienie szyfrowane za pomocą licencji firmy Microsoft PlayReady, Google Widevine lub Apple FairPlay.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: abaa82d6f5f33a3dc29db50ae6d029dacd3f7c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289368"
+title: Azure Media Services szyfrowanie DRM i usługa dostarczania licencji: Azure Media Services opis: informacje na temat używania dynamicznej szyfrowania DRM i usługi dostarczania licencji w celu dostarczania strumieni zaszyfrowanych za pomocą licencji firmy Microsoft PlayReady, Google Widevine lub Apple FairPlay.
+usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
+
+MS. Service: Media-Services MS. obciążeń: Media ms.tgt_pltfrm: na MS. devlang: na MS. temat: samouczek MS. Date: 08/31/2020 MS. Author: inhenkel MS. Custom: seodec18
+
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Samouczek: używanie dynamicznego szyfrowania DRM i usługi dostarczania licencji
 
@@ -116,7 +99,7 @@ Klucz zawartości zapewnia bezpieczny dostęp do elementów zawartości. Należy
 
 Należy ustawić wymagania (ograniczenia) dotyczące **zasad kluczy zawartości** , które muszą zostać spełnione, aby dostarczyć klucze z określoną konfiguracją. W tym przykładzie ustawimy następujące konfiguracje i wymagania:
 
-* Konfiguracja
+* Konfigurowanie
 
     Licencje [PlayReady](playready-license-template-overview.md) i [Widevine](widevine-license-template-overview.md) są skonfigurowane tak, aby można było dostarczać je przy użyciu usługi dostarczania licencji w usłudze Media Services. Mimo że ta Przykładowa aplikacja nie konfiguruje licencji [FairPlay](fairplay-license-overview.md) , zawiera metodę, której można użyć do skonfigurowania FairPlay. Konfigurację FairPlay można dodać jako inną opcję.
 
@@ -137,7 +120,7 @@ Po zakończeniu kodowania i ustawieniu zasad kluczy zawartości następnym kroki
 
 Proces tworzenia **lokalizatora przesyłania strumieniowego** jest nazywany publikowaniem. Domyślnie **lokalizator przesyłania strumieniowego** jest ważny natychmiast po wykonaniu wywołań interfejsu API. Obowiązuje do momentu jego usunięcia, chyba że zostanie skonfigurowany opcjonalny czas rozpoczęcia i zakończenia.
 
-Podczas tworzenia **lokalizatora przesyłania strumieniowego**należy określić odpowiednią wartość `StreamingPolicyName` . W tym samouczku korzystamy z jednej ze wstępnie zdefiniowanych zasad przesyłania strumieniowego, która informuje Azure Media Services jak opublikować zawartość do przesyłania strumieniowego. W tym przykładzie ustawiamy element StreamingLocator.StreamingPolicyName na zasady „Predefined_MultiDrmCencStreaming”. Są stosowane szyfrowanie PlayReady i Widevine, a klucz jest dostarczany do klienta odtwarzania na podstawie skonfigurowanych licencji DRM. Jeśli chcesz także zaszyfrować strumień przy użyciu metody CBCS (FairPlay), użyj zasad „Predefined_MultiDrmStreaming”.
+Podczas tworzenia **lokalizatora przesyłania strumieniowego** należy określić odpowiednią wartość `StreamingPolicyName` . W tym samouczku korzystamy z jednej ze wstępnie zdefiniowanych zasad przesyłania strumieniowego, która informuje Azure Media Services jak opublikować zawartość do przesyłania strumieniowego. W tym przykładzie ustawiamy element StreamingLocator.StreamingPolicyName na zasady „Predefined_MultiDrmCencStreaming”. Są stosowane szyfrowanie PlayReady i Widevine, a klucz jest dostarczany do klienta odtwarzania na podstawie skonfigurowanych licencji DRM. Jeśli chcesz także zaszyfrować strumień przy użyciu metody CBCS (FairPlay), użyj zasad „Predefined_MultiDrmStreaming”.
 
 > [!IMPORTANT]
 > W przypadku korzystania z niestandardowych [zasad przesyłania strumieniowego](streaming-policy-concept.md) należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i używać ich ponownie dla obiektów StreamingLocator zawsze, gdy są potrzebne takie same opcje szyfrowania i protokoły. Konto usługi Media Service jest objęte limitem przydziału dotyczącym liczby pozycji elementu StreamingPolicy. Nie należy tworzyć nowych StreamingPolicy dla każdego StreamingLocatoru.

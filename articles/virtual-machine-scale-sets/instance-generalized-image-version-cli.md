@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 841247c03d9f3b151a0c75430715c03b009d831a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e360ae3cf0c463add9e6445a96c118d9f40ce9cb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287070"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878040"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Tworzenie zestawu skalowania na podstawie uogólnionego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Utwórz zestaw skalowania na podstawie uogólnionej wersji obrazu przechowywanej w [galerii obrazów udostępnionych](shared-image-galleries.md) za pomocą interfejsu wiersza polecenia platformy Azure. Jeśli chcesz utworzyć zestaw skalowania za pomocą wyspecjalizowanej wersji obrazu, zobacz [Tworzenie wystąpień zestawu skalowania na podstawie obrazu specjalistycznego](instance-specialized-image-version-cli.md).
+Utwórz zestaw skalowania na podstawie uogólnionej wersji obrazu przechowywanej w [galerii obrazów udostępnionych](../virtual-machines/shared-image-galleries.md) za pomocą interfejsu wiersza polecenia platformy Azure. Jeśli chcesz utworzyć zestaw skalowania za pomocą wyspecjalizowanej wersji obrazu, zobacz [Tworzenie wystąpień zestawu skalowania na podstawie obrazu specjalistycznego](instance-specialized-image-version-cli.md).
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.4.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -55,7 +55,7 @@ az vmss create \
 Utworzenie i skonfigurowanie wszystkich zasobów zestawu skalowania i maszyn wirtualnych trwa kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
-[Usługa Azure Image Builder (wersja zapoznawcza)](../virtual-machines/linux/image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
+[Usługa Azure Image Builder (wersja zapoznawcza)](../virtual-machines/image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
 Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów. Dostępnych jest kilka szablonów szybkiego startu platformy Azure: 
 
@@ -63,4 +63,4 @@ Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu 
 - [Tworzenie definicji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Tworzenie wersji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](../virtual-machines/troubleshooting-shared-images.md).
+Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](../virtual-machines/shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](../virtual-machines/troubleshooting-shared-images.md).

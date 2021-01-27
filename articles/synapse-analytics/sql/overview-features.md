@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3e64b9366bb0b9f15902e571b5e5d6e7f6b3f15
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f6ba22813139f5a4ad6c01073fe7f7b4b7d5346e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723731"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878159"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funkcje języka Transact-SQL obsługiwane przez usługę Azure Synapse SQL
 
@@ -55,7 +55,7 @@ Języki zapytań używane w programie SQL Synapse mogą mieć różne obsługiwa
 | **INSERT — instrukcja** | Tak | Nie |
 | **Instrukcja UPDATE** | Tak | Nie |
 | **DELETE — Instrukcja** | Tak | Nie |
-| **MERGE — instrukcja** | Tak ([wersja zapoznawcza](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true)) | Nie |
+| **MERGE — instrukcja** | Tak ([wersja zapoznawcza](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true)) | Nie |
 | **[Transakcje](develop-transactions.md)** | Tak | Tak, dotyczy obiektów meta-danych. |
 | **[Etykiety](develop-label.md)** | Tak | Nie |
 | **Ładowanie danych** | Tak. Preferowane narzędzie to [copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , ale system obsługuje ładowanie zbiorcze (bcp) i [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) na potrzeby ładowania danych. | Nie |

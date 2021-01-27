@@ -3,12 +3,12 @@ title: Monitorowanie i rejestrowanie — Azure
 description: Ten artykuł zawiera omówienie monitorowania i rejestrowania w usłudze Live Video Analytics na IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6a7251b62421642ad9f5dba4f4c2a15ce74cd5cf
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900879"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878108"
 ---
 # <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
@@ -269,7 +269,7 @@ Wykonaj następujące kroki, aby włączyć zbieranie metryk z poziomu usługi L
 
 1. Użyj poleceń interfejsu wiersza polecenia platformy Docker, aby skompilować plik platformy Docker i opublikować go w usłudze Azure Container Registry.
     
-   Aby uzyskać więcej informacji o używaniu interfejsu wiersza polecenia platformy Docker do wypchnięcia do rejestru kontenerów, zobacz [wypychanie i ściąganie obrazów platformy Docker](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli). Aby uzyskać więcej informacji na temat Azure Container Registry, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/container-registry/).
+   Aby uzyskać więcej informacji o używaniu interfejsu wiersza polecenia platformy Docker do wypchnięcia do rejestru kontenerów, zobacz [wypychanie i ściąganie obrazów platformy Docker](../../container-registry/container-registry-get-started-docker-cli.md). Aby uzyskać więcej informacji na temat Azure Container Registry, zapoznaj się z [dokumentacją](../../container-registry/index.yml).
 
 
 1. Po zakończeniu wypychania do Azure Container Registry Dodaj następujący węzeł do pliku manifestu wdrożenia:

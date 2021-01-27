@@ -1,5 +1,5 @@
 ---
-title: Kodowanie filmów wideo przy użyciu kodera standardowego w Media Services na platformie Azure | Microsoft Docs
+title: Kodowanie filmów wideo przy użyciu standardowego kodera w Media Services
 description: W tym temacie pokazano, jak używać standardowego kodera w Media Services do kodowania wejściowego wideo z automatycznie wygenerowaną drabiną szybkości transmisji bitów na podstawie rozdzielczości wejścia i szybkości transmisji bitów.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 05accd69f1868b8b0e0f6dbd4fb5c21ee843ec5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b973d17e10f3dbb75f5208d9003b4f8118b37c7
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297726"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98891407"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Koduj z automatycznie wygenerowaną drabiną szybkości transmisji bitów
 
@@ -31,7 +31,7 @@ W tym artykule wyjaśniono, jak używać standardowego kodera w Media Services d
 
 ### <a name="encoding-for-streaming"></a>Kodowanie przesyłania strumieniowego
 
-W przypadku użycia ustawienia wstępnego **AdaptiveStreaming** w **przekształceniu**otrzymujesz dane wyjściowe, które są odpowiednie do dostarczania za pośrednictwem protokołów przesyłania strumieniowego, takich jak HLS i łącznik. W przypadku korzystania z tego ustawienia wstępnego usługa inteligentnie określa liczbę warstw wideo do wygenerowania oraz szybkość i szybkość transmisji bitów. Zawartość wyjściowa zawiera pliki MP4, w których AAC kodowane audio i H. 264 kodowane wideo nie jest przeplotem.
+W przypadku użycia ustawienia wstępnego **AdaptiveStreaming** w **przekształceniu** otrzymujesz dane wyjściowe, które są odpowiednie do dostarczania za pośrednictwem protokołów przesyłania strumieniowego, takich jak HLS i łącznik. W przypadku korzystania z tego ustawienia wstępnego usługa inteligentnie określa liczbę warstw wideo do wygenerowania oraz szybkość i szybkość transmisji bitów. Zawartość wyjściowa zawiera pliki MP4, w których AAC kodowane audio i H. 264 kodowane wideo nie jest przeplotem.
 
 Aby zobaczyć przykład sposobu użycia tego ustawienia wstępnego, zobacz [przesyłanie strumieniowo pliku](stream-files-dotnet-quickstart.md).
 

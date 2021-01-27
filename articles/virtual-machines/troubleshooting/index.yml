@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 4f1fd0f88c7165a409644029f247b090df285138
-  ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
-  ms.translationtype: HT
+  ms.openlocfilehash: ad47bde23a7125bac60c9f61687e3ff4e94b7a01
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94506043"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98877700"
 landingContent:
 - title: Rozwiązywanie problemów z wdrożeniem
   linkLists:
@@ -48,7 +48,7 @@ landingContent:
     - text: Rozwiązywanie problemów z połączeniem RDP maszyny wirtualnej platformy Azure według identyfikatora zdarzenia
       url: ./event-id-troubleshoot-vm-rdp-connecton.md
     - text: Rozwiązywanie problemów z uwierzytelnianiem podczas używania protokołu RDP w celu połączenia z maszyną wirtualną platformy Azure
-      url: ./troubleshoot-authentication-error-rdp-vm.md
+      url: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
     - text: Karta sieciowa gościa maszyny wirtualnej jest wyłączona
       url: ./troubleshoot-rdp-nic-disabled.md
 - title: Resetowanie hasła

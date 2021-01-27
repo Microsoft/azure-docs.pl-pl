@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 99563760bf37c4046e7dd81e779fedbe415380bc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 4701cb4122b4196b08b2a427b34d49c7784b91a7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019486"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878243"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Łączenie Stream Analytics zadań z zasobami w usłudze Azure Virtual Network (VNet)
 
@@ -25,9 +25,9 @@ Istnieją jednak dwa sposoby bezpiecznego łączenia Stream Analytics zadań z z
 Zadanie Stream Analytics nie akceptuje żadnego połączenia przychodzącego.
 
 ## <a name="private-endpoints-in-stream-analytics-clusters"></a>Prywatne punkty końcowe w klastrach Stream Analytics.
-[Klastry Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/cluster-overview) to dedykowany klaster obliczeniowy o pojedynczej dzierżawie, który umożliwia uruchamianie Stream Analytics zadań. Można utworzyć zarządzane prywatne punkty końcowe w klastrze Stream Analytics, co umożliwia wykonywanie wszystkich zadań uruchomionych w klastrze w celu nawiązania bezpiecznego połączenia wychodzącego z zasobami wejściowymi i wyjściowymi.
+[Klastry Stream Analytics](./cluster-overview.md) to dedykowany klaster obliczeniowy o pojedynczej dzierżawie, który umożliwia uruchamianie Stream Analytics zadań. Można utworzyć zarządzane prywatne punkty końcowe w klastrze Stream Analytics, co umożliwia wykonywanie wszystkich zadań uruchomionych w klastrze w celu nawiązania bezpiecznego połączenia wychodzącego z zasobami wejściowymi i wyjściowymi.
 
-Tworzenie prywatnych punktów końcowych w klastrze Stream Analytics jest [operacją dwuetapową](https://docs.microsoft.com/azure/stream-analytics/private-endpoints). Ta opcja jest najlepszym rozwiązaniem dla średnich i dużych obciążeń przesyłania strumieniowego, ponieważ minimalnym rozmiarem klastra Stream Analytics jest 36 usług SUs (mimo 36 że usługi SUs można współużytkować przez różne zadania w różnych subskrypcjach lub środowiskach, takich jak programowanie, testowanie i produkcja).
+Tworzenie prywatnych punktów końcowych w klastrze Stream Analytics jest [operacją dwuetapową](./private-endpoints.md). Ta opcja jest najlepszym rozwiązaniem dla średnich i dużych obciążeń przesyłania strumieniowego, ponieważ minimalnym rozmiarem klastra Stream Analytics jest 36 usług SUs (mimo 36 że usługi SUs można współużytkować przez różne zadania w różnych subskrypcjach lub środowiskach, takich jak programowanie, testowanie i produkcja).
 
 ## <a name="managed-identity-authentication-with-allow-trusted-services-configuration"></a>Uwierzytelnianie tożsamości zarządzanej z konfiguracją "Zezwalaj na zaufane usługi"
 Niektóre usługi platformy Azure oferują ustawienie **Zaufane sieci usług firmy Microsoft** , które po włączeniu umożliwia Stream Analytics zadań do bezpiecznego łączenia się z zasobem przy użyciu silnego uwierzytelniania. Ta opcja umożliwia łączenie zadań z zasobami wejściowymi i wyjściowymi bez konieczności Stream Analytics klastra i prywatnych punktów końcowych. Skonfigurowanie zadania do korzystania z tej techniki jest operacją dwuetapową:
@@ -37,13 +37,13 @@ Niektóre usługi platformy Azure oferują ustawienie **Zaufane sieci usług fir
 Włączenie **zezwalania zaufanym usługom firmy Microsoft** nie udziela dostępu zbiorczego do żadnych zadań. Zapewnia to pełną kontrolę nad tym, które konkretne Stream Analytics zadania mogą bezpiecznie uzyskiwać dostęp do zasobów. 
 
 Zadania mogą łączyć się z następującymi usługami platformy Azure przy użyciu tej metody:
-1. [BLOB Storage lub Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity) — może to być konto magazynu zadania, dane wejściowe lub wyjściowe przesyłania strumieniowego.
-2. [Event Hubs platformy Azure](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity) — może to być dane wejściowe lub wyjściowe przesyłania strumieniowego.
+1. [BLOB Storage lub Azure Data Lake Storage Gen2](./blob-output-managed-identity.md) — może to być konto magazynu zadania, dane wejściowe lub wyjściowe przesyłania strumieniowego.
+2. [Event Hubs platformy Azure](./event-hubs-managed-identity.md) — może to być dane wejściowe lub wyjściowe przesyłania strumieniowego.
 
 Jeśli zadania muszą łączyć się z innymi typami wejściowymi lub wyjściowymi, można napisać od Stream Analytics, aby Event Hubs dane wyjściowe najpierw, a następnie do dowolnie wybranego miejsca docelowego przy użyciu Azure Functions. Jeśli chcesz bezpośrednio pisać z Stream Analytics do innych typów wyjściowych zabezpieczonych w sieci wirtualnej lub zaporze, jedyną opcją jest użycie prywatnych punktów końcowych w klastrach Stream Analytics.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie i usuwanie prywatnych punktów końcowych w klastrach Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/private-endpoints)
-* [Nawiązywanie połączenia z Event Hubs w sieci wirtualnej przy użyciu uwierzytelniania tożsamości zarządzanej](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity)
-* [Łączenie się z usługą BLOB Storage i ADLS Gen2 w sieci wirtualnej przy użyciu uwierzytelniania tożsamości zarządzanej](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity)
+* [Tworzenie i usuwanie prywatnych punktów końcowych w klastrach Stream Analytics](./private-endpoints.md)
+* [Nawiązywanie połączenia z Event Hubs w sieci wirtualnej przy użyciu uwierzytelniania tożsamości zarządzanej](./event-hubs-managed-identity.md)
+* [Łączenie się z usługą BLOB Storage i ADLS Gen2 w sieci wirtualnej przy użyciu uwierzytelniania tożsamości zarządzanej](./blob-output-managed-identity.md)

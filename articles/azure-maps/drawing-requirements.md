@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044785"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895275"
 ---
 # <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu do rysowania
 
@@ -106,7 +106,7 @@ Niezależnie od tego, ile rysunków jednostek znajduje się w warstwie zewnętrz
 * Zewnętrzne muszą być rysowane jako Wielokąt, łamane (zamknięte), okrąg lub Elipsa (zamknięte).
 * Zewnętrzne mogą się nakładać, ale są rozwiązane w jednej geometrii.
 * Funkcja wynikająca z poziomu musi mieć co najmniej 4 metry kwadratowe.
-* Funkcja poziomu wynikający nie może być większa niż 400 metrów kwadratowych.
+* Funkcja poziomu wynikający nie może być większa niż 400 000 metrów kwadratowych.
 
 Jeśli warstwa zawiera wiele nakładających się linii, linie łamane są rozwiązane w funkcji jednego poziomu. Alternatywnie, jeśli warstwa zawiera wiele nienakładających się linii przecinających, funkcja na poziomie wyniku ma wielowielokątną reprezentację.
 

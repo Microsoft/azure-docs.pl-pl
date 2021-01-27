@@ -3,12 +3,12 @@ title: Wyświetl szacunkowy miesięczny trend kosztów laboratorium w Azure DevT
 description: Ten artykuł zawiera informacje na temat sposobu śledzenia kosztów laboratorium (miesięcznego szacunku trendu kosztu) w Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a2a9bef9e54ef7deda123aad34cf0c576fd158f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283830"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892341"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Śledź koszty związane z laboratorium w Azure DevTest Labs
 Ten artykuł zawiera informacje dotyczące śledzenia kosztów laboratorium. Przedstawiono w nim sposób wyświetlania szacowanego trendu kosztu dla bieżącego miesiąca kalendarzowego dla laboratorium. W tym artykule przedstawiono również sposób wyświetlania kosztu miesiąca na zasób w laboratorium.
@@ -38,7 +38,7 @@ Aby wyświetlić wykres trendu szacowanych miesięcznych kosztów, wykonaj nast�
 
      W obliczeniach kosztów *nie* są uwzględniane następujące koszty:
 
-   * Subskrypcje CSP i DreamSpark nie są obecnie obsługiwane, ponieważ Azure DevTest Labs używają [interfejsów API rozliczeń platformy Azure](../cost-management-billing/manage/usage-rate-card-overview.md) do obliczania kosztów laboratorium, które nie obsługują subskrypcji CSP ani DreamSpark.
+   * Subskrypcje CSP i DreamSpark nie są obecnie obsługiwane, ponieważ Azure DevTest Labs używają interfejsów API rozliczeń platformy Azure do obliczania kosztów laboratorium, które nie obsługują subskrypcji CSP ani DreamSpark.
    * Twoje stawki oferty. Obecnie nie można używać stawek oferty (pokazanych w ramach subskrypcji) wynegocjowanych przez firmę Microsoft lub partnerów firmy Microsoft. Używane są tylko stawki płatność zgodnie z rzeczywistym użyciem.
    * Twoje podatki
    * Twoje zniżki
@@ -55,7 +55,7 @@ Usługa DevTest Labs umożliwia lepsze zarządzanie kosztami w laboratorium prze
     ![Zarządzaj okienkiem docelowym](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
 
    - Wybierz przedział czasu, w którym chcesz śledzić cele kosztów.
-      - **Co**miesiąc: wartości docelowe kosztów są śledzone miesięcznie.
+      - **Co** miesiąc: wartości docelowe kosztów są śledzone miesięcznie.
       - **Naprawiono**: cele kosztów są śledzone dla zakresu dat określonego w datach rozpoczęcia i zakończenia. Zazwyczaj te wartości przedstawiają czas, przez jaki projekt jest zaplanowany do uruchomienia.
    - Określ **koszt docelowy**. Na przykład ilość planowanej pracy w tym laboratorium w zdefiniowanym okresie.
    - Wybierz, aby włączyć lub wyłączyć wszystkie zgłoszone progi — w przyrostach wynoszących 25% — do 125% określonego **kosztu docelowego**.
@@ -65,7 +65,7 @@ Usługa DevTest Labs umożliwia lepsze zarządzanie kosztami w laboratorium prze
 
        ![Konfigurowanie okienka powiadomień](./media/devtest-lab-configure-cost-management/configure-notification-new.png)
 
-     - W przypadku określenia **powiadomienia**należy zdefiniować adres URL elementu webhook.
+     - W przypadku określenia **powiadomienia** należy zdefiniować adres URL elementu webhook.
      - Analogicznie, jeśli zdefiniujesz adres URL elementu webhook, w okienku próg kosztu **należy ustawić wartość** **włączone** .
      - Musisz utworzyć element webhook przed wprowadzeniem go w tym miejscu.  
 

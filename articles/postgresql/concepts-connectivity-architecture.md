@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d5476bf1bfe2e222e115146c13f46e776d4bb497
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 23847c164ba59a8c46c2fdd5fb954b76ea251148
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657196"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877683"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architektura łączności w Azure Database for PostgreSQL
 W tym artykule opisano architekturę Azure Database for PostgreSQL łączności oraz sposób kierowania ruchu do wystąpienia bazy danych Azure Database for PostgreSQL z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -28,7 +28,7 @@ Gdy klient łączy się z bazą danych, parametry połączenia z serwerem są ro
 
 Usługa bramy jest hostowana w grupie bezstanowych węzłów obliczeniowych znajdujących się za adresem IP, który klient będzie docierał najpierw podczas próby nawiązania połączenia z serwerem Azure Database for PostgreSQL. 
 
-W ramach trwającej konserwacji usług będziemy okresowo odświeżać sprzęt obliczeniowy obsługujący bramy, aby zapewnić najbardziej bezpieczny i wydajny sposób. Po odświeżeniu sprzętu bramy jest najpierw tworzony nowy pierścień węzłów obliczeniowych. Ten nowy pierścień służy do obsługi ruchu dla wszystkich nowo utworzonych serwerów Azure Database for PostgreSQL i ma inny adres IP ze starszych pierścieni bramy w tym samym regionie, aby odróżnić ruch. Gdy nowy pierścień jest w pełni funkcjonalny, starszy sprzęt bramy obsługujący istniejące serwery jest planowany do likwidacji. Przed wycofaniem sprzętu bramy klienci korzystający z serwerów i nawiązujący połączenie ze starszymi pierścieniami bramy będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal w ciągu trzech miesięcy przed likwidacją. Likwidowanie bram może mieć wpływ na łączność z serwerami, jeśli 
+W ramach trwającej konserwacji usług będziemy okresowo odświeżać sprzęt obliczeniowy obsługujący bramy, aby zapewnić największą bezpieczeństwo i wydajne środowisko łączności. Po odświeżeniu sprzętu bramy jest najpierw tworzony nowy pierścień węzłów obliczeniowych. Ten nowy pierścień służy do obsługi ruchu dla wszystkich nowo utworzonych serwerów Azure Database for PostgreSQL i ma inny adres IP ze starszych pierścieni bramy w tym samym regionie, aby odróżnić ruch. Starsza wersja sprzętu bramy nadal obsługuje istniejące serwery, ale jest planowana do likwidacji w przyszłości. Przed wycofaniem sprzętu bramy klienci korzystający z serwerów i nawiązujący połączenie ze starszymi pierścieniami bramy będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal w ciągu trzech miesięcy przed likwidacją. Likwidowanie bram może mieć wpływ na łączność z serwerami, jeśli 
 
 * Adresy IP bramy są zakodowane w parametrach połączenia aplikacji. Nie jest to **zalecane**. Należy użyć w pełni kwalifikowanej nazwy domeny (FQDN) serwera w formacie <servername> . Postgres.Database.Azure.com, w parametrach połączenia dla aplikacji. 
 * Nie aktualizujesz nowszych adresów IP bramy w zaporze po stronie klienta, aby zezwolić na ruch wychodzący, aby uzyskać dostęp do naszych nowych pierścieni bramy.
@@ -46,7 +46,7 @@ W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for PostgreS
 | Australia Central2     | 20.36.113.0  | | |
 | Australia Wschodnia | 13.75.149.87, 40.79.161.1     |  | |
 | Australia Południowo-Wschodnia |191.239.192.109, 13.73.109.251   |  | |
-| Brazil South |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
+| Brazylia Południowa |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Kanada Środkowa |40.85.224.249  | | |
 | Kanada Wschodnia | 40.86.226.166    | | |
 | Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
@@ -64,7 +64,7 @@ W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for PostgreS
 | Indie Środkowe | 104.211.96.159     | | |
 | Indie Południowe | 104.211.224.146  | | |
 | Indie Zachodnie | 104.211.160.80    | | |
-| Japan East | 13.78.61.196, 191.237.240.43, 40.79.192.23 | | |
+| Japonia Wschodnia | 13.78.61.196, 191.237.240.43, 40.79.192.23 | | |
 | Japonia Zachodnia | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    | | |
 | Korea Środkowa | 52.231.32.42   | | |
 | Korea Południowa | 52.231.200.86    | | |

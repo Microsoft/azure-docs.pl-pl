@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 24640254f32270b8c96c790dca7db31e285cc27f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973715"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895292"
 ---
 # <a name="blocking-legacy-authentication"></a>Blokowanie starszego uwierzytelniania
  
@@ -37,6 +37,7 @@ Przed zablokowaniem starszego uwierzytelniania w katalogu należy najpierw zrozu
 1. Filtruj według **aplikacji klienckich** > Sprawdź wszystkie dostępne opcje **starszych klientów uwierzytelniania** .
 1. Filtrowanie według **stanu**  >  **sukcesu**. 
 1. W razie potrzeby rozwiń zakres dat, używając filtru **daty** .
+1. Jeśli aktywowano [nowe raporty dotyczące działań związanych z logowaniem](../reports-monitoring/concept-all-sign-ins.md), powtórz powyższe kroki również na karcie **logowania użytkowników (nieinteraktywny)** .
 
 Filtrowanie będzie zawierać tylko pomyślne próby logowania, które zostały wprowadzone przez wybrane starsze protokoły uwierzytelniania. Kliknięcie każdej próby logowania spowoduje wyświetlenie dodatkowych szczegółów. Kolumna aplikacji klienta lub pole aplikacji klienta na karcie Informacje podstawowe po wybraniu pojedynczego wiersza danych wskazuje, który z starszych wersji protokołu uwierzytelniania był używany. Te dzienniki wskazują, którzy użytkownicy nadal są w stanie w zależności od starszego uwierzytelniania i które aplikacje używają starszych protokołów do przesyłania żądań uwierzytelniania. W przypadku użytkowników, którzy nie znajdują się w tych dziennikach i potwierdzają, że nie używają starszego uwierzytelniania, zaimplementuj zasady dostępu warunkowego lub Włącz zasady linii bazowej: Blokuj starsze uwierzytelnianie dla tych użytkowników.
 
@@ -100,4 +101,4 @@ Kroki umożliwiające włączenie nowoczesnego uwierzytelniania można znaleźć
 
 - [Jak skonfigurować lokalny serwer Exchange Server do korzystania z nowoczesnego uwierzytelniania hybrydowego](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 - [Jak używać nowoczesnego uwierzytelniania (ADAL) w usłudze Skype dla firm](/skypeforbusiness/manage/authentication/use-adal)
-- [Blokowanie starszego uwierzytelniania](../conditional-access/block-legacy-authentication.md)
+- [Blokuj starsze uwierzytelnianie](../conditional-access/block-legacy-authentication.md)

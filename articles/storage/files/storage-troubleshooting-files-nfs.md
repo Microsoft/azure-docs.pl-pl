@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 2a37c86268d2424971058021044c60185a25348f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916460"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878497"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Rozwiązywanie problemów z udziałami plików NFS systemu Azure
 
@@ -25,7 +25,7 @@ W tym artykule wymieniono niektóre typowe problemy związane z udziałami plik�
 Azure Files nie zezwala na alfanumeryczne UID/GID. Idmapping musi być wyłączona. 
 
 ### <a name="cause-2-idmapping-was-disabled-but-got-re-enabled-after-encountering-bad-filedir-name"></a>Przyczyna 2: idmapping została wyłączona, ale po napotkaniu nieprawidłowej nazwy pliku/katalogu otrzymasz ponowną obsługę
-Nawet jeśli idmapping została prawidłowo wyłączona, ustawienia dotyczące wyłączania idmapping są zastępowane w niektórych przypadkach. Na przykład gdy Azure Files napotka nieprawidłową nazwę pliku, spowoduje to wysłanie błędu. Gdy widzisz ten konkretny kod błędu, klient systemu plików NFS w wersji 4,1 z systemem Linux zdecyduje się ponownie włączyć idmapping, a przyszłe żądania są wysyłane ponownie z alfanumerycznym identyfikatorem UID/GID. Aby zapoznać się z listą nieobsługiwanych znaków w Azure Files, zobacz ten [artykuł](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length). Dwukropek jest jednym z nieobsługiwanych znaków. 
+Nawet jeśli idmapping została prawidłowo wyłączona, ustawienia dotyczące wyłączania idmapping są zastępowane w niektórych przypadkach. Na przykład gdy Azure Files napotka nieprawidłową nazwę pliku, spowoduje to wysłanie błędu. Gdy widzisz ten konkretny kod błędu, klient systemu plików NFS w wersji 4,1 z systemem Linux zdecyduje się ponownie włączyć idmapping, a przyszłe żądania są wysyłane ponownie z alfanumerycznym identyfikatorem UID/GID. Aby zapoznać się z listą nieobsługiwanych znaków w Azure Files, zobacz ten [artykuł](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Dwukropek jest jednym z nieobsługiwanych znaków. 
 
 ### <a name="workaround"></a>Obejście
 Sprawdź, czy usługa idmapping jest wyłączona i nic nie jest ponownie włączane, a następnie wykonaj następujące czynności:
@@ -68,7 +68,7 @@ System plików NFS jest dostępny tylko na kontach magazynu z następującą kon
 - Warstwa — Premium
 - Rodzaj konta — FileStorage
 - Nadmiarowość — LRS
-- Regiony — [Lista obsługiwanych regionów](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal#regional-availability)
+- Regiony — [Lista obsługiwanych regionów](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Rozwiązanie
 

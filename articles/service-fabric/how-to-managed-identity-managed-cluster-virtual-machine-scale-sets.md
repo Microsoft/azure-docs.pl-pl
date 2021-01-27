@@ -4,19 +4,19 @@ description: W tym artykule pokazano, jak dodać tożsamość zarządzaną do Se
 ms.topic: how-to
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 00e679b07a44b799b6ac6677201bb59eeddcd6cf
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 9edcf75451f43f2a00cd01d5ca7f385704b1ea7f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841564"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878430"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>Dodawanie tożsamości zarządzanej do Service Fabric typu węzła klastra zarządzanego (wersja zapoznawcza)
 
-Każdy typ węzła w klastrze zarządzanym Service Fabric jest obsługiwany przez zestaw skalowania maszyn wirtualnych. Aby umożliwić używanie tożsamości zarządzanych z typem węzła zarządzanego klastra, właściwość `vmManagedIdentity` została dodana do definicji typu węzła zawierającego listę tożsamości, które mogą być używane `userAssignedIdentities` . Funkcja odzwierciedla, jak zarządzane tożsamości mogą być używane w niezarządzanych klastrach, na przykład przy użyciu tożsamości zarządzanej z [rozszerzeniem zestawu skalowania maszyn wirtualnych Azure Key Vault](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+Każdy typ węzła w klastrze zarządzanym Service Fabric jest obsługiwany przez zestaw skalowania maszyn wirtualnych. Aby umożliwić używanie tożsamości zarządzanych z typem węzła zarządzanego klastra, właściwość `vmManagedIdentity` została dodana do definicji typu węzła zawierającego listę tożsamości, które mogą być używane `userAssignedIdentities` . Funkcja odzwierciedla, jak zarządzane tożsamości mogą być używane w niezarządzanych klastrach, na przykład przy użyciu tożsamości zarządzanej z [rozszerzeniem zestawu skalowania maszyn wirtualnych Azure Key Vault](../virtual-machines/extensions/key-vault-windows.md).
 
 
-Aby zapoznać się z przykładem wdrożenia klastra zarządzanego Service Fabric, które korzysta z tożsamości zarządzanej w typie węzła, zobacz [ten szablon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). Aby uzyskać listę obsługiwanych regionów, zapoznaj się z [często zadawanymi pytaniami dotyczącymi zarządzanych klastrów](https://docs.microsoft.com/azure/service-fabric/faq-managed-cluster#what-regions-are-supported-in-the-preview).
+Aby zapoznać się z przykładem wdrożenia klastra zarządzanego Service Fabric, które korzysta z tożsamości zarządzanej w typie węzła, zobacz [ten szablon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). Aby uzyskać listę obsługiwanych regionów, zapoznaj się z [często zadawanymi pytaniami dotyczącymi zarządzanych klastrów](./faq-managed-cluster.md#what-regions-are-supported-in-the-preview).
 
 > [!NOTE]
 > Tylko tożsamości przypisane przez użytkownika są obecnie obsługiwane dla tej funkcji.
@@ -26,7 +26,7 @@ Aby zapoznać się z przykładem wdrożenia klastra zarządzanego Service Fabric
 Przed rozpoczęciem:
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
-* Jeśli planujesz korzystanie z programu PowerShell, [Zainstaluj](https://docs.microsoft.com/cli/azure/install-azure-cli) interfejs wiersza polecenia platformy Azure w celu uruchomienia poleceń referencyjnych interfejsu CLI.
+* Jeśli planujesz korzystanie z programu PowerShell, [Zainstaluj](/cli/azure/install-azure-cli) interfejs wiersza polecenia platformy Azure w celu uruchomienia poleceń referencyjnych interfejsu CLI.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika 
 
@@ -131,4 +131,4 @@ Nie można poprawnie dodać przypisania roli, zostanie spełniony następujący 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wdrażanie aplikacji w klastrze zarządzanym Service Fabric](https://docs.microsoft.com/azure/service-fabric/tutorial-managed-cluster-deploy-app) 
+> [Wdrażanie aplikacji w klastrze zarządzanym Service Fabric](./tutorial-managed-cluster-deploy-app.md)

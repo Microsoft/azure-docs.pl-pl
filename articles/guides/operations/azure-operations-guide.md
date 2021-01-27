@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c0269464352fa333c6447834a56c25348ecb71a3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327777"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895258"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Wprowadzenie do operatorów IT platformy Azure
 
@@ -140,7 +140,7 @@ Azure to globalna platforma w chmurze, która jest ogólnie dostępna w wielu re
 
 Jedną z zalet korzystania z platformy Azure jest możliwość wdrażania aplikacji w różnych centrach danych na całym świecie. Wybrany region może mieć wpływ na wydajność aplikacji. Najlepiej wybrać region, który jest bliżej większości klientów, aby zmniejszyć opóźnienia w żądaniach sieciowych. Możesz również wybrać region spełniający wymagania prawne dotyczące dystrybucji aplikacji w określonych krajach/regionach.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Azure Portal jest aplikacją opartą na sieci Web, która może służyć do tworzenia i usuwania zasobów i usług platformy Azure oraz zarządzania nimi. Azure Portal znajduje się w [Portal.Azure.com](https://portal.azure.com). Obejmuje to dostosowywalny pulpit nawigacyjny i narzędzia służące do zarządzania zasobami platformy Azure. Zawiera również informacje dotyczące rozliczeń i subskrypcji. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Portal Omówienie](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) i [Zarządzanie zasobami platformy Azure za pomocą portalu](../../azure-resource-manager/management/manage-resources-portal.md).
 
@@ -156,7 +156,7 @@ Grupa zasobów platformy Azure to kontener, który zawiera powiązane zasoby dla
 
 Szablon Azure Resource Manager to plik JavaScript Object Notation (JSON), który definiuje co najmniej jeden zasób do wdrożenia w grupie zasobów. Definiuje również zależności między wdrożonymi zasobami. Szablony Menedżer zasobów zostały omówione bardziej szczegółowo w dalszej części tego przewodnika.
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
 Oprócz tworzenia i usuwania zasobów oraz zarządzania nimi przy użyciu Azure Portal można zautomatyzować te działania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
@@ -192,9 +192,9 @@ W przypadku przekroczenia kwoty środków usługa zostanie wyłączona do moment
 
 **Konta BizSpark**: program Microsoft BizSparker oferuje wiele korzyści do uruchomienia. Jedną z tych korzyści jest dostęp do całego oprogramowania firmy Microsoft w środowiskach deweloperskich i testowych w przypadku maksymalnie pięciu kont MSDN. W przypadku każdego z pięciu kont MSDN uzyskasz $150 na kwotę, a opłaty są naliczone za kilka usług platformy Azure, takich jak Virtual Machines.
 
-**Płatność zgodnie z rzeczywistym**użyciem: w przypadku tej subskrypcji płacisz za to, czego używasz, dołączając kartę kredytową lub debetową do konta. Jeśli jesteś organizacją, możesz także zatwierdzić ją do fakturowania.
+**Płatność zgodnie z rzeczywistym** użyciem: w przypadku tej subskrypcji płacisz za to, czego używasz, dołączając kartę kredytową lub debetową do konta. Jeśli jesteś organizacją, możesz także zatwierdzić ją do fakturowania.
 
-**Umowy Enterprise**Agreement: w ramach umowy Enterprise — użytkownik zobowiązuje się do korzystania z pewnej liczby usług na platformie Azure w ciągu następnego roku, a ta kwota jest płacona z wyprzedzeniem. Zobowiązania, które należy wprowadzić, są używane w ciągu roku. W przypadku przekroczenia kwoty zobowiązania możesz uregulować nadwyżki w zaległościach. W zależności od ilości zobowiązania otrzymujesz rabat na usługi na platformie Azure.
+**Umowy Enterprise** Agreement: w ramach umowy Enterprise — użytkownik zobowiązuje się do korzystania z pewnej liczby usług na platformie Azure w ciągu następnego roku, a ta kwota jest płacona z wyprzedzeniem. Zobowiązania, które należy wprowadzić, są używane w ciągu roku. W przypadku przekroczenia kwoty zobowiązania możesz uregulować nadwyżki w zaległościach. W zależności od ilości zobowiązania otrzymujesz rabat na usługi na platformie Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Udzielanie dostępu administracyjnego do subskrypcji platformy Azure
 
@@ -214,9 +214,7 @@ Oprócz wyświetlania rozliczeń w portalu możesz uzyskać dostęp do informacj
 
 - Możesz użyć interfejsu API użycia platformy Azure, aby pobrać dane użycia. Informacje o użyciu rozliczeń można dostosować, dodając znaczniki związane z zasobami platformy Azure. Można na przykład oznaczyć każdy zasób w grupie zasobów przy użyciu nazwy działu lub nazwy projektu, a następnie śledzić koszty związane z tym jednym tagiem.
 
-- Korzystając z interfejsu API usługi Azure rate Card, można wyświetlić listę wszystkich dostępnych zasobów wraz z informacjami dotyczącymi metadanych i cen poszczególnych zasobów.
-
-Aby uzyskać więcej informacji, zobacz [Uzyskiwanie szczegółowych informacji o użyciu zasobów platformy Microsoft Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
+- Aby wyświetlić listę wszystkich dostępnych zasobów wraz z metadanymi, można użyć [omówienia interfejsu API użycia platformy Azure](../../cost-management-billing/manage/consumption-api-overview.md) . Aby uzyskać więcej informacji na temat cen, zobacz [Omówienie cen detalicznych platformy Azure](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prognoza kosztów za pomocą kalkulatora cen
 
@@ -292,7 +290,7 @@ Dostęp operacyjny do kont użytkowników można udzielić w określonym zakresi
 
 Aby udzielić dostępu, należy przypisać rolę do użytkownika lub grupy użytkowników. Istnieje wiele wstępnie zdefiniowanych ról. Możesz również zdefiniować własne role niestandardowe.
 
-Oto kilka przykładowych [wbudowanych ról na platformie Azure](../../role-based-access-control/built-in-roles.md):
+Oto kilka przykładów [wbudowanych ról na platformie Azure](../../role-based-access-control/built-in-roles.md):
 
 - **Właściciel**: użytkownik mający tę rolę może zarządzać wszystkimi wszystkimi, w tym dostępem.
 
@@ -372,7 +370,7 @@ Obiekt *BLOB* słowa jest akronimem dla *dużego obiektu binarnego*. Obiekty blo
 
 Usługa Azure Storage obsługuje trzy typy obiektów blob:
 
-- **Blokowe obiekty blob** są używane do przechowywania zwykłych plików o rozmiarze do 195 GB (4 MB × 50 000 bloków). Głównym zastosowaniem dla blokowych obiektów blob jest przechowywanie plików, które są odczytywane od początku do końca, np. plików multimedialnych lub plików obrazów na potrzeby witryn internetowych. Są one nazwanymi blokami BLOB, ponieważ pliki o rozmiarze większym niż 64 MB muszą zostać przekazane jako małe bloki. Te bloki są następnie konsolidowane (lub zatwierdzane) do końcowego obiektu BLOB.
+- **Blokowe obiekty blob** są używane do przechowywania zwykłych plików o rozmiarze do 195 GB (4 MB × 50 000 bloków). Głównym zastosowaniem dla blokowych obiektów blob jest przechowywanie plików, które są odczytywane od początku do końca, np. plików multimedialnych lub plików obrazów na potrzeby witryn internetowych. Są one nazwanymi blokami BLOB, ponieważ pliki o rozmiarze większym niż 64 MB muszą zostać przekazane jako małe bloki. Te bloki są następnie konsolidowane (lub przydzielane) do końcowego obiektu blob.
 
 - **Stronicowe obiekty blob** są używane do przechowywania plików o dostępie losowym o rozmiarze do 1 TB. Stronicowe obiekty blob są używane głównie jako zapasowe magazyny dla wirtualnych dysków twardych, które zapewniają trwałe dyski dla Virtual Machines platformy Azure, usługi obliczeniowej IaaS na platformie Azure. Stronicowe obiekty blob są tak nazywane, ponieważ zapewniają swobodny dostęp do odczytu/zapisu do 512-bajtowych stron.
 
@@ -388,7 +386,7 @@ Ponieważ udział magazynu plików jest standardowym udziałem plików SMB, apli
 
 Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](../../storage/files/storage-how-to-use-files-windows.md) lub [jak korzystać z usługi Azure File Storage z systemem Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
-#### <a name="table-storage"></a>Magazyn tabel
+#### <a name="table-storage"></a>Table Storage
 
 Magazyn tabel Azure to usługa, która przechowuje dane strukturalne NoSQL w chmurze. Magazyn tabel jest magazynem kluczy/atrybutów z projektem bez schematu. Ponieważ magazyn tabel jest mniejszy od schematu, można łatwo dostosować dane w miarę rozwoju aplikacji. Dostęp do danych jest szybki i ekonomiczny dla wszystkich rodzajów aplikacji. Magazyn tabel jest zwykle znacznie tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
 

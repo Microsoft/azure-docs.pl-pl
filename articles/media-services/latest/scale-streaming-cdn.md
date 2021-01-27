@@ -1,24 +1,9 @@
 ---
-title: Przesyłanie strumieniowe zawartości z integracją z usługą CDN
-titleSuffix: Azure Media Services
-description: Dowiedz się więcej na temat przesyłania strumieniowego zawartości z integracją usługi CDN, a także pobierania i Origin-Assist usługi CDN — pobieranie z wyprzedzeniem.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001375"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Pola obowiązkowe. Zobacz więcej na temat aka.ms/skyeye/meta.
+title: przesyłanie strumieniowe zawartości z integracją z usługą CDN: Azure Media Services opis: informacje na temat przesyłania strumieniowego zawartości z integracją z usługą CDN, a także pobierania i Origin-Assist sieci CDN — pobieranie z wyprzedzeniem.
+usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: "" MS. Service: Media-Services MS. obciążenie: MS. temat: koncepcyjne MS. Date: 08/31/2020 MS. Author: inhenkel
 ---
+
 # <a name="stream-content-with-cdn-integration"></a>Przesyłanie strumieniowe zawartości z integracją z usługą CDN
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
