@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 71061c056b499f79727f70fb855db7a81a65f3bd
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 7ddd5dec87a122a0b36fee17b5434c8a49dcf434
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572174"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881639"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Rozwiązywanie problemów z kompilacjami obrazu środowiska
 
@@ -153,12 +153,12 @@ Zapoznaj się z następującymi scenariuszami, aby rozwiązać problemy z potenc
 
 Możliwe problemy:
 - Nazwa ścieżki do rejestru kontenerów może nie być rozpoznawana poprawnie. Sprawdź, czy nazwy obrazów używają podwójnych ukośników i kierunku ukośników w systemie Linux i na hostach z systemem Windows są poprawne.
-- Jeśli rejestr kontenerów za siecią wirtualną używa prywatnego punktu końcowego w [nieobsługiwanym regionie](https://docs.microsoft.com/azure/private-link/private-link-overview#availability), skonfiguruj rejestr kontenerów za pomocą punktu końcowego usługi (dostęp publiczny) z portalu i ponów próbę.
-- Po umieszczeniu rejestru kontenerów za siecią wirtualną, uruchom [szablon Azure Resource Manager](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) , aby obszar roboczy mógł komunikować się z wystąpieniem rejestru kontenerów.
+- Jeśli rejestr kontenerów za siecią wirtualną używa prywatnego punktu końcowego w [nieobsługiwanym regionie](/azure/private-link/private-link-overview#availability), skonfiguruj rejestr kontenerów za pomocą punktu końcowego usługi (dostęp publiczny) z portalu i ponów próbę.
+- Po umieszczeniu rejestru kontenerów za siecią wirtualną, uruchom [szablon Azure Resource Manager](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) , aby obszar roboczy mógł komunikować się z wystąpieniem rejestru kontenerów.
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Wystąpił błąd 401 z rejestru kontenerów obszaru roboczego
 
-Ponownie zsynchronizuj klucze magazynu za pomocą [WS.sync_keys ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
+Ponownie zsynchronizuj klucze magazynu za pomocą [WS.sync_keys ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
 
 ### <a name="the-environment-keeps-throwing-a-waiting-for-other-conda-operations-to-finish-error"></a>Środowisko ciągle zgłasza "Oczekiwanie na zakończenie innych operacji Conda..." Porn
 
@@ -166,7 +166,7 @@ Gdy kompilacja obrazu jest ciągła, Conda jest zablokowany przez klienta zestaw
 
 ### <a name="your-custom-docker-image-isnt-in-the-registry"></a>Niestandardowy obraz platformy Docker nie znajduje się w rejestrze
 
-Sprawdź, czy jest używany [poprawny tag](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#create-an-environment) `user_managed_dependencies = True` . `Environment.python.user_managed_dependencies = True` wyłącza Conda i używa zainstalowanych pakietów użytkownika.
+Sprawdź, czy jest używany [poprawny tag](/azure/machine-learning/how-to-use-environments#create-an-environment) `user_managed_dependencies = True` . `Environment.python.user_managed_dependencies = True` wyłącza Conda i używa zainstalowanych pakietów użytkownika.
 
 ### <a name="you-get-one-of-the-following-common-virtual-network-issues"></a>Zostanie wyświetlony jeden z następujących typowych problemów z siecią wirtualną
 
@@ -184,9 +184,9 @@ Sprawdź, czy jest używany [poprawny tag](https://docs.microsoft.com/azure/mach
 
 ### <a name="you-cant-run-experiments-when-storage-has-network-security-enabled"></a>Nie można uruchomić eksperymentów, gdy w magazynie włączono zabezpieczenia sieciowe
 
-Jeśli używasz domyślnych obrazów platformy Docker i włączasz zależności zarządzane przez użytkownika, użyj [tagów usługi](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network) MicrosoftContainerRegistry i AzureFrontDoor. FirstParty, aby dozwolonych Azure Container Registry i jej zależności.
+Jeśli używasz domyślnych obrazów platformy Docker i włączasz zależności zarządzane przez użytkownika, użyj [tagów usługi](/azure/machine-learning/how-to-enable-virtual-network) MicrosoftContainerRegistry i AzureFrontDoor. FirstParty, aby dozwolonych Azure Container Registry i jej zależności.
 
- Aby uzyskać więcej informacji, zobacz [Włączanie sieci wirtualnych](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
+ Aby uzyskać więcej informacji, zobacz [Włączanie sieci wirtualnych](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
 
 ### <a name="you-need-to-create-an-icm"></a>Należy utworzyć ICM
 

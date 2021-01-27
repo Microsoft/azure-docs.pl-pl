@@ -4,12 +4,12 @@ description: Dowiedz się, jak zabezpieczyć klaster przy użyciu zakresu adres�
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682506"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890644"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Bezpieczny dostęp do serwera interfejsu API za pomocą zakresów autoryzowanych adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,7 @@ az aks create \
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Określ wychodzące adresy IP dla usługi równoważenia obciążenia standardowej jednostki SKU
 
-W przypadku tworzenia klastra AKS, jeśli określono wychodzące adresy IP lub prefiksy dla klastra, dozwolone są również te adresy lub prefiksy. Przykład:
+W przypadku tworzenia klastra AKS, jeśli określono wychodzące adresy IP lub prefiksy dla klastra, dozwolone są również te adresy lub prefiksy. Na przykład:
 
 ```azurecli-interactive
 az aks create \
@@ -121,7 +121,7 @@ Można również użyć *0.0.0.0/32* podczas określania parametru, *`--api-serv
 
 ## <a name="disable-authorized-ip-ranges"></a>Wyłącz autoryzowane zakresy adresów IP
 
-Aby wyłączyć autoryzowane zakresy adresów IP, użyj [AZ AKS Update][az-aks-update] i określ pusty zakres, aby wyłączyć autoryzowane zakresy adresów IP serwera interfejsu API. Przykład:
+Aby wyłączyć autoryzowane zakresy adresów IP, użyj [AZ AKS Update][az-aks-update] i określ pusty zakres, aby wyłączyć autoryzowane zakresy adresów IP serwera interfejsu API. Na przykład:
 
 ```azurecli-interactive
 az aks update \
@@ -129,6 +129,23 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+## <a name="find-existing-authorized-ip-ranges"></a>Znajdź istniejące autoryzowane zakresy adresów IP
+
+Aby znaleźć zakresy adresów IP, które zostały autoryzowane, użyj [AZ AKS show][az-aks-show] i określ nazwę klastra i grupę zasobów. Na przykład:
+
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query apiServerAccessProfile.authorizedIpRanges'
+```
+
+## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Aktualizowanie, wyłączanie i znajdowanie autoryzowanych zakresów adresów IP przy użyciu Azure Portal
+
+Powyższe operacje dodawania, aktualizowania, znajdowania i wyłączania autoryzowanych zakresów adresów IP mogą być również wykonywane w Azure Portal. Aby uzyskać dostęp, przejdź do obszaru **Sieć** w obszarze **Ustawienia** w bloku menu zasobu klastra.
+
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="W przeglądarce programu wyświetlana jest strona Ustawienia sieciowe zasobów klastra Azure Portal. Opcje &quot;Ustaw określony zakres adresów IP&quot; i &quot;określone zakresy adresów IP&quot; są wyróżnione.":::
 
 ## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Jak znaleźć mój adres IP do uwzględnienia `--api-server-authorized-ip-ranges` ?
 
@@ -170,6 +187,7 @@ Aby uzyskać więcej informacji, zobacz [pojęcia dotyczące zabezpieczeń aplik
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md

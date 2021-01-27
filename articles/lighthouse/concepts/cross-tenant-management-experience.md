@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 01/20/2021
+ms.date: 01/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0e380b49f122e63113e790f4e866fed40aa9beac
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 9af90e10d889c3d30375e001891ce0dc70767ab4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662716"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881405"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -97,7 +97,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 
 - Wyświetlanie alertów dotyczących delegowanych subskrypcji z możliwością wyświetlania i odświeżania alertów we wszystkich subskrypcjach
 - Wyświetl szczegóły dziennika aktywności dla delegowanych subskrypcji
-- Log Analytics: wykonywanie zapytań dotyczących danych ze zdalnych obszarów roboczych w wielu dzierżawcach (należy zauważyć, że konta usługi Automation używane do uzyskiwania dostępu do danych z obszarów roboczych w dzierżawach klientów muszą zostać utworzone w tej samej dzierżawie)
+- [Log Analytics](../../azure-monitor/platform/service-providers.md): wykonywanie zapytań dotyczących danych ze zdalnych obszarów roboczych w wielu dzierżawcach (należy zauważyć, że konta usługi Automation używane do uzyskiwania dostępu do danych z obszarów roboczych w dzierżawach klientów muszą zostać utworzone w tej samej dzierżawie)
 - Twórz alerty w dzierżawach klientów, które wyzwalają automatyzację, taką jak Azure Automation Runbook lub Azure Functions, w dzierżawie zarządzającej za pomocą elementów webhook
 - Tworzenie [ustawień diagnostycznych](../..//azure-monitor/platform/diagnostic-settings.md) w dzierżawach klientów w celu wysyłania dzienników zasobów do obszarów roboczych w dzierżawie zarządzającej
 - W przypadku obciążeń SAP [Monitoruj metryki rozwiązań SAP z zagregowanym widokiem w dzierżawach klientów](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
-ms.openlocfilehash: f16e34f372016f284d4af79443e84d9d5cdea957
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 373fd26c36bf2f77de6a376f738bd3caaf735f00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523583"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881876"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Jak mapować dyski platformy Azure na dyski gościa maszyny wirtualnej z systemem Windows
 
@@ -29,11 +29,11 @@ W naszym ćwiczeniu wystarczy użyć jednostki LUN.
 
 ## <a name="finding-the-lun"></a>Znajdowanie jednostki LUN
 
-Istnieją dwie metody znajdowania jednostki LUN, która jest zależna od tego, czy jest używana funkcja [miejsca do magazynowania](https://docs.microsoft.com/windows-server/storage/storage-spaces/overview) .
+Istnieją dwie metody znajdowania jednostki LUN, która jest zależna od tego, czy jest używana funkcja [miejsca do magazynowania](/windows-server/storage/storage-spaces/overview) .
 
 ### <a name="disk-management"></a>Zarządzanie dyskami
 
-Jeśli nie używasz pul magazynów, możesz użyć [przystawki Zarządzanie dyskami](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management) , aby znaleźć jednostkę LUN.
+Jeśli nie używasz pul magazynów, możesz użyć [przystawki Zarządzanie dyskami](/windows-server/storage/disk-management/overview-of-disk-management) , aby znaleźć jednostkę LUN.
 
 1. Połącz się z maszyną wirtualną i Otwórz przystawkę Zarządzanie dyskami a. Kliknij prawym przyciskiem myszy przycisk Start i wybierz polecenie "Zarządzanie dyskami" a. Możesz również wpisać `diskmgmt.msc` w polu Rozpocznij wyszukiwanie
 1. W dolnym okienku kliknij prawym przyciskiem myszy dowolny dysk i wybierz polecenie "właściwości".
@@ -55,7 +55,7 @@ Jednostkę LUN dla dysku platformy Azure można zlokalizować przy użyciu Azure
 1. Wybierz maszynę wirtualną
 1. Wybierz pozycję "dyski"
 1. Wybierz dysk z danymi z listy dołączonych dysków.
-1. Jednostka LUN dysku zostanie wyświetlona w okienku szczegółów dysku. Wyświetlana w tym miejscu jednostka LUN korelacji z jednostkami LUN, które zostały wyszukane w gościu przy użyciu Menedżer urządzeń lub Menedżer serwera.
+1. Jednostka LUN dysku zostanie wyświetlona w okienku szczegółów dysku. Wyświetlana w tym miejscu jednostka LUN korelacji z jednostkami LUN, które zostały wyszukane w gościu przy użyciu Device Manager lub Menedżer serwera.
 
 ### <a name="finding-an-azure-disks-lun-using-azure-cli-or-azure-powershell"></a>Znajdowanie jednostki LUN dysku platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell
 

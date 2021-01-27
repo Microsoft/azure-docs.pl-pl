@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 050e6b5007b9fbaedc412d8062430f1c2c1691fd
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7bca683ea075710aa6fc677fcf457ceb2e0e5098
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923952"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881015"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików 
 
@@ -236,7 +236,7 @@ Aby uzyskać szczegółowe informacje, zobacz Dokumentacja [AzCopy Copy](storage
 
 #### <a name="download-from-a-share-snapshot"></a>Pobieranie z migawki udziału
 
-Możesz pobrać określoną wersję pliku lub katalogu, odwołując się do wartości **DateTime** migawki udziału. Aby dowiedzieć się więcej na temat migawek udziałów, zobacz [Omówienie migawek udziałów dla Azure Files](/azure/storage/files/storage-snapshots-files). 
+Możesz pobrać określoną wersję pliku lub katalogu, odwołując się do wartości **DateTime** migawki udziału. Aby dowiedzieć się więcej na temat migawek udziałów, zobacz [Omówienie migawek udziałów dla Azure Files](../files/storage-snapshots-files.md). 
 
 |    |     |
 |--------|-----------|
@@ -251,7 +251,7 @@ Można użyć AzCopy do kopiowania plików na inne konta magazynu. Operacja kopi
 
 AzCopy używa [interfejsów API](/rest/api/storageservices/put-page-from-url) [serwer-serwer](/rest/api/storageservices/put-block-from-url) , aby dane były kopiowane bezpośrednio między serwerami magazynu. Te operacje kopiowania nie korzystają z przepustowości sieci komputera. Przepływność tych operacji można zwiększyć, ustawiając wartość `AZCOPY_CONCURRENCY_VALUE` zmiennej środowiskowej. Aby dowiedzieć się więcej, zobacz [Optymalizowanie przepływności](storage-use-azcopy-configure.md#optimize-throughput).
 
-Możesz również skopiować określone wersje plików, odwołując się do wartości **DateTime** migawki udziału. Aby dowiedzieć się więcej na temat migawek udziałów, zobacz [Omówienie migawek udziałów dla Azure Files](/azure/storage/files/storage-snapshots-files). 
+Możesz również skopiować określone wersje plików, odwołując się do wartości **DateTime** migawki udziału. Aby dowiedzieć się więcej na temat migawek udziałów, zobacz [Omówienie migawek udziałów dla Azure Files](../files/storage-snapshots-files.md). 
 
 Ta sekcja zawiera następujące przykłady:
 

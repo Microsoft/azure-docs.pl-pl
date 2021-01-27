@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/02/2020
 ms.author: brendm
 ms.custom: devx-track-java, contperf-fy21q2
-ms.openlocfilehash: fc3f78131518b4d8740c25ab37c48d4444deef10
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b7f5d4206140bf2101c10b1cd4ac46d80bdd3342
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563147"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881707"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Co to jest usługa Azure Spring Cloud?
 
@@ -20,14 +20,14 @@ Chmura sprężynowa platformy Azure ułatwia wdrażanie aplikacji mikrousług z 
 
 ## <a name="why-use-azure-spring-cloud"></a>Dlaczego warto korzystać z chmury wiosennej platformy Azure?
 
-Wdrażanie aplikacji w chmurze z platformą Azure wiosną ma wiele korzyści.  Można:
+Wdrażanie aplikacji w chmurze z platformą Azure wiosną ma wiele korzyści.  Oto co możesz zrobić:
 * Efektywnie Migruj istniejące aplikacje sprężynowe i Zarządzaj skalowaniem i kosztami chmury.
 * Modernizacja aplikacji ze wzorcami chmury wiosennej, aby zwiększyć elastyczność i szybkość dostarczania.
 * Uruchamiaj środowisko Java w skali chmury i zwiększaj użycie bez skomplikowanej infrastruktury.
 * Szybko Opracowuj i wdrażaj bez zależności kontenerach.
 * Wydajnie i bezproblemowo Monitoruj obciążenia produkcyjne.
 
-Chmura sprężynowa platformy Azure obsługuje zarówno aplikacje z [rozruchem ze sprężyną](https://spring.io/projects/spring-boot) Java, jak i ASP.NET Core [steeltoe](https://steeltoe.io/) . Pomoc techniczna steeltoe jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty publicznej wersji zapoznawczej pozwalają na eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją. Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz [często zadawane pytania](https://azure.microsoft.com/support/faq/) lub plik [support Request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Chmura sprężynowa platformy Azure obsługuje zarówno aplikacje z [rozruchem ze sprężyną](https://spring.io/projects/spring-boot) Java, jak i ASP.NET Core [steeltoe](https://steeltoe.io/) . Pomoc techniczna steeltoe jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty publicznej wersji zapoznawczej pozwalają na eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją. Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz [często zadawane pytania](https://azure.microsoft.com/support/faq/) lub plik [support Request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="service-overview"></a>Omówienie usługi
 
@@ -64,7 +64,7 @@ Ta dokumentacja zawiera sekcje, w których wyjaśniono, jak rozpocząć pracę i
     * [Integracja z innymi usługami platformy Azure](spring-cloud-tutorial-bind-cosmos.md): Zamiast ręcznego konfigurowania aplikacji do rozruchu sprężynowego można automatycznie powiązać wybrane usługi platformy Azure z aplikacjami, na przykład wiążąc aplikację z bazą danych Azure Cosmos DB.
     * [Automatyzowanie](spring-cloud-howto-cicd.md): ciągłej integracji i ciągłego dostarczania narzędzi umożliwia szybkie wdrażanie aktualizacji istniejących aplikacji z minimalnym nakładem pracy i ryzykiem. Usługa Azure DevOps pomaga organizować i kontrolować te kluczowe zadania. 
     * [Rozwiązywanie problemów](spring-cloud-howto-self-diagnose-solve.md): Diagnostyka chmurowa Azure sprężynowa zapewnia interaktywny interfejs do rozwiązywania problemów z aplikacjami. Nie jest wymagana żadna konfiguracja. Po znalezieniu problemów Diagnostyka chmurowa platformy Azure identyfikuje problemy i prowadzi do informacji ułatwiających rozwiązywanie problemów i ich rozwiązywanie.
-    * [Migrowanie](https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): jak przeprowadzić migrację istniejącej aplikacji w chmurze lub aplikacji do rozruchu sprężynowego do uruchomienia w chmurze Azure wiosennej.
+    * [Migrowanie](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): jak przeprowadzić migrację istniejącej aplikacji w chmurze lub aplikacji do rozruchu sprężynowego do uruchomienia w chmurze Azure wiosennej.
 
 ## <a name="next-steps"></a>Następne kroki
 

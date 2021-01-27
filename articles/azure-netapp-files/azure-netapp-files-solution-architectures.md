@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: b-juche
-ms.openlocfilehash: 41e0f996bcd75ba1663bb8eb3880d550bed01f94
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5984727f123da6e1d35d862c3f396bd85ce9e7f2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703440"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881456"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -96,7 +96,7 @@ Ta sekcja zawiera odwołania do rozwiązań SAP w systemie Azure.
 
 ## <a name="azure-vmware-solutions"></a>Rozwiązania VMware platformy Azure
 
-* [Azure NetApp Files z rozwiązaniem VMware platformy Azure — instalacje systemu operacyjnego gościa](../azure-vmware/net-app-files-with-azure-vmware-solution.md)
+* [Azure NetApp Files z rozwiązaniem VMware platformy Azure — instalacje systemu operacyjnego gościa](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
 
 ## <a name="virtual-desktop-infrastructure-solutions"></a>Rozwiązania infrastruktury pulpitów wirtualnych
 

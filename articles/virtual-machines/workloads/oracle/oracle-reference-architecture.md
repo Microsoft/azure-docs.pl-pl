@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: bbaf34c977546891c6ac05fbd4b5feb15f333e04
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737816"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882301"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
 
@@ -216,7 +216,7 @@ Stosowanie poprawek do systemu operacyjnego maszyny wirtualnej może być zautom
 - Użyj stref dostępności, aby uzyskać wysoką dostępność w regionie.
 - Rozważ użycie dysków Ultra disks (jeśli jest dostępna) lub Premium dla bazy danych Oracle.
 - Rozważ skonfigurowanie w stanie wstrzymania bazy danych Oracle w innym regionie świadczenia usługi Azure przy użyciu usługi Oracle Data Guard.
-- Rozważ użycie [grup umieszczania w sąsiedztwie](../../../virtual-machines/linux/co-location.md#proximity-placement-groups) , aby zmniejszyć opóźnienie między aplikacją a warstwą bazy danych.
+- Rozważ użycie [grup umieszczania w sąsiedztwie](../../co-location.md#proximity-placement-groups) , aby zmniejszyć opóźnienie między aplikacją a warstwą bazy danych.
 - Skonfiguruj program [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager/) do zarządzania, monitorowania i rejestrowania.
 - Rozważ użycie funkcji automatycznego zarządzania magazynem (ASM) w programie Oracle w celu uproszczenia zarządzania magazynem w bazie danych.
 - Użyj [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) , aby zarządzać poprawkami i aktualizacjami do bazy danych bez żadnego przestoju.

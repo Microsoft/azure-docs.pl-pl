@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ab3cb403a8757f424a141206f99f9c29bf3e0b49
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 87cc8af9206daa1f1e959b8abd8beb3e7f8ff2f2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108152"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880998"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -79,7 +79,7 @@ Użyj tej tabeli jako przewodnika:
 Ta opcja jest dostępna tylko w przypadku usługi BLOB Storage. Za pomocą Azure Active Directory można podać poświadczenia jeden raz zamiast konieczności dołączania tokenu sygnatury dostępu współdzielonego do każdego polecenia.  
 
 > [!NOTE]
-> W bieżącej wersji, jeśli planujesz skopiować obiekty blob między kontami magazynu, musisz dołączyć token sygnatury dostępu współdzielonego do każdego źródłowego adresu URL. Token sygnatury dostępu współdzielonego można pominąć tylko z docelowego adresu URL. Aby zapoznać się z przykładami, zobacz [Kopiuj obiekty blob między kontami magazynu](storage-use-azcopy-blobs.md).
+> W bieżącej wersji, jeśli planujesz skopiować obiekty blob między kontami magazynu, musisz dołączyć token sygnatury dostępu współdzielonego do każdego źródłowego adresu URL. Token sygnatury dostępu współdzielonego można pominąć tylko z docelowego adresu URL. Aby zapoznać się z przykładami, zobacz [Kopiuj obiekty blob między kontami magazynu](#transfer-data).
 
 Aby autoryzować dostęp za pomocą usługi Azure AD, zobacz temat [Autoryzuj dostęp do obiektów BLOB za pomocą AzCopy i Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 4b8141d99d654705450a14767b04ae6265766af9
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807081"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876397"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -62,7 +62,7 @@ Usługa Microsoft Defender dla punktu końcowego oferuje następujące informacj
 
 Dzięki integracji usługi Defender dla punktów końcowych z Security Center można korzystać z następujących dodatkowych możliwości:
 
-- **Automatyczne** dołączanie. Security Center automatycznie włącza czujnik usługi Microsoft Defender for Endpoint dla wszystkich serwerów z systemem Windows monitorowanych przez Security Center. Z wyjątkiem tych, które są uruchomione w systemie Windows Server 2019, które muszą zostać dołączone za pośrednictwem skryptu lokalnego, zasady grupy obiektu (GPO) lub [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (dawniej SCCM).
+- **Automatyczne** dołączanie. Security Center automatycznie włącza czujnik usługi Microsoft Defender for Endpoint dla wszystkich serwerów z systemem Windows monitorowanych przez Security Center. Z wyjątkiem tych, które są uruchomione w systemie Windows Server 2019, które muszą zostać dołączone za pośrednictwem skryptu lokalnego, zasady grupy obiektu (GPO) lub [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (dawniej SCCM).
 
 - **Pojedyncze okienko szkła**. W konsoli Security Center są wyświetlane alerty usługi Microsoft Defender dla punktów końcowych. Aby dowiedzieć się więcej, Użyj usługi Microsoft Defender dla własnych stron portalu punktu końcowego, na których zobaczysz dodatkowe informacje, takie jak drzewo procesu alertu i wykres incydentu. Możesz również wyświetlić szczegółową oś czasu komputera, która pokazuje każde zachowanie w okresie historycznym przez maksymalnie sześć miesięcy.
 

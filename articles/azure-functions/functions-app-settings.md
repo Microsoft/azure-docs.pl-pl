@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 80b2daebbd64f08dd4f5d728b2a9a4ee04b8952f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728996"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881927"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -131,7 +131,7 @@ Określa repozytorium lub dostawcę, który ma być używany na potrzeby magazyn
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|AzureWebJobsSecretStorageType|Files|
+|AzureWebJobsSecretStorageType|Pliki|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -239,7 +239,7 @@ Używane tylko w przypadku wdrażania w planach zużycia lub Premium uruchomiony
 
 ## <a name="website_contentovervnet"></a>CONTENTOVERVNET witryny sieci Web \_
 
-Tylko w przypadku planów Premium. Wartość `1` umożliwia skalowanie aplikacji funkcji, gdy konto magazynu jest ograniczone do sieci wirtualnej. To ustawienie należy włączyć w przypadku ograniczania konta magazynu do sieci wirtualnej. Aby dowiedzieć się więcej, zobacz [ograniczanie konta magazynu do sieci wirtualnej](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+Tylko w przypadku planów Premium. Wartość `1` umożliwia skalowanie aplikacji funkcji, gdy konto magazynu jest ograniczone do sieci wirtualnej. To ustawienie należy włączyć w przypadku ograniczania konta magazynu do sieci wirtualnej. Aby dowiedzieć się więcej, zobacz [ograniczanie konta magazynu do sieci wirtualnej](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Klucz|Wartość przykładowa|
 |---|------------|

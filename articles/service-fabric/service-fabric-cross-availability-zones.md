@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 3db31431c24edd3377f6299046cc31067310b2ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250982"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876214"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -345,7 +345,7 @@ Aby włączyć strefy na zestawie skalowania maszyn wirtualnych, należy uwzglę
 
 * Pierwsza wartość to właściwość **Zones** , która określa strefy dostępności obecną w zestawie skalowania maszyn wirtualnych.
 * Druga wartość to właściwość "singlePlacementGroup", która musi mieć wartość true. **Zestaw skalowania, który został przełączony w 3 AZs, może skalować do 300 maszyn wirtualnych nawet przy użyciu "singlePlacementGroup = true".**
-* Trzecia wartość to "zoneBalance", która zapewnia ścisłe równoważenie strefy, jeśli ma wartość true. Zalecamy ustawienie tej opcji na true, aby uniknąć niezrównoważonej dystrybucji maszyn wirtualnych w różnych strefach. Przeczytaj o [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* Trzecia wartość to "zoneBalance", która zapewnia ścisłe równoważenie strefy, jeśli ma wartość true. Zalecamy ustawienie tej opcji na true, aby uniknąć niezrównoważonej dystrybucji maszyn wirtualnych w różnych strefach. Przeczytaj o [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * Zastąpień FaultDomain i UpgradeDomain nie są wymagane do skonfigurowania.
 
 ```json
@@ -416,9 +416,9 @@ Aby zapewnić obsługę wielu stref dostępności, należy włączyć Service Fa
 
 ### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migracja do typu węzła z wieloma Strefy dostępności
 W przypadku wszystkich scenariuszy migracji należy dodać nowe nodeType, które będą obsługiwały wiele stref dostępności. Nie można migrować istniejącej nodeType do obsługi wielu stref.
-W [tym artykule przedstawiono](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) szczegółowe instrukcje dotyczące dodawania nowych NodeType oraz dodawania innych zasobów wymaganych do nowych NodeType, takich jak zasoby IP i LB. Ten sam artykuł zawiera również opis wycofywania istniejących nodeType po dodaniu nodeType z wieloma strefami dostępności do klastra.
+W [tym artykule przedstawiono](./service-fabric-scale-up-primary-node-type.md) szczegółowe instrukcje dotyczące dodawania nowych NodeType oraz dodawania innych zasobów wymaganych do nowych NodeType, takich jak zasoby IP i LB. Ten sam artykuł zawiera również opis wycofywania istniejących nodeType po dodaniu nodeType z wieloma strefami dostępności do klastra.
 
-* Migracja z nodeType, który korzysta z podstawowych zasobów LB i IP: jest to już opisane w [tym miejscu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) dla rozwiązania z jednym typem węzła na AZ. 
+* Migracja z nodeType, który korzysta z podstawowych zasobów LB i IP: jest to już opisane w [tym miejscu](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) dla rozwiązania z jednym typem węzła na AZ. 
     Dla nowego typu węzła jedyną różnicą jest to, że tylko 1 zestaw skalowania maszyn wirtualnych i 1 NodeType dla wszystkich AZ zamiast 1 każdego na AZ.
 * Migracja z nodeType, która używa standardowych zasobów jednostki SKU LB i IP z sieciowej grupy zabezpieczeń: Postępuj zgodnie z tą samą procedurą, jak opisano powyżej, z wyjątkiem tego, że nie ma potrzeby dodawania nowych zasobów LB, IP i sieciowej grupy zabezpieczeń. te same zasoby mogą być ponownie używane w nowym nodeType.
 

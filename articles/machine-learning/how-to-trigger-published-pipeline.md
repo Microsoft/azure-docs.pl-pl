@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9038d6bc9cd061200ef4553242889776f30d2dc1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964562"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881741"
 ---
 # <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Wyzwalanie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning dla języka Python
 
@@ -27,7 +27,7 @@ W tym artykule dowiesz się, jak programowo zaplanować uruchamianie potoku na p
 
 * Środowisko języka Python, w którym jest zainstalowany zestaw SDK Azure Machine Learning dla języka Python. Aby uzyskać więcej informacji, zobacz [Tworzenie środowisk wielokrotnego użytku i zarządzanie nimi na potrzeby szkoleń i wdrażania przy użyciu Azure Machine Learning.](how-to-use-environments.md)
 
-* Obszar roboczy Machine Learning z opublikowanym potokiem. Można użyć wbudowanego [tworzenia i uruchamiania potoków uczenia maszynowego z zestawem SDK Azure Machine Learning](how-to-create-your-first-pipeline.md).
+* Obszar roboczy Machine Learning z opublikowanym potokiem. Można użyć wbudowanego [tworzenia i uruchamiania potoków uczenia maszynowego z zestawem SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="initialize-the-workspace--get-data"></a>Inicjowanie obszaru roboczego & pobieranie danych
 
@@ -142,7 +142,7 @@ Po ponownym uruchomieniu należy `Schedule.list(ws)` uzyskać pustą listę.
 
 Bardziej złożone reguły wyzwalacza lub zachowanie można utworzyć za pomocą [aplikacji logiki platformy Azure](../logic-apps/logic-apps-overview.md).
 
-Aby wyzwolić potok Machine Learning za pomocą aplikacji logiki platformy Azure, potrzebny jest punkt końcowy REST dla opublikowanego potoku Machine Learning. [Tworzenie i publikowanie potoku](how-to-create-your-first-pipeline.md). Następnie Znajdź punkt końcowy REST, `PublishedPipeline` używając identyfikatora potoku:
+Aby wyzwolić potok Machine Learning za pomocą aplikacji logiki platformy Azure, potrzebny jest punkt końcowy REST dla opublikowanego potoku Machine Learning. [Tworzenie i publikowanie potoku](./how-to-create-machine-learning-pipelines.md). Następnie Znajdź punkt końcowy REST, `PublishedPipeline` używając identyfikatora potoku:
 
 ```python
 # You can find the pipeline ID in Azure Machine Learning studio

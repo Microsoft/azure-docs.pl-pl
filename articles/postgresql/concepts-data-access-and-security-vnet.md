@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: d45ab771f90c0174f24d5f0d39921f93f72be850
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b875936e13edfe0eff12f253836b093796951308
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451071"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876330"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Używanie punktów końcowych usługi Virtual Network i reguł dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -32,9 +32,9 @@ Możesz również rozważyć użycie [prywatnego linku](concepts-data-access-and
 
 **Sieć wirtualna:** Możesz mieć sieci wirtualne skojarzone z subskrypcją platformy Azure.
 
-**Podsieć:** Sieć wirtualna zawiera **podsieci**. Wszystkie maszyny wirtualne platformy Azure, które są przypisane do podsieci. Jedna podsieć może zawierać wiele maszyn wirtualnych lub innych węzłów obliczeniowych. Węzły obliczeniowe znajdujące się poza siecią wirtualną nie mogą uzyskać dostępu do sieci wirtualnej, chyba że skonfigurowano zabezpieczenia, aby zezwolić na dostęp.
+**Podsieć:** Sieć wirtualna zawiera **podsieci**. Wszystkie maszyny wirtualne platformy Azure w sieci wirtualnej są przypisane do podsieci. Podsieć może zawierać wiele maszyn wirtualnych i/lub innych węzłów obliczeniowych. Węzły obliczeniowe znajdujące się poza siecią wirtualną nie mogą uzyskać dostępu do sieci wirtualnej, chyba że skonfigurowano zabezpieczenia, aby zezwolić na dostęp.
 
-**Virtual Network punkt końcowy usługi:** [Punkt końcowy usługi Virtual Network][vm-virtual-network-service-endpoints-overview-649d] jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. W tym artykule interesuje Cię nazwę typu **Microsoft. SQL**, która odnosi się do usługi platformy Azure o nazwie SQL Database. Ten tag usługi stosuje się również do usług Azure Database for PostgreSQL i MySQL. Należy pamiętać, że podczas stosowania znacznika usługi **Microsoft. SQL** do punktu końcowego usługi sieci wirtualnej zostanie skonfigurowany ruch punktu końcowego usługi dla wszystkich Azure SQL Database, Azure Database for PostgreSQL i Azure Database for MySQL serwerów w podsieci. 
+**Virtual Network punkt końcowy usługi:** [Punkt końcowy usługi Virtual Network][vm-virtual-network-service-endpoints-overview-649d] jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. W tym artykule interesuje Cię nazwę typu **Microsoft. SQL**, która odnosi się do usługi platformy Azure o nazwie SQL Database. Ten tag usługi stosuje się również do usług Azure Database for PostgreSQL i MySQL. Należy pamiętać, że podczas stosowania znacznika usługi **Microsoft. SQL** do punktu końcowego usługi sieci wirtualnej zostanie skonfigurowany ruch punktu końcowego usługi dla usług Azure Database: SQL Database, Azure Synapse Analytics, Azure Database for PostgreSQL i Azure Database for MySQL serwerów w podsieci. 
 
 **Reguła sieci wirtualnej:** Reguła sieci wirtualnej dla serwera Azure Database for PostgreSQL to podsieć wymieniona na liście kontroli dostępu (ACL) serwera Azure Database for PostgreSQL. Aby znajdować się na liście ACL dla serwera Azure Database for PostgreSQL, podsieć musi zawierać nazwę typu **Microsoft. SQL** .
 
@@ -46,11 +46,11 @@ Reguła sieci wirtualnej instruuje serwer Azure Database for PostgreSQL, aby akc
 
 Do momentu podjęcia działania maszyny wirtualne w podsieciach nie mogą komunikować się z serwerem Azure Database for PostgreSQL. Jedną z akcji, która ustanawia komunikację, jest utworzenie reguły sieci wirtualnej. Uzasadnienie wyboru podejścia reguły sieci wirtualnej wymaga dyskusji porównującej i kontrastowej obejmującej konkurencyjne opcje zabezpieczeń oferowane przez zaporę.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Zezwalanie na dostęp usługom platformy Azure
+### <a name="allow-access-to-azure-services"></a>Zezwalanie na dostęp usługom platformy Azure
 
 W okienku zabezpieczenia połączenia jest dostępny przycisk **włączania/WYłączania** , który ma etykietę **Zezwalaj na dostęp do usług platformy Azure**. Ustawienie **on** umożliwia komunikację ze wszystkimi adresami IP platformy Azure i wszystkimi podsieciami platformy Azure. Te adresy IP lub podsieci platformy Azure mogą nie należeć do użytkownika. To **ustawienie jest** prawdopodobnie dłużej otwierane, niż chcesz, aby baza danych Azure Database for PostgreSQL. Funkcja reguły sieci wirtualnej oferuje znacznie bardziej precyzyjną kontrolę.
 
-### <a name="b-ip-rules"></a>B. Reguły adresów IP
+### <a name="ip-rules"></a>Reguły adresów IP
 
 Zapora Azure Database for PostgreSQL umożliwia określenie zakresów adresów IP, z których ma zostać zaakceptowana komunikacja do Azure Database for PostgreSQL Database. To podejście jest odpowiednie dla stabilnych adresów IP, które są poza siecią prywatną platformy Azure. Jednak wiele węzłów wewnątrz sieci prywatnej platformy Azure jest skonfigurowanych przy użyciu *dynamicznych* adresów IP. Dynamiczne adresy IP mogą ulec zmianie, na przykład po ponownym uruchomieniu maszyny wirtualnej. Folly do określenia dynamicznego adresu IP w regule zapory w środowisku produkcyjnym.
 

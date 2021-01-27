@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 31398a49de871ad44499a796adfef1be618ccab9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ae07f51a91745acdaf2601d3a50bf282129dac71
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685178"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881809"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights źródła zdarzeń Gen2
 
@@ -59,7 +59,7 @@ Oprócz najlepszych praktyk zaleca się wdrożenie następujących rozwiązań d
 
 - Zwiększ czas przechowywania danych IoT Hub lub centrum zdarzeń do maksymalnie 7 dni.
 
-- Utwórz alerty środowiska w Azure Portal. Alerty oparte na [metrykach](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) platformy umożliwiają Weryfikowanie kompleksowego zachowania potoku. Instrukcje dotyczące tworzenia alertów i zarządzania nimi znajdują się [tutaj](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts). Sugerowane warunki alertu:
+- Utwórz alerty środowiska w Azure Portal. Alerty oparte na [metrykach](./how-to-monitor-tsi-reference.md#metrics) platformy umożliwiają Weryfikowanie kompleksowego zachowania potoku. Instrukcje dotyczące tworzenia alertów i zarządzania nimi znajdują się [tutaj](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts). Sugerowane warunki alertu:
 
   - IngressReceivedMessagesTimeLag jest większa niż 5 minut
   - IngressReceivedBytes jest 0

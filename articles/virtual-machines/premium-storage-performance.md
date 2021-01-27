@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201964"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882386"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 
@@ -35,8 +35,8 @@ Te wytyczne zostały podane w odniesieniu do Premium Storage, ponieważ obciąż
 >
 > Jeśli chcesz przeprowadzić test porównawczy dysku, zapoznaj się z naszymi artykułami dotyczącymi tworzenia wzorców dysków:
 >
-> * Dla systemu Linux: [test porównawczy aplikacji na Azure Disk Storage](linux/disks-benchmarks.md)
-> * Dla systemu Windows: przeprowadzenie [testu porównawczego dysku](windows/disks-benchmarks.md).
+> * Dla systemu Linux: [test porównawczy aplikacji na Azure Disk Storage](./disks-benchmarks.md)
+> * Dla systemu Windows: przeprowadzenie [testu porównawczego dysku](./disks-benchmarks.md).
 >
 > Jeśli maszyna wirtualna obsługuje przyspieszone sieci, należy upewnić się, że jest ona włączona. Jeśli nie jest włączona, można ją włączyć dla już wdrożonych maszyn wirtualnych w [systemach Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) i [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -380,8 +380,8 @@ Usługa Azure Premium Storage postanowił określoną liczbę operacji we/wy na 
 
 Jeśli chcesz przeprowadzić test porównawczy dysku, zapoznaj się z naszymi artykułami dotyczącymi tworzenia wzorców dysków:
 
-* Dla systemu Linux: [test porównawczy aplikacji na Azure Disk Storage](linux/disks-benchmarks.md)
-* Dla systemu Windows: przeprowadzenie [testu porównawczego dysku](windows/disks-benchmarks.md).
+* Dla systemu Linux: [test porównawczy aplikacji na Azure Disk Storage](./disks-benchmarks.md)
+* Dla systemu Windows: przeprowadzenie [testu porównawczego dysku](./disks-benchmarks.md).
 
 Dowiedz się więcej na temat dostępnych typów dysków:
 

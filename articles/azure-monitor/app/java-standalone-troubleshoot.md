@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać problemy z agentem Java dla Azure M
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 788eea17cabbea46578d0f59919ae95a59f2223f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 90e0ceb6ba9d696eb446d607ed2f2f134733618e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625351"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881140"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Przewodnik rozwiązywania problemów: Azure Monitor Application Insights dla języka Java
 
@@ -49,36 +49,66 @@ Aby uzyskać więcej informacji, zobacz [konfigurację rejestrowania z autozbier
 
 ## <a name="import-ssl-certificates"></a>Importuj certyfikaty SSL
 
-Jeśli używasz domyślnego magazynu kluczy języka Java, będzie on miał już wszystkie certyfikaty główne urzędu certyfikacji. Nie trzeba importować więcej certyfikatów SSL.
+Ta sekcja pomaga w rozwiązywaniu problemów i ewentualnym usunięciu wyjątków związanych z certyfikatami SSL podczas korzystania z agenta Java.
 
-Jeśli używasz niestandardowego magazynu kluczy Java, może być konieczne zaimportowanie do niego certyfikatów protokołu SSL Application Insights Endpoint.
+Istnieją dwie różne ścieżki umożliwiające rozwiązanie tego problemu.
 
-### <a name="key-terminology"></a>Terminologia klucza
-*Magazyn* kluczy jest repozytorium certyfikatów, kluczy publicznych i kluczy prywatnych. Zwykle dystrybucje zestawu Java Development Kit mają plik wykonywalny do zarządzania nimi: `keytool` .
+### <a name="if-using-a-default-java-keystore"></a>Jeśli używany jest domyślny magazyn kluczy języka Java:
 
-Poniższy przykład to proste polecenie do zaimportowania certyfikatu SSL do magazynu kluczy:
+Zazwyczaj domyślnym magazynem kluczy języka Java będzie już wszystkie certyfikaty główne urzędu certyfikacji. Mogą jednak wystąpić pewne wyjątki, takie jak certyfikat punktu końcowego pozyskiwania może być podpisany przez inny certyfikat główny. Zalecamy wykonanie następujących trzech kroków w celu rozwiązania tego problemu:
 
-`keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name".cer -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
+1.  Sprawdź, czy certyfikat główny, który został użyty do podpisania Application Insights punktu końcowego, znajduje się już w domyślnym magazynie kluczy. Certyfikaty zaufanych urzędów certyfikacji domyślnie są przechowywane w programie `$JAVA_HOME/jre/lib/security/cacerts` . Aby wyświetlić listę certyfikatów w magazynie kluczy Java, użyj następującego polecenia:
+    > `keytool -list -v -keystore $PATH_TO_KEYSTORE_FILE`
+ 
+    Możesz przekierować dane wyjściowe do pliku tymczasowego, jak to (będzie można łatwo przeszukiwać później)
+    > `keytool -list -v -keystore $JAVA_HOME/jre/lib/security/cacerts > temp.txt`
 
-### <a name="steps-to-download-and-add-an-ssl-certificate"></a>Procedura pobierania i dodawania certyfikatu SSL
+2. Po wyświetleniu listy certyfikatów wykonaj następujące [kroki](#steps-to-download-ssl-certificate) , aby pobrać certyfikat główny, który został użyty do podpisania Application Insights punktu końcowego.
+
+    Po pobraniu certyfikatu Wygeneruj skrót SHA-1 dla certyfikatu przy użyciu poniższego polecenia:
+    > `keytool -printcert -v -file "your_downloaded_root_certificate.cer"`
+ 
+    Skopiuj wartość SHA-1 i sprawdź, czy ta wartość jest obecna w pliku "temp.txt" zapisanym wcześniej.  Jeśli nie można znaleźć wartości SHA-1 w pliku tymczasowym, oznacza to, że w domyślnym magazynie kluczy języka Java brakuje pobranego certyfikatu głównego.
+
+
+3. Zaimportuj certyfikat główny do domyślnego magazynu kluczy języka Java przy użyciu następującego polecenia:
+    >   `keytool -import -file "the cert file" -alias "some meaningful name" -keystore "path to cacerts file"`
+ 
+    W takim przypadku będzie
+ 
+    > `keytool -import -file "your downloaded root cert file" -alias "some meaningful name" $JAVA_HOME/jre/lib/security/cacerts`
+
+
+### <a name="if-using-a-custom-java-keystore"></a>Jeśli używasz niestandardowego magazynu kluczy Java:
+
+Jeśli używasz niestandardowego magazynu kluczy Java, może być konieczne zaimportowanie głównych certyfikatów SSL (-y) Application Insights punktów końcowych.
+Zalecamy wykonanie następujących dwóch kroków w celu rozwiązania tego problemu:
+1. Wykonaj następujące [kroki](#steps-to-download-ssl-certificate) , aby pobrać certyfikat główny z punktu końcowego Application Insights.
+2. Użyj następującego polecenia, aby zaimportować główny certyfikat SSL do niestandardowego magazynu kluczy Java:
+    > `keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name.cer" -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
+
+### <a name="steps-to-download-ssl-certificate"></a>Procedura pobierania certyfikatu SSL
 
 1.  Otwórz ulubioną przeglądarkę i przejdź do adresu URL znajdującego się `IngestionEndpoint` w parametrach połączenia używanych do Instrumentacji aplikacji.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-url.png" alt-text="Zrzut ekranu, który pokazuje Application Insights parametry połączenia.":::
+    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-snippet.png" alt-text="Zrzut ekranu, który pokazuje Application Insights parametry połączenia." lightbox="media/java-ipa/troubleshooting/ingestion-endpoint-snippet.png":::
 
 2.  Wybierz ikonę **Wyświetl informacje o witrynie** (blokada) w przeglądarce, a następnie wybierz opcję **certyfikat** .
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Zrzut ekranu przedstawiający opcję certyfikatu w informacjach o lokacji.":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Zrzut ekranu przedstawiający opcję certyfikatu w informacjach o lokacji." lightbox="media/java-ipa/troubleshooting/certificate-icon-capture.png":::
 
-3.  Przejdź do karty **szczegóły** i wybierz pozycję **Kopiuj do pliku**.
-4.  Wybierz przycisk **dalej** , a następnie wybierz pozycję **Base-64 encoded X. 509 (. CER)** , a następnie ponownie wybierz pozycję **dalej** .
+3.  Zamiast pobierania certyfikatu "Leaf" należy pobrać certyfikat "root", jak pokazano poniżej. Później trzeba kliknąć "ścieżka certyfikatu" — > wybrać certyfikat główny — > kliknij pozycję "Wyświetl certyfikat". Spowoduje to wyświetlenie nowego menu certyfikatów i pobranie certyfikatu z menu Nowy.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Zrzut ekranu Kreatora eksportu certyfikatów z wybranym formatem.":::
+    :::image type="content" source="media/java-ipa/troubleshooting/root-certificate-selection.png" alt-text="Zrzut ekranu przedstawiający sposób wybierania certyfikatu głównego." lightbox="media/java-ipa/troubleshooting/root-certificate-selection.png":::
 
-5.  Określ plik, w którym chcesz zapisać certyfikat SSL. Następnie wybierz pozycję **dalej**  >  **Zakończ**. Powinien zostać wyświetlony komunikat "Eksport zakończył się pomyślnie".
-6.  Po uzyskaniu certyfikatu czas na zaimportowanie certyfikatu do magazynu kluczy języka Java. Użyj [poprzedniego polecenia](#key-terminology) , aby zaimportować certyfikaty.
+4.  Przejdź do karty **szczegóły** i wybierz pozycję **Kopiuj do pliku**.
+5.  Wybierz przycisk **dalej** , a następnie wybierz pozycję **Base-64 encoded X. 509 (. CER)** , a następnie ponownie wybierz pozycję **dalej** .
+
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Zrzut ekranu Kreatora eksportu certyfikatów z wybranym formatem." lightbox="media/java-ipa/troubleshooting/certificate-export-wizard.png":::
+
+6.  Określ plik, w którym chcesz zapisać certyfikat SSL. Następnie wybierz pozycję **dalej**  >  **Zakończ**. Powinien zostać wyświetlony komunikat "Eksport zakończył się pomyślnie".
 
 > [!WARNING]
 > Należy powtórzyć te kroki, aby pobrać nowy certyfikat przed wygaśnięciem bieżącego certyfikatu. Informacje o wygaśnięciu można znaleźć na karcie **szczegóły** w oknie dialogowym **certyfikat** .
 >
-> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="Zrzut ekranu pokazujący szczegóły certyfikatu protokołu SSL.":::
+> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="Zrzut ekranu pokazujący szczegóły certyfikatu protokołu SSL." lightbox="media/java-ipa/troubleshooting/certificate-details.png":::

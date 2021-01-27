@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: b3ca4f11b02f32e65cf80adc65ec12d25e6e7905
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 974631f9cba66404a3881caed1382be7ff3c00d1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573177"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881337"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 
 Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach [prywatnego punktu końcowego](private-endpoint-overview.md) w sieci wirtualnej.
@@ -72,7 +72,7 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Wszystkie regiony publiczne      |  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
 | Azure Batch | Wszystkie regiony publiczne z wyjątkiem: Niemcy środkowe, Niemcy PÓŁNOCno-Wschodnie <br/> Wszystkie regiony rządowe  | | Ogólna dostępność <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe<br/>Wszystkie regiony Chin    | Poświadczenia muszą być przechowywane w magazynie kluczy platformy Azure| Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
-|Dyski zarządzane platformy Azure | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe<br/>Wszystkie regiony Chin    | [Kliknij tutaj, aby uzyskać znane ograniczenia](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Managed Disks platformy Azure.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
+|Dyski zarządzane platformy Azure | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe<br/>Wszystkie regiony Chin    | [Kliknij tutaj, aby uzyskać znane ograniczenia](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Managed Disks platformy Azure.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
 
 
 
@@ -110,5 +110,3 @@ W przypadku umowy SLA Zobacz temat [Umowa SLA dla prywatnego linku platformy Azu
 
 - [Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu Azure Portal](create-private-endpoint-portal.md)
 - [Szybki Start: Tworzenie usługi linku prywatnego przy użyciu Azure Portal](create-private-link-service-portal.md)
-
-

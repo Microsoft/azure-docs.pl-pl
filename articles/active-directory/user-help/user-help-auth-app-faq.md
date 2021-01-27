@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2be1c7f76055cad1cf8b51938a65c7bbe6b2917e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251509"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881082"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Często zadawane pytania dotyczące aplikacji Microsoft Authenticator
 
@@ -32,12 +32,6 @@ Aplikacja Microsoft Authenticator została zastąpiona aplikacją Azure Authenti
 **P**: czy rejestrowanie urządzenia oznacza zgodę na dostęp do firmy lub usługi do mojego urządzenia?
 
 Odp **.:** zarejestrowanie urządzenia zapewnia dostęp urządzenia do usług organizacji i nie zezwala na dostęp organizacji do Twojego urządzenia.
-
-### <a name="too-many-app-permissions"></a>Zbyt wiele uprawnień aplikacji
-
-**P**: Dlaczego aplikacja żąda tylu uprawnień?
-
-Odp **.:** Oto pełna lista uprawnień, które mogą zostać poproszeni i jak są używane przez aplikację. Określone uprawnienia są zależne od typu telefonu. Czasami organizacja chce znać swoją **lokalizację** przed umożliwieniem użytkownikowi dostępu do określonych zasobów. Aplikacja będzie żądać tego uprawnienia tylko wtedy, gdy organizacja ma zasady wymagające lokalizacji.
 
 ### <a name="error-adding-account"></a>Błąd podczas dodawania konta
 
@@ -144,7 +138,7 @@ Odp **.: naciśnij** kafelek konta dla konta, które chcesz usunąć z aplikacji
 
 **P**: Dlaczego aplikacja żąda tylu uprawnień?
 
-Odp **.:** Oto pełna lista uprawnień, które mogą zostać poproszeni i jak są używane przez aplikację. Określone uprawnienia są zależne od typu telefonu.<ul><li>**Używaj sprzętu biometrycznego.** Niektóre konta służbowe wymagają dodatkowego numeru PIN przy każdej weryfikacji tożsamości. Aplikacja wymaga zgody użytkownika na korzystanie z biometrycznej lub rozpoznawania twarzy zamiast wprowadzania numeru PIN.</li><li>**Cyfrowej.** Służy do skanowania kodów QR po dodaniu pracy, szkoły lub innej konto Microsoft.</li><li>**Kontakty i telefon.** Aplikacja wymaga tego uprawnienia do wyszukiwania służbowych kont Microsoft na telefonie i dodawania ich do aplikacji.</li><li>**Dotycząc.** Służy do upewnienia się, że Twój numer telefonu pasuje do numeru w rekordzie, gdy logujesz się za pomocą osobistego konto Microsoft po raz pierwszy. Wysyłamy wiadomość SMS na telefon, na którym zainstalowano aplikację, która zawiera kod weryfikacyjny 6-8 cyfry. Nie musisz znaleźć tego kodu i wprowadzić go, ponieważ wystawca uwierzytelnienia automatycznie w wiadomości tekstowej.</li><li>**Rysuj na inne aplikacje.** Powiadomienie, które umożliwia zweryfikowanie tożsamości, jest również wyświetlane w dowolnej innej działającej aplikacji.</li><li>**Odbieraj dane z Internetu.** To uprawnienie jest wymagane do wysyłania powiadomień.</li><li>**Zapobiegaj używaniu telefonu do uśpienia.** Jeśli zarejestrujesz swoje urządzenie w organizacji, Twoja organizacja może zmienić te zasady na telefonie.</li><li>**Kontroluj wibracje.** Możesz wybrać, czy chcesz przetworzyć drgania za każdym razem, gdy otrzymasz powiadomienie, aby zweryfikować Twoją tożsamość.</li><li>**Używaj sprzętu odcisków palców.** Niektóre konta służbowe wymagają dodatkowego numeru PIN przy każdej weryfikacji tożsamości. Aby uprościć proces, możemy użyć odcisku palca zamiast wprowadzać kod PIN.</li><li> **Wyświetlanie połączeń sieciowych.** Po dodaniu konto Microsoft aplikacja wymaga połączenia z siecią/Internetem.</li><li>**Odczytaj zawartość magazynu**. To uprawnienie jest używane tylko wtedy, gdy zgłaszasz problem techniczny przy użyciu ustawień aplikacji. Niektóre informacje z magazynu są zbierane w celu zdiagnozowania problemu.</li><li>**Pełny dostęp do sieci.** To uprawnienie jest wymagane do wysyłania powiadomień w celu zweryfikowania tożsamości.</li><li>**Uruchamiany przy uruchamianiu.** Po ponownym uruchomieniu telefonu to uprawnienie umożliwia kontynuowanie otrzymywania powiadomień w celu zweryfikowania tożsamości.</li></ul>
+Odp **.:** Oto pełna lista uprawnień, które mogą zostać poproszeni i jak są używane przez aplikację. Określone uprawnienia są zależne od typu telefonu.<ul><li>**Lokalizacja**. Czasami organizacja chce znać swoją lokalizację przed umożliwieniem użytkownikowi dostępu do określonych zasobów. Aplikacja będzie żądać tego uprawnienia tylko wtedy, gdy organizacja ma zasady wymagające lokalizacji.</li><li>**Używaj sprzętu biometrycznego.** Niektóre konta służbowe wymagają dodatkowego numeru PIN przy każdej weryfikacji tożsamości. Aplikacja wymaga zgody użytkownika na korzystanie z biometrycznej lub rozpoznawania twarzy zamiast wprowadzania numeru PIN.</li><li>**Cyfrowej.** Służy do skanowania kodów QR po dodaniu pracy, szkoły lub innej konto Microsoft.</li><li>**Kontakty i telefon.** Aplikacja wymaga tego uprawnienia do wyszukiwania służbowych kont Microsoft na telefonie i dodawania ich do aplikacji.</li><li>**Dotycząc.** Służy do upewnienia się, że Twój numer telefonu pasuje do numeru w rekordzie, gdy logujesz się za pomocą osobistego konto Microsoft po raz pierwszy. Wysyłamy wiadomość SMS na telefon, na którym zainstalowano aplikację, która zawiera kod weryfikacyjny 6-8 cyfry. Nie musisz znaleźć tego kodu i wprowadzić go, ponieważ wystawca uwierzytelnienia automatycznie w wiadomości tekstowej.</li><li>**Rysuj na inne aplikacje.** Powiadomienie, które umożliwia zweryfikowanie tożsamości, jest również wyświetlane w dowolnej innej działającej aplikacji.</li><li>**Odbieraj dane z Internetu.** To uprawnienie jest wymagane do wysyłania powiadomień.</li><li>**Zapobiegaj używaniu telefonu do uśpienia.** Jeśli zarejestrujesz swoje urządzenie w organizacji, Twoja organizacja może zmienić te zasady na telefonie.</li><li>**Kontroluj wibracje.** Możesz wybrać, czy chcesz przetworzyć drgania za każdym razem, gdy otrzymasz powiadomienie, aby zweryfikować Twoją tożsamość.</li><li>**Używaj sprzętu odcisków palców.** Niektóre konta służbowe wymagają dodatkowego numeru PIN przy każdej weryfikacji tożsamości. Aby uprościć proces, możemy użyć odcisku palca zamiast wprowadzać kod PIN.</li><li> **Wyświetlanie połączeń sieciowych.** Po dodaniu konto Microsoft aplikacja wymaga połączenia z siecią/Internetem.</li><li>**Odczytaj zawartość magazynu**. To uprawnienie jest używane tylko wtedy, gdy zgłaszasz problem techniczny przy użyciu ustawień aplikacji. Niektóre informacje z magazynu są zbierane w celu zdiagnozowania problemu.</li><li>**Pełny dostęp do sieci.** To uprawnienie jest wymagane do wysyłania powiadomień w celu zweryfikowania tożsamości.</li><li>**Uruchamiany przy uruchamianiu.** Po ponownym uruchomieniu telefonu to uprawnienie umożliwia kontynuowanie otrzymywania powiadomień w celu zweryfikowania tożsamości.</li></ul>
 
 ### <a name="approve-requests-without-unlocking"></a>Zatwierdzanie żądań bez odblokowywania
 

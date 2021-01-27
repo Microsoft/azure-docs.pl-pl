@@ -8,18 +8,18 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 682394329205d74859c1af0c0a68a37539da7872
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498170"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881031"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Samouczek: Migrowanie danych lokalnych do magazynu w chmurze za pomocą usługi AzCopy
 
 Narzędzie AzCopy to narzędzie wiersza polecenia służące do kopiowania danych do lub z magazynu Azure Blob Storage, Azure Files lub Azure Table przy użyciu prostych poleceń. Polecenia te zostały zaprojektowane w celu uzyskania optymalnej wydajności. Za pomocą narzędzia AzCopy można kopiować dane między systemem plików i kontem magazynu lub między kontami magazynu. Narzędzia AzCopy można użyć do skopiowania danych lokalnych do konta magazynu.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu 
@@ -108,7 +108,7 @@ azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 * Zastąp `<container-name>` symbol zastępczy nazwą utworzonego kontenera.
 
-Aby dowiedzieć się więcej na temat tego `sync` polecenia, zobacz [Synchronizing Files](storage-use-azcopy-blobs.md#synchronize-files).
+Aby dowiedzieć się więcej na temat tego `sync` polecenia, zobacz [Synchronizing Files](./storage-use-azcopy-v10.md#transfer-data).
 
 ## <a name="create-a-scheduled-task"></a>Tworzenie zaplanowanego zadania
 
@@ -182,7 +182,7 @@ Aby uzyskać więcej informacji na temat AzCopy, zobacz dowolny z następującyc
 
 * [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
 
-* [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
+* [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](./storage-use-azcopy-v10.md#transfer-data)
 
 * [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 

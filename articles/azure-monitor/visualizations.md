@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 01/25/2021
+ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522672"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881235"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Wizualizowanie danych z usługi Azure Monitor
 Ten artykuł zawiera podsumowanie dostępnych metod wizualizacji danych dziennika i metryk przechowywanych w Azure Monitor.
@@ -46,9 +46,9 @@ Oto przewodnik wideo dotyczący tworzenia pulpitów nawigacyjnych.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Zalety
-- Głębokiej integracji z platformą Azure. Wizualizacje można przypinać do pulpitów nawigacyjnych z wielu stron platformy Azure, w tym Eksplorator metryk, Log Analytics i Application Insights.
+- Głębokiej integracji z platformą Azure. Wizualizacje można przypinać do pulpitów nawigacyjnych z wielu stron platformy Azure, w tym [Eksplorator metryk](platform/metrics-charts.md), [log Analytics](log-query/log-analytics-overview.md)i [Application Insights](app/app-insights-overview.md).
 - Obsługuje metryki i dzienniki.
-- Połącz dane z wielu źródeł, w tym dane wyjściowe z [Eksploratora metryk](platform/metrics-charts.md), [zapytań dzienników](log-query/log-query-overview.md)i [map](app/app-map.md) i dostępności w Application Insights.
+- Połącz dane z wielu źródeł, w tym dane wyjściowe z [Eksplorator metryk](platform/metrics-charts.md), [zapytań dzienników](log-query/log-query-overview.md)i [map](app/app-map.md) i dostępności w [Application Insights](app/app-insights-overview.md).
 - Opcja dla osobistych lub udostępnionych pulpitów nawigacyjnych. Integracja z [kontrolą dostępu opartą na rolach (Azure RBAC)](../role-based-access-control/overview.md).
 - Automatyczne odświeżanie. Odświeżanie metryk zależy od zakresu czasu, który jest co najmniej pięć minut. Dzienniki są odświeżane co godzinę przy użyciu opcji ręcznego odświeżania na żądanie, klikając ikonę "Odśwież" w danej wizualizacji lub odświeżając pełny pulpit nawigacyjny.
 - Parametry, które są pulpitami nawigacyjnymi metryk z sygnaturami czasowymi i parametry niestandardowe.
@@ -57,7 +57,7 @@ Oto przewodnik wideo dotyczący tworzenia pulpitów nawigacyjnych.
 
 
 ### <a name="limitations"></a>Ograniczenia
-- Ograniczona kontrola nad wizualizacjami dzienników bez obsługi tabel danych. Łączna liczba serii danych jest ograniczona do 10 i dalsze serie danych są pogrupowane w _innym_ zasobniku.
+- Ograniczona kontrola nad wizualizacjami dzienników bez obsługi tabel danych. Łączna liczba serii danych jest ograniczona do 50, a kolejne serie danych są pogrupowane w _innym_ zasobniku.
 - Brak obsługi parametrów niestandardowych dla wykresów dzienników.
 - Wykresy dzienników są ograniczone do 30 ostatnich dni.
 - Wykresy dzienników można przypinać tylko do udostępnionych pulpitów nawigacyjnych.
@@ -140,8 +140,9 @@ Możesz uzyskać dostęp do danych w dziennikach i danych metryk w Azure Monitor
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej na temat [danych zbieranych przez Azure monitor](platform/data-platform.md).
 - Dowiedz się więcej o [pulpitach nawigacyjnych platformy Azure](../azure-portal/azure-portal-dashboards.md).
-- Dowiedz się więcej o [widokach w Azure monitor](platform/view-designer.md).
+- Dowiedz się więcej o [Eksplorator metryk](platform/metrics-getting-started.md)
 - Dowiedz się więcej na temat [skoroszytów](./platform/workbooks-overview.md).
 - Dowiedz się więcej [na temat importowania danych dziennika do Power BI](./platform/powerbi.md).
 - Dowiedz się więcej na temat [wtyczki źródła danych Grafana Azure monitor](./platform/grafana-plugin.md).
+- Dowiedz się więcej o [widokach w Azure monitor](platform/view-designer.md).
 

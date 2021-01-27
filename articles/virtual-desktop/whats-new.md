@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: df3dd8b5b18ec2997ee20ad4955ffd7bc1dc573d
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 2f49ec0fef5aa79c602e561746eb0f6dba16cb33
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955012"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876601"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -193,7 +193,7 @@ Aby dowiedzieć się więcej o nowych funkcjach, zapoznaj się z [wpisem w blogu
 
 Najnowsza wersja narzędzia skalowania automatycznego, która była w wersji zapoznawczej, jest teraz ogólnie dostępna. To narzędzie używa konta usługi Azure Automation i aplikacji logiki platformy Azure, aby automatycznie zamykać i ponownie uruchamiać maszyny wirtualne hosta sesji (VM) w puli hostów, zmniejszając koszty związane z infrastrukturą. Dowiedz się więcej na temat [skalowania hostów sesji przy użyciu Azure Automation](set-up-scaling-script.md).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Teraz można wykonać następujące czynności w Azure Portal na pulpicie wirtualnym systemu Windows: 
 
@@ -232,7 +232,7 @@ Oto, co to jest ta zmiana:
 
 - W ramach tej aktualizacji nie jest już konieczne wielokrotne uruchamianie szablonu Azure Marketplace lub GitHub, aby rozszerzyć pulę hostów. Wystarczy rozszerzyć pulę hostów, aby przejść do puli hostów w Azure Portal i wybrać pozycję **+ Dodaj** , aby wdrożyć dodatkowe hosty sesji.
 
-- Wdrożenie puli hostów jest obecnie w pełni zintegrowane z [galerią udostępnionych obrazów systemu Azure](../virtual-machines/windows/shared-image-galleries.md). Galeria obrazów udostępnionych to oddzielna usługa platformy Azure, która przechowuje definicje obrazów maszyn wirtualnych (VM), w tym przechowywanie wersji obrazu. Można również użyć replikacji globalnej do kopiowania i wysyłania obrazów do innych regionów świadczenia usługi Azure na potrzeby lokalnego wdrożenia.
+- Wdrożenie puli hostów jest obecnie w pełni zintegrowane z [galerią udostępnionych obrazów systemu Azure](../virtual-machines/shared-image-galleries.md). Galeria obrazów udostępnionych to oddzielna usługa platformy Azure, która przechowuje definicje obrazów maszyn wirtualnych (VM), w tym przechowywanie wersji obrazu. Można również użyć replikacji globalnej do kopiowania i wysyłania obrazów do innych regionów świadczenia usługi Azure na potrzeby lokalnego wdrożenia.
 
 - Funkcje monitorowania, które zostały użyte do wykonania za pomocą programu PowerShell lub aplikacji internetowej usługi diagnostycznej, zostały przeniesione do Log Analytics w Azure Portal. Dostępne są również dwie opcje wizualizacji raportów. Można uruchamiać zapytania Kusto i używać skoroszytów do tworzenia raportów wizualnych.
 

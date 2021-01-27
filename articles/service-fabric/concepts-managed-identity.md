@@ -3,12 +3,12 @@ title: Zarządzane tożsamości dla platformy Azure
 description: Dowiedz się więcej na temat używania tożsamości zarządzanych na platformie Azure z Service Fabric.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 28c992792d4572a43e12f5d32855f8411b0f4c6f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 71fa9ef4da8081a167b68553e2e3eac8477e8aee
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574755"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881724"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Korzystanie z tożsamości zarządzanych dla platformy Azure z Service Fabric
 
@@ -56,7 +56,7 @@ Następujące scenariusze nie są obsługiwane lub nie są zalecane; Uwaga te ak
 
 - Usuwanie lub zmiana tożsamości przypisanych do aplikacji; Jeśli musisz wprowadzić zmiany, Prześlij oddzielne wdrożenia, aby najpierw dodać nowe przypisanie tożsamości, a następnie usunąć wcześniej przypisane. Usunięcie tożsamości z istniejącej aplikacji może mieć niepożądane skutki, w tym pozostawienie aplikacji w stanie, który nie jest uaktualniony. Całkowicie można bezpiecznie usunąć aplikację, jeśli konieczne jest usunięcie tożsamości; Uwaga: spowoduje to usunięcie tożsamości przypisanej do systemu (jeśli została zdefiniowana) skojarzonej z aplikacją i spowoduje usunięcie wszelkich skojarzeń z tożsamościami przypisanymi do aplikacji.
 
-- Service Fabric obsługa tożsamości zarządzanych nie jest teraz zintegrowana z usługą [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
+- Service Fabric obsługa tożsamości zarządzanych nie jest teraz zintegrowana z usługą [AzureServiceTokenProvider](/dotnet/api/overview/azure/service-to-service-authentication).
 
 ## <a name="next-steps"></a>Następne kroki
 

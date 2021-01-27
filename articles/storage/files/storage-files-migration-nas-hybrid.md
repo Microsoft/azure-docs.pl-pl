@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0d8d19256dfca21cc805c2689557099a6785f76b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2d531edeeae9e0dd7e392cae66d9e4d41c68dfa2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629210"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882267"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrowanie z magazynu dołączanego do sieci (NAS) do wdrożenia chmury hybrydowej za pomocą Azure File Sync
 
@@ -151,7 +151,7 @@ Tle
       /MIR
    :::column-end:::
    :::column span="1":::
-      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i " *usunięcia* " zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Flaga */Mir* jest doskonałym rozwiązaniem dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
+      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i "*usunięcia*" zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Flaga */Mir* jest doskonałym rozwiązaniem dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,7 +208,7 @@ Zakończono Migrowanie udziału/grupy udziałów do wspólnego katalogu główne
 Można spróbować uruchomić kilka z tych kopii równolegle. Zalecamy przetwarzanie zakresu jednego udziału plików platformy Azure w danym momencie.
 
 > [!WARNING]
-> Po przeniesieniu wszystkich danych z serwera NAS do systemu Windows Server i zakończeniu migracji: Wróć do * **wszystkie** grupy synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do bardziej dopasowanej do wykorzystania pamięci podręcznej, wypowiedz 20%. 
+> Po przeniesieniu wszystkich danych z serwera NAS do systemu Windows Server i zakończeniu migracji: Wróć do ***wszystkie** grupy synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do bardziej dopasowanej do wykorzystania pamięci podręcznej, wypowiedz 20%. 
 
 Zasady wolnego miejsca na woluminie w chmurze działają na poziomie woluminu z potencjalnie wieloma punktami końcowymi serwera. Jeśli zapomnisz o dostosowaniu wolnego miejsca w nawet jednym punkcie końcowym serwera, synchronizacja będzie nadal stosowała najbardziej restrykcyjną regułę i podejmie próbę utrzymania 99% wolnego miejsca na dysku, dzięki czemu lokalna pamięć podręczna nie będzie działała zgodnie z oczekiwaniami. O ile nie jest to cel, aby można było korzystać tylko z przestrzeni nazw dla woluminu, który zawiera tylko rzadko używane dane archiwalne i zachowuje resztę miejsca do magazynowania w innym scenariuszu.
 
@@ -227,5 +227,5 @@ Skorzystaj z linku w poniższej sekcji, aby rozwiązywać problemy związane z A
 Istnieje więcej informacji na temat udziałów plików platformy Azure i Azure File Sync. Poniższe artykuły ułatwiają zapoznanie się z zaawansowanymi opcjami, najlepszymi rozwiązaniami, a także zawiera pomoc dotyczącą rozwiązywania problemów. Te artykuły zawierają link do [dokumentacji udziału plików platformy Azure](storage-files-introduction.md) zgodnie z potrzebami.
 
 * [Omówienie usługi AFS](./storage-sync-files-planning.md)
-* [Podręcznik wdrażania AFS](storage-files-deployment-guide.md)
+* [Podręcznik wdrażania AFS](./storage-how-to-create-file-share.md)
 * [Rozwiązywanie problemów z systemem AFS](storage-sync-files-troubleshoot.md)

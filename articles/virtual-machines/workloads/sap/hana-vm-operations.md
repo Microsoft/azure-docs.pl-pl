@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a907f2a6fc54c96dbef9f2091a91cac50bbd4ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e28b23f20a0336498abbc357f4c96bdfa5b089f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486525"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881842"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfiguracje infrastruktury SAP HANA i operacje na platformie Azure
 Ten dokument zawiera wskazówki dotyczące konfigurowania infrastruktury platformy Azure i systemów SAP HANA operacyjnych wdrożonych na natywnych maszynach wirtualnych platformy Azure. Dokument zawiera również informacje o konfiguracji SAP HANA skalowania w poziomie dla jednostki SKU maszyny wirtualnej M128s. Ten dokument nie jest przeznaczony do zastępowania standardowej dokumentacji SAP, która obejmuje następującą zawartość:
@@ -46,7 +46,7 @@ W poniższych sekcjach opisano podstawowe zagadnienia dotyczące wdrażania syst
 Zgodnie z opisem w [przewodniku planowania usługi Azure Virtual Machines](./planning-guide.md)istnieją dwie podstawowe metody łączenia się z maszynami wirtualnymi platformy Azure:
 
 - Połącz się za pomocą Internetu i publicznych punktów końcowych na maszynie wirtualnej skoku lub na maszynie wirtualnej, na której działa SAP HANA.
-- Nawiązywanie połączenia za pośrednictwem [sieci VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) lub usługi Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- Nawiązywanie połączenia za pośrednictwem [sieci VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md) lub usługi Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Łączność między lokacjami za pośrednictwem sieci VPN lub ExpressRoute jest niezbędna w scenariuszach produkcyjnych. Ten typ połączenia jest również wymagany w scenariuszach nieprodukcyjnych, które są źródłem do scenariuszy produkcyjnych, w których jest używane oprogramowanie SAP. Na poniższej ilustracji przedstawiono przykład łączności między lokacjami:
 
