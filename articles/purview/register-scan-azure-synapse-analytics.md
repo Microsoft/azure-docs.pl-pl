@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 3ba43b83166b5548dee4ea4e52c7411db48d23f5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567280"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875013"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Rejestrowanie i skanowanie usługi Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Istnieją trzy sposoby konfigurowania uwierzytelniania dla usługi Azure Synapse
 
 ### <a name="managed-identity-recommended"></a>Zarządzana tożsamość (zalecana) 
    
-Twoje konto kontrolą ma własną tożsamość zarządzaną, która stanowi zasadniczo swoją nazwę kontrolą podczas jego tworzenia. Musisz utworzyć użytkownika usługi Azure AD w usłudze Azure Synapse Analytics (dawniej SQL DW) o nazwie tożsamości zarządzanej kontrolą, postępując zgodnie z wymaganiami wstępnymi i samouczkiem dotyczącym [tworzenia użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
+Twoje konto kontrolą ma własną tożsamość zarządzaną, która stanowi zasadniczo swoją nazwę kontrolą podczas jego tworzenia. Musisz utworzyć użytkownika usługi Azure AD w usłudze Azure Synapse Analytics (dawniej SQL DW) o nazwie tożsamości zarządzanej kontrolą, postępując zgodnie z wymaganiami wstępnymi i samouczkiem dotyczącym [tworzenia użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
 
 Przykładowa składnia SQL służąca do tworzenia uprawnień użytkownika i udzielania:
 
@@ -87,7 +87,7 @@ Wymagane jest uzyskanie identyfikatora aplikacji i klucza tajnego jednostki usł
 
 #### <a name="granting-the-service-principal-access-to-your-azure-synapse-analytics-formerly-sql-dw"></a>Udzielanie dostępu do jednostki usługi w usłudze Azure Synapse Analytics (dawniej: SQL DW)
 
-Ponadto należy również utworzyć użytkownika usługi Azure AD w usłudze Azure Synapse Analytics, postępując zgodnie z wymaganiami wstępnymi i samouczkiem dotyczącym [tworzenia użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Przykładowa składnia SQL służąca do tworzenia uprawnień użytkownika i udzielania:
+Ponadto należy również utworzyć użytkownika usługi Azure AD w usłudze Azure Synapse Analytics, postępując zgodnie z wymaganiami wstępnymi i samouczkiem dotyczącym [tworzenia użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](../azure-sql/database/authentication-aad-service-principal-tutorial.md). Przykładowa składnia SQL służąca do tworzenia uprawnień użytkownika i udzielania:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -140,4 +140,3 @@ Na ekranie **Rejestr sources (Azure Synapse Analytics)** wykonaj następujące c
 
 - [Przeglądanie wykazu danych usługi Azure kontrolą](how-to-browse-catalog.md)
 - [Przeszukaj Data Catalog Azure kontrolą](how-to-search-catalog.md)
-

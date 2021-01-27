@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 00a7a081f29458ae81d8d8ea4dd8f7abef42f78f
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 31b2d562d4d0c53b23e8e3f454057b4e26e41ba9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519012"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875250"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagowanie na zdarzenia usługi Blob Storage
 
@@ -96,7 +96,7 @@ Aplikacje, które obsługują zdarzenia magazynu obiektów blob, powinny spełni
 > [!div class="checklist"]
 > * Ponieważ można skonfigurować wiele subskrypcji do kierowania zdarzeń do tego samego programu obsługi zdarzeń, ważne jest, aby nie przyjmować zdarzeń z określonego źródła, ale w celu sprawdzenia, czy pochodzi ona z konta magazynu, którego oczekujesz.
 > * Podobnie Sprawdź, czy typ zdarzenia jest przygotowana do przetworzenia i nie zakładaj, że wszystkie zdarzenia, które otrzymujesz, są oczekiwanymi typami.
-> * Ponieważ komunikaty mogą trafiać po pewnym opóźnieniu, Użyj pól ETag, aby zrozumieć, czy informacje o obiektach są nadal aktualne. Aby dowiedzieć się, jak używać pola ETag, zobacz [Zarządzanie współbieżnością w magazynie obiektów BLOB](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
+> * Ponieważ komunikaty mogą trafiać po pewnym opóźnieniu, Użyj pól ETag, aby zrozumieć, czy informacje o obiektach są nadal aktualne. Aby dowiedzieć się, jak używać pola ETag, zobacz [Zarządzanie współbieżnością w magazynie obiektów BLOB](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * Ponieważ komunikaty mogą się pojawiać poza kolejnością, Użyj pól programu Sequencer do zrozumienia kolejności zdarzeń dla każdego określonego obiektu. Pole Sequencer jest wartością ciągu reprezentującą logiczną sekwencję zdarzeń dla każdej konkretnej nazwy obiektu BLOB. Można użyć standardowego porównania ciągów, aby zrozumieć względną sekwencję dwóch zdarzeń dla tej samej nazwy obiektu BLOB.
 > * Zdarzenia magazynu gwarantują co najmniej jednokrotne dostarczanie do subskrybentów, co gwarantuje, że wszystkie komunikaty są zwracane. Jednak ze względu na ponowną próbę lub dostępność subskrypcji mogą czasami wystąpić zduplikowane komunikaty. Aby dowiedzieć się więcej na temat dostarczania komunikatów i ponawiania prób, zobacz [Event Grid dostarczania komunikatów i ponów próbę](../../event-grid/delivery-and-retry.md).
 > * Użyj pola blobtype, aby zrozumieć, jaki typ operacji jest dozwolony dla obiektu BLOB, a także typy bibliotek klientów, które powinny być używane w celu uzyskania dostępu do obiektu BLOB. Prawidłowe wartości to `BlockBlob` lub `PageBlob` . 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900658"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875740"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z Eksploratorem usługi Azure Storage
 
@@ -61,8 +61,8 @@ Jeśli nie masz roli przyznającej uprawnienia do warstwy zarządzania, Eksplora
 Jeśli chcesz uzyskać dostęp do kontenerów obiektów blob lub kolejek, możesz dołączyć do tych zasobów przy użyciu poświadczeń platformy Azure.
 
 1. Otwórz okno dialogowe Połącz.
-2. Wybierz pozycję "Dodaj zasób za pośrednictwem Azure Active Directory (Azure AD)". Wybierz pozycję Dalej.
-3. Wybierz konto użytkownika i dzierżawcę skojarzone z zasobem, do którego jest dołączane. Wybierz pozycję Dalej.
+2. Wybierz pozycję "Dodaj zasób za pośrednictwem Azure Active Directory (Azure AD)". Wybierz opcję Dalej.
+3. Wybierz konto użytkownika i dzierżawcę skojarzone z zasobem, do którego jest dołączane. Wybierz opcję Dalej.
 4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Wybierz pozycję Dalej, a następnie połącz.
 
 W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego kontroli RBAC platformy Azure. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
@@ -70,13 +70,13 @@ W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego kont
 ### <a name="recommended-azure-built-in-roles"></a>Zalecane role wbudowane platformy Azure
 
 Istnieje kilka wbudowanych ról platformy Azure, które mogą zapewnić uprawnienia, które są konieczne do korzystania z Eksplorator usługi Storage. Niektóre z tych ról są następujące:
-- [Właściciel](/azure/role-based-access-control/built-in-roles#owner): Zarządzanie wszystko, w tym dostęp do zasobów.
-- [Współautor](/azure/role-based-access-control/built-in-roles#contributor): Zarządzaj wszystkimi elementami, wykluczając dostęp do zasobów.
-- [Czytelnik](/azure/role-based-access-control/built-in-roles#reader): Odczytuj i wyświetlaj zasoby.
-- [Współautor konta magazynu](/azure/role-based-access-control/built-in-roles#storage-account-contributor): pełne zarządzanie kontami magazynu.
-- [Właściciel danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): pełny dostęp do kontenerów obiektów blob i danych usługi Azure Storage.
-- [Współautor danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Odczytuj, zapisuj i usuwaj kontenery i obiekty blob usługi Azure Storage.
-- [Czytnik danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Odczytuj i wyświetlaj kontenery i obiekty blob usługi Azure Storage.
+- [Właściciel](../../role-based-access-control/built-in-roles.md#owner): Zarządzanie wszystko, w tym dostęp do zasobów.
+- [Współautor](../../role-based-access-control/built-in-roles.md#contributor): Zarządzaj wszystkimi elementami, wykluczając dostęp do zasobów.
+- [Czytelnik](../../role-based-access-control/built-in-roles.md#reader): Odczytuj i wyświetlaj zasoby.
+- [Współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor): pełne zarządzanie kontami magazynu.
+- [Właściciel danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): pełny dostęp do kontenerów obiektów blob i danych usługi Azure Storage.
+- [Współautor danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Odczytuj, zapisuj i usuwaj kontenery i obiekty blob usługi Azure Storage.
+- [Czytnik danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Odczytuj i wyświetlaj kontenery i obiekty blob usługi Azure Storage.
 
 > [!NOTE]
 > Role współautor właściciela, współautora i konta magazynu przyznają dostęp do klucza konta.

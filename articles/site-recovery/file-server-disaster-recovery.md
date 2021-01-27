@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: 1c88a7e78d37556f0f1f89e16154dc1808f24323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425521"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874251"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Ochrona serwera plików za pomocą usługi Azure Site Recovery 
 
@@ -77,7 +77,7 @@ Ponieważ replikacja usługi Site Recovery jest niezależna od aplikacji, te rek
 
 
 
-**Połączenie lokacja-lokacja**: należy ustanowić bezpośrednie połączenie między lokacją lokalną i siecią platformy Azure w celu umożliwienia komunikacji między serwerami. Użyj bezpiecznego połączenia sieci VPN typu lokacja-lokacja z siecią wirtualną platformy Azure, która jest używana jako lokacja odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (Nawiązywanie połączenia VPN typu lokacja-lokacja między lokacją lokalną i siecią wirtualną platformy Azure).
+**Połączenie lokacja-lokacja**: należy ustanowić bezpośrednie połączenie między lokacją lokalną i siecią platformy Azure w celu umożliwienia komunikacji między serwerami. Użyj bezpiecznego połączenia sieci VPN typu lokacja-lokacja z siecią wirtualną platformy Azure, która jest używana jako lokacja odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](../vpn-gateway/tutorial-site-to-site-portal.md) (Nawiązywanie połączenia VPN typu lokacja-lokacja między lokacją lokalną i siecią wirtualną platformy Azure).
 
 **Usługa Active Directory**: replikacja DFSR jest zależna od usługi Active Directory. Oznacza to, że las usługi Active Directory z lokalnymi kontrolerami domeny jest rozszerzony do lokacji odzyskiwania po awarii na platformie Azure. Nawet jeśli nie używasz replikacji DFSR, jeśli odpowiednim użytkownikom należy przyznać dostęp lub sprawdzić pod kątem dostępu, musisz wykonać następujące kroki. Aby uzyskać więcej informacji, zobacz [Extend on-premises Active Directory to Azure](./site-recovery-active-directory.md) (Rozszerzenie lokalnej usługi Active Directory na platformę Azure).
 

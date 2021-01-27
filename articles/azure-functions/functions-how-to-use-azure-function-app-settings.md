@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 4db6abeb3e6f4a07780268a6455177e0ca237205
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598484"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875453"
 ---
 # <a name="manage-your-function-app"></a>Zarządzanie aplikacją funkcji 
 
@@ -37,6 +37,8 @@ Ustawieniami aplikacji można zarządzać z poziomu [Azure Portal](functions-how
 Te ustawienia są przechowywane w postaci zaszyfrowanej. Aby dowiedzieć się więcej, zobacz [Ustawienia aplikacji zabezpieczenia](security-concepts.md#application-settings).
 
 # <a name="portal"></a>[Portal](#tab/portal)
+
+Aby znaleźć ustawienia aplikacji, zobacz Rozpoczynanie [pracy w Azure Portal](#get-started-in-the-azure-portal). 
 
 Karta **Ustawienia aplikacji** obsługuje ustawienia, które są używane przez aplikację funkcji. Musisz wybrać **Pokaż wartości** , aby wyświetlić wartości w portalu. Aby dodać ustawienie w portalu, wybierz pozycję **nowe ustawienie aplikacji** i Dodaj nową parę klucz-wartość.
 

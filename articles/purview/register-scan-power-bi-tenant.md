@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3370215e9a69e62596f214ba4330fc4914a2837f
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539684"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874910"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Rejestrowanie i skanowanie dzierżawy Power BI (wersja zapoznawcza)
 
@@ -26,7 +26,7 @@ W tym artykule pokazano, jak zarejestrować i przeskanować dzierżawę Power BI
 Aby skonfigurować uwierzytelnianie, należy utworzyć grupę zabezpieczeń i dodać do niej zarządzaną tożsamość katalogu.
 
 1. W [Azure Portal](https://portal.azure.com)wyszukaj ciąg **Azure Active Directory**.
-1. Utwórz nową grupę zabezpieczeń w Azure Active Directory, wykonując następujące czynności: [Utwórz grupę podstawową i Dodaj członków przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+1. Utwórz nową grupę zabezpieczeń w Azure Active Directory, wykonując następujące czynności: [Utwórz grupę podstawową i Dodaj członków przy użyciu Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     > [!Tip]
     > Możesz pominąć ten krok, jeśli masz już grupę zabezpieczeń, której chcesz użyć.

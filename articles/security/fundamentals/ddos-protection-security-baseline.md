@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814503"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873964"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Podstawy zabezpieczeń platformy Azure dla Azure DDoS Protection Standard
 
@@ -38,7 +38,7 @@ Ta linia bazowa zabezpieczeń stosuje wskazówki z [testu porównawczego zabezpi
 
 Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje wykonane w pamięci podręcznej platformy Azure dla wystąpień Redis na poziomie płaszczyzny kontroli. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla wystąpień Azure DDoS Protection.
 
-- [Wyświetl i skonfiguruj rejestrowanie diagnostyczne DDoS](../../ddos-protection/diagnostic-logging.md)
+- [Wyświetlanie i konfigurowanie rejestrowania diagnostycznego dotyczącego ataków DDoS](../../ddos-protection/diagnostic-logging.md)
 
 - [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -164,7 +164,7 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 **Wskazówki**: Użyj bezpiecznej, zarządzanej na platformie Azure stacji roboczej z włączoną usługą azure AD Multi-Factor Authentication (MFA), aby zalogować się i skonfigurować żądania skrytka klienta platformy Azure.
 
-- [Wdrażanie bezpiecznej, zarządzanej na platformie Azure stacji roboczej](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Wdrażanie bezpiecznej, zarządzanej na platformie Azure stacji roboczej](/security/compass/privileged-access-deployment)
 
 - [Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication opartej na chmurze](../../active-directory/authentication/howto-mfa-getstarted.md)
 

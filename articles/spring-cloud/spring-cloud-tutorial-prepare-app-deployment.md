@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 37753265afa7e76e87dbcdc5893595bea66798f4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 4e9c84efe7b96cf61a69c54e3f5ecbc469ac7d8d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610254"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874146"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji do wdrożenia w chmurze Azure wiosennej
 
@@ -146,12 +146,12 @@ Chmura sprężynowa platformy Azure obsługuje tylko aplikacje do rozruchu sprę
 
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej
 ---|---
-2.2 | Hoxton.SR8
+2,2 | Hoxton.SR8
 2.3 | Hoxton.SR8
 2.4.1 + | 2020.0.0
 
 > [!NOTE]
-> Zidentyfikowano problem związany z rozruchem wiosny 2.4.0 na uwierzytelniania TLS między aplikacjami i Eureka, należy użyć 2.4.1 lub nowszej. Zapoznaj się z naszymi [często zadawanymi pytaniami](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) , jeśli nie jesteś w korzystaniu z usługi 2.4.0.
+> Zidentyfikowano problem związany z rozruchem wiosny 2.4.0 na uwierzytelniania TLS między aplikacjami i Eureka, należy użyć 2.4.1 lub nowszej. Zapoznaj się z naszymi [często zadawanymi pytaniami](./spring-cloud-faq.md?pivots=programming-language-java#development) , jeśli nie jesteś w korzystaniu z usługi 2.4.0.
 
 ### <a name="dependencies-for-spring-boot-version-2223"></a>Zależności dotyczące rozruchu sprężynowego 2.2/2.3
 
@@ -310,7 +310,7 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 </dependency>
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Analizowanie dzienników i metryk aplikacji](./diagnostic-services.md)
 * [Konfigurowanie serwera konfiguracji](./spring-cloud-tutorial-config-server.md)
 * [Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej](./spring-cloud-tutorial-distributed-tracing.md)

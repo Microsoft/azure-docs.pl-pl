@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d041f864c6c8cd3ae9c522d79447d71c86f9ac04
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015965"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875608"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Tworzenie migawki przy użyciu portalu lub interfejsu wiersza polecenia platformy Azure
 
@@ -70,5 +70,4 @@ az snapshot list \
 
 ## <a name="next-steps"></a>Następne kroki
 
- Utwórz maszynę wirtualną na podstawie migawki przez utworzenie dysku zarządzanego na podstawie migawki, a następnie dołączenie nowego dysku zarządzanego jako dysku systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [Tworzenie maszyny wirtualnej na podstawie skryptu migawki](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) .
-
+ Utwórz maszynę wirtualną na podstawie migawki przez utworzenie dysku zarządzanego na podstawie migawki, a następnie dołączenie nowego dysku zarządzanego jako dysku systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [Tworzenie maszyny wirtualnej na podstawie skryptu migawki](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot?toc=%2fcli%2fmodule%2ftoc.json) .

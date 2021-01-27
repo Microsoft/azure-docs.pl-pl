@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b4b6c04a1e35031387a006b6350ebf6cbe502fee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e2095b0df8fdc965926c6c612c45f582c9b9d2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997902"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874488"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące węzłów danych poufnych w usłudze Azure Kubernetes Service (AKS)
 
@@ -24,6 +24,10 @@ Umowa SLA nie jest dostępna w wersji zapoznawczej produktu zgodnie z definicją
 ## <a name="what-is-attestation-and-how-can-we-do-attestation-of-apps-running-in-enclaves"></a>Co to jest zaświadczanie i jak można zaświadczać aplikacje działające w programie enclaves? 
 
 Zaświadczanie to proces demonstrujący i sprawdzający, czy część oprogramowania została prawidłowo utworzona na określonej platformie sprzętowej. Gwarantuje również, że jego dowody są zweryfikowane w celu zapewnienia pewności, że jest on uruchomiony na bezpiecznej platformie i nie został naruszony. [Przeczytaj więcej](attestation.md) na temat tego, jak Zakończono świadczenie aplikacji enklawy.
+
+## <a name="can-i-enable-accelerated-networking-with-azure-confidential-computing-aks-clusters"></a>Czy mogę włączyć przyspieszone sieci z użyciem poufnego przetwarzania klastrów AKS na platformie Azure? 
+
+Nie. Przyspieszona sieć nie jest obsługiwana w węzłach w trybie poufnego w systemie AKS. Upewnij się, że przyspieszona sieć jest wyłączona we wdrożeniu. 
 
 ## <a name="can-i-bring-my-existing-containerized-applications-and-run-it-on-aks-with-azure-confidential-computing"></a>Czy mogę przenieść istniejące aplikacje z kontenerami i uruchamiać je na AKS z użyciem poufnego przetwarzania danych platformy Azure? 
 

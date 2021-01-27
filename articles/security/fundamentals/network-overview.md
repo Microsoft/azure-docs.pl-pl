@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489772"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874387"
 ---
 # <a name="azure-network-security-overview"></a>Omówienie zabezpieczeń sieci platformy Azure
 
@@ -178,7 +178,7 @@ Jednym ze sposobów osiągnięcia tego celu jest użycie [sieci VPN typu lokacja
 
 Więcej informacji:
 
-* [Tworzenie Menedżer zasobów sieci wirtualnej z połączeniem sieci VPN typu lokacja-lokacja przy użyciu Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Tworzenie Menedżer zasobów sieci wirtualnej z połączeniem sieci VPN typu lokacja-lokacja przy użyciu Azure Portal](../../vpn-gateway/tutorial-site-to-site-portal.md)
 * [VPN Gateway — informacje](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Łączenie sieci lokalnej z siecią wirtualną za pomocą dedykowanego linku sieci WAN

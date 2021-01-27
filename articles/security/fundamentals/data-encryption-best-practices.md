@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 414445f90c3be4c55166f6a0ecead25074d6ed74
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196082"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874117"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure
 W tym artykule opisano najlepsze rozwiązania dotyczące zabezpieczeń i szyfrowania danych.
@@ -102,7 +102,7 @@ W przypadku danych przenoszonych między infrastrukturą lokalną i platformą A
 Poniżej przedstawiono najlepsze rozwiązania dotyczące korzystania z usługi Azure VPN Gateway, protokołu SSL/TLS i protokołu HTTPS.
 
 **Najlepsze rozwiązanie**: bezpieczny dostęp z wielu stacji roboczych znajdujących się lokalnie do sieci wirtualnej platformy Azure.   
-**Szczegóły**: Użyj [sieci VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Szczegóły**: Użyj [sieci VPN typu lokacja-lokacja](../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Najlepsze rozwiązanie**: bezpieczny dostęp z pojedynczej stacji roboczej znajdującej się w środowisku lokalnym do sieci wirtualnej platformy Azure.   
 **Szczegóły**: Użyj [sieci VPN typu punkt-lokacja](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
