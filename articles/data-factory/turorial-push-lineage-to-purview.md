@@ -1,5 +1,5 @@
 ---
-title: Wypychanie Data Factory danych pochodzenie do usługi Azure kontrolą
+title: Wypychanie danych o pochodzeniu z usługi Data Factory do usługi Azure Purview
 description: Dowiedz się więcej na temat wypychania Data Factory danych kontrolą do platformy Azure
 services: data-factory
 ms.author: lle
@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 6b50c9440a958bc1398e79ddf3c5a0984816ec45
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e87a9d677fee94d410099db1da80a56b5539048c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603445"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935461"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Wypchnij Data Factory dane pochodzenie do usługi Azure kontrolą (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ W tym samouczku użyjesz interfejsu użytkownika Data Factory (UI) do utworzenia
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 * **Azure Data Factory**. Jeśli nie masz Azure Data Factory, zobacz [tworzenie Azure Data Factory](./quickstart-create-data-factory-portal.md).
-* **Konto usługi Azure kontrolą**. Konto kontrolą przechwytuje wszystkie dane oddzielone generowane przez fabrykę danych. Jeśli nie masz konta usługi Azure kontrolą, zobacz [Tworzenie usługi Azure kontrolą](https://docs.microsoft.com/azure/purview/create-catalog-portal).
+* **Konto usługi Azure kontrolą**. Konto kontrolą przechwytuje wszystkie dane oddzielone generowane przez fabrykę danych. Jeśli nie masz konta usługi Azure kontrolą, zobacz [Tworzenie usługi Azure kontrolą](../purview/create-catalog-portal.md).
 
 
 ## <a name="run-data-factory-activities-and-push-lineage-data-to-azure-purview"></a>Uruchamianie działań Data Factory i wypychanie danych z kontrolą do platformy Azure
@@ -76,6 +76,6 @@ Można także zobaczyć dane niepowiązane dla działania wykonywania pakietu SS
 > W przypadku działania związanego z wykonywaniem pakietu SSIS obsługiwane są tylko elementy źródłowe i docelowe. Elementy powiązane dla transformacji nie są jeszcze obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
-[Podręcznik użytkownika z wykazem](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide)
+[Podręcznik użytkownika z wykazem](../purview/catalog-lineage-user-guide.md)
 
 [Łączenie Data Factory z usługą Azure kontrolą](connect-data-factory-to-azure-purview.md)

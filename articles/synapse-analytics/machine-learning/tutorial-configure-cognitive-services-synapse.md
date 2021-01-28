@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: wymagania wstępne dotyczące Cognitive Services na platformie Azure Synapse'
-description: Samouczek dotyczący konfigurowania wymagań wstępnych dotyczących używania Cognitive Services na platformie Azure Synapse
+title: 'Samouczek: wymagania wstępne dotyczące Cognitive Services w usłudze Azure Synapse Analytics'
+description: Dowiedz się, jak skonfigurować wymagania wstępne dotyczące używania Cognitive Services w usłudze Azure Synapse.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,68 +9,71 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: eef65db05ab94b5b8de5ff82c2c51dba0730f170
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3ab861caca0ef6f58c2c1bc722412774deb725ce
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222177"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936686"
 ---
-# <a name="tutorial-pre-requisites-for-using-cognitive-services-in-azure-synapse"></a>Samouczek: wymagania wstępne dotyczące używania Cognitive Services na platformie Azure Synapse
+# <a name="tutorial-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>Samouczek: wymagania wstępne dotyczące używania Cognitive Services w usłudze Azure Synapse Analytics
 
-W tym samouczku dowiesz się, jak skonfigurować wymagania wstępne, aby bezpiecznie wykorzystać Cognitive Services na platformie Azure Synapse.
+W ramach tego samouczka nauczysz się, jak bezpiecznie skonfigurować wymagania wstępne za pomocą usługi Azure Cognitive Services w usłudze Azure Synapse Analytics.
 
 W tym samouczku opisano następujące czynności:
 > [!div class="checklist"]
-> - Utwórz zasoby Cognitive Services. Na przykład analiza tekstu lub wykrywacz anomalii.
-> - Przechowuj klucz uwierzytelniania, aby Cognitive Services zasoby jako wpisy tajne w magazynie kluczy Azure, i Skonfiguruj dostęp do obszaru roboczego usługi Azure Synapse.
-> - Utwórz połączoną usługę Azure Key magazynu w obszarze roboczym usługi Azure Synapse Analytics.
+> - Utwórz zasób Cognitive Services, taki jak analiza tekstu lub detektor anomalii.
+> - Przechowuj klucz uwierzytelniania, aby Cognitive Services zasoby jako wpisy tajne w Azure Key Vault, i Skonfiguruj dostęp do obszaru roboczego usługi Azure Synapse Analytics.
+> - Utwórz połączoną usługę Azure Key Vault w obszarze roboczym analizy usługi Azure Synapse.
 
 Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Obszar roboczy usługi Azure Synapse Analytics](../get-started-create-workspace.md) z kontem magazynu ADLS Gen2 skonfigurowanym jako magazyn domyślny. Musisz być **współautorem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym pracujesz.
+- [Obszar roboczy usługi Azure Synapse Analytics](../get-started-create-workspace.md) z kontem magazynu Azure Data Lake Storage Gen2 skonfigurowanym jako magazyn domyślny. Musisz być *współautorem danych obiektów blob magazynu* w systemie plików Azure Data Lake Storage Gen2, z którym pracujesz.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-cognitive-services-resource"></a>Tworzenie zasobu Cognitive Services
+## <a name="create-a-cognitive-services-resource"></a>Tworzenie zasobu usług Cognitive Services
 
-[Platforma Azure Cognitive Services](../../cognitive-services/index.yml) obejmuje wiele różnych typów usług. Poniżej przedstawiono przykłady, które są używane w samouczkach Synapse.
+[Usługa Azure Cognitive Services](../../cognitive-services/index.yml) obejmuje wiele typów usług. Analiza tekstu i detektor anomalii są dwa przykłady w samouczkach usługi Azure Synapse.
 
-### <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu wykrywania anomalii
-Utwórz [detektor anomalii](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) w Azure Portal.
+W Azure Portal można utworzyć zasób [Analiza tekstu](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) :
 
-![Utwórz detektor anomalii](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
+![Zrzut ekranu przedstawiający analiza tekstu w portalu przy użyciu przycisku Utwórz.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00b.png)
 
-### <a name="create-a-text-analytics-resource"></a>Tworzenie zasobu analiza tekstu
-Utwórz zasób [Analiza tekstu](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) w Azure Portal.
+W Azure Portal można utworzyć zasób [wykrywania anomalii](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) :
 
-![Tworzenie analizy tekstu](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00b.png)
+![Zrzut ekranu, który pokazuje detektor anomalii w portalu przy użyciu przycisku Utwórz.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
 
-## <a name="create-key-vault-and-configure-secrets-and-access"></a>Tworzenie Key Vault i Konfigurowanie wpisów tajnych i dostępu
+## <a name="create-a-key-vault-and-configure-secrets-and-access"></a>Tworzenie magazynu kluczy i Konfigurowanie kluczy tajnych i dostępu
 
-1. Utwórz [Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) w Azure Portal.
-2. Przejdź do **zasad dostępu Key Vault->** i Udziel uprawnień do pliku [MSI obszaru roboczego usługi Azure Synapse](../security/synapse-workspace-managed-identity.md) , aby odczytywać wpisy tajne z Azure Key Vault.
+1. Utwórz [Magazyn kluczy](https://ms.portal.azure.com/#create/Microsoft.KeyVault) w Azure Portal.
+2. Przejdź do   >  **zasad dostępu** Key Vault i Udziel uprawnień do pliku [MSI obszaru roboczego usługi Azure Synapse](../security/synapse-workspace-managed-identity.md) , aby odczytywać wpisy tajne z Azure Key Vault.
 
->Upewnij się, że zmiany zasad zostały zapisane. Ten krok można łatwo pominąć.
+   > [!NOTE]
+   > Upewnij się, że zmiany zasad zostały zapisane. Ten krok można łatwo pominąć.
 
-![Dodawanie zasad dostępu](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00c.png)
+   ![Zrzut ekranu pokazujący wybory dotyczące dodawania zasad dostępu.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00c.png)
 
-3. Przejdź do zasobu usługi poznawczej, na przykład **detektor anomalii — > klucze i punkt końcowy**, skopiuj jeden z dwóch kluczy do Schowka.
+3. Przejdź do zasobu Cognitive Services. Na przykład przejdź do pozycji klucze **wykrywania anomalii**  >  **i punkt końcowy**. Następnie skopiuj jeden z dwóch kluczy do Schowka.
 
-4. Przejdź do pozycji **Key Vault-> Secret** , aby utworzyć nowy wpis tajny. Określ nazwę wpisu tajnego, a następnie wklej klucz z poprzedniego kroku do pola "value" (wartość). Na koniec kliknij pozycję **Utwórz**.
+4. Przejdź do **Key Vault**  >  **wpisu tajnego** , aby utworzyć nowy wpis tajny. Określ nazwę wpisu tajnego, a następnie wklej klucz z poprzedniego kroku w polu **wartość** . Na koniec wybierz pozycję **Utwórz**.
 
-![Utwórz klucz tajny](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
+   ![Zrzut ekranu pokazujący wybory tworzenia wpisu tajnego.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
 
-> Pamiętaj, aby zapamiętać lub zanotować tę nazwę klucza tajnego. Będzie on używany później podczas łączenia się z Cognitive Services z usługi Azure Synapse Studio.
+   > [!IMPORTANT]
+   > Pamiętaj, aby zapamiętać lub zanotować tę nazwę klucza tajnego. Będzie on używany później podczas łączenia się z Cognitive Services z usługi Azure Synapse Studio.
 
-## <a name="create-azure-keyvault-linked-service-in-azure-synapse"></a>Tworzenie połączonej usługi magazynu kluczy platformy Azure w usłudze Azure Synapse
+## <a name="create-an-azure-key-vault-linked-service-in-azure-synapse"></a>Tworzenie połączonej usługi Azure Key Vault na platformie Azure Synapse
 
-1. Otwórz obszar roboczy w usłudze Azure Synapse Studio. Przejdź do **Narzędzia zarządzaj > połączonymi usługami**. Utwórz połączoną usługę AB "Azure Key Vault" wskazującą Key Vault, który właśnie utworzyliśmy. Następnie sprawdź połączenie, klikając przycisk "Test connection" i sprawdzając, czy jest on zielony. Jeśli wszystko działa prawidłowo, kliknij przycisk "Utwórz", a następnie kliknij pozycję "Opublikuj wszystko", aby zapisać zmiany.
-![Połączona usługa](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00e.png)
+1. Otwórz obszar roboczy w usłudze Azure Synapse Studio. 
+2. Przejdź do obszaru **Zarządzanie**  >  **połączonymi usługami**. Utwórz połączoną usługę **Azure Key Vault** , wskazując do właśnie utworzonego magazynu kluczy. 
+3. Sprawdź połączenie, wybierając przycisk **Test connection** . Jeśli połączenie jest kolorem zielonym, wybierz pozycję **Utwórz** , a następnie wybierz pozycję **Opublikuj wszystko** , aby zapisać zmiany.
+
+![Zrzut ekranu przedstawiający Azure Key Vault jako nową połączoną usługę.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00e.png)
 
 Teraz możesz przystąpić do kontynuowania pracy z jednym z samouczków dotyczących korzystania z usługi Azure Cognitive Services w usłudze Azure Synapse Studio.
 

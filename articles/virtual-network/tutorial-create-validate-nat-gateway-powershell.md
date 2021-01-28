@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
-ms.openlocfilehash: d9f3fa67a0d3eee303ed307f1d64d30955348869
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f319e77bd4801a2844a54ba8eba955c2b062fe7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222500"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934301"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure PowerShell i testowanie usługi translatora adresów sieciowych
 
@@ -53,7 +53,7 @@ $rg = New-AzResourceGroup -Name $rgname -Location $loc
 
 ### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-Aby uzyskać dostęp do Internetu, wymagany jest co najmniej jeden publiczny adres IP dla bramy translatora adresów sieciowych. Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=latest) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPsource** w **myResourceGroupNAT**. Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$publicIPsource** do późniejszego użycia.
+Aby uzyskać dostęp do Internetu, wymagany jest co najmniej jeden publiczny adres IP dla bramy translatora adresów sieciowych. Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPsource** w **myResourceGroupNAT**. Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$publicIPsource** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $pipname = 'myPublicIPsource'
@@ -67,7 +67,7 @@ New-AzPublicIpAddress -Name $pipname -ResourceGroupName $rg.ResourceGroupName -A
 
 ### <a name="create-a-public-ip-prefix"></a>Tworzenie publicznego prefiksu adresu IP
 
- Użyj [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix?view=latest) , aby utworzyć zasób publicznego PREFIKSU adresu IP o nazwie **myPublicIPprefixsource** w **myResourceGroupNAT**.  Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$publicIPPrefixsource** do późniejszego użycia.
+ Użyj [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) , aby utworzyć zasób publicznego PREFIKSU adresu IP o nazwie **myPublicIPprefixsource** w **myResourceGroupNAT**.  Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$publicIPPrefixsource** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $prefixname = 'mypublicIPprefixsource'
@@ -104,7 +104,7 @@ Przeprowadzimy Cię przez proces instalacji pełnego środowiska testowego. Nale
 
 Utwórz sieć wirtualną i skojarz ją z bramą.
 
-Utwórz sieć wirtualną o nazwie **myVnetsource** z podsiecią o nazwie **mySubnetsource** przy użyciu polecenia [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) w **myResourceGroupNAT** przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork?view=latest). Przestrzeń adresów IP dla sieci wirtualnej to **192.168.0.0/16**. Podsieć w sieci wirtualnej to **192.168.0.0/24**.  Wyniki poleceń będą przechowywane w zmiennych o nazwie **$subnetsource** i **$vnetsource** do późniejszego użycia.
+Utwórz sieć wirtualną o nazwie **myVnetsource** z podsiecią o nazwie **mySubnetsource** przy użyciu polecenia [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) w **myResourceGroupNAT** przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Przestrzeń adresów IP dla sieci wirtualnej to **192.168.0.0/16**. Podsieć w sieci wirtualnej to **192.168.0.0/24**.  Wyniki poleceń będą przechowywane w zmiennych o nazwie **$subnetsource** i **$vnetsource** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $subnetname = 'mySubnetsource'
@@ -128,7 +128,7 @@ Możesz również utworzyć tę maszynę wirtualną bez publicznego adresu IP i 
 
 ### <a name="create-public-ip-for-source-vm"></a>Utwórz publiczny adres IP dla źródłowej maszyny wirtualnej
 
-Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do maszyny wirtualnej.  Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=latest) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPVM** w **myResourceGroupNAT**.  Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$publicIpsourceVM** do późniejszego użycia.
+Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do maszyny wirtualnej.  Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPVM** w **myResourceGroupNAT**.  Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$publicIpsourceVM** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $sku = 'Standard'
@@ -142,7 +142,7 @@ New-AzPublicIpAddress -Name $pipvmname -ResourceGroupName $rg.ResourceGroupName 
 
 ### <a name="create-an-nsg-and-expose-ssh-endpoint-for-vm"></a>Tworzenie sieciowej grupy zabezpieczeń i Uwidacznianie punktu końcowego SSH dla maszyny wirtualnej
 
-Ze względu na to, że standardowe publiczne adresy IP są "zabezpieczone domyślnie", tworzymy sieciowej grupy zabezpieczeń, aby zezwolić na dostęp przychodzący do protokołu SSH. Usługa translatora adresów sieciowych jest ukierunkowana na kierunek przepływu. Ta sieciowej grupy zabezpieczeń nie zostanie użyta dla ruchu wychodzącego, gdy Brama translatora adresów sieciowych zostanie skonfigurowana w tej samej podsieci. Użyj [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) , aby utworzyć zasób sieciowej grupy zabezpieczeń o nazwie **myNSGsource**. Użyj [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) , aby utworzyć regułę sieciowej grupy zabezpieczeń dla dostępu SSH o nazwie **SSH** w **myResourceGroupNAT**. Wynik tego polecenia zostanie zapisany w zmiennej o nazwie **$nsgsource** do późniejszego użycia.
+Ze względu na to, że standardowe publiczne adresy IP są "zabezpieczone domyślnie", tworzymy sieciowej grupy zabezpieczeń, aby zezwolić na dostęp przychodzący do protokołu SSH. Usługa translatora adresów sieciowych jest ukierunkowana na kierunek przepływu. Ta sieciowej grupy zabezpieczeń nie zostanie użyta dla ruchu wychodzącego, gdy Brama translatora adresów sieciowych zostanie skonfigurowana w tej samej podsieci. Użyj [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) , aby utworzyć zasób sieciowej grupy zabezpieczeń o nazwie **myNSGsource**. Użyj [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) , aby utworzyć regułę sieciowej grupy zabezpieczeń dla dostępu SSH o nazwie **SSH** w **myResourceGroupNAT**. Wynik tego polecenia zostanie zapisany w zmiennej o nazwie **$nsgsource** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $rnm = 'ssh'
@@ -162,7 +162,7 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rg.ResourceGroupName -Name $nsnm 
 
 ### <a name="create-nic-for-source-vm"></a>Utwórz kartę sieciową dla źródłowej maszyny wirtualnej
 
-Utwórz interfejs sieciowy przy użyciu elementu [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) o nazwie **myNicsource**. To polecenie spowoduje skojarzenie publicznego adresu IP z grupą zabezpieczeń sieci. Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$nicsource** do późniejszego użycia.
+Utwórz interfejs sieciowy przy użyciu elementu [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) o nazwie **myNicsource**. To polecenie spowoduje skojarzenie publicznego adresu IP z grupą zabezpieczeń sieci. Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$nicsource** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $nin = 'myNicsource'
@@ -226,7 +226,7 @@ $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzVMSshPublicKey -VM $vmConfigsource -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 ```
-Połącz definicje konfiguracji, aby utworzyć maszynę wirtualną o nazwie **myVMsource** z opcją [New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.8.0) w **myResourceGroupNAT**.
+Połącz definicje konfiguracji, aby utworzyć maszynę wirtualną o nazwie **myVMsource** z opcją [New-AzVM](/powershell/module/az.compute/new-azvm) w **myResourceGroupNAT**.
 
 ```azurepowershell-interactive
 New-AzVM -ResourceGroupName $rg.ResourceGroupName -VM $vmConfigsource -Location $rg.Location
@@ -243,7 +243,7 @@ Teraz utworzysz miejsce docelowe dla ruchu wychodzącego przetłumaczonego przez
 
 Musimy utworzyć sieć wirtualną, w której będzie docelowa maszyna wirtualna.  Te polecenia są takie same jak dla źródłowej maszyny wirtualnej. Dodano małe zmiany w celu udostępnienia docelowego punktu końcowego.
 
-Utwórz sieć wirtualną o nazwie **myVnetdestination** z podsiecią o nazwie **mySubnetdestination** przy użyciu polecenia [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) w **myResourceGroupNAT** przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork?view=latest). Przestrzeń adresów IP dla sieci wirtualnej to **192.168.0.0/16**. Podsieć w sieci wirtualnej to **192.168.0.0/24**.  Wyniki poleceń będą przechowywane w zmiennych o nazwie **$subnetdestination** i **$vnetdestination** do późniejszego użycia.
+Utwórz sieć wirtualną o nazwie **myVnetdestination** z podsiecią o nazwie **mySubnetdestination** przy użyciu polecenia [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) w **myResourceGroupNAT** przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Przestrzeń adresów IP dla sieci wirtualnej to **192.168.0.0/16**. Podsieć w sieci wirtualnej to **192.168.0.0/24**.  Wyniki poleceń będą przechowywane w zmiennych o nazwie **$subnetdestination** i **$vnetdestination** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $sbdn = 'mySubnetdestination'
@@ -261,7 +261,7 @@ New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rg.ResourceGroupName -Addres
 
 ### <a name="create-public-ip-for-destination-vm"></a>Utwórz publiczny adres IP dla docelowej maszyny wirtualnej
 
-Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do docelowej maszyny wirtualnej.  Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=latest) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPdestinationVM** w **myResourceGroupNAT**.  Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$publicIpdestinationVM** do późniejszego użycia.
+Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do docelowej maszyny wirtualnej.  Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPdestinationVM** w **myResourceGroupNAT**.  Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$publicIpdestinationVM** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $sku = 'Standard'
@@ -275,7 +275,7 @@ New-AzPublicIpAddress -Name $pipd -ResourceGroupName $rg.ResourceGroupName -Allo
 
 ### <a name="create-an-nsg-and-expose-ssh-and-http-endpoint-for-vm"></a>Tworzenie sieciowej grupy zabezpieczeń i udostępnianie punktu końcowego protokołu SSH i HTTP dla maszyny wirtualnej
 
-Standardowe publiczne adresy IP są "zabezpieczone domyślnie". tworzymy sieciowej grupy zabezpieczeń, aby zezwolić na dostęp przychodzący do protokołu SSH. Użyj [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) , aby utworzyć zasób sieciowej grupy zabezpieczeń o nazwie **myNSGdestination**. Użyj [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) , aby utworzyć regułę sieciowej grupy zabezpieczeń dla dostępu SSH o nazwie **SSH**.  Użyj [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) , aby utworzyć regułę sieciowej grupy zabezpieczeń dla dostępu http o nazwie **http**. Obie reguły zostaną utworzone w **myResourceGroupNAT**. Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$nsgdestination** do późniejszego użycia.
+Standardowe publiczne adresy IP są "zabezpieczone domyślnie". tworzymy sieciowej grupy zabezpieczeń, aby zezwolić na dostęp przychodzący do protokołu SSH. Użyj [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) , aby utworzyć zasób sieciowej grupy zabezpieczeń o nazwie **myNSGdestination**. Użyj [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) , aby utworzyć regułę sieciowej grupy zabezpieczeń dla dostępu SSH o nazwie **SSH**.  Użyj [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) , aby utworzyć regułę sieciowej grupy zabezpieczeń dla dostępu http o nazwie **http**. Obie reguły zostaną utworzone w **myResourceGroupNAT**. Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$nsgdestination** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $snm = 'ssh'
@@ -300,7 +300,7 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rg.ResourceGroupName -Name $nsnm 
 
 ### <a name="create-nic-for-destination-vm"></a>Utwórz kartę sieciową dla docelowej maszyny wirtualnej
 
-Utwórz interfejs sieciowy przy użyciu elementu [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) o nazwie **myNicdestination**. To polecenie spowoduje skojarzenie z publicznym adresem IP i grupą zabezpieczeń sieci. Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$nicdestination** do późniejszego użycia.
+Utwórz interfejs sieciowy przy użyciu elementu [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) o nazwie **myNicdestination**. To polecenie spowoduje skojarzenie z publicznym adresem IP i grupą zabezpieczeń sieci. Wynik tego polecenia będzie przechowywany w zmiennej o nazwie **$nicdestination** do późniejszego użycia.
 
 ```azurepowershell-interactive
 $nnm = 'myNicdestination'
@@ -350,7 +350,7 @@ $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzVMSshPublicKey -VM $vmConfigdestination -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 ```
-Połącz definicje konfiguracji, aby utworzyć maszynę wirtualną o nazwie **myVMdestination** z opcją [New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.8.0) w **myResourceGroupNAT**.
+Połącz definicje konfiguracji, aby utworzyć maszynę wirtualną o nazwie **myVMdestination** z opcją [New-AzVM](/powershell/module/az.compute/new-azvm) w **myResourceGroupNAT**.
 
 ```azurepowershell-interactive
 
@@ -362,7 +362,7 @@ Gdy polecenie zostanie zwrócone natychmiast, wdrożenie maszyny wirtualnej moż
 
 ## <a name="prepare-a-web-server-and-test-payload-on-destination-vm"></a>Przygotowywanie serwera sieci Web i ładunku testowego na docelowej maszynie wirtualnej
 
-Najpierw musimy odnaleźć adres IP docelowej maszyny wirtualnej.  Aby uzyskać publiczny adres IP maszyny wirtualnej, użyj polecenie [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress?view=latest). 
+Najpierw musimy odnaleźć adres IP docelowej maszyny wirtualnej.  Aby uzyskać publiczny adres IP maszyny wirtualnej, użyj polecenie [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). 
 
 ```azurepowershell-interactive
 $pipname = 'myPublicIPdestinationVM'
@@ -404,7 +404,7 @@ Zamknij sesję SSH z docelową maszyną wirtualną.
 
 ## <a name="prepare-test-on-source-vm"></a>Przygotuj test na źródłowej maszynie wirtualnej
 
-Najpierw musimy odnaleźć adres IP źródłowej maszyny wirtualnej.  Aby uzyskać publiczny adres IP maszyny wirtualnej, użyj polecenie [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress?view=latest). 
+Najpierw musimy odnaleźć adres IP źródłowej maszyny wirtualnej.  Aby uzyskać publiczny adres IP maszyny wirtualnej, użyj polecenie [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). 
 
 ```azurepowershell-interactive
 $pipname = 'myPublicIPsourceVM'
@@ -466,7 +466,7 @@ To polecenie spowoduje wygenerowanie 100 żądań, 10 współbieżnie, z limitem
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) .
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name $rg.ResourceGroupName

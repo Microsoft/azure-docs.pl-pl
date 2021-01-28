@@ -3,12 +3,12 @@ title: Monitorowanie za pomocą wieloetapowych testów sieci Web — Application
 description: Konfigurowanie wieloetapowych testów sieci Web w celu monitorowania aplikacji sieci Web przy użyciu usługi Azure Application Insights
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0031971dc2ccd2a9e681220dd835f46d33e36dbb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024780"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934858"
 ---
 # <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
 
@@ -37,24 +37,24 @@ Aby zlokalizować wymagania wstępne narzędzi do testowania. Uruchom debugowani
 > [!WARNING]
 > Nie zalecamy już korzystania z rejestratora wieloetapowego. Rejestrator został opracowany dla statycznych stron HTML z podstawowymi interakcjami i nie zapewnia funkcjonalnego środowiska dla nowoczesnych stron sieci Web.
 
-Aby uzyskać wskazówki dotyczące tworzenia testów sieci Web programu Visual Studio, zapoznaj się z [oficjalną dokumentacją programu Visual studio 2019](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Aby uzyskać wskazówki dotyczące tworzenia testów sieci Web programu Visual Studio, zapoznaj się z [oficjalną dokumentacją programu Visual studio 2019](/visualstudio/test/how-to-create-a-web-service-test).
 
 ## <a name="upload-the-web-test"></a>Przekaż test sieci Web
 
-1. W portalu Application Insights w okienku dostępność wybierz pozycję **Utwórz**test testowy  >  **Typ**  >  **wieloetapowego testu sieci Web**.
+1. W portalu Application Insights w okienku dostępność wybierz pozycję **Utwórz** test testowy  >  **Typ**  >  **wieloetapowego testu sieci Web**.
 
 2. Ustaw lokalizacje testu, częstotliwość i parametry alertu.
 
 ### <a name="frequency--location"></a>Częstotliwość & lokalizacji
 
-|Ustawienie| Objaśnienie
+|Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Częstotliwość testów**| Ustawia częstotliwość uruchamiania testu z każdej lokalizacji testowej. Przy domyślnej częstotliwości równej 5 minut i 5 lokalizacjach testu witryna będzie testowana średnio co minutę.|
 |**Lokalizacje testów**| Są miejsca, w których serwery wysyłają żądania sieci Web do adresu URL. **Minimalna liczba zalecanych lokalizacji testowych to pięć** , aby upewnić się, że problemy w witrynie sieci Web można odróżnić od problemów z siecią. Wybrać można maksymalnie 16 lokalizacji.
 
 ### <a name="success-criteria"></a>Kryteria sukcesu
 
-|Ustawienie| Objaśnienie
+|Ustawienie| Wyjaśnienie
 |----|----|----|
 | **Limit czasu testu** |Zmniejsz tę wartość, aby otrzymywać alerty o powolnych odpowiedziach. Test jest uznawany za błąd, jeśli w tym okresie nie odebrano odpowiedzi z witryny. W przypadku wybrania opcji **Analizuj zależne żądania** wszystkie obrazy, pliki stylów, skrypty i inne zasoby zależne muszą zostać odebrane w tym okresie.|
 | **Odpowiedź HTTP** | Zwrócony kod stanu, który jest liczony jako powodzenie. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.|
@@ -62,13 +62,13 @@ Aby uzyskać wskazówki dotyczące tworzenia testów sieci Web programu Visual S
 
 ### <a name="alerts"></a>Alerty
 
-|Ustawienie| Objaśnienie
+|Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
 |**Motyw** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
 |**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w **lokalizacji alertów**  =  **-2 z co najmniej pięcioma lokalizacjami testów.**|
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>Podłączanie czasu i liczb losowych do testu
 

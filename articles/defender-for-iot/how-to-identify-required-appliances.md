@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 92bf066c9769cc4b2525923b9e18ed3c0e9c577a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246574"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937139"
 ---
 # <a name="identify-required-appliances"></a>Identyfikowanie wymaganych urządzeń
 
@@ -40,7 +40,7 @@ Ta sekcja zawiera omówienie dostępnych modeli czujnika fizycznego. Można kupi
 
 | Typ wdrożenia | Firmowe | Przedsiębiorstwa | SMB |
 |--|--|--|--|
-| Obraz | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Model na poziomie firmy."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie przedsiębiorstwa."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie SMB."::: |
+| Image (Obraz) | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Model na poziomie firmy."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie przedsiębiorstwa."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie SMB."::: |
 | Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | Monitorowanie portów | Do 15 RJ45 lub 8 OPT | Do 8 RJ45 lub 6 OPT | 4 RJ45 |
 | Maksymalna przepustowość [1](#anchortext) | 3 GB na sekundę | 1 GB na sekundę | 200 MB na sekundę |
@@ -109,7 +109,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 
 ### <a name="appliance-bom"></a>BOM urządzenia
 
-| NC | Opis | Ilość |
+| NC | Opis | Liczba |
 |--|--|--|
 | P19766-B21 | HPE DL360 Gen10 8SFF NC dyrektor ds Server | 1 |
 | P19766-B21 | Europa — lokalizacja wielojęzyczna | 1 |
@@ -145,7 +145,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 
 ### <a name="appliance-bom"></a>BOM urządzenia
 
-| NC | Opis: wysoki koniec | Ilość |
+| NC | Opis: wysoki koniec | Liczba |
 |--|--|--|
 | P06963-B21 | HPE DL20 Gen10 4SFF dyrektor ds Server | 1 |
 | P06963-B21 | HPE DL20 Gen10 4SFF dyrektor ds Server | 1 |
@@ -180,7 +180,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 
 ### <a name="appliance-bom"></a>BOM urządzenia
 
-| NC | Opis | Ilość |
+| NC | Opis | Liczba |
 |--|--|--|
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF dyrektor ds Server | 1 |
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF dyrektor ds Server | 1 |
@@ -222,10 +222,10 @@ Ta sekcja zawiera szczegółowe informacje o dodatkowych urządzeniach certyfiko
 
 | Typ wdrożenia | Przedsiębiorstwa |
 |--|--|
-| Obraz | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Typ wdrożenia przedsiębiorstwa."::: |
+| Image (Obraz) | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Typ wdrożenia przedsiębiorstwa."::: |
 | Model | Dell PowerEdge R340 XL |
 | Monitorowanie portów | Do dziewięciu RJ45 lub sześciu OPT |
-| Maksymalna przepustowość [1](#anchortext2)| 1G MB/s |
+| Maksymalna przepustowość [1](#anchortext2)| 1 GB/s |
 | Maksymalna liczba chronionych urządzeń | 10 000 |
 
 <a id="anchortext2">Jeden</a> Przepustowość może się różnić w zależności od dystrybucji protokołów.

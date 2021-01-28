@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462939"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934391"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Użycie w analizie komercyjnej platformy handlowej
 
@@ -122,12 +122,12 @@ _**Tabela 1: słownik terminów dotyczących danych**_
 | Identyfikator subskrypcji witryny Marketplace | Identyfikator subskrypcji witryny Marketplace | Unikatowy identyfikator skojarzony z subskrypcją platformy Azure używany przez klienta do kupowania komercyjnej oferty portalu Marketplace. Identyfikator był dawniej identyfikatorem GUID subskrypcji platformy Azure. |
 | MonthStartDate | Data rozpoczęcia miesiąca | Data rozpoczęcia miesiąca reprezentuje miesiąc zakupu. |
 | Typ oferty | Typ oferty | Typ komercyjnej oferty portalu Marketplace. |
-| Typ licencji platformy Azure | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako kanał. Możliwe wartości są następujące:<ui><li>Dostawca rozwiązań w chmurze</li><li>Enterprise</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
+| Typ licencji platformy Azure | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako kanał. Możliwe wartości są następujące:<ui><li>Dostawca rozwiązań w chmurze</li><li>Przedsiębiorstwa</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
 | Typ licencji Marketplace | Typ licencji Marketplace | Metoda rozliczeń komercyjnej oferty portalu Marketplace. Możliwe wartości są następujące:<ul><li>Rozliczanie za pomocą platformy Azure</li><li>Korzystanie z własnej licencji</li><li>Bezpłatna</li><li>Firma Microsoft jako odsprzedawca</li></ul> |
 | SKU | SKU | Plan skojarzony z ofertą. |
 | Kraj klienta | Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Kraj/region może być inny niż kraj/region w subskrypcji platformy Azure klienta. |
 | Jest jednostką SKU wersji zapoznawczej | Jest jednostką SKU wersji zapoznawczej | Wartość jest wyświetlana, jeśli jednostka SKU została oznaczona jako "wersja zapoznawcza". Wartość będzie równa "yes", jeśli jednostka SKU została odpowiednio oznaczona, a tylko subskrypcje platformy Azure autoryzowane przez użytkownika, można wdrożyć i korzystać z tego obrazu. Wartość będzie równa "No", jeśli jednostka SKU nie została zidentyfikowana jako "wersja zapoznawcza". |
-| Typ rozliczeń jednostki SKU | Typ rozliczeń jednostki SKU | Typ rozliczeń skojarzony z poszczególnymi jednostkami SKU w ofercie. Możliwe wartości są następujące:<ul><li>Bezpłatna</li><li>Święcona</li></ul> |
+| Typ rozliczeń jednostki SKU | Typ rozliczeń jednostki SKU | Typ rozliczeń skojarzony z poszczególnymi jednostkami SKU w ofercie. Możliwe wartości są następujące:<ul><li>Bezpłatna</li><li>Płatna</li></ul> |
 | Właściwości IsInternal ustawionej | Przestarzałe | Przestarzałe |
 | Rozmiar maszyny wirtualnej | Rozmiar maszyny wirtualnej | W przypadku typów ofert opartych na maszynie wirtualnej ta jednostka oznacza rozmiar maszyny wirtualnej skojarzonej z jednostką SKU oferty. |
 | Nazwa wystąpienia chmury | Nazwa wystąpienia chmury | Microsoft Cloud, w którym wystąpiło wdrożenie maszyny wirtualnej. |
@@ -135,7 +135,7 @@ _**Tabela 1: słownik terminów dotyczących danych**_
 | Offer Name | Offer Name | Nazwa komercyjnej oferty portalu Marketplace. |
 | DeploymentMethod | Przestarzałe | Przestarzałe (definicja typu oferty)
  |
-| Nazwa firmy klienta | Nazwa firmy klienta | Nazwa firmy podana przez klienta. Nazwa może się różnić od miasta w subskrypcji platformy Azure klienta. |
+| Nazwa firmy klienta | Nazwa firmy klienta | Nazwa firmy podana przez klienta. Nazwa może się różnić od nazwy w subskrypcji platformy Azure klienta. |
 | Data wykorzystania | Data wykorzystania | Data generowania zdarzeń użycia dla zasobów opartych na użyciu. |
 | IsMultisolution | Jest wielorozwiązań | Oznacza, czy oferta jest typu oferty wielorozwiązań. |
 | Jest nowym klientem | Przestarzałe | Przestarzałe |

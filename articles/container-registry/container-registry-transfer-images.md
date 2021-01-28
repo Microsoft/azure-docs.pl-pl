@@ -4,12 +4,12 @@ description: Przenoszenie kolekcji obrazów lub innych artefaktów z jednego rej
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932604"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935342"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Przenoszenie artefaktów do innego rejestru
 
@@ -281,7 +281,7 @@ Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.js
 
 W przypadku ponownego wdrażania zasobu PipelineRun z identycznymi właściwościami należy również użyć właściwości [forceUpdateTag](#redeploy-pipelinerun-resource) .
 
-Uruchom [AZ Deployment Group Create][az-deployment-group-create] , aby utworzyć zasób PipelineRun. Poniższy przykład nazywa *exportPipelineRun*wdrożenia.
+Uruchom [AZ Deployment Group Create][az-deployment-group-create] , aby utworzyć zasób PipelineRun. Poniższy przykład nazywa *exportPipelineRun* wdrożenia.
 
 ```azurecli
 az deployment group create \
@@ -312,7 +312,7 @@ az storage blob list \
 
 ## <a name="transfer-blob-optional"></a>Transfer obiektów BLOB (opcjonalnie) 
 
-Użyj narzędzia AzCopy lub innych metod [transferu danych obiektów BLOB](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) z konta magazynu źródłowego na docelowe konto magazynu.
+Użyj narzędzia AzCopy lub innych metod [transferu danych obiektów BLOB](../storage/common/storage-use-azcopy-v10.md#transfer-data) z konta magazynu źródłowego na docelowe konto magazynu.
 
 Na przykład następujące [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) polecenie kopiuje obiekt BLOB z kontenera *transferu* na koncie źródłowym do kontenera *transferu* na koncie docelowym. Jeśli obiekt BLOB istnieje na koncie docelowym, zostanie nadpisany. Uwierzytelnianie używa tokenów SAS z odpowiednimi uprawnieniami dla kontenerów źródłowy i docelowy. (Kroki tworzenia tokenów nie są wyświetlane).
 
@@ -377,7 +377,7 @@ az acr repository list --name <target-registry-name>
 
 ## <a name="redeploy-pipelinerun-resource"></a>Wdróż ponownie zasób PipelineRun
 
-W przypadku ponownego wdrażania zasobu PipelineRun z *identycznymi właściwościami*należy użyć właściwości **forceUpdateTag** . Ta właściwość wskazuje, że zasób PipelineRun należy utworzyć ponownie, nawet jeśli konfiguracja nie została zmieniona. Upewnij się, że forceUpdateTag jest inna po każdym ponownym wdrożeniu zasobu PipelineRun. Poniższy przykład odtworzy PipelineRun do eksportu. Bieżąca data i godzina jest używana do ustawiania forceUpdateTag, co zapewnia, że ta właściwość zawsze jest unikatowa.
+W przypadku ponownego wdrażania zasobu PipelineRun z *identycznymi właściwościami* należy użyć właściwości **forceUpdateTag** . Ta właściwość wskazuje, że zasób PipelineRun należy utworzyć ponownie, nawet jeśli konfiguracja nie została zmieniona. Upewnij się, że forceUpdateTag jest inna po każdym ponownym wdrożeniu zasobu PipelineRun. Poniższy przykład odtworzy PipelineRun do eksportu. Bieżąca data i godzina jest używana do ustawiania forceUpdateTag, co zapewnia, że ta właściwość zawsze jest unikatowa.
 
 ```console
 CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`

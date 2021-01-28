@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734543"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934730"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
@@ -61,7 +61,7 @@ Są to parametry wymagane przez każdą z tych operacji analizy przestrzennej.
 |---------|---------|
 | Identyfikator operacji | Identyfikator operacji z tabeli powyżej.|
 | enabled | Wartość logiczna: true lub false|
-| VIDEO_URL| Adres URL protokołu RTSP dla urządzenia aparatu fotograficznego (przykład: `rtsp://username:password@url` ). Analiza przestrzenna obsługuje strumień w formacie H. 264 przy użyciu protokołu RTSP, http lub MP4. Video_URL można podać jako zasłoniętą wartość ciągu Base64 przy użyciu szyfrowania AES, a jeśli adres URL filmu wideo zostanie zasłonięty `KEY_ENV` i `IV_ENV` musi być podany jako zmienne środowiskowe. Przykładowe narzędzie do generowania kluczy i szyfrowania można znaleźć [tutaj](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0). |
+| VIDEO_URL| Adres URL protokołu RTSP dla urządzenia aparatu fotograficznego (przykład: `rtsp://username:password@url` ). Analiza przestrzenna obsługuje strumień w formacie H. 264 przy użyciu protokołu RTSP, http lub MP4. Video_URL można podać jako zasłoniętą wartość ciągu Base64 przy użyciu szyfrowania AES, a jeśli adres URL filmu wideo zostanie zasłonięty `KEY_ENV` i `IV_ENV` musi być podany jako zmienne środowiskowe. Przykładowe narzędzie do generowania kluczy i szyfrowania można znaleźć [tutaj](/dotnet/api/system.security.cryptography.aesmanaged). |
 | VIDEO_SOURCE_ID | Przyjazna nazwa urządzenia aparatu lub strumienia wideo. Zostanie on zwrócony z danymi wyjściowymi zdarzenia JSON.|
 | VIDEO_IS_LIVE| Wartość true w przypadku urządzeń z kamerą; wartość false dla zarejestrowanych filmów wideo.|
 | VIDEO_DECODE_GPU_INDEX| Procesor GPU do zdekodowania ramki wideo. Domyślnie jest to 0. Powinna być taka sama jak `gpu_index` w przypadku innych konfiguracji węzła, takich jak `VICA_NODE_CONFIG` , `DETECTOR_NODE_CONFIG` .|

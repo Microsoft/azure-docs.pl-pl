@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344151"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934546"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
@@ -49,7 +49,7 @@ Przy użyciu tożsamości zarządzanych platforma Azure zarządza tą tożsamoś
 
 Platforma Azure udostępnia **dwie wbudowane role platformy Azure** umożliwiające autoryzowanie dostępu do [interfejsów API płaszczyzny danych](how-to-use-apis-sdks.md#overview-data-plane-apis)Digital bliźniaczych reprezentacji na platformie Azure. Można odwołać się do ról według nazwy lub identyfikatora:
 
-| Wbudowana rola | Opis | ID | 
+| Wbudowana rola | Opis | ID (Identyfikator) | 
 | --- | --- | --- |
 | Właściciel danych Digital bliźniaczych reprezentacji systemu Azure | Zapewnia pełen dostęp za pośrednictwem zasobów usługi Azure Digital bliźniaczych reprezentacji | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Czytnik danych Digital bliźniaczych reprezentacji systemu Azure | Zapewnia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
@@ -89,6 +89,39 @@ Na poniższej liście opisano poziomy, w których można ograniczyć dostęp do 
 
 Jeśli użytkownik próbuje wykonać akcję niedozwoloną przez ich rolę, może otrzymać błąd od odczytu żądania obsługi `403 (Forbidden)` . Aby uzyskać więcej informacji i kroków rozwiązywania problemów, zobacz [*Rozwiązywanie problemów: żądanie usługi Azure Digital bliźniaczych reprezentacji nie powiodło się. stan: 403 (niedozwolone)*](troubleshoot-error-403.md).
 
+## <a name="managed-identity-for-accessing-other-resources-preview"></a>Zarządzana tożsamość do uzyskiwania dostępu do innych zasobów (wersja zapoznawcza)
+
+Skonfigurowanie **tożsamości zarządzanej** w usłudze [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji może umożliwić wystąpienie z łatwością uzyskiwać dostęp do innych zasobów chronionych przez usługę Azure AD, takich jak [Azure Key Vault](../key-vault/general/overview.md). Tożsamość jest zarządzana przez platformę Azure i nie wymaga aprowizacji ani rotacji żadnych wpisów tajnych. Aby uzyskać więcej informacji na temat tożsamości zarządzanych w usłudze Azure AD, zobacz  [*zarządzane tożsamości dla zasobów platformy Azure*](../active-directory/managed-identities-azure-resources/overview.md). 
+
+Platforma Azure obsługuje dwa typy zarządzanych tożsamości: przypisane do systemu i przypisane przez użytkownika. Obecnie usługa Azure Digital bliźniaczych reprezentacji obsługuje tylko **tożsamości przypisane do systemu**. 
+
+Do uwierzytelniania w ramach [niestandardowego punktu końcowego](concepts-route-events.md#create-an-endpoint)platformy Azure można użyć zarządzanej tożsamości przypisanej do systemu. Usługa Azure Digital bliźniaczych reprezentacji obsługuje uwierzytelnianie oparte na tożsamościach przypisane do punktów końcowych dla [centrów zdarzeń](../event-hubs/event-hubs-about.md) i [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)   miejsc docelowych oraz punkt końcowy [kontenera usługi Azure Storage](../storage/blobs/storage-blobs-introduction.md)   dla [zdarzeń utraconych](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md)   punkty końcowe nie są obecnie obsługiwane dla tożsamości zarządzanych.
+
+Aby uzyskać instrukcje dotyczące włączania tożsamości zarządzanej przez system dla usługi Azure Digital bliźniaczych reprezentacji i używania jej do kierowania zdarzeń, zobacz [*How to: Enable Managed Identity for Routing Events (wersja zapoznawcza)*](how-to-enable-managed-identities.md).
+
+## <a name="private-network-access-with-azure-private-link-preview"></a>Dostęp do sieci prywatnej za pomocą prywatnego linku platformy Azure (wersja zapoznawcza)
+
+[Link prywatny platformy Azure](../private-link/private-link-overview.md) to usługa, która umożliwia dostęp do zasobów platformy Azure (takich jak [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Storage](../storage/common/storage-introduction.md)i [Azure Cosmos DB](../cosmos-db/introduction.md)) oraz usług klienta i partnerskich hostowanych na platformie Azure za pośrednictwem prywatnego punktu końcowego w [usłudze Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md). 
+
+Analogicznie, można użyć prywatnych punktów końcowych dla wystąpienia z cyfrowym przędzą na platformie Azure, aby umożliwić klientom znajdującym się w sieci wirtualnej bezpieczny dostęp do wystąpienia za pośrednictwem prywatnego linku. 
+
+Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej platformy Azure. Ruch sieciowy między klientem w sieci prywatnej a wystąpieniem usługi Azure Digital bliźniaczych reprezentacji przechodzi przez sieć wirtualną oraz link prywatny w sieci szkieletowej firmy Microsoft, eliminując narażenie na publiczny Internet. Oto wizualna reprezentacja tego systemu:
+
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Diagram przedstawiający sieć firmy PowerGrid, która jest chronioną siecią wirtualną bez dostępu do Internetu/chmury publicznej, nawiązując połączenie za pomocą prywatnego linku do wystąpienia usługi Azure Digital bliźniaczych reprezentacji o nazwie CityOfTwins.":::
+
+Skonfigurowanie prywatnego punktu końcowego dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji umożliwia zabezpieczenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji i wyeliminowanie ryzyka publicznego, a także uniknięcie eksfiltracji danych z sieci wirtualnej.
+
+Aby uzyskać instrukcje dotyczące konfigurowania prywatnego linku do usługi Azure Digital bliźniaczych reprezentacji, zobacz [*How to: Enable Private Access with Private link (wersja zapoznawcza)*](how-to-enable-private-link.md).
+
+### <a name="design-considerations"></a>Zagadnienia dotyczące projektowania 
+
+W przypadku korzystania z prywatnego linku do usługi Azure Digital bliźniaczych reprezentacji można wziąć pod uwagę następujące czynniki:
+* **Cennik**: Aby uzyskać szczegółowe informacje o cenach, zobacz  [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link). 
+* **Dostępność regionalna**: w przypadku usługi Azure Digital bliźniaczych reprezentacji ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których jest dostępna usługa Azure Digital bliźniaczych reprezentacji. 
+* **Maksymalna liczba prywatnych punktów końcowych na wystąpienie usługi Azure Digital bliźniaczych reprezentacji**: 10
+
+Aby uzyskać informacje na temat limitów linku prywatnego, zobacz [Dokumentacja prywatnego linku platformy Azure: ograniczenia](../private-link/private-link-service-overview.md#limitations).
+
 ## <a name="service-tags"></a>Tagi usługi
 
 **Tag usługi** reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz  [*Tagi sieci wirtualnej*](../virtual-network/service-tags-overview.md). 
@@ -113,11 +146,11 @@ Poniżej przedstawiono procedurę uzyskiwania dostępu do punktów końcowych [t
 
 4. Ustaw filtry IP dla zasobów zewnętrznych przy użyciu zakresów adresów IP z *kroku 2*.  
 
-5. W razie potrzeby zaktualizuj zakresy adresów IP. Zakresy mogą ulec zmianie z upływem czasu, dlatego dobrym pomysłem jest regularne sprawdzenie i odświeżanie ich w razie potrzeby. Częstotliwość tych aktualizacji może się różnić, ale dobrym pomysłem jest sprawdzenie ich raz w tygodniu.
+5. W razie potrzeby zaktualizuj zakresy adresów IP. Zakresy mogą ulec zmianie z upływem czasu, dlatego dobrym pomysłem jest jego regularne sprawdzenie i odświeżanie ich w razie potrzeby. Częstotliwość tych aktualizacji może się różnić, ale dobrym pomysłem jest sprawdzenie ich raz w tygodniu.
 
 ## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych
 
-Usługa Azure Digital bliźniaczych reprezentacji zapewnia szyfrowanie danych przechowywanych i przesyłanych w czasie, gdy jest ona zapisywana w centrach danych i odszyfrowuje ją, gdy uzyskujesz do niej dostęp. To szyfrowanie odbywa się przy użyciu zarządzanego klucza szyfrowania firmy Microsoft.
+Usługa Azure Digital bliźniaczych reprezentacji zapewnia szyfrowanie danych przechowywanych i przesyłanych w czasie, gdy jest ona zapisywana w centrach danych i odszyfrowuje ją, gdy uzyskujesz do niej dostęp. To szyfrowanie odbywa się przy użyciu klucza szyfrowania zarządzanego przez firmę Microsoft.
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Współużytkowanie zasobów między źródłami (CORS)
 

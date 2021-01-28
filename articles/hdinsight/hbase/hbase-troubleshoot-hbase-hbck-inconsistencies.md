@@ -3,16 +3,13 @@ title: HBase hbck zwraca niespójności w usłudze Azure HDInsight
 description: HBase hbck zwraca niespójności w usłudze Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: a3f6a709d3e0f1c71f89473b6ed8435c6eea7e1c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: cbe4231bbecdf279c637cd334336437a020188d4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540231"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936981"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scenariusz: `hbase hbck` polecenie zwraca niespójności w usłudze Azure HDInsight
 

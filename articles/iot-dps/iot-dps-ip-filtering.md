@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 6ff5731e7d346c954253ec4186357595461b7678
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: e1b175a176255da465433b2db45cb3cb67d360d1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400260"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934504"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Korzystanie z filtrów połączeń IP usługi Azure IoT DPS
 
@@ -258,5 +258,5 @@ Aby zapisać nową kolejność reguł filtrowania adresów IP, kliknij przycisk 
 Aby dowiedzieć się więcej na temat zarządzania usługą DPS, zobacz:
 
 * [Informacje o adresach IP usługi IoT DPS](iot-dps-understand-ip-address.md)
-* [Konfigurowanie usługi DPS przy użyciu interfejsu wiersza polecenia platformy Azure](how-to-manage-dps-with-cli.md)
+* [Konfigurowanie usługi DPS przy użyciu interfejsu wiersza polecenia platformy Azure](quick-setup-auto-provision-cli.md)
 * [Kontrola dostępu do usługi DPS](how-to-control-access.md)

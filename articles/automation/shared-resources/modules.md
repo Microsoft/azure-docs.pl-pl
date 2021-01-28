@@ -3,14 +3,14 @@ title: Zarządzanie modułami w usłudze Azure Automation
 description: W tym artykule opisano sposób korzystania z modułów programu PowerShell w celu włączenia poleceń cmdlet w elementach Runbook i zasobach DSC w konfiguracjach DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/22/2020
+ms.date: 01/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c940ede63e2a467a29ae56308893d573925d0039
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458153"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936632"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Zarządzanie modułami w usłudze Azure Automation
 
@@ -25,10 +25,18 @@ Azure Automation używa wielu modułów programu PowerShell do włączania polec
 
 Podczas tworzenia konta usługi Automation Azure Automation domyślnie importowane są pewne moduły. Zobacz [moduły domyślne](#default-modules).
 
+## <a name="sandboxes"></a>Piaskownice
+
 Gdy Automatyzacja wykonuje zadania kompilacji elementów Runbook i DSC, ładuje moduły do piaskownic, w których można uruchomić elementy Runbook, a konfiguracje DSC mogą być kompilowane. Automatyzacja automatycznie umieszcza wszystkie zasoby DSC w modułach na serwerze ściągania DSC. Maszyny mogą ściągnąć zasoby, gdy stosują konfiguracje DSC.
 
 >[!NOTE]
 >Pamiętaj, aby zaimportować tylko te moduły, których wymagają elementy Runbook i konfiguracje DSC. Nie zalecamy importowania głównego elementu AZ module. Obejmuje to wiele innych modułów, które mogą nie być potrzebne, co może powodować problemy z wydajnością. Zaimportuj poszczególne moduły, takie jak AZ. COMPUTE, zamiast.
+
+Piaskownica w chmurze obsługuje maksymalnie 48 wywołań systemowych i ogranicza wszystkie inne wywołania ze względów bezpieczeństwa. Inne funkcje, takie jak zarządzanie poświadczeniami i niektóre sieci, nie są obsługiwane w piaskownicy chmury.
+
+Ze względu na liczbę modułów i poleceń cmdlet, trudno poznać wcześniej, które polecenia cmdlet spowodują nieobsługiwane wywołania. Ogólnie rzecz biorąc, mamy problemy z poleceniami cmdlet, które wymagają podwyższonego poziomu uprawnień, wymagają poświadczeń jako parametru lub poleceń cmdlet związanych z siecią. Wszystkie polecenia cmdlet, które wykonują operacje na pełnym stosie, nie są obsługiwane w piaskownicy, w tym [Connect-AipService](/powershell/module/aipservice/connect-aipservice) z modułu AipService PowerShell i [rozwiązywania dnsname](/powershell/module/dnsclient/resolve-dnsname) z modułu DNSClient.
+
+Są to znane ograniczenia dotyczące piaskownicy. Zalecanym obejściem jest wdrożenie [hybrydowego procesu roboczego elementu Runbook](../automation-hybrid-runbook-worker.md) lub użycie [Azure Functions](../../azure-functions/functions-overview.md).
 
 ## <a name="default-modules"></a>Moduły domyślne
 
@@ -62,7 +70,7 @@ Automatyzacja nie powoduje automatycznego importowania głównego elementu AZ mo
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |
-| xDSCDomainjoin | 1,1 |
+| xDSCDomainjoin | 1.1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
@@ -134,7 +142,7 @@ Importowanie modułu AZ module do konta usługi Automation nie powoduje automaty
 
 Można zaimportować moduły AZ w Azure Portal. Pamiętaj, aby zaimportować tylko te moduły AZ, które są potrzebne, a nie cały moduł AZ. Automation. Ponieważ [AZ. Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) jest zależnością dla innych modułów AZ module, pamiętaj o zaimportowaniu tego modułu przed innymi.
 
-1. Na koncie usługi Automation w obszarze **udostępnione zasoby**wybierz pozycję **moduły**.
+1. Na koncie usługi Automation w obszarze **udostępnione zasoby** wybierz pozycję **moduły**.
 2. Wybierz pozycję **Przeglądaj Galerię**.  
 3. Na pasku wyszukiwania wprowadź nazwę modułu (na przykład `Az.Accounts` ).
 4. Na stronie moduł programu PowerShell wybierz pozycję **Importuj** , aby zaimportować moduł do konta usługi Automation.
@@ -316,7 +324,7 @@ W tej sekcji zdefiniowano kilka sposobów importowania modułu do konta usługi 
 Aby zaimportować moduł w Azure Portal:
 
 1. Przejdź do konta usługi Automation.
-2. W obszarze **zasoby udostępnione**wybierz pozycję **moduły**.
+2. W obszarze **zasoby udostępnione** wybierz pozycję **moduły**.
 3. Wybierz pozycję **Dodaj moduł**.
 4. Wybierz plik **zip** , który zawiera moduł.
 5. Wybierz **przycisk OK** , aby rozpocząć importowanie procesu.
@@ -344,14 +352,14 @@ Moduły [Galeria programu PowerShell](https://www.powershellgallery.com) można 
 Aby zaimportować moduł bezpośrednio z Galeria programu PowerShell:
 
 1. Przejdź do https://www.powershellgallery.com i Wyszukaj moduł do zaimportowania.
-2. W obszarze **Opcje instalacji**na karcie **Azure Automation** wybierz pozycję **Wdróż do Azure Automation**. Ta akcja powoduje otwarcie Azure Portal. 
+2. W obszarze **Opcje instalacji** na karcie **Azure Automation** wybierz pozycję **Wdróż do Azure Automation**. Ta akcja powoduje otwarcie Azure Portal. 
 3. Na stronie Importowanie wybierz konto usługi Automation, a następnie wybierz **przycisk OK**.
 
 ![Zrzut ekranu modułu Galeria programu PowerShell import](../media/modules/powershell-gallery.png)
 
 Aby zaimportować moduł Galeria programu PowerShell bezpośrednio z konta usługi Automation:
 
-1. W obszarze **zasoby udostępnione**wybierz pozycję **moduły**. 
+1. W obszarze **zasoby udostępnione** wybierz pozycję **moduły**. 
 2. Wybierz pozycję **Przeglądaj Galerię**, a następnie wyszukaj moduł w galerii. 
 3. Wybierz moduł do zaimportowania, a następnie wybierz pozycję **Importuj**. 
 4. Wybierz **przycisk OK** , aby rozpocząć proces importowania.
@@ -366,7 +374,7 @@ Jeśli masz problemy z modułem lub musisz przywrócić poprzednią wersję modu
 
 Aby usunąć moduł w Azure Portal:
 
-1. Przejdź do konta usługi Automation. W obszarze **zasoby udostępnione**wybierz pozycję **moduły**.
+1. Przejdź do konta usługi Automation. W obszarze **zasoby udostępnione** wybierz pozycję **moduły**.
 2. Wybierz moduł, który chcesz usunąć.
 3. Na stronie moduł wybierz pozycję **Usuń**. Jeśli ten moduł jest jednym z [domyślnych modułów](#default-modules), zostanie przywrócony do wersji, która istniała podczas tworzenia konta usługi Automation.
 
