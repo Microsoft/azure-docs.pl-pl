@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2021
 ms.author: memildin
-ms.openlocfilehash: f8d92ff0835948637761d7d2a98ec95a1c6dfccd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 523b081b59bd2f4c45c1ceeb9f39c58f4e3b02b1
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944213"
+ms.locfileid: "98986907"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Samouczek: poprawa zgodności z przepisami
 
@@ -55,7 +55,7 @@ Korzystając z pulpitu nawigacyjnego zgodność z przepisami, można skoncentrow
 
     W górnej części ekranu znajduje się pulpit nawigacyjny z omówieniem stanu zgodności z zestawem obsługiwanych regulacji zgodności. Widoczna jest ogólna ocena zgodności oraz liczba ocen zakończonych powodzeniem i niepowodzeniem skojarzonych z każdym standardem.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Pulpit nawigacyjny zgodności z przepisami":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Pulpit nawigacyjny zgodności z przepisami" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 1. Wybierz kartę dla normy zgodności, która jest odpowiednia dla Ciebie (1). Zobaczysz, które subskrypcje są stosowane w warstwie Standardowa (2) i listę wszystkich kontrolek dla tego standardu (3). W przypadku odpowiednich kontrolek można wyświetlić szczegóły dotyczące przekazywania i niepowodzenia ocen skojarzonych z tą kontrolką (4), a także liczby zasobów, których to dotyczy (5). Niektóre kontrolki są wyszarzone. Te kontrolki nie mają skojarzonych z nimi ocen Security Center. Sprawdź wymagania dotyczące tych i Oceń je we własnym środowisku. Niektóre z nich mogą być zależne od procesu, a nie techniczne.
 

@@ -5,20 +5,20 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.author: tamram
+ms.date: 01/27/2021
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 9032576f3705c360ebf53d8fdb4d6c15f77f450e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5a1ad898b745bbb49421c1bc0b5a9b2e5c8ec0f6
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703508"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986004"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
-Usługa Azure Storage zapewnia warstwowy model zabezpieczeń. Ten model umożliwia zabezpieczenie i kontrolowanie poziomu dostępu do kont magazynu żądanych przez aplikację i przedsiębiorstwo na podstawie typu i podsieci używanych sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta magazynu. Dostęp do konta magazynu można ograniczyć do żądań pochodzących z określonych adresów IP, zakresów adresów IP lub z listy podsieci w usłudze Azure Virtual Network (VNet).
+Usługa Azure Storage udostępnia warstwowy model zabezpieczeń. Ten model pozwala zabezpieczyć i kontrolować poziom dostępu do kont magazynu używanych przez aplikacje i środowiska korporacyjne na podstawie typu i podzbioru sieci lub zasobów. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci lub przez określony zestaw zasobów platformy Azure mogą uzyskiwać dostęp do konta magazynu. Możesz ograniczyć dostęp do konta magazynu, aby żądania pochodzące z określonych adresów IP, zakresów adresów IP, podsieci w usłudze Azure Virtual Network (VNet) lub wystąpień zasobów niektórych usług platformy Azure.
 
 Konta magazynu mają publiczny punkt końcowy, który jest dostępny za pomocą Internetu. Możesz również utworzyć [prywatne punkty końcowe dla konta magazynu](storage-private-endpoints.md), które przypisuje prywatny adres IP z sieci wirtualnej do konta magazynu, i zabezpiecza cały ruch między siecią wirtualną a kontem magazynu za pośrednictwem prywatnego linku. Zapora usługi Azure Storage zapewnia kontrolę dostępu dla publicznego punktu końcowego konta magazynu. Możesz również użyć zapory, aby zablokować dostęp za pośrednictwem publicznego punktu końcowego podczas korzystania z prywatnych punktów końcowych. Konfiguracja zapory magazynu umożliwia także wybranie zaufanych usług platformy Azure w celu bezpiecznego uzyskiwania dostępu do konta magazynu.
 
@@ -27,7 +27,7 @@ Aplikacja, która uzyskuje dostęp do konta magazynu, gdy reguły sieciowe nadal
 > [!IMPORTANT]
 > Włączenie reguł zapory dla konta magazynu domyślnie blokuje przychodzące żądania danych, chyba że żądania pochodzą z usługi działającej w ramach platformy Azure Virtual Network (VNet) lub z dozwolonych publicznych adresów IP. Zablokowane żądania obejmują te z innych usług platformy Azure, z Azure Portal z usług rejestrowania i metryk i tak dalej.
 >
-> Można udzielić dostępu do usług platformy Azure, które działają w sieci wirtualnej, zezwalając na ruch z podsieci obsługującej wystąpienie usługi. Można również włączyć ograniczoną liczbę scenariuszy za pomocą mechanizmu [wyjątków](#exceptions) opisanych poniżej. Aby uzyskać dostęp do danych z konta magazynu za pośrednictwem Azure Portal, musisz znajdować się na komputerze w ramach zaufanej granicy (adresu IP lub sieci wirtualnej), który został skonfigurowany.
+> Można udzielić dostępu do usług platformy Azure, które działają w sieci wirtualnej, zezwalając na ruch z podsieci obsługującej wystąpienie usługi. Można również włączyć ograniczoną liczbę scenariuszy za pomocą mechanizmu wyjątków opisanych poniżej. Aby uzyskać dostęp do danych z konta magazynu za pośrednictwem Azure Portal, musisz znajdować się na komputerze w ramach zaufanej granicy (adresu IP lub sieci wirtualnej), który został skonfigurowany.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Reguły sieciowe nie wpływają na ruch dysku maszyny wirtualnej (w tym operacje
 
 Klasyczne konta magazynu nie obsługują zapór i sieci wirtualnych.
 
-Dysków niezarządzanych można używać na kontach magazynu z regułami sieci stosowanymi do tworzenia kopii zapasowych i przywracania maszyn wirtualnych przez utworzenie wyjątku. Ten proces jest udokumentowany w sekcji [wyjątki](#exceptions) tego artykułu. Wyjątki zapory nie mają zastosowania w przypadku dysków zarządzanych, ponieważ są one już zarządzane przez platformę Azure.
+Można używać dysków niezarządzanych na kontach magazynu z regułami sieci stosowanymi do tworzenia kopii zapasowych i przywracania maszyn wirtualnych przez utworzenie wyjątku. Ten proces jest udokumentowany w sekcji [Zarządzanie wyjątkami](#manage-exceptions) tego artykułu. Wyjątki zapory nie mają zastosowania w przypadku dysków zarządzanych, ponieważ są one już zarządzane przez platformę Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Zmienianie domyślnej reguły dostępu do sieci
 
@@ -60,59 +60,62 @@ Domyślnie konta magazynu akceptują połączenia od klientów w dowolnej sieci.
 
 Można zarządzać domyślnymi regułami dostępu do sieci dla kont magazynu za pomocą Azure Portal, PowerShell lub CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
-1. Kliknij menu Ustawienia o nazwie **Sieć**.
+2. Wybierz opcję w menu Ustawienia o nazwie **Sieć**.
 
-1. Aby domyślnie zablokować dostęp, wybierz opcję zezwolenia na dostęp z **wybranych sieci**. Aby zezwolić na ruch ze wszystkich sieci, wybierz opcję zezwalającą na dostęp ze **wszystkich sieci**.
+3. Aby domyślnie zablokować dostęp, wybierz opcję zezwolenia na dostęp z **wybranych sieci**. Aby zezwolić na ruch ze wszystkich sieci, wybierz opcję zezwalającą na dostęp ze **wszystkich sieci**.
 
-1. Aby zastosować zmiany, kliknij pozycję **Zapisz**.
+4. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-#### <a name="powershell"></a>PowerShell
+<a id="powershell"></a>
+
+#### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-Az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps).
 
-1. Wyświetl stan domyślnej reguły dla konta magazynu.
+2. Wyświetl stan domyślnej reguły dla konta magazynu.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
-1. Ustaw regułę domyślną, aby domyślnie odrzucać dostęp do sieci.
+3. Ustaw regułę domyślną, aby domyślnie odrzucać dostęp do sieci.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
-1. Ustaw domyślną regułę zezwalającą na dostęp do sieci.
+4. Ustaw domyślną regułę zezwalającą na dostęp do sieci.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 1. Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Zaloguj się](/cli/azure/authenticate-azure-cli).
 
-1. Wyświetl stan domyślnej reguły dla konta magazynu.
+2. Wyświetl stan domyślnej reguły dla konta magazynu.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
     ```
 
-1. Ustaw regułę domyślną, aby domyślnie odrzucać dostęp do sieci.
+3. Ustaw regułę domyślną, aby domyślnie odrzucać dostęp do sieci.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
     ```
 
-1. Ustaw domyślną regułę zezwalającą na dostęp do sieci.
+4. Ustaw domyślną regułę zezwalającą na dostęp do sieci.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+---
 
 ## <a name="grant-access-from-a-virtual-network"></a>Udzielanie dostępu z sieci wirtualnej
 
@@ -144,42 +147,42 @@ Konto magazynu i dostępne sieci wirtualne mogą znajdować się w różnych sub
 
 Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure Portal, PowerShell lub CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
-1. Kliknij menu Ustawienia o nazwie **Sieć**.
+2. Wybierz opcję w menu Ustawienia o nazwie **Sieć**.
 
-1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
+3. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 
-1. Aby udzielić dostępu do sieci wirtualnej przy użyciu nowej reguły sieci, w obszarze **sieci wirtualne** kliknij przycisk **Dodaj istniejącą sieć wirtualną**, wybierz opcję **sieci wirtualne** i **podsieci** , a następnie kliknij przycisk **Dodaj**. Aby utworzyć nową sieć wirtualną i udzielić jej dostępu, kliknij przycisk **Dodaj nową sieć wirtualną**. Podaj informacje niezbędne do utworzenia nowej sieci wirtualnej, a następnie kliknij przycisk **Utwórz**.
+4. Aby udzielić dostępu do sieci wirtualnej przy użyciu nowej reguły sieci, w obszarze **sieci wirtualne** wybierz opcję **Dodaj istniejącą sieć wirtualną**, wybierz opcję **sieci wirtualne** i **podsieci** , a następnie wybierz pozycję **Dodaj**. Aby utworzyć nową sieć wirtualną i udzielić jej dostępu, wybierz pozycję **Dodaj nową sieć wirtualną**. Podaj informacje niezbędne do utworzenia nowej sieci wirtualnej, a następnie wybierz pozycję **Utwórz**.
 
     > [!NOTE]
     > Jeśli punkt końcowy usługi Azure Storage nie został wcześniej skonfigurowany dla wybranej sieci wirtualnej i podsieci, możesz go skonfigurować w ramach tej operacji.
     >
     > Obecnie do wyboru podczas tworzenia reguły są wyświetlane tylko sieci wirtualne należące do tej samej dzierżawy Azure Active Directory. Aby udzielić dostępu do podsieci w sieci wirtualnej należącej do innej dzierżawy, użyj programu PowerShell, interfejsu wiersza polecenia lub interfejsów API REST.
 
-1. Aby usunąć regułę sieci wirtualnej lub podsieci, kliknij przycisk **...** , aby otworzyć menu kontekstowe dla sieci wirtualnej lub podsieci, a następnie kliknij przycisk **Usuń**.
+5. Aby usunąć regułę sieci wirtualnej lub podsieci, wybierz pozycję **...** , aby otworzyć menu kontekstowe dla sieci wirtualnej lub podsieci, a następnie wybierz pozycję **Usuń**.
 
-1. Aby zastosować zmiany, kliknij pozycję **Zapisz**.
+6. Wybierz pozycję **Zapisz** , aby zastosować zmiany.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-Az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps).
 
-1. Wyświetl listę reguł sieci wirtualnej.
+2. Wyświetl listę reguł sieci wirtualnej.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
-1. Włącz punkt końcowy usługi dla magazynu Azure w istniejącej sieci wirtualnej i podsieci.
+3. Włącz punkt końcowy usługi dla magazynu Azure w istniejącej sieci wirtualnej i podsieci.
 
     ```powershell
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
-1. Dodaj regułę sieciową dla sieci wirtualnej i podsieci.
+4. Dodaj regułę sieciową dla sieci wirtualnej i podsieci.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -189,7 +192,7 @@ Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure 
     > [!TIP]
     > Aby dodać regułę sieciową dla podsieci w sieci wirtualnej należącej do innej dzierżawy usługi Azure AD, należy użyć w pełni kwalifikowanego parametru **VirtualNetworkResourceId** w postaci "/subscriptions/Subscription-ID/resourceGroups/resourceGroup-Name/Providers/Microsoft.Network/virtualNetworks/vNet-Name/Subnets/subnet-name".
 
-1. Usuń regułę sieci dla sieci wirtualnej i podsieci.
+5. Usuń regułę sieci dla sieci wirtualnej i podsieci.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -199,23 +202,23 @@ Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure 
 > [!IMPORTANT]
 > Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie**, lub reguły sieciowe nie mają żadnego efektu.
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 1. Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Zaloguj się](/cli/azure/authenticate-azure-cli).
 
-1. Wyświetl listę reguł sieci wirtualnej.
+2. Wyświetl listę reguł sieci wirtualnej.
 
     ```azurecli
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
     ```
 
-1. Włącz punkt końcowy usługi dla magazynu Azure w istniejącej sieci wirtualnej i podsieci.
+3. Włącz punkt końcowy usługi dla magazynu Azure w istniejącej sieci wirtualnej i podsieci.
 
     ```azurecli
     az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
     ```
 
-1. Dodaj regułę sieciową dla sieci wirtualnej i podsieci.
+4. Dodaj regułę sieciową dla sieci wirtualnej i podsieci.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -227,7 +230,7 @@ Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure 
     >
     > Możesz użyć parametru **subskrypcji** , aby pobrać identyfikator podsieci dla sieci wirtualnej należącej do innej dzierżawy usługi Azure AD.
 
-1. Usuń regułę sieci dla sieci wirtualnej i podsieci.
+5. Usuń regułę sieci dla sieci wirtualnej i podsieci.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -236,6 +239,8 @@ Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure 
 
 > [!IMPORTANT]
 > Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie**, lub reguły sieciowe nie mają żadnego efektu.
+
+---
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Udzielanie dostępu z zakresu internetowych adresów IP
 
@@ -268,49 +273,49 @@ jeśli korzystasz z usługi [ExpressRoute](../../expressroute/expressroute-intro
 
 Regułami sieci IP dla kont magazynu można zarządzać za pomocą Azure Portal, PowerShell lub CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
-1. Kliknij menu Ustawienia o nazwie **Sieć**.
+2. Wybierz opcję w menu Ustawienia o nazwie **Sieć**.
 
-1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
+3. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 
-1. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w formacie CIDR) w obszarze   >  **zakres adresów** zapory.
+4. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w formacie CIDR) w obszarze   >  **zakres adresów** zapory.
 
-1. Aby usunąć regułę sieci IP, kliknij ikonę kosza obok zakresu adresów.
+5. Aby usunąć regułę sieci IP, wybierz ikonę kosza obok zakresu adresów.
 
-1. Aby zastosować zmiany, kliknij pozycję **Zapisz**.
+6. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-Az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps).
 
-1. Wyświetl listę reguł sieci adresów IP.
+2. Wyświetl listę reguł sieci adresów IP.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
-1. Dodawanie reguły sieci dla indywidualnego adresu IP.
+3. Dodawanie reguły sieci dla indywidualnego adresu IP.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. Dodaj regułę sieciową dla zakresu adresów IP.
+4. Dodaj regułę sieciową dla zakresu adresów IP.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
-1. Usuń regułę sieciową dla indywidualnego adresu IP.
+5. Usuń regułę sieciową dla indywidualnego adresu IP.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. Usuń regułę sieciową dla zakresu adresów IP.
+6. Usuń regułę sieciową dla zakresu adresów IP.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
@@ -319,7 +324,7 @@ Regułami sieci IP dla kont magazynu można zarządzać za pomocą Azure Portal,
 > [!IMPORTANT]
 > Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie**, lub reguły sieciowe nie mają żadnego efektu.
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 1. Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Zaloguj się](/cli/azure/authenticate-azure-cli).
 
@@ -329,25 +334,25 @@ Regułami sieci IP dla kont magazynu można zarządzać za pomocą Azure Portal,
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
     ```
 
-1. Dodawanie reguły sieci dla indywidualnego adresu IP.
+2. Dodawanie reguły sieci dla indywidualnego adresu IP.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Dodaj regułę sieciową dla zakresu adresów IP.
+3. Dodaj regułę sieciową dla zakresu adresów IP.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
     ```
 
-1. Usuń regułę sieciową dla indywidualnego adresu IP.
+4. Usuń regułę sieciową dla indywidualnego adresu IP.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Usuń regułę sieciową dla zakresu adresów IP.
+5. Usuń regułę sieciową dla zakresu adresów IP.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
@@ -356,19 +361,199 @@ Regułami sieci IP dla kont magazynu można zarządzać za pomocą Azure Portal,
 > [!IMPORTANT]
 > Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie**, lub reguły sieciowe nie mają żadnego efektu.
 
-## <a name="exceptions"></a>Wyjątki
+---
 
-Reguły sieciowe pomagają w tworzeniu bezpiecznego środowiska dla połączeń między aplikacjami i danymi w większości scenariuszy. Niektóre aplikacje są jednak zależne od usług platformy Azure, których nie można jednoznacznie odizolować za pomocą sieci wirtualnej lub reguł adresów IP. Jednak te usługi muszą zostać przyznane do magazynu, aby umożliwić pełne działanie aplikacji. W takich sytuacjach można użyć **_Zezwalaj na zaufane usługi firmy Microsoft..._* _ ustawienie, aby umożliwić tym usługom dostęp do danych, dzienników lub analizy.
+<a id="grant-access-specific-instances"></a>
 
-### <a name="trusted-microsoft-services"></a>Zaufane usługi firmy Microsoft
+## <a name="grant-access-from-azure-resource-instances-preview"></a>Udzielanie dostępu z wystąpień zasobów platformy Azure (wersja zapoznawcza)
 
-Niektóre usługi firmy Microsoft działają z sieci, które nie mogą być uwzględnione w regułach sieci. Można przyznać podzbiór takich zaufanych usług firmy Microsoft dostęp do konta magazynu przy zachowaniu reguł sieci dla innych aplikacji. Te zaufane usługi będą następnie używać silnego uwierzytelniania do bezpiecznego łączenia się z kontem magazynu. Włączono dwa tryby zaufanego dostępu dla usług firmy Microsoft.
+W niektórych przypadkach aplikacja może zależeć od zasobów platformy Azure, które nie mogą być izolowane za pomocą sieci wirtualnej lub reguły adresów IP. Jednak nadal chcesz zabezpieczyć i ograniczyć dostęp do konta magazynu tylko do zasobów platformy Azure Twojej aplikacji. Można skonfigurować konta magazynu, aby zezwolić na dostęp do określonych wystąpień zasobów niektórych usług platformy Azure przez utworzenie reguły wystąpienia zasobu. 
 
-- Zasoby niektórych usług, _ * po zarejestrowaniu w subskrypcji * *, mogą uzyskiwać dostęp do konta magazynu **w ramach tej samej subskrypcji** dla operacji wybierania, takich jak zapisywanie dzienników lub kopia zapasowa.
-- Do zasobów niektórych usług można uzyskać jawny dostęp do konta magazynu, **przypisując rolę platformy Azure** do zarządzanej tożsamości przypisanej do systemu.
+Typy operacji, które może wykonywać wystąpienie zasobu na danych konta magazynu, są określane przez [przypisania ról platformy Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) wystąpienia zasobu. Wystąpienia zasobów muszą znajdować się w tej samej dzierżawie co konto magazynu, ale mogą należeć do dowolnej subskrypcji w dzierżawie.
 
+Lista obsługiwanych usług platformy Azure jest wyświetlana w obszarze [zaufany dostęp oparty na zarządzanej tożsamości przypisanej do systemu](#trusted-access-system-assigned-managed-identity) w tym artykule.
 
-Po włączeniu ustawienia **Zezwalaj na zaufane usługi firmy Microsoft..** . dla zasobów następujących usług, które są zarejestrowane w ramach tej samej subskrypcji, co konto magazynu, zostanie udzielony dostęp do ograniczonego zestawu operacji zgodnie z opisem:
+> [!NOTE]
+> Ta funkcja jest w publicznej wersji zapoznawczej i jest dostępna we wszystkich regionach chmury publicznej. 
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Reguły sieci zasobów można dodawać i usuwać w Azure Portal.
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/), aby rozpocząć pracę.
+
+2. Znajdź konto magazynu i wyświetl omówienie konta.
+
+3. Wybierz pozycję **Sieć** , aby wyświetlić stronę konfiguracji sieci.
+
+4. Z listy rozwijanej **Typ zasobu** wybierz typ zasobu wystąpienia zasobu. 
+
+5. Z listy rozwijanej **Nazwa wystąpienia** wybierz wystąpienie zasobu. Możesz również uwzględnić wszystkie wystąpienia zasobów w aktywnej dzierżawie, subskrypcji lub grupie zasobów.
+
+6. Aby zastosować zmiany, wybierz pozycję **Zapisz**. Wystąpienie zasobu jest wyświetlane w sekcji **wystąpienia zasobów** na stronie Ustawienia sieci. 
+
+Aby usunąć wystąpienie zasobu, wybierz ikonę usuwania ( :::image type="icon" source="media/storage-network-security/delete-icon.png"::: ) obok wystąpienia zasobu.
+
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+Aby dodać lub usunąć reguły sieci zasobów, można użyć poleceń programu PowerShell.
+
+> [!IMPORTANT]
+> Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie**, lub reguły sieciowe nie mają żadnego efektu.
+
+#### <a name="install-the-preview-module"></a>Instalowanie modułu podglądu
+
+Zainstaluj najnowszą wersję modułu PowershellGet. Następnie zamknij i ponownie otwórz konsolę programu PowerShell.
+
+```powershell
+install-Module PowerShellGet –Repository PSGallery –Force  
+```
+
+Zainstaluj **AZ. Storage** Preview module.
+
+```powershell
+Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
+```
+
+Aby uzyskać więcej informacji na temat sposobu instalowania modułów programu PowerShell, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+
+#### <a name="grant-access"></a>Udzielanie dostępu
+
+Dodaj regułę sieci, która przyznaje dostęp z wystąpienia zasobu.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+
+```
+
+Jednocześnie należy określić wiele wystąpień zasobów, modyfikując zestaw reguł sieci.
+
+```powershell
+$resourceId1 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$resourceId2 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/mySQLServer"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule (@{ResourceId=$resourceId1;TenantId=$tenantId},@{ResourceId=$resourceId2;TenantId=$tenantId}) 
+```
+
+#### <a name="remove-access"></a>Usuwanie dostępu
+
+Usuń regułę sieci, która przyznaje dostęp z wystąpienia zasobu.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Remove-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId  
+```
+
+Usuń wszystkie reguły sieci, które przyznają dostęp z wystąpień zasobów.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule @()  
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>Wyświetlanie listy dozwolonych wystąpień zasobów
+
+Wyświetl pełną listę wystąpień zasobów, którym udzielono dostępu do konta magazynu.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+$rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+$rule.ResourceAccessRules 
+```
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby dodać lub usunąć reguły sieci zasobów, można użyć poleceń interfejsu wiersza polecenia platformy Azure.
+
+#### <a name="install-the-preview-extension"></a>Zainstaluj rozszerzenie podglądu
+
+1. Otwórz [Azure Cloud Shell](../../cloud-shell/overview.md)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](/cli/azure/install-azure-cli) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
+
+2. Następnie sprawdź, czy zainstalowana wersja interfejsu wiersza polecenia platformy Azure jest `2.13.0` nowsza, przy użyciu następującego polecenia.
+
+   ```azurecli
+   az --version
+   ```
+
+   Jeśli wersja interfejsu wiersza polecenia platformy Azure jest niższa niż `2.13.0` , zainstaluj nowszą wersję. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+
+3. Wpisz następujące polecenie, aby zainstalować rozszerzenie wersji zapoznawczej.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+#### <a name="grant-access"></a>Udzielanie dostępu
+
+Dodaj regułę sieci, która przyznaje dostęp z wystąpienia zasobu.
+
+```azurecli
+az storage account network-rule add \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="remove-access"></a>Usuwanie dostępu
+
+Usuń regułę sieci, która przyznaje dostęp z wystąpienia zasobu.
+
+```azurecli
+az storage account network-rule remove \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>Wyświetlanie listy dozwolonych wystąpień zasobów
+
+Wyświetl pełną listę wystąpień zasobów, którym udzielono dostępu do konta magazynu.
+
+```azurecli
+az storage account network-rule list \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+---
+
+<a id="exceptions"></a>
+<a id="trusted-microsoft-services"></a>
+
+## <a name="grant-access-to-azure-services"></a>Udzielanie dostępu do usług platformy Azure 
+
+Niektóre usługi platformy Azure działają z sieci, które nie mogą być uwzględnione w regułach sieci. Można udzielić podzestawu takich zaufanych usług platformy Azure do konta magazynu, zachowując reguły sieciowe dla innych aplikacji. Te zaufane usługi będą następnie używały silnego uwierzytelniania do bezpiecznego łączenia się z kontem magazynu. 
+
+Można udzielić dostępu do zaufanych usług platformy Azure przez utworzenie wyjątku reguły sieci. Instrukcje krok po kroku znajdują się w sekcji [Zarządzanie wyjątkami](#manage-exceptions) w tym artykule. 
+
+Po udzieleniu dostępu do zaufanych usług platformy Azure przyznaje się następujące typy dostępu:
+
+- Zaufany dostęp do wybranych operacji dla zasobów, które są zarejestrowane w ramach subskrypcji.
+- Zaufany dostęp do zasobów na podstawie tożsamości zarządzanej przypisanej do systemu.
+
+<a id="trusted-access-resources-in-subscription"></a>
+
+### <a name="trusted-access-for-resources-registered-in-your-subscription"></a>Zaufany dostęp do zasobów zarejestrowanych w ramach subskrypcji
+
+Zasoby niektórych usług, które są **rejestrowane w ramach subskrypcji**, mogą uzyskiwać dostęp do konta magazynu **w ramach tej samej subskrypcji** dla operacji wybierania, takich jak zapisywanie dzienników lub kopia zapasowa.  W poniższej tabeli opisano każdą usługę i dozwolone operacje. 
 
 | Usługa                  | Nazwa dostawcy zasobów     | Dozwolone operacje                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -384,7 +569,15 @@ Po włączeniu ustawienia **Zezwalaj na zaufane usługi firmy Microsoft..** . dl
 | Sieć platformy Azure         | Microsoft.Network          | Przechowywanie i analizowanie dzienników ruchu sieciowego, w tym za pomocą usług Network Watcher i Analiza ruchu. [Dowiedz się więcej](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft. SiteRecovery     | Włącz replikację na potrzeby odzyskiwania po awarii maszyn wirtualnych platformy Azure IaaS w przypadku korzystania z pamięci podręcznej z włączoną zaporą, źródła lub docelowego konta magazynu.  [Dowiedz się więcej](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
-Ustawienie **Zezwalaj na zaufane usługi firmy Microsoft...** umożliwia również określonym wystąpieniu poniższych usług uzyskanie dostępu do konta magazynu, jeśli użytkownik jawnie [przypisze rolę platformy Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli platformy Azure przypisanej do zarządzanej tożsamości.
+<a id="trusted-access-system-assigned-managed-identity"></a>
+
+### <a name="trusted-access-based-on-system-assigned-managed-identity"></a>Zaufany dostęp oparty na zarządzanej tożsamości przypisanej do systemu
+
+Poniższa tabela zawiera listę usług, które mogą mieć dostęp do danych konta magazynu, jeśli wystąpienia zasobów tych usług mają odpowiednie uprawnienia. Aby udzielić uprawnienia, musisz jawnie [przypisać rolę platformy Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla każdego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli platformy Azure przypisanej do zarządzanej tożsamości. 
+
+> [!TIP]
+> Zalecanym sposobem udzielenia dostępu do określonych zasobów jest użycie reguł wystąpień zasobów. Aby udzielić dostępu do określonych wystąpień zasobów, zobacz sekcję [udzielanie dostępu z wystąpień zasobów platformy Azure (wersja zapoznawcza)](#grant-access-specific-instances) w tym artykule.
+
 
 | Usługa                        | Nazwa dostawcy zasobów                 | Przeznaczenie            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -402,44 +595,45 @@ Ustawienie **Zezwalaj na zaufane usługi firmy Microsoft...** umożliwia równie
 | Usługa Azure Stream Analytics         | Microsoft. StreamAnalytics             | Umożliwia zapisanie danych z zadania przesyłania strumieniowego w usłudze BLOB Storage. [Dowiedz się więcej](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | Microsoft. Synapse/obszary robocze          | Umożliwia dostęp do danych w usłudze Azure Storage z usługi Azure Synapse Analytics. |
 
+## <a name="grant-access-to-storage-analytics"></a>Udzielanie dostępu do analizy magazynu
 
-### <a name="storage-analytics-data-access"></a>Dostęp do danych w usłudze Storage Analytics
+W niektórych przypadkach dostęp do odczytu dzienników zasobów i metryk jest wymagany spoza granicy sieci. Podczas konfigurowania dostępu do zaufanych usług do konta magazynu można zezwolić na dostęp do odczytu dla plików dziennika, tabel metryk lub obu, tworząc wyjątek reguły sieci. Aby uzyskać wskazówki krok po kroku, zobacz sekcję **Manage Exceptions** poniżej. Aby dowiedzieć się więcej o pracy z analizą magazynu, zobacz [Korzystanie z usługi Azure Storage Analytics do zbierania danych dzienników i metryk](./storage-analytics.md). 
 
-W niektórych przypadkach dostęp do odczytu dzienników zasobów i metryk jest wymagany spoza granicy sieci. Podczas konfigurowania dostępu do zaufanych usług do konta magazynu można zezwolić na dostęp do odczytu dla plików dziennika, metryk tabel lub obu. [Dowiedz się więcej na temat pracy z usługą analiza magazynu.](./storage-analytics.md)
+<a id="manage-exceptions"></a>
 
-### <a name="managing-exceptions"></a>Zarządzanie wyjątkami
+## <a name="manage-exceptions"></a>Zarządzanie wyjątkami
 
 Wyjątkami reguł sieci można zarządzać za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure w wersji 2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
-1. Kliknij menu Ustawienia o nazwie **Sieć**.
+2. Wybierz opcję w menu Ustawienia o nazwie **Sieć**.
 
-1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
+3. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 
-1. W obszarze **wyjątki** Wybierz wyjątki, które chcesz udzielić.
+4. W obszarze **wyjątki** Wybierz wyjątki, które chcesz udzielić.
 
-1. Aby zastosować zmiany, kliknij pozycję **Zapisz**.
+5. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-Az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps).
 
-1. Wyświetl wyjątki dla reguł sieci konta magazynu.
+2. Wyświetl wyjątki dla reguł sieci konta magazynu.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
-1. Skonfiguruj wyjątki dla reguł sieci konta magazynu.
+3. Skonfiguruj wyjątki dla reguł sieci konta magazynu.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
-1. Usuń wyjątki dla reguł sieci konta magazynu.
+4. Usuń wyjątki dla reguł sieci konta magazynu.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
@@ -448,23 +642,23 @@ Wyjątkami reguł sieci można zarządzać za pomocą Azure Portal, programu Pow
 > [!IMPORTANT]
 > Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie** lub usunięcie wyjątków nie ma żadnego wpływu.
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 1. Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Zaloguj się](/cli/azure/authenticate-azure-cli).
 
-1. Wyświetl wyjątki dla reguł sieci konta magazynu.
+2. Wyświetl wyjątki dla reguł sieci konta magazynu.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
     ```
 
-1. Skonfiguruj wyjątki dla reguł sieci konta magazynu.
+3. Skonfiguruj wyjątki dla reguł sieci konta magazynu.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
     ```
 
-1. Usuń wyjątki dla reguł sieci konta magazynu.
+4. Usuń wyjątki dla reguł sieci konta magazynu.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass None
@@ -472,6 +666,8 @@ Wyjątkami reguł sieci można zarządzać za pomocą Azure Portal, programu Pow
 
 > [!IMPORTANT]
 > Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie** lub usunięcie wyjątków nie ma żadnego wpływu.
+
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób uwierzytelniania dostępu do zasobó
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff141fc1bb681e2356a4471dfdc808d622fd76b5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510094"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986499"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Uwierzytelnianie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS)
 Sygnatura dostępu współdzielonego (SAS) zapewnia szczegółową kontrolę nad typem dostępu przyznanym klientom, którzy mają sygnaturę dostępu współdzielonego. Poniżej przedstawiono niektóre kontrolki, które można ustawić w sygnaturze dostępu współdzielonego: 
@@ -203,7 +203,7 @@ Na przykład w celu zdefiniowania reguł autoryzacji objętych zakresem do wysy�
 
 
 > [!NOTE]
-> Chociaż nie jest to zalecane, istnieje możliwość wyposażenia urządzeń z tokenami, które udzielają dostępu do centrum zdarzeń lub przestrzeni nazw. Każde urządzenie, które przechowuje ten token, może wysyłać wiadomości bezpośrednio do tego centrum zdarzeń. Ponadto urządzenie nie może być zabronione wysyłanie do tego centrum zdarzeń.
+> Chociaż nie jest to zalecane, istnieje możliwość wyposażenia urządzeń z tokenami, które udzielają dostępu do centrum zdarzeń lub przestrzeni nazw. Każde urządzenie, które przechowuje ten token, może wysyłać wiadomości bezpośrednio do tego centrum zdarzeń. Ponadto urządzenie nie może zostać blocklisted wysłane do tego centrum zdarzeń.
 > 
 > Zawsze zaleca się przyznanie określonych i szczegółowych zakresów.
 

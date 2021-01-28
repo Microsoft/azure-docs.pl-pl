@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1fc768890e932d1f17ad111b4681b75721ae1e06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecc2e98d4c6c58e11b2bdc86b623f31d828cabc0
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148108"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985924"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Rozmieszczenie grupy serwerów PostgreSQL na platformie Azure z włączonym łukiem
 
@@ -22,7 +22,7 @@ W tym artykule zajmiemy się przykładem, aby zilustrować, jak PostgreSQL wyst�
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W tym przykładzie korzystamy z klastra usługi Azure Kubernetes Service (AKS), który ma cztery węzły fizyczne. 
 
@@ -46,7 +46,7 @@ aks-agentpool-42715708-vmss000003   Ready    agent   11h   v1.17.9
 
 Architektura może być reprezentowana jako:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Logiczna reprezentacja czterech węzłów pogrupowanych w klastrze Kubernetes":::
 
 Klaster Kubernetes hostuje jeden kontroler danych usługi Azure Arc i jedną grupę serwerów z obsługą usługi Azure Arc PostgreSQL. Ta grupa serwerów została utworzona przez trzy wystąpienia PostgreSQL: jeden koordynator i dwóch procesów roboczych.
 
@@ -60,30 +60,30 @@ Co generuje następujące dane wyjściowe:
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
 …
-postgres01-0         3/3     Running   0          9h
-postgres01-1         3/3     Running   0          9h
-postgres01-2         3/3     Running   0          9h
+postgres01c-0         3/3     Running   0          9h
+postgres01w-0         3/3     Running   0          9h
+postgres01w-1         3/3     Running   0          9h
 ```
 Każdy z tych zasobników jest hostem wystąpienia PostgreSQL. Razem z usługą Azure Arc PostgreSQLą grupę serwerów z włączonym skalowaniem:
 
 ```output
 Pod name        Role in the server group
-postgres01-0  Coordinator
-postgres01-1    Worker
-postgres01-2    Worker
+postgres01c-0 Coordinator
+postgres01w-0   Worker
+postgres01w-1   Worker
 ```
 
 ## <a name="placement"></a>Umieszczanie
 Przyjrzyjmy się, jak Kubernetes umieszcza w grupie serwerów. Opisz każdy pod i określ, na którym węźle fizycznym klastra Kubernetes są one umieszczone. Na przykład dla koordynatora Uruchom następujące polecenie:
 
 ```console
-kubectl describe pod postgres01-0 -n arc3
+kubectl describe pod postgres01c-0 -n arc3
 ```
 
 Co generuje następujące dane wyjściowe:
 
 ```output
-Name:         postgres01-0
+Name:         postgres01c-0
 Namespace:    arc3
 Priority:     0
 Node:         aks-agentpool-42715708-vmss000000
@@ -101,7 +101,7 @@ Po uruchomieniu tego polecenia dla każdego z tych zasobników podsumowujemy bie
 Należy również pamiętać, że w opisie wartości nazwanych kontenerów, które znajdują się w poszczególnych hostach. Na przykład dla drugiego procesu roboczego Uruchom następujące polecenie:
 
 ```console
-kubectl describe pod postgres01-2 -n arc3
+kubectl describe pod postgres01w-1 -n arc3
 ```
 
 Co generuje następujące dane wyjściowe:
@@ -129,7 +129,7 @@ Każdy element, który jest częścią usługi Azure ARC z włączoną obsługą
 
 Architektura wygląda następująco:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3, każdy umieszczony w osobnych węzłach":::
 
 Oznacza to, że w tym momencie każde wystąpienie PostgreSQL tworzące grupę serwerów PostgreSQL z funkcją Azure Arc jest hostowane na określonym hoście fizycznym w kontenerze Kubernetes. Jest to Najlepsza konfiguracja, która pomaga w uzyskaniu największej wydajności z usługi Azure ARC z włączoną obsługą PostgreSQL, ponieważ każda rola (koordynator i procesy robocze) korzysta z zasobów każdego węzła fizycznego. Te zasoby nie są współużytkowane przez kilka ról PostgreSQL.
 
@@ -172,23 +172,23 @@ kubectl get pods -n arc3
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
 …
-postgres01-0         3/3     Running   0          11h
-postgres01-1         3/3     Running   0          11h
-postgres01-2         3/3     Running   0          11h
-postgres01-3         3/3     Running   0          5m2s
+postgres01c-0         3/3     Running   0          11h
+postgres01w-0         3/3     Running   0          11h
+postgres01w-1         3/3     Running   0          11h
+postgres01w-2         3/3     Running   0          5m2s
 ```
 
 I opisz nowy pod, aby określić, na których węzłach fizycznych klastra Kubernetes jest hostowany.
 Uruchom polecenie:
 
 ```console
-kubectl describe pod postgres01-3 -n arc3
+kubectl describe pod postgres01w-2 -n arc3
 ```
 
 Aby zidentyfikować nazwę węzła hostingu:
 
 ```output
-Name:         postgres01-3
+Name:         postgres01w-2
 Namespace:    arc3
 Priority:     0
 Node:         aks-agentpool-42715708-vmss000000
@@ -203,11 +203,11 @@ Umieszczanie wystąpień PostgreSQL w węzłach fizycznych klastra jest teraz:
 |Odpowiedzialn|postgres01-2|AKS-nieznanej obiektu agentpool-42715708-vmss000003
 |Odpowiedzialn|postgres01-3|AKS-nieznanej obiektu agentpool-42715708-vmss000000
 
-Należy zauważyć, że pod nowym pracownikiem (postgres01-3) został umieszczony w tym samym węźle co koordynator. 
+Należy zauważyć, że pod nowym pracownikiem (postgres01w-2) został umieszczony w tym samym węźle co koordynator. 
 
 Architektura wygląda następująco:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Czwarty pod względem tego samego węzła co koordynator":::
 
 Dlaczego nowy proces roboczy/pod nie znajduje się w pozostałym węźle fizycznym klastra Kubernetes AKS-nieznanej obiektu agentpool-42715708-vmss000003?
 
@@ -235,7 +235,7 @@ Przy użyciu tych samych poleceń jak powyżej; widzimy, co każdy węzeł fizyc
 
 Architektura wygląda następująco:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Wszystkie zasobniki w przestrzeni nazw w różnych węzłach":::
 
 Oznacza to, że węzły koordynatora (1) z włączoną grupą Postgres z systemem Azure Arc współużytkują te same zasoby fizyczne, co trzeci węzeł procesu roboczego (pod 4) grupy serwerów. Jest to akceptowalne w przypadku, gdy węzeł koordynator zazwyczaj używa bardzo małych zasobów w porównaniu z tym, co może być używane przez węzeł procesu roboczego. W tym celu można wywnioskować, że należy starannie wybrać:
 - rozmiar klastra Kubernetes i właściwości każdego z jego węzłów fizycznych (pamięć, rdzeń wirtualny)
@@ -254,21 +254,21 @@ Dodajmy piąty węzeł do klastra AKS:
         Stary adres
     :::column-end:::
     :::column:::
-        Nowy adres
+        Po
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="Azure Portal układ przed":::
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="Azure Portal układ po":::
     :::column-end:::
 :::row-end:::
 
 Architektura wygląda następująco:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="Układ logiczny w klastrze Kubernetes po aktualizacji":::
 
 Przyjrzyjmy się tym, jakie elementy obszaru nazw danych Arc są hostowane w nowym węźle fizycznym AKS, uruchamiając polecenie:
 
@@ -278,7 +278,7 @@ kubectl describe node aks-agentpool-42715708-vmss000004
 
 Następnie zaktualizujemy reprezentację architektury naszego systemu:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="Wszystkie zasobniki na logicznym diagramie klastra":::
 
 Można zauważyć, że nowy fizyczny węzeł klastra Kubernetes obsługuje tylko te metryki, które są niezbędne dla usług Azure Arc Data Services. Należy zauważyć, że w tym przykładzie koncentrujemy się tylko na przestrzeni nazw kontrolera danych ARC, ale nie reprezentujemy innych zasobników.
 
@@ -318,42 +318,42 @@ kubectl get pods -n arc3
 
 NAME                 READY   STATUS    RESTARTS   AGE
 …
-postgres01-0         3/3     Running   0          13h
-postgres01-1         3/3     Running   0          13h
-postgres01-2         3/3     Running   0          13h
-postgres01-3         3/3     Running   0          179m
-postgres01-4         3/3     Running   0          3m13s
+postgres01c-0         3/3     Running   0          13h
+postgres01w-0         3/3     Running   0          13h
+postgres01w-1         3/3     Running   0          13h
+postgres01w-2         3/3     Running   0          179m
+postgres01w-3         3/3     Running   0          3m13s
 ```
 
 Kształt grupy serwerów jest teraz:
 
 |Rola grupy serwerów|Grupa serwerów pod
 |----|-----
-|Obiekt|postgres01-0
-|Odpowiedzialn|postgres01-1
-|Odpowiedzialn|postgres01-2
-|Odpowiedzialn|postgres01-3
-|Odpowiedzialn|postgres01-4
+|Obiekt|postgres01c-0
+|Odpowiedzialn|postgres01w-0
+|Odpowiedzialn|postgres01w-1
+|Odpowiedzialn|postgres01w-2
+|Odpowiedzialn|postgres01w-3
 
-Opiszmy postgres01-4 pod, aby określić, w jakim węźle fizycznym jest hostowany:
+Opiszmy postgres01w-3 pod, aby określić, w jakim węźle fizycznym jest hostowany:
 
 ```console
-kubectl describe pod postgres01-4 -n arc3
+kubectl describe pod postgres01w-3 -n arc3
 ```
 
 I zapoznaj się z informacjami na temat tego, co uruchamia:
 
 |Rola grupy serwerów|Grupa serwerów pod| Pod
 |----|-----|------
-|Obiekt|postgres01-0|AKS-nieznanej obiektu agentpool-42715708-vmss000000
-|Odpowiedzialn|postgres01-1|AKS-nieznanej obiektu agentpool-42715708-vmss000002
-|Odpowiedzialn|postgres01-2|AKS-nieznanej obiektu agentpool-42715708-vmss000003
-|Odpowiedzialn|postgres01-3|AKS-nieznanej obiektu agentpool-42715708-vmss000000
-|Odpowiedzialn|postgres01-4|AKS-nieznanej obiektu agentpool-42715708-vmss000004
+|Obiekt|postgres01c-0|AKS-nieznanej obiektu agentpool-42715708-vmss000000
+|Odpowiedzialn|postgres01w-0|AKS-nieznanej obiektu agentpool-42715708-vmss000002
+|Odpowiedzialn|postgres01w-1|AKS-nieznanej obiektu agentpool-42715708-vmss000003
+|Odpowiedzialn|postgres01w-2|AKS-nieznanej obiektu agentpool-42715708-vmss000000
+|Odpowiedzialn|postgres01w-3|AKS-nieznanej obiektu agentpool-42715708-vmss000004
 
 Architektura wygląda następująco:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Kubernetes harmonogramy w węźle z najniższym użyciem":::
 
 Kubernetes zaplanował nowy PostgreSQL w najmniej załadowanym fizycznym węźle klastra Kubernetes.
 

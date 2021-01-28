@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 06614fc33910eda44bf6bf8369c4ad4b3c0b25fe
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445207"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986026"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -50,7 +50,7 @@ Szablon Azure Resource Manager używany w tym dokumencie znajduje się w katalog
 Ten szablon umożliwia utworzenie następujących usług platformy Azure:
 
 * Konto usługi Azure Storage
-* W usłudze Azure Key Vault
+* Azure Key Vault
 * Azure Application Insights
 * Azure Container Registry
 * Obszar roboczy usługi Azure Machine Learning
@@ -73,7 +73,7 @@ Przykładowy szablon ma dwa **wymagane** parametry:
 > [!TIP]
 > Chociaż szablon skojarzony z tym dokumentem tworzy nowy Azure Container Registry, można również utworzyć nowy obszar roboczy bez tworzenia rejestru kontenerów. Jeden zostanie utworzony podczas wykonywania operacji wymagającej rejestru kontenerów. Na przykład szkolenie lub wdrożenie modelu.
 >
-> Możesz również odwoływać się do istniejącego rejestru kontenerów lub konta magazynu w szablonie Azure Resource Manager, zamiast tworzyć nowe. Jednak używany rejestr kontenerów musi mieć włączone __konto administratora__ . Aby uzyskać informacje na temat włączania konta administratora, zobacz [konto administratora](../container-registry/container-registry-authentication.md#admin-account).
+> Możesz również odwoływać się do istniejącego rejestru kontenerów lub konta magazynu w szablonie Azure Resource Manager, zamiast tworzyć nowe. W takim przypadku należy [użyć tożsamości zarządzanej](how-to-use-managed-identities.md) (wersja zapoznawcza) lub [włączyć konto administratora](../container-registry/container-registry-authentication.md#admin-account) dla rejestru kontenerów.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -553,7 +553,7 @@ New-AzResourceGroupDeployment `
    * Region: Wybierz region świadczenia usługi Azure, w którym zostaną utworzone zasoby.
    * Nazwa obszaru roboczego: Nazwa do użycia dla obszaru roboczego Azure Machine Learning, który zostanie utworzony. Nazwa obszaru roboczego musi zawierać od 3 do 33 znaków. Może zawierać tylko znaki alfanumeryczne i znak "-".
    * Lokalizacja: Wybierz lokalizację, w której zostaną utworzone zasoby.
-1. Wybierz pozycję __Przeglądanie + tworzenie__.
+1. Wybierz pozycję __Przejrzyj i utwórz__.
 1. Na ekranie __Recenzja + tworzenie__ Zaakceptuj wymienione warunki i postanowienia, a następnie wybierz pozycję __Utwórz__.
 
 Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).

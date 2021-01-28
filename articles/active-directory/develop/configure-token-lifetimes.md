@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2529c6c3b0f9d188e1ce8062c05f62f3e980ef50
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 19330af5e4c0e4962993d0ed89ec9bcd4a50514a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805218"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986417"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Konfigurowanie zasad okresu istnienia tokenu (wersja zapoznawcza)
 Można określić okres istnienia tokenu dostępu, SAML lub identyfikatora wystawionego przez platformę tożsamości firmy Microsoft. Okresy istnienia tokenów można ustawić dla wszystkich aplikacji w organizacji, dla aplikacji wielodostępnych (dla wielu organizacji) lub dla określonej jednostki usługi w organizacji. Aby uzyskać więcej informacji, Przeczytaj [konfigurowalne okresy istnienia tokenu](active-directory-configurable-token-lifetimes.md).
@@ -38,7 +38,7 @@ Aby rozpocząć, wykonaj następujące czynności:
 1. Aby wyświetlić wszystkie zasady, które zostały utworzone w organizacji, uruchom polecenie cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) .  Wszystkie wyniki ze zdefiniowanymi wartościami właściwości, które różnią się od wartości domyślnych wymienionych powyżej, znajdują się w zakresie wycofania.
 
     ```powershell
-    Get-AzureADPolicy -All
+    Get-AzureADPolicy -All $true
     ```
 
 1. Aby sprawdzić, które aplikacje i jednostki usługi są połączone z konkretnymi określonymi zasadami, należy uruchomić następujące polecenie cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) , zastępując **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** identyfikatorem zasad. Następnie możesz zdecydować, czy skonfigurować częstotliwość logowania dostępu warunkowego, czy pozostawać z ustawieniami domyślnymi usługi Azure AD.

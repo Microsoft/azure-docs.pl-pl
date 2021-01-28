@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1057276a543c18b746bb60b7e7a54bf28dec6f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 44e14bed3158fac1f8bed15f913dc8b7eddbbb96
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98892573"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985958"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Samouczek: opracowywanie i planowanie aprowizacji dla punktu końcowego Standard scim
 
@@ -1198,7 +1198,7 @@ Specyfikacja Standard scim nie definiuje schematu specyficznego dla Standard sci
 |--|--|--|--|
 |Nazwa użytkownika i hasło (niezalecane lub obsługiwane przez usługę Azure AD)|Łatwa implementacja|Niezabezpieczone — [Twoje PA $ $Word nie ma znaczenia](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Obsługiwane w przypadku aplikacji galerii w przypadku wielkości liter. Nieobsługiwane w przypadku aplikacji innych niż Galeria.|
 |Token okaziciela o długim czasie życia|Tokeny długotrwałe nie wymagają obecności użytkownika. Administratorzy mogą łatwo używać podczas konfigurowania aprowizacji.|Tokeny długotrwałe mogą być trudne do udostępnienia administratorowi bez użycia niezabezpieczonych metod, takich jak poczta e-mail. |Obsługiwane w przypadku aplikacji Galeria i innych niż Galeria. |
-|Przyznanie kodu autoryzacji OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania.  Rzeczywisty użytkownik musi być obecny podczas wstępnej autoryzacji, co umożliwia dodanie poziomu odpowiedzialności. |Wymaga, aby użytkownik był obecny. Jeśli użytkownik opuści organizację, token jest nieprawidłowy, a autoryzacja będzie musiała zostać ukończona ponownie.|Obsługiwane w przypadku aplikacji galerii, ale nie aplikacji innych niż Galeria. Można jednak podać token dostępu w interfejsie użytkownika jako token tajny do celów testowania krótkoterminowego. Obsługa przyznawania kodu OAuth w przypadku braku galerii znajduje się w naszym zaległości.|
+|Przyznanie kodu autoryzacji OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania.  Rzeczywisty użytkownik musi być obecny podczas wstępnej autoryzacji, co umożliwia dodanie poziomu odpowiedzialności. |Wymaga, aby użytkownik był obecny. Jeśli użytkownik opuści organizację, token jest nieprawidłowy, a autoryzacja będzie musiała zostać ukończona ponownie.|Obsługiwane w przypadku aplikacji galerii, ale nie aplikacji innych niż Galeria. Można jednak podać token dostępu w interfejsie użytkownika jako token tajny do celów testowania krótkoterminowego. Obsługa przyznawania kodu OAuth w przypadku braku galerii znajduje się w naszym zaległości, oprócz obsługi konfigurowalnych adresów URL uwierzytelniania/tokenu w aplikacji galerii.|
 |Przyznanie poświadczeń klienta OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania. Zarówno kod autoryzacji przydzielenia, jak i poświadczenia klienta umożliwiają tworzenie tego samego typu tokenu dostępu, więc przechodzenie między tymi metodami jest niewidoczne dla interfejsu API.  Inicjowanie obsługi może być całkowicie zautomatyzowane i nowe tokeny mogą być wymagane w trybie dyskretnym bez interakcji z użytkownikiem. ||Nieobsługiwane w przypadku aplikacji Galeria i innych niż Galeria. Pomoc techniczna znajduje się w naszej zaległości.|
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201056"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986043"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute
 
@@ -20,7 +20,7 @@ Ten artykuł ułatwia skonfigurowanie rozszerzenia Network Performance Monitor d
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Można:
+Oto co możesz zrobić:
 
 * Monitorowanie strat i opóźnień w różnych sieci wirtualnych i Ustawianie alertów
 
@@ -34,7 +34,7 @@ Można:
 
 * Zobacz stan systemu ExpressRoute z wcześniejszego punktu w czasie
 
-## <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
+## <a name="workflow"></a><a name="workflow"></a>Utworzonego
 
 Agenci monitorowania są zainstalowani na wielu serwerach, zarówno lokalnie, jak i na platformie Azure. Agenci komunikują się ze sobą, ale nie wysyłają danych, wysyłają pakiety uzgadniania protokołu TCP. Komunikacja między agentami umożliwia platformie Azure zamapowanie topologii sieci i ścieżki, które może zająć ruch.
 
@@ -97,17 +97,17 @@ Zalecamy zainstalowanie co najmniej dwóch agentów po każdej stronie połącze
 
 1. Uruchom **Instalatora** , aby zainstalować agenta na każdym serwerze, który ma być używany na potrzeby monitorowania ExpressRoute. Serwer używany do monitorowania może być maszyną wirtualną lub lokalną i musi mieć dostęp do Internetu. Należy zainstalować co najmniej jednego agenta lokalnego i jednego agenta w każdym segmencie sieci, który ma być monitorowany na platformie Azure.
 2. Na **stronie powitalnej** kliknij przycisk **Dalej**.
-3. Na stronie **postanowienia licencyjne** zapoznaj się z licencją, a następnie kliknij przycisk **zgadzam**się.
+3. Na stronie **postanowienia licencyjne** zapoznaj się z licencją, a następnie kliknij przycisk **zgadzam** się.
 4. Na stronie **folder docelowy** Zmień lub pozostaw domyślny folder instalacji, a następnie kliknij przycisk **dalej**.
 5. Na stronie **Opcje instalacji agenta** można wybrać opcję połączenia agenta z dziennikami Azure Monitor lub Operations Manager. Można też pozostawić puste opcje, jeśli chcesz skonfigurować agenta później. Po dokonaniu wyboru kliknij przycisk **dalej**.
 
-   * Jeśli wybrano opcję nawiązywania połączenia z **usługą Azure log Analytics**, wklej **Identyfikator obszaru roboczego** i **klucz obszaru roboczego** (klucz podstawowy) skopiowane do Notatnika w poprzedniej sekcji. Następnie kliknij przycisk **dalej**.
+   * Jeśli wybrano opcję nawiązywania połączenia z **usługą Azure log Analytics**, wklej **Identyfikator obszaru roboczego** i **klucz obszaru roboczego** (klucz podstawowy) skopiowane do Notatnika w poprzedniej sekcji. Następnie kliknij przycisk **Dalej**.
 
      ![Identyfikator i klucz](./media/how-to-npm/8.png)
-   * Jeśli wybrano opcję nawiązywania połączenia z **Operations Manager**, na stronie **Konfiguracja grupy zarządzania** wpisz **nazwę grupy zarządzania**, **serwer zarządzania**programu oraz **port serwera zarządzania**. Następnie kliknij przycisk **dalej**.
+   * Jeśli wybrano opcję nawiązywania połączenia z **Operations Manager**, na stronie **Konfiguracja grupy zarządzania** wpisz **nazwę grupy zarządzania**, **serwer zarządzania** programu oraz **port serwera zarządzania**. Następnie kliknij przycisk **Dalej**.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * Na stronie **konto działania agenta** wybierz konto **systemu lokalnego** lub  **konto domeny lub komputera lokalnego**. Następnie kliknij przycisk **dalej**.
+   * Na stronie **konto działania agenta** wybierz konto **systemu lokalnego** lub  **konto domeny lub komputera lokalnego**. Następnie kliknij przycisk **Dalej**.
 
      ![Konto](./media/how-to-npm/10.png)
 6. Na stronie **gotowy do instalacji** Przejrzyj wybrane opcje, a następnie kliknij przycisk **Instaluj**.
@@ -169,7 +169,7 @@ Aby uzyskać więcej informacji na temat sieciowej grupy zabezpieczeń, zobacz [
 
 ## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>Krok 4. odnajdywanie połączeń komunikacji równorzędnej
 
-1. Przejdź do kafelka przegląd Network Performance Monitor, przechodząc do strony **wszystkie zasoby** , a następnie kliknij obszar roboczy listy dozwolonych npm.
+1. Przejdź do kafelka przegląd Network Performance Monitor, przechodząc do strony **wszystkie zasoby** , a następnie kliknij obszar roboczy allowlisted npm.
 
    ![obszar roboczy npm](./media/how-to-npm/npm.png)
 2. Kliknij kafelek przegląd **Network Performance Monitor** , aby wyświetlić pulpit nawigacyjny. Pulpit nawigacyjny zawiera stronę ExpressRoute, która wskazuje, że ExpressRoute jest w stanie nieskonfigurowanym. Kliknij pozycję **Konfiguracja funkcji** , aby otworzyć stronę konfiguracja Network Performance Monitor.
@@ -184,7 +184,7 @@ Aby uzyskać więcej informacji na temat sieciowej grupy zabezpieczeń, zobacz [
             
 ## <a name="step-5-configure-monitors"></a><a name="configmonitor"></a>Krok 5. Konfigurowanie monitorów
 
-W tej sekcji można skonfigurować monitory. Postępuj zgodnie z instrukcjami dla typu komunikacji równorzędnej, którą chcesz monitorować: **prywatna Komunikacja równorzędna**lub **Komunikacja równorzędna firmy Microsoft**.
+W tej sekcji można skonfigurować monitory. Postępuj zgodnie z instrukcjami dla typu komunikacji równorzędnej, którą chcesz monitorować: **prywatna Komunikacja równorzędna** lub **Komunikacja równorzędna firmy Microsoft**.
 
 ### <a name="private-peering"></a>Prywatna komunikacja równorzędna
 

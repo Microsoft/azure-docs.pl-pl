@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756681"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986618"
 ---
 # <a name="manage-security-policies"></a>Zarządzanie zasadami zabezpieczeń
 
@@ -54,7 +54,7 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
 1. Zostanie wyświetlona strona zasady zabezpieczeń dla tej subskrypcji lub grupy zarządzania. Są w nim wyświetlane zasady dostępne i przypisane.
 
-   ![Strona zasad](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Strona zasad zabezpieczeń Security Center" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > Jeśli istnieje etykieta "MG odziedziczona" wraz z zasadami domyślnymi, oznacza to, że zasady zostały przypisane do grupy zarządzania i są dziedziczone przez przeglądaną subskrypcję.
@@ -102,7 +102,7 @@ Aby uzyskać więcej informacji na temat zaleceń, zobacz [Zarządzanie zaleceni
 
 1. W Security Center z sekcji **zgodność zasad &** wybierz pozycję **zasady zabezpieczeń**.
 
-   ![Zarządzanie zasadami](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Uruchamianie procesu zarządzania zasadami w Azure Security Center":::
 
 2. Wybierz subskrypcję lub grupę zarządzania, dla której chcesz wyłączyć zalecenie.
 
@@ -111,7 +111,7 @@ Aby uzyskać więcej informacji na temat zaleceń, zobacz [Zarządzanie zaleceni
 
 1. Wybierz pozycję **Wyświetl czynne zasady**.
 
-   ![Wyświetl zasady](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="Jak otworzyć obowiązujące zasady przypisane do subskrypcji":::
 
 1. Wybierz przypisane zasady.
 
@@ -126,10 +126,8 @@ Aby uzyskać więcej informacji na temat zaleceń, zobacz [Zarządzanie zaleceni
    > [!NOTE]
    > Wyłączenie zmian zasad może potrwać do 12 godzin.
 
-
-
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule wyjaśniono zasady zabezpieczeń. Aby uzyskać powiązane informacje, zobacz następujące artykuły:
+Na tej stronie objaśniono zasady zabezpieczeń. Aby uzyskać powiązane informacje, zobacz następujące strony:
 
 - [Dowiedz się, jak ustawiać zasady przy użyciu programu PowerShell](../governance/policy/assign-policy-powershell.md) - 
 - [Dowiedz się, jak edytować zasady zabezpieczeń w Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 

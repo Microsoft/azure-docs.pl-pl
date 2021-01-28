@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 59768e4fc04613a5ecac6a76059382499b7aaa86
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880746"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986466"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
@@ -84,7 +84,7 @@ W przypadku scenariuszy publikowania Transact można bezpłatnie udostępnić li
 
 Oprócz korzystania z typów ofert i modeli rozliczeń w celu Zarabiaj oferty, możesz wykonać transakcję prywatną, zapełnić z użyciem wynegocjowanych, cenników specyficznych dla transakcji lub konfiguracji niestandardowych. Oferty prywatne są obsługiwane przez wszystkie trzy opcje publikacji Transact.
 
-Ta opcja umożliwia korzystanie z wyższych lub niższych cen niż publicznie dostępna oferta. Możesz użyć ofert prywatnych do rabatu lub dodania wersji Premium do oferty. Oferty prywatne można udostępnić jednemu lub większej liczbie klientów, zmieniając ich subskrypcję platformy Azure na poziomie oferty.
+Ta opcja umożliwia korzystanie z wyższych lub niższych cen niż publicznie dostępna oferta. Możesz użyć ofert prywatnych do rabatu lub dodania wersji Premium do oferty. Oferty prywatne można udostępnić jednemu lub większej liczbie klientów, allowlisting ich subskrypcję platformy Azure na poziomie oferty.
 
 ### <a name="commercial-marketplace-service-fees"></a>Komercyjne opłaty za usługę Marketplace
 

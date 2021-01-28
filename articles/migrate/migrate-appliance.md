@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754134"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986823"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -45,7 +45,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 
 **Wymaganie** | **VMware** 
 --- | ---
-**Uprawnienia** | Aby uzyskać dostęp do aplikacji sieci Web urządzenia lokalnie lub zdalnie, musisz być administratorem domeny lub administratorem lokalnym na komputerze urządzenia.
+**Uprawnienia** | Aby uzyskać dostęp do aplikacji sieci Web urządzenia lokalnie lub zdalnie, musisz mieć konto użytkownika lokalnego lub domeny z uprawnieniami administracyjnymi na serwerze urządzeń.
 **Składniki urządzenia** | Urządzenie ma następujące składniki:<br/><br/> - **Aplikacja zarządzania**: jest to aplikacja internetowa do wprowadzania danych przez użytkownika podczas wdrażania urządzenia. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/> - **Agent odnajdywania**: Agent zbiera dane konfiguracji maszyny. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Agent modułu zbierającego**: Agent zbiera dane wydajności. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Usługa Autoaktualizacja**: aktualizuje składniki urządzenia (jest uruchamiany co 24 godziny).<br/>- **Agent dra**: organizuje REPLIKACJĘ maszyny wirtualnej i koordynuje komunikację między replikowanymi maszynami i platformą Azure. Używane tylko w przypadku replikowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji bez wykorzystania agentów.<br/>- **Brama**: wysyła zreplikowane dane na platformę Azure. Używane tylko w przypadku replikowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji bez wykorzystania agentów.
 **Obsługiwane wdrożenie** | Wdróż jako maszynę wirtualną VMware przy użyciu szablonu komórki jajowe.<br/><br/> Wdróż aplikację jako maszynę wirtualną VMware lub maszynę fizyczną przy użyciu skryptu instalacyjnego programu PowerShell.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
@@ -65,7 +65,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 
 **Wymaganie** | **Hyper-V** 
 --- | ---
-**Uprawnienia** | Aby uzyskać dostęp do aplikacji sieci Web urządzenia lokalnie lub zdalnie, musisz być administratorem domeny lub administratorem lokalnym na komputerze urządzenia.
+**Uprawnienia** | Aby uzyskać dostęp do aplikacji sieci Web urządzenia lokalnie lub zdalnie, musisz mieć konto użytkownika lokalnego lub domeny z uprawnieniami administracyjnymi na serwerze urządzeń.
 **Składniki urządzenia** | Urządzenie ma następujące składniki:<br/><br/>- **Aplikacja zarządzania**: jest to aplikacja internetowa do wprowadzania danych przez użytkownika podczas wdrażania urządzenia. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/> - **Agent odnajdywania**: Agent zbiera dane konfiguracji maszyny. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Agent modułu zbierającego**: Agent zbiera dane wydajności. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Usługa Autoaktualizacja**: aktualizuje składniki urządzenia (jest uruchamiany co 24 godziny).
 **Obsługiwane wdrożenie** | Wdróż jako maszynę wirtualną funkcji Hyper-V przy użyciu szablonu wirtualnego dysku twardego.<br/><br/> Wdróż aplikację jako maszynę wirtualną lub maszynę fizyczną z funkcją Hyper-V przy użyciu skryptu instalacyjnego programu PowerShell.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
@@ -82,7 +82,7 @@ _ *Wymagania dotyczące funkcji Hyper-V** | Jeśli urządzenie zostanie wdrożon
 
 **Wymaganie** | **Fizyczny** 
 --- | ---
-**Uprawnienia** | Aby uzyskać dostęp do aplikacji sieci Web urządzenia lokalnie lub zdalnie, musisz być administratorem domeny lub administratorem lokalnym na komputerze urządzenia.
+**Uprawnienia** | Aby uzyskać dostęp do aplikacji sieci Web urządzenia lokalnie lub zdalnie, musisz mieć konto użytkownika lokalnego lub domeny z uprawnieniami administracyjnymi na serwerze urządzeń.
 **Składniki urządzenia** | Urządzenie ma następujące składniki: <br/><br/> - **Aplikacja zarządzania**: jest to aplikacja internetowa do wprowadzania danych przez użytkownika podczas wdrażania urządzenia. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/> - **Agent odnajdywania**: Agent zbiera dane konfiguracji maszyny. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Agent modułu zbierającego**: Agent zbiera dane wydajności. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Usługa Autoaktualizacja**: aktualizuje składniki urządzenia (jest uruchamiany co 24 godziny).
 **Obsługiwane wdrożenie** | Wdróż jako dedykowaną maszynę fizyczną lub maszynę wirtualną przy użyciu skryptu instalacyjnego programu PowerShell. Skrypt jest dostępny do pobrania z portalu.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 

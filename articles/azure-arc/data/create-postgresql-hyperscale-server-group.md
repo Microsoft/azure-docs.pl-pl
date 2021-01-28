@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d432f29e91097491fc4719ec59a11cb96948f431
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 45bb045e7bad2d5f8a56b71787b3abb5921cb7d5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609058"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985890"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Tworzenie grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
 
@@ -78,9 +78,16 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
 
+> [!IMPORTANT]
+> - Klasa magazynu używana do tworzenia kopii zapasowych (_--Storage-Class-Backup-SCB_) domyślnie jest klasą magazynu danych kontrolera danych, jeśli nie została dostarczona.
+> - Aby przywrócić grupę serwerów do osobnej grupy serwerów (na przykład Przywracanie do punktu w czasie), należy skonfigurować grupę serwerów do używania obwodów PVC z trybem dostępu ReadWriteMany. Jest to wymagane do utworzenia grupy serwerów. Nie można go zmienić po utworzeniu. Aby uzyskać więcej informacji, zobacz:
+>    - [Ta sekcja dotycząca tworzenia kopii zapasowych i przywracania](https://docs.microsoft.com/azure/azure-arc/data/backup-restore-postgresql-hyperscale#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [Ta sekcja dotycząca ograniczeń usługi Azure ARC z włączonym skalowaniem PostgreSQL](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale)
+
+
 > [!NOTE]
 > - **Dostępne są inne parametry wiersza polecenia.  Zapoznaj się z pełną listą opcji, uruchamiając `azdata arc postgres server create --help` .**
-> - Klasa magazynu używana do tworzenia kopii zapasowych (_--Storage-Class-Backup-SCB_) domyślnie jest klasą magazynu danych kontrolera danych, jeśli nie została dostarczona.
+
 > - Jednostka zaakceptowana przez parametry--Volume-* parametrów jest Kubernetesą ilością zasobów (liczba całkowita, po której następuje jeden z tych elementów SI (T, G, M, K, m) lub ich potęgi dwóch odpowiedników (TI, gi, mi, ki)).
 > - Nazwy muszą mieć długość co najmniej 12 znaków i być zgodne z konwencjami nazewnictwa DNS.
 > - Zostanie wyświetlony monit o wprowadzenie hasła dla standardowego użytkownika administracyjnego _Postgres_ .  Możesz pominąć interaktywny monit przez ustawienie `AZDATA_PASSWORD` zmiennej środowiskowej sesji przed uruchomieniem polecenia CREATE.
@@ -112,7 +119,7 @@ Aby wyświetlić punkty końcowe dla wystąpienia PostgreSQL, uruchom następuj�
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Przykład:
+Na przykład:
 ```console
 [
   {

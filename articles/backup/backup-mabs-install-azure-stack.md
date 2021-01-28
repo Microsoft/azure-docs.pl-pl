@@ -3,12 +3,12 @@ title: Instalowanie składnika Azure Backup Server w usłudze Azure Stack
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do ochrony lub tworzenia kopii zapasowych obciążeń w programie Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970245"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987009"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalowanie składnika Azure Backup Server w usłudze Azure Stack
 
@@ -112,7 +112,7 @@ Opcja replikacji magazynu Recovery Services Storage umożliwia wybranie między 
 Aby edytować ustawienia replikacji magazynu:
 
 1. Wybierz swój magazyn, aby otworzyć pulpit nawigacyjny magazynu i menu Ustawienia. Jeśli menu **Ustawienia** nie jest otwarte, wybierz pozycję **wszystkie ustawienia** na pulpicie nawigacyjnym magazynu.
-2. W menu **Ustawienia** wybierz kolejno pozycje **kopia**zapasowa infrastruktura zapasowa,  >  **Backup Configuration** aby otworzyć menu **Konfiguracja kopii zapasowej** . W menu **Konfiguracja kopii zapasowej** wybierz opcję replikacja magazynu dla swojego magazynu.
+2. W menu **Ustawienia** wybierz kolejno pozycje **kopia** zapasowa infrastruktura zapasowa,  >   aby otworzyć menu **Konfiguracja kopii zapasowej** . W menu **Konfiguracja kopii zapasowej** wybierz opcję replikacja magazynu dla swojego magazynu.
 
     ![Lista magazynów kopii zapasowych](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -193,7 +193,7 @@ Po pobraniu wszystkich plików na maszynę wirtualną Azure Stack przejdź do lo
 
    ![Kreator wyodrębnia pliki](./media/backup-mabs-install-azure-stack/mabs-install-wizard-install-3.png)
 
-6. Po zakończeniu procesu wyodrębniania wybierz pozycję **Zakończ**. Domyślnie jest zaznaczone polecenie **wykonaj setup.exe** . Po wybraniu **przycisku Zakończ**program Setup.exe instaluje serwer Microsoft Azure Backup w określonej lokalizacji.
+6. Po zakończeniu procesu wyodrębniania wybierz pozycję **Zakończ**. Domyślnie jest zaznaczone polecenie **wykonaj setup.exe** . Po wybraniu **przycisku Zakończ** program Setup.exe instaluje serwer Microsoft Azure Backup w określonej lokalizacji.
 
    ![Instalator wyodrębnia Microsoft Azure Backup pliki serwera](./media/backup-mabs-install-azure-stack/mabs-install-wizard-finish-4.png)
 
@@ -239,7 +239,7 @@ Azure Backup Server udostępnia kod z Data Protection Manager. W instalatorze Az
 
     Jeśli wystąpi błąd z zaleceniem ponownego uruchomienia komputera, należy ponownie uruchomić maszynę. Po ponownym uruchomieniu maszyny Uruchom ponownie Instalatora, a po wyświetleniu ekranu **Ustawienia SQL** wybierz pozycję **Sprawdź ponownie**.
 
-5. W **ustawieniach instalacji**Podaj lokalizację instalacji plików serwera Microsoft Azure Backup i wybierz pozycję **dalej**.
+5. W **ustawieniach instalacji** Podaj lokalizację instalacji plików serwera Microsoft Azure Backup i wybierz pozycję **dalej**.
 
     ![Podaj lokalizację instalacji plików](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
@@ -297,7 +297,7 @@ Azure Backup Server udostępnia kod z Data Protection Manager. W instalatorze Az
 
     Możesz podać własne hasło lub użyć generatora hasła, aby je utworzyć. Hasło jest Twoje, a firma Microsoft nie zapisuje tego hasła ani nie zarządza nim. Aby przygotować się na awarię, Zapisz hasło w dostępnej lokalizacji.
 
-    Po wybraniu **pozycji dalej**Azure Backup Server zostanie zarejestrowana w magazynie Recovery Services. Instalator kontynuuje instalowanie SQL Server i Azure Backup Server.
+    Po wybraniu **pozycji dalej** Azure Backup Server zostanie zarejestrowana w magazynie Recovery Services. Instalator kontynuuje instalowanie SQL Server i Azure Backup Server.
 
     ![Instalator instaluje SQL i Azure Backup Server](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-still-installing-20.png)
 
@@ -326,30 +326,36 @@ Po uzyskaniu informacji o stanie łączności z platformą Azure i subskrypcji p
 
 | Stan łączności | Subskrypcja platformy Azure | Tworzenie kopii zapasowej w systemie Azure | Utwórz kopię zapasową na dysku | Przywróć z platformy Azure | Przywracanie z dysku |
 | --- | --- | --- | --- | --- | --- |
-| Połączone |Aktywny |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
+| Połączone |Aktywna |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
 | Połączone |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Połączone |Anulowanie aprowizacji |Zatrzymano |Zatrzymano |Zatrzymane i usunięte punkty odzyskiwania platformy Azure |Zatrzymano |
-| Utracono łączność > 15 dni |Aktywny |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
+| Utracono łączność > 15 dni |Aktywna |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Utracono łączność > 15 dni |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Utracono łączność > 15 dni |Anulowanie aprowizacji |Zatrzymano |Zatrzymano |Zatrzymane i usunięte punkty odzyskiwania platformy Azure |Zatrzymano |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Odzyskiwanie po utracie łączności
 
-Jeśli zapora lub serwer proxy uniemożliwia dostęp do platformy Azure, Dodaj następujące adresy domeny na liście dozwolonych profilów zapory/serwera proxy:
+Jeśli maszyna ma ograniczony dostęp do Internetu, upewnij się, że ustawienia zapory na komputerze lub serwerze proxy zezwalają na następujące adresy URL i adresy IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* Adresy URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresy IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
-Po przywróceniu łączności z platformą Azure do Azure Backup Server stan subskrypcji platformy Azure określa operacje, które można wykonać. Po **nawiązaniu połączenia**z serwerem Użyj tabeli w obszarze [łączność sieciowa](backup-mabs-install-azure-stack.md#network-connectivity) , aby wyświetlić dostępne operacje.
+
+Po przywróceniu łączności z platformą Azure do Azure Backup Server stan subskrypcji platformy Azure określa operacje, które można wykonać. Po **nawiązaniu połączenia** z serwerem Użyj tabeli w obszarze [łączność sieciowa](backup-mabs-install-azure-stack.md#network-connectivity) , aby wyświetlić dostępne operacje.
 
 ### <a name="handling-subscription-states"></a>Obsługa stanów subskrypcji
 
 Istnieje możliwość zmiany stanu subskrypcji platformy Azure z *wygasłej* lub *wstrzymanej* w stanie *aktywnym* . Stan subskrypcji nie jest *aktywny*:
 
-- Anulowanie aprowizacji *subskrypcji powoduje utratę*jej funkcjonalności. Przywracanie subskrypcji do *aktywnego*programu powoduje przywrócenie funkcji tworzenia kopii zapasowej/przywracania. Jeśli dane kopii zapasowej na dysku lokalnym zostały zachowane z wystarczającą ilością okresu przechowywania, dane kopii zapasowej można pobrać. Jednak dane kopii zapasowej na platformie Azure są irretrievably tracone po przejściu subskrypcji w stan *anulowania* aprowizacji.
+- Anulowanie aprowizacji *subskrypcji powoduje utratę* jej funkcjonalności. Przywracanie subskrypcji do *aktywnego* programu powoduje przywrócenie funkcji tworzenia kopii zapasowej/przywracania. Jeśli dane kopii zapasowej na dysku lokalnym zostały zachowane z wystarczającą ilością okresu przechowywania, dane kopii zapasowej można pobrać. Jednak dane kopii zapasowej na platformie Azure są irretrievably tracone po przejściu subskrypcji w stan *anulowania* aprowizacji.
 - Subskrypcja *wygasła*. Zaplanowane kopie zapasowe nie są uruchamiane, gdy subskrypcja *wygasła*.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów

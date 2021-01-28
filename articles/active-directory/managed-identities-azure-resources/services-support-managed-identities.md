@@ -4,19 +4,19 @@ description: Lista usług, które obsługują zarządzane tożsamości dla zasob
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/07/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0f7c97e5d84b3ee2d40c714625d0158fe60f2c95
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880797"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986077"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
 
@@ -113,6 +113,14 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 | Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
 
+### <a name="azure-communication-services"></a>Usługi Azure Communication Services
+
+Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Przypisana przez system | ![Dostępne][check] | Niedostępne | Niedostępne | Niedostępne |
+| Przypisana przez użytkownika | ![Dostępne][check] | Niedostępne | Niedostępne | Niedostępne |
+
+
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
@@ -158,6 +166,17 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 - [Program PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [ZESTAWIE](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+### <a name="azure-digital-twins"></a>Azure Digital Twins
+
+Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Przypisana przez system | ![Dostępne][check] | Niedostępne | Niedostępne | Niedostępne |
+| Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
+
+Zapoznaj się z poniższą listą, aby skonfigurować zarządzaną tożsamość usługi Azure Digital bliźniaczych reprezentacji (w regionach, w których są dostępne):
+
+- [Witryna Azure Portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
 
 ### <a name="azure-event-grid"></a>Azure Event Grid
 

@@ -3,12 +3,12 @@ title: Co Azure Backup Server v3 RTM może utworzyć kopię zapasową
 description: Ten artykuł zawiera informacje o wszystkich obciążeniach, typach danych i instalacjach, które Azure Backup obsłużyć do wersji v3 RTM ochrony.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: c1a1a876a9249a32c87c50d7f320a62b9c478caf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1ec8240844061b9b250a3cbf92ffcc5f2b3f474b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752383"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986891"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Macierz Azure Backup Server v3 RTM Protection
 
@@ -86,11 +86,16 @@ Możesz tworzyć kopie zapasowe danych za pośrednictwem usługi Azure ExpressRo
 
 Przy użyciu publicznej komunikacji równorzędnej: Upewnij się, że dostęp do następujących domen/adresów:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* Adresy URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresy IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 W przypadku komunikacji równorzędnej firmy Microsoft wybierz następujące usługi/regiony i odpowiednie wartości społeczności:
 

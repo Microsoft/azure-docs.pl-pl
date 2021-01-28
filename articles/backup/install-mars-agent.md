@@ -3,12 +3,12 @@ title: Zainstaluj agenta Microsoft Azure Recovery Services (MARS)
 description: Dowiedz się, jak zainstalować agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych maszyn z systemem Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: fb59c245c469791233ce973b00426a127b116535
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975305"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986874"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalowanie agenta Azure Backup MARS
 
@@ -51,7 +51,7 @@ Aby zmodyfikować typ replikacji magazynu:
 
 1. W nowym magazynie wybierz pozycję **Właściwości** w sekcji **Ustawienia** .
 
-1. Na stronie **Właściwości** w obszarze **Konfiguracja kopii zapasowej**wybierz pozycję **Aktualizuj**.
+1. Na stronie **Właściwości** w obszarze **Konfiguracja kopii zapasowej** wybierz pozycję **Aktualizuj**.
 
 1. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
 
@@ -88,6 +88,9 @@ Aby korzystać z publicznej komunikacji równorzędnej, należy najpierw zapewni
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
 * `.windows.net`
+* Adresy IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Aby użyć komunikacji równorzędnej firmy Microsoft, wybierz następujące usługi, regiony i odpowiednie wartości społeczności:
 
@@ -112,7 +115,7 @@ Pobierz agenta MARS, aby można było go zainstalować na maszynach, dla któryc
 
 Jeśli Agent został już zainstalowany na wszystkich komputerach, upewnij się, że korzystasz z najnowszej wersji agenta. Znajdź najnowszą wersję w portalu lub przejdź bezpośrednio do [pobierania](https://aka.ms/azurebackup_agent).
 
-1. W magazynie w obszarze **wprowadzenie**wybierz pozycję **kopia zapasowa**.
+1. W magazynie w obszarze **wprowadzenie** wybierz pozycję **kopia zapasowa**.
 
     ![Otwórz cel kopii zapasowej](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
@@ -121,7 +124,7 @@ Jeśli Agent został już zainstalowany na wszystkich komputerach, upewnij się,
 
     ![Konfigurowanie plików i folderów](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
-1. W obszarze **Przygotowanie infrastruktury**w obszarze **Zainstaluj Recovery Services agenta**Pobierz agenta Mars.
+1. W obszarze **Przygotowanie infrastruktury** w obszarze **Zainstaluj Recovery Services agenta** Pobierz agenta Mars.
 
     ![Przygotowywanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
@@ -136,22 +139,22 @@ Jeśli Agent został już zainstalowany na wszystkich komputerach, upewnij się,
 ## <a name="install-and-register-the-agent"></a>Instalowanie i rejestrowanie agenta
 
 1. Uruchom plik *MARSagentinstaller.exe* na maszynach, dla których chcesz utworzyć kopię zapasową.
-1. W Kreatorze instalacji agenta MARS wybierz pozycję **ustawienia instalacji**. W tym miejscu wybierz miejsce instalacji agenta i wybierz lokalizację pamięci podręcznej. Następnie wybierz pozycję **Dalej**.
+1. W Kreatorze instalacji agenta MARS wybierz pozycję **ustawienia instalacji**. W tym miejscu wybierz miejsce instalacji agenta i wybierz lokalizację pamięci podręcznej. Następnie wybierz przycisk **Dalej**.
    * Azure Backup używa pamięci podręcznej do przechowywania migawek danych przed wysłaniem ich do platformy Azure.
    * W lokalizacji pamięci podręcznej powinna występować ilość wolnego miejsca równa co najmniej 5% rozmiaru danych, których kopia zapasowa ma zostać wykonana.
 
     ![Wybieranie ustawień instalacji w Kreatorze instalacji agenta MARS](./media/backup-configure-vault/mars1.png)
 
-1. W obszarze **Konfiguracja serwera proxy**Określ, w jaki sposób Agent uruchomiony na komputerze z systemem Windows będzie łączył się z Internetem. Następnie wybierz pozycję **Dalej**.
+1. W obszarze **Konfiguracja serwera proxy** Określ, w jaki sposób Agent uruchomiony na komputerze z systemem Windows będzie łączył się z Internetem. Następnie wybierz przycisk **Dalej**.
 
    * Jeśli używasz niestandardowego serwera proxy, określ wymagane ustawienia serwera proxy i poświadczenia.
    * Należy pamiętać, że Agent musi mieć dostęp do [określonych adresów URL](#before-you-start).
 
     ![Konfigurowanie dostępu do Internetu w Kreatorze MARS](./media/backup-configure-vault/mars2.png)
 
-1. Na potrzeby **instalacji**Przejrzyj wymagania wstępne i wybierz pozycję **Zainstaluj**.
+1. Na potrzeby **instalacji** Przejrzyj wymagania wstępne i wybierz pozycję **Zainstaluj**.
 1. Po zainstalowaniu agenta wybierz pozycję przechodzenie **do rejestracji**.
-1. W oknie **Rejestrowanie**  >  **magazynu**kreatora, Wyszukaj i wybierz pobrany plik poświadczeń. Następnie wybierz pozycję **Dalej**.
+1. W oknie **Rejestrowanie**  >  **magazynu** kreatora, Wyszukaj i wybierz pobrany plik poświadczeń. Następnie wybierz przycisk **Dalej**.
 
     ![Dodawanie poświadczeń magazynu za pomocą Kreatora rejestrowania serwera](./media/backup-configure-vault/register1.png)
 

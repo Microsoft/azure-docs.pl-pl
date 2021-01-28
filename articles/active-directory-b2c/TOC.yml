@@ -452,6 +452,8 @@
           href: user-migration.md
 - name: Dokumentacja
   items:
+    - name: Ograniczenia i limity usługi
+      href: service-limits.md
     - name: Rejestracje aplikacji
       href: app-registrations-training-guide.md
     - name: Model rozliczania

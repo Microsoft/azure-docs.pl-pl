@@ -3,12 +3,12 @@ title: SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 description: Ten artykuł zawiera informacje o wszystkich obciążeniach, typach danych i instalacjach, które Azure Backup Server chronić.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d37d51ee781dfbc5bcd56fa3158a622202a979c6
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 2c7caad1d377070d4d4ac8436c1d8c08e786dc44
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754185"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986840"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 
@@ -65,11 +65,17 @@ Możesz tworzyć kopie zapasowe danych za pośrednictwem usługi Azure ExpressRo
 
 Przy użyciu publicznej komunikacji równorzędnej: Upewnij się, że dostęp do następujących domen/adresów:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* Adresy URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresy IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 W przypadku komunikacji równorzędnej firmy Microsoft wybierz następujące usługi/regiony i odpowiednie wartości społeczności:
 

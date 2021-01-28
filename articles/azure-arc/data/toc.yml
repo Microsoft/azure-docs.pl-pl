@@ -96,6 +96,8 @@
       items:
         - name: Czym jest baza danych PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
+        - name: Ograniczenia
+          href: limitations-postgresql-hyperscale.md
     - name: Przewodniki Szybki start
       items:
         - name: Obsługiwane wersje

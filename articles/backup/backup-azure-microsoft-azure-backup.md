@@ -3,12 +3,12 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056705"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987026"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -85,7 +85,7 @@ Dla opcji replikacji magazynu można wybrać magazynowanie nadmiarowe geograficz
 Aby edytować ustawienia replikacji magazynu:
 
 1. W okienku **Recovery Services magazynów** wybierz nowy magazyn. W sekcji **Ustawienia** wybierz pozycję  **Właściwości**.
-2. W obszarze **Właściwości**w obszarze **Konfiguracja kopii zapasowej**wybierz pozycję **Aktualizuj**.
+2. W obszarze **Właściwości** w obszarze **Konfiguracja kopii zapasowej** wybierz pozycję **Aktualizuj**.
 
 3. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
 
@@ -243,7 +243,7 @@ SERWERA usługi MAB używa agenta ochrony programu System Center Data Protection
 
 W poniższych sekcjach opisano sposób aktualizowania agentów ochrony dla komputerów klienckich.
 
-1. W Konsola administratora serwera kopii zapasowej wybierz **Management**pozycję  >  **agenci**zarządzania.
+1. W Konsola administratora serwera kopii zapasowej wybierz pozycję  >  **agenci** zarządzania.
 
 2. W okienku wyświetlania wybierz komputery klienckie, dla których chcesz zaktualizować agenta ochrony.
 
@@ -294,22 +294,27 @@ Po uzyskaniu informacji o stanie łączności z platformą Azure i subskrypcji p
 
 | Stan łączności | Subskrypcja platformy Azure | Tworzenie kopii zapasowej w systemie Azure | Utwórz kopię zapasową na dysku | Przywróć z platformy Azure | Przywracanie z dysku |
 | --- | --- | --- | --- | --- | --- |
-| Połączone |Aktywny |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
+| Połączone |Aktywna |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
 | Połączone |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Połączone |Anulowanie aprowizacji |Zatrzymano |Zatrzymano |Zatrzymane i usunięte punkty odzyskiwania platformy Azure |Zatrzymano |
-| Utracono łączność > 15 dni |Aktywny |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
+| Utracono łączność > 15 dni |Aktywna |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Utracono łączność > 15 dni |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Utracono łączność > 15 dni |Anulowanie aprowizacji |Zatrzymano |Zatrzymano |Zatrzymane i usunięte punkty odzyskiwania platformy Azure |Zatrzymano |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Odzyskiwanie po utracie łączności
 
-Jeśli masz zaporę lub serwer proxy, który uniemożliwia dostęp do platformy Azure, musisz zezwolić na następujące adresy domeny w profilu zapory/serwera proxy:
+Jeśli maszyna ma ograniczony dostęp do Internetu, upewnij się, że ustawienia zapory na komputerze lub serwerze proxy zezwalają na następujące adresy URL i adresy IP:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* \*.Microsoft.com
-* \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+* Adresy URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresy IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Jeśli używasz komunikacji równorzędnej firmy Microsoft ExpressRoute, wybierz następujące usługi/regiony:
 
@@ -325,7 +330,7 @@ Po przywróceniu łączności z platformą Azure do maszyny Azure Backup Server 
 
 Istnieje możliwość podjęcia subskrypcji platformy Azure ze stanu *wygasłego* lub *wstrzymanego* w stanie *aktywnym* . Jednak ma to wpływ na zachowanie produktu, gdy stan nie jest *aktywny*:
 
-* Cofnięcie *aprowizacji subskrypcji powoduje* utratę funkcjonalności dla tego okresu. W przypadku włączania *aktywności*funkcja tworzenia kopii zapasowej/przywracania jest przywracana. Dane kopii zapasowej na dysku lokalnym można również pobrać, jeśli były utrzymywane w wystarczająco dużym okresie przechowywania. Jednak dane kopii zapasowej na platformie Azure są irretrievably utracone po przejściu subskrypcji w stan *anulowania* aprowizacji.
+* Cofnięcie *aprowizacji subskrypcji powoduje* utratę funkcjonalności dla tego okresu. W przypadku włączania *aktywności* funkcja tworzenia kopii zapasowej/przywracania jest przywracana. Dane kopii zapasowej na dysku lokalnym można również pobrać, jeśli były utrzymywane w wystarczająco dużym okresie przechowywania. Jednak dane kopii zapasowej na platformie Azure są irretrievably utracone po przejściu subskrypcji w stan *anulowania* aprowizacji.
 * *Wygasła* subskrypcja powoduje utratę funkcjonalności, dopóki nie zostanie ponownie *uaktywniona* . Wszystkie kopie zapasowe zaplanowane na okres *ważności* subskrypcji nie będą działać.
 
 ## <a name="upgrade-mabs"></a>SERWERA usługi MAB uaktualnienia

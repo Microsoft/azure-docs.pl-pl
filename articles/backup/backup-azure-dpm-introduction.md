@@ -3,12 +3,12 @@ title: Przygotuj serwer programu DPM do tworzenia kopii zapasowych obciążeń
 description: W tym artykule dowiesz się, jak przygotować się do tworzenia kopii zapasowych programu System Center Data Protection Manager (DPM) na platformie Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 823b23d99959df5f2eed20cf4136254e1702fe89
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002867"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985635"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Przygotowanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu System Center DPM
 
@@ -48,7 +48,7 @@ Obsługiwane typy plików | Kopie zapasowe tych typów plików można wykonać p
 Nieobsługiwane typy plików | <li>Serwery w systemach plików z uwzględnieniem wielkości liter<li> twarde linki (pomijane)<li> punkty ponownej analizy (pominięte)<li> zaszyfrowane i skompresowane (pomijane)<li> zaszyfrowane i rozrzedzone (pomijane)<li> Strumień skompresowany<li> analizowanie strumienia
 Magazyn lokalny | Każdy komputer, którego kopia zapasowa ma zostać utworzona, musi mieć lokalne wolne miejsce, co najmniej 5% rozmiaru danych, których kopia zapasowa jest tworzona. Na przykład kopia zapasowa 100 GB danych wymaga co najmniej 5 GB wolnego miejsca w lokalizacji tymczasowej.
 Magazyn magazynu | Nie ma limitu ilości danych, do których można utworzyć kopię zapasową w magazynie Azure Backup, ale rozmiar źródła danych (na przykład maszyny wirtualnej lub bazy danych) nie powinien przekraczać 54 400 GB.
-Azure ExpressRoute | Możesz tworzyć kopie zapasowe danych za pośrednictwem usługi Azure ExpressRoute za pomocą publicznej komunikacji równorzędnej (dostępne dla starych obwodów) i komunikacji równorzędnej firmy Microsoft. Tworzenie kopii zapasowej za pośrednictwem prywatnej komunikacji równorzędnej nie jest obsługiwane.<br/><br/> **Przy użyciu publicznej komunikacji równorzędnej**: Upewnij się, że dostęp do następujących domen/adresów:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **W przypadku komunikacji równorzędnej firmy Microsoft** wybierz następujące usługi/regiony i odpowiednie wartości społeczności:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure region (zgodnie z lokalizacją magazynu Recovery Services)<br/><br/>— Azure Storage (zgodnie z lokalizacją magazynu Recovery Services)<br/><br/>Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Uwaga**: publiczna Komunikacja równorzędna jest przestarzała dla nowych obwodów.
+Azure ExpressRoute | Możesz tworzyć kopie zapasowe danych za pośrednictwem usługi Azure ExpressRoute za pomocą publicznej komunikacji równorzędnej (dostępne dla starych obwodów) i komunikacji równorzędnej firmy Microsoft. Tworzenie kopii zapasowej za pośrednictwem prywatnej komunikacji równorzędnej nie jest obsługiwane.<br/><br/> **Przy użyciu publicznej komunikacji równorzędnej**: Upewnij się, że dostęp do następujących domen/adresów:<br/><br/> Adresy<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>Adresy IP<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/>**W przypadku komunikacji równorzędnej firmy Microsoft** wybierz następujące usługi/regiony i odpowiednie wartości społeczności:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure region (zgodnie z lokalizacją magazynu Recovery Services)<br/><br/>— Azure Storage (zgodnie z lokalizacją magazynu Recovery Services)<br/><br/>Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Uwaga**: publiczna Komunikacja równorzędna jest przestarzała dla nowych obwodów.
 Agent usługi Azure Backup | Jeśli program DPM jest uruchomiony w programie System Center 2012 SP1, zainstaluj pakiet zbiorczy 2 lub nowszy dla programu DPM z dodatkiem SP1. Jest to wymagane na potrzeby instalacji agenta.<br/><br/> W tym artykule opisano sposób wdrażania najnowszej wersji agenta Azure Backup, znanego również jako Agent usługi odzyskiwania Microsoft Azure (MARS). Jeśli wdrożono wcześniejszą wersję, należy ją zaktualizować do najnowszej wersji, aby upewnić się, że kopia zapasowa działa zgodnie z oczekiwaniami.
 
 Przed rozpoczęciem musisz mieć konto platformy Azure z włączoną funkcją Azure Backup. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Przeczytaj o [cenach Azure Backup](https://azure.microsoft.com/pricing/details/backup/).

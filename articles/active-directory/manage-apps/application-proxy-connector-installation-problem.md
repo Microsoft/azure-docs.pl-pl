@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/21/2018
+ms.date: 01/28/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 04c26609b046f7525c513796622be74633a20e91
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657333"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986772"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem z instalacją łącznika agenta serwera proxy aplikacji
 
@@ -24,7 +24,7 @@ ms.locfileid: "94657333"
 
 ## <a name="general-problem-areas-with-connector-installation"></a>Ogólne obszary problemów z instalacją łącznika
 
-Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwyczaj jeden z następujących obszarów:
+Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwyczaj jeden z następujących obszarów. **W celu przeprowadzenia rozwiązywania problemów należy ponownie uruchomić łącznik.**
 
 1.  **Łączność** — aby ukończyć pomyślną instalację, nowy łącznik musi zarejestrować i ustanowić przyszłe właściwości zaufania. W tym celu należy nawiązać połączenie z usługą serwer proxy aplikacji usługi Azure Active Directory w chmurze.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/09/2020
-ms.openlocfilehash: 6f74f3b1f5aad153903ba5d290a290973203a875
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489390"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986128"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Skonfiguruj subskrypcję portalu Azure Marketplace dla hostowanych dysków testowych
 
@@ -43,7 +43,7 @@ W tym artykule wyjaśniono, jak skonfigurować subskrypcję portalu Azure Market
     5. W obszarze obsługiwane typy kont wybierz pozycję **konto w dowolnym katalogu organizacji i osobiste konta Microsoft**.
     6. Wybierz pozycję **Utwórz** i poczekaj na utworzenie aplikacji.
     7. Po utworzeniu aplikacji należy zwrócić uwagę na **Identyfikator aplikacji** wyświetlany na ekranie przegląd. Ta wartość będzie potrzebna później podczas konfigurowania dysku testowego.
-    8. Aby dodać identyfikator URI przekierowania nativeclient, wybierz blok **uwierzytelnianie** . W obszarze **Konfiguracja platformy** wybierz opcję **Dodaj**  >  **Mobile**  >  kafelek aplikacji **klasycznej** platformy mobilnej. Wybierz identyfikator URI przekierowania **nativeclient** i wybierz pozycję **Konfiguruj**.
+    8. Aby dodać identyfikator URI przekierowania nativeclient, wybierz blok **uwierzytelnianie** . W obszarze **Konfiguracja platformy** wybierz opcję **Dodaj**  >    >  kafelek aplikacji **klasycznej** platformy mobilnej. Wybierz identyfikator URI przekierowania **nativeclient** i wybierz pozycję **Konfiguruj**.
 
         :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Dodawanie identyfikatora URI przekierowania nativeclient.":::
 
@@ -65,12 +65,12 @@ W tym artykule wyjaśniono, jak skonfigurować subskrypcję portalu Azure Market
     15. Aby wygenerować klucz tajny dla aplikacja usługi Azure AD:
         1. W obszarze **Zarządzanie aplikacją** wybierz pozycję **certyfikat i wpisy tajne**.
         2. W obszarze wpisy tajne klienta wybierz pozycję **nowy klucz tajny klienta**.
-        3. Wprowadź opis, taki jak *dysk testowy* , i wybierz odpowiedni czas trwania. Po upływie tego klucza dysk testowy zostanie przerwany, w którym momencie trzeba będzie wygenerować i udostępnić nowy klucz AppSource.
+        3. Wprowadź opis, taki jak *dysk testowy*, i wybierz odpowiedni czas trwania. Po upływie tego klucza dysk testowy zostanie przerwany, w którym momencie trzeba będzie wygenerować i udostępnić nowy klucz AppSource.
         4. Wybierz pozycję **Dodaj** , aby wygenerować klucz tajny aplikacji platformy Azure. Skopiuj tę wartość, ponieważ wkrótce zostanie ona ukryta po Lave tego bloku. Ta wartość będzie potrzebna później podczas konfigurowania dysku testowego.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Dodawanie klucza tajnego klienta.":::
 
-5. Czasami Synchronizacja użytkownika z usługi Azure AD z wystąpieniem programu CRM trwa dłużej niż oczekiwano. Aby uzyskać pomoc w tym, dodaliśmy proces wymuszania użytkownika synchronizacji, ale wymaga to, aby aplikacja usługi Azure AD była listy dozwolonych przez centrum partnerskie. Aby to zrobić, zobacz temat [Synchronizacja użytkownika z wystąpieniem zaangażowanie klienta](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
+5. Czasami Synchronizacja użytkownika z usługi Azure AD z wystąpieniem programu CRM trwa dłużej niż oczekiwano. Aby uzyskać pomoc w tym, dodaliśmy proces wymuszania użytkownika synchronizacji, ale wymaga to, aby aplikacja usługi Azure AD była allowlisted przez centrum partnerskie. Aby to zrobić, zobacz temat [Synchronizacja użytkownika z wystąpieniem zaangażowanie klienta](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
 6. Dodaj rolę jednostki usługi do aplikacji, aby umożliwić aplikacji usługi Azure AD usuwanie użytkowników z dzierżawy platformy Azure.
     1. Otwórz wiersz polecenia programu PowerShell na poziomie administracyjnym.
     2. Install-Module MSOnline (Uruchom to polecenie, jeśli MSOnline nie jest zainstalowana).
@@ -83,7 +83,7 @@ W tym artykule wyjaśniono, jak skonfigurować subskrypcję portalu Azure Market
 
 7. Dodaj powyżej utworzoną aplikację platformy Azure jako użytkownika aplikacji do wystąpienia testowego programu CRM.
     1. Dodaj nowego użytkownika w **Azure Active Directory**. Tylko wartości **name** i **username** (należące do tej samej dzierżawy) są wymagane do utworzenia tego użytkownika, pozostałe pola należy pozostawić jako domyślne. Skopiuj wartość Nazwa użytkownika.
-    2. Zaloguj się do **wystąpienia programu CRM** i wybierz pozycję **Ustawianie**  >  **Security**  >  **użytkowników** zabezpieczeń.
+    2. Zaloguj się do **wystąpienia programu CRM** i wybierz pozycję **Ustawianie**  >    >  **użytkowników** zabezpieczeń.
     3. Zmień widok na **użytkowników aplikacji**.
 
         :::image type="content" source="./media/test-drive/application-users.png" alt-text="Ustawianie informacji o koncie dla użytkownika.":::
@@ -135,7 +135,7 @@ W tym artykule wyjaśniono, jak skonfigurować subskrypcję portalu Azure Market
     14. Aby wygenerować klucz tajny dla aplikacja usługi Azure AD:
         1. W obszarze **Zarządzanie aplikacją** wybierz pozycję **certyfikat i wpisy tajne**.
         2. W obszarze wpisy tajne klienta wybierz pozycję **nowy klucz tajny klienta**.
-        3. Wprowadź opis, taki jak *dysk testowy* , i wybierz odpowiedni czas trwania. Po upływie tego klucza dysk testowy zostanie przerwany, w którym momencie trzeba będzie wygenerować i udostępnić nowy klucz AppSource.
+        3. Wprowadź opis, taki jak *dysk testowy*, i wybierz odpowiedni czas trwania. Po upływie tego klucza dysk testowy zostanie przerwany, w którym momencie trzeba będzie wygenerować i udostępnić nowy klucz AppSource.
         4. Wybierz pozycję **Dodaj** , aby wygenerować klucz tajny aplikacji platformy Azure. Skopiuj tę wartość, ponieważ wkrótce zostanie ona ukryta po Lave tego bloku. Ta wartość będzie potrzebna później podczas konfigurowania dysku testowego.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Dodawanie klucza tajnego klienta.":::

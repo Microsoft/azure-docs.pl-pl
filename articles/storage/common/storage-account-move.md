@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 76482266f0bbb1f80c1699c736048c705b90b4dc
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "92792994"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986924"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Przenoszenie konta usługi Azure Storage do innego regionu
 
@@ -35,7 +35,7 @@ Ten artykuł obejmuje następujące zagadnienia:
 
 - Upewnij się, że usługi i funkcje używane przez konto są obsługiwane w regionie docelowym.
 
-- W przypadku funkcji w wersji zapoznawczej upewnij się, że subskrypcja znajduje się na liście dozwolonych elementów dla regionu docelowego.
+- W przypadku funkcji w wersji zapoznawczej upewnij się, że subskrypcja jest allowlisted dla regionu docelowego.
 
 <a id="prepare"></a>
 
@@ -109,7 +109,7 @@ Aby wdrożyć szablon przy użyciu Azure Portal:
 
     ![Biblioteka szablonów usługi Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 
@@ -137,7 +137,7 @@ Aby wdrożyć szablon przy użyciu Azure Portal:
          "location": "centralus"
          }]          
     ```
-    Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA**  =  **centralus**.
+    Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA**  =  .
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

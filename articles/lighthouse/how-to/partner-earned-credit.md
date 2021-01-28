@@ -1,18 +1,18 @@
 ---
 title: Połącz swój identyfikator partnera, aby śledzić wpływ na delegowane zasoby
 description: Dowiedz się, jak skojarzyć swój identyfikator partnera, aby otrzymywać środki na korzystanie z partnerów (PEC) w zasobach klientów zarządzanych za pomocą usługi Azure Lighthouse.
-ms.date: 10/30/2020
+ms.date: 01/28/2021
 ms.topic: how-to
-ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 46338b925b1ad44019c9cc95e4b7f8c0963c07c4
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080281"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985975"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Połącz swój identyfikator partnera, aby śledzić wpływ na delegowane zasoby 
 
-Jeśli jesteś członkiem [Microsoft Partner Network](https://partner.microsoft.com/), możesz połączyć swój identyfikator partnera z poświadczeniami używanymi do zarządzania delegowanymi zasobami klientów. Link administratora partnera (PAL) umożliwia firmie Microsoft identyfikację i rozpoznawanie partnerów, którzy kończą sukcesy klientów platformy Azure. Ten link umożliwia także partnerom [CSP (dostawcy rozwiązań w chmurze)](/partner-center/csp-overview) otrzymywanie środków na korzystanie z [usług zarządzanych (Pec](/partner-center/partner-earned-credit) ) dla klientów, którzy [podpisali umowę klienta firmy Microsoft (MCA)](/partner-center/confirm-customer-agreement) i są [objęte planem platformy Azure](/partner-center/azure-plan-get-started).
+Jeśli jesteś członkiem [Microsoft Partner Network](https://partner.microsoft.com/), możesz połączyć swój identyfikator partnera z poświadczeniami używanymi do zarządzania delegowanymi zasobami klientów, co pozwala firmie Microsoft identyfikować i rozpoznawać partnerów, którzy kończą sukcesy klientów platformy Azure. Ten link umożliwia także partnerom [CSP (dostawcy rozwiązań w chmurze)](/partner-center/csp-overview) otrzymywanie środków na korzystanie z [usług zarządzanych (Pec](/partner-center/partner-earned-credit) ) dla klientów, którzy [podpisali umowę klienta firmy Microsoft (MCA)](/partner-center/confirm-customer-agreement) i są [objęte planem platformy Azure](/partner-center/azure-plan-get-started).
 
 Jeśli dołączysz [klientów z ofertami usług zarządzanych w portalu Azure Marketplace](publish-managed-services-offers.md), konsolidacja odbywa się automatycznie przy użyciu identyfikatora MPN skojarzonego z kontem Centrum partnerskiego używanym do publikowania ofert. Nie jest wymagana żadna dodatkowa akcja, aby śledzić wpływ tych klientów.
 
@@ -22,7 +22,7 @@ W przypadku dołączania [klientów przy użyciu szablonów usługi Azure Resour
 
 Podczas dołączania klientów za pomocą szablonów Azure Resource Manager (szablony ARM) Użyj poniższego procesu, aby połączyć identyfikator partnera (i włączyć środki dla partnerów, jeśli ma to zastosowanie). Aby wykonać te czynności, musisz znać [Identyfikator partnera MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) . Pamiętaj, aby użyć wartości **Skojarzony identyfikator MPN** wyświetlanej w profilu partnera.
 
-Dla uproszczenia zalecamy utworzenie konta nazwy głównej usługi w dzierżawie, połączenie go ze **skojarzonym identyfikatorem MPN** , a następnie udzielenie mu dostępu do każdego klienta, który zostanie dołączony do [roli wbudowanej platformy Azure, która kwalifikuje się do komputera PEC](/partner-center/azure-roles-perms-pec).
+Dla uproszczenia zalecamy utworzenie konta nazwy głównej usługi w dzierżawie, połączenie go ze **skojarzonym identyfikatorem MPN**, a następnie udzielenie mu dostępu do każdego klienta, który zostanie dołączony do [roli wbudowanej platformy Azure, która kwalifikuje się do komputera PEC](/partner-center/azure-roles-perms-pec).
 
 1. [Utwórz konto nazwy głównej usługi](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) w dzierżawie zarządzającej. W tym przykładzie użyjemy *konta automatyzacji dostawcy* nazw dla tej nazwy głównej usługi.
 1. Korzystając z tego konta usługi, [Połącz się ze skojarzonym identyfikatorem MPN](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) w dzierżawie zarządzającej. Wystarczy to zrobić tylko raz.
@@ -30,7 +30,7 @@ Dla uproszczenia zalecamy utworzenie konta nazwy głównej usługi w dzierżawie
 
 Wykonując następujące kroki, każda dzierżawa klienta, którą zarządzasz, zostanie skojarzona z IDENTYFIKATORem partnera. Konto automatyzacji dostawcy nie musi uwierzytelniać ani wykonywać żadnych akcji w dzierżawie klienta.
 
-:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagram przedstawiający proces PAL przy użyciu usługi Azure Lighthouse.":::
+:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagram przedstawiający proces łączenia identyfikatora partnera z usługą Azure Lighthouse.":::
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Dodaj swój identyfikator partnera do wcześniej dodanych klientów
 

@@ -3,12 +3,12 @@ title: Macierz obsługi programu serwera usługi MAB & System Center DPM
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej w przypadku używania serwera Microsoft Azure Backup (serwera usługi MAB) lub programu System Center DPM do tworzenia kopii zapasowych zasobów lokalnych i maszyn wirtualnych platformy Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276963"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986060"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Macierz obsługi dla tworzenia kopii zapasowych za pomocą serwera Microsoft Azure Backup lub programu System Center DPM
 
@@ -50,7 +50,7 @@ Więcej informacji:
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-**Scenariusz** | **Agent** | **Lokalizacja**
+**Scenariusz** | **Odczynnik** | **Lokalizacja**
 --- | --- | ---
 **Tworzenie kopii zapasowych maszyn/obciążeń lokalnych** | Na maszynach, dla których chcesz utworzyć kopię zapasową, działa Agent ochrony programu DPM/serwera usługi MAB.<br/><br/> Agent MARS na serwerze DPM/serwera usługi MAB.<br/> Minimalna wersja agenta Microsoft Azure Recovery Services lub agenta Azure Backup, wymagana do włączenia tej funkcji, to 2.0.8719.0.  | Program DPM/serwera usługi MAB musi działać lokalnie.
 
@@ -80,7 +80,7 @@ Azure Backup może tworzyć kopie zapasowe wystąpień programu DPM/serwera usł
 
 ## <a name="management-support"></a>Obsługa zarządzania
 
-**Problem** | **Szczegóły**
+**Wykonaj** | **Szczegóły**
 --- | ---
 **Instalacja** | Zainstaluj program DPM/serwera usługi MAB na maszynie z pojedynczym przeznaczeniem.<br/><br/> Nie należy instalować programu DPM/serwera usługi MAB na kontrolerze domeny na komputerze z instalacją roli serwera aplikacji, na komputerze z uruchomionym programem Microsoft Exchange Server lub System Center Operations Manager lub w węźle klastra.<br/><br/> Zapoznaj się ze [wszystkimi wymaganiami systemowymi programu DPM](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
 **Domeny** | Program DPM/serwera usługi MAB powinien być przyłączony do domeny. Najpierw zainstaluj program DPM/serwera usługi MAB do domeny. Przeniesienie programu DPM/serwera usługi MAB do nowej domeny po wdrożeniu nie jest obsługiwane.
@@ -111,13 +111,18 @@ Można wdrożyć serwera usługi MAB na maszynie wirtualnej Azure Stack, aby mo�
 
 ### <a name="url-access"></a>Dostęp do adresu URL
 
-Serwer DPM/serwera usługi MAB potrzebuje dostępu do tych adresów URL:
+Serwer programu DPM/serwer serwera usługi MAB musi mieć dostęp do tych adresów URL i adresów IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `*.Microsoft.com`
-- `*.WindowsAzure.com`
-- `*.microsoftonline.com`
-- `*.windows.net`
+* Adresy URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresy IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18:
 
 ### <a name="azure-expressroute-support"></a>Pomoc techniczna platformy Azure ExpressRoute
 
@@ -125,11 +130,16 @@ Możesz tworzyć kopie zapasowe danych za pośrednictwem usługi Azure ExpressRo
 
 Przy użyciu publicznej komunikacji równorzędnej: Upewnij się, że dostęp do następujących domen/adresów:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* Adresy URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresy IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 W przypadku komunikacji równorzędnej firmy Microsoft wybierz następujące usługi/regiony i odpowiednie wartości społeczności:
 
@@ -148,16 +158,16 @@ Aby kopie zapasowe działały prawidłowo, wymagana jest łączność z usługą
 
 **SERWERA usługi MAB na platformę Azure** | **Subskrypcja** | **Tworzenie kopii zapasowej/przywracanie**
 --- | --- | ---
-Połączone | Aktywny | Utwórz kopię zapasową na dysku programu DPM/serwera usługi MAB.<br/><br/> Utwórz kopię zapasową na platformie Azure.<br/><br/> Przywróć z dysku.<br/><br/> Przywróć z platformy Azure.
+Połączone | Aktywna | Utwórz kopię zapasową na dysku programu DPM/serwera usługi MAB.<br/><br/> Utwórz kopię zapasową na platformie Azure.<br/><br/> Przywróć z dysku.<br/><br/> Przywróć z platformy Azure.
 Połączone | Wygasłe lub anulowano obsługę administracyjną | Brak kopii zapasowej na dysku lub na platformie Azure.<br/><br/> Jeśli subskrypcja wygasła, możesz przywrócić ją z dysku lub platformy Azure.<br/><br/> Jeśli subskrypcja została zlikwidowana, nie można jej przywrócić z dysku lub platformy Azure. Punkty odzyskiwania platformy Azure są usuwane.
-Brak łączności przez ponad 15 dni | Aktywny | Brak kopii zapasowej na dysku lub na platformie Azure.<br/><br/> Można przywrócić z dysku lub platformy Azure.
+Brak łączności przez ponad 15 dni | Aktywna | Brak kopii zapasowej na dysku lub na platformie Azure.<br/><br/> Można przywrócić z dysku lub platformy Azure.
 Brak łączności przez ponad 15 dni | Wygasłe lub anulowano obsługę administracyjną | Brak kopii zapasowej na dysku lub na platformie Azure.<br/><br/> Jeśli subskrypcja wygasła, możesz przywrócić ją z dysku lub platformy Azure.<br/><br/> Jeśli subskrypcja została zlikwidowana, nie można jej przywrócić z dysku lub platformy Azure. Punkty odzyskiwania platformy Azure są usuwane.
 
 ## <a name="domain-and-domain-trusts-support"></a>Obsługa relacji zaufania domen i domen
 
 |Wymaganie |Szczegóły |
 |---------|---------|
-|Obszar    | Serwer DPM/serwera usługi MAB powinien znajdować się w domenie systemu Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
+|Domena    | Serwer DPM/serwera usługi MAB powinien znajdować się w domenie systemu Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
 |Zaufanie domeny   |  Program DPM/serwera usługi MAB obsługuje ochronę danych w różnych lasach, pod warunkiem, że ustanawiane jest zaufanie dwukierunkowe między oddzielnymi lasami.   <BR><BR>   Program DPM/serwera usługi MAB może chronić serwery i stacje robocze w domenach w lesie, który ma ustanowioną dwukierunkową relację zaufania z domeną serwera DPM/serwera usługi MAB. Aby chronić komputery w grupach roboczych lub domenach niezaufanych, zobacz [wykonywanie kopii zapasowych i przywracanie obciążeń w grupach roboczych i domenach niezaufanych.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
 
 ## <a name="dpmmabs-storage-support"></a>Obsługa magazynu programu DPM/serwera usługi MAB

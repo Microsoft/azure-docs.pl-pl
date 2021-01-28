@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d750b3a85741bb4761b640848f01e5917760b5aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75332498ac59dc46a7a079eff4c25e02b2a6cb9b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261094"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986941"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Użyj nowego uwierzytelniania StorSimple
 
@@ -19,7 +19,7 @@ ms.locfileid: "91261094"
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-Usługa StorSimple Menedżer urządzeń działa w Microsoft Azure i łączy się z wieloma wirtualnymi macierzami StorSimple. Do tej pory Usługa StorSimple Menedżer urządzeń używała usługi Access Control Service (ACS) do uwierzytelniania usługi na urządzeniu StorSimple. Mechanizm ACS zostanie wkrótce uznany za przestarzały i zastąpiony przez uwierzytelnianie Azure Active Directory (AAD).
+Usługa StorSimple Device Manager działa w Microsoft Azure i łączy się z wieloma wirtualnymi macierzami StorSimple. Do tej pory Usługa StorSimple Device Manager używała usługi Access Control Service (ACS) do uwierzytelniania usługi na urządzeniu StorSimple. Mechanizm ACS zostanie wkrótce uznany za przestarzały i zastąpiony przez uwierzytelnianie Azure Active Directory (AAD).
 
 Informacje zawarte w tym artykule dotyczą tylko macierzy wirtualnych z serii StorSimple 1200. W tym artykule opisano szczegółowe informacje o uwierzytelnianiu w usłudze AAD oraz skojarzonym nowym kluczu rejestracji usługi i modyfikacjach reguł zapory dotyczących urządzeń StorSimple.
 
@@ -53,14 +53,14 @@ W przypadku używania macierzy wirtualnej StorSimple należy skorzystać z poni�
 
 | Jeśli urządzenie jest uruchomione  | Wykonaj następujące czynności                                    |
 |----------------------------|--------------------------------------------------------------|
-| Aktualizacja 1,0 lub nowsza, która jest w trybie offline. <br> Zostanie wyświetlony alert informujący o tym, że adres URL nie jest listy dozwolonych.| 1. zmodyfikuj reguły zapory w taki sposób, aby zawierały adres URL uwierzytelniania. Zobacz [adresy URL uwierzytelniania](#url-changes-for-aad-authentication). <br> 2. [Pobierz klucz rejestracji AAD z usługi](#aad-based-registration-keys). <br> 3. wykonaj kroki 1-5, aby [nawiązać połączenie z interfejsem programu Windows PowerShell macierzy wirtualnej](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. `Invoke-HcsReRegister` Aby zarejestrować urządzenie za pomocą programu Windows PowerShell, użyj polecenia cmdlet. Podaj klucz uzyskany w poprzednim kroku.|
+| Aktualizacja 1,0 lub nowsza, która jest w trybie offline. <br> Zostanie wyświetlony alert informujący o tym, że adres URL nie jest allowlisted.| 1. zmodyfikuj reguły zapory w taki sposób, aby zawierały adres URL uwierzytelniania. Zobacz [adresy URL uwierzytelniania](#url-changes-for-aad-authentication). <br> 2. [Pobierz klucz rejestracji AAD z usługi](#aad-based-registration-keys). <br> 3. wykonaj kroki 1-5, aby [nawiązać połączenie z interfejsem programu Windows PowerShell macierzy wirtualnej](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. `Invoke-HcsReRegister` Aby zarejestrować urządzenie za pomocą programu Windows PowerShell, użyj polecenia cmdlet. Podaj klucz uzyskany w poprzednim kroku.|
 | Aktualizacja 1,0 lub nowsza, a urządzenie jest w trybie online.| Nie jest wymagana żadna akcja.                                       |
 | Aktualizacja 0,6 lub starsza, a urządzenie jest w trybie offline. | 1. [Pobierz aktualizację 1,0 za poorednictwem serwera wykazu](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Zastosuj aktualizację 1,0 za pomocą lokalnego interfejsu użytkownika sieci Web](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Pobierz klucz rejestracji AAD z usługi](#aad-based-registration-keys). <br>4. wykonaj kroki 1-5, aby [nawiązać połączenie z interfejsem programu Windows PowerShell macierzy wirtualnej](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. `Invoke-HcsReRegister` Aby zarejestrować urządzenie za pomocą programu Windows PowerShell, użyj polecenia cmdlet. Podaj klucz uzyskany w poprzednim kroku.|
 | Aktualizacja 0,6 lub starsza, a urządzenie jest w trybie online | Zmodyfikuj reguły zapory w taki sposób, aby zawierały adres URL uwierzytelniania.<br> Zainstaluj aktualizację 1,0 za pomocą Azure Portal. |
 
 ## <a name="aad-based-registration-keys"></a>Klucze rejestracji oparte na usłudze AAD
 
-Począwszy od aktualizacji 1,0 dla macierzy wirtualnych StorSimple są używane nowe klucze rejestracji oparte na usłudze AAD. Klucze rejestracji są używane do rejestrowania usługi StorSimple Menedżer urządzeń z urządzeniem.
+Począwszy od aktualizacji 1,0 dla macierzy wirtualnych StorSimple są używane nowe klucze rejestracji oparte na usłudze AAD. Klucze rejestracji są używane do rejestrowania usługi StorSimple Device Manager z urządzeniem.
 
 Nie można użyć nowych kluczy rejestracji usługi AAD, jeśli używasz StorSimple wirtualnych macierzy z uruchomioną aktualizacją 0,6 lub wcześniejszą. Należy ponownie wygenerować klucz rejestracji usługi. Po ponownym wygenerowaniu klucza nowy klucz jest używany do rejestrowania wszystkich kolejnych urządzeń. Stary klucz nie jest już prawidłowy.
 
@@ -72,7 +72,7 @@ Wykonaj poniższe kroki, aby wygenerować klucz rejestracji usługi AAD.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>Aby wygenerować klucz rejestracji usługi AAD
 
-1. W **StorSimple Menedżer urządzeń**przejdź do pozycji **klucze** ** &gt; zarządzania** .
+1. W **StorSimple Device Manager** przejdź do pozycji **klucze** **&gt; zarządzania** .
     
     ![Przejdź do kluczy](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 
