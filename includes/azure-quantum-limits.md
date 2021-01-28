@@ -6,12 +6,12 @@ ms.service: azure-quantum
 ms.topic: include
 ms.date: 01/08/2021
 ms.author: dasto
-ms.openlocfilehash: c312ee63f9f00e4eef726924fc01f2862ba2884f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2106a48a583f120f8b4dde4eb32a30f1a1b1d85b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920476"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948212"
 ---
 ### <a name="provider-limits--quota"></a>Limity liczby dostawców &
 
@@ -32,11 +32,11 @@ Jeśli używasz uczenia & tworzenia jednostki SKU, **nie** możesz zażądać zw
 
 #### <a name="performance-at-scale-sku"></a>Wydajność w skali SKU
 
-| Zasób | Limit |
-| --- | --- |
-| Współbieżne zadania oparte na procesorach CPU | do 100 zadań współbieżnych |
-| Współbieżne zadania oparte na FPGA | do 10 współbieżnych zadań |
-| Godziny korzystania z funkcji Solver | 50 000 godzin miesięcznie  |
+| Zasób | Limit domyślny | Limit maksymalny |
+| --- | --- | --- |
+| Współbieżne zadania oparte na procesorach CPU | do 100 zadań współbieżnych | taki sam jak domyślny limit |
+| Współbieżne zadania oparte na FPGA | do 10 współbieżnych zadań | taki sam jak domyślny limit |
+| Godziny korzystania z funkcji Solver | 1 000 godzin miesięcznie  | do 50 000 godzin miesięcznie |
 
 Jeśli musisz zażądać zwiększenia limitu, skontaktuj się z pomocą techniczną platformy Azure. 
 

@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd1552dda28291112a2412bdf956bc49a0b541d7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 167e33ff4a3af463e2537e2714e9e9bf5e125b61
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95996452"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947262"
 ---
 Kontener udostępnia interfejsy API punktu końcowego zapytania opartego na protokole WebSocket, do których można uzyskać dostęp za pośrednictwem [zestawu Speech SDK](../index.yml). Domyślnie zestaw Speech SDK używa usług online Speech Services. Aby użyć kontenera, należy zmienić metodę inicjacji.
 
@@ -29,7 +29,7 @@ Zmień użycie tego wywołania inicjalizacji Azure-Cloud:
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-Aby użyć tego wywołania z [hostem](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?preserve-view=true&view=azure-dotnet)kontenera:
+Aby użyć tego wywołania z [hostem](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost)kontenera:
 
 ```csharp
 var config = SpeechConfig.FromHost(
@@ -45,7 +45,7 @@ speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-Aby użyć tego wywołania z [punktem końcowym](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python)kontenera:
+Aby użyć tego wywołania z [punktem końcowym](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)kontenera:
 
 ```python
 speech_config = speechsdk.SpeechConfig(

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 324f89d2de56666242ed4f6231eff0855ec561b3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1058b93a304dbf6f08d9a3e8f995e123a6dc6631
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356481"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948280"
 ---
 Zacznij korzystać z biblioteki klienta Content Moderator platformy Azure dla języka Python. Wykonaj następujące kroki, aby zainstalować pakiet PiPy i wypróbować przykładowy kod dla podstawowych zadań. 
 
@@ -30,7 +30,7 @@ Użyj biblioteki klienta Content Moderator dla języka Python, aby:
 * Używanie niestandardowej listy obrazów
 * Utwórz recenzję
 
-[Dokumentacja](/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator)  |  źródłowy biblioteki [Pakiet (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Dokumentacja](/python/api/overview/azure/cognitiveservices/contentmoderator)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator)  |  źródłowy biblioteki [Pakiet (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -75,10 +75,10 @@ Poniższe klasy obsługują niektóre główne funkcje biblioteki klienta język
 
 |Nazwa|Opis|
 |---|---|
-|[ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|Ta klasa jest wymagana dla wszystkich funkcji Content Moderator. Tworzysz wystąpienie z informacjami o subskrypcji i używasz ich do tworzenia wystąpień innych klas.|
-|[ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|Ta klasa udostępnia funkcje do analizowania obrazów na potrzeby zawartości dla dorosłych, danych osobowych lub osób ludzkich.|
-|[TextModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)|Ta klasa udostępnia funkcje do analizowania tekstu dla języka, niewulgarności, błędów i informacji osobistych.|
-[ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python)|Ta klasa udostępnia funkcje interfejsów API przeglądu, w tym metody tworzenia zadań, niestandardowych przepływów pracy i przeglądów ludzkich.|
+|[ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient)|Ta klasa jest wymagana dla wszystkich funkcji Content Moderator. Tworzysz wystąpienie z informacjami o subskrypcji i używasz ich do tworzenia wystąpień innych klas.|
+|[ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations)|Ta klasa udostępnia funkcje do analizowania obrazów na potrzeby zawartości dla dorosłych, danych osobowych lub osób ludzkich.|
+|[TextModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations)|Ta klasa udostępnia funkcje do analizowania tekstu dla języka, niewulgarności, błędów i informacji osobistych.|
+[ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations)|Ta klasa udostępnia funkcje interfejsów API przeglądu, w tym metody tworzenia zadań, niestandardowych przepływów pracy i przeglądów ludzkich.|
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -93,7 +93,7 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Utwórz wystąpienie klienta z punktem końcowym i kluczem. Utwórz obiekt [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) z kluczem i użyj go w punkcie końcowym, aby utworzyć obiekt [ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python) .
+Utwórz wystąpienie klienta z punktem końcowym i kluczem. Utwórz obiekt [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials) z kluczem i użyj go w punkcie końcowym, aby utworzyć obiekt [ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient) .
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_client)]
 
@@ -116,7 +116,7 @@ Następnie Dodaj następujący kod do skryptu w języku Python.
 
 ## <a name="use-a-custom-terms-list"></a>Używanie listy warunków niestandardowych
 
-Poniższy kod pokazuje, jak zarządzać listą niestandardowych terminów na potrzeby moderowania tekstu. Możesz użyć klasy [ListManagementTermListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) , aby utworzyć listę warunków, zarządzać indywidualnymi postanowieniami i na ekranie inne treści tekstu.
+Poniższy kod pokazuje, jak zarządzać listą niestandardowych terminów na potrzeby moderowania tekstu. Możesz użyć klasy [ListManagementTermListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations) , aby utworzyć listę warunków, zarządzać indywidualnymi postanowieniami i na ekranie inne treści tekstu.
 
 ### <a name="get-sample-text"></a>Pobierz przykładowy tekst
 
@@ -186,7 +186,7 @@ Użyj poniższego kodu, aby usunąć listę niestandardowych warunków.
 
 ## <a name="moderate-images"></a>Obrazy umiarkowane
 
-Poniższy kod używa klienta Content Moderator, wraz z obiektem [ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python) , do analizowania obrazów pod kątem treści dla dorosłych i erotycznej.
+Poniższy kod używa klienta Content Moderator, wraz z obiektem [ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations) , do analizowania obrazów pod kątem treści dla dorosłych i erotycznej.
 
 ### <a name="get-sample-images"></a>Pobierz przykładowe obrazy
 
@@ -218,7 +218,7 @@ Poniższy kod sprawdza obraz dla ludzkich twarzy i drukuje wyniki w konsoli prog
 
 ## <a name="use-a-custom-image-list"></a>Używanie niestandardowej listy obrazów
 
-Poniższy kod przedstawia sposób zarządzania niestandardową listą obrazów na potrzeby moderowania obrazu. Ta funkcja jest przydatna, jeśli platforma często odbiera wystąpienia tego samego zestawu obrazów, które chcesz wypróbować. Dzięki utrzymywaniu listy tych konkretnych obrazów można poprawić wydajność. Klasa [ListManagementImageListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations?view=azure-python) umożliwia tworzenie listy obrazów, zarządzanie poszczególnymi obrazami na liście i porównywanie innych obrazów.
+Poniższy kod przedstawia sposób zarządzania niestandardową listą obrazów na potrzeby moderowania obrazu. Ta funkcja jest przydatna, jeśli platforma często odbiera wystąpienia tego samego zestawu obrazów, które chcesz wypróbować. Dzięki utrzymywaniu listy tych konkretnych obrazów można poprawić wydajność. Klasa [ListManagementImageListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations) umożliwia tworzenie listy obrazów, zarządzanie poszczególnymi obrazami na liście i porównywanie innych obrazów.
 
 Utwórz następujące zmienne tekstowe do przechowywania adresów URL obrazów, które będą używane w tym scenariuszu.
 
@@ -296,7 +296,7 @@ Użyj poniższego kodu, aby usunąć daną listę obrazów.
 
 Korzystając z biblioteki klienta języka Python Content Moderator, można uzyskać zawartość do [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com) , aby umożliwić moderatorom ludzkim sprawdzenie. Aby dowiedzieć się więcej na temat narzędzia do przeglądu, zobacz [Przewodnik dotyczący koncepcyjnego narzędzia do przeglądu](../../review-tool-user-guide/human-in-the-loop.md).
 
-Poniższy kod używa klasy [ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) w celu utworzenia przeglądu, pobrania jego identyfikatora i sprawdzenia jego szczegółów po odebraniu danych ludzkich za pośrednictwem portalu internetowego narzędzia do przeglądu.
+Poniższy kod używa klasy [ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations) w celu utworzenia przeglądu, pobrania jego identyfikatora i sprawdzenia jego szczegółów po odebraniu danych ludzkich za pośrednictwem portalu internetowego narzędzia do przeglądu.
 
 ### <a name="get-review-credentials"></a>Pobierz poświadczenia przeglądu
 

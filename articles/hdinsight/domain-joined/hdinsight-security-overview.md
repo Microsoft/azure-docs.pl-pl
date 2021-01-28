@@ -1,19 +1,16 @@
 ---
 title: Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight
 description: Poznaj różne metody zapewniające bezpieczeństwo przedsiębiorstw w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 7f450d54a0039f591178ae839fbb404f31d80671
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f4fa1e64e00f2ae027d80960072da7d73d3a89cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537273"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946834"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight
 
@@ -21,7 +18,7 @@ Usługa Azure HDInsight oferuje różne metody zaspokajania potrzeb związanych 
 
 Ten artykuł dotyczy rozwiązań zabezpieczeń dzielących rozwiązania zabezpieczeń na cztery tradycyjne filary zabezpieczeń: zabezpieczenia obwodowe, uwierzytelnianie, autoryzacja i szyfrowanie.
 
-W tym artykule wprowadzono również **pakiet Enterprise Security usługi Azure HDInsight (ESP)** , która zapewnia uwierzytelnianie oparte na Active Directory, obsługę wieloużytkownikom oraz kontrolę dostępu opartą na rolach dla klastrów usługi HDInsight.
+W tym artykule wprowadzono również **pakiet Enterprise Security usługi Azure HDInsight (ESP)**, która zapewnia uwierzytelnianie oparte na Active Directory, obsługę wieloużytkownikom oraz kontrolę dostępu opartą na rolach dla klastrów usługi HDInsight.
 
 ## <a name="enterprise-security-pillars"></a>Filary zabezpieczeń przedsiębiorstwa
 
@@ -75,23 +72,23 @@ Poniższa tabela zawiera linki do zasobów dla każdego typu rozwiązania zabezp
 
 | Obszar zabezpieczeń | Dostępne rozwiązania | Osoba odpowiedzialna |
 |---|---|---|
-| Zabezpieczenia dostępu do danych | Konfigurowanie [kontroli dostępu listy ACL](../../storage/blobs/data-lake-storage-access-control.md) dla Azure Data Lake Storage Gen1 i Gen2  | Klient |
-|  | Włącz Właściwość ["wymagany bezpieczny transfer"](../../storage/common/storage-require-secure-transfer.md) na kontach magazynu. | Klient |
-|  | Konfigurowanie zapór i sieci wirtualnych [usługi Azure Storage](../../storage/common/storage-network-security.md) | Klient |
-|  | Konfigurowanie [punktów końcowych usługi sieci wirtualnej platformy Azure](../../virtual-network/virtual-network-service-endpoints-overview.md) dla Cosmos DB i [usługi Azure SQL DB](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) | Klient |
-|  | Upewnij się, że funkcja [szyfrowania w ramach przesyłania](./encryption-in-transit.md) jest włączona, aby używać protokołów TLS i IPSec do komunikacji wewnątrz klastra. | Klient |
-|  | Konfigurowanie [kluczy zarządzanych przez klienta](../../storage/common/customer-managed-keys-configure-key-vault.md) do szyfrowania za pomocą usługi Azure Storage | Klient |
-|  | Kontroluj dostęp do danych przez pomoc techniczną platformy Azure przy użyciu [skrytki klienta](../../security/fundamentals/customer-lockbox-overview.md) | Klient |
-| Zabezpieczenia aplikacji i oprogramowania pośredniczącego | Integracja z usługą AAD-DS oraz [Konfigurowanie protokołu ESP](apache-domain-joined-configure-using-azure-adds.md) lub korzystanie z [Hib do uwierzytelniania OAuth](identity-broker.md)| Klient |
-|  | Konfigurowanie zasad [autoryzacji Apache Ranger](apache-domain-joined-run-hive.md) | Klient |
-|  | Korzystanie z [dzienników Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Klient |
-| Zabezpieczenia systemu operacyjnego | Tworzenie klastrów z najnowszym bezpiecznym obrazem podstawowym | Klient |
-|  | Zapewnianie [stosowania poprawek systemu operacyjnego](../hdinsight-os-patching.md) w regularnych odstępach czasu | Klient |
-|  | Zapewnij [szyfrowanie dysków CMK dla maszyn wirtualnych](../disk-encryption.md) | Klient |
+| Zabezpieczenia dostępu do danych | Konfigurowanie [kontroli dostępu listy ACL](../../storage/blobs/data-lake-storage-access-control.md) dla Azure Data Lake Storage Gen1 i Gen2  | Customer |
+|  | Włącz Właściwość ["wymagany bezpieczny transfer"](../../storage/common/storage-require-secure-transfer.md) na kontach magazynu. | Customer |
+|  | Konfigurowanie zapór i sieci wirtualnych [usługi Azure Storage](../../storage/common/storage-network-security.md) | Customer |
+|  | Konfigurowanie [punktów końcowych usługi sieci wirtualnej platformy Azure](../../virtual-network/virtual-network-service-endpoints-overview.md) dla Cosmos DB i [usługi Azure SQL DB](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) | Customer |
+|  | Upewnij się, że funkcja [szyfrowania w ramach przesyłania](./encryption-in-transit.md) jest włączona, aby używać protokołów TLS i IPSec do komunikacji wewnątrz klastra. | Customer |
+|  | Konfigurowanie [kluczy zarządzanych przez klienta](../../storage/common/customer-managed-keys-configure-key-vault.md) do szyfrowania za pomocą usługi Azure Storage | Customer |
+|  | Kontroluj dostęp do danych przez pomoc techniczną platformy Azure przy użyciu [skrytki klienta](../../security/fundamentals/customer-lockbox-overview.md) | Customer |
+| Zabezpieczenia aplikacji i oprogramowania pośredniczącego | Integracja z usługą AAD-DS oraz [Konfigurowanie protokołu ESP](apache-domain-joined-configure-using-azure-adds.md) lub korzystanie z [Hib do uwierzytelniania OAuth](identity-broker.md)| Customer |
+|  | Konfigurowanie zasad [autoryzacji Apache Ranger](apache-domain-joined-run-hive.md) | Customer |
+|  | Korzystanie z [dzienników Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
+| Zabezpieczenia systemu operacyjnego | Tworzenie klastrów z najnowszym bezpiecznym obrazem podstawowym | Customer |
+|  | Zapewnianie [stosowania poprawek systemu operacyjnego](../hdinsight-os-patching.md) w regularnych odstępach czasu | Customer |
+|  | Zapewnij [szyfrowanie dysków CMK dla maszyn wirtualnych](../disk-encryption.md) | Customer |
 | Bezpieczeństwo sieci | Konfigurowanie [sieci wirtualnej](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Skonfiguruj [przychodzące reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)](../control-network-traffic.md) lub [link prywatny](../hdinsight-private-link.md) | Klient |
-|  | Konfigurowanie [ograniczenia ruchu wychodzącego](../hdinsight-restrict-outbound-traffic.md) za pomocą zapory | Klient |
-|  | Konfigurowanie [szyfrowania protokołu IPSec podczas przesyłania](encryption-in-transit.md) między węzłami klastra | Klient |
+|  | Skonfiguruj [przychodzące reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)](../control-network-traffic.md) lub [link prywatny](../hdinsight-private-link.md) | Customer |
+|  | Konfigurowanie [ograniczenia ruchu wychodzącego](../hdinsight-restrict-outbound-traffic.md) za pomocą zapory | Customer |
+|  | Konfigurowanie [szyfrowania protokołu IPSec podczas przesyłania](encryption-in-transit.md) między węzłami klastra | Customer |
 | Zwirtualizowana infrastruktura | Nie dotyczy | HDInsight (dostawca usług w chmurze) |
 | Zabezpieczenia infrastruktury fizycznej | Nie dotyczy | HDInsight (dostawca usług w chmurze) |
 
