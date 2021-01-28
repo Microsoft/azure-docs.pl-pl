@@ -1,7 +1,7 @@
 ---
 title: Konwersacja na wiele urządzeń (wersja zapoznawcza) — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: ''
+description: Konwersacja obejmująca wiele urządzeń ułatwia tworzenie konwersacji mowy lub tekstu między wieloma klientami i koordynowanie wysyłanych komunikatów między nimi.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7b38bc390b28788003c2de757f45e8ecdfd5c89a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025178"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932412"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Co to jest konwersacja na wiele urządzeń (wersja zapoznawcza)?
 
@@ -37,7 +37,7 @@ Można utworzyć funkcję lub rozwiązanie, które działa w ramach tablicy urz�
 ## <a name="key-features"></a>Najważniejsze funkcje
 
 - **Transkrypcja w czasie rzeczywistym** — wszyscy otrzymają transkrypcję konwersacji, tak aby mogli się one pojawiać w czasie rzeczywistym lub zapisywać ją w przyszłości.
-- **Tłumaczenie w czasie rzeczywistym** — dzięki więcej niż 60 [języków obsługiwanych](language-support.md#text-languages) w przypadku tłumaczenia tekstu użytkownicy mogą przetłumaczyć konwersację na preferowane języki.
+- **Tłumaczenie w czasie rzeczywistym** — dzięki więcej niż 70 [języków obsługiwanych](language-support.md#text-languages) w przypadku tłumaczenia tekstu użytkownicy mogą przetłumaczyć konwersację na preferowane języki.
 - **Czytelne transkrypcje** — transkrypcja i tłumaczenie są łatwe do wykonania, z interpunkcją i podziałem zdań.
 - **Wprowadzanie głosu lub tekstu** — każdy użytkownik może mówić lub wpisywać własne urządzenie, w zależności od możliwości obsługi języka dostępnego dla wybranego języka uczestnika. Zapoznaj się z [obsługą języków](language-support.md#speech-to-text).
 - **Przekaźnik komunikatów** — usługa konwersacji dla wielu urządzeń będzie rozsyłać komunikaty wysyłane przez jednego klienta do wszystkich innych użytkowników w wybranych językach.
@@ -58,9 +58,6 @@ Transkrypcja i tłumaczenie w czasie rzeczywistym mogą pomóc w udostępnieniu 
 ### <a name="presentations"></a>Prezentacje
 
 Możesz również udostępnić napisy dla prezentacji i wykładów zarówno na ekranie, jak i na urządzeniach należących do odbiorców. Po dołączeniu do kodu konwersacji odbiorcy mogą zobaczyć transkrypcję w preferowanym języku na swoim własnym urządzeniu.
-
-> [!NOTE]
-> Aby zapoznać się z przykładem, zapoznaj się z tematem [tłumaczenie prezentacji](https://www.microsoft.com/translator/apps/presentation-translator/)— dodatek programu PowerPoint, który używa usługi konwersacji obejmującej wiele urządzeń. Można go pobrać [tutaj](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## <a name="how-it-works"></a>Jak to działa
 

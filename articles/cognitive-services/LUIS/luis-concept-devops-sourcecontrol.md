@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0466105ab99d191b5dd9beab1d5d5b61f4b3225e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 68d88ef667da9f22d3e3a17f10036693fcca0c3f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790888"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932517"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps praktyk dla LUIS
 
@@ -18,7 +18,7 @@ Inżynierowie oprogramowania, którzy opracowują aplikację Language Understand
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>Strategie kontroli źródła i stosowania gałęzi dla usługi LUIS
 
-Jednym z kluczowych czynników, od których zależy powodzenie DevOps, jest [Kontrola źródła](/azure/devops/user-guide/source-control?view=azure-devops). System kontroli źródła umożliwia deweloperom współpracę w kodzie i śledzenie zmian. Użycie gałęzi umożliwia deweloperom przełączanie się między różnymi wersjami bazy kodu i pracę niezależnie od innych członków zespołu. Gdy deweloperzy zgłaszają [żądanie ściągnięcia](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) w celu zaproponowania aktualizacji z jednej gałęzi do innej lub gdy zmiany są scalane, może to być wyzwalacz dla [zautomatyzowanych kompilacji](luis-concept-devops-automation.md) , aby kompilować i ciągle testować kod.
+Jednym z kluczowych czynników, od których zależy powodzenie DevOps, jest [Kontrola źródła](/azure/devops/user-guide/source-control). System kontroli źródła umożliwia deweloperom współpracę w kodzie i śledzenie zmian. Użycie gałęzi umożliwia deweloperom przełączanie się między różnymi wersjami bazy kodu i pracę niezależnie od innych członków zespołu. Gdy deweloperzy zgłaszają [żądanie ściągnięcia](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) w celu zaproponowania aktualizacji z jednej gałęzi do innej lub gdy zmiany są scalane, może to być wyzwalacz dla [zautomatyzowanych kompilacji](luis-concept-devops-automation.md) , aby kompilować i ciągle testować kod.
 
 Korzystając z pojęć i wskazówek opisanych w tym dokumencie, można opracowywać aplikację LUIS podczas śledzenia zmian w systemie kontroli źródła i stosować następujące najlepsze rozwiązania dotyczące inżynierii oprogramowania:
 
@@ -42,7 +42,7 @@ Korzystając z pojęć i wskazówek opisanych w tym dokumencie, można opracowyw
 
 ## <a name="source-control"></a>Kontrola źródła
 
-Aby zarządzać [definicją schematu aplikacji](./app-schema-definition.md) Luis w systemie zarządzania kodem źródłowym, użyj [formatu LUDown ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  aplikacji. `.lu` Format jest preferowany do `.json` formatowania, ponieważ jest czytelny, co ułatwia dokonywanie i przeglądanie zmian w żądań ściągnięcia.
+Aby zarządzać [definicją schematu aplikacji](./app-schema-definition.md) Luis w systemie zarządzania kodem źródłowym, użyj [formatu LUDown ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format)  aplikacji. `.lu` Format jest preferowany do `.json` formatowania, ponieważ jest czytelny, co ułatwia dokonywanie i przeglądanie zmian w żądań ściągnięcia.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Zapisywanie aplikacji LUIS przy użyciu formatu LUDown
 
@@ -81,7 +81,7 @@ Nie uwzględniaj kluczy subskrypcji ani podobnych poufnych wartości w plikach, 
 - LUIS tworzenie i prognozowanie
 - LUIS tworzenie i punkty końcowe przewidywania
 - Klucze subskrypcji platformy Azure
-- Tokeny dostępu, takie jak token dla jednostki usługi platformy Azure używany do uwierzytelniania w [usłudze](/cli/azure/ad/sp?view=azure-cli-latest) Automation
+- Tokeny dostępu, takie jak token dla jednostki usługi platformy Azure używany do uwierzytelniania w [usłudze](/cli/azure/ad/sp) Automation
 
 #### <a name="strategies-for-securely-managing-secrets"></a>Strategie bezpiecznego zarządzania kluczami tajnymi
 
@@ -183,7 +183,7 @@ Aplikacja LUIS w formacie LUDown jest czytelna dla człowieka, która obsługuje
 
 ## <a name="versioning"></a>Przechowywanie wersji
 
-Aplikacja składa się z wielu składników, które mogą obejmować takie elementy, jak bot działające w [Azure bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [Azure Speech Service](../speech-service/overview.md)i innych. Aby osiągnąć cel luźno sprzężonych aplikacji, należy użyć [kontroli wersji](/azure/devops/learn/git/what-is-version-control) , tak aby każdy składnik aplikacji miał niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji. Łatwiej jest w wersji aplikacji LUIS niezależnie od innych składników, Jeśli przechowujesz ją we własnym repozytorium.
+Aplikacja składa się z wielu składników, które mogą obejmować takie elementy, jak bot działające w [Azure bot Service](/azure/bot-service/bot-service-overview-introduction), [QNA Maker](https://www.qnamaker.ai/), [Azure Speech Service](../speech-service/overview.md)i innych. Aby osiągnąć cel luźno sprzężonych aplikacji, należy użyć [kontroli wersji](/azure/devops/learn/git/what-is-version-control) , tak aby każdy składnik aplikacji miał niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji. Łatwiej jest w wersji aplikacji LUIS niezależnie od innych składników, Jeśli przechowujesz ją we własnym repozytorium.
 
 Aplikacja LUIS dla gałęzi głównej powinna mieć zastosowany schemat przechowywania wersji. Po scaleniu aktualizacji `.lu` aplikacji Luis z główną, należy zaimportować to zaktualizowane źródło do nowej wersji aplikacji Luis dla gałęzi głównej.
 

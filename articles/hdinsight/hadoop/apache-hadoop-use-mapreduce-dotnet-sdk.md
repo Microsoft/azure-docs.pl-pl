@@ -1,19 +1,16 @@
 ---
 title: Przesyłanie zadań MapReduce przy użyciu zestawu .NET SDK usługi HDInsight — Azure
 description: Dowiedz się, jak przesyłać zadania MapReduce do usługi Azure HDInsight Apache Hadoop przy użyciu zestawu .NET SDK w usłudze HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: ddb14c321962c65d09be420d8da15f1e547aa282
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489544"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932175"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Uruchamianie zadania MapReduce przy użyciu zestawu SDK dla platformy .NET usługi HDInsight
 
@@ -36,7 +33,7 @@ Zestaw SDK platformy .NET dla usługi HDInsight zawiera biblioteki klienckie pla
 
 1. Uruchom program Visual Studio i Utwórz aplikację konsolową w języku C#.
 
-1. Przejdź do **menu Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** i wprowadź następujące polecenie:
+1. Przejdź do **menu Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** i wprowadź następujące polecenie:
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job

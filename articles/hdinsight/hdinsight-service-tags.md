@@ -1,18 +1,16 @@
 ---
 title: Tagi usług sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) dla usługi Azure HDInsight
 description: Użyj tagów usługi HDInsight, aby zezwolić na ruch przychodzący do klastra z węzłów usług kondycji i zarządzania bez dodawania adresów IP do sieciowych grup zabezpieczeń.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022755"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931763"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>SIECIOWEJ grupy zabezpieczeń Tagi usług dla usługi Azure HDInsight
 
@@ -67,7 +65,7 @@ Jeśli klaster znajduje się w regionie wymienionym w tej tabeli, wystarczy doda
 | &nbsp; | Zachodnie stany USA 2 | HDInsight. WestUS2 |
 | &nbsp; | Zachodnio-środkowe stany USA | HDInsight. WestCentralUS |
 | Kanada | Kanada Wschodnia | HDInsight. CanadaEast |
-| Brazylia | Brazil South | HDInsight. BrazilSouth |
+| Brazylia | Brazylia Południowa | HDInsight. BrazilSouth |
 | Korea | Korea Środkowa | HDInsight. KoreaCentral |
 | &nbsp; | Korea Południowa | HDInsight. KoreaSouth |
 | Indie | Indie Środkowe | HDInsight. CentralIndia |

@@ -3,12 +3,12 @@ title: Monitorowanie wydajności na maszynach wirtualnych platformy Azure — Ap
 description: Monitorowanie wydajności aplikacji dla maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych platformy Azure. Załaduj wykres i czas odpowiedzi, informacje o zależnościach i ustaw alerty wydajności.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: ed56bc88a9d2e8a9490331605cd4a72aef6930db
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 0ea005427348e5265867a9e7ee805b0e6aa202f2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677947"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933905"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Wdrażanie agenta Application Insights Azure Monitor na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych platformy Azure
 
@@ -49,7 +49,7 @@ Istnieją dwa sposoby włączania monitorowania aplikacji dla maszyn wirtualnych
 > Przed zainstalowaniem agenta Application Insights potrzebne są parametry połączenia. [Utwórz nowy zasób Application Insights](./create-new-resource.md) lub skopiuj parametry połączenia z istniejącego zasobu usługi Application Insights.
 
 > [!NOTE]
-> Jesteś nowym w programie PowerShell? Zapoznaj się z [przewodnikiem wprowadzenie](/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> Jesteś nowym w programie PowerShell? Zapoznaj się z [przewodnikiem wprowadzenie](/powershell/azure/get-started-azureps).
 
 Zainstaluj lub zaktualizuj agenta Application Insights jako rozszerzenie dla usługi Azure Virtual Machines
 ```powershell

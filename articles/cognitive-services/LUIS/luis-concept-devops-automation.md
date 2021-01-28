@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561311"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932541"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Przepływy pracy ciągłej integracji i ciągłego dostarczania dla LUIS DevOps
 
@@ -41,7 +41,7 @@ Użyj następujących narzędzi do tworzenia przepływów pracy automatyzacji dl
 
 * [Interfejs wiersza polecenia bot Framework Tools Luis](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) do pracy z aplikacjami i wersjami Luis, uczeniem się, testowaniem i publikowaniem w ramach usługi Luis.
 
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) do wykonywania zapytań dotyczących subskrypcji platformy Azure, pobierania Luis tworzenia i przewidywania kluczy oraz do tworzenia jednostki [usługi](/cli/azure/ad/sp?view=azure-cli-latest) platformy Azure używanej do uwierzytelniania automatyzacji.
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/) do wykonywania zapytań dotyczących subskrypcji platformy Azure, pobierania Luis tworzenia i przewidywania kluczy oraz do tworzenia jednostki [usługi](/cli/azure/ad/sp) platformy Azure używanej do uwierzytelniania automatyzacji.
 
 * [NLU. Narzędzie DevOps](https://github.com/microsoft/NLU.DevOps) do [testowania aplikacji Luis](luis-concept-devops-testing.md) i analizowania wyników testów.
 

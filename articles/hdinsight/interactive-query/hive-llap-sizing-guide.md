@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 626b061cc237f7238d47863a3e1ed88961d2f742
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680512"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931103"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Przewodnik dotyczący zmiany wielkości klastra interakcyjnych zapytań usługi Azure HDInsight (Hive LLAP)
 
@@ -216,7 +216,7 @@ Na przykład: łączna pojemność klastra = 100 GB pamięci, podzielona między
  - Pojemność kolejki zarządzania obciążeniami = 20 GB
  - Domyślna pojemność kolejki = 10 GB
 
-W przypadku przepustowości kolejki zarządzania obciążeniami w ramach planu zasobów można określić `QUERY_PARALLELISM` wartość równą pięć, co oznacza, że zarządzanie obciążeniami może uruchamiać pięć tez AMs z rozmiarem kontenera o rozmiarze 4 GB. Jeśli `QUERY_PARALLELISM` jest większa niż pojemność, może być widoczny stan teza AMs `ACCEPTED` . Interaktywny serwera hiveserver2 nie może przesłać fragmentów zapytania do tez AMs, które nie są w `RUNNING` stanie.
+W przypadku przepustowości kolejki zarządzania obciążeniami w ramach planu zasobów można określić `QUERY_PARALLELISM` wartość równą pięć, co oznacza, że zarządzanie obciążeniami może uruchamiać pięć tez AMs z rozmiarem kontenera o rozmiarze 4 GB. Jeśli `QUERY_PARALLELISM` jest większa niż pojemność, może zostać wyświetlony komunikat o NieTezej reakcji w `ACCEPTED` stanie. Interaktywny serwera hiveserver2 nie może przesłać fragmentów zapytania do tez AMs, które nie są w `RUNNING` stanie.
 
 
 #### <a name="next-steps"></a>**Następne kroki**

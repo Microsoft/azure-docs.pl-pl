@@ -1,19 +1,16 @@
 ---
 title: 'Samouczek: Tworzenie kompleksowego potoku ETL w celu uzyskania szczegółowych informacji o sprzedaży w usłudze Azure HDInsight'
 description: Dowiedz się, jak tworzyć potoki ETL za pomocą usługi Azure HDInsight, aby uzyskiwać wgląd w dane sprzedaży przy użyciu klastrów na żądanie i Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746468"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932055"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Samouczek: Tworzenie kompleksowego potoku danych w celu uzyskania szczegółowych informacji o sprzedaży w usłudze Azure HDInsight
 
@@ -110,7 +107,7 @@ Domyślne hasło dostępu SSH do klastrów to `Thisisapassword1` . Jeśli chcesz
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Weryfikowanie wdrożenia i zbieranie informacji o zasobach
 
-1. Jeśli chcesz sprawdzić stan wdrożenia, przejdź do grupy zasobów na Azure Portal. W obszarze **Ustawienia** wybierz pozycję **wdrożenia** , a następnie wdrożenie. Tutaj można zobaczyć zasoby, które zostały pomyślnie wdrożone, oraz zasoby, które są nadal w toku.
+1. Jeśli chcesz sprawdzić stan wdrożenia, przejdź do grupy zasobów na Azure Portal. W obszarze **Ustawienia** wybierz pozycję **wdrożenia**, a następnie wdrożenie. Tutaj można zobaczyć zasoby, które zostały pomyślnie wdrożone, oraz zasoby, które są nadal w toku.
 
 1. Aby wyświetlić nazwy klastrów, wprowadź następujące polecenie:
 
@@ -214,7 +211,7 @@ Aby wyzwolić potok, można wykonać jedną z:
 
     Lub
 
-* Otwórz fabrykę danych i wybierz pozycję **utwórz & monitor** . Wyzwalanie `IngestAndTransform` potoku z poziomu portalu. Aby uzyskać informacje dotyczące wyzwalania potoków za pośrednictwem portalu, zobacz [Tworzenie klastrów Apache Hadoop na żądanie w usłudze HDInsight przy użyciu Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Otwórz fabrykę danych i wybierz pozycję **utwórz & monitor**. Wyzwalanie `IngestAndTransform` potoku z poziomu portalu. Aby uzyskać informacje dotyczące wyzwalania potoków za pośrednictwem portalu, zobacz [Tworzenie klastrów Apache Hadoop na żądanie w usłudze HDInsight przy użyciu Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
 Aby sprawdzić, czy potok został uruchomiony, można wykonać jedną z następujących czynności:
 
@@ -252,19 +249,19 @@ Aby uzyskać inne metody przekształcania danych za pomocą usługi HDInsight, z
 
 1. Otwórz program Power BI Desktop.
 
-1. Z menu Przejdź, aby **uzyskać**  >  **więcej danych...**  >  **Platforma Azure**  >  **Zapytanie interaktywne usługi HDInsight** .
+1. Z menu Przejdź, aby **uzyskać**  >  **więcej danych...**  >  **Platforma Azure**  >  **Zapytanie interaktywne usługi HDInsight**.
 
-1. Wybierz pozycję **Połącz** .
+1. Wybierz pozycję **Połącz**.
 
 1. W oknie dialogowym **interakcyjnego zapytania usługi HDInsight** :
     1. W polu tekstowym **serwer** wprowadź nazwę klastra LLAP w formacie `https://LLAPCLUSTERNAME.azurehdinsight.net` .
     1. W polu tekstowym **baza danych** wprowadź `default` .
-    1. Wybierz przycisk **OK** .
+    1. Wybierz przycisk **OK**.
 
 1. W oknie dialogowym **AzureHive** :
     1. W polu tekstowym **Nazwa użytkownika** wprowadź `admin` .
     1. W polu tekstowym **hasło** wprowadź `Thisisapassword1` .
-    1. Wybierz pozycję **Połącz** .
+    1. Wybierz pozycję **Połącz**.
 
 1. Z poziomu **nawigatora** wybierz `sales` pozycję i/lub, `sales_raw` Aby wyświetlić podgląd danych. Po załadowaniu danych można eksperymentować z pulpitem nawigacyjnym, który ma zostać utworzony. Aby rozpocząć pracę z pulpitami nawigacyjnymi Power BI, zobacz następujące linki:
 

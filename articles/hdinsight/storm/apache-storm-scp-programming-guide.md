@@ -1,19 +1,16 @@
 ---
 title: Przewodnik programowania SCP.NET na potrzeby burzy w usłudze Azure HDInsight
 description: Dowiedz się, jak utworzyć program przy użyciu programu SCP.NET. Topologie burzowe oparte na sieci, które są używane z działaniem burzy w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000145"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932640"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Przewodnik programowania SCP dla Apache Storm w usłudze Azure HDInsight
 
@@ -95,7 +92,7 @@ public interface ISCPSpout : ISCPPlugin
 
 Gdy **NextTuple** jest wywoływana, kod języka C# może emitować jedną lub kilka krotek. Jeśli nie ma niczego do emisji, ta metoda powinna zwracać bez emitowania żadnych elementów.
 
-Metody **NextTuple**, **ACK**i **FAIL** są wywoływane w ścisłej pętli w pojedynczym wątku procesu języka C#. Gdy nie ma krotek do emisji, **NextTuple** Uśpij przez krótki czas, taki jak 10 milisekund. To uśpienie pomaga uniknąć marnowania dostępności procesora CPU.
+Metody **NextTuple**, **ACK** i **FAIL** są wywoływane w ścisłej pętli w pojedynczym wątku procesu języka C#. Gdy nie ma krotek do emisji, **NextTuple** Uśpij przez krótki czas, taki jak 10 milisekund. To uśpienie pomaga uniknąć marnowania dostępności procesora CPU.
 
 Metody **ACK** i **FAIL** są wywoływane tylko wtedy, gdy plik specyfikacji włącza mechanizm potwierdzania. Parametr *identyfikatora SeqID* identyfikuje krotkę, która została potwierdzona lub zakończyła się niepowodzeniem. Jeśli potwierdzenie jest włączone w topologii nietransakcyjnej, należy użyć następującej funkcji **emisji** w elementu Spout:
 
@@ -133,7 +130,7 @@ public interface ISCPTxSpout : ISCPPlugin
 }
 ```
 
-Podobnie jak w przypadku nietransakcyjnych odpowiedników, **NextTx**, **ACK**i **Niepowodzenie** są wywoływane w ścisłej pętli w pojedynczym wątku procesu języka C#. Gdy nie ma krotek do emisji, **NextTx** Uśpij przez krótki czas, taki jak 10 milisekund. To uśpienie pomaga uniknąć marnowania dostępności procesora CPU.
+Podobnie jak w przypadku nietransakcyjnych odpowiedników, **NextTx**, **ACK** i **Niepowodzenie** są wywoływane w ścisłej pętli w pojedynczym wątku procesu języka C#. Gdy nie ma krotek do emisji, **NextTx** Uśpij przez krótki czas, taki jak 10 milisekund. To uśpienie pomaga uniknąć marnowania dostępności procesora CPU.
 
 Gdy **NextTx** jest wywoływana w celu rozpoczęcia nowej transakcji, parametr wyjściowy *identyfikatora SeqID* identyfikuje transakcję. Transakcja jest również używana w **ACK** i **Niepowodzenie**. Metoda **NextTx** może emitować dane po stronie Java. Dane są przechowywane w dozorcy, aby umożliwić odtwarzanie. Ponieważ dozorcy ma ograniczoną pojemność, kod powinien emitować tylko metadane, a nie dane zbiorcze w transakcyjnym elementu Spout.
 
@@ -161,11 +158,11 @@ SCP.NET tworzy nowy obiekt **ISCPBatchBolt** , aby przetwarzać każdy obiekt **
 
 ## <a name="object-model"></a>Model obiektów
 
-Program SCP.NET udostępnia również prosty zestaw obiektów kluczowych dla deweloperów, którzy mają być używani. Obiekty to **Context**, **stan klientów**i **SCPRuntime**. Są one omówione w tej sekcji.
+Program SCP.NET udostępnia również prosty zestaw obiektów kluczowych dla deweloperów, którzy mają być używani. Obiekty to **Context**, **stan klientów** i **SCPRuntime**. Są one omówione w tej sekcji.
 
 ### <a name="context"></a>Kontekst
 
-Obiekt **kontekstu** zapewnia uruchomione środowisko dla aplikacji. Każde wystąpienie **ISCPPlugin** **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**lub **ISCPBatchBolt** ma odpowiednie wystąpienie **kontekstu** . Funkcje udostępnione przez **kontekst** są podzielone na te dwie części:
+Obiekt **kontekstu** zapewnia uruchomione środowisko dla aplikacji. Każde wystąpienie **ISCPPlugin** **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout** lub **ISCPBatchBolt** ma odpowiednie wystąpienie **kontekstu** . Funkcje udostępnione przez **kontekst** są podzielone na te dwie części:
 
 * Część statyczna, która jest dostępna w całym procesie języka C#
 * Część dynamiczna, która jest dostępna tylko dla określonego wystąpienia **kontekstu**
@@ -373,13 +370,13 @@ Metoda **Initialize** inicjuje środowisko URUCHOMIENIOWE punktu połączenia us
 
 Metoda **LaunchPlugin** uruchamia pętlę przetwarzania komunikatów. W tej pętli wtyczka C# odbiera komunikaty ze strony języka Java. Te komunikaty obejmują krotki i sygnały sterujące. Wtyczka następnie przetwarza komunikaty, na przykład przez wywołanie metody interfejsu dostarczonej przez kod.
 
-Parametr wejściowy **LaunchPlugin** jest delegatem. Metoda może zwrócić obiekt, który implementuje interfejs **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**lub **ISCPBatchBolt** .
+Parametr wejściowy **LaunchPlugin** jest delegatem. Metoda może zwrócić obiekt, który implementuje interfejs **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout** lub **ISCPBatchBolt** .
 
 ```csharp
 public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary<string, Object> parms);
 ```
 
-W przypadku **ISCPBatchBolt**można uzyskać obiekt **StormTxAttempt** z parametru *Parametry* i użyć go do oceny, czy próba jest powtórzoną próbą. Sprawdzanie dla próby powtórzenia jest często wykonywane przy użyciu pioruna. W tym artykule przedstawiono przykład HelloWorldTx w dalszej części tego artykułu.
+W przypadku **ISCPBatchBolt** można uzyskać obiekt **StormTxAttempt** z parametru *Parametry* i użyć go do oceny, czy próba jest powtórzoną próbą. Sprawdzanie dla próby powtórzenia jest często wykonywane przy użyciu pioruna. W tym artykule przedstawiono przykład HelloWorldTx w dalszej części tego artykułu.
 
 Wtyczki SCP można zwykle uruchomić w dwóch trybach: tryb testowania lokalnego i tryb regularny.
 
@@ -437,12 +434,12 @@ SCP.NET dodał następujące funkcje, aby zdefiniować topologie transakcyjne:
 | Nowa funkcja | Parametry | Opis |
 | --- | --- | --- |
 | **TX-topolopy** |*Topologia — nazwa*<br />*elementu Spout — Mapa*<br />*Mapa błyskawicy* |Definiuje topologię transakcyjną z nazwą topologii, mapą definicji elementy Spout i obiektem mapy definicji. |
-| **SCP-TX-elementu Spout** |*exec-Name*<br />*argumentów*<br />*pola* |Definiuje transakcyjny elementu Spout. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla elementu Spout. |
-| **SCP-TX-Batch** |*exec-Name*<br />*argumentów*<br />*pola* |Definiuje transakcyjny obiekt do przetwarzania wsadowego. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów.*<br /><br />*Pola* parametr określa pola danych wyjściowych dla pioruna. |
-| **SCP-TX-commit-Piorun** |*exec-Name*<br />*argumentów*<br />*pola* |Definiuje obiekt do zatwierdzeń transakcyjnych. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla pioruna. |
+| **SCP-TX-elementu Spout** |*exec-Name*<br />*argumentów*<br />*fields* |Definiuje transakcyjny elementu Spout. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla elementu Spout. |
+| **SCP-TX-Batch** |*exec-Name*<br />*argumentów*<br />*fields* |Definiuje transakcyjny obiekt do przetwarzania wsadowego. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów.*<br /><br />*Pola* parametr określa pola danych wyjściowych dla pioruna. |
+| **SCP-TX-commit-Piorun** |*exec-Name*<br />*argumentów*<br />*fields* |Definiuje obiekt do zatwierdzeń transakcyjnych. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla pioruna. |
 | **nontx — topologia** |*Topologia — nazwa*<br />*elementu Spout — Mapa*<br />*Mapa błyskawicy* |Definiuje topologię nietransakcyjną z nazwą topologii, mapą definicji elementy Spout i obiektem mapy definicji. |
-| **SCP — elementu Spout** |*exec-Name*<br />*argumentów*<br />*pola*<br />*wejściowe* |Definiuje nietransakcyjny elementu Spout. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla elementu Spout.<br /><br />Parametr *Parameters* jest opcjonalny. Służy do określania parametrów, takich jak "nietransakcyjny. ACK. Enabled". |
-| **punkt połączenia usługi** |*exec-Name*<br />*argumentów*<br />*pola*<br />*wejściowe* |Definiuje piorun nietransakcyjny. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />Pole *parametr określa* pola wyjściowe dla pioruna<br /><br />Parametr *Parameters* jest opcjonalny. Służy do określania parametrów, takich jak "nietransakcyjny. ACK. Enabled". |
+| **SCP — elementu Spout** |*exec-Name*<br />*argumentów*<br />*fields*<br />*wejściowe* |Definiuje nietransakcyjny elementu Spout. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla elementu Spout.<br /><br />Parametr *Parameters* jest opcjonalny. Służy do określania parametrów, takich jak "nietransakcyjny. ACK. Enabled". |
+| **punkt połączenia usługi** |*exec-Name*<br />*argumentów*<br />*fields*<br />*wejściowe* |Definiuje piorun nietransakcyjny. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />Pole *parametr określa* pola wyjściowe dla pioruna<br /><br />Parametr *Parameters* jest opcjonalny. Służy do określania parametrów, takich jak "nietransakcyjny. ACK. Enabled". |
 
 SCP.NET definiuje następujące słowa kluczowe:
 
@@ -728,7 +725,7 @@ public void Fail(long seqId, Dictionary<string, Object> parms)
 
 ### <a name="helloworldtx"></a>HelloWorldTx
 
-W poniższym przykładzie HelloWorldTx pokazano, jak wdrożyć topologię transakcyjną. Przykład ma jeden elementu Spout o nazwie **generatora**, obiekt wsadowy o nazwie **częściowa liczba**i obiekt zatwierdzający o nazwie **Count-sum**. Przykład zawiera również trzy istniejące pliki tekstowe: DataSource0.txt, DataSource1.txt i DataSource2.txt.
+W poniższym przykładzie HelloWorldTx pokazano, jak wdrożyć topologię transakcyjną. Przykład ma jeden elementu Spout o nazwie **generatora**, obiekt wsadowy o nazwie **częściowa liczba** i obiekt zatwierdzający o nazwie **Count-sum**. Przykład zawiera również trzy istniejące pliki tekstowe: DataSource0.txt, DataSource1.txt i DataSource2.txt.
 
 W poszczególnych transakcjach **Generator** elementu Spout losowo wybiera dwa pliki z istniejących trzech plików i emituje dwie nazwy plików **do błyskawicy** . Piorun **częściowej liczby** :
 

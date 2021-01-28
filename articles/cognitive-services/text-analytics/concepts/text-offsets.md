@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f5b63503792b13e089568004ba67e5be8a3d0c7f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363786"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932369"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Przesunięcie tekstu w danych wyjściowych interfejs API analizy tekstu
 
@@ -34,9 +34,9 @@ Za każdym razem, gdy przesunięcia są zwracane odpowiedzi interfejsu API, taki
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Wyodrębnianie podciągów z tekstu z przesunięciami
 
-Przesunięcia mogą spowodować problemy podczas korzystania z metod podciągów opartych na znakach, na przykład w przypadku metody [podciągu .NET ()](/dotnet/api/system.string.substring?view=netframework-4.8) . Jeden z problemów polega na tym, że przesunięcie może spowodować zakończenie metody podciągu w środku wieloznakowego kodowania Grapheme zamiast na końcu.
+Przesunięcia mogą spowodować problemy podczas korzystania z metod podciągów opartych na znakach, na przykład w przypadku metody [podciągu .NET ()](/dotnet/api/system.string.substring) . Jeden z problemów polega na tym, że przesunięcie może spowodować zakończenie metody podciągu w środku wieloznakowego kodowania Grapheme zamiast na końcu.
 
-W programie .NET Rozważ użycie klasy [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , która umożliwia współpracę z ciągiem jako serią elementów tekstowych, a nie pojedynczymi obiektami znaków. Możesz również wyszukać biblioteki rozdzielacza Grapheme w preferowanym środowisku oprogramowania. 
+W programie .NET Rozważ użycie klasy [StringInfo](/dotnet/api/system.globalization.stringinfo) , która umożliwia współpracę z ciągiem jako serią elementów tekstowych, a nie pojedynczymi obiektami znaków. Możesz również wyszukać biblioteki rozdzielacza Grapheme w preferowanym środowisku oprogramowania. 
 
 Interfejs API analizy tekstu zwraca te elementy tekstowe również dla wygody.
 
@@ -50,10 +50,10 @@ Począwszy od interfejsu API w wersji 3,1-Preview. 1, wszystkie interfejs API an
 
 Jeśli `stringIndexType` żądane dopasowanie do wybranego środowiska programistycznego, wyodrębnianie podciągów można wykonać przy użyciu standardowych podciągów lub metod wycinka. 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rozpoznawanie jednostek](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Wykrywanie języka](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Wykryj język](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Rozpoznawanie języka](../how-tos/text-analytics-how-to-language-detection.md)

@@ -1,19 +1,16 @@
 ---
 title: 'Azure Toolkit for IntelliJ: Spark App-HDInsight'
 description: Użyj Azure Toolkit for IntelliJ, aby opracować aplikacje Spark zapisane w Scala i przesłać je do klastra usługi HDInsight Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: b70de1915e6c068bd658dff60776085075412789
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b2c2a91ba9d029bcf24b0980d0a2339194e6d8a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024014"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931030"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Tworzenie aplikacji Apache Spark dla klastra usługi HDInsight za pomocą Azure Toolkit for IntelliJ
 
@@ -71,7 +68,7 @@ Procedura instalacji wtyczki Scala:
 
      ![Okno dialogowe Nowy projekt IntelliJ pomysłów](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-5. Wybierz pozycję **Dalej**.
+5. Wybierz opcję **Dalej**.
 
 6. W oknie **New Project** (Nowy projekt) podaj następujące informacje:  
 
@@ -88,7 +85,7 @@ Procedura instalacji wtyczki Scala:
 
 8. Projekt Spark automatycznie tworzy artefakt. Aby wyświetlić artefakt, wykonaj następujące czynności:
 
-   a. Na pasku menu Przejdź do **File**  >  **struktury projektu pliku..**..
+   a. Na pasku menu Przejdź do   >  **struktury projektu pliku..**..
 
    b. W oknie **Struktura projektu** wybierz pozycję **artefakty**.  
 
@@ -262,7 +259,7 @@ Różne operacje można wykonywać za pomocą Azure Toolkit for IntelliJ.  Więk
 
 ### <a name="access-the-job-view"></a>Dostęp do widoku zadania
 
-1. W Eksploratorze Azure przejdź do zadania usługi **HDInsight**  >  \<Your Cluster>  >  **Jobs**.
+1. W Eksploratorze Azure przejdź do zadania usługi **HDInsight**  >  \<Your Cluster>  >  .
 
     ![Węzeł widoku zadań w Eksploratorze IntelliJ systemu Azure](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 

@@ -1,19 +1,16 @@
 ---
 title: Przekazywanie danych dla zadań Apache Hadoop w usłudze HDInsight
 description: Dowiedz się, jak przekazywać i uzyskiwać dostęp do danych Apache Hadoop zadań w usłudze HDInsight. Użyj klasycznego interfejsu wiersza polecenia platformy Azure, Eksplorator usługi Azure Storage, Azure PowerShell, wiersza poleceń Hadoop lub Sqoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 47262e0dc7247e1d514eeb64512c21ff1ae527ab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8d21b88298b6092c869b89d48fe4c259c2365b6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534825"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931336"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Przekazywanie danych dla zadań Apache Hadoop w usłudze HDInsight
 
@@ -98,8 +95,8 @@ Usługa Azure Data Factory to w pełni zarządzana usługa umożliwiająca tworz
 
 |Typ magazynu|Dokumentacja|
 |----|----|
-|Usługa Azure Blob Storage|[Kopiowanie danych do lub z usługi Azure Blob Storage za pomocą usługi Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
-|Azure Data Lake Storage Gen1|[Kopiowanie danych do lub z Azure Data Lake Storage Gen1 przy użyciu Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
+|Azure Blob Storage|[Kopiowanie danych do lub z usługi Azure Blob Storage za pomocą usługi Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
+|Usługa Azure Data Lake Storage 1. generacji|[Kopiowanie danych do lub z Azure Data Lake Storage Gen1 przy użyciu Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
 |Usługa Azure Data Lake Storage 2. generacji |[Załaduj dane do Azure Data Lake Storage Gen2 z Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 ### <a name="apache-sqoop"></a>Apache Sqoop

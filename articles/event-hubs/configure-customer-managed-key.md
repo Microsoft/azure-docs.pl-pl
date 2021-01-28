@@ -3,20 +3,15 @@ title: Skonfiguruj własny klucz do szyfrowania danych usługi Azure Event Hubs 
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Event Hubs platformy Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 095def84c5ab5e4dac7802027468b67eefb3161f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 00e33bc3464aed1829968b7957e48455eaa04447
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625385"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933795"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Skonfiguruj klucze zarządzane przez klienta do szyfrowania danych Event Hubs platformy Azure przechowywanych przy użyciu Azure Portal
-Usługa Azure Event Hubs zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Event Hubs opiera się na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
-
-## <a name="overview"></a>Omówienie
-Usługa Azure Event Hubs obsługuje teraz opcję szyfrowania danych przechowywanych przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta (Bring Your Own Key – BYOK). Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania danych Event Hubs platformy Azure.
-
-Włączenie funkcji BYOK to jednorazowy proces konfiguracji w przestrzeni nazw.
+Usługa Azure Event Hubs zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Usługa Event Hubs używa usługi Azure Storage do przechowywania danych. Wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli używasz własnego klucza (nazywanego również Bring Your Own Key (BYOK) lub kluczem zarządzanym przez klienta), dane są nadal szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft, ale dodatkowo klucz zarządzany przez firmę Microsoft zostanie zaszyfrowany przy użyciu klucza zarządzanego przez klienta. Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania kluczy zarządzanych przez firmę Microsoft. Włączenie funkcji BYOK to jednorazowy proces konfiguracji w przestrzeni nazw.
 
 > [!NOTE]
 > Funkcja BYOK jest obsługiwana przez [Event Hubs dedykowanych klastrów z jedną dzierżawą](event-hubs-dedicated-overview.md) . Nie można jej włączyć dla przestrzeni nazw w warstwie Standardowa Event Hubs.
@@ -62,7 +57,7 @@ Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarz�
     1. Teraz możesz wybrać ten klucz do skojarzenia z przestrzenią nazw Event Hubs do szyfrowania z listy rozwijanej. 
 
         ![Wybierz klucz z magazynu kluczy](./media/configure-customer-managed-key/select-key-from-key-vault.png)
-    1. Wprowadź szczegóły klucza i kliknij przycisk **Wybierz**. Umożliwi to szyfrowanie danych przechowywanych w przestrzeni nazw za pomocą klucza zarządzanego przez klienta. 
+    1. Wprowadź szczegóły klucza i kliknij przycisk **Wybierz**. Spowoduje to włączenie szyfrowania klucza zarządzanego przez firmę Microsoft przy użyciu klucza (klucza zarządzanego przez klienta). 
 
 
 ## <a name="rotate-your-encryption-keys"></a>Obróć klucze szyfrowania
@@ -74,7 +69,7 @@ Cofnięcie dostępu do kluczy szyfrowania nie spowoduje przeczyszczenia danych z
 Po odwołaniu klucza szyfrowania usługa Event Hubs w zaszyfrowanej przestrzeni nazw stanie się niezależna. Jeśli dostęp do klucza jest włączony lub przywrócono klawisz Delete, usługa Event Hubs wybierze klucz, aby można było uzyskać dostęp do danych z przestrzeni nazw zaszyfrowanej Event Hubs.
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurowanie dzienników diagnostycznych 
-Ustawienie dzienników diagnostycznych dla przestrzeni nazw z włączoną obsługą BYOK umożliwia uzyskanie wymaganych informacji o operacjach, gdy przestrzeń nazw jest zaszyfrowana przy użyciu kluczy zarządzanych przez klienta. Te dzienniki mogą być włączone i później przesyłane strumieniowo do centrum zdarzeń lub analizowane przy użyciu usługi log Analytics lub przesyłane strumieniowo do magazynu w celu przeprowadzenia dostosowanej analizy. Aby dowiedzieć się więcej na temat dzienników diagnostycznych, zobacz [Omówienie dzienników diagnostycznych platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+Ustawienie dzienników diagnostycznych dla przestrzeni nazw z włączonymi BYOKami umożliwia uzyskanie wymaganych informacji o operacjach. Te dzienniki mogą być włączone i później przesyłane strumieniowo do centrum zdarzeń lub analizowane przy użyciu usługi log Analytics lub przesyłane strumieniowo do magazynu w celu przeprowadzenia dostosowanej analizy. Aby dowiedzieć się więcej na temat dzienników diagnostycznych, zobacz [Omówienie dzienników diagnostycznych platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Włącz dzienniki użytkowników
 Wykonaj następujące kroki, aby włączyć dzienniki dla kluczy zarządzanych przez klienta.

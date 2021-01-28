@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0c41771af81989ff965098a762338216db54fd27
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 780ef2bbb7851d8bef5fc52a51421a7938043ecb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578130"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932322"
 ---
 ## <a name="join-the-meeting-chat"></a>Dołącz do rozmowy o spotkaniu 
 
@@ -21,7 +21,7 @@ Po włączeniu współdziałania zespołów, użytkownik usług komunikacyjnych 
 Najpierw Utwórz wystąpienie `ChatThreadClient` dla wątku rozmowy o spotkaniu. Aby uzyskać identyfikator wątku, Przeanalizuj link do spotkania lub Użyj interfejsów API programu Graph z IDENTYFIKATORem spotkania. 
 
 - Łącze do spotkania zespołów wygląda następująco: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here` . `meeting_chat_thread_id`W tym łączu znajduje się identyfikator wątku. 
-- Jeśli masz identyfikator spotkania, możesz użyć [interfejs API programu Graph](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) , aby uzyskać identyfikator wątku. Odpowiedź [Get API](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http%22%20%5C) będzie zawierać `chatInfo` obiekt, który zawiera `threadID` . 
+- Jeśli masz identyfikator spotkania, możesz użyć [interfejs API programu Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) , aby uzyskać identyfikator wątku. Odpowiedź [Get API](/graph/api/onlinemeeting-get?tabs=http%22+%5c&view=graph-rest-beta) będzie zawierać `chatInfo` obiekt, który zawiera `threadID` . 
 
 Gdy masz identyfikator wątku rozmowy, możesz uzyskać klienta wątku rozmowy przy użyciu biblioteki klienckiej rozmowy JavaScript: 
 
@@ -44,4 +44,3 @@ Aby uzyskać więcej informacji na temat typów komunikatów, zobacz [tutaj](../
 
 **Uwaga** — obecnie wysyłanie i otrzymywanie komunikatów jest obsługiwane w scenariuszach współdziałania z zespołami. Inne funkcje, takie jak wpisywanie wskaźników i użytkowników usług komunikacyjnych, Dodawanie lub usuwanie innych użytkowników z spotkania zespołów nie są jeszcze obsługiwane.  
 
- 

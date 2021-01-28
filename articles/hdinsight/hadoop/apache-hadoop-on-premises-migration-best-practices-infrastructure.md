@@ -1,19 +1,16 @@
 ---
 title: 'Infrastruktura: Apache Hadoop lokalna do usługi Azure HDInsight'
 description: Poznaj najlepsze rozwiązania dotyczące infrastruktury dotyczące migrowania lokalnych klastrów Hadoop do usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f66e13046a34bddfd27912e23ce51f75006fd9fa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542305"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932143"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — najlepsze rozwiązania dotyczące infrastruktury
 
@@ -80,7 +77,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Apache Hadoop składniki dost�
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu
 
-Usługa HDInsight udostępnia metodę konfiguracji klastra nazywaną **akcją skryptu** . Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsight i może służyć do instalowania dodatkowych składników i zmieniania ustawień konfiguracji.
+Usługa HDInsight udostępnia metodę konfiguracji klastra nazywaną **akcją skryptu**. Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsight i może służyć do instalowania dodatkowych składników i zmieniania ustawień konfiguracji.
 
 Akcje skryptu muszą być przechowywane w identyfikatorze URI dostępnym z klastra usługi HDInsight. Mogą one być używane podczas tworzenia klastra lub po nim, a także mogą być ograniczone do uruchamiania tylko dla określonych typów węzłów.
 

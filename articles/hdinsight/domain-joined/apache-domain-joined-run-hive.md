@@ -3,17 +3,16 @@ title: Zasady Apache Hive w usłudze Apache Ranger — Azure HDInsight
 description: Dowiedz się, jak skonfigurować zasady Apache Ranger dla usługi Hive w usłudze Azure HDInsight przy użyciu pakiet Enterprise Security.
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: f2d9c96a616f05c22c8b999fdc6cab2505c27485
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8ebc03d0847414730c51b899be4cf6586d064696
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544940"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932228"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurowanie zasad technologii Apache Hive w usłudze HDInsight przy użyciu pakietu Enterprise Security
 
@@ -49,14 +48,14 @@ W tej sekcji utworzysz dwie zasady Ranger na potrzeby uzyskiwania dostępu do hi
 **Aby utworzyć zasady platformy Ranger**
 
 1. Otwórz interfejs użytkownika administratora platformy Ranger. Zobacz sekcję Łączenie z interfejsem użytkownika administratora platformy Apache Ranger.
-2. Wybierz **CLUSTERNAME_Hive** , w obszarze **Hive** . Zostaną wyświetlone dwie wstępnie skonfigurowane zasady.
-3. Wybierz pozycję **Dodaj nowe zasady** , a następnie wprowadź następujące wartości:
+2. Wybierz **CLUSTERNAME_Hive**, w obszarze **Hive**. Zostaną wyświetlone dwie wstępnie skonfigurowane zasady.
+3. Wybierz pozycję **Dodaj nowe zasady**, a następnie wprowadź następujące wartości:
 
     |Właściwość |Wartość |
     |---|---|
     |Policy Name (Nazwa zasad)|Read-hivesampletable-All|
     |Baza danych programu Hive|default|
-    |table (stolik)|hivesampletable|
+    |tabela|hivesampletable|
     |Kolumna Hive|*|
     |Select User (Wybierz użytkownika)|Użytkownik hiveuser1|
     |Uprawnienia|Wybierz|
@@ -74,7 +73,7 @@ W tej sekcji utworzysz dwie zasady Ranger na potrzeby uzyskiwania dostępu do hi
     |---|---|
     |Policy Name (Nazwa zasad)|Read-hivesampletable-devicemake|
     |Baza danych programu Hive|default|
-    |table (stolik)|hivesampletable|
+    |tabela|hivesampletable|
     |Kolumna Hive|ClientID, devicemake|
     |Select User (Wybierz użytkownika)|hiveuser2|
     |Uprawnienia|Wybierz|
@@ -87,9 +86,9 @@ Instrukcje można znaleźć w sekcji [Create Hive ODBC data source](../hadoop/ap
  | --- | --- |
  | Data Source Name (Nazwa źródła danych) | Nadaj nazwę źródła danych. |
  | Host | Wprowadź CLUSTERNAME.azurehdinsight.net. np. myHDICluster.azurehdinsight.net. |
- | Port | Użyj portu **443** . (Ten port został zmieniony z 563 na 443). |
- | baza danych | Użyj **domyślnego** . |
- | Hive Server Type (Typ serwera Hive) | Wybierz wartość **Hive Server 2** . |
+ | Port | Użyj portu **443**. (Ten port został zmieniony z 563 na 443). |
+ | baza danych | Użyj **domyślnego**. |
+ | Hive Server Type (Typ serwera Hive) | Wybierz wartość **Hive Server 2**. |
  | Mechanism (Mechanizm) | Wybierz wartość **Azure HDInsight Service** (Usługa Azure HDInsight). |
  | HTTP Path (Ścieżka HTTP) | Pozostaw to pole puste. |
  | Nazwa użytkownika | Wprowadź hiveuser1@contoso158.onmicrosoft.com. Zaktualizuj nazwę domeny, jeśli jest inna. |
@@ -107,17 +106,17 @@ W ostatniej sekcji zostały skonfigurowane dwie zasady.  Użytkownik hiveuser1 m
 
     ![Kreator otwierania połączenia danych](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. Z listy rozwijanej wybierz nazwę źródła danych utworzoną w ostatniej sekcji, a następnie wybierz przycisk **OK** .
+1. Z listy rozwijanej wybierz nazwę źródła danych utworzoną w ostatniej sekcji, a następnie wybierz przycisk **OK**.
 
 1. Do pierwszego użycia zostanie otwarte okno dialogowe **sterownika ODBC** . Z menu po lewej stronie wybierz pozycję **Windows** . Następnie wybierz pozycję **Połącz** , aby otworzyć okno **Nawigator** .
 
-1. Zaczekaj na otwarcie okna dialogowego **Wybieranie bazy danych i tabeli** . Może to potrwać kilka sekund.
+1. Zaczekaj na otwarcie okna dialogowego **Wybieranie bazy danych i tabeli**. Może to potrwać kilka sekund.
 
-1. Wybierz pozycję **hivesampletable** , a następnie wybierz pozycję **Next (dalej** ).
+1. Wybierz pozycję **hivesampletable**, a następnie wybierz pozycję **Next (dalej**).
 
-1. Wybierz pozycję **Zakończ** .
+1. Wybierz pozycję **Zakończ**.
 
-1. W oknie dialogowym **Importowanie danych** możesz zmienić lub określić zapytanie. W tym celu wybierz pozycję **Właściwości** . Może to potrwać kilka sekund.
+1. W oknie dialogowym **Importowanie danych** możesz zmienić lub określić zapytanie. W tym celu wybierz pozycję **Właściwości**. Może to potrwać kilka sekund.
 
 1. Wybierz kartę **Definicja** . Tekst polecenia:
 
@@ -131,7 +130,7 @@ W ostatniej sekcji zostały skonfigurowane dwie zasady.  Użytkownik hiveuser1 m
 
 1. Wybierz **przycisk OK** , aby zamknąć okno dialogowe **Importowanie danych** .  
 
-1. Wprowadź ponownie hasło użytkownika hiveuser1, a następnie kliknij przycisk **OK** . Importowanie danych do programu Excel może potrwać kilka sekund. Gdy wszystko będzie gotowe, zobaczysz 11 kolumn danych.
+1. Wprowadź ponownie hasło użytkownika hiveuser1, a następnie kliknij przycisk **OK**. Importowanie danych do programu Excel może potrwać kilka sekund. Gdy wszystko będzie gotowe, zobaczysz 11 kolumn danych.
 
 Aby przetestować drugie zasady (Read-hivesampletable-devicemake), utworzone w ostatniej sekcji
 

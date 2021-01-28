@@ -2,18 +2,15 @@
 title: 'Samouczek: Usługa HDInsight Apache Storm do magazynu — Azure/Data Lake'
 description: Samouczek — informacje na temat używania Apache Storm do zapisywania do magazynu zgodnego z systemem plików HDFS dla usługi Azure HDInsight.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 8cdcc60e6eeec22e202d670c3fc057711bd432a6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e648c57be699620e669ce7db0845dad2b876095
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545450"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932562"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Samouczek: zapisywanie do Apache Hadoop HDFS z Apache Storm w usłudze Azure HDInsight
 
@@ -21,7 +18,7 @@ W tym samouczku pokazano, jak za pomocą Apache Storm zapisywać dane do magazyn
 
 Przykładowa topologia używana w tym dokumencie opiera się na składnikach, które są dołączone do burzy w usłudze HDInsight. Może wymagać modyfikacji do pracy z Azure Data Lake Storage, gdy jest używany z innymi klastrami Apache Storm.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie klastra z akcją skryptu
@@ -160,7 +157,7 @@ Aby uzyskać informacje na temat używania tego skryptu z klastrem, zobacz [Dost
     hdfs.url: wasbs:///
     ```
 
-    Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__ , a następnie __Y__ i __klawisza ENTER__ . Wartości w tym pliku ustawiają adres URL magazynu i nazwę katalogu, w którym są zapisywane dane.
+    Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__, a następnie __Y__ i __klawisza ENTER__. Wartości w tym pliku ustawiają adres URL magazynu i nazwę katalogu, w którym są zapisywane dane.
 
 1. Użyj następującego polecenia, aby uruchomić topologię:
 
@@ -205,7 +202,7 @@ Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasob�
 
 Aby usunąć grupę zasobów za pomocą witryny Azure Portal:
 
-1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__ , aby wyświetlić listę grup zasobów.
+1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__, aby wyświetlić listę grup zasobów.
 2. Znajdź grupę zasobów do usunięcia, a następnie kliknij prawym przyciskiem myszy przycisk __Więcej (...)__ po prawej stronie listy.
 3. Wybierz pozycję __Usuń grupę zasobów__ i potwierdź.
 

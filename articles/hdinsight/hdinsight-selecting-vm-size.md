@@ -2,19 +2,16 @@
 title: Jak wybrać odpowiedni rozmiar maszyny wirtualnej dla klastra usługi Azure HDInsight
 description: Dowiedz się, jak wybrać odpowiedni rozmiar maszyny wirtualnej dla klastra usługi HDInsight.
 keywords: rozmiary maszyn wirtualnych, rozmiary klastrów, Konfiguracja klastra
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 51043f0a1009994528783a1b56ec5ccec68e99b3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535318"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931776"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Wybieranie odpowiedniego rozmiaru maszyny wirtualnej dla klastra usługi Azure HDInsight
 

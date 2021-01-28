@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 203782ef2d95cd2b47082f630fa12531a110d49e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968895"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933925"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania
 
@@ -194,7 +194,7 @@ Czas wykonywania działania jest różny w zależności od tego, czy zestaw dany
 
     - Warstwa Azure SQL Database nie jest wystarczająco wysoka.
 
-    - Użycie jednostek DTU Azure SQL Database jest bliskie 100%. Można [monitorować wydajność](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) i zastanowić się nad uaktualnieniem warstwy Azure SQL Database.
+    - Użycie jednostek DTU Azure SQL Database jest bliskie 100%. Można [monitorować wydajność](../azure-sql/database/monitor-tune-overview.md) i zastanowić się nad uaktualnieniem warstwy Azure SQL Database.
 
     - Indeksy nie są ustawione prawidłowo. Usuń wszystkie indeksy przed załadowaniem danych i utwórz je ponownie po zakończeniu ładowania.
 
@@ -202,7 +202,6 @@ Czas wykonywania działania jest różny w zależności od tego, czy zestaw dany
 
     - Zamiast zbiorczego wstawania, jest używana procedura składowana, która powinna mieć gorszą wydajność. 
 
-- **Rozwiązanie**: Zapoznaj się z tematem [Rozwiązywanie problemów z wydajnością działania kopiowania](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
 
 ### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Przekroczenie limitu czasu lub niska wydajność podczas analizowania dużego pliku programu Excel
 
