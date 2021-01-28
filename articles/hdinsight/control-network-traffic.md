@@ -1,18 +1,15 @@
 ---
 title: Kontrolowanie ruchu sieciowego w usłudze Azure HDInsight
 description: Poznaj techniki kontrolowania ruchu przychodzącego i wychodzącego do klastrów usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543172"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943367"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Kontrolowanie ruchu sieciowego w usłudze Azure HDInsight
 
@@ -40,7 +37,7 @@ Jeśli planujesz używać **grup zabezpieczeń sieci** do kontrolowania ruchu si
 
 3. Utwórz lub zmodyfikuj sieciowe grupy zabezpieczeń dla podsieci, w której ma zostać zainstalowana Usługa HDInsight.
 
-    * __Sieciowe grupy zabezpieczeń__ : Zezwalaj na ruch __przychodzący__ na porcie __443__ z adresów IP. Dzięki temu usługi HDInsight Management Services mogą dotrzeć do klastra spoza sieci wirtualnej. W przypadku klastrów z włączonym __serwerem proxy REST Kafka__ należy również zezwolić na ruch __przychodzący__ na porcie __9400__ . Zapewni to dostęp do serwera proxy REST Kafka.
+    * __Sieciowe grupy zabezpieczeń__: Zezwalaj na ruch __przychodzący__ na porcie __443__ z adresów IP. Dzięki temu usługi HDInsight Management Services mogą dotrzeć do klastra spoza sieci wirtualnej. W przypadku klastrów z włączonym __serwerem proxy REST Kafka__ należy również zezwolić na ruch __przychodzący__ na porcie __9400__ . Zapewni to dostęp do serwera proxy REST Kafka.
 
 Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [Omówienie sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md).
 

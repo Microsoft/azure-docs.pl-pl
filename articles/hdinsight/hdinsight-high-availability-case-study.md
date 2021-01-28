@@ -1,19 +1,16 @@
 ---
 title: Analiza przypadku architektury rozwiązania o wysokiej dostępności usługi Azure HDInsight
 description: Ten artykuł stanowi fikcyjną analizę przypadku możliwej architektury rozwiązań o wysokiej dostępności usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: Wysoka dostępność usługi Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b98b03c2d7eb4a0403b4595c1376656ed42511b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855042"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945354"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Analiza przypadku architektury rozwiązania o wysokiej dostępności usługi Azure HDInsight
 
@@ -68,7 +65,7 @@ Ważne jest, aby określić minimalną funkcjonalność biznesową, która będz
 
 Na poniższej ilustracji przedstawiono architekturę odzyskiwania po awarii o wysokiej dostępności w sieci sprzedaży firmy Contoso.
 
-:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Architektura sieci sprzedaży firmy Contoso":::
+:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Rozwiązanie contoso":::
 
 **Kafka** używa replikacji [Active-pasywnej](hdinsight-business-continuity-architecture.md#apache-kafka) w celu dublowania tematów Kafka z regionu podstawowego do regionu pomocniczego. Alternatywą dla replikacji Kafka może być produkcja na Kafka w obu regionach.
 

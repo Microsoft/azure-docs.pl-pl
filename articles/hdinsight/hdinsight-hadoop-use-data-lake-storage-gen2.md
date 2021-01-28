@@ -1,19 +1,16 @@
 ---
 title: Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight
 description: Dowiedz się, jak używać Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2bbfbd2d953ea663453f0092ff366e95f6dd5ea7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744594"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945370"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight
 
@@ -66,19 +63,19 @@ Aby ustawić uprawnienia dla użytkowników do wykonywania zapytań dotyczących
 
 Istnieje kilka sposobów uzyskiwania dostępu do plików w Data Lake Storage Gen2 z klastra usługi HDInsight.
 
-* **Przy użyciu w pełni kwalifikowanej nazwy** . W przypadku tej metody należy podać pełną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
+* **Przy użyciu w pełni kwalifikowanej nazwy**. W przypadku tej metody należy podać pełną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Przy użyciu skróconego formatu ścieżki** . To podejście zastępuje ścieżkę do katalogu głównego klastra przy użyciu:
+* **Przy użyciu skróconego formatu ścieżki**. To podejście zastępuje ścieżkę do katalogu głównego klastra przy użyciu:
 
     ```
     abfs:///<file.path>/
     ```
 
-* **Przy użyciu ścieżki względnej** . W przypadku tej metody należy podać tylko względną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
+* **Przy użyciu ścieżki względnej**. W przypadku tej metody należy podać tylko względną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
 
     ```
     /<file.path>/

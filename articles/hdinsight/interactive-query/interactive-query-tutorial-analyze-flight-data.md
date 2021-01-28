@@ -1,19 +1,16 @@
 ---
 title: 'Samouczek: operacje ETL przy użyciu zapytania interaktywnego — Azure HDInsight'
 description: Samouczek — informacje na temat wyodrębniania danych z nieprzetworzonego zestawu danych udostępnionych woluminów klastra. Przekształć je za pomocą interakcyjnego zapytania w usłudze HDInsight. Następnie załaduj przekształcone dane do Azure SQL Database przy użyciu platformy Apache Sqoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 730a6bfa627eafcab799fc811db4e20a1d4cec48
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13b6b8658aa2d896ec154cfa3c7a961e37df6cbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534587"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935899"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu interakcyjnych zapytań w usłudze Azure HDInsight
 
@@ -30,7 +27,7 @@ Ten samouczek obejmuje następujące zadania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Interaktywny klaster zapytań w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybieranie **zapytania interaktywnego** dla **typu klastra** .
+* Interaktywny klaster zapytań w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybieranie **zapytania interaktywnego** dla **typu klastra**.
 
 * Baza danych w Azure SQL Database. Baza danych jest używana jako docelowy magazyn danych. Jeśli nie masz bazy danych w Azure SQL Database, zobacz [Tworzenie bazy danych w Azure SQL Database w Azure Portal](../../azure-sql/database/single-database-create-quickstart.md).
 
@@ -48,7 +45,7 @@ Ten samouczek obejmuje następujące zadania:
    | Okres filtrowania |January (Styczeń) |
    | Pola |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
-3. Kliknij pozycję **Pobierz** . Uzyskasz plik zip z wybranymi polami danych.
+3. Kliknij pozycję **Pobierz**. Uzyskasz plik zip z wybranymi polami danych.
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>Przekazywanie danych do klastra usługi HDInsight
 
@@ -95,9 +92,9 @@ Istnieje wiele sposobów przekazywania danych do magazynu skojarzonego z klastre
 
 Istnieje wiele sposobów uruchamiania zadania oprogramowania Hive w klastrze usługi HDInsight. W tej sekcji uruchomisz zadanie oprogramowania Hive za pomocą usługi [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93CommandLineShell). Aby uzyskać informacje o innych metodach uruchamiania zadania Hive, zobacz [Używanie oprogramowania Apache Hive w usłudze HDInsight](../hadoop/hdinsight-use-hive.md).
 
-W ramach zadania oprogramowania Hive można zaimportować dane z pliku csv do tabeli oprogramowania Hive o nazwie **Delays** .
+W ramach zadania oprogramowania Hive można zaimportować dane z pliku csv do tabeli oprogramowania Hive o nazwie **Delays**.
 
-1. Z poziomu monitu SSH, który istnieje już dla klastra usługi HDInsight, użyj następującego polecenia, aby utworzyć i edytować nowy plik o nazwie **flightdelays. HQL** :
+1. Z poziomu monitu SSH, który istnieje już dla klastra usługi HDInsight, użyj następującego polecenia, aby utworzyć i edytować nowy plik o nazwie **flightdelays. HQL**:
 
     ```bash
     nano flightdelays.hql
@@ -165,9 +162,9 @@ W ramach zadania oprogramowania Hive można zaimportować dane z pliku csv do ta
     FROM delays_raw;
     ```
 
-3. Aby zapisać plik, naciśnij **klawisze Ctrl + X** , a następnie **y** , a następnie wprowadź.
+3. Aby zapisać plik, naciśnij **klawisze Ctrl + X**, a następnie **y**, a następnie wprowadź.
 
-4. Aby uruchomić oprogramowanie Hive i uruchomić plik **flightdelays.hql** , użyj następującego polecenia:
+4. Aby uruchomić oprogramowanie Hive i uruchomić plik **flightdelays.hql**, użyj następującego polecenia:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql

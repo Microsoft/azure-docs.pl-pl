@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
-ms.openlocfilehash: 370883b90902dad5a6e222897e68e1d3e9dd2acf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b4153b07b153a9ee0b16dc032ab5e7810e236d7d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738019"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936279"
 ---
 # <a name="deploy-an-anomaly-detector-module-to-iot-edge"></a>Wdróż moduł wykrywania anomalii w usłudze IoT Edge
 
@@ -24,7 +24,7 @@ Dowiedz się, jak wdrożyć moduł [wykrywania anomalii](../anomaly-detector-con
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Użyj subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
-* Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * [IoT Hub](../../../iot-hub/iot-hub-create-through-portal.md) i [IoT Edge](../../../iot-edge/quickstart-linux.md) urządzenie.
 
 [!INCLUDE [Create a Cognitive Services Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]

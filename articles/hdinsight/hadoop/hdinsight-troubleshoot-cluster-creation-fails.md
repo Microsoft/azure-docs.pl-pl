@@ -1,19 +1,16 @@
 ---
 title: Rozwiązywanie problemów z błędami tworzenia klastra za pomocą usługi Azure HDInsight
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem klastra Apache dla usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
-ms.openlocfilehash: b8be230044d868cc3ec03f6dc3fc2d21e102f121
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e12b96883ae26b6c10e3622c35914ce498afca48
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856300"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944424"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Rozwiązywanie problemów z błędami tworzenia klastra za pomocą usługi Azure HDInsight
 
@@ -53,10 +50,10 @@ Zezwalaj na ruch z adresów IP w poniższej tabeli.
 
 | Źródłowy adres IP | Element docelowy | Kierunek |
 |---|---|---|
-| 168.61.49.99 | *: 443 | Inbound |
-| 23.99.5.239 | *: 443 | Inbound |
-| 168.61.48.131 | *: 443 | Inbound |
-| 138.91.141.162 | *: 443 | Inbound |
+| 168.61.49.99 | *: 443 | Przychodzący |
+| 23.99.5.239 | *: 443 | Przychodzący |
+| 168.61.48.131 | *: 443 | Przychodzący |
+| 138.91.141.162 | *: 443 | Przychodzący |
 
 Należy również dodać adresy IP specyficzne dla regionu, w którym jest tworzony klaster. Zobacz [adresy IP zarządzania usługą HDInsight](../hdinsight-management-ip-addresses.md) , aby uzyskać listę adresów dla każdego regionu świadczenia usługi Azure.
 

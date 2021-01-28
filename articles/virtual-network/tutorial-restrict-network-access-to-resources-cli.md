@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b4f9dcf6fd43749cdf71098b3cd0da8a42020f6d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5c23259a9cb1f3c409ad437a1e91151b5f401129
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221769"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946296"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Ograniczanie dostępu sieciowego do zasobów PaaS za pomocą punktów końcowych usługi sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -326,7 +326,7 @@ Odmowa dostępu i pojawienie się `mount error(13): Permission denied` błędu, 
 
 Wyjdź z sesji SSH na maszynę wirtualną *myVmPublic* .
 
-Na komputerze spróbuj wyświetlić udziały na koncie magazynu za pomocą polecenie [AZ Storage Share list](/cli/azure/storage/share?view=azure-cli-latest). Zastąp `<account-name>` i `<account-key>` nazwą i kluczem konta magazynu w obszarze [Utwórz konto magazynu](#create-a-storage-account):
+Na komputerze spróbuj wyświetlić udziały na koncie magazynu za pomocą polecenie [AZ Storage Share list](/cli/azure/storage/share). Zastąp `<account-name>` i `<account-key>` nazwą i kluczem konta magazynu w obszarze [Utwórz konto magazynu](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \

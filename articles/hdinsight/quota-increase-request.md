@@ -1,19 +1,16 @@
 ---
 title: Żądanie zwiększenia limitu przydziału procesora CPU w usłudze Azure HDInsight
 description: Poznaj proces żądania zwiększenia liczby rdzeni procesora CPU przypisanych do subskrypcji.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 93c07b47e03bde20d494feb1c86179cd9a24ba26
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a539acc423feeab500830fb33262d1b824101072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539415"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935841"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Zwiększanie limitu przydziału dla usługi Azure HDInsight
 
@@ -30,7 +27,7 @@ Jeśli wystąpił błąd wskazujący, że osiągnięto limit przydziału, Użyj 
 
     1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
     1. Przejdź do strony **Przegląd** klastra usługi HDInsight.
-    1. W menu po lewej stronie wybierz pozycję **limity przydziału** . Na stronie zostanie wyświetlona liczba używanych rdzeni, liczba dostępnych rdzeni i łączna liczba rdzeni.
+    1. W menu po lewej stronie wybierz pozycję **limity przydziału**. Na stronie zostanie wyświetlona liczba używanych rdzeni, liczba dostępnych rdzeni i łączna liczba rdzeni.
 
 Aby zażądać zwiększenia limitu przydziału, wykonaj następujące czynności:
 
@@ -39,16 +36,16 @@ Aby zażądać zwiększenia limitu przydziału, wykonaj następujące czynności
 
     ![przycisk Pomoc i obsługa techniczna](./media/quota-increase-request/help-support-button.png)
 
-1. Wybierz pozycję **Nowe żądanie obsługi** .
+1. Wybierz pozycję **Nowe żądanie obsługi**.
 1. Na stronie **Nowy wniosek o pomoc techniczną** na karcie **Podstawowe** wybierz następujące opcje:
 
-   - **Typ problemu** : **limity usług i subskrypcji (przydziały)**
-   - **Subskrypcja** : subskrypcja, którą chcesz zmodyfikować
-   - **Typ limitu przydziału** : **HDInsight**
+   - **Typ problemu**: **limity usług i subskrypcji (przydziały)**
+   - **Subskrypcja**: subskrypcja, którą chcesz zmodyfikować
+   - **Typ limitu przydziału**: **HDInsight**
 
      ![Utwórz żądanie obsługi, aby zwiększyć limit przydziału rdzeni usługi HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
-1. Wybierz pozycję **Dalej: rozwiązania >>** .
+1. Wybierz pozycję **Dalej: rozwiązania >>**.
 1. Na stronie **szczegóły** wprowadź opis problemu, wybierz ważność problemu, preferowaną metodę kontaktu i inne wymagane pola. Użyj szablonu wymienionego poniżej, aby upewnić się, że podajesz wymagane informacje. Żądania zwiększenia limitu przydziału są oceniane przez zespół pojemności platformy Azure, a nie przez zespół produktu HDInsight. Im więcej informacji podano, tym bardziej prawdopodobnie Twoje żądanie zostanie zatwierdzone.
 
     ```
@@ -61,8 +58,8 @@ Aby zażądać zwiększenia limitu przydziału, wykonaj następujące czynności
 
     ![Szczegóły problemu](./media/quota-increase-request/problem-details.png)
 
-1. Wybierz kolejno pozycje **Dalej: recenzja + utwórz >>** .
-1. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz** .
+1. Wybierz kolejno pozycje **Dalej: recenzja + utwórz >>**.
+1. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
 
 > [!NOTE]  
 > Jeśli potrzebujesz zwiększyć przydział rdzenia usługi HDInsight w regionie prywatnym, [Prześlij żądanie zatwierdzenia listy](https://aka.ms/canaryintwhitelist).

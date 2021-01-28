@@ -3,7 +3,7 @@ title: Samouczek — Tworzenie pakietu dostępu — Zarządzanie prawami w usłu
 description: Samouczek krok po kroku dotyczący sposobu tworzenia pierwszego pakietu dostępu w Azure Active Directory Zarządzanie uprawnieniami.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 09/30/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e8d68643b5cc0002467f738dd60343fb2c42dc6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631293"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937901"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Samouczek: Tworzenie pierwszego pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -119,7 +119,7 @@ Katalog zasobów zawiera co najmniej jeden zasób do udostępnienia. W tym kroku
     ![Nowy pakiet dostępu — karta role zasobów](./media/entitlement-management-access-package-first/resource-roles.png)
 
     >[!IMPORTANT]
-    >Grupy przypisane do ról dodane do pakietu dostępu będą wskazywane przy użyciu podtypu, który można **przypisać do ról**. Aby uzyskać więcej informacji na temat grup, które można przypisać do ról usługi Azure AD, zapoznaj się z tematem [Tworzenie grupy umożliwiającej przypisanie roli](../roles/groups-create-eligible.md) w Azure Active Directory. Jeśli nie widzisz grupy, którą można przypisać, którą chcesz dodać, lub nie możesz jej dodać, upewnij się, że masz wymaganą rolę usługi Azure AD i rolę zarządzania uprawnieniami, aby wykonać tę operację. Może być konieczne poproszenie kogoś o wymagane role Dodaj zasób do katalogu. Aby uzyskać więcej informacji, zobacz [wymagane role do dodawania zasobów do wykazu](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >Grupy przypisane do ról dodane do pakietu dostępu będą wskazywane przy użyciu podtypu, który można **przypisać do ról**. Aby uzyskać więcej informacji na temat grup, które można przypisać do ról usługi Azure AD, zapoznaj się z tematem [Tworzenie grupy umożliwiającej przypisanie roli](../roles/groups-create-eligible.md) w Azure Active Directory. Należy pamiętać, że gdy w katalogu pakietów dostępu istnieje grupa z możliwością przypisania, użytkownicy administracyjni, którzy mogą zarządzać w zarządzaniu prawami, w tym administratorzy globalni, Administratorzy użytkowników i właściciele wykazu, będą mogli kontrolować pakiety dostępu w wykazie, umożliwiając im wybór osób, które mogą być dodawane do tych grup. Jeśli nie widzisz grupy, którą można przypisać, którą chcesz dodać, lub nie możesz jej dodać, upewnij się, że masz wymaganą rolę usługi Azure AD i rolę zarządzania uprawnieniami, aby wykonać tę operację. Może być konieczne poproszenie kogoś o wymagane role Dodaj zasób do katalogu. Aby uzyskać więcej informacji, zobacz [wymagane role do dodawania zasobów do wykazu](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > W przypadku korzystania z [grup dynamicznych](../enterprise-users/groups-create-rule.md) nie będą widoczne żadne inne role, które nie są dostępne poza właścicielem. Jest to celowe.

@@ -3,12 +3,12 @@ title: Konfigurowanie hybrydowych klastrów Kubernetes za pomocą Azure Monitor 
 description: W tym artykule opisano sposób konfigurowania Azure Monitor kontenerów do monitorowania klastrów Kubernetes hostowanych w Azure Stack lub innym środowisku.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d481af07013c0a5b4c5a381527c6f555400a2559
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 12901b1d2d7edd85fbe1650600856d09105c15b2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890466"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936413"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurowanie hybrydowych klastrów Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -21,7 +21,7 @@ Następujące konfiguracje są oficjalnie obsługiwane w przypadku kontenerów A
 - Wiejski
 
     - Kubernetes lokalnie
-    - Aparat AKS na platformie Azure i Azure Stack. Aby uzyskać więcej informacji, zobacz [aparat AKS na Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true)
+    - Aparat AKS na platformie Azure i Azure Stack. Aby uzyskać więcej informacji, zobacz [aparat AKS na Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) w wersji 4 lub nowszej, lokalnie lub w innych środowiskach w chmurze.
 
 - Wersje programu Kubernetes i zasady pomocy technicznej są takie same, jak wersje programu [AKS obsługiwane](../../aks/supported-kubernetes-versions.md).
@@ -108,7 +108,7 @@ Aby najpierw określić pełny identyfikator zasobu Log Analytics obszaru robocz
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-    Skopiuj wartość identyfikatora **subskrypcji** .
+    Skopiuj wartość identyfikatora **subskrypcji**.
 
 2. Przejdź do subskrypcji, w której znajduje się obszar roboczy Log Analytics, przy użyciu następującego polecenia:
 
@@ -202,7 +202,7 @@ Aby najpierw określić pełny identyfikator zasobu Log Analytics obszaru robocz
     }
     ```
 
-7. Edytuj wartości dla **workspaceResourceId** przy użyciu wartości skopiowanej w kroku 3, a w przypadku **WorkspaceRegion** skopiuj wartość **region** po uruchomieniu polecenia wiersza poleceń platformy Azure [AZ Monitor Log-Analytics Workspace show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true).
+7. Edytuj wartości dla **workspaceResourceId** przy użyciu wartości skopiowanej w kroku 3, a w przypadku **WorkspaceRegion** skopiuj wartość **region** po uruchomieniu polecenia wiersza poleceń platformy Azure [AZ Monitor Log-Analytics Workspace show](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list&preserve-view=true).
 
 8. Zapisz ten plik jako containerSolutionParams.jsw folderze lokalnym.
 
@@ -258,13 +258,13 @@ W tej części zainstalujesz agenta kontenerowego dla Azure Monitor kontenerów.
 
     `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
 
-    W danych wyjściowych Znajdź nazwę obszaru roboczego pod **nazwą** pola, a następnie skopiuj identyfikator obszaru roboczego tego log Analytics obszaru roboczego w polu **IDKlienta** .
+    W danych wyjściowych Znajdź nazwę obszaru roboczego pod **nazwą** pola, a następnie skopiuj identyfikator obszaru roboczego tego log Analytics obszaru roboczego w polu **IDKlienta**.
 
 2. Uruchom następujące polecenie, aby zidentyfikować klucz podstawowy obszaru roboczego:
 
     `az monitor log-analytics workspace get-shared-keys --resource-group <resourceGroupName> --workspace-name <logAnalyticsWorkspaceName>`
 
-    W danych wyjściowych Znajdź klucz podstawowy w polu **primarySharedKey** , a następnie skopiuj wartość.
+    W danych wyjściowych Znajdź klucz podstawowy w polu **primarySharedKey**, a następnie skopiuj wartość.
 
 >[!NOTE]
 >Poniższe polecenia dotyczą tylko programu Helm w wersji 2. Użycie `--name` parametru nie jest stosowane w przypadku Helm w wersji 3. 
@@ -303,7 +303,7 @@ W tej części zainstalujesz agenta kontenerowego dla Azure Monitor kontenerów.
 
 Można określić dodatek w pliku JSON specyfikacji klastra aparatu AKS, nazywany również modelem interfejsu API. W tym dodatku należy udostępnić zakodowane w formacie base64 wersje systemu `WorkspaceGUID` i `WorkspaceKey` log Analytics obszarze roboczym, w którym są przechowywane zebrane dane monitorowania. `WorkspaceGUID` `WorkspaceKey` W poprzedniej sekcji znajdują się instrukcje 1 i 2.
 
-Definicje obsługiwanych interfejsów API dla klastra Azure Stack Hub można znaleźć w tym przykładzie — [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Znajdź właściwość **Dodatki** w **kubernetesConfig** :
+Definicje obsługiwanych interfejsów API dla klastra Azure Stack Hub można znaleźć w tym przykładzie — [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Znajdź właściwość **Dodatki** w **kubernetesConfig**:
 
 ```json
 "orchestratorType": "Kubernetes",

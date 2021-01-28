@@ -3,12 +3,12 @@ title: Tworzenie nowego Azure Monitor Application Insights zasobów opartych na 
 description: Dowiedz się więcej na temat kroków wymaganych do włączenia nowych Azure Monitor Application Insights zasobów obszaru roboczego.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9d1ef158b8096c12c36673b62f87e1d02be69175
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536918"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936461"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Zasoby Application Insights oparte na obszarze roboczym
 
@@ -112,7 +112,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platformy Azure dotyczącą tego przykładu, zapoznaj się z [dokumentacją interfejsu CLI platformy Azure](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)
+Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platformy Azure dotyczącą tego przykładu, zapoznaj się z [dokumentacją interfejsu CLI platformy Azure](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

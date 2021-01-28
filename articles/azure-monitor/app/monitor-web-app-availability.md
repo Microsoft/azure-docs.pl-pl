@@ -4,12 +4,12 @@ description: Konfigurowanie testów sieci Web w usłudze Application Insights. O
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 1b51c70dcebbfad5417a8478f4a956fb5d0608b1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198666"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937422"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
@@ -23,12 +23,12 @@ Istnieją trzy typy testów dostępności:
 
 * [Test ping adresu URL](#create-a-url-ping-test): prosty test, który można utworzyć w portalu Azure.
 * [Wieloetapowy test sieci Web](availability-multistep.md): nagrywanie sekwencji żądań sieci Web, które mogą być odtwarzane w celu przetestowania bardziej złożonych scenariuszy. Wieloetapowe testy sieci Web są tworzone w Visual Studio Enterprise i przekazywane do portalu w celu wykonania.
-* [Testy dostępności niestandardowej ścieżki](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Jeśli zdecydujesz się utworzyć niestandardową aplikację do uruchamiania testów dostępności, `TrackAvailability()` Metoda może zostać użyta do wysłania wyników do Application Insights.
+* [Testy dostępności niestandardowej ścieżki](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): Jeśli zdecydujesz się utworzyć niestandardową aplikację do uruchamiania testów dostępności, `TrackAvailability()` Metoda może zostać użyta do wysłania wyników do Application Insights.
 
 **Można utworzyć maksymalnie 100 testów dostępności dla zasobu Application Insights.**
 
 > [!IMPORTANT]
-> Zarówno [test ping adresu URL](#create-a-url-ping-test) , jak i [wieloetapowy test sieci Web](availability-multistep.md) polegają na publicznej infrastrukturze internetowego DNS, aby rozpoznać nazwy domen przetestowanych punktów końcowych. Oznacza to, że jeśli używasz Prywatna strefa DNS, musisz upewnić się, że wszystkie nazwy domeny testu są również rozpoznawalne przez publiczne serwery nazw domen lub, gdy nie jest to możliwe, można użyć zamiast nich [testów dostępności niestandardowej ścieżki](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet) .
+> Zarówno [test ping adresu URL](#create-a-url-ping-test) , jak i [wieloetapowy test sieci Web](availability-multistep.md) polegają na publicznej infrastrukturze internetowego DNS, aby rozpoznać nazwy domen przetestowanych punktów końcowych. Oznacza to, że jeśli używasz Prywatna strefa DNS, musisz upewnić się, że wszystkie nazwy domeny testu są również rozpoznawalne przez publiczne serwery nazw domen lub, gdy nie jest to możliwe, można użyć zamiast nich [testów dostępności niestandardowej ścieżki](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) .
 
 ## <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -94,13 +94,13 @@ Poniższe Tagi populacji mogą być używane dla atrybutu lokalizacji geograficz
 | Nazwa wyświetlana                           | Nazwa populacji   |
 |----------------------------------------|-------------------|
 | Australia Wschodnia                         | EMEA-au-SYD-Edge  |
-| Brazil South                           | Latam-br-gru-Edge |
+| Brazylia Południowa                           | Latam-br-gru-Edge |
 | Central US                             | US-FL-Mia-Edge    |
 | Azja Wschodnia                              | Azja i Pacyfik-HK-HKN-AZR   |
 | East US                                | US-VA-Ash-AZR     |
 | Francja Południowa (dawniej Francja Środkowa) | EMEA-ch-ZRH-Edge  |
 | Francja Środkowa                         | EMEA — fr-pra-Edge  |
-| Japan East                             | Azja i Pacyfik-JP-kaw-Edge  |
+| Japonia Wschodnia                             | Azja i Pacyfik-JP-kaw-Edge  |
 | Europa Północna                           | EMEA-GB-DB3-AZR   |
 | Północno-środkowe stany USA                       | US-Il-CH1-AZR     |
 | South Central US                       | US-TX-SN1-AZR     |

@@ -3,7 +3,7 @@ title: Delegowanie i role w usłudze zarządzania uprawnieniami — Azure AD
 description: Dowiedz się, jak delegować nadzór dostępu od administratorów IT do kierowników działu i menedżerów projektów, aby mogli zarządzać dostępem do siebie.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf3784cc5f6014b04b4668517faf3f319ce55d5
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 7a5812d4dbbd1a63b16d5bee77bb018ea18dd1d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746681"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937681"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegowanie i role w zarządzaniu prawami usługi Azure AD
 
@@ -87,7 +87,7 @@ Ponadto Wyznaczeni osoby zatwierdzające i osoba żądająca pakietu dostępu ma
 
 | Prawe | Opis |
 | --- | --- |
-| Osoby zatwierdzającej | Autoryzowany przez zasady do zatwierdzania lub odrzucania żądań dostępu do pakietów, chociaż nie mogą zmieniać definicji pakietów dostępu. |
+| Osoba zatwierdzająca | Autoryzowany przez zasady do zatwierdzania lub odrzucania żądań dostępu do pakietów, chociaż nie mogą zmieniać definicji pakietów dostępu. |
 | Requestor | Autoryzowane przez zasady pakietu dostępu, aby zażądać tego pakietu dostępu. |
 
 Poniższa tabela zawiera listę zadań, które mogą być wykonywane przez role zarządzania uprawnieniem.
@@ -118,7 +118,7 @@ Poniższa tabela zawiera listę zadań, które mogą być wykonywane przez role 
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Role wymagane do dodawania zasobów do wykazu
 
-Administrator globalny może dodawać lub usuwać dowolną grupę (grupy zabezpieczeń utworzone w chmurze lub grupy Microsoft 365 utworzone w chmurze), aplikację lub witrynę usługi SharePoint Online w wykazie. Administrator użytkowników może dodać lub usunąć dowolną grupę lub aplikację w wykazie, z wyjątkiem grup skonfigurowanych jako możliwe do przypisania do roli katalogu.
+Administrator globalny może dodawać lub usuwać dowolną grupę (grupy zabezpieczeń utworzone w chmurze lub grupy Microsoft 365 utworzone w chmurze), aplikację lub witrynę usługi SharePoint Online w wykazie. Administrator użytkowników może dodać lub usunąć dowolną grupę lub aplikację w wykazie, z wyjątkiem grup skonfigurowanych jako możliwe do przypisania do roli katalogu. Należy pamiętać, że administrator użytkownika może zarządzać pakietami dostępu w wykazie zawierającym grupy skonfigurowane jako możliwe do przypisania do roli katalogu.
 
 Użytkownik, który nie jest administratorem globalnym lub administratorem użytkownika, w celu dodania grup, aplikacji lub witryn usługi SharePoint Online do wykazu, musi mieć *zarówno* wymaganą rolę w katalogu usługi Azure AD, jak i rolę zarządzania uprawnieniem właściciela katalogu. W poniższej tabeli wymieniono kombinacje ról, które są wymagane do dodawania zasobów do wykazu. Aby usunąć zasoby z wykazu, musisz mieć te same role.
 

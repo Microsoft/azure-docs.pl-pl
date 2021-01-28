@@ -4,12 +4,12 @@ description: Wyszukaj dzienniki wygenerowane przez Trace, NLog lub Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 083ddbd06561550f89e414d6c679cdc6433fa338
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920343"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937552"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Poznaj dzienniki śledzenia .NET/.NET Core i Python w Application Insights
 
@@ -85,7 +85,7 @@ Jeśli wolisz log4net lub NLog, użyj:
 ```
 
 ## <a name="use-eventsource-events"></a>Korzystanie z zdarzeń EventSource
-Zdarzenia [System. Diagnostics. Trace. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) można skonfigurować do wysyłania do Application Insights jako śladów. Najpierw zainstaluj `Microsoft.ApplicationInsights.EventSourceListener` pakiet NuGet. Następnie Edytuj `TelemetryModules` sekcję pliku [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) .
+Zdarzenia [System. Diagnostics. Trace. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) można skonfigurować do wysyłania do Application Insights jako śladów. Najpierw zainstaluj `Microsoft.ApplicationInsights.EventSourceListener` pakiet NuGet. Następnie Edytuj `TelemetryModules` sekcję pliku [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) .
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -198,12 +198,12 @@ W instrumentacji bez kodu Java (zalecane) dzienniki są zbierane z pola, użyj p
 Jeśli używasz zestawu SDK języka Java, użyj [kart dzienników języka Java](./java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>W menu kontekstowym projektu nie ma opcji Application Insights
-* Upewnij się, że Developer Analytics Tools jest zainstalowana na komputerze deweloperskim. W obszarze **Tools**  >  **rozszerzenia i aktualizacje** narzędzi programu Visual Studio poszukaj **Developer Analytics Tools**. Jeśli nie ma go na karcie **zainstalowane** , Otwórz kartę **online** i zainstaluj ją.
+* Upewnij się, że Developer Analytics Tools jest zainstalowana na komputerze deweloperskim. W obszarze   >  **rozszerzenia i aktualizacje** narzędzi programu Visual Studio poszukaj **Developer Analytics Tools**. Jeśli nie ma go na karcie **zainstalowane** , Otwórz kartę **online** i zainstaluj ją.
 * Może to być typ projektu, który Developer Analytics Tools nie obsługuje. Użyj [instalacji ręcznej](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>W narzędziu konfiguracji nie ma opcji karty dziennika
 * Najpierw zainstaluj platformę rejestrowania.
-* Jeśli używasz funkcji system. Diagnostics. Trace, upewnij się, że [skonfigurowano ją w *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
+* Jeśli używasz funkcji system. Diagnostics. Trace, upewnij się, że [skonfigurowano ją w *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener).
 * Upewnij się, że masz najnowszą wersję Application Insights. W programie Visual Studio przejdź do pozycji **Narzędzia**  >  **rozszerzenia i aktualizacje**, a następnie otwórz kartę **aktualizacje** . Jeśli **Developer Analytics Tools** , wybierz ją, aby ją zaktualizować.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Otrzymuję komunikat o błędzie "klucz instrumentacji nie może być pusty"

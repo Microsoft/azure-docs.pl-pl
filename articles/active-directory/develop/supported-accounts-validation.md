@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 77521150e73014c5568003597059a9d32f6e80ee
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eea2e587a075d774a25f479ec61575a002b57f75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752960"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937809"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Różnice dotyczące walidacji według obsługiwanych typów kont (signInAudience)
 
@@ -24,9 +24,9 @@ Podczas rejestrowania aplikacji za pomocą platformy tożsamości firmy Microsof
 
 Dostępne są następujące opcje:
 
-- *AzureADMyOrg*: tylko konta w katalogu organizacyjnym, w którym zarejestrowano aplikację (pojedyncza dzierżawa)
-- *AzureADMultipleOrgs*: konta w dowolnym katalogu organizacji (wiele dzierżawców)
-- *AzureADandPersonalMicrosoftAccount*: konta w dowolnym katalogu organizacji (z wieloma dzierżawcami) i osobistymi kontami Microsoft (na przykład Skype, Xbox i Outlook.com)
+- **AzureADMyOrg**: tylko konta w katalogu organizacyjnym, w którym zarejestrowano aplikację (pojedyncza dzierżawa).
+- **AzureADMultipleOrgs**: konta w dowolnym katalogu organizacji (wiele dzierżawców).
+- **AzureADandPersonalMicrosoftAccount**: konta w dowolnym katalogu organizacji (z wieloma dzierżawcami) i osobistymi kontami Microsoft (na przykład Skype, Xbox i Outlook.com).
 
 W przypadku zarejestrowanych aplikacji można znaleźć wartość obsługiwanych typów kont w sekcji **uwierzytelnianie** aplikacji. Można go również znaleźć pod `signInAudience` właściwością w **manifeście**.
 
@@ -44,11 +44,11 @@ Zapoznaj się z poniższą tabelą, aby poznać różnice między walidacją ró
 | Zakresy zdefiniowane przez ten interfejs API ( `oauth2Permissions` ) | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów |  Maksymalna długość nazwy zakresu wynosząca 40 znaków <br><br> Zdefiniowano maksymalnie 100 zakresów | 
 | Autoryzowane aplikacje klienckie ( `preAuthorizedApplications` ) | Bez limitu * | Bez limitu * | Suma maksymalnie 500 <br><br> Zdefiniowano maksymalnie 100 aplikacji klienckich <br><br> Zdefiniowano maksymalnie 30 zakresów na klienta | 
 | appRoles | Obsługiwane <br> Bez limitu * | Obsługiwane <br> Bez limitu * | Nieobsługiwane | 
-| Adres URL wylogowywania | http://localhost jest dozwolony <br><br> Maksymalna długość 255 znaków | http://localhost jest dozwolony <br><br> Maksymalna długość 255 znaków | <br><br> https://localhost jest dozwolony, http://localhost kończy się niepowodzeniem dla MSA <br><br> Maksymalna długość 255 znaków <br><br> Schemat HTTP jest niedozwolony <br><br> Symbole wieloznaczne nie są obsługiwane | 
+| Adres URL wylogowywania z kanału przedniego | https://localhost jest dozwolony <br><br> `http` schemat jest niedozwolony <br><br> Maksymalna długość 255 znaków | https://localhost jest dozwolony <br><br> `http` schemat jest niedozwolony <br><br> Maksymalna długość 255 znaków | <br><br> https://localhost jest dozwolony, http://localhost kończy się niepowodzeniem dla MSA <br><br> Maksymalna długość 255 znaków <br><br> `http` schemat jest niedozwolony <br><br> Symbole wieloznaczne nie są obsługiwane | 
 
-* Istnieje globalny limit dotyczący około 1000 elementów we wszystkich właściwościach kolekcji w obiekcie App
+* Istnieje globalny limit dotyczący około 1000 elementów we wszystkich właściwościach kolekcji w obiekcie App.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [rejestrowaniu aplikacji](app-objects-and-service-principals.md)
-- Informacje o [manifeście aplikacji](reference-app-manifest.md)
+- Dowiedz się więcej o [rejestrowaniu aplikacji](app-objects-and-service-principals.md).
+- Dowiedz się więcej na temat [manifestu aplikacji](reference-app-manifest.md).

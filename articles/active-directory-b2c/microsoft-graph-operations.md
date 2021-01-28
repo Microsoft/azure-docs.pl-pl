@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 96772020e70aeb32fa1a8ae18bf3818396887877
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 50042b749c917752d08198c31ada3c73a5ef540b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805238"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938486"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C przy użyciu Microsoft Graph
 
@@ -35,18 +35,29 @@ Aby korzystać z programu MS interfejs API programu Graph i korzystać z zasobó
 - [Aktualizowanie użytkownika](/graph/api/user-update)
 - [Usuwanie użytkownika](/graph/api/user-delete)
 
-## <a name="user-phone-number-management"></a>Zarządzanie numerami telefonów użytkowników
+## <a name="user-phone-number-management-beta"></a>Zarządzanie numerami telefonów użytkowników (beta)
+
+Numer telefonu, który może być używany przez użytkownika do logowania za pomocą [wiadomości SMS lub połączeń głosowych](identity-provider-local.md#phone-sign-in-preview)lub [uwierzytelniania wieloskładnikowego](multi-factor-authentication.md). Aby uzyskać więcej informacji, zobacz [interfejs API metod uwierzytelniania usługi Azure AD](/graph/api/resources/phoneauthenticationmethod).
 
 - [Dodaj](/graph/api/authentication-post-phonemethods)
-- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
-- [Aktualizowanie](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Lista](/graph/api/authentication-list-phonemethods)
+- [Get](/graph/api/phoneauthenticationmethod-get)
+- [Aktualizowanie](/graph/api/phoneauthenticationmethod-update)
 - [Usuwanie](/graph/api/phoneauthenticationmethod-delete)
 
-Aby uzyskać więcej informacji na temat zarządzania numerem telefonu logowania użytkownika, zobacz [metody uwierzytelniania B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
+## <a name="self-service-password-reset-email-address-beta"></a>Adres e-mail funkcji samoobsługowego resetowania hasła (beta)
 
-## <a name="identity-providers-user-flow"></a>Dostawcy tożsamości (przepływ użytkownika)
+Adres e-mail, który może być używany przez użytkownika do przechowywania hasła dla [konta logowania użytkownika](identity-provider-local.md#username-sign-in). Aby uzyskać więcej informacji, zobacz [interfejs API metod uwierzytelniania usługi Azure AD](/graph/api/resources/emailauthenticationmethod).
 
-Zarządzaj dostawcami tożsamości dostępnymi dla przepływów użytkowników w dzierżawie Azure AD B2C.
+- [Dodaj](/graph/api/emailauthenticationmethod-post)
+- [Lista](/graph/api/emailauthenticationmethod-list)
+- [Get](/graph/api/emailauthenticationmethod-get)
+- [Aktualizowanie](/graph/api/emailauthenticationmethod-update)
+- [Usuwanie](/graph/api/emailauthenticationmethod-delete)
+
+## <a name="identity-providers"></a>Dostawcy tożsamości
+
+Zarządzaj [dostawcami tożsamości](add-identity-provider.md) dostępnymi dla przepływów użytkowników w dzierżawie Azure AD B2C.
 
 - [Wyświetlanie listy dostawców tożsamości zarejestrowanych w dzierżawie Azure AD B2C](/graph/api/identityprovider-list)
 - [Tworzenie dostawcy tożsamości](/graph/api/identityprovider-post-identityproviders)
@@ -62,6 +73,13 @@ Skonfiguruj wstępnie skompilowane zasady rejestracji, logowania, połączonego 
 - [Tworzenie przepływu użytkownika](/graph/api/identitycontainer-post-b2cuserflows)
 - [Pobierz przepływ użytkownika](/graph/api/b2cidentityuserflow-get)
 - [Usuwanie przepływu użytkownika](/graph/api/b2cidentityuserflow-delete)
+
+## <a name="user-flow-authentication-methods-beta"></a>Metody uwierzytelniania przepływu użytkownika (wersja beta)
+
+Wybierz mechanizm zezwalania użytkownikom na rejestrację za pomocą kont lokalnych. Konta lokalne to konta, na których usługa Azure AD wykonuje potwierdzenie tożsamości. Aby uzyskać więcej informacji, zobacz [b2cAuthenticationMethodsPolicy typu zasobu](/graph/api/resources/b2cauthenticationmethodspolicy).
+
+- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Aktualizowanie](/graph/api/b2cauthenticationmethodspolicy-update)
 
 ## <a name="custom-policies"></a>Zasady niestandardowe
 

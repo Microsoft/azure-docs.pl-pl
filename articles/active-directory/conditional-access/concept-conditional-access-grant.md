@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219950"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938379"
 ---
 # <a name="conditional-access-grant"></a>Dostęp warunkowy: Udziel
 
@@ -121,7 +121,9 @@ W zasadach dostępu warunkowego można wymagać, aby [Zasady ochrony aplikacji u
 
 Aby można było korzystać z tej kontroli dotacji, dostęp warunkowy wymaga zarejestrowania urządzenia w Azure Active Directory, które wymaga użycia aplikacji brokera. Aplikacją brokera jest aplikacja Microsoft Authenticator w przypadku systemu iOS lub aplikacja Portal firmy Microsoft w przypadku urządzeń z systemem Android. Jeśli aplikacja brokera nie jest zainstalowana na urządzeniu podczas próby uwierzytelnienia użytkownika, użytkownik zostanie przekierowany do sklepu z aplikacjami w celu zainstalowania aplikacji brokera.
 
-To ustawienie dotyczy następujących aplikacji klienckich:
+Aplikacje muszą mieć wdrożony **zestaw SDK usługi Intune** z implementacją **zasad** i spełniać pewne inne wymagania, aby zapewnić obsługę tego ustawienia. Deweloperzy implementujący aplikacje za pomocą zestawu SDK usługi Intune mogą znaleźć więcej informacji w dokumentacji zestawu SDK dotyczącej tych wymagań.
+
+Następujące aplikacje klienckie zostały potwierdzone w celu obsługi tego ustawienia:
 
 - Microsoft Cortana
 - Microsoft Edge

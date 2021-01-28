@@ -3,17 +3,16 @@ title: Tworzenie usługi Azure HDInsight — Azure Data Lake Storage Gen2 — in
 description: Dowiedz się, jak używać Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: guyhay
 ms.author: guyhay
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 09/17/2020
-ms.openlocfilehash: 4ffe5acce831435d3771a2eb48a90b16f584c92a
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: bbc1cd27d5c16eddd3aaad748c34445e5017e209
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704014"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945503"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Tworzenie klastra z Data Lake Storage Gen2 przy użyciu interfejsu wiersza polecenia platformy Azure
 

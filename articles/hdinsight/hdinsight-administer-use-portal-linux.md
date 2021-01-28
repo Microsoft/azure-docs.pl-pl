@@ -1,19 +1,16 @@
 ---
 title: Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal
 description: Dowiedz się, jak tworzyć klastry usługi Azure HDInsight i zarządzać nimi przy użyciu Azure Portal.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: 7c644583e994e51f11bdf7991755a6ea94b01e76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d308bfbe605e5ec3bed3bf5d6506ccafc53836e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012815"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942823"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal
 
@@ -112,7 +109,7 @@ Na [stronie głównej klastra](#homePage)w obszarze **Ustawienia** wybierz pozyc
 |System operacyjny|**System Windows** lub **Linux**.|
 |TYP|Hadoop, HBase, burza, Spark.|
 |Wersja|Zobacz [wersje usługi HDInsight](hdinsight-component-versioning.md).|
-|Minimalna wersja protokołu TLS|Wersja protokołu TLS.|
+|Wersja minimalna protokołu TLS|Wersja protokołu TLS.|
 |SUBSKRYPCJA|Nazwa subskrypcji.|
 |DOMYŚLNE ŹRÓDŁO DANYCH|Domyślny system plików klastra.|
 |Rozmiary węzłów procesu roboczego|Wybrany rozmiar maszyny wirtualnej węzłów procesu roboczego.|
@@ -196,7 +193,7 @@ Na [stronie głównej klastra](#homePage):
 1. Wybierz pozycję **SSH + logowanie do klastra** w obszarze **Ustawienia**.
 2. Wybierz pozycję **Zresetuj poświadczenie**.
 3. Wprowadź i Potwierdź nowe hasło w polach tekstowych.
-4. Wybierz pozycję **OK**.
+4. Wybierz przycisk **OK**.
 
 Hasło zostanie zmienione we wszystkich węzłach w klastrze.
 

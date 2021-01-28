@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c2b0488663233546411b3a1b5ac1b1eb6c0b899c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8491eb02fd61f291904d57990b3785ce93239964
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887200"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935267"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Rozwiązywanie problemów z chmurą wiosenną platformy Azure w sieciach wirtualnych
 
@@ -39,7 +39,7 @@ Aby skonfigurować wystąpienie usługi w chmurze ze sprężyną Azure przy uży
 |------|------|
 | Zasoby utworzone przez chmurę wiosenną platformy Azure zostały niedozwolone przez zasady. | Zasoby sieciowe zostaną utworzone podczas wdrażania chmury Azure wiosennej we własnej sieci wirtualnej. Sprawdź, czy masz zdefiniowane [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) , aby zablokować te operacje tworzenia. Nie można utworzyć zasobów w komunikacie o błędzie. |
 | Podane podsieci są skojarzone z tabelami tras, Usuń ich skojarzenia. | Obecnie nie jest obsługiwane wdrożenie chmury Azure wiosennej w podsieci skojarzonej z istniejącymi tabelami tras, Usuń ich skojarzenie i spróbuj ponownie. |
-| Wymagany ruch nie jest listy dozwolonych. | Zapoznaj się z [odpowiedzialnością klienta w zakresie uruchamiania chmury wiosennej Azure w sieci wirtualnej](spring-cloud-vnet-customer-responsibilities.md) , aby upewnić się, że wymagany ruch jest listy dozwolonych. |
+| Wymagany ruch nie jest allowlisted. | Zapoznaj się z [odpowiedzialnością klienta w zakresie uruchamiania chmury wiosennej Azure w sieci wirtualnej](spring-cloud-vnet-customer-responsibilities.md) , aby upewnić się, że wymagany ruch jest allowlisted. |
 
 ## <a name="my-application-cant-be-registered"></a>Nie można zarejestrować mojej aplikacji
 

@@ -3,16 +3,13 @@ title: Uaktualnianie HDP & braku danych w Apache Phoenix widokach w usłudze Azu
 description: Uaktualnienie HDP powoduje brak danych w widokach Apache Phoenix w usłudze Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: c3f4a532607fed242ac0351b0cc1cfc592771084
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f68e227e10a85b7e1d98dcabbfb870933059ec04
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540045"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936940"
 ---
 # <a name="scenario-hdp-upgrade-causes-no-data-in-apache-phoenix-views-in-azure-hdinsight"></a>Scenariusz: uaktualnienie HDP powoduje brak danych w widokach Apache Phoenix w usłudze Azure HDInsight
 

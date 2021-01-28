@@ -1,19 +1,16 @@
 ---
 title: Korzystanie z programu Apache Maven w celu utworzenia klienta Java HBase dla usługi Azure HDInsight
 description: Dowiedz się, jak za pomocą platformy Apache Maven utworzyć aplikację Apache HBase opartą na języku Java, a następnie wdrożyć ją w usłudze HBase w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13616cf99db39ec4dac1d13e3dcd2cefc5a44614
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547915"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942967"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Tworzenie aplikacji Java dla platformy Apache HBase
 
@@ -48,7 +45,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Tworzenie projektu Maven
 
-1. Wprowadź następujące polecenie, aby utworzyć projekt Maven o nazwie **hbaseapp** :
+1. Wprowadź następujące polecenie, aby utworzyć projekt Maven o nazwie **hbaseapp**:
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false

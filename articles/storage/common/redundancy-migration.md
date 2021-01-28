@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 01/27/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 228595bf633ef0545a13abe19308e49da82cf75a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 38978982baea41d23958a857b19a1edf2e454f37
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844016"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938733"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Zmienianie sposobu replikowania konta magazynu
 
@@ -39,16 +39,17 @@ Poniższa tabela zawiera omówienie sposobu przełączania poszczególnych typó
 
 | Włączanie | ... do LRS | ... do GRS/RA-GRS | ... do ZRS | ... do GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... z LRS</b> | Nie dotyczy | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia<sup>1</sup> | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
+| <b>... z LRS</b> | Nie dotyczy | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 2</sup> | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
 | <b>... z GRS/RA-GRS</b> | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do LRS, a następnie Zażądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo |
-| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Nie dotyczy | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 2</sup> |
+| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Nie dotyczy | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 3</sup> |
 | <b>... z GZRS/RA-GZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy |
 
 <sup>1</sup> powoduje naliczenie jednorazowej opłaty za ruch wychodzący.<br />
-<sup>2</sup> konwersja z ZRS na GZRS/RA-GZRS lub odwrotnie nie jest obsługiwana w następujących regionach: Wschodnie stany USA 2, Wschodnie stany USA, Europa Zachodnia.
+<sup>2</sup> Migrowanie z LRS do GRS nie jest obsługiwane, jeśli konto magazynu zawiera obiekty blob w warstwie archiwum.<br />
+<sup>3</sup> konwersja z ZRS na GZRS/RA-GZRS lub odwrotnie nie jest obsługiwana w następujących regionach: Wschodnie stany USA 2, Wschodnie stany USA, Europa Zachodnia.
 
 > [!CAUTION]
-> W przypadku przełączenia w [tryb failover konta](storage-disaster-recovery-guidance.md) dla konta usługi (Ra-) GRS lub (Ra-) GZRS konto jest lokalnie nadmiarowy w nowym regionie podstawowym po przejściu do trybu failover. Migracja na żywo do ZRS lub GZRS dla konta LRS, które wynika z trybu failover, nie jest obsługiwana. Jest to prawdziwe nawet w przypadku tego typu operacji powrotu po awarii. Na przykład w przypadku przełączenia w tryb failover konta z usługi RA-GZRS do LRS w regionie pomocniczym, a następnie skonfigurowania go ponownie w usłudze RA-GRS i przełączenia w tryb failover do oryginalnego regionu podstawowego nie można skontaktować się z pomocą techniczną dla oryginalnej migracji na żywo do urzędu RA-GZRS w regionie podstawowym. Zamiast tego należy przeprowadzić migrację ręczną do ZRS lub GZRS.
+> W przypadku przełączenia w [tryb failover konta](storage-disaster-recovery-guidance.md) dla konta (Ra-) GRS lub (Ra-) GZRS konto jest lokalnie nadmiarowy (LRS) w nowym regionie podstawowym po przejściu do trybu failover. Migracja na żywo do ZRS lub GZRS dla konta LRS, które wynika z trybu failover, nie jest obsługiwana. Jest to prawdziwe nawet w przypadku tego typu operacji powrotu po awarii. Na przykład w przypadku przełączenia w tryb failover konta z usługi RA-GZRS do LRS w regionie pomocniczym, a następnie skonfigurowania go ponownie w usłudze RA-GRS i przełączenia w tryb failover do oryginalnego regionu podstawowego nie można skontaktować się z pomocą techniczną dla oryginalnej migracji na żywo do urzędu RA-GZRS w regionie podstawowym. Zamiast tego należy przeprowadzić migrację ręczną do ZRS lub GZRS.
 
 ## <a name="change-the-replication-setting"></a>Zmień ustawienie replikacji
 
@@ -128,14 +129,14 @@ Możesz zażądać migracji na żywo za pomocą [portalu pomocy technicznej syst
     - **Typ problemu**: wybierz pozycję **techniczne**.
     - **Usługa**: wybierz pozycję **Moje usługi** i **Zarządzanie kontem magazynu**.
     - **Zasób**: wybierz zasób, który chcesz przekonwertować na ZRS.
-3. Wybierz pozycję **Dalej**.
+3. Wybierz opcję **Dalej**.
 4. Określ następujące wartości w sekcji **problem** :
     - **Ważność**: pozostaw wartość domyślną równą-is.
     - **Typ problemu**: wybierz pozycję **migracja danych**.
     - **Kategoria**: wybierz pozycję **Migruj do ZRS**.
     - **Title**: wpisz opisowy tytuł, na przykład **ZRS**.
     - **Szczegóły**: wpisz dodatkowe szczegóły w polu **szczegóły** , na przykład chcę przeprowadzić migrację do ZRS z [LRS, GRS] w \_ \_ regionie.
-5. Wybierz pozycję **Dalej**.
+5. Wybierz opcję **Dalej**.
 6. Sprawdź, czy informacje kontaktowe są poprawne w bloku **informacje kontaktowe** .
 7. Wybierz przycisk **Utwórz**.
 

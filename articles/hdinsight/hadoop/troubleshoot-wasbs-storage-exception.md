@@ -1,18 +1,15 @@
 ---
 title: Konto, do którego uzyskiwany jest dostęp, nie obsługuje błędu HTTP w usłudze Azure HDInsight
 description: W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
-ms.openlocfilehash: b7f3a3b76169b99389fe8222177ddcb713c27713
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 46063d5f2d9ff4b85914ad7c4cd74a2400298db0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546589"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943085"
 ---
 # <a name="the-account-being-accessed-does-not-support-http-error-in-azure-hdinsight"></a>Konto, do którego uzyskiwany jest dostęp, nie obsługuje błędu HTTP w usłudze Azure HDInsight
 

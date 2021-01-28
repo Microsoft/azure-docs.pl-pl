@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737680"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946260"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -142,6 +142,8 @@ Moduł równoważenia obciążenia między regionami kieruje ruch do odpowiednie
 * Konfiguracje adresów IP frontonu IPv6 między regionami nie są obsługiwane. 
 
 * Nie można obecnie skonfigurować sondy kondycji. Domyślna sonda kondycji automatycznie zbiera informacje o dostępności dla regionalnego modułu równoważenia obciążenia co 20 sekund. 
+
+* Obecnie nie można zintegrować usługi Azure Kubernetes Service (AKS) z Load Balancerem między regionami. Podczas konfigurowania Load Balancer międzyregionowego przed publicznym Load Balancer wdrożonym za pomocą AKS należy oczekiwać utraty łączności.
 
 ## <a name="pricing-and-sla"></a>Cennik i Umowa SLA
 Moduł równoważenia obciążenia dla wielu regionów, udostępnia umowę [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) usługi równoważenia obciążenia w warstwie Standardowa.

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 7539e896d810a2f0fbf3c07f389f25e2d3c31fe1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: f6d610db01b465306cdaaafa9b1308dba63ff9ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844995"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936156"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -85,7 +85,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 ### <a name="new-features"></a>Nowe funkcje
 
-* **wersja 2.0 dostępna** — informacje o [interfejsie API 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) oraz zaktualizowanych zestawach SDK dla [platformy .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)i [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
+* **wersja 2.0 dostępna** — informacje o [interfejsie API 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) oraz zaktualizowanych zestawach SDK dla [platformy .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme)i [JavaScript](/javascript/api/overview/azure/).
 * Udoskonalenia **tabel i ulepszenia wyodrębniania** — w tym ulepszenia dokładności i wyodrębniania tabel, w tym możliwość poznania nagłówków i struktur tabel w _niestandardowym pouczeniu bez etykiet_. 
 
 * **Obsługa waluty** — wykrywanie i wyodrębnianie symboli walut globalnych.
@@ -110,10 +110,10 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 ### <a name="new-features"></a>Nowe funkcje
 * **Obsługa zestawu SDK dla interfejsu API w wersji 1.0 2.0 — publiczna wersja zapoznawcza** — w tym miesiącu rozszerzono obsługę usługi w celu uwzględnienia zestawu SDK wersji zapoznawczej dla aparatu rozpoznawania wersji 2.0 (wersja zapoznawcza). Skorzystaj z poniższych linków, aby rozpocząć pracę z wybranym językiem: 
-   * [Zestaw SDK platformy .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [Zestaw SDK Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [Zestaw SDK dla języka Python](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [Zestaw SDK dla języka JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [Zestaw SDK platformy .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+   * [Zestaw SDK Java](/java/api/overview/azure/ai-formrecognizer-readme)
+   * [Zestaw SDK dla języka Python](/python/api/overview/azure/ai-formrecognizer-readme)
+   * [Zestaw SDK dla języka JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
   Nowy zestaw SDK obsługuje wszystkie funkcje interfejsu API REST programu v 2.0 na potrzeby aparatu rozpoznawania formularzy. Na przykład można przeprowadzić uczenie modelu z etykietami lub bez nich oraz Wyodrębnianie tekstu, par klucz-wartość i tabel z formularzy, wyodrębnianie danych z przyjęć przy użyciu wstępnie utworzonych usług przyjęć oraz Wyodrębnianie tekstu i tabel z użyciem usługi układu z dokumentów. Swoją opinię na temat zestawów SDK możesz udostępnić za pomocą [formularza opinii zestawu SDK](https://aka.ms/FR_SDK_v1_feedback).
  

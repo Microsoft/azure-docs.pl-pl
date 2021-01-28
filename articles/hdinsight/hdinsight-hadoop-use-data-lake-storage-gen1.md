@@ -1,19 +1,16 @@
 ---
 title: Używanie Data Lake Storage Gen1 z usługą Hadoop w usłudze Azure HDInsight
 description: Dowiedz się, jak wykonywać zapytania dotyczące danych z Azure Data Lake Storage Gen1 i przechowywać wyniki analizy.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 35941f585a0ae5c0d3915c769db5b18737b299f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539840"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945413"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight
 
@@ -62,7 +59,7 @@ Po wdrożeniu usługi HDInsight z Data Lake Storage Gen1 jako magazynem domyśln
 * Klaster1 może używać ścieżki `adl://mydatalakestore/cluster1storage`
 * Klaster2 może używać ścieżki `adl://mydatalakestore/cluster2storage`
 
-Zwróć uwagę, że oba klastry używają tego samego konta Data Lake Storage Gen1 **mydatalakestore** . Każdy klaster ma dostęp do własnego głównego systemu plików w Data Lake Storage. W środowisku wdrażania Azure Portal zostanie wyświetlony komunikat z prośbą o użycie nazwy folderu, takiej jak **/Clusters/ \<clustername>** , jako ścieżki głównej.
+Zwróć uwagę, że oba klastry używają tego samego konta Data Lake Storage Gen1 **mydatalakestore**. Każdy klaster ma dostęp do własnego głównego systemu plików w Data Lake Storage. W środowisku wdrażania Azure Portal zostanie wyświetlony komunikat z prośbą o użycie nazwy folderu, takiej jak **/Clusters/ \<clustername>** , jako ścieżki głównej.
 
 Aby użyć Data Lake Storage Gen1 jako magazynu domyślnego, należy przyznać jednostce usługi dostęp do następujących ścieżek:
 
@@ -137,19 +134,19 @@ Aby uzyskać więcej informacji na temat modelu kontroli dostępu, zobacz [Kontr
 
 Istnieje kilka sposobów uzyskiwania dostępu do plików w Data Lake Storage z klastra usługi HDInsight.
 
-* **Przy użyciu w pełni kwalifikowanej nazwy** . W przypadku tej metody należy podać pełną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
+* **Przy użyciu w pełni kwalifikowanej nazwy**. W przypadku tej metody należy podać pełną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Przy użyciu skróconego formatu ścieżki** . To podejście zastępuje ścieżkę do katalogu głównego klastra przy użyciu:
+* **Przy użyciu skróconego formatu ścieżki**. To podejście zastępuje ścieżkę do katalogu głównego klastra przy użyciu:
 
     ```
     adl:///<file path>
     ```
 
-* **Przy użyciu ścieżki względnej** . W przypadku tej metody należy podać tylko względną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
+* **Przy użyciu ścieżki względnej**. W przypadku tej metody należy podać tylko względną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
 
     ```
     /<file.path>/
@@ -214,7 +211,7 @@ LOCATION '/example/data/';
 
 ## <a name="identify-storage-path-from-ambari"></a>Zidentyfikuj ścieżkę magazynu z Ambari
 
-Aby zidentyfikować pełną ścieżkę do skonfigurowanego domyślnego magazynu, przejdź do konfiguracji systemu plików **HDFS**  >  **Configs** i wprowadź `fs.defaultFS` w polu Filtruj dane wejściowe.
+Aby zidentyfikować pełną ścieżkę do skonfigurowanego domyślnego magazynu, przejdź do konfiguracji systemu plików **HDFS**  >   i wprowadź `fs.defaultFS` w polu Filtruj dane wejściowe.
 
 ## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage-gen1"></a>Tworzenie klastrów usługi HDInsight z dostępem do Data Lake Storage Gen1
 

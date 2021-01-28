@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 95492a9301095ce4a07a3caad1d9f070b572fece
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 7da10fbdff0b6771fcffb6cc303d5ab183df190a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956576"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947255"
 ---
-[Dokumentacja](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
+[Dokumentacja](/dotnet/api/overview/azure/cognitiveservices/management)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
 ## <a name="c-prerequisites"></a>Wymagania wstępne języka C#
 
@@ -120,9 +120,9 @@ Uruchom aplikację z katalogu aplikacji za pomocą `dotnet run` polecenia.
 dotnet run
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Dokumentacja zestawu SDK zarządzania platformy Azure](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
+* [Dokumentacja zestawu SDK zarządzania platformy Azure](/dotnet/api/overview/azure/cognitiveservices/management)
 * [Co to jest platforma Azure Cognitive Services?](../../what-are-cognitive-services.md)
 * [Uwierzytelnianie żądań w usłudze Azure Cognitive Services](../../authentication.md)
 * [Tworzenie nowego zasobu przy użyciu witryny Azure Portal](../../cognitive-services-apis-create-account.md)

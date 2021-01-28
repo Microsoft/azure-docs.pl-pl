@@ -3,16 +3,13 @@ title: OutOfMemoryError wyjątki dla Apache Spark w usłudze Azure HDInsight
 description: Różne wyjątki OutOfMemoryError dla klastra Apache Spark w usłudze Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/15/2019
-ms.openlocfilehash: 156d3ce4b7f8b6eaa297f2cddd0d5a93f382f78e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a15d79f2ae9c3d20a73ec557c57a5c189b18111b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547286"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946343"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>OutOfMemoryError wyjątki dla Apache Spark w usłudze Azure HDInsight
 
@@ -60,7 +57,7 @@ Najbardziej prawdopodobną przyczyną tego wyjątku jest brak wystarczającej il
 
 1. Określ maksymalny rozmiar danych obsługiwanych przez aplikację aparatu Spark. Należy oszacować rozmiar na podstawie maksymalnego rozmiaru danych wejściowych, danych pośrednich generowanych przez transformacje danych wejściowych i danych wyjściowych, które wygenerowały dalsze Przekształcanie danych pośrednich. Jeśli wstępne oszacowanie nie jest wystarczające, Zwiększ rozmiar nieco i wykonaj iterację do momentu wystąpienia błędów pamięci.
 
-1. Upewnij się, że klaster usługi HDInsight, który ma być używany, ma wystarczającą ilość zasobów pamięci i rdzeni, aby pomieścić aplikację aparatu Spark. Można to ustalić, wyświetlając sekcję metryki klastra w interfejsie użytkownika PRZĘDZy w klastrze, aby uzyskać wartości **używanej pamięci** a **łącznie** z **rdzeni wirtualnych** i **rdzeni wirtualnych** .
+1. Upewnij się, że klaster usługi HDInsight, który ma być używany, ma wystarczającą ilość zasobów pamięci i rdzeni, aby pomieścić aplikację aparatu Spark. Można to ustalić, wyświetlając sekcję metryki klastra w interfejsie użytkownika PRZĘDZy w klastrze, aby uzyskać wartości **używanej pamięci** a **łącznie** z **rdzeni wirtualnych** i **rdzeni wirtualnych**.
 
     ![Widok pamięci podstawowej przędzy](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 

@@ -3,16 +3,13 @@ title: USTERKa nietrwałego zablokowania błędów procesora CPU z klastra usłu
 description: W dziennikach systemu Azure HDInsight występuje procesor CPU nietrwałego zablokowania błędów licznika wydajności
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: 33990e40507f088962fd8d8efd241de5d2fcc63b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5d9d7b0fc21660dd22ff92bbe2de38c759c440ec
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289069"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944345"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scenariusz: "licznik alarm: USTERKa: blokowanie nietrwałe — procesor CPU" z klastra usługi Azure HDInsight
 
@@ -42,7 +39,7 @@ Zastosuj poprawkę jądra. Poniższy skrypt uaktualnia jądro systemu Linux i po
     | Nazwa |Poprawka problemu dotyczącego nieelastycznego blokowania jądra |
     | Identyfikator URI skryptu bash |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Typy węzłów |Proces roboczy, dozorcy |
-    | Parametry |Brak |
+    | Parametry |Nie dotyczy |
 
     Wybierz pozycję **Utrwalaj tę akcję skryptu..** ., jeśli chcesz wykonać skrypt po dodaniu nowych węzłów.
 

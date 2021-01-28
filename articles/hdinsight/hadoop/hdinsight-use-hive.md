@@ -1,19 +1,16 @@
 ---
 title: Co to jest Apache Hive i HiveQL — Azure HDInsight
 description: Apache Hive to system magazynu danych dla Apache Hadoop. Możesz wykonywać zapytania dotyczące danych przechowywanych w usłudze Hive przy użyciu HiveQL, który przypomina język Transact-SQL. W tym dokumencie dowiesz się, jak używać usługi Hive i HiveQL w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e8c6b25055dfc38d56509e1744b8c7fcac40700
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540401"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944295"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Co to jest Apache Hive i HiveQL w usłudze Azure HDInsight?
 
@@ -72,14 +69,14 @@ Aby uzyskać więcej informacji na temat formatów plików obsługiwanych przez 
 
 Istnieją dwa typy tabel, które można utworzyć przy użyciu programu Hive:
 
-* __Wewnętrzne__ : dane są przechowywane w magazynie danych programu Hive. Magazyn danych znajduje się w `/hive/warehouse/` domyślnym magazynie klastra.
+* __Wewnętrzne__: dane są przechowywane w magazynie danych programu Hive. Magazyn danych znajduje się w `/hive/warehouse/` domyślnym magazynie klastra.
 
     Użyj tabel wewnętrznych, gdy są spełnione jeden z następujących warunków:
 
     * Dane są tymczasowe.
     * Program Hive ma zarządzać cyklem życia tabeli i danych.
 
-* __Zewnętrzne__ : dane są przechowywane poza magazynem danych. Dane mogą być przechowywane w dowolnym magazynie dostępnym w klastrze.
+* __Zewnętrzne__: dane są przechowywane poza magazynem danych. Dane mogą być przechowywane w dowolnym magazynie dostępnym w klastrze.
 
     Użyj tabel zewnętrznych, gdy są spełnione jeden z następujących warunków:
 
@@ -92,7 +89,7 @@ Aby uzyskać więcej informacji, zobacz wpis w blogu dotyczący [wewnętrznej i 
 
 ## <a name="user-defined-functions-udf"></a>Funkcje zdefiniowane przez użytkownika (UDF)
 
-Gałąź Hive można również rozszerzyć za poorednictwem **funkcji zdefiniowanych przez użytkownika (UDF)** . System UDF umożliwia implementację funkcji lub logiki, która nie jest łatwo modelowana w HiveQL. Przykład użycia UDF z programem Hive można znaleźć w następujących dokumentach:
+Gałąź Hive można również rozszerzyć za poorednictwem **funkcji zdefiniowanych przez użytkownika (UDF)**. System UDF umożliwia implementację funkcji lub logiki, która nie jest łatwo modelowana w HiveQL. Przykład użycia UDF z programem Hive można znaleźć w następujących dokumentach:
 
 * [Używanie funkcji zdefiniowanej przez użytkownika w języku Java z Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -137,7 +134,7 @@ W poprzednim przykładzie instrukcje HiveQL wykonują następujące czynności:
 |TWORZENIE TABELI ZEWNĘTRZNEJ|Tworzy nową tabelę **zewnętrzną** w usłudze Hive. Tabele zewnętrzne przechowują wyłącznie definicję tabeli w programie Hive. Dane pozostaną w oryginalnej lokalizacji i w oryginalnym formacie.|
 |FORMAT WIERSZA|Informuje Hive, jak dane są sformatowane. W takim przypadku pola w każdym dzienniku są oddzielone spacją.|
 |PRZECHOWYWANE JAKO LOKALIZACJA TEXTFILE|Informuje gałąź, w której dane są przechowywane ( `example/data` katalog) i które są przechowywane jako tekst. Dane mogą znajdować się w jednym pliku lub rozłożyć na wiele plików w katalogu.|
-|SELECT|Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]** . Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.|
+|SELECT|Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]**. Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.|
 |INPUT__FILE__NAME jak "%. log"|Gałąź próbuje zastosować schemat do wszystkich plików w katalogu. W takim przypadku katalog zawiera pliki, które nie są zgodne ze schematem. Aby zapobiec utracie danych bezużytecznych w wyniku, ta instrukcja informuje gałąź, że będziemy zwracać tylko dane z plików kończących się na. log.|
 
 > [!NOTE]  
@@ -168,7 +165,7 @@ Te instrukcje wykonują następujące czynności:
 |---|---|
 |CREATE TABLE, JEŚLI NIE ISTNIEJE|Jeśli tabela nie istnieje, utwórz ją. Ponieważ **zewnętrzne** słowo kluczowe nie jest używane, ta instrukcja tworzy tabelę wewnętrzną. Tabela jest przechowywana w magazynie danych programu Hive i jest w pełni zarządzana przez program Hive.|
 |PRZECHOWYWANE JAKO ORC|Dane są przechowywane w formacie zoptymalizowanego wiersza kolumnowy (ORC). ORC to wysoce zoptymalizowany i wydajny format służący do przechowywania danych programu Hive.|
-|WSTAW ZASTĄPIENIE... ZAZNACZENIA|Wybiera wiersze z tabeli **log4jLogs** zawierającej wartość **[Error]** , a następnie wstawia dane do tabeli **errorLogs** .|
+|WSTAW ZASTĄPIENIE... ZAZNACZENIA|Wybiera wiersze z tabeli **log4jLogs** zawierającej wartość **[Error]**, a następnie wstawia dane do tabeli **errorLogs** .|
 
 > [!NOTE]  
 > W przeciwieństwie do tabel zewnętrznych, porzucanie tabeli wewnętrznej powoduje również usunięcie danych źródłowych.

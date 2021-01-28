@@ -1,18 +1,15 @@
 ---
 title: Wskazówki dotyczące Apache Spark w usłudze Azure HDInsight
 description: Poznaj wskazówki dotyczące używania Apache Spark w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: a93b3e0da7b881b80f7613907e40af509bffadbd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f81435abbedec25cb8abe0b958065a493c15ce4c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545569"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938807"
 ---
 # <a name="apache-spark-guidelines"></a>Wskazówki dotyczące Apache Spark
 
@@ -56,14 +53,14 @@ Ten artykuł zawiera różne wskazówki dotyczące używania Apache Spark w usł
 | Apache Hive w usłudze HDInsight | [Integrowanie Apache Spark i Apache Hive z łącznikiem magazynu Hive](../interactive-query/apache-hive-warehouse-connector.md) |
 | Usługa Apache HBase w usłudze HDInsight | [Odczytywanie i zapisywanie danych w bazie danych Apache HBase za pomocą platformy Apache Spark](../hdinsight-using-spark-query-hbase.md) |
 | Apache Kafka w usłudze HDInsight | [Samouczek: używanie strumieni ze strukturą platformy Apache Spark z platformą Kafka w usłudze HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
-| Azure Cosmos DB | [Link Synapse platformy Azure dla Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
+| Azure Cosmos DB | [Usługa Azure Synapse Link dla usługi Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
 
 ## <a name="what-are-my-storage-options"></a>Jakie są opcje magazynu?
 
 | Opcja | Dokumenty |
 |---|---|
 | Usługa Azure Data Lake Storage 2. generacji | [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-| Azure Data Lake Storage Gen1 | [Używanie Azure Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md) |
+| Usługa Azure Data Lake Storage 1. generacji | [Używanie Azure Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md) |
 | Azure Blob Storage | [Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md) |
 
 ## <a name="next-steps"></a>Następne kroki

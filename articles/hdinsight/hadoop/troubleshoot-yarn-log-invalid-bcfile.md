@@ -1,18 +1,15 @@
 ---
 title: Nie można odczytać dziennika usługi Apache przędzy w usłudze Azure HDInsight
 description: Kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas pracy z klastrami usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: b6bd7d807916ef53177b11df6ed9ce0b22f530be
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 02a79de8aee169f5f702d5fae67194c62363e8c4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533346"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943041"
 ---
 # <a name="scenario-unable-to-read-apache-yarn-log-in-azure-hdinsight"></a>Scenariusz: nie można odczytać dziennika usługi Apache przędz w usłudze Azure HDInsight
 
@@ -34,7 +31,7 @@ Dziennik przędzy Apache jest agregowany do `IndexFile` formatu, który nie jest
 
 1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Z poziomu interfejsu użytkownika Ambari przejdź do konfiguracji **przędzy**  >  **Configs**  >  **Zaawansowane**  >  **zaawansowanej przędzy-lokacja** .
+1. Z poziomu interfejsu użytkownika Ambari przejdź do konfiguracji **przędzy**  >    >  **Zaawansowane**  >  **zaawansowanej przędzy-lokacja**.
 
 1. W przypadku magazynu WASB: wartość domyślna `yarn.log-aggregation.file-formats` to `IndexedFormat,TFile` . Zmień wartość na `TFile` .
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 7d34039a5d56feb42473b1a2b24def5244ec3e04
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756132"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937831"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
 
@@ -109,7 +109,7 @@ Jeśli nie chcesz używać automatyzacji, wykonaj kroki opisane w poniższych se
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją do późniejszego użycia. Będzie ona potrzebna do skonfigurowania pliku konfiguracji programu Visual Studio dla tego projektu.
 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-1. Ustaw **adres URL wylogowywania** na `https://localhost:44316/Account/EndSession` .
+1. Ustaw **adres URL wylogowywania z kanału frontonu** na `https://localhost:44316/Account/EndSession` .
 1. W sekcji **niejawne udzielenie** wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga, aby [przepływ niejawnego przydzielenia](v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika i wywoływania interfejsu API.
 1. Wybierz pozycję **Zapisz**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Certyfikaty i wpisy tajne**.
@@ -227,7 +227,7 @@ Program Visual Studio opublikuje projekt i automatycznie otworzy przeglądarkę 
 1. Wróć do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. W okienku po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz aplikację **dotnet-Web-demon-v2** .
-1. Na stronie **uwierzytelnianie** dla swojej aplikacji zaktualizuj pola **adresu URL wylogowywania** z adresem usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. Na stronie **uwierzytelnianie** dla swojej aplikacji zaktualizuj pola **adresu URL wylogowywania z kanału przedkomunikacyjnego** przy użyciu adresu usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
 1. Z menu **znakowanie** , zaktualizuj **adres URL strony głównej** na adres usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Zapisz konfigurację.
 1. Dodaj ten sam adres URL na liście wartości   >  menu **identyfikatorów URI przekierowania** uwierzytelniania. Jeśli masz wiele adresów URL przekierowania, upewnij się, że istnieje nowy wpis, który używa identyfikatora URI usługi App Service dla każdego adresu URL przekierowania.

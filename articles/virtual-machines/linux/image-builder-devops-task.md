@@ -3,16 +3,16 @@ title: Zadanie DevOps usługi Azure Image Builder
 description: Zadanie DevOps platformy Azure umożliwiające wstrzyknięcie artefaktów kompilacji do obrazu maszyny wirtualnej, dzięki czemu można zainstalować i skonfigurować aplikację oraz system operacyjny.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: df97ecd1668dcc0e21408b7d39b0973e8f0d8fbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684546"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934278"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Zadanie DevOps usługi Azure Image Builder
 
@@ -154,7 +154,13 @@ W poniższym przykładzie wyjaśniono, jak to działa:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
-* Komputery z systemem Linux — w systemie Linux artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu zostanie usunięta zawartość katalogu/tmp. Jeśli chcesz, aby artefakty istniały w obrazie, należy utworzyć inny katalog i skopiować je.  Przykład:
+   Można odwoływać się do wielu skryptów lub dodać więcej poleceń, na przykład:
+
+       ```PowerShell
+       & 'c:\buildArtifacts\webapp\webconfig.ps1'
+       & 'c:\buildArtifacts\webapp\installAgent.ps1'
+       ```
+* Komputery z systemem Linux — w systemie Linux artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu zostanie usunięta zawartość katalogu/tmp. Jeśli chcesz, aby artefakty istniały w obrazie, należy utworzyć inny katalog i skopiować je.  Na przykład:
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -176,7 +182,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
 > Konstruktor obrazów nie usuwa automatycznie artefaktów kompilacji, dlatego zdecydowanie zaleca się, aby zawsze mieć kod do usuwania artefaktów kompilacji.
 > 
 
-* Windows-Image Builder służy do wdrażania plików w `c:\buildArtifacts` katalogu. Katalog jest utrwalany należy usunąć katalog. Można go usunąć w skrypcie wykonywanym przez użytkownika. Przykład:
+* Windows-Image Builder służy do wdrażania plików w `c:\buildArtifacts` katalogu. Katalog jest utrwalany należy usunąć katalog. Można go usunąć w skrypcie wykonywanym przez użytkownika. Na przykład:
 
     ```PowerShell
     # Clean up buildArtifacts directory
@@ -186,7 +192,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux — artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu `/tmp` zawartość katalogu zostanie usunięta. Zalecane jest, aby usunąć zawartość z kodu, a nie polegać na systemie operacyjnym, aby usunąć zawartość. Przykład:
+* Linux — artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu `/tmp` zawartość katalogu zostanie usunięta. Zalecane jest, aby usunąć zawartość z kodu, a nie polegać na systemie operacyjnym, aby usunąć zawartość. Na przykład:
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -312,7 +318,7 @@ Nie. Zostanie użyta unikatowa nazwa szablonu, a następnie usunięta.
 
 Jeśli wystąpi błąd kompilacji, zadanie DevOps nie usuwa tymczasowej grupy zasobów. Możesz uzyskać dostęp do tymczasowej grupy zasobów zawierającej dziennik dostosowania kompilacji.
 
-Zostanie wyświetlony komunikat o błędzie w dzienniku DevOps zadania konstruktora obrazów maszyn wirtualnych i zapoznaj się z lokalizacją dostosowywać. log. Przykład:
+Zostanie wyświetlony komunikat o błędzie w dzienniku DevOps zadania konstruktora obrazów maszyn wirtualnych i zapoznaj się z lokalizacją dostosowywać. log. Na przykład:
 
 :::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Przykładowy błąd zadania DevOps, który zawiera błąd.":::
 

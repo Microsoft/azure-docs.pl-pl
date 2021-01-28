@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6240f88d309cbf4f26375c5f961d716b472755d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756267"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937875"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplikacja sieci Web, która loguje się do użytkowników: Rejestracja aplikacji
 
-W tym artykule opisano specyficzne dla rejestracji aplikacji aplikacje sieci Web, które logują się w użytkownikach.
+W tym artykule opisano kroki rejestracji aplikacji dla aplikacji sieci Web, które logują się w użytkownikach.
 
 Aby zarejestrować aplikację, możesz użyć:
 
-- [Aplikacja sieci Web — szybki start](#register-an-app-by-using-the-quickstarts). Oprócz tworzenia aplikacji, Przewodniki Szybki Start w Azure Portal zawierają przycisk o nazwie **Utwórz tę zmianę dla mnie**. Ten przycisk służy do ustawiania właściwości, które są potrzebne, nawet w przypadku istniejącej aplikacji. Należy dostosować wartości tych właściwości do własnego przypadku. W szczególności adres URL internetowego interfejsu API dla aplikacji prawdopodobnie będzie inny niż proponowana wartość domyślna, co wpłynie również na identyfikator URI wylogowania.
+- [Aplikacja sieci Web — szybki start](#register-an-app-by-using-the-quickstarts). Oprócz tworzenia aplikacji, Przewodniki Szybki Start w Azure Portal zawierają przycisk o nazwie **Utwórz tę zmianę dla mnie**. Ten przycisk służy do ustawiania właściwości, które są potrzebne, nawet w przypadku istniejącej aplikacji. Dostosuj wartości tych właściwości do własnego przypadku. W szczególności adres URL internetowego interfejsu API dla aplikacji prawdopodobnie będzie inny niż proponowana wartość domyślna, co wpłynie również na identyfikator URI wylogowania.
 - Azure Portal, aby [ręcznie zarejestrować aplikację](#register-an-app-by-using-the-azure-portal).
 - Program PowerShell i narzędzia wiersza polecenia.
 
@@ -56,8 +56,8 @@ Możesz użyć tych linków do uruchomienia uruchamiania aplikacji sieci Web:
    1. Wybierz pozycję **Zarejestruj**.
 1. W obszarze **Zarządzanie** wybierz pozycję **uwierzytelnianie** , a następnie Dodaj następujące informacje:
    1. W sekcji **sieci Web** Dodaj `https://localhost:44321/signin-oidc` jako **Identyfikator URI przekierowania**.
-   1. Dodaj `https://localhost:44321/signout-oidc` jako **adres URL wylogowania**.
-   1. W obszarze **Niejawne przyznanie** wybierz pozycję **Tokeny identyfikatorów**.
+   1. W **adresie URL wylogowania przed kanałem** wprowadź `https://localhost:44321/signout-oidc` .
+   1. W obszarze **niejawne przyznanie i przepływy hybrydowe** wybierz pozycję **identyfikatory tokenów**.
    1. Wybierz pozycję **Zapisz**.
    
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -65,10 +65,10 @@ Możesz użyć tych linków do uruchomienia uruchamiania aplikacji sieci Web:
 1. Gdy zostanie wyświetlona **Strona Zarejestruj aplikację** , wprowadź informacje o rejestracji aplikacji:
    1. Wprowadź **nazwę** aplikacji, na przykład `MailApp-openidconnect-v2` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
    1. Wybierz obsługiwane typy kont dla swojej aplikacji. (Zobacz [obsługiwane typy kont](./v2-supported-account-types.md)).
-   1. W sekcji **Identyfikator URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** w polu kombi i wprowadź następujący identyfikator URI przekierowania: **https://localhost:44326/** .
+   1. W sekcji **Identyfikator URI przekierowania (opcjonalnie)** w polu kombi Wybierz pozycję **Sieć Web** , a następnie wprowadź **Identyfikator URI przekierowania** `https://localhost:44326/` .
    1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-1. W sekcji **niejawne przyznanie** wybierz pozycję **identyfikatory tokenów**. Ten przykład wymaga włączenia [niejawnego przepływu przydzielenia](v2-oauth2-implicit-grant-flow.md) w celu zalogowania użytkownika.
+1. W sekcji **niejawne przyznanie i przepływy hybrydowe** wybierz pozycję **identyfikatory tokenów**. Ten przykład wymaga włączenia [niejawnego przepływu przydzielenia](v2-oauth2-implicit-grant-flow.md) w celu zalogowania użytkownika.
 1. Wybierz pozycję **Zapisz**.
 
 # <a name="java"></a>[Java](#tab/java)
@@ -81,10 +81,10 @@ Możesz użyć tych linków do uruchomienia uruchamiania aplikacji sieci Web:
 1. Wybierz pozycję **Sieć Web**.
 1. W polu **Identyfikator URI przekierowania** wprowadź ten sam Host i numer portu, a następnie pozycję `/msal4jsample/secure/aad` dla strony logowania. 
 1. Wybierz pozycję **Konfiguruj**.
-1. W sekcji **sieci Web** Użyj hosta i numeru portu, a następnie **/msal4jsample/Graph/Me** jako **Identyfikator URI przekierowania** dla strony informacje o użytkowniku.
+1. W sekcji **sieci Web** Użyj hosta i numeru portu, a następnie `/msal4jsample/graph/me` jako **Identyfikator URI przekierowania** na stronie informacje o użytkowniku.
 Domyślnie użycie przykładu:
-   - **http://localhost:8080/msal4jsample/secure/aad**
-   - **http://localhost:8080/msal4jsample/graph/me**
+   - `http://localhost:8080/msal4jsample/secure/aad`
+   - `http://localhost:8080/msal4jsample/graph/me`
 
 1. Wybierz pozycję **Zapisz**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Certyfikaty i wpisy tajne**.
@@ -100,7 +100,7 @@ Domyślnie użycie przykładu:
 1. Gdy zostanie wyświetlona **Strona Zarejestruj aplikację** , wprowadź informacje o rejestracji aplikacji:
    1. Wprowadź **nazwę** aplikacji, na przykład `python-webapp` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
    1. Zmień **obsługiwane typy kont** na **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)**.
-   1. W sekcji **Identyfikator URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** w polu kombi i wprowadź następujący identyfikator URI przekierowania: **http://localhost:5000/getAToken** .
+   1. W sekcji **Identyfikator URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** w polu kombi i wprowadź następujący identyfikator URI przekierowania: `http://localhost:5000/getAToken` .
    1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją jako nowszą. Będzie ona potrzebna do skonfigurowania pliku konfiguracji programu Visual Studio dla tego projektu.
 1. W obszarze **Zarządzanie** wybierz pozycję **Certyfikaty i wpisy tajne**.

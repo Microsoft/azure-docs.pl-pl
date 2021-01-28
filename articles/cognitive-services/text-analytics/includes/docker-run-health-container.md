@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/12/2020
 ms.author: aahi
-ms.openlocfilehash: 82c33c038a1f8eaba540c9906efcffa0a9214762
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: af8fec56c32b52e2af584e59f08db6cc7129c9c5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689826"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947502"
 ---
 ## <a name="install-the-container"></a>Instalowanie kontenera
 
@@ -62,7 +62,7 @@ To polecenie:
 > [!NOTE]
 > Demonstracja jest dostępna tylko w przypadku kontenera analiza tekstu dla usługi kondycji.
 
-Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań.  W kontenerze, który jest dostępny przez dołączenie do punktu końcowego kontenera, udostępniono również narzędzie do wizualizacji `/demo` . Przykład:
+Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań.  W kontenerze, który jest dostępny przez dołączenie do punktu końcowego kontenera, udostępniono również narzędzie do wizualizacji `/demo` . Na przykład:
 
 ```
 http://<serverURL>:5000/demo
@@ -112,7 +112,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 Możesz również użyć wystąpienia kontenera platformy Azure (ACI), aby ułatwić wdrażanie. ACI to zasób, który umożliwia uruchamianie kontenerów platformy Docker na żądanie w zarządzanym, bezserwerowym środowisku platformy Azure. 
 
-Zapoznaj się z tematem [jak używać Azure Container Instances](../how-tos/text-analytics-how-to-use-container-instances.md) kroków dotyczących wdrażania zasobu ACI przy użyciu Azure Portal. Możesz też użyć poniższego skryptu programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, który spowoduje utworzenie ACI w subskrypcji przy użyciu obrazu kontenera.  Poczekaj na zakończenie wykonywania skryptu (około 25-30 minut) przed przesłaniem pierwszego żądania.  Ze względu na limit maksymalnej liczby procesorów CPU na ACI zasób nie należy zaznaczać tej opcji, jeśli oczekuje się przesłania więcej niż 5 dużych dokumentów (około 5000 znaków) na żądanie.
+Zapoznaj się z tematem [jak używać Azure Container Instances](../../containers/azure-container-instance-recipe.md) kroków dotyczących wdrażania zasobu ACI przy użyciu Azure Portal. Możesz też użyć poniższego skryptu programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, który spowoduje utworzenie ACI w subskrypcji przy użyciu obrazu kontenera.  Poczekaj na zakończenie wykonywania skryptu (około 25-30 minut) przed przesłaniem pierwszego żądania.  Ze względu na limit maksymalnej liczby procesorów CPU na ACI zasób nie należy zaznaczać tej opcji, jeśli oczekuje się przesłania więcej niż 5 dużych dokumentów (około 5000 znaków) na żądanie.
 Aby uzyskać informacje o dostępności, zobacz artykuł dotyczący [pomocy regionalnej ACI](../../../container-instances/container-instances-region-availability.md) . 
 
 > [!NOTE] 
@@ -213,4 +213,3 @@ docker-compose up
 ```
 
 Aby uzyskać więcej informacji, zobacz dokumentację NGINX na temat [Nginx protokołu SSL](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
-

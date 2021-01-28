@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 914581e6610e027d9440495f56f4facfb1fb9a9a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 29eafcae9442215e23e80b946fc35314e23100d3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349439"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937247"
 ---
 # <a name="teams-interoperability"></a>Współdziałanie usługi Teams
 
@@ -40,7 +40,7 @@ Gdy użytkownik usług komunikacyjnych dołączają się do spotkania zespołów
 Użytkownicy usług komunikacyjnych mogą dołączać do spotkań zaplanowanych zespołów, o ile w [ustawieniach spotkania](/microsoftteams/meeting-settings-in-teams)włączono sprzężenia anonimowe.
 
 ## <a name="teams-in-government-clouds-gcc"></a>Zespoły w chmurach rządowych (w zatoce)
-Współdziałanie usług Azure Communications Services nie jest dozwolone w tym momencie w zespołach wdrożeń korzystających z [Microsoft 365ych chmur dla instytucji rządowych](https://docs.microsoft.com/MicrosoftTeams/plan-for-government-gcc) . 
+Współdziałanie usług Azure Communications Services nie jest dozwolone w tym momencie w zespołach wdrożeń korzystających z [Microsoft 365ych chmur dla instytucji rządowych](/MicrosoftTeams/plan-for-government-gcc) . 
 
 ## <a name="next-steps"></a>Następne kroki
 

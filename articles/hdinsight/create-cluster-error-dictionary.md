@@ -3,17 +3,16 @@ title: Azure HDInsight — Tworzenie klastra — słownik błędów
 description: Informacje o rozwiązywaniu problemów występujących podczas tworzenia klastrów usługi Azure HDInsight
 author: karkrish
 ms.author: v-todmc
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b8c0069d619d3ebd87e3c54b4f653812199f590
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543104"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943341"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Błędy tworzenia klastra
 
@@ -24,7 +23,7 @@ W tym artykule opisano rozwiązania błędów, które mogą występować podczas
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
 
-**Błąd** : "nie można uzyskać dostępu do lokalizacji akcji skryptu URI: \<SCRIPT ACTION URL\> "
+**Błąd**: "nie można uzyskać dostępu do lokalizacji akcji skryptu URI: \<SCRIPT ACTION URL\> "
 
 ### <a name="error-message-1"></a>Komunikat o błędzie 1
 
@@ -161,7 +160,7 @@ Nie podano uprawnień wymaganych do zarządzania tożsamościami. Tożsamość z
 
 1. Otwórz witrynę Azure Portal.
 1. Przejdź do swojego konta magazynu.
-1. Poszukaj w obszarze **Access Control (IAM)** .
+1. Poszukaj w obszarze **Access Control (IAM)**.
 1. Upewnij się, że użytkownik ma rolę współautor danych obiektów blob magazynu lub przypisaną rolę właściciela danych obiektu blob magazynu.
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie uprawnień dla tożsamości zarządzanej na koncie Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).

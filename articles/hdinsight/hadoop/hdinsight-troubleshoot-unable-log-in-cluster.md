@@ -3,16 +3,13 @@ title: Nie można zalogować się do klastra usługi Azure HDInsight
 description: Rozwiązywanie problemów z nie można zalogować się do klastra Apache Hadoop w usłudze Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: 222c48ab2b9b718bc373e710f37f906e68bd31d4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 03657606f7e24436ff5a851fe7eef1e0c4d5dc24
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289019"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944315"
 ---
 # <a name="scenario-unable-to-log-into-azure-hdinsight-cluster"></a>Scenariusz: nie można zalogować się do klastra usługi Azure HDInsight
 

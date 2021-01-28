@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a577b50a561cb5b829e453c523e0bd18a70e1a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dcfaef2f518028762958477a5b0d326acc237d1f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741681"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938438"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Włącz rejestrację połączonych informacji o zabezpieczeniach w Azure Active Directory
 
 Przed połączoną rejestracją użytkownicy zarejestrowali metody uwierzytelniania dla usługi Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Ktoś został mylić, że podobne metody były używane dla usługi Azure AD Multi-Factor Authentication i SSPR, ale musiały zarejestrować się w przypadku obu funkcji. Teraz dzięki łącznej rejestracji użytkownicy mogą rejestrować się raz i korzystać z zalet usługi Azure AD Multi-Factor Authentication i SSPR.
 
 > [!NOTE]
-> Od 15 sierpnia 2020 wszystkie nowe dzierżawy usługi Azure AD będą automatycznie włączane na potrzeby rejestracji złożonej. Od 14 grudnia 2020 wszyscy dzierżawy usługi Azure AD z jednym użytkownikiem zostaną automatycznie włączeni do rejestracji złożonej.
+> Od 15 sierpnia 2020 wszystkie nowe dzierżawy usługi Azure AD będą automatycznie włączane na potrzeby rejestracji złożonej. 
 
 Aby poznać funkcje i efekty przed włączeniem nowego środowiska, zobacz [powiązane koncepcje rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md).
 

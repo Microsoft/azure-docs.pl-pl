@@ -1,18 +1,15 @@
 ---
 title: Alerty katalogów Apache Ambari w usłudze Azure HDInsight
 description: Dyskusja i analiza możliwych przyczyn i rozwiązań dotyczących alertów dotyczących katalogów Apache Ambari w usłudze HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: d8b1f705eb08d1c58b32e0cbd7c57722a6de93cc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 47d1f9797a44d7dc918677c21ffc7a124808525d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998315"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943285"
 ---
 # <a name="scenario-apache-ambari-directory-alerts-in-azure-hdinsight"></a>Scenariusz: alerty katalogów Apache Ambari w usłudze Azure HDInsight
 

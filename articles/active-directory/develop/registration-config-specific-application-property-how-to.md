@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 222c961f9e5587cd5526778e6ef1c800f5085a69
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6da6187e59bf028101eac2ea6f09fb1530821bfd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064304"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937864"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Pola rejestracji aplikacji niestandardowej w witrynie Azure Portal
 
@@ -57,11 +57,11 @@ Po wypełnieniu powyższych pól aplikacja zostanie zarejestrowana w Azure Porta
 | Przekaż nowe logo | Możesz użyć tego do przekazania logo dla aplikacji. Logo musi być w formacie BMP, jpg lub PNG, a rozmiar pliku musi być mniejszy niż 100 KB. Wymiary obrazu powinny być 215x215 pikseli, a centralne wymiary obrazu 94x94 pikseli.|
 | Adres URL strony głównej   | Jest to adres URL logowania określony podczas rejestracji aplikacji.|
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 | Pole           | Opis        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Adres URL wylogowywania      | Jest to adres URL wylogowania jednokrotnego. Usługa Azure AD wysyła do tego adresu URL żądanie wylogowania, gdy użytkownik czyści swoją sesję w usłudze Azure AD przy użyciu innej zarejestrowanej aplikacji.|
+| Adres URL wylogowywania z kanału przedniego      | Jest to adres URL wylogowania jednokrotnego. Usługa Azure AD wysyła do tego adresu URL żądanie wylogowania, gdy użytkownik czyści swoją sesję w usłudze Azure AD przy użyciu innej zarejestrowanej aplikacji.|
 | Obsługiwane typy kont  | Ten przełącznik określa, czy aplikacja może być używana przez wielu dzierżawców. Zazwyczaj oznacza to, że organizacje zewnętrzne mogą korzystać z aplikacji, rejestrując ją w swojej dzierżawie i przyznając dostęp do danych organizacji.|
 | Adresy URL przekierowania      | Adresy URL przekierowania lub odpowiedzi są punktami końcowymi, w których usługa Azure AD zwraca wszelkie tokeny, których żąda aplikacja. W przypadku aplikacji natywnych jest to miejsce, w którym użytkownik jest wysyłany po pomyślnej autoryzacji. Usługa Azure AD sprawdza, czy identyfikator URI przekierowania udostępniany przez aplikację w żądaniu protokołu OAuth 2,0 jest zgodny z jedną z zarejestrowanej wartości w portalu.|
 

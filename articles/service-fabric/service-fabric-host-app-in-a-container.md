@@ -3,12 +3,12 @@ title: Wdrażanie aplikacji .NET w kontenerze na platformie Azure Service Fabric
 description: Dowiedz się, jak konteneryzować istniejącą aplikację platformy .NET przy użyciu programu Visual Studio i jak debugować kontenery lokalnie w usłudze Service Fabric. Konteneryzowana aplikacja jest wypychana do usługi Azure Container Registry i wdrażana w klastrze usługi Service Fabric. Po wdrożeniu na platformie Azure aplikacja utrwala dane za pomocą usługi Azure SQL DB.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 85e9b553000c52131c04502d496aa050b73d6d8a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7930651a0faa5f37336c15557e2a0f068d613011
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791665"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936713"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Samouczek: wdrażanie aplikacji .NET w kontenerze systemu Windows w usłudze Azure Service Fabric
 
@@ -29,7 +29,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 1. Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. Włącz funkcje systemu Windows **Hyper-V** i **kontenery**.
-3. Zainstaluj program [Docker CE dla systemu Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), który umożliwia uruchamianie kontenerów w systemie Windows 10.
+3. Zainstaluj program [Docker Desktop dla systemu Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) , aby można było uruchamiać kontenery w systemie Windows 10.
 4. Zainstaluj [środowisko uruchomieniowe usługi Service Fabric w wersji 6.2 lub nowszej](service-fabric-get-started.md) i [zestaw SDK usługi Service Fabric w wersji 3.1](service-fabric-get-started.md) lub nowszej.
 5. Zainstaluj [program Visual Studio 2019 w wersji 16,1](https://www.visualstudio.com/) lub nowszej przy użyciu obciążeń deweloperskich i **ASP.NET** na **platformie Azure** .
 6. Zainstaluj [Azure PowerShell][link-azure-powershell-install]

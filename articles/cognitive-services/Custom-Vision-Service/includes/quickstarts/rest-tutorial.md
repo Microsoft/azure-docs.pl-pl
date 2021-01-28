@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: 8890a0132e5f510a0af2862c483206fd025a68d8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cea3db080865727ab9b425f14a172041a54a5414
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256567"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947435"
 ---
 Rozpocznij pracę z interfejsem API REST Custom Vision. Wykonaj następujące kroki, aby wywołać interfejs API i utworzyć model klasyfikacji obrazów. Utworzysz projekt, dodasz Tagi, nauczysz projekt, a następnie użyjesz w adresie URL punktu końcowego przewidywania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
 
@@ -224,5 +224,5 @@ Teraz każdy krok procesu klasyfikacji obrazu można wykonać przy użyciu inter
 > [Testowanie i ponowne szkolenie modelu](../../test-your-model.md)
 
 * [Co to jest usługa Custom Vision?](../../overview.md)
-* [Dokumentacja interfejsu API (szkolenie)](/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)
+* [Dokumentacja interfejsu API (szkolenie)](/dotnet/api/overview/azure/cognitiveservices/client/customvision)
 * [Dokumentacja interfejsu API (przewidywania)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae)

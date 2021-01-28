@@ -3,16 +3,13 @@ title: Problemy z łącznością Apache Phoenix w usłudze Azure HDInsight
 description: Problemy z łącznością między programem Apache HBase i Apache Phoenix w usłudze Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: ed12c9629506fa8defb23b987fe672bb3b384418
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2cc6556f681ece170bdfe02b985f56274c0faa1e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540095"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936969"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Scenariusz: Apache Phoenix problemy z łącznością w usłudze Azure HDInsight
 
@@ -28,7 +25,7 @@ Nieprawidłowy adres IP aktywnego węzła dozorcy.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Adres IP aktywnego węzła dozorcy można zidentyfikować z poziomu interfejsu użytkownika Ambari, postępując zgodnie z linkami do **HBase**  >  **szybkie linki**  >  **ZK (Active)**  >  **dozorcy info** . W razie konieczności popraw adres IP.
+Adres IP aktywnego węzła dozorcy można zidentyfikować z poziomu interfejsu użytkownika Ambari, postępując zgodnie z linkami do **HBase**  >  **szybkie linki**  >  **ZK (Active)**  >  **dozorcy info**. W razie konieczności popraw adres IP.
 
 ---
 
@@ -50,7 +47,7 @@ ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,
 
 W interfejsie użytkownika Apache Ambari wykonaj następujące kroki, aby ponownie uruchomić usługę serwera hmaster na wszystkich węzłach dozorcy:
 
-1. W sekcji **Podsumowanie** HBase przejdź do pozycji **HBase**  >  **Active HBase Master** .
+1. W sekcji **Podsumowanie** HBase przejdź do pozycji **HBase**  >  **Active HBase Master**.
 
 1. W sekcji **składniki** Uruchom ponownie usługę HBase Master.
 

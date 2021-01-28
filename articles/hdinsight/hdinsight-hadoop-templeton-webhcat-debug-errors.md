@@ -1,19 +1,16 @@
 ---
 title: Zrozumienie i rozwiązywanie błędów WebHCat w usłudze HDInsight — Azure
 description: Dowiedz się, jak informacje o typowych błędach zwracanych przez WebHCat w usłudze HDInsight i sposobach ich rozwiązywania.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 951dba6e64561301dc7dbb6ebd6fd6b641c90a47
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285680"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945454"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Understand and resolve errors received from WebHCat on HDInsight (Opis błędów i rozwiązywanie problemów dotyczących interfejsu API WebHCat w usłudze HDInsight)
 
@@ -39,7 +36,7 @@ W przypadku przekroczenia następujących wartości domyślnych można obniżyć
 
 ## <a name="too-many-requests"></a>Zbyt wiele żądań
 
-**Kod stanu HTTP** : 429
+**Kod stanu HTTP**: 429
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
@@ -47,7 +44,7 @@ W przypadku przekroczenia następujących wartości domyślnych można obniżyć
 
 ## <a name="server-unavailable"></a>Serwer niedostępny
 
-**Kod stanu HTTP** : 503
+**Kod stanu HTTP**: 503
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
@@ -55,7 +52,7 @@ W przypadku przekroczenia następujących wartości domyślnych można obniżyć
 
 ## <a name="bad-request-content-could-not-find-job"></a>Zła zawartość żądania: nie można odnaleźć zadania
 
-**Kod stanu HTTP** : 400
+**Kod stanu HTTP**: 400
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
@@ -65,7 +62,7 @@ W przypadku przekroczenia następujących wartości domyślnych można obniżyć
 
 ## <a name="bad-gateway"></a>Zła brama
 
-**Kod stanu HTTP** : 502
+**Kod stanu HTTP**: 502
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |

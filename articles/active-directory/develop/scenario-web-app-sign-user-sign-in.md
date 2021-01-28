@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752995"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937843"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplikacja internetowa, która loguje użytkowników: Logowanie i wylogowywanie
 
@@ -222,19 +222,19 @@ Aby dowiedzieć się więcej, zobacz sekcję [Wysyłanie żądania wylogowania](
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Podczas rejestracji aplikacji rejestrujesz identyfikator URI po wylogowaniu. W naszym samouczku zarejestrowano `https://localhost:44321/signout-oidc` się w polu **adres URL wylogowania** w sekcji **Ustawienia zaawansowane** na stronie **uwierzytelnianie** . Aby uzyskać szczegółowe informacje, zobacz [ Rejestrowanie aplikacji webApp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Podczas rejestracji aplikacji należy zarejestrować adres URL wylogowywania z frontonu. W naszym samouczku zarejestrowano `https://localhost:44321/signout-oidc` się w polu **adres URL wylogowywania z kanału frontonu** na stronie **uwierzytelnianie** . Aby uzyskać szczegółowe informacje, zobacz [Rejestrowanie aplikacji webApp](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Podczas rejestracji aplikacji rejestrujesz identyfikator URI po wylogowaniu. W naszym samouczku zarejestrowano `https://localhost:44308/Account/EndSession` się w polu **adres URL wylogowania** w sekcji **Ustawienia zaawansowane** na stronie **uwierzytelnianie** . Aby uzyskać szczegółowe informacje, zobacz [Rejestrowanie aplikacji webApp](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+Podczas rejestracji aplikacji nie ma potrzeby rejestrowania dodatkowego adresu URL wylogowywania z kanału frontonu. Aplikacja zostanie wywołana z powrotem na swoim głównym adresie URL. 
 
 # <a name="java"></a>[Java](#tab/java)
 
-Podczas rejestracji aplikacji rejestrujesz identyfikator URI po wylogowaniu. W naszym samouczku zarejestrowano `http://localhost:8080/msal4jsample/sign_out` się w polu **adres URL wylogowania** w sekcji **Ustawienia zaawansowane** na stronie **uwierzytelnianie** .
+W rejestracji aplikacji nie jest wymagany żaden adres URL wylogowywania z kanału.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Podczas rejestracji aplikacji nie trzeba rejestrować dodatkowego adresu URL wylogowywania. Aplikacja zostanie wywołana z powrotem na swoim głównym adresie URL.
+Podczas rejestracji aplikacji nie ma potrzeby rejestrowania dodatkowego adresu URL wylogowywania z kanału frontonu. Aplikacja zostanie wywołana z powrotem na swoim głównym adresie URL.
 
 ---
 
@@ -336,7 +336,7 @@ W poprzednich wersjach szablonów ASP.NET Core `Account` kontroler został osadz
 - Wywołania `Signout()` , dzięki którym program OpenID Connect nawiązuje połączenie z punktem końcowym platformy tożsamości firmy Microsoft `logout` . Następnie punkt końcowy:
 
   - Czyści plik cookie sesji z przeglądarki.
-  - Wywołuje adres URL wylogowania. Domyślnie adres URL wylogowywania wyświetla stronę widoku wylogowanego [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Ta strona jest również dostępna jako część elementu MIcrosoft. Identity. Web.
+  - Wywołuje identyfikator URI przekierowania po wylogowaniu. Domyślnie identyfikator URI przekierowania po wylogowaniu zawiera [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs)stronę widoku. Ta strona jest również dostępna jako część elementu Microsoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

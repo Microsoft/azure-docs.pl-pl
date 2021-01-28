@@ -1,19 +1,16 @@
 ---
 title: 'Szybki Start: Tworzenie Apache Kafka przy użyciu Azure PowerShell-HDInsight'
 description: W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster platformy Apache Kafka w usłudze Azure HDInsight przy użyciu programu Azure PowerShell. Zdobędziesz także informacje o tematach, subskrybentach i odbiorcach platformy Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 57cbfa356961aca778032b6e3552cffb88b6ab3d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 74fa512711dfb9226fcc88d949f5ddfeb0f9812b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533006"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942628"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Szybki Start: Tworzenie klastra Apache Kafka w usłudze Azure HDInsight przy użyciu programu PowerShell
 
@@ -35,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia cmdlet i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -147,7 +144,7 @@ Jeśli planujesz użyć więcej niż 32 węzłów procesów roboczych (podczas t
     ssh sshuser@mykafka-ssh.azurehdinsight.net
     ```
 
-2. Po pierwszym połączeniu z klastrem Twój klient SSH może wyświetlić ostrzeżenie, że nie można ustalić autentyczności hosta. Po wyświetleniu monitu wpisz wartość __yes__ i naciśnij klawisz __Enter__ , aby dodać hosta do listy zaufanych serwerów klienta SSH.
+2. Po pierwszym połączeniu z klastrem Twój klient SSH może wyświetlić ostrzeżenie, że nie można ustalić autentyczności hosta. Po wyświetleniu monitu wpisz wartość __yes__ i naciśnij klawisz __Enter__, aby dodać hosta do listy zaufanych serwerów klienta SSH.
 
 3. Po wyświetleniu monitu wprowadź hasło użytkownika SSH.
 
@@ -176,7 +173,7 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Pobierz informacje dotyczących hostów Apache Zookeeper i Broker
 
-Podczas pracy z platformą Kafka musisz znać hosty *Apache Zookeeper* i *Broker* . Te hosty są używane z interfejsem API platformy Kafka i wieloma narzędziami oferowanymi z platformą Kafka.
+Podczas pracy z platformą Kafka musisz znać hosty *Apache Zookeeper* i *Broker*. Te hosty są używane z interfejsem API platformy Kafka i wieloma narzędziami oferowanymi z platformą Kafka.
 
 W tej sekcji uzyskasz informacje o hoście z interfejsu API REST Apache Ambari w klastrze.
 
@@ -232,15 +229,15 @@ W tej sekcji uzyskasz informacje o hoście z interfejsu API REST Apache Ambari w
 
 ## <a name="manage-apache-kafka-topics"></a>Zarządzanie tematami platformy Apache Kafka
 
-Platforma Kafka przechowuje strumienie danych w *tematach* . Tematami można zarządzać za pomocą narzędzia `kafka-topics.sh`.
+Platforma Kafka przechowuje strumienie danych w *tematach*. Tematami można zarządzać za pomocą narzędzia `kafka-topics.sh`.
 
-* **Aby utworzyć temat** , użyj następującego polecenia, korzystając z połączenia SSH:
+* **Aby utworzyć temat**, użyj następującego polecenia, korzystając z połączenia SSH:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    To polecenie umożliwia nawiązanie połączenia z hostem Zookeeper przy użyciu informacji o hoście przechowywanych w elemencie `$KAFKAZKHOSTS`. Następnie tworzy ono temat platformy Kafka o nazwie **test** . 
+    To polecenie umożliwia nawiązanie połączenia z hostem Zookeeper przy użyciu informacji o hoście przechowywanych w elemencie `$KAFKAZKHOSTS`. Następnie tworzy ono temat platformy Kafka o nazwie **test**. 
 
     * Dane przechowywane w tym temacie są podzielone między osiem partycji.
 
@@ -262,7 +259,7 @@ Platforma Kafka przechowuje strumienie danych w *tematach* . Tematami można zar
 
         * Skalujesz klaster w górę
 
-* **Aby wyświetlić listę tematów** , użyj następującego polecenia:
+* **Aby wyświetlić listę tematów**, użyj następującego polecenia:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
@@ -270,7 +267,7 @@ Platforma Kafka przechowuje strumienie danych w *tematach* . Tematami można zar
 
     To polecenie wyświetla listę dostępnych tematów w klastrze platformy Kafka.
 
-* **Aby usunąć temat** , użyj następującego polecenia:
+* **Aby usunąć temat**, użyj następującego polecenia:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
@@ -289,7 +286,7 @@ Aby uzyskać więcej informacji na temat poleceń dostępnych w narzędziu `kafk
 
 ## <a name="produce-and-consume-records"></a>Tworzenie i używanie rekordów
 
-Platforma Kafka przechowuje *rekordy* w tematach. Rekordy są tworzone przez *producentów* i używane przez *odbiorców* . Producenci i odbiorcy komunikują się z usługą *brokera platformy Kafka* . Każdy węzeł procesu roboczego w klastrze usługi HDInsight jest hostem brokera platformy Kafka.
+Platforma Kafka przechowuje *rekordy* w tematach. Rekordy są tworzone przez *producentów* i używane przez *odbiorców*. Producenci i odbiorcy komunikują się z usługą *brokera platformy Kafka*. Każdy węzeł procesu roboczego w klastrze usługi HDInsight jest hostem brokera platformy Kafka.
 
 Poniżej przedstawiono procedurę zapisywania rekordów w utworzonym wcześniej temacie testowym i odczytywania ich za pomocą odbiorcy:
 
@@ -301,7 +298,7 @@ Poniżej przedstawiono procedurę zapisywania rekordów w utworzonym wcześniej 
    
     Po wykonaniu tego polecenia przejdziesz do pustego wiersza.
 
-2. Wprowadź wiadomość tekstową do pustego wiersza, a następnie naciśnij klawisz Enter. Wprowadź w ten sposób kilka wiadomości, a następnie użyj kombinacji klawiszy **Ctrl + C** , aby powrócić do normalnego monitu. Każdy wiersz jest wysyłany do tematu platformy Kafka jako oddzielny rekord.
+2. Wprowadź wiadomość tekstową do pustego wiersza, a następnie naciśnij klawisz Enter. Wprowadź w ten sposób kilka wiadomości, a następnie użyj kombinacji klawiszy **Ctrl + C**, aby powrócić do normalnego monitu. Każdy wiersz jest wysyłany do tematu platformy Kafka jako oddzielny rekord.
 
 3. Aby odczytać rekordy z tematu, użyj narzędzia `kafka-console-consumer.sh`, korzystając z połączenia SSH:
    
@@ -313,7 +310,7 @@ Poniżej przedstawiono procedurę zapisywania rekordów w utworzonym wcześniej 
 
     Jeśli korzystasz ze starszej wersji platformy Kafka, zastąp element `--bootstrap-server $KAFKABROKERS` elementem `--zookeeper $KAFKAZKHOSTS`.
 
-4. Użyj klawiszy __Ctrl+C__ , aby zatrzymać odbiorcę.
+4. Użyj klawiszy __Ctrl+C__, aby zatrzymać odbiorcę.
 
 Producentów i odbiorców można również utworzyć programowo. Przykład korzystania z tego interfejsu API znajduje się w dokumencie [Apache Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) (Interfejs API producenta i odbiorcy platformy Apache Kafka w usłudze HDInsight).
 

@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 5484d13a70d8eaf905d3c8a51d575f177427019b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/27/2021
+ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882165"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935150"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Magazyn obiektów blob i Azure Data Lake dane wyjściowe Gen2 z Azure Stream Analytics
 
@@ -44,7 +44,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 W przypadku korzystania z usługi BLOB Storage jako danych wyjściowych w następujących przypadkach tworzony jest nowy plik:
 
 * Jeśli rozmiar pliku przekracza maksymalną dozwoloną liczbę bloków (obecnie 50 000). Może nawiązać połączenie z maksymalną dozwoloną liczbą bloków bez osiągnięcia maksymalnego dozwolonego rozmiaru obiektu BLOB. Na przykład jeśli szybkość danych wyjściowych jest wysoka, można zobaczyć więcej bajtów na blok, a rozmiar pliku jest większy. Jeśli szybkość danych wyjściowych jest niska, każdy blok ma mniejszą ilość danych, a rozmiar pliku jest mniejszy.
-* Jeśli istnieje zmiana schematu w danych wyjściowych, a format danych wyjściowych wymaga stałego schematu (CSV i Avro).
+* Jeśli istnieje zmiana schematu w danych wyjściowych, a format danych wyjściowych wymaga stałego schematu (CSV, Avro, parquet).
 * Jeśli zadanie zostanie ponownie uruchomione zewnętrznie przez użytkownika, zatrzymując je i uruchamiając, lub wewnętrznie do konserwacji systemu lub odzyskiwania błędów.
 * Jeśli zapytanie jest w pełni partycjonowane i tworzony jest nowy plik dla każdej partycji wyjściowej.
 * Jeśli użytkownik usunie plik lub kontener konta magazynu.

@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567624"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937609"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Interfejs API punktu końcowego synchronizacji programu Azure AD Connect 2 
 Firma Microsoft wdrożyła nowy punkt końcowy (API) dla Azure AD Connect, który poprawia wydajność operacji usługi synchronizacji do Azure Active Directory. Korzystając z nowego punktu końcowego w wersji 2, zobaczysz zauważalny wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD. Ten nowy punkt końcowy obsługuje następujące elementy:
@@ -176,7 +176,7 @@ Jeśli włączono punkt końcowy w wersji 2 i konieczne jest wycofanie, wykonaj 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania  
  
 **Kiedy nowy punkt końcowy stanie się domyślny dla uaktualnień i nowych instalacji?**  
-</br>Planujemy opublikowanie nowej wersji AADConnect do pobrania w styczniu 2021. Ta wersja domyślnie użyje punktu końcowego v2 i włączy synchronizowanie grup większe niż 50 000 bez żadnej dodatkowej konfiguracji. Ta wersja zostanie później opublikowana w celu przeprowadzenia uaktualnienia do odpowiednich serwerów.
+</br>Planujemy opublikowanie nowej wersji AADConnect do pobrania w lutym 2021. Ta wersja domyślnie użyje punktu końcowego v2 i włączy synchronizowanie grup większe niż 50 000 bez żadnej dodatkowej konfiguracji. Ta wersja zostanie później opublikowana w celu przeprowadzenia uaktualnienia do odpowiednich serwerów.
  
 ## <a name="next-steps"></a>Następne kroki
 
