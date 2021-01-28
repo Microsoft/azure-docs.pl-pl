@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 33233e8a6aa54e65094e0cc6130e804241d7201c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044292"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951720"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Samouczek: wymagania wstępne dotyczące tworzenia grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -57,7 +57,7 @@ Musisz mieć konto platformy Azure. Możesz [otworzyć bezpłatne konto platform
    ![Grupa zasobów](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroupsymbol.png)
 
 4. Wybierz pozycję **Grupa zasobów**.
-5. Wybierz pozycję **Utwórz**.
+5. Wybierz przycisk **Utwórz**.
 6. W polu **Nazwa grupy zasobów** wpisz nazwę grupy zasobów. Na przykład wpisz **SQL-ha-RG**.
 7. Jeśli masz wiele subskrypcji platformy Azure, sprawdź, czy subskrypcja jest subskrypcją platformy Azure, w której chcesz utworzyć grupę dostępności.
 8. Wybierz lokalizację. Lokalizacja jest regionem świadczenia usługi Azure, w którym chcesz utworzyć grupę dostępności. Ten artykuł kompiluje wszystkie zasoby w jednej lokalizacji platformy Azure.
@@ -91,9 +91,9 @@ Aby utworzyć sieć wirtualną w Azure Portal:
    | **Pole** | Wartość |
    | --- | --- |
    | **Nazwa** |autoHAVNET |
-   | **Przestrzeń adresowa** |10.33.0.0/24 |
+   | **Przestrzeń adresowa** |10.0.0.0/24 |
    | **Nazwa podsieci** |Administrator |
-   | **Zakres adresów podsieci** |10.33.0.0/29 |
+   | **Zakres adresów podsieci** |10.0.0.0/29 |
    | **Subskrypcja** |Określ subskrypcję, która ma zostać użyta. **Subskrypcja** jest pusta, jeśli masz tylko jedną subskrypcję. |
    | **Grupa zasobów** |Wybierz pozycję **Użyj istniejącej** i wybierz nazwę grupy zasobów. |
    | **Lokalizacja** |Określ lokalizację platformy Azure. |
@@ -102,7 +102,7 @@ Aby utworzyć sieć wirtualną w Azure Portal:
 
    W przykładzie jest użyta nazwa podsieci **administrator**. Ta podsieć jest dla kontrolerów domeny.
 
-5. Wybierz pozycję **Utwórz**.
+5. Wybierz przycisk **Utwórz**.
 
    ![Konfigurowanie sieci wirtualnej](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
@@ -125,7 +125,7 @@ Nowa sieć wirtualna ma jedną podsieć o nazwie **admin**. Kontrolery domeny u�
 
 5. Aby utworzyć drugą podsieć, wybierz pozycję **+ podsieć**.
 6. W obszarze **Dodaj podsieć** Skonfiguruj podsieć, wpisując w polu **Nazwa** wartość **sqlsubnet** . Platforma Azure automatycznie określa prawidłowy **zakres adresów**. Sprawdź, czy ten zakres adresów zawiera co najmniej 10 adresów. W środowisku produkcyjnym może być wymagane więcej adresów.
-7. Wybierz pozycję **OK**.
+7. Wybierz przycisk **OK**.
 
     ![Konfigurowanie podsieci](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
@@ -197,7 +197,7 @@ W poniższej tabeli przedstawiono ustawienia tych dwóch maszyn:
 | **Rozmiar** |DS1_V2 |
 | **Storage** | **Korzystanie z dysków zarządzanych**  -  **Tak** |
 | **Sieć wirtualna** |autoHAVNET |
-| **Podsieć** |admin (administrator) |
+| **Podsieć** |administrator |
 | **Publiczny adres IP** |*Taka sama nazwa jak maszyna wirtualna* |
 | **Sieciowa grupa zabezpieczeń** |*Taka sama nazwa jak maszyna wirtualna* |
 | **Zestaw dostępności** |adavailabilityset </br>**Domeny błędów**: 2 </br>**Domeny aktualizacji**: 2|
@@ -422,7 +422,7 @@ Teraz można przyłączyć maszyny wirtualne do **Corp.contoso.com**. Wykonaj na
 2. W **Menedżerze serwera** wybierz pozycję **Serwer lokalny**.
 3. Wybierz łącze **grupy roboczej** .
 4. W sekcji **Nazwa komputera** wybierz pozycję **Zmień**.
-5. Zaznacz pole wyboru **domena** i wpisz **Corp.contoso.com** w polu tekstowym. Wybierz pozycję **OK**.
+5. Zaznacz pole wyboru **domena** i wpisz **Corp.contoso.com** w polu tekstowym. Wybierz przycisk **OK**.
 6. W podręcznym oknie dialogowym **zabezpieczenia systemu Windows** określ poświadczenia dla domyślnego konta administratora domeny (**CORP\DomainAdmin**) i hasło (**contoso! 0000**).
 7. Gdy zostanie wyświetlony komunikat "Witamy w domenie corp.contoso.com", wybierz **przycisk OK**.
 8. Wybierz pozycję **Zamknij**, a następnie w oknie podręcznym wybierz pozycję **Uruchom ponownie teraz** .
@@ -472,7 +472,7 @@ Aby skonfigurować grupę dostępności, użyj konta instalacji (CORP\install). 
 
 1. Ustaw Logowanie jako należące do stałej roli serwera **sysadmin** .
 
-1. Wybierz pozycję **OK**.
+1. Wybierz przycisk **OK**.
 
 Powtórz powyższe kroki na drugiej maszynie SQL Server VM.
 
@@ -563,7 +563,7 @@ Metoda otwierania portów zależy od używanego rozwiązania zapory. W następne
 
    ![Zapora SQL](./media/availability-group-manually-configure-prerequisites-tutorial-/35-tcpports.png)
 
-5. Wybierz pozycję **Dalej**.
+5. Wybierz opcję **Dalej**.
 6. Na stronie **Akcja** pozostaw zaznaczone pole wyboru **Zezwalaj na połączenie** , a następnie wybierz przycisk **dalej**.
 7. Na stronie **profil** zaakceptuj ustawienia domyślne, a następnie wybierz przycisk **dalej**.
 8. Na stronie **Nazwa** Określ nazwę reguły (na przykład **sondy Azure lb**) w polu tekstowym **Nazwa** , a następnie wybierz pozycję **Zakończ**.

@@ -1,5 +1,5 @@
 ---
-title: Utwórz Azure Media Services dane wejściowe zadania z pliku lokalnego
+title: Tworzenie danych wejściowych zadania z pliku lokalnego
 description: W tym artykule pokazano, jak utworzyć Azure Media Services dane wejściowe zadania z pliku lokalnego.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2121807405849b74b354d9e638a79948c1501da5
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 75cd5922804eb1724eaca0157f2c242a86406aab
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895343"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951382"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Tworzenie danych wejściowych zadania z pliku lokalnego
 

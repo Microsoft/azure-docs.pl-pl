@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 12e6aa85f7d8c2c4aebe80efc92f771917e6a1d5
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 4983e4b7f76c627cb3cb3081bc12e27111b2b521
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746016"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951465"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł zbierania danych w programie Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania [agenta log Analytics](../platform/log-analytics-agent.md) i [rozszerzenia diagnostycznego](../platform/diagnostics-extension-overview.md) dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -80,7 +80,7 @@ Poniższy przykład instaluje agenta Azure Monitor na maszynie wirtualnej platfo
 }
 ```
 
-## <a name="create-association-ith-azure-arc"></a>Utwórz stowarzyszenie i łuk platformy Azure
+## <a name="create-association-with-azure-arc"></a>Utwórz skojarzenie z usługą Azure Arc
 
 Poniższy przykład instaluje agenta Azure Monitor na maszynie wirtualnej platformy Microsoft Azure. Skojarzenie jest tworzone między komputerem serwera z obsługą usługi Azure Arc i regułą zbierania danych.
 

@@ -1,5 +1,5 @@
 ---
-title: Terminologia i zmiany jednostek między Azure Media Services V2 a v3
+title: Media Services terminologii i zmiany jednostek
 description: W tym artykule opisano różnice w terminologii między Azure Media Services V2 a v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: b53fbcb62004a8af9b2470c76f64f1ace845c1a8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a2348e0578b60c59fd7205037bd42d7bb1e84fae
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898396"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953703"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Terminologia i zmiany jednostek między Media Services V2 i V3
 
@@ -69,7 +69,7 @@ Zapoznaj się z konwencjami nazewnictwa, które są stosowane do zasobów Media 
 | **Inne zmiany** | **V**  | **Czytanie** |
 |---|---|---|
 | **Storage** <!--new row --> |||
-| Magazyn <!--new row --> | | Zestawy SDK V3 są teraz rozłączone z ZESTAWem danych magazynu, co zapewnia większą kontrolę nad wersją zestawu SDK magazynu, którego chcesz używać, oraz pozwala uniknąć problemów z przechowywaniem wersji.                      |
+| Storage <!--new row --> | | Zestawy SDK V3 są teraz rozłączone z ZESTAWem danych magazynu, co zapewnia większą kontrolę nad wersją zestawu SDK magazynu, którego chcesz używać, oraz pozwala uniknąć problemów z przechowywaniem wersji.                      |
 | **Kodowanie** <!--new row --> |||
 | Kodowanie szybkości transmisji bitów <!--new row --> | szybkość transmisji bitów mierzona w KB/s: 128 (KB/s)| bity na sekundę: 128000 (bity/s)|
 | Kodowanie FairPlay DRM <!--new row --> | W Media Services V2 można określić wektor inicjalizacji (IV). | W Media Services V3 nie można określić FairPlay IV.|

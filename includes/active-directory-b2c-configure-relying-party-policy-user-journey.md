@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 01/18/2021
+ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: f94076f06fb13bae2a26e8ab6003d7574a2dacfd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 73216b1b089444c1dc92bbe73ed07895de3711b2
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98674252"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98951538"
 ---
 ## <a name="configure-the-relying-party-policy"></a>Konfigurowanie zasad jednostki uzależnionej
 
@@ -33,11 +33,5 @@ W poniższym przykładzie w przypadku `CustomSignUpOrSignIn` podróży użytkown
 1. W obszarze **zasady** wybierz pozycję **platforma obsługi tożsamości**.
 1. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż dwa zmienione pliki zasad w następującej kolejności: zasady rozszerzenia, na przykład `TrustFrameworkExtensions.xml` zasady jednostki uzależnionej, takie jak `SignUpSignIn.xml` .
 
-## <a name="test-your-custom-policy"></a>Testowanie zasad niestandardowych
 
-1. Wybierz zasady jednostek uzależnionych, na przykład `B2C_1A_signup_signin`
-1. W przypadku **aplikacji** wybierz wcześniej zarejestrowaną aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Wybierz przycisk **Uruchom teraz** .
-
-Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
 

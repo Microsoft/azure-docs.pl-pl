@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: fcc3e487d949a9450f792a6cc230b64e7dbe950a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202950"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951246"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Samouczek: korzystanie z interfejsów API REST
 
 W tym samouczku dowiesz się, jak używać interfejsów API REST usługi Azure kontrolą. Każda osoba, która chce przesłać dane do wykazu usługi Azure kontrolą, może uwzględnić wykaz w ramach zautomatyzowanego procesu lub utworzyć własne środowisko użytkownika w wykazie, korzystając z interfejsów API REST.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -92,7 +92,7 @@ Aby skonfigurować usługę Azure kontrolą do zaufania nowej nazwy głównej us
 
 1. W przypadku **uprawnienia do przypisywania** pozostaw wartość domyślną, **użytkownika, grupy lub nazwy głównej usługi**
 
-1. W polu **Wybierz** wprowadź nazwę użytkownika, grupę Azure Active Directory lub jednostkę usługi, którą chcesz przypisać, a następnie kliknij jej nazwę w okienku wyników.
+1. W polu **Wybierz** wprowadź nazwę jednostki usługi, którą chcesz przypisać, a następnie kliknij jej nazwę w okienku wyników.
 
 1. Kliknij pozycję **Zapisz**
 

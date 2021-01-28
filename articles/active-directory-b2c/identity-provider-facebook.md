@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 64a4404fa881181f92d442a73e5da4c16ae87ae3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598883"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98952678"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą konta w usłudze Facebook przy użyciu Azure Active Directory B2C
 
@@ -84,6 +84,21 @@ Aby włączyć Logowanie użytkowników przy użyciu konta w serwisie Facebook w
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="create-a-policy-key"></a>Tworzenie klucza zasad
+
+Musisz przechowywać klucz tajny aplikacji, który został wcześniej zarejestrowany w dzierżawie Azure AD B2C.
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog, w którym znajduje się Twoja dzierżawa.
+3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
+4. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
+5. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
+6. W obszarze **Opcje** wybierz opcję `Manual` .
+7. Wprowadź **nazwę** klucza zasad. Na przykład `FacebookSecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
+8. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny aplikacji.
+9. W obszarze **użycie klucza** wybierz opcję `Signature` .
+10. Kliknij pozycję **Utwórz**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Konfigurowanie konta w serwisie Facebook jako dostawcy tożsamości
 

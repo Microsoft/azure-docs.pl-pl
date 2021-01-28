@@ -1,17 +1,17 @@
 ---
 title: Parametry serwera — Azure Database for MySQL
 description: Ten temat zawiera wskazówki dotyczące konfigurowania parametrów serwera w Azure Database for MySQL.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 0fddc1e8f80e257548d0dda91758273eb8c8ac78
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534912"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951314"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametry serwera w Azure Database for MySQL
 
@@ -69,8 +69,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|872415232|134217728|872415232|
-|Podstawowy|2|2684354560|134217728|2684354560|
+|Podstawowa|1|872415232|134217728|872415232|
+|Podstawowa|2|2684354560|134217728|2684354560|
 |Ogólnego przeznaczenia|2|3758096384|134217728|3758096384|
 |Ogólnego przeznaczenia|4|8053063680|134217728|8053063680|
 |Ogólnego przeznaczenia|8|16106127360|134217728|16106127360|
@@ -87,8 +87,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|872415232|134217728|872415232|
-|Podstawowy|2|2684354560|134217728|2684354560|
+|Podstawowa|1|872415232|134217728|872415232|
+|Podstawowa|2|2684354560|134217728|2684354560|
 |Ogólnego przeznaczenia|2|7516192768|134217728|7516192768|
 |Ogólnego przeznaczenia|4|16106127360|134217728|16106127360|
 |Ogólnego przeznaczenia|8|32212254720|134217728|32212254720|
@@ -116,8 +116,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|262144|128|268435455|
 |Ogólnego przeznaczenia|4|262144|128|536870912|
 |Ogólnego przeznaczenia|8|262144|128|1073741824|
@@ -134,8 +134,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|50|10|50|
-|Podstawowy|2|100|10|100|
+|Podstawowa|1|50|10|50|
+|Podstawowa|2|100|10|100|
 |Ogólnego przeznaczenia|2|300|10|600|
 |Ogólnego przeznaczenia|4|625|10|1250|
 |Ogólnego przeznaczenia|8|1250|10|2500|
@@ -165,8 +165,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|16777216|16384|268435455|
 |Ogólnego przeznaczenia|4|16777216|16384|536870912|
 |Ogólnego przeznaczenia|8|16777216|16384|1073741824|
@@ -190,8 +190,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|* * Wartość maksymalna * *|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|0|0|16777216|
 |Ogólnego przeznaczenia|4|0|0|33554432|
 |Ogólnego przeznaczenia|8|0|0|67108864|
@@ -228,8 +228,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|524288|32768|4194304|
 |Ogólnego przeznaczenia|4|524288|32768|8388608|
 |Ogólnego przeznaczenia|8|524288|32768|16777216|
@@ -248,8 +248,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|16777216|1024|67108864|
 |Ogólnego przeznaczenia|4|16777216|1024|134217728|
 |Ogólnego przeznaczenia|8|16777216|1024|268435456|
@@ -261,6 +261,18 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 |Optymalizacja pod kątem pamięci|8|16777216|1024|536870912|
 |Optymalizacja pod kątem pamięci|16|16777216|1024|1073741824|
 |Optymalizacja pod kątem pamięci|32|16777216|1024|1073741824|
+
+### <a name="innodb-buffer-pool-warmup"></a>Pula buforów InnoDB rozgrzewania
+Po ponownym uruchomieniu Azure Database for MySQL Server strony danych znajdujące się na dysku zostaną załadowane jako tabele zapytania. Prowadzi to do zwiększonego opóźnienia i wolniejszej wydajności podczas pierwszego wykonywania zapytań. Może to nie być akceptowalne dla obciążeń z opóźnieniem. Wykorzystanie puli buforów InnoDB rozgrzewania skraca okres rozgrzewania przez ponowne załadowanie stron dysku, które znajdowały się w puli buforów przed ponownym uruchomieniem, zamiast czekać na operacje DML lub SELECT w celu uzyskania dostępu do odpowiednich wierszy.
+
+Można skrócić okres rozgrzewania po ponownym uruchomieniu serwera Azure Database for MySQL, który reprezentuje zalety wydajności przez skonfigurowanie [parametrów serwera puli buforów InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB zapisuje wartość procentową ostatnio używanych stron dla każdej puli buforów podczas zamykania serwera i przywraca te strony podczas uruchamiania serwera.
+
+Należy również pamiętać, że zwiększona wydajność zapewnia koszt dłuższy od momentu uruchomienia serwera. Po włączeniu tego parametru oczekiwany jest czas uruchomienia i ponownego uruchomienia serwera w zależności od liczby operacji we/wy zainicjowanej na serwerze. Zalecamy przetestowanie i monitorowanie czasu ponownego uruchomienia, aby upewnić się, że wydajność uruchamiania/ponownego uruchamiania jest akceptowalna, ponieważ serwer jest niedostępny w tym czasie. Nie zaleca się używania tego parametru, gdy obsługa operacji we/wy jest mniejsza niż 1000 operacji we/wy na sekundę (lub innymi słowy, gdy zainicjowana pamięć masowa jest mniejsza niż 335GB.
+
+Aby zapisać stan puli buforów podczas zamykania serwera, ustaw parametr `innodb_buffer_pool_dump_at_shutdown` na `ON` . Analogicznie ustaw parametr Server `innodb_buffer_pool_load_at_startup` na, aby `ON` przywrócić stan puli buforów podczas uruchamiania serwera. Można kontrolować wpływ uruchamiania/ponownego uruchamiania przez obniżenie i dostrajanie wartości parametru serwera `innodb_buffer_pool_dump_pct` , domyślnie ten parametr jest ustawiony na `25` .
+
+> [!Note]
+> Parametry rozgrzewania puli buforów InnoDB są obsługiwane tylko na serwerach magazynu ogólnego przeznaczenia z magazynem o pojemności do 16 TB. Dowiedz się więcej na temat [opcji magazynu Azure Database for MySQL w tym miejscu](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ### <a name="time_zone"></a>time_zone
 
