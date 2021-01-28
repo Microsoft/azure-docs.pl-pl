@@ -2,19 +2,16 @@
 title: 'Szybki Start: Kwerenda Apache HBase w usłudze Azure HDInsight — powłoka HBase'
 description: W tym przewodniku szybki start dowiesz się, jak używać powłoki Apache HBase do uruchamiania zapytań Apache HBase.
 keywords: HDInsight, Hadoop, HBase
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.author: hrasheed
-ms.openlocfilehash: 572262cbece26171f9a67bf073906fa2dfd4d8e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 358e058667cb1750a6fc97dffebcbfb2c6e06f84
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79371073"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942933"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Szybki Start: Kwerenda Apache HBase w usłudze Azure HDInsight przy użyciu powłoki HBase
 

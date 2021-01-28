@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 11dc71578b3d94ce41fe040557184ff32bcf3240
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f7425e1cf34348b7742b739ef5440a5cb0355077
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661801"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942101"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk usługi Azure Monitor 
 
@@ -107,7 +107,7 @@ Podczas usuwania zasobu platformy Azure skojarzone reguły alertów metryk nie s
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Alerty metryk są wykonywane za każdym razem, gdy mój warunek jest spełniony
 
-Alerty metryk są domyślnie stanowe i w związku z tym dodatkowe alerty nie są wyzwalane, jeśli istnieje już niewyzwalany alert w danej szeregu czasowym. Jeśli chcesz ustawić konkretną regułę alertu metryki jako bezstanowe i otrzymywać alerty dla każdej oceny, w której spełniony jest warunek alertu, Utwórz regułę alertu programowo (na przykład za pośrednictwem [Menedżer zasobów](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/?view=azps-3.6.1), [rest](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)) i ustaw właściwość *autołagodzenie* na wartość "false".
+Alerty metryk są domyślnie stanowe i w związku z tym dodatkowe alerty nie są wyzwalane, jeśli istnieje już niewyzwalany alert w danej szeregu czasowym. Jeśli chcesz ustawić konkretną regułę alertu metryki jako bezstanowe i otrzymywać alerty dla każdej oceny, w której spełniony jest warunek alertu, Utwórz regułę alertu programowo (na przykład za pośrednictwem [Menedżer zasobów](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [rest](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)) i ustaw właściwość *autołagodzenie* na wartość "false".
 
 > [!NOTE] 
 > Utworzenie reguły alertu metryki bezstanowej uniemożliwia rozpoznanie wyzwalanych alertów, nawet gdy nie zostanie już spełniony warunek, wyzwolone alerty pozostaną w stanie uruchomienia do 30-dniowego okresu przechowywania.
@@ -175,9 +175,9 @@ Aby sprawdzić bieżące użycie reguł alertów metryk, wykonaj poniższe kroki
 
 ### <a name="from-api"></a>Za pomocą interfejsu API
 
-- PowerShell — [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
+- PowerShell — [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
 - Interfejs API REST — [lista według subskrypcji](/rest/api/monitor/metricalerts/listbysubscription)
-- Interfejs wiersza polecenia platformy Azure — [az monitor metrics alert list](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
+- Interfejs wiersza polecenia platformy Azure — [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
 
 ## <a name="managing-alert-rules-using-resource-manager-templates-rest-api-powershell-or-azure-cli"></a>Zarządzanie regułami alertów za pomocą szablonów Menedżer zasobów, interfejsu API REST, programu PowerShell lub interfejsu wiersza polecenia platformy Azure
 
@@ -196,14 +196,14 @@ Zapoznaj się z [przewodnikiem interfejsu API REST](/rest/api/monitor/metricaler
 
 Upewnij się, że używasz właściwych poleceń cmdlet programu PowerShell dla alertów metryk:
 
-- Polecenia cmdlet programu PowerShell dla alertów dotyczących metryk są dostępne w [module AZ.Monitor](/powershell/module/az.monitor/?view=azps-3.6.1)
-- Upewnij się, że używasz poleceń cmdlet kończących się na "v2" dla nowych (nieklasycznych) alertów metryk (na przykład [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2?view=azps-3.6.1))
+- Polecenia cmdlet programu PowerShell dla alertów dotyczących metryk są dostępne w [module AZ.Monitor](/powershell/module/az.monitor/)
+- Upewnij się, że używasz poleceń cmdlet kończących się na "v2" dla nowych (nieklasycznych) alertów metryk (na przykład [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2))
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 Upewnij się, że używasz właściwych poleceń interfejsu wiersza polecenia dla alertów metryk:
 
-- Polecenia interfejsu wiersza polecenia dla alertów metryk rozpoczynają się od `az monitor metrics alert`. Przejrzyj [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/monitor/metrics/alert?view=azure-cli-latest), aby poznać składnię.
+- Polecenia interfejsu wiersza polecenia dla alertów metryk rozpoczynają się od `az monitor metrics alert`. Przejrzyj [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/monitor/metrics/alert), aby poznać składnię.
 - Możesz zapoznać się z [przykładem przedstawiającym sposób użycia interfejsu wiersza polecenia alertów dotyczących metryk](./alerts-metric.md#with-azure-cli)
 - Przed utworzeniem alertu dotyczącego metryki niestandardowej upewnij, że nazwa metryki jest poprzedzona odpowiednią przestrzenią nazw metryki: PRZESTRZEŃ_NAZW.METRYKA
 
@@ -253,7 +253,7 @@ Podczas używania wymiarów w regule alertu zawierającej wiele warunków należ
 - Można wybrać tylko jedną wartość dla każdego wymiaru w każdym warunku.
 - Nie można użyć opcji "zaznacz wszystkie bieżące i przyszłe wartości" (wybierz \* ).
 - Gdy metryki, które są skonfigurowane w różnych warunkach, obsługują ten sam wymiar, wówczas skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich metryk (w odpowiednich warunkach).
-Przykład:
+Na przykład:
     - Należy wziąć pod uwagę regułę alertu metryki zdefiniowaną na koncie magazynu i monitoruje dwa warunki:
         * Łączna liczba **transakcji** > 5
         * Średnia **SuccessE2ELatency** > 250 MS

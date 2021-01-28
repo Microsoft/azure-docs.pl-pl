@@ -2,19 +2,16 @@
 title: Apache Hive zapytań za pomocą sterownika ODBC & PowerShell — Azure HDInsight
 description: Użyj sterownika Microsoft Hive ODBC i programu PowerShell, aby wysyłać zapytania do Apache Hive klastrów w usłudze Azure HDInsight.
 keywords: Hive, Hive ODBC, PowerShell
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 211b23db56b6deebb519b9eaac4164ea83edabac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078575"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941367"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Samouczek: zapytanie Apache Hive z ODBC i programu PowerShell
 
@@ -43,7 +40,7 @@ Pobierz i zainstaluj [Sterownik Microsoft Hive ODBC](https://www.microsoft.com/d
 
 Poniższe kroki przedstawiają sposób tworzenia źródła danych Apache Hive ODBC.
 
-1. W systemie Windows przejdź do **Start**  >  **menu Start Narzędzia administracyjne systemu Windows**  >  **źródła danych ODBC (32-bitowe)/(64-bitowe)**.  Otworzy się okno **Administrator źródła danych ODBC** .
+1. W systemie Windows przejdź do   >  **menu Start Narzędzia administracyjne systemu Windows**  >  **źródła danych ODBC (32-bitowe)/(64-bitowe)**.  Otworzy się okno **Administrator źródła danych ODBC** .
 
     ![Administrator źródła danych OBDC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Konfigurowanie DSN przy użyciu administratora źródła danych ODBC")
 

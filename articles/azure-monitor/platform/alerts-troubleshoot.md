@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 856aeb4dabc64edc2ade2869fddc3d14cb21a81b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403419"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942161"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Rozwiązywanie problemów z alertami Azure Monitor
 
@@ -245,7 +245,7 @@ Jeśli wystąpił błąd podczas próby utworzenia, zaktualizowania lub usunięc
 
 1. **Czy zweryfikowano parametry reguły akcji?**  
 
-    Zapoznaj się z [dokumentacją reguły akcji](alerts-action-rules.md)lub z [akcją programu PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) . 
+    Zapoznaj się z [dokumentacją reguły akcji](alerts-action-rules.md)lub z [akcją programu PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) . 
 
 
 ## <a name="next-steps"></a>Następne kroki

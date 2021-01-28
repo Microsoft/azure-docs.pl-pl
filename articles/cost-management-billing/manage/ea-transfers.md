@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 01/27/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f5555662c6cb5f44be3959ec3d22d1cf1953674d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030097"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943681"
 ---
 # <a name="azure-enterprise-transfers"></a>Transfery umowy Azure Enterprise
 
@@ -55,22 +55,22 @@ Przeniesienie rejestracji rozważa się, gdy:
 - Rejestracja ma stan wygasła/rozszerzona i jest negocjowana nowa umowa.
 - Jeśli masz wiele rejestracji i chcesz połączyć wszystkie konta oraz rozliczenia w ramach jednej rejestracji.
 
-Ta sekcja służy tylko do celów informacyjnych, ponieważ akcji nie może wykonać administrator przedsiębiorstwa. Do przeniesienia rejestracji przedsiębiorstwa do nowej rejestracji jest wymagany wniosek o pomoc techniczną.
+Ta sekcja służy tylko do celów informacyjnych, ponieważ akcji nie może wykonać administrator przedsiębiorstwa. Żądanie pomocy technicznej jest konieczne do przetransferowania rejestracji w przedsiębiorstwie do nowej, chyba że rejestracja jest zgodna z [transferem automatycznej rejestracji](#auto-enrollment-transfer).
 
 Po utworzeniu żądania dotyczącego przeniesienia całej rejestracji w przedsiębiorstwie do rejestracji zostaną wykonane następujące akcje:
 
 - Wszystkie usługi, subskrypcje, konta, działy i cała struktura rejestracji, w tym wszyscy administratorzy działu umów EA, zostaną przeniesione do nowej rejestracji docelowej.
 - Stan rejestracji zostanie ustawiono na _Przeniesione_. Przeniesiona rejestracja jest dostępna wyłącznie dla celów raportowania użycia historycznego.
-- Do przeniesionej rejestracji nie można dodawać ról ani subskrypcji. Stan Przeniesione uniemożliwia dodatkowe użycie w odniesieniu do rejestracji.
+- Do przeniesionej rejestracji nie można dodawać ról ani subskrypcji. Stan transferu uniemożliwia korzystanie z rejestracji.
 - Pozostałe saldo przedpłaty za platformę Azure w umowie zostanie utracone, łącznie z przyszłymi okresami.
--    Jeśli rejestracja, z której się przenosisz, obejmuje zakupy wystąpień zarezerwowanych, opłata za zakup wystąpień zarezerwowanych pozostaje w rejestracji źródłowej, jednak wszystkie korzyści wynikające z wystąpienia zarezerwowanego zostaną przeniesione do wykorzystania w nowej rejestracji.
--    Opłata za jednorazowe zakupy w witrynie Marketplace i wszystkie miesięczne opłaty stałe naliczone już w ramach starej rejestracji nie zostaną przeniesione do nowej rejestracji. Opłaty witryny Marketplace naliczone na podstawie użycia zostaną przeniesione.
+-    Jeśli rejestracja, z której korzystasz, ma zakupy na poziomie RI, opłaty za zakup z RI pozostają w rejestracji źródłowej, jednak wszystkie korzyści wynikające z wystąpienia zarezerwowanego zostaną przeniesione do użycia w ramach nowej rejestracji.
+-    Opłata za jednorazowe zakupy w witrynie Marketplace i wszystkie miesięczne opłaty stałe już naliczane w ramach starej rejestracji nie są przenoszone do nowej rejestracji. Opłaty witryny Marketplace naliczone na podstawie użycia zostaną przeniesione.
 
 ### <a name="effective-transfer-date"></a>Data obowiązywania przeniesienia
 
 Data obowiązywania przeniesienia może być datą początkową rejestracji docelowej lub późniejszą.
 
-Użycie rejestracji źródłowej jest obciążane opłatą w odniesieniu do przedpłaty za platformę Azure lub jako nadwyżka. Użycie, które następuje po dacie obowiązywania przeniesienia, jest transferowane do nowej rejestracji i są naliczane odpowiednie opłaty.
+Użycie rejestracji źródłowej jest obciążane opłatą w odniesieniu do przedpłaty za platformę Azure lub jako nadwyżka. Użycie nastąpi po przeniesieniu obowiązującej daty przeniesienia do nowej rejestracji i naliczania opłat.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -78,13 +78,24 @@ Po zażądaniu przeniesienia rejestracji podaj następujące informacje:
 
 - W przypadku rejestracji źródłowej numer rejestracji.
 - W przypadku rejestracji docelowej numer rejestracji, do której nastąpi przeniesienie.
-- W przypadku daty obowiązywania przeniesienia rejestracji może to być data początkowa rejestracji docelowej lub późniejsza. Wybrana data nie może wpływać na użycie dla żadnej wystawionej już faktury nadwyżkowej.
+- W przypadku daty obowiązywania przeniesienia rejestracji może to być data początkowa rejestracji docelowej lub późniejsza. Wybrana Data nie może wpływać na użycie dla żadnej już wydanej faktury.
 
 Inne zagadnienia, które należy wziąć pod uwagę przed przeniesieniem rejestracji:
 
 - Wymagane jest zatwierdzenie od administratorów umowy EA rejestracji docelowej i źródłowej.
 - Jeśli przeniesienie rezerwacji nie spełnia Twoich wymagań, rozważ przeniesienie konta.
 - Stan rejestracji źródłowej zostanie zaktualizowany na „przeniesiona” i będzie dostępny tylko dla celów raportowania użycia historycznego.
+
+### <a name="auto-enrollment-transfer"></a>Automatyczne Transferowanie rejestracji
+
+Może się okazać, że rejestracja ma stan **transferowany** , nawet jeśli bilet pomocy technicznej nie został przesłany do żądania przetransferowania rejestracji. **Przesłany** stan wynika z procesu automatycznego transferu rejestracji. Aby proces automatycznego przesyłania rejestracji miał miejsce w ramach zwrotu odnowienia, istnieje kilka elementów, które muszą zostać uwzględnione w nowej umowie:
+
+- Wcześniejszy numer rejestracji (musi istnieć w portalu EA)
+- Data wygaśnięcia wcześniejszego numeru rejestracji to jeden dzień przed datą rozpoczęcia obowiązywania nowej umowy
+- Nowa Umowa zawiera zamówienie przedpłaty na platformie Azure, które ma bieżącą datę lub jest przestarzałe
+- Nowa rejestracja zostanie utworzona w portalu EA
+
+Jeśli nie ma żadnych danych użycia w portalu EA między wcześniejszą rejestracją a nową rejestracją, nie trzeba tworzyć biletu pomocy technicznej dotyczącej transferu.
 
 ### <a name="azure-prepayment"></a>Przedpłata za platformę Azure
 

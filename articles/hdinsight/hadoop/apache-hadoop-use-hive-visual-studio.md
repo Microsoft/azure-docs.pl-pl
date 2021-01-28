@@ -1,19 +1,16 @@
 ---
 title: Apache Hive & Data Lake Tools for Visual Studio — Azure HDInsight
 description: Dowiedz się, jak za pomocą narzędzi Data Lake Tools for Visual Studio uruchamiać zapytania Apache Hive za pomocą Apache Hadoop w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: c8645ae9cb901b9fc95f00665d73e223a24fda63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076457"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943171"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Uruchamianie zapytań Apache Hive przy użyciu wtyczki Data Lake Tools for Visual Studio
 
@@ -40,7 +37,7 @@ Zapytania ad hoc mogą być wykonywane w trybie **wsadowym** lub **interaktywnym
 
 1. Uruchom **program Visual Studio** i wybierz pozycję **Kontynuuj bez kodu**.
 
-2. W **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z Microsoft Azure subskrypcją...**, a następnie ukończ proces logowania.
+2. W **Eksplorator serwera** kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z Microsoft Azure subskrypcją...**, a następnie ukończ proces logowania.
 
 3. Rozwiń węzeł **HDInsight**, kliknij prawym przyciskiem myszy klaster, w którym chcesz uruchomić zapytanie, a następnie wybierz polecenie **Napisz zapytanie Hive**.
 
@@ -60,9 +57,9 @@ Zapytania ad hoc mogą być wykonywane w trybie **wsadowym** lub **interaktywnym
 
     Edytor Hive obsługuje funkcję IntelliSense. Narzędzia Data Lake Tools for Visual Studio obsługują ładowanie zdalnych metadanych podczas edycji skryptu Hive. Na przykład, jeśli wpiszesz `SELECT * FROM` , IntelliSense wyświetla wszystkie sugerowane nazwy tabel. Po określeniu nazwy tabeli funkcja IntelliSense wyświetla nazwy kolumn. Narzędzia obsługują większość instrukcji DML programu Hive, podzapytań i wbudowanych sterowników UDF. Funkcja IntelliSense zasugeruje tylko metadane klastra zaznaczonego na pasku narzędzi usługi HDInsight.
 
-7. Na pasku narzędzi zapytania (obszar poniżej karty zapytania i powyżej tekstu zapytania) wybierz pozycję **Prześlij**lub wybierz rozwijaną strzałkę obok pola **Prześlij** i wybierz pozycję **Zaawansowane** z listy rozwijanej. Jeśli wybierzesz ostatnią opcję,
+7. Na pasku narzędzi zapytania (obszar poniżej karty zapytania i powyżej tekstu zapytania) wybierz pozycję **Prześlij** lub wybierz rozwijaną strzałkę obok pola **Prześlij** i wybierz pozycję **Zaawansowane** z listy rozwijanej. Jeśli wybierzesz ostatnią opcję,
 
-8. W przypadku wybrania opcji przesyłania zaawansowanego Skonfiguruj **nazwę zadania**, **argumenty**, **dodatkowe konfiguracje**i **katalog stanu** w oknie dialogowym **Prześlij skrypt** . Następnie wybierz pozycję **Prześlij**.
+8. W przypadku wybrania opcji przesyłania zaawansowanego Skonfiguruj **nazwę zadania**, **argumenty**, **dodatkowe konfiguracje** i **katalog stanu** w oknie dialogowym **Prześlij skrypt** . Następnie wybierz pozycję **Prześlij**.
 
     ![Okno dialogowe przesyłania skryptu, zapytanie Hive usługi HDInsight Hadoop](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
 
@@ -120,7 +117,7 @@ Aby uruchomić zapytanie programu Hive przez utworzenie aplikacji Hive, wykonaj 
 
 Poniższy przykład opiera się na `log4jLogs` tabeli utworzonej w poprzedniej procedurze, [Tworzenie aplikacji Hive](#create-a-hive-application).
 
-1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy klaster i wybierz polecenie **Napisz zapytanie Hive**.
+1. W **Eksplorator serwera** kliknij prawym przyciskiem myszy klaster i wybierz polecenie **Napisz zapytanie Hive**.
 
 2. Wprowadź następujące zapytanie programu Hive:
 

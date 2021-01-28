@@ -1,19 +1,16 @@
 ---
 title: Migrowanie klastra HBase do nowej wersji — usługa Azure HDInsight
 description: Jak przeprowadzić migrację klastrów Apache HBase do nowszej wersji w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 8ce25780e197c26e0e5b102670e093031e1a2582
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 24a0c09ba78c668dab017ec80adda19f59d89a4f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697666"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942975"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrowanie klastra Apache HBase do nowej wersji
 
@@ -32,17 +29,17 @@ Poniżej znajduje się przykładowa wersja macierzy zgodności. Wartość Y ozna
 
 | Typ zgodności | Wersja główna| Wersja pomocnicza | Patch |
 | --- | --- | --- | --- |
-| Zgodność sieci Client-Server | N | T | T |
-| Zgodność Server-Server | N | T | T |
-| Zgodność formatu pliku | N | T | T |
-| Zgodność z interfejsem API klienta | N | T | T |
-| Zgodność binarna klienta | N | N | T |
+| Zgodność sieci Client-Server | N | Y | Y |
+| Zgodność Server-Server | N | Y | Y |
+| Zgodność formatu pliku | N | Y | Y |
+| Zgodność z interfejsem API klienta | N | Y | Y |
+| Zgodność binarna klienta | N | N | Y |
 | **Ograniczona zgodność interfejsu API po stronie serwera** |  |  |  |
-| Stable | N | T | T |
-| Ewoluuje | N | N | T |
+| Stable | N | Y | Y |
+| Ewoluuje | N | N | Y |
 | Stanie | N | N | N |
-| Zgodność zależności | N | T | T |
-| Zgodność operacyjna | N | N | T |
+| Zgodność zależności | N | Y | Y |
+| Zgodność operacyjna | N | N | Y |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Uaktualnij z tą samą wersją główną oprogramowania Apache HBase
 

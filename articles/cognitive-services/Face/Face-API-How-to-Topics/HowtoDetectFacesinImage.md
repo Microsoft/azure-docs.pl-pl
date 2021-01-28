@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f7a740b1015bda80000f65180eda2c5e618670da
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 81a5f771e141639b2dcf33afe603fe53428bf88a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911243"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943597"
 ---
 # <a name="get-face-detection-data"></a>Pobieranie danych wykrywania kroju
 
@@ -30,25 +30,25 @@ W tym przewodniku pokazano, jak:
 
 ## <a name="setup"></a>Konfigurowanie
 
-W tym przewodniku przyjęto założenie, że został już skonstruowany obiekt [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) o nazwie `faceClient` z kluczem subskrypcji i adresem URL punktu końcowego. W tym miejscu możesz użyć funkcji wykrywania kroju przez wywołanie [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), która jest używana w tym przewodniku, lub [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Aby uzyskać instrukcje dotyczące sposobu konfigurowania tej funkcji, wykonaj jedną z przewodników Szybki Start.
+W tym przewodniku przyjęto założenie, że został już skonstruowany obiekt [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) o nazwie `faceClient` z kluczem subskrypcji i adresem URL punktu końcowego. W tym miejscu możesz użyć funkcji wykrywania kroju przez wywołanie [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync), która jest używana w tym przewodniku, lub [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync). Aby uzyskać instrukcje dotyczące sposobu konfigurowania tej funkcji, wykonaj jedną z przewodników Szybki Start.
 
 Ten przewodnik koncentruje się na konkretnych wywołaniach wykrywania, takich jak argumenty, które można przekazać, i co można zrobić z zwracanymi danymi. Zalecamy, aby wykonywać zapytania dotyczące tylko potrzebnych funkcji. Każda operacja zajmuje dodatkowy czas.
 
 ## <a name="get-basic-face-data"></a>Pobieranie danych podstawowych
 
-Aby znaleźć powierzchnie i uzyskać ich lokalizacje w obrazie, wywołaj metodę [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet) lub [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet) z parametrem _returnFaceId_ ustawioną na **wartość true** . Jest to ustawienie domyślne.
+Aby znaleźć powierzchnie i uzyskać ich lokalizacje w obrazie, wywołaj metodę [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync) lub [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync) z parametrem _returnFaceId_ ustawioną na **wartość true**. Jest to ustawienie domyślne.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 
-Można wysyłać zapytania do zwracanych obiektów [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) dla ich unikatowych identyfikatorów i prostokąta, który zapewnia współrzędne pikseli powierzchni.
+Można wysyłać zapytania do zwracanych obiektów [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) dla ich unikatowych identyfikatorów i prostokąta, który zapewnia współrzędne pikseli powierzchni.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic2":::
 
-Aby uzyskać informacje na temat analizowania lokalizacji i wymiarów kroju, zobacz [FaceRectangle](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet). Zazwyczaj ten prostokąt zawiera oczy, eyebrows, nos i jamy ustnej. Góra z Ears i Chin nie są uwzględniane. Aby przy użyciu prostokąta czołowego przyciąć kompletną stronę główną lub uzyskać pionowy zrzut, na przykład dla obrazu typu zdjęcia, można rozwinąć prostokąt w każdym kierunku.
+Aby uzyskać informacje na temat analizowania lokalizacji i wymiarów kroju, zobacz [FaceRectangle](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle). Zazwyczaj ten prostokąt zawiera oczy, eyebrows, nos i jamy ustnej. Góra z Ears i Chin nie są uwzględniane. Aby przy użyciu prostokąta czołowego przyciąć kompletną stronę główną lub uzyskać pionowy zrzut, na przykład dla obrazu typu zdjęcia, można rozwinąć prostokąt w każdym kierunku.
 
 ## <a name="get-face-landmarks"></a>Pobierz punkty orientacyjne
 
-[Punkty orientacyjne](../concepts/face-detection.md#face-landmarks) są zestawem łatwych do znalezienia punktów na stronie, takich jak uczniowie lub pozostała część nosa. Aby uzyskać dane punktu orientacyjnego, należy ustawić parametr _detectionModel_ na wartość **detectionModel. Detection01** i parametr _returnFaceLandmarks_ na **true** .
+[Punkty orientacyjne](../concepts/face-detection.md#face-landmarks) są zestawem łatwych do znalezienia punktów na stronie, takich jak uczniowie lub pozostała część nosa. Aby uzyskać dane punktu orientacyjnego, należy ustawić parametr _detectionModel_ na wartość **detectionModel. Detection01** i parametr _returnFaceLandmarks_ na **true**.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="landmarks1":::
 
@@ -66,7 +66,7 @@ Gdy znasz kierunek działania, możesz obrócić prostokątną ramkę czołową,
 
 Oprócz prostokątów i punktów orientacyjnych interfejs API wykrywania powierzchni może analizować kilka atrybutów pojęciowych powierzchni. Aby zapoznać się z pełną listą, zobacz sekcję dotyczącą pojęć dotyczących [atrybutów](../concepts/face-detection.md#attributes) .
 
-Aby analizować atrybuty kroju, należy ustawić parametr _detectionModel_ na **detectionModel. Detection01** i parametr _ReturnFaceAttributes_ na listę wartości [wyliczeniowych FaceAttributeType](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) .
+Aby analizować atrybuty kroju, należy ustawić parametr _detectionModel_ na **detectionModel. Detection01** i parametr _ReturnFaceAttributes_ na listę wartości [wyliczeniowych FaceAttributeType](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype) .
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="attributes1":::
 
@@ -85,4 +85,4 @@ W tym przewodniku przedstawiono sposób użycia różnych funkcji wykrywania czo
 ## <a name="related-topics"></a>Powiązane tematy
 
 - [Dokumentacja referencyjna (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-- [Dokumentacja referencyjna (zestaw SDK dla platformy .NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
+- [Dokumentacja referencyjna (zestaw SDK dla platformy .NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)

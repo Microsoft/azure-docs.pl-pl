@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 637e66956eadf57199d2e5191368d6355e2cd118
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734970"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941902"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 
@@ -217,13 +217,13 @@ Ograniczanie dostępu w ten sposób dotyczy tylko danych w zasobie Application I
 
 Proces opisany wcześniej można zautomatyzować za pomocą szablonów Azure Resource Manager, REST i interfejsu wiersza polecenia.
 
-Aby utworzyć prywatne zakresy łączy i zarządzać nimi, użyj [interfejsu API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) lub [wiersza polecenia platformy Azure (AZ monitor Private-Scope-zakres)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+Aby utworzyć prywatne zakresy łączy i zarządzać nimi, użyj [interfejsu API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) lub [wiersza polecenia platformy Azure (AZ monitor Private-Scope-zakres)](/cli/azure/monitor/private-link-scope).
 
-Aby zarządzać dostępem do sieci, użyj flag `[--ingestion-access {Disabled, Enabled}]` i `[--query-access {Disabled, Enabled}]` na [log Analytics obszarach roboczych](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) lub [składników Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
+Aby zarządzać dostępem do sieci, użyj flag `[--ingestion-access {Disabled, Enabled}]` i `[--query-access {Disabled, Enabled}]` na [log Analytics obszarach roboczych](/cli/azure/monitor/log-analytics/workspace) lub [składników Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
 
 ## <a name="collect-custom-logs-over-private-link"></a>Zbierz niestandardowe dzienniki za pośrednictwem prywatnego linku
 
-Konta magazynu są używane w procesie pozyskiwania dzienników niestandardowych. Domyślnie są używane konta magazynu zarządzane przez usługę. Jednak w przypadku linków prywatnych można korzystać z własnych kont magazynu i kojarzyć je z obszarami roboczymi Log Analytics. Zobacz więcej szczegółowych informacji na temat konfigurowania takich kont przy użyciu [wiersza polecenia](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+Konta magazynu są używane w procesie pozyskiwania dzienników niestandardowych. Domyślnie są używane konta magazynu zarządzane przez usługę. Jednak w przypadku linków prywatnych można korzystać z własnych kont magazynu i kojarzyć je z obszarami roboczymi Log Analytics. Zobacz więcej szczegółowych informacji na temat konfigurowania takich kont przy użyciu [wiersza polecenia](/cli/azure/monitor/log-analytics/workspace/linked-storage).
 
 Aby uzyskać więcej informacji na temat przełączania własnych kont magazynu, zobacz [konta magazynu należące do klienta na potrzeby](private-storage.md) pozyskiwania dziennika
 
@@ -246,13 +246,13 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace key>
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Aby korzystać z środowisk Azure Monitor Portal, takich jak Application Insights i Log Analytics, należy zezwolić na dostęp rozszerzeń Azure Portal i Azure Monitor w sieciach prywatnych. Dodaj [znaczniki usługi](../../firewall/service-tags.md) **usługi azureactivedirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty** i **AzureFrontDoor. frontonu** do sieciowej grupy zabezpieczeń.
 
 ### <a name="programmatic-access"></a>Dostęp programowy
 
-Aby użyć interfejsu API REST, interfejsu [wiersza polecenia](/cli/azure/monitor?view=azure-cli-latest) lub programu PowerShell z Azure monitor w sieciach prywatnych, należy dodać do zapory [Tagi usług](../../virtual-network/service-tags-overview.md)  **usługi azureactivedirectory** i **AzureResourceManager** .
+Aby użyć interfejsu API REST, interfejsu [wiersza polecenia](/cli/azure/monitor) lub programu PowerShell z Azure monitor w sieciach prywatnych, należy dodać do zapory [Tagi usług](../../virtual-network/service-tags-overview.md)  **usługi azureactivedirectory** i **AzureResourceManager** .
 
 Dodanie tych tagów umożliwia wykonywanie akcji, takich jak wykonywanie zapytań dotyczących danych dzienników, tworzenie i zarządzanie obszarami roboczymi Log Analytics i składnikami AI.
 

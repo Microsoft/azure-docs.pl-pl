@@ -1,18 +1,15 @@
 ---
 title: Klastry usługi Azure HDInsight z szyfrowaniem dysków tracą dostęp Key Vault
 description: Kroki rozwiązywania problemów i możliwe rozwiązania Key Vault problemów z dostępem w przypadku korzystania z klastrów usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: bc8162f3a7ca8744a94aba039996275b5f13c727
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ce2929ca84746de1ab8b51882f3004c3699f17ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533414"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943120"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scenariusz: klastry usługi Azure HDInsight z szyfrowaniem dysków tracą dostęp Key Vault
 
@@ -26,7 +23,7 @@ Alert Resource Health Center (systemie RHC występuje), `The HDInsight cluster i
 
 Alert zapewnia dostęp do elementu KV z węzłów klastra, dzięki czemu zapewnianie połączenia sieciowego, kondycji KV i zasad dostępu dla tożsamości zarządzanej przypisanej przez użytkownika. Ten alert jest tylko ostrzeżeniem o zbliżającym się zamykaniu brokera w kolejnych ponownych uruchomieniach węzła, klaster będzie działał do momentu ponownego uruchomienia węzłów.
 
-Przejdź do interfejsu użytkownika Apache Ambari, aby uzyskać więcej informacji na temat alertu na podstawie **stanu szyfrowania dysku Key Vault** . Ten alert zawiera szczegółowe informacje o przyczynie niepowodzenia weryfikacji.
+Przejdź do interfejsu użytkownika Apache Ambari, aby uzyskać więcej informacji na temat alertu na podstawie **stanu szyfrowania dysku Key Vault**. Ten alert zawiera szczegółowe informacje o przyczynie niepowodzenia weryfikacji.
 
 ## <a name="resolution"></a>Rozwiązanie
 

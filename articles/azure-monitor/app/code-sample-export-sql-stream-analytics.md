@@ -3,12 +3,12 @@ title: Eksportowanie do bazy danych SQL z platformy Azure Application Insights |
 description: Ciągle Eksportuj dane Application Insights do bazy danych SQL przy użyciu Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fb7093dd9945893b17f1b8f5e596cfe5181c3b6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979450"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942425"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Przewodnik: Eksportowanie do bazy danych SQL z Application Insights przy użyciu Stream Analytics
 W tym artykule przedstawiono sposób przenoszenia danych telemetrycznych z [usługi Azure Application Insights][start] do Azure SQL Database za pomocą [eksportu ciągłego][export] i [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -64,7 +64,7 @@ Eksport ciągły zawsze wyprowadza dane do konta usługi Azure Storage, dlatego 
 1. Umożliwia gromadzenie danych. Powróć i pozwól, aby użytkownicy korzystali z aplikacji przez pewien czas. Dane telemetryczne będą dostępne, a wykresy statystyczne są wyświetlane w [Eksploratorze metryk](../platform/metrics-charts.md) i w poszczególnych zdarzeniach w [przeszukiwaniu diagnostycznym](./diagnostic-search.md). 
    
     Ponadto dane zostaną wyeksportowane do magazynu. 
-2. Sprawdź wyeksportowane dane w portalu — wybierz pozycję **Przeglądaj**, wybierz konto magazynu, a następnie **kontenery** — lub w programie Visual Studio. W programie Visual Studio wybierz pozycję **Widok/Eksplorator chmury**i Otwórz pozycję Azure/Storage. (Jeśli nie masz tej opcji menu, musisz zainstalować zestaw Azure SDK: Otwórz okno dialogowe Nowy projekt i otwórz Visual C#/Cloud/Get Zestaw Microsoft Azure SDK dla platformy .NET).
+2. Sprawdź wyeksportowane dane w portalu — wybierz pozycję **Przeglądaj**, wybierz konto magazynu, a następnie **kontenery** — lub w programie Visual Studio. W programie Visual Studio wybierz pozycję **Widok/Eksplorator chmury** i Otwórz pozycję Azure/Storage. (Jeśli nie masz tej opcji menu, musisz zainstalować zestaw Azure SDK: Otwórz okno dialogowe Nowy projekt i otwórz Visual C#/Cloud/Get Zestaw Microsoft Azure SDK dla platformy .NET).
    
     ![W programie Visual Studio Otwórz przeglądarkę serwera, platformę Azure, magazyn](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -72,7 +72,7 @@ Eksport ciągły zawsze wyprowadza dane do konta usługi Azure Storage, dlatego 
 
 Zdarzenia są zapisywane w plikach obiektów BLOB w formacie JSON. Każdy plik może zawierać jedno lub więcej zdarzeń. Więc chcemy przeczytać dane zdarzenia i odfiltrować pola, które chcemy. Istnieją wszystkie rodzaje rzeczy, które możemy zrobić z danymi, ale naszym planem jest użycie Stream Analytics do przenoszenia danych do SQL Database. Dzięki temu będzie można łatwo uruchamiać wiele interesujących zapytań.
 
-## <a name="create-an-azure-sql-database"></a>Tworzenie bazy danych Azure SQL Database
+## <a name="create-an-azure-sql-database"></a>Tworzenie usługi Azure SQL Database
 Po ponownym uruchomieniu z subskrypcji w [Azure Portal][portal]Utwórz bazę danych (i nowy serwer, chyba że już nie masz takiego komputera), na którym chcesz napisać dane.
 
 ![Nowe, dane, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
@@ -82,7 +82,7 @@ Upewnij się, że serwer zezwala na dostęp do usług platformy Azure:
 ![Przeglądanie, serwery, serwer, ustawienia, Zapora, zezwalanie na dostęp do platformy Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Tworzenie tabeli w Azure SQL Database
-Nawiąż połączenie z bazą danych utworzoną w poprzedniej sekcji za pomocą preferowanego narzędzia do zarządzania. W tym instruktażu będziemy używać [SQL Server Management Tools](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
+Nawiąż połączenie z bazą danych utworzoną w poprzedniej sekcji za pomocą preferowanego narzędzia do zarządzania. W tym instruktażu będziemy używać [SQL Server Management Tools](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 ![Łączenie z bazą danych Azure SQL Database](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4915fd69940450f22548ae326879b5729b687248
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699750"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942089"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów
 
@@ -66,7 +66,7 @@ Aby usunąć rozwiązania przy użyciu Azure Portal, należy wykonać czynności
 
 ### <a name="delete-using-powershell"></a>Usuwanie przy użyciu programu PowerShell
 
-Aby usunąć rozwiązania przy użyciu programu PowerShell, użyj polecenia cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) , jak pokazano w następującym przykładzie:
+Aby usunąć rozwiązania przy użyciu programu PowerShell, użyj polecenia cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource) , jak pokazano w następującym przykładzie:
 
 ``` PowerShell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>
@@ -98,7 +98,7 @@ Aby odłączyć konto usługi Automation od obszaru roboczego przy użyciu Azure
 
 ## <a name="move-your-workspace"></a>Przenoszenie obszaru roboczego
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 Aby przenieść obszar roboczy przy użyciu Azure Portal, wykonaj czynności opisane w poniższej procedurze:
 
 1. Otwórz menu **log Analytics obszary robocze** , a następnie wybierz obszar roboczy.

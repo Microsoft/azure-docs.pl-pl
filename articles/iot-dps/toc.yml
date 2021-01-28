@@ -116,10 +116,16 @@
       href: concepts-device-oem-security-practices.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Łączenie zestawu deweloperskiego IoT MXChip z usługą IoT Hub
-      href: how-to-connect-mxchip-iot-devkit.md
-    - name: Aprowizacja urządzeń przy użyciu niestandardowych zasad alokacji
-      href: how-to-use-custom-allocation-policies.md
+    - name: Opracowywanie zawartości
+      items:
+        - name: Łączenie zestawu deweloperskiego IoT MXChip z usługą IoT Hub
+          href: how-to-connect-mxchip-iot-devkit.md
+        - name: Jak wysyłać dodatkowe dane z urządzeń
+          href: how-to-send-additional-data.md
+        - name: Aprowizacja urządzeń przy użyciu niestandardowych zasad alokacji
+          href: how-to-use-custom-allocation-policies.md
+        - name: Komunikacja z usługą DPS przy użyciu protokołu MQTT
+          href: iot-dps-mqtt-support.md
     - name: Zarządzanie usługą Device Provisioning Service
       items:
         - name: Zarządzanie rejestracjami — Portal
@@ -138,8 +144,6 @@
           href: how-to-control-access.md
         - name: Konfigurowanie filtrowania adresów IP
           href: iot-dps-ip-filtering.md
-        - name: Konfigurowanie usługi Device Provisioning Service przy użyciu interfejsu wiersza polecenia platformy Azure
-          href: how-to-manage-dps-with-cli.md
     - name: Aprowizowanie urządzeń usługi IoT Edge
       items:
         - name: Linux
@@ -148,12 +152,8 @@
         - name: Windows
           href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
           maintainContext: true
-    - name: Jak wysyłać dodatkowe dane z urządzeń
-      href: how-to-send-additional-data.md
     - name: Rozwiązywanie problemów
       href: how-to-troubleshoot-dps.md
-    - name: Komunikacja z usługą DPS przy użyciu protokołu MQTT
-      href: iot-dps-mqtt-support.md
 - name: Dokumentacja
   items:
     - name: Interfejs API REST

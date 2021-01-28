@@ -1,19 +1,16 @@
 ---
 title: 'Samouczek: Scala Maven App for Spark & IntelliJ — Azure HDInsight'
 description: Samouczek — Tworzenie aplikacji Spark, która została zapisywana w Scala za pomocą platformy Apache Maven jako systemu kompilacji. A istniejący Maven Archetype dla Scala zapewniany przez pomysł IntelliJ.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: 5be4ce97e6087847f084f9b9ec2a6b8b0df84e14
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d2c7c4feca32544a0e15e876c7207c49dee39341
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033514"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940517"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Samouczek: tworzenie aplikacji Scala Maven dla platformy Apache Spark w usłudze HDInsight przy użyciu środowiska IntelliJ
 
@@ -25,7 +22,7 @@ W tym samouczku dowiesz się, jak utworzyć aplikację Apache Spark napisaną w 
 * Generowanie pliku jar, który można przesłać do klastrów HDInsight Spark.
 * Uruchamianie aplikacji w klastrze Spark przy użyciu usługi Livy.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Instalowanie wtyczki Scala dla środowiska IntelliJ IDEA
 > * Tworzenie aplikacji Scala Maven przy użyciu środowiska IntelliJ
@@ -71,7 +68,7 @@ Wykonaj następujące kroki, aby zainstalować wtyczkę Scala:
 
    ![IntelliJ okno dialogowe Nowy projekt](./media/apache-spark-create-standalone-application/intellij-project-apache-spark.png)
 
-5. Wybierz pozycję **Dalej**.
+5. Wybierz opcję **Dalej**.
 
 6. W oknie **New Project** (Nowy projekt) podaj następujące informacje:  
 
@@ -100,7 +97,7 @@ Wykonaj następujące kroki, aby zainstalować wtyczkę Scala:
 
     ![Zrzut ekranu przedstawia wybrany Archetype w oknie Nowy projekt.](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
-6. Wybierz pozycję **Dalej**.
+6. Wybierz opcję **Dalej**.
 
 7. Rozwiń **współrzędne artefaktu**. Podaj odpowiednie wartości dla **identyfikatora GroupID** i **ArtifactId**. **Nazwa** i **Lokalizacja** zostaną automatycznie wypełnione. W tym samouczku są one następujące:
 
@@ -109,7 +106,7 @@ Wykonaj następujące kroki, aby zainstalować wtyczkę Scala:
 
     ![Zrzut ekranu przedstawia opcję współrzędne artefaktu w oknie Nowy projekt.](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
-8. Wybierz pozycję **Dalej**.
+8. Wybierz opcję **Dalej**.
 
 9. Sprawdź ustawienia, a następnie wybierz pozycję **Next** (Dalej).
 

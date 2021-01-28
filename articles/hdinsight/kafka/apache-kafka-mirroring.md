@@ -1,19 +1,16 @@
 ---
 title: Lustrzane tematy Apache Kafka — Azure HDInsight
 description: Dowiedz się, jak używać funkcji dublowania Apache Kafka, aby zachować replikę Kafka w klastrze usługi HDInsight przez tematy dotyczące dublowania w klastrze pomocniczym.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: d4a2be6719fdaaa9dc859df21cc030478e474210
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428247"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940850"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Replikowanie tematów platformy Apache Kafka przy użyciu platformy Kafka w usłudze HDInsight za pomocą narzędzia MirrorMaker
 
@@ -81,7 +78,7 @@ Ta architektura zawiera dwa klastry w różnych grupach zasobów i sieci wirtual
     | Kafka — klaster podstawowy | Kafka — podstawowy — RG | Kafka — Sieć wirtualna | kafkaprimarystorage |
     | Kafka — klaster pomocniczy | Kafka-pomocniczy — RG | Kafka — pomocnicza Sieć wirtualna | kafkasecondarystorage |
 
-1. Utwórz wirtualne sieci równorzędne. Ten krok spowoduje utworzenie dwóch komunikacji równorzędnych: jeden z **Kafka-Primary-VNET** - **Kafka-------** ------ **kafka-primary-vnet**------------------- **--**
+1. Utwórz wirtualne sieci równorzędne. Ten krok spowoduje utworzenie dwóch komunikacji równorzędnych: jeden z **Kafka-Primary-VNET** - **Kafka-------** ------ ------------------- **--**
     1. Wybierz sieć wirtualną **Kafka-Primary-VNET** .
     1. Wybierz pozycję **Komunikacja równorzędna** w obszarze **Ustawienia**.
     1. Wybierz pozycję **Dodaj**.
@@ -107,7 +104,7 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
 
 1. Wprowadź uwagę na ekranie **Zapisywanie konfiguracji** i kliknij przycisk **Zapisz**.
 1. Jeśli zostanie wyświetlony monit z ostrzeżeniem o konfiguracji, kliknij przycisk **Kontynuuj mimo to**.
-1. W obszarze **Zapisz zmiany konfiguracji**wybierz pozycję **OK** .
+1. W obszarze **Zapisz zmiany konfiguracji** wybierz pozycję **OK** .
 1. Wybierz pozycję **Uruchom ponownie**  >  **Uruchom ponownie wszystkie zmiany, których dotyczy** powiadomienie **wymagane do ponownego uruchomienia** . Wybierz pozycję **Potwierdź ponowne uruchomienie wszystkich**.
 
     ![System Apache Ambari](./media/apache-kafka-mirroring/ambari-restart-notification.png)
@@ -116,7 +113,7 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
     
 1. Pozostań na **karcie konfiguracje w** obszarze **usługi**  >  **Kafka**. W sekcji **brokera Kafka** ustaw właściwość **detektory** na `PLAINTEXT://0.0.0.0:9092` .
 1. Wybierz pozycję **Zapisz**.
-1. Wybierz pozycję **Uruchom ponownie**i **Potwierdź wszystkie ponowne uruchomienie**.
+1. Wybierz pozycję **Uruchom ponownie** i **Potwierdź wszystkie ponowne uruchomienie**.
 
 ### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Rejestruj adresy IP brokera i adresy dozorcy dla klastra podstawowego.
 
@@ -125,7 +122,7 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
 
     ![Adresy IP węzłów widoku Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
-1. Powtórz poprzednie trzy kroki dla drugiego klastra **Kafka-dodatkowy**klaster: Skonfiguruj anonsowanie adresów IP, ustaw odbiorniki i zanotuj adresy IP brokera i dozorcy.
+1. Powtórz poprzednie trzy kroki dla drugiego klastra **Kafka-dodatkowy** klaster: Skonfiguruj anonsowanie adresów IP, ustaw odbiorniki i zanotuj adresy IP brokera i dozorcy.
 
 ## <a name="create-topics"></a>Tworzenie tematów
 

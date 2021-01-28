@@ -1,23 +1,20 @@
 ---
 title: Używanie rozszerzonych funkcji na serwerze historii Apache Spark do debugowania aplikacji — Azure HDInsight
 description: Użyj rozszerzonych funkcji na serwerze historii Apache Spark, aby debugować i diagnozować aplikacje Spark — Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d53d9e9ee2a7fa6588ea0993b3bebdb2a287351
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079296"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941043"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Użyj rozszerzonych funkcji serwera historii Apache Spark, aby debugować i diagnozować aplikacje Spark
 
-W tym artykule pokazano, jak za pomocą rozszerzonych funkcji serwera historii Apache Spark debugować i diagnozować ukończone lub działające aplikacje platformy Spark. Rozszerzenie zawiera kartę **dane** , kartę **Graf** i kartę **Diagnostyka** . Na karcie **dane** można sprawdzić dane wejściowe i wyjściowe zadania platformy Spark. Na karcie **Graph** można sprawdzić przepływ danych i ponownie odtworzyć wykres zadań. Na karcie **Diagnostyka** można odwołać się do funkcji **odchylenia danych**, **pochylania czasu i wykonywania**programu **wykonującego testy** .
+W tym artykule pokazano, jak za pomocą rozszerzonych funkcji serwera historii Apache Spark debugować i diagnozować ukończone lub działające aplikacje platformy Spark. Rozszerzenie zawiera kartę **dane** , kartę **Graf** i kartę **Diagnostyka** . Na karcie **dane** można sprawdzić dane wejściowe i wyjściowe zadania platformy Spark. Na karcie **Graph** można sprawdzić przepływ danych i ponownie odtworzyć wykres zadań. Na karcie **Diagnostyka** można odwołać się do funkcji **odchylenia danych**, **pochylania czasu i wykonywania** programu **wykonującego testy** .
 
 ## <a name="get-access-to-the-spark-history-server"></a>Uzyskaj dostęp do serwera historii platformy Spark
 
@@ -26,7 +23,7 @@ Serwer historii platformy Spark jest interfejsem użytkownika sieci Web dla uko�
 ### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Otwórz interfejs użytkownika sieci Web serwera historii platformy Spark z poziomu Azure Portal
 
 1. W [Azure Portal](https://portal.azure.com/)Otwórz klaster Spark. Aby uzyskać więcej informacji, zobacz Wyświetlanie [i wyświetlanie klastrów](../hdinsight-administer-use-portal-linux.md#showClusters).
-2. W obszarze **pulpity nawigacyjne klastra**wybierz pozycję  **serwer historii platformy Spark**. Po wyświetleniu monitu wprowadź poświadczenia administratora dla klastra Spark.
+2. W obszarze **pulpity nawigacyjne klastra** wybierz pozycję  **serwer historii platformy Spark**. Po wyświetleniu monitu wprowadź poświadczenia administratora dla klastra Spark.
 
     ![Uruchom serwer historii platformy Spark z poziomu Azure Portal.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Serwer historii platformy Spark")
 
@@ -42,7 +39,7 @@ Interfejs użytkownika sieci Web serwera historii platformy Spark może wygląda
 
 Wybierz identyfikator zadania, a następnie wybierz pozycję **dane** w menu Narzędzia, aby wyświetlić widok dane.
 
-+ Przejrzyj **dane wejściowe**, **wyjściowe**i **operacje tabeli** , wybierając poszczególne karty.
++ Przejrzyj **dane wejściowe**, **wyjściowe** i **operacje tabeli** , wybierając poszczególne karty.
 
     ![Karty danych na stronie aplikacji platformy Spark.](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
@@ -151,9 +148,9 @@ Wybierz identyfikator zadania, a następnie wybierz pozycję **dane** w menu Nar
 
 ## <a name="use-the-diagnosis-tab-in-the-spark-history-server"></a>Korzystanie z karty Diagnostyka na serwerze historii platformy Spark
 
-Wybierz identyfikator zadania, a następnie w menu Narzędzia wybierz pozycję **Diagnostyka** , aby wyświetlić widok Diagnostyka zadań. Karta **Diagnostyka** obejmuje **przechylenie danych**, **pochylenie czasu**i **analizę użycia programu wykonującego**.
+Wybierz identyfikator zadania, a następnie w menu Narzędzia wybierz pozycję **Diagnostyka** , aby wyświetlić widok Diagnostyka zadań. Karta **Diagnostyka** obejmuje **przechylenie danych**, **pochylenie czasu** i **analizę użycia programu wykonującego**.
 
-+ Sprawdź **pochylenie danych**, **pochylenie czasu**i **analizę użycia programu wykonującego** , wybierając odpowiednio karty.
++ Sprawdź **pochylenie danych**, **pochylenie czasu** i **analizę użycia programu wykonującego** , wybierając odpowiednio karty.
 
     ![Karta przechylenie danych na karcie Diagnostyka.](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
@@ -185,7 +182,7 @@ Karta **przechylenie czasu** przedstawia zadania skośne w oparciu o czas wykony
 
 W sekcji **Określanie parametrów** są wyświetlane parametry, które są używane do wykrywania pochylenia czasu. Reguła domyślna to: czas wykonywania zadania jest dłuższy niż trzy razy średni czas wykonywania, a czas wykonywania zadania jest większy niż 30 sekund. Można zmienić parametry w zależności od potrzeb. Na wykresie skośny **stopień** i **skośny** są wyświetlane odpowiednie etapy i zadania, podobnie jak na karcie **pochylanie danych** .
 
-Po wybraniu opcji **przechylenie czasu**filtrowany wynik zostanie wyświetlony w sekcji **pochylone etap** zgodnie z parametrami ustawionymi w sekcji **Określanie parametrów** . Po wybraniu jednego elementu w sekcji **skośny etap** odpowiadający mu wykres zostanie sporządzony w trzeciej sekcji, a szczegóły zadania zostaną wyświetlone w prawym dolnym panelu.
+Po wybraniu opcji **przechylenie czasu** filtrowany wynik zostanie wyświetlony w sekcji **pochylone etap** zgodnie z parametrami ustawionymi w sekcji **Określanie parametrów** . Po wybraniu jednego elementu w sekcji **skośny etap** odpowiadający mu wykres zostanie sporządzony w trzeciej sekcji, a szczegóły zadania zostaną wyświetlone w prawym dolnym panelu.
 
 ![Karta przechylenie czasu na karcie Diagnostyka.](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
@@ -193,7 +190,7 @@ Po wybraniu opcji **przechylenie czasu**filtrowany wynik zostanie wyświetlony w
 
 **Wykres użycia programu wykonującego** przedstawia rzeczywistą alokację wykonawców i stan uruchomienia zadania.  
 
-Po wybraniu **analizy użycia programu wykonującego**, cztery różne krzywe dotyczące użycia programu wykonującego są przygotowane: **przydzielono wykonawcy**, **uruchomione wykonawcy**, **wykonawcze bezczynne**i **maksymalną liczbę wystąpień programu wykonującego**. Wszystkie zdarzenia dodane przez program **wykonujący** lub **usuniętego wykonawcy** spowodują zwiększenie lub zmniejszenie przyznanych wykonawców. Możesz sprawdzić **oś czasu zdarzeń** na karcie **zadania** , aby uzyskać więcej porównań.
+Po wybraniu **analizy użycia programu wykonującego**, cztery różne krzywe dotyczące użycia programu wykonującego są przygotowane: **przydzielono wykonawcy**, **uruchomione wykonawcy**, **wykonawcze bezczynne** i **maksymalną liczbę wystąpień programu wykonującego**. Wszystkie zdarzenia dodane przez program **wykonujący** lub **usuniętego wykonawcy** spowodują zwiększenie lub zmniejszenie przyznanych wykonawców. Możesz sprawdzić **oś czasu zdarzeń** na karcie **zadania** , aby uzyskać więcej porównań.
 
 ![Karta Analiza użycia programu wykonującego na karcie Diagnostyka.](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -201,7 +198,7 @@ Wybierz ikonę koloru, aby wybrać lub usunąć zaznaczenie odpowiedniej zawarto
 
  ![Wybierz wykres na karcie Analiza użycia programu wykonującego.](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="how-do-i-revert-to-the-community-version"></a>Jak mogę powrócić do wersji społecznościowej?
 

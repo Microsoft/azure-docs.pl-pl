@@ -1,19 +1,16 @@
 ---
 title: Użyj Apache Spark, aby odczytywać i zapisywać dane w Azure SQL Database
 description: Dowiedz się, jak skonfigurować połączenie między klastrem usługi HDInsight Spark a Azure SQL Database. Aby odczytywać dane, zapisywać dane i przesyłać strumieniowo dane do bazy danych SQL
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 97c326bd1d2f61ba3fb9d6e381f5a8711bd0ca1d
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 4d42cedbc5dc20c929703be106e732b4806f3902
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821200"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940608"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Korzystanie z klastra Spark w usłudze HDInsight w celu odczytywania i zapisywania danych w Azure SQL Database
 

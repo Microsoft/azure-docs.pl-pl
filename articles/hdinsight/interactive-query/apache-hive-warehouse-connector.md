@@ -3,16 +3,15 @@ title: Apache Spark & Hive — łącznik magazynu Hive — Azure HDInsight
 description: Dowiedz się, jak zintegrować Apache Spark i Apache Hive z łącznikiem magazynu Hive w usłudze Azure HDInsight.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 24968511d038b2cea41a59187c0a361684c6720e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39eb007c85d9f0623b4a5611e36d4ed7a75423e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511895"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941184"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrowanie Apache Spark i Apache Hive z łącznikiem magazynu Hive w usłudze Azure HDInsight
 
@@ -73,7 +72,7 @@ Niektóre operacje obsługiwane przez łącznik magazynu Hive są następujące:
 
 1. Wybierz pozycję **Dodaj właściwość...** , aby dodać następujące konfiguracje:
 
-    | Konfiguracja | Wartość |
+    | Konfigurowanie | Wartość |
     |----|----|
     |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Ustaw odpowiedni katalog przemieszczania zgodny z systemem plików HDFS. Jeśli istnieją dwa różne klastry, katalog przemieszczania powinien być folderem w katalogu przemieszczania konta magazynu klastra LLAP, dzięki czemu serwera hiveserver2 ma do niego dostęp.  Zastąp ciąg `STORAGE_ACCOUNT_NAME` nazwą konta magazynu używanego przez klaster i `STORAGE_CONTAINER_NAME` nazwą kontenera magazynu. |
     |`spark.sql.hive.hiveserver2.jdbc.url`| Wartość uzyskana wcześniej od **serwera hiveserver2 Interactive JDBC URL** |
@@ -94,7 +93,7 @@ Poza konfiguracjami wymienionymi w poprzedniej sekcji Dodaj następującą konfi
 
 1. Zaktualizuj poniższą właściwość.
 
-    | Konfiguracja | Wartość |
+    | Konfigurowanie | Wartość |
     |----|----|
     | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<llap-headnode>@<AAD-Domain>` |
     
@@ -218,7 +217,7 @@ kinit USERNAME
 
         ![Lista zasad Hive Ranger łącznika magazynu Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    1. Podaj żądaną nazwę zasad. Wybierz bazę danych **: default**, tabela programu Hive: **Demonstracja**, kolumna Hive: **name**, User: **rsadmin2**, typy dostępu: **SELECT**i **maska częściowa: Pokaż ostatnie 4** z menu **opcji wybierz maskowanie** . Kliknij pozycję **Dodaj**.
+    1. Podaj żądaną nazwę zasad. Wybierz bazę danych **: default**, tabela programu Hive: **Demonstracja**, kolumna Hive: **name**, User: **rsadmin2**, typy dostępu: **SELECT** i **maska częściowa: Pokaż ostatnie 4** z menu **opcji wybierz maskowanie** . Kliknij pozycję **Dodaj**.
                 ![Utwórz zasady](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Ponownie Wyświetl zawartość tabeli. Po zastosowaniu zasad Ranger można zobaczyć tylko cztery ostatnie znaki w kolumnie.
 

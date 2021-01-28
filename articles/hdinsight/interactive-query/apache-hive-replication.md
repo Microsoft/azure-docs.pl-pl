@@ -1,18 +1,15 @@
 ---
 title: Jak używać replikacji Apache Hive w klastrach usługi Azure HDInsight
 description: Dowiedz się, jak za pomocą replikacji Hive w klastrach usługi HDInsight replikować magazyn metadanych Hive i Azure Data Lake Storage Gen 2 Data Lake.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dd894a46b666703f64e44336c0bf022da8a063a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857745"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941333"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Jak używać replikacji Apache Hive w klastrach usługi Azure HDInsight
 
@@ -140,7 +137,7 @@ Replikacja przyrostowa jest zgodna z tym samym procesem i wymaga ostatniego zrep
 
 Replikacja jest zwykle konfigurowana jednokierunkowo między głównym i pomocniczym, gdzie podstawowym celem jest żądanie odczytu i zapisu. Klaster pomocniczy ma tylko żądania odczytu. Jeśli wystąpi awaria, operacje zapisu są dozwolone na serwerze pomocniczym, ale replikacji odwrotnej należy skonfigurować z powrotem do podstawowego.
 
-:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Diagram replikacji programu Hive":::
+:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Wzorzec replikacji Hive":::
 
 Istnieje wiele wzorców, które są odpowiednie dla replikacji Hive, w tym podstawowe — pomocnicze, Hub i Relay.
 

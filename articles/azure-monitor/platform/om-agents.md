@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 571dcd41da9be578e69d9a8ad40ed05784ae26a8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975580"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941973"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Połącz Operations Manager z Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Aby zachować istniejące inwestycje w [System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) i korzystać z rozszerzonych możliwości z Azure monitor, możesz zintegrować Operations Manager z obszarem roboczym log Analytics. Dzięki temu można wykorzystać możliwości dzienników w Azure Monitor podczas kontynuowania korzystania z Operations Manager do:
+Aby zachować istniejące inwestycje w [System Center Operations Manager](/system-center/scom/key-concepts) i korzystać z rozszerzonych możliwości z Azure monitor, możesz zintegrować Operations Manager z obszarem roboczym log Analytics. Dzięki temu można wykorzystać możliwości dzienników w Azure Monitor podczas kontynuowania korzystania z Operations Manager do:
 
 * Monitorowanie kondycji usług IT za pomocą programu Operations Manager
 * Utrzymywanie integracji z rozwiązaniami ITSM obsługującymi zarządzanie zdarzeniami i problemami
@@ -71,7 +71,7 @@ W poniższych informacjach przedstawiono informacje o konfiguracji serwera proxy
 
 |Zasób | Numer portu| Obejście inspekcji HTTP|  
 |---------|------|-----------------------|  
-|**Agent**|||  
+|**Odczynnik**|||  
 |\*.ods.opinsights.azure.com| 443 |Tak|  
 |\*.oms.opinsights.azure.com| 443|Tak|  
 |\*.blob.core.windows.net| 443|Tak|  
@@ -95,7 +95,7 @@ W poniższych informacjach przedstawiono informacje o konfiguracji serwera proxy
 
 ### <a name="tls-12-protocol"></a>Protokół TLS 1,2
 
-Aby zapewnić bezpieczeństwo danych przesyłanych do Azure Monitor, zdecydowanie zachęcamy do skonfigurowania agenta i grupy zarządzania do korzystania z co najmniej Transport Layer Security (TLS) 1,2. Starsze wersje protokołu TLS/SSL (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. Aby uzyskać dodatkowe informacje, zapoznaj się z [bezpiecznym przesyłaniem danych przy użyciu protokołu TLS 1,2](./data-security.md#sending-data-securely-using-tls-12).
+Aby zapewnić bezpieczeństwo danych przesyłanych do Azure Monitor, zdecydowanie zachęcamy do skonfigurowania agenta i grupy zarządzania do korzystania z co najmniej Transport Layer Security (TLS) 1,2. Starsze wersje protokołu TLS/Secure Sockets Layer (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. Aby uzyskać dodatkowe informacje, zapoznaj się z [bezpiecznym przesyłaniem danych przy użyciu protokołu TLS 1,2](./data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Łączenie Operations Manager z Azure Monitor
 

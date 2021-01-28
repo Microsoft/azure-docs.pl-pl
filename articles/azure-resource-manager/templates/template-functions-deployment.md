@@ -2,13 +2,13 @@
 title: Funkcje szablonu — wdrożenie
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pobierania informacji o wdrożeniu.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/27/2021
+ms.openlocfilehash: 438afc947b07ac7425de365a2d63c427cf53e2ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920518"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943464"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funkcje wdrażania dla szablonów ARM
 
@@ -33,6 +33,7 @@ Zwraca informacje o bieżącej operacji wdrażania.
 
 Ta funkcja zwraca obiekt, który jest przesyłany podczas wdrażania. Właściwości w zwracanym obiekcie różnią się w zależności od tego, czy są:
 
+* Wdrażanie szablonu lub specyfikacji szablonu.
 * wdrożenie szablonu, który jest plikiem lokalnym lub wdrożenie szablonu, który jest plikiem zdalnym dostępnym za pomocą identyfikatora URI.
 * Wdrażanie w grupie zasobów lub wdrażanie jej w jednym z pozostałych zakresów ([subskrypcja platformy Azure](deploy-to-subscription.md), [Grupa zarządzania](deploy-to-management-group.md)lub [dzierżawca](deploy-to-tenant.md)).
 
@@ -66,6 +67,31 @@ Podczas wdrażania szablonu zdalnego w grupie zasobów: funkcja zwraca następuj
   "properties": {
     "templateLink": {
       "uri": ""
+    },
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
+}
+```
+
+Podczas wdrażania specyfikacji szablonu w grupie zasobów: funkcja zwraca następujący format:
+
+```json
+{
+  "name": "",
+  "properties": {
+    "templateLink": {
+      "id": ""
     },
     "template": {
       "$schema": "",

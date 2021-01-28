@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Analiza tonacji z Cognitive Services'
-description: Samouczek dotyczący sposobu wykorzystania Cognitive Services do analizy tonacji w Synapse
+description: Dowiedz się, jak używać Cognitive Services do analizy tonacji w usłudze Azure Synapse Analytics
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,98 +9,104 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 6a4833cf0d73939e01fd3e3e7263c6cba3c0a28a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 08d5e53facce172c2287c2e341895f0ee38571f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222194"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943705"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Samouczek: Analiza tonacji z Cognitive Services (wersja zapoznawcza)
 
-W tym samouczku dowiesz się, jak łatwo wzbogacać dane w usłudze Azure Synapse za pomocą [Cognitive Services](../../cognitive-services/index.yml). Będziemy używać funkcji [Analiza tekstu](../../cognitive-services/text-analytics/index.yml) , aby przeprowadzić analizę tonacji. Użytkownik w usłudze Azure Synapse może po prostu wybrać tabelę zawierającą kolumnę tekstową do wzbogacania z mową. Mową mogą być pozytywne, ujemne, mieszane lub neutralne i prawdopodobieństwo zostanie zwrócone.
+W tym samouczku dowiesz się, jak łatwo wzbogacać dane z usługi Azure Synapse Analytics przy użyciu [usługi azure Cognitive Services](../../cognitive-services/index.yml). Do przeprowadzenia analizy tonacji będziesz używać funkcji [Analiza tekstu](../../cognitive-services/text-analytics/index.yml) . 
+
+Użytkownik w usłudze Azure Synapse może po prostu wybrać tabelę zawierającą kolumnę tekstową do wzbogacania z mową. Mową mogą być pozytywne, ujemne, mieszane lub neutralne. Prawdopodobieństwo zostanie również zwrócone.
 
 W tym samouczku opisano następujące czynności:
 
 > [!div class="checklist"]
-> - Kroki umożliwiające pobranie zestawu danych tabeli Spark zawierającego kolumnę tekstową na potrzeby analizy tonacji.
-> - Użyj środowiska kreatora w usłudze Azure Synapse, aby wzbogacić dane przy użyciu Cognitive Services analiza tekstu.
+> - Kroki umożliwiające pobranie zestawu danych tabeli Spark, który zawiera kolumnę tekstową na potrzeby analizy tonacji.
+> - Używanie środowiska kreatora w usłudze Azure Synapse do wzbogacania danych za pomocą analiza tekstu w Cognitive Services.
 
 Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Obszar roboczy usługi Azure Synapse Analytics](../get-started-create-workspace.md) z kontem magazynu ADLS Gen2 skonfigurowanym jako magazyn domyślny. Musisz być **współautorem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym pracujesz.
+- [Obszar roboczy usługi Azure Synapse Analytics](../get-started-create-workspace.md) z kontem magazynu Azure Data Lake Storage Gen2 skonfigurowanym jako magazyn domyślny. Musisz być *współautorem danych obiektów blob magazynu* w systemie plików Data Lake Storage Gen2, z którym pracujesz.
 - Pula platformy Spark w obszarze roboczym usługi Azure Synapse Analytics. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie puli platformy Spark w usłudze Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Aby można było korzystać z tego samouczka, należy również wykonać kroki opisane w tym samouczku. [Skonfiguruj Cognitive Services w usłudze Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Kroki przed rozpoczęciem konfiguracji opisane w samouczku [konfigurowanie Cognitive Services w usłudze Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-spark-table"></a>Tworzenie tabeli platformy Spark
 
-W tym samouczku będzie potrzebna tabela platformy Spark.
+Dla tego samouczka potrzebna jest tabela platformy Spark.
 
-1. Pobierz następujący plik CSV zawierający zestaw danych na potrzeby analizy tekstu: [FabrikamComments.csv](https://github.com/Kaiqb/KaiqbRepo0731190208/blob/master/CognitiveServices/TextAnalytics/FabrikamComments.csv)
+1. Pobierz plik [FabrikamComments.csv](https://github.com/Kaiqb/KaiqbRepo0731190208/blob/master/CognitiveServices/TextAnalytics/FabrikamComments.csv) , który zawiera zestaw danych do analizy tekstu. 
 
-1. Przekaż plik do konta magazynu usługi Azure Synapse ADLSGen2.
-![Przekazywanie danych](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00a.png)
+1. Przekaż plik do konta usługi Azure Synapse Storage w Data Lake Storage Gen2.
+  
+   ![Zrzut ekranu pokazujący wybory przekazywania danych.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00a.png)
 
-1. Utwórz tabelę Spark na podstawie pliku CSV po kliknięciu prawym przyciskiem myszy pliku i wybraniu polecenia **Nowy Notes — > utworzyć tabelę platformy Spark**.
-![Utwórz tabelę platformy Spark](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00b.png)
+1. Utwórz tabelę Spark z pliku CSV, klikając plik prawym przyciskiem myszy i wybierając pozycję **Nowy Notes**  >  **Utwórz tabelę platformy Spark**.
 
-1. Nadaj tabeli nazwę w komórce kod i uruchom Notes w puli Spark. Pamiętaj, aby ustawić "Header = true".
-![Uruchom Notes](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00c.png)
+   ![Zrzut ekranu pokazujący wybory dla tworzenia tabeli Spark.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00b.png)
 
-```python
-%%pyspark
-df = spark.read.load('abfss://default@azuresynapsesa.dfs.core.windows.net/data/FabrikamComments.csv', format='csv'
-## If header exists uncomment line below
-, header=True
-)
-df.write.mode("overwrite").saveAsTable("default.YourTableName")
-```
+1. Nadaj tabeli nazwę w komórce kod i uruchom Notes w puli Spark. Należy pamiętać o ustawieniu `header=True` .
 
-## <a name="launch-cognitive-services-wizard"></a>Uruchom Kreatora Cognitive Services
+   ![Zrzut ekranu pokazujący uruchomiony Notes.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00c.png)
 
-1. Kliknij prawym przyciskiem myszy tabelę Spark utworzoną w poprzednim kroku. Wybierz pozycję "Machine Learning > wzbogacania z istniejącym modelem", aby otworzyć kreatora.
-![Uruchom Kreatora oceniania](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d.png)
+   ```python
+   %%pyspark
+   df = spark.read.load('abfss://default@azuresynapsesa.dfs.core.windows.net/data/FabrikamComments.csv', format='csv'
+   ## If a header exists, uncomment the line below
+   , header=True
+   )
+   df.write.mode("overwrite").saveAsTable("default.YourTableName")
+   ```
 
-2. Zostanie wyświetlony panel konfiguracja i zostanie wyświetlony monit o wybranie modelu Cognitive Services. Wybierz pozycję analiza tekstu — analiza tonacji.
+## <a name="open-the-cognitive-services-wizard"></a>Otwieranie kreatora Cognitive Services
 
-![Uruchom Kreatora oceniania — krok 1](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00e.png)
+1. Kliknij prawym przyciskiem myszy tabelę Spark utworzoną w poprzedniej procedurze. Wybierz **Machine Learning**  >  **wzbogacanie z istniejącym modelem** , aby otworzyć kreatora.
+
+   ![Zrzut ekranu pokazujący opcje otwierania Kreatora oceniania.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d.png)
+
+2. Zostanie wyświetlony panel konfiguracja i zostanie wyświetlony monit o wybranie modelu Cognitive Services. Wybierz pozycję **Analiza tekstu — analiza tonacji**.
+
+   ![Zrzut ekranu, który pokazuje wybór modelu Cognitive Services.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00e.png)
 
 ## <a name="provide-authentication-details"></a>Podaj szczegóły uwierzytelniania
 
-Aby można było uwierzytelnić się w Cognitive Services, należy odwołać się do klucza tajnego w celu użycia w Key Vault. Poniższe dane wejściowe są zależne od [wstępnie wymaganych kroków](tutorial-configure-cognitive-services-synapse.md) , które należy wykonać przed wykonaniem tego kroku.
+Aby uwierzytelnić się w Cognitive Services, należy odwołać się do wpisu tajnego magazynu kluczy. Poniższe dane wejściowe zależą od [wstępnie wymaganych kroków](tutorial-configure-cognitive-services-synapse.md) , które należy wykonać przed tym punktem.
 
 - **Subskrypcja platformy Azure**: wybierz subskrypcję platformy Azure, do której należy Twój Magazyn kluczy.
-- **Konto Cognitive Services**: jest to zasób analiza tekstu, z którym chcesz nawiązać połączenie.
-- **Azure Key Vault połączona usługa**: w ramach wstępnie wymaganych kroków została utworzona połączona usługa dla zasobu analiza tekstu. Wybierz ją tutaj.
-- **Nazwa wpisu tajnego**: jest to nazwa wpisu tajnego w magazynie kluczy zawierającym klucz do uwierzytelnienia w zasobie Cognitive Services.
+- **Konto Cognitive Services**: wprowadź zasób analiza tekstu, z którym chcesz nawiązać połączenie.
+- **Azure Key Vault połączona usługa**: w ramach kroków wymagań wstępnych została utworzona połączona usługa dla zasobu analiza tekstu. Wybierz je tutaj.
+- **Nazwa wpisu tajnego**: Wprowadź nazwę wpisu tajnego w magazynie kluczy, który zawiera klucz do uwierzytelnienia w zasobie Cognitive Services.
 
-![Podaj szczegóły Azure Key Vault](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00f.png)
+![Zrzut ekranu pokazujący szczegóły uwierzytelniania dla magazynu kluczy.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00f.png)
 
-## <a name="configure-sentiment-analysis"></a>Konfigurowanie analiza tonacji
+## <a name="configure-sentiment-analysis"></a>Konfigurowanie analizy tonacji
 
-Następnie należy skonfigurować analizę tonacji. Wybierz następujące szczegóły:
-- **Język**: Wybierz język tekstu, dla którego chcesz przeprowadzić analizę tonacji. Wybierz pozycję **EN**.
-- **Kolumna tekstowa**: jest to kolumna tekstowa w zestawie danych, którą chcesz analizować, aby określić tonacji. Wybierz pozycję **komentarz** kolumny tabeli.
+Następnie skonfiguruj analizę tonacji. Wybierz następujące szczegóły:
+- **Język**: Wybierz język **angielski** w postaci tekstu, na którym chcesz przeprowadzić analizę tonacji.
+- **Kolumna tekstowa**: wybierz opcję **komentarz (ciąg)** jako kolumnę tekstową w zestawie danych, którą chcesz analizować, aby określić tonacji.
 
-Po zakończeniu kliknij pozycję **Otwórz Notes**. Spowoduje to wygenerowanie notesu z kodem PySpark, który wykonuje analizę tonacji przy użyciu usługi Azure Cognitive Services.
+Gdy skończysz, wybierz pozycję **Otwórz Notes**. Spowoduje to wygenerowanie notesu z kodem PySpark, który wykonuje analizę tonacji przy użyciu usługi Azure Cognitive Services.
 
-![Konfigurowanie analiza tonacji](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00g.png)
+![Zrzut ekranu pokazujący wybory dotyczące konfigurowania analizy tonacji.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00g.png)
 
-## <a name="open-notebook-and-run"></a>Otwórz Notes i uruchom
+## <a name="run-the-notebook"></a>Uruchamianie notesu
 
-Właśnie otwarty Notes korzysta z [biblioteki mmlspark](https://github.com/Azure/mmlspark) w celu nawiązania połączenia z usługami poznawczej.
+Właśnie otwarty Notes korzysta z [biblioteki mmlspark](https://github.com/Azure/mmlspark) w celu nawiązania połączenia z usługą Cognitive Services. Podane Azure Key Vault szczegóły umożliwiają bezpieczne odwoływanie się do wpisów tajnych z tego środowiska bez ujawniania ich.
 
-Podane Azure Key Vault szczegóły umożliwiają bezpieczne odwoływanie się do wpisów tajnych z tego środowiska bez ujawniania ich.
+Teraz możesz uruchamiać wszystkie komórki, aby wzbogacić dane za pomocą mową. Wybierz pozycję **Uruchom wszystkie**. 
 
-Teraz możesz **uruchamiać wszystkie** komórki, aby wzbogacić dane za pomocą mową. Mową będzie zwracany jako dodatni/ujemny/neutralny/mieszany, a także prawdopodobieństwa na tonacji. Dowiedz się więcej o [analizie Cognitive Services tonacji](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
+Mową są zwracane jako **pozytywne**, **ujemne**, **neutralne** lub **mieszane**. Uzyskasz również prawdopodobieństwa na tonacji. [Dowiedz się więcej o analizie tonacji w Cognitive Services](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
 
-![Uruchom analiza tonacji](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
+![Zrzut ekranu przedstawiający analizę tonacji.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 
 ## <a name="next-steps"></a>Następne kroki
 - [Samouczek: wykrywanie anomalii w usłudze Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: f7cc9d4062ad9a49ff84db6ac035ff53934ae0a0
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: d5cfdca24193b899926bd30995063ed55b3dd3eb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532061"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943459"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorowanie usługi Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -67,7 +67,7 @@ Azure Cosmos DB gromadzi te same rodzaje danych monitorowania jak inne zasoby pl
 
 Strona **Przegląd** w Azure Portal dla każdej bazy danych usługi Azure Cosmos zawiera krótki widok użycia bazy danych, w tym jego żądanie i co godzinę użycie rozliczeń. Jest to przydatne informacje, ale tylko niewielka ilość dostępnych danych monitorowania. Niektóre z tych danych są zbierane automatycznie i dostępne do analizy zaraz po utworzeniu bazy danych i włączeniu dodatkowej kolekcji danych z konfiguracją.
 
-:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Strona przeglądu":::
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Strona omówienia":::
 
 ## <a name="collection-and-routing"></a>Kolekcja i Routing
 
@@ -129,7 +129,7 @@ Dane w dziennikach Azure Monitor są przechowywane w tabelach, dla których każ
 
 Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie pola specyficzne dla usługi. Wspólny schemat został przedstawiony w [schemacie dziennika zasobów Azure monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Listę typów dzienników zasobów zbieranych dla Azure Cosmos DB można znaleźć w temacie [Monitoring Azure Cosmos DB Data Reference](monitor-cosmos-db-reference.md#resource-logs).
 
-[Dziennik aktywności](/azure/azure-monitor/platform/activity-log) to identyfikator logowania platformy Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Można wyświetlić go niezależnie lub skierować do dzienników Azure Monitor, w którym można wykonywać dużo bardziej skomplikowane zapytania przy użyciu Log Analytics.  
+[Dziennik aktywności](../azure-monitor/platform/activity-log.md) to identyfikator logowania platformy Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Można wyświetlić go niezależnie lub skierować do dzienników Azure Monitor, w którym można wykonywać dużo bardziej skomplikowane zapytania przy użyciu Log Analytics.  
 
 Azure Cosmos DB przechowuje dane w poniższych tabelach.
 

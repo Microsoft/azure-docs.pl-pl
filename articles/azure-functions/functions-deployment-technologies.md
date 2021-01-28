@@ -4,12 +4,12 @@ description: Poznaj różne sposoby wdrażania kodu do Azure Functions.
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 51a76adcf25d5d1bc4025eab12073df0886fde3d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4a65a00c28a20c9381d3dcc6fd7545137528d5c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681834"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943630"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologie wdrażania w Azure Functions
 
@@ -106,7 +106,7 @@ W Azure Functions są dostępne następujące metody wdrażania.
 
 Możesz użyć zewnętrznego adresu URL pakietu, aby odwołać się do pliku pakietu zdalnego (zip), który zawiera aplikację funkcji. Plik zostanie pobrany z podanego adresu URL, a aplikacja zostanie uruchomiona w trybie [uruchamiania z poziomu pakietu](run-functions-from-deployment-package.md) .
 
->__Jak z niej korzystać:__ Dodaj `WEBSITE_RUN_FROM_PACKAGE` do ustawień aplikacji. Wartość tego ustawienia powinna być adresem URL (lokalizacją określonego pliku pakietu, który chcesz uruchomić). Możesz dodać ustawienia [w portalu](functions-how-to-use-azure-function-app-settings.md#settings) lub za [pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+>__Jak z niej korzystać:__ Dodaj [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) do ustawień aplikacji. Wartość tego ustawienia powinna być adresem URL (lokalizacją określonego pliku pakietu, który chcesz uruchomić). Możesz dodać ustawienia [w portalu](functions-how-to-use-azure-function-app-settings.md#settings) lub za [pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 >
 >Jeśli używasz usługi Azure Blob Storage, użyj prywatnego kontenera z [sygnaturą dostępu współdzielonego](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) , aby zapewnić funkcje dostępu do pakietu. Za każdym razem, gdy aplikacja zostanie ponownie uruchomiona, pobiera kopię zawartości. Twoje odwołanie musi być ważne przez okres istnienia aplikacji.
 
@@ -118,7 +118,7 @@ Użyj narzędzia zip Deploy, aby wypchnąć plik zip, który zawiera aplikację 
 
 >__Jak z niej korzystać:__ Wdróż przy użyciu ulubionego narzędzia klienckiego: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)lub z wiersza polecenia przy użyciu [Azure Functions Core Tools](functions-run-local.md#project-file-deployment). Domyślnie narzędzia te używają wdrożenia zip i [uruchamiania z pakietu](run-functions-from-deployment-package.md). Podstawowe narzędzia i rozszerzenie Visual Studio Code umożliwiają [zdalne Kompilowanie](#remote-build) podczas wdrażania w systemie Linux. Aby ręcznie wdrożyć plik zip w aplikacji funkcji, postępuj zgodnie z instrukcjami w temacie [Deploy from a. zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Podczas wdrażania przy użyciu narzędzia zip Deploy można ustawić [Uruchamianie aplikacji z pakietu](run-functions-from-deployment-package.md). Aby uruchomić z pakietu, ustaw `WEBSITE_RUN_FROM_PACKAGE` wartość ustawienia aplikacji na `1` . Zalecamy wdrożenie pliku zip. Zapewnia ona krótszy czas ładowania aplikacji i jest to wartość domyślna dla VS Code, Visual Studio i interfejsu wiersza polecenia platformy Azure.
+>Podczas wdrażania przy użyciu narzędzia zip Deploy można ustawić [Uruchamianie aplikacji z pakietu](run-functions-from-deployment-package.md). Aby uruchomić z pakietu, ustaw `WEBSITE_RUN_FROM_PACKAGE` wartość ustawienia aplikacji [] (Functions-App-Settings. MD # website_run_from_package `1` . Zalecamy wdrożenie pliku zip. Zapewnia ona krótszy czas ładowania aplikacji i jest to wartość domyślna dla VS Code, Visual Studio i interfejsu wiersza polecenia platformy Azure.
 
 >__Kiedy używać go:__ Wdrożenie zip jest zalecaną technologią wdrażania dla Azure Functions.
 
@@ -181,7 +181,7 @@ Za pomocą protokołu FTP można bezpośrednio przetransferować pliki do Azure 
 
 W edytorze opartym na portalu można bezpośrednio edytować pliki znajdujące się w aplikacji funkcji (zasadniczo wdrażane za każdym razem, gdy zapisujesz zmiany).
 
->__Jak z niej korzystać:__ Aby móc edytować funkcje w Azure Portal, musisz [utworzyć funkcje w portalu](./functions-get-started.md). Aby zachować pojedyncze Źródło prawdy, przy użyciu dowolnej innej metody wdrażania funkcja jest tylko do odczytu i zapobiega edytowaniu portalu. Aby powrócić do stanu, w którym można edytować pliki w Azure Portal, można ręcznie włączyć tryb edycji z powrotem do `Read/Write` i usunąć wszystkie ustawienia aplikacji powiązane z wdrożeniem (na przykład `WEBSITE_RUN_FROM_PACKAGE` ).
+>__Jak z niej korzystać:__ Aby móc edytować funkcje w Azure Portal, musisz [utworzyć funkcje w portalu](./functions-get-started.md). Aby zachować pojedyncze Źródło prawdy, przy użyciu dowolnej innej metody wdrażania funkcja jest tylko do odczytu i zapobiega edytowaniu portalu. Aby powrócić do stanu, w którym można edytować pliki w Azure Portal, można ręcznie włączyć tryb edycji z powrotem do `Read/Write` i usunąć wszystkie ustawienia aplikacji związane z wdrożeniem (na przykład [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) .
 
 >__Kiedy używać go:__ Portal jest dobrym sposobem na rozpoczęcie pracy z Azure Functions. Aby uzyskać więcej intensywnych prac programistycznych, zalecamy użycie jednego z następujących narzędzi klienta:
 >

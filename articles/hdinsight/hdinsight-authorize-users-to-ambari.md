@@ -1,19 +1,16 @@
 ---
 title: Autoryzowanie użytkowników do widoków Ambari — Azure HDInsight
 description: Jak zarządzać uprawnieniami użytkowników i grup Ambari dla klastrów usługi HDInsight z włączonym protokołem ESP.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: b1cd6d93ff45d7fb40ae7ca1874343486bd0b8cb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0b6d4dacf43d80f371a2a4d286af1972198c3be3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547932"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942717"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autoryzowanie użytkowników na potrzeby widoków Apache Ambari
 
@@ -36,13 +33,13 @@ Aby przejść do **strony Ambari Management** w [interfejsie użytkownika sieci 
 
 ### <a name="add-users-through-the-portal"></a>Dodawanie użytkowników za pomocą portalu
 
-1. Na stronie Zarządzanie wybierz pozycję **Użytkownicy** .
+1. Na stronie Zarządzanie wybierz pozycję **Użytkownicy**.
 
     ![Użytkownicy stron zarządzania Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
 
-1. Wybierz pozycję **+ Utwórz użytkownika lokalnego** .
+1. Wybierz pozycję **+ Utwórz użytkownika lokalnego**.
 
-1. Podaj **nazwę użytkownika** i **hasło** . Wybierz pozycję **Zapisz** .
+1. Podaj **nazwę użytkownika** i **hasło**. Wybierz pozycję **Zapisz**.
 
 ### <a name="add-users-through-powershell"></a>Dodawanie użytkowników za poorednictwem programu PowerShell
 
@@ -167,7 +164,7 @@ curl -k -u $user:$userPassword -H "X-Requested-By: ambari" \
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Przyznawanie uprawnień do Apache Hive widoków
 
-Ambari zawiera wystąpienia widoku dla [Apache Hive](https://hive.apache.org/) i [Apache tez](https://tez.apache.org/), między innymi. Aby udzielić dostępu do co najmniej jednego wystąpienia widoku programu Hive, przejdź do **strony zarządzania Ambari** .
+Ambari zawiera wystąpienia widoku dla [Apache Hive](https://hive.apache.org/) i [Apache tez](https://tez.apache.org/), między innymi. Aby udzielić dostępu do co najmniej jednego wystąpienia widoku programu Hive, przejdź do **strony zarządzania Ambari**.
 
 1. Na stronie Zarządzanie wybierz link **widoki** w nagłówku menu **widoki** po lewej stronie.
 
@@ -191,14 +188,14 @@ Ambari zawiera wystąpienia widoku dla [Apache Hive](https://hive.apache.org/) i
 
    * Wybierz lub Zakończ wpisywanie nazwy użytkownika. Aby dodać tę nazwę użytkownika jako nowego użytkownika, wybierz przycisk **Nowy** .
 
-   * Aby zapisać zmiany, zaznacz **niebieskie pole wyboru** .
+   * Aby zapisać zmiany, zaznacz **niebieskie pole wyboru**.
 
      ![Przyznanie uprawnień użytkownika Apache Ambari](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. Aby dodać grupę, wybierz przycisk **Dodaj grupę** .
 
    * Zacznij wpisywać nazwę grupy. Proces wybierania istniejącej nazwy grupy lub dodawania nowej grupy jest taki sam jak w przypadku dodawania użytkowników.
-   * Aby zapisać zmiany, zaznacz **niebieskie pole wyboru** .
+   * Aby zapisać zmiany, zaznacz **niebieskie pole wyboru**.
 
      ![Uprawnienia do przyznawania Apache Ambari](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
@@ -224,7 +221,7 @@ Istnieją pięć ról zabezpieczeń dla użytkowników i grup, które są wymien
 * Operator usługi
 * Użytkownik klastra
 
-Aby zarządzać rolami, przejdź do **strony zarządzania Ambari** , a następnie wybierz link **role** w grupie menu *klastry* po lewej stronie.
+Aby zarządzać rolami, przejdź do **strony zarządzania Ambari**, a następnie wybierz link **role** w grupie menu *klastry* po lewej stronie.
 
 ![Linki menu ról Apache Ambari](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 

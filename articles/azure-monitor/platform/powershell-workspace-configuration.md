@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ece92e4603c0c74190003745d55be0aea5cdb0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515448"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941767"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Tworzenie i Konfigurowanie obszaru roboczego Log Analytics w Azure Monitor przy użyciu programu PowerShell
 W tym artykule przedstawiono dwa przykłady kodu, które pokazują, jak utworzyć i skonfigurować obszar roboczy Log Analytics w Azure Monitor.  
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> Format parametru **CustomLogRawJson** , który definiuje konfigurację dla dziennika niestandardowego, może być skomplikowany. Użyj [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) , aby pobrać konfigurację istniejącego dziennika niestandardowego. Właściwość **Właściwości** jest konfiguracją wymaganą dla parametru **CustomLogRawJson** .
+> Format parametru **CustomLogRawJson** , który definiuje konfigurację dla dziennika niestandardowego, może być skomplikowany. Użyj [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) , aby pobrać konfigurację istniejącego dziennika niestandardowego. Właściwość **Właściwości** jest konfiguracją wymaganą dla parametru **CustomLogRawJson** .
 
 W powyższym przykładzie regexDelimiter został zdefiniowany jako " \\ n" dla nowego wiersza. Ogranicznik dziennika może być również sygnaturą czasową.  Są to obsługiwane formaty:
 
@@ -214,9 +214,9 @@ W powyższym przykładzie regexDelimiter został zdefiniowany jako " \\ n" dla n
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Podczas tworzenia obszaru roboczego, który został usunięty w ciągu ostatnich 14 dni i w [stanie usuwania nietrwałego](./delete-workspace.md#soft-delete-behavior), operacja może mieć różny wynik w zależności od konfiguracji obszaru roboczego:
 1. Jeśli podano tę samą nazwę obszaru roboczego, grupę zasobów, subskrypcję i region, jak w usuniętym obszarze roboczym, obszar roboczy zostanie odzyskany, w tym jego dane, konfiguracja i agenci połączone.
-2. W przypadku użycia tej samej nazwy obszaru roboczego, ale innej grupy zasobów, subskrypcji lub regionu zostanie wyświetlony błąd *Nazwa obszaru roboczego "Przestrzeń nazw" nie jest unikatowa*lub powoduje *konflikt*. Aby zastąpić nietrwałe usuwanie i trwałe usuwanie obszaru roboczego i utworzyć nowy obszar roboczy o tej samej nazwie, wykonaj następujące kroki, aby najpierw odzyskać obszar roboczy i wykonać trwałe usuwanie:
+2. W przypadku użycia tej samej nazwy obszaru roboczego, ale innej grupy zasobów, subskrypcji lub regionu zostanie wyświetlony błąd *Nazwa obszaru roboczego "Przestrzeń nazw" nie jest unikatowa* lub powoduje *konflikt*. Aby zastąpić nietrwałe usuwanie i trwałe usuwanie obszaru roboczego i utworzyć nowy obszar roboczy o tej samej nazwie, wykonaj następujące kroki, aby najpierw odzyskać obszar roboczy i wykonać trwałe usuwanie:
    * [Odzyskiwanie](./delete-workspace.md#recover-workspace) obszaru roboczego
-   * [Trwałe usuwanie](./delete-workspace.md#permanent-workspace-delete) obszaru roboczego
+   * [Trwałe usunięcie](./delete-workspace.md#permanent-workspace-delete) obszaru roboczego
    * Utwórz nowy obszar roboczy przy użyciu tej samej nazwy obszaru roboczego
 
 

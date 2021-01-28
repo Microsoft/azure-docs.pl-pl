@@ -1,19 +1,16 @@
 ---
 title: Automatyczne skalowanie klastrów usługi Azure HDInsight
 description: Funkcja automatycznego skalowania umożliwia automatyczne skalowanie klastrów usługi Azure HDInsight na podstawie metryk harmonogramu lub wydajności.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
-ms.openlocfilehash: 2b23b4256e79723ce0b5edafd59186dc345eb791
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 130a5a58fc7dab6f94c011cf9764743f9114e48a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629259"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942641"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -71,7 +68,7 @@ W przypadku skalowania w dół automatyczne skalowanie wystawia żądanie usuni�
 
 W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją skalowania automatycznego.
 
-| Wersja | Spark | Hive | Zapytanie interakcyjne | HBase | Kafka | Storm | ML |
+| Wersja | platforma Spark | Hive | Zapytanie interakcyjne | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 | HDInsight 4,0 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
@@ -80,7 +77,7 @@ W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją 
 
 \* Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Tworzenie klastra z automatycznym skalowaniem na podstawie obciążenia
 

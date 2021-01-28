@@ -1,18 +1,15 @@
 ---
 title: Rozwiązywanie problemów z wydajnością oprogramowania Apache HBase w usłudze Azure HDInsight
 description: Różne wskazówki i wskazówki dotyczące dostrajania wydajności usługi Apache HBase w celu uzyskania optymalnej wydajności w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 466fac524601e2d569bfa0ccf90179fe9419210d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547898"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942887"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Rozwiązywanie problemów z wydajnością oprogramowania Apache HBase w usłudze Azure HDInsight
 
@@ -73,9 +70,9 @@ Poniżej przedstawiono niektóre z innych określonych parametrów, które zosta
 
 - Zwiększ `memstore` rozmiar z domyślnych 128 MB do 256 MB. Zwykle to ustawienie jest zalecane w przypadku dużych scenariuszy zapisu.
 
-- Zwiększ liczbę wątków, które są dedykowane dla kompaktowania, z domyślnego ustawienia od **1** do **4** . To ustawienie ma zastosowanie, jeśli obserwujemy często drobne kompakty.
+- Zwiększ liczbę wątków, które są dedykowane dla kompaktowania, z domyślnego ustawienia od **1** do **4**. To ustawienie ma zastosowanie, jeśli obserwujemy często drobne kompakty.
 
-- Unikaj blokowania `memstore` opróżniania z powodu limitu magazynu. Aby podać ten bufor, zwiększ wartość `Hbase.hstore.blockingStoreFiles` Ustawienia na **100** .
+- Unikaj blokowania `memstore` opróżniania z powodu limitu magazynu. Aby podać ten bufor, zwiększ wartość `Hbase.hstore.blockingStoreFiles` Ustawienia na **100**.
 
 - Aby kontrolować opróżnianie, użyj następujących ustawień:
 
@@ -104,13 +101,13 @@ Poniżej przedstawiono niektóre z innych określonych parametrów, które zosta
 - Limity czasu wywołań RPC: **3 minuty**
 
    - Limity czasu wywołań RPC obejmują limit czasu usługi HBase RPC, limit czasu skanera klienta HBase i limit czasu zapytania w Phoenix. 
-   - Upewnij się, że `hbase.client.scanner.caching` parametr jest ustawiony na tę samą wartość zarówno na końcu serwera, jak i na końcu klienta. Jeśli nie są one takie same, to ustawienie prowadzi do błędów klienta, które są powiązane z `OutOfOrderScannerException` . Dla tego ustawienia należy ustawić niską wartość dla dużych skanów. Ta wartość jest ustawiana na **100** .
+   - Upewnij się, że `hbase.client.scanner.caching` parametr jest ustawiony na tę samą wartość zarówno na końcu serwera, jak i na końcu klienta. Jeśli nie są one takie same, to ustawienie prowadzi do błędów klienta, które są powiązane z `OutOfOrderScannerException` . Dla tego ustawienia należy ustawić niską wartość dla dużych skanów. Ta wartość jest ustawiana na **100**.
 
 ## <a name="other-considerations"></a>Inne zagadnienia
 
 Poniżej znajdują się dodatkowe parametry, które należy wziąć pod uwagę:
 
-- `Hbase.rs.cacheblocksonwrite` — Domyślnie w HDI, to ustawienie ma **wartość true** .
+- `Hbase.rs.cacheblocksonwrite` — Domyślnie w HDI, to ustawienie ma **wartość true**.
 
 - Ustawienia, które zezwalają na odroczenie mniejszych kompaktowania w przyszłości.
 
