@@ -1,25 +1,22 @@
 ---
 title: 'Samouczek: Używanie elementów Runbook Azure Automation do tworzenia klastrów — Azure HDInsight'
 description: Dowiedz się, jak tworzyć i usuwać klastry usługi Azure HDInsight ze skryptami uruchomionymi w chmurze przy użyciu Azure Automation elementów Runbook.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75553513"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944044"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Samouczek: tworzenie klastrów usługi Azure HDInsight za pomocą Azure Automation
 
 Azure Automation pozwala tworzyć skrypty uruchamiane w chmurze i zarządzać zasobami platformy Azure na żądanie lub na podstawie harmonogramu. W tym artykule opisano sposób tworzenia elementów Runbook programu PowerShell w celu tworzenia i usuwania klastrów usługi Azure HDInsight.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Zainstaluj moduły niezbędne do współpracy z usługą HDInsight.
@@ -54,7 +51,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="create-credentials"></a>Utwórz poświadczenia
 
-1. W obszarze **udostępnione zasoby**wybierz pozycję **poświadczenia**.
+1. W obszarze **udostępnione zasoby** wybierz pozycję **poświadczenia**.
 1. Wybierz pozycję **Dodaj poświadczenie**.
 1. Wprowadź wymagane informacje w panelu **nowe poświadczenia** . To poświadczenie służy do przechowywania hasła klastra, co umożliwi zalogowanie się do Ambari.
 

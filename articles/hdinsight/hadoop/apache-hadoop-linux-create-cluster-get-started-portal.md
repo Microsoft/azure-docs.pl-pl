@@ -2,19 +2,16 @@
 title: 'Szybki Start: Apache Hadoop Apache Hive & portalu usługi Azure HDInsight'
 description: W tym przewodniku szybki start użyjesz Azure Portal, aby utworzyć klaster usługi HDInsight Hadoop
 keywords: wprowadzenie do usługi hadoop,hadoop linux,hadoop szybki start,wprowadzenie do usługi hive,hive szybki start
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/24/2020
-ms.openlocfilehash: 02990ce287aa423481c1bfe8ec5e2a8a4cfdb555
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd3e997bf2fda5f586fdb1ee4dcedff1adbf41f3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858493"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946605"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Szybki Start: Tworzenie klastra Apache Hadoop w usłudze Azure HDInsight przy użyciu Azure Portal
 
@@ -45,7 +42,7 @@ W tej sekcji utworzysz klaster usługi Hadoop w usłudze HDInsight przy użyciu 
     |Subskrypcja    |  Z listy rozwijanej wybierz subskrypcję platformy Azure używaną na potrzeby klastra. |
     |Grupa zasobów     | Z listy rozwijanej wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**.|
     |Nazwa klastra   | Podaj globalnie unikatową nazwę. Nazwa może składać się z maksymalnie 59 znaków, w tym liter, cyfr i łączników. Pierwsze i ostatnie znaki nazwy nie mogą być łącznikami. |
-    |Region    | Z listy rozwijanej wybierz region, w którym tworzony jest klaster.  Wybierz lokalizację znajdującą się blisko, aby zapewnić lepszą wydajność. |
+    |Region (Region)    | Z listy rozwijanej wybierz region, w którym tworzony jest klaster.  Wybierz lokalizację znajdującą się blisko, aby zapewnić lepszą wydajność. |
     |Typ klastra| Wybierz pozycję **Wybierz typ klastra**. Następnie wybierz pozycję **Hadoop** jako typ klastra.|
     |Wersja|Z listy rozwijanej wybierz **wersję**. Użyj wersji domyślnej, jeśli nie wiesz, co wybrać.|
     |Nazwa użytkownika i hasło logowania do klastra    | Domyślna nazwa logowania to **admin**. Hasło musi składać się z co najmniej 10 znaków i musi zawierać co najmniej jedną cyfrę, jedną wielką i jedną małą literę oraz jeden znak inny niż alfanumeryczny (z wyjątkiem znaków "" " \) . Upewnij się, że **nie zostało podane** typowe hasło, takie jak „Pass@word1”.|

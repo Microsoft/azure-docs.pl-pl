@@ -1,26 +1,23 @@
 ---
 title: Migrowanie do narzędzi Azure Resource Manager dla usługi HDInsight
 description: Jak przeprowadzić migrację do Azure Resource Manager narzędzi programistycznych dla klastrów usługi HDInsight
-ms.reviewer: jasonh
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.openlocfilehash: 57dec799cbda03e20717a402a88f1d818d9acd92
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 2ff62f4feba44a1c706ab85db1be3f7f654e6135
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629480"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945763"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrowanie do narzędzi programistycznych opartych na Azure Resource Manager dla klastrów usługi HDInsight
 
 Usługa HDInsight jest przestarzała narzędzia oparte na platformie Azure Service Manager (ASM) dla usługi HDInsight. Jeśli używasz Azure PowerShell, klasycznego interfejsu wiersza polecenia platformy Azure lub zestawu .NET SDK usługi HDInsight do pracy z klastrami HDInsight, zaleca się użycie Azure Resource Manager wersji programu PowerShell, interfejsu wiersza polecenia i zestawu .NET SDK. Ten artykuł zawiera informacje o sposobach migracji do nowej metody opartej na Menedżer zasobów. O ile ma to zastosowanie, ten dokument przedstawia różnice między metodami ASM i Menedżer zasobów w usłudze HDInsight.
 
 > [!IMPORTANT]  
-> Obsługa programu PowerShell, interfejsu wiersza polecenia opartego na ASM i zestawu .NET SDK będzie kontynuowana **1 stycznia 2017** .
+> Obsługa programu PowerShell, interfejsu wiersza polecenia opartego na ASM i zestawu .NET SDK będzie kontynuowana **1 stycznia 2017**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -83,7 +80,7 @@ Aby uzyskać informacje na temat innych sposobów uruchamiania Apache Hadoop Map
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrowanie Azure PowerShell do Azure Resource Manager
 Ogólne informacje dotyczące Azure PowerShell w trybie Azure Resource Manager można znaleźć w temacie [Korzystanie z Azure PowerShell z Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
-Polecenia cmdlet Menedżer zasobów Azure PowerShell można zainstalować obok poleceń cmdlet programu ASM. Polecenia cmdlet z dwóch trybów można rozróżnić według ich nazw.  Tryb Menedżer zasobów ma *AzHDInsight* w nazwach poleceń cmdlet, które są porównywane z *AzureHDInsight* w starszym trybie zarządzania usługami platformy Azure.  Na przykład *New-AzHDInsightCluster* a *New-AzureHDInsightCluster* . Parametry i przełączniki mogą mieć nazwy wiadomości i dostępnych jest wiele nowych parametrów podczas korzystania z Menedżer zasobów.  Na przykład kilka poleceń cmdlet wymaga nowego przełącznika o nazwie *-ResourceGroupName* .
+Polecenia cmdlet Menedżer zasobów Azure PowerShell można zainstalować obok poleceń cmdlet programu ASM. Polecenia cmdlet z dwóch trybów można rozróżnić według ich nazw.  Tryb Menedżer zasobów ma *AzHDInsight* w nazwach poleceń cmdlet, które są porównywane z *AzureHDInsight* w starszym trybie zarządzania usługami platformy Azure.  Na przykład *New-AzHDInsightCluster* a *New-AzureHDInsightCluster*. Parametry i przełączniki mogą mieć nazwy wiadomości i dostępnych jest wiele nowych parametrów podczas korzystania z Menedżer zasobów.  Na przykład kilka poleceń cmdlet wymaga nowego przełącznika o nazwie *-ResourceGroupName*.
 
 Aby można było używać poleceń cmdlet usługi HDInsight, należy nawiązać połączenie z kontem platformy Azure i utworzyć nową grupę zasobów:
 
@@ -134,17 +131,17 @@ Poniżej znajdują się nowe polecenia cmdlet, które są dostępne tylko w tryb
 
 **Polecenia cmdlet powiązane z akcją skryptu:**
 
-* **Get-AzHDInsightPersistedScriptAction** : Pobiera akcje utrwalonego skryptu dla klastra i wyświetla je w kolejności chronologicznej lub pobiera szczegóły dla określonej akcji utrwalonego skryptu. 
-* **Get-AzHDInsightScriptActionHistory** : Pobiera historię akcji skryptu dla klastra i wyświetla listę w odwrotnej kolejności chronologicznej lub pobiera szczegóły wykonanej wcześniej akcji skryptu. 
-* **Remove-AzHDInsightPersistedScriptAction** : usuwa akcję utrwalonego skryptu z klastra usługi HDInsight.
-* **Set-AzHDInsightPersistedScriptAction** : ustawia wcześniej wykonaną akcję skryptu jako utrwaloną akcję skryptu.
-* **Submit-AzHDInsightScriptAction** : przesyła nową akcję skryptu do klastra usługi Azure HDInsight. 
+* **Get-AzHDInsightPersistedScriptAction**: Pobiera akcje utrwalonego skryptu dla klastra i wyświetla je w kolejności chronologicznej lub pobiera szczegóły dla określonej akcji utrwalonego skryptu. 
+* **Get-AzHDInsightScriptActionHistory**: Pobiera historię akcji skryptu dla klastra i wyświetla listę w odwrotnej kolejności chronologicznej lub pobiera szczegóły wykonanej wcześniej akcji skryptu. 
+* **Remove-AzHDInsightPersistedScriptAction**: usuwa akcję utrwalonego skryptu z klastra usługi HDInsight.
+* **Set-AzHDInsightPersistedScriptAction**: ustawia wcześniej wykonaną akcję skryptu jako utrwaloną akcję skryptu.
+* **Submit-AzHDInsightScriptAction**: przesyła nową akcję skryptu do klastra usługi Azure HDInsight. 
 
 Aby uzyskać dodatkowe informacje dotyczące użycia, zobacz [Dostosowywanie klastrów usługi HDInsight opartych na systemie Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Polecenia cmdlet związane z tożsamościami klastra:**
 
-* **Add-AzHDInsightClusterIdentity** : dodaje tożsamość klastra do obiektu konfiguracji klastra, aby klaster usługi HDInsight mógł uzyskać dostęp do Azure Data Lake Storage. Zobacz [Tworzenie klastra usługi HDInsight z Data Lake Storage przy użyciu Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Add-AzHDInsightClusterIdentity**: dodaje tożsamość klastra do obiektu konfiguracji klastra, aby klaster usługi HDInsight mógł uzyskać dostęp do Azure Data Lake Storage. Zobacz [Tworzenie klastra usługi HDInsight z Data Lake Storage przy użyciu Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Przykłady
 **Tworzenie klastra**

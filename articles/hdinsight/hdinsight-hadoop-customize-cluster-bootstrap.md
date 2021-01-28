@@ -1,19 +1,16 @@
 ---
 title: Dostosowywanie konfiguracji klastrów usługi Azure HDInsight przy użyciu narzędzia Bootstrap
 description: Dowiedz się, jak dostosować konfigurację klastra usługi HDInsight programowo przy użyciu szablonów programu .NET, programu PowerShell i Menedżer zasobów.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: 246c5600da3b554ba65872780f0719a58f3f4be2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 306ebcf7db3c11f783af8cf4c1779bd3d1a013a4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547490"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945758"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Dostosowywanie klastrów usługi HDInsight przy użyciu narzędzia Bootstrap
 
@@ -86,9 +83,9 @@ Pełny działający skrypt programu PowerShell znajduje się w [dodatku](#append
 **Aby sprawdzić zmianę:**
 
 1. Przejdź do `https://CLUSTERNAME.azurehdinsight.net/` lokalizacji `CLUSTERNAME` , gdzie jest nazwą klastra.
-1. W menu po lewej stronie przejdź do konfiguracja usługi **Hive**  >  **Configs**  >  **Advanced** .
-1. Rozwiń węzeł **zaawansowana gałąź — lokacja** .
-1. Zlokalizuj **gałąź Hive. metadanych. Client. Socket. Timeout** i Potwierdź, że wartość to **latach 90** .
+1. W menu po lewej stronie przejdź do konfiguracja usługi **Hive**  >    >  **Advanced**.
+1. Rozwiń węzeł **zaawansowana gałąź — lokacja**.
+1. Zlokalizuj **gałąź Hive. metadanych. Client. Socket. Timeout** i Potwierdź, że wartość to **latach 90**.
 
 Więcej przykładów na temat dostosowywania innych plików konfiguracji:
 
@@ -138,7 +135,7 @@ Przykładowy fragment szablonu Menedżer zasobów, aby przełączyć konfiguracj
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Tworzenie klastrów Apache Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md) zawiera instrukcje dotyczące tworzenia klastra usługi HDInsight przy użyciu innych opcji niestandardowych.
 * [Tworzenie skryptów akcji skryptu dla usługi HDInsight](hdinsight-hadoop-script-actions-linux.md)

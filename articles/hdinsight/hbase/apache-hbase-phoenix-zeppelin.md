@@ -1,19 +1,16 @@
 ---
 title: Uruchamianie kwerend Apache Base w usłudze Azure HDInsight przy użyciu Apache Phoenix
 description: Dowiedz się, jak używać oprogramowania Apache Zeppelin do uruchamiania zapytań platformy Apache Base z Phoenix.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: e85226e7a2544cda01f40a1c1be6be32f11d9dfc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 50a72d0400b23162e05b17b37bdad48783261072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542798"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944776"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Korzystanie z programu Apache Zeppelin do uruchamiania zapytań Apache Phoenix w usłudze Apache HBase w usłudze Azure HDInsight
 
@@ -31,7 +28,7 @@ Klaster Apache HBase w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z Apache 
 
 1. Zamień na `CLUSTERNAME` nazwę klastra w następującym adresie URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin` . Następnie wprowadź adres URL w przeglądarce sieci Web. Wprowadź nazwę użytkownika i hasło logowania do klastra.
 
-1. Na stronie Zeppelin wybierz pozycję **Utwórz nową notatkę** .
+1. Na stronie Zeppelin wybierz pozycję **Utwórz nową notatkę**.
 
     ![Zapytanie interaktywne Zeppelin usługi HDInsight](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
 
@@ -40,13 +37,13 @@ Klaster Apache HBase w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z Apache 
     - Nazwa komentarza: Wprowadź nazwę notatki.
     - Interpreter domyślny: wybierz pozycję **JDBC** z listy rozwijanej.
 
-    Następnie wybierz pozycję **Utwórz notatkę** .
+    Następnie wybierz pozycję **Utwórz notatkę**.
 
 1. Upewnij się, że nagłówek notesu pokazuje połączony stan. Jest ona oznaczona zieloną kropką w prawym górnym rogu.
 
     ![Stan notesu Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Stan notesu Zeppelin")
 
-1. Utwórz tabelę HBase. Wprowadź następujące polecenie, a następnie naciśnij klawisze **SHIFT + ENTER** :
+1. Utwórz tabelę HBase. Wprowadź następujące polecenie, a następnie naciśnij klawisze **SHIFT + ENTER**:
 
     ```sql
     %jdbc(phoenix)

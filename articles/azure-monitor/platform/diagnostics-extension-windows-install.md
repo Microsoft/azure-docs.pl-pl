@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6ccba27fb599cb26da86e94d3500f4f806ecb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f37d0779f245301b3750329658a580dc3f9e42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328874"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946215"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)
 [Rozszerzenie diagnostyki Azure](diagnostics-extension-overview.md) to agent w Azure monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń maszyn wirtualnych platformy Azure i innych zasobów obliczeniowych. Ten artykuł zawiera szczegółowe informacje na temat instalowania i konfigurowania rozszerzenia Diagnostyka systemu Windows oraz opis sposobu przechowywania danych w usłudze i koncie usługi Azure Storage.
@@ -57,7 +57,7 @@ Można zainstalować i skonfigurować rozszerzenie diagnostyki na pojedynczej ma
 
    ![Zrzuty awaryjne](media/diagnostics-extension-windows-install/crash-dumps.png)
 
-8. Na karcie **ujścia** Określ, czy dane mają być wysyłane do lokalizacji innych niż usługa Azure Storage. W przypadku wybrania **Azure monitor**dane dotyczące wydajności gościa będą wysyłane do metryk Azure monitor. Nie można skonfigurować ujścia centrów zdarzeń przy użyciu Azure Portal.
+8. Na karcie **ujścia** Określ, czy dane mają być wysyłane do lokalizacji innych niż usługa Azure Storage. W przypadku wybrania **Azure monitor** dane dotyczące wydajności gościa będą wysyłane do metryk Azure monitor. Nie można skonfigurować ujścia centrów zdarzeń przy użyciu Azure Portal.
 
    ![Zrzut ekranu przedstawia kartę ujścia z włączoną opcją Wyślij dane diagnostyczne do Azure Monitor.](media/diagnostics-extension-windows-install/sinks.png)
    
@@ -65,7 +65,7 @@ Można zainstalować i skonfigurować rozszerzenie diagnostyki na pojedynczej ma
    
    ![Zarządzana jednostka](media/diagnostics-extension-windows-install/managed-entity.png)
 
-9. W **agencie**można zmienić konto magazynu, ustawić limit przydziału dysku i określić, czy mają być zbierane dzienniki infrastruktury diagnostycznej.  
+9. W **agencie** można zmienić konto magazynu, ustawić limit przydziału dysku i określić, czy mają być zbierane dzienniki infrastruktury diagnostycznej.  
 
    ![Zrzut ekranu przedstawia kartę Agent z opcją ustawienia konta magazynu.](media/diagnostics-extension-windows-install/agent.png)
 
@@ -78,7 +78,7 @@ Można zainstalować i skonfigurować rozszerzenie diagnostyki na pojedynczej ma
 Zobacz [Używanie monitorowania i diagnostyki z maszyną wirtualną z systemem Windows i Azure Resource Manager szablonów](../../virtual-machines/extensions/diagnostics-template.md) na temat wdrażania rozszerzenia diagnostyki z szablonami Azure Resource Manager. 
 
 ## <a name="azure-cli-deployment"></a>Wdrożenie interfejsu wiersza polecenia platformy Azure
-Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszerzenia Diagnostyka Azure istniejącej maszyny wirtualnej przy użyciu polecenia [AZ VM Extension Set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) jak w poniższym przykładzie. 
+Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszerzenia Diagnostyka Azure istniejącej maszyny wirtualnej przy użyciu polecenia [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) jak w poniższym przykładzie. 
 
 ```azurecli
 az vm extension set \

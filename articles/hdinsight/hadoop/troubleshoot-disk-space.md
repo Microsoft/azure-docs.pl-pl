@@ -1,18 +1,15 @@
 ---
 title: Zarządzanie miejscem na dysku w usłudze Azure HDInsight
 description: Kroki rozwiązywania problemów i możliwe rozwiązania dotyczące zarządzania problemami z miejscem na dysku podczas korzystania z klastrów usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
-ms.openlocfilehash: 82044796cca3e135c15e750d6706fe504622ebdb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7164494cb08c4b419b9e4d96075ace3e52187497
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540350"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944818"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Zarządzanie miejscem na dysku w usłudze Azure HDInsight
 
@@ -22,7 +19,7 @@ W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązani
 
 1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Przejdź do **Hive**  >  **konfiguracji** Hive Advanced  >  **Advanced**  >  **Advanced Hive-Log4J** . Zapoznaj się z następującymi ustawieniami:
+1. Przejdź do   >  **konfiguracji** Hive Advanced  >    >  **Advanced Hive-Log4J**. Zapoznaj się z następującymi ustawieniami:
 
     * `hive.root.logger=DEBUG,RFA`. Jest to wartość domyślna, modyfikując [poziom dziennika](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) w `INFO` celu drukowania mniejszych wpisów dzienników.
 
@@ -38,7 +35,7 @@ Przejrzyj następujące konfiguracje:
 
     1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-    1. Przejdź do konfiguracji programu **Hive** —  >  **Configs**  >  **Zaawansowane**  >  **Menedżer zasobów** . Upewnij się, że jest zaznaczone pole wyboru **Włącz agregację dzienników** . Jeśli ta funkcja jest wyłączona, węzły nazw przechowują dzienniki lokalnie i nie agregują ich w magazynie zdalnym po ukończeniu lub zakończeniu działania aplikacji.
+    1. Przejdź do konfiguracji programu **Hive**—  >    >  **Zaawansowane**  >  **Menedżer zasobów**. Upewnij się, że jest zaznaczone pole wyboru **Włącz agregację dzienników** . Jeśli ta funkcja jest wyłączona, węzły nazw przechowują dzienniki lokalnie i nie agregują ich w magazynie zdalnym po ukończeniu lub zakończeniu działania aplikacji.
 
 * Upewnij się, że rozmiar klastra jest odpowiedni dla obciążenia. Obciążenie mogło być niedawno zmienione lub zmieniono rozmiar klastra. [Skaluj](../hdinsight-scaling-best-practices.md) klaster w górę w celu dopasowania go do większego obciążenia.
 

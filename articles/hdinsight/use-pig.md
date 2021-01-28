@@ -2,25 +2,22 @@
 title: Korzystanie z platformy Apache Pig
 titleSuffix: Azure HDInsight
 description: Dowiedz się, jak używać świni z Apache Hadoop w usłudze HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 9474a1845898e3fda0c810314f41f6f4deabc96b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7b74a41f7d6b636dddce0388d5ee0e0a12658d52
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538735"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944619"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Korzystanie z usługi Apache świni z usługą Apache Hadoop w usłudze HDInsight
 
 Dowiedz się, jak używać oprogramowania [Apache świni](https://pig.apache.org/) z usługą HDInsight.
 
-Apache świni to platforma służąca do tworzenia programów dla Apache Hadoop przy użyciu języka proceduralnego znanego jako *świnie* . Świnie są alternatywą dla języka Java do tworzenia rozwiązań *MapReduce* i są dołączone do usługi Azure HDInsight. Skorzystaj z poniższej tabeli, aby poznać różne sposoby używania świni z usługą HDInsight:
+Apache świni to platforma służąca do tworzenia programów dla Apache Hadoop przy użyciu języka proceduralnego znanego jako *świnie*. Świnie są alternatywą dla języka Java do tworzenia rozwiązań *MapReduce* i są dołączone do usługi Azure HDInsight. Skorzystaj z poniższej tabeli, aby poznać różne sposoby używania świni z usługą HDInsight:
 
 ## <a name="why-use-apache-pig"></a><a id="why"></a>Dlaczego warto używać oprogramowania Apache świni
 
@@ -30,11 +27,11 @@ Jednym z wyzwań związanych z przetwarzaniem danych przy użyciu MapReduce w us
 
 Język łaciński (wieprzowina) pozwala na opisywanie przepływu danych z nieprzetworzonego wejścia, przez jedno lub więcej transformacji, w celu wygenerowania żądanych danych wyjściowych. Programy z wieprzowiną są zgodne z tym ogólnym wzorcem:
 
-* **Ładowanie** : odczytywanie danych do manipulacji z systemu plików.
+* **Ładowanie**: odczytywanie danych do manipulacji z systemu plików.
 
-* **Przekształcanie** : manipulowanie danymi.
+* **Przekształcanie**: manipulowanie danymi.
 
-* **Zrzut lub przechowywanie** : dane wyjściowe na ekranie lub przechowywane do przetworzenia.
+* **Zrzut lub przechowywanie**: dane wyjściowe na ekranie lub przechowywane do przetworzenia.
 
 ### <a name="user-defined-functions"></a>Funkcje zdefiniowane przez użytkownika
 

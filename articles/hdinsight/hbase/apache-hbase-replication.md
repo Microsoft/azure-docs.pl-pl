@@ -1,19 +1,16 @@
 ---
 title: Replikacja klastra HBase w sieciach wirtualnych — Azure HDInsight
 description: Dowiedz się, jak skonfigurować replikację HBase z jednej wersji usługi HDInsight do innej na potrzeby równoważenia obciążenia, wysokiej dostępności, migracji bez przestojów i aktualizacji oraz odzyskiwania po awarii.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 8fc5ba2280b5ad68a40f4992adc170408e80e5a6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021796"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946415"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurowanie replikacji klastra Apache HBase w usłudze Azure Virtual Networks
 
@@ -78,7 +75,7 @@ Niektóre z zakodowanych wartości w szablonie:
 | Nazwa bramy | vnet1gw |
 | Typ bramy | Vpn |
 | Typ sieci VPN bramy | RouteBased |
-| Jednostka SKU bramy | Podstawowe |
+| Jednostka SKU bramy | Podstawowa |
 | Adres IP bramy | vnet1gwip |
 
 **Sieć wirtualna 2**
@@ -95,7 +92,7 @@ Niektóre z zakodowanych wartości w szablonie:
 | Nazwa bramy | vnet2gw |
 | Typ bramy | Vpn |
 | Typ sieci VPN bramy | RouteBased |
-| Jednostka SKU bramy | Podstawowe |
+| Jednostka SKU bramy | Podstawowa |
 | Adres IP bramy | vnet1gwip |
 
 ## <a name="setup-dns"></a>Konfigurowanie systemu DNS
@@ -305,7 +302,7 @@ Poniższe kroki opisują sposób wywoływania skryptu akcji skryptu z Azure Port
       >
       > W tym instruktażu przyjęto założenie hn1 jako aktywnego węzła głównego. Sprawdź, czy klaster ma identyfikować aktywny węzeł główny.
 
-6. Wybierz pozycję **Utwórz**. Wykonanie skryptu może zająć trochę czasu, szczególnie w przypadku użycia argumentu **-CopyData** .
+6. Wybierz przycisk **Utwórz**. Wykonanie skryptu może zająć trochę czasu, szczególnie w przypadku użycia argumentu **-CopyData** .
 
 Wymagane argumenty:
 

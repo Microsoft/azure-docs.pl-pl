@@ -2,19 +2,16 @@
 title: Dowiedz się, jak korzystać z piaskownicy Apache Hadoop, emulatora — Azure HDInsight
 description: 'Aby rozpocząć uczenie się dotyczące korzystania z ekosystemu Apache Hadoop, można skonfigurować piaskownicę usługi Hadoop z Hortonworks na maszynie wirtualnej platformy Azure. '
 keywords: Emulator Hadoop, Piaskownica w usłudze Hadoop
-ms.reviewer: jasonh
-author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547966"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946616"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Wprowadzenie do Apache Hadoop piaskownicy, emulatora na maszynie wirtualnej
 
@@ -34,13 +31,13 @@ Dowiedz się, jak zainstalować Apache Hadoop piaskownicy z Hortonworks na maszy
 
 Aby uzyskać instrukcje dotyczące konfigurowania piaskownicy, zobacz temat [wdrażanie piaskownicy i Przewodnik instalacji](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-Aby pobrać starszą piaskownicę wersji HDP, zobacz linki w obszarze **starsze wersje** .
+Aby pobrać starszą piaskownicę wersji HDP, zobacz linki w obszarze **starsze wersje**.
 
 ## <a name="start-the-virtual-machine"></a>Uruchom maszynę wirtualną
 
 1. Otwórz maszynę wirtualną Oracle VirtualBox.
-1. W menu **plik** kliknij polecenie **Importuj urządzenie** , a następnie określ obraz piaskownicy Hortonworks.
-1. Wybierz piaskownicę Hortonworks, kliknij przycisk **Start** , a następnie pozycję **rozpoczęcie normalne** . Po zakończeniu procesu rozruchu maszyna wirtualna wyświetli instrukcje logowania.
+1. W menu **plik** kliknij polecenie **Importuj urządzenie**, a następnie określ obraz piaskownicy Hortonworks.
+1. Wybierz piaskownicę Hortonworks, kliknij przycisk **Start**, a następnie pozycję **rozpoczęcie normalne**. Po zakończeniu procesu rozruchu maszyna wirtualna wyświetli instrukcje logowania.
 
     ![normalne uruchomienie programu VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
@@ -48,7 +45,7 @@ Aby pobrać starszą piaskownicę wersji HDP, zobacz linki w obszarze **starsze 
 
 ## <a name="set-sandbox-passwords"></a>Ustaw hasła piaskownicy
 
-1. **W kroku wprowadzenie** na stronie piaskownicy Hortonworks wybierz pozycję **Wyświetl opcje zaawansowane** . Skorzystaj z informacji na tej stronie, aby zalogować się do piaskownicy przy użyciu protokołu SSH. Użyj podanej nazwy i hasła.
+1. **W kroku wprowadzenie** na stronie piaskownicy Hortonworks wybierz pozycję **Wyświetl opcje zaawansowane**. Skorzystaj z informacji na tej stronie, aby zalogować się do piaskownicy przy użyciu protokołu SSH. Użyj podanej nazwy i hasła.
 
    > [!NOTE]
    > Jeśli nie zainstalowano klienta SSH, można użyć protokołu SSH opartego na sieci Web, który jest udostępniony przez maszynę wirtualną pod adresem **http://localhost:4200/** .

@@ -1,19 +1,16 @@
 ---
 title: 'Szybki Start: Tworzenie klastra Apache Hadoop w usłudze Azure HDInsight przy użyciu szablonu Menedżer zasobów'
 description: W tym przewodniku szybki start utworzysz Klaster Apache Hadoop w usłudze Azure HDInsight przy użyciu szablonu Menedżer zasobów
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 02fd3e366b146937fb2d5775938dc9d74a275ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe1a76406c1a8a55996b4c099e04f0925daaa74c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856543"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946534"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-arm-template"></a>Szybki Start: Tworzenie klastra Apache Hadoop w usłudze Azure HDInsight przy użyciu szablonu ARM
 
@@ -42,7 +39,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 * [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Tworzenie konta usługi Azure Storage.
 * [Microsoft. HDInsight/klaster](/azure/templates/microsoft.hdinsight/clusters): Tworzenie klastra usługi HDInsight.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz przycisk **Wdróż na platformie Azure** poniżej, aby zalogować się do platformy Azure i otworzyć szablon ARM.
 
@@ -69,7 +66,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
     ![Usługa HDInsight w systemie Linux umożliwia rozpoczęcie pracy z szablonem Menedżer zasobów w portalu](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Wdrażanie klastra Hadoop w usłudze HDInsight przy użyciu Azure Portal i szablonu Menedżera grupy zasobów")
 
-1. Przejrzyj **warunki i postanowienia**. Następnie wybierz opcję **Zgadzam się na powyższe warunki i**postanowienia, a następnie **Kup**. Otrzymasz powiadomienie, że wdrożenie jest w toku. Utworzenie klastra trwa około 20 minut.
+1. Przejrzyj **warunki i postanowienia**. Następnie wybierz opcję **Zgadzam się na powyższe warunki i** postanowienia, a następnie **Kup**. Otrzymasz powiadomienie, że wdrożenie jest w toku. Utworzenie klastra trwa około 20 minut.
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 

@@ -1,19 +1,16 @@
 ---
 title: Korzystanie z tunelowania SSH do uzyskiwania dostępu do usługi Azure HDInsight
 description: Dowiedz się, jak bezpiecznie przeglądać zasoby internetowe hostowane w węzłach usługi HDInsight opartej na systemie Linux przy użyciu tunelu SSH.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 09fef350a0ff8cc8c2481acd7b8f74cee15d1b9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bbc770fa6ae5ac69b2aa939f9d2c70bb01f5403
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075556"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945285"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Używanie tunelowania SSH do uzyskiwania dostępu do interfejsu użytkownika, JobHistory, NameNode, Apache Oozie i innych interfejsów użytkownika
 
@@ -62,7 +59,7 @@ Użyj następującego polecenia, aby utworzyć tunel SSH przy użyciu `ssh` pole
 ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
-To polecenie tworzy połączenie, które kieruje ruch do lokalnego portu 9876 do klastra za pośrednictwem protokołu SSH. Dostępne są następujące opcje:
+To polecenie tworzy połączenie, które kieruje ruch do lokalnego portu 9876 do klastra za pośrednictwem protokołu SSH. Dostępne opcje to:
 
 |Opcja |Opis |
 |---|---|
@@ -79,7 +76,7 @@ Po zakończeniu wykonywania polecenia ruch wysyłany do portu 9876 na komputerze
 
 ## <a name="create-a-tunnel-using-putty"></a><a name="useputty"></a>Tworzenie tunelu przy użyciu polecenia Wykorzystaj
 
-[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) Prezentacja jest graficznym klientem SSH dla systemu Windows. Jeśli nie wiesz, jak to zrobić, zobacz [dokumentację](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Wykonaj następujące kroki, aby utworzyć tunel SSH przy użyciu instrukcji:
+[](https://www.chiark.greenend.org.uk/~sgtatham/putty) Prezentacja jest graficznym klientem SSH dla systemu Windows. Jeśli nie wiesz, jak to zrobić, zobacz [dokumentację](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Wykonaj następujące kroki, aby utworzyć tunel SSH przy użyciu instrukcji:
 
 ### <a name="create-or-load-a-session"></a>Utwórz lub Załaduj sesję
 
@@ -145,7 +142,7 @@ Po ustanowieniu klastra wykonaj następujące kroki, aby sprawdzić, czy można 
     ![Obraz z rozwiniętym menu QuickLinks](./media/hdinsight-linux-ambari-ssh-tunnel/namenode-drop-down-menu.png)
 
     > [!NOTE]  
-    > Po wybraniu opcji __szybkie linki__może zostać wyświetlony wskaźnik oczekiwania. Ten stan może wystąpić, jeśli masz wolne połączenie internetowe. Poczekaj chwilę lub dwie, aby dane były odbierane z serwera, a następnie spróbuj ponownie wykonać listę.
+    > Po wybraniu opcji __szybkie linki__ może zostać wyświetlony wskaźnik oczekiwania. Ten stan może wystąpić, jeśli masz wolne połączenie internetowe. Poczekaj chwilę lub dwie, aby dane były odbierane z serwera, a następnie spróbuj ponownie wykonać listę.
     >
     > Niektóre wpisy w menu **szybkie łącza** mogą być obcinane po prawej stronie ekranu. Jeśli tak, rozwiń menu przy użyciu myszy i użyj klawisza Strzałka w prawo, aby przewinąć ekran w prawo, aby zobaczyć resztę menu.
 

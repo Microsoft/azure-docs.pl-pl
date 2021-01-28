@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d375b860c6b23fd6033e985e23c6f12dfe9a3c68
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7673a42afa3b85a2aaf3f11f5e9b74fd46d48488
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223571"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945097"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Konfigurowanie preferencji routingu dla maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -58,7 +58,7 @@ Przed wdrożeniem maszyny wirtualnej należy utworzyć pomocnicze zasoby sieciow
 
 ### <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
-Utwórz sieciową grupę zabezpieczeń dla reguł, które będą zarządzać komunikacją przychodzącą i wychodzącą w sieci wirtualnej za pomocą [AZ Network sieciowej grupy zabezpieczeń Create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
+Utwórz sieciową grupę zabezpieczeń dla reguł, które będą zarządzać komunikacją przychodzącą i wychodzącą w sieci wirtualnej za pomocą [AZ Network sieciowej grupy zabezpieczeń Create](/cli/azure/network/nsg#az-network-nsg-create)
 
 ```azurecli
 az network nsg create \
@@ -69,7 +69,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVNET* z *podsiecią* podsieci:
+Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVNET* z *podsiecią* podsieci:
 
 ```azurecli
 # Create a virtual network
@@ -89,7 +89,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>Tworzenie karty sieciowej
 
-Utwórz wirtualną kartę sieciową dla maszyny wirtualnej za pomocą [AZ Network nic Create](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). Poniższy przykład tworzy wirtualną kartę sieciową, która zostanie dołączona do maszyny wirtualnej.
+Utwórz wirtualną kartę sieciową dla maszyny wirtualnej za pomocą [AZ Network nic Create](/cli/azure/network/nic#az-network-nic-create). Poniższy przykład tworzy wirtualną kartę sieciową, która zostanie dołączona do maszyny wirtualnej.
 
 ```azurecli-interactive
 # Create a NIC
@@ -105,7 +105,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). Poniższy przykład tworzy maszynę wirtualną z systemem Windows Server 2019 i wymagane składniki sieci wirtualnej, jeśli jeszcze nie istnieją.
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Poniższy przykład tworzy maszynę wirtualną z systemem Windows Server 2019 i wymagane składniki sieci wirtualnej, jeśli jeszcze nie istnieją.
 
 ```azurecli
 az vm create \

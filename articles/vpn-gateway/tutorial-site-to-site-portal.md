@@ -7,12 +7,12 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/04/2020
-ms.openlocfilehash: d078d4b106136c95d67eb467bc16e22e2bb91c5c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ccb43c3e7efb9289450ad9a71c003f54e5362b66
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747360"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945203"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-in-the-azure-portal"></a>Samouczek: Tworzenie połączenia typu lokacja-lokacja w Azure Portal
 
@@ -20,7 +20,7 @@ Bramy sieci VPN na platformie Azure zapewniają łączność między lokalizacja
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji":::
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej
@@ -85,7 +85,7 @@ Utwórz bramę sieci VPN przy użyciu następujących wartości:
 
 Publiczny adres IP bramy można wyświetlić na stronie **Przegląd** bramy.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Strona przeglądu":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Strona omówienia":::
 
 Aby wyświetlić dodatkowe informacje na temat obiektu publicznego adresu IP, kliknij link nazwa/adres IP obok pozycji **publiczny adres IP**.
 
@@ -153,7 +153,7 @@ Resetowanie bramy Azure VPN Gateway przydaje się w przypadku utraty połączeni
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
-### <a name="additional-configuration-considerations"></a><a name="connectVM"></a>Dodatkowe zagadnienia dotyczące konfiguracji
+### <a name="additional-configuration-considerations"></a><a name="additional"></a>Dodatkowe zagadnienia dotyczące konfiguracji
 
 Konfiguracje S2S można dostosować na różne sposoby. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 04ba9777fe9e8470e6f02c83f3996d098023e05e
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: a48abb34a201928185130fbe8fdf9592e77492d9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763459"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944958"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure Portal
 
@@ -22,6 +22,9 @@ Możesz tworzyć maszyny wirtualne i zarządzać nimi na Azure Stack urządzeniu
 
 Ten artykuł ma zastosowanie do Azure Stack brzegowych procesorów GPU, Azure Stack EDGE Pro R i Azure Stack Edge. 
 
+> [!IMPORTANT] 
+> Zalecamy włączenie uwierzytelniania wieloskładnikowego dla użytkownika, który zarządza maszynami wirtualnymi wdrożonymi na urządzeniu w chmurze.
+        
 ## <a name="vm-deployment-workflow"></a>Przepływ pracy wdrożenia maszyny wirtualnej
 
 Podsumowanie wysokiego poziomu przepływu pracy wdrożenia jest następujące:

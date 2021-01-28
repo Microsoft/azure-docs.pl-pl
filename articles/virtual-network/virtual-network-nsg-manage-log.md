@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5d06c251ce16aff56a3645f5032cce4e27d5fc9e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 412556f3bd517539fc8ccad94c4de52226f16597
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216907"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946231"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Rejestrowanie zasobów dla sieciowej grupy zabezpieczeń
 
@@ -93,7 +93,7 @@ Wyświetlanie i analizowanie dzienników. Aby uzyskać więcej informacji, zobac
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Możesz uruchomić poniższe polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia platformy Azure na komputerze. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Jeśli interfejs wiersza polecenia zostanie uruchomiony z komputera, musisz mieć wersję 2.0.38 lub nowszą. Uruchom `az --version` polecenie na komputerze, aby znaleźć zainstalowaną wersję. Jeśli musisz przeprowadzić uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Jeśli używasz interfejsu wiersza polecenia lokalnie, musisz też uruchomić polecenie, `az login` Aby zalogować się do platformy Azure przy użyciu konta, które ma [wymagane uprawnienia](virtual-network-network-interface.md#permissions).
+Możesz uruchomić poniższe polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia platformy Azure na komputerze. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Jeśli interfejs wiersza polecenia zostanie uruchomiony z komputera, musisz mieć wersję 2.0.38 lub nowszą. Uruchom `az --version` polecenie na komputerze, aby znaleźć zainstalowaną wersję. Jeśli musisz przeprowadzić uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia lokalnie, musisz też uruchomić polecenie, `az login` Aby zalogować się do platformy Azure przy użyciu konta, które ma [wymagane uprawnienia](virtual-network-network-interface.md#permissions).
 
 Aby włączyć rejestrowanie zasobów, wymagany jest identyfikator istniejącej sieciowej grupy zabezpieczeń. Jeśli nie masz istniejącej sieciowej grupy zabezpieczeń, możesz ją utworzyć za pomocą [AZ Network sieciowej grupy zabezpieczeń Create](/cli/azure/network/nsg#az-network-nsg-create).
 

@@ -1,19 +1,16 @@
 ---
 title: Monitorowanie wydajności klastra — Azure HDInsight
 description: Monitorowanie kondycji i wydajności klastrów Apache Hadoop w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f910054c803093eb62db494a596219c50791d136
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014248"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945337"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorowanie wydajności klastra w usłudze Azure HDInsight
 
@@ -27,7 +24,7 @@ Klastry Hadoop mogą zapewnić optymalną wydajność, gdy obciążenie klastra 
 
 Aby uzyskać ogólne omówienie węzłów klastra i ich ładowania, zaloguj się do [interfejsu użytkownika sieci Web Ambari](hdinsight-hadoop-manage-ambari.md), a następnie wybierz kartę **hosty** . Hosty są wyświetlane na podstawie ich w pełni kwalifikowanych nazw domen. Stan operacyjny każdego hosta jest pokazywany przez kolorowy wskaźnik kondycji:
 
-| Color (Kolor) | Opis |
+| Kolor | Opis |
 | --- | --- |
 | Red (Czerwony) | Co najmniej jeden główny składnik na hoście nie działa. Umieść kursor w celu wyświetlenia etykietki narzędzia, która wyświetla listę składników, których to dotyczy. |
 | Orange | Co najmniej jeden składnik pomocniczy na hoście nie działa. Umieść kursor w celu wyświetlenia etykietki narzędzia, która wyświetla listę składników, których to dotyczy. |

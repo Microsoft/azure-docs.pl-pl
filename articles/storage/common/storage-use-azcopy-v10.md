@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 87cc8af9206daa1f1e959b8abd8beb3e7f8ff2f2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bec221f762213fa8576ccef30e9b6a27aa708f01
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880998"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944142"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -105,7 +105,7 @@ Aby znaleźć przykładowe polecenia, zapoznaj się z dowolnym z tych artykułó
 
 | Usługa | Artykuł |
 |--------|-----------|
-|Azure Blob Storage |[Przekazywanie plików do usługi Azure Blob Storage](storage-use-azcopy-blobs-upload.md)<br><br>[Pobieranie obiektów blob z usługi Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Kopiowanie obiektów BLOB między kontami usługi Azure Storage](storage-use-azcopy-blobs-copy.md)<br><br>[Synchronizacja z usługą Azure Blob Storage](storage-use-azcopy-blobs-synchronize.md)|
+|Azure Blob Storage |[Przekazywanie plików do usługi Azure Blob Storage](storage-use-azcopy-blobs-upload.md)<br><br>[Pobieranie obiektów blob z usługi Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Kopiowanie obiektów BLOB między kontami usługi Azure Storage](storage-use-azcopy-blobs-copy.md)<br><br>[Synchronizuj z usługą Azure Blob Storage](storage-use-azcopy-blobs-synchronize.md)|
 |Azure Files |[Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)|
 |Amazon S3|[Transferowanie danych za pomocą zasobników AzCopy i Amazon S3](storage-use-azcopy-s3.md)|
 |Magazyn Azure Stack|[Transferowanie danych za pomocą AzCopy i magazynu Azure Stack](/azure-stack/user/azure-stack-storage-transfer#azcopy)|

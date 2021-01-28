@@ -1,23 +1,20 @@
 ---
 title: Apache Kafka uwierzytelnianie & szyfrowania TLS — Azure HDInsight
 description: Skonfiguruj szyfrowanie TLS na potrzeby komunikacji między klientami Kafka i brokerami Kafka, a także między brokerami Kafka. Skonfiguruj uwierzytelnianie SSL klientów.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6c020153d5c5cb5aad593c5b15e60e67951b89d4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012309"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945186"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Konfigurowanie szyfrowania i uwierzytelniania TLS dla Apache Kafka w usłudze Azure HDInsight
 
-W tym artykule opisano sposób konfigurowania szyfrowania Transport Layer Security (TLS), znanego wcześniej jako szyfrowanie SSL (SSL) między klientami Apache Kafka i Apache Kafkami brokerami. Pokazano w nim także, jak skonfigurować uwierzytelnianie klientów (czasami określana jako dwukierunkowa Metoda TLS).
+W tym artykule opisano sposób konfigurowania szyfrowania Transport Layer Security (TLS), znanego wcześniej jako szyfrowanie Secure Sockets Layer (SSL) między klientami Apache Kafka i Apache Kafkami brokerami. Pokazano w nim także, jak skonfigurować uwierzytelnianie klientów (czasami określana jako dwukierunkowa Metoda TLS).
 
 > [!Important]
 > Istnieją dwa klientów, których można używać do obsługi aplikacji Kafka: klient Java i klient konsoli. Tylko klient Java `ProducerConsumer.java` może korzystać z protokołu TLS zarówno do tworzenia, jak i zużywania. Klient producenta konsoli nie `console-producer.sh` współpracuje z protokołem TLS.

@@ -1,19 +1,16 @@
 ---
 title: Porady dotyczące korzystania z usługi Hadoop w usłudze HDInsight opartej na systemie Linux — Azure
 description: Uzyskaj porady dotyczące implementacji dotyczące korzystania z klastrów usługi HDInsight opartych na systemie Linux w znanym środowisku systemu Linux działającym w chmurze platformy Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d2619c7bd7bc09eeab3845599758db7134b4134
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546113"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945642"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -24,9 +21,9 @@ Klastry usługi Azure HDInsight zapewniają Apache Hadoop w znanym środowisku s
 Wiele kroków opisanych w tym dokumencie korzysta z następujących narzędzi, które mogą wymagać zainstalowania w systemie.
 
 * [zwinięcie](https://curl.haxx.se/) — używany do komunikowania się z usługami sieci Web.
-* **JQ** , procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
+* **JQ**, procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) — służy do zdalnego zarządzania usługami platformy Azure.
-* **Klient SSH** . Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Klient SSH**. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Użytkownicy
 
@@ -92,8 +89,8 @@ Aby uzyskać więcej informacji, zobacz [porty używane przez Apache Hadoop Serv
 
 Pliki związane z usługą Hadoop znajdują się w węzłach klastra pod adresem `/usr/hdp` . Ten katalog zawiera następujące podkatalogi:
 
-* **2.6.5.3009-43** : Nazwa katalogu jest wersją platformy Hadoop używanej przez usługi HDInsight. Liczba w klastrze może być różna od wymienionej w tym miejscu.
-* **bieżący** : ten katalog zawiera linki do podkatalogów w katalogu **2.6.5.3009-43** . Ten katalog istnieje, aby nie trzeba było pamiętać numeru wersji.
+* **2.6.5.3009-43**: Nazwa katalogu jest wersją platformy Hadoop używanej przez usługi HDInsight. Liczba w klastrze może być różna od wymienionej w tym miejscu.
+* **bieżący**: ten katalog zawiera linki do podkatalogów w katalogu **2.6.5.3009-43** . Ten katalog istnieje, aby nie trzeba było pamiętać numeru wersji.
 
 Przykładowe dane i pliki JAR można znaleźć w rozproszony system plików Hadoop w systemach `/example` i `/HdiSamples` .
 
@@ -183,13 +180,13 @@ Informacje o magazynie można także znaleźć za pomocą Azure Portal, wykonuj�
 
 1. Na [Azure Portal](https://portal.azure.com/)wybierz klaster usługi HDInsight.
 
-2. W sekcji **Właściwości** wybierz pozycję **konta magazynu** . Zostanie wyświetlona informacja o magazynie dla klastra.
+2. W sekcji **Właściwości** wybierz pozycję **konta magazynu**. Zostanie wyświetlona informacja o magazynie dla klastra.
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>Jak mogę dostęp do plików spoza usługi HDInsight
 
 Istnieją różne sposoby uzyskiwania dostępu do danych spoza klastra usługi HDInsight. Poniżej przedstawiono kilka linków do narzędzi i zestawów SDK, których można użyć do pracy z danymi:
 
-Jeśli korzystasz z __usługi Azure Blob Storage__ , Skorzystaj z poniższych linków, aby uzyskać dostęp do danych:
+Jeśli korzystasz z __usługi Azure Blob Storage__, Skorzystaj z poniższych linków, aby uzyskać dostęp do danych:
 
 * Interfejs [wiersza polecenia platformy Azure](/cli/azure/install-az-cli2): Command-Line poleceń interfejsu do pracy z platformą Azure. Po zainstalowaniu programu Użyj `az storage` polecenia, aby uzyskać pomoc dotyczącą korzystania z magazynu, lub `az storage blob` dla poleceń specyficznych dla obiektu BLOB.
 * [blobxfer.py](https://github.com/Azure/blobxfer): skrypt języka Python służący do pracy z obiektami BLOB w usłudze Azure Storage.
@@ -203,7 +200,7 @@ Jeśli korzystasz z __usługi Azure Blob Storage__ , Skorzystaj z poniższych li
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [Interfejs API REST magazynu](/rest/api/storageservices/Blob-Service-REST-API)
 
-Jeśli używasz __Azure Data Lake Storage Gen1__ , zobacz następujące linki, aby poznać sposoby dostępu do danych:
+Jeśli używasz __Azure Data Lake Storage Gen1__, zobacz następujące linki, aby poznać sposoby dostępu do danych:
 
 * [Przeglądarka sieci Web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Program PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)

@@ -3,12 +3,12 @@ title: Włącz Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób włączania i konfigurowania Azure Monitor kontenerów, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f598b42f1a8d9fcb42f09d17e40850cf3a1282be
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994065"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943818"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Włącz Azure Monitor dla kontenerów
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera omówienie opcji, które są dostępne w celu skonfigurowan
 
 Możesz również monitorować wydajność obciążeń wdrożonych w przypadku samodzielnych klastrów Kubernetes hostowanych w:
 - Azure, przy użyciu [aparatu AKS](https://github.com/Azure/aks-engine)
-- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) lub lokalnie, przy użyciu aparatu AKS.
+- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) lub lokalnie, przy użyciu aparatu AKS.
 
 Można włączyć Azure Monitor dla kontenerów dla nowego wdrożenia lub dla jednego lub kilku istniejących wdrożeń Kubernetes przy użyciu dowolnej z następujących obsługiwanych metod:
 
@@ -51,7 +51,7 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 
 - Musisz być członkiem grupy *współautor log Analytics* , aby włączyć monitorowanie kontenera. Aby uzyskać więcej informacji na temat kontrolowania dostępu do obszaru roboczego Log Analytics, zobacz [Zarządzanie obszarami roboczymi](../platform/manage-access.md).
 
-- Jesteś członkiem [grupy *właścicieli* ](../../role-based-access-control/built-in-roles.md#owner) w zasobie klastra AKS.
+- Jesteś członkiem [grupy *właścicieli*](../../role-based-access-control/built-in-roles.md#owner) w zasobie klastra AKS.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -63,7 +63,7 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 
 Azure Monitor dla kontenerów oficjalnie obsługuje następujące konfiguracje:
 
-- Środowiska: Azure Red Hat OpenShift, Kubernetes lokalnie i aparat AKS na platformie Azure i Azure Stack. Aby uzyskać więcej informacji, zobacz [aparat AKS na Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Środowiska: Azure Red Hat OpenShift, Kubernetes lokalnie i aparat AKS na platformie Azure i Azure Stack. Aby uzyskać więcej informacji, zobacz [aparat AKS na Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 - Wersje programu Kubernetes i zasady pomocy technicznej są takie same jak te, które są [obsługiwane w usłudze Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md). 
 
 ## <a name="network-firewall-requirements"></a>Wymagania dotyczące zapory sieciowej
@@ -117,7 +117,7 @@ Aby włączyć Azure Monitor dla kontenerów, należy użyć jednej z metod opis
 | Nowy klaster Kubernetes | [Tworzenie klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Możesz włączyć monitorowanie dla nowego klastra AKS utworzonego za pomocą interfejsu wiersza polecenia platformy Azure. |
 | | [Tworzenie klastra AKS za pomocą Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Możesz włączyć monitorowanie dla nowego klastra AKS utworzonego za pomocą narzędzia typu open source Terraform. |
 | | [Tworzenie klastra OpenShift przy użyciu szablonu Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Można włączyć monitorowanie dla nowego klastra OpenShift utworzonego przy użyciu wstępnie skonfigurowanego szablonu Azure Resource Manager. |
-| | [Tworzenie klastra OpenShift przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | Monitorowanie można włączyć podczas wdrażania nowego klastra OpenShift przy użyciu interfejsu wiersza polecenia platformy Azure. |
+| | [Tworzenie klastra OpenShift przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/openshift#az-openshift-create) | Monitorowanie można włączyć podczas wdrażania nowego klastra OpenShift przy użyciu interfejsu wiersza polecenia platformy Azure. |
 | Istniejący klaster Kubernetes | [Włączanie monitorowania klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Można włączyć monitorowanie klastra AKS, który został już wdrożony za pomocą interfejsu wiersza polecenia platformy Azure. |
 | |[Włącz dla klastra AKS przy użyciu Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Można włączyć monitorowanie klastra AKS, który jest już wdrożony za pomocą narzędzia Open Source Terraform. |
 | | [Włącz dla klastra AKS z Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Można włączyć monitorowanie dla co najmniej jednego klastra AKS, który został już wdrożony na stronie wielu klastrów w Azure Monitor. |

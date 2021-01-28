@@ -2,18 +2,15 @@
 title: Rozwiązania Azure Storage dla usług ML w usłudze HDInsight — Azure
 description: Dowiedz się więcej o różnych opcjach magazynu dostępnych w usłudze ML w usłudze HDInsight
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
-ms.openlocfilehash: 1b684fde9123d3c12d5d69c1daec1c53c6519c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc48025de164ff68fb539a293e06bae09171742
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855297"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943901"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Rozwiązania usługi Azure Storage dla usług ML w usłudze Azure HDInsight
 
@@ -21,7 +18,7 @@ Usługi ML w usłudze HDInsight mogą używać różnych rozwiązań do przechow
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
 - [Usługa Azure Data Lake Storage 1. generacji](https://azure.microsoft.com/services/storage/data-lake-storage/)
-- [Usługa Azure File Storage](https://azure.microsoft.com/services/storage/files/)
+- [Azure File Storage](https://azure.microsoft.com/services/storage/files/)
 
 Istnieje również możliwość uzyskiwania dostępu do wielu kontenerów lub kont magazynu platformy Azure z klastrem usługi HDInsight. Usługa Azure File Storage to wygodna opcja magazynu danych do użycia w węźle brzegowym, który umożliwia zainstalowanie udziału plików usługi Azure Storage w systemie, na przykład systemu plików Linux. Jednak udziały plików platformy Azure mogą być instalowane i używane przez dowolny system, który ma obsługiwany system operacyjny, taki jak Windows lub Linux.
 
@@ -120,7 +117,7 @@ Dostęp do Data Lake Storage Gen1 przy użyciu jednostki usługi Azure Active Di
 
 1. Podczas tworzenia klastra usługi HDInsight wybierz pozycję **klaster Azure AD tożsamość** na karcie **Źródło danych** .
 
-2. W oknie dialogowym **tożsamość klastra Azure AD** w obszarze **Wybierz jednostkę usługi AD**wybierz pozycję **Utwórz nową**.
+2. W oknie dialogowym **tożsamość klastra Azure AD** w obszarze **Wybierz jednostkę usługi AD** wybierz pozycję **Utwórz nową**.
 
 Po podaniu nazwy głównej usługi i utworzeniu dla niej hasła kliknij pozycję **Zarządzaj dostępem ADLS** , aby skojarzyć jednostkę usługi z Data Lake Storage.
 

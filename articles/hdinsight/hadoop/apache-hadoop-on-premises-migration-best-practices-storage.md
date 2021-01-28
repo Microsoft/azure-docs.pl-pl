@@ -1,19 +1,17 @@
 ---
 title: 'Magazyn: Migrowanie Apache Hadoop lokalnych do usługi Azure HDInsight'
 description: Poznaj najlepsze rozwiązania dotyczące magazynu na potrzeby migrowania lokalnych klastrów Hadoop do usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 0594774533f306421f6f3d1260d074bd92b9c919
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544872"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944849"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight
 
@@ -41,7 +39,7 @@ Jeden z następujących formatów może służyć do uzyskiwania dostępu do dan
 
 [Elementy docelowe skalowalności dla kont magazynu w warstwie Standardowa](../../storage/common/scalability-targets-standard-account.md) zawierają bieżące limity dla kont usługi Azure Storage. Jeśli wymagania aplikacji przekraczają tarcze skalowalności pojedynczego konta magazynu, aplikacja może zostać skompilowana w celu użycia wielu kont magazynu, a następnie partycjonowania obiektów danych na tych kontach magazynu.
 
-[Analityka magazynu platformy Azure](../../storage/common/storage-analytics.md) dostarcza metryki dla wszystkich usług magazynu, a Azure Portal można skonfigurować metryki zbierania do wizualizacji za poorednictwem wykresów. Można utworzyć alerty w celu powiadomienia o osiągnięciu progów dla metryk zasobów magazynu.
+[Azure Storage Analytics](../../storage/common/storage-analytics.md) dostarcza metryki dla wszystkich usług magazynu, a Azure Portal można skonfigurować metryki zbierania do wizualizacji za poorednictwem wykresów. Można utworzyć alerty w celu powiadomienia o osiągnięciu progów dla metryk zasobów magazynu.
 
 Usługa Azure Storage oferuje [nietrwałe usuwanie obiektów BLOB](../../storage/blobs/soft-delete-blob-overview.md) , które ułatwiają odzyskiwanie danych po ich przypadkowe zmodyfikowaniu lub usunięciu przez aplikację lub innego użytkownika konta magazynu.
 
@@ -79,7 +77,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - [Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitorowanie konta magazynu w witrynie Azure Portal](../../storage/common/storage-monitor-storage-account.md)
 
-### <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
+### <a name="azure-data-lake-storage-gen1"></a>Usługa Azure Data Lake Storage 1. generacji
 
 Azure Data Lake Storage Gen1 implementuje model kontroli dostępu do stylu systemu plików HDFS i POSIX. Zapewnia ona integrację pierwszej klasy z usługą Azure AD w celu uzyskania szczegółowej kontroli dostępu. Nie ma ograniczeń dotyczących rozmiaru danych, które mogą być przechowywane, lub zdolności do uruchamiania analizy równoległej.
 
@@ -100,13 +98,13 @@ W przeszłości Analiza oparta na chmurze musiała być naruszona w obszarach wy
 
 - **Dostęp zgodny** z usługą Hadoop: Azure Data Lake Storage Gen2 umożliwia zarządzanie danymi i uzyskiwanie do nich dostępu tak samo jak w przypadku [rozproszony system plików Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Nowy [Sterownik ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) jest dostępny we wszystkich środowiskach Apache Hadoop, które znajdują się w [usłudze Azure HDInsight](../index.yml). Ten sterownik umożliwia dostęp do danych przechowywanych w Data Lake Storage Gen2.
 
-- **Nadzbiór uprawnień systemu POSIX** : model zabezpieczeń dla Data Lake Gen2 w pełni obsługuje uprawnienia ACL i POSIX oraz kilka dodatkowych postanowień dotyczących Data Lake Storage Gen2. Ustawienia można skonfigurować za poorednictwem narzędzi administracyjnych lub platform, takich jak Hive i Spark.
+- **Nadzbiór uprawnień systemu POSIX**: model zabezpieczeń dla Data Lake Gen2 w pełni obsługuje uprawnienia ACL i POSIX oraz kilka dodatkowych postanowień dotyczących Data Lake Storage Gen2. Ustawienia można skonfigurować za poorednictwem narzędzi administracyjnych lub platform, takich jak Hive i Spark.
 
-- **Oszczędne** : Data Lake Storage Gen2 funkcje magazynu kosztów i transakcji. Jako że dane są przenoszone przez cały cykl życia, stawki rozliczeń zmieniają się, aby zminimalizować koszty dzięki wbudowanym funkcjom, takim jak [cykl życiowy usługi Azure Blob Storage](../../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Oszczędne**: Data Lake Storage Gen2 funkcje magazynu kosztów i transakcji. Jako że dane są przenoszone przez cały cykl życia, stawki rozliczeń zmieniają się, aby zminimalizować koszty dzięki wbudowanym funkcjom, takim jak [cykl życiowy usługi Azure Blob Storage](../../storage/blobs/storage-lifecycle-management-concepts.md).
 
-- **Współpracuje z narzędziami, strukturami i aplikacjami usługi BLOB Storage** : Data Lake Storage Gen2 nadal pracuje z szeroką gamę narzędzi, platform i aplikacji, które już istnieją dla usługi BLOB Storage.
+- **Współpracuje z narzędziami, strukturami i aplikacjami usługi BLOB Storage**: Data Lake Storage Gen2 nadal pracuje z szeroką gamę narzędzi, platform i aplikacji, które już istnieją dla usługi BLOB Storage.
 
-- **Zoptymalizowany sterownik** : Sterownik systemu plików obiektów blob platformy Azure (ABFS) jest [zoptymalizowany pod](../../storage/blobs/data-lake-storage-abfs-driver.md) kątem analizy danych Big Data. Odpowiednie interfejsy API REST są nadane przez punkt końcowy systemu plików DFS, dfs.core.windows.net.
+- **Zoptymalizowany sterownik**: Sterownik systemu plików obiektów blob platformy Azure (ABFS) jest [zoptymalizowany pod](../../storage/blobs/data-lake-storage-abfs-driver.md) kątem analizy danych Big Data. Odpowiednie interfejsy API REST są nadane przez punkt końcowy systemu plików DFS, dfs.core.windows.net.
 
 Jeden z następujących formatów może służyć do uzyskiwania dostępu do danych przechowywanych w ADLS Gen2:
 - `abfs:///`: Dostęp do Data Lake Storage domyślnego klastra.
@@ -173,11 +171,11 @@ Usługa HDInsight domyślnie ma pełny dostęp do danych na kontach usługi Azur
 
 6. Użyj następujących wartości dla pól **klucza** i **wartości** :
 
-    **Klucz** : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **wartość** : klucz sygnatury dostępu współdzielonego zwracany przez aplikację języka Python z kroku 4 powyżej.
+    **Klucz**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **wartość**: klucz sygnatury dostępu współdzielonego zwracany przez aplikację języka Python z kroku 4 powyżej.
 
-7. Kliknij przycisk **Dodaj** , aby zapisać ten klucz i wartość, a następnie kliknij przycisk **Zapisz** , aby zapisać zmiany konfiguracji. Po wyświetleniu monitu Dodaj opis zmiany (na przykład "Dodawanie dostępu do magazynu SAS"), a następnie kliknij przycisk **Zapisz** .
+7. Kliknij przycisk **Dodaj** , aby zapisać ten klucz i wartość, a następnie kliknij przycisk **Zapisz** , aby zapisać zmiany konfiguracji. Po wyświetleniu monitu Dodaj opis zmiany (na przykład "Dodawanie dostępu do magazynu SAS"), a następnie kliknij przycisk **Zapisz**.
 
-8. W interfejsie użytkownika sieci Web Ambari na liście po lewej stronie wybierz pozycję HDFS, a następnie wybierz pozycję **Uruchom ponownie wszystkie** z listy rozwijanej akcje usługi po prawej stronie. Po wyświetleniu monitu wybierz pozycję **Potwierdź ponowne uruchomienie wszystkich** .
+8. W interfejsie użytkownika sieci Web Ambari na liście po lewej stronie wybierz pozycję HDFS, a następnie wybierz pozycję **Uruchom ponownie wszystkie** z listy rozwijanej akcje usługi po prawej stronie. Po wyświetleniu monitu wybierz pozycję **Potwierdź ponowne uruchomienie wszystkich**.
 
 9. Powtórz ten proces dla MapReduce2 i PRZĘDZy.
 

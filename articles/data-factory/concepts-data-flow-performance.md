@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 12/18/2020
-ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 9706bee07f028c36b4d03311a7abbb969a1be685
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858590"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944993"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -161,7 +161,7 @@ Azure SQL Database ma unikatową opcję partycjonowania o nazwie partycjonowanie
 
 #### <a name="isolation-level"></a>Poziom izolacji
 
-Poziom izolacji odczytu w systemie źródłowym Azure SQL ma wpływ na wydajność. Wybranie opcji "Odczytaj niezatwierdzone" zapewni najszybszą wydajność i uniemożliwi wszystkie blokady bazy danych. Aby dowiedzieć się więcej na temat poziomów izolacji SQL, zobacz [Opis poziomów izolacji](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
+Poziom izolacji odczytu w systemie źródłowym Azure SQL ma wpływ na wydajność. Wybranie opcji "Odczytaj niezatwierdzone" zapewni najszybszą wydajność i uniemożliwi wszystkie blokady bazy danych. Aby dowiedzieć się więcej na temat poziomów izolacji SQL, zobacz [Opis poziomów izolacji](/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Przeczytaj przy użyciu zapytania
 
@@ -208,7 +208,7 @@ Mogą one być wykonywane w sposób natywny za pomocą skryptów poprzedzającyc
 ![Wyłącz indeksy](media/data-flow/disable-indexes-sql.png "Wyłącz indeksy")
 
 > [!WARNING]
-> Podczas wyłączania indeksów przepływ danych efektywnie pobiera kontrolę nad bazą danych, a w tej chwili nie można pomyślnie wykonać zapytań. W związku z tym wiele zadań ETL jest wyzwalanych w połowie nocy, aby uniknąć tego konfliktu. Aby uzyskać więcej informacji, zapoznaj się z [ograniczeniami wyłączania indeksów](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints) .
+> Podczas wyłączania indeksów przepływ danych efektywnie pobiera kontrolę nad bazą danych, a w tej chwili nie można pomyślnie wykonać zapytań. W związku z tym wiele zadań ETL jest wyzwalanych w połowie nocy, aby uniknąć tego konfliktu. Aby uzyskać więcej informacji, zapoznaj się z [ograniczeniami wyłączania indeksów](/sql/relational-databases/indexes/disable-indexes-and-constraints) .
 
 #### <a name="scaling-up-your-database"></a>Skalowanie bazy danych w górę
 
@@ -216,7 +216,7 @@ Zaplanuj zmianę rozmiarów źródła i ujścia usługi Azure SQL DB oraz DW prz
 
 ### <a name="azure-synapse-analytics-sinks"></a>Ujścia usługi Azure Synapse Analytics
 
-Podczas zapisywania do usługi Azure Synapse Analytics upewnij się, że właściwość **enable Staging** ma wartość true. Dzięki temu APD można napisać przy użyciu [polecenia COPY SQL](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) , które skutecznie ładuje dane. Aby przemieszczać dane podczas korzystania z przemieszczania, należy odwoływać się do Azure Data Lake Storage Gen2 lub konta Blob Storage platformy Azure.
+Podczas zapisywania do usługi Azure Synapse Analytics upewnij się, że właściwość **enable Staging** ma wartość true. Dzięki temu APD można napisać przy użyciu [polecenia COPY SQL](/sql/t-sql/statements/copy-into-transact-sql) , które skutecznie ładuje dane. Aby przemieszczać dane podczas korzystania z przemieszczania, należy odwoływać się do Azure Data Lake Storage Gen2 lub konta Blob Storage platformy Azure.
 
 Oprócz przemieszczenia te same najlepsze rozwiązania dotyczą usługi Azure Synapse Analytics jako Azure SQL Database.
 

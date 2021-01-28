@@ -1,19 +1,16 @@
 ---
 title: 'Samouczek: Apache Kafka producenci & interfejsy API konsumentów — Azure HDInsight'
 description: Informacje o sposobie korzystania z interfejsów API producentów i odbiorców platformy Apache Kafka w usłudze HDInsight. W tym samouczku dowiesz się, jak używać tych interfejsów API na platformie Kafka w usłudze HDInsight z poziomu aplikacji Java.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: e5a635a8837aadaf423c6f3a0925dbac4080e60f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629310"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945167"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Samouczek: korzystanie z interfejsów API producentów i odbiorców platformy Apache Kafka
 
@@ -184,7 +181,7 @@ Jeśli chcesz pominąć ten krok, prekompilowane Jars można pobrać z `Prebuilt
 
     Zostanie wyświetlona liczba odczytanych rekordów wraz z liczbą rekordów.
 
-1. Użyj klawiszy __Ctrl+C__ , aby zakończyć działanie odbiorcy.
+1. Użyj klawiszy __Ctrl+C__, aby zakończyć działanie odbiorcy.
 
 ### <a name="multiple-consumers"></a>Wielu odbiorców
 
@@ -196,7 +193,7 @@ Aplikacja odbiorcy akceptuje parametr, który jest używany jako identyfikator g
 java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup
 ```
 
-Użyj klawiszy __Ctrl+C__ , aby zakończyć działanie odbiorcy.
+Użyj klawiszy __Ctrl+C__, aby zakończyć działanie odbiorcy.
 
 Aby zobaczyć, jak działa ten proces, użyj następującego polecenia:
 
@@ -227,7 +224,7 @@ Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasob�
 
 Aby usunąć grupę zasobów za pomocą witryny Azure Portal:
 
-1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__ , aby wyświetlić listę grup zasobów.
+1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__, aby wyświetlić listę grup zasobów.
 2. Znajdź grupę zasobów do usunięcia, a następnie kliknij prawym przyciskiem myszy przycisk __Więcej (...)__ po prawej stronie listy.
 3. Wybierz pozycję __Usuń grupę zasobów__ i potwierdź.
 

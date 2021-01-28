@@ -1,19 +1,16 @@
 ---
 title: Apache Hadoop & bezpiecznego transferu magazynu — Azure HDInsight
 description: Dowiedz się, jak tworzyć klastry usługi HDInsight z kontami magazynu platformy Azure z bezpiecznym transferem.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 69844a392aa03dc962f8af456996ab51f1adf561
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a02da7237252811d89e2c19a29f49f0bf9bb3804
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547473"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945732"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop klastrów z kontami magazynu Secure transfer w usłudze Azure HDInsight
 
@@ -24,7 +21,7 @@ Funkcja [Wymagany bezpieczny transfer](../storage/common/storage-require-secure-
 
 ## <a name="storage-accounts"></a>Konta magazynu
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Domyślnie właściwość Required Secure transfer jest włączona podczas tworzenia konta magazynu w programie Azure Portal.
 

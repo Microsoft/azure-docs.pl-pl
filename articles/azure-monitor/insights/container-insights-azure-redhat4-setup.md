@@ -3,12 +3,12 @@ title: Konfigurowanie usługi Azure Red Hat OpenShift v4. x z Azure Monitor dla 
 description: W tym artykule opisano sposób konfigurowania monitorowania klastra Kubernetes przy użyciu Azure Monitor hostowanego na platformie Azure Red Hat OpenShift w wersji 4 lub nowszej.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e9f31d1b71122c53a67dc40af31d33255e2e98d8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8cd551a028f2fc67c26f8e32d59c0e0650aa1e54
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994548"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944530"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Konfigurowanie usługi Azure Red Hat OpenShift v4. x z Azure Monitor dla kontenerów
 
@@ -20,7 +20,7 @@ Azure Monitor for Containers oferuje bogate środowisko monitorowania dla klastr
 
 Możesz włączyć Azure Monitor dla kontenerów dla jednego lub kilku istniejących wdrożeń systemu Azure Red Hat OpenShift v4. x przy użyciu obsługiwanych metod opisanych w tym artykule.
 
-W przypadku istniejącego klastra uruchom ten [skrypt bash w interfejsie wiersza polecenia platformy Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true).
+W przypadku istniejącego klastra uruchom ten [skrypt bash w interfejsie wiersza polecenia platformy Azure](/cli/azure/openshift#az-openshift-create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Obsługiwane i nieobsługiwane funkcje
 
@@ -111,7 +111,7 @@ Jeśli nie masz obszaru roboczego do określenia, możesz przejść do sekcji [i
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. W danych wyjściowych Znajdź nazwę obszaru roboczego, a następnie skopiuj pełny identyfikator zasobu tego Log Analytics obszaru roboczego pod **identyfikatorem**pola.
+1. W danych wyjściowych Znajdź nazwę obszaru roboczego, a następnie skopiuj pełny identyfikator zasobu tego Log Analytics obszaru roboczego pod **identyfikatorem** pola.
 
 1. Aby włączyć monitorowanie, uruchom następujące polecenie. Zastąp wartości `azureAroV4ClusterResourceId` `logAnalyticsWorkspaceResourceId` parametrów, i `kubeContext` .
 
@@ -133,7 +133,7 @@ W tej sekcji można włączyć monitorowanie klastra Red Hat OpenShift v4. x pla
 
 W tym przykładzie nie trzeba już tworzyć ani określać istniejącego obszaru roboczego. To polecenie upraszcza proces przez utworzenie domyślnego obszaru roboczego w domyślnej grupie zasobów subskrypcji klastra, jeśli jeszcze nie istnieje w regionie.
 
-Tworzony domyślny obszar roboczy ma format *DefaultWorkspace- \<GUID> - \<Region> *.  
+Tworzony domyślny obszar roboczy ma format *DefaultWorkspace- \<GUID> - \<Region>*.  
 
 Zastąp wartości `azureAroV4ClusterResourceId` `kubeContext` parametrów i.
 
@@ -162,7 +162,7 @@ Widok wiele klastrów w Azure Monitor dla kontenerów wyróżnia klastry usługi
 
 1. Na liście niemonitorowanych klastrów wybierz klaster, a następnie wybierz pozycję **Włącz**.
 
-    Wyniki można zidentyfikować na liście, wyszukując wartość **ARO** w kolumnie **Typ klastra** . Po wybraniu opcji **Włącz**nastąpi przekierowanie do tego artykułu.
+    Wyniki można zidentyfikować na liście, wyszukując wartość **ARO** w kolumnie **Typ klastra** . Po wybraniu opcji **Włącz** nastąpi przekierowanie do tego artykułu.
 
 ## <a name="next-steps"></a>Następne kroki
 

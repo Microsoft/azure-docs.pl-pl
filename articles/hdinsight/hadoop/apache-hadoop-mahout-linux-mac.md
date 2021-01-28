@@ -1,19 +1,16 @@
 ---
 title: Generowanie rekomendacji przy użyciu oprogramowania Apache Mahout w usłudze Azure HDInsight
 description: Dowiedz się, jak wygenerować zalecenia dotyczące filmów za pomocą usługi HDInsight przy użyciu biblioteki usługi Machine Learning w usłudze Apache Mahout.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: a4e4a45519526dd0eeb938a3b83e737d82589c1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c31ffaf094801bdd49e5800bd338a15d8b8315f6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207670"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946499"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Generowanie rekomendacji przy użyciu oprogramowania Apache Mahout w usłudze Azure HDInsight
 
@@ -33,11 +30,11 @@ Jedną z funkcji dostarczanych przez Mahout jest aparat rekomendacji. Ten aparat
 
 Poniższy przepływ pracy to uproszczony przykład, który używa danych filmowych:
 
-* **Wspólne wystąpienie**: Jan, Alicja i Robert wszystkie Niemniej *,* *Empire uderzają z powrotem*i *zwracają Jedi*. Mahout określa, że użytkownicy, którzy lubią jeden z tych filmów, lubią również pozostałe dwa.
+* **Wspólne wystąpienie**: Jan, Alicja i Robert wszystkie Niemniej *,* *Empire uderzają z powrotem* i *zwracają Jedi*. Mahout określa, że użytkownicy, którzy lubią jeden z tych filmów, lubią również pozostałe dwa.
 
-* **Wspólne wystąpienie**: Robert i Alicja również polubili *Menace Fantom*, *atakujący klony*i *Revenge Sith*. Mahout określa, że użytkownicy, którzy lubią poprzednie trzy filmy, również lubią te trzy filmy.
+* **Wspólne wystąpienie**: Robert i Alicja również polubili *Menace Fantom*, *atakujący klony* i *Revenge Sith*. Mahout określa, że użytkownicy, którzy lubią poprzednie trzy filmy, również lubią te trzy filmy.
 
-* **Zalecenie dotyczące podobieństwa**: ze względu na to, że Jan polubili pierwsze trzy filmy, Mahout przegląda filmy, które przypominają inne podobne preferencje, ale Janusz nie zobaczył (podobieństwa/sklasyfikowany). W takim przypadku Mahout zaleca *Fantom Menace*, *ataki klonów*i *Revenge Sith*.
+* **Zalecenie dotyczące podobieństwa**: ze względu na to, że Jan polubili pierwsze trzy filmy, Mahout przegląda filmy, które przypominają inne podobne preferencje, ale Janusz nie zobaczył (podobieństwa/sklasyfikowany). W takim przypadku Mahout zaleca *Fantom Menace*, *ataki klonów* i *Revenge Sith*.
 
 ### <a name="understanding-the-data"></a>Zrozumienie danych
 
@@ -160,7 +157,7 @@ Dane zawarte w programie `user-ratings.txt` mają strukturę `userID` , `movieID
    print "------------------------"
    ```
 
-    Naciśnij **klawisze Ctrl-X**, **Y**i **Enter** , aby zapisać dane.
+    Naciśnij **klawisze Ctrl-X**, **Y** i **Enter** , aby zapisać dane.
 
 4. Uruchom skrypt języka Python. Następujące polecenie założono, że jesteś w katalogu, w którym wszystkie pliki zostały pobrane:
 

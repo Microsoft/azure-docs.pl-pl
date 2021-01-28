@@ -1,19 +1,16 @@
 ---
 title: Adresy IP zarządzania usługą Azure HDInsight
 description: Dowiedz się, które adresy IP należy zezwolić na ruch przychodzący z programu, w celu poprawnego skonfigurowania sieciowych grup zabezpieczeń i tras zdefiniowanych przez użytkownika dla sieci wirtualnych za pomocą usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 89d749a04c22967198be217350ff38751336fe67
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549042"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944102"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresy IP zarządzania usługą HDInsight
 
@@ -40,7 +37,7 @@ Jeśli używasz usługi DNS udostępnionej przez platformę Azure, Zezwól na do
 
 Zezwalaj na ruch z następujących adresów IP dla usług Azure HDInsight Health i Management Services, które mają zastosowanie do wszystkich regionów platformy Azure:
 
-| Źródłowy adres IP | Miejsce docelowe  | Kierunek |
+| Źródłowy adres IP | Element docelowy  | Kierunek |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*: 443 | Przychodzący |
 | 23.99.5.239 | \*: 443 | Przychodzący |
@@ -60,7 +57,7 @@ Zezwalaj na ruch z adresów IP wymienionych dla usług Azure HDInsight Health i 
 | &nbsp; | Southeast Asia | 13.76.245.160</br>13.76.136.249 | \*: 443 | Przychodzący |
 | Australia | Australia Wschodnia | 104.210.84.115</br>13.75.152.195 | \*: 443 | Przychodzący |
 | &nbsp; | Australia Południowo-Wschodnia | 13.77.2.56</br>13.77.2.94 | \*: 443 | Przychodzący |
-| Brazylia | Brazil South | 191.235.84.104</br>191.235.87.113 | \*: 443 | Przychodzący |
+| Brazylia | Brazylia Południowa | 191.235.84.104</br>191.235.87.113 | \*: 443 | Przychodzący |
 | Kanada | Kanada Wschodnia | 52.229.127.96</br>52.229.123.172 | \*: 443 | Przychodzący |
 | &nbsp; | Kanada Środkowa | 52.228.37.66</br>52.228.45.222 |\*: 443 | Przychodzący |
 | Chiny | Chiny Północne | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*: 443 | Przychodzący |

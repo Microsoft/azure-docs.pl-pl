@@ -1,19 +1,16 @@
 ---
 title: Architektura Apache Hadoop — Azure HDInsight
 description: Opisuje Apache Hadoop magazynowanie i przetwarzanie w klastrach usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
-ms.openlocfilehash: 389aee77ac56407f3a116d42ad62fbd94de1bb4e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6f291e5aa440a3e6e45a1dcdb872e18c8d4557ce
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541948"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945902"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architektura platformy Apache Hadoop w usłudze HDInsight
 
@@ -37,7 +34,7 @@ Gdy aplikacja MapReduce jest uruchamiana w klastrze, obiekt ResourceManager zape
 
 Obiekt ResourceManager również uruchamia proces serwera sieci Web, który udostępnia interfejs użytkownika sieci Web do monitorowania stanu aplikacji.
 
-Gdy użytkownik przesyła aplikację MapReduce do uruchamiania w klastrze, aplikacja zostanie przesłana do elementu ResourceManager. Z kolei obiekt ResourceManager przydziela kontener w dostępnych węzłach Nodemanager. Węzły Nodemanager to miejsce, w którym aplikacja jest faktycznie wykonywana. Pierwszy przydzielony kontener uruchamia specjalną aplikację o nazwie ApplicationMaster. Ten ApplicationMaster jest odpowiedzialny za pozyskiwanie zasobów w formie kolejnych kontenerów, co jest konieczne do uruchomienia przesłanej aplikacji. ApplicationMaster bada etapy aplikacji, na przykład etap mapy i zmniejsza etap, oraz czynniki, w których należy przetworzyć dane. ApplicationMaster następnie żąda ( *negocjuje* ) zasobów z obiektu ResourceManager w imieniu aplikacji. Program ResourceManager z kolei przydaje zasoby z NodeManagers w klastrze do ApplicationMaster, aby można było użyć ich do wykonywania aplikacji.
+Gdy użytkownik przesyła aplikację MapReduce do uruchamiania w klastrze, aplikacja zostanie przesłana do elementu ResourceManager. Z kolei obiekt ResourceManager przydziela kontener w dostępnych węzłach Nodemanager. Węzły Nodemanager to miejsce, w którym aplikacja jest faktycznie wykonywana. Pierwszy przydzielony kontener uruchamia specjalną aplikację o nazwie ApplicationMaster. Ten ApplicationMaster jest odpowiedzialny za pozyskiwanie zasobów w formie kolejnych kontenerów, co jest konieczne do uruchomienia przesłanej aplikacji. ApplicationMaster bada etapy aplikacji, na przykład etap mapy i zmniejsza etap, oraz czynniki, w których należy przetworzyć dane. ApplicationMaster następnie żąda (*negocjuje*) zasobów z obiektu ResourceManager w imieniu aplikacji. Program ResourceManager z kolei przydaje zasoby z NodeManagers w klastrze do ApplicationMaster, aby można było użyć ich do wykonywania aplikacji.
 
 NodeManagers uruchamia zadania wchodzące w skład aplikacji, a następnie raportuje postęp i stan z powrotem do ApplicationMaster. ApplicationMaster z kolei raportuje stan aplikacji z powrotem do obiektu ResourceManager. Datasourcemanager zwraca wyniki do klienta.
 
@@ -66,7 +63,7 @@ Aby cofnąć usunięcie pliku z konta magazynu, zobacz:
 
 ## <a name="trash-purging"></a>Przeczyszczanie kosza
 
-`fs.trash.interval`Właściwość w ramach **HDFS**  >  **zaawansowanej lokalizacji systemu** plików HDFS powinna pozostać w wartości domyślnej, `0` ponieważ nie należy przechowywać żadnych danych w systemie lokalnym. Ta wartość nie ma wpływu na konta magazynu zdalnego (WASB, ADLS GEN1, ABFS)
+`fs.trash.interval`Właściwość w ramach   >  **zaawansowanej lokalizacji systemu** plików HDFS powinna pozostać w wartości domyślnej, `0` ponieważ nie należy przechowywać żadnych danych w systemie lokalnym. Ta wartość nie ma wpływu na konta magazynu zdalnego (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Następne kroki
 

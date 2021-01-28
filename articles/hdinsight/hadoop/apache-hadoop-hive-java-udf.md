@@ -1,19 +1,16 @@
 ---
 title: Funkcja Java zdefiniowana przez użytkownika (UDF) z Apache Hive usługą Azure HDInsight
 description: Dowiedz się, jak utworzyć opartą na języku Java funkcję (UDF), która działa z Apache Hive. Ten przykład UDF konwertuje tabelę ciągów tekstowych na małe litery.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 11/20/2019
-ms.openlocfilehash: 1e0c16ee7aa66847cc6f3f4618b8090b7ce86663
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bf9c2ea544c6b510a0507b6b020f0eae0b101dc7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533788"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946569"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Używanie formatu UDF języka Java z Apache Hive w usłudze HDInsight
 

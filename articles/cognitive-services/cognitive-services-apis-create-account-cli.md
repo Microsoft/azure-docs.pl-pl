@@ -10,33 +10,33 @@ keywords: usługi poznawcze, analiza poznawcze, rozwiązania poznawcze, usługi 
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: e276d96e8a81b435ec4d0c270cf818555d512ae0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: c52d935738916ebc546315d9913d7a48c77cbf9a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368903"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945000"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu interfejsu Azure Command-Line Interface (CLI)
 
-Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć pracę z usługą Azure Cognitive Services przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć pracę z usługą Azure Cognitive Services przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 Usługa Azure Cognitive Services to usługi w chmurze z interfejsami API REST, a także dostępne zestawy SDK dla deweloperów, które ułatwiają deweloperom tworzenie analiz poznawczych w aplikacjach, bez konieczności bezpośredniego sztucznej analizy danych lub wiedzy. Dzięki platformie Azure Cognitive Services deweloperzy mogą łatwo dodawać funkcje poznawcze do swoich aplikacji przy użyciu rozwiązań poznawczych, które widzą, słyszą, mówią, wiedzą, a nawet z przyczyn.
 
 Cognitive Services są reprezentowane przez [zasoby](../azure-resource-manager/management/manage-resources-portal.md) platformy Azure utworzone w ramach subskrypcji platformy Azure. Po utworzeniu zasobu Użyj kluczy i punktu końcowego wygenerowanego do uwierzytelniania aplikacji.
 
-W tym przewodniku szybki start dowiesz się, jak zarejestrować się w usłudze Azure Cognitive Services i utworzyć konto z subskrypcją pojedynczego lub wielousługowego za pomocą [interfejsu wiersza polecenia (CLI) platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Te usługi są reprezentowane przez [zasoby](../azure-resource-manager/management/manage-resources-portal.md)platformy Azure, które umożliwiają nawiązywanie połączenia z co najmniej jedną interfejsy API usług Cognitive Services platformy Azure.
+W tym przewodniku szybki start dowiesz się, jak zarejestrować się w usłudze Azure Cognitive Services i utworzyć konto z subskrypcją pojedynczego lub wielousługowego za pomocą [interfejsu wiersza polecenia (CLI) platformy Azure](/cli/azure/install-azure-cli). Te usługi są reprezentowane przez [zasoby](../azure-resource-manager/management/manage-resources-portal.md)platformy Azure, które umożliwiają nawiązywanie połączenia z co najmniej jedną interfejsy API usług Cognitive Services platformy Azure.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Prawidłowa subskrypcja platformy Azure — [Utwórz ją](https://azure.microsoft.com/free/cognitive-services) bezpłatnie.
-* [Interfejs wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Interfejs wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli)
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Instalowanie interfejsu wiersza polecenia platformy Azure i logowanie
 
-Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Aby zalogować się do lokalnej instalacji interfejsu wiersza polecenia, uruchom polecenie [AZ login](/cli/azure/reference-index#az-login) :
+Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby zalogować się do lokalnej instalacji interfejsu wiersza polecenia, uruchom polecenie [AZ login](/cli/azure/reference-index#az-login) :
 
 ```azurecli-interactive
 az login
@@ -99,7 +99,7 @@ Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być u
 | Rozpoznawanie formularzy            | `FormRecognizer`          |
 | Rozpoznawanie pisma odręcznego             | `InkRecognizer`           |
 
-### <a name="search"></a>Wyszukiwanie
+### <a name="search"></a>Wyszukaj
 
 | Usługa            | Rodzaj                  |
 |--------------------|-----------------------|
@@ -134,7 +134,7 @@ Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być u
 | Content Moderator | `ContentModerator` |
 | Personalizacja      | `Personalizer`     |
 
-Listę dostępnych rodzajów usługi poznawczej można znaleźć za pomocą polecenia [AZ cognitiveservices Account List-Kinds](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds) :
+Listę dostępnych rodzajów usługi poznawczej można znaleźć za pomocą polecenia [AZ cognitiveservices Account List-Kinds](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-kinds) :
 
 ```azurecli-interactive
 az cognitiveservices account list-kinds
@@ -142,7 +142,7 @@ az cognitiveservices account list-kinds
 
 ### <a name="add-a-new-resource-to-your-resource-group"></a>Dodawanie nowego zasobu do grupy zasobów
 
-Aby utworzyć i subskrybować nowy zasób Cognitive Services, użyj polecenia [AZ cognitiveservices Account Create](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . To polecenie dodaje nowy zasób rozliczany do utworzonej wcześniej grupy zasobów. Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być używana, wraz z jej warstwą cenową (lub jednostką SKU) i lokalizacją platformy Azure:
+Aby utworzyć i subskrybować nowy zasób Cognitive Services, użyj polecenia [AZ cognitiveservices Account Create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) . To polecenie dodaje nowy zasób rozliczany do utworzonej wcześniej grupy zasobów. Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być używana, wraz z jej warstwą cenową (lub jednostką SKU) i lokalizacją platformy Azure:
 
 Można utworzyć zasób F0 (wolny) dla detektora anomalii o nazwie `anomaly-detector-resource` przy użyciu poniższego polecenia.
 
@@ -160,13 +160,13 @@ az cognitiveservices account create \
 
 ## <a name="get-the-keys-for-your-resource"></a>Pobierz klucze dla zasobu
 
-Aby zalogować się do lokalnej instalacji interfejsu Command-Line (CLI), użyj polecenia [AZ login](/cli/azure/reference-index?view=azure-cli-latest#az-login) .
+Aby zalogować się do lokalnej instalacji interfejsu Command-Line (CLI), użyj polecenia [AZ login](/cli/azure/reference-index#az-login) .
 
 ```azurecli-interactive
 az login
 ```
 
-Użyj polecenia [AZ cognitiveservices Account Keys list](/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) , aby uzyskać klucze dla zasobu usługi poznawczej.
+Użyj polecenia [AZ cognitiveservices Account Keys list](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) , aby uzyskać klucze dla zasobu usługi poznawczej.
 
 ```azurecli-interactive
     az cognitiveservices account keys list \
@@ -185,7 +185,7 @@ Warstwy cenowe (oraz opłata naliczana) są zależne od liczby wysyłanych trans
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Pobierz bieżące użycie przydziału dla zasobu
 
-Użyj polecenia [AZ cognitiveservices Account List-Usage](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) , aby uzyskać użycie zasobu usługi poznawczej.
+Użyj polecenia [AZ cognitiveservices Account List-Usage](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-usage) , aby uzyskać użycie zasobu usługi poznawczej.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
@@ -194,7 +194,7 @@ az cognitiveservices account list-usage \
     --subscription subscription-name
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć zasób Cognitive Services, można go usunąć lub grupy zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich innych zasobów znajdujących się w grupie.
 
@@ -204,7 +204,7 @@ Aby usunąć grupę zasobów i skojarzone z nią zasoby, użyj polecenia AZ Grou
 az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Uwierzytelnianie żądań w usłudze Azure Cognitive Services](authentication.md)
 * [Co to jest platforma Azure Cognitive Services?](./what-are-cognitive-services.md)

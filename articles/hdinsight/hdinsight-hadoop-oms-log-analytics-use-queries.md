@@ -1,19 +1,16 @@
 ---
 title: Wykonywanie zapytań dotyczących dzienników Azure Monitor do monitorowania klastrów usługi Azure HDInsight
 description: Dowiedz się, jak uruchamiać zapytania dotyczące dzienników Azure Monitor, aby monitorować zadania uruchomione w klastrze usługi HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9213f36ec33939c3df3b56d21822aa3b6a17c03
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085365"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945621"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Wykonywanie zapytań dotyczących dzienników Azure Monitor do monitorowania klastrów usługi HDInsight
 
@@ -44,7 +41,7 @@ Dowiedz się, jak szukać określonych metryk dla klastra usługi HDInsight.
 
 1. Z menu po lewej stronie wybierz kartę **Filtr** .
 
-1. W obszarze **Typ**wybierz pozycję **puls**. Następnie wybierz pozycję **zastosuj & Uruchom**.
+1. W obszarze **Typ** wybierz pozycję **puls**. Następnie wybierz pozycję **zastosuj & Uruchom**.
 
     ![metryki wyszukiwania dla usługi log Analytics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Wyszukaj określone metryki")
 
@@ -115,19 +112,19 @@ Pierwszym krokiem tworzenia alertu jest dotarcie do zapytania, na podstawie któ
 
 1. Otwórz obszar roboczy Log Analytics z Azure Portal.
 
-1. W menu po lewej stronie w obszarze **monitorowanie**wybierz pozycję **alerty**.
+1. W menu po lewej stronie w obszarze **monitorowanie** wybierz pozycję **alerty**.
 
 1. W kierunku górnej części wybierz pozycję **Zarządzaj regułami alertów**.
 
 1. Wybierz Alert, który chcesz edytować lub usunąć.
 
-1. Dostępne są następujące opcje: **Zapisz**, **Odrzuć**, **Wyłącz**i **Usuń**.
+1. Dostępne są następujące opcje: **Zapisz**, **Odrzuć**, **Wyłącz** i **Usuń**.
 
     ![Alert dziennika Azure Monitor usługi HDInsight usuwanie edycji](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Tworzenie widoków niestandardowych za pomocą projektanta widoków w Azure Monitor](../azure-monitor/platform/view-designer.md)

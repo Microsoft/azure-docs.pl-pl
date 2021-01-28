@@ -1,19 +1,16 @@
 ---
 title: Używanie dzienników Azure Monitor do monitorowania klastrów usługi Azure HDInsight
 description: Informacje dotyczące monitorowania zadań uruchomionych w klastrze usługi HDInsight przy użyciu dzienników Azure Monitor.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 775e2fad573832dd29fc45985c6d6bd0a50fdf3c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f849248021de3c17b69517d214f6f3fd6e4ee3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546096"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945625"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Monitorowanie klastrów usługi HDInsight za pomocą dzienników usługi Azure Monitor
 
@@ -53,13 +50,13 @@ W tej sekcji skonfigurujesz istniejący klaster usługi HDInsight Hadoop do uży
 
 1. Na [Azure Portal](https://portal.azure.com/)wybierz swój klaster. Klaster zostanie otwarty na nowej stronie portalu.
 
-1. W obszarze **monitorowanie** wybierz pozycję **Azure monitor** .
+1. W obszarze **monitorowanie** wybierz pozycję **Azure monitor**.
 
-1. W widoku głównym w obszarze **integracja Azure monitor** wybierz pozycję **Włącz** .
+1. W widoku głównym w obszarze **integracja Azure monitor** wybierz pozycję **Włącz**.
 
 1. Z listy rozwijanej **Wybierz obszar roboczy** wybierz istniejący obszar roboczy log Analytics.
 
-1. Wybierz pozycję **Zapisz** .  Zapisanie tego ustawienia trwa kilka chwil.
+1. Wybierz pozycję **Zapisz**.  Zapisanie tego ustawienia trwa kilka chwil.
 
     ![Włącz monitorowanie klastrów usługi HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Włącz monitorowanie klastrów usługi HDInsight")
 
@@ -139,7 +136,7 @@ Dostępne rozwiązania usługi HDInsight:
 * Monitorowanie usługi HDInsight Spark
 * Monitorowanie burzy usługi HDInsight
 
-Aby uzyskać instrukcje dotyczące rozwiązania do zarządzania, zobacz [rozwiązania do zarządzania na platformie Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Aby eksperymentować, Zainstaluj rozwiązanie do monitorowania usługi HDInsight Hadoop. Gdy wszystko będzie gotowe, zobaczysz kafelek **HDInsightHadoop** na liście **Podsumowanie** . Wybierz kafelek **HDInsightHadoop** . Rozwiązanie HDInsightHadoop wygląda następująco:
+Aby uzyskać instrukcje dotyczące rozwiązania do zarządzania, zobacz [rozwiązania do zarządzania na platformie Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Aby eksperymentować, Zainstaluj rozwiązanie do monitorowania usługi HDInsight Hadoop. Gdy wszystko będzie gotowe, zobaczysz kafelek **HDInsightHadoop** na liście **Podsumowanie**. Wybierz kafelek **HDInsightHadoop** . Rozwiązanie HDInsightHadoop wygląda następująco:
 
 ![Widok rozwiązania do monitorowania usługi HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

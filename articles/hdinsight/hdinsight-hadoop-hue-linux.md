@@ -1,19 +1,16 @@
 ---
 title: Odcień usługi Hadoop w klastrach opartych na systemie Linux w usłudze HDInsight — Azure
 description: Dowiedz się, jak zainstalować odcień w klastrach usługi HDInsight i użyć tunelowania, aby skierować żądania do odcienia. Użyj odcieni, aby przeglądać magazyn i uruchamiać Hive lub świnie.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: e80df5d1c3d2b2195e76622964406cc65c933a63
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546198"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945687"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalowanie i używanie odcienia w klastrach usługi HDInsight Hadoop
 
@@ -87,11 +84,11 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 
 ### <a name="run-a-hive-query"></a>Uruchomienie zapytania programu Hive
 
-1. W portalu odcienia wybierz pozycję **edytory zapytań** , a następnie wybierz pozycję **Hive** , aby otworzyć Edytor Hive.
+1. W portalu odcienia wybierz pozycję **edytory zapytań**, a następnie wybierz pozycję **Hive** , aby otworzyć Edytor Hive.
 
     ![Portal odcienia usługi HDInsight Użyj edytora Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Korzystanie z programu Hive")
 
-2. Na karcie **Pomoc** w obszarze **baza danych** powinna zostać wyświetlona wartość **hivesampletable** . Jest to Przykładowa tabela, która jest dostarczana ze wszystkimi klastrami Hadoop w usłudze HDInsight. Wprowadź przykładowe zapytanie w okienku po prawej stronie i zobacz dane wyjściowe na karcie **wyniki** w okienku poniżej, jak pokazano na przechwytywaniu ekranu.
+2. Na karcie **Pomoc** w obszarze **baza danych** powinna zostać wyświetlona wartość **hivesampletable**. Jest to Przykładowa tabela, która jest dostarczana ze wszystkimi klastrami Hadoop w usłudze HDInsight. Wprowadź przykładowe zapytanie w okienku po prawej stronie i zobacz dane wyjściowe na karcie **wyniki** w okienku poniżej, jak pokazano na przechwytywaniu ekranu.
 
     ![Zapytanie programu Hive portalu odcienia usługi HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Uruchom zapytanie programu Hive")
 
@@ -125,7 +122,7 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 
    Jest to spowodowane znanym problemem. W ramach tego problemu należy zmodyfikować Ambari tak, aby aktywne Menedżer zasobów również działały na podstawowym węzła głównego.
 
-1. Odcienie rozumie WebHDFS, podczas gdy klastry HDInsight używają usługi Azure Storage za pomocą programu `wasbs://` . Tak więc skrypt niestandardowy używany z akcją skryptu instaluje WebWasb, która jest usługą zgodną z WebHDFS na potrzeby rozmowy z WASB. W związku z tym, mimo że portal odcienia mówi system plików HDFS w miejscu (na przykład gdy przenosisz wskaźnik myszy nad **przeglądarką pliku** ), powinien on być interpretowany jako WASB.
+1. Odcienie rozumie WebHDFS, podczas gdy klastry HDInsight używają usługi Azure Storage za pomocą programu `wasbs://` . Tak więc skrypt niestandardowy używany z akcją skryptu instaluje WebWasb, która jest usługą zgodną z WebHDFS na potrzeby rozmowy z WASB. W związku z tym, mimo że portal odcienia mówi system plików HDFS w miejscu (na przykład gdy przenosisz wskaźnik myszy nad **przeglądarką pliku**), powinien on być interpretowany jako WASB.
 
 ## <a name="next-steps"></a>Następne kroki
 

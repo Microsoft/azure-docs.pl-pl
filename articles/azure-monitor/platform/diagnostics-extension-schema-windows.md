@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eccd4010d796e541e4a0a2c0b0c485b5f18f0366
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008824"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943723"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schemat rozszerzenia diagnostyki systemu Windows
 Diagnostyka Azure Extension to Agent w Azure Monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń zasobów obliczeniowych platformy Azure. W tym artykule opisano Schemat używany do konfiguracji rozszerzenia diagnostyki na maszynach wirtualnych z systemem Windows i innych zasobów obliczeniowych.
@@ -157,7 +157,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Konfiguruje kolekcję zdarzeń wygenerowanych z [klasy EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1). Wymagany atrybut:<br /><br /> **dostawca** — nazwa klasy zdarzenia EventSource.<br /><br /> Atrybuty opcjonalne:<br /><br /> - **scheduledTransferLogLevelFilter** — minimalny poziom ważności, który ma zostać przesłany na konto magazynu.<br /><br /> - **scheduledTransferPeriod** — interwał między planowanymi transferami do magazynu zaokrąglony do najbliższej minuty. Wartość jest [typem danych "Duration" typu XML ".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Konfiguruje kolekcję zdarzeń wygenerowanych z [klasy EventSource](/dotnet/api/system.diagnostics.tracing.eventsource). Wymagany atrybut:<br /><br /> **dostawca** — nazwa klasy zdarzenia EventSource.<br /><br /> Atrybuty opcjonalne:<br /><br /> - **scheduledTransferLogLevelFilter** — minimalny poziom ważności, który ma zostać przesłany na konto magazynu.<br /><br /> - **scheduledTransferPeriod** — interwał między planowanymi transferami do magazynu zaokrąglony do najbliższej minuty. Wartość jest [typem danych "Duration" typu XML ".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Wymagany atrybut:<br /><br /> **dostawca** — identyfikator GUID dostawcy zdarzeń<br /><br /> Atrybuty opcjonalne:<br /><br /> - **scheduledTransferLogLevelFilter** — minimalny poziom ważności, który ma zostać przesłany na konto magazynu.<br /><br /> - **scheduledTransferPeriod** — interwał między planowanymi transferami do magazynu zaokrąglony do najbliższej minuty. Wartość jest [typem danych "Duration" typu XML ".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
@@ -165,7 +165,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration, element  
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwEventSourceProviderConfiguration*
 
- Konfiguruje kolekcję zdarzeń wygenerowanych z [klasy EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1).  
+ Konfiguruje kolekcję zdarzeń wygenerowanych z [klasy EventSource](/dotnet/api/system.diagnostics.tracing.eventsource).  
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
@@ -208,7 +208,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Element podrzędny|Opis|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Wymagane są następujące atrybuty:<br /><br /> - **counterSpecifier** — Nazwa licznika wydajności. Na przykład `\Processor(_Total)\% Processor Time`. Aby uzyskać listę liczników wydajności na hoście, uruchom polecenie `typeperf` .<br /><br /> - **SampleRate** — częstotliwość próbkowania licznika.<br /><br /> Opcjonalny atrybut:<br /><br /> **Unit** — jednostka miary licznika. Wartości są dostępne w [klasie UnitType](/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**PerformanceCounterConfiguration**|Wymagane są następujące atrybuty:<br /><br /> - **counterSpecifier** — Nazwa licznika wydajności. Na przykład `\Processor(_Total)\% Processor Time`. Aby uzyskać listę liczników wydajności na hoście, uruchom polecenie `typeperf` .<br /><br /> - **SampleRate** — częstotliwość próbkowania licznika.<br /><br /> Opcjonalny atrybut:<br /><br /> **Unit** — jednostka miary licznika. Wartości są dostępne w [klasie UnitType](/dotnet/api/microsoft.azure.management.sql.models.unittype) |
 |**ujścia** | Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Azure Monitor lub Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.|    
 
 
@@ -239,7 +239,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |**bufferQuotaInMB**|**unsignedInt**|Opcjonalny. Określa maksymalną ilość magazynu systemu plików, który jest dostępny dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
 |**scheduledTransferLogLevelFilter**|**parametry**|Opcjonalny. Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd** i **krytyczny**.|  
 |**scheduledTransferPeriod**|**trwania**|Opcjonalny. Określa interwał między planowanymi transferami danych zaokrągloną w górę do najbliższej minuty.<br /><br /> Wartość domyślna to PT0S.|  
-|**ujścia** |**ciąg**| Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Application Insights lub Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.|  
+|**ujścia** |**parametry**| Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Application Insights lub Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
@@ -295,8 +295,8 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Atrybuty|Typ|Opis|  
 |----------------|----------|-----------------|  
-|**logLevel**|**ciąg**|Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd** i **krytyczny**.|  
-|**Nazwij**|**ciąg**|Unikatowa nazwa kanału, do którego odwołuje się|  
+|**logLevel**|**parametry**|Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd** i **krytyczny**.|  
+|**Nazwij**|**parametry**|Unikatowa nazwa kanału, do którego odwołuje się|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig, element

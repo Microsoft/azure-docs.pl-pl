@@ -1,19 +1,16 @@
 ---
 title: Zarządzanie dziennikami klastra usługi HDInsight — Azure HDInsight
 description: Określanie typów, rozmiarów i zasad przechowywania dla plików dziennika aktywności usługi HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546028"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945276"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Zarządzanie dziennikami klastra usługi HDInsight
 
@@ -77,11 +74,11 @@ Typowy klaster usługi HDInsight używa kilku usług i pakietów oprogramowania 
 
 Apache Ambari upraszcza zarządzanie, konfigurację i monitorowanie klastra usługi HDInsight przez udostępnienie internetowego interfejsu użytkownika i interfejsu API REST. Usługa Ambari jest dołączana do klastrów usługi HDInsight opartych na systemie Linux. Wybierz okienko **pulpit nawigacyjny klastra** na stronie Azure Portal HDInsight, aby otworzyć stronę łącza **pulpity nawigacyjne klastra** .  Następnie wybierz okienko **pulpit nawigacyjny klastra usługi HDInsight** , aby otworzyć interfejs użytkownika Ambari.  Zostanie wyświetlony monit o podanie poświadczeń logowania do klastra.
 
-Aby otworzyć listę widoków usług, wybierz okienko **widoki Ambari** na stronie Azure portal usługi HDInsight.  Ta lista różni się w zależności od zainstalowanych bibliotek.  Na przykład można zobaczyć Menedżera kolejki PRZĘDZy, widok Hive i widok tez.  Wybierz łącze do usługi, aby wyświetlić informacje o konfiguracji i usłudze.  Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usługi klastra i historii wersji usługi. Aby przejść do tej sekcji interfejsu użytkownika Ambari, wybierz menu **administrator** , a następnie kliknij **stosy i wersje** .  Wybierz kartę **wersje** , aby wyświetlić informacje o wersji usługi.
+Aby otworzyć listę widoków usług, wybierz okienko **widoki Ambari** na stronie Azure portal usługi HDInsight.  Ta lista różni się w zależności od zainstalowanych bibliotek.  Na przykład można zobaczyć Menedżera kolejki PRZĘDZy, widok Hive i widok tez.  Wybierz łącze do usługi, aby wyświetlić informacje o konfiguracji i usłudze.  Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usługi klastra i historii wersji usługi. Aby przejść do tej sekcji interfejsu użytkownika Ambari, wybierz menu **administrator** , a następnie kliknij **stosy i wersje**.  Wybierz kartę **wersje** , aby wyświetlić informacje o wersji usługi.
 
 ![Stos i wersje administratora oprogramowania Apache Ambari](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Za pomocą interfejsu użytkownika Ambari można pobrać konfigurację dla dowolnych (lub wszystkich) usług działających na określonym hoście (lub węźle) w klastrze.  Wybierz menu **hosty** , a następnie link do hosta zainteresowania. Na stronie tego hosta wybierz przycisk **Akcje hosta** , a następnie **Pobierz konfiguracji klienta** .
+Za pomocą interfejsu użytkownika Ambari można pobrać konfigurację dla dowolnych (lub wszystkich) usług działających na określonym hoście (lub węźle) w klastrze.  Wybierz menu **hosty** , a następnie link do hosta zainteresowania. Na stronie tego hosta wybierz przycisk **Akcje hosta** , a następnie **Pobierz konfiguracji klienta**.
 
 ![Konfiguracja klienta hosta pobierania oprogramowania Apache Ambari](./media/hdinsight-log-management/download-client-configs.png)
 
@@ -144,7 +141,7 @@ Interfejs użytkownika programu ResourceManager jest uruchamiany w węźle głó
 
 1. W przeglądarce internetowej przejdź do adresu `https://CLUSTERNAME.azurehdinsight.net`. Zastąp CLUSTERNAME nazwą klastra usługi HDInsight:
 2. Z listy usług po lewej stronie wybierz pozycję PRZĘDZa.
-3. Z listy rozwijanej szybkie linki wybierz jeden z węzłów głównych klastra, a następnie wybierz pozycję **dzienniki zasobów źródłowych** . Zostanie wyświetlona lista linków do dzienników PRZĘDZy.
+3. Z listy rozwijanej szybkie linki wybierz jeden z węzłów głównych klastra, a następnie wybierz pozycję **dzienniki zasobów źródłowych**. Zostanie wyświetlona lista linków do dzienników PRZĘDZy.
 
 ## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Krok 4: wielkość magazynu i koszty przechowywania w dzienniku prognozy
 

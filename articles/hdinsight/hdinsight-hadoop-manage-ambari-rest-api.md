@@ -1,19 +1,16 @@
 ---
 title: Monitorowanie platformy Hadoop i zarządzanie nią za pomocą interfejsu API REST Ambari — Azure HDInsight
 description: Dowiedz się, jak używać Ambari do monitorowania klastrów Hadoop i zarządzania nimi w usłudze Azure HDInsight. W tym dokumencie dowiesz się, jak używać interfejsu API REST Ambari dołączonego do klastrów usługi HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1d4e6f0d6a0242cda919364965a61e4314927d87
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546079"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945580"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu API REST usługi Apache Ambari
 
@@ -41,7 +38,7 @@ Platforma Apache Ambari upraszcza zarządzanie i monitorowanie klastrów usługi
 
 ## <a name="authentication"></a>Authentication
 
-Połączenie z usługą Ambari w usłudze HDInsight wymaga protokołu HTTPS. Użyj nazwy konta administratora (wartość domyślna to **admin** ) i hasła podanego podczas tworzenia klastra.
+Połączenie z usługą Ambari w usłudze HDInsight wymaga protokołu HTTPS. Użyj nazwy konta administratora (wartość domyślna to **admin**) i hasła podanego podczas tworzenia klastra.
 
 W przypadku klastrów pakiet Enterprise Security zamiast tego należy `admin` użyć w pełni kwalifikowanej nazwy użytkownika, takiej jak `username@domain.onmicrosoft.com` .
 

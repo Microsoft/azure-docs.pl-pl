@@ -1,19 +1,16 @@
 ---
 title: Wydajność Phoenix w usłudze Azure HDInsight
 description: Najlepsze rozwiązania w celu zoptymalizowania wydajności Apache Phoenix klastrów usługi Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
-ms.openlocfilehash: 0dfb93db1af807459c37653189a90b754c933aa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffba3b986b35c375d0404d9d2bae5af79f93c54f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504795"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944805"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Najlepsze rozwiązania w zakresie wydajności dla rozwiązania Apache Phoenix
 
@@ -52,7 +49,7 @@ Przy użyciu nowego klucza podstawowego klucze wierszy generowane przez Phoenix 
 
 W pierwszym wierszu powyżej dane dla rowkey są reprezentowane w sposób pokazany:
 
-|rowkey|       key|   value|
+|rowkey|       key|   wartość|
 |------|--------------------|---|
 |  Dole-Jan-111|adres |1111 San Gabriel Dr.|  
 |  Dole-Jan-111|phone |1-425-000-0002|  

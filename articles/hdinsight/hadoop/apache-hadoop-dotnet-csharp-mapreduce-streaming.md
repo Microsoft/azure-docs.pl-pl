@@ -1,19 +1,16 @@
 ---
 title: Używanie języka C# z MapReduce na platformie Hadoop w usłudze HDInsight — Azure
 description: Dowiedz się, jak używać języka C# do tworzenia rozwiązań MapReduce z Apache Hadoop w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 4153b612b4b15883f28517d806acf6b340a94e49
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6948491091f558aa7f317d519b0f92c63cac4788
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543053"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946635"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Używanie języka C# z MapReduce przesyłania strumieniowego na Apache Hadoop w usłudze HDInsight
 
@@ -31,9 +28,9 @@ Aby uzyskać więcej informacji na temat zgodności z programem mono z wersjami 
 
 Podstawowy proces używany do przesyłania strumieniowego w tym dokumencie jest następujący:
 
-1. Usługa Hadoop przekazuje dane do mapowania ( *mapper.exe* w tym przykładzie) na stdin.
+1. Usługa Hadoop przekazuje dane do mapowania (*mapper.exe* w tym przykładzie) na stdin.
 2. Maper przetwarza dane i emituje rozdzielaną tabulatorami pary klucz/wartość do STDOUT.
-3. Dane wyjściowe są odczytywane przez platformę Hadoop, a następnie przekazywane do redukcji ( *reducer.exe* w tym przykładzie) w stdin.
+3. Dane wyjściowe są odczytywane przez platformę Hadoop, a następnie przekazywane do redukcji (*reducer.exe* w tym przykładzie) w stdin.
 4. W ramach tego ograniczenia są odczytywane pary klucz/wartość rozdzielane znakami tabulacji, przetwarzanie danych, a następnie emitowanie wyniku jako pary klucz/wartość z ograniczeniami tabulacji.
 5. Dane wyjściowe są odczytywane przez platformę Hadoop i zapisywane w katalogu wyjściowym.
 
@@ -55,7 +52,7 @@ Aby uzyskać więcej informacji na temat przesyłania strumieniowego, zobacz Us�
 
 ## <a name="create-the-mapper"></a>Tworzenie mapowania
 
-W programie Visual Studio Utwórz nową aplikację konsolową .NET Framework o nazwie *Maper* . Użyj następującego kodu dla aplikacji:
+W programie Visual Studio Utwórz nową aplikację konsolową .NET Framework o nazwie *Maper*. Użyj następującego kodu dla aplikacji:
 
 ```csharp
 using System;
@@ -92,7 +89,7 @@ Po utworzeniu aplikacji Skompiluj ją, aby utworzyć plik *mapper.exe/bin/debug/
 
 ## <a name="create-the-reducer"></a>Utwórz ograniczenie
 
-W programie Visual Studio Utwórz nową aplikację konsolową .NET Framework o nazwie *zmniejszającej* . Użyj następującego kodu dla aplikacji:
+W programie Visual Studio Utwórz nową aplikację konsolową .NET Framework o nazwie *zmniejszającej*. Użyj następującego kodu dla aplikacji:
 
 ```csharp
 using System;
@@ -147,27 +144,27 @@ Po utworzeniu aplikacji Skompiluj ją, aby utworzyć plik *reducer.exe/bin/debug
 
 Następnie musisz przekazać do magazynu usługi HDInsight aplikacje do *odnajdywania* i *zmniejszania* .
 
-1. W programie Visual Studio wybierz pozycję **Wyświetl**  >  **Eksplorator serwera** .
+1. W programie Visual Studio wybierz pozycję **Wyświetl**  >  **Eksplorator serwera**.
 
-1. Kliknij prawym przyciskiem myszy pozycję **Azure** , wybierz pozycję **Połącz z subskrypcją Microsoft Azure...** i Ukończ proces logowania.
+1. Kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure...** i Ukończ proces logowania.
 
 1. Rozwiń klaster usługi HDInsight, do którego chcesz wdrożyć tę aplikację. Zostanie wyświetlona pozycja z tekstem **(domyślne konto magazynu)** .
 
    ![Konto magazynu, klaster usługi HDInsight, Eksplorator serwera, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
-   * Jeśli wpis **(domyślne konto magazynu)** można rozszerzyć, używasz **konta usługi Azure Storage** jako magazynu domyślnego dla klastra. Aby wyświetlić pliki w domyślnym magazynie klastra, rozwiń wpis, a następnie kliknij dwukrotnie **(kontener domyślny)** .
+   * Jeśli wpis **(domyślne konto magazynu)** można rozszerzyć, używasz **konta usługi Azure Storage** jako magazynu domyślnego dla klastra. Aby wyświetlić pliki w domyślnym magazynie klastra, rozwiń wpis, a następnie kliknij dwukrotnie **(kontener domyślny)**.
 
    * Jeśli nie można rozszerzyć wpisu **(domyślnego konta magazynu)** , używasz **Azure Data Lake Storage** jako domyślnego magazynu dla klastra. Aby wyświetlić pliki w domyślnym magazynie klastra, kliknij dwukrotnie wpis **(domyślne konto magazynu)** .
 
 1. Aby przekazać pliki. exe, należy użyć jednej z następujących metod:
 
-    * Jeśli używasz **konta usługi Azure Storage** , wybierz ikonę **Przekaż obiekt BLOB** .
+    * Jeśli używasz **konta usługi Azure Storage**, wybierz ikonę **Przekaż obiekt BLOB** .
 
         ![Ikona przekazywania do usługi HDInsight dla programu mapowania, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
-        W oknie dialogowym **Przekaż nowy plik** w obszarze **Nazwa pliku** wybierz pozycję **Przeglądaj** . W oknie dialogowym **przekazywanie obiektu BLOB** przejdź do folderu *bin\Debug* dla projektu *mapowania* , a następnie wybierz plik *mapper.exe* . Na koniec wybierz pozycję **Otwórz** , a następnie kliknij **przycisk OK** , aby ukończyć przekazywanie.
+        W oknie dialogowym **Przekaż nowy plik** w obszarze **Nazwa pliku** wybierz pozycję **Przeglądaj**. W oknie dialogowym **przekazywanie obiektu BLOB** przejdź do folderu *bin\Debug* dla projektu *mapowania* , a następnie wybierz plik *mapper.exe* . Na koniec wybierz pozycję **Otwórz** , a następnie kliknij **przycisk OK** , aby ukończyć przekazywanie.
 
-    * W przypadku **Azure Data Lake Storage** kliknij prawym przyciskiem myszy pusty obszar na liście plików, a następnie wybierz polecenie **Przekaż** . Na koniec wybierz plik *mapper.exe* a następnie wybierz pozycję **Otwórz** .
+    * W przypadku **Azure Data Lake Storage** kliknij prawym przyciskiem myszy pusty obszar na liście plików, a następnie wybierz polecenie **Przekaż**. Na koniec wybierz plik *mapper.exe* a następnie wybierz pozycję **Otwórz**.
 
     Po zakończeniu przekazywania *mapper.exe* Powtórz proces przesyłania pliku *reducer.exe* .
 
@@ -183,7 +180,7 @@ Poniższa procedura opisuje sposób uruchamiania zadania MapReduce przy użyciu 
 
 1. Użyj jednego z następujących poleceń, aby uruchomić zadanie MapReduce:
 
-   * Jeśli domyślnym magazynem jest **usługa Azure Storage** :
+   * Jeśli domyślnym magazynem jest **usługa Azure Storage**:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -194,7 +191,7 @@ Poniższa procedura opisuje sposób uruchamiania zadania MapReduce przy użyciu 
             -output /example/wordcountout
         ```
 
-    * Jeśli domyślnym magazynem jest **Data Lake Storage Gen1** :
+    * Jeśli domyślnym magazynem jest **Data Lake Storage Gen1**:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -205,7 +202,7 @@ Poniższa procedura opisuje sposób uruchamiania zadania MapReduce przy użyciu 
             -output /example/wordcountout
         ```
 
-   * Jeśli domyślnym magazynem jest **Data Lake Storage Gen2** :
+   * Jeśli domyślnym magazynem jest **Data Lake Storage Gen2**:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -253,7 +250,7 @@ Użyj poniższego skryptu programu PowerShell, aby uruchomić zadanie MapReduce 
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Ten skrypt poprosi o nazwę i hasło konta logowania do klastra wraz z nazwą klastra usługi HDInsight. Po zakończeniu zadania dane wyjściowe zostaną pobrane do pliku o nazwie *output.txt* . Następujący tekst to przykład danych w `output.txt` pliku:
+Ten skrypt poprosi o nazwę i hasło konta logowania do klastra wraz z nazwą klastra usługi HDInsight. Po zakończeniu zadania dane wyjściowe zostaną pobrane do pliku o nazwie *output.txt*. Następujący tekst to przykład danych w `output.txt` pliku:
 
 ```output
 you     1128

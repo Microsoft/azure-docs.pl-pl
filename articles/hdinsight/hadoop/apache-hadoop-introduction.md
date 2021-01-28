@@ -1,19 +1,16 @@
 ---
 title: Co to jest Apache Hadoop i MapReduce — Azure HDInsight
 description: Wprowadzenie do usługi HDInsight oraz stos i składniki technologii Apache Hadoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
-ms.openlocfilehash: ef1914499765beff9913f9735cf55736135f9d96
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1e3fc23dd220a8d9764a64c453e9fb856307ac47
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899635"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946518"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Co to jest Apache Hadoop w usłudze Azure HDInsight?
 
@@ -27,9 +24,9 @@ Aby wyświetlić dostępne składniki stosu technologii Hadoop w usłudze HDInsi
 
 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) jest platformą oprogramowania do pisania zadań, które przetwarzają ogromną ilość danych. Dane wejściowe są dzielone na niezależne fragmenty. Każdy fragment jest przetwarzany równolegle między węzłami w klastrze. Zadanie MapReduce składa się z dwóch funkcji:
 
-* **Maper** : wykorzystuje dane wejściowe, analizuje je (zazwyczaj z operacjami filtrowania i sortowania) i emituje krotki (pary klucz-wartość)
+* **Maper**: wykorzystuje dane wejściowe, analizuje je (zazwyczaj z operacjami filtrowania i sortowania) i emituje krotki (pary klucz-wartość)
 
-* **Redukcja** : wykorzystuje krotki emitowane przez mapowanie i wykonuje operację podsumowującą, która tworzy mniejszy, połączony wynik z danych mapowania
+* **Redukcja**: wykorzystuje krotki emitowane przez mapowanie i wykonuje operację podsumowującą, która tworzy mniejszy, połączony wynik z danych mapowania
 
 Przykład podstawowego zadania MapReduce zliczania wyrazów przedstawiono na poniższym diagramie:
 
@@ -44,7 +41,7 @@ MapReduce można zaimplementować w różnych językach. Język Java jest najpop
 
 ## <a name="development-languages"></a>Języki programistyczne
 
-Języki lub struktury oparte na języku Java i wirtualna maszyna Java mogą być uruchamiane bezpośrednio jako [zadanie MapReduce](..//hadoop/submit-apache-hadoop-jobs-programmatically.md). Przykładem używanym w tym dokumencie jest aplikacja Java MapReduce. W językach innych niż Java, takich jak C#, Python lub autonomiczne pliki wykonywalne, należy użyć **przesyłania strumieniowego Hadoop** .
+Języki lub struktury oparte na języku Java i wirtualna maszyna Java mogą być uruchamiane bezpośrednio jako [zadanie MapReduce](..//hadoop/submit-apache-hadoop-jobs-programmatically.md). Przykładem używanym w tym dokumencie jest aplikacja Java MapReduce. W językach innych niż Java, takich jak C#, Python lub autonomiczne pliki wykonywalne, należy użyć **przesyłania strumieniowego Hadoop**.
 
 Przesyłanie strumieniowe w usłudze Hadoop komunikuje się z mapowaniem i zmniejszeniem za pośrednictwem STDIN i STDOUT. Mapowanie i zmniejszenie danych są odczytywane wierszowo z STDIN i zapisywane dane wyjściowe do STDOUT. Każdy wiersz odczytywany lub emitowany przez mapowanie i zmniejszenie musi być w formacie pary klucz/wartość, rozdzielony znakiem tabulacji:
 

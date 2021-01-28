@@ -1,19 +1,16 @@
 ---
 title: Korzystanie z platformy .NET z usługą Hadoop MapReduce w usłudze HDInsight opartej na systemie Linux — Azure
 description: Dowiedz się, jak używać aplikacji .NET do przesyłania strumieniowego MapReduce w usłudze HDInsight opartej na systemie Linux.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: a6e9bea5d600771a7754142a4df4c0af503ccf5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ceb5d323ecfed54b4e01d13d66c640769a224ee
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075488"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945604"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrowanie rozwiązań .NET dla usługi HDInsight opartej na systemie Windows do usługi HDInsight w oparciu o system Linux
 
@@ -34,7 +31,7 @@ Aby uzyskać więcej informacji na temat zgodności między programami mono i .N
 
 1. Zainstaluj [Analizator przenośności platformy .NET](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Podczas instalacji wybierz wersję programu Visual Studio, która ma być używana.
 
-2. W programie Visual Studio 2015 wybierz pozycję __Analizuj__  >  __Ustawienia analizatora przenośności__i upewnij się, że w sekcji __mono__ jest zaznaczone pole __4,5__ .
+2. W programie Visual Studio 2015 wybierz pozycję __Analizuj__  >  __Ustawienia analizatora przenośności__ i upewnij się, że w sekcji __mono__ jest zaznaczone pole __4,5__ .
 
     ![4,5 sprawdzono w sekcji mono dla ustawień analizatora](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
@@ -42,7 +39,7 @@ Aby uzyskać więcej informacji na temat zgodności między programami mono i .N
 
 3. Wybierz pozycję __Analizuj__  >  __Analizuj przenośność zestawu__. Wybierz zestaw, który zawiera Twoje rozwiązanie, a następnie wybierz pozycję __Otwórz__ , aby rozpocząć analizę.
 
-4. Po zakończeniu analizy wybierz kolejno pozycje __Analizuj__  >  __Przeglądaj raporty analizy__. W obszarze __wyniki analizy przenoszenia__wybierz pozycję __Otwórz raport__ , aby otworzyć raport.
+4. Po zakończeniu analizy wybierz kolejno pozycje __Analizuj__  >  __Przeglądaj raporty analizy__. W obszarze __wyniki analizy przenoszenia__ wybierz pozycję __Otwórz raport__ , aby otworzyć raport.
 
     ![Okno dialogowe wyników analizatora przenośności](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 

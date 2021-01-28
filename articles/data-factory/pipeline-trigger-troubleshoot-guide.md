@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 0ceee3c65e8c4df5d843bb441fb6426a0f4eb696
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220256"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944907"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Data Factory
 
@@ -60,7 +60,7 @@ Komunikat o błędzie:
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-**Przyczyna**: osiągnięto limit pojemności środowiska Integration Runtime. Może być uruchomiona duża ilość przepływu danych przy użyciu tego samego środowiska Integration Runtime w tym samym czasie. Aby uzyskać szczegółowe informacje [, zobacz limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) .
+**Przyczyna**: osiągnięto limit pojemności środowiska Integration Runtime. Może być uruchomiona duża ilość przepływu danych przy użyciu tego samego środowiska Integration Runtime w tym samym czasie. Aby uzyskać szczegółowe informacje [, zobacz limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) .
 
 **Rozwiązanie**:
  
@@ -76,13 +76,13 @@ Azure Data Factory oblicza wynik wszystkich działań na poziomie liścia. Wynik
 **Rozwiązanie**
 
 1. Zaimplementuj kontrole na poziomie działania, wykonując następujące czynności [, jak obsługiwać awarie i błędy potoków](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-1. Użyj Azure Logic Apps, aby monitorować potoki w regularnych odstępach czasu [, wykonując zapytania według fabryki](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+1. Użyj Azure Logic Apps, aby monitorować potoki w regularnych odstępach czasu [, wykonując zapytania według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory).
 
 ## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Monitoruj błędy potoku w regularnych odstępach czasu
 
 Może być konieczne monitorowanie niezakończonych potoków Data Factory w interwałach, powiedzmy 5 minut. Można wykonywać zapytania i filtrować uruchomienia potoku z fabryki danych przy użyciu punktu końcowego. 
 
-Skonfiguruj aplikację logiki platformy Azure, aby wykonywać zapytania dotyczące wszystkich zakończonych niepowodzeniem potoków co 5 minut, zgodnie z opisem w temacie [zapytanie według fabryki](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Następnie możesz zgłosić zdarzenia do naszego systemu biletów.
+Skonfiguruj aplikację logiki platformy Azure, aby wykonywać zapytania dotyczące wszystkich zakończonych niepowodzeniem potoków co 5 minut, zgodnie z opisem w temacie [zapytanie według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory). Następnie możesz zgłosić zdarzenia do naszego systemu biletów.
 
 Aby uzyskać więcej informacji, przejdź do [strony wysyłanie powiadomień z Data Factory, część 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 

@@ -3,16 +3,15 @@ title: Szczegółowy dostęp oparty na rolach konfiguracje klastrów usługi Azu
 description: Dowiedz się więcej o zmianach wymaganych w ramach migracji do szczegółowego dostępu opartego na rolach dla konfiguracji klastra usługi HDInsight.
 author: tylerfox
 ms.author: tyfox
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: d2e9c1fe89866511f8eae0b900563471cd6e52e9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 08be42f4f0801fc700b3e0fc645c1bbc1b747e91
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533312"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944086"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrowanie do szczegółowego dostępu opartego na rolach w przypadku konfiguracji klastrów
 
@@ -181,7 +180,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com
 ```
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Możesz również użyć Azure Portal, aby dodać przypisanie roli operatora klastra usługi HDInsight do użytkownika. Zobacz dokumentację, [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal-Dodaj przypisanie roli](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment).
 

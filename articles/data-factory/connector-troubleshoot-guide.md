@@ -9,12 +9,12 @@ ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4b586b95232af2a154993523402f81ee88a22cda
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967127"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946165"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Rozwiązywanie problemów z łącznikami usługi Azure Data Factory
 
@@ -121,10 +121,10 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: Wystąpił problem z CosmosDbSqlApi operacji.
 
-- **Zalecenie**: Sprawdź błąd w obszarze Szczegóły. Zapoznaj się z [dokumentem pomocy CosmosDb](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). Skontaktuj się z zespołem CosmosDb, jeśli potrzebujesz pomocy.
+- **Zalecenie**: Sprawdź błąd w obszarze Szczegóły. Zapoznaj się z [dokumentem pomocy CosmosDb](../cosmos-db/troubleshoot-dot-net-sdk.md). Skontaktuj się z zespołem CosmosDb, jeśli potrzebujesz pomocy.
 
 
-## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
+## <a name="azure-data-lake-storage-gen1"></a>Usługa Azure Data Lake Storage 1. generacji
 
 ### <a name="error-message-the-underlying-connection-was-closed-could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Komunikat o błędzie: Połączenie podstawowe zostało zamknięte: nie można ustanowić relacji zaufania dla bezpiecznego kanału SSL/TLS.
 
@@ -198,7 +198,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
     - Sprawdź, czy istnieją jakieś specjalne ustawienia sieci, takie jak ExpressRoute i upewnij się, że sieć ma wystarczającą przepustowość. Zaleca się obniżenie ustawienia samodzielnego zadania współbieżnego środowiska IR, gdy ogólna przepustowość jest niska, przez co może uniknąć konkurencji zasobów sieciowych między wieloma współbieżnymi zadaniami.
 
-    - Użyj mniejszego rozmiaru bloku dla kopiowania niebinarnego, aby wyeliminować ten błąd limitu czasu, jeśli rozmiar pliku wynosi umiarkowany lub mały. Odwołaj się do [BLOB Storage Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block).
+    - Użyj mniejszego rozmiaru bloku dla kopiowania niebinarnego, aby wyeliminować ten błąd limitu czasu, jeśli rozmiar pliku wynosi umiarkowany lub mały. Odwołaj się do [BLOB Storage Put Block](/rest/api/storageservices/put-block).
 
        Aby określić rozmiar bloku niestandardowego, można edytować właściwość w edytorze JSON:
         ```
@@ -260,7 +260,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "SqlException", SQL Database zgłasza błąd wskazujący, że określona operacja nie powiodła się.
 
-- **Zalecenie**: Jeśli błąd SQL nie jest wyczyszczony, spróbuj zmienić bazę danych na najnowszy poziom zgodności "150". Może zgłosić najnowsze wersje programu SQL Server. Zapoznaj się z [dokumentem szczegółowym](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
+- **Zalecenie**: Jeśli błąd SQL nie jest wyczyszczony, spróbuj zmienić bazę danych na najnowszy poziom zgodności "150". Umożliwia on zgłaszanie błędów najnowszej wersji programu SQL. Zapoznaj się z [dokumentem szczegółowym](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
 
     Aby rozwiązać problemy związane z programem SQL, wyszukaj kod błędu SQL w tym dokumencie odwołania, aby uzyskać więcej szczegółów: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Jeśli potrzebujesz dalszej pomocy, skontaktuj się z pomocą techniczną Azure SQL.
 
@@ -486,7 +486,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Rozwiązanie**: Spróbuj wykonać następujące czynności, aby rozwiązać ten problem:
 
-    1. Zastosuj [tolerancję błędów](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)ujścia programu SQL, szczególnie "redirectIncompatibleRowSettings", aby rozwiązać problemy z tymi wierszami.
+    1. Zastosuj [tolerancję błędów](./copy-activity-fault-tolerance.md)ujścia programu SQL, szczególnie "redirectIncompatibleRowSettings", aby rozwiązać problemy z tymi wierszami.
 
         > [!NOTE]
         > Należy zauważyć, że odporność na uszkodzenia może spowodować dodatkowy czas wykonywania, co może prowadzić do wyższych kosztów.

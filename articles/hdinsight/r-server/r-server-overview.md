@@ -1,23 +1,20 @@
 ---
 title: Wprowadzenie do usługi ML w usłudze Azure HDInsight
 description: Dowiedz się, jak używać usług ML w usłudze HDInsight do tworzenia aplikacji do analizy danych Big Data.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: b3a6fc2ff45d61d63118edc23f40f69f16db9131
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 87f4181e820b1c6ecdeb0fda85a88e80db248dd2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536151"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943928"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Co to jest usługa ML w usłudze Azure HDInsight
 
-Microsoft Machine Learning Server jest dostępna jako opcja wdrażania podczas tworzenia klastrów usługi HDInsight na platformie Azure. Typ klastra, który zapewnia tę opcję, nosi nazwę **usługi ml** . Ta funkcja zapewnia dostęp na żądanie do dostosowywalnych, dystrybuowanych metod analizy w usłudze HDInsight.
+Microsoft Machine Learning Server jest dostępna jako opcja wdrażania podczas tworzenia klastrów usługi HDInsight na platformie Azure. Typ klastra, który zapewnia tę opcję, nosi nazwę **usługi ml**. Ta funkcja zapewnia dostęp na żądanie do dostosowywalnych, dystrybuowanych metod analizy w usłudze HDInsight.
 
 Usługi ML w usłudze HDInsight zapewniają najnowsze możliwości analizy opartej na języku R na zestawach danych praktycznie dowolnym rozmiarze. Zestawy danych mogą być ładowane do usługi Azure Blob lub magazynu Data Lake. Aplikacje bazujące na języku R mogą korzystać z pakietów języka R o 8000 + Open Source. Dostępne są również procedury w ramach skalowania, czyli pakiet do analizy danych Big Data firmy Microsoft.
 
@@ -112,7 +109,7 @@ Dodatkowe pakiety można zainstalować z akcją skryptu utworzoną po utworzeniu
 
 Po uruchomieniu zadania MapReduce można modyfikować dostępną pamięć do usługi ML. Aby zmodyfikować klaster, należy użyć interfejsu użytkownika Apache Ambari dla klastra. Instrukcje dotyczące interfejsu użytkownika Ambari znajdują się w temacie [Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu użytkownika sieci Web Ambari](../hdinsight-hadoop-manage-ambari.md).
 
-Dostępną pamięć do usługi ML można zmienić przy użyciu przełączników Hadoop w wywołaniu **RxHadoopMR** :
+Dostępną pamięć do usługi ML można zmienić przy użyciu przełączników Hadoop w wywołaniu **RxHadoopMR**:
 
 ```r
 hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"

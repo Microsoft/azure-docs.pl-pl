@@ -1,19 +1,16 @@
 ---
 title: Apache Hive bibliotek podczas tworzenia klastra — Azure HDInsight
 description: Dowiedz się, jak dodać biblioteki Apache Hive (pliki jar) do klastra usługi HDInsight podczas tworzenia klastra.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
-ms.openlocfilehash: c678372fbd54e528a8a16eacc601e815cfd32e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6695e5e985a30d6f912095225c4899e1c910e34
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082237"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945961"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Dodawanie niestandardowych bibliotek Apache Hive podczas tworzenia klastra usługi HDInsight
 
@@ -25,7 +22,7 @@ Podczas tworzenia klastra można użyć akcji skryptu, aby zmodyfikować węzły
 
 Podczas tworzenia klastra skrypt wylicza pliki, kopiuje je do `/usr/lib/customhivelibs/` katalogu w węzłach głównych i procesów roboczych, a następnie dodaje je do `hive.aux.jars.path` właściwości w `core-site.xml` pliku. W klastrach opartych na systemie Linux plik zostanie również zaktualizowany `hive-env.sh` przy użyciu lokalizacji plików.
 
-Użycie akcji skryptu w tym artykule sprawia, że biblioteki są dostępne w przypadku korzystania z klienta programu Hive dla **WebHCat**i **serwera hiveserver2**.
+Użycie akcji skryptu w tym artykule sprawia, że biblioteki są dostępne w przypadku korzystania z klienta programu Hive dla **WebHCat** i **serwera hiveserver2**.
 
 ## <a name="the-script"></a>Skrypt
 
@@ -54,7 +51,7 @@ Użycie akcji skryptu w tym artykule sprawia, że biblioteki są dostępne w prz
 
 1. W przypadku **magazynu**, jeśli konto magazynu zawierające bibliotekę plików jar będzie inne niż konto używane przez klaster, uzupełnij **dodatkowe konta magazynu**.
 
-1. W przypadku **akcji skryptu**podaj następujące informacje:
+1. W przypadku **akcji skryptu** podaj następujące informacje:
 
     |Właściwość |Wartość |
     |---|---|

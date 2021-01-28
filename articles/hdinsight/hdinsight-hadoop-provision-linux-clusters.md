@@ -1,19 +1,16 @@
 ---
 title: Konfigurowanie klastrów w usłudze HDInsight przy użyciu technologii Apache Hadoop, Apache Spark, Apache Kafka i innych
 description: Konfigurowanie klastrów Hadoop, Kafka, Spark, HBase, R Server lub burzy dla usługi HDInsight z poziomu przeglądarki, klasycznego interfejsu wiersza polecenia platformy Azure, Azure PowerShell, REST lub zestawu SDK.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 6ce5de354583da04905f9f889cfabe36e6da6667
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e81ccb541b188fedfefd150233082e9cb1f8c22
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546130"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945541"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurowanie klastrów w usłudze HDInsight przy użyciu technologii Apache Hadoop, Apache Spark, Apache Kafka i innych
 
@@ -38,7 +35,7 @@ W poniższej tabeli przedstawiono różne metody konfigurowania klastra usługi 
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Interfejs wiersza polecenia platformy Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
+| [Odsłon](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Szablony usługi Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 Ten artykuł przeprowadzi Cię przez proces instalacji w [Azure Portal](https://portal.azure.com), w którym można utworzyć klaster usługi HDInsight.
@@ -63,7 +60,7 @@ Nazwy klastrów usługi HDInsight mają następujące ograniczenia:
 * Zakres nazewnictwa klastrów dotyczy wszystkich subskrypcji platformy Azure. Nazwa klastra musi być unikatowa na całym świecie.
 * Pierwsze sześć znaków musi być unikatowe w obrębie sieci wirtualnej
 
-#### <a name="region"></a>Region
+#### <a name="region"></a>Region (Region)
 
 Nie musisz jawnie określać lokalizacji klastra: klaster znajduje się w tej samej lokalizacji co magazyn domyślny. Aby uzyskać listę obsługiwanych regionów, wybierz listę rozwijaną **region** w [cenniku usługi HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -92,7 +89,7 @@ Wybierz wersję usługi HDInsight dla tego klastra. Aby uzyskać więcej informa
 
 Klastry usługi HDInsight umożliwiają skonfigurowanie dwóch kont użytkowników podczas tworzenia klastra:
 
-* Nazwa użytkownika logowania klastra: domyślna nazwa użytkownika to *admin* . Używa konfiguracji podstawowej w Azure Portal. Czasami jest to nazywane "użytkownikiem klastra" lub "HTTP User".
+* Nazwa użytkownika logowania klastra: domyślna nazwa użytkownika to *admin*. Używa konfiguracji podstawowej w Azure Portal. Czasami jest to nazywane "użytkownikiem klastra" lub "HTTP User".
 * Nazwa użytkownika Secure Shell (SSH): służy do nawiązywania połączenia z klastrem za pośrednictwem protokołu SSH. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Nazwa użytkownika HTTP ma następujące ograniczenia:
@@ -117,10 +114,10 @@ Mimo że lokalna instalacja usługi Hadoop wykorzystuje rozproszony system plik�
 Klastry usługi HDInsight mogą korzystać z następujących opcji magazynu:
 
 * Usługa Azure Data Lake Storage 2. generacji
-* Azure Data Lake Storage Gen1
+* Usługa Azure Data Lake Storage 1. generacji
 * Usługa Azure Storage Ogólnego przeznaczenia v2
 * Usługa Azure Storage Ogólnego przeznaczenia wersja 1
-* Blokowy obiekt BLOB usługi Azure Storage ( **obsługiwany tylko jako magazyn pomocniczy** )
+* Blokowy obiekt BLOB usługi Azure Storage (**obsługiwany tylko jako magazyn pomocniczy**)
 
 Aby uzyskać więcej informacji na temat opcji magazynu w usłudze HDInsight, zobacz [porównanie opcji magazynu do użycia z klastrami usługi Azure HDInsight](hdinsight-hadoop-compare-storage-options.md).
 
@@ -172,7 +169,7 @@ Ambari służy do monitorowania klastrów usługi HDInsight, wprowadzania zmian 
 
 ### <a name="enterprise-security-package"></a>Pakiet zabezpieczeń przedsiębiorstwa
 
-W przypadku typów klastrów usługi Hadoop, Spark, HBase, Kafka i interakcyjnych zapytań można włączyć **pakiet Enterprise Security** . Ten pakiet zapewnia bezpieczniejsze Konfigurowanie klastra przy użyciu usługi Apache Ranger i integrację z usługą Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
+W przypadku typów klastrów usługi Hadoop, Spark, HBase, Kafka i interakcyjnych zapytań można włączyć **pakiet Enterprise Security**. Ten pakiet zapewnia bezpieczniejsze Konfigurowanie klastra przy użyciu usługi Apache Ranger i integrację z usługą Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 Pakiet Enterprise Security Package umożliwia integrację usługi HDInsight z usługami Active Directory i Apache Ranger. Wielu użytkowników można utworzyć przy użyciu pakietu Enterprise Security.
 
@@ -261,7 +258,7 @@ Większość aplikacji usługi HDInsight jest instalowanych w pustym węźle kra
 
 ### <a name="script-actions"></a>Akcje skryptu
 
-Możesz zainstalować dodatkowe składniki lub dostosować konfigurację klastra przy użyciu skryptów podczas tworzenia. Takie skrypty są wywoływane za pośrednictwem **akcji skryptu** , która jest opcją konfiguracji, której można użyć z Azure Portal, poleceń cmdlet programu Windows PowerShell usługi HDInsight lub zestawu .NET SDK usługi HDInsight. Aby uzyskać więcej informacji, zobacz [Dostosowywanie klastra usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
+Możesz zainstalować dodatkowe składniki lub dostosować konfigurację klastra przy użyciu skryptów podczas tworzenia. Takie skrypty są wywoływane za pośrednictwem **akcji skryptu**, która jest opcją konfiguracji, której można użyć z Azure Portal, poleceń cmdlet programu Windows PowerShell usługi HDInsight lub zestawu .NET SDK usługi HDInsight. Aby uzyskać więcej informacji, zobacz [Dostosowywanie klastra usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
 
 Niektóre natywne składniki języka Java, takie jak Apache Mahout i kaskadowe, można uruchamiać w klastrze jako pliki archiwum Java (JAR). Te pliki JAR mogą być dystrybuowane do usługi Azure Storage i przesyłane do klastrów HDInsight przy użyciu mechanizmów przesyłania zadań w usłudze Hadoop. Aby uzyskać więcej informacji, zobacz artykuł [przesyłanie zadań Apache Hadoop programowo](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

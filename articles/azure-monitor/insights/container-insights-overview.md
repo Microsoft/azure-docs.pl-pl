@@ -3,12 +3,12 @@ title: Omówienie Azure Monitor kontenerów | Microsoft Docs
 description: W tym artykule opisano Azure Monitor kontenerów monitorujących rozwiązanie AKS datacontainer Insights i wartość dostarczaną przez monitorowanie kondycji klastrów AKS i Container Instances na platformie Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 215427adc38ebd554ca7ac650ec65a05f5a781e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a21a0e506082b58473870baed014ede16665e837
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317161"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943805"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Omówienie usługi Azure Monitor dla kontenerów
 
@@ -17,7 +17,7 @@ Azure Monitor for Containers to funkcja przeznaczona do monitorowania wydajnośc
 - Klastry Managed Kubernetes hostowane w [usłudze Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)
 - Samozarządzane klastry Kubernetes hostowane na platformie Azure przy użyciu [aparatu AKS](https://github.com/Azure/aks-engine)
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
-- Samozarządzane klastry Kubernetes hostowane w [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910&preserve-view=true) lub lokalnie
+- Samozarządzane klastry Kubernetes hostowane w [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) lub lokalnie
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Usługa Azure ARC z włączonym Kubernetes](../../azure-arc/kubernetes/overview.md) (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Azure Monitor for Containers zapewnia wgląd w wydajność przez zbieranie metry
 
 ## <a name="what-does-azure-monitor-for-containers-provide"></a>Co zapewnia Azure Monitor kontenerów?
 
-Azure Monitor for Containers oferuje kompleksowe środowisko monitorowania wykorzystujące różne funkcje Azure Monitor. Te funkcje umożliwiają zrozumienie wydajności i kondycji klastra Kubernetes z systemem operacyjnym Linux i Windows Server 2019 oraz obciążeń kontenerów. Za pomocą Azure Monitor dla kontenerów można:
+Azure Monitor for Containers oferuje kompleksowe środowisko monitorowania wykorzystujące różne funkcje Azure Monitor. Te funkcje umożliwiają zrozumienie wydajności i kondycji klastra Kubernetes z systemem operacyjnym Linux i Windows Server 2019 oraz obciążeń kontenerów. Dzięki usłudze Azure Monitor dla kontenerów można wykonać następujące czynności:
 
 * Zidentyfikuj kontenery AKS, które są uruchomione w węźle, i ich średniego użycia procesora i pamięci. Ta wiedza ułatwia identyfikowanie wąskich gardeł zasobów.
 * Identyfikuj użycie procesora i pamięci w grupach kontenerów i ich kontenerach hostowanych w Azure Container Instances.
@@ -40,7 +40,7 @@ Azure Monitor for Containers oferuje kompleksowe środowisko monitorowania wykor
 * Zapoznaj się z zachowaniem klastra w obszarze średnie i najcięższe obciążenia. Ta wiedza ułatwia identyfikowanie potrzeb związanych z pojemnością i określanie maksymalnego obciążenia, które może utrzymywać klaster.
 * Konfigurowanie alertów w celu aktywnego powiadamiania użytkownika lub rejestrowania go, gdy użycie procesora i pamięci w węzłach lub kontenerach przekracza progi lub w przypadku zmiany stanu kondycji w klastrze na zestawienie kondycji infrastruktury lub węzłów.
 * Integracja z usługą [Prometheus](https://prometheus.io/docs/introduction/overview/) w celu wyświetlania metryk aplikacji i obciążeń zbieranych z węzłów i Kubernetes przy użyciu [zapytań](container-insights-log-search.md) w celu utworzenia niestandardowych alertów, pulpitów nawigacyjnych i szczegółowej szczegółowej analizy.
-* Monitoruj obciążenia kontenera [wdrożone w aparacie AKS aparatów](https://github.com/Azure/aks-engine) lokalnych i [AKS na Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true).
+* Monitoruj obciążenia kontenera [wdrożone w aparacie AKS aparatów](https://github.com/Azure/aks-engine) lokalnych i [AKS na Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 * Monitoruj obciążenia kontenerów [wdrożone na platformie Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]

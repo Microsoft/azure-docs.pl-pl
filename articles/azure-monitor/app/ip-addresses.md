@@ -1,17 +1,17 @@
 ---
-title: Adresy IP używane przez Application Insights i Log Analytics | Microsoft Docs
+title: Adresy IP używane przez Azure Monitor
 description: Wyjątki zapory serwera wymagane przez Application Insights
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: eb0739cb44b9f67258069a574ed0bedb95eac5a4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 01/27/2020
+ms.openlocfilehash: 5a6cc190f84b74cc8a1d4ff24d10cbfa07f3c2fb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625186"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945061"
 ---
-# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Adresy IP używane przez usługi Application Insights i Log Analytics
-Usługa [Azure Application Insights](./app-insights-overview.md) używa wielu adresów IP. Może być konieczne poznanie tych adresów, jeśli monitorowana aplikacja jest hostowana za zaporą.
+# <a name="ip-addresses-used-by-azure-monitor"></a>Adresy IP używane przez Azure Monitor
+[Azure monitor](../overview.md) używa wielu adresów IP. Azure Monitor składa się z podstawowych metryk platformy i dzienników oprócz Log Analytics i Application Insights. Może być konieczne poznanie tych adresów, jeśli monitorowana aplikacja lub infrastruktura jest hostowana za zaporą.
 
 > [!NOTE]
 > Chociaż te adresy są statyczne, istnieje możliwość, że będziemy musieli zmienić je od czasu do czasu. Cały ruch Application Insights reprezentuje ruch wychodzący z wyjątkiem monitorowania dostępności i elementów webhook, które wymagają reguł zapory dla ruchu przychodzącego.
@@ -253,7 +253,7 @@ Uwaga: domena loganalytics.io jest własnością zespołu Log Analytics.
 | --- | --- | --- | --- |
 | Agent | agent.azureserviceprofiler.net<br/>*. agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamiczna | 443
-| Storage | *.core.windows.net | dynamiczna | 443
+| Magazyn | *.core.windows.net | dynamiczna | 443
 
 ## <a name="snapshot-debugger"></a>Debuger migawek
 
@@ -264,5 +264,5 @@ Uwaga: domena loganalytics.io jest własnością zespołu Log Analytics.
 | --- | --- | --- | --- |
 | Agent | agent.azureserviceprofiler.net<br/>*. agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamiczna | 443
-| Storage | *.core.windows.net | dynamiczna | 443
+| Magazyn | *.core.windows.net | dynamiczna | 443
 

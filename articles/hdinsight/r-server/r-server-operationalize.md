@@ -1,19 +1,16 @@
 ---
 title: Usługi operacjonalizować ML w usłudze HDInsight — Azure
 description: Dowiedz się, jak operacjonalizować model danych, aby dokonać prognoz przy użyciu usług ML w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 20159cf911670eb70fd5757991c07b63b3f1776b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536270"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944013"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Klaster usług operacjonalizować ML w usłudze Azure HDInsight
 
@@ -21,7 +18,7 @@ Po użyciu klastra usług ML w usłudze HDInsight w celu ukończenia modelowania
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Klaster usługi ML w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybierz pozycję **usługi ml** dla **typu klastra** .
+* Klaster usługi ML w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybierz pozycję **usługi ml** dla **typu klastra**.
 
 * Klient protokołu Secure Shell (SSH): klient SSH jest używany do zdalnego łączenia z klastrem usługi HDInsight i uruchamiania poleceń bezpośrednio w klastrze. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -54,7 +51,7 @@ Po użyciu klastra usług ML w usłudze HDInsight w celu ukończenia modelowania
         sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
         ```
 
-1. Zostaną wyświetlone opcje do wyboru. Wybierz pierwszą opcję, jak pokazano na poniższym zrzucie ekranu, aby **skonfigurować ml Server dla operacjonalizacji** .
+1. Zostaną wyświetlone opcje do wyboru. Wybierz pierwszą opcję, jak pokazano na poniższym zrzucie ekranu, aby **skonfigurować ml Server dla operacjonalizacji**.
 
     ![Wybór narzędzi administracyjnych programu R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
 
@@ -74,7 +71,7 @@ Po użyciu klastra usług ML w usłudze HDInsight w celu ukończenia modelowania
 
     ![Diagnostyka narzędzi administracyjnych programu R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. Z menu testy **diagnostyczne wybierz pozycję** . Po wyświetleniu monitu wprowadź hasło podane dla użytkownika administratora lokalnego.
+    b. Z menu testy **diagnostyczne wybierz pozycję**. Po wyświetleniu monitu wprowadź hasło podane dla użytkownika administratora lokalnego.
 
     ![Test narzędzi administracyjnych programu R Server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
@@ -86,7 +83,7 @@ Po użyciu klastra usług ML w usłudze HDInsight w celu ukończenia modelowania
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Długotrwałe opóźnienia podczas korzystania z usługi sieci Web na Apache Spark
 
-Jeśli wystąpią duże opóźnienia podczas próby korzystania z usługi internetowej utworzonej za pomocą funkcji mrsdeploy w kontekście obliczeniowym Apache Spark, może być konieczne dodanie niektórych brakujących folderów. Aplikacja Spark należy do użytkownika o nazwie „ *rserve2* ” zawsze wtedy, gdy jest wywoływana z usługi internetowej przy użyciu funkcji mrsdeploy. Aby obejść ten problem:
+Jeśli wystąpią duże opóźnienia podczas próby korzystania z usługi internetowej utworzonej za pomocą funkcji mrsdeploy w kontekście obliczeniowym Apache Spark, może być konieczne dodanie niektórych brakujących folderów. Aplikacja Spark należy do użytkownika o nazwie „*rserve2*” zawsze wtedy, gdy jest wywoływana z usługi internetowej przy użyciu funkcji mrsdeploy. Aby obejść ten problem:
 
 ```r
 # Create these required folders for user 'rserve2' in local and hdfs:
@@ -155,17 +152,17 @@ Wykonaj następujące kroki, aby zlikwidować węzły procesu roboczego:
 
 1. Wybierz węzły procesu roboczego (do zlikwidowania).
 
-1. Kliknij kolejno pozycje **Akcje**  >  **wybrane hosty**  >  **Hosts**  >  **Włącz tryb konserwacji** . Na przykład na poniższej ilustracji węzły wn3 i wn4 są przeznaczone do likwidacji.  
+1. Kliknij kolejno pozycje **Akcje**  >  **wybrane hosty**  >    >  **Włącz tryb konserwacji**. Na przykład na poniższej ilustracji węzły wn3 i wn4 są przeznaczone do likwidacji.  
 
    ![Apache Ambari Włącz tryb konserwacji](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Wybierz pozycję **Akcje**  >  **wybrane hosty**  >  **datanodes** > kliknij pozycję **likwidowanie** .
-* Wybierz pozycję **Akcje**  >  **wybrane hosty**  >  **NodeManagers** > kliknij pozycję **likwidowanie** .
-* Wybierz **Akcje**  >  **wybrane hosty**  >  **datanodes** > kliknij przycisk **Zatrzymaj** .
-* Wybierz pozycję **Akcje**  >  **wybrane hosty**  >  **NodeManagers** > kliknij przycisk **Zatrzymaj** .
-* Wybierz **Akcje**  >  **wybrane hosty**  >  **hosty** > kliknij przycisk **Zatrzymaj wszystkie składniki** .
+* Wybierz pozycję **Akcje**  >  **wybrane hosty**  >  **datanodes** > kliknij pozycję **likwidowanie**.
+* Wybierz pozycję **Akcje**  >  **wybrane hosty**  >  **NodeManagers** > kliknij pozycję **likwidowanie**.
+* Wybierz **Akcje**  >  **wybrane hosty**  >  **datanodes** > kliknij przycisk **Zatrzymaj**.
+* Wybierz pozycję **Akcje**  >  **wybrane hosty**  >  **NodeManagers** > kliknij przycisk **Zatrzymaj**.
+* Wybierz **Akcje**  >  **wybrane hosty**  >  **hosty** > kliknij przycisk **Zatrzymaj wszystkie składniki**.
 * Usuń zaznaczenie węzłów procesu roboczego i wybierz węzły główne.
-* Wybierz pozycję **Akcje**  >  **wybrane hosty** > " **hosty**  >  **uruchamiają ponownie wszystkie składniki** .
+* Wybierz pozycję **Akcje**  >  **wybrane hosty** > "**hosty**  >  **uruchamiają ponownie wszystkie składniki**.
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Krok 2. Konfigurowanie węzłów obliczeniowych na wszystkich zlikwidowanych węzłach procesu roboczego
 
@@ -177,7 +174,7 @@ Wykonaj następujące kroki, aby zlikwidować węzły procesu roboczego:
     dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
     ```
 
-1. Wprowadź **1** , aby wybrać opcję **konfigurowania ml Server dla operacjonalizacji** .
+1. Wprowadź **1** , aby wybrać opcję **konfigurowania ml Server dla operacjonalizacji**.
 
 1. Wprowadź **C** , aby wybrać opcję `C. Compute node` . Umożliwi to skonfigurowanie węzła obliczeniowego w węźle procesu roboczego.
 

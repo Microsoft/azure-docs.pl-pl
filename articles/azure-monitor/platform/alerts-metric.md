@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 0518d3a2e1b67b33b9cb6bceb9754df302710f70
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6919040308dcd3a80c3c0b05ec729744099b6d8f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071038"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944496"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor
 
@@ -91,7 +91,7 @@ Reguły alertów dotyczących metryk można wyświetlać i zarządzać nimi za p
 
 ## <a name="with-azure-cli"></a>Z interfejsem wiersza polecenia platformy Azure
 
-Poprzednie sekcje opisują sposób tworzenia i wyświetlania reguł alertów dotyczących metryk oraz zarządzania nimi przy użyciu Azure Portal. W tej sekcji opisano, jak wykonać to samo przy użyciu wieloplatformowego [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Najszybszym sposobem na rozpoczęcie korzystania z interfejsu wiersza polecenia platformy Azure jest [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). W tym artykule będziemy używać Cloud Shell.
+Poprzednie sekcje opisują sposób tworzenia i wyświetlania reguł alertów dotyczących metryk oraz zarządzania nimi przy użyciu Azure Portal. W tej sekcji opisano, jak wykonać to samo przy użyciu wieloplatformowego [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli). Najszybszym sposobem na rozpoczęcie korzystania z interfejsu wiersza polecenia platformy Azure jest [Azure Cloud Shell](../../cloud-shell/overview.md). W tym artykule będziemy używać Cloud Shell.
 
 1. Przejdź do Azure Portal, kliknij pozycję **Cloud Shell**.
 

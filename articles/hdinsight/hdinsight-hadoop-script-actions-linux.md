@@ -1,18 +1,15 @@
 ---
 title: Opracowywanie akcji skryptu w celu dostosowania klastrów usługi Azure HDInsight
 description: Dowiedz się, jak dostosowywać klastry usługi HDInsight przy użyciu skryptów bash. Akcje skryptu umożliwiają uruchamianie skryptów podczas tworzenia klastra lub po nim, aby zmienić ustawienia konfiguracji klastra lub zainstalować dodatkowe oprogramowanie.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: b6705728fddc9a5a3c9cb8eb2f1811412fb3a290
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629446"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945481"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptu za pomocą usługi HDInsight
 
@@ -290,7 +287,7 @@ Skrypty używane do dostosowywania klastra muszą być przechowywane w jednej z 
 
 * __Dodatkowe konto magazynu__ skojarzone z klastrem.
 
-* __Publicznie czytelny identyfikator URI__ . Na przykład adres URL do danych przechowywanych w usłudze OneDrive, Dropbox lub w innej usłudze hostingu plików.
+* __Publicznie czytelny identyfikator URI__. Na przykład adres URL do danych przechowywanych w usłudze OneDrive, Dropbox lub w innej usłudze hostingu plików.
 
 * __Konto Azure Data Lake Storage__ skojarzone z klastrem usługi HDInsight. Aby uzyskać więcej informacji na temat używania Azure Data Lake Storage z usługą HDInsight, zobacz [Szybki Start: Konfigurowanie klastrów w usłudze HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -332,13 +329,13 @@ Firma Microsoft oferuje przykładowe skrypty do instalowania składników w klas
 
 Poniżej przedstawiono błędy, które można napotkać podczas korzystania z utworzonych skryptów:
 
-**Błąd** : `$'\r': command not found` . Czasami następuje `syntax error: unexpected end of file` .
+**Błąd**: `$'\r': command not found` . Czasami następuje `syntax error: unexpected end of file` .
 
-*Przyczyna* : ten błąd występuje, gdy wiersze w skrypcie kończą się znakiem CRLF. Systemy UNIX oczekują tylko LF jako zakończenia wiersza.
+*Przyczyna*: ten błąd występuje, gdy wiersze w skrypcie kończą się znakiem CRLF. Systemy UNIX oczekują tylko LF jako zakończenia wiersza.
 
 Ten problem najczęściej występuje, gdy skrypt jest tworzony w środowisku systemu Windows, ponieważ CRLF jest typowym wierszem kończącym się w przypadku wielu edytorów tekstu w systemie Windows.
 
-*Rozwiązanie* : Jeśli jest to opcja w edytorze tekstu, wybierz pozycję Format systemu UNIX lub LF dla końca wiersza. Możesz również użyć następujących poleceń w systemie UNIX, aby zmienić wartość CRLF na LF:
+*Rozwiązanie*: Jeśli jest to opcja w edytorze tekstu, wybierz pozycję Format systemu UNIX lub LF dla końca wiersza. Możesz również użyć następujących poleceń w systemie UNIX, aby zmienić wartość CRLF na LF:
 
 > [!NOTE]  
 > Następujące polecenia są w przybliżeniu równoważne, które powinny zmienić końce linii CRLF na LF. Wybierz jeden na podstawie narzędzi dostępnych w systemie.
@@ -350,11 +347,11 @@ Ten problem najczęściej występuje, gdy skrypt jest tworzony w środowisku sys
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modyfikuje plik bezpośrednio |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |PLIK jest w wersji zawierającej tylko końce LF. |
 
-**Błąd** : `line 1: #!/usr/bin/env: No such file or directory` .
+**Błąd**: `line 1: #!/usr/bin/env: No such file or directory` .
 
-*Przyczyna* : ten błąd występuje, gdy skrypt został zapisany jako UTF-8 z oznaczeniem kolejności bajtów (BOM).
+*Przyczyna*: ten błąd występuje, gdy skrypt został zapisany jako UTF-8 z oznaczeniem kolejności bajtów (BOM).
 
-*Rozwiązanie* : Zapisz plik jako ASCII lub UTF-8 bez BOM. Możesz również użyć następującego polecenia w systemie Linux lub UNIX, aby utworzyć plik bez BOM:
+*Rozwiązanie*: Zapisz plik jako ASCII lub UTF-8 bez BOM. Możesz również użyć następującego polecenia w systemie Linux lub UNIX, aby utworzyć plik bez BOM:
 
 ```bash
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE

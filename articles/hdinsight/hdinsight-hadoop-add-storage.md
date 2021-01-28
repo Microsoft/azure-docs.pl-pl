@@ -1,19 +1,16 @@
 ---
 title: Dodawanie dodatkowych kont magazynu platformy Azure do usługi HDInsight
 description: Dowiedz się, jak dodać dodatkowe konta magazynu platformy Azure do istniejącego klastra usługi HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 11852046442901c70112b5e80fef371671546412
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541999"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945935"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Dodawanie dodatkowych kont magazynu do usługi HDInsight
 
@@ -97,7 +94,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Przejdź do **HDFS**  >  **konfiguracji** systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje** .
+1. Przejdź do   >  **konfiguracji** systemu plików HDFS  >    >  **— Zaawansowane niestandardowe podstawowe Lokacje**.
 
 1. Obserwuj klucze, które zaczynają się od `fs.azure.account.key` . Nazwa konta będzie częścią klucza, jak pokazano w tym przykładowym obrazie:
 
@@ -107,7 +104,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Przejdź do **HDFS**  >  **konfiguracji** systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje** .
+1. Przejdź do   >  **konfiguracji** systemu plików HDFS  >    >  **— Zaawansowane niestandardowe podstawowe Lokacje**.
 
 1. Usuń następujące klucze:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -119,7 +116,7 @@ Po usunięciu tych kluczy i zapisaniu konfiguracji należy ponownie uruchomić O
 
 ### <a name="storage-firewall"></a>Zapora magazynu
 
-Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **zapory i sieci wirtualnych** w **wybranych sieciach** , należy włączyć wyjątek **Zezwalaj na zaufane usługi firmy Microsoft...** , aby Usługa HDInsight mogła uzyskać dostęp do konta magazynu`.`
+Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **zapory i sieci wirtualnych** w **wybranych sieciach**, należy włączyć wyjątek **Zezwalaj na zaufane usługi firmy Microsoft...** , aby Usługa HDInsight mogła uzyskać dostęp do konta magazynu`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Nie można uzyskać dostępu do magazynu po zmianie klucza
 

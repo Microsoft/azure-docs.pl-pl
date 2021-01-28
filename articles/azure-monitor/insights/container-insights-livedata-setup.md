@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób konfigurowania widoku w czasie rzecz
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050786"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943853"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)
 
@@ -19,7 +19,7 @@ Ta funkcja obsługuje następujące metody kontroli dostępu do dzienników, zda
 
 - AKS bez włączonej autoryzacji RBAC Kubernetes
 - AKS włączone z autoryzacją RBAC Kubernetes
-    - AKS skonfigurowany przy użyciu powiązania roli klastra **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
+    - AKS skonfigurowany przy użyciu powiązania roli klastra **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials)**
 - AKS włączone z logowaniem jednokrotnym opartym na protokole SAML Azure Active Directory (AD)
 
 Te instrukcje wymagają zarówno dostępu administracyjnego do klastra Kubernetes, jak i w przypadku konfigurowania do korzystania z Azure Active Directory (AD) do uwierzytelniania użytkowników, dostępu administracyjnego do usługi Azure AD.

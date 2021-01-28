@@ -1,19 +1,16 @@
 ---
 title: C#, Apache Hive & Apache chlewnej w Apache Hadoop — Azure HDInsight
 description: Dowiedz się, jak używać funkcji języka C# zdefiniowanej przez użytkownika (UDF) z Apache Hive i Apache chlewnej streaming w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023129"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946555"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Korzystanie z funkcji zdefiniowanych przez użytkownika w języku C# przy użyciu Apache Hive i Apache chlewnej na Apache Hadoop w usłudze HDInsight
 
@@ -58,7 +55,7 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
 
 3. W oknie **Tworzenie nowego projektu** wybierz szablon **aplikacja konsoli (.NET Framework)** (wersja języka C#). Następnie wybierz przycisk **Dalej**.
 
-4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *HiveCSharp*, a następnie przejdź do lokalizacji lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz przycisk **Utwórz**.
+4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *HiveCSharp*, a następnie przejdź do lokalizacji lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz pozycję **Utwórz**.
 
 5. W środowisku IDE programu Visual Studio Zastąp zawartość *program.cs* następującym kodem:
 
@@ -125,7 +122,7 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
 
 3. W oknie **Tworzenie nowego projektu** wybierz szablon **aplikacja konsoli (.NET Framework)** (wersja języka C#). Następnie wybierz przycisk **Dalej**.
 
-4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *PigUDF*, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz przycisk **Utwórz**.
+4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *PigUDF*, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz pozycję **Utwórz**.
 
 5. W środowisku IDE programu Visual Studio Zastąp zawartość *program.cs* następującym kodem:
 

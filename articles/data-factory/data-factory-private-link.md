@@ -1,5 +1,5 @@
 ---
-title: Prywatny link do usługi Azure Azure Data Factory
+title: Usługa Azure Private Link dla usługi Azure Data Factory
 description: Dowiedz się, jak działa łącze prywatne platformy Azure w Azure Data Factory.
 services: data-factory
 ms.author: abnarain
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 6fb460c65d37723b03c1dfd4fba2c353c19455bd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746373"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944576"
 ---
-# <a name="azure-private-link-for-azure-data-factory"></a>Prywatny link do usługi Azure Azure Data Factory
+# <a name="azure-private-link-for-azure-data-factory"></a>Usługa Azure Private Link dla usługi Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -67,7 +67,7 @@ Włączenie usługi link prywatny dla każdego z powyższych kanałów komunikac
 > Podczas tworzenia połączonej usługi upewnij się, że Twoje poświadczenia są przechowywane w magazynie kluczy platformy Azure. W przeciwnym razie poświadczenia nie będą działały po włączeniu prywatnego linku w Azure Data Factory.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Zmiany w systemie DNS dla prywatnych punktów końcowych
-Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla Data Factory zostanie zaktualizowany do aliasu w poddomenie z prefiksem "privatelink". Domyślnie tworzymy również [prywatną strefę DNS](https://docs.microsoft.com/azure/dns/private-dns-overview), odpowiadającą poddomeną "privatelink", z rekordem zasobów DNS dla prywatnych punktów końcowych.
+Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla Data Factory zostanie zaktualizowany do aliasu w poddomenie z prefiksem "privatelink". Domyślnie tworzymy również [prywatną strefę DNS](../dns/private-dns-overview.md), odpowiadającą poddomeną "privatelink", z rekordem zasobów DNS dla prywatnych punktów końcowych.
 
 Po rozwiązaniu adresu URL punktu końcowego usługi Data Factory spoza sieci wirtualnej z prywatnym punktem końcowym jest on rozpoznawany jako publiczny punkt końcowy usługi Data Factory. Po rozwiązaniu problemu z siecią wirtualną, w której jest przechowywany prywatny punkt końcowy, adres URL punktu końcowego magazynu jest rozpoznawany jako adres IP prywatnego punktu końcowego.
 
@@ -89,8 +89,8 @@ Rekordy zasobów DNS dla fabryki danych, po rozwiązaniu w sieci wirtualnej host
 Jeśli używasz niestandardowego serwera DNS w sieci, klienci muszą mieć możliwość rozpoznania nazwy FQDN dla punktu końcowego Data Factory do prywatnego adresu IP punktu końcowego. Należy skonfigurować serwer DNS w celu delegowania poddomeny prywatnego linku do prywatnej strefy DNS dla sieci wirtualnej lub skonfigurować rekordy A dla "DataFactory". {Region}. privatelink. DataFactory. Azure. NET "z prywatnym adresem IP punktu końcowego.
 
 Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do obsługi prywatnych punktów końcowych, zapoznaj się z następującymi artykułami:
-- [Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Konfiguracja DNS dla prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Konfiguracja DNS dla prywatnych punktów końcowych](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Skonfiguruj prywatny link do Azure Data Factory

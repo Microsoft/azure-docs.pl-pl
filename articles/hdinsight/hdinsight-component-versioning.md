@@ -1,19 +1,16 @@
 ---
 title: Apache Hadoop składniki i wersje — Azure HDInsight
 description: Dowiedz się więcej o składnikach i wersjach Apache Hadoop w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 82297b81ebe99301574e99ef438cc81c711dbeff
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 07db57ee36d39454e8a247be11dac4a9c51af3af
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533688"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946113"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Składniki i wersje oprogramowania Apache dostępne dla usługi Azure HDInsight
 
@@ -45,7 +42,7 @@ Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienio
 | Apache Phoenix         | 5             | 4.7.0                       |
 | Apache Spark           | 2.4.4         | 2.3.2.                      |
 | Apache Livy            | 0,5           | 0,4.                        |
-| Apache Kafka           | 2.1.1         | 1,1                         |
+| Apache Kafka           | 2.1.1         | 1.1                         |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
@@ -86,13 +83,13 @@ Ta tabela zawiera listę wersji usługi HDInsight dostępnych w Azure Portal i i
 |---------------------------------|-------------------|-----------------------------------|-----------------------------|
 | Usługa HDInsight 3,6 Hadoop            | 2.7.3             | 31 grudnia 2020                      | 30 czerwca 2021               |
 | HDInsight 3,6 Spark             | 2.3               | 31 grudnia 2020                      | 30 czerwca 2021               |
-| HDInsight 3,6 Spark             | 2.2               | Wycofano 30 czerwca 2020          |                             |
+| HDInsight 3,6 Spark             | 2,2               | Wycofano 30 czerwca 2020          |                             |
 | HDInsight 3,6 Spark             | 2.1               | Wycofano 30 czerwca 2020          |                             |
-| HDInsight 3,6 Kafka             | 1,1               | 31 grudnia 2020                      | 30 czerwca 2021               |
-| HDInsight 3,6 Kafka             | 1,0               | Wycofano 30 czerwca 2020.         |                             |
-| HDInsight 3,6 HBase             | 1,1               | 31 grudnia 2020                      | 30 czerwca 2021               |
+| HDInsight 3,6 Kafka             | 1.1               | 31 grudnia 2020                      | 30 czerwca 2021               |
+| HDInsight 3,6 Kafka             | 1.0               | Wycofano 30 czerwca 2020.         |                             |
+| HDInsight 3,6 HBase             | 1.1               | 31 grudnia 2020                      | 30 czerwca 2021               |
 | Zapytanie interaktywne usługi HDInsight 3,6 | 2.1               | 31 grudnia 2020                      | 30 czerwca 2021               |
-| Usługa HDInsight 3,6             | 1,1               | 31 grudnia 2020                      | 30 czerwca 2021               |
+| Usługa HDInsight 3,6             | 1.1               | 31 grudnia 2020                      | 30 czerwca 2021               |
 | Usługi HDInsight 3,6 ML      | 9,3               | 31 grudnia 2020                      | 31 grudnia 2020                |
 
 > [!NOTE]

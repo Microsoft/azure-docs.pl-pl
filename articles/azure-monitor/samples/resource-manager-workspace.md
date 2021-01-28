@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 3cc79edf50c4f056f413292d2d43aa8cf8e65136
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: c755ee0ee91156da9910a9d43c891c87f86cd430
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683484"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945045"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Przykłady Menedżer zasobów szablonów dla Log Analytics obszarów roboczych w Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia i konfigurowania log Analytics obszarów roboczych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -610,7 +610,7 @@ Poniższy przykład dodaje kolekcję [niestandardowych dzienników](../platform/
 
 ### <a name="notes"></a>Uwagi
 
-- Konfiguracja ograniczników i wyodrębniania może być złożona. Aby uzyskać pomoc, możesz zdefiniować dziennik niestandardowy przy użyciu Azure Portal i pobrać jego konfigurację przy użyciu polecenia [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) z **-Kind** ustawionym na **CustomLog**.
+- Konfiguracja ograniczników i wyodrębniania może być złożona. Aby uzyskać pomoc, możesz zdefiniować dziennik niestandardowy przy użyciu Azure Portal i pobrać jego konfigurację przy użyciu polecenia [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) z **-Kind** ustawionym na **CustomLog**.
 
   
 ### <a name="template-file"></a>Plik szablonu

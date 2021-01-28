@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: 76f92b5da2331748fbbbfc68f1e456fd50dd71ee
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6ea16da3844b8098d87d65e1016f92c69ae34067
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223027"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945159"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Skojarz publiczny adres IP z maszyną wirtualną
 
@@ -26,7 +26,7 @@ W tym artykule dowiesz się, jak skojarzyć publiczny adres IP z istniejącą ma
 
 Aby skojarzyć publiczny adres IP z maszyną wirtualną, możesz użyć [Azure Portal](#azure-portal), [interfejsu wiersza polecenia](#azure-cli) platformy Azure lub [programu PowerShell](#powershell) .
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do lub Wyszukaj maszynę wirtualną, do której chcesz dodać publiczny adres IP, a następnie wybierz ją.
@@ -65,7 +65,7 @@ Aby skojarzyć publiczny adres IP z maszyną wirtualną, możesz użyć [Azure P
 Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)lub użyj Azure Cloud Shell. Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Ma ona wstępnie zainstalowany interfejs wiersza polecenia platformy Azure skonfigurowany do użycia z Twoim kontem. Wybierz przycisk **Wypróbuj** za pomocą poleceń interfejsu wiersza polecenia, które obserwują. Wybranie przycisku **Wypróbuj** wywołuje Cloud Shell, aby można było zalogować się do konta platformy Azure za pomocą usługi.
 
 1. Jeśli używasz interfejsu wiersza polecenia lokalnie w bash, zaloguj się do platformy Azure za pomocą `az login` .
-2. Publiczny adres IP jest skojarzony z konfiguracją IP interfejsu sieciowego dołączonego do maszyny wirtualnej. Za pomocą polecenia [AZ Network nic-IP-config Update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) Skojarz publiczny adres IP z konfiguracją adresów IP. Poniższy przykład kojarzy istniejący publiczny adres IP o nazwie *myVMPublicIP* z konfiguracją IP o nazwie *ipconfigmyVM* istniejącego interfejsu sieciowego o nazwie *myVMVMNic* , który istnieje w grupie zasobów o nazwie Moja *resourceName*.
+2. Publiczny adres IP jest skojarzony z konfiguracją IP interfejsu sieciowego dołączonego do maszyny wirtualnej. Za pomocą polecenia [AZ Network nic-IP-config Update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) Skojarz publiczny adres IP z konfiguracją adresów IP. Poniższy przykład kojarzy istniejący publiczny adres IP o nazwie *myVMPublicIP* z konfiguracją IP o nazwie *ipconfigmyVM* istniejącego interfejsu sieciowego o nazwie *myVMVMNic* , który istnieje w grupie zasobów o nazwie Moja *resourceName*.
   
    ```azurecli-interactive
    az network nic ip-config update \
@@ -75,7 +75,7 @@ Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azur
      --public-ip-address myVMPublicIP
    ```
 
-   - Jeśli nie masz istniejącego publicznego adresu IP, użyj polecenia [AZ Network Public-IP Create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) , aby je utworzyć. Na przykład następujące polecenie tworzy publiczny adres IP o nazwie *myVMPublicIP* w grupie zasobów o nazwie Moja *resourceName*.
+   - Jeśli nie masz istniejącego publicznego adresu IP, użyj polecenia [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) , aby je utworzyć. Na przykład następujące polecenie tworzy publiczny adres IP o nazwie *myVMPublicIP* w grupie zasobów o nazwie Moja *resourceName*.
   
      ```azurecli-interactive
      az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
@@ -84,7 +84,7 @@ Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azur
      > [!NOTE]
      > Poprzednie polecenie tworzy publiczny adres IP z wartościami domyślnymi dla kilku ustawień, które można dostosować. Aby dowiedzieć się więcej na temat wszystkich ustawień publicznego adresu IP, zobacz [Tworzenie publicznego adresu IP](virtual-network-public-ip-address.md#create-a-public-ip-address). Adres jest przypisywany z puli publicznych adresów IP używanych w każdym regionie świadczenia usługi Azure. Aby wyświetlić listę pul adresów używanych w poszczególnych regionach, zobacz [Microsoft Azure zakresów adresów IP centrum](https://www.microsoft.com/download/details.aspx?id=41653)danych.
 
-   - Jeśli nie znasz nazwy interfejsu sieciowego dołączonego do maszyny wirtualnej, użyj polecenia [AZ VM nic list](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) , aby je wyświetlić. Na przykład następujące polecenie wyświetla listę nazw interfejsów sieciowych dołączonych do maszyny wirtualnej o nazwie *myVM* w grupie zasobów o nazwie Moja *zasobów*:
+   - Jeśli nie znasz nazwy interfejsu sieciowego dołączonego do maszyny wirtualnej, użyj polecenia [AZ VM nic list](/cli/azure/vm/nic#az-vm-nic-list) , aby je wyświetlić. Na przykład następujące polecenie wyświetla listę nazw interfejsów sieciowych dołączonych do maszyny wirtualnej o nazwie *myVM* w grupie zasobów o nazwie Moja *zasobów*:
 
      ```azurecli-interactive
      az vm nic list --vm-name myVM --resource-group myResourceGroup
@@ -98,13 +98,13 @@ Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azur
 
      W poprzednim przykładzie *myVMVMNic* jest nazwą interfejsu sieciowego.
 
-   - Jeśli nie znasz nazwy konfiguracji protokołu IP dla interfejsu sieciowego, użyj polecenia [AZ Network nic IP-config list](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) , aby je pobrać. Na przykład następujące polecenie wyświetla listę nazw konfiguracji protokołu IP dla interfejsu sieciowego o nazwie *myVMVMNic* w grupie zasobów o nazwie Moja *zasobów*:
+   - Jeśli nie znasz nazwy konfiguracji protokołu IP dla interfejsu sieciowego, użyj polecenia [AZ Network nic IP-config list](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-list) , aby je pobrać. Na przykład następujące polecenie wyświetla listę nazw konfiguracji protokołu IP dla interfejsu sieciowego o nazwie *myVMVMNic* w grupie zasobów o nazwie Moja *zasobów*:
 
      ```azurecli-interactive
      az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
      ```
 
-3. Zapoznaj się z publicznym adresem IP przypisanym do konfiguracji protokołu IP za pomocą polecenia [AZ VM list-IP-addresss](/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) . Poniższy przykład przedstawia adresy IP przypisane do istniejącej maszyny wirtualnej o nazwie *myVM* w grupie zasobów o nazwie Moja *resourceName*.
+3. Zapoznaj się z publicznym adresem IP przypisanym do konfiguracji protokołu IP za pomocą polecenia [AZ VM list-IP-addresss](/cli/azure/vm#az-vm-list-ip-addresses) . Poniższy przykład przedstawia adresy IP przypisane do istniejącej maszyny wirtualnej o nazwie *myVM* w grupie zasobów o nazwie Moja *resourceName*.
 
    ```azurecli-interactive
    az vm list-ip-addresses --name myVM --resource-group myResourceGroup --out table
