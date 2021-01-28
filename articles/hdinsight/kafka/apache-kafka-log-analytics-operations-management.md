@@ -1,19 +1,16 @@
 ---
 title: Azure Monitor dzienników dla Apache Kafka — Azure HDInsight
 description: Dowiedz się, jak za pomocą dzienników Azure Monitor analizować dzienniki z klastra Apache Kafka w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 5128ac7608dfce08471f7a7f97ed28a7971e62b2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d577e96c3ae95103a412b96eba3e1293142f1acd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534451"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932772"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyze logs for Apache Kafka on HDInsight (Analizowanie dzienników na potrzeby platformy Apache Kafka w usłudze HDInsight)
 
@@ -37,7 +34,7 @@ Dzienniki Apache Kafka w klastrze znajdują się pod adresem `/var/log/kafka` . 
 
 Kroki umożliwiające włączenie dzienników Azure Monitor dla usługi HDInsight są takie same dla wszystkich klastrów usługi HDInsight. Skorzystaj z poniższych linków, aby dowiedzieć się, jak utworzyć i skonfigurować wymagane usługi:
 
-1. Utwórz obszar roboczy Log Analytics. Aby uzyskać więcej informacji, zobacz [dzienniki w Azure monitor](../../azure-monitor/platform/data-platform-logs.md) dokumentu.
+1. Utworzenie obszaru roboczego usługi Log Analytics. Aby uzyskać więcej informacji, zobacz [dzienniki w Azure monitor](../../azure-monitor/platform/data-platform-logs.md) dokumentu.
 
 2. Utwórz Kafka w klastrze usługi HDInsight. Aby uzyskać więcej informacji, zobacz artykuł [Rozpoczynanie pracy z Apache Kafka w usłudze HDInsight](apache-kafka-get-started.md) .
 
@@ -50,7 +47,7 @@ Kroki umożliwiające włączenie dzienników Azure Monitor dla usługi HDInsigh
 
 1. Na [Azure Portal](https://portal.azure.com)wybierz obszar roboczy log Analytics.
 
-2. W menu po lewej stronie w obszarze **Ogólne** wybierz pozycję **dzienniki** . W tym miejscu możesz wyszukiwać zebrane dane z Kafka. Wprowadź zapytanie w oknie zapytania, a następnie wybierz polecenie **Uruchom** . Oto kilka przykładowych wyszukiwań:
+2. W menu po lewej stronie w obszarze **Ogólne** wybierz pozycję **dzienniki**. W tym miejscu możesz wyszukiwać zebrane dane z Kafka. Wprowadź zapytanie w oknie zapytania, a następnie wybierz polecenie **Uruchom**. Oto kilka przykładowych wyszukiwań:
 
 * Użycie dysku:
 

@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
-ms.translationtype: HT
+ms.date: 01/27/2021
+ms.openlocfilehash: 4f6187ccb143f065fed236495128add7a2ab1ee4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398430"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928526"
 ---
 # <a name="reservation-recommendations"></a>Rekomendacje dotyczące rezerwacji
 
@@ -25,11 +25,11 @@ Poniższe kroki definiują sposób obliczania zaleceń:
 2. W oparciu o dane użycia aparat symuluje koszty z rezerwacjami i bez nich.
 3. Koszty są symulowane dla różnych ilości i zalecana jest ilość, która maksymalizuje oszczędności.
 4. Jeśli Twoje zasoby są regularnie zamykane, symulacja nie znajdzie żadnych oszczędności i nie poda żadnych zaleceń dotyczących zakupu.
-5. W wyliczeniach zaleceń uwzględniane są wszelkie rabaty specjalne, które mogą mieć zastosowanie do Twoich stawek użycia na żądanie.
+5. Obliczenia rekomendacje obejmują wszelkie specjalne rabaty, które mogą mieć zastosowanie na żądanie.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Zalecenia w witrynie Azure Portal
 
-Zalecenia dotyczące zakupu rezerwacji są również wyświetlane w witrynie Azure Portal w środowisku zakupu. Zalecenia są wyświetlane wraz z **zalecaną ilością**. W przypadku zakupu ilość zalecana przez platformę Azure zapewni maksymalne oszczędności. Możesz kupić dowolną ilość, której potrzebujesz, ale w przypadku zakupienia innej ilości oszczędności nie będą optymalne.
+Zalecenia dotyczące zakupu rezerwacji są również wyświetlane w witrynie Azure Portal w środowisku zakupu. Zalecenia są wyświetlane wraz z **zalecaną ilością**. W przypadku zakupu ilość zalecana przez platformę Azure zapewni maksymalne oszczędności. Mimo że możesz kupić dowolną ilość, której potrzebujesz, w przypadku zakupienia innej ilości oszczędności nie będą optymalne.
 
 Przyjrzyjmy się kilku przykładom.
 
@@ -37,13 +37,13 @@ Na poniższym przykładowym obrazie przedstawiającym wybrane zalecenie platform
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Przykład przedstawiający zalecenie dotyczące zakupu rezerwacji" lightbox="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
 
-Dodatkowe informacje na temat zalecenia są wyświetlane po wybraniu linku **Zobacz szczegóły**. Na poniższym obrazie przedstawiono szczegółowe informacje na temat zalecenia. Zalecana ilość jest obliczana dla największego możliwego użycia na podstawie historycznych danych użycia. Zalecenie może nie dotyczyć 100-procentowego wykorzystania, jeśli Twoje użycie nie jest spójne. Zauważ, że w tym przykładzie wykorzystanie było zmienne w czasie. Przedstawiony jest koszt rezerwacji, możliwe oszczędności i procent wykorzystania.
+Więcej informacji na temat zalecenia pojawia się po wybraniu pozycji **Pokaż szczegóły**. Na poniższym obrazie przedstawiono szczegółowe informacje na temat zalecenia. Zalecana ilość jest obliczana dla największego możliwego użycia i zależy od historycznego użycia. Zalecenie może nie dotyczyć 100-procentowego wykorzystania, jeśli Twoje użycie nie jest spójne. W przykładzie należy zauważyć, że wykorzystanie jest wahania w czasie. Przedstawiony jest koszt rezerwacji, możliwe oszczędności i procent wykorzystania.
 
-:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Przykład przedstawiający szczegóły zalecenia dotyczącego zakupu rezerwacji" :::
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Przykład pokazujący szczegóły rekomendacji dotyczącej zakupu rezerwacji " :::
 
-Gdy zwiększysz lub zmniejszysz ilość rezerwacji do ilości wykraczającej poza zalecenie, wykres i szacowane wartości ulegną zmianie. Zwiększenie ilości rezerwacji spowoduje zmniejszenie oszczędności, ponieważ wykorzystanie rezerwacji będzie mniejsze. Innymi słowy, zapłacisz za rezerwacje, które nie będą w pełni wykorzystywane.
+Wykres i szacowane wartości zmieniają się po zwiększeniu zalecanej ilości. Zwiększając ilość rezerwacji, oszczędności zostaną zmniejszone, ponieważ będziesz mieć ograniczone użycie rezerwacji. Innymi słowy, zapłacisz za rezerwacje, które nie będą w pełni wykorzystywane.
 
-Jeśli zmniejszysz ilość rezerwacji, oszczędności również będą mniejsze. Mimo iż wykorzystanie będzie wyższe, prawdopodobnie będą występowały okresy, w których rezerwacje nie będą w pełni pokrywały użycia. Wykorzystanie przekraczające ilość rezerwacji będzie używane przez droższe zasoby płatne zgodnie z rzeczywistym użyciem. Ilustruje to poniższy przykładowy obraz. Ręcznie zmniejszyliśmy ilość rezerwacji do 4. Wykorzystanie rezerwacji jest większe, ale całkowite oszczędności są mniejsze, ponieważ występują płatności zgodnie z rzeczywistym użyciem.
+Zmniejszenie ilości rezerwacji spowoduje zmniejszenie oszczędności. Mimo iż wykorzystanie będzie wyższe, prawdopodobnie będą występowały okresy, w których rezerwacje nie będą w pełni pokrywały użycia. Wykorzystanie przekraczające ilość rezerwacji będzie używane przez droższe zasoby płatne zgodnie z rzeczywistym użyciem. Ilustruje to poniższy przykładowy obraz. Ręcznie zmniejszyliśmy ilość rezerwacji do 4. Użycie rezerwacji zostało zwiększone, ale ogólne oszczędności są ograniczone, ponieważ obecne są koszty płatność zgodnie z rzeczywistym użyciem.
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details-changed.png" alt-text="Przykład przedstawiający zmienione szczegóły zalecenia dotyczącego zakupu rezerwacji" :::
 
@@ -53,11 +53,12 @@ Aby zmaksymalizować oszczędności na rezerwacjach, staraj się kupować rezerw
 
 Zalecenia dotyczące zakupu rezerwacji są dostępne w usłudze Azure Advisor. Należy pamiętać o następujących kwestiach:
 
-- Usługa Advisor zapewnia zalecenia wyłącznie w zakresie jednej subskrypcji. Jeśli chcesz zapoznać się z rekomendacjami dla całego zakresu rozliczeniowego (konta rozliczeniowego lub profilu rozliczeniowego), przejdź do witryny Azure Portal, wybierz kolejno pozycje Rezerwacje > Dodaj i wybierz typ, dla którego chcesz wyświetlić rekomendacje.
-- Zalecenia dostępne w usłudze Advisor uwzględniają trend użycia z ostatnich 30 dni.
-- Zalecana ilość i oszczędności dotyczą 3-letniej rezerwacji (tam, gdzie jest dostępna). Jeśli 3-letnia rezerwacja nie jest sprzedawana dla danej usługi, zalecenie jest obliczane przy użyciu ceny rezerwacji 1-rocznej.
-- W wyliczeniach zaleceń uwzględniane są wszelkie rabaty specjalne, które mogą mieć zastosowanie do Twoich stawek użycia na żądanie.
-- W przypadku zakupienia rezerwacji dotyczącej zakresu współdzielonego może minąć do 5 dni, zanim zalecenia zakupu rezerwacji usługi Advisor przestaną być wyświetlane.
+- Usługa Advisor zapewnia zalecenia wyłącznie w zakresie jednej subskrypcji. Jeśli chcesz zobaczyć zalecenia dotyczące całego zakresu rozliczeniowego (konto rozliczeniowe lub profil rozliczeń), wówczas:
+  -  W Azure Portal przejdź do pozycji **rezerwacje**  >  **Dodaj** , a następnie wybierz typ, dla którego chcesz zobaczyć zalecenia.
+- Zalecenia dostępne w usłudze Advisor uwzględniają poprzedni 30-dniowy trend użycia.
+- Liczba zaleceń i oszczędności są przeznaczone dla rezerwacji z trzech lat, jeśli są dostępne. Jeśli dla usługi nie jest sprzedawana rezerwacja roczna, zalecenie jest obliczane przy użyciu ceny rezerwacji rocznej.
+- Obliczenia rekomendacje obejmują wszelkie specjalne rabaty, które mogą mieć zastosowanie na żądanie.
+- W przypadku zakupienia rezerwacji dotyczącej zakresu współdzielonego, zalecenia dotyczące zakupu rezerwacji usługi Advisor mogą potrwać do pięciu dni.
 
 ## <a name="other-expected-api-behavior"></a>Inne oczekiwane zachowanie interfejsu API
 

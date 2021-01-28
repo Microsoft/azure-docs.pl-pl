@@ -1,19 +1,16 @@
 ---
 title: Microsoft Cognitive Toolkit z usługą Azure HDInsight Apache Spark
 description: Dowiedz się, jak przeszkolony Microsoft Cognitive Toolkit model uczenia głębokiego może zostać zastosowany do zestawu danych przy użyciu interfejsu API platformy Spark w klastrze Azure HDInsight Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: 7fa3355ff7e61d624d57da68d0f835faa7ca3736
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: cddbc4b6a5c7a2c787c8305fdf703e34543746f8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505430"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929975"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Używanie Microsoft Cognitive Toolkit modelu uczenia głębokiego z klastrem Azure HDInsight Spark
 
@@ -54,7 +51,7 @@ Microsoft Cognitive Toolkit można zainstalować w klastrze Spark za pomocą akc
 
 W tym artykule używamy portalu do zainstalowania zestawu narzędzi po utworzeniu klastra. Aby poznać inne sposoby uruchamiania skryptu niestandardowego, zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md).
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Aby uzyskać instrukcje dotyczące sposobu używania Azure Portal do uruchamiania akcji skryptu, zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation). Upewnij się, że podano następujące dane wejściowe, aby zainstalować Microsoft Cognitive Toolkit. Użyj następujących wartości dla akcji skryptu:
 

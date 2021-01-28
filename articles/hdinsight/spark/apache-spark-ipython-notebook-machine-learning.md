@@ -1,19 +1,16 @@
 ---
 title: 'Samouczek: Tworzenie aplikacji Spark Machine Learning — Azure HDInsight'
 description: Samouczek — instrukcje krok po kroku dotyczące tworzenia Apache Spark aplikacji Machine Learning w klastrach usługi HDInsight Spark przy użyciu Jupyter Notebook.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 6af50bae075e88ac3bbba39cba9c9042eee2000e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 88a71eb5a8ca9a6f2bf1d17fc4eaf9780527d2cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932249"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930542"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Samouczek: Tworzenie aplikacji Apache Spark Machine Learning w usłudze Azure HDInsight
 
@@ -21,7 +18,7 @@ W tym samouczku dowiesz się, jak utworzyć aplikację uczenia maszynowego platf
 
 [MLlib](https://spark.apache.org/docs/latest/ml-guide.html) to biblioteka uczenia maszynowego platformy Spark, składająca się z typowych algorytmów uczenia i narzędzi. (Klasyfikacja, regresja, klastrowanie, filtrowanie do współpracy i zmniejszanie liczby wymiarów). Również bazowe elementy podstawowe optymalizacji.)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie aplikacji uczenia maszynowego platformy Apache Spark
 

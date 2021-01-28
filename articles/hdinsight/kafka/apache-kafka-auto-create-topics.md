@@ -1,19 +1,17 @@
 ---
 title: Włącz automatyczne tworzenie tematów w Apache Kafka — Azure HDInsight
 description: Dowiedz się, jak skonfigurować Apache Kafka w usłudze HDInsight, aby automatycznie tworzyć tematy. Można skonfigurować Kafka przez ustawienie `auto.create.topics.enable` wartości true w Ambari. Lub podczas tworzenia klastra za poorednictwem programu PowerShell lub szablonów Menedżer zasobów.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 829f91452725615af4d444426e25ffad62d6ab6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b416623d6637cfe8e2c1cd795dd62553f8c0aed4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087508"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933214"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Jak skonfigurować Apache Kafka w usłudze HDInsight w celu automatycznego tworzenia tematów
 
@@ -25,7 +23,7 @@ Aby włączyć automatyczne tworzenie tematów w istniejącym klastrze za pomoc�
 
 1. Na [Azure Portal](https://portal.azure.com)wybierz swój klaster Kafka.
 
-1. Z **pulpitów nawigacyjnych klastra**wybierz pozycję **Ambari Home**.
+1. Z **pulpitów nawigacyjnych klastra** wybierz pozycję **Ambari Home**.
 
     ![Obraz portalu z wybranym pulpitem nawigacyjnym klastra](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 

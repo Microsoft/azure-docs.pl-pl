@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: Personalizacja, Personalizacja platformy Azure, uczenie maszynowe
-ms.openlocfilehash: 33c1770c5c8722a55d8f1df4aff9b1637d903977
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 913b4d989865a50b23d58c5493368997248f8db8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028781"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928550"
 ---
 # <a name="what-is-personalizer"></a>Co to jest usługa Personalizacja?
 
@@ -94,7 +94,7 @@ Ponieważ program Personalizujer używa informacji zbiorczych niemal w czasie rz
     |--|--|
     |Wybrany użytkownik: najlepszy, pojedynczy element _zawartości_ (Identyfikator akcji nagradzania)|**1**|
     |Użytkownik zaznaczył inną zawartość|**0**|
-    |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0.5**|
+    |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0,5**|
 
     1. Dodaj wywołanie **zarobkowe** wysyłające wynik nagrody z zakresu od 0 do 1
         * Natychmiast po pokazywania zawartości
@@ -115,10 +115,10 @@ Gdy masz okazję do rozpoczęcia pracy z usługą personalizacji, wypróbuj nasz
 
 ## <a name="reference"></a>Dokumentacja 
 
-* [Personalizacja C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [Personalizacja C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer)
 * [Zestaw SDK go personalizacji](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)
-* [Personalizacja JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [Zestaw SDK języka Python dla personalizacji](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [Personalizacja JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/)
+* [Zestaw SDK języka Python dla personalizacji](/python/api/overview/azure/cognitiveservices/personalizer)
 * [Interfejsy API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,19 +1,16 @@
 ---
 title: Przesyłanie zadań do klastra Spark w usłudze Azure HDInsight za pomocą usługi Livy Spark
 description: Dowiedz się, jak Apache Spark używać interfejsu API REST do zdalnego przesyłania zadań platformy Spark do klastra usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: b5795172517ba2e707d66ebe486c51d31575bd0d
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: ff63f4fbadd7cb9e7584e2aa045583a35e0363fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821880"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930124"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Przesyłanie zadań zdalnych do klastra usługi HDInsight Spark przy użyciu interfejsu API REST platformy Apache Spark
 

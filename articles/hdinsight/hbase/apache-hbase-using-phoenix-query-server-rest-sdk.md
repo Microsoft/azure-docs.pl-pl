@@ -1,19 +1,16 @@
 ---
 title: Phoenix Query Server zestaw SDK REST — Azure HDInsight
 description: Zainstaluj i użyj zestawu SDK REST dla Phoenix Query Server w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/01/2020
-ms.openlocfilehash: 051d7b37f5f78ce28134fa7c4ee188f3dde81812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ce459e2820cfd2ea5cacb036f5d6885c9c5afa0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504846"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933365"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Zestaw SDK REST serwera Apache Phoenix Query
 
@@ -92,7 +89,7 @@ Oto `TransactionIsolation` wartości:
 | 4 | Nieprzeczytane odczyty i niepowtarzające się odczyty są blokowane, ale mogą wystąpić operacje odczytu fantomu. |
 | 8 | Wszystkie zanieczyszczone odczyty, odczyty niepowtarzalne i odczyty fantomu są całkowicie uniemożliwione. |
 
-## <a name="create-a-new-table"></a>Utwórz nową tabelę
+## <a name="create-a-new-table"></a>Tworzenie nowej tabeli
 
 HBase, podobnie jak wszystkie inne RDBMS, przechowuje dane w tabelach. Phoenix używa standardowych zapytań SQL do tworzenia nowych tabel podczas definiowania typów klucza podstawowego i kolumny.
 

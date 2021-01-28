@@ -1,19 +1,16 @@
 ---
 title: Używanie Apache Kafka w usłudze HDInsight z platformą Azure IoT Hub
 description: Dowiedz się, jak używać Apache Kafka w usłudze HDInsight z usługą Azure IoT Hub. Kafka Connect Azure IoT Hub Project zawiera Łącznik źródła i ujścia dla Kafka. Łącznik źródłowy może odczytywać dane z IoT Hub, a łącznik ujścia zapisuje do IoT Hub.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 0722119b35ecebf3ed1e7a377707de02a6c127bf
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 7980003dd63e5e51d87f85542029a1f25e7223df
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825190"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932881"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Używanie Apache Kafka w usłudze HDInsight z platformą Azure IoT Hub
 
@@ -122,7 +119,7 @@ Z poziomu połączenia SSH z węzłem brzegowym wykonaj następujące kroki, aby
     |---|---|---|
     |`bootstrap.servers=localhost:9092`|Zastąp `localhost:9092` wartość hostami brokera z poprzedniego kroku|Konfiguruje konfigurację autonomiczną dla węzła brzegowego, aby znaleźć brokerów Kafka.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Ta zmiana umożliwia przetestowanie za pomocą producenta konsoli dołączonego do usługi Kafka. Mogą być potrzebne inne konwertery dla innych producentów i klientów. Aby uzyskać informacje na temat używania innych wartości konwertera, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
-    |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Tak samo jak powyżej.|
+    |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Jak wyżej.|
     |Nie dotyczy|`consumer.max.poll.records=10`|Dodaj do końca pliku. Ta zmiana polega na uniknięciu limitów czasu w łączniku ujścia przez ograniczenie go do 10 rekordów jednocześnie. Aby uzyskać więcej informacji, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__, __Y__, a następnie klawisz __Enter__.
@@ -157,7 +154,7 @@ Aby pobrać informacje o usłudze IoT Hub używane przez łącznik, wykonaj nast
 
          * __Nazwa zgodna z centrum zdarzeń__
          * __Punkt końcowy zgodny z centrum zdarzeń__
-         * __Partycje__
+         * __Partition__
 
         > [!IMPORTANT]  
         > Wartość punktu końcowego z portalu może zawierać dodatkowy tekst, który nie jest wymagany w tym przykładzie. Wyodrębnij tekst pasujący do tego wzorca `sb://<randomnamespace>.servicebus.windows.net/` .

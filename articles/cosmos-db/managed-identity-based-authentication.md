@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345733"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927416"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Korzystanie z zarządzanych tożsamości przypisanych do systemu w celu uzyskiwania dostępu do danych Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +31,7 @@ W tym kroku przypiszesz tożsamość zarządzaną przypisaną przez system do ap
 
 1. W [Azure Portal](https://portal.azure.com/)Otwórz okienko **funkcji platformy Azure** i przejdź do aplikacji funkcji. 
 
-1. Otwórz kartę **tożsamość funkcji platformy**  >  **Identity** : 
+1. Otwórz kartę **tożsamość funkcji platformy**  >   : 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Zrzut ekranu przedstawiający funkcje platformy i opcje tożsamości dla aplikacji funkcji.":::
 
@@ -130,7 +130,7 @@ namespace Monitor
 }
 ```
 
-Użyjesz biblioteki [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) , aby uzyskać token zarządzanej tożsamości przypisany do systemu. Aby poznać inne sposoby uzyskiwania tokenu i dowiedzieć się więcej o `Microsoft.Azure.Service.AppAuthentication` bibliotece, zobacz artykuł dotyczący [uwierzytelniania między usługami](../key-vault/general/service-to-service-authentication.md) .
+Użyjesz biblioteki [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) , aby uzyskać token zarządzanej tożsamości przypisany do systemu. Aby poznać inne sposoby uzyskiwania tokenu i dowiedzieć się więcej o `Microsoft.Azure.Service.AppAuthentication` bibliotece, zobacz artykuł dotyczący [uwierzytelniania między usługami](/dotnet/api/overview/azure/service-to-service-authentication) .
 
 
 ```csharp

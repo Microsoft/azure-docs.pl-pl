@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: thvankra
-ms.openlocfilehash: c969e4fac3ae30088cfe47a7b0edff22c578cb8b
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 75ce307056d24f84e9f72f746eb77b09b89e21b2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802375"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927504"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Rozwiązywanie typowych problemów z Azure Cosmos DB interfejs API Cassandra
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-Interfejs API Cassandra w Azure Cosmos DB to warstwa zgodności, która zapewnia [obsługę protokołu przewodowego](cassandra-support.md) dla popularnej bazy danych Apache Cassandra typu open source i jest obsługiwane przez [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). Jako w pełni zarządzana usługa w chmurze, Azure Cosmos DB zapewnia [gwarancje dotyczące dostępności, przepływności i spójności](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) interfejs API Cassandra. Te gwarancje nie są możliwe w starszych implementacjach platformy Apache Cassandra. Interfejs API Cassandra ułatwia również wykonywanie operacji na platformie o zerowej konserwacji i stosowanie poprawek bez przestojów. W związku z tym wiele operacji zaplecza jest różna od platformy Apache Cassandra, dlatego zalecamy określone ustawienia i podejścia, aby uniknąć typowych błędów. 
+Interfejs API Cassandra w Azure Cosmos DB to warstwa zgodności, która zapewnia [obsługę protokołu przewodowego](cassandra-support.md) dla popularnej bazy danych Apache Cassandra typu open source i jest obsługiwane przez [Azure Cosmos DB](./introduction.md). Jako w pełni zarządzana usługa w chmurze, Azure Cosmos DB zapewnia [gwarancje dotyczące dostępności, przepływności i spójności](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) interfejs API Cassandra. Te gwarancje nie są możliwe w starszych implementacjach platformy Apache Cassandra. Interfejs API Cassandra ułatwia również wykonywanie operacji na platformie o zerowej konserwacji i stosowanie poprawek bez przestojów. W związku z tym wiele operacji zaplecza jest różna od platformy Apache Cassandra, dlatego zalecamy określone ustawienia i podejścia, aby uniknąć typowych błędów. 
 
 W tym artykule opisano typowe błędy i rozwiązania dla aplikacji korzystających z Azure Cosmos DB interfejs API Cassandra.
 
@@ -97,4 +97,3 @@ datastax-java-driver {
 
 - Poznaj [obsługiwane funkcje](cassandra-support.md) w Azure Cosmos DB interfejs API Cassandra.
 - Dowiedz się, jak [przeprowadzić migrację z macierzystego Cassandra Apache do Azure Cosmos DB interfejs API Cassandra](cassandra-migrate-cosmos-db-databricks.md)
-

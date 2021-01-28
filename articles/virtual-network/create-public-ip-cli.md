@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 70fb502e45a6cdcc196f5fb97ee4c8c59ba6c27d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 4d2f339f5a1339b5f249172170fed54c91f1dc24
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223554"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927197"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Szybki Start: Tworzenie publicznego adresu IP przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -30,7 +30,7 @@ W tym artykule pokazano, jak utworzyć zasób publicznego adresu IP przy użyciu
 
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą funkcji [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) o nazwie Moja **resourceName** w lokalizacji **eastus2** .
+Utwórz grupę zasobów za pomocą funkcji [AZ Group Create](/cli/azure/group#az-group-create) o nazwie Moja **resourceName** w lokalizacji **eastus2** .
 
 ```azurecli-interactive
   az group create \
@@ -46,7 +46,7 @@ Utwórz grupę zasobów za pomocą funkcji [AZ Group Create](/cli/azure/group?vi
 >[!NOTE]
 >Następujące polecenie działa w przypadku interfejsu API w wersji 2020-08-01 lub nowszej.  Aby uzyskać więcej informacji na temat aktualnie używanej wersji interfejsu API, zapoznaj się z [dostawcami zasobów i typami](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) , aby utworzyć strefę standardowa — nadmiarowy publiczny adres IP o nazwie **MyStandardZRPublicIP** w liście **zasobów**.
+Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) , aby utworzyć strefę standardowa — nadmiarowy publiczny adres IP o nazwie **MyStandardZRPublicIP** w liście **zasobów**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -76,7 +76,7 @@ Należy pamiętać, że powyższe opcje dla stref są tylko prawidłowymi opcjam
 >[!NOTE]
 >Następujące polecenie działa w przypadku interfejsu API w wersji 2020-08-01 lub nowszej.  Aby uzyskać więcej informacji na temat aktualnie używanej wersji interfejsu API, zapoznaj się z [dostawcami zasobów i typami](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) , aby utworzyć standardowy publiczny adres IP jako zasób niebędący strefą o nazwie **MyStandardPublicIP** w liście **zasobów**.
+Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) , aby utworzyć standardowy publiczny adres IP jako zasób niebędący strefą o nazwie **MyStandardPublicIP** w liście **zasobów**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -88,7 +88,7 @@ Ten wybór jest prawidłowy we wszystkich regionach i jest domyślnym wyborem dl
 
 # <a name="basic-sku"></a>[**Podstawowy SKU**](#tab/option-create-public-ip-basic)
 
-Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) , aby utworzyć podstawowy statyczny publiczny adres IP o nazwie **MyBasicPublicIP** w liście **zasobów**.  Podstawowe publiczne adresy IP nie mają koncepcji dotyczących stref dostępności.
+Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) , aby utworzyć podstawowy statyczny publiczny adres IP o nazwie **MyBasicPublicIP** w liście **zasobów**.  Podstawowe publiczne adresy IP nie mają koncepcji dotyczących stref dostępności.
 
 ```azurecli-interactive
   az network public-ip create \

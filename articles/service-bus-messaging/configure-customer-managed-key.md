@@ -2,26 +2,20 @@
 title: Skonfiguruj własny klucz szyfrowania danych Azure Service Bus przechowywanych w spoczynku
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Azure Service Bus Rest.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 3e8f3a599ee5fe40c85a93dd58d36e6cd611c9ea
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 01/26/2021
+ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631770"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928089"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania Azure Service Bus danych przechowywanych przy użyciu Azure Portal
-Azure Service Bus Premium zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Service Bus Premium bazuje na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
+Azure Service Bus Premium zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Service Bus Premium używa usługi Azure Storage do przechowywania danych. Wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli używasz własnego klucza (nazywanego również Bring Your Own Key (BYOK) lub kluczem zarządzanym przez klienta), dane są nadal szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft, ale dodatkowo klucz zarządzany przez firmę Microsoft zostanie zaszyfrowany przy użyciu klucza zarządzanego przez klienta. Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania kluczy zarządzanych przez firmę Microsoft. Włączenie funkcji BYOK to jednorazowy proces konfiguracji w przestrzeni nazw.
 
-## <a name="overview"></a>Omówienie
-Azure Service Bus teraz obsługuje opcję szyfrowania danych przechowywanych przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta (Bring Your Own Key-BYOK). Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania Azure Service Bus w stanie spoczynku.
-
-Włączenie funkcji BYOK to jednorazowy proces konfiguracji w przestrzeni nazw.
-
-> [!NOTE]
-> Klucz zarządzany przez klienta ma pewne zastrzeżenia dotyczące szyfrowania po stronie usługi. 
->   * Ta funkcja jest obsługiwana przez [Azure Service Bus warstwy Premium](service-bus-premium-messaging.md) . Nie można jej włączyć dla Service Bus przestrzeni nazw w warstwie Standardowa.
->   * Szyfrowanie można włączyć tylko dla nowych lub pustych przestrzeni nazw. Jeśli przestrzeń nazw zawiera jakiekolwiek kolejki lub tematy, operacja szyfrowania zakończy się niepowodzeniem.
+Klucz zarządzany przez klienta ma pewne zastrzeżenia dotyczące szyfrowania po stronie usługi. 
+- Ta funkcja jest obsługiwana przez [Azure Service Bus warstwy Premium](service-bus-premium-messaging.md) . Nie można jej włączyć dla Service Bus przestrzeni nazw w warstwie Standardowa.
+- Szyfrowanie można włączyć tylko dla nowych lub pustych przestrzeni nazw. Jeśli przestrzeń nazw zawiera jakiekolwiek kolejki lub tematy, operacja szyfrowania zakończy się niepowodzeniem.
 
 Za pomocą Azure Key Vault można zarządzać kluczami i przeprowadzać inspekcję użycia klucza. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -70,13 +64,13 @@ Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarz�
         > [!NOTE]
         > Aby zapewnić nadmiarowość, można dodać maksymalnie 3 klucze. W przypadku, gdy jeden z kluczy wygasł lub jest niedostępny, inne klucze będą używane do szyfrowania.
         
-    1. Wprowadź szczegóły klucza i kliknij przycisk **Wybierz**. Umożliwi to szyfrowanie danych przechowywanych w przestrzeni nazw za pomocą klucza zarządzanego przez klienta. 
+    1. Wprowadź szczegóły klucza i kliknij przycisk **Wybierz**. Spowoduje to włączenie szyfrowania klucza zarządzanego przez firmę Microsoft przy użyciu klucza (klucza zarządzanego przez klienta). 
 
 
     > [!IMPORTANT]
-    > Jeśli zamierzasz używać klucza zarządzanego przez klienta wraz z odzyskiwaniem po awarii geograficznej, zapoznaj się z poniższymi tematami. 
+    > Jeśli zamierzasz używać klucza zarządzanego przez klienta wraz z odzyskiwaniem po awarii geograficznej, Przejrzyj tę sekcję. 
     >
-    > Aby włączyć szyfrowanie w spoczynku z kluczem zarządzanym przez klienta, skonfigurowano [zasady dostępu](../key-vault/general/secure-your-key-vault.md) dla tożsamości zarządzanej Service Bus w określonym magazynie kluczy platformy Azure. Zapewnia to kontrolowany dostęp do magazynu kluczy platformy Azure z przestrzeni nazw Azure Service Bus.
+    > Aby włączyć szyfrowanie klucza zarządzanego przez firmę Microsoft przy użyciu klucza zarządzanego przez klienta, skonfigurowano [zasady dostępu](../key-vault/general/secure-your-key-vault.md) dla tożsamości zarządzanej Service Bus w określonym magazynie kluczy platformy Azure. Zapewnia to kontrolowany dostęp do magazynu kluczy platformy Azure z przestrzeni nazw Azure Service Bus.
     >
     > Z tego powodu:
     > 

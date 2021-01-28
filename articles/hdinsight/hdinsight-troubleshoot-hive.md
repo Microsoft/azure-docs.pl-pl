@@ -3,17 +3,14 @@ title: Rozwiązywanie problemów z programem Hive przy użyciu usługi Azure HDI
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące pracy z usługami Apache Hive i Azure HDInsight.
 keywords: Azure HDInsight, Hive, często zadawane pytania, Przewodnik rozwiązywania problemów, często zadawane pytania
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f1a26e3323e4d1db2e9b2bda9afaa2756307749b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a76974b8daddf225b0d9b8b581475d657322847e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288967"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931442"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Troubleshoot Apache Hive by using Azure HDInsight (Rozwiązywanie problemów z technologią Apache Hive za pomocą usługi Azure HDInsight)
 
@@ -120,17 +117,17 @@ Kod w krokach rozwiązania założono, że ścieżki danych w nowym klastrze są
    Musisz podać Przykładowy program jako pierwszy argument.
 
    Prawidłowe nazwy programów to:
-    - **ContainerReuseAnalyzer** : Drukuj szczegóły ponownego użycia kontenera w Dag
-    - **CriticalPath** : Znajdź ścieżkę KRYTYCZNą Dag
-    - **LocalityAnalyzer** : szczegóły drukowania w Dag
-    - **ShuffleTimeAnalyzer** : Analizuj szczegóły czasu losowego w Dag
-    - **SkewAnalyzer** : Analizuj szczegóły pochylenia w Dag
-    - **SlowNodeAnalyzer** : drukowanie szczegółów węzła w Dag
-    - **SlowTaskIdentifier** : Drukuj wolne szczegóły zadania w Dag
-    - **SlowestVertexAnalyzer** : Drukuj najwolniejsze szczegóły wierzchołka w Dag
-    - **SpillAnalyzer** : drukowanie szczegółów rozlania w Dag
-    - **TaskConcurrencyAnalyzer** : Wydrukuj szczegóły współbieżności zadania w Dag
-    - **VertexLevelCriticalPathAnalyzer** : Znajdź ścieżkę krytyczną na poziomie wierzchołka w Dag
+    - **ContainerReuseAnalyzer**: Drukuj szczegóły ponownego użycia kontenera w Dag
+    - **CriticalPath**: Znajdź ścieżkę KRYTYCZNą Dag
+    - **LocalityAnalyzer**: szczegóły drukowania w Dag
+    - **ShuffleTimeAnalyzer**: Analizuj szczegóły czasu losowego w Dag
+    - **SkewAnalyzer**: Analizuj szczegóły pochylenia w Dag
+    - **SlowNodeAnalyzer**: drukowanie szczegółów węzła w Dag
+    - **SlowTaskIdentifier**: Drukuj wolne szczegóły zadania w Dag
+    - **SlowestVertexAnalyzer**: Drukuj najwolniejsze szczegóły wierzchołka w Dag
+    - **SpillAnalyzer**: drukowanie szczegółów rozlania w Dag
+    - **TaskConcurrencyAnalyzer**: Wydrukuj szczegóły współbieżności zadania w Dag
+    - **VertexLevelCriticalPathAnalyzer**: Znajdź ścieżkę krytyczną na poziomie wierzchołka w Dag
 
 ### <a name="additional-reading"></a>Materiały uzupełniające
 

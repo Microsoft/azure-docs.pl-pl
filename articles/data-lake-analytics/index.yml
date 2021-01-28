@@ -10,12 +10,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 09/13/2019
-  ms.openlocfilehash: 014dbc3b2337238604cfd585ee1d39c4e8dab85b
-  ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
-  ms.translationtype: HT
+  ms.openlocfilehash: a2c2c992d717d22fbd5b9b45003a947102174dfa
+  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96511376"
+  ms.lasthandoff: 01/28/2021
+  ms.locfileid: "98928379"
 landingContent:
 - title: Informacje o usłudze Data Lake Analytics
   linkLists:
@@ -40,7 +40,7 @@ landingContent:
     - text: Wprowadzenie do języka U-SQL
       url: data-lake-analytics-u-sql-get-started.md
     - text: Dokumentacja języka U-SQL
-      url: https://docs.microsoft.com/u-sql
+      url: /u-sql
     - text: Wprowadzenie do wykazu języka U-SQL
       url: data-lake-analytics-u-sql-catalog.md
     - text: Korzystanie z operatorów definiowanych przez użytkownika

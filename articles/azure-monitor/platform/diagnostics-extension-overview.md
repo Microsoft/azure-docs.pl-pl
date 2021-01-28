@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d424a22a26119dcb3ef6a0e5c4f3dc0c13b1aa4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008000"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927575"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Omówienie rozszerzenia Diagnostyki Azure
 Diagnostyka Azure rozszerzenie jest [agentem w Azure monitor](agents-overview.md) , który zbiera dane monitorowania z systemu operacyjnego gościa zasobów obliczeniowych platformy Azure, w tym maszyn wirtualnych. Ten artykuł zawiera Omówienie rozszerzenia Diagnostyka Azure, w tym określonych funkcji, które obsługuje, oraz opcji instalacji i konfiguracji. 
@@ -50,7 +50,7 @@ W poniższej tabeli wymieniono dane, które mogą być zbierane przez rozszerzen
 | Liczniki wydajności | Wartości liczbowe mierzące wydajność różnych aspektów systemu operacyjnego i obciążeń. |
 | Dzienniki usług IIS             | Informacje o użyciu witryn sieci Web usług IIS działających w systemie operacyjnym gościa. |
 | Dzienniki aplikacji     | Komunikaty śledzenia zapisywane przez aplikację. |
-| Dzienniki zdarzeń platformy .NET |Kod pisania zdarzeń przy użyciu klasy [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) platformy .NET |
+| Dzienniki zdarzeń platformy .NET |Kod pisania zdarzeń przy użyciu klasy [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) platformy .NET |
 | [Dzienniki ETW oparte na manifestach](/windows/desktop/etw/about-event-tracing) |Śledzenie zdarzeń dla zdarzeń systemu Windows generowanych przez dowolny proces. |
 | Zrzuty awaryjne (dzienniki)   | Informacje o stanie procesu w przypadku awarii aplikacji. |
 | Dzienniki na podstawie plików    | Dzienniki utworzone przez aplikację lub usługę. |
@@ -74,7 +74,7 @@ Skonfiguruj co najmniej jeden *ujścia danych* w celu wysyłania danych do innyc
 
 | Element docelowy | Opis |
 |:---|:---|
-| Metryki Azure Monitor | Zbieranie danych wydajności do metryk Azure Monitor. Zobacz [wysyłanie metryk systemu operacyjnego gościa do bazy danych metryk Azure monitor](collect-custom-metrics-guestos-resource-manager-vm.md).  |
+| Metryki usługi Azure Monitor | Zbieranie danych wydajności do metryk Azure Monitor. Zobacz [wysyłanie metryk systemu operacyjnego gościa do bazy danych metryk Azure monitor](collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Usługa Event Hubs | Wyślij dane poza platformą Azure przy użyciu usługi Azure Event Hubs. Zobacz [przesyłanie strumieniowe danych Diagnostyka Azure do Event Hubs](diagnostics-extension-stream-event-hubs.md) |
 | Obiekty blob usługi Azure Storage | Oprócz tabel Zapisz dane w obiektach Blob w usłudze Azure Storage. |
 | Application Insights | Zbierz dane z aplikacji działających na maszynie wirtualnej, aby Application Insights integrację z innym monitorowaniem aplikacji. Zobacz [wysyłanie danych diagnostycznych do Application Insights](diagnostics-extension-to-application-insights.md). |
@@ -89,7 +89,7 @@ LAD zapisuje dane w tabelach w usłudze Azure Storage. Obsługuje ona ujścia w 
 |:---|:---|
 | Usługa Event Hubs | Wyślij dane poza platformą Azure przy użyciu usługi Azure Event Hubs. |
 | Obiekty blob usługi Azure Storage | Oprócz tabel Zapisz dane w obiektach Blob w usłudze Azure Storage. |
-| Metryki Azure Monitor | Oprócz LAD należy zainstalować agenta telegraf. Zobacz [zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf](collect-custom-metrics-linux-telegraf.md).
+| Metryki usługi Azure Monitor | Oprócz LAD należy zainstalować agenta telegraf. Zobacz [zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf](collect-custom-metrics-linux-telegraf.md).
 
 
 ## <a name="installation-and-configuration"></a>Instalacja i konfiguracja

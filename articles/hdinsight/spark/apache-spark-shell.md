@@ -1,19 +1,16 @@
 ---
 title: Używanie interaktywnej powłoki Spark w usłudze Azure HDInsight
 description: Interaktywna powłoka Spark udostępnia proces odczytu-Execute-Print służący do uruchamiania poleceń platformy Spark po jednym naraz i wyświetlania wyników.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
-ms.openlocfilehash: 84298c9073f00f0388a9bcb7405369d7c60bcce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 324852a967b5de015a9b1e9b465d4b4703e573cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86081183"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929691"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Uruchamianie Apache Spark z powłoki Spark
 
@@ -107,7 +104,7 @@ Aby uzyskać dostęp do wystąpienia SparkSession, wprowadź `spark` . Aby uzysk
 
 Polecenie powłoki Spark ( `spark-shell` lub `pyspark` ) obsługuje wiele parametrów wiersza polecenia. Aby wyświetlić pełną listę parametrów, Uruchom powłokę Spark za pomocą przełącznika `--help` . Niektóre z tych parametrów mogą dotyczyć tylko tych `spark-submit` , które są zawijane przez powłokę Spark.
 
-| switch | description | przykład |
+| switch | description (opis) | przykład |
 | --- | --- | --- |
 | --MASTER_URL wzorca | Określa główny adres URL. W usłudze HDInsight ta wartość jest zawsze `yarn` . | `--master yarn`|
 | --Jars JAR_LIST | Rozdzielana przecinkami lista Jars lokalnego do uwzględnienia w sterownikach i ścieżkach klas wykonywania. W usłudze HDInsight ta lista zawiera ścieżki do domyślnego systemu plików w usłudze Azure Storage lub Data Lake Storage. | `--jars /path/to/examples.jar` |

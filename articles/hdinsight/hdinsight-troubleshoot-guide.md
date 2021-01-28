@@ -1,18 +1,15 @@
 ---
 title: Przewodniki dotyczące rozwiązywania problemów z usługą Azure HDInsight
 description: Rozwiązywanie problemów z usługą Azure HDInsight. Dokumentacja krok po kroku pokazuje, jak za pomocą usługi HDInsight rozwiązywać typowe problemy z Apache Hive, Apache Spark, PRZĘDZą Apache, Apache HBase, HDFS i Apache Storm.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: 828dc99c6eb01d7cdbfdbdc9eec8a96eeef52d88
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 901ed34e6b4498f2a50a6dfaf389e60b97dedc0d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821627"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931483"
 ---
 # <a name="troubleshoot-azure-hdinsight"></a>Rozwiązywanie problemów z usługą Azure HDInsight
 

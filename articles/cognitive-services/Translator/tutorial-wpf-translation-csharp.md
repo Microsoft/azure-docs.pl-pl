@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ebcbadbc8b502121b25393c7761794bcd3f07e8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897109"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927482"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF
 
-W tym samouczku utworzysz aplikację platformy [Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019), która korzysta z usług Azure Cognitive Services na potrzeby tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni, przy użyciu klucza pojedynczej subskrypcji. Aplikacja będzie wywoływać interfejsy API z translatora i [Sprawdzanie pisowni Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+W tym samouczku utworzysz aplikację platformy [Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf), która korzysta z usług Azure Cognitive Services na potrzeby tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni, przy użyciu klucza pojedynczej subskrypcji. Aplikacja będzie wywoływać interfejsy API z translatora i [Sprawdzanie pisowni Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 Co to jest platforma WPF? Jest struktura interfejsu użytkownika służąca do tworzenia aplikacji klienckich dla komputerów. Platforma programistyczna WPF obsługuje szeroką gamę funkcji tworzenia aplikacji, w tym model aplikacji, zasoby, kontrolki, grafiki, układ, powiązanie danych, dokumenty i zabezpieczenia. Jest podzbiorem programu .NET Framework, więc jeśli wcześniej tworzono aplikacje przy użyciu programu .NET Framework za pomocą platformy ASP.NET lub Windows Forms, środowisko programowania powinno być znajome. Platforma WPF przy użyciu języka Extensible Application Markup Language (XAML) zapewnia model deklaratywny na potrzeby programowania aplikacji, który zostanie omówiony w następnych sekcjach.
 
@@ -90,7 +90,7 @@ Dodajmy do naszego projektu zestawy na potrzeby serializacji i deserializacji ob
 1. Po dodaniu tych odwołań do projektu możesz kliknąć przycisk **OK**, aby zamknąć **Menedżera odwołań**.
 
 > [!NOTE]
-> Jeśli chcesz dowiedzieć się więcej o odwołaniach do zestawów, zobacz [How to: Dodawanie lub usuwanie odwołania za pomocą Menedżera odwołań](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> Jeśli chcesz dowiedzieć się więcej o odwołaniach do zestawów, zobacz [How to: Dodawanie lub usuwanie odwołania za pomocą Menedżera odwołań](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager).
 
 ### <a name="install-newtonsoftjson"></a>Instalowanie pakietu Newtonsoft.Json
 

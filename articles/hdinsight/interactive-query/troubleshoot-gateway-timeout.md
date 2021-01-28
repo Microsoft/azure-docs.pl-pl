@@ -1,18 +1,15 @@
 ---
 title: Wyjątek podczas uruchamiania zapytań z widoku Hive programu Apache Ambari w usłudze Azure HDInsight
 description: Kroki rozwiązywania problemów podczas uruchamiania zapytań Apache Hive za pomocą widoku Hive programu Apache Ambari w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
-ms.openlocfilehash: aeedda5c26a2e9dc0fa2b228285cfda45d880d29
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 40ef380cd2bd4743b92daf44a0a5b70ade1cbb35
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547388"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933008"
 ---
 # <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Wyjątek podczas uruchamiania zapytań z widoku Hive programu Apache Ambari w usłudze Azure HDInsight
 
@@ -54,13 +51,13 @@ Niektóre ogólne zalecenia dotyczące poprawy sytuacji:
 
 * W przypadku korzystania z zewnętrznego magazynu metadanych Hive należy sprawdzić metryki bazy danych i upewnić się, że nie jest przeciążona. Rozważ przeskalowanie warstwy bazy danych magazynu metadanych.
 
-* Upewnij się, że równoległe operacje Ops są włączone (umożliwia równoległe uruchamianie wątków obsługi HTTP). Aby sprawdzić wartość, uruchom oprogramowanie [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) i przejdź do **Hive**  >  **Konfiguracja** Hive $  >  **Advanced**  >  **Custom Hive-site** . Wartość parametru for `hive.server2.parallel.ops.in.session` powinna być równa `true` .
+* Upewnij się, że równoległe operacje Ops są włączone (umożliwia równoległe uruchamianie wątków obsługi HTTP). Aby sprawdzić wartość, uruchom oprogramowanie [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) i przejdź do   >  **Konfiguracja** Hive $  >  **Advanced**  >  **Custom Hive-site**. Wartość parametru for `hive.server2.parallel.ops.in.session` powinna być równa `true` .
 
 * Upewnij się, że jednostka SKU maszyny wirtualnej klastra nie jest zbyt mała dla obciążenia. Rozważ podzielenie pracy między wieloma klastrami. Aby uzyskać więcej informacji, zobacz [Wybieranie typu klastra](../hdinsight-capacity-planning.md#choose-a-cluster-type).
 
 * Jeśli Ranger jest zainstalowany w klastrze, sprawdź, czy istnieje zbyt wiele zasad Ranger, które należy ocenić dla każdego zapytania. Poszukaj zduplikowanych lub niepotrzebnych zasad.
 
-* Sprawdź wartość **serwera hiveserver2 rozmiaru sterty** z Ambari. Przejdź do **Hive**  >  **Configs**  >  **optymalizacji ustawień** konfiguracji programu Hive  >  **Optimization** . Upewnij się, że wartość jest większa niż 10 GB. Dostosuj w miarę potrzeby, aby zoptymalizować wydajność.
+* Sprawdź wartość **serwera hiveserver2 rozmiaru sterty** z Ambari. Przejdź do   >    >  **optymalizacji ustawień** konfiguracji programu Hive  >  . Upewnij się, że wartość jest większa niż 10 GB. Dostosuj w miarę potrzeby, aby zoptymalizować wydajność.
 
 * Upewnij się, że zapytanie programu Hive jest prawidłowo dopasowane. Aby uzyskać więcej informacji, zobacz [optymalizowanie Apache Hive zapytań w usłudze Azure HDInsight](../hdinsight-hadoop-optimize-hive-query.md).
 

@@ -1,19 +1,16 @@
 ---
 title: Ciągłość biznesowa usługi Azure HDInsight
 description: Ten artykuł zawiera omówienie najlepszych rozwiązań, dostępności z jednego regionu i opcji optymalizacji dla planowania ciągłości biznesowej usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: Wysoka dostępność usługi Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 74f8bdd26e000b89bfae84102077c241f85abf7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546946"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933316"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Ciągłość biznesowa usługi Azure HDInsight
 
@@ -53,7 +50,7 @@ Podstawowy system HDInsight ma następujące składniki. Wszystkie składniki ma
 
 Istnieją inne opcjonalne usługi, które mogą być używane, takie jak Azure Key Vault i Azure Data Factory.
 
-:::image type="content" source="media/hdinsight-business-continuity/hdinsight-components.png" alt-text="Przekształcanie danych i zachowywanie danych w warstwach":::
+:::image type="content" source="media/hdinsight-business-continuity/hdinsight-components.png" alt-text="Składniki usługi HDInsight":::
 
 ### <a name="azure-hdinsight-cluster-compute"></a>Klaster usługi Azure HDInsight (usługa COMPUTE)
 
@@ -90,7 +87,7 @@ Usługa HDInsight używa [Azure SQL Database](https://azure.microsoft.com/suppor
 
 Usługa HDInsight zaleca Azure Data Lake Storage Gen2 jako podstawową warstwę magazynu. [Usługa Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/), w tym Azure Data Lake Storage Gen2, oferuje umowę SLA na 99,9%. Usługa HDInsight korzysta z usługi LRS, w której trzy repliki danych pozostają w centrum danych, a replikacja jest synchroniczna. W przypadku utraty repliki, replika jest obsługiwana bezproblemowo.
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 [Azure Active Directory](https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/) oferuje umowę SLA na 99,9%. Active Directory to globalna usługa obejmująca wiele poziomów wewnętrznej nadmiarowości i automatyczne odzyskiwanie. Aby uzyskać więcej informacji, zobacz jak [firma Microsoft nieustannie ulepsza niezawodność Azure Active Directory](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/).
 
@@ -98,7 +95,7 @@ Usługa HDInsight zaleca Azure Data Lake Storage Gen2 jako podstawową warstwę 
 
 [Azure Active Directory Domain Services](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) oferuje umowę SLA na 99,9%. Azure AD DS to usługa o wysokiej dostępności hostowana w globalnie rozproszonych centrach danych. Zestawy replik to funkcja w wersji zapoznawczej platformy Azure AD DS, która umożliwia odzyskiwanie po awarii geograficznej, jeśli region platformy Azure przejdzie w tryb offline. Aby uzyskać więcej informacji, zobacz [pojęcia i funkcje programu Replica dotyczące Azure Active Directory Domain Services](../active-directory-domain-services/concepts-replica-sets.md) , aby dowiedzieć się więcej.  
 
-### <a name="azure-dns"></a>System DNS platformy Azure
+### <a name="azure-dns"></a>Azure DNS
 
 [Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/) oferuje umowę SLA na 100%. Usługa HDInsight używa Azure DNS w różnych miejscach do rozpoznawania nazw domen.
 
