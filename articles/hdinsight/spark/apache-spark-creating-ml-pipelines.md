@@ -2,18 +2,15 @@
 title: Tworzenie potoku Apache Spark Machine Learning — Azure HDInsight
 description: Użyj biblioteki Apache Spark Machine Learning, aby utworzyć potoki danych w usłudze Azure HDInsight.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 07/22/2019
-ms.openlocfilehash: c270e9865aff30184ea236f56ab20ede78c5d577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9897c7ba14e6190698cf10792a94acc759699d4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075454"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940179"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Tworzenie potoku uczenia maszynowego platformy Apache Spark
 
@@ -29,7 +26,7 @@ Każde wystąpienie bezstanowe transformatora lub szacowania ma własny unikatow
 
 ## <a name="pipeline-example"></a>Przykład potoku
 
-Aby zademonstrować praktyczne użycie potoku z tablicą, w tym przykładzie użyto pliku danych przykładowych, `HVAC.csv` który jest wstępnie załadowany do domyślnego magazynu dla klastra usługi HDInsight, Azure Storage lub Data Lake Storage. Aby wyświetlić zawartość pliku, przejdź do `/HdiSamples/HdiSamples/SensorSampleData/hvac` katalogu. `HVAC.csv` zawiera zestaw godzin zarówno w przypadku, jak i rzeczywiste temperatury dla systemów HVAC (*ogrzewania, wentylacji i*klimatyzacji) w różnych budynkach. Celem jest uczenie modelu danych i utworzenie prognozy dla danego budynku.
+Aby zademonstrować praktyczne użycie potoku z tablicą, w tym przykładzie użyto pliku danych przykładowych, `HVAC.csv` który jest wstępnie załadowany do domyślnego magazynu dla klastra usługi HDInsight, Azure Storage lub Data Lake Storage. Aby wyświetlić zawartość pliku, przejdź do `/HdiSamples/HdiSamples/SensorSampleData/hvac` katalogu. `HVAC.csv` zawiera zestaw godzin zarówno w przypadku, jak i rzeczywiste temperatury dla systemów HVAC (*ogrzewania, wentylacji i* klimatyzacji) w różnych budynkach. Celem jest uczenie modelu danych i utworzenie prognozy dla danego budynku.
 
 Następujący kod:
 
@@ -132,6 +129,6 @@ only showing top 20 rows
 
 `model`Obiekt może być teraz używany do prognozowania. Aby uzyskać pełny przykład tej aplikacji do uczenia maszynowego i instrukcje krok po kroku dotyczące ich uruchamiania, zobacz [Tworzenie aplikacji Apache Spark Machine Learning w usłudze Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Nauka danych przy użyciu Scala i Apache Spark na platformie Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

@@ -1,19 +1,16 @@
 ---
 title: Wiele klastrów usługi HDInsight & jedno konto Azure Data Lake Storage
 description: Dowiedz się, jak używać więcej niż jednego klastra usługi HDInsight z jednym kontem Data Lake Storage
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: df28374d0f124ceb46d2f97d55218d428275deca
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6e220592f53103320c3bdb586fcbd0106219bfed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533091"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939534"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Używanie wielu klastrów usługi HDInsight z kontem Azure Data Lake Storage
 
@@ -28,7 +25,7 @@ W pozostałej części tego artykułu założono, że masz dobrą wiedzę na tem
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Konfiguracja Data Lake Storage dla wielu klastrów usługi HDInsight
 
-Poinformuj nas o dwóch poziomach hierarchii folderów, aby wyjaśnić zalecenia dotyczące używania wielu klastrów usługi HDInsight z kontem Data Lake Storage. Weź pod uwagę, że masz konto Data Lake Storage o strukturze folderów **/Clusters/Finance** . W tej strukturze wszystkie klastry wymagane przez organizację finansową mogą używać/Clusters/Finance jako lokalizacji przechowywania. W przyszłości, jeśli inna organizacja, powiedzmy, chce utworzyć klastry usługi HDInsight przy użyciu tego samego konta Data Lake Storage, mogą tworzyć/Clusters/Marketing. Na razie Użyjmy już **/Clusters/Finance** .
+Poinformuj nas o dwóch poziomach hierarchii folderów, aby wyjaśnić zalecenia dotyczące używania wielu klastrów usługi HDInsight z kontem Data Lake Storage. Weź pod uwagę, że masz konto Data Lake Storage o strukturze folderów **/Clusters/Finance**. W tej strukturze wszystkie klastry wymagane przez organizację finansową mogą używać/Clusters/Finance jako lokalizacji przechowywania. W przyszłości, jeśli inna organizacja, powiedzmy, chce utworzyć klastry usługi HDInsight przy użyciu tego samego konta Data Lake Storage, mogą tworzyć/Clusters/Marketing. Na razie Użyjmy już **/Clusters/Finance**.
 
 Aby umożliwić efektywne korzystanie z tej struktury folderów przez klastry usługi HDInsight, administrator Data Lake Storage musi przypisać odpowiednie uprawnienia, zgodnie z opisem w tabeli. Uprawnienia wyświetlane w tabeli odpowiadają listom kontroli dostępu i nie są domyślnymi listami ACL.
 
@@ -48,10 +45,10 @@ Aby uzyskać instrukcje dotyczące sposobu tworzenia aplikacji usługi AAD (któ
 
 Niektóre kluczowe kwestie, które należy wziąć pod uwagę.
 
-- **Aby można było używać konta** magazynu dla klastrów, należy utworzyć i zainicjować obsługę Data Lake Storage administracyjną w ramach struktury folderów dwóch poziomów ( **/Clusters/Finance/** ). Ta struktura nie jest tworzona automatycznie podczas tworzenia klastrów.
+- **Aby można było używać konta** magazynu dla klastrów, należy utworzyć i zainicjować obsługę Data Lake Storage administracyjną w ramach struktury folderów dwóch poziomów (**/Clusters/Finance/**). Ta struktura nie jest tworzona automatycznie podczas tworzenia klastrów.
 - W powyższym przykładzie zaleca się ustawienie grupy będącej właścicielem **/Clusters/Finance** jako **FINGRP** i umożliwienie dostępu do **języka r-x** FINGRP do całej hierarchii folderów, rozpoczynając od elementu głównego. Dzięki temu członkowie FINGRP mogą nawigować po strukturze folderów, rozpoczynając od elementu głównego.
-- W przypadku, gdy różne jednostki usługi AAD mogą tworzyć klastry w obszarze **/Clusters/Finance** , to bit (w folderze **finansowym** ) gwarantuje, że foldery utworzone przez jedną jednostkę usługi nie mogą zostać usunięte.
-- Po utworzeniu struktury folderów i uprawnień proces tworzenia klastra usługi HDInsight tworzy lokalizację magazynu specyficzną dla klastra w obszarze **/Clusters/Finance/** . Na przykład magazyn dla klastra o nazwie fincluster01 może być **/Clusters/Finance/fincluster01** . W poniższej tabeli przedstawiono własność i uprawnienia dla folderów utworzonych przez klaster usługi HDInsight.
+- W przypadku, gdy różne jednostki usługi AAD mogą tworzyć klastry w obszarze **/Clusters/Finance**, to bit (w folderze **finansowym** ) gwarantuje, że foldery utworzone przez jedną jednostkę usługi nie mogą zostać usunięte.
+- Po utworzeniu struktury folderów i uprawnień proces tworzenia klastra usługi HDInsight tworzy lokalizację magazynu specyficzną dla klastra w obszarze **/Clusters/Finance/**. Na przykład magazyn dla klastra o nazwie fincluster01 może być **/Clusters/Finance/fincluster01**. W poniższej tabeli przedstawiono własność i uprawnienia dla folderów utworzonych przez klaster usługi HDInsight.
 
     |Folder  |Uprawnienia  |Użytkownik będący właścicielem  |Grupa będąca właścicielem  | Nazwany użytkownik | Uprawnienia nazwanego użytkownika | Nazwana grupa | Uprawnienia grupy nazwanej |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -59,7 +56,7 @@ Niektóre kluczowe kwestie, które należy wziąć pod uwagę.
 
 ## <a name="recommendations-for-job-input-and-output-data"></a>Zalecenia dotyczące danych wejściowych i wyjściowych zadania
 
-Firma Microsoft zaleca, aby dane wejściowe do zadania i wyniki z zadania były przechowywane w folderze poza **/Clusters** . Pozwala to zagwarantować, że nawet jeśli folder specyficzny dla klastra zostanie usunięty w celu Odbierz miejsce do magazynowania, dane wejściowe i wyjściowe zadania są nadal dostępne do użycia w przyszłości. W takim przypadku upewnij się, że hierarchia folderów służąca do przechowywania danych wejściowych i wyjściowych zadań umożliwia odpowiedni poziom dostępu dla jednostki usługi.
+Firma Microsoft zaleca, aby dane wejściowe do zadania i wyniki z zadania były przechowywane w folderze poza **/Clusters**. Pozwala to zagwarantować, że nawet jeśli folder specyficzny dla klastra zostanie usunięty w celu Odbierz miejsce do magazynowania, dane wejściowe i wyjściowe zadania są nadal dostępne do użycia w przyszłości. W takim przypadku upewnij się, że hierarchia folderów służąca do przechowywania danych wejściowych i wyjściowych zadań umożliwia odpowiedni poziom dostępu dla jednostki usługi.
 
 ## <a name="limit-on-clusters-sharing-a-single-storage-account"></a>Ograniczenie klastrów współużytkujących pojedyncze konto magazynu
 
@@ -89,7 +86,7 @@ Jak określono w połączonej wcześniej JIRA PRZĘDZy, podczas lokalizowania za
 
 Ustaw uprawnienia do odczytu dla **innych użytkowników** w hierarchii, na przykład, **/** **/Clusters** i **/Clusters/Finance** , jak pokazano w powyższej tabeli.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Szybki start: konfigurowanie klastrów w usłudze HDInsight](./hdinsight-hadoop-provision-linux-clusters.md)
 - [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

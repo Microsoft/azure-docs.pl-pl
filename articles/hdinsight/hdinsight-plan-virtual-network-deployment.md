@@ -1,19 +1,16 @@
 ---
 title: Planowanie sieci wirtualnej dla usługi Azure HDInsight
 description: Dowiedz się, jak zaplanować wdrożenie Virtual Network platformy Azure, aby połączyć usługę HDInsight z innymi zasobami w chmurze lub zasobami w centrum danych.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 429f0b2ffe486279a1c429fc7a153e6528642f54
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: fe974a96b7f349c9d525d0cd0bb01a83ace57a4f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131665"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939286"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planowanie sieci wirtualnej dla usługi Azure HDInsight
 

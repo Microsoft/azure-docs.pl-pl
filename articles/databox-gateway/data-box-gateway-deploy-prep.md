@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: alkohli
-ms.openlocfilehash: f1b00273314c845a36c7efdb9cf9f4de9d5cdd46
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 40de216a9bcb173d9dfebf39d05fb9cb12579301
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583520"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937332"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Samouczek: przygotowanie do wdrożenia Azure Data Box Gateway
 
@@ -21,7 +21,7 @@ To jest pierwszy samouczek z serii samouczków dotyczących wdrażania opisując
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -29,7 +29,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Pobieranie obrazu urządzenia wirtualnego
 > * Uzyskiwanie klucza aktywacji
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Proces wdrażania usługi Data Box Gateway opisano w następujących samouczkach w zalecanej kolejności.
 
@@ -50,11 +50,11 @@ W tym miejscu opisano wymagania wstępne dotyczące konfiguracji zasobu usługi 
 
 Przed rozpoczęciem upewnij się, że:
 
-* Twoja subskrypcja platformy Microsoft Azure obsługuje zasób rozwiązania Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Twoja subskrypcja platformy Microsoft Azure obsługuje zasób rozwiązania Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
 * Masz uprawnienia właściciela lub współautora na poziomie grupy zasobów dla Azure Stack Edge/Data Box Gateway, IoT Hub i zasobów usługi Azure Storage.
     - Aby utworzyć dowolny zasób Azure Stack Edge/Data Box Gateway, należy mieć uprawnienia jako współautora (lub wyższe) w zakresie na poziomie grupy zasobów. Należy również upewnić się, że `Microsoft.DataBoxEdge` dostawca jest zarejestrowany. Aby uzyskać informacje na temat rejestrowania, przejdź do sekcji [Rejestrowanie dostawcy zasobów](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Aby utworzyć zasób konta magazynu, należy ponownie uzyskać wartość współautor lub wyższy dostęp do zakresu na poziomie grupy zasobów. Usługa Azure Storage jest domyślnie zarejestrowanym dostawcą zasobów.
-- Masz uprawnienia administratora lub użytkownika do Microsoft Graph interfejsu API. Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](https://docs.microsoft.com/graph/permissions-reference).
+- Masz uprawnienia administratora lub użytkownika do Microsoft Graph interfejsu API. Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](/graph/permissions-reference).
 - Masz konto magazynu platformy Microsoft Azure z poświadczeniami dostępu.
 
 ### <a name="for-the-data-box-gateway-device"></a>Urządzenie usługi Data Box Gateway
@@ -90,7 +90,7 @@ Aby utworzyć zasób Data Box Gateway, w Azure Portal wykonaj następujące czyn
 1. Użyj poświadczeń Microsoft Azure, aby zalogować się do dowolnego z tych portali:
 
     - Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com) .
-    - Portal Azure Government pod tym adresem URL: [https://portal.azure.us](https://portal.azure.us) . Aby uzyskać szczegółowe informacje, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    - Portal Azure Government pod tym adresem URL: [https://portal.azure.us](https://portal.azure.us) . Aby uzyskać szczegółowe informacje, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](../azure-government/documentation-government-get-started-connect-with-portal.md).
     
 2. Wybierz pozycję **+ Utwórz zasób**.
 
@@ -193,5 +193,3 @@ LUB
 
 > [!div class="nextstepaction"]
 > [Aprowizowanie usługi Data Box Gateway w oprogramowaniu VMware](./data-box-gateway-deploy-provision-vmware.md)
-
-

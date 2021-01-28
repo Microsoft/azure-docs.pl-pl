@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 122e76e4bde96823ff18207bc24df4a8e91afb1c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8e51d7d00120f6facb0fb53a8e379d157ae79ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517972"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938570"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Scenariusz: kierowanie ruchu przez urządzeń WUS przy użyciu ustawień niestandardowych
 
@@ -32,7 +32,7 @@ W poniższej tabeli zestawiono połączenia obsługiwane w tym scenariuszu:
 | Źródło          | Działanie|Szprychy|Sieć wirtualna usługi|Gałęzie|Internet|
 |---|---|:---:|:---:|:---:|:---:|:---:|
 | **Szprychy**| ->| wprost |wprost | za poorednictwem sieci wirtualnej usługi |za poorednictwem sieci wirtualnej |
-| **Sieć wirtualna usługi**| ->| wprost |nie dotyczy| wprost | |
+| **Sieć wirtualna usługi**| ->| wprost |n/d| wprost | |
 | **Gałęzie** | ->| za poorednictwem sieci wirtualnej usługi |wprost| wprost |  |
 
 Każda z komórek w macierzy łączności zawiera opis, czy połączenie odbywa się bezpośrednio za pośrednictwem wirtualnej sieci WAN, czy za pośrednictwem jednej z sieci wirtualnych z urządzenie WUS. 
@@ -57,6 +57,9 @@ Istnieją trzy różne wzorce łączności, które tłumaczą na trzy tabele tra
 * Gałęzi
   * Skojarzona tabela tras: **Domyślna**
   * Propagowanie do tabel tras: **RT_SHARED** i **domyślnych**
+
+> [!NOTE] 
+> Upewnij się, że sieci wirtualnych szprych nie są propagowane do etykiety domyślnej. Gwarantuje to, że ruch z gałęzi do szprychy sieci wirtualnych zostanie przekazany do urządzeń WUS.
 
 Te trasy statyczne zapewniają, że ruch sieciowy do i z sieci wirtualnej i gałęzi przechodzą przez urządzenie WUS w usłudze VNet (Sieć wirtualna 4):
 
@@ -120,7 +123,7 @@ Aby skonfigurować Routing za pośrednictwem urządzenie WUS, poniżej przedstaw
 
    * **Propagacja z:** Upewnij się, że jest wybrana opcja dla gałęzi (VPN/ER/P2S), dzięki czemu połączenia lokalne są propagowane do domyślnej tabeli tras.
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagram architektury sieci." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagram przepływu pracy." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

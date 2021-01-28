@@ -1,18 +1,15 @@
 ---
 title: Optymalizowanie Apache Hive w usłudze Apache Ambari w usłudze Azure HDInsight
 description: Za pomocą interfejsu użytkownika sieci Web Apache Ambari można konfigurować i optymalizować Apache Hive.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 349f58720e6fff52191dfff65108cd1320e41eed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084362"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939246"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Optymalizowanie Apache Hive w usłudze Apache Ambari w usłudze Azure HDInsight
 
@@ -100,7 +97,7 @@ Program Hive przetwarza wiersz danych według wiersza. Wektoryzacji kieruje gał
 
 Domyślnie gałąź jest zgodna z zestawem reguł, aby znaleźć jeden optymalny plan wykonywania zapytań. Optymalizacja oparta na kosztach (CBO) szacuje wiele planów, aby wykonać zapytanie. I przypisuje koszt do każdego planu, a następnie określa najtańszy plan wykonywania zapytania.
 
-Aby włączyć program CBO, przejdź **Hive**do  >  **ustawień konfiguracji**programu Hive  >  **Settings** i Znajdź pozycję **Włącz Optymalizator oparty na kosztach**, a następnie Przełącz przycisk przełączania na pozycję **włączone**.
+Aby włączyć program CBO, przejdź do  >  **ustawień konfiguracji** programu Hive  >   i Znajdź pozycję **Włącz Optymalizator oparty na kosztach**, a następnie Przełącz przycisk przełączania na pozycję **włączone**.
 
 ![Optymalizator oparty na kosztach usługi HDInsight](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
 
@@ -132,7 +129,7 @@ Zadania usługi Hadoop są zwykle w wąskim obłączeniem we/wy. Kompresowanie d
 
 Dostępne typy kompresji to:
 
-| Formatuj | Narzędzie | Algorytm | Rozszerzenie pliku | Podzielne? |
+| Format | Narzędzie | Algorytm | Rozszerzenie pliku | Podzielne? |
 | --- | --- | --- | --- | --- |
 | Gzip | Gzip | WKLĘŚNIĘCIE | `.gz` | Nie |
 | Bzip2 | Bzip2 | Bzip2 |`.bz2` | Tak |
@@ -152,7 +149,7 @@ Ogólną zasadą jest, że podział metody kompresji jest istotny, w przeciwnym 
 
 1. Aby dodać ustawienie niestandardowe:
 
-    a. Przejdź do konfiguracji programu **Hive**  >  **Configs**  >  **Advanced**  >  **— Zaawansowane niestandardowe gałęzie — lokacja**.
+    a. Przejdź do konfiguracji programu **Hive**  >    >    >  **— Zaawansowane niestandardowe gałęzie — lokacja**.
 
     b. Wybierz pozycję **Dodaj właściwość...** w dolnej części okienka niestandardowe gałęzie — lokacja.
 

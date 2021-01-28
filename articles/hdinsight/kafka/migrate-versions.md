@@ -1,18 +1,15 @@
 ---
 title: Migrowanie obciążeń Apache Kafka do usługi Azure HDInsight 4,0
 description: Dowiedz się, jak migrować obciążenia Apache Kafka w usłudze HDInsight 3,6 do usługi HDInsight 4,0.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3967a5d96c35e4bac88dcd9a6c1fa95b78a6b2b1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80437011"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939119"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Migrowanie obciążeń Apache Kafka do usługi Azure HDInsight 4,0
 
@@ -23,7 +20,7 @@ Usługa Azure HDInsight 4,0 oferuje najnowsze składniki Open Source ze znacząc
 Usługa HDInsight 3,6 obsługuje dwie wersje Kafka: 1.0.0 i 1.1.0. Usługa HDInsight 4,0 obsługuje wersje 1.1.0 i 2.1.0. W zależności od wersji programu Kafka i wersji usługi HDInsight, którą chcesz uruchomić, istnieje wiele obsługiwanych ścieżek migracji. Te ścieżki są wyjaśnione poniżej i zilustrowane na poniższym diagramie.
 
 * **Uruchom zarówno Kafka, jak i HDInsight dla najnowszych wersji (zalecane)**: Migruj aplikację HDInsight 3,6 i Kafka 1.0.0 lub 1.1.0 do usługi HDInsight 4,0 z Kafka 2.1.0 (ścieżki D i E poniżej).
-* **Uruchom usługi HDInsight w najnowszej wersji, ale Kafka tylko na**nowszą wersję: Migruj aplikację HDInsight 3,6 i Kafka 1.0.0 do usługi HDInsight 4,0 z Kafka 1.1.0 (ścieżka B poniżej).
+* **Uruchom usługi HDInsight w najnowszej wersji, ale Kafka tylko na** nowszą wersję: Migruj aplikację HDInsight 3,6 i Kafka 1.0.0 do usługi HDInsight 4,0 z Kafka 1.1.0 (ścieżka B poniżej).
 * **Uruchom usługi HDInsight w najnowszej wersji, Zachowaj wersję Kafka**: Migruj aplikację HDInsight 3,6 i Kafka 1.1.0 do usługi HDInsight 4,0 z Kafka 1.1.0 (ścieżka C poniżej).
 * **Uruchom Kafka z nowszą wersją, Zachowaj wersję usługi HDInsight**: Migruj aplikację Kafka 1.0.0 do 1.1.0 i pozostań w usłudze HDInsight 3,6 (ścieżka a poniżej). Należy pamiętać, że ta opcja będzie nadal wymagała wdrożenia nowego klastra. Uaktualnianie wersji Kafka w istniejącym klastrze nie jest obsługiwane. Po utworzeniu klastra z żądaną wersją wykonaj migrację klientów Kafka do korzystania z nowego klastra.
 

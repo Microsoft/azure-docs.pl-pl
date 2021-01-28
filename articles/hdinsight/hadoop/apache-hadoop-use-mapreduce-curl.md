@@ -1,19 +1,16 @@
 ---
 title: Korzystanie z MapReduce i Zwinięciea przy użyciu Apache Hadoop w usłudze HDInsight — Azure
 description: Dowiedz się, jak zdalnie uruchamiać zadania MapReduce z Apache Hadoop w usłudze HDInsight przy użyciu programu zwinięcie.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e90dc2c7220caf5bd72b7086adc275934652e150
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207730"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939699"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Uruchamianie zadań MapReduce za pomocą Apache Hadoop w usłudze HDInsight przy użyciu usługi REST
 
@@ -94,7 +91,7 @@ Dowolny z następujących elementów:
     C:\HDI\jq-win64.exe .status.state
     ```
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 1. Aby ułatwić sobie korzystanie z programu, Ustaw zmienne poniżej. Zastąp wartość `CLUSTERNAME` rzeczywistą nazwą klastra. Wykonaj polecenie i wprowadź hasło logowania klastra po wyświetleniu monitu.
 

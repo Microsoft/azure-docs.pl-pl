@@ -1,19 +1,16 @@
 ---
 title: Analizowanie dzienników witryn sieci Web przy użyciu bibliotek języka Python w platformie Spark — Azure
 description: Ten Notes pokazuje, jak analizować dane dzienników przy użyciu biblioteki niestandardowej z platformą Spark w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 61ec2db1799919eb395996b56d08b77e3be7ff5a
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 591804a31c100e5c8211ec6d73fc483c9ac85c72
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822373"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940300"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analizowanie dzienników witryn sieci Web przy użyciu niestandardowej biblioteki języka Python z klastrem Apache Spark w usłudze HDInsight
 

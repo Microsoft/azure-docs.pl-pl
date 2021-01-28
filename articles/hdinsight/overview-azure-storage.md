@@ -1,19 +1,16 @@
 ---
 title: Omówienie usługi Azure Storage w usłudze HDInsight
 description: Omówienie usługi Azure Storage w usłudze HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539466"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938953"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Omówienie usługi Azure Storage w usłudze HDInsight
 
@@ -21,7 +18,7 @@ Usługa Azure Storage to niezawodne rozwiązanie do magazynowania ogólnego prze
 
 Zalecamy używanie oddzielnych kontenerów magazynu dla domyślnego magazynu klastra i danych firmowych. Rozdzielenie polega na odizolowaniu dzienników usługi HDInsight i plików tymczasowych z własnych danych firmowych. Zalecamy również usunięcie domyślnego kontenera obiektów blob, który zawiera Dzienniki aplikacji i systemu po każdym użyciu, aby zmniejszyć koszty magazynu. Koniecznie pobierz dzienniki przed usunięciem kontenera.
 
-Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **zapory i sieci wirtualnych** w **wybranych sieciach** , należy włączyć wyjątek **Zezwalaj na zaufane usługi firmy Microsoft.** ... Wyjątek polega na tym, że Usługa HDInsight może uzyskać dostęp do konta magazynu.
+Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **zapory i sieci wirtualnych** w **wybranych sieciach**, należy włączyć wyjątek **Zezwalaj na zaufane usługi firmy Microsoft.**... Wyjątek polega na tym, że Usługa HDInsight może uzyskać dostęp do konta magazynu.
 
 ## <a name="hdinsight-storage-architecture"></a>Architektura magazynu usługi HDInsight
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: d37fca06a3d2eafa0af9e31c3a30ac66be5404f0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f7f11ef097d3abee2b4c18c32a1cb215d9fe8ce8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020608"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939902"
 ---
 # <a name="cicd-for-custom-speech"></a>Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech
 
@@ -73,7 +73,7 @@ Większość zespołów wymaga ręcznego przeglądu i procesu zatwierdzania wdro
 
 Użyj następujących narzędzi dla przepływów pracy usługi CI/CD Automation dla Custom Speech:
 
-- [Interfejs wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) do tworzenia uwierzytelniania jednostki usługi platformy Azure, wykonywania zapytań dotyczących subskrypcji platformy Azure i zapisywania wyników testów w obiekcie blob platformy Azure.
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/) do tworzenia uwierzytelniania jednostki usługi platformy Azure, wykonywania zapytań dotyczących subskrypcji platformy Azure i zapisywania wyników testów w obiekcie blob platformy Azure.
 - [Interfejs wiersza polecenia usługi Azure Speech](spx-overview.md) do współpracy z usługą mowy z poziomu wiersza poleceń lub zautomatyzowanego przepływu pracy.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>DevOps rozwiązanie do Custom Speech przy użyciu akcji GitHub

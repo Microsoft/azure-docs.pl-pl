@@ -1,19 +1,16 @@
 ---
 title: Operacjonalizować potoku analizy danych — Azure
 description: Konfigurowanie i uruchamianie przykładowego potoku danych, który jest wyzwalany przez nowe dane i tworzy zwięzłe wyniki.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 1e73c403a03eef9a47bc0550b37769db302a599c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a306890560497b0c7196f1286de3f73039821ea2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504422"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939515"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacjonalizacja potoku analizy danych
 
@@ -39,7 +36,7 @@ Poniższy diagram ilustruje przykład potoku.
 
 Ten potok używa platformy Apache Oozie uruchomionej w klastrze usługi HDInsight Hadoop.
 
-Oozie opisuje swoje potoki pod względem *akcji*, *przepływów pracy*i *koordynatorów*. Akcje określają rzeczywistą służbę do wykonania, na przykład uruchomienie zapytania programu Hive. Przepływy pracy definiują sekwencję akcji. Koordynatorzy definiują harmonogram wykonywania przepływu pracy. Koordynatorzy mogą również oczekiwać na dostępność nowych danych przed uruchomieniem wystąpienia przepływu pracy.
+Oozie opisuje swoje potoki pod względem *akcji*, *przepływów pracy* i *koordynatorów*. Akcje określają rzeczywistą służbę do wykonania, na przykład uruchomienie zapytania programu Hive. Przepływy pracy definiują sekwencję akcji. Koordynatorzy definiują harmonogram wykonywania przepływu pracy. Koordynatorzy mogą również oczekiwać na dostępność nowych danych przed uruchomieniem wystąpienia przepływu pracy.
 
 Na poniższym diagramie przedstawiono ogólny projekt tego przykładowego potoku Oozie.
 
@@ -53,7 +50,7 @@ Ten potok wymaga Azure SQL Database i klastra usługi HDInsight Hadoop w tej sam
 
 1. Utwórz Azure SQL Database. Zobacz [tworzenie Azure SQL Database w Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
-1. Aby upewnić się, że klaster usługi HDInsight może uzyskać dostęp do połączonej Azure SQL Database, skonfiguruj Azure SQL Database reguły zapory, aby umożliwić usługom i zasobom platformy Azure dostęp do serwera. Tę opcję można włączyć w Azure Portal, wybierając pozycję **Ustaw zaporę serwera**i wybierając pozycję **włączone w** obszarze **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera** dla Azure SQL Database. Aby uzyskać więcej informacji, zobacz [Tworzenie reguł zapory IP i zarządzanie nimi](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+1. Aby upewnić się, że klaster usługi HDInsight może uzyskać dostęp do połączonej Azure SQL Database, skonfiguruj Azure SQL Database reguły zapory, aby umożliwić usługom i zasobom platformy Azure dostęp do serwera. Tę opcję można włączyć w Azure Portal, wybierając pozycję **Ustaw zaporę serwera** i wybierając pozycję **włączone w** obszarze **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera** dla Azure SQL Database. Aby uzyskać więcej informacji, zobacz [Tworzenie reguł zapory IP i zarządzanie nimi](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 1. Za pomocą [edytora zapytań](../azure-sql/database/single-database-create-quickstart.md#query-the-database) wykonaj następujące instrukcje SQL, aby utworzyć `dailyflights` tabelę, w której będą przechowywane podsumowane dane z każdego przebiegu potoku.
 
@@ -234,7 +231,7 @@ Następnie zaktualizuj wartości dla określonego środowiska. Tabela poniżej t
     | --- | --- |
     | nameNode | Pełna ścieżka do kontenera magazynu platformy Azure dołączonego do klastra usługi HDInsight. |
     | jobTracker | Wewnętrzna nazwa hosta do węzła głównego PRZĘDZy w klastrze. Na stronie głównej Ambari wybierz z listy usług pozycję PRZĘDZa, a następnie wybierz pozycję Active Menedżer zasobów. Identyfikator URI nazwy hosta jest wyświetlany w górnej części strony. Dołącz port 8050. |
-    | Zmienną QueueName | Nazwa kolejki PRZĘDZy użyta podczas planowania akcji programu Hive. Pozostaw jako domyślny. |
+    | Zmienną QueueName | Nazwa kolejki PRZĘDZy użyta podczas planowania akcji programu Hive. Pozostaw wartość domyślną. |
     | oozie.use.system. LIBPATH | Pozostaw wartość true. |
     | appBase | Ścieżka do podfolderu w usłudze Azure Storage, w której jest wdrażany przepływ pracy Oozie i pliki pomocnicze. |
     | Oozie. WF. Application. Path | Lokalizacja przepływu pracy Oozie `workflow.xml` do uruchomienia. |
@@ -416,7 +413,7 @@ Użyj punktu połączenia usługi z sesji bash, aby wdrożyć przepływ pracy Oo
     oozie job -config job.properties -run
     ```
 
-1. Obserwuj stan przy użyciu konsoli sieci Web Oozie. W programie Ambari wybierz pozycję **Oozie**, **szybkie linki**i **Oozie konsolę sieci Web**. Na karcie **zadania przepływu pracy** wybierz pozycję **wszystkie zadania**.
+1. Obserwuj stan przy użyciu konsoli sieci Web Oozie. W programie Ambari wybierz pozycję **Oozie**, **szybkie linki** i **Oozie konsolę sieci Web**. Na karcie **zadania przepływu pracy** wybierz pozycję **wszystkie zadania**.
 
     ![przepływy pracy konsoli sieci Web HDI Oozie](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
 

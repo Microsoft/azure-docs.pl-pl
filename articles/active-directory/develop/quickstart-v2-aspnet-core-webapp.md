@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: c20685c0c392ece68dc80b57afc6680f2efd9e35
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 05e14b5bdc2f603ffe802b12ed33b7b57be25b69
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754514"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938199"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core
 
@@ -56,13 +56,13 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > 1. Wybierz pozycję **Zarejestruj**.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
 > 1. W obszarze **identyfikatory URI przekierowania** wybierz pozycję **Dodaj identyfikator URI**, a następnie wprowadź `https://localhost:44321/signin-oidc` .
-> 1. Wprowadź **adres URL wylogowywania** `https://localhost:44321/signout-oidc` .
+> 1. Wprowadź **adres URL wylogowywania z frontonu** `https://localhost:44321/signout-oidc` .
 > 1. W obszarze **Niejawne przyznanie** wybierz pozycję **Tokeny identyfikatorów**.
 > 1. Wybierz pozycję **Zapisz**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
-> Aby przykład kodu w tym przewodniku Szybki Start działał, należy dodać adresy URL odpowiedzi jako `https://localhost:44321/` i `https://localhost:44321/signin-oidc`, dodać adres URL wylogowywania jako `https://localhost:44321/signout-oidc`, a następnie zażądać, aby tokeny Identyfikatorów były wystawiane przez punkt końcowy autoryzacji.
+> Ten przykładowy kod w tym przewodniku Szybki Start wymaga **identyfikatora URI przekierowania** dla `https://localhost:44321/` i `https://localhost:44321/signin-oidc` i **adresu URL wylogowania z kanału przedniego** `https://localhost:44321/signout-oidc` . Tokeny identyfikatora żądania będą wystawiane przez punkt końcowy autoryzacji.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź tę zmianę automatycznie]()
 >
