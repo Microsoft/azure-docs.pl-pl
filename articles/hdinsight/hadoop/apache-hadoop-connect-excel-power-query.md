@@ -1,19 +1,16 @@
 ---
 title: Łączenie programu Excel z Apache Hadoop przy użyciu Power Query — usługa Azure HDInsight
 description: Dowiedz się, jak korzystać ze składników analizy biznesowej i korzystać z Power Query dla programu Excel, aby uzyskiwać dostęp do danych przechowywanych w usłudze Hadoop w usłudze HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 8664efd40bb5392f56803515f09cccc800fdf21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcca511bcb61ceab8395ee56b377efa99f095586
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397117"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946698"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Łączenie programu Excel z Apache Hadoop przy użyciu Power Query
 
@@ -53,13 +50,13 @@ Dodatek Power Query dla programu Excel ułatwia importowanie danych z klastra us
 
        ![HDI. PowerQuery. SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
 
-       **Uwaga:** Jeśli nie widzisz menu **Power Query** , przejdź do pozycji **File**  >  **Opcje**pliku  >  **Dodatki**i wybierz opcję **Dodatki COM** w polu rozwijanym **Zarządzaj** w dolnej części strony. Wybierz przycisk **Przejdź...** i sprawdź, czy pole dla dodatku dla Power Query dla programu Excel zostało zaznaczone.
+       **Uwaga:** Jeśli nie widzisz menu **Power Query** , przejdź do pozycji   >  **Opcje** pliku  >  **Dodatki** i wybierz opcję **Dodatki COM** w polu rozwijanym **Zarządzaj** w dolnej części strony. Wybierz przycisk **Przejdź...** i sprawdź, czy pole dla dodatku dla Power Query dla programu Excel zostało zaznaczone.
 
        **Uwaga:** Power Query umożliwia również Importowanie danych z systemu plików HDFS przez wybranie **z innych źródeł**.
 
 1. W oknie dialogowym **Azure HDInsight (HDFS)** w polu tekstowym **nazwa konta lub adres URL** wprowadź nazwę konta usługi Azure Blob Storage skojarzonego z klastrem. Następnie wybierz przycisk **OK**. To konto może być domyślnym kontem magazynu lub połączonym kontem magazynu.  Format to `https://StorageAccountName.blob.core.windows.net/` .
 
-1. W polu **klucz konta**wprowadź klucz dla konta usługi BLOB Storage, a następnie wybierz pozycję **Połącz**. (Należy wprowadzić informacje o koncie tylko podczas pierwszego dostępu do tego magazynu).
+1. W polu **klucz konta** wprowadź klucz dla konta usługi BLOB Storage, a następnie wybierz pozycję **Połącz**. (Należy wprowadzić informacje o koncie tylko podczas pierwszego dostępu do tego magazynu).
 
 1. W okienku **Nawigator** po lewej stronie edytora zapytań kliknij dwukrotnie nazwę kontenera magazynu obiektów BLOB skojarzoną z klastrem. Domyślnie nazwa kontenera jest taka sama jak nazwa klastra.
 

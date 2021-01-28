@@ -1,18 +1,15 @@
 ---
 title: Nieodświeżone alerty Apache Ambari w usłudze Azure HDInsight
 description: Dyskusja i analiza możliwych przyczyn i rozwiązań dotyczących nieodświeżonych alertów Apache Ambari w usłudze HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 9564e149055dcabf205694b3cf6c3ddc03163037
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533839"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946716"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Scenariusz: usługa Apache Ambari nieodświeżone alerty w usłudze Azure HDInsight
 
@@ -46,17 +43,17 @@ Można zwiększyć wartość pojedynczego interwału alertu na podstawie czasu o
 
 1. W interfejsie użytkownika Apache Ambari wybierz kartę **alerty** .
 1. Wybierz żądaną nazwę definicji alertu.
-1. Z definicji wybierz pozycję **Edytuj** .
-1. Zwiększ wartość **interwału sprawdzania** , a następnie wybierz pozycję **Zapisz** .
+1. Z definicji wybierz pozycję **Edytuj**.
+1. Zwiększ wartość **interwału sprawdzania** , a następnie wybierz pozycję **Zapisz**.
 
 ### <a name="increase-the-alert-interval-time-for-ambari-server-alerts"></a>Zwiększ czas interwału alertów dla alertów serwera Ambari
 
 1. W interfejsie użytkownika Apache Ambari wybierz kartę **alerty** .
-1. Z listy rozwijanej **grupy** wybierz pozycję **AMBARI default (domyślne** ).
+1. Z listy rozwijanej **grupy** wybierz pozycję **AMBARI default (domyślne**).
 1. Wybierz alert dotyczący **alertów serwera Ambari** .
-1. Z definicji wybierz pozycję **Edytuj** .
+1. Z definicji wybierz pozycję **Edytuj**.
 1. Zwiększ wartość **interwału sprawdzania** .
-1. Zwiększ wartość **mnożnik interwału** , a następnie wybierz pozycję **Zapisz** .
+1. Zwiększ wartość **mnożnik interwału** , a następnie wybierz pozycję **Zapisz**.
 
 ### <a name="disable-and-reenable-the-alert"></a>Wyłącz i ponownie włącz alert
 
@@ -65,10 +62,10 @@ Aby odrzucić nieodświeżony alert, Wyłącz, a następnie włącz go ponownie:
 1. W interfejsie użytkownika Apache Ambari wybierz kartę **alerty** .
 1. Wybierz żądaną nazwę definicji alertu.
 1. Z definicji wybierz pozycję **włączone** w prawej części interfejsu użytkownika.
-1. W oknie podręcznym **potwierdzenia** wybierz pozycję **Potwierdź wyłączenie** .
+1. W oknie podręcznym **potwierdzenia** wybierz pozycję **Potwierdź wyłączenie**.
 1. Poczekaj kilka sekund, aż wszystkie wystąpienia alertu na stronie zostały wyczyszczone.
 1. Z definicji wybierz pozycję **wyłączone** w prawej części interfejsu użytkownika.
-1. W oknie podręcznym **potwierdzenia** wybierz pozycję **Potwierdź włączenie** .
+1. W oknie podręcznym **potwierdzenia** wybierz pozycję **Potwierdź włączenie**.
 
 ### <a name="increase-the-alert-grace-period"></a>Zwiększ okres prolongaty alertu
 
@@ -84,6 +81,6 @@ Jeśli Twój problem nie został określony w tym miejscu lub nie możesz go roz
 
 * Połącz się z usługą [@AzureSupport](https://twitter.com/azuresupport) w serwisie Twitter. Jest to oficjalne konto Microsoft Azure na potrzeby ulepszania środowiska klienta. Łączy społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, Prześlij żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Aby to zrobić, wybierz pozycję Pomoc ( **?** ) w menu portalu lub Otwórz okienko **Pomoc i obsługa techniczna** . Aby uzyskać więcej informacji, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
+* Jeśli potrzebujesz więcej pomocy, Prześlij żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Aby to zrobić, wybierz pozycję Pomoc (**?**) w menu portalu lub Otwórz okienko **Pomoc i obsługa techniczna** . Aby uzyskać więcej informacji, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
   Obsługa zarządzania subskrypcjami i rozliczeń jest dołączana do subskrypcji Microsoft Azure. Pomoc techniczna jest dostępna w ramach [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

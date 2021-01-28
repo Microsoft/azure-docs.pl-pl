@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 61b396cbcc8c91c75c961f702de7ed6a33e676e4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882456"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947021"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -40,7 +40,7 @@ Wyszukaj pozycję *Azure Digital bliźniaczych reprezentacji* w polu wyszukiwani
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Wybieranie pozycji &quot;Utwórz&quot; na stronie usługi Azure Digital bliźniaczych reprezentacji":::
 
-Na poniższej stronie *Tworzenie zasobów* Wypełnij wartości podanych poniżej:
+Na poniższej stronie **Tworzenie zasobów** Wypełnij wartości podanych poniżej:
 * **Subskrypcja**: subskrypcja platformy Azure, której używasz
   - **Grupa zasobów**: Grupa zasobów, w której ma zostać wdrożone wystąpienie. Jeśli nie masz jeszcze istniejącej grupy zasobów, możesz ją utworzyć, wybierając pozycję *Utwórz nowe* łącze i wprowadzając nazwę nowej grupy zasobów.
 * **Location (lokalizacja**): bliźniaczych reprezentacji na potrzeby wdrożenia przy użyciu cyfrowego obszaru platformy Azure. Aby uzyskać więcej informacji na temat pomocy technicznej regionalnej, odwiedź stronę [*usługi platformy Azure dostępne według regionów (usługa Azure Digital bliźniaczych reprezentacji)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -48,11 +48,21 @@ Na poniższej stronie *Tworzenie zasobów* Wypełnij wartości podanych poniżej
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Wypełnianie opisanych wartości, aby utworzyć zasób usługi Azure Digital bliźniaczych reprezentacji":::
 
-Po zakończeniu wybierz pozycję _Przegląd + Utwórz_. Spowoduje to przejście do strony podsumowania, na której można przejrzeć wprowadzone informacje o wystąpieniu i przycisk _Utwórz_. 
+Po zakończeniu możesz wybrać opcję **Recenzja + Utwórz** , jeśli nie chcesz konfigurować dodatkowych ustawień dla danego wystąpienia. Spowoduje to przejście do strony Podsumowanie, na której można przejrzeć wprowadzone informacje o wystąpieniu i zakończyć pracę z poleceniem **Utwórz**. 
+
+Jeśli chcesz skonfigurować więcej szczegółów dla danego wystąpienia, w następnej sekcji opisano pozostałe karty ustawień.
+
+### <a name="additional-setup-options"></a>Dodatkowe opcje instalacji
+
+Poniżej znajdują się dodatkowe opcje, które można skonfigurować podczas instalacji, przy użyciu innych kart w procesie **tworzenia zasobów** .
+
+* **Sieć**: na tej karcie można włączyć prywatne punkty końcowe przy użyciu [prywatnego linku platformy Azure](../private-link/private-link-overview.md) , aby wyeliminować zagrożenie sieci publicznej do wystąpienia. Aby uzyskać instrukcje, zobacz [*How to: Enable Private Access with Private link*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
+* **Zaawansowane**: na tej karcie można włączyć [tożsamość zarządzaną przez system](../active-directory/managed-identities-azure-resources/overview.md) dla danego wystąpienia, które może być używane podczas przekazywania zdarzeń do [punktów końcowych](concepts-route-events.md). Aby uzyskać instrukcje, zobacz [*How to: Enable Managed tożsamośćs for Routing Events*](how-to-enable-managed-identities.md).
+* **Tagi**: na tej karcie można dodać tagi do wystąpienia, aby pomóc w organizowaniu go wśród zasobów platformy Azure. Aby uzyskać więcej informacji na temat tagów zasobów platformy Azure, zobacz temat [*zasoby tagów, grupy zasobów i subskrypcje dla organizacji logicznej*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Weryfikowanie sukcesu i zbieranie ważnych wartości
 
-Po wypchnięciu polecenia *Create* można wyświetlić stan wdrożenia wystąpienia w obszarze powiadomień platformy Azure na pasku ikon portalu. Powiadomienie będzie wskazywać, kiedy wdrożenie zakończyło się pomyślnie, i będzie można wybrać przycisk _Przejdź do zasobu_ , aby wyświetlić utworzone wystąpienie.
+Po zakończeniu instalacji wystąpienia, wybierając pozycję **Utwórz**, można wyświetlić stan wdrożenia wystąpienia w obszarze powiadomień platformy Azure na pasku ikon portalu. Powiadomienie będzie wskazywać, kiedy wdrożenie zakończyło się pomyślnie, i będzie można wybrać przycisk _Przejdź do zasobu_ , aby wyświetlić utworzone wystąpienie.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Widok powiadomień platformy Azure przedstawiający pomyślne wdrożenie i wyróżnienie przycisku &quot;przejdź do zasobu&quot;":::
 

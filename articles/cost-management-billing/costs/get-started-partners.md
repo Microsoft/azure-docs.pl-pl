@@ -3,18 +3,18 @@ title: Wprowadzenie do usługi Azure Cost Management dla partnerów
 description: W tym artykule wyjaśniono, w jaki sposób partnerzy używają funkcji usługi Azure Cost Management i jak umożliwiają dostęp do usługi Cost Management swoim klientom.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 40c683d98a13bf4810ec4575af3fba5ae64961f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602169"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946981"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
@@ -22,7 +22,7 @@ Usługa Azure Cost Management jest natywnie dostępna dla bezpośrednich partner
 
 W przypadku bezpośrednich partnerów i dostawców pośrednich administrator globalny oraz agenci administratora mogą uzyskiwać dostęp do usługi Cost Management w dzierżawie partnera i zarządzać kosztami według zafakturowanych cen.
 
-Odsprzedawcy i klienci mogą uzyskiwać dostęp do usługi Cost Management w dzierżawie klienta i wyświetlić koszty dla subskrypcji, które są obliczane i przedstawiane przy użyciu stawek detalicznych. Jednak muszą oni mieć dostęp RBAC platformy Azure do subskrypcji w dzierżawie klienta w celu wyświetlania kosztów. Zasady widoczności kosztów muszą zostać włączone przez dostawcę dla dzierżawy klienta.
+Odsprzedawcy i klienci mogą uzyskać dostęp do Cost Management w dzierżawie klienta i wyświetlić koszty zużycia dla subskrypcji, w przypadku których koszty są obliczane i przedstawiane według stawek detalicznych. Jednak muszą oni mieć dostęp RBAC platformy Azure do subskrypcji w dzierżawie klienta w celu wyświetlania kosztów. Zasady widoczności kosztów muszą zostać włączone przez dostawcę dla dzierżawy klienta.
 
 Klienci mogą korzystać z funkcji usługi Cost Management, jeśli są one włączone przez ich partnera będącego dostawcą usług w chmurze.
 
@@ -56,6 +56,8 @@ Usługa Azure Cost Management wymaga dostępu do odczytu do konta rozliczenioweg
 Aby uzyskać więcej informacji na temat włączania i przypisywania dostępu do usługi Azure Cost Management dla konta rozliczeniowego, zobacz [Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview). Kosztami dla konta rozliczeniowego mogą zarządzać role **Administrator globalny** i **Agent administratora**.
 
 Aby uzyskać dostęp do usługi Azure Cost Management w zakresie subskrypcji, każdy użytkownik z dostępem RBAC platformy Azure do subskrypcji może wyświetlać koszty po stawkach detalicznych (płatność zgodnie z rzeczywistym użyciem). Jednak [zasady widoczności kosztów dla dzierżawy klienta](#enable-the-policy-to-view-azure-usage-charges) muszą być włączone. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](understand-cost-mgt-data.md).
+
+W przypadku przenoszenia istniejących umów dotyczących rozliczeń do nowego partnera funkcje zarządzania kosztami są dostępne tylko dla bieżącej relacji rozliczania z partnerem. Koszty historyczne przed przeniesieniem do nowego partnera nie są przenoszone na nowe konto rozliczeniowe. Jednak historia kosztów pozostaje w oryginalnym skojarzonym koncie rozliczania.
 
 ## <a name="how-cost-management-uses-scopes"></a>Jak usługa Cost Management używa zakresów
 
