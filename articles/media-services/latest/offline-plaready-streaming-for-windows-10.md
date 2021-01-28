@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie przesyłania strumieniowego w trybie offline za pomocą Azure Media Services v3
+title: Konfigurowanie przesyłania strumieniowego w trybie offline PlayReady
 description: W tym artykule przedstawiono sposób konfigurowania konta Azure Media Services v3 na potrzeby przesyłania strumieniowego PlayReady dla systemu Windows 10 w trybie offline.
 services: media-services
 keywords: ŁĄCZNIK, DRM, Widevine tryb offline, ExoPlayer, Android
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 19c930915de20d7f3a8938570e074458b32a8efb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea3d895970c6a18286d719471a693f774efaa387
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975673"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955235"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Tryb online PlayReady Streaming dla systemu Windows 10 z Media Services v3
 
@@ -38,7 +38,7 @@ Azure Media Services obsługiwać pobieranie/odtwarzanie w trybie offline przy u
 
 W tej sekcji przedstawiono niektóre w tle odtwarzania w trybie offline, szczególnie dlatego:
 
-* W niektórych krajach/regionach dostępność i/lub przepustowość Internetu są nadal ograniczone.Użytkownicy mogą wybrać opcję wcześniejszego pobrania, aby móc oglądać zawartość w wysokiej rozdzielczości, aby zapewnić zadowalające środowisko wyświetlania. W takim przypadku problem nie jest dostępny w sieci, a jego przepustowość jest ograniczona. Dostawcy OTT/OVP żądają obsługi trybu offline.
+* W niektórych krajach/regionach dostępność i/lub przepustowość Internetu są nadal ograniczone. Użytkownicy mogą wybrać opcję wcześniejszego pobrania, aby móc oglądać zawartość w wysokiej rozdzielczości, aby zapewnić zadowalające środowisko wyświetlania. W takim przypadku problem nie jest dostępny w sieci, a jego przepustowość jest ograniczona. Dostawcy OTT/OVP żądają obsługi trybu offline.
 * Jak przedstawiono na konferencji udziałowców Netflix 2016 Q3, pobieranie zawartości to "funkcja" z prośbą o "oft" i "jest ona otwarta" zgodnie z opisem w Reed Hastings, dyrektor generalny Netflix.
 * Niektórzy dostawcy zawartości mogą nie zezwalać na dostarczanie licencji DRM poza granicami kraju/regionu. Jeśli użytkownik musi podróżować za granicą i nadal chce obserwować zawartość, wymagane jest pobranie do trybu offline.
  

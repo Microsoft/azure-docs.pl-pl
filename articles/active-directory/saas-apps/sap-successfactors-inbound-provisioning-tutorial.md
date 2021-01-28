@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: ce48d87c6e04e6c349b681e953647feb5e7ddda5
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 7b59e0ae2fbb73f341d5254fd2804d50ad141a19
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570120"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953805"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Samouczek: Konfigurowanie programu SAP SuccessFactors do Active Directory aprowizacji użytkowników 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia użytkownikom SuccessFactorsego Active Directory w centrum danych (AD) i usługi Azure AD z opcjonalnym zwrotem adresu e-mail na SuccessFactors. 
@@ -186,7 +186,7 @@ Ta sekcja zawiera kroki związane z inicjowaniem obsługi kont użytkowników z 
 
 Aby zapewnić Active Directory lokalnego, Agent aprowizacji musi być zainstalowany na serwerze przyłączonym do domeny, który ma dostęp sieciowy do żądanych Active Directory domen.
 
-Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki opisane [w sekcji Instalowanie agenta](../cloud-provisioning/how-to-install.md) , aby ukończyć konfigurację agenta.
+Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki opisane [w sekcji Instalowanie agenta](../cloud-sync/how-to-install.md) , aby ukończyć konfigurację agenta.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Część 3: w aplikacji aprowizacji Skonfiguruj łączność z SuccessFactors i Active Directory
 W tym kroku ustanawiamy łączność z usługą SuccessFactors i Active Directory w Azure Portal. 
@@ -209,12 +209,12 @@ W tym kroku ustanawiamy łączność z usługą SuccessFactors i Active Director
         > To ustawienie jest dostępne tylko w przypadku tworzenia kont użytkowników, jeśli atrybut *parentDistinguishedName* nie jest skonfigurowany w mapowaniu atrybutów. To ustawienie nie jest używane na potrzeby operacji wyszukiwania ani aktualizowania użytkownika. Całe poddrzewo domeny znajduje się w zakresie operacji wyszukiwania.
 
    * **Wiadomość e-mail z powiadomieniem —** Wprowadź adres e-mail, a następnie zaznacz pole wyboru "Wyślij wiadomość e-mail, jeśli wystąpi błąd".
-    > [!NOTE]
-    > Usługa Azure AD Provisioning wysyła powiadomienie e-mail, jeśli zadanie aprowizacji przejdzie do stanu [kwarantanny](../app-provisioning/application-provisioning-quarantine-status.md) .
+     > [!NOTE]
+     > Usługa Azure AD Provisioning wysyła powiadomienie e-mail, jeśli zadanie aprowizacji przejdzie do stanu [kwarantanny](../app-provisioning/application-provisioning-quarantine-status.md) .
 
    * Kliknij przycisk **Testuj połączenie** . Jeśli test połączenia zakończy się pomyślnie, kliknij przycisk **Zapisz** u góry. Jeśli to się nie powiedzie, sprawdź, czy poświadczenia SuccessFactors i poświadczenia usługi AD skonfigurowane w instalatorze agenta są prawidłowe.
-    >[!div class="mx-imgBorder"]
-    >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
+     >[!div class="mx-imgBorder"]
+     >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
    * Po pomyślnym zapisaniu poświadczeń w sekcji **mapowania** zostanie wyświetlone mapowanie domyślne **Synchronizacja SuccessFactors użytkowników do lokalnego Active Directory**
 
@@ -250,9 +250,8 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z Succe
 
 1. W sekcji **mapowania atrybutów** można zdefiniować, w jaki sposób poszczególne atrybuty SuccessFactors są mapowane na atrybuty Active Directory.
 
-  >[!NOTE]
-  >Aby uzyskać pełną listę atrybutów SuccessFactors obsługiwanych przez aplikację, zapoznaj się z [odwołaniem do atrybutu SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
-
+     >[!NOTE]
+     >Aby uzyskać pełną listę atrybutów SuccessFactors obsługiwanych przez aplikację, zapoznaj się z [odwołaniem do atrybutu SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 1. Kliknij istniejące mapowanie atrybutów, aby je zaktualizować, lub kliknij pozycję **Dodaj nowe mapowanie** u dołu ekranu, aby dodać nowe mapowania. Mapowanie poszczególnych atrybutów obsługuje te właściwości:
 

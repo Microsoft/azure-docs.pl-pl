@@ -1,5 +1,5 @@
 ---
-title: Monitoruj Media Services dzienników diagnostycznych za pomocą Azure Monitor
+title: Monitorowanie dzienników diagnostycznych za pomocą Azure Monitor
 description: W tym artykule przedstawiono sposób kierowania i wyświetlania dzienników diagnostycznych za pośrednictwem Azure Monitor.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c666228a8a82083c319aa6c2d7fd161f7e623f4
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1d9252a5fdf7b1c68c1bb64bd22ede8640184a0c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897972"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953958"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorowanie dzienników diagnostycznych Media Services
 
@@ -181,7 +181,7 @@ Może upłynąć nawet pięć minut, zanim zdarzenie pojawi się na koncie magaz
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Metryki usługi Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md)

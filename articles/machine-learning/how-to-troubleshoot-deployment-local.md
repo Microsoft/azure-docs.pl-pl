@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 473b2e4ac3443d204b39331d9cefaa6c71122439
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 225cb8d7bc35491ceefe444664afe175c7f7ea01
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881673"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954939"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>Rozwiązywanie problemów z lokalnym wdrożeniem modelu
 
@@ -25,12 +25,14 @@ Spróbuj wdrożyć model lokalny jako pierwszy krok w celu rozwiązywania proble
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
-* [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
-* [Rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Aby debugować lokalnie, można wdrożyć model do [Azure Machine Learning wystąpienia obliczeniowego](./how-to-deploy-local-container-notebook-vm.md) lub mieć działającą instalację platformy Docker w systemie lokalnym.
-
-    Aby zweryfikować instalację platformy Docker, użyj polecenia `docker run hello-world` z terminalu lub wiersza polecenia. Informacje dotyczące instalowania platformy Docker lub rozwiązywania problemów z błędami platformy Docker znajdują się w [dokumentacji platformy Docker](https://docs.docker.com/).
+* Opcja A (**zalecana**) — Debuguj lokalnie w wystąpieniu Azure Machine Learning COMPUTE
+   * Obszar roboczy usługi Azure Machine Learning z uruchomionym [wystąpieniem obliczeniowym](how-to-deploy-local-container-notebook-vm.md)
+* Opcja B — Debuguj lokalnie w ramach obliczeń
+   * [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+   * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+   * [Rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
+   * Mieć działającą instalację platformy Docker w systemie lokalnym. 
+   * Aby zweryfikować instalację platformy Docker, użyj polecenia `docker run hello-world` z terminalu lub wiersza polecenia. Informacje dotyczące instalowania platformy Docker lub rozwiązywania problemów z błędami platformy Docker znajdują się w [dokumentacji platformy Docker](https://docs.docker.com/).
 
 ## <a name="debug-locally"></a>Debuguj lokalnie
 

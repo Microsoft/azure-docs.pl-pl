@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6aeded077c20e59b3f9b3863a9956596382d3a82
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 1b5dd2fb4ef8cb3f6fd169477d9ee82e912c146e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97532096"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956336"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Sprawdzanie i edytowanie plików przykładowych
 
@@ -53,6 +53,12 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
     
     ![Określanie parametrów połączenia centrum IoT Hub](../../../media/quickstarts/set-iotconnection-string.png)
 
+> [!NOTE]
+> Może zostać wyświetlony monit o podanie wbudowanych informacji o punkcie końcowym dla IoT Hub. Aby uzyskać te informacje, w Azure Portal przejdź do IoT Hub i poszukaj opcji **wbudowane punkty końcowe** w lewym okienku nawigacji. Kliknij tam i Wyszukaj **punkt końcowy zgodny z centrum zdarzeń** w sekcji **punkt końcowy zgodny z centrum zdarzeń** . Skopiuj i Użyj tekstu w polu. Punkt końcowy będzie wyglądać następująco:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Kliknij prawym przyciskiem myszy pozycję *src/Edge/config/deployment.yolov3.amd64.js* , a następnie wybierz pozycję **Utwórz wdrożenie dla jednego urządzenia**. 
 
     ![Utwórz wdrożenie dla pojedynczego urządzenia](../../../media/quickstarts/create-deployment-single-device.png)
@@ -62,6 +68,15 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 
     * Moduł Live Video Analytics o nazwie **lvaEdge**
     * Moduł **rtspsim** , który symuluje serwer RTSP i działa jako źródło kanału informacyjnego wideo na żywo
+        > [!NOTE]
+        > W powyższych krokach przyjęto założenie, że używana jest maszyna wirtualna utworzona przez skrypt Instalatora. Jeśli używasz własnego urządzenia brzegowego, przejdź do urządzenia brzegowego i uruchom następujące polecenia z **uprawnieniami administratora**, aby ściągnąć i przechować przykładowy plik wideo używany do tego przewodnika Szybki Start:  
+        
+        ```
+        mkdir /home/lvaadmin/samples
+        mkdir /home/lvaadmin/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+        chown -R lvaadmin /home/lvaadmin/samples/  
+        ```
     * Moduł **yolov3** , który jest modelem wykrywania obiektów yolov3, który ma zastosowanie do obrazów i zwraca wiele klas typów obiektów
  
       ![Moduły wdrożone na urządzeniu brzegowym](../../../media/quickstarts/yolov3.png)

@@ -13,12 +13,12 @@ ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b5d11c1bd091e3d7fbe5be87004b91f242e807f5
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: ce0929adbb2b0213cfd4ee61fe795a2d5f33c648
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763502"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954888"
 ---
 # <a name="logging-in-msal-for-android"></a>Rejestrowanie w bibliotece MSAL dla systemu Android
 
@@ -68,4 +68,4 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej przykładów kodu, zapoznaj się z przykładami [kodu platformy tożsamości firmy Microsoft)](sample-v2-code.md).
+Aby uzyskać więcej przykładów kodu, zapoznaj się z przykładami [kodu platformy tożsamości firmy Microsoft](sample-v2-code.md).

@@ -3,12 +3,12 @@ title: Zarządzane tożsamości dla zasobów platformy Azure z Service Bus
 description: W tym artykule opisano sposób używania tożsamości zarządzanych do uzyskiwania dostępu do Azure Service Bus jednostek (kolejek, tematów i subskrypcji).
 ms.topic: article
 ms.date: 01/21/2021
-ms.openlocfilehash: dac12820adf863a7e51457d34f9180543089fc7b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bd985acd9b775d6baef0abf488952e28c17aef2a
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881571"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954314"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Azure Service Bus
 [Zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) to funkcja obejmująca wiele platform Azure, która umożliwia tworzenie bezpiecznej tożsamości skojarzonej z wdrożeniem, w ramach którego działa kod aplikacji. Następnie można powiązać tę tożsamość z rolami kontroli dostępu, które przyznają niestandardowe uprawnienia dostępu do określonych zasobów platformy Azure wymaganych przez aplikację.
@@ -138,8 +138,6 @@ Aby wysłać lub odebrać wiadomości, wprowadź nazwę przestrzeni nazw i nazw�
 
 > [!NOTE]
 > - Tożsamość zarządzana działa tylko w środowisku platformy Azure, w usługach App Services, maszynach wirtualnych platformy Azure i w zestawach skalowania. W przypadku aplikacji .NET Biblioteka Microsoft. Azure. Services. AppAuthentication, która jest używana przez pakiet NuGet Service Bus, zapewnia streszczenie tego protokołu i obsługuje lokalne środowisko programistyczne. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, interfejsu wiersza polecenia platformy Azure 2,0 lub Active Directory zintegrowanego uwierzytelniania. Aby uzyskać więcej informacji na temat lokalnych opcji tworzenia w tej bibliotece, zobacz [uwierzytelnianie między usługą w celu Azure Key Vault przy użyciu platformy .NET](/dotnet/api/overview/azure/service-to-service-authentication).  
-> 
-> - Obecnie zarządzane tożsamości nie działają w przypadku App Service miejsc wdrożenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

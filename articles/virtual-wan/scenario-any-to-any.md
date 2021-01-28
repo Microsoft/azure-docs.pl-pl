@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a866c21e067293481a52dd563873892de8b5444c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440488"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955279"
 ---
 # <a name="scenario-any-to-any"></a>Scenariusz: dowolne
 
-Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W dowolnym scenariuszu każdy szprych może nawiązać połączenie z innym szprychą. Gdy istnieje wiele centrów, routing między centrami (znany również jako Inter-Hub) jest domyślnie włączony w standardowej wirtualnej sieci WAN. Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
+Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W dowolnym scenariuszu każdy szprych może nawiązać połączenie z innym szprychą. Gdy istnieje wiele centrów, routing między centrami (znany również jako Inter-Hub) jest domyślnie włączony w standardowej wirtualnej sieci WAN. Tę konfigurację można utworzyć przy użyciu różnych metod, takich jak Azure Portal lub [szablon szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/). Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Projekt
 
@@ -44,21 +44,21 @@ Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, z
 
 ## <a name="architecture"></a><a name="architecture"></a>Architektura
 
-Na **rysunku 1**wszystkie sieci wirtualnych i gałęzie (VPN, EXPRESSROUTE, P2S) mogą się łączyć ze sobą. W koncentratorze wirtualnym połączenia działają w następujący sposób:
+Na **rysunku 1** wszystkie sieci wirtualnych i gałęzie (VPN, EXPRESSROUTE, P2S) mogą się łączyć ze sobą. W koncentratorze wirtualnym połączenia działają w następujący sposób:
 
 * Połączenie sieci VPN łączy lokację sieci VPN z bramą sieci VPN.
 * Połączenie sieci wirtualnej łączy sieć wirtualną z koncentratorem wirtualnym. Router koncentratora wirtualnego zapewnia funkcjonalność tranzytu między sieci wirtualnych.
 * Połączenie ExpressRoute łączy obwód usługi ExpressRoute z bramą ExpressRoute.
 
-Te połączenia (domyślnie podczas tworzenia) są skojarzone z domyślną tabelą tras, chyba że skonfigurowano konfigurację routingu połączenia do **żadnej**lub niestandardowej tabeli tras. Te połączenia również propagują trasy domyślnie do domyślnej tabeli tras. Dzięki temu można dowolnie dowolnie korzystać z dowolnego scenariusza, w którym wszystkie szprychy (Sieć wirtualna, sieci VPN, ER, P2S) mogą dotrzeć do siebie nawzajem.
+Te połączenia (domyślnie podczas tworzenia) są skojarzone z domyślną tabelą tras, chyba że skonfigurowano konfigurację routingu połączenia do **żadnej** lub niestandardowej tabeli tras. Te połączenia również propagują trasy domyślnie do domyślnej tabeli tras. Dzięki temu można dowolnie dowolnie korzystać z dowolnego scenariusza, w którym wszystkie szprychy (Sieć wirtualna, sieci VPN, ER, P2S) mogą dotrzeć do siebie nawzajem.
 
 **Rysunek 1**
 
 :::image type="content" source="./media/routing-scenarios/any-any/figure-1.png" alt-text="Rysunek 1":::
 
-## <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
+## <a name="workflow"></a><a name="workflow"></a>Utworzonego
 
-Ten scenariusz jest domyślnie włączony dla standardowej wirtualnej sieci WAN. Jeśli ustawienie rozgałęzienia do gałęzi jest wyłączone w konfiguracji sieci WAN, to nie będzie można nawiązać połączenia między szprychami. Sieci VPN/ExpressRoute/użytkownika są traktowane jako szprychy gałęzie w wirtualnej sieci WAN
+Ten scenariusz jest domyślnie włączony dla standardowej wirtualnej sieci WAN. Jeśli ustawienia gałęzi do gałęzi są wyłączone w konfiguracji sieci WAN, która nie będzie mogła nawiązać połączenia między szprychami. Sieci VPN/ExpressRoute/użytkownika są traktowane jako szprychy gałęzie w wirtualnej sieci WAN
 
 ## <a name="next-steps"></a>Następne kroki
 

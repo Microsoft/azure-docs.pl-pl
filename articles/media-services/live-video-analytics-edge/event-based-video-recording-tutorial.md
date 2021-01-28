@@ -3,12 +3,12 @@ title: Nagrywanie filmów wideo na podstawie zdarzeń do chmury i odtwarzanie z 
 description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge zarejestrować rejestrowanie wideo oparte na zdarzeniach w chmurze i odtworzyć je z poziomu chmury.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: cfb4648d991565470133d603194c07b797f89311
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: fb8d8c8499029777ae5765f53ff51db92b3bd587
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060439"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954466"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: Rejestrowanie wideo oparte na zdarzeniach w chmurze i odtwarzanie z chmury
 
@@ -170,6 +170,12 @@ Ten krok powoduje utworzenie manifestu wdrażania IoT Edge przy użyciu src/Edge
 > :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Tworzenie wdrożenia dla pojedynczego urządzenia":::
 
 Jeśli jest to pierwszy samouczek z funkcją analizy filmów wideo na żywo na IoT Edge, Visual Studio Code monit o wprowadzenie IoT Hub parametrów połączenia. Możesz skopiować go z appsettings.jspliku.
+
+> [!NOTE]
+> Może zostać wyświetlony monit o podanie wbudowanych informacji o punkcie końcowym dla IoT Hub. Aby uzyskać te informacje, w Azure Portal przejdź do IoT Hub i poszukaj opcji **wbudowane punkty końcowe** w lewym okienku nawigacji. Kliknij tam i Wyszukaj **punkt końcowy zgodny z centrum zdarzeń** w sekcji **punkt końcowy zgodny z centrum zdarzeń** . Skopiuj i Użyj tekstu w polu. Punkt końcowy będzie wyglądać następująco:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 Następnie Visual Studio Code prosi o wybranie urządzenia IoT Hubowego. Wybierz urządzenie IoT Edge, które powinno być LVA-Sample-Device.
 

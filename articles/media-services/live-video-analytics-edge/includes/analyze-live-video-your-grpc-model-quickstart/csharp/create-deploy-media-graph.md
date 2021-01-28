@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ebefd5ccec321e8c3d580109c3b3c9dc8ba310c3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 39c9cbdbe8be5c068f9426b53f312563e01a77bc
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97532153"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956334"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Sprawdzanie i edytowanie plików przykładowych
 
@@ -87,6 +87,13 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
     W przeciwnym razie obok okienka **Azure IoT Hub** w lewym dolnym rogu wybierz ikonę **więcej akcji** , a następnie wybierz pozycję **Ustaw IoT Hub parametry połączenia**. Można skopiować ciąg z *appsettings.js* pliku. Lub, aby upewnić się, że w ramach Visual Studio Code zostało skonfigurowane odpowiednie Centrum IoT Hub, użyj [polecenia wybierz Centrum IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
     ![IoT Hub parametry połączenia](../../../media/quickstarts/iot-hub-connection-string-grpc.png)
+
+> [!NOTE]
+> Może zostać wyświetlony monit o podanie wbudowanych informacji o punkcie końcowym dla IoT Hub. Aby uzyskać te informacje, w Azure Portal przejdź do IoT Hub i poszukaj opcji **wbudowane punkty końcowe** w lewym okienku nawigacji. Kliknij tam i Wyszukaj **punkt końcowy zgodny z centrum zdarzeń** w sekcji **punkt końcowy zgodny z centrum zdarzeń** . Skopiuj i Użyj tekstu w polu. Punkt końcowy będzie wyglądać następująco:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Kliknij prawym przyciskiem myszy pozycję *src/Edge/config/* *deployment.grpcyolov3icpu.amd64.js* , a następnie wybierz pozycję **Utwórz wdrożenie dla jednego urządzenia**.
 
     ![Utwórz jedno urządzenie wdrożenia](../../../media/quickstarts/create-deployment-single-device-grpc.png)
@@ -97,7 +104,7 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
     * Moduł **rtspsim** , który symuluje serwer RTSP i działa jako źródło kanału informacyjnego wideo na żywo.
 
         > [!NOTE]
-        > Jeśli używasz własnego urządzenia brzegowego zamiast zainicjowanego przez nasz skrypt Instalatora, przejdź do urządzenia brzegowego i uruchom następujące polecenia z **uprawnieniami administratora**, aby ściągnąć i przechować przykładowy plik wideo używany do tego przewodnika Szybki Start:  
+        > W powyższych krokach przyjęto założenie, że używana jest maszyna wirtualna utworzona przez skrypt Instalatora. Jeśli używasz własnego urządzenia brzegowego, przejdź do urządzenia brzegowego i uruchom następujące polecenia z **uprawnieniami administratora**, aby ściągnąć i przechować przykładowy plik wideo używany do tego przewodnika Szybki Start:  
 
         ```
         mkdir /home/lvaadmin/samples

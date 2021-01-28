@@ -113,6 +113,8 @@
           href: reference-data-guidelines.md
     - name: Format wyświetlania
       href: reference-markdown-format.md
+    - name: Linki prywatne
+      href: reference-private-endpoint.md
     - name: Format testowania wsadowego
       href: reference-tsv-format-batch-testing.md
     - name: Szyfrowanie

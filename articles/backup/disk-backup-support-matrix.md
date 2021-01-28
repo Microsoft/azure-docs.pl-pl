@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień pomocy technicznej i ograniczenia ko
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 08d2ac8451e88dd8d40ed5faee0368ff7739cd16
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757478"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954702"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Macierz obsługi kopii zapasowych na dysku platformy Azure (w wersji zapoznawczej)
 
@@ -65,6 +65,8 @@ Więcej regionów zostanie ogłoszonych, gdy staną się dostępne.
 - Dyski zarządzane umożliwiają zmianę warstwy wydajności podczas wdrażania lub później, bez zmiany rozmiaru dysku. Rozwiązanie do tworzenia kopii zapasowych na dysku Azure obsługuje zmiany warstwy wydajności na dysku źródłowym, którego kopia zapasowa jest tworzona. Podczas przywracania warstwa wydajności przywróconego dysku będzie taka sama jak na dysku źródłowym w momencie tworzenia kopii zapasowej. Postępuj zgodnie [z dokumentacją,](../virtual-machines/disks-performance-tiers-portal.md) aby zmienić warstwę wydajności dysku po operacji przywracania.
 
 - Obsługa [linków prywatnych](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) dla dysków zarządzanych umożliwia ograniczenie eksportu i importu dysków zarządzanych w taki sposób, aby były one wykonywane tylko w ramach sieci wirtualnej platformy Azure. Usługa Kopia zapasowa Azure Disk obsługuje tworzenie kopii zapasowych dysków z włączonymi prywatnymi punktami końcowymi. Nie obejmuje to danych kopii zapasowej ani migawek, które mają być dostępne za pomocą prywatnego punktu końcowego.
+
+- W trakcie okresu zapoznawczego nie można wyłączyć tworzenia kopii zapasowej, dlatego opcja **Zatrzymaj tworzenie kopii zapasowej i Zachowaj dane kopii w** programie nie jest obsługiwana. Można usunąć wystąpienie kopii zapasowej, które nie tylko zatrzyma kopię zapasową, ale również usunie wszystkie dane kopii zapasowej.
 
 ## <a name="next-steps"></a>Następne kroki
 

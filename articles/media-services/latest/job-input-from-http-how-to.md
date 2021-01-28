@@ -1,5 +1,5 @@
 ---
-title: Utwórz Azure Media Services dane wejściowe zadania na podstawie adresu URL HTTPS
+title: Utwórz dane wejściowe zadania na podstawie adresu URL HTTPS
 description: W tym temacie pokazano, jak utworzyć Azure Media Services dane wejściowe zadania na podstawie adresu URL HTTPS.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: b71262b57e9e07c58eb6b3f6e0506151063d77d5
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1073a13f477894e1b35d732fd1cd6191747a62a2
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895360"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955991"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Utwórz dane wejściowe zadania na podstawie adresu URL HTTPS
 

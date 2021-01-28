@@ -104,6 +104,8 @@
           href: overview-managed-identity.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          href: ./security-controls-policy.md
     - name: Wysoka dostępność
       items:
         - name: Odporność i odzyskiwanie po awarii

@@ -1,5 +1,5 @@
 ---
-title: Widevine strumienia systemu Android w trybie offline z Azure Media Services v3
+title: Widevine strumienia Android w trybie offline
 description: W tym temacie przedstawiono sposób konfigurowania konta Azure Media Services v3 na potrzeby przesyłania strumieniowego w trybie offline Widevine chronionej zawartości.
 services: media-services
 keywords: ŁĄCZNIK, DRM, Widevine tryb offline, ExoPlayer, Android
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b8c4bed81a73957cc80318064f2aa2a58b3cfe11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c7adab9c14075e12cf5656f9e798e78ff26ff0b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597082"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955211"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Widevine przesyłania strumieniowego w trybie offline dla systemu Android z Media Services v3
 
@@ -124,7 +124,7 @@ Deweloperzy powinni odwoływać się do [przewodnika dla deweloperów ExoPlayer]
 
 ### <a name="working-with-older-android-devices"></a>Praca ze starszymi urządzeniami z systemem Android
 
-W przypadku niektórych starszych urządzeń z systemem Android należy ustawić wartości następujących **policy_overrides** właściwości (zdefiniowane w [szablonie licencji Widevine](widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**i **license_duration_seconds**. Alternatywnie można ustawić je na zero, co oznacza nieskończony/nieograniczony czas trwania.  
+W przypadku niektórych starszych urządzeń z systemem Android należy ustawić wartości następujących **policy_overrides** właściwości (zdefiniowane w [szablonie licencji Widevine](widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds** i **license_duration_seconds**. Alternatywnie można ustawić je na zero, co oznacza nieskończony/nieograniczony czas trwania.  
 
 Wartości muszą być ustawione tak, aby uniknąć błędów przepełnienia liczby całkowitej. Aby uzyskać więcej informacji o tym problemie, zobacz https://github.com/google/ExoPlayer/issues/3150 i https://github.com/google/ExoPlayer/issues/3112 . <br/>Jeśli nie ustawisz jawnie wartości, zostaną przypisane bardzo duże wartości dla  **PlaybackDurationRemaining** i **LicenseDurationRemaining** , (na przykład 9223372036854775807, która jest maksymalną wartością dodatnią dla 64-bitowej liczby całkowitej). W związku z tym licencja Widevine zostanie wyświetlona, a więc odszyfrowywanie nie zostanie wykonane. 
 

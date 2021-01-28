@@ -1,5 +1,5 @@
 ---
-title: Ustawienie wstępne dla kodowania z obsługą zawartości — Azure Media Services
+title: Ustawienie wstępne dla kodowania obsługującego zawartość
 description: W tym artykule omówiono kodowanie oparte na zawartości w Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5d08e09905841f6068f2bac45680a8e5a011c158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c63ada9621fc1485742a7683fd6742f0e896854
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297369"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954433"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania
 

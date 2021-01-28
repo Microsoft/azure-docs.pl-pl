@@ -7,61 +7,65 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 09a9ca2ad1b1f1e5578ecc5d35a85c81b32a5b1a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.date: 01/27/2021
+ms.openlocfilehash: f83767813ea3923d85db2ca3f0164776c610525e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511750"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955024"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Przykłady kodu JavaScript dla Wyszukiwanie poznawcze platformy Azure
 
-Zapoznaj się z przykładami kodu JavaScript, które demonstrują funkcje i funkcje Wyszukiwanie poznawcze platformy Azure. Główne repozytoria są następujące:
+Zapoznaj się z przykładami kodu JavaScript, które demonstrują funkcje i przepływ pracy rozwiązania Wyszukiwanie poznawcze platformy Azure. Te przykłady używają [**biblioteki klienta wyszukiwanie poznawcze platformy Azure**](/javascript/api/overview/azure/search-documents-readme) dla [**zestawu Azure SDK dla języka JavaScript**](/azure/developer/javascript/), którą można eksplorować za pomocą poniższych linków.
 
-| Repozytorium | Opis |
-|------------|-------------|
-| [Azure-SDK-for-js/drzewo/wzorzec/zestaw SDK/wyszukiwanie/wyszukiwanie-dokumenty](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | Przykłady wytwarzane przez zespół zestawu Azure SDK, który jest dostarczany z Azure.Search.Docą uments klienta w zestawie SDK. Możesz również przejrzeć [testy jednostkowe](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) dla biblioteki klienta, aby zobaczyć, jak są wywoływane różne interfejsy API. |
-| [Azure-Samples/Azure-Search-JavaScript-Samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Przykłady kodu, które są dołączone do artykułów, [w tym Szybki Start: Tworzenie indeksu wyszukiwania w języku JavaScript](search-get-started-javascript.md).|
+| Cel | Link |
+|--------|------|
+| Pobieranie pakietu | [www.npmjs.com/package/@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) |
+| Dokumentacja interfejsu API | [@azure/search-documents](/javascript/api/@azure/search-documents/)  |
+| Przypadki testowe interfejsu API | [github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) |
+| Kod źródłowy | [github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents)  |
 
-> [!Tip]
-> Wypróbuj [przeglądarkę przykładów](/samples/browse/?languages=javascript&products=azure-cognitive-search) , aby wyszukać przykłady kodu firmy Microsoft w witrynie GitHub, filtrować według produktu, usługi i języka.
+## <a name="sdk-samples"></a>Przykłady zestawu SDK
 
-## <a name="javascript-sdk-samples"></a>Przykłady zestawu SDK języka JavaScript
+Przykłady kodu z zespołu deweloperskiego zestawu Azure SDK przedstawiają użycie interfejsu API. Te przykłady można znaleźć w temacie [**Azure-SDK-for-js/Tree/Master/SDK/Search/Search-Documents/Samples**](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples) w witrynie GitHub.
 
-Zestaw Azure SDK dla języka Java zawiera wiele przykładów i [stronę wprowadzającą](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/README.md#getting-started) obejmującą instalację pakietów, konfigurację klienta i rozwiązywanie problemów. Na stronie opisano również następujące przykładowe kategorie, które są wymienione w tym miejscu dla wygody użytkownika.
+### <a name="javascript-sdk-samples"></a>Przykłady zestawu SDK języka JavaScript
 
 | Samples | Opis |
 |---------|-------------|
 | [zwiększa](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexes) | Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [indeksy wyszukiwania](search-what-is-an-index.md). Ta przykładowa kategoria zawiera również przykład statystyk usługi. |
 | [dataSourceConnections (dla indeksatorów)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/dataSourceConnections) | Pokazuje, jak tworzyć, aktualizować, pobierać i usuwać źródła danych indeksatora wymagane dla indeksowania opartego na indeksatorach [obsługiwanych źródeł danych platformy Azure](search-indexer-overview.md#supported-data-sources). |
-| [indeksatorów](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [indeksatory](search-indexer-overview.md).|
+| [indeksatorów](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Pokazuje, jak tworzyć, aktualizować, pobierać i usuwać [indeksatory](search-indexer-overview.md)oraz z nich korzystać.|
 | [Zestawu umiejętności](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [umiejętności](cognitive-search-working-with-skillsets.md) , które są dołączonymi indeksatorami i które wykonują wzbogacanie oparte na AI podczas indeksowania. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [mapy synonimów](search-synonyms.md).  |
 | [Zapytania](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Ilustruje wykonywanie zapytania względem publicznego indeksu tylko do odczytu hostowanego przez firmę Microsoft.  |
 
-## <a name="typescript-samples"></a>Przykłady języka TypeScript
-
-Zestaw SDK zawiera również przykłady języka TypeScript, które są wymienione w tym miejscu dla wygody użytkownika.
+### <a name="typescript-samples"></a>Przykłady języka TypeScript
 
 | Samples | Opis |
 |---------|-------------|
 | [zwiększa](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexes) | Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [indeksy wyszukiwania](search-what-is-an-index.md). Ta przykładowa kategoria zawiera również przykład statystyk usługi. |
 | [dataSourceConnections (dla indeksatorów)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/dataSourceConnections) | Pokazuje, jak tworzyć, aktualizować, pobierać i usuwać źródła danych indeksatora wymagane dla indeksowania opartego na indeksatorach [obsługiwanych źródeł danych platformy Azure](search-indexer-overview.md#supported-data-sources). |
-| [indeksatorów](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [indeksatory](search-indexer-overview.md).|
+| [indeksatorów](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Pokazuje, jak tworzyć, aktualizować, pobierać i usuwać [indeksatory](search-indexer-overview.md)oraz z nich korzystać.|
 | [Zestawu umiejętności](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [umiejętności](cognitive-search-working-with-skillsets.md) , które są dołączonymi indeksatorami i które wykonują wzbogacanie oparte na AI podczas indeksowania. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [mapy synonimów](search-synonyms.md).  |
 | [Zapytania](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Ilustruje wykonywanie zapytania względem publicznego indeksu tylko do odczytu hostowanego przez firmę Microsoft.  |
 
-## <a name="documentation-samples"></a>Przykłady dokumentacji
+## <a name="doc-samples"></a>Przykłady doc
 
-Następujące przykłady zawierają skojarzony artykuł w [dokumentacji usługi Azure wyszukiwanie poznawcze](./index.yml).
+Przykłady kodu z zespołu Wyszukiwanie poznawcze przedstawiają funkcje i przepływy pracy. Wiele z tych przykładów odwołuje się do samouczków, przewodników Szybki Start i artykułów z krokami. Te przykłady można znaleźć na [**platformie Azure — przykłady/Azure-Search-JavaScript-Samples**](https://github.com/Azure-Samples/azure-search-javascript-samples) w witrynie GitHub.
 
-| Samples | Opis | 
-|---------|-------------|
-| [Start](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Kod źródłowy do [szybkiego startu: Tworzenie indeksu wyszukiwania w języku JavaScript](search-get-started-javascript.md).  |
+| Samples | Artykuł |
+|---------|---------|
+| [Start](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Kod źródłowy do [szybkiego startu: Tworzenie indeksu wyszukiwania w języku JavaScript](search-get-started-javascript.md). W tym artykule opisano podstawowy przepływ pracy służący do tworzenia, ładowania i wykonywania zapytań dotyczących indeksu wyszukiwania przy użyciu przykładowych danych. |
 
-## <a name="standalone-samples"></a>Przykłady autonomiczne
+> [!Tip]
+> Wypróbuj [przeglądarkę przykładów](/samples/browse/?languages=javascript&products=azure-cognitive-search) , aby wyszukać przykłady kodu firmy Microsoft w witrynie GitHub, filtrować według produktu, usługi i języka.
+
+## <a name="other-samples"></a>Inne przykłady
+
+Poniższe przykłady są również publikowane przez zespół Wyszukiwanie poznawcze, ale nie są przywoływane w dokumentacji. Skojarzone pliki Readme zawierają instrukcje dotyczące użycia.
 
 | Samples | Opis |
 |---------|-------------|

@@ -1,5 +1,5 @@
 ---
-title: Chmury i regiony, w których jest dostępny Azure Media Services wersja 3
+title: Chmury i regiony dla Azure Media Services v3
 description: W tym artykule omówiono adresy URL używane dla punktów końcowych i kod dla regionów.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,14 +8,14 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 74f30ebb766ea34603c0a30455837c47222967c0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319641"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954331"
 ---
-# <a name="regional-code-names-and-endpoints"></a>Regionalne nazwy kodu i punkty końcowe
+# <a name="regional-code-names-and-endpoints"></a>Regionalne nazwy kodowe i punkty końcowe
 
 ### <a name="region-code-name"></a>Nazwa kodu regionu
 
@@ -81,10 +81,10 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Odbiorcy tokenu |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Regiony platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Regionalne nazwy kodu i punkty końcowe](azure-regions-code-names.md)
+* [Regionalne nazwy kodowe i punkty końcowe](azure-regions-code-names.md)
 * [Obszary geograficzne platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 

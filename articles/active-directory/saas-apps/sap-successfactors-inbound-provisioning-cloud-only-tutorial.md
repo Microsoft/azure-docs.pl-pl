@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 6a73ecf18a4bd89567dc603758d9ff8501267a1f
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: a39f7701d0244eff7f914908a6708dfc14873b35
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570046"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954860"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Samouczek: Konfigurowanie aprowizacji oprogramowania SAP SuccessFactors w usłudze Azure AD
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia danych procesu roboczego od SuccessFactors pracowników centralnych do Azure Active Directory z opcjonalnym zapisem adresu e-mail do SuccessFactors. 
@@ -223,9 +223,8 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z Succe
 
 1. W sekcji **mapowania atrybutów** można zdefiniować, w jaki sposób poszczególne atrybuty SuccessFactors są mapowane na atrybuty Active Directory.
 
-  >[!NOTE]
-  >Aby uzyskać pełną listę atrybutów SuccessFactors obsługiwanych przez aplikację, zapoznaj się z [odwołaniem do atrybutu SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
-
+     >[!NOTE]
+     >Aby uzyskać pełną listę atrybutów SuccessFactors obsługiwanych przez aplikację, zapoznaj się z [odwołaniem do atrybutu SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 1. Kliknij istniejące mapowanie atrybutów, aby je zaktualizować, lub kliknij pozycję **Dodaj nowe mapowanie** u dołu ekranu, aby dodać nowe mapowania. Mapowanie poszczególnych atrybutów obsługuje te właściwości:
 

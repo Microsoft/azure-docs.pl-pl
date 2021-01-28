@@ -1,9 +1,24 @@
 ---
-title: wydarzenia na żywo i wyniki dotyczące danych wyjściowych na żywo w Azure Media Services v3: Azure Media Services opis: ten temat zawiera omówienie wydarzeń na żywo i wyjście na żywo w Azure Media Services v3.
-usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
-
-MS. Service: Media-Services MS. obciążenia: Media ms.tgt_pltfrm: na MS. devlang: ne MS. temat: koncepcyjne MS. Date: 10/23/2020 MS. Author: inhenkel
-
+title: Wydarzenia na żywo i pojęcia dotyczące danych wyjściowych na żywo
+description: Ten temat zawiera omówienie zdarzeń na żywo i danych wyjściowych na żywo w Azure Media Services wersji 3.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: ne
+ms.topic: conceptual
+ms.date: 10/23/2020
+ms.author: inhenkel
+ms.openlocfilehash: 0b223fcedfdead991f7ce374f7f7814749388f90
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955957"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Zdarzenia na żywo i wyjście na żywo w Media Services
 

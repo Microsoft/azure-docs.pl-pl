@@ -4,15 +4,15 @@ description: Dowiedz się, jak używać iniekcji zależności do rejestrowania i
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706936"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955092"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
@@ -256,6 +256,24 @@ public class HttpTrigger
 ```
 
 Zapoznaj się z [wzorcem opcji w ASP.NET Core](/aspnet/core/fundamentals/configuration/options) , aby uzyskać więcej informacji dotyczących pracy z opcjami.
+
+## <a name="using-aspnet-core-user-secrets"></a>Używanie ASP.NET Core kluczy tajnych użytkownika
+
+Podczas programowania lokalnego ASP.NET Core udostępnia narzędzie do [zarządzania](/aspnet/core/security/app-secrets#secret-manager) kluczami tajnymi, które umożliwia przechowywanie tajnych informacji poza katalogiem głównym projektu. Sprawia, że wpisy tajne są przypadkowe przekazane do kontroli źródła. Azure Functions Core Tools (wersja 3.0.3233 lub nowsza) automatycznie odczytuje wpisy tajne utworzone przez Menedżera ASP.NET Core Secret.
+
+Aby skonfigurować projekt Azure Functions .NET do używania kluczy tajnych użytkownika, uruchom następujące polecenie w katalogu głównym projektu.
+
+```bash
+dotnet user-secrets init
+```
+
+Następnie użyj `dotnet user-secrets set` polecenia, aby utworzyć lub zaktualizować wpisy tajne.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+Aby uzyskać dostęp do wartości tajnych użytkownika w kodzie aplikacji funkcji, użyj `IConfiguration` lub `IOptions` .
 
 ## <a name="customizing-configuration-sources"></a>Dostosowywanie źródeł konfiguracji
 

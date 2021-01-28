@@ -1,5 +1,5 @@
 ---
-title: Monitorowanie zdarzeń Azure Media Services za pomocą Event Grid przy użyciu interfejsu wiersza polecenia
+title: Monitoruj zdarzenia Azure Media Services przy użyciu Event Grid
 description: W tym artykule pokazano, jak subskrybować Event Grid w celu monitorowania zdarzeń Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d7148841083cccf4197fe353d077e5149e4afac5
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9608dfd7ac4076e6cd74846c3f52ed2e3645777a
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895326"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956008"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Tworzenie i monitorowanie zdarzeń Media Services za pomocą Event Grid przy użyciu interfejsu wiersza polecenia platformy Azure
 

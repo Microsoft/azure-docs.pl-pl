@@ -110,7 +110,7 @@
         - name: Certyfikaty usługi IoT Edge
           href: iot-edge-certs.md
         - name: Poufne przetwarzanie
-          href: deploy-trusted-applications.md
+          href: deploy-confidential-applications.md
     - name: Obsługa platform
       href: support.md
     - name: Lista kontrolna dotycząca wdrażania w środowisku produkcyjnym

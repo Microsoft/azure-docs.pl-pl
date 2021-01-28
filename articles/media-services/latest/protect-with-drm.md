@@ -1,9 +1,25 @@
 ---
-title: Azure Media Services szyfrowanie DRM i usługa dostarczania licencji: Azure Media Services opis: informacje na temat używania dynamicznej szyfrowania DRM i usługi dostarczania licencji w celu dostarczania strumieni zaszyfrowanych za pomocą licencji firmy Microsoft PlayReady, Google Widevine lub Apple FairPlay.
-usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
-
-MS. Service: Media-Services MS. obciążeń: Media ms.tgt_pltfrm: na MS. devlang: na MS. temat: samouczek MS. Date: 08/31/2020 MS. Author: inhenkel MS. Custom: seodec18
-
+title: Media Services szyfrowanie i dostarczanie licencji DRM
+description: Dowiedz się, jak korzystać z szyfrowania dynamicznego DRM i usługi dostarczania licencji, aby dostarczać strumienie szyfrowane za pomocą licencji firmy Microsoft PlayReady, Google Widevine lub Apple FairPlay.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18
+ms.openlocfilehash: a4f5810f76af7116421bac3953b4eb65370055e3
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955181"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Samouczek: używanie dynamicznego szyfrowania DRM i usługi dostarczania licencji
 

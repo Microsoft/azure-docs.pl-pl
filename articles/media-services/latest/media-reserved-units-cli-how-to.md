@@ -1,5 +1,5 @@
 ---
-title: Jak używać interfejsu wiersza polecenia do skalowania jednostek zarezerwowanych multimediów (MRUs) — Azure
+title: Interfejs wiersza polecenia skalowania jednostek zarezerwowanych multimediów (MRUs)
 description: W tym temacie przedstawiono sposób skalowania przetwarzania multimediów przy użyciu interfejsu wiersza polecenia Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 41026a64d6f7549c5a268493cfb5975838002df2
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: b1c98bfa6b2cf45a59b70126001442ed80659668
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895309"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955889"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Jak skalować jednostki zarezerwowane multimediów
 
@@ -52,6 +52,6 @@ Opłata jest naliczana na podstawie liczby minut, w ciągu których zainicjowano
 
 [Analizowanie wideo](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Limity przydziału i ograniczenia](limits-quotas-constraints.md)

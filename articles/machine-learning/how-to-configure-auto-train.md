@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6971d67204beb39ff0afa6c68dbecf278d86b299
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600071"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954719"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -203,15 +203,53 @@ Klasyfikacja | Regresja | Prognozowanie szeregów czasowych
 ### <a name="primary-metric"></a>Metryka podstawowa
 `primary metric`Parametr określa metrykę, która ma być używana podczas uczenia modelu na potrzeby optymalizacji. Dostępne metryki, które można wybrać, są określane przez wybrany typ zadania, a w poniższej tabeli przedstawiono prawidłowe Podstawowe metryki dla każdego typu zadania.
 
+Wybór głównej metryki dla zautomatyzowanej uczenia maszynowego w celu optymalizacji zależy od wielu czynników. Zalecamy podstawowe zagadnienie, aby wybrać metrykę, która najlepiej odpowiada Twoim potrzebom biznesowym. Następnie należy rozważyć, czy Metryka jest odpowiednia dla profilu zestawu danych (rozmiar danych, zakres, dystrybucja klas itp.).
+
 Zapoznaj się z określonymi definicjami tych metryk w temacie [Omówienie zautomatyzowanych wyników uczenia maszynowego](how-to-understand-automated-ml.md).
 
 |Klasyfikacja | Regresja | Prognozowanie szeregów czasowych
 |--|--|--
-|accuracy| spearman_correlation | spearman_correlation
-|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
-|average_precision_score_weighted | r2_score | r2_score
-|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
-|precision_score_weighted |
+|`accuracy`| `spearman_correlation` | `spearman_correlation`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
+|`average_precision_score_weighted` | `r2_score` | `r2_score`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`precision_score_weighted` |
+
+### <a name="primary-metrics-for-classification-scenarios"></a>Podstawowe metryki dla scenariuszy klasyfikacji 
+
+Metryki po stronie progowej, takie jak `accuracy` ,, `average_precision_score_weighted` `norm_macro_recall` i `precision_score_weighted` mogą nie optymalizować, jak również dla zestawów danych, które są bardzo małe, mają bardzo duże pochylenie klasy (niezrównoważone klasy) lub gdy oczekiwana wartość metryki jest bardzo bliska 0,0 lub 1,0. W takich przypadkach `AUC_weighted` może być lepszym wyborem dla metryki głównej. Po zakończeniu automatycznego uczenia maszynowego można wybrać model, który zostanie utworzony na podstawie metryki najlepiej dopasowanej do potrzeb Twojej firmy.
+
+| Metric | Przykładowe przypadki użycia: |
+| ------ | ------- |
+| `accuracy` | Klasyfikacja obrazu, analiza tonacji, Prognoza zmian |
+| `AUC_weighted` | Wykrywanie oszustw, klasyfikacja obrazu, wykrywanie anomalii/wykrywanie spamu |
+| `average_precision_score_weighted` | Analiza tonacji |
+| `norm_macro_recall` | Prognoza zmian |
+| `precision_score_weighted` |  |
+
+### <a name="primary-metrics-for-regression-scenarios"></a>Podstawowe metryki dla scenariuszy regresji
+
+Metryki takie jak `r2_score` i `spearman_correlation` mogą lepiej reprezentować jakość modelu, gdy skala wartości do przewidywania obejmuje wiele zamówień wielkości. W przypadku oszacowania wynagrodzeń na wystąpieniach, gdzie wiele osób ma wynagrodzenie $20 000 do $100 000, ale skala jest bardzo wysoka z niektórymi zarobkami w zakresie $100 mln. 
+
+`normalized_mean_absolute_error``normalized_root_mean_squared_error`w takim przypadku w tym przypadku błąd przewidywania $20 000 jest taki sam dla procesu roboczego z wynagrodzeniem $30k jako proces roboczy, który ma wartość $20 mln. W rzeczywistości przewidywanie tylko $20 000 wyłączone z wynagrodzenia $20 mln jest bardzo bliskie (mała 0,1% różnicy względnej), natomiast $20 000 off from $30k nie jest bliski (duża wartość 67%). `normalized_mean_absolute_error` i `normalized_root_mean_squared_error` są przydatne, gdy wartości do przewidywania są w podobnej skali.
+
+| Metric | Przykładowe przypadki użycia: |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Prognoza cenowa (dom/produkt/Porada), przegląd prognozowania oceny |
+| `r2_score` | Opóźnienie linii lotniczej, oszacowanie wynagrodzeń, czas rozpoznawania usterek |
+| `normalized_mean_absolute_error` |  |
+
+### <a name="primary-metrics-for-time-series-forecasting-scenarios"></a>Podstawowe metryki dla scenariuszy prognozowania szeregów czasowych
+
+Zobacz uwagi dotyczące regresji powyżej.
+
+| Metric | Przykładowe przypadki użycia: |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Prognozowanie cen (prognozowanie), optymalizacja spisu, prognozowanie popytu |
+| `r2_score` | Prognozowanie cen (prognozowanie), optymalizacja spisu, prognozowanie popytu |
+| `normalized_mean_absolute_error` | |
 
 ### <a name="data-featurization"></a>Cechowania danych
 

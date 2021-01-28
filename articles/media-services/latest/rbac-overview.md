@@ -1,5 +1,5 @@
 ---
-title: Kontrola dostępu oparta na rolach na platformie Azure dla kont Media Services — Azure
+title: Kontrola dostępu oparta na rolach dla kont Media Services
 description: W tym artykule omówiono kontrolę dostępu opartą na rolach (Azure RBAC) dla kont Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 1fab743c647c3628a79fffb3bf1060983c34d0aa
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7c9edce71e0d0565de80153bfd5b3d5f1edb2e8f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895190"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955160"
 ---
 # <a name="azure-role-based-access-control-azure-rbac-for-media-services-accounts"></a>Kontrola dostępu oparta na rolach (Azure RBAC) dla kont Media Services
 

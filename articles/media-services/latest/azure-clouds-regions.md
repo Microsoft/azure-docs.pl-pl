@@ -1,5 +1,5 @@
 ---
-title: Dostępność chmur Azure Media Services i regionów w wersji 3
+title: Dostępność regionów Azure Media Services v3
 description: Ten artykuł zawiera informacje o chmurach i regionach platformy Azure, w których jest dostępny Azure Media Services wersja 3.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 20c025cfabf6ed3cedd838f8be964bec06ad595e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 91df515703b4b6b368b07482fad1aa8b781281f6
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242716"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954450"
 ---
 # <a name="azure-media-services-v3-clouds-and-regions-availability"></a>Dostępność chmur Azure Media Services i regionów w wersji 3
 
@@ -66,7 +66,7 @@ Użyj nawigacji po prawej stronie, aby znaleźć interesujący Cię region.
 ## <a name="see-also"></a>Zobacz też
 
 * [Regiony platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Regionalne nazwy kodu i punkty końcowe](azure-regions-code-names.md)
+* [Regionalne nazwy kodowe i punkty końcowe](azure-regions-code-names.md)
 * [Obszary geograficzne platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 

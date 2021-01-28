@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 77464ccfb5b80c84f091d8e6bc491908baed6486
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349269"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955007"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Usługi Cognitive Services i uczenie maszynowe
 
@@ -23,7 +23,7 @@ Cognitive Services zapewnia możliwości uczenia maszynowego w celu rozwiązywan
 |Kategoria usługi|Przeznaczenie|
 |--|--|
 |[Decyzja](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Twórz aplikacje wyświetlające rekomendacje pozwalające skuteczniej podejmować lepsze decyzje.|
-|[Język](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Umożliwianie aplikacjom przetwarzania języka naturalnego za pomocą wbudowanych skryptów, ocenianie tonacji i uczenie się rozpoznawania potrzeb użytkowników.|
+|[Język](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Umożliwiaj aplikacjom przetwarzanie języka naturalnego za pomocą wbudowanych skryptów, ocenianie tonacji i uczenie się rozpoznawania potrzeb użytkowników.|
 |[Wyszukiwanie](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Dodawanie interfejsów API wyszukiwania Bing do aplikacji i wykorzystanie możliwości przeczesywania miliardów stron internetowych, obrazów, wideo i wiadomości za pomocą jednego wywołania interfejsu API.|
 |[Mowa](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Konwertuj mowę na tekst i tekst na naturalnie brzmiącą mowę. Tłumacz jeden język na inny oraz włącz weryfikację i rozpoznawanie osoby mówiącej.|
 |[Obraz](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Rozpoznawaj, identyfikuj, podpisuj, indeksuj i moderuj swoje zdjęcia, klipy wideo i zawartość elektronicznego pisma odręcznego.|
@@ -129,7 +129,7 @@ Cognitive Services, które udostępniają eksportowane modele dla innych narzęd
 |--|--|
 |[Custom Vision](./custom-vision-service/overview.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Przewodnik po architekturze — jakie są produkty uczenia maszynowego w firmie Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Uczenie maszynowe — wprowadzenie do uczenia głębokiego i uczenia maszynowego](../machine-learning/concept-deep-learning-vs-machine-learning.md)

@@ -91,7 +91,7 @@
     - name: Przykłady w języku Python
       href: samples-python.md
     - name: Przykłady dla interfejsu REST
-      href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
+      href: samples-rest.md
 - name: Pojęcia
   items:
     - name: Wyszukiwanie pełnotekstowe

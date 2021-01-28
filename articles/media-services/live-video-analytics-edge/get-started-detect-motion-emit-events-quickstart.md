@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: cbe4b1280897064938222680fc932cfe289d2f32
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 2ae8292375c0b85cc4c771c1fe7d853c5fcd3afd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631940"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955770"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -59,7 +59,21 @@ W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Po pomyślnym zakończeniu działania skryptu wszystkie wymagane zasoby powinny zostać wyświetlone w ramach subskrypcji. W danych wyjściowych skryptu tabela zasobów zawiera nazwę Centrum IoT Hub. Poszukaj typu zasobu **`Microsoft.Devices/IotHubs`** i zanotuj nazwę. Ta nazwa będzie potrzebna w następnym kroku.  
+    Po pomyślnym zakończeniu działania skryptu wszystkie wymagane zasoby powinny zostać wyświetlone w ramach subskrypcji. Skrypt zostanie skonfigurowany w sumie 12 zasobów:
+    1. **Punkt końcowy przesyłania strumieniowego** — ułatwia to odtwarzanie zarejestrowanego zasobu AMS.
+    1. **Maszyna wirtualna** — jest to maszyna wirtualna, która będzie pełnić funkcję urządzenia brzegowego.
+    1. **Dysk** — dysk pamięci podręcznej dołączony do maszyny wirtualnej w celu przechowywania multimediów i artefaktów.
+    1. **Grupa zabezpieczeń sieci** — służy do filtrowania ruchu sieciowego do i z zasobów platformy Azure w sieci wirtualnej platformy Azure.
+    1. **Interfejs sieciowy** — umożliwia maszynie wirtualnej platformy Azure komunikowanie się z Internetem, platformą Azure i innymi zasobami.
+    1. **Połączenie bastionu** — umożliwia nawiązanie połączenia z maszyną wirtualną przy użyciu przeglądarki i Azure Portal.
+    1. **Publiczny adres IP** — dzięki temu zasoby platformy Azure mogą komunikować się z Internetem i publicznymi usługami platformy Azure
+    1. **Sieć wirtualna** — umożliwia to wielu typom zasobów platformy Azure, takich jak maszyna wirtualna, bezpieczne komunikowanie się ze sobą, Internetem i sieciami lokalnymi. Dowiedz się więcej o [sieciach wirtualnych](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **IoT Hub** — działa jako centralny centrum komunikatów do komunikacji dwukierunkowej między aplikacją IoT, modułami IoT Edge i zarządzanymi urządzeniami.
+    1. **Konto usługi multimediów** — ułatwia to zarządzanie zawartością multimediów i przesyłanie strumieniowe na platformie Azure.
+    1. **Konto magazynu** — musisz mieć jedno konto magazynu podstawowego i można mieć dowolną liczbę kont magazynu pomocniczego skojarzonych z twoim kontem Media Services. Aby uzyskać więcej informacji, zobacz [konta usługi Azure Storage z kontami Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Rejestr kontenerów** — ułatwia przechowywanie prywatnych obrazów kontenerów platformy Docker i powiązanych artefaktów oraz zarządzanie nimi.
+
+W danych wyjściowych skryptu tabela zasobów zawiera nazwę Centrum IoT Hub. Poszukaj typu zasobu **`Microsoft.Devices/IotHubs`** i zanotuj nazwę. Ta nazwa będzie potrzebna w następnym kroku.  
 
 > [!NOTE]
 > Skrypt generuje również kilka plików konfiguracji w katalogu **_~/CloudDrive/LVA-Sample/_* _. Te pliki będą potrzebne w dalszej części przewodnika Szybki Start.
@@ -101,6 +115,12 @@ Postępuj zgodnie z tymi instrukcjami, aby nawiązać połączenie z Centrum IoT
 1. W lewym dolnym rogu karty **Eksplorator** wybierz pozycję **Azure IoT Hub**.
 1. Wybierz ikonę **więcej opcji** , aby wyświetlić menu kontekstowe. Następnie wybierz pozycję **ustaw IoT Hub parametry połączenia**.
 1. Po wyświetleniu pola wejściowego wprowadź parametry połączenia IoT Hub. W Cloud Shell można uzyskać parametry połączenia z *~/clouddrive/lva-sample/appsettings.jswłączone*.
+
+> [!NOTE]
+> Może zostać wyświetlony monit o podanie wbudowanych informacji o punkcie końcowym dla IoT Hub. Aby uzyskać te informacje, w Azure Portal przejdź do IoT Hub i poszukaj opcji **wbudowane punkty końcowe** w lewym okienku nawigacji. Kliknij tam i Wyszukaj **punkt końcowy zgodny z centrum zdarzeń** w sekcji **punkt końcowy zgodny z centrum zdarzeń** . Skopiuj i Użyj tekstu w polu. Punkt końcowy będzie wyglądać następująco:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 Jeśli połączenie zakończy się pomyślnie, zostanie wyświetlona lista urządzeń brzegowych. Powinna zostać wyświetlona co najmniej jedno urządzenie o nazwie **LVA-Sample-Device**. Teraz możesz zarządzać urządzeniami IoT Edge i korzystać z usługi Azure IoT Hub za pomocą menu kontekstowego. Aby wyświetlić moduły wdrożone na urządzeniu brzegowym, w obszarze **LVA-Sample-Device** rozwiń węzeł **moduły** .
 

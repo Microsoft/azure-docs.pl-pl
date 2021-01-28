@@ -15,7 +15,7 @@
       items:
         - name: Tworzenie kolejki usługi Service Bus
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -210,14 +210,20 @@
               href: service-bus-auto-forwarding.md
             - name: Przetwarzanie transakcji
               href: service-bus-transactions.md
-        - name: Pełne śledzenie i diagnostyka
-          href: service-bus-end-to-end-tracing.md
         - name: Tworzenie wielowarstwowej aplikacji usługi Service Bus
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Migrate (Migracja)
       items:
         - name: Migrowanie z usługi ActiveMQ do usługi Azure Service Bus
           href: migrate-jms-activemq-to-servicebus.md
+    - name: Monitor
+      items:
+        - name: Pełne śledzenie i diagnostyka
+          href: service-bus-end-to-end-tracing.md
+        - name: Dzienniki diagnostyczne
+          href: service-bus-diagnostic-logs.md
+        - name: Metryki Azure Monitor
+          href: service-bus-metrics-azure-monitor.md
     - name: Integracja
       items:
         - name: Integracja z oprogramowaniem RabbitMQ
@@ -228,12 +234,8 @@
           href: automate-update-messaging-units.md
         - name: Aprowizacja jednostek za pomocą programu Azure PowerShell
           href: service-bus-manage-with-ps.md
-        - name: Monitorowanie usługi Service Bus przy użyciu usługi Azure Monitor
-          href: service-bus-metrics-azure-monitor.md
         - name: Biblioteki zarządzania usługi Service Bus
           href: service-bus-management-libraries.md
-        - name: Dzienniki zasobów
-          href: service-bus-diagnostic-logs.md
         - name: Wstrzymywanie i ponowne aktywowanie jednostek obsługi komunikatów
           href: entity-suspend.md
         - name: Wykonywanie operacji na danych w usłudze Service Bus za pomocą narzędzia Service Bus Explorer

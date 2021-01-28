@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 1222108694ff7274e5d8fd063635b70a76ffc59c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920227"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954753"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -81,10 +81,12 @@ Należy określić następujące właściwości:
 
 Po utworzeniu zasobu *klastra* można edytować dodatkowe właściwości, takie jak *SKU*, * keyVaultProperties lub *rozliczeń*. Zobacz więcej szczegółów poniżej.
 
+Na subskrypcję można mieć maksymalnie 2 aktywne klastry dla poszczególnych regionów. Jeśli klaster zostanie usunięty, nadal jest zarezerwowany przez 14 dni. Możesz mieć maksymalnie 4 zastrzeżone klastry na subskrypcję na region (aktywne lub ostatnio usunięte).
+
 > [!WARNING]
 > Tworzenie klastra wyzwala alokację zasobów i Inicjowanie obsługi administracyjnej. Wykonanie tej operacji może potrwać do godziny. Zalecane jest, aby uruchomić go asynchronicznie.
 
-Konto użytkownika, które tworzy klastry, musi mieć standardowe uprawnienie do tworzenia zasobów platformy Azure: `Microsoft.Resources/deployments/*` i uprawnienia do zapisu w klastrze `(Microsoft.OperationalInsights/clusters/write)` .
+Konto użytkownika, które tworzy klastry, musi mieć standardowe uprawnienie do tworzenia zasobów platformy Azure: `Microsoft.Resources/deployments/*` i uprawnienia do zapisu klastra `Microsoft.OperationalInsights/clusters/write` przez posiadanie przypisanej im roli tej konkretnej akcji lub `Microsoft.OperationalInsights/*` lub `*/write` .
 
 ### <a name="create"></a>Utwórz 
 
@@ -503,7 +505,9 @@ Aby usunąć klaster, użyj następującego wywołania REST:
 
 ## <a name="limits-and-constraints"></a>Limity i ograniczenia
 
-- Maksymalna liczba klastrów na region i subskrypcja wynosi 2
+- Maksymalna liczba aktywnych klastrów na region i subskrypcja wynosi 2
+
+- Maksymalna liczba klastrów zarezerwowanych (aktywnych lub niedawno usuniętych) na region i subskrypcja wynosi 4 
 
 - Maksymalna liczba połączonych obszarów roboczych do klastra to 1000
 

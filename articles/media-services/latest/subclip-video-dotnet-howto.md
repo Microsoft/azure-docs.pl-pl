@@ -1,5 +1,5 @@
 ---
-title: Podcinanie wideo przy kodowaniu przy użyciu Azure Media Services
+title: Podcinanie wideo przy kodowaniu przy użyciu Media Services
 description: W tym temacie opisano sposób podcinania wideo przy kodowaniu przy użyciu Azure Media Services za pomocą zestawu SDK platformy .NET
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1725fab30ddb4d40e0bf5345683588c878658052
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9408adfe33fc71707532f3bf5646f3727fd7dda
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296570"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955058"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Podcinanie wideo przy kodowaniu przy użyciu Media Services-.NET
 

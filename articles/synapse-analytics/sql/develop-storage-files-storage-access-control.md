@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9e3fe0f8c14fdcfa9b3e97a02331d777abca2600
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120414"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954263"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -107,7 +107,7 @@ Wykonaj następujące kroki, aby skonfigurować zaporę konta magazynu i dodać 
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
     ```
     > [!IMPORTANT]
-    > Upewnij się, że używasz wersji 3.0.1 lub nowszej. Możesz sprawdzić wersję AZ. Storage, uruchamiając następujące polecenie:  
+    > Upewnij się, że używasz **wersji 3.0.1**. Możesz sprawdzić wersję AZ. Storage, uruchamiając następujące polecenie:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -187,7 +187,7 @@ Nazwa poświadczeń na poziomie serwera musi być zgodna z pełną ścieżką do
 | Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                |
 | -------------------------- | ------ | --------------------------------------------------- |
 | Azure Blob Storage         | https  | <storage_account>. blob.core.windows.net             |
-| Azure Data Lake Storage Gen1 | https  | <storage_account>. azuredatalakestore.net/webhdfs/v1 |
+| Usługa Azure Data Lake Storage 1. generacji | https  | <storage_account>. azuredatalakestore.net/webhdfs/v1 |
 | Usługa Azure Data Lake Storage 2. generacji | https  | <storage_account>. dfs.core.windows.net              |
 
 Poświadczenia o zakresie serwera umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 286f4f5ca8a18a67da2ac24beb4c6935de35778d
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: c89e7e948b8a48c7e8d43950ffc2748efff6f51b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538105"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98953873"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi logowania i zaloguj się za pomocą konta Google przy użyciu Azure Active Directory B2C
 
@@ -42,18 +42,18 @@ Aby włączyć Logowanie użytkowników przy użyciu konta Google w Azure Active
 1. Zaloguj się do [konsoli usługi Google Developer](https://console.developers.google.com/) przy użyciu poświadczeń konta Google.
 1. W lewym górnym rogu strony wybierz listę projektu, a następnie wybierz pozycję **Nowy projekt**.
 1. Wprowadź **nazwę projektu**, a następnie wybierz pozycję **Utwórz**.
-1. Upewnij się, że używasz nowego projektu, wybierając listę rozwijaną projektu w lewym górnym rogu ekranu, wybierz projekt według nazwy, a następnie wybierz pozycję **Otwórz**.
+1. Upewnij się, że używasz nowego projektu, wybierając listę rozwijaną projektu w lewym górnym rogu ekranu. Wybierz nazwę projektu według nazwy, a następnie wybierz pozycję **Otwórz**.
 1. W menu po lewej stronie wybierz pozycję **ekran zgody na uwierzytelnianie OAuth** , wybierz pozycję **zewnętrzny**, a następnie wybierz pozycję **Utwórz**.
 Wprowadź **nazwę** aplikacji. Wprowadź *b2clogin.com* w sekcji **autoryzowane domeny** i wybierz pozycję **Zapisz**.
 1. Z menu po lewej stronie wybierz pozycję **poświadczenia** , a następnie wybierz pozycję **Utwórz poświadczenia**  >  **Identyfikator klienta OAuth**.
 1. W obszarze **Typ aplikacji** wybierz pozycję **aplikacja sieci Web**.
-1. Wprowadź **nazwę** aplikacji, wprowadź `https://your-tenant-name.b2clogin.com` w polu **autoryzowane źródła kodu JavaScript** i `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w polu **autoryzowane identyfikatory URI przekierowania**. Zamień `your-tenant-name` na nazwę dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
+1. Wprowadź **nazwę** aplikacji, wprowadź `https://your-tenant-name.b2clogin.com` w polu **autoryzowane źródła kodu JavaScript** i `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w polu **autoryzowane identyfikatory URI przekierowania**. Zamień `your-tenant-name` na nazwę dzierżawy. Użyj wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
 1. Kliknij pozycję **Utwórz**.
 1. Skopiuj wartości **Identyfikator klienta** i **klucz tajny klienta**. Oba te elementy będą potrzebne do skonfigurowania usługi Google jako dostawcy tożsamości w dzierżawie. **Klucz tajny klienta** jest ważnym poświadczeniem zabezpieczeń.
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-a-google-account-as-an-identity-provider"></a>Konfigurowanie konta Google jako dostawcy tożsamości
+## <a name="configure-google-as-an-identity-provider"></a>Skonfiguruj firmę Google jako dostawcę tożsamości
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administrator globalny dzierżawy usługi Azure AD B2C.
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
@@ -63,6 +63,16 @@ Wprowadź **nazwę** aplikacji. Wprowadź *b2clogin.com* w sekcji **autoryzowane
 1. W polu **Identyfikator klienta** wprowadź identyfikator klienta utworzonej wcześniej aplikacji Google.
 1. W polu **klucz tajny klienta** Wprowadź zarejestrowany wpis tajny klienta.
 1. Wybierz pozycję **Zapisz**.
+
+## <a name="add-google-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy usługi Google Identity do przepływu użytkownika 
+
+1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości Google.
+1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **Google**.
+1. Wybierz pozycję **Zapisz**.
+1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
+1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Kliknij pozycję **Uruchom przepływ użytkownika**
 
 ::: zone-end
 
@@ -83,9 +93,9 @@ Należy przechowywać klucz tajny klienta, który został wcześniej zarejestrow
 9. W obszarze **użycie klucza** wybierz opcję `Signature` .
 10. Kliknij pozycję **Utwórz**.
 
-## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
+## <a name="configure-google-as-an-identity-provider"></a>Skonfiguruj firmę Google jako dostawcę tożsamości
 
-Jeśli chcesz, aby użytkownicy mogli się logować przy użyciu konta Google, musisz zdefiniować konto jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
+Aby umożliwić użytkownikom logowanie się przy użyciu konta Google, należy zdefiniować konto jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
 
 Konto Google można zdefiniować jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad.
 
@@ -98,7 +108,7 @@ Konto Google można zdefiniować jako dostawcę oświadczeń, dodając je do ele
       <Domain>google.com</Domain>
       <DisplayName>Google</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Google-OAUTH">
+        <TechnicalProfile Id="Google-OAuth2">
           <DisplayName>Google</DisplayName>
           <Protocol Name="OAuth2" />
           <Metadata>
@@ -138,80 +148,29 @@ Konto Google można zdefiniować jako dostawcę oświadczeń, dodając je do ele
 4. Ustaw **client_id** na identyfikator aplikacji z rejestracji aplikacji.
 5. Zapisz plik.
 
-### <a name="upload-the-extension-file-for-verification"></a>Przekaż plik rozszerzenia w celu weryfikacji
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-Teraz zostały skonfigurowane zasady, aby Azure AD B2C wie, jak komunikować się z kontem Google. Spróbuj przekazać plik rozszerzenia zasad tylko, aby upewnić się, że nie ma żadnych problemów do tej pory.
 
-1. Na stronie **zasady niestandardowe** w dzierżawie Azure AD B2C wybierz pozycję **Przekaż zasady**.
-2. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions.xml* .
-3. Kliknij pozycję **Przekaż**.
-
-## <a name="register-the-claims-provider"></a>Rejestrowanie dostawcy oświadczeń
-
-W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostępny na żadnym z ekranów rejestracji/logowania. Aby można było go udostępnić, należy utworzyć duplikat istniejącej podróży użytkownika szablonu, a następnie zmodyfikować go tak, aby miał także dostawcę tożsamości Google.
-
-1. Otwórz plik *TrustFrameworkBase.xml* z pakietu początkowego.
-2. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"` .
-3. Otwórz *TrustFrameworkExtensions.xml* i Znajdź element **UserJourneys** . Jeśli element nie istnieje, Dodaj go.
-4. Wklej całą zawartość elementu **UserJourney** , który został skopiowany jako element podrzędny elementu **UserJourneys** .
-5. Zmień nazwę identyfikatora podróży użytkownika. Na przykład `SignUpSignInGoogle`.
-
-### <a name="display-the-button"></a>Wyświetl przycisk
-
-Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji/logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konta Google, zostanie wyświetlony nowy przycisk, gdy użytkownik zostanie wystawiony na stronie.
-
-1. Znajdź element **OrchestrationStep** , który obejmuje `Order="1"` w podróży użytkownika.
-2. W obszarze **ClaimsProviderSelects** Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `GoogleExchange` :
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Połącz przycisk z akcją
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku akcja w tym przypadku Azure AD B2C do komunikowania się z kontem Google w celu uzyskania tokenu.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Znajdź **OrchestrationStep** obejmujący `Order="2"` w podróży użytkownika.
-2. Dodaj następujący element **ClaimsExchange** , aby upewnić się, że używasz tej samej wartości dla identyfikatora, który został użyty dla **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
-    ```
-
-    Zaktualizuj wartość **TechnicalProfileReferenceId** na identyfikator utworzonego wcześniej profilu technicznego. Na przykład `Google-OAuth`.
-
-3. Zapisz plik *TrustFrameworkExtensions.xml* i przekaż go ponownie w celu weryfikacji.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-google-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy usługi Google Identity do przepływu użytkownika 
-
-1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości Google.
-1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **Google**.
-1. Wybierz pozycję **Zapisz**.
-1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
-1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Kliknij pozycję **Uruchom przepływ użytkownika**
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Aktualizowanie i testowanie pliku jednostki uzależnionej
-
-Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez Ciebie podróż użytkownika.
-
-1. Utwórz kopię *SignUpOrSignIn.xml* w katalogu roboczym i zmień jej nazwę. Na przykład zmień nazwę na *SignUpSignInGoogle.xml*.
-1. Otwórz nowy plik i zaktualizuj wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** przy użyciu unikatowej wartości. Na przykład `SignUpSignInGoogle`.
-1. Zaktualizuj wartość **PublicPolicyUri** za pomocą identyfikatora URI dla zasad. Na przykład`http://contoso.com/B2C_1A_signup_signin_google`
-1. Zaktualizuj wartość atrybutu **ReferenceId** w **DefaultUserJourney** w taki sposób, aby odpowiadała identyfikatorowi nowej podróży użytkownika, która została utworzona (SignUpSignGoogle).
-1. Zapisz zmiany, Przekaż plik.
-1. W obszarze **zasady niestandardowe** wybierz pozycję **B2C_1A_signup_signin**.
-1. W obszarze **Wybierz aplikację** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Wybierz pozycję **Uruchom teraz** i wybierz pozycję Google, aby zalogować się za pomocą usługi Google i przetestować zasady niestandardowe.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end
 

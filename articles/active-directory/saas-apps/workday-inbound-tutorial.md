@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569609"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954224"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
 
@@ -109,7 +109,7 @@ Typowym wymaganiem wszystkich łączników aprowizacji w programie Workday jest 
 1. Zaloguj się do dzierżawy usługi Workday przy użyciu konta administratora. W **aplikacji Workday** wprowadź w polu wyszukiwania pozycję Utwórz użytkownika, a następnie kliknij pozycję **Utwórz użytkownika systemu integracji**.
 
    >[!div class="mx-imgBorder"] 
-   >![Tworzenie użytkownika](./media/workday-inbound-tutorial/wd_isu_01.png "Tworzenie użytkownika")
+   >![Utwórz użytkownika](./media/workday-inbound-tutorial/wd_isu_01.png "Tworzenie użytkownika")
 2. Wykonaj zadanie **użytkownika Tworzenie systemu integracji** , podając nazwę użytkownika i hasło dla nowego użytkownika systemu integracji.  
 
    * Pozostaw zaznaczone pole wyboru **Wymagaj nowego hasła przy następnym logowaniu** , ponieważ ten użytkownik będzie logować się programowo.
@@ -157,7 +157,7 @@ W tym kroku zostanie udzielone uprawnienie "zabezpieczenia domeny" dotyczące da
 
 1. Wyszukaj i wybierz grupę zabezpieczeń utworzoną w poprzednim kroku. 
    >[!div class="mx-imgBorder"]
-   >![Wybierz grupę zabezpieczeń](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+   >![Wybierz grupę zabezpieczeń](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
 1. Kliknij przycisk wielokropka (...) obok nazwy grupy i z menu, wybierz opcję **Grupa zabezpieczeń > zachować uprawnienia domeny dla grupy zabezpieczeń**
    >[!div class="mx-imgBorder"]
@@ -228,7 +228,7 @@ W tym kroku zostanie udzielone uprawnienie "zabezpieczenia procesu biznesowego" 
 
 ## <a name="provisioning-agent-installation-prerequisites"></a>Wymagania wstępne instalacji agenta aprowizacji
 
-Przed przejściem do następnej sekcji zapoznaj się z [wymaganiami wstępnymi instalacji agenta aprowizacji](../cloud-provisioning/how-to-prerequisites.md) . 
+Przed przejściem do następnej sekcji zapoznaj się z [wymaganiami wstępnymi instalacji agenta aprowizacji](../cloud-sync/how-to-prerequisites.md) . 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Konfigurowanie aprowizacji użytkowników z produktu Workday do Active Directory
 
@@ -267,7 +267,7 @@ Ta sekcja zawiera kroki dla aprowizacji konta użytkownika z produktu Workday do
 
 Aby zapewnić Active Directory lokalnego, Agent aprowizacji musi być zainstalowany na serwerze przyłączonym do domeny, który ma dostęp sieciowy do żądanych Active Directory domen.
 
-Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki opisane [w sekcji **Instalowanie agenta**](../cloud-provisioning/how-to-install.md) , aby ukończyć konfigurację agenta.
+Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki opisane [w sekcji **Instalowanie agenta**](../cloud-sync/how-to-install.md) , aby ukończyć konfigurację agenta.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Część 3: w aplikacji aprowizacji Skonfiguruj łączność z produktem Workday i Active Directory
 W tym kroku ustanawiamy łączność z produktem Workday i Active Directory w Azure Portal. 
@@ -336,7 +336,7 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
       * Operator: nie ma wartości NULL
 
    > [!TIP]
-   > Podczas konfigurowania aplikacji do aprowizacji po raz pierwszy należy przetestować i zweryfikować mapowania atrybutów oraz wyrażenia, aby upewnić się, że daje żądany wynik. Firma Microsoft zaleca używanie filtrów określania zakresu w obszarze **zakres obiektów źródłowych** do testowania mapowań za pomocą kilku użytkowników testowych z produktu Workday. Po sprawdzeniu, czy mapowania działają, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
+   > Podczas konfigurowania aplikacji do aprowizacji po raz pierwszy należy przetestować i zweryfikować mapowania atrybutów oraz wyrażenia, aby upewnić się, że daje żądany wynik. Firma Microsoft zaleca używanie [filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) w ramach **zakresu obiektu źródłowego** i [aprowizacji na żądanie](../app-provisioning/provision-on-demand.md) w celu testowania mapowań za pomocą kilku użytkowników testowych z produktu Workday. Po sprawdzeniu, czy mapowania działają, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
 
    > [!CAUTION] 
    > Domyślne zachowanie aparatu aprowizacji polega na wyłączeniu/usunięciu użytkowników, którzy wykraczają poza zakres. Może to nie być pożądane w ramach integracji z usługą AD. Aby zastąpić to zachowanie domyślne, odnoszące się do artykułu [Pomiń usuwanie kont użytkowników, które wykraczają poza zakres](../app-provisioning/skip-out-of-scope-deletions.md)
@@ -1065,7 +1065,8 @@ W odniesieniu do przechowywania danych usługa Azure AD Provisioning nie generuj
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Dowiedz się więcej na temat scenariuszy integracji usługi Azure AD i produktu Workday oraz wywołań usług sieci Web](../app-provisioning/workday-integration-reference.md)
 * [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 * [Dowiedz się, jak skonfigurować Logowanie jednokrotne między produktem Workday i Azure Active Directory](workday-tutorial.md)
-* [Dowiedz się, jak zintegrować inne aplikacje SaaS z Azure Active Directory](tutorial-list.md)
+* [Dowiedz się, jak skonfigurować zapisywanie zwrotne dla produktu Workday](workday-writeback-tutorial.md)
 * [Dowiedz się, jak używać interfejsów API Microsoft Graph do zarządzania konfiguracjami aprowizacji](/graph/api/resources/synchronization-overview)

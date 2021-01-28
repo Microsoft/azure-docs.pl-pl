@@ -1,5 +1,5 @@
 ---
-title: FairPlay przesyłania strumieniowego w trybie offline dla systemu iOS z Azure Media Services v3
+title: Media Services w wersji 3 FairPlay Streaming dla systemu iOS
 description: Ten temat zawiera omówienie i pokazuje, jak używać Azure Media Services v3 do dynamicznego szyfrowania zawartości HTTP Live Streaming (HLS) przy użyciu usługi Apple FairPlay w trybie offline.
 services: media-services
 keywords: HLS, DRM, FairPlay streaming (FPS), offline, iOS 10
@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 886a8aa1a6f062b5fe01476e387742f34efc0c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399f9b0184217db8180fcec38e4f78917d5c9bc8
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532243"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955242"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>FairPlay przesyłania strumieniowego w trybie offline dla systemu iOS z Media Services v3
 
@@ -205,7 +205,7 @@ Trzy próbki testowe w Media Services obejmują następujące trzy scenariusze:
 Te przykłady można znaleźć w [tej witrynie demonstracyjnej](https://aka.ms/poc#22)przy użyciu odpowiedniego certyfikatu aplikacji hostowanego w aplikacji sieci Web platformy Azure.
 W przypadku wersji 3 lub 4 zestawu SDK serwera FPS, jeśli główna lista odtwarzania zawiera alternatywny dźwięk, w trybie offline jest odtwarzany tylko dźwięk. W związku z tym należy rozdzielić alternatywny dźwięk. Innymi słowy, drugi i trzeci przykłady wymienione wcześniej działają w trybie online i offline. Przykładowa podano w pierwszej kolejności dźwięk tylko w trybie offline, podczas gdy Transmisja strumieniowa w trybie online działa prawidłowo.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 Zobacz [często zadawane pytania](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode), aby uzyskać pomoc dotyczącą rozwiązywania problemów.
 

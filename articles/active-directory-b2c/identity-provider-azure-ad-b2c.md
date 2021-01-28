@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8a0d69ea57eb5b8b2a074c37d4798a99c576ce95
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: ea4def3cfaa19e27dc05e955bf97b41976ec2190
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538171"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98953924"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Konfigurowanie rejestracji i logowania przy użyciu konta Azure AD B2C z poziomu innej dzierżawy Azure AD B2C
 
@@ -107,6 +107,17 @@ Aby utworzyć aplikację.
 
 1. Wybierz pozycję **Zapisz**.
 
+## <a name="add-azure-ad-b2c-identity-provider-to-a-user-flow"></a>Dodawanie Azure AD B2C dostawcy tożsamości do przepływu użytkownika 
+
+1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości Azure AD B2C.
+1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **Fabrikam**.
+1. Wybierz pozycję **Zapisz**.
+1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
+1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Kliknij pozycję **Uruchom przepływ użytkownika**
+1. Na stronie rejestracji lub logowania wybierz pozycję *Fabrikam* , aby zalogować się przy użyciu innej dzierżawy Azure AD B2C.
+
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -125,9 +136,9 @@ Należy przechowywać klucz aplikacji utworzony wcześniej w dzierżawie Azure A
 1. W obszarze **użycie klucza** wybierz opcję `Signature` .
 1. Wybierz przycisk **Utwórz**.
 
-## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
+## <a name="configure-azure-ad-b2c-as-an-identity-provider"></a>Konfigurowanie Azure AD B2C jako dostawcy tożsamości
 
-Jeśli chcesz, aby użytkownicy mogli się logować przy użyciu innego Azure AD B2C (Fabrikam), musisz zdefiniować inne Azure AD B2C jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
+Aby umożliwić użytkownikom logowanie się przy użyciu konta z innej dzierżawy usługi Azure AD B2C (Fabrikam), należy zdefiniować inne Azure AD B2C jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
 
 Można zdefiniować Azure AD B2C jako dostawcę oświadczeń przez dodanie Azure AD B2C do elementu **ClaimsProvider** w pliku rozszerzenia zasad.
 
@@ -139,7 +150,7 @@ Można zdefiniować Azure AD B2C jako dostawcę oświadczeń przez dodanie Azure
       <Domain>fabrikam.com</Domain>
       <DisplayName>Federation with Fabrikam tenant</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Fabrikam-OpenIdConnect">
+        <TechnicalProfile Id="AzureADB2CFabrikam-OpenIdConnect">
         <DisplayName>Fabrikam</DisplayName>
         <Protocol Name="OpenIdConnect"/>
         <Metadata>
@@ -188,83 +199,29 @@ Można zdefiniować Azure AD B2C jako dostawcę oświadczeń przez dodanie Azure
     |CryptographicKeys| Zaktualizuj wartość **identyfikatorze storagereferenceid** do nazwy utworzonego wcześniej klucza zasad. Na przykład `B2C_1A_FabrikamAppSecret`.| 
     
 
-### <a name="upload-the-extension-file-for-verification"></a>Przekaż plik rozszerzenia w celu weryfikacji
-
-Teraz zasady zostały skonfigurowane tak, aby Azure AD B2C wie, jak komunikować się z innymi Azure AD B2C dzierżawcą. Spróbuj przekazać plik rozszerzenia zasad tylko, aby upewnić się, że nie ma żadnych problemów do tej pory.
-
-1. Na stronie **zasady niestandardowe** w dzierżawie Azure AD B2C wybierz pozycję **Przekaż zasady**.
-1. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions.xml* .
-1. Kliknij pozycję **Przekaż**.
-
-## <a name="register-the-claims-provider"></a>Rejestrowanie dostawcy oświadczeń
-
-W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest jeszcze dostępny na żadnej stronie rejestracji/logowania. Aby udostępnić ten element, Utwórz duplikat istniejącej przez użytkownika szablonu, a następnie zmodyfikuj go tak, aby miał także dostawcę tożsamości usługi Azure AD:
-
-1. Otwórz plik *TrustFrameworkBase.xml* z pakietu początkowego.
-1. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"` .
-1. Otwórz *TrustFrameworkExtensions.xml* i Znajdź element **UserJourneys** . Jeśli element nie istnieje, Dodaj go.
-1. Wklej całą zawartość elementu **UserJourney** , który został skopiowany jako element podrzędny elementu **UserJourneys** .
-1. Zmień nazwę identyfikatora podróży użytkownika. Na przykład `SignUpSignInFabrikam`.
-
-### <a name="display-the-button"></a>Wyświetl przycisk
-
-Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na stronie rejestracji/logowania. W przypadku dodania elementu **ClaimsProviderSelection** dla Azure AD B2C nowy przycisk będzie wyświetlany, gdy użytkownik zostanie umieszczony na stronie.
-
-1. Znajdź element **OrchestrationStep** , który obejmuje `Order="1"` podróż użytkownika utworzoną w *TrustFrameworkExtensions.xml*.
-1. W obszarze **ClaimsProviderSelections** Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `FabrikamExchange` :
-
-    ```xml
-    <ClaimsProviderSelection TargetClaimsExchangeId="FabrikamExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>Połącz przycisk z akcją
-
-Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku akcja w tym przypadku Azure AD B2C do komunikowania się z innymi Azure AD B2C w celu uzyskania tokenu. Połącz przycisk z akcją, łącząc profil techniczny dostawcy oświadczeń Azure AD B2C:
-
-1. Znajdź **OrchestrationStep** obejmujący `Order="2"` w podróży użytkownika.
-1. Dodaj następujący element **ClaimsExchange** , aby upewnić się, że używasz tej samej wartości dla **identyfikatora** , który został użyty dla **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="FabrikamExchange" TechnicalProfileReferenceId="Fabrikam-OpenIdConnect" />
-    ```
-
-    Zaktualizuj wartość **TechnicalProfileReferenceId** na **Identyfikator** utworzonego wcześniej profilu technicznego. Na przykład `Fabrikam-OpenIdConnect`.
-
-1. Zapisz plik *TrustFrameworkExtensions.xml* i przekaż go ponownie w celu weryfikacji.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-azure-ad-b2c-identity-provider-to-a-user-flow"></a>Dodawanie Azure AD B2C dostawcy tożsamości do przepływu użytkownika 
-
-1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości Azure AD B2C.
-1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **Fabrikam**.
-1. Wybierz pozycję **Zapisz**.
-1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
-1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Kliknij pozycję **Uruchom przepływ użytkownika**
-1. Na stronie rejestracji lub logowania wybierz pozycję *Fabrikam* , aby zalogować się przy użyciu innej dzierżawy Azure AD B2C.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
 
-## <a name="update-and-test-the-relying-party-file"></a>Aktualizowanie i testowanie pliku jednostki uzależnionej
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
+    <ClaimsProviderSelection TargetClaimsExchangeId="AzureADB2CFabrikamExchange" />
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez Ciebie podróż użytkownika.
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="AzureADB2CFabrikamExchange" TechnicalProfileReferenceId="AzureADB2CFabrikam-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-1. Utwórz kopię *SignUpOrSignIn.xml* w katalogu roboczym i zmień jej nazwę. Na przykład zmień nazwę na *SignUpSignInFabrikam.xml*.
-1. Otwórz nowy plik i zaktualizuj wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** przy użyciu unikatowej wartości. Na przykład `SignUpSignInFabrikam`.
-1. Zaktualizuj wartość **PublicPolicyUri** za pomocą identyfikatora URI dla zasad. Na przykład `http://contoso.com/B2C_1A_signup_signin_fabrikam`.
-1. Zaktualizuj wartość atrybutu **ReferenceId** w **DefaultUserJourney** w taki sposób, aby odpowiadała identyfikatorowi podróży użytkownika, który został utworzony wcześniej. Na przykład *SignUpSignInFabrikam*.
-1. Zapisz zmiany i Przekaż plik.
-1. W obszarze **zasady niestandardowe** wybierz nowe zasady z listy.
-1. Z listy rozwijanej **Wybierz aplikację** Wybierz utworzoną wcześniej aplikację Azure AD B2C. Na przykład *testapp1*.
-1. Wybierz pozycję **Uruchom teraz** 
-1. Na stronie rejestracji lub logowania wybierz pozycję *Fabrikam* , aby zalogować się przy użyciu innej dzierżawy Azure AD B2C.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end
 

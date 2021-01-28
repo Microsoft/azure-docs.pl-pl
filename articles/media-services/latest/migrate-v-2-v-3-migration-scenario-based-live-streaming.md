@@ -1,5 +1,5 @@
 ---
-title: Wskazówki dotyczące migracji na żywo w Media Services V2 do wersji v3
+title: Wskazówki dotyczące migracji na żywo w ramach usługi Media Services Streaming
 description: Ten artykuł zawiera wskazówki dotyczące scenariusza przesyłania strumieniowego na żywo, które ułatwiają minimalną migrację z Azure Media Services V2 do wersji v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 02ae0f7e8723e9c4543a4ef681e3a1164b183a7a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927119"
+ms.locfileid: "98955297"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu przesyłania strumieniowego na żywo
 

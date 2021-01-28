@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 0a96d20d1b614f444ffa36cd6f8d83393c7c4f7a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f525666e91a482a6c23128e266b4f5669437a502
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897296"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956025"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -133,7 +133,8 @@ Debian 7 | [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://s
 Debian 8 | [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/), [9,38](https://support.microsoft.com/help/4590304/), [9,39](https://support.microsoft.com/help/4597409/), [9,40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 3.16.0-4-amd64 do 3.16.0-11-amd64, 4.9.0 -0. BPO. 4-amd64 do 4.9.0 -0. BPO. 11-amd64 |
 |||
 Debian 9,1 | [9,40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.9.0-1 — amd64 do 4.9.0-14-amd64 </br> 4.19.0 -0. BPO. 1-amd64 do 4.19.0 -0. BPO. 13-amd64 </br> 4.19.0 -0. BPO. 1-Cloud-amd64 do 4.19.0 -0. BPO. 13-Cloud-amd64 </br>
-Debian 9,1 | [9,39](https://support.microsoft.com/help/4597409/) | 4.9.0-1 — amd64 do 4.9.0-14-amd64 </br> 4.19.0 -0. BPO. 1-amd64 do 4.19.0 -0. BPO. 12-amd64 </br> 4.19.0 -0. BPO. 1-Cloud-amd64 do 4.19.0 -0. BPO. 12-Cloud-amd64 </br> Debian 9,1 | [9,38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 do 4.9.0-13-amd64 </br> 4.19.0 -0. BPO. 1-amd64 do 4.19.0 -0. BPO. 11-amd64 </br> 4.19.0 -0. BPO. 1-Cloud-amd64 do 4.19.0 -0. BPO. 11-Cloud-amd64 </br> 
+Debian 9,1 | [9,39](https://support.microsoft.com/help/4597409/) | 4.9.0-1 — amd64 do 4.9.0-14-amd64 </br> 4.19.0 -0. BPO. 1-amd64 do 4.19.0 -0. BPO. 12-amd64 </br> 4.19.0 -0. BPO. 1-Cloud-amd64 do 4.19.0 -0. BPO. 12-Cloud-amd64 </br> 
+Debian 9,1 | [9,38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 do 4.9.0-13-amd64 </br> 4.19.0 -0. BPO. 1-amd64 do 4.19.0 -0. BPO. 11-amd64 </br> 4.19.0 -0. BPO. 1-Cloud-amd64 do 4.19.0 -0. BPO. 11-Cloud-amd64 </br> 
 Debian 9,1 | [9,37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64 do 4.9.0-13-amd64, 4.19.0 -0. BPO. 6-amd64 do 4.19.0 -0. BPO. 10-amd64, 4.19.0 -0. BPO. 6-Cloud-amd64 do 4.19.0 -0. BPO. 10-Cloud-amd64
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 obsługiwanych wersji jądra
@@ -213,7 +214,7 @@ Zachowaj źródłowy adres IP | Tak
 Punkty końcowe usługi dla sieci wirtualnej platformy Azure<br/> | Tak
 Wydajniejsze sieci | Nie
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 **Składnik** | **Obsługiwane**
 --- | ---
 Dysk dynamiczny | Dysk systemu operacyjnego musi być dyskiem podstawowym. <br/><br/>Dyski danych mogą być dyskami dynamicznymi

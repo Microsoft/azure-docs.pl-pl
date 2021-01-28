@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 197b7ff0a6c613a019007ba507d678b619c9afd4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef4381f305292b366348aa3729209dc3f5e8c87b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358596"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954093"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Samouczek: Konfigurowanie obsługi administracyjnej użytkowników w usłudze Azure AD
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać, aby udostępnić dane procesu roboczego z produktu Workday do Azure Active Directory. 
@@ -91,19 +91,19 @@ W poniższych sekcjach opisano kroki konfigurowania aprowizacji użytkowników z
 
 **Aby skonfigurować dzień roboczy do Azure Active Directory aprowizacji dla użytkowników tylko w chmurze:**
 
-1. Przejdź do adresu <https://portal.azure.com>.
+1. Przejdź do witryny <https://portal.azure.com>.
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
-3. Wybierz **aplikacje przedsiębiorstwa** , a następnie **wszystkie aplikacje**.
+3. Wybierz **aplikacje przedsiębiorstwa**, a następnie **wszystkie aplikacje**.
 
-4. Wybierz pozycję **Dodaj aplikację** , a następnie wybierz kategorię **wszystkie** .
+4. Wybierz pozycję **Dodaj aplikację**, a następnie wybierz kategorię **wszystkie** .
 
 5. Wyszukaj pozycję **Workday do aprowizacji użytkowników usługi Azure AD** i Dodaj tę aplikację z galerii.
 
 6. Po dodaniu aplikacji i wyświetleniu ekranu Szczegóły aplikacji wybierz opcję **Inicjowanie obsługi**.
 
-7. Zmień tryb **aprowizacji** **Mode** na **automatyczny**.
+7. Zmień tryb **aprowizacji**  na **automatyczny**.
 
 8. Wypełnij sekcję **poświadczenia administratora** w następujący sposób:
 
@@ -195,7 +195,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 
 1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-2. Kliknij przycisk **Zapisz**.
+2. Kliknij pozycję **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie produktu Workday. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 
@@ -208,11 +208,11 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Dowiedz się więcej na temat scenariuszy integracji usługi Azure AD i produktu Workday oraz wywołań usług sieci Web](../app-provisioning/workday-integration-reference.md)
 * [Dowiedz się więcej na temat obsługiwanych atrybutów produktu Workday na potrzeby inicjowania obsługi przychodzącej](../app-provisioning/workday-attribute-reference.md)
 * [Dowiedz się, jak skonfigurować zapisywanie zwrotne dla produktu Workday](workday-writeback-tutorial.md)
 * [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 * [Dowiedz się, jak skonfigurować Logowanie jednokrotne między produktem Workday i Azure Active Directory](workday-tutorial.md)
-* [Dowiedz się, jak zintegrować inne aplikacje SaaS z Azure Active Directory](tutorial-list.md)
 * [Dowiedz się, jak eksportować i importować konfiguracje aprowizacji](../app-provisioning/export-import-provisioning-configuration.md)
 
 

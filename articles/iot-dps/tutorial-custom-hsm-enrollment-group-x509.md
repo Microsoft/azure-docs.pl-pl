@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 64064a584681d84eb6ba023c4777c0fdc4e6ec3d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 566563dde26d2dd36f4358bc8c6dcdcfb5ba8465
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791933"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954871"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Samouczek: Inicjowanie obsługi wielu urządzeń X. 509 przy użyciu grup rejestracji
 
@@ -352,6 +352,9 @@ Aby zaktualizować niestandardowy kod stub modułu HSM dla tego samouczka:
 Na urządzeniach z systemem innym niż Windows można przekazać łańcuch certyfikatów z kodu jako magazyn certyfikatów.
 
 Na urządzeniach z systemem Windows należy dodać certyfikaty podpisywania (główne i pośrednie) do [magazynu certyfikatów](/windows/win32/secauthn/certificate-stores)systemu Windows. W przeciwnym razie certyfikaty podpisywania nie będą transportowane do platformy DPS za pośrednictwem bezpiecznego kanału z usługą Transport Layer Security (TLS).
+
+> [!TIP]
+> Istnieje również możliwość użycia OpenSSL zamiast bezpiecznego kanału (Schannel) z zestawem C SDK. Aby uzyskać więcej informacji na temat korzystania z programu OpenSSL, zobacz [Używanie OpenSSL w zestawie SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#using-openssl-in-the-sdk).
 
 Aby dodać certyfikaty podpisywania do magazynu certyfikatów na urządzeniach z systemem Windows:
 

@@ -1,17 +1,17 @@
 ---
-title: Przenoszenie własnych kluczy (kluczy zarządzanych przez klienta) za pomocą Media Services
+title: Przenoszenie własnego klucza (klucze zarządzane przez klienta)
 description: Możesz użyć klucza zarządzanego przez klienta (czyli wprowadzić własny klucz) z Media Services.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c11bb0e369075c3024824d65290e8aecfa68e6f4
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681826"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956144"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Przenoszenie własnych kluczy (kluczy zarządzanych przez klienta) za pomocą Media Services
 

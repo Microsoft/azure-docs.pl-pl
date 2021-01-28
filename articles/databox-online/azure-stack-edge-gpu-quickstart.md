@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 2d1bd7d2a4f066311ea01046a8d71e6ecb52c3f5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919814"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953941"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Szybki Start: Rozpoczynanie pracy z usługą Azure Stack EDGE Pro z procesorem GPU 
 
@@ -28,7 +28,7 @@ Całkowita procedura powinna trwać około 1,5 godzin. Aby uzyskać szczegółow
 Przed wdrożeniem programu upewnij się, że są spełnione następujące wymagania wstępne:
 
 1. Urządzenie GPU w Azure Stack Edge jest dostarczane do Twojej lokacji, [rozpakowane](azure-stack-edge-gpu-deploy-install.md#unpack-the-device) i [zamontowane w stojaku](azure-stack-edge-gpu-deploy-install.md#rack-the-device). 
-1. Skonfiguruj sieć w taki sposób, że urządzenie może uzyskać dostęp do [wzorców i portów adresów URL](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
+1. Skonfiguruj sieć w taki sposób, aby urządzenie korzystało z [wymienionych wzorców i portów adresów URL](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
 1. Masz uprawnienia właściciela lub współautora do subskrypcji platformy Azure.
 1. W Azure Portal przejdź do **strony głównej > subskrypcji > dostawców zasobów > subskrypcji**. Wyszukaj `Microsoft.DataBoxEdge` i zarejestruj dostawcę zasobów. Powtórz tę procedurę, `Microsoft.Devices` Jeśli utworzysz zasób IoT Hub w celu wdrożenia obciążeń obliczeniowych.
 1. Upewnij się, że masz co najmniej 2 bezpłatne, statyczne, ciągłe adresy IP dla węzłów Kubernetes i co najwyżej 1 statyczny adres IP dla usługi IoT Edge. Dla każdego modułu lub usługi zewnętrznej należy wdrożyć 1 dodatkowy adres IP.

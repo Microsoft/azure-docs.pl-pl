@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8b1c2a5384e479e39d169d368554f16c300a33e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95527313"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954550"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Wdrażanie modelu w celu Azure Machine Learning wystąpień obliczeniowych
 
@@ -38,11 +38,12 @@ Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model jako usług�
 
 Przykładowy Notes, który pokazuje lokalne wdrożenia, jest uwzględniony w wystąpieniu obliczeniowym. Wykonaj następujące kroki, aby załadować Notes i wdrożyć model jako usługę sieci Web na maszynie wirtualnej:
 
-1. W programie [Azure Machine Learning Studio](https://ml.azure.com)wybierz Azure Machine Learning wystąpienia obliczeniowe.
+1. W programie [Azure Machine Learning Studio](https://ml.azure.com)wybierz pozycję "notesy", a następnie wybierz pozycję How-to-use-azureml/Deployment/Deploy-to-Local/Register-model-Deploy-Local. ipynb w obszarze "Przykładowe notesy". Sklonuj ten Notes do folderu użytkownika.
 
-1. Otwórz `samples-*` podkatalog, a następnie otwórz `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb` . Po otwarciu Uruchom Notes.
+1. Znajdź Notes sklonowany w kroku 1, wybierz lub Utwórz wystąpienie obliczeniowe służące do uruchamiania notesu.
 
     ![Zrzut ekranu przedstawiający uruchomioną usługę lokalną w notesie](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
+
 
 1. Notes wyświetla adres URL i port, na którym uruchomiono usługę. Na przykład `https://localhost:6789`. Możesz również uruchomić komórkę zawierającą, `print('Local service port: {}'.format(local_service.port))` Aby wyświetlić port.
 

@@ -1,18 +1,19 @@
 ---
 title: Usługi platformy Azure obsługujące strefy dostępności
 description: Aby utworzyć aplikacje o wysokiej dostępności i odporności na platformie Azure, Strefy dostępności zapewnić fizycznie oddzielne lokalizacje, za pomocą których można uruchamiać zasoby.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 12/17/2020
-ms.author: cynthn
+ms.topic: conceptual
+ms.date: 01/26/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e8e62d92afb70ec9d4df40f677de05583ef472b0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874612"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955787"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Usługi platformy Azure obsługujące strefy dostępności
 
@@ -58,7 +59,7 @@ Aby zapewnić kompleksową ciągłość biznesową na platformie Azure, skompilu
 | Zachodnie stany USA 2        |                |                      |                     |                |
 
 
-Aby dowiedzieć się więcej na temat pomocy technicznej dotyczącej usług Strefy dostępności i dostępnych w tych regionach, skontaktuj się z przedstawicielem firmy Microsoft ds. sprzedaży lub klienta. W przypadku nadchodzących regionów, które będą obsługiwać Strefy dostępności, zobacz [Azure lokalizacje geograficzne](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* Aby dowiedzieć się więcej na temat pomocy technicznej dotyczącej usług Strefy dostępności i dostępnych w tych regionach, skontaktuj się z przedstawicielem firmy Microsoft ds. sprzedaży lub klienta. W przypadku nadchodzących regionów, które będą obsługiwać Strefy dostępności, zobacz [Azure lokalizacje geograficzne](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>Usługi platformy Azure obsługujące Strefy dostępności
@@ -143,7 +144,7 @@ Aby dowiedzieć się więcej na temat pomocy technicznej dotyczącej usług Stre
 | Virtual Machines: Ev4-Series                    |      : large_blue_diamond:  |
 | Virtual Machines: Fsv2-Series                   |      : large_blue_diamond:  |
 | Virtual Machines: Seria M                      |      : large_blue_diamond:  |
-| Virtual WAN                                     |      : large_blue_diamond:  |
+| Wirtualna sieć WAN                                     |      : large_blue_diamond:  |
 
 
 **Inne niż regionalne**

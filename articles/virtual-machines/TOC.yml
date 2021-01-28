@@ -1741,7 +1741,7 @@
         - name: Tworzenie kopii zapasowej wielu maszyn wirtualnych
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: Opcje przywracania
-          href: /backup/backup-azure-arm-restore-vms.md
+          href: ../backup/backup-azure-arm-restore-vms.md
         - name: Tabela obsługi
           href: ../backup/backup-support-matrix-iaas.md
         - name: Cennik

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 40d2f957ce115b43a1dcc138b86e05ec9cc47384
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 729839c8e881f507e103c4644c012d8dffc5c8c6
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060594"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956335"
 ---
 Ten samouczek wymaga następujących zasobów platformy Azure:
 
@@ -26,7 +26,20 @@ W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-    Po pomyślnym zakończeniu działania skryptu wszystkie wymagane zasoby powinny zostać wyświetlone w ramach subskrypcji.
+    Po pomyślnym zakończeniu działania skryptu wszystkie wymagane zasoby powinny zostać wyświetlone w ramach subskrypcji. Skrypt zostanie skonfigurowany w sumie 12 zasobów:
+    1. **Punkt końcowy przesyłania strumieniowego** — ułatwia to odtwarzanie zarejestrowanego zasobu AMS.
+    1. **Maszyna wirtualna** — jest to maszyna wirtualna, która będzie pełnić funkcję urządzenia brzegowego.
+    1. **Dysk** — dysk pamięci podręcznej dołączony do maszyny wirtualnej w celu przechowywania multimediów i artefaktów.
+    1. **Grupa zabezpieczeń sieci** — służy do filtrowania ruchu sieciowego do i z zasobów platformy Azure w sieci wirtualnej platformy Azure.
+    1. **Interfejs sieciowy** — umożliwia maszynie wirtualnej platformy Azure komunikowanie się z Internetem, platformą Azure i innymi zasobami.
+    1. **Połączenie bastionu** — umożliwia nawiązanie połączenia z maszyną wirtualną przy użyciu przeglądarki i Azure Portal.
+    1. **Publiczny adres IP** — dzięki temu zasoby platformy Azure mogą komunikować się z Internetem i publicznymi usługami platformy Azure
+    1. **Sieć wirtualna** — umożliwia to wielu typom zasobów platformy Azure, takich jak maszyna wirtualna, bezpieczne komunikowanie się ze sobą, Internetem i sieciami lokalnymi. Dowiedz się więcej o [sieciach wirtualnych](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **IoT Hub** — działa jako centralny centrum komunikatów do komunikacji dwukierunkowej między aplikacją IoT, modułami IoT Edge i zarządzanymi urządzeniami.
+    1. **Konto usługi multimediów** — ułatwia to zarządzanie zawartością multimediów i przesyłanie strumieniowe na platformie Azure.
+    1. **Konto magazynu** — musisz mieć jedno konto magazynu podstawowego i można mieć dowolną liczbę kont magazynu pomocniczego skojarzonych z twoim kontem Media Services. Aby uzyskać więcej informacji, zobacz [konta usługi Azure Storage z kontami Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Rejestr kontenerów** — ułatwia przechowywanie prywatnych obrazów kontenerów platformy Docker i powiązanych artefaktów oraz zarządzanie nimi.
+
 1. Po zakończeniu działania skryptu wybierz nawiasy klamrowe, aby uwidocznić strukturę folderów. Zobaczysz kilka plików w katalogu *~/CloudDrive/LVA-Sample* . Są one przydatne w tym przewodniku szybki start:
 
      * ***~/CloudDrive/LVA-Sample/Edge-Deployment/.env** _ — ten plik zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.

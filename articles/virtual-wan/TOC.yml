@@ -41,22 +41,22 @@
       items:
         - name: Informacje na temat routingu na koncentratorze wirtualnym
           href: about-virtual-hub-routing.md
-        - name: Scenariusze routingu
-          items:
-            - name: Dowolny z dowolnym
-              href: scenario-any-to-any.md
-            - name: Izolowanie sieci wirtualnych
-              href: scenario-isolate-vnets.md
-            - name: Izolowanie sieci wirtualnych — wersja niestandardowa
-              href: scenario-isolate-vnets-custom.md
-            - name: Sieci wirtualne usług współdzielonych
-              href: scenario-shared-services-vnet.md
-            - name: Rozsyłanie za pomocą urządzenia WUS
-              href: scenario-route-through-nva.md
-            - name: Rozsyłanie za pomocą urządzenia WUS — wersja niestandardowa
-              href: scenario-route-through-nvas-custom.md
-            - name: Azure Firewall — wersja niestandardowa
-              href: scenario-route-between-vnets-firewall.md
+    - name: Scenariusze routingu
+      items:
+        - name: Dowolny z dowolnym
+          href: scenario-any-to-any.md
+        - name: Izolowanie sieci wirtualnych
+          href: scenario-isolate-vnets.md
+        - name: Izolowanie sieci wirtualnych — wersja niestandardowa
+          href: scenario-isolate-vnets-custom.md
+        - name: Sieci wirtualne usług współdzielonych
+          href: scenario-shared-services-vnet.md
+        - name: Rozsyłanie za pomocą urządzenia WUS
+          href: scenario-route-through-nva.md
+        - name: Rozsyłanie za pomocą urządzenia WUS — wersja niestandardowa
+          href: scenario-route-through-nvas-custom.md
+        - name: Azure Firewall — wersja niestandardowa
+          href: scenario-route-between-vnets-firewall.md
     - name: Monitorowanie
       items:
         - name: Informacje o analizie w usłudze Azure Monitor dla wirtualnej sieci WAN

@@ -1,5 +1,5 @@
 ---
-title: Kodowanie przekształcenia niestandardowego przy użyciu Media Services wersja 3 REST — Azure
+title: Kodowanie przekształcenia niestandardowego
 description: W tym temacie pokazano, jak używać Azure Media Services v3 do kodowania niestandardowej transformacji przy użyciu interfejsu REST.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 7a2cfc0db2f95b21c872dd2ed0cf4fbf675a8d6f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 2c0416e2787bc69465e18a71f6b9912f7571c24d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897615"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956093"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Jak kodować przy użyciu niestandardowej transformacji
 

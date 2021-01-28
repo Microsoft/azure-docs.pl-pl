@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: c3e6408a6a3473380edbe2966eba41970bd73562
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: be6d47d8f40746bfb2154ddb62cf2e9ce93e74aa
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762768"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955687"
 ---
 # <a name="errors-in-the-connector-status-section"></a>Błędy w sekcji stan łącznika
 
@@ -66,6 +66,10 @@ W tej sekcji znajdują się typowe błędy, które przedstawiono w sekcji stan �
 
 * **Błąd**: "Wystąpił problem. Nie można pobrać szczegółów połączenia ". Ten błąd jest wyświetlany, gdy Klient definiuje grupę akcji narzędzia ITSM.
 
-    **Przyczyna**: nowo utworzona łącznik ITSM nie mogła ukończyć synchronizacji początkowej.
+    **Przyczyna**: ten błąd jest wyświetlany, gdy:
+    * Nowo utworzony łącznik ITSM nie zakończył jeszcze synchronizacji początkowej.
+    * Łącznik nie został poprawnie zdefiniowany
 
-    **Rozwiązanie**: po utworzeniu nowego łącznika narzędzia ITSM łącznik ITSM zaczyna synchronizować informacje z systemu narzędzia ITSM, takie jak szablony elementów roboczych i elementy robocze. Zsynchronizuj łącznik ITSM, aby wygenerować nowy token odświeżania, jak wyjaśniono [tutaj](./itsmc-resync-servicenow.md).
+    **Rozwiązanie**: 
+    * Po utworzeniu nowego łącznika narzędzia ITSM łącznik ITSM zaczyna synchronizować informacje z systemu narzędzia ITSM, takie jak szablony elementów roboczych i elementy robocze. Zsynchronizuj łącznik ITSM, aby wygenerować nowy token odświeżania, jak wyjaśniono [tutaj](./itsmc-resync-servicenow.md).
+    * Przejrzyj szczegóły połączenia w łączniku narzędzia ITSM, jak wyjaśniono [tutaj](./itsmc-connections-servicenow.md#create-a-connection) , i sprawdź, czy łącznik narzędzia ITSM można pomyślnie [synchronizować](./itsmc-resync-servicenow.md).

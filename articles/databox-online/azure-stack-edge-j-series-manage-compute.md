@@ -6,26 +6,26 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d4d0c591640a3528b7aeec5254f2a634ee008aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4fbef807d31e03a79f80db7fd29580074fb8bd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743679"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955545"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Zarządzanie obliczeniami na Azure Stack brzegowej procesora GPU Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym artykule opisano sposób zarządzania obliczeniami na Azure Stack brzegowej. Można zarządzać obliczeniami za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal do zarządzania modułami, wyzwalaczami i konfiguracją obliczeniową oraz lokalnym interfejsem użytkownika sieci Web do zarządzania ustawieniami obliczeniowymi.
+W tym artykule opisano sposób zarządzania obliczeniami za pośrednictwem usługi IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro GPU. Można zarządzać obliczeniami za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal do zarządzania modułami, wyzwalaczami i konfiguracją IoT Edge i lokalnym interfejsem użytkownika sieci Web do zarządzania ustawieniami sieci obliczeniowej.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Zarządzanie wyzwalaczami
-> * Zarządzanie konfiguracją obliczeń
+> * Zarządzanie konfiguracją IoT Edge
 
 
 ## <a name="manage-triggers"></a>Zarządzanie wyzwalaczami
@@ -40,7 +40,7 @@ Zdarzenia to rzeczy dziejące się w środowisku chmury lub na urządzeniu, wzgl
 
 Wykonaj następujące kroki w Azure Portal, aby utworzyć wyzwalacz.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **Oblicz compute > Trigger**. Wybierz pozycję **+ Dodaj wyzwalacz** na pasku poleceń.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do **IoT Edge**. Przejdź do pozycji **wyzwalacze** i wybierz pozycję **+ Dodaj wyzwalacz** na pasku poleceń.
 
     ![Wybierz pozycję Dodaj wyzwalacz](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
 
@@ -82,32 +82,32 @@ Aby usunąć wyzwalacz, wykonaj następujące czynności w Azure Portal.
 
 Lista wyzwalaczy jest aktualizowana w celu odzwierciedlenia usunięcia.
 
-## <a name="manage-compute-configuration"></a>Zarządzanie konfiguracją obliczeń
+## <a name="manage-iot-edge-configuration"></a>Zarządzanie konfiguracją IoT Edge
 
 Użyj Azure Portal, aby wyświetlić konfigurację obliczeń, usunąć istniejącą konfigurację obliczeniową lub odświeżyć konfigurację obliczeniową w celu zsynchronizowania kluczy dostępu dla urządzenia IoT i urządzenia IoT Edge na potrzeby Azure Stack brzegowej usługi Pro.
 
-### <a name="view-compute-configuration"></a>Wyświetlanie konfiguracji obliczeniowej
+### <a name="view-iot-edge-configuration"></a>Wyświetl konfigurację IoT Edge
 
-Wykonaj następujące kroki w Azure Portal, aby wyświetlić konfigurację obliczeń dla urządzenia.
+Wykonaj następujące kroki w Azure Portal, aby wyświetlić konfigurację IoT Edge dla urządzenia.
 
-1. W Azure Portal przejdź do Azure Stack zasobów brzegowych, a następnie przejdź do pozycji **Oblicz compute > modules**. Wybierz pozycję **Wyświetl obliczenia** na pasku poleceń.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do **IoT Edge**. Gdy na urządzeniu zostanie włączona usługa IoT Edge, Strona przegląd wskazuje, że usługa IoT Edge działa prawidłowo.
 
     ![Wybierz pozycję Wyświetl obliczenia](media/azure-stack-edge-j-series-manage-compute/view-compute-1.png)
 
-2. Zanotuj konfigurację obliczeń na urządzeniu. Podczas konfigurowania obliczeń tworzony jest zasób IoT Hub. W ramach tego IoT Hub zasobów skonfigurowano urządzenie IoT i urządzenie IoT Edge. Tylko moduły systemu Linux są obsługiwane do uruchamiania na urządzeniu IoT Edge.
+2. Przejdź do pozycji **Właściwości** , aby wyświetlić konfigurację IoT Edge na urządzeniu. Podczas konfigurowania obliczeń tworzony jest zasób IoT Hub. W ramach tego IoT Hub zasobów skonfigurowano urządzenie IoT i urządzenie IoT Edge. Tylko moduły systemu Linux są obsługiwane do uruchamiania na urządzeniu IoT Edge.
 
     ![Wyświetl konfigurację](media/azure-stack-edge-j-series-manage-compute/view-compute-2.png)
 
 
-### <a name="remove-compute-configuration"></a>Usuń konfigurację obliczeń
+### <a name="remove-iot-edge-service"></a>Usuwanie usługi IoT Edge
 
-Wykonaj następujące kroki w Azure Portal, aby usunąć istniejącą konfigurację obliczeń krawędzi dla urządzenia.
+Wykonaj następujące czynności w Azure Portal, aby usunąć istniejącą konfigurację IoT Edge dla urządzenia.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **Oblicz compute > Rozpocznij**. Na pasku poleceń wybierz pozycję **Usuń obliczenia** .
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do **IoT Edge**. Przejdź do **omówienia** i wybierz pozycję **Usuń** na pasku poleceń.
 
     ![Wybierz pozycję Usuń obliczenia](media/azure-stack-edge-j-series-manage-compute/remove-compute-1.png)
 
-2. W przypadku usunięcia konfiguracji obliczeniowej należy ponownie skonfigurować urządzenie, jeśli będzie konieczne ponowne użycie obliczeń. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak**.
+2. W przypadku usunięcia usługi IoT Edge akcja jest nieodwracalna i nie można jej cofnąć. Utworzone moduły i wyzwalacze również zostaną usunięte. Musisz zmienić konfigurację urządzenia, jeśli trzeba będzie ponownie używać IoT Edge. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **OK**.
 
     ![Wybierz pozycję Usuń obliczenie 2](media/azure-stack-edge-j-series-manage-compute/remove-compute-2.png)
 
@@ -121,7 +121,7 @@ Jeśli urządzenie IoT i IoT Edge klucze zostały obrócone, należy odświeży�
 
 Aby zsynchronizować klucze dostępu dla urządzenia, wykonaj następujące czynności w Azure Portal.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **Oblicz compute > Rozpocznij**. Wybierz pozycję **Odśwież konfigurację** na pasku poleceń.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **IoT Edge COMPUTE**. Przejdź do **omówienia** i wybierz pozycję **Odśwież konfigurację** na pasku poleceń.
 
     ![Wybierz konfigurację odświeżania](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-1.png)
 

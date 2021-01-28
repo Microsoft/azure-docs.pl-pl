@@ -1,5 +1,5 @@
 ---
-title: Przesyłanie strumieniowe plików wideo przy użyciu Azure Media Services i interfejsu wiersza polecenia platformy Azure
+title: Przesyłanie strumieniowe plików wideo za pomocą interfejsu wiersza polecenia Azure Media Services
 description: Wykonaj kroki tego samouczka, aby utworzyć nowe konto Azure Media Services, zakodować plik i przesłać strumieniowo do Azure Media Player przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f4a71509c29555da2fdbc1e7eed2fd985237d6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c78205d7e2b41628de9e8b92c9fa5506e82158cb
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268778"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954499"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumień wideo — interfejs wiersza polecenia platformy Azure
 

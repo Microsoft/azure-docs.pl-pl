@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 49c17946203bc6c3655b1aaf7b04a1ee3ea67388
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119462"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955653"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Uaktualnianie analizy filmów wideo na żywo na IoT Edge od 1,0 do 2,0
 
@@ -37,7 +37,7 @@ W szablonie wdrożenia poszukaj na żywo analizy filmów wideo na IoT Edge modul
 "image": "mcr.microsoft.com/media/live-video-analytics:2"
 ```
 > [!TIP]
-Jeśli nie zmodyfikowano nazwy usługi Live Video Analytics w module IoT Edge, poszukaj w `lvaEdge` węźle module.
+> Jeśli nie zmodyfikowano nazwy usługi Live Video Analytics w module IoT Edge, poszukaj w `lvaEdge` węźle module.
 
 ### <a name="topology-file-changes"></a>Zmiany pliku topologii
 Upewnij się, że w plikach topologii **`apiVersion`** jest ustawiona wartość 2,0
@@ -58,9 +58,9 @@ Upewnij się, że w plikach topologii **`apiVersion`** jest ustawiona wartość 
 >**`outputSelectors`** Jest to właściwość opcjonalna. Jeśli ta wartość nie jest używana, wykres multimedialny przekaże dźwięk (jeśli jest włączony) i wideo z aparatu RTSP. 
 
 * W `MediaGraphHttpExtension` `MediaGraphGrpcExtension` przypadku procesorów i należy pamiętać o następujących zmianach:  
-    * **Właściwości obrazu**
-        * `MediaGraphImageFormatEncoded` nie jest już obsługiwane. 
-        * Zamiast tego należy **`MediaGraphImageFormatBmp`** użyć **`MediaGraphImageFormatJpeg`** lub **`MediaGraphImageFormatPng`** . Na przykład
+    #### <a name="image-properties"></a>Właściwości obrazu
+    * `MediaGraphImageFormatEncoded` nie jest już obsługiwane. 
+      * Zamiast tego należy **`MediaGraphImageFormatBmp`** użyć **`MediaGraphImageFormatJpeg`** lub **`MediaGraphImageFormatPng`** . Na przykład
         ```
         "image": {
                 "scale": 
@@ -94,14 +94,14 @@ Upewnij się, że w plikach topologii **`apiVersion`** jest ustawiona wartość 
         >[!NOTE]
         > Możliwe wartości pixelFormat obejmują: `yuv420p` , `rgb565be` ,, `rgb565le` `rgb555be` , `rgb555le` ,, `rgb24` `bgr24` `argb` `rgba` `abgr` ,,,, `bgra`  
 
-    * **extensionConfiguration dla procesora rozszerzenia GRPC**  
-        * W `MediaGraphGrpcExtension` procesorze jest dostępna nowa właściwość o nazwie **`extensionConfiguration`** , która jest opcjonalnym ciągiem, który może być używany jako część kontraktu gRPC. To pole może służyć do przekazywania wszelkich danych do serwera wnioskowania i można zdefiniować, w jaki sposób serwer wnioskowania używa tych danych.  
-        Jeden przypadek użycia tej właściwości polega na tym, że wiele modeli AI jest spakowanych na pojedynczym serwerze wnioskowania. W przypadku tej właściwości nie trzeba ujawniać węzła dla każdego modelu AI. Zamiast tego w przypadku wystąpienia grafu jako dostawcy rozszerzeń można zdefiniować, jak wybrać różne modele AI przy użyciu **`extensionConfiguration`** właściwości i podczas wykonywania, LVA przekaże ten ciąg do serwera inferencing, który może użyć tego do wywołania żądanego modelu AI.  
+    #### <a name="extensionconfiguration-for-grpc-extension-processor"></a>extensionConfiguration dla procesora rozszerzenia GRPC  
+    * W `MediaGraphGrpcExtension` procesorze jest dostępna nowa właściwość o nazwie **`extensionConfiguration`** , która jest opcjonalnym ciągiem, który może być używany jako część kontraktu gRPC. To pole może służyć do przekazywania wszelkich danych do serwera wnioskowania i można zdefiniować, w jaki sposób serwer wnioskowania używa tych danych.  
+    Jeden przypadek użycia tej właściwości polega na tym, że wiele modeli AI jest spakowanych na pojedynczym serwerze wnioskowania. W przypadku tej właściwości nie trzeba ujawniać węzła dla każdego modelu AI. Zamiast tego w przypadku wystąpienia grafu jako dostawcy rozszerzeń można zdefiniować, jak wybrać różne modele AI przy użyciu **`extensionConfiguration`** właściwości i podczas wykonywania, LVA przekaże ten ciąg do serwera inferencing, który może użyć tego do wywołania żądanego modelu AI.  
 
-    * **Kompozycja AI**
-        * Usługa wideo Analytics na żywo 2,0 obsługuje teraz użycie więcej niż jednego procesora rozszerzenia grafu multimediów w ramach topologii. Ramki multimediów można przekazać z aparatu RTSP do różnych modeli AI sekwencyjnie, równolegle lub w połączeniu obu. Zapoznaj się z przykładową topologią pokazującą dwa modele AI używane sekwencyjnie.
+    #### <a name="ai-composition"></a>Kompozycja AI
+    * Usługa wideo Analytics na żywo 2,0 obsługuje teraz użycie więcej niż jednego procesora rozszerzenia grafu multimediów w ramach topologii. Ramki multimediów można przekazać z aparatu RTSP do różnych modeli AI sekwencyjnie, równolegle lub w połączeniu obu. Zapoznaj się z przykładową topologią pokazującą dwa modele AI używane sekwencyjnie.
 
-
+### <a name="disk-space-management-with-sink-nodes"></a>Zarządzanie miejscem na dysku z węzłami ujścia
 * W węźle **ujścia plików** można teraz określić, jak dużo miejsca na żywo analiza filmów wideo w module IoT Edge może być używana do przechowywania przetworzonych obrazów. Aby to zrobić, Dodaj **`maximumSizeMiB`** pole do węzła FileSink. Przykładowy węzeł ujścia pliku jest następujący:
     ```
     "sinks": [
@@ -154,6 +154,7 @@ Upewnij się, że w plikach topologii **`apiVersion`** jest ustawiona wartość 
     >[!NOTE]
     >  Ścieżka **ujścia plików** jest dzielona na ścieżkę katalogu podstawowego i wzorzec nazwy pliku, natomiast ścieżka **ujścia zasobów** zawiera ścieżkę katalogu podstawowego.  
 
+### <a name="frame-rate-management"></a>Zarządzanie szybkością klatek
 * **`MediaGraphFrameRateFilterProcessor`** jest przestarzałe w **usłudze Live Video Analytics w module IoT Edge 2,0** .
     * Aby próbkować przychodzące wideo w celu przetworzenia, Dodaj **`samplingOptions`** Właściwość do procesorów rozszerzeń MediaGraph ( `MediaGraphHttpExtension` lub `MediaGraphGrpcExtension` )  
      ```
@@ -169,7 +170,7 @@ W tej wersji telegraf może służyć do wysyłania metryk do Azure Monitor. Z t
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taksonomia zdarzeń":::
 
-Można utworzyć obraz telegraf z konfiguracją niestandardową z łatwością przy użyciu platformy Docker. Dowiedz się więcej na ten temat na stronie [monitorowanie i rejestrowanie](monitoring-logging.md#azure-monitor-collection-via-telegraf) .
+Można utworzyć obraz telegraf z konfiguracją niestandardową z łatwością przy użyciu platformy Docker. Dowiedz się więcej na stronie [monitorowanie i rejestrowanie](monitoring-logging.md#azure-monitor-collection-via-telegraf) .
 
 ## <a name="next-steps"></a>Następne kroki
 

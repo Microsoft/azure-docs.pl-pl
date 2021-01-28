@@ -1,5 +1,5 @@
 ---
-title: Kodery przesyłania strumieniowego na żywo zalecane przez Media Services — Azure
+title: Kodery przesyłania strumieniowego na żywo zalecane przez Media Services
 description: Dowiedz się więcej o koderach lokalnych dotyczących przesyłania strumieniowego na żywo zalecanych przez Media Services
 services: media-services
 keywords: kodowanie; kodery; nośnik
@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 6d54a4167739775d3c09740f25a883314e048c65
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bf282b3fbba0f22cd41c0420014c46ddb7c958eb
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895173"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955143"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Zweryfikowane lokalne kodery przesyłania strumieniowego na żywo
 
@@ -117,7 +117,7 @@ Aby odtworzyć zawartość, musi być obecny strumień audio i wideo. Odtwarzani
 > [!IMPORTANT]
 > Obejrzyj fizyczny stan maszyny (procesor CPU/pamięć/itp.), ponieważ przekazywanie fragmentów do chmury obejmuje operacje procesora i operacji we/wy. Jeśli zmienisz dowolne ustawienia w koderze, zresetuj zdarzenie/kanał na żywo, aby zmiany zaczęły obowiązywać.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Przesyłanie strumieniowe na żywo z Media Services v3](live-streaming-overview.md)
 

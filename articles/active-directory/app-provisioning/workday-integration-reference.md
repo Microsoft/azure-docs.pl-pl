@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 01/18/2021
 ms.author: chmutali
-ms.openlocfilehash: 251e1d4249373ec52afb3d7edaa2325c992b66f1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 38a93d5db6f8331da6e7afdef3e91b2764537459
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570166"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954025"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Jak Azure Active Directory aprowizacji integruje się z dniem roboczym
 
@@ -43,7 +43,7 @@ Aby zapewnić lepszą ochronę łączności między usługą Azure AD Provisioni
 1. Skopiuj wszystkie zakresy adresów IP wymienione w elemencie *addressPrefixes* i użyj zakresu, aby skompilować listę adresów IP.
 1. Zaloguj się do portalu administracyjnego produktu Workday. 
 1. Aby utworzyć nowy zakres adresów IP dla centrów danych platformy Azure, można uzyskać dostęp do zadania **Zachowaj zakresy adresów IP** . Określ zakresy adresów IP (przy użyciu notacji CIDR) jako listę rozdzieloną przecinkami.  
-1. Aby utworzyć nowe zasady uwierzytelniania, uzyskaj dostęp do zadania **Zarządzaj zasadami uwierzytelniania** . W zasadach uwierzytelniania Użyj **dozwolonych uwierzytelniania** , aby określić zakres adresów IP usługi Azure AD i grupę zabezpieczeń, dla których będzie dozwolony dostęp z tego zakresu adresów IP. Zapisz zmiany. 
+1. Aby utworzyć nowe zasady uwierzytelniania, uzyskaj dostęp do zadania **Zarządzaj zasadami uwierzytelniania** . W zasadach uwierzytelniania Użyj listy dozwolonych uwierzytelnień, aby określić zakres adresów IP usługi Azure AD i grupę zabezpieczeń, dla których będzie dozwolony dostęp z tego zakresu adresów IP. Zapisz zmiany. 
 1. Uzyskaj dostęp do zadania **Aktywuj wszystkie oczekujące zmiany zasad uwierzytelniania** , aby potwierdzić zmiany.
 
 ### <a name="limiting-access-to-worker-data-in-workday-using-constrained-security-groups"></a>Ograniczanie dostępu do danych procesu roboczego w programie Workday przy użyciu grup zabezpieczeń z ograniczeniami
@@ -348,7 +348,7 @@ Jeśli którykolwiek z powyższych zapytań zwróci zatrudnienie w przyszłości
 </Get_Workers_Request>
 ```
 
-### <a name="retrieving-worker-data-attributes"></a>Pobieranie atrybutów danych procesu roboczego
+## <a name="retrieving-worker-data-attributes"></a>Pobieranie atrybutów danych procesu roboczego
 
 Interfejs API *Get_Workers* może zwracać różne zestawy danych skojarzone z procesem roboczym. W zależności od [wyrażeń interfejsu API XPath](workday-attribute-reference.md) skonfigurowanych w schemacie aprowizacji usługa Azure AD Provisioning określa zestawy danych do pobrania z produktu Workday. Odpowiednio flagi *Response_Group* są ustawiane w żądaniu *Get_Workers* . 
 
@@ -402,6 +402,9 @@ Poniższa tabela zawiera wskazówki dotyczące konfiguracji mapowania do użycia
 | 44 | Dane oceny talent               | Nie                  | WD: dane procesu roboczego \_ /WD: talent \_ oceny wydajności \_                                   |
 | 45 | Dane konta użytkownika                    | Nie                  | WD: dane procesu roboczego \_ /WD: \_ dane konta użytkownika \_                                        |
 | 46 | Dane dokumentu procesu roboczego                 | Nie                  | WD: dane procesu roboczego \_ /WD: \_ dane dokumentu procesu roboczego \_                                     |
+
+>[!NOTE]
+>Każda jednostka produktu Workday wymieniona w tabeli jest chroniona przez **zasady zabezpieczeń domeny** w usłudze Workday. Jeśli nie możesz pobrać żadnego atrybutu skojarzonego z jednostką po ustawieniu odpowiedniego wyrażenia XPATH, skontaktuj się z administratorem platformy Workday, aby upewnić się, że odpowiednie zasady zabezpieczeń domeny zostały skonfigurowane dla użytkownika systemu integracji skojarzonego z aplikacją aprowizacji. Na przykład aby pobrać *dane dotyczące umiejętności*, *należy uzyskać dostęp* do danych procesu roboczego domeny produktu Workday *: umiejętności i doświadczenia*. 
 
 Poniżej przedstawiono kilka przykładów, w których można zwiększyć integrację z usługą Workday w celu spełnienia określonych wymagań. 
 

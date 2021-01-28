@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 3a623a487dd31caf8c85b18771d90e3a6306df68
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359735"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954008"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do produktu Workday
 Celem tego samouczka jest wyświetlenie czynności, które należy wykonać w celu przeprowadzenia zapisywania atrybutów zapisu z usługi Azure AD do produktu Workday. Aplikacja do obsługi funkcji zapisywania zwrotnego dla produktu Workday obsługuje Przypisywanie wartości do następujących atrybutów produktu Workday:
@@ -52,19 +52,19 @@ Postępuj zgodnie z tymi instrukcjami, aby skonfigurować Stornowanie adresów e
 
 **Aby skonfigurować łącznik zapisywania zwrotnego dla produktu Workday:**
 
-1. Przejdź do adresu <https://portal.azure.com>.
+1. Przejdź do witryny <https://portal.azure.com>.
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
-3. Wybierz **aplikacje przedsiębiorstwa** , a następnie **wszystkie aplikacje**.
+3. Wybierz **aplikacje przedsiębiorstwa**, a następnie **wszystkie aplikacje**.
 
-4. Wybierz pozycję **Dodaj aplikację** , a następnie wybierz kategorię **wszystkie** .
+4. Wybierz pozycję **Dodaj aplikację**, a następnie wybierz kategorię **wszystkie** .
 
 5. Wyszukaj funkcję **zapisywania zwrotnego dla produktu Workday** i Dodaj tę aplikację z galerii.
 
 6. Po dodaniu aplikacji i wyświetleniu ekranu Szczegóły aplikacji wybierz opcję **Inicjowanie obsługi**.
 
-7. Zmień tryb **aprowizacji** **Mode** na **automatyczny**.
+7. Zmień tryb **aprowizacji**  na **automatyczny**.
 
 8. Wypełnij sekcję **poświadczenia administratora** w następujący sposób:
 
@@ -153,7 +153,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
    > Aplikacja do inicjowania obsługi zwrotnego produktu Workday nie obsługuje opcji **Synchronizuj tylko przypisanych użytkowników i grupy**.
  
 
-2. Kliknij przycisk **Zapisz**.
+2. Kliknij pozycję **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w katalogu źródłowym. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 
@@ -172,6 +172,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Dowiedz się więcej na temat scenariuszy integracji usługi Azure AD i produktu Workday oraz wywołań usług sieci Web](../app-provisioning/workday-integration-reference.md)
 * [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 * [Dowiedz się, jak skonfigurować Logowanie jednokrotne między produktem Workday i Azure Active Directory](workday-tutorial.md)
 * [Dowiedz się, jak zintegrować inne aplikacje SaaS z Azure Active Directory](tutorial-list.md)

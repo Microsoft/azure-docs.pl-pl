@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 055448eacf1cc12c6d021c6571a0478cb35442ba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 32027695f914257ef245d920f00fc1d1976fa791
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89566917"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956331"
 ---
 Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzegowym. Definiuje również ustawienia konfiguracji dla tych modułów. 
 
@@ -14,6 +14,13 @@ Wykonaj następujące kroki, aby wygenerować manifest z pliku szablonu, a nast�
 1. Obok okienka **Azure IoT Hub** wybierz ikonę **więcej akcji** , aby ustawić parametry połączenia IoT Hub. Możesz skopiować ten ciąg z pliku *src/Cloud-to-Device-App/appsettings.jsna* plik. 
 
     ![Ustaw parametry połączenia IOT](../../../media/quickstarts/set-iotconnection-string.png)
+
+> [!NOTE]
+> Może zostać wyświetlony monit o podanie wbudowanych informacji o punkcie końcowym dla IoT Hub. Aby uzyskać te informacje, w Azure Portal przejdź do IoT Hub i poszukaj opcji **wbudowane punkty końcowe** w lewym okienku nawigacji. Kliknij tam i Wyszukaj **punkt końcowy zgodny z centrum zdarzeń** w sekcji **punkt końcowy zgodny z centrum zdarzeń** . Skopiuj i Użyj tekstu w polu. Punkt końcowy będzie wyglądać następująco:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Kliknij prawym przyciskiem myszy pozycję **src/Edge/deployment.template.jsna** i wybierz polecenie **Generuj IoT Edge manifest wdrożenia**.
 
     ![Generowanie manifestu wdrażania IoT Edge](../../../media/quickstarts/generate-iot-edge-deployment-manifest.png)
@@ -27,7 +34,7 @@ Wykonaj następujące kroki, aby wygenerować manifest z pliku szablonu, a nast�
 1. Po około 30 sekundach w lewym dolnym rogu okna Odśwież IoT Hub platformy Azure. Na urządzeniu brzegowym są teraz wyświetlane następujące wdrożone moduły:
 
     * Analiza wideo na żywo na IoT Edge (Nazwa modułu `lvaEdge` )
-    * Symulator protokołu przesyłania strumieniowego (RTSP) w czasie rzeczywistym (Nazwa modułu `rtspsim` )
+    * Symulator protokołu przesyłania strumieniowego Real-Time (RTSP) (Nazwa modułu `rtspsim` )
 
 Moduł symulatora RTSP symuluje strumień wideo na żywo przy użyciu pliku wideo, który został skopiowany do urządzenia brzegowego po uruchomieniu [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 

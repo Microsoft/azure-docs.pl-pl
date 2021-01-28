@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: d4ef8e6207d53a192b19f8343a60093e82368fa6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5c1f52fda2edfa0a03caa72fcd7fa8dc02d0a607
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223384"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954668"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projektowanie sieci wirtualnych z użyciem zasobów bramy translatora adresów sieciowych
 
@@ -339,6 +339,7 @@ Port dla tego elementu jest dostępny do ponownego użycia w tym samym docelowym
 - Translator adresów sieciowych jest zgodny z publicznym adresem IP jednostki SKU, publicznym prefiksem adresu IP i zasobami modułu równoważenia obciążenia.   Zasoby podstawowe (na przykład podstawowa usługa równoważenia obciążenia) i wszelkie produkty pochodzące z nich nie są zgodne z translatorem adresów sieciowych.  Zasoby podstawowe muszą być umieszczone w podsieci, która nie jest skonfigurowana przy użyciu translatora adresów sieciowych.
 - Rodzina adresów IPv4 jest obsługiwana.  Translator adresów sieciowych nie współdziała z rodziną adresów IPv6.  Nie można wdrożyć translatora adresów sieciowych w podsieci z prefiksem IPv6.
 - Translator adresów sieciowych nie może obejmować wielu sieci wirtualnych.
+- Fragmentacja IP nie jest obsługiwana.
 
 ## <a name="suggestions"></a>Sugestie
 
