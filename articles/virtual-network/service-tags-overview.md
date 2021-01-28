@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 965795b96deda03531504952fc8afbea0acb41bf
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 39645e8bd370dfd518d570c3088c56a22aa77748
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221956"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927031"
 ---
 # <a name="virtual-network-service-tags"></a>Tagi usługi sieci wirtualnej
 <a name="network-service-tags"></a>
@@ -129,8 +129,8 @@ Możesz uzyskać informacje o bieżącym znaczniku i zakresie usługi, aby uwzgl
 Można programowo pobrać bieżącą listę tagów usługi wraz ze szczegółami zakresu adresów IP:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Interfejs wiersza polecenia platformy Azure](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
 > W publicznej wersji zapoznawczej interfejs API odnajdywania może zwracać informacje, które są mniej aktualne niż informacje zwrócone przez pobrane dane JSON. (Zobacz następną sekcję).

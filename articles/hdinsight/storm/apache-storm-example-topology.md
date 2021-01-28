@@ -1,19 +1,16 @@
 ---
 title: Przykładowe topologie Apache Storm w usłudze Azure HDInsight
 description: Lista przykładowych topologii burzy utworzonych i przetestowanych przy użyciu Apache Storm w usłudze HDInsight, w tym podstawowych topologii języka C# i Java oraz pracy z Event Hubs.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
-ms.openlocfilehash: cfc68b144eac16681f162b3574a82351397ed37c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dabfec18cb904fa72518428220991b817b53529
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086861"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928921"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Przykład Apache Storm topologie i składniki Apache Storm w usłudze HDInsight
 

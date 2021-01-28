@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8566d82ef0d91caff47ff17a9cb12fcdc8241884
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207397"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928020"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Przywracanie kopii zapasowej na platformie Azure Service Fabric
 
@@ -28,11 +28,16 @@ Można na przykład skonfigurować usługę do tworzenia kopii zapasowych danych
 - Aby wyzwolić przywracanie, dla klastra musi być włączona _Usługa analizy błędów (FAS)_ .
 - _Usługa przywracania kopii zapasowych (BRS)_ utworzyła kopię zapasową.
 - Przywracanie może być wyzwalane tylko w partycji.
-- Zainstaluj pakiet Microsoft. servicefabric. PowerShell. http (w wersji zapoznawczej) na potrzeby wykonywania wywołań konfiguracyjnych.
+- Zainstaluj pakiet Microsoft. servicefabric. PowerShell. http module (wersja zapoznawcza) na potrzeby wykonywania wywołań konfiguracyjnych.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Jeśli wersja PowerShellGet jest mniejsza niż 1.6.0, należy ją zaktualizować, aby dodać obsługę flagi *-AllowPrerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Upewnij się, że klaster jest połączony przy użyciu `Connect-SFCluster` polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
 
@@ -48,7 +53,7 @@ Można na przykład skonfigurować usługę do tworzenia kopii zapasowych danych
 Przywracanie może zostać wyzwolone dla jednego z następujących scenariuszy:
 
 - Przywracanie danych na potrzeby _odzyskiwania po awarii_.
-- Przywracanie danych w celu _uszkodzenia i utraty_danych.
+- Przywracanie danych w celu _uszkodzenia i utraty_ danych.
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Przywracanie danych w przypadku odzyskiwania po awarii
 
@@ -154,7 +159,7 @@ Należy również wybrać partycję docelową w klastrze alternatywnym, zgodnie 
 
 Jeśli identyfikator partycji w klastrze alternatywnym to `1c42c47f-439e-4e09-98b9-88b8f60800c6` , można go zmapować na oryginalny identyfikator partycji klastra, `974bd92a-b395-4631-8a7f-53bd4ae9cf22` porównując klucz wysoki i niski dla _partycjonowania z podziałem na partycje (UniformInt64Partition)_.
 
-W przypadku _nazwanego partycjonowania_wartość nazwy jest porównywana z rozpoznawaniem partycji docelowej w alternatywnym klastrze.
+W przypadku _nazwanego partycjonowania_ wartość nazwy jest porównywana z rozpoznawaniem partycji docelowej w alternatywnym klastrze.
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell przy użyciu modułu Microsoft. servicefabric. PowerShell. http
 
@@ -205,15 +210,15 @@ Możesz wyzwolić przywracanie z Service Fabric Explorer. Upewnij się, że tryb
 
     ![Wyzwól udziały przywracania partycji][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>Przywracanie danych na _data corruption_potrzeby / _utraty danych_ dotyczących uszkodzenia danych
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Przywracanie danych na potrzeby / _utraty danych_ dotyczących uszkodzenia danych
 
-W przypadku _utraty danych_ lub _uszkodzenia danych_kopie zapasowe partycji dla niezawodnej usługi stanowej i partycji Reliable Actors mogą zostać przywrócone do dowolnej z wybranych kopii zapasowych.
+W przypadku _utraty danych_ lub _uszkodzenia danych_ kopie zapasowe partycji dla niezawodnej usługi stanowej i partycji Reliable Actors mogą zostać przywrócone do dowolnej z wybranych kopii zapasowych.
 
 Poniższy przykład to kontynuacja [włączania okresowych kopii zapasowych dla niezawodnej usługi stanowej i Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). W tym przykładzie zasady tworzenia kopii zapasowej są włączone dla partycji, a usługa tworzy kopie zapasowe z odpowiednią częstotliwością w usłudze Azure Storage.
 
 Wybierz kopię zapasową z danych wyjściowych  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). W tym scenariuszu kopia zapasowa jest generowana z tego samego klastra co poprzednio.
 
-Aby wyzwolić przywracanie, wybierz kopię zapasową z listy. W przypadku bieżącego _data loss_ / _uszkodzenia danych_utraty danych wybierz następujące kopie zapasowe:
+Aby wyzwolić przywracanie, wybierz kopię zapasową z listy. W przypadku bieżącego  / _uszkodzenia danych_ utraty danych wybierz następujące kopie zapasowe:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -297,7 +302,7 @@ $restoreResponse | Format-List
     RestoredLsn   : 3552
     ```
     
-3. **Powodzenie**, **Niepowodzenie**lub **przekroczenie limitu czasu**: żądane przywrócenie można wykonać w jednym z następujących stanów. Każdy stan ma następujące istotne znaczenie i szczegóły odpowiedzi:
+3. **Powodzenie**, **Niepowodzenie** lub **przekroczenie limitu czasu**: żądane przywrócenie można wykonać w jednym z następujących stanów. Każdy stan ma następujące istotne znaczenie i szczegóły odpowiedzi:
     - **Sukces**: stan przywracania _sukcesu_ wskazuje stan odzyskanej partycji. Partycja raportuje Stany _RestoredEpoch_ i _RestoredLSN_ wraz z czasem UTC.
 
         ```

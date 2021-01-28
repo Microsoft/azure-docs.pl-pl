@@ -1,19 +1,16 @@
 ---
 title: Wdrażanie topologii Apache Storm w usłudze Azure HDInsight i zarządzanie nimi
 description: Dowiedz się, jak wdrażać i monitorować topologie Apache Storm i zarządzać nimi za pomocą pulpitu nawigacyjnego burzy w usłudze HDInsight opartej na systemie Linux. Użyj narzędzi Hadoop dla programu Visual Studio.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995594"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929178"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Wdrażanie topologii Apache Storm w usłudze Azure HDInsight i zarządzanie nimi
 
@@ -44,7 +41,7 @@ Narzędzia Data Lake Tools for Visual Studio umożliwiają przesyłanie do klast
 
 1. W oknie **Tworzenie nowego projektu** wybierz pole wyszukiwania, a następnie wprowadź `Storm` . Następnie wybierz z listy wyników pozycję **przykład burzy** , a następnie wybierz pozycję **dalej**.
 
-1. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz przycisk **Utwórz**.
+1. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz pozycję **Utwórz**.
 
     ![Konfigurowanie okna nowego projektu, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 

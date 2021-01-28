@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 570fd7f356969bbd37ef6b661334501a062c36df
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165692"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928806"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Warstwy dostępu dla platformy Azure Blob Storage — gorąca, chłodna i archiwalna
 
@@ -86,7 +86,7 @@ Przykładowe scenariusze użycia dla warstwy dostępu archiwalnego obejmują:
 - Dane dotyczące zgodności i archiwizowania, które muszą być przechowywane przez długi czas i są trudne do użycia
 
 > [!NOTE]
-> Warstwa archiwum nie jest obsługiwana w przypadku kont ZRS, GZRS i RA-GZRS.
+> Warstwa archiwum nie jest obsługiwana w przypadku kont ZRS, GZRS i RA-GZRS. Migrowanie z LRS do GRS nie jest obsługiwane, jeśli konto magazynu zawiera obiekty blob w warstwie archiwum.
 
 ## <a name="account-level-tiering"></a>Obsługa warstw na poziomie konta
 
@@ -146,7 +146,7 @@ W poniższej tabeli przedstawiono porównanie magazynu obiektów BLOB wydajnośc
 |                                           | **Wydajność warstwy Premium**   | **Warstwa gorąca** | **Warstwa chłodna**       | **Warstwa Archiwum**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Dostępność**                          | 99,9%                     | 99,9%        | 99%                 | Tryb offline           |
-| **Dostępność** <br> **(odczyty RA-GRS)**  | Brak                       | 99,99%       | 99,9%               | Tryb offline           |
+| **Dostępność** <br> **(odczyty RA-GRS)**  | Nie dotyczy                       | 99,99%       | 99,9%               | Tryb offline           |
 | **Opłaty za użycie**                         | Wyższe koszty magazynowania, niższy dostęp i koszt transakcji | Wyższe koszty magazynowania, niższy dostęp i koszty transakcji | Niższe koszty magazynowania, wyższego poziomu dostępu i kosztów transakcji | Najniższe koszty magazynowania, najwyższy poziom dostępu i koszty transakcji |
 | **Minimalny czas magazynowania**              | NIE DOTYCZY                       | NIE DOTYCZY          | 30 dni<sup>1</sup> | 180 dni
 | **Opóźnienie** <br> **(czas do pierwszego bajtu)** | Jednocyfrowe milisekundy | milisekundy | milisekundy        | godz.<sup>2</sup> |

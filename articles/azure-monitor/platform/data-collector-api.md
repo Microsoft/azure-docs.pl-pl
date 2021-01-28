@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: ab0ed536bd23aaf15d85af85e4f924bc2f51f3d4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bdbb4307f46566d1cac259cbdc4c81d1dfba5c7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006631"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927792"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)
 W tym artykule pokazano, jak za pomocą interfejsu API modułu zbierającego dane HTTP wysyłać dane dziennika do Azure Monitor z klienta interfejsu API REST.  Opisano w nim sposób formatowania danych zbieranych przez skrypt lub aplikację, uwzględniania ich w żądaniu oraz żądania autoryzowane przez Azure Monitor.  Przykłady dla programu PowerShell, C# i Python.
@@ -66,7 +66,7 @@ Oto format nagłówka autoryzacji:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*Identyfikator obszaru roboczego* jest unikatowym identyfikatorem obszaru roboczego log Analytics. *Sygnatura* jest kod uwierzytelniania wiadomości oparty na wykorzystaniu [skrótu (HMAC)](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) , który jest zbudowany z żądania, a następnie obliczany przy użyciu [algorytmu SHA256](/dotnet/api/system.security.cryptography.sha256?view=netcore-3.1). Następnie kodujesz go za pomocą kodowania base64.
+*Identyfikator obszaru roboczego* jest unikatowym identyfikatorem obszaru roboczego log Analytics. *Sygnatura* jest kod uwierzytelniania wiadomości oparty na wykorzystaniu [skrótu (HMAC)](/dotnet/api/system.security.cryptography.hmacsha256) , który jest zbudowany z żądania, a następnie obliczany przy użyciu [algorytmu SHA256](/dotnet/api/system.security.cryptography.sha256). Następnie kodujesz go za pomocą kodowania base64.
 
 Użyj tego formatu, aby zakodować ciąg podpisu **SharedKey** :
 

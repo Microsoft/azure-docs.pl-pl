@@ -3,12 +3,12 @@ title: Okresowe wykonywanie kopii zapasowej i przywracanie w usłudze Azure Serv
 description: Użyj funkcji okresowej kopii zapasowej i przywracania Service Fabric, aby umożliwić okresowe wykonywanie kopii zapasowych danych aplikacji.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 18d10b365cb2e4f4b4e3592233d5f467714bd5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d167b261f9b5915a970b4c219113f0765c039cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538674"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927990"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Okresowe tworzenie kopii zapasowych i przywracanie w klastrze Service Fabric platformy Azure
 > [!div class="op_single_selector"]
@@ -48,11 +48,16 @@ Service Fabric udostępnia zestaw interfejsów API do osiągnięcia następując
 * Certyfikat X. 509 na potrzeby szyfrowania wpisów tajnych wymaganych do nawiązania połączenia z magazynem w celu przechowywania kopii zapasowych. Zapoznaj się z [artykułem](service-fabric-cluster-creation-via-arm.md) , aby dowiedzieć się, jak uzyskać lub utworzyć certyfikat X. 509.
 * Service Fabric niezawodnej aplikacji stanowej utworzonej przy użyciu zestawu SDK Service Fabric w wersji 3,0 lub nowszej. W przypadku aplikacji przeznaczonych dla platformy .NET Core 2,0 aplikacja powinna być skompilowana przy użyciu zestawu SDK Service Fabric w wersji 3,1 lub nowszej.
 * Utwórz konto usługi Azure Storage do przechowywania kopii zapasowych aplikacji.
-* Zainstaluj pakiet Microsoft. servicefabric. PowerShell. http (w wersji zapoznawczej) na potrzeby wykonywania wywołań konfiguracyjnych.
+* Zainstaluj pakiet Microsoft. servicefabric. PowerShell. http module (wersja zapoznawcza) na potrzeby wykonywania wywołań konfiguracyjnych.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Jeśli wersja PowerShellGet jest mniejsza niż 1.6.0, należy ją zaktualizować, aby dodać obsługę flagi *-AllowPrerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Upewnij się, że klaster jest połączony przy użyciu `Connect-SFCluster` polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
 

@@ -5,27 +5,32 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247901"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928036"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Tworzenie kopii zapasowych na żądanie na platformie Azure Service Fabric
 
 Można utworzyć kopię zapasową danych niezawodnych usług stanowych i Reliable Actors, aby rozwiązać awarie lub sytuacje utraty danych.
 
-Usługa Azure Service Fabric ma funkcje do [regularnego tworzenia kopii](service-fabric-backuprestoreservice-quickstart-azurecluster.md) zapasowych danych i tworzenia kopii zapasowych danych. Tworzenie kopii zapasowych na żądanie jest przydatne, ponieważ chroni _data loss_przed / _uszkodzeniem danych_ utraty danych z powodu planowanych zmian w podstawowej usłudze lub jego środowisku.
+Usługa Azure Service Fabric ma funkcje do [regularnego tworzenia kopii](service-fabric-backuprestoreservice-quickstart-azurecluster.md) zapasowych danych i tworzenia kopii zapasowych danych. Tworzenie kopii zapasowych na żądanie jest przydatne, ponieważ chroni przed / _uszkodzeniem danych_ utraty danych z powodu planowanych zmian w podstawowej usłudze lub jego środowisku.
 
 Funkcje tworzenia kopii zapasowych na żądanie są przydatne do przechwytywania stanu usług przed ręcznym wyzwalaniem operacji środowiska usługi lub usługi. Jeśli na przykład wprowadzisz zmiany w plikach binarnych usługi podczas uaktualniania lub obniżania poziomu usługi. W takim przypadku kopia zapasowa na żądanie może pomóc w ochronie danych przed uszkodzeniem przez błędy kodu aplikacji.
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zainstaluj pakiet Microsoft. servicefabric. PowerShell. http (w wersji zapoznawczej) na potrzeby wykonywania wywołań konfiguracyjnych.
+- Zainstaluj pakiet Microsoft. servicefabric. PowerShell. http module (wersja zapoznawcza) na potrzeby wykonywania wywołań konfiguracyjnych.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Jeśli wersja PowerShellGet jest mniejsza niż 1.6.0, należy ją zaktualizować, aby dodać obsługę flagi *-AllowPrerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Upewnij się, że klaster jest połączony przy użyciu `Connect-SFCluster` polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
 
@@ -149,7 +154,7 @@ $backupResponse
   LsnOfLastBackupRecord   : 0
   FailureError            :
   ```
-- **Powodzenie**, **Niepowodzenie**lub **przekroczenie limitu czasu**: żądana kopia zapasowa na żądanie może zostać wykonana w jednym z następujących stanów:
+- **Powodzenie**, **Niepowodzenie** lub **przekroczenie limitu czasu**: żądana kopia zapasowa na żądanie może zostać wykonana w jednym z następujących stanów:
   - **Sukces**: stan kopii zapasowej _zakończony sukcesem_ wskazuje, że kopia zapasowa stanu partycji została zakończona pomyślnie. Odpowiedź zawiera _BackupEpoch_ i _BackupLSN_ dla partycji oraz godzinę w formacie UTC.
     ```
     BackupState             : Success

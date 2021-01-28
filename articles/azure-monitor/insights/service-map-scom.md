@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288e3f0c048bddb3f3378226889dc519de27764b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441509"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927892"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integracja System Center Operations Manager z funkcją Azure Monitor dla maszyn wirtualnych map
 
@@ -106,7 +106,7 @@ Folder Service Map ma cztery węzły:
 
 ## <a name="edit-or-delete-the-workspace"></a>Edytowanie lub usuwanie obszaru roboczego
 
-Skonfigurowany obszar roboczy można edytować lub usunąć za pomocą okienka **Przegląd Service map** (okienko**Administracja** > **Pakiet Operations Management Suite**  >  **Service map**).
+Skonfigurowany obszar roboczy można edytować lub usunąć za pomocą okienka **Przegląd Service map** (okienko **Administracja** > **Pakiet Operations Management Suite**  >  **Service map**).
 
 > [!NOTE]
 > [Pakiet Operations Management Suite to zbiór usług](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) należących do log Analytics, które są teraz częścią [Azure monitor](../overview.md).
@@ -139,7 +139,7 @@ Bieżący projekt przedstawia następujące problemy i ograniczenia:
 Aby uzyskać oficjalną dokumentację platformy Azure dotyczącą tworzenia nazwy głównej usługi, zobacz:
 
 * [Tworzenie jednostki usługi przy użyciu programu PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli)
 * [Tworzenie jednostki usługi przy użyciu Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Sugestie

@@ -1,19 +1,16 @@
 ---
 title: 'Szybki Start: Tworzenie i zarządzanie topologią Apache Storm — Azure HDInsight'
 description: W samouczku szybki start dowiesz się, jak utworzyć i monitorować topologię Apache Storm w usłudze Azure HDInsight.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/14/2019
-ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 8f13c813eee9bcfde578ba210c5aa2f2fe1cac2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe7b1cdc96ae95ac361183342ea491432c3ab4b4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86045029"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928851"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Szybki Start: Tworzenie i monitorowanie topologii Apache Storm w usłudze Azure HDInsight
 
@@ -49,7 +46,7 @@ Wykonaj następujące kroki, aby monitorować topologię za pomocą interfejsu u
 
 1. Aby wyświetlić interfejs użytkownika platformy Storm, otwórz w przeglądarce internetowej adres `https://CLUSTERNAME.azurehdinsight.net/stormui`. Zastąp ciąg `CLUSTERNAME` nazwą klastra.
 
-2. W obszarze **Podsumowanie topologii**wybierz wpis **WORDCOUNT** w kolumnie **Nazwa** . Zostaną wyświetlone informacje o topologii.
+2. W obszarze **Podsumowanie topologii** wybierz wpis **WORDCOUNT** w kolumnie **Nazwa** . Zostaną wyświetlone informacje o topologii.
 
     ![Pulpit nawigacyjny platformy Storm z informacjami o topologii przykładu z projektu Storm Starter o nazwie WordCount.](./media/apache-storm-quickstart/hdi-topology-summary.png)
 
@@ -78,7 +75,7 @@ Wykonaj następujące kroki, aby monitorować topologię za pomocą interfejsu u
     |Statystyki wejściowe (tylko Piorun)|Informacje o składnikach, które generują dane używane przez pioruna.|
     |Statystyka wyjściowa|Informacje o danych emitowanych przez ten piorun.|
     |Wykonawców|Informacje o wystąpieniach tego składnika.|
-    |Errors|Błędy wytwarzane przez ten składnik.|
+    |błędy|Błędy wytwarzane przez ten składnik.|
 
 4. Wyświetlając szczegółowe informacje o elemencie spout lub bolt, wybierz pozycję w kolumnie **Port** w sekcji **Executors** (Wykonawcy), aby wyświetlić szczegóły dotyczące określonego wystąpienia składnika.
 

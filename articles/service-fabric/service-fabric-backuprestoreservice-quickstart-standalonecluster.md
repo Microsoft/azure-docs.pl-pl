@@ -3,12 +3,12 @@ title: Okresowe tworzenie kopii zapasowej/przywracanie w autonomicznej Service F
 description: Funkcja okresowa i przywracanie kopii zapasowej autonomicznej Service Fabric umożliwia okresowe wykonywanie kopii zapasowych danych aplikacji.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: d20882ba5f7f31ef453c5d28f8bc37155cc99abd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4abf1cd4561a40aaafa5c01865eb12882884422
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538589"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927960"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Okresowe tworzenie kopii zapasowych i przywracanie w autonomicznej Service Fabric
 > [!div class="op_single_selector"]
@@ -47,11 +47,16 @@ Service Fabric udostępnia zestaw interfejsów API do osiągnięcia następując
 * Certyfikat X. 509 na potrzeby szyfrowania wpisów tajnych wymaganych do nawiązania połączenia z magazynem w celu przechowywania kopii zapasowych. Zapoznaj się z [artykułem](service-fabric-windows-cluster-x509-security.md) , aby dowiedzieć się, jak uzyskać lub utworzyć certyfikat X. 509 z podpisem własnym.
 
 * Service Fabric niezawodnej aplikacji stanowej utworzonej przy użyciu zestawu SDK Service Fabric w wersji 3,0 lub nowszej. W przypadku aplikacji przeznaczonych dla platformy .NET Core 2,0 aplikacja powinna być skompilowana przy użyciu zestawu SDK Service Fabric w wersji 3,1 lub nowszej.
-* Zainstaluj pakiet Microsoft. servicefabric. PowerShell. http (w wersji zapoznawczej) na potrzeby wykonywania wywołań konfiguracyjnych.
+* Zainstaluj pakiet Microsoft. servicefabric. PowerShell. http module (wersja zapoznawcza) na potrzeby wykonywania wywołań konfiguracyjnych.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.PowerShell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Jeśli wersja PowerShellGet jest mniejsza niż 1.6.0, należy ją zaktualizować, aby dodać obsługę flagi *-AllowPrerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Upewnij się, że klaster jest połączony przy użyciu `Connect-SFCluster` polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/20/2020
-ms.openlocfilehash: ed5e4d05a693ff9b0bf8823ba31de17d000d0fb6
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 5bb072d0ea710e35b4f741836aed143e962a326e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706885"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927692"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Usuwanie i odzyskiwanie obszaru roboczego usługi Azure Log Analytics
 
@@ -27,23 +27,23 @@ Po usunięciu obszaru roboczego Log Analytics jest wykonywana operacja usuwania 
 Należy zachować ostrożność podczas usuwania obszaru roboczego, ponieważ mogą istnieć ważne dane i konfiguracja, które mogą negatywnie wpłynąć na działanie usługi. Sprawdź, jakie agenci, rozwiązania i inne usługi platformy Azure przechowują swoje dane w Log Analytics, na przykład:
 
 * Rozwiązania do zarządzania
-* Usługa Azure Automation
+* Azure Automation
 * Agenci działający na maszynach wirtualnych z systemem Windows i Linux
 * Agenci działający na komputerach z systemem Windows i Linux w danym środowisku
 * System Center Operations Manager
 
 Operacja usuwania nietrwałego usuwa zasób obszaru roboczego, a wszystkie powiązane uprawnienia użytkowników są zerwane. Jeśli użytkownicy są powiązani z innymi obszarami roboczymi, mogą nadal korzystać z Log Analytics z tymi innymi obszarami roboczymi.
 
-## <a name="soft-delete-behavior"></a>Zachowanie nietrwałego usuwania
+## <a name="soft-delete-behavior"></a>Zachowanie usuwania nietrwałego
 
 Operacja usuwania obszaru roboczego służy do usuwania obszaru roboczego Menedżer zasobów zasobu, ale jego konfiguracja i dane będą przechowywane przez 14 dni, a jednocześnie zostanie wyświetlony wygląd obszaru roboczego. Wszyscy agenci i System Center Operations Manager grupy zarządzania skonfigurowane do raportowania do obszaru roboczego pozostają w stanie oddzielonym w okresie usuwania nietrwałego. Usługa zapewnia Dodatkowo mechanizm odzyskiwania usuniętego obszaru roboczego, w tym jego danych i połączonych zasobów, głównie cofając operację usuwania.
 
 > [!NOTE] 
 > Zainstalowane rozwiązania i połączone usługi, takie jak konto Azure Automation, zostaną trwale usunięte z obszaru roboczego w czasie usuwania i nie można ich odzyskać. Te zmiany należy skonfigurować ponownie po operacji odzyskiwania, aby przełączyć obszar roboczy do wcześniej skonfigurowanego stanu.
 
-Obszar roboczy można usunąć przy użyciu [programu PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), [interfejsu API REST](/rest/api/loganalytics/workspaces/delete)lub w [Azure Portal](https://portal.azure.com).
+Obszar roboczy można usunąć przy użyciu [programu PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace), [interfejsu API REST](/rest/api/loganalytics/workspaces/delete)lub w [Azure Portal](https://portal.azure.com).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**.
@@ -86,7 +86,7 @@ Obszar roboczy możesz odzyskać w okresie usuwania nietrwałego, w tym jego dan
 > [!IMPORTANT]
 > Jeśli obszar roboczy został usunięty w ramach operacji usuwania grupy zasobów, musisz najpierw utworzyć ponownie grupę zasobów.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**. Zostanie wyświetlona lista obszarów roboczych, które znajdują się w wybranym zakresie.

@@ -2,18 +2,15 @@
 title: Podwójne szyfrowanie danych magazynowanych
 titleSuffix: Azure HDInsight
 description: W tym artykule opisano dwie warstwy szyfrowania dostępne dla danych przechowywanych w klastrach usługi Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 4e895cdba1bfc16eac0450bd05271f0e41985b7b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359763"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927321"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Podwójne szyfrowanie usługi Azure HDInsight dla danych magazynowanych
 
@@ -104,7 +101,7 @@ Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn 
     |Właściwość |Opis|
     |---|---|
     |Uprawnienia klucza|Wybierz pozycję **Pobierz**, **Odpakuj klucz** i **Zawijaj klucz**.|
-    |Uprawnienia klucza tajnego|Wybierz pozycje **Get**, **Set** i **delete**.|
+    |Uprawnienia wpisu tajnego|Wybierz pozycje **Get**, **Set** i **delete**.|
     |Wybierz podmiot zabezpieczeń|Wybierz utworzoną wcześniej tożsamość zarządzaną przypisaną przez użytkownika.|
 
     ![Ustaw pozycję Wybierz podmiot zabezpieczeń dla zasad dostępu Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
@@ -123,7 +120,7 @@ Począwszy od [wersji 2020 listopada](hdinsight-release-notes.md#release-date-11
 
 W przypadku klastrów utworzonych przed wydaniem listopad 2020 konieczne będzie ręczne przeprowadzenie rotacji przy użyciu identyfikatora URI klucza z wersją.
 
-#### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+#### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Podczas tworzenia klastra można użyć klucza z podsystemem lub bezwartościowej wersji w następujący sposób:
 
@@ -366,7 +363,7 @@ Zawartość szablonu zarządzania zasobami `azuredeploy.json` :
 
 Klucze szyfrowania używane w uruchomionym klastrze można zmienić przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure. W przypadku tej operacji klaster musi mieć dostęp zarówno do bieżącego klucza, jak i do zamierzonego nowego klucza. w przeciwnym razie operacja zamiany klucza zakończy się niepowodzeniem. W przypadku klastrów utworzonych po wydaniu z listopada 2020 możesz wybrać, czy nowy klucz ma mieć wersję, czy nie. W przypadku klastrów utworzonych przed wydaniem listopad 2020 należy użyć klucza z podsystemem wersji podczas obracania klucza szyfrowania.
 
-#### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+#### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Aby obrócić klucz, potrzebny jest podstawowy identyfikator URI magazynu kluczy. Po wykonaniu tej czynności przejdź do sekcji Właściwości klastra usługi HDInsight w portalu, a następnie kliknij pozycję **Zmień klucz** w obszarze **adres URL klucza szyfrowania dysku**. Wprowadź adres URL nowego klucza i prześlij go, aby obrócić klucz.
 

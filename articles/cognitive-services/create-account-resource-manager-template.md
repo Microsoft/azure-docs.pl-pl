@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 856fd86b08dfe74925e682661df0d20692839bd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842111"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928653"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu szablonu ARM
 
@@ -47,7 +47,7 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 * [Microsoft. CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): tworzy zasób Cognitive Services.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
@@ -73,9 +73,9 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group` Tworzenie wymaga interfejsu wiersza polecenia platformy Azure w wersji 2,6 lub nowszej. Aby wyświetlić typ wersji `az --version` . Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](/cli/azure/deployment/group).
+> `az deployment group` Tworzenie wymaga interfejsu wiersza polecenia platformy Azure w wersji 2,6 lub nowszej. Aby wyświetlić typ wersji `az --version` . Więcej informacji zawiera strona [dokumentacji](/cli/azure/deployment/group).
 
-Uruchom następujący skrypt przy użyciu interfejsu wiersza polecenia platformy Azure [na komputerze lokalnym](/cli/azure/install-azure-cli?view=azure-cli-latest)lub w przeglądarce z przyciskiem **Wypróbuj** . Wprowadź nazwę i lokalizację (na przykład `centralus` ) dla nowej grupy zasobów, a szablon ARM zostanie użyty do wdrożenia w nim zasobu Cognitive Services. Zapamiętaj nazwę, której używasz. Będzie on używany później do weryfikacji wdrożenia.
+Uruchom następujący skrypt przy użyciu interfejsu wiersza polecenia platformy Azure [na komputerze lokalnym](/cli/azure/install-azure-cli)lub w przeglądarce z przyciskiem **Wypróbuj** . Wprowadź nazwę i lokalizację (na przykład `centralus` ) dla nowej grupy zasobów, a szablon ARM zostanie użyty do wdrożenia w nim zasobu Cognitive Services. Zapamiętaj nazwę, której używasz. Będzie on używany później do weryfikacji wdrożenia.
 
 
 ```azurecli-interactive

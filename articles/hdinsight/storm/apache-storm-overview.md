@@ -1,19 +1,16 @@
 ---
 title: Co to jest Apache Storm — Azure HDInsight
 description: System Apache Storm służy do przetwarzania strumieni danych w czasie rzeczywistym. Usługa Azure HDInsight umożliwia łatwe tworzenie klastrów Storm w chmurze Azure. Przy użyciu programu Visual Studio można tworzyć rozwiązania Storm przy użyciu języka C#, a następnie wdrażać je do klastrów usługi HDInsight Storm.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 97b1466e6ac1f2c2dfb931655b64b0f9937ba21d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a2bca34f683df27c97b131d57c6c3278f7cb175e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82183266"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928899"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Co to jest Apache Storm w usłudze Azure HDInsight?
 
@@ -23,7 +20,7 @@ ms.locfileid: "82183266"
 
 System Storm w usłudze HDInsight oferuje następujące funkcje:
 
-* __99% umowa dotycząca poziomu usług (SLA) w__przypadku czasu działania burzy: burza w usłudze HDInsight zapewnia pełną pomoc techniczną. System Storm w usłudze HDInsight gwarantuje również dostępność na poziomie 99,9 procent zgodnie z umową SLA. Firma Microsoft gwarantuje więc, że klaster Storm utrzymuje łączność zewnętrzną przez nie mniej niż 99,9% czasu. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna platformy Azure](https://azure.microsoft.com/support/options/). Zobacz również [Informacje o umowie SLA dla](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) dokumentu usługi HDInsight.
+* __99% umowa dotycząca poziomu usług (SLA) w__ przypadku czasu działania burzy: burza w usłudze HDInsight zapewnia pełną pomoc techniczną. System Storm w usłudze HDInsight gwarantuje również dostępność na poziomie 99,9 procent zgodnie z umową SLA. Firma Microsoft gwarantuje więc, że klaster Storm utrzymuje łączność zewnętrzną przez nie mniej niż 99,9% czasu. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna platformy Azure](https://azure.microsoft.com/support/options/). Zobacz również [Informacje o umowie SLA dla](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) dokumentu usługi HDInsight.
 
 * Umożliwia łatwe dostosowywanie klastrów Storm dzięki uruchamianiu w nich skryptów podczas procesu tworzenia klastra lub po jego ukończeniu. Aby uzyskać więcej informacji, zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -91,7 +88,7 @@ Poniżej przedstawiono kilka typowych scenariuszy, w których można skorzystać
 * Analityka społecznościowa
 * Wyodrębnianie, transformacja, ładowanie (ETL)
 * Monitorowanie sieci
-* Wyszukiwanie
+* Wyszukaj
 * Marketing na urządzeniach przenośnych
 
 Aby uzyskać informacje na temat scenariuszy rzeczywistych, zobacz artykuł [jak firmy](https://storm.apache.org/Powered-By.html) korzystają z Apache Storm dokumentu.

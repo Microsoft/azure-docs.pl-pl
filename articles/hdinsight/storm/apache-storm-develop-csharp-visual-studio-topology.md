@@ -2,19 +2,16 @@
 title: Topologie Apache Storm przy użyciu programu Visual Studio i języka C# — Azure HDInsight
 description: Dowiedz się, jak tworzyć topologie burzy w języku C#. Utwórz topologię zliczania wyrazów w programie Visual Studio przy użyciu narzędzi Hadoop dla programu Visual Studio.
 ROBOTS: NOINDEX
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000196"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929163"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Tworzenie topologii języka C# dla Apache Storm przy użyciu narzędzi Data Lake Tools for Visual Studio
 
@@ -59,30 +56,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
@@ -221,7 +218,7 @@ Teraz Utwórz dwa piorunów burzy w tym przykładzie:
 
 1. Usuń istniejący plik *Bolt.cs* z projektu.
 
-2. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj**  >  **nowy element**. Z listy wybierz pozycję **piorun**i wprowadź *Splitter.cs* jako nazwę. W nowym pliku kodu Zmień nazwę przestrzeni nazw na `WordCount` . Następnie powtórz ten proces, aby utworzyć drugi piorun o nazwie *Counter.cs*.
+2. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj**  >  **nowy element**. Z listy wybierz pozycję **piorun** i wprowadź *Splitter.cs* jako nazwę. W nowym pliku kodu Zmień nazwę przestrzeni nazw na `WordCount` . Następnie powtórz ten proces, aby utworzyć drugi piorun o nazwie *Counter.cs*.
 
    * *Splitter.cs*: implementuje obiekt, który dzieli zdania na poszczególne słowa i emituje nowy strumień słów.
 
@@ -278,7 +275,7 @@ Teraz Utwórz dwa piorunów burzy w tym przykładzie:
     }
     ```
 
-5. Otwórz *Counter.cs*i Zastąp zawartość klasy następującym kodem:
+5. Otwórz *Counter.cs* i Zastąp zawartość klasy następującym kodem:
 
     ```csharp
     private Context ctx;
@@ -342,7 +339,7 @@ Elementu Spout emituje zdania, które są dystrybuowane do wystąpień pioruna r
 
 Ponieważ wystąpienie licznika przechowuje wyrazy lokalnie, należy upewnić się, że określone słowa przepływają do tego samego wystąpienia obiektu. Każde wystąpienie śledzi określone słowa. Ponieważ piorun rozdzielacza nie ma stanu, naprawdę nie ma znaczenia, które wystąpienie rozdzielacza otrzymuje zdanie.
 
-Otwórz *program.cs*. Ważna Metoda to `GetTopologyBuilder` , która jest używana do definiowania topologii, która jest przesyłana do burzy. Zastąp zawartość `GetTopologyBuilder` następującym kodem, aby zaimplementować opisaną wcześniej topologię:
+Otwórz plik *Program.cs*. Ważna Metoda to `GetTopologyBuilder` , która jest używana do definiowania topologii, która jest przesyłana do burzy. Zastąp zawartość `GetTopologyBuilder` następującym kodem, aby zaimplementować opisaną wcześniej topologię:
 
 ```csharp
 // Create a new topology named 'WordCount'
@@ -410,7 +407,7 @@ Teraz można przystąpić do przesyłania topologii do klastra usługi HDInsight
 
 1. Kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure...** i Ukończ proces logowania.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Prześlij do burzy w usłudze HDInsight**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Prześlij do burzy w usłudze HDInsight**.
 
 1. W oknie dialogowym **przesyłanie topologii** na liście rozwijanej **klaster burzy** wybierz swoją burzę w klastrze usługi HDInsight, a następnie wybierz pozycję **Prześlij**. Możesz sprawdzić, czy przesyłanie zakończy się pomyślnie, wyświetlając okienko **dane wyjściowe** .
 
@@ -458,7 +455,7 @@ Przykład topologii hybrydowej, tworzenie projektu i wybieranie **hybrydowego pr
 
   W klasie jest zdefiniowana wersja transakcyjna `HybridTopologyTx_javaSpout_csharpBolt` .
 
-* **Elementu Spout** i **środowisko Java**języka C#: zdefiniowane w `HybridTopology_csharpSpout_javaBolt` klasie.
+* **Elementu Spout** i **środowisko Java** języka C#: zdefiniowane w `HybridTopology_csharpSpout_javaBolt` klasie.
 
   W klasie jest zdefiniowana wersja transakcyjna `HybridTopologyTx_csharpSpout_javaBolt` .
 
@@ -568,16 +565,16 @@ Chociaż można łatwo wdrożyć topologię w klastrze, w niektórych przypadkac
 > [!WARNING]  
 > Testowanie lokalne działa tylko dla topologii Basic, tylko w języku C#. Nie można użyć lokalnego testowania dla topologii hybrydowej lub topologii, które używają wielu strumieni.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Właściwości**. We właściwościach projektu. Następnie zmień **Typ danych wyjściowych** na **aplikację konsolową**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Właściwości**. We właściwościach projektu. Następnie zmień **Typ danych wyjściowych** na **aplikację konsolową**.
 
    ![Aplikacja burzowa usługi HDInsight, właściwości projektu, typ danych wyjściowych](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
 
    > [!NOTE]
    > Pamiętaj, aby zmienić **Typ danych wyjściowych** z powrotem na **bibliotekę klas** przed wdrożeniem topologii w klastrze.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj**  >  **nowy element**. Wybierz **klasę**i wprowadź *LocalTest.cs* jako nazwę klasy. Na koniec wybierz pozycję **Dodaj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj**  >  **nowy element**. Wybierz **klasę** i wprowadź *LocalTest.cs* jako nazwę klasy. Na koniec wybierz pozycję **Dodaj**.
 
-1. Otwórz *LocalTest.cs*i Dodaj następującą `using` instrukcję w górnej części:
+1. Otwórz *LocalTest.cs* i Dodaj następującą `using` instrukcję w górnej części:
 
     ```csharp
     using Microsoft.SCP;
@@ -664,7 +661,7 @@ Chociaż można łatwo wdrożyć topologię w klastrze, w niektórych przypadkac
 
     Poświęć chwilę na odczytanie komentarzy do kodu. Ten kod używa `LocalContext` do uruchamiania składników w środowisku programistycznym. Zachowuje strumień danych między składnikami do plików tekstowych na dysku lokalnym.
 
-1. Otwórz *program.cs*i Dodaj następujący kod do `Main` metody:
+1. Otwórz *program.cs* i Dodaj następujący kod do `Main` metody:
 
     ```csharp
     Console.WriteLine("Starting tests");
@@ -687,7 +684,7 @@ Chociaż można łatwo wdrożyć topologię w klastrze, w niektórych przypadkac
 
 1. Zapisz zmiany, a następnie wybierz klawisz **F5** lub wybierz **Debuguj**  >  **Rozpocznij debugowanie** , aby uruchomić projekt. Powinno zostać wyświetlone okno konsoli i stan rejestrowania w miarę postępów testów. Gdy `Tests finished` zostanie wyświetlone, zaznacz dowolny klawisz, aby zamknąć okno.
 
-1. Aby zlokalizować katalog zawierający projekt, użyj **Eksploratora Windows** . (Np.: *C: \\ Użytkownicy \\ \<your_user_name> \\ \\ repozytoriów źródłowych \\ WORDCOUNT \\ WORDCOUNT*). Następnie w tym katalogu Otwórz pozycję *bin*, a następnie wybierz pozycję *Debuguj*. Powinny zostać wyświetlone pliki tekstowe, które zostały utworzone podczas testów: *sentences.txt*, *counter.txt*i *splitter.txt*. Otwórz każdy plik tekstowy i sprawdź dane.
+1. Aby zlokalizować katalog zawierający projekt, użyj **Eksploratora Windows** . (Np.: *C: \\ Użytkownicy \\ \<your_user_name> \\ \\ repozytoriów źródłowych \\ WORDCOUNT \\ WORDCOUNT*). Następnie w tym katalogu Otwórz pozycję *bin*, a następnie wybierz pozycję *Debuguj*. Powinny zostać wyświetlone pliki tekstowe, które zostały utworzone podczas testów: *sentences.txt*, *counter.txt* i *splitter.txt*. Otwórz każdy plik tekstowy i sprawdź dane.
 
    > [!NOTE]  
    > Dane ciągu są utrwalane jako tablica wartości dziesiętnych w tych plikach. Na przykład `[[97,103,111]]` w pliku **splitter.txt** reprezentuje wyraz *temu*.
@@ -710,9 +707,9 @@ Zarejestrowane informacje można wyświetlać z **dziennika usługi Hadoop**, kt
 
 Aby wyświetlić błędy, które wystąpiły w uruchomionej topologii, wykonaj następujące czynności:
 
-1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy burzę w klastrze usługi HDInsight, a następnie wybierz pozycję **Wyświetl topologie burzy**.
+1. W **Eksplorator serwera** kliknij prawym przyciskiem myszy burzę w klastrze usługi HDInsight, a następnie wybierz pozycję **Wyświetl topologie burzy**.
 
-   W przypadku **elementu Spout** i **piorunów**kolumna **ostatniej błędu** zawiera informacje dotyczące ostatniego błędu.
+   W przypadku **elementu Spout** i **piorunów** kolumna **ostatniej błędu** zawiera informacje dotyczące ostatniego błędu.
 
 2. Wybierz **Identyfikator elementu Spout** lub **Identyfikator** obiektu dla składnika, w którym znajduje się błąd. Na stronie Szczegóły są wyświetlane dodatkowe informacje o błędzie w sekcji **Błędy** w dolnej części strony.
 
