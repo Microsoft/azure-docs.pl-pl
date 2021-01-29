@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2021
-ms.openlocfilehash: b16e95c231096b7b37175cda5233019696fba19c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 01/25/2021
+ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726519"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054758"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -380,25 +380,40 @@ Po wyłączeniu aplikacji logiki nie są tworzone żadne nowe uruchomienia. Wszy
 Po usunięciu aplikacji logiki nie są tworzone wystąpienia nowych przebiegów. Wszystkie trwające i oczekujące przebiegi zostają anulowane. Anulowanie kilku tysięcy przebiegów może zająć dużo czasu.
 
 <a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Konfiguracja zapory: adresy IP i Tagi usług
 
-Adresy IP używane przez Azure Logic Apps dla wywołań przychodzących i wychodzących zależą od regionu, w którym znajduje się aplikacja logiki. *Wszystkie* Aplikacje logiki w tym samym regionie używają tych samych zakresów adresów IP. Niektóre wywołania narzędzia do [automatyzowania](/power-automate/getting-started) , takie jak żądania **http** i **http + openapi** , przechodzą bezpośrednio przez usługę Azure Logic Apps i pochodzą z adresów IP wymienionych poniżej. Aby uzyskać więcej informacji na temat adresów IP używanych przez program do automatyzowania, zobacz [limity i konfiguracja w programie do automatyzacji](/flow/limits-and-config#ip-address-configuration).
+Gdy aplikacja logiki musi komunikować się przez zaporę, która ogranicza ruch do określonych adresów IP, zapora musi zezwolić na dostęp *zarówno* do [przychodzącego](#inbound) , jak i [wychodzącego](#outbound) adresu IP używanego przez usługę Logic Apps lub środowisko uruchomieniowe w regionie platformy Azure, w którym znajduje się aplikacja logiki. *Wszystkie* Aplikacje logiki w tym samym regionie używają tych samych zakresów adresów IP.
 
-> [!TIP]
-> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [tagów usługi](../virtual-network/service-tags-overview.md)zamiast określać Logic Apps adresy IP dla każdego regionu, opisane w dalszej części tej sekcji.
-> Tagi te działają w regionach, w których usługa Logic Apps jest dostępna:
->
-> * **LogicAppsManagement**: reprezentuje prefiksy adresów IP dla ruchu przychodzącego dla usługi Logic Apps.
-> * **LogicApps**: reprezentuje prefiksy adresów IP wychodzące dla usługi Logic Apps.
+Na przykład aby obsługiwać wywołania, które aplikacje logiki w regionie zachodnie stany USA wysyłają lub odbierają za pośrednictwem wbudowanych wyzwalaczy i akcji, takich jak [wyzwalacz http lub akcja](../connectors/connectors-native-http.md), zapora musi zezwolić na dostęp dla *wszystkich* przychodzących adresów IP usługi Logic Apps *i* wychodzących adresów IP, które istnieją w regionie zachodnie stany USA.
 
-* W przypadku [platformy Azure w Chinach](/azure/china/)nie są dostępne stałe lub zastrzeżone adresy IP dla [łączników niestandardowych](../logic-apps/custom-connector-overview.md) i [łączników zarządzanych](../connectors/apis-list.md#managed-api-connectors), na przykład azure Storage, SQL Server, Office 365 Outlook i tak dalej.
+Jeśli aplikacja logiki używa również łączników [zarządzanych](../connectors/apis-list.md#managed-api-connectors), takich jak łącznik usługi Office 365 Outlook lub łącznik SQL, lub używa [łączników niestandardowych](/connectors/custom-connectors/), zapora musi również zezwolić na dostęp *wszystkich* [wychodzących adresów IP łącznika zarządzanego](#outbound) w regionie platformy Azure aplikacji logiki. Dodatkowo, jeśli używasz łączników niestandardowych, które uzyskują dostęp do zasobów lokalnych za pomocą [zasobu lokalnej bramy danych na platformie Azure](logic-apps-gateway-connection.md), musisz skonfigurować instalację bramy, aby zezwalać na dostęp dla odpowiednich *zarządzanych łączników [adresów IP](#outbound)*.
 
-* Aby zapewnić obsługę wywołań tworzonych przez aplikacje logiki bezpośrednio przy użyciu [protokołu HTTP](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)i innych żądań HTTP, należy skonfigurować zaporę ze wszystkimi adresami IP [przychodzącymi](#inbound) *i* [wychodzącymi](#outbound) , które są używane przez usługę Logic Apps, w zależności od regionów, w których istnieją aplikacje logiki. Te adresy są wyświetlane w obszarze nagłówki **przychodzące** i **wychodzące** w tej sekcji i są sortowane według regionów.
+Aby uzyskać więcej informacji na temat konfigurowania ustawień komunikacji na bramie, zobacz następujące tematy:
 
-* Aby zapewnić obsługę wywołań wywoływanych przez [Łączniki zarządzane](../connectors/apis-list.md#managed-api-connectors) , należy skonfigurować zaporę ze *wszystkimi* [wychodzącymi](#outbound) adresami IP używanymi przez te łączniki w oparciu o regiony, w których istnieją aplikacje logiki. Te adresy są wyświetlane pod nagłówkiem **wychodzącym** w tej sekcji i są sortowane według regionów.
+* [Dostosowywanie ustawień komunikacji dla lokalnej bramy danych](/data-integration/gateway/service-gateway-communication)
+* [Konfigurowanie ustawień serwera proxy dla lokalnej bramy danych](/data-integration/gateway/service-gateway-proxy)
 
-* Aby włączyć komunikację dla aplikacji logiki, które działają w środowisku usługi integracji (ISE), upewnij się, że [te porty są otwarte](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+<a name="ip-setup-considerations"></a>
+
+### <a name="firewall-ip-configuration-considerations"></a>Zagadnienia dotyczące konfiguracji protokołu IP zapory
+
+Przed skonfigurowaniem zapory z adresami IP zapoznaj się z następującymi kwestiami:
+
+* W przypadku korzystania z narzędzia do [automatyzowania](/power-automate/getting-started), niektórych akcji, takich jak **http** i **http + openapi**, można przejść bezpośrednio przez usługę Azure Logic Apps i korzystać z adresów IP wymienionych poniżej. Aby uzyskać więcej informacji na temat adresów IP używanych przez program do automatyzowania, zobacz [limity i konfiguracja dla automatyzacji](/flow/limits-and-config#ip-address-configuration).
+
+* W przypadku [platformy Azure w Chinach](/azure/china/)nie są dostępne stałe lub zastrzeżonych adresów IP dla [łączników niestandardowych](../logic-apps/custom-connector-overview.md) oraz [łączników zarządzanych](../connectors/apis-list.md#managed-api-connectors), takich jak Azure Storage, SQL Server, Office 365 Outlook i tak dalej.
+
+* Jeśli aplikacje logiki działają w [środowisku usługi integracji (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), upewnij się, że [te porty są również otwarte](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+
+* Aby ułatwić uproszczenie wszelkich reguł zabezpieczeń, które chcesz utworzyć, możesz [zamiast tego określić](../virtual-network/service-tags-overview.md) prefiksy adresów IP dla każdego regionu. Tagi te działają w regionach, w których usługa Logic Apps jest dostępna:
+
+  * **LogicAppsManagement**: reprezentuje prefiksy adresów IP dla ruchu przychodzącego dla usługi Logic Apps.
+
+  * **LogicApps**: reprezentuje prefiksy adresów IP wychodzące dla usługi Logic Apps.
+
+  * **AzureConnectors**: reprezentuje prefiksy adresów IP dla łączników zarządzanych, które tworzą przychodzące wywołania zwrotne elementu webhook do usługi Logic Apps i wychodzące wywołania do odpowiednich usług, takich jak Azure Storage lub Azure Event Hubs.
 
 * Jeśli aplikacje logiki mają problemy z uzyskaniem dostępu do kont usługi Azure Storage, które używają [zapór i reguł zapory](../storage/common/storage-network-security.md), dostępne są [różne opcje umożliwiające dostęp](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -411,9 +426,7 @@ Adresy IP używane przez Azure Logic Apps dla wywołań przychodzących i wychod
 Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azure Logic Apps. Jeśli masz Azure Government, zobacz [Azure Government-przychodzące adresy IP](#azure-government-inbound).
 
 > [!TIP]
-> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicAppsManagement** zamiast określania przychodzących prefiksów adresów IP Logic Apps dla każdego regionu.
-> W przypadku łączników zarządzanych można opcjonalnie użyć znacznika usługi **AzureConnectors** zamiast określać prefiksy adresów IP łączników zarządzanych dla ruchu przychodzącego dla każdego regionu.
-> Tagi te działają w regionach, w których usługa Logic Apps jest dostępna.
+> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicAppsManagement** zamiast określania przychodzących prefiksów adresów IP Logic Apps dla każdego regionu. Opcjonalnie można również użyć znacznika usługi **AzureConnectors** dla łączników zarządzanych, które umożliwiają wywołanie zwrotne przychodzącego elementu webhook do usługi Logic Apps, zamiast określać prefiksy adresów IP łączników zarządzanych w poszczególnych regionach. Tagi te działają w regionach, w których usługa Logic Apps jest dostępna.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -479,8 +492,7 @@ Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azu
 Ta sekcja zawiera listę wychodzących adresów IP dla usługi Azure Logic Apps i łączników zarządzanych. Jeśli masz Azure Government, zobacz [Azure Government wychodzące adresy IP](#azure-government-outbound).
 
 > [!TIP]
-> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicApps**, zamiast określać prefiksy adresów IP Logic Apps wychodzące dla każdego regionu.
-> Ten tag działa w regionach, w których jest dostępna usługa Logic Apps. 
+> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicApps**, zamiast określać prefiksy adresów IP Logic Apps wychodzące dla każdego regionu. Opcjonalnie można również użyć znacznika usługi **AzureConnectors** dla łączników zarządzanych, które umożliwiają wychodzące wywołania do odpowiednich usług, takich jak Azure Storage lub Azure Event Hubs, zamiast określać prefiksy adresów IP łączników zarządzanych przez wychodzące dla każdego regionu. Tagi te działają w regionach, w których usługa Logic Apps jest dostępna.
 
 <a name="multi-tenant-outbound"></a>
 

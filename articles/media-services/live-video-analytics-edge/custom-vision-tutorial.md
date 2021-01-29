@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą usługi Azure Custom Vision utworzyć 
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060523"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055368"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Samouczek: analizowanie wideo na żywo za pomocą analizy filmów wideo na żywo na IoT Edge i na platformie Azure Custom Vision
 
@@ -51,7 +51,6 @@ Przed rozpoczęciem Przeczytaj następujące artykuły:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
 ::: zone-end
@@ -59,6 +58,10 @@ Przed rozpoczęciem Przeczytaj następujące artykuły:
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> Ten moduł Custom Vision obsługuje tylko architektury **Intel x86 i amd64** . Przed kontynuowaniem sprawdź architekturę urządzenia brzegowego.
+
 ## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
 
 W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz **kombinację klawiszy CTRL + N**, a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Gdy oglądasz film wideo, pamiętaj, że w filmie o 36-sekundowym znakiem wózka zabawki. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. 
@@ -81,6 +84,9 @@ Węzeł rozszerzenia HTTP pełni rolę serwera proxy.  Próbki przychodzącej ra
 Jak nazwa Custom Vision sugeruje, możesz użyć jej do utworzenia własnego niestandardowego detektora obiektów lub klasyfikatora w chmurze. Zapewnia prosty, łatwy w użyciu i intuicyjny interfejs do kompilowania modeli Custom Vision, które można wdrożyć w chmurze lub na brzegu za pośrednictwem kontenerów.
 
 Aby skompilować wykrywacz samochodów, wykonaj kroki opisane w [przewodniku szybki start: Tworzenie detektora obiektów przy użyciu witryny sieci web Custom Vision](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+
+> [!IMPORTANT]
+> Ten moduł Custom Vision obsługuje tylko architektury **Intel x86 i amd64** . Przed kontynuowaniem sprawdź architekturę urządzenia brzegowego.
 
 Dodatkowe uwagi:
  

@@ -1,4 +1,4 @@
-- name: Dokumentacja z pomocą dla użytkowników
+- name: Dokumentacja pomocy użytkownika
   href: index.yml
 - name: Pomoc dotycząca weryfikacji dwuetapowej
   items:
@@ -50,6 +50,8 @@
       href: auth-app-android-china.md
     - name: Tworzenie kopii zapasowych kont i ich odzyskiwanie
       href: user-help-auth-app-backup-recovery.md
+    - name: Importowanie haseł do aplikacji uwierzytelniającej
+      href: user-help-authenticator-app-import-passwords.md
     - name: Często zadawane pytania
       href: user-help-auth-app-faq.md
 - name: Pomoc dotycząca portalu Moje konto

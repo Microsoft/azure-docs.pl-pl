@@ -4,17 +4,17 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 9bbd4da77d2892064906dc7ae272bcc770b6bdc4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694921"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055284"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do autoskalowania na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
 
-Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](../../api-management/api-management-key-concepts.md).
+Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [zestawów skalowania maszyn wirtualnych](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](../../api-management/api-management-key-concepts.md).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Odkryj ustawienia skalowania automatycznego w Twojej subskrypcji
 
@@ -115,36 +115,9 @@ Zawsze możesz wrócić do automatycznego skalowania, klikając pozycję **Włą
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Kierowanie ruchu do wystąpień w dobrej kondycji (App Service)
 
-Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij pozycję **Zapisz**.
+<a id="health-check-path"></a>
 
-Aby włączyć funkcję z szablonami ARM, należy ustawić `healthcheckpath` Właściwość `Microsoft.Web/sites` zasobu na ścieżkę kontroli kondycji w lokacji, na przykład: `"/api/health/"` . Aby wyłączyć tę funkcję, należy ustawić właściwość z powrotem na pusty ciąg, `""` .
-
-### <a name="health-check-path"></a>Ścieżka sprawdzania kondycji
-
-Ścieżka musi reagować w ciągu jednej minuty o kod stanu z przedziału od 200 do 299 (włącznie). Jeśli ścieżka nie odpowiada w ciągu jednej minuty lub zwraca kod stanu spoza zakresu, wystąpienie jest uznawane za "w złej kondycji". App Service nie jest zgodna z 30x (301, 302, 307 itd.) przekierowania w ścieżce kontroli kondycji — te kody stanu są uznawane za **złej kondycji**. Kontrola kondycji integruje się z funkcjami uwierzytelniania i autoryzacji App Service, system dociera do punktu końcowego, nawet jeśli te funkcje zabezpieczeń są włączone. Jeśli używasz własnego systemu uwierzytelniania, ścieżka sprawdzania kondycji musi zezwalać na dostęp anonimowy. Jeśli lokacja ma tylko HTTP **s**, żądanie Healthcheck zostanie wysłane za pośrednictwem protokołu HTTP **S**.
-
-Ścieżka sprawdzania kondycji powinna sprawdzać krytyczne składniki aplikacji. Na przykład jeśli aplikacja zależy od bazy danych i systemu obsługi komunikatów, punkt końcowy sprawdzania kondycji powinien łączyć się z tymi składnikami. Jeśli aplikacja nie może połączyć się ze składnikiem krytycznym, ścieżka powinna zwrócić kod odpowiedzi 500 na poziomie, aby wskazać, że aplikacja jest w złej kondycji.
-
-#### <a name="security"></a>Zabezpieczenia 
-
-Zespoły programistyczne w dużych przedsiębiorstwach często muszą przestrzegać wymagań w zakresie zabezpieczeń dla dostępnych interfejsów API. Aby zabezpieczyć punkt końcowy Healthcheck, należy najpierw użyć funkcji, takich jak [Ograniczenia adresów IP](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certyfikaty klienta](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)lub Virtual Network, aby ograniczyć dostęp do aplikacji. Sam punkt końcowy Healthcheck można zabezpieczyć przez wymaganie `User-Agent` dopasowania żądania przychodzącego `ReadyForRequest/1.0` . Nie można sfałszować User-Agent, ponieważ żądanie zostało już zabezpieczone przez wcześniejsze funkcje zabezpieczeń.
-
-### <a name="behavior"></a>Zachowanie
-
-Gdy zostanie podana ścieżka sprawdzania kondycji, App Service będzie wysyłać polecenie ping do ścieżki we wszystkich wystąpieniach. Jeśli nie otrzymasz pomyślnego kodu odpowiedzi po 5 poleceniach ping, to wystąpienie jest uznawane za "w złej kondycji". Wystąpienia w złej kondycji zostaną wykluczone z rotacji modułu równoważenia obciążenia, jeśli są skalowane do 2 lub więcej wystąpień i używają [warstwy Podstawowa](../../app-service/overview-hosting-plans.md) lub wyższej. Można skonfigurować wymaganą liczbę nieudanych poleceń ping z `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` ustawieniem aplikacji. To ustawienie aplikacji można ustawić na dowolną liczbę całkowitą z zakresu od 2 do 10. Na przykład jeśli jest ustawiona na `2` , wystąpienia zostaną usunięte z modułu równoważenia obciążenia po dwóch nieudanych wywołaniach ping. Ponadto podczas skalowania w górę lub w dół App Service wyśle polecenie ping do ścieżki sprawdzania kondycji, aby upewnić się, że nowe wystąpienia są gotowe do żądania przed dodaniem do modułu równoważenia obciążenia.
-
-> [!NOTE]
-> Należy pamiętać, że plan App Service należy przeskalować do 2 lub więcej wystąpień i być **warstwą podstawową lub wyższą** do wykluczania modułu równoważenia obciążenia. Jeśli masz tylko jedno wystąpienie, nie zostanie ono usunięte z modułu równoważenia obciążenia, nawet jeśli jest w złej kondycji. 
-
-Ponadto ścieżka sprawdzania kondycji jest wysyłana za pomocą polecenia ping po dodaniu lub ponownym uruchomieniu wystąpień, na przykład podczas operacji skalowania w poziomie, ręcznym ponownym uruchamianiu lub wdrażaniu kodu w witrynie SCM. Jeśli sprawdzanie kondycji nie powiedzie się w trakcie tych operacji, wystąpienia zakończone niepowodzeniem nie zostaną dodane do modułu równoważenia obciążenia. Zapobiega to negatywnemu wpływowi tych operacji na dostępność aplikacji.
-
-W przypadku korzystania z programu Healthcheck pozostałe wystąpienia w dobrej kondycji mogą zwiększyć obciążenie. Aby uniknąć przeciążenia pozostałych wystąpień, nie zostaną wykluczone więcej niż połowę wystąpień. Na przykład jeśli plan App Service zostanie przeskalowany do 4 wystąpień i 3 w złej kondycji, co najwyżej 2 zostanie wykluczone z obrotu modułu równoważenia obciążenia. Pozostałe 2 wystąpienia (1 w złej kondycji i 1 w niezdrowych) będą nadal otrzymywać żądania. W scenariuszu najgorszego przypadku, w którym wszystkie wystąpienia są złej kondycji, żaden z nich nie zostanie wykluczony. Jeśli chcesz zastąpić to zachowanie, możesz ustawić `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` dla ustawienia aplikacji wartość między `0` i `100` . Ustawienie tej opcji na wyższą wartość oznacza, że więcej wystąpień w złej kondycji zostanie usuniętych (wartość domyślna to 50).
-
-Jeśli sprawdzanie kondycji nie powiedzie się dla wszystkich aplikacji w wystąpieniu przez jedną godzinę, wystąpienie zostanie zastąpione. Co najwyżej jedno wystąpienie zostanie zastąpione na godzinę, co najwyżej trzy wystąpienia dziennie na App Service plan.
-
-### <a name="monitoring"></a>Monitorowanie
-
-Po podaniu ścieżki sprawdzania kondycji aplikacji można monitorować kondycję lokacji przy użyciu Azure Monitor. W bloku **Sprawdzanie kondycji** w portalu kliknij **metryki** na górnym pasku narzędzi. Spowoduje to otwarcie nowego bloku, w którym można zobaczyć historyczny stan kondycji lokacji i utworzyć nową regułę alertu. Więcej informacji o monitorowaniu lokacji [znajduje się w przewodniku na Azure monitor](../../app-service/web-sites-monitor.md).
+Gdy aplikacja sieci Web platformy Azure jest skalowana w poziomie do wielu wystąpień, App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu do wystąpień w dobrej kondycji. Aby dowiedzieć się więcej, zobacz [ten artykuł na App Service kontroli kondycji](../../app-service/monitor-instances-health-check.md).
 
 ## <a name="moving-autoscale-to-a-different-region"></a>Przeniesienie skalowania automatycznego do innego regionu
 W tej sekcji opisano, jak przenieść automatyczne skalowanie platformy Azure do innego regionu w ramach tej samej subskrypcji i grupy zasobów. Aby przenieść ustawienia automatycznego skalowania, można użyć interfejsu API REST.

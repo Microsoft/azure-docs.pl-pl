@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883116"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054858"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Rozwiązywanie problemów z łącznością wychodzącą SMTP na platformie Azure
 
@@ -27,13 +27,13 @@ Ta zmiana w zachowaniu dotyczy tylko subskrypcji i wdrożeń, które zostały ut
 
 ## <a name="recommended-method-of-sending-email"></a>Zalecana metoda wysyłania wiadomości e-mail
 
-Zalecamy używanie uwierzytelnionych usług przekazywania SMTP do wysyłania wiadomości e-mail z maszyn wirtualnych platformy Azure lub z Azure App Service. (Te usługi przekaźnikowe zwykle łączą się za pośrednictwem portu TCP 587 lub 443, ale obsługują inne porty). Te usługi są używane do obsługi reputacji adresów IP lub domen, co pozwala zminimalizować prawdopodobieństwo odrzucenia komunikatów przez dostawców poczty e-mail innych firm. [SendGrid](https://sendgrid.com/partners/azure/) to jedna taka usługa przekazywania SMTP, ale istnieją inne. Może być również używana bezpieczna Usługa przekazywania SMTP działająca lokalnie.
+Zalecamy używanie uwierzytelnionych usług przekazywania SMTP do wysyłania wiadomości e-mail z maszyn wirtualnych platformy Azure lub z Azure App Service. (Te usługi przekaźnikowe zwykle łączą się za pośrednictwem portu TCP 587, ale obsługują inne porty). Te usługi są używane do obsługi reputacji adresów IP lub domen, co pozwala zminimalizować prawdopodobieństwo odrzucenia komunikatów przez dostawców poczty e-mail innych firm. [SendGrid](https://sendgrid.com/partners/azure/) to jedna taka usługa przekazywania SMTP, ale istnieją inne. Może być również używana bezpieczna Usługa przekazywania SMTP działająca lokalnie.
 
 Korzystanie z tych usług dostarczania poczty e-mail nie jest ograniczone na platformie Azure, niezależnie od typu subskrypcji.
 
 ## <a name="enterprise-agreement"></a>Enterprise Agreement
 
-W przypadku Umowa Enterprise użytkowników platformy Azure nie ma zmian w zakresie możliwości wysyłania wiadomości e-mail bez użycia uwierzytelnionego przekaźnika. Nowi i istniejący Umowa Enterprise użytkownicy mogą wypróbować dostarczanie wychodzącej poczty e-mail z maszyn wirtualnych platformy Azure bezpośrednio do zewnętrznych dostawców poczty e-mail bez żadnych ograniczeń platformy Azure. Nie ma gwarancji, że dostawcy poczty e-mail będą akceptować przychodzące wiadomości e-mail od danego użytkownika. Jednak platforma Azure nie będzie blokować prób dostarczenia dla maszyn wirtualnych w ramach subskrypcji Umowa Enterprise. Musisz współpracować bezpośrednio z dostawcami poczty e-mail, aby rozwiązać wszelkie problemy z dostarczaniem komunikatów lub filtrowaniem SPAMu, które obejmują określonych dostawców.
+W przypadku Enterprise Agreement użytkowników platformy Azure nie ma zmian w zakresie możliwości wysyłania wiadomości e-mail bez użycia uwierzytelnionego przekaźnika. Nowi i istniejący Enterprise Agreement użytkownicy mogą wypróbować dostarczanie wychodzącej poczty e-mail z maszyn wirtualnych platformy Azure bezpośrednio do zewnętrznych dostawców poczty e-mail bez żadnych ograniczeń platformy Azure. Nie ma gwarancji, że dostawcy poczty e-mail będą akceptować przychodzące wiadomości e-mail od danego użytkownika. Jednak platforma Azure nie będzie blokować prób dostarczenia dla maszyn wirtualnych w ramach subskrypcji Enterprise Agreement. Musisz współpracować bezpośrednio z dostawcami poczty e-mail, aby rozwiązać wszelkie problemy z dostarczaniem komunikatów lub filtrowaniem SPAMu, które obejmują określonych dostawców.
 
 ## <a name="pay-as-you-go"></a>Płatność zgodnie z rzeczywistym użyciem
 

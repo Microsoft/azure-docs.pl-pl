@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682999"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055080"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Zarządzanie pocztą e-mail, kontaktami i kalendarzami w programie Outlook usługi Office 365 przy użyciu usługi Azure Logic Apps
 
@@ -92,17 +92,19 @@ Teraz Dodaj akcję, która jest uruchamiana po uruchomieniu wyzwalacza. Na przyk
 
 ## <a name="connect-using-other-accounts"></a>Nawiązywanie połączenia przy użyciu innych kont
 
-Jeśli spróbujesz nawiązać połączenie z programem Outlook przy użyciu innego konta niż to, które jest obecnie zalogowane na platformie Azure, możesz uzyskać błędy logowania jednokrotnego [(SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) . Ten problem występuje, gdy zalogujesz się do Azure Portal przy użyciu jednego konta, ale Użyj innego konta, aby utworzyć połączenie. Projektant aplikacji logiki oczekuje na użycie konta, które jest zalogowane na platformie Azure. Aby rozwiązać ten problem, możesz korzystać z następujących opcji:
+Jeśli spróbujesz nawiązać połączenie z programem Outlook przy użyciu innego konta niż to, które jest obecnie zalogowane na platformie Azure, możesz uzyskać błędy logowania jednokrotnego [(SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) . Ten problem występuje, gdy zalogujesz się do Azure Portal przy użyciu jednego konta, ale Użyj innego konta, aby utworzyć połączenie. Projektant oczekuje, że korzystasz z konta, które jest zalogowane do Azure Portal. Aby rozwiązać ten problem, możesz korzystać z następujących opcji:
 
-* Skonfiguruj inne konto jako **współautor** grupy zasobów aplikacji logiki.
+* Skonfiguruj inne konto z rolą **współautor** w grupie zasobów aplikacji logiki.
 
-  1. W menu Grupa zasobów aplikacji logiki wybierz pozycję **Kontrola dostępu (IAM)**. Skonfiguruj inne konto z rolą **współautor** . Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../role-based-access-control/role-assignments-portal.md).
+  1. W menu Grupa zasobów aplikacji logiki wybierz pozycję **Kontrola dostępu (IAM)**. Skonfiguruj inne konto z rolą **współautor** . 
+  
+     Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-  1. Jeśli logujesz się do Azure Portal przy użyciu konta służbowego, Wyloguj się i zaloguj się ponownie przy użyciu innego konta. Możesz teraz utworzyć połączenie z programem Outlook przy użyciu innego konta.
+  1. Po skonfigurowaniu tej roli Zaloguj się do Azure Portal przy użyciu konta, które ma teraz uprawnienia współautora. Możesz teraz użyć tego konta, aby utworzyć połączenie z programem Outlook.
 
 * Skonfiguruj inne konto, aby konto służbowe miało uprawnienia "Wyślij jako".
 
-   Jeśli masz uprawnienia administratora, w skrzynce pocztowej konta usługi Skonfiguruj Twoje konto służbowe za pomocą opcji **Wyślij jako** lub **Wyślij w imieniu** uprawnień. Aby uzyskać więcej informacji, zobacz [nadawanie uprawnień skrzynek pocztowych innemu użytkownikowi](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Następnie możesz utworzyć połączenie przy użyciu konta służbowego. Teraz w wyzwalaczach lub akcjach, w których można określić nadawcę, możesz użyć adresu e-mail konta usługi.
+   Jeśli masz uprawnienia administratora, w skrzynce pocztowej konta usługi Skonfiguruj konto służbowe za pomocą opcji **Wyślij jako** lub **Wyślij w imieniu** uprawnień. Aby uzyskać więcej informacji, zobacz [nadawanie uprawnień skrzynek pocztowych innemu użytkownikowi](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Następnie możesz utworzyć połączenie przy użyciu konta służbowego. Teraz w wyzwalaczach lub akcjach, w których można określić nadawcę, możesz użyć adresu e-mail konta usługi.
 
    Na przykład akcja **Wyślij wiadomość e-mail** ma opcjonalny parametr **od (Wyślij jako)**, który można dodać do akcji i użyć adresu e-mail konta usługi jako nadawcy. Aby dodać ten parametr, wykonaj następujące kroki:
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322516"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054775"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalowanie lokalnej bramy danych dla usługi Azure Logic Apps
 
@@ -138,9 +138,15 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
 1. Teraz [Utwórz zasób platformy Azure na potrzeby instalacji bramy](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## <a name="check-or-adjust-communication-settings"></a>Sprawdzanie lub Dostosowywanie ustawień komunikacji
 
-Lokalna Brama danych zależy od [Azure Service Bus komunikatów](../service-bus-messaging/service-bus-messaging-overview.md) na potrzeby łączności z chmurą i ustanawiania odpowiednich połączeń wychodzących do skojarzonego z nią regionu platformy Azure. Jeśli środowisko pracy wymaga, aby ruch przechodzi przez serwer proxy lub zaporę w celu uzyskania dostępu do Internetu, to ograniczenie może uniemożliwić lokalnej bramie danych łączenie się z usługą bramy w chmurze i Azure Service Bus Messaging. Brama ma kilka ustawień komunikacji, które można dostosować. Więcej informacji można znaleźć w następujących tematach:
+Lokalna Brama danych zależy od [Azure Service Bus komunikatów](../service-bus-messaging/service-bus-messaging-overview.md) na potrzeby łączności z chmurą i ustanawiania odpowiednich połączeń wychodzących do skojarzonego z nią regionu platformy Azure. Jeśli środowisko pracy wymaga, aby ruch przechodzi przez serwer proxy lub zaporę w celu uzyskania dostępu do Internetu, to ograniczenie może uniemożliwić lokalnej bramie danych łączenie się z usługą bramy w chmurze i Azure Service Bus Messaging. Brama ma kilka ustawień komunikacji, które można dostosować.
+
+Przykładowy scenariusz polega na tym, że używasz łączników niestandardowych, które uzyskują dostęp do zasobów lokalnych przy użyciu zasobu lokalnej bramy danych na platformie Azure. Jeśli masz również zaporę ograniczającą ruch do określonych adresów IP, musisz skonfigurować instalację bramy, aby zezwolić na dostęp dla odpowiednich *zarządzanych łączników [adresów IP](logic-apps-limits-and-config.md#outbound)*. *Wszystkie* Aplikacje logiki w tym samym regionie używają tych samych zakresów adresów IP.
+
+Więcej informacji można znaleźć w następujących tematach:
 
 * [Dostosowywanie ustawień komunikacji dla lokalnej bramy danych](/data-integration/gateway/service-gateway-communication)
 * [Konfigurowanie ustawień serwera proxy dla lokalnej bramy danych](/data-integration/gateway/service-gateway-proxy)

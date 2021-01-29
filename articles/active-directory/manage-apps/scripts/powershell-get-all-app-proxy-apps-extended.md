@@ -11,16 +11,18 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 330bd9b78c2f550ab40f1f4f3679b6c9788ddb64
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 62dae175b529bd54b2f139eece89bbde6f98cd38
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859381"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055012"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Pobierz wszystkie aplikacje serwera proxy aplikacji i Wyświetl informacje rozszerzone
 
-Ten przykładowy skrypt programu PowerShell zawiera listę informacji na temat wszystkich aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD), w tym identyfikatora aplikacji (AppId), nazwy (DisplayName), zewnętrznego adresu URL (ExternalUrl), wewnętrznego adresu URL (InternalUrl) i typu uwierzytelniania (ExternalAuthenticationType).
+Ten przykładowy skrypt programu PowerShell zawiera listę informacji na temat wszystkich aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD), w tym identyfikatora aplikacji (AppId), nazwy (DisplayName), zewnętrznego adresu URL (ExternalUrl), wewnętrznego adresu URL (InternalUrl), typu uwierzytelniania (ExternalAuthenticationType), trybu logowania jednokrotnego i innych ustawień.
+
+Zmiana wartości zmiennej $ssoMode włącza filtrowanie danych wyjściowych za pomocą trybu logowania jednokrotnego. Dalsze szczegóły są udokumentowane w skrypcie.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +30,7 @@ Ten przykładowy skrypt programu PowerShell zawiera listę informacji na temat w
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) lub [AzureAD v2 PowerShell dla programu Graph (wersja zapoznawcza](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) ) (AzureADPreview).
+Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 

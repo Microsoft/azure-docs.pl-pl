@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: e38ca27606ecf04b08bd29867894ba269148260c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740809"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055250"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -147,9 +147,10 @@ Jeśli pierwotni Administratorzy globalni ponownie korzystają z istniejących p
 
 Osobiste konta e-mail są regularnie odwiedzane przez osoby atakujące cybernetycznymi, co stanowi zagrożenie, że osobiste adresy e-mail nie są akceptowalne dla kont administratorów globalnych. Aby pomóc w oddzieleniu ryzyka internetowego od uprawnień administracyjnych, Utwórz dedykowane konta dla każdego użytkownika z uprawnieniami administracyjnymi.
 
-* Należy utworzyć osobne konta dla użytkowników, aby wykonywać globalne zadania administracyjne
-* Upewnij się, że administratorzy globalni nie otwierają przypadkowo wiadomości e-mail ani nie uruchamiają programów z kontami administratorów
-* Upewnij się, że te konta są przekazywane pocztą e-mail do działającej skrzynki pocztowej
+* Należy utworzyć osobne konta dla użytkowników, aby wykonywać globalne zadania administracyjne.
+* Upewnij się, że administratorzy globalni nie otwierają przypadkowo wiadomości e-mail ani nie uruchamiają programów z kontami administratorów.
+* Upewnij się, że te konta są przekazywane pocztą e-mail do działającej skrzynki pocztowej.
+* Konta administratora globalnego (i innych uprzywilejowanych grup) powinny być kontami tylko w chmurze bez powiązań z Active Directoryami lokalnymi.
 
 #### <a name="ensure-the-passwords-of-administrative-accounts-have-recently-changed"></a>Upewnij się, że hasła kont administracyjnych zostały ostatnio zmienione
 

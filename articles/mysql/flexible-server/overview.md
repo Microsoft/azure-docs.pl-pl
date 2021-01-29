@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: cdf029e0dd9ae126310842b8919c818f4721218e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348291"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054741"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Serwer elastyczny Azure Database for MySQL (wersja zapoznawcza)
 
@@ -132,20 +132,22 @@ Usługa uruchamia wersję społeczności MySQL. Zapewnia to pełną zgodność a
 
 Jedną z zalet korzystania z obciążeń na platformie Azure jest globalny zasięg. Elastyczny serwer dla Azure Database for MySQL jest dostępny dzisiaj w następujących regionach świadczenia usługi Azure:
 
-- Europa Zachodnia
-- Europa Północna
-- Południowe Zjednoczone Królestwo
-- Wschodnie stany USA 2
-- Zachodnie stany USA 2
-- Central US
-- East US
-- Kanada Środkowa
-- Southeast Asia
-- Korea Środkowa
-- Japan East
-- Australia Wschodnia
+| Region (Region) | Wysoka dostępność | 
+| --- | --- |
+| West Europe | :heavy_check_mark: | 
+| Europa Północna | :heavy_check_mark: | 
+| Południowe Zjednoczone Królestwo | y | 
+| Wschodnie stany USA 2 | :heavy_check_mark: | 
+| Zachodnie stany USA 2 | :heavy_check_mark: | 
+| Central US | y | 
+| East US | :heavy_check_mark: | 
+| Kanada Środkowa | y | 
+| Southeast Asia | :heavy_check_mark: | 
+| Korea Środkowa | y | 
+| Japonia Wschodnia | y | 
+| Australia Wschodnia | :heavy_check_mark: |
 
-Pracujemy nad dodaniem nowych serwerów wkrótce.
+Pracujemy nad dodaniem nowych regionów wkrótce.
 
 ## <a name="contacts"></a>Kontakty
 W przypadku pytań lub sugestii, które mogą znajdować się na Azure Database for MySQL elastycznym serwerze, Wyślij wiadomość e-mail do zespołu Azure Database for MySQL ([ @Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Ten adres e-mail nie jest aliasem pomocy technicznej.

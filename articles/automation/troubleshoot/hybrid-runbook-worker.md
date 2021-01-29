@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 11/25/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 214501c447632232dc00b61643ea21083bd0e4ac
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896498"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055335"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu runbook
 
@@ -106,7 +106,7 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje podczas próby użycia [konta Uruchom jako](../manage-runas-account.md) w elemencie Runbook, który działa w hybrydowym procesie roboczym elementu Runbook, gdzie nie jest obecny certyfikat konta Uruchom jako. Hybrydowe procesy robocze elementów Runbook nie mają domyślnie zasobu lokalnego. Konto Uruchom jako wymaga poprawnego działania tego elementu zawartości.
+Ten błąd występuje podczas próby użycia [konta Uruchom jako](../automation-security-overview.md#run-as-accounts) w elemencie Runbook, który działa w hybrydowym procesie roboczym elementu Runbook, gdzie nie jest obecny certyfikat konta Uruchom jako. Hybrydowe procesy robocze elementów Runbook nie mają domyślnie zasobu lokalnego. Konto Uruchom jako wymaga poprawnego działania tego elementu zawartości.
 
 #### <a name="resolution"></a>Rozwiązanie
 

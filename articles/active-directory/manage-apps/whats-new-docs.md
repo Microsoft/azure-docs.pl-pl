@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ea2e08db91d23e9523b7bc95e01b7adc9c93b3cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563402"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054825"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Zarządzanie aplikacjami: co nowego
 
@@ -90,7 +90,7 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 - [Jak korzystać z samoobsługowego dostępu do aplikacji](access-panel-manage-self-service-access.md)
 - [Rozwiązywanie problemów z logowaniem do aplikacji z usługi Azure AD moje aplikacje](application-sign-in-other-problem-access-panel.md)
 - [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na hasłach w usłudze Azure AD](troubleshoot-password-based-sso.md)
-- [Planowanie wdrożenia Azure Active Directory moje aplikacje](access-panel-deployment-plan.md)
+- [Planowanie wdrożenia Azure Active Directory moje aplikacje](my-apps-deployment-plan.md)
 - [Co to jest logowanie jednokrotne?](what-is-single-sign-on.md)
 - [Podejmowanie akcji w przypadku aplikacji z ograniczeniami lub podejrzanymi uprawnieniami w Azure Active Directory](manage-application-permissions.md)
 - [Szybki Start: Konfigurowanie właściwości aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)](add-application-portal-configure.md)

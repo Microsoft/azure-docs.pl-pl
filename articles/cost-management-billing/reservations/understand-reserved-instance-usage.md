@@ -9,16 +9,16 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 522b67e62e7ad8560bb48e8d056ca6daeeb45251
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: f6aad15d70157dda110fce233fbdafb7f3d896ad
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350912"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055063"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Informacje na temat użycia rezerwacji platformy Azure dla indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem
 
-Użyj pozycji ReservationId ze [strony Rezerwacja](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) oraz pliku użycia z [portalu Konta platformy Azure](https://account.azure.com), aby obliczyć użycie rezerwacji.
+Użyj strony ReservationId z [zastrzeżeń](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) i pliku użycie z [Azure Portal](https://portal.azure.com) , aby oszacować użycie rezerwacji.
 
 Jeśli jesteś klientem z umową Enterprise Agreement, zobacz [Informacje na temat użycia rezerwacji w przypadku rejestracji Enterprise.](understand-reserved-instance-usage-ea.md)
 

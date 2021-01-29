@@ -3,21 +3,26 @@ title: Tworzenie puli z włączonym szyfrowaniem dysku
 description: Dowiedz się, jak za pomocą konfiguracji szyfrowania dysków szyfrować węzły z kluczem zarządzanym przez platformę.
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 01/27/2021
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 41fc827459b454e2bcb120a925cdab8fcd46e310
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350674"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055318"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Tworzenie puli z włączonym szyfrowaniem dysku
 
-Podczas tworzenia puli Azure Batch przy użyciu konfiguracji maszyny wirtualnej można szyfrować węzły obliczeniowe w puli za pomocą klucza zarządzanego przez platformę, określając konfigurację szyfrowania dysku.
+Podczas tworzenia puli Azure Batch przy użyciu [konfiguracji maszyny wirtualnej](nodes-and-pools.md#virtual-machine-configuration)można szyfrować węzły obliczeniowe w puli za pomocą klucza zarządzanego przez platformę, określając konfigurację szyfrowania dysku.
 
 W tym artykule opisano sposób tworzenia puli wsadowej z włączonym szyfrowaniem dysków.
+
+> [!IMPORTANT]
+> Obsługa szyfrowania na hoście przy użyciu klucza zarządzanego przez platformę w Azure Batch jest obecnie dostępna w publicznej wersji zapoznawczej dla regionu Wschodnie stany USA, zachodnie stany USA 2, Południowo-środkowe stany USA, US Gov Wirginia i US Gov Arizona.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Dlaczego warto używać puli z konfiguracją szyfrowania dysków?
 
@@ -29,14 +34,12 @@ Program Batch zastosuje jedną z tych technologii szyfrowania dysków w węzłac
 - [Szyfrowanie na hoście przy użyciu klucza zarządzanego przez platformę](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Usługa Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
-> [!IMPORTANT]
-> Obsługa szyfrowania na hoście przy użyciu klucza zarządzanego przez platformę w Azure Batch jest obecnie dostępna w publicznej wersji zapoznawczej dla regionu Wschodnie stany USA, zachodnie stany USA 2, Południowo-środkowe stany USA, US Gov Wirginia i US Gov Arizona.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Nie będzie można określić, która metoda szyfrowania ma być stosowana do węzłów w puli. Zamiast tego należy podać dyski docelowe, które mają zostać zaszyfrowane w swoich węzłach, a w usłudze Batch można wybrać odpowiednią metodę szyfrowania, co zapewni zaszyfrowanie określonych dysków w węźle obliczeniowym.
 
-## <a name="azure-portal"></a>Azure Portal
+> [!IMPORTANT]
+> W przypadku tworzenia puli za pomocą [obrazu niestandardowego](batch-sig-images.md)można włączyć szyfrowanie dysków tylko w przypadku korzystania z maszyn wirtualnych z systemem Windows.
+
+## <a name="azure-portal"></a>Witryna Azure Portal
 
 Podczas tworzenia puli zadań wsadowych w Azure Portal wybierz opcję **TemporaryDisk** lub **OsAndTemporaryDisk** w obszarze **Konfiguracja szyfrowania dysku**.
 
@@ -61,11 +64,14 @@ pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptio
 ### <a name="batch-rest-api"></a>Interfejs API REST usługi Batch
 
 ADRES URL INTERFEJSU API REST:
+
 ```
 POST {batchURL}/pools?api-version=2020-03-01.11.0
 client-request-id: 00000000-0000-0000-0000-000000000000
 ```
+
 Treść żądania:
+
 ```
 "pool": {
     "id": "pool2",

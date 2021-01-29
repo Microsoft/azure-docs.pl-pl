@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b1412a79fa6137ce1f8c73d5875e52b6382048fa
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986975"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054876"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -32,7 +32,7 @@ Ten artykuł pomoże Ci zrozumieć proces tworzenia prywatnych punktów końcowy
 
 Gdy prywatne punkty końcowe są włączone dla magazynu, są używane do tworzenia kopii zapasowych i przywracania danych SQL i SAP HANA obciążeń na maszynach wirtualnych platformy Azure i w ramach kopii zapasowej agenta MARS. Magazyn można również używać do tworzenia kopii zapasowych innych obciążeń (nie wymagają jednak prywatnych punktów końcowych). Oprócz tworzenia kopii zapasowych obciążeń SQL i SAP HANA i tworzenia kopii zapasowej przy użyciu agenta MARS, prywatne punkty końcowe są również używane do odzyskiwania plików dla kopii zapasowej maszyny wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz następującą tabelę:
 
-| Tworzenie kopii zapasowych obciążeń na maszynie wirtualnej platformy Azure (SQL, SAP HANA), kopia zapasowa przy użyciu agenta MARS | Zaleca się używanie prywatnych punktów końcowych, aby umożliwić tworzenie kopii zapasowych i przywracanie bez konieczności zezwalania na listę adresów IP/nazw FQDN dla Azure Backup lub Azure Storage z sieci wirtualnych. |
+| Tworzenie kopii zapasowych obciążeń na maszynie wirtualnej platformy Azure (SQL, SAP HANA), kopia zapasowa przy użyciu agenta MARS | Zaleca się używanie prywatnych punktów końcowych, aby umożliwić tworzenie kopii zapasowych i przywracanie bez konieczności dozwolonych jakichkolwiek adresów IP/nazw FQDN dla Azure Backup lub Azure Storage z sieci wirtualnych. W tym scenariuszu upewnij się, że maszyny wirtualne, które obsługują bazy danych SQL, mogą uzyskać dostęp do adresów IP lub nazw FQDN usługi Azure AD. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Kopia zapasowa maszyny wirtualnej platformy Azure**                                         | Kopia zapasowa maszyny wirtualnej nie wymaga zezwolenia na dostęp do żadnych adresów IP ani nazw FQDN. Dlatego nie wymaga prywatnych punktów końcowych do tworzenia kopii zapasowych i przywracania dysków.  <br><br>   Jednak odzyskiwanie plików z magazynu zawierającego prywatne punkty końcowe będzie ograniczone do sieci wirtualnych, które zawierają prywatny punkt końcowy dla magazynu. <br><br>    W przypadku korzystania z dysków niezarządzanych ACL'ed upewnij się, że konto magazynu zawierające dyski umożliwia dostęp do **zaufanych usług firmy Microsoft** , jeśli jest to ACL'ed. |
 | **Azure Files kopia zapasowa**                                      | Kopie zapasowe Azure Files są przechowywane na lokalnym koncie magazynu. Dlatego nie wymaga prywatnych punktów końcowych do tworzenia kopii zapasowych i przywracania. |
@@ -386,7 +386,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 #### <a name="create-dns-zones-for-custom-dns-servers"></a>Tworzenie stref DNS dla niestandardowych serwerów DNS
 
-Należy utworzyć trzy prywatne strefy DNS i połączyć je z siecią wirtualną.
+Należy utworzyć trzy prywatne strefy DNS i połączyć je z siecią wirtualną. Należy pamiętać, że w przeciwieństwie do obiektów blob i kolejek publiczne adresy URL usługi kopii zapasowych nie są rejestrowane w publicznym systemie DNS platformy Azure w celu przekierowania do prywatnych stref DNS. 
 
 | **Strefa**                                                     | **Usługa** |
 | ------------------------------------------------------------ | ----------- |

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 39645e8bd370dfd518d570c3088c56a22aa77748
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b353fad64b08f5fc50af2b8d31abab77cd797e25
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927031"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055046"
 ---
 # <a name="virtual-network-service-tags"></a>Tagi usługi sieci wirtualnej
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ Domyślnie Tagi usług odzwierciedlają zakresy dla całej chmury. Niektóre Tag
 | **AzureBotService** | Azure Bot Service. | Wychodzący | Nie | Nie |
 | **AzureCloud** | Wszystkie [publiczne adresy IP centrum](https://www.microsoft.com/download/details.aspx?id=56519)danych. | Wychodzący | Tak | Tak |
 | **AzureCognitiveSearch** | Wyszukiwanie poznawcze platformy Azure. <br/><br/>Ten tag lub adresy IP objęte tym tagiem mogą służyć do przyznawania indeksatorów bezpiecznego dostępu do źródeł danych. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą połączenia indeksatora](../search/search-indexer-troubleshooting.md#connection-errors) . <br/><br/> *Uwaga*: adres IP usługi wyszukiwania nie jest uwzględniony na liście zakresów adresów IP dla tego tagu usługi, a **także należy dodać** do zapory IP źródeł danych. | Przychodzący | Nie | Nie |
-| **AzureConnectors** | Azure Logic Apps łączniki dla połączeń sondy/zaplecza. | Przychodzący | Tak | Tak |
+| **AzureConnectors** | Ten tag reprezentuje adresy IP używane dla łączników zarządzanych, które tworzą przychodzące wywołania zwrotne elementu webhook do usługi Azure Logic Apps i wychodzące wywołania do odpowiednich usług, na przykład Azure Storage lub Azure Event Hubs. | Przychodzące/wychodzące | Tak | Tak |
 | **AzureContainerRegistry** | Azure Container Registry. | Wychodzący | Tak | Tak |
 | **AzureCosmosDB** | Azure Cosmos DB. | Wychodzący | Tak | Tak |
 | **AzureDatabricks** | Azure Databricks. | Oba | Nie | Nie |

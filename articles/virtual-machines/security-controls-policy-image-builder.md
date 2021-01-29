@@ -1,0 +1,29 @@
+---
+title: Azure Policy kontroli zgodności z przepisami dla programu Azure Image Builder
+description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla usługi Azure Image Builder. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
+ms.date: 01/27/2021
+ms.topic: sample
+author: cynthn
+ms.author: cynthn
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.custom: subject-policy-compliancecontrols
+ms.openlocfilehash: a6d1d54d0e28e0b8e27224943a4e31f8a36d017f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055465"
+---
+# <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Azure Policy kontroli zgodności z przepisami dla programu Azure Image Builder
+
+[Zgodność z przepisami w Azure Policy](../governance/policy/concepts/regulatory-compliance.md) zapewnia definicje inicjatywy utworzone i zarządzane przez firmę Microsoft, znane jako _wbudowane_, dla **domen zgodności** i **kontroli zabezpieczeń** związanych z różnymi standardami zgodności. Ta strona zawiera listę **domen zgodności** i **kontroli zabezpieczeń** dla programu Azure Image Builder. Wbudowane elementy **kontroli zabezpieczeń** można przypisać indywidualnie, aby zapewnić zgodność zasobów platformy Azure z określonym standardem.
+
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+
+[!INCLUDE [azure-policy-compliancecontrols-vmimages](../../includes/policy/standards/byrp/microsoft.virtualmachineimages.md)]
+
+## <a name="next-steps"></a>Następne kroki
+
+- Dowiedz się więcej o [zgodności z przepisami Azure Policy](../governance/policy/concepts/regulatory-compliance.md).
+- Zobacz wbudowane elementy w [repozytorium GitHub usługi Azure Policy](https://github.com/Azure/azure-policy).

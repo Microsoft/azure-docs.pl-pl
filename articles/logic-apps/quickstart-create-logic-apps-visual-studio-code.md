@@ -7,12 +7,12 @@ ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/28/2020
-ms.openlocfilehash: 170a919ca184c959800e62cb0d8ede8659c96df4
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: f46c093bffcc26b5f7975d25ccaca648bdc527da
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708995"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054690"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Szybki start: Tworzenie definicji przepływu pracy aplikacji logiki i zarządzanie nimi za pomocą programu Visual Studio Code
 
@@ -23,6 +23,8 @@ Chociaż te same zadania można wykonać w [Azure Portal](https://portal.azure.c
 W tym artykule można utworzyć tę samą aplikację logiki z tego [przewodnika Szybki Start](../logic-apps/quickstart-create-first-logic-app-workflow.md), która koncentruje się na podstawowych koncepcjach. Możesz również [uzyskać informacje na temat tworzenia przykładowej aplikacji w programie Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)i dowiedzieć się, jak [tworzyć aplikacje i zarządzać nimi za pomocą interfejsu Command-Line platformy Azure (interfejs wiersza polecenia platformy Azure)](quickstart-logic-apps-azure-cli.md). W Visual Studio Code aplikacja logiki wygląda podobnie do tego przykładu:
 
 ![Przykładowa definicja przepływu pracy aplikacji logiki](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
@@ -49,6 +51,8 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
     ![Potwierdź, że rozszerzenie zostało poprawnie zainstalowane](./media/quickstart-create-logic-apps-visual-studio-code/confirm-installed-visual-studio-code-extension.png)
 
     Aby uzyskać więcej informacji, zobacz temat [rozszerzanie witryny Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). Aby współtworzyć wersję "open source" tego rozszerzenia, odwiedź [Azure Logic Apps rozszerzenia Visual Studio Code w witrynie GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
+
+* Jeśli aplikacja logiki musi komunikować się przez zaporę, która ogranicza ruch do określonych adresów IP, zapora musi zezwolić na dostęp *zarówno* do [przychodzącego](logic-apps-limits-and-config.md#inbound) , jak i [wychodzącego](logic-apps-limits-and-config.md#outbound) adresu IP używanego przez usługę Logic Apps lub środowisko uruchomieniowe w regionie platformy Azure, w którym znajduje się aplikacja logiki. Jeśli aplikacja logiki używa również łączników [zarządzanych](../connectors/apis-list.md#managed-api-connectors), takich jak łącznik usługi Office 365 Outlook lub łącznik SQL, lub używa [łączników niestandardowych](/connectors/custom-connectors/), zapora musi również zezwolić na dostęp *wszystkich* [wychodzących adresów IP łącznika zarządzanego](logic-apps-limits-and-config.md#outbound) w regionie platformy Azure aplikacji logiki.
 
 <a name="access-azure"></a>
 

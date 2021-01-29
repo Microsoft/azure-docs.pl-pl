@@ -2,15 +2,16 @@
 title: Włącz Update Management Azure Automation z konta usługi Automation
 description: W tym artykule opisano sposób włączania Update Management na koncie usługi Automation.
 services: automation
+ms.subservice: update-management
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 06a29cd07a870e7553d599b5f719943acb259c2a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380542"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054927"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Włączanie rozwiązania Update Management z poziomu konta usługi Automation
 
@@ -22,8 +23,8 @@ W tym artykule opisano, jak za pomocą konta usługi Automation włączyć funkc
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](../index.yml) do zarządzania maszynami.
-* [Maszyna wirtualna platformy Azure](../../virtual-machines/windows/quick-create-portal.md)lub maszyna wirtualna lub serwer zarejestrowani z serwerami z obsługą łuku. Na maszynach wirtualnych lub serwerach innych niż platformy Azure musi być zainstalowany [agent log Analytics](../../azure-monitor/platform/log-analytics-agent.md) dla systemu Windows lub Linux, a raportowanie do obszaru roboczego połączonego z kontem usługi Automation Update Management jest włączone w programie. Zalecamy zainstalowanie agenta Log Analytics dla systemu Windows lub Linux, najpierw łącząc maszynę z [włączonymi serwerami usługi Azure Arc](../../azure-arc/servers/overview.md), a następnie korzystając z Azure Policy, można przypisać do zasad wbudowane zasady [wdrażania agenta log Analytics lub *Windows* Azure *Linux*](../../governance/policy/samples/built-in-policies.md#monitoring) . Alternatywnie, jeśli planujesz monitorowanie maszyn przy użyciu Azure Monitor dla maszyn wirtualnych, zamiast tego użyj inicjatywy [Enable Azure monitor dla maszyn wirtualnych](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
+* [Konto usługi Automation](../automation-security-overview.md) do zarządzania maszynami.
+* [Maszyna wirtualna platformy Azure](../../virtual-machines/windows/quick-create-portal.md)lub maszyna wirtualna lub serwer zarejestrowani z serwerami z obsługą łuku. Na maszynach wirtualnych lub serwerach innych niż platformy Azure musi być zainstalowany [agent log Analytics](../../azure-monitor/platform/log-analytics-agent.md) dla systemu Windows lub Linux, a raportowanie do obszaru roboczego połączonego z kontem usługi Automation Update Management jest włączone w programie. Zalecamy zainstalowanie agenta Log Analytics dla systemu Windows lub Linux, najpierw łącząc maszynę z [włączonymi serwerami usługi Azure Arc](../../azure-arc/servers/overview.md), a następnie korzystając z Azure Policy, można przypisać do zasad wbudowane zasady [wdrażania agenta log Analytics lub *Windows* Azure](../../governance/policy/samples/built-in-policies.md#monitoring) . Alternatywnie, jeśli planujesz monitorowanie maszyn przy użyciu Azure Monitor dla maszyn wirtualnych, zamiast tego użyj inicjatywy [Enable Azure monitor dla maszyn wirtualnych](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 

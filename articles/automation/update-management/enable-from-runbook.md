@@ -2,15 +2,16 @@
 title: Włącz Update Management Azure Automation z elementu Runbook
 description: W tym artykule opisano sposób włączania Update Management z elementu Runbook.
 services: automation
+ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 219efe05b399677c60922542f3d7acd76ca37d26
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908368"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054893"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Włączanie rozwiązania Update Management z poziomu elementu runbook
 
@@ -36,7 +37,7 @@ Ta metoda używa dwóch elementów Runbook:
 
     Te zmienne są używane do konfigurowania obszaru roboczego dołączanej maszyny wirtualnej i należy je utworzyć ręcznie. Jeśli nie są one określone, skrypt najpierw szuka dowolnych maszyn wirtualnych dołączanych do Update Management w jej subskrypcji, po których następuje subskrypcja konta usługi Automation, a następnie wszystkie inne subskrypcje, do których konto użytkownika ma dostęp. Jeśli nie skonfigurowano prawidłowo, może to spowodować, że Twoje maszyny dołączyją się do niektórych losowo Log Analytics obszarów roboczych.
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 

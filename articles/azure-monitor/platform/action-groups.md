@@ -3,15 +3,15 @@ title: Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 description: Dowiedz się, jak tworzyć grupy akcji i zarządzać nimi w Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 01/28/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8e260ae8310807ef9e0dad7d4fe21df8caad9b48
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 08cf66edaa67ab1853a3b246afb9364b431445c6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735297"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055114"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. 
@@ -328,139 +328,8 @@ Elementy webhook są przetwarzane przy użyciu następujących reguł
 - Druga i trzecia próba odczeka 30 sekund na odpowiedź.
 - Gdy 3 próby wywołania elementu webhook zakończą się niepowodzeniem, żadna grupa akcji nie zadzwoni punktu końcowego przez 15 minut.
 
-Zakresy źródłowych adresów IP:
+Zobacz [adresy IP grupy akcji](../app/ip-addresses.md) dla zakresów źródłowych adresów IP.
 
- - 13.66.60.119/32
- - 13.66.143.220/30
- - 13.66.202.14/32
- - 13.66.248.225/32
- - 13.66.249.211/32
- - 13.67.10.124/30
- - 13.69.109.132/30
- - 13.71.199.112/30
- - 13.77.53.216/30
- - 13.77.172.102/32
- - 13.77.183.209/32
- - 13.78.109.156/30
- - 13.84.49.247/32
- - 13.84.51.172/32
- - 13.84.52.58/32
- - 13.86.221.220/30
- - 13.106.38.142/32
- - 13.106.38.148/32
- - 13.106.54.3/32
- - 13.106.54.19/32
- - 13.106.57.181/32
- - 13.106.57.196/31
- - 20.38.149.132/30
- - 20.42.64.36/30
- - 20.43.121.124/30
- - 20.44.17.220/30
- - 20.45.123.236/30
- - 20.72.27.152/30
- - 20.150.172.228/30
- - 20.192.238.124/30
- - 20.193.202.4/30
- - 40.68.195.137/32
- - 40.68.201.58/32
- - 40.68.201.65/32
- - 40.68.201.206/32
- - 40.68.201.211/32
- - 40.68.204.18/32
- - 40.115.37.106/32
- - 40.121.219.215/32
- - 40.121.221.62/32
- - 40.121.222.201/32
- - 40.121.223.186/32
- - 51.104.9.100/30
- - 52.183.20.244/32
- - 52.183.31.0/32
- - 52.183.94.59/32
- - 52.184.145.166/32
- - 191.233.50.4/30
- - 191.233.207.64/26
- - 2603:1000:4:402::178/125
- - 2603:1000:104:402::178/125
- - 2603:1010:6:402::178/125
- - 2603:1010:101:402::178/125
- - 2603:1010:304:402::178/125
- - 2603:1010:404:402::178/125
- - 2603:1020:5:402::178/125
- - 2603:1020:206:402::178/125
- - 2603:1020:305:402::178/125
- - 2603:1020:405:402::178/125
- - 2603:1020:605:402::178/125
- - 2603:1020:705:402::178/125
- - 2603:1020:805:402::178/125
- - 2603:1020:905:402::178/125
- - 2603:1020: A04:402:: 178/125
- - 2603:1020: B04:402:: 178/125
- - 2603:1020: C04:402:: 178/125
- - 2603:1020: D04:402:: 178/125
- - 2603:1020: E04:402:: 178/125
- - 2603:1020: F04:402:: 178/125
- - 2603:1020:1004:800:: F8/125
- - 2603:1020:1104:400::178/125
- - 2603:1030: f:400:: 978/125
- - 2603:1030:10:402::178/125
- - 2603:1030:104:402::178/125
- - 2603:1030:107:400:: F0/125
- - 2603:1030:210:402::178/125
- - 2603:1030:40B: 400:: 978/125
- - 2603:1030:40C: 402:: 178/125
- - 2603:1030:504:802:: F8/125
- - 2603:1030:608:402::178/125
- - 2603:1030:807:402::178/125
- - 2603:1030: A07:402:: 8f8/125
- - 2603:1030: B04:402:: 178/125
- - 2603:1030: C06:400:: 978/125
- - 2603:1030: F05:402:: 178/125
- - 2603:1030:1005:402::178/125
- - 2603:1040:5:402::178/125
- - 2603:1040:207:402::178/125
- - 2603:1040:407:402::178/125
- - 2603:1040:606:402::178/125
- - 2603:1040:806:402::178/125
- - 2603:1040:904:402::178/125
- - 2603:1040: A06:402:: 178/125
- - 2603:1040: B04:402:: 178/125
- - 2603:1040: C06:402:: 178/125
- - 2603:1040: D04:800:: F8/125
- - 2603:1040: F05:402:: 178/125
- - 2603:1040:1104:400::178/125
- - 2603:1050:6:402::178/125
- - 2603:1050:403:400:: 1F8/125
-
-Aby otrzymywać aktualizacje dotyczące zmian wprowadzonych w tych adresach IP, zalecamy skonfigurowanie alertu Service Health, który monitoruje powiadomienia informacyjne o usłudze grup akcji.
-
-W grupie akcji może istnieć ograniczona liczba akcji elementu webhook.
-
-Częste aktualizacje źródłowych adresów IP mogą być dość czasochłonne w elemencie webhook. Korzystanie z **tagu usługi** dla obiektu *Actions* ułatwia zminimalizowanie złożoności często używanych ręcznie aktualizacji adresów IP. Prefiksy zakresów źródłowych adresów IP udostępnione powyżej są zarządzane przez firmę Microsoft, co obejmuje **tag usługi**.
-
-#### <a name="service-tag"></a>Tag usługi
-Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieci dla obiektu ActionType.
-
-1. W Azure Portal w obszarze usługi platformy Azure Wyszukaj *grupę zabezpieczeń sieci*.
-2. Kliknij pozycję **Dodaj** i Utwórz sieciową grupę zabezpieczeń.
-
-   1. Dodaj nazwę grupy zasobów, a następnie wprowadź *szczegóły wystąpienia*.
-   1. Kliknij przycisk **Przegląd + Utwórz** , a następnie kliknij przycisk *Utwórz*.
-   
-   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Przykład tworzenia sieciowej grupy zabezpieczeń."border="true":::
-
-3. Przejdź do grupy zasobów, a następnie kliknij utworzoną *grupę zabezpieczeń sieci* .
-
-    1. Wybierz pozycję *reguły zabezpieczeń dla ruchu przychodzącego*.
-    1. Kliknij przycisk **Dodaj**.
-    
-    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Przykład dodawania znacznika usługi."border="true":::
-
-4. Nowe okno zostanie otwarte w okienku po prawej stronie.
-    1.  Wybierz źródło: **tag usługi**
-    1.  Tag usługi źródłowej: **ActionName**
-    1.  Kliknij pozycję **Dodaj**.
-    
-    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Przykład dotyczący dodawania tagu usługi."border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat [zachowania alertu programu SMS](./alerts-sms-behavior.md).  

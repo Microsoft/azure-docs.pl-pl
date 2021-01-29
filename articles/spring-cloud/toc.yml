@@ -99,6 +99,8 @@
           href: spring-cloud-howto-application-insights.md
         - name: Metryki wyłącznika Resilience4J
           href: spring-cloud-howto-circuit-breaker-metrics.md
+        - name: Dziennik aplikacji ze strukturą
+          href: spring-cloud-structured-app-log.md
     - name: Sieć
       items:
         - name: Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej

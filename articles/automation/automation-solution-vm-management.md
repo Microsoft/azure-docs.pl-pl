@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3210aa5ae2ff94ba2c7dda673fbb60847c4dfd0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 89566bdfb56ca662813b586b2203eec7e7e5566b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372161"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055385"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
@@ -37,7 +37,7 @@ Poniżej przedstawiono ograniczenia związane z bieżącą funkcją:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Funkcja elementów Runbook dla maszyn wirtualnych uruchamiania/zatrzymywania w trakcie godzin pracy działa z [kontem Uruchom jako platformy Azure](./manage-runas-account.md). Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa uwierzytelniania certyfikatu zamiast hasła, które może wygasnąć lub zmienić.
+- Funkcja elementów Runbook dla maszyn wirtualnych uruchamiania/zatrzymywania w trakcie godzin pracy działa z [kontem Uruchom jako platformy Azure](./automation-security-overview.md#run-as-accounts). Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa uwierzytelniania certyfikatu zamiast hasła, które może wygasnąć lub zmienić.
 
 - Połączone konto usługi Automation i obszar roboczy Log Analytics muszą znajdować się w tej samej grupie zasobów.
 
@@ -79,7 +79,7 @@ Aby włączyć maszyny wirtualne dla funkcji Start/Stop VMs during off-hours prz
 Maszyny wirtualne można włączyć dla funkcji Start/Stop VMs during off-hours przy użyciu nowego konta usługi Automation i Log Analytics obszaru roboczego. W takim przypadku wymagane są uprawnienia zdefiniowane w poprzedniej sekcji oraz uprawnienia zdefiniowane w tej sekcji. Wymagane są również następujące role:
 
 - Co-Administrator subskrypcji. Ta rola jest wymagana do utworzenia klasycznego konta Uruchom jako, jeśli zamierzasz zarządzać klasycznymi maszynami wirtualnymi. [Klasyczne konta Uruchom jako](automation-create-standalone-account.md#create-a-classic-run-as-account) nie są już domyślnie tworzone.
-- Członkostwo w roli Deweloper aplikacji [usługi Azure AD](../active-directory/roles/permissions-reference.md) . Aby uzyskać więcej informacji na temat konfigurowania kont Uruchom jako, zobacz [uprawnienia do konfigurowania kont Uruchom jako](manage-runas-account.md#permissions).
+- Członkostwo w roli Deweloper aplikacji [usługi Azure AD](../active-directory/roles/permissions-reference.md) . Aby uzyskać więcej informacji na temat konfigurowania kont Uruchom jako, zobacz [uprawnienia do konfigurowania kont Uruchom jako](automation-security-overview.md#permissions).
 - Współautorem subskrypcji lub następujących uprawnień.
 
 | Uprawnienie |Zakres|
@@ -150,7 +150,7 @@ Poniższa tabela zawiera listę zmiennych utworzonych na koncie usługi Automati
 >[!NOTE]
 >Dla zmiennej `External_WaitTimeForVMRetryInSeconds` wartość domyślna została zaktualizowana z 600 do 2100. 
 
-We wszystkich scenariuszach zmienne `External_Start_ResourceGroupNames` ,  `External_Stop_ResourceGroupNames` i `External_ExcludeVMNames` są niezbędne do określania docelowych maszyn wirtualnych, z wyjątkiem list maszyn wirtualnych rozdzielonych przecinkami dla elementów runbook **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**i **ScheduledStartStop_Parent** . Oznacza to, że maszyny wirtualne muszą należeć do docelowych grup zasobów, aby akcje uruchamiania i zatrzymywania zostały wykonane. Logika działa podobnie jak Azure Policy, w którym można kierować do subskrypcji lub grupy zasobów, a akcje są dziedziczone przez nowo utworzone maszyny wirtualne. Takie podejście pozwala uniknąć konieczności utrzymania oddzielnego harmonogramu dla każdej maszyny wirtualnej i zarządzanie rozpoczęciem i zatrzymaniem w skali.
+We wszystkich scenariuszach zmienne `External_Start_ResourceGroupNames` ,  `External_Stop_ResourceGroupNames` i `External_ExcludeVMNames` są niezbędne do określania docelowych maszyn wirtualnych, z wyjątkiem list maszyn wirtualnych rozdzielonych przecinkami dla elementów runbook **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent** i **ScheduledStartStop_Parent** . Oznacza to, że maszyny wirtualne muszą należeć do docelowych grup zasobów, aby akcje uruchamiania i zatrzymywania zostały wykonane. Logika działa podobnie jak Azure Policy, w którym można kierować do subskrypcji lub grupy zasobów, a akcje są dziedziczone przez nowo utworzone maszyny wirtualne. Takie podejście pozwala uniknąć konieczności utrzymania oddzielnego harmonogramu dla każdej maszyny wirtualnej i zarządzanie rozpoczęciem i zatrzymaniem w skali.
 
 ### <a name="schedules"></a>Harmonogramy
 
@@ -215,7 +215,7 @@ Aby usunąć Start/Stop VMs during off-hours:
 
 2. Wybierz pozycję **Przejdź do obszaru roboczego**.
 
-3. W obszarze **Ogólne**kliknij pozycję **rozwiązania** . 
+3. W obszarze **Ogólne** kliknij pozycję **rozwiązania** . 
 
 4. Na stronie rozwiązania wybierz pozycję **Start-Stop-VM [obszar roboczy]**. 
 

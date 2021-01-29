@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: dd1edc001e51bf20f3ff7745baa520b3844c139b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756194"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054673"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Rozwiązywanie problemów z weryfikacją wydawcy
 Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie podczas [weryfikacji wydawcy](publisher-verification-overview.md), należy zacząć od następującej procedury, Jeśli otrzymujesz błędy lub widzisz nieoczekiwane zachowanie: 
@@ -149,87 +149,95 @@ HTTP/1.1 200 OK
 
 Poniżej znajduje się lista potencjalnych kodów błędów, które mogą zostać wyświetlone podczas rozwiązywania problemów z Microsoft Graph lub przechodzenia przez proces w portalu rejestracji aplikacji.
 
-### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
+### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess
 
-Podany identyfikator MPN () nie <MPNID> istnieje lub nie masz do niego dostępu. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
+Podany identyfikator MPN () nie `MPNID` istnieje lub nie masz do niego dostępu. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
     
 Najczęściej spowodowane przez zalogowanego użytkownika nie jest członkiem właściwej roli dla konta MPN w centrum partnerskim — Aby uzyskać więcej informacji, zobacz [wymagania](publisher-verification-overview.md#requirements) dotyczące listy kwalifikujących się ról i zobacz [typowe problemy](#common-issues) . Może być także spowodowany przez dzierżawę, w której aplikacja jest zarejestrowana, nie jest dodawana do konta MPN lub nieprawidłowy identyfikator MPN.
 
-### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
+### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound
 
-Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
+Podany identyfikator MPN ( `MPNID` ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
     
 Najczęściej jest to spowodowane tym, że podany identyfikator MPN odnosi się do konta lokalizacji partnera (PLA). Obsługiwane są tylko konta globalne partnera. Aby uzyskać więcej informacji, zobacz [strukturę konta Centrum partnerskiego](/partner-center/account-structure) .
 
-### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
+### <a name="mpnaccountinvalid"></a>MPNAccountInvalid
 
-Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
+Podany identyfikator MPN ( `MPNID` ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
     
 Najczęściej przyczyną jest podano nieprawidłowy identyfikator MPN.
 
-### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
+### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted
 
-Podany identyfikator MPN ( <MPNID> ) nie ukończył procesu przed sprawdzeniem. Ukończ ten proces w centrum partnerskim i spróbuj ponownie. 
+Podany identyfikator MPN ( `MPNID` ) nie ukończył procesu przed sprawdzeniem. Ukończ ten proces w centrum partnerskim i spróbuj ponownie. 
     
 Najczęściej jest to spowodowane tym, że konto MPN nie ukończyło procesu [weryfikacji](/partner-center/verification-responses) .
 
-### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
+### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount
 
-Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie. 
+Podany identyfikator MPN ( `MPNID` ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie. 
    
 Najczęściej przyczyną jest podano nieprawidłowy identyfikator MPN.
 
-### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
+### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount
 
-Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
+Podany identyfikator MPN ( `MPNID` ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
     
 Najczęściej przyczyną jest podano nieprawidłowy identyfikator MPN.
 
-### <a name="applicationnotfound"></a>ApplicationNotFound  
+### <a name="applicationnotfound"></a>ApplicationNotFound
 
-Nie można znaleźć aplikacji docelowej ( <AppId> ). Podaj prawidłowy identyfikator aplikacji i spróbuj ponownie.
+Nie można znaleźć aplikacji docelowej ( `AppId` ). Podaj prawidłowy identyfikator aplikacji i spróbuj ponownie.
     
 Najczęściej jest to spowodowane tym, że weryfikacja odbywa się za pośrednictwem interfejs API programu Graph, a identyfikator podanej aplikacji jest nieprawidłowy. Uwaga — należy podać identyfikator aplikacji, a nie AppId/ClientId.
 
-### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
+### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed
 
-Ta funkcja nie jest obsługiwana w dzierżawie Azure AD B2C. 
+Ta funkcja nie jest obsługiwana w dzierżawie Azure AD B2C.
 
-### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed    
+### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed
 
-Ta funkcja nie jest obsługiwana w przypadku zweryfikowanej dzierżawy poczty e-mail. 
+Ta funkcja nie jest obsługiwana w przypadku zweryfikowanej dzierżawy poczty e-mail.
 
-### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
+### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication
 
-Aplikacja docelowa ( \<AppId\> ) musi mieć ustawioną domenę wydawcy. Ustaw domenę wydawcy i spróbuj ponownie.
+Aplikacja docelowa ( `AppId` ) musi mieć ustawioną domenę wydawcy. Ustaw domenę wydawcy i spróbuj ponownie.
 
 Występuje, gdy [domena wydawcy](howto-configure-publisher-domain.md) nie jest skonfigurowana w aplikacji.
 
-### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
+### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch
 
-Domena wydawcy aplikacji docelowej () nie jest <publisherDomain> zgodna z domeną używaną do weryfikacji wiadomości e-mail w centrum partnerskim ( <pcDomain> ). Upewnij się, że te domeny pasują do siebie, i spróbuj ponownie. 
+Domena wydawcy aplikacji docelowej () nie jest `publisherDomain` zgodna z domeną używaną do weryfikacji wiadomości e-mail w centrum partnerskim ( `pcDomain` ). Upewnij się, że te domeny pasują do siebie, i spróbuj ponownie. 
     
 Występuje, gdy żadna [domena wydawcy](howto-configure-publisher-domain.md) aplikacji ani jedna z [domen niestandardowych](../fundamentals/add-custom-domain.md) nie została dodana do DZIERŻAWy usługi Azure AD nie jest zgodna z domeną używaną do weryfikacji wiadomości e-mail w centrum partnerskim.
 
-### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
+### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher
 
-Nie masz uprawnień do ustawiania zweryfikowanej właściwości wydawcy w aplikacji ( <AppId> ) 
+Nie masz uprawnień do ustawiania zweryfikowanej właściwości wydawcy dla aplikacji (<`AppId` ) 
   
 Najczęściej spowodowane przez zalogowanego użytkownika nie jest członkiem właściwej roli dla konta MPN w usłudze Azure AD — Zobacz [wymagania](publisher-verification-overview.md#requirements) dotyczące listy kwalifikujących się ról i zobacz [typowe problemy](#common-issues) , aby uzyskać więcej informacji.
 
-### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
+### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided
 
-Nie podano identyfikatora MPN w treści żądania lub typem zawartości żądania nie był "Application/JSON". 
+Nie podano identyfikatora MPN w treści żądania lub typem zawartości żądania nie był "Application/JSON".
 
-### <a name="msanotsupported"></a>MSANotSupported  
+### <a name="msanotsupported"></a>MSANotSupported 
 
 Ta funkcja nie jest obsługiwana w przypadku kont użytkowników Microsoft. Obsługiwane są tylko aplikacje zarejestrowane w usłudze Azure AD za pomocą użytkownika usługi Azure AD.
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Występuje, gdy nie wykonano uwierzytelniania wieloskładnikowego przed podjęciem próby dodania zweryfikowanego wydawcy do aplikacji. Aby uzyskać więcej informacji, zobacz [typowe problemy](#common-issues) . Uwaga: usługi MFA należy wykonać w tej samej sesji podczas próby dodania zweryfikowanego wydawcy. Jeśli funkcja MFA jest włączona, ale nie jest wymagana do wykonania w sesji, żądanie zakończy się niepowodzeniem.   
+Występuje, gdy nie wykonano uwierzytelniania wieloskładnikowego przed podjęciem próby dodania zweryfikowanego wydawcy do aplikacji. Aby uzyskać więcej informacji, zobacz [typowe problemy](#common-issues) . Uwaga: usługi MFA należy wykonać w tej samej sesji podczas próby dodania zweryfikowanego wydawcy. Jeśli funkcja MFA jest włączona, ale nie jest wymagana do wykonania w sesji, żądanie zakończy się niepowodzeniem. 
 
 Wyświetlany jest komunikat o błędzie: "z powodu zmiany konfiguracji wprowadzonej przez administratora lub przeniesiono ją do nowej lokalizacji, należy użyć uwierzytelniania wieloskładnikowego, aby przejść do".
+
+### <a name="unabletoaddpublisher"></a>UnableToAddPublisher
+
+Wyświetlany komunikat o błędzie: "zweryfikowanego wydawcy nie można dodać do tej aplikacji. Skontaktuj się z administratorem, aby uzyskać pomoc ".
+
+Najpierw sprawdź, czy zostały spełnione [wymagania dotyczące weryfikacji wydawcy](publisher-verification-overview.md#requirements).
+
+Gdy zostanie wykonane żądanie dodania zweryfikowanego wydawcy, do oceny ryzyka bezpieczeństwa są używane różne sygnały. Jeśli żądanie zostanie uznane za ryzykowne, zostanie zwrócony błąd. Ze względów bezpieczeństwa firma Microsoft nie ujawnia określonych kryteriów, które są używane do określenia, czy żądanie jest ryzykowne czy nie.
 
 ## <a name="next-steps"></a>Następne kroki
 
