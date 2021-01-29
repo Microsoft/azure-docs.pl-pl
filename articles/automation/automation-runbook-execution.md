@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078837"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053911"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -112,7 +112,7 @@ Dzienniki dostępne dla agenta Log Analytics i konta **nxautomation** są nastę
 
 ## <a name="runbook-permissions"></a>Uprawnienia elementu Runbook
 
-Element Runbook wymaga uprawnień do uwierzytelniania na platformie Azure za pomocą poświadczeń. Zobacz [Zarządzanie kontami Azure Automation Uruchom jako](manage-runas-account.md).
+Element Runbook wymaga uprawnień do uwierzytelniania na platformie Azure za pomocą poświadczeń. Zobacz [Omówienie uwierzytelniania Azure Automation](automation-security-overview.md).
 
 ## <a name="modules"></a>Moduły
 
@@ -139,6 +139,7 @@ W poniższej tabeli opisano Stany, które są możliwe dla danego zadania. Możn
 
 | Stan | Opis |
 |:--- |:--- |
+| Zdezaktywowan |Zadanie jest uaktywniane. |
 | Ukończone |Zadanie zostało ukończone pomyślnie. |
 | Niepowodzenie |Nie można skompilować elementu Runbook graficznego lub przepływu pracy programu PowerShell. Nie można uruchomić elementu Runbook programu PowerShell lub zadanie miało wyjątek. Zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).|
 | Niepowodzenie, oczekiwanie na zasoby |Zadanie nie powiodło się, ponieważ osiągnął limit [godziwego udziału](#fair-share) trzy razy i został uruchomiony z tego samego punktu kontrolnego lub od początku elementu Runbook za każdym razem. |
@@ -204,7 +205,7 @@ function Get-ContosoFiles
 }
 ```
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>błędy
 
 Elementy Runbook muszą obsługiwać błędy. Azure Automation obsługuje dwa typy błędów programu PowerShell, kończenie i niekończenie. 
 

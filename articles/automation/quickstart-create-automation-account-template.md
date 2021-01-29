@@ -3,22 +3,18 @@ title: 'Szybki Start: Tworzenie konta usługi Automation — szablon platformy A
 titleSuffix: Azure Automation
 description: Ten przewodnik Szybki Start przedstawia sposób tworzenia konta usługi Automation przy użyciu szablonu Azure Resource Manager.
 services: automation
-documentationcenter: na
-author: mgoedtel
 Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
-ms.service: automation
-ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/23/2020
+ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 9315b898e290dc758c300f9b74006b4b08888e9e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078956"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050672"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Szybki Start: Tworzenie konta usługi Automation przy użyciu szablonu ARM
 
@@ -44,7 +40,7 @@ Ten przykładowy szablon wykonuje następujące czynności:
 * Dodaje Przykładowe elementy Runbook automatyzacji do konta.
 
 >[!NOTE]
->Tworzenie konta Uruchom jako usługi Automation nie jest obsługiwane w przypadku korzystania z szablonu ARM. Aby ręcznie utworzyć konto Uruchom jako w portalu lub za pomocą programu PowerShell, zobacz [Zarządzanie kontami Uruchom jako](manage-runas-account.md).
+>Tworzenie konta Uruchom jako usługi Automation nie jest obsługiwane w przypadku korzystania z szablonu ARM. Aby ręcznie utworzyć konto Uruchom jako w portalu lub przy użyciu programu PowerShell, zobacz [Tworzenie konta Uruchom jako](create-run-as-account.md).
 
 Po wykonaniu tych kroków należy [skonfigurować ustawienia diagnostyczne](automation-manage-send-joblogs-log-analytics.md) dla konta usługi Automation, aby wysyłać strumienie stanu zadań elementu Runbook i zadań do połączonego obszaru roboczego log Analytics.
 

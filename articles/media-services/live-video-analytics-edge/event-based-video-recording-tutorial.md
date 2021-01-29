@@ -3,12 +3,12 @@ title: Nagrywanie filmów wideo na podstawie zdarzeń do chmury i odtwarzanie z 
 description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge zarejestrować rejestrowanie wideo oparte na zdarzeniach w chmurze i odtworzyć je z poziomu chmury.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: fb8d8c8499029777ae5765f53ff51db92b3bd587
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7f99eef626e2152e8acb01f0ade88b3b67aebcea
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954466"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052215"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: Rejestrowanie wideo oparte na zdarzeniach w chmurze i odtwarzanie z chmury
 
@@ -45,7 +45,7 @@ Wymagania wstępne dotyczące tego samouczka:
     > [!TIP]
     > Może zostać wyświetlony monit o zainstalowanie platformy Docker. Zignoruj ten monit.
 * [Zestaw SDK platformy .NET Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) na komputerze deweloperskim.
-* Ukończ [skrypt konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)i [Skonfiguruj środowisko](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart?branch=release-preview-media-services-lva#set-up-the-environment)
+* Ukończ [skrypt konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)i [Skonfiguruj środowisko](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart?pivots=programming-language-csharp#set-up-your-development-environment)
 
 Po zakończeniu tych kroków będziesz mieć odpowiednie zasoby platformy Azure wdrożone w ramach subskrypcji platformy Azure:
 

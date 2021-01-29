@@ -2,15 +2,16 @@
 title: Włączanie Update Management Azure Automation z poziomu maszyny wirtualnej platformy Azure
 description: W tym artykule opisano sposób włączania Update Management z maszyny wirtualnej platformy Azure.
 services: automation
+ms.subservice: update-management
 ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 35feb136ca1fd7ea0be16a906f7d5193cf8570c7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 39b5b1f988a118e609015f19a086fda434797356
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183553"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050266"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Włączanie rozwiązania Update Management z poziomu maszyny wirtualnej platformy Azure
 
@@ -22,10 +23,10 @@ W tym artykule opisano, jak włączyć funkcję [Update Management](overview.md)
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](../index.yml) do zarządzania maszynami.
+* [Konto usługi Automation](../automation-security-overview.md) do zarządzania maszynami.
 * [Maszyna wirtualna](../../virtual-machines/windows/quick-create-portal.md).
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 

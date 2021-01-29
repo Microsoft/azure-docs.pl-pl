@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3587beaeb788665c68c1fcb6376af40566b6c35e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f8fe027b350968a99aab5458fc2d7c1699fb50e3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032783"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052519"
 ---
 # <a name="manage-app-consent-policies"></a>Zarządzanie zasadami wyrażania zgody aplikacji
 
@@ -115,7 +115,7 @@ Po utworzeniu zasad zgody aplikacji można [zezwolić na zgodę użytkownika](co
 
 ## <a name="delete-a-custom-app-consent-policy"></a>Usuwanie niestandardowych zasad zgody aplikacji
 
-1. Poniżej przedstawiono sposób usuwania niestandardowych zasad zgody aplikacji. **Tej akcji nie można cofnąć.**
+1. Poniżej przedstawiono sposób usuwania niestandardowych zasad zgody aplikacji. **Nie można tego cofnąć.**
 
    ```powershell
    Remove-AzureADMSPermissionGrantPolicy -Id "my-custom-policy"
@@ -152,4 +152,4 @@ Dodatkowe informacje:
 * [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
-* [Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Usługa Azure AD w systemie StackOverflow](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

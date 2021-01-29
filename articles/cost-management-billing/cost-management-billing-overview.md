@@ -4,17 +4,17 @@ description: Funkcja Zarządzanie kosztami i rozliczenia na platformie Azure umo
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/28/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 34034a99641d75e44783cb5b87af8948b4db1628
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029944"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051097"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Co to jest Zarządzanie kosztami i rozliczenia na platformie Azure?
 
@@ -43,11 +43,11 @@ Konto rozliczeniowe jest tworzone podczas rejestrowania się w celu korzystania 
 
 W witrynie Azure Portal są obecnie obsługiwane następujące typy kont rozliczeniowych:
 
-- **Microsoft Online Services Program**: Indywidualne konto rozliczeniowe dla programu Microsoft Online Services Program jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej platformy Azure. Na przykład po zarejestrowaniu się w celu uzyskania bezpłatnego konta platformy Azure, konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub jako subskrybent programu Visual Studio.
+- **Microsoft Online Services Program**: Indywidualne konto rozliczeniowe dla programu Microsoft Online Services Program jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej platformy Azure. Na przykład po zarejestrowaniu się w celu uzyskania [bezpłatnego konta platformy Azure](./manage/create-free-services.md)możesz korzystać z stawek płatność zgodnie z rzeczywistym użyciem lub jako subskrybent programu Visual Studio.
 
 - **Umowa Enterprise Agreement**: Konto rozliczeniowe dla umowy Enterprise Agreement jest tworzone, gdy organizacja podpisuje umowę Enterprise Agreement (EA) w celu korzystania z platformy Azure.
 
-- **Umowa klienta firmy Microsoft**: Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu utworzenia konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub dokonają podwyższenia poziomu swojego bezpłatnego konta platformy Azure, mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft.
+- **Umowa klienta firmy Microsoft**: Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu utworzenia konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub dokonają podwyższenia poziomu swojego [bezpłatnego konta platformy Azure](./manage/create-free-services.md), mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Zakresy kont rozliczeniowych
 Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie rozliczeń i zarządzanie nimi. Jest to miejsce, w którym zarządzasz danymi rozliczeniowymi, płatnościami i fakturami oraz przeprowadzasz ogólne czynności dotyczące zarządzania kontami.

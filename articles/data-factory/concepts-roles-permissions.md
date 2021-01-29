@@ -10,12 +10,12 @@ ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 70be8d8be48f2b1e1cc275c06e4abff09e3e62f6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498594"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053775"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles and permissions for Azure Data Factory (Role i uprawnienia w usłudze Data Factory)
 
@@ -57,9 +57,15 @@ Uprawnienia do Azure Repos i GitHub są niezależne od uprawnień Data Factory. 
 > [!IMPORTANT]
 > Wdrożenie szablonu Menedżer zasobów z rolą **współautor Data Factory** nie podwyższa poziomu uprawnień. Na przykład jeśli wdrażasz szablon, który tworzy maszynę wirtualną platformy Azure, a nie masz uprawnień do tworzenia maszyn wirtualnych, wdrożenie zakończy się niepowodzeniem z powodu błędu autoryzacji.
 
+> [!IMPORTANT]
+> Uprawnienie **Microsoft. DataFactory/factorers/Write** jest wymagane w obu trybach w kontekście publikowania.
+
+- To uprawnienie jest wymagane tylko w trybie na żywo, gdy klient modyfikuje parametry globalne.
+- To uprawnienie jest zawsze wymagane w trybie git od momentu opublikowania przez klienta, ponieważ jest aktualizowany obiekt fabryki z ostatnim identyfikatorem zatwierdzenia.
+
 ### <a name="custom-scenarios-and-custom-roles"></a>Scenariusze niestandardowe i role niestandardowe
 
-Czasami może być konieczne przyznanie różnych poziomów dostępu dla różnych użytkowników usługi Data Factory. Przykład:
+Czasami może być konieczne przyznanie różnych poziomów dostępu dla różnych użytkowników usługi Data Factory. Na przykład:
 - Może być potrzebna Grupa, w której użytkownicy mają uprawnienia tylko do określonej fabryki danych.
 - Lub może być potrzebna Grupa, w której użytkownicy mogą monitorować tylko fabrykę danych (lub fabryki), ale nie mogą jej modyfikować.
 

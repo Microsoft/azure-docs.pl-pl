@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755484"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051604"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informacje o metrykach dla chmury wiosennej platformy Azure
 
@@ -121,6 +121,7 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >| Liczba generacji GC 0  | Gen-0-GC-Count | Liczba        | Liczba wyrzucania elementów bezużytecznych generacji 0 na sekundę. |
 >| Liczba generacji GC 1  | Gen-1-GC-Count | Liczba        | Liczba wyrzucania elementów bezużytecznych generacji 1 na sekundę. |
 >| Liczba generacji GC 2  | Gen-2-GC-Count | Liczba        | Liczba wyrzucania elementów bezużytecznych generacji 2 na sekundę. |
+>| Czas w GC      | czas oczekiwania — GC      | Procent      | Procent czasu w wyrzucaniu elementów bezużytecznych od czasu ostatniego wyrzucania elementów bezużytecznych. |
 >| Rozmiar sterty generacji 0 | rozmiar generacji (0)     | Bajty        | Rozmiar sterty generacji 0. |
 >| Rozmiar sterty generacji 1 | Gen-1-size     | Bajty        | Rozmiar sterty generacji 1. |
 >| Rozmiar sterty generacji 2 | Gen-2 — rozmiar     | Bajty        | Rozmiar sterty generacji 2. |
@@ -168,7 +169,7 @@ Aby uzyskać więcej informacji, zobacz [liczniki dotnet](/dotnet/core/diagnosti
 >| Tomcat. Sessions. rejected | Tomcat. Sessions. rejected | Liczba | Liczba sesji, które nie zostały utworzone, ponieważ osiągnięto maksymalną liczbę aktywnych sesji. |
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Liczba | Liczba aktywnych sesji Tomcat |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia](spring-cloud-quickstart-logs-metrics-tracing.md)
 

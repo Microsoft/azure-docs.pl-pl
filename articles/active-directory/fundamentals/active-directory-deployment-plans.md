@@ -12,12 +12,12 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca2ade1775d7224ce55ee1c51dfdd2ae417151e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4185ffd644d54c419f42c78326ca10bf100443c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672385"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051434"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plany wdrażania usługi Azure Active Directory
 Szukasz kompleksowej wskazówki dotyczącej wdrażania możliwości usług Azure Active Directory (Azure AD)? Plany wdrażania usługi Azure AD przeprowadzą Cię przez wartość biznesową, zagadnienia dotyczące planowania i procedury operacyjne, które są potrzebne do pomyślnego wdrożenia wspólnych możliwości usługi Azure AD.
@@ -39,7 +39,7 @@ Z poziomu dowolnej strony planu Użyj funkcji drukowania do pliku PDF w przeglą
 | Możliwość | Opis|
 | -| - |
 | [Rejestracja jednokrotna](../manage-apps/plan-sso-deployment.md)| Logowanie jednokrotne ułatwia użytkownikom dostęp do aplikacji i zasobów, które są potrzebne do prowadzenia działalności, podczas logowania tylko raz. Po zalogowaniu użytkownicy mogą przechodzić z Microsoft Office do usługi SalesForce do wewnętrznych aplikacji bez konieczności wprowadzania poświadczeń po raz drugi. |
-| [Panel dostępu](../manage-apps/access-panel-deployment-plan.md)| Zapewnianie użytkownikom prostego centrum w celu odnajdywania i uzyskiwania dostępu do wszystkich aplikacji. Umożliwiają im wydajniejsze korzystanie z funkcji samoobsługowych, takich jak żądanie dostępu do aplikacji i grup oraz zarządzanie dostępem do zasobów w imieniu innych użytkowników. |
+| [Moje aplikacje](../manage-apps/my-apps-deployment-plan.md)| Zapewnianie użytkownikom prostego centrum w celu odnajdywania i uzyskiwania dostępu do wszystkich aplikacji. Umożliwiają im wydajniejsze korzystanie z funkcji samoobsługowych, takich jak żądanie dostępu do aplikacji i grup oraz zarządzanie dostępem do zasobów w imieniu innych użytkowników. |
 | [Urządzenia](../devices/plan-device-deployment.md) | Ten artykuł pomaga w ocenie metod integrowania urządzenia z usługą Azure AD, wybierania planu implementacji i zapewniania najważniejszych linków do obsługiwanych narzędzi do zarządzania urządzeniami. |
 
 

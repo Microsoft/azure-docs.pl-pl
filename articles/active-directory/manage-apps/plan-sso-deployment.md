@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 14520c7c448231045b36e025c2c92332f9daac53
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5f207a0b5f829e952c92133a66313f49e9352f51
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658727"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053212"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planowanie wdrożenia logowania jednokrotnego
 
@@ -62,7 +62,7 @@ Istnieją dwa podstawowe sposoby pozwalające użytkownikom na logowanie jednokr
 
 Korzystanie z usługi Azure AD na potrzeby logowania jednokrotnego opartego na hasłach wymaga wdrożenia przeglądarki, która będzie bezpiecznie pobierać poświadczenia i uzupełnić formularze logowania. Zdefiniuj mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](../user-help/my-apps-portal-end-user-access.md). Dostępne są następujące opcje:
 
-- [zasady grupy programu Internet Explorer](./access-panel-deployment-plan.md)
+- [zasady grupy programu Internet Explorer](my-apps-deployment-plan.md)
 - [Configuration Manager programu Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Pobieranie i Konfigurowanie na podstawie użytkownika dla programu Chrome, Firefox, Microsoft Edge lub IE](../user-help/my-apps-portal-end-user-access.md)
 

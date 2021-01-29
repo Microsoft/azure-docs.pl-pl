@@ -1,6 +1,6 @@
 ---
 title: Dokumentacja usługi Azure Blob Storage
-description: Znajdź informacje dotyczące interfejsów API usługi Azure Blob Storage, plików README i pakietów biblioteki klienta.
+description: Znajdź informacje o interfejsie API usługi Azure Blob Storage, pliki Readme i pakiety biblioteki klienta.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/10/2020
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 04eca391fd02e18d4faed5e4f435e44e5675c4bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70178a955fe4afcfc0c695d34e3c1466773d802d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912284"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054080"
 ---
 # <a name="azure-blob-storage-reference"></a>Dokumentacja usługi Azure Blob Storage
 
@@ -21,12 +21,12 @@ Znajdź informacje o interfejsie API usługi Azure Blob Storage, pakietach bibli
 
 ## <a name="net-client-libraries"></a>Biblioteki klienckie platformy .NET
 
-W poniższej tabeli przedstawiono odwołania i przykładową dokumentację interfejsów API .NET usługi Azure Blob Storage.
+W poniższej tabeli przedstawiono dokumentacja i przykładową dokumentację dla interfejsów API platformy .NET usługi Azure Blob Storage.
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteka kliencka usługi Azure Blob Storage dla platformy .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Szybki start: Biblioteka kliencka usługi Azure Blob Storage V12 dla platformy .NET](./storage-quickstart-blobs-dotnet.md) |
-| 11. x | [Przestrzeń nazw Microsoft. Azure. Storage. blob](/dotnet/api/microsoft.azure.storage.blob) | [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Szybki Start: Biblioteka kliencka usługi Azure Blob Storage v11 dla platformy .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
+| 12. x | [Biblioteka kliencka Blob Storage platformy Azure dla platformy .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Szybki Start: V12 biblioteki klienta Blob Storage platformy Azure dla platformy .NET](./storage-quickstart-blobs-dotnet.md) |
+| 11. x | [Przestrzeń nazw Microsoft. Azure. Storage. blob](/dotnet/api/microsoft.azure.storage.blob) | [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Szybki Start: v11 biblioteki klienta Blob Storage platformy Azure dla platformy .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Zarządzanie magazynem
 
@@ -46,7 +46,7 @@ W poniższej tabeli przedstawiono dokumentację referencyjną dla interfejsów A
 
 ## <a name="java-client-libraries"></a>Biblioteki klienckie Java
 
-W poniższej tabeli wymieniono odwołania i przykładowe dokumenty dotyczące interfejsów API języka Java usługi Azure Blob Storage.
+W poniższej tabeli wymieniono informacje referencyjne i Przykładowa Dokumentacja interfejsów API języka Java Blob Storage platformy Azure.
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -63,7 +63,7 @@ W poniższej tabeli przedstawiono dokumentację referencyjną interfejsów API j
 
 ## <a name="python-client-libraries"></a>Biblioteki klienckie języka Python
 
-W poniższej tabeli przedstawiono odwołania i przykładową dokumentację interfejsów API języka Python usługi Azure Blob Storage.
+W poniższej tabeli wymieniono informacje referencyjne i Przykładowa Dokumentacja interfejsów API języka Python platformy Azure Blob Storage.
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -72,7 +72,7 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 ## <a name="javascript-client-libraries"></a>Biblioteki klienckie języka JavaScript
 
-W poniższej tabeli przedstawiono odwołania i przykładową dokumentację interfejsów API JavaScript usługi Azure Blob Storage.
+W poniższej tabeli przedstawiono dokumentacja i przykładową dokumentację interfejsów API języka JavaScript w systemie Azure Blob Storage.
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -81,7 +81,7 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 
-W poniższej tabeli przedstawiono odwołania i przykładową dokumentację interfejsów API REST usługi Azure Blob Storage.
+W poniższej tabeli przedstawiono dokumentacja i przykładową dokumentację interfejsów API REST platformy Azure Blob Storage.
 
 | Dokumentacja referencyjna | Omówienie |
 | ----------------------- | -------- |

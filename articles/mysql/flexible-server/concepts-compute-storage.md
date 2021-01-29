@@ -1,17 +1,17 @@
 ---
 title: Opcje obliczeniowe i magazynowe — Azure Database for MySQL — serwer elastyczny
 description: W tym artykule opisano opcje obliczeń i magazynu na serwerze elastycznym Azure Database for MySQL.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 267b362c94b04b3be634f7e61c2b6d67604d7854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2021
+ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954685"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052350"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opcje obliczeń i magazynowania w Azure Database for MySQL-elastycznym serwerze (wersja zapoznawcza)
 
@@ -72,7 +72,7 @@ Szczegółowe specyfikacje dostępnych typów serwerów są następujące:
 Aby uzyskać więcej szczegółowych informacji o dostępnych seriach obliczeniowych, zapoznaj się z dokumentacją maszyn wirtualnych platformy Azure w celu ich przełożenia ( [Seria B)](../../virtual-machines/sizes-b-series-burstable.md), [ogólnego przeznaczenia (Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)i [zoptymalizowana pod kątem pamięci (seria Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->W przypadku warstwy obliczeniowej [(B-Series)](../../virtual-machines/sizes-b-series-burstable.md) w przypadku ponownego uruchomienia serwera z dowolnego powodu, takiego jak zainicjowane przez użytkownika, planowana lub nieplanowana konserwacja, zakumulowane środki mogą zostać utracone. Przyczyną jest to, że za każdym razem, gdy Azure Database for MySQL, należy ponownie uruchomić to w tym samym węźle, które zostaną zachowane. Contrarily, za każdym razem, gdy serwer Azure Database for MySQL jest uruchamiany na nowym węźle, otrzymuje początkowe środki. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące możliwości przenoszenia (Seria B)](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>W przypadku [warstwy obliczeniowej serii B](../../virtual-machines/sizes-b-series-burstable.md) , jeśli maszyna wirtualna zostanie uruchomiona/zatrzymana lub uruchomiona ponownie, kredyty mogą zostać utracone. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące możliwości pierścieniowania (Seria B)](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## <a name="storage"></a>Storage
 

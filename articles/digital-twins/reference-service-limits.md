@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 87061d378be97bf669fd569c0408f247b9e8dc5d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 165fa23cf3965d3017b15c27fedc2846f97d8d11
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091792"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054403"
 ---
-# <a name="service-limits"></a>Limity usługi
+# <a name="azure-digital-twins-service-limits"></a>Limity usługi Digital bliźniaczych reprezentacji na platformie Azure
 
 Oto limity usługi Azure Digital bliźniaczych reprezentacji.
 
 > [!NOTE]
-> Niektóre obszary tej usługi mają regulowane limity. Jest to reprezentowane w poniższych tabelach z kolumną z możliwością *dopasowywania?* Aby można było dostosować limit, wartość *ustawiana* to *tak* .
+> Niektóre obszary tej usługi mają regulowane limity. Jest to reprezentowane w poniższych tabelach z kolumną z możliwością *dopasowywania?* Aby można było dostosować limit, wartość *ustawiana* to *tak*.
 >
 > Jeśli firma wymaga podniesienia regulowanego limitu lub limitu przydziału powyżej domyślnego limitu, można zażądać dodatkowych zasobów, [otwierając bilet pomocy technicznej](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

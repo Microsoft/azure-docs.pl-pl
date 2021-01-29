@@ -188,14 +188,17 @@
       items:
         - name: Konfigurowanie danych wejściowych użytkownika
           href: configure-user-input.md
-        - name: Dostosowywanie interfejsu użytkownika za pomocą znakowania firmowego
-          href: company-branding.md
+        - name: Dostosowywanie interfejsu użytkownika
+          displayName: company branding
+          href: customize-ui.md
         - name: Dostosowywanie interfejsu użytkownika przy użyciu szablonu HTML
+          displayName: content definitions
           href: customize-ui-with-html.md
         - name: Układy stron i kod JavaScript
           href: javascript-and-page-layout.md
         - name: Dostosowywanie języka
           href: language-customization.md
+          displayName: localization
         - name: Złożoność hasła
           href: password-complexity.md
         - name: Wyłączanie weryfikacji e-mail
@@ -259,12 +262,13 @@
           items:
             - name: Zbieranie dzienników przy użyciu usługi Application Insights
               href: troubleshoot-with-application-insights.md
-              displayName: troubleshooting
+              displayName: 'troubleshooting, app insights'
             - name: Weryfikacja zasad
               href: troubleshoot-custom-policies.md
               displayName: troubleshooting
         - name: Analiza użycia
           href: analytics-with-application-insights.md
+          displayName: 'application insights, app insights'
         - name: Dokumentacja
           items:
             - name: TrustFrameworkPolicy

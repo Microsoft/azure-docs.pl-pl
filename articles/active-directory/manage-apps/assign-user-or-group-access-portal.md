@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 59c69e88fb64cbb00063534be9fd41b86dce0b62
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861681"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053384"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Zarządzanie przypisaniem użytkowników dla aplikacji w usłudze Azure Active Directory
 
@@ -148,7 +148,7 @@ Ten przykład przypisuje użytkownikowi Britta Simon do aplikacji [analizy w mie
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
 - [Dowiedz się więcej o dostępie użytkowników końcowych do aplikacji](end-user-experiences.md)
-- [Planowanie wdrożenia usługi Azure AD my Apps](access-panel-deployment-plan.md)
+- [Planowanie wdrożenia usługi Azure AD my Apps](my-apps-deployment-plan.md)
 - [Zarządzanie dostępem do aplikacji](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Następne kroki

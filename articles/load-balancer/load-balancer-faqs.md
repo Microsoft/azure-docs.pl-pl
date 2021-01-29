@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222993"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051876"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer często zadawane pytania
 
@@ -48,6 +48,10 @@ Za pomocą polecenia nslookup można wysłać zapytanie DNS dla nazwy myip.opend
  
 ## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>Czy mogę dodać maszynę wirtualną z tego samego zestawu dostępności do różnych pul zaplecza Load Balancer?
 Nie, nie jest to możliwe.
+
+## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Jaka jest maksymalna przepływność danych, którą można osiągnąć za pośrednictwem Azure Load Balancer?
+Ponieważ usługa Azure LB jest modułem równoważenia obciążenia sieci przekazującym, ograniczenia przepływności są podyktowane przez typ maszyny wirtualnej używanej w puli zaplecza. Aby dowiedzieć się więcej na temat innych informacji dotyczących przepływności sieci, odnoszą się do [przepływności sieci maszyn wirtualnych](../virtual-network/virtual-machine-network-throughput.md).
+
 
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Jak działają połączenia z usługą Azure Storage w tym samym regionie?
 Połączenia wychodzące za pośrednictwem powyższych scenariuszy nie są wymagane do nawiązania połączenia z magazynem w tym samym regionie, w którym znajduje się maszyna wirtualna. Jeśli nie chcesz tego robić, użyj sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń), jak wyjaśniono powyżej. Łączność wychodząca jest wymagana w przypadku łączności z magazynem w innych regionach. Podczas nawiązywania połączenia z magazynem z maszyny wirtualnej w tym samym regionie źródłowy adres IP w dziennikach diagnostycznych magazynu będzie adresem wewnętrznym dostawcy, a nie publicznym adresem IP maszyny wirtualnej. Jeśli chcesz ograniczyć dostęp do konta magazynu do maszyn wirtualnych w co najmniej jednej podsieci Virtual Network w tym samym regionie, użyj [Virtual Network punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md) , a nie publicznego adresu IP podczas konfigurowania zapory konta magazynu. Po skonfigurowaniu punktów końcowych usługi zobaczysz Virtual Network prywatny adres IP w dziennikach diagnostycznych magazynu, a nie na wewnętrznym adresie dostawcy.

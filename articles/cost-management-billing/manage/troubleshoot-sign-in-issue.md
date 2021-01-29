@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 915b4fb289b6af6f4aac84d8bfa4d491a7f77efe
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132333"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050474"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Rozwiązywanie problemów z logowaniem w przypadku subskrypcji platformy Azure
 
@@ -24,7 +24,7 @@ Ten przewodnik pomaga w rozwiązywaniu problemów, gdy nie można zalogować si�
 > [!NOTE]
 > Jeśli masz problemy z zarejestrowaniem się w celu utworzenia nowego konta platformy Azure, zobacz [Rozwiązywanie problemów dotyczących tworzenia konta na potrzeby subskrypcji platformy Azure](./troubleshoot-azure-sign-up.md).
 
-## <a name="page-hangs-in-the-loading-status"></a>Strona zawiesza się podczas ładowania
+## <a name="page-hangs-in-the-loading-status"></a>Strona zawiesza się w stanie ładowania
 
 Jeśli strona przeglądarki internetowej się zawiesza, spróbuj wykonać każdą z następujących czynności, aż uda się przejść do witryny Azure Portal.
 
@@ -32,7 +32,7 @@ Jeśli strona przeglądarki internetowej się zawiesza, spróbuj wykonać każd�
 - Użyj innej przeglądarki internetowej.
 - Użyj prywatnego trybu przeglądania w przeglądarce:
 
-   - **Microsoft Edge:** Otwórz okienko **Ustawienia** (trzy kropki przy zdjęciu profilu), wybierz pozycję **Nowe okno InPrivate**, a następnie zaloguj się do witryny [Azure Portal](https://portal.azure.com/)lub [Centrum konta platformy Azure](https://account.azure.com/Subscriptions). 
+   - **Krawędź:** Otwórz **Ustawienia** (trzy kropki na zdjęciu profilu), wybierz pozycję **nowe okno InPrivate**, a następnie Przeglądaj i zaloguj się do [Azure Portal](https://portal.azure.com/). 
    - **Chrome:** Wybierz tryb **Incognito**.
    - **Safari:** Wybierz kolejno pozycje **Plik**, **Nowe okno prywatne**.
 
@@ -53,7 +53,7 @@ Aby rozwiązać ten problem, wypróbuj jedną z poniższych metod:
    - **Chrome:** Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **Wyczyść dane przeglądania** w obszarze **Prywatność i bezpieczeństwo**.
 - Zresetuj ustawienia przeglądarki do wartości domyślnych.
 - Użyj prywatnego trybu przeglądania w przeglądarce. 
-   - **Microsoft Edge:** Otwórz okienko **Ustawienia** (trzy kropki przy zdjęciu profilu), wybierz pozycję **Nowe okno InPrivate**, a następnie zaloguj się do witryny [Azure Portal](https://portal.azure.com/)lub [Centrum konta platformy Azure](https://account.azure.com/Subscriptions). 
+   - **Krawędź:** Otwórz **Ustawienia** (trzy kropki na zdjęciu profilu), wybierz pozycję **nowe okno InPrivate**, a następnie Przeglądaj i zaloguj się do [Azure Portal](https://portal.azure.com/). 
    - **Chrome:** Wybierz tryb **Incognito**.
    - **Safari:** Wybierz kolejno pozycje **Plik**, **Nowe okno prywatne**.
 

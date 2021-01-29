@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc688ca0981024e5e08c9fb20ecb6704efbd7f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9552d1a0c7bdb73dbcf739144a3ab9f746705664
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997498"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053367"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)
 
@@ -159,4 +159,4 @@ Aby uzyskać więcej informacji na temat wyrażania zgody na aplikacje, zobacz [
 
 [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Usługa Azure AD w firmie Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

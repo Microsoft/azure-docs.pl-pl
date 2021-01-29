@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d519193d55c9535dc71206d2d9f72661d7a40d71
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954416"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051299"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Rozwiązywanie problemów z analizą filmów wideo na żywo na IoT Edge
 
@@ -107,7 +107,8 @@ Podczas uruchamiania **[skryptu konfiguracji zasobów analizy wideo na żywo](ht
 * Skrypt Instalatora nie może utworzyć jednostki usługi i/lub zasobów platformy Azure.
     * Aby obsłużyć ten problem, upewnij się, że Twoja subskrypcja i dzierżawa platformy Azure nie osiągnęły maksymalnych limitów usługi. Dowiedz się więcej o ograniczeniach [i ograniczeniach usługi Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) oraz o limitach [subskrypcji i usług platformy Azure, przydziałach i ograniczeniach.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
 
-
+> [!TIP]
+> Jeśli występują dodatkowe problemy, z którymi może być potrzebna pomoc, **[Zbierz dzienniki i Prześlij bilet pomocy technicznej](#collect-logs-for-submitting-a-support-ticket)**. Możesz również skontaktować się z nami, wysyłając do nas wiadomość e-mail na adres **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .
 ### <a name="live-video-analytics-working-with-external-modules"></a>Analiza wideo na żywo pracująca z modułami zewnętrznymi
 
 Analiza wideo na żywo za pośrednictwem procesorów rozszerzeń grafu multimediów może rozszerzać wykres multimedialny, aby wysyłać i odbierać dane z innych modułów IoT Edge przy użyciu protokołów HTTP lub gRPC. Na [przykład](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)ten Graf multimedialny może wysyłać ramki wideo jako obrazy do modułu wnioskowania zewnętrznego, takiego jak Yolo v3 i odbierać wyniki analizy oparte na notacji JSON przy użyciu protokołu HTTP. W takiej topologii miejsce docelowe dla zdarzeń jest w większości Centrum IoT Hub. W sytuacjach, w których nie widzisz zdarzeń wnioskowania w centrum, sprawdź następujące kwestie:

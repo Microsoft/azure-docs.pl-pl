@@ -50,7 +50,7 @@
         - name: Planowanie pod kątem aplikacji spoza galerii
           href: non-gallery-apps.md
         - name: Planowanie wdrożenia portalu Moje aplikacje
-          href: access-panel-deployment-plan.md
+          href: my-apps-deployment-plan.md
     - name: Logowanie jednokrotne
       items:
         - name: Planowanie wdrożenia logowania jednokrotnego

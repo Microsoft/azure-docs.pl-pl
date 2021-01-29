@@ -8,12 +8,12 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 56f98d41fc73cdd2be0923de66a5af09c875a050
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 31910e92ba4d5cbb1f133eaff6880fafb809b772
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013597"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054097"
 ---
 # <a name="manage-database-roles-and-users"></a>Zarządzanie rolami i użytkownikami bazy danych
 
@@ -28,13 +28,15 @@ Uprawnienia roli obejmują:
 
 Podczas tworzenia projektu modelu tabelarycznego tworzysz role i Dodaj użytkowników lub grupy do tych ról przy użyciu menedżera ról w programie Visual Studio z projektami Analysis Services. W przypadku wdrożenia na serwerze użyj SQL Server Management Studio (SSMS), [Analysis Services poleceń cmdlet programu PowerShell](/analysis-services/powershell/analysis-services-powershell-reference)lub [języka skryptów tabelarycznych](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL), aby dodać lub usunąć role i członków użytkowników.
 
-Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid` .
+Podczas dodawania **grupy zabezpieczeń** Użyj `obj:groupid@tenantid` .
+
+Podczas dodawania użycia **nazwy głównej usługi** `app:appid@tenantid` .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Aby dodać role i użytkowników w programie Visual Studio lub zarządzać nimi  
   
-1.  W **Eksploratorze modeli tabelarycznych**kliknij prawym przyciskiem myszy pozycję **role**.  
+1.  W **Eksploratorze modeli tabelarycznych** kliknij prawym przyciskiem myszy pozycję **role**.  
   
-2.  W **Menedżerze ról**kliknij pozycję **Nowy**.  
+2.  W **Menedżerze ról** kliknij pozycję **Nowy**.  
   
 3.  Wpisz nazwę roli.  
   
@@ -45,7 +47,7 @@ Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid` .
     |Uprawnienie|Opis|  
     |----------------|-----------------|  
     |**Brak**|Członkowie nie mogą odczytywać ani modyfikować schematu modelu i nie mogą wykonywać zapytań dotyczących danych.|  
-    |**Odczyt**|Członkowie mogą wykonywać zapytania dotyczące danych (na podstawie filtrów wierszy), ale nie mogą modyfikować schematu modelu.|  
+    |**Przeczytaj**|Członkowie mogą wykonywać zapytania dotyczące danych (na podstawie filtrów wierszy), ale nie mogą modyfikować schematu modelu.|  
     |**Odczyt i proces**|Członkowie mogą wykonywać zapytania dotyczące danych (na podstawie filtrów na poziomie wiersza) i uruchamiać proces i przetwarzać wszystkie operacje, ale nie mogą modyfikować schematu modelu.|  
     |**Proces**|Członkowie mogą uruchamiać proces i przetwarzać wszystkie operacje. Nie można odczytać lub zmodyfikować schematu modelu i nie można wykonać zapytania dotyczącego danych.|  
     |**Administrator**|Członkowie mogą modyfikować schemat modelu i wykonywać zapytania dotyczące wszystkich danych.|   
@@ -54,7 +56,7 @@ Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid` .
   
 6.  Kliknij pozycję **Członkowie**  >  **Dodaj zewnętrzny**.  
   
-8.  W obszarze **Dodawanie zewnętrznego elementu członkowskiego**wprowadź użytkowników lub grupy w dzierżawie usługi Azure AD według adresu e-mail. Po kliknięciu przycisku OK i zamknięciu menedżera ról, role i członkowie roli są wyświetlane w Eksploratorze modelu tabelarycznego. 
+8.  W obszarze **Dodawanie zewnętrznego elementu członkowskiego** wprowadź użytkowników lub grupy w dzierżawie usługi Azure AD według adresu e-mail. Po kliknięciu przycisku OK i zamknięciu menedżera ról, role i członkowie roli są wyświetlane w Eksploratorze modelu tabelarycznego. 
  
      ![Role i użytkownicy w Eksploratorze modeli tabelarycznych](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
 
@@ -67,7 +69,7 @@ Aby dodać role i użytkowników do wdrożonej bazy danych modelu, należy poł�
 
 1. W obiekcie Exporer kliknij prawym przyciskiem myszy pozycję **role**  >  **Nowa rola**.
 
-2. W obszarze **Utwórz rolę**wprowadź nazwę i opis roli.
+2. W obszarze **Utwórz rolę** wprowadź nazwę i opis roli.
 
 3. Wybierz uprawnienie.
 
@@ -75,7 +77,7 @@ Aby dodać role i użytkowników do wdrożonej bazy danych modelu, należy poł�
    |----------------|-----------------|  
    |**Pełna kontrola (Administrator)**|Członkowie mogą modyfikować schemat modelu, proces i wykonywać zapytania dotyczące wszystkich danych.| 
    |**Przetwarzanie bazy danych**|Członkowie mogą uruchamiać proces i przetwarzać wszystkie operacje. Nie można zmodyfikować schematu modelu i nie można wykonać zapytania dotyczącego danych.|  
-   |**Odczyt**|Członkowie mogą wykonywać zapytania dotyczące danych (na podstawie filtrów wierszy), ale nie mogą modyfikować schematu modelu.|  
+   |**Przeczytaj**|Członkowie mogą wykonywać zapytania dotyczące danych (na podstawie filtrów wierszy), ale nie mogą modyfikować schematu modelu.|  
   
 4. Kliknij pozycję **członkostwo**, a następnie wprowadź użytkownika lub grupę w dzierżawie usługi Azure AD według adresu e-mail.
 
@@ -139,7 +141,7 @@ Filtry wierszy dotyczą określonych wierszy i powiązanych wierszy. Gdy tabela 
   
 |Tabela|Wyrażenie języka DAX|  
 |-----------|--------------------|  
-|Region|= Region [Country] = "USA"|  
+|Region (Region)|= Region [Country] = "USA"|  
 |ProductCategory|= ProductCategory [nazwa] = "rowery"|  
 |Transakcje|= Transakcje [Year] = 2016|  
   

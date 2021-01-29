@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a998491729a1d3bd472ecc3de9722c142f8dc182
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 65d3badc02efbb02df50189885c28a8abe851415
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953788"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050451"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Twitter i zaloguj się przy użyciu usługi Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Aby włączyć Logowanie użytkowników przy użyciu konta usługi Twitter w Azu
 1. W obszarze **Ustawienia uwierzytelniania** wybierz pozycję **Edytuj** .
     1. Zaznacz pole wyboru **Włącz 3-bokami OAuth** .
     1. Zaznacz pole wyboru **Żądaj adresu e-mail z użytkownikami** .
-    1. W polu **adresy URL wywołania zwrotnego** wprowadź wartość `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Zastąp `your-tenant` wartość nazwą swojej dzierżawy i `your-user-flow-Id` identyfikatorem przepływu użytkownika. Na przykład `b2c_1A_signup_signin_twitter`. Użyj wszystkich małych liter, wprowadzając nazwę dzierżawy i identyfikator przepływu użytkownika, nawet jeśli są one zdefiniowane przy użyciu wielkich liter w Azure AD B2C.
+    1. W polu **adresy URL wywołania zwrotnego** wprowadź wartość `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Zastąp `your-tenant` wartość nazwą swojej dzierżawy i `your-user-flow-Id` identyfikatorem przepływu użytkownika. Na przykład `b2c_1a_signup_signin_twitter`. Użyj wszystkich małych liter, wprowadzając nazwę dzierżawy i identyfikator przepływu użytkownika, nawet jeśli są one zdefiniowane przy użyciu wielkich liter w Azure AD B2C.
     1. W polu **adres URL witryny sieci Web** wprowadź `https://your-tenant.b2clogin.com` . Zamień `your-tenant` na nazwę dzierżawy. Na przykład `https://contosob2c.b2clogin.com`.
     1. Wprowadź adres URL dla **warunków użytkowania usługi**, na przykład `http://www.contoso.com/tos` . Adres URL zasad to strona, która jest utrzymywana w celu zapewnienia warunków i postanowień aplikacji.
     1. Wprowadź na przykład adres URL **zasad ochrony prywatności** `http://www.contoso.com/privacy` . Adres URL zasad to strona, którą przechowujesz, aby zapewnić informacje o ochronie prywatności dla aplikacji.

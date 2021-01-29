@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 2e09607dde118ce25e5d2e5311e7614f2f18a590
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890734"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053571"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Konfigurowanie żądanego stanu maszyn
 
@@ -27,7 +27,7 @@ W tym samouczku używana jest prosta [Konfiguracja DSC](/powershell/scripting/ds
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto usługi Azure Automation. Aby uzyskać instrukcje dotyczące tworzenia konta Uruchom jako usługi Azure Automation, zobacz [Konto Uruchom jako platformy Azure](./manage-runas-account.md).
+- Konto usługi Azure Automation. Aby dowiedzieć się więcej na temat konta usługi Automation i jego wymagań, zobacz temat [uwierzytelnianie konta usługi Automation — Omówienie](./automation-security-overview.md).
 - Maszyna wirtualna w Azure Resource Manager (nieklasyczny) z systemem Windows Server 2008 R2 lub nowszym. Aby uzyskać instrukcje dotyczące tworzenia maszyny wirtualnej, zobacz [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/windows/quick-create-portal.md).
 - Azure PowerShell module w wersji 3,6 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 - Znajomość konfiguracji żądanego stanu (DSC). Aby uzyskać informacje na temat DSC, zobacz [Omówienie konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview).
@@ -49,7 +49,6 @@ Connect-AzAccount
 ```
 
 ## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Utwórz i przekaż konfigurację do Azure Automation
-
 
 W edytorze tekstów wpisz następujące polecenie i Zapisz je lokalnie jako **TestConfig.ps1**.
 

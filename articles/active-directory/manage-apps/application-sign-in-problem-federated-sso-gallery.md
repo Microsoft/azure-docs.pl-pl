@@ -12,17 +12,17 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 62b828a23805c6d3ab544dd2b9f78b45a3327cde
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586350"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053401"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML
 Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie poniższych czynności w celu lepszego zdiagnozowania i zautomatyzowania kroków rozwiązania:
 
-- Zainstaluj [rozszerzenie przeglądarki My Apps Secure](./access-panel-deployment-plan.md), aby ułatwić usłudze Azure Active Directory (Azure AD) zapewnienie lepszej diagnostyki i rozwiązań podczas korzystania ze środowiska testowego w witrynie Azure Portal.
+- Zainstaluj [rozszerzenie przeglądarki My Apps Secure](my-apps-deployment-plan.md), aby ułatwić usłudze Azure Active Directory (Azure AD) zapewnienie lepszej diagnostyki i rozwiązań podczas korzystania ze środowiska testowego w witrynie Azure Portal.
 - Odtwórz błąd przy użyciu środowiska testowego na stronie Konfiguracja aplikacji w witrynie Azure Portal. Dowiedz się więcej na temat [debugowania aplikacji logowania jednokrotnego opartego na protokole SAML](./debug-saml-sso-issues.md)
 
 Jeśli używasz [środowiska testowego](./debug-saml-sso-issues.md) w Azure Portal z rozszerzeniem moje aplikacje bezpieczne przeglądarki, nie musisz ręcznie wykonać poniższe kroki, aby otworzyć stronę konfiguracyjną Logowanie jednokrotne oparte na protokole SAML.

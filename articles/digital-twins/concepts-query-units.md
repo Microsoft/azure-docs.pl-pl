@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 86f2abb8bfb95d5b9e72936ca3e9464747c00b1c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0e1c5f08c4292e4f3dfec448d8bf54d5d5601840
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049307"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050502"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Jednostki zapytań w usłudze Azure Digital bliźniaczych reprezentacji 
 
@@ -45,4 +45,4 @@ Aby dowiedzieć się więcej o wysyłaniu zapytań do usługi Azure Digital bli�
 * [*Instrukcje: zapytanie o wykres bliźniaczy*](how-to-query-graph.md)
 * [Dokumentacja interfejsu API zapytań](/rest/api/digital-twins/dataplane/query/querytwins)
 
-Limity dotyczące zapytań Digital bliźniaczych reprezentacji systemu Azure można znaleźć w temacie [*Reference: limit usług*](reference-service-limits.md).
+Limity dotyczące zapytań Digital bliźniaczych reprezentacji platformy Azure można znaleźć w [*limitach usługi Azure Digital bliźniaczych reprezentacji*](reference-service-limits.md).

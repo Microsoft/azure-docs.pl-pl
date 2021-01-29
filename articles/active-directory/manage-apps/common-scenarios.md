@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 882770fefbb48524ad5f11a56089132b319470aa
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835496"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053350"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Scentralizowanie zarządzania aplikacjami za pomocą usługi Azure AD
 
@@ -43,7 +43,7 @@ Nie ma więcej zarządzania hasłem. Bezpiecznie Uzyskuj dostęp do wszystkich p
 |Cechy  | Opis | Zalecenie |
 |---------|---------|---------|
 |Logowanie jednokrotne|Oparte na standardach federacyjnego Logowanie jednokrotne przy użyciu zaufanych standardów branżowych.|Zawsze używaj protokołu [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md) , aby włączyć logowanie jednokrotne, gdy aplikacja je obsługuje.|
-|Moje aplikacje|Zapewnianie użytkownikom prostego centrum w celu odnajdywania i uzyskiwania dostępu do wszystkich aplikacji. Umożliwiają im wydajniejsze korzystanie z funkcji samoobsługowych, takich jak żądanie dostępu do aplikacji i grup oraz zarządzanie dostępem do zasobów w imieniu innych użytkowników.| Wdróż [Moje aplikacje](./access-panel-deployment-plan.md) w organizacji po zintegrowaniu aplikacji z usługą Azure AD na potrzeby logowania jednokrotnego.|
+|Moje aplikacje|Zapewnianie użytkownikom prostego centrum w celu odnajdywania i uzyskiwania dostępu do wszystkich aplikacji. Umożliwiają im wydajniejsze korzystanie z funkcji samoobsługowych, takich jak żądanie dostępu do aplikacji i grup oraz zarządzanie dostępem do zasobów w imieniu innych użytkowników.| Wdróż [Moje aplikacje](my-apps-deployment-plan.md) w organizacji po zintegrowaniu aplikacji z usługą Azure AD na potrzeby logowania jednokrotnego.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Scenariusz 2. Automatyzacja aprowizacji i anulowania obsługi 
 
@@ -73,7 +73,7 @@ Zarządzanie tożsamościami pomaga organizacjom w osiągnięciu równowagi mię
 |---------|---------| ---------|
 |ELM|Zarządzanie prawami w usłudze Azure AD może pomóc użytkownikom zarówno w organizacji, jak i poza nią, efektywniejsze zarządzanie dostępem do aplikacji.| Zezwalaj użytkownikom innym niż Administratorzy na zarządzanie dostępem do aplikacji za pomocą [pakietów dostępu](../governance/entitlement-management-access-package-first.md).|
 |Przeglądy dostępu|Dostęp użytkownika do aplikacji może być regularnie przeglądany, aby upewnić się, że tylko odpowiednie osoby mają stały dostęp.| [Przejrzyj dostęp](../governance/access-reviews-overview.md) do najbardziej poufnych aplikacji. |
-|Usługa Log Analytics|Generowanie raportów o tym, kto uzyskuje dostęp do aplikacji i zapisuje je w wybranym narzędziu SIEM, aby skorelować dane między źródłami danych a z upływem czasu.| Włącz usługę [log Analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) i skonfiguruj alerty dla zdarzeń krytycznych związanych z aplikacjami. |
+|Log Analytics|Generowanie raportów o tym, kto uzyskuje dostęp do aplikacji i zapisuje je w wybranym narzędziu SIEM, aby skorelować dane między źródłami danych a z upływem czasu.| Włącz usługę [log Analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) i skonfiguruj alerty dla zdarzeń krytycznych związanych z aplikacjami. |
 
 
 ## <a name="scenario-5-hybrid-secure-access"></a>Scenariusz 5: bezpieczny dostęp do hybrydowego dostępu

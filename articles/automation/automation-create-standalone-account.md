@@ -3,14 +3,14 @@ title: Tworzenie autonomicznego konta usługi Azure Automation
 description: W tym artykule opisano sposób tworzenia autonomicznego konta Azure Automation oraz klasycznego konta Uruchom jako.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/15/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855395a305624bb2df96d183dc2bcac45f8e6b3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714649"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051468"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
 
@@ -67,14 +67,14 @@ Aby utworzyć konto Azure Automation w Azure Portal, wykonaj następujące czynn
     > Nazwy kont usługi Automation są unikatowe dla poszczególnych regionów i grup zasobów. Nazwy usuniętych kont usługi Automation mogą nie być od razu dostępne.
 
 1. Jeśli masz więcej niż jedną subskrypcję, użyj pola **subskrypcja** , aby określić subskrypcję do użycia dla nowego konta.
-1. W obszarze **Grupa zasobów**wprowadź lub wybierz nową lub istniejącą grupę zasobów.
-1. W obszarze **Lokalizacja**wybierz lokalizację centrum danych platformy Azure.
+1. W obszarze **Grupa zasobów** wprowadź lub wybierz nową lub istniejącą grupę zasobów.
+1. W obszarze **Lokalizacja** wybierz lokalizację centrum danych platformy Azure.
 1. Upewnij **się, że opcja** **Utwórz konto Uruchom jako platformy Azure** jest zaznaczona, a następnie kliknij przycisk **Utwórz**.
 
    > [!NOTE]
    > Jeśli zdecydujesz się nie tworzyć konta Uruchom jako, wybierając pozycję **nie** , aby **utworzyć konto Uruchom jako platformy Azure**, w okienku Dodawanie konta usługi Automation zostanie wyświetlony komunikat. Mimo że konto jest tworzone w Azure Portal, konto nie ma odpowiedniej tożsamości uwierzytelniania w ramach subskrypcji klasycznego modelu wdrażania lub subskrypcji Azure Resource Manager usługi katalogowej. W związku z tym konto usługi Automation nie ma dostępu do zasobów w Twojej subskrypcji. Dzięki temu wszystkie elementy Runbook odwołujące się do tego konta nie będą mogły uwierzytelniać i wykonywać zadań względem zasobów w tych modelach wdrożenia.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Zrzut ekranu przedstawiający monit &quot;nie masz uprawnień do utworzenia konta Uruchom jako w usłudze Azure Active Directory&quot;.":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Zrzut ekranu przedstawiający monit z komunikatem &quot;nie można utworzyć konta Uruchom jako&quot;.":::
    >
    > Gdy nie zostanie utworzona jednostka usługi, rola współautor nie jest przypisana.
    >
@@ -93,7 +93,7 @@ Po pomyślnym utworzeniu konta usługi Automation automatycznie zostanie utworzo
 
 ## <a name="create-a-classic-run-as-account"></a>Tworzenie klasycznego konta Uruchom jako
 
-Klasyczne konta Uruchom jako nie są już tworzone domyślnie podczas tworzenia konta Azure Automation. Jeśli nadal potrzebujesz klasycznego konta Uruchom jako:
+Klasyczne konta Uruchom jako nie są tworzone domyślnie podczas tworzenia konta Azure Automation. Jeśli do zarządzania klasycznymi zasobami platformy Azure jest wymagane klasyczne konto Uruchom jako, wykonaj następujące czynności:
 
 1. Z poziomu konta usługi Automation wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta**.
 2. Wybierz **klasyczne konto Uruchom jako platformy Azure**.
@@ -104,5 +104,5 @@ Klasyczne konta Uruchom jako nie są już tworzone domyślnie podczas tworzenia 
 * Aby dowiedzieć się więcej o tworzeniu graficznym, zobacz [Tworzenie graficznych elementów Runbook w programie Azure Automation](automation-graphical-authoring-intro.md).
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook programu PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook przepływu pracy programu PowerShell](learn/automation-tutorial-runbook-textual.md).
-* Aby rozpocząć pracę z elementami Runbook języka Python 2, zobacz [Samouczek: Tworzenie elementu Runbook w języku Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* Aby rozpocząć pracę z elementami Runbook języka Python 3, zobacz [Samouczek: Tworzenie elementu Runbook języka Python 3](learn/automation-tutorial-runbook-textual-python-3.md).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation&preserve-view=true#automation).

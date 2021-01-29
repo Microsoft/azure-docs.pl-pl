@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
 keywords: PowerShell, Runbook, JSON, Automatyzacja Azure
-ms.openlocfilehash: 18f1d4ced2a80f9adb5da2c209987fc1997a3f22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9b443d1840840d3d6202140da235589c73453cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304155"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051400"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Wdrażanie szablonu Azure Resource Manager w elemencie Runbook programu PowerShell
 
@@ -22,7 +22,7 @@ W tym artykule opisano Tworzenie elementu Runbook programu PowerShell, który u�
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli jeszcze jej nie masz, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub [utworzyć bezpłatne konto](https://azure.microsoft.com/free/).
-* [Konto usługi Automation](./manage-runas-account.md) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
+* [Konto usługi Automation](./automation-security-overview.md) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
 * [Konto magazynu platformy Azure](../storage/common/storage-account-create.md) , w którym ma być przechowywany szablon Menedżer zasobów.
 * Azure PowerShell zainstalowany na komputerze lokalnym. Aby uzyskać informacje na temat pobierania Azure PowerShell, zobacz temat [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps) .
 

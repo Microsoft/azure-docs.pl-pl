@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03f24bf4cf379504479e554b129f34d94ca423cd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 03814766d7bc873855df261a50a40b8d342fa69b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896363"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054250"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Użyj alertu, aby wyzwolić Azure Automation element Runbook
 
@@ -45,7 +45,7 @@ Zgodnie z opisem w poprzedniej sekcji każdy typ alertu ma inny schemat. Skrypt 
 
 Ten przykład używa alertu z maszyny wirtualnej. Pobiera dane dotyczące maszyn wirtualnych z ładunku, a następnie używa tych informacji do zatrzymania maszyny wirtualnej. Połączenie musi zostać skonfigurowane na koncie usługi Automation, na którym jest uruchomiony element Runbook. W przypadku wyzwalania elementów Runbook przy użyciu alertów ważne jest sprawdzenie stanu alertu w elemencie Runbook, który zostanie wyzwolony. Element Runbook jest wyzwalany za każdym razem, gdy zmienia się stan alertu. Alerty mają wiele stanów, a dwa Najczęstsze są aktywowane i rozwiązane. Sprawdź stan w logice elementu Runbook, aby upewnić się, że element Runbook nie działa więcej niż raz. W przykładzie w tym artykule pokazano, jak wyszukiwać alerty z aktywowanym stanem.
 
-Element Runbook używa `AzureRunAsConnection` [konta Uruchom jako](./manage-runas-account.md) zasobu połączenia do uwierzytelniania za pomocą platformy Azure, aby wykonać akcję zarządzania względem maszyny wirtualnej.
+Element Runbook używa `AzureRunAsConnection` [konta Uruchom jako](./automation-security-overview.md) zasobu połączenia do uwierzytelniania za pomocą platformy Azure, aby wykonać akcję zarządzania względem maszyny wirtualnej.
 
 Użyj tego przykładu, aby utworzyć element Runbook o nazwie **stop-AzureVmInResponsetoVMAlert**. Możesz zmodyfikować skrypt programu PowerShell i używać go z wieloma różnymi zasobami.
 

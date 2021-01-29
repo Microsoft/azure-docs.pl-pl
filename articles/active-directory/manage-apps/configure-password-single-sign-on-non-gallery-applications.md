@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 7f9d29fee78c01dd3b1ee79d564297fa0cef14d3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2bb190ea01098e8e7b21a00f54fc37cd817f3743
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219882"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053283"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Informacje na temat logowania jednokrotnego opartego na hasłach
 
@@ -37,7 +37,7 @@ Logowanie jednokrotne oparte na hasłach to doskonały sposób, aby szybko rozpo
 
 -   Umożliwia administratorowi określenie nazwy użytkownika i hasła, które mają być używane przez osoby lub grupy podczas logowania się do aplikacji za pomocą funkcji aktualizacji poświadczeń 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) i Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać informacje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej i musisz użyć logowania jednokrotnego opartego na hasłach, ten artykuł jest dla Ciebie.
 
@@ -54,7 +54,7 @@ Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości
 W [serii szybkiego startu](view-applications-portal.md)dowiesz się, jak dodać aplikację do dzierżawy, dzięki czemu usługa Azure AD wie, że jest ona używana jako dostawca tożsamości (dostawcy tożsamości) dla aplikacji. Niektóre aplikacje są już wstępnie skonfigurowane i są wyświetlane w galerii usługi Azure AD. Inne aplikacje nie znajdują się w galerii i musisz utworzyć aplikację rodzajową i skonfigurować ją ręcznie. W zależności od aplikacji opcja logowania jednokrotnego opartego na hasłach może być niedostępna. Jeśli lista opcji oparta na haśle nie jest widoczna na stronie logowania jednokrotnego dla aplikacji, jest niedostępna.
 
 > [!IMPORTANT]
-> Rozszerzenie przeglądarki Moje aplikacje jest wymagane w przypadku logowania jednokrotnego opartego na hasłach. Aby dowiedzieć się więcej, zobacz [Planowanie wdrożenia moje aplikacje](access-panel-deployment-plan.md).
+> Rozszerzenie przeglądarki Moje aplikacje jest wymagane w przypadku logowania jednokrotnego opartego na hasłach. Aby dowiedzieć się więcej, zobacz [Planowanie wdrożenia moje aplikacje](my-apps-deployment-plan.md).
 
 Strona konfiguracja logowania jednokrotnego na podstawie hasła jest prosta. Zawiera tylko adres URL strony logowania używanej przez aplikację. Ten ciąg musi być stroną, która zawiera pole wprowadzania nazwy użytkownika.
 

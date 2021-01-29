@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c1f46e3aed1309e51bf1ea8607a9db8a71550ce5
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9b014775f55671ef1297e040620390c23f842ce0
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033208"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053252"
 ---
 # <a name="configure-permission-classifications"></a>Konfigurowanie klasyfikacji uprawnień
 
@@ -126,4 +126,4 @@ Dodatkowe informacje:
 * [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
-* [Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Usługa Azure AD w firmie Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

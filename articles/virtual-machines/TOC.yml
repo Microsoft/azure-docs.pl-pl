@@ -957,8 +957,6 @@
               href: ./linux/cloudinit-configure-swapfile.md
             - name: Uruchamianie istniejącego skryptu powłoki systemowej
               href: ./linux/cloudinit-bash-script.md
-            - name: Przygotowywanie istniejącej maszyny wirtualnej do korzystania z pakietu cloud-init
-              href: ./linux/cloudinit-prepare-custom-image.md
         - name: Tworzenie obrazów systemu Linux bez agenta aprowizacji
           href: ./linux/no-agent.md
         - name: Wyłączanie aprowizacji agenta systemu Linux
@@ -1070,6 +1068,10 @@
               href: ./windows/image-builder.md
         - name: PowerShell
           href: ./windows/image-builder-powershell.md
+        - name: Zabezpieczenia
+          items:
+            - name: Kontrole zabezpieczeń usługi Azure Policy
+              href: ./security-controls-policy-image-builder.md
         - name: Korzystanie z sieci wirtualnej
           items:
             - name: Interfejs wiersza polecenia
@@ -1508,7 +1510,6 @@
               href: ../bastion/create-host-cli.md
             - name: Połączenie SSH usługi Bastion
               href: ../bastion/bastion-connect-vm-ssh.md
-              items: null
             - name: Połączenie RDP usługi Bastion
               href: ../bastion/bastion-connect-vm-rdp.md
         - name: Korzystanie z kontroli dostępu

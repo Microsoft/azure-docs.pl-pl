@@ -4,15 +4,15 @@ description: Podstawa zabezpieczeń platformy Azure dla usługi Automation
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 01/07/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ea984e527eb526e49c87ce5385ba5715803cc72d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 79282e99894bccad4f3c265cdffe4bee2e465950
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737256"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052757"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Podstawa zabezpieczeń platformy Azure dla usługi Automation
 
@@ -336,11 +336,11 @@ Jednak w przypadku korzystania z funkcji hybrydowego procesu roboczego elementu 
 
 **Wskazówki**: Użyj Azure Active Directory wbudowanych ról administratora, które mogą być jawnie przypisane i mogą być wysyłane zapytania. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych. Za każdym razem, gdy używane są konta Uruchom jako konta usługi Automation dla elementów Runbook, upewnij się, że te jednostki usługi są również śledzone w spisie, ponieważ często mają podwyższony poziom uprawnień. Usuń wszystkie nieużywane konta Uruchom jako, aby zminimalizować narażoną powierzchnię ataku.
 
-* [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-* [Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako](./delete-run-as-account.md)
 
 * [Zarządzanie Azure Automation kontem Uruchom jako](./manage-runas-account.md)
 
@@ -364,7 +364,7 @@ Możesz również włączyć dostęp do usługi Microsoft just-in-Time/tylko do 
 
 * [Dowiedz się więcej o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
-* [Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako](./delete-run-as-account.md)
 
 * [Zarządzanie Azure Automation kontem Uruchom jako](./manage-runas-account.md)
 
@@ -454,7 +454,7 @@ Możesz również włączyć dostęp do usługi Microsoft just-in-Time/tylko do 
 
 * [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
-* [Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako](./delete-run-as-account.md)
 
 * [Zarządzanie Azure Automation kontem Uruchom jako](./manage-runas-account.md)
 
@@ -696,7 +696,7 @@ Jeśli używasz hybrydowych procesów roboczych elementów Runbook, które są o
 
 * [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
-* [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -724,7 +724,7 @@ Jeśli używasz hybrydowych procesów roboczych elementów Runbook, które są o
 
 * [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-* [Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako](./delete-run-as-account.md)
 
 * [Zarządzanie Azure Automation kontem Uruchom jako](./manage-runas-account.md)
 
@@ -836,7 +836,7 @@ Adaptacyjna kontrola aplikacji to inteligentne, zautomatyzowane i kompleksowe ro
 
 **Wskazówki**: w przypadku korzystania z funkcji hybrydowego procesu roboczego elementu Runbook, w zależności od typu skryptów, można użyć określonych konfiguracji systemu operacyjnego lub zasobów innych firm, aby ograniczyć możliwość wykonywania skryptów w ramach zasobów obliczeniowych platformy Azure. Możesz również wykorzystać Azure Security Center adaptacyjnych kontroli aplikacji, aby upewnić się, że tylko autoryzowane oprogramowanie i wszystkie nieautoryzowane oprogramowanie zostało zablokowane na platformie Azure Virtual Machines.
 
-* [Jak kontrolować wykonywanie skryptów programu PowerShell w środowiskach systemu Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Jak kontrolować wykonywanie skryptów programu PowerShell w środowiskach systemu Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [Jak używać Azure Security Center adaptacyjnych kontroli aplikacji](../security-center/security-center-adaptive-application.md)
 
@@ -878,7 +878,7 @@ Ponadto Azure Resource Manager ma możliwość eksportowania szablonu w JavaScri
 
 Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii bazowej konfiguracji dla zasobów platformy Azure.
 
-* [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../governance/policy/tutorials/create-and-manage.md)
 
@@ -942,7 +942,7 @@ W większości scenariuszy szablony maszyn wirtualnych firmy Microsoft połączo
 
 * [Informacje na temat tworzenia szablonów ARM](../virtual-machines/windows/ps-template.md)
 
-* [Jak przekazać niestandardowy wirtualny dysk twardy maszyny wirtualnej na platformę Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Jak przekazać niestandardowy wirtualny dysk twardy maszyny wirtualnej na platformę Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -952,7 +952,7 @@ W większości scenariuszy szablony maszyn wirtualnych firmy Microsoft połączo
 
 **Wskazówki**: za pomocą usługi Azure DevOps bezpiecznie przechowuj swój kod, taki jak niestandardowe zasady platformy Azure, szablony Azure Resource Manager i skrypty konfiguracji żądanego stanu, i zarządzaj nimi. Aby uzyskać dostęp do zasobów zarządzanych w usłudze Azure DevOps, można udzielić lub odmówić uprawnień do określonych użytkowników, wbudowanych grup zabezpieczeń lub grup zdefiniowanych w Azure Active Directory, jeśli są zintegrowane z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS. Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność elementów Runbook na koncie usługi Automation przy użyciu skryptów w repozytorium kontroli źródła.
 
-* [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -1134,7 +1134,7 @@ Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność element�
 
 * [Wprowadzenie do Azure Automation](./automation-intro.md)
 
-* [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1160,7 +1160,7 @@ Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność element�
 
 * [Wprowadzenie do Azure Automation](./automation-intro.md)
 
-* [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1176,7 +1176,7 @@ Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność element�
 
 * [Wdrażanie zasobów za pomocą szablonów ARM i Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 
-* [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 * [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1190,7 +1190,7 @@ Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność element�
 
 Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność elementów Runbook na koncie usługi Automation przy użyciu skryptów w repozytorium kontroli źródła.
 
-* [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

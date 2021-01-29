@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455055"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052046"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Szybki Start: Tworzenie pierwszego Logic Appsego przepływu pracy — Azure Portal
 
@@ -30,11 +30,14 @@ Jeśli chcesz dowiedzieć się, jak utworzyć pierwszą aplikację logiki i zarz
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli go nie masz, [zarejestruj się, aby skorzystać z bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Konto i subskrypcja platformy Azure. Jeśli go nie masz, [zarejestruj się, aby skorzystać z bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * Konto e-mail z usługi obsługiwanej przez Logic Apps (na przykład Office 365 Outlook lub Outlook.com). W przypadku innych obsługiwanych dostawców poczty e-mail [Przejrzyj listę łączników](/connectors/).
 
     > [!IMPORTANT]
     > Jeśli używasz [łącznika usługi Gmail](/connectors/gmail/), pamiętaj, że tylko konta usługi G Suite mogą używać tego łącznika bez ograniczeń w Logic Apps. Jeśli masz konto odbiorcy usługi Gmail, możesz używać tego łącznika tylko z określonymi usługami zatwierdzonymi przez firmę Google, chyba że [utworzysz aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Jeśli aplikacja logiki musi komunikować się przez zaporę, która ogranicza ruch do określonych adresów IP, zapora musi zezwolić na dostęp *zarówno* do [przychodzącego](logic-apps-limits-and-config.md#inbound) , jak i [wychodzącego](logic-apps-limits-and-config.md#outbound) adresu IP używanego przez usługę Logic Apps lub środowisko uruchomieniowe w regionie platformy Azure, w którym znajduje się aplikacja logiki. Jeśli aplikacja logiki używa również łączników [zarządzanych](../connectors/apis-list.md#managed-api-connectors), takich jak łącznik usługi Office 365 Outlook lub łącznik SQL, lub używa [łączników niestandardowych](/connectors/custom-connectors/), zapora musi również zezwolić na dostęp *wszystkich* [wychodzących adresów IP łącznika zarządzanego](logic-apps-limits-and-config.md#outbound) w regionie platformy Azure aplikacji logiki.
 
 <a name="create-logic-app"></a>
 
@@ -51,7 +54,7 @@ Jeśli chcesz dowiedzieć się, jak utworzyć pierwszą aplikację logiki i zarz
    ![Zrzut ekranu przedstawiający stronę usługi Logic Apps w programie Azure Portal z listą aplikacji logiki i wybranym przyciskiem "Dodaj".](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. W okienku **aplikacja logiki** Podaj podstawowe informacje i ustawienia dla aplikacji logiki. Utwórz nową [grupę zasobów](../azure-resource-manager/management/overview.md#terminology) na potrzeby tej przykładowej aplikacji logiki.
-    
+
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
    | **Nazwa** | <*Logic-App-Name*> | Nazwa aplikacji logiki, która musi być unikatowa w różnych regionach. Nazwa może zawierać tylko litery, cyfry, łączniki ( `-` ), podkreślenia ( `_` ), nawiasy ( `(` , `)` ) i kropki ( `.` ). W tym przykładzie zastosowano "My-First-Logic-App". |

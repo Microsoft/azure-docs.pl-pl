@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 763e1321556ade73778b82ea70926af21a83f7ec
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896278"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053588"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Rozwiązywanie problemów dotyczących Start/Stop VMs during off-hours
 
@@ -109,7 +109,7 @@ Zapoznaj się z poniższą listą, aby uzyskać potencjalne rozwiązania:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Sprawdź, czy [konto Uruchom jako](../manage-runas-account.md) ma odpowiednie uprawnienia do maszyn wirtualnych, które próbujesz uruchomić lub zatrzymać. Aby dowiedzieć się, jak sprawdzić uprawnienia do zasobu, zobacz [Szybki Start: Wyświetlanie ról przypisanych do użytkownika przy użyciu Azure Portal](../../role-based-access-control/check-access.md). Należy podać identyfikator aplikacji dla jednostki usługi używanej przez konto Uruchom jako. Możesz pobrać tę wartość, przechodząc do konta usługi Automation w Azure Portal. Wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta**, a następnie wybierz odpowiednie konto Uruchom jako.
+* Sprawdź, czy [konto Uruchom jako](../automation-security-overview.md#run-as-accounts) ma odpowiednie uprawnienia do maszyn wirtualnych, które próbujesz uruchomić lub zatrzymać. Aby dowiedzieć się, jak sprawdzić uprawnienia do zasobu, zobacz [Szybki Start: Wyświetlanie ról przypisanych do użytkownika przy użyciu Azure Portal](../../role-based-access-control/check-access.md). Należy podać identyfikator aplikacji dla jednostki usługi używanej przez konto Uruchom jako. Możesz pobrać tę wartość, przechodząc do konta usługi Automation w Azure Portal. Wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta**, a następnie wybierz odpowiednie konto Uruchom jako.
 
 * Maszyny wirtualne mogą nie zostać uruchomione lub zatrzymane, jeśli są jawnie wykluczone. Wykluczone maszyny wirtualne są ustawiane w `External_ExcludeVMNames` zmiennej na koncie usługi Automation, na którym wdrożono funkcję. Poniższy przykład pokazuje, jak można zbadać tę wartość za pomocą programu PowerShell.
 
@@ -201,7 +201,7 @@ Przyczyną tego problemu może być nieprawidłowo skonfigurowane lub wygasłe k
 
 Aby sprawdzić, czy konto Uruchom jako jest prawidłowo skonfigurowane, przejdź do konta usługi Automation w Azure Portal i wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta**. Jeśli konto Uruchom jako jest nieprawidłowo skonfigurowane lub wygasło, stan pokazuje warunek.
 
-Jeśli konto Uruchom jako jest nieprawidłowo skonfigurowane, Usuń i ponownie utwórz konto Uruchom jako. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami Azure Automation Uruchom jako](../manage-runas-account.md).
+Jeśli konto Uruchom jako jest nieprawidłowo skonfigurowane, Usuń i ponownie utwórz konto Uruchom jako. Aby uzyskać więcej informacji, zobacz [Azure Automation kont Uruchom jako](../automation-security-overview.md#run-as-accounts).
 
 Jeśli certyfikat wygasł dla konta Uruchom jako, postępuj zgodnie z instrukcjami w sekcji [odnowienie certyfikatu](../manage-runas-account.md#cert-renewal) z podpisem własnym, aby odnowić certyfikat.
 

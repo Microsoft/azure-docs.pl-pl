@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3a1428f05d1a5f7563b2715a9142cf73dc5063a9
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 3280952636a915cca4bade40d3e56b795050c321
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063658"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053469"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migrowanie aplikacji do biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
@@ -73,7 +73,7 @@ __P: jak działa MSAL z AD FS?__
 Odp.: MSAL.NET obsługuje pewne scenariusze do uwierzytelniania w odniesieniu do AD FS 2019. Jeśli aplikacja musi uzyskać tokeny bezpośrednio z wcześniejszej wersji AD FS, należy pozostawać w bibliotece ADAL. [Dowiedz się więcej](msal-net-adfs-support.md).
 
 __P: Jak mogę uzyskać pomoc w migrowaniu mojej aplikacji?__  
-Odp.: Zobacz sekcję [wskazówki dotyczące migracji](#migration-guidance) w tym artykule. Jeśli po przeczytaniu przewodnika dotyczącego platformy aplikacji masz dodatkowe pytania, możesz opublikować Stack Overflow ze znacznikiem `[adal-deprecation]` lub otworzyć problem w repozytorium GitHub biblioteki. Aby uzyskać linki do repozytorium każdej biblioteki, zobacz sekcję [Języki i struktury](msal-overview.md#languages-and-frameworks) w artykule Omówienie MSAL.
+Odp.: Zobacz sekcję [wskazówki dotyczące migracji](#migration-guidance) w tym artykule. Jeśli po zapoznaniu się z przewodnikiem dotyczącym platformy aplikacji masz dodatkowe pytania, możesz publikować w witrynie Microsoft Q&A ze znacznikiem `[azure-ad-adal-deprecation]` lub otworzyć problem w repozytorium GitHub biblioteki. Aby uzyskać linki do repozytorium każdej biblioteki, zobacz sekcję [Języki i struktury](msal-overview.md#languages-and-frameworks) w artykule Omówienie MSAL.
 
 ## <a name="next-steps"></a>Następne kroki
 

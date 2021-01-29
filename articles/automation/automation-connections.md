@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8deb249dc042701ec02c3e5e30f3603be132d0ec
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 5f6494eb72084c683ddbb8b27a49acdb1fbc2bfc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733998"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054267"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Zarządzanie połączeniami w Azure Automation
 
@@ -35,7 +35,7 @@ Azure Automation udostępnia następujące wbudowane typy połączeń:
 * `AzureServicePrincipal` -Reprezentuje połączenie używane przez konto Uruchom jako platformy Azure.
 * `AzureClassicCertificate` -Reprezentuje połączenie używane przez klasyczne konto Uruchom jako platformy Azure.
 
-W większości przypadków nie trzeba tworzyć zasobu połączenia, ponieważ jest on tworzony podczas tworzenia [konta Uruchom jako](manage-runas-account.md).
+W większości przypadków nie trzeba tworzyć zasobu połączenia, ponieważ jest on tworzony podczas tworzenia [konta Uruchom jako](automation-security-overview.md).
 
 ## <a name="powershell-cmdlets-to-access-connections"></a>Polecenia cmdlet programu PowerShell umożliwiające dostęp do połączeń
 

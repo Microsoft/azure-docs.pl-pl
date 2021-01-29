@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d1632c66791dd5e697b95a2c5aaaddea81629abf
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878226"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052826"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Używanie do połączeń wychodzących
 
@@ -80,7 +80,7 @@ Gdy zostanie skonfigurowany [Scenariusz 2](#scenario2) poniżej, Host dla każde
 
  | Związku | Metoda | Protokoły IP |
  | ------------ | ------ | ------------ |
- | Publiczny moduł równoważenia obciążenia | Korzystanie z adresów IP frontonu usługi równoważenia obciążenia dla [tego elementu.](#snat)| TCP </br> UDP |
+ | Standardowy publiczny moduł równoważenia obciążenia | Korzystanie z adresów IP frontonu usługi równoważenia obciążenia dla [tego elementu.](#snat)| TCP </br> UDP |
 
 
  #### <a name="description"></a>Opis
@@ -103,8 +103,18 @@ Gdy zostanie skonfigurowany [Scenariusz 2](#scenario2) poniżej, Host dla każde
 
  W tym kontekście porty, które są używane do przystawcy adresów sieciowych, są nazywane portami. Zdecydowanie zaleca się jawne skonfigurowanie [reguły ruchu wychodzącego](./outbound-rules.md) . W przypadku użycia domyślnego odnoszący się do niego za pośrednictwem reguły równoważenia obciążenia porty podrzędnego protokołu adresów sieciowych są wstępnie przydzielane zgodnie z opisem w [tabeli alokacji domyślnych portów](#snatporttable).
 
+ ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-standard-internal-load-balancer"></a><a name="scenario3"></a>Scenariusz 3: maszyna wirtualna bez publicznego adresu IP i za Load Balancer wewnętrzny w warstwie Standardowa
 
- ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Scenariusz 3: maszyna wirtualna bez publicznego adresu IP i za podstawową Load Balancer
+
+ | Związku | Metoda | Protokoły IP |
+ | ------------ | ------ | ------------ |
+ | Wewnętrzny moduł równoważenia obciążenia w warstwie Standardowa | Brak łączności z Internetem.| Brak |
+
+ #### <a name="description"></a>Opis
+ 
+W przypadku korzystania ze standardowego wewnętrznego modułu równoważenia obciążenia nie ma zastosowania tymczasowych adresów IP dla tego elementu. Jest to tak, aby domyślnie obsługiwać zabezpieczenia i upewnić się, że wszystkie adresy IP używane przez zasób są konfigurowalne i mogą być zarezerwowane. Aby zapewnić łączność wychodzącą z Internetem w przypadku korzystania ze standardowego wewnętrznego modułu równoważenia obciążenia, należy skonfigurować publiczny adres IP na poziomie wystąpienia, aby postępować zgodnie z zachowaniem (scenariusz 1) [#scenario1] lub dodać wystąpienia zaplecza do standardowego publicznego modułu równoważenia obciążenia za pomocą reguły wychodzącej skonfigurowanej w dodatkowo do wewnętrznego modułu równoważenia obciążenia, aby postępować zgodnie z zachowaniem (scenariusz 2) #scenario2 [ 
+
+ ### <a name="scenario-4-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario4"></a>Scenariusz 4: maszyna wirtualna bez publicznego adresu IP i za podstawową Load Balancer
 
 
  | Związku | Metoda | Protokoły IP |
@@ -126,7 +136,6 @@ Gdy zostanie skonfigurowany [Scenariusz 2](#scenario2) poniżej, Host dla każde
 
 
  Nie należy używać tego scenariusza do dodawania adresów IP do listy dozwolonych. Użyj scenariusza 1 lub 2, gdzie jawnie deklarujesz zachowanie wychodzące. Porty podrzędnego [translatora adresów sieciowych](#snat) są wstępnie przydzielone zgodnie z opisem w [tabeli alokacji domyślnych portów](#snatporttable).
-
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Porty wydechowe
 

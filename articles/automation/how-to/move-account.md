@@ -2,19 +2,15 @@
 title: Przenoszenie konta Azure Automation do innej subskrypcji
 description: W tym artykule opisano sposób przenoszenia konta usługi Automation do innej subskrypcji.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/11/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8454c5a5bb5b44d2a60ae0095a9b82a19ed27c8d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a86d876a723c89eb8dcdf18c8318f2a9c740a229
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896650"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051028"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Przenoszenie konta Azure Automation do innej subskrypcji
 
@@ -108,7 +104,7 @@ Teraz można przenieść konto usługi Automation i jego elementy Runbook.
 
 ## <a name="re-create-run-as-accounts"></a>Ponowne tworzenie kont Uruchom jako
 
-[Konta Uruchom jako](../manage-runas-account.md) tworzą nazwę główną usługi w Azure Active Directory do uwierzytelniania w zasobach platformy Azure. Gdy zmienisz subskrypcje, konto usługi Automation nie używa już istniejącego konta Uruchom jako. Aby ponownie utworzyć konta Uruchom jako:
+[Konta Uruchom jako](../automation-security-overview.md#run-as-accounts) tworzą nazwę główną usługi w Azure Active Directory do uwierzytelniania w zasobach platformy Azure. Gdy zmienisz subskrypcje, konto usługi Automation nie używa już istniejącego konta Uruchom jako. Aby ponownie utworzyć konta Uruchom jako:
 
 1. Przejdź do konta usługi Automation w nowej subskrypcji i wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta**. Zobaczysz, że konta Uruchom jako są wyświetlane jako niekompletne.
 
@@ -117,7 +113,7 @@ Teraz można przenieść konto usługi Automation i jego elementy Runbook.
 2. Usuń konta Uruchom jako, po jednym naraz, wybierając pozycję **Usuń** na stronie **Właściwości** . 
 
     > [!NOTE]
-    > Jeśli nie masz uprawnień do tworzenia lub wyświetlania kont Uruchom jako, zobaczysz następujący komunikat: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Aby uzyskać więcej informacji, zobacz [uprawnienia wymagane do skonfigurowania kont Uruchom jako](../manage-runas-account.md#permissions).
+    > Jeśli nie masz uprawnień do tworzenia lub wyświetlania kont Uruchom jako, zobaczysz następujący komunikat: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Aby uzyskać więcej informacji, zobacz [uprawnienia wymagane do skonfigurowania kont Uruchom jako](../automation-security-overview.md#permissions).
 
 3. Po usunięciu kont Uruchom jako wybierz pozycję **Utwórz** w obszarze **konto Uruchom jako platformy Azure**. 
 

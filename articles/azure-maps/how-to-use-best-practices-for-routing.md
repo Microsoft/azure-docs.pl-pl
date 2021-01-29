@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8174529def5e3924086e49f36c225f07a4da2648
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895549"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051655"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Najlepsze rozwiązania dotyczące usługi Azure Maps Route Service
 
@@ -59,10 +59,10 @@ Poniżej znajduje się porównanie przedstawiające pewne możliwości dotycząc
 
 | Interfejs API Azure Maps | Maksymalna liczba zapytań w żądaniu | Unikaj obszarów | Routing samochodu i elektrycznego | Optymalizacja waypoints i podróży Salesman | Punkty pomocnicze |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Pobierz wskazówki dotyczące trasy | 1 | | X | X | |
-| Wskazówki dotyczące trasy po trasie | 1 | X | X | X | X |
-| Partia instrukcji po trasie | 700 | | X | X | |
-| Macierz po trasie | 700 | | X | | |
+| Pobierz wskazówki dotyczące trasy | 1 | | ✔ | ✔ | |
+| Wskazówki dotyczące trasy po trasie | 1 | ✔ | ✔ | ✔ | ✔ |
+| Partia instrukcji po trasie | 700 | | ✔ | ✔ | |
+| Macierz po trasie | 700 | | ✔ | | |
 
 Aby dowiedzieć się więcej o możliwościach routingu pojazdów elektrycznych, zobacz nasz samouczek dotyczący [kierowania pojazdów elektrycznych przy użyciu Azure Notebooks za pomocą języka Python](tutorial-ev-routing.md).
 
@@ -113,7 +113,7 @@ W drugim przykładzie występuje żądanie routingu w czasie rzeczywistym, w kt�
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-Odpowiedź zawiera podsumowanie, jak pokazano poniżej. Ze względu na przeciążenia wartość **trafficDelaysInSeconds** jest większa od zera. Jest ona również większa niż **historicTrafficTravelTimeInSeconds** .
+Odpowiedź zawiera podsumowanie, jak pokazano poniżej. Ze względu na przeciążenia wartość **trafficDelaysInSeconds** jest większa od zera. Jest ona również większa niż **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ Rozwiń `point` element, aby wyświetlić listę współrzędnych ścieżki:
 
 ![Elementy rozwiniętych punktów](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-Interfejsy API wskazówek dotyczących trasy obsługują różne formaty instrukcji, które mogą być używane przez określenie parametru **instructiontype** . Aby sformatować instrukcje dotyczące łatwego przetwarzania komputera, użyj **instrukcji instructiontype = kodowane** . Użyj **instrukcji instructiontype = Tagged** , aby wyświetlić instrukcje jako tekst dla użytkownika. Ponadto instrukcje można sformatować jako tekst, w którym są oznaczone niektóre elementy instrukcji, a instrukcja jest prezentowana z formatowaniem specjalnym. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych typów instrukcji](/rest/api/maps/route/postroutedirections#routeinstructionstype).
+Interfejsy API wskazówek dotyczących trasy obsługują różne formaty instrukcji, które mogą być używane przez określenie parametru **instructiontype** . Aby sformatować instrukcje dotyczące łatwego przetwarzania komputera, użyj **instrukcji instructiontype = kodowane**. Użyj **instrukcji instructiontype = Tagged** , aby wyświetlić instrukcje jako tekst dla użytkownika. Ponadto instrukcje można sformatować jako tekst, w którym są oznaczone niektóre elementy instrukcji, a instrukcja jest prezentowana z formatowaniem specjalnym. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych typów instrukcji](/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 Gdy wymagane są instrukcje, odpowiedź zwraca nowy element o nazwie `guidance` . `guidance`Element zawiera dwie części informacji: instrukcje włączania i podsumowywania instrukcji.
 
@@ -214,7 +214,7 @@ Azure Maps obecnie oferuje dwie formy optymalizacji tras:
 
 W przypadku routingu z obsługą wiele tras do 150 waypoints można określić w jednym żądaniu trasy. Lokalizacje współrzędnych początkowych i końcowych mogą być takie same, jak w przypadku rundy. Należy jednak podać co najmniej jedną dodatkową punkt nawigacyjnyą, aby umożliwić Obliczanie trasy. Waypoints można dodać do zapytania między współrzędne źródłowe i docelowe.
 
-Aby zoptymalizować najlepszą kolejność do odwiedzania danego waypoints, należy określić **computeBestOrder = true** . Ten scenariusz jest również znany jako problem z optymalizacją Salesman.
+Aby zoptymalizować najlepszą kolejność do odwiedzania danego waypoints, należy określić **computeBestOrder = true**. Ten scenariusz jest również znany jako problem z optymalizacją Salesman.
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aa3466456b99664b1b39bd415680a6a291f85acd
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: c51f8c894c9a88b6ae81460623eec616d29b62ff
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049290"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050519"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -50,12 +50,12 @@ Aby zapoznać się z procesem konfigurowania funkcji platformy Azure w celu prze
 
 ## <a name="create-an-endpoint"></a>Tworzenie punktu końcowego
 
-Aby zdefiniować trasę zdarzeń, deweloperzy najpierw muszą definiować punkty końcowe. **Punkt końcowy** jest miejscem docelowym poza usługą Azure Digital bliźniaczych reprezentacji, która obsługuje połączenie trasy. Obsługiwane miejsca docelowe obejmują:
+Aby zdefiniować trasę zdarzeń, deweloperzy muszą najpierw zdefiniować punkty końcowe. **Punkt końcowy** jest miejscem docelowym poza usługą Azure Digital bliźniaczych reprezentacji, która obsługuje połączenie trasy. Obsługiwane miejsca docelowe obejmują:
 * Event Grid tematy niestandardowe
 * Centrum zdarzeń
 * Service Bus
 
-Aby utworzyć punkt końcowy, można użyć [**interfejsów API**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), [**poleceń interfejsu wiersza polecenia**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)platformy Azure Digital bliźniaczych reprezentacji lub [**Azure Portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+Aby utworzyć punkt końcowy, można użyć interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji [, poleceń interfejsu wiersza polecenia](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins)lub [Azure Portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins).
 
 Podczas definiowania punktu końcowego należy podać:
 * Nazwa punktu końcowego
@@ -71,7 +71,7 @@ Interfejsy API punktu końcowego dostępne w płaszczyźnie sterującej są nast
 
 ## <a name="create-an-event-route"></a>Tworzenie trasy zdarzeń
  
-Aby utworzyć trasę zdarzeń, można użyć [**interfejsów API**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**poleceń interfejsu wiersza polecenia**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)platformy Azure Digital bliźniaczych reprezentacji lub [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
+Aby utworzyć trasę zdarzeń, można użyć interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji [, poleceń interfejsu wiersza polecenia](how-to-manage-routes-apis-cli.md#create-an-event-route)lub [Azure Portal](how-to-manage-routes-portal.md#create-an-event-route).
 
 Oto przykład tworzenia trasy zdarzeń w aplikacji klienckiej przy użyciu `CreateOrReplaceEventRouteAsync` wywołania [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) : 
 
@@ -85,8 +85,6 @@ Oto przykład tworzenia trasy zdarzeń w aplikacji klienckiej przy użyciu `Crea
 
 > [!TIP]
 > Wszystkie funkcje zestawu SDK są w wersji synchronicznej i asynchronicznej.
-
-Trasy można także tworzyć za pomocą [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
 ## <a name="dead-letter-events"></a>Zdarzenia utraconych wiadomości
 

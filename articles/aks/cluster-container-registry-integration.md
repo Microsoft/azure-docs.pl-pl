@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 01/08/2021
-ms.openlocfilehash: 4157195260e5c685faaddeaca87db81d199ffb23
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0d61cccb6b70091194d407eda056060d1fa3623c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043850"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053894"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Uwierzytelnianie za pomocą usługi Azure Container Registry z poziomu usługi Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ Za pomocą interfejsu wiersza polecenia platformy Azure można skonfigurować AK
 > [!NOTE]
 > W tym artykule opisano automatyczne uwierzytelnianie między AKS i ACR. Jeśli musisz ściągnąć obraz z prywatnego rejestru zewnętrznego, użyj [hasła ściągania obrazu][Image Pull Secret].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Te przykłady wymagają:
 
@@ -150,6 +150,7 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
+* Uruchom polecenie [AZ AKS Check-ACR](/cli/azure/aks#az_aks_check_acr) , aby sprawdzić, czy rejestr jest dostępny z klastra AKS.
 * Dowiedz się więcej o [diagnostyce ACR](../container-registry/container-registry-diagnostics-audit-logs.md)
 * Dowiedz się więcej o [kondycji ACR](../container-registry/container-registry-check-health.md)
 

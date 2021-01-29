@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 689276d44a175f3c314b0fcf681fd6a995b8dde2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 8855969a9f1e431fc45b831063732501eead7e99
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832628"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051791"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planowanie wdrożenia automatycznego aprowizowania użytkowników
 
@@ -322,7 +322,7 @@ Skorzystaj z poniższych linków, aby rozwiązać wszelkie problemy, które mog�
 
 * [Aktualne informacje o nowościach w usłudze Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Forum usługi Azure AD z przepełnieniem stosu](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Microsoft Q&Forum usługi Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Następne kroki
 * [Konfigurowanie automatycznego aprowizacji użytkowników](../app-provisioning/configure-automatic-user-provisioning-portal.md)

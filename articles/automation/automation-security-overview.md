@@ -4,14 +4,14 @@ description: Ten artykuł zawiera omówienie uwierzytelniania konta Azure Automa
 keywords: zabezpieczenia usługi automation, bezpieczna usługa automation, uwierzytelnianie usługi automation
 services: automation
 ms.subservice: process-automation
-ms.date: 09/28/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: bcb5f61c93bd4c3ff7c0f81ae808807f7deb71df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e08a8bf3b06ca976cb10249af25099c7652e1b49
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766092"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053835"
 ---
 # <a name="automation-account-authentication-overview"></a>Omówienie uwierzytelniania konta usługi Automation
 
@@ -21,7 +21,9 @@ W tym artykule opisano scenariusze uwierzytelniania obsługiwane przez Azure Aut
 
 ## <a name="automation-account"></a>Konto usługi Automation
 
-Kiedy uruchamiasz usługę Azure Automation po raz pierwszy, musisz utworzyć co najmniej jedno konto usługi Automation. Konta usługi Automation umożliwiają izolowanie zasobów usługi Automation, elementów Runbook, zasobów, konfiguracji, od zasobów innych kont. Konta usługi Automation można wykorzystać do rozdzielenia zasobów w ramach oddzielnych środowisk logicznych. Na przykład jednego konta można użyć dla środowiska rozwojowego, innego dla produkcyjnego, a jeszcze innego dla lokalnego. Konto usługi Azure Automation różni się od konta Microsoft lub kont utworzonych w ramach subskrypcji platformy Azure. Aby zapoznać się z wprowadzeniem do tworzenia konta usługi Automation, zobacz [Tworzenie konta usługi Automation](automation-quickstart-create-account.md).
+Kiedy uruchamiasz usługę Azure Automation po raz pierwszy, musisz utworzyć co najmniej jedno konto usługi Automation. Konta usługi Automation umożliwiają izolowanie zasobów usługi Automation, elementów Runbook, zasobów i konfiguracji z zasobów innych kont. Kont usługi Automation można użyć do oddzielenia zasobów do oddzielnych środowisk logicznych lub delegowanych obowiązków. Na przykład jednego konta można użyć dla środowiska rozwojowego, innego dla produkcyjnego, a jeszcze innego dla lokalnego. Można też przypisać konto usługi Automation do zarządzania aktualizacjami systemu operacyjnego na wszystkich maszynach przy użyciu [Update Management](update-management/overview.md). 
+
+Konto usługi Azure Automation różni się od konta Microsoft lub kont utworzonych w ramach subskrypcji platformy Azure. Aby zapoznać się z wprowadzeniem do tworzenia konta usługi Automation, zobacz [Tworzenie konta usługi Automation](automation-quickstart-create-account.md).
 
 ## <a name="automation-resources"></a>Zasoby automatyzacji
 
@@ -33,21 +35,21 @@ Wszystkie zadania utworzone przy użyciu Azure Resource Manager i poleceń cmdle
 
 Konta Uruchom jako w Azure Automation umożliwiają uwierzytelnianie w celu zarządzania zasobami Azure Resource Manager lub zasobów wdrożonych w klasycznym modelu wdrażania. W Azure Automation istnieją dwa typy kont Uruchom jako:
 
-* Konto Uruchom jako platformy Azure
-* Klasyczne konto Uruchom jako platformy Azure
+* Konto Uruchom jako platformy Azure: umożliwia zarządzanie zasobami platformy Azure na podstawie Azure Resource Manager wdrażania i zarządzania na platformie Azure.
+* Klasyczne konto Uruchom jako platformy Azure: umożliwia zarządzanie klasycznymi zasobami platformy Azure na podstawie klasycznego modelu wdrażania.
 
-Aby dowiedzieć się więcej na temat tych dwóch modeli wdrażania, zobacz [Menedżer zasobów i wdrożenie klasyczne](../azure-resource-manager/management/deployment-models.md).
+Aby dowiedzieć się więcej na temat Azure Resource Manager i klasycznych modeli wdrażania, zobacz [wdrażanie Menedżer zasobów i klasycznych](../azure-resource-manager/management/deployment-models.md).
 
 >[!NOTE]
 >Subskrypcje dostawcy rozwiązań w chmurze (CSP) platformy Azure obsługują tylko model Azure Resource Manager. Usługi inne niż Azure Resource Manager nie są dostępne w programie. W przypadku korzystania z subskrypcji programu CSP klasyczne konto Uruchom jako platformy Azure nie jest tworzone, ale zostało utworzone konto Uruchom jako platformy Azure. Aby dowiedzieć się więcej o subskrypcjach dostawcy usług kryptograficznych, zobacz [dostępne usługi w subskrypcjach programu CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-### <a name="run-as-account"></a>Konto Uruchom jako
+Podczas tworzenia konta usługi Automation konto Uruchom jako jest domyślnie tworzone w tym samym czasie. Jeśli nie utworzysz go wraz z kontem usługi Automation, można je utworzyć indywidualnie w późniejszym czasie. Klasyczne konto Uruchom jako platformy Azure jest opcjonalne i jest tworzone oddzielnie, jeśli konieczne jest zarządzanie zasobami klasycznymi.
 
-Konto Uruchom jako platformy Azure zarządza zasobami platformy Azure na podstawie Azure Resource Manager wdrażania i zarządzania na platformie Azure.
+### <a name="run-as-account"></a>Konto Uruchom jako
 
 Podczas tworzenia konta Uruchom jako wykonywane są następujące zadania:
 
-* Tworzy aplikację usługi Azure AD z certyfikatem z podpisem własnym, tworzy konto nazwy głównej usługi dla aplikacji w usłudze Azure AD i przypisuje rolę [współautor](../role-based-access-control/built-in-roles.md#contributor) dla konta w bieżącej subskrypcji. Można zmienić ustawienie certyfikatu na właściciela lub inną rolę. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).
+* Tworzy aplikację usługi Azure AD z certyfikatem z podpisem własnym, tworzy konto nazwy głównej usługi dla aplikacji w usłudze Azure AD i przypisuje rolę [współautor](../role-based-access-control/built-in-roles.md#contributor) dla konta w bieżącej subskrypcji. Można zmienić ustawienie certyfikatu na [Reader](../role-based-access-control/built-in-roles.md#reader) lub dowolną inną rolę. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).
 
 * Tworzy zasób certyfikatu usługi Automation o nazwie `AzureRunAsCertificate` w określonym koncie usługi Automation. Zasób certyfikatu zawiera klucz prywatny certyfikatu, którego używa aplikacja usługi Azure AD.
 
@@ -55,9 +57,10 @@ Podczas tworzenia konta Uruchom jako wykonywane są następujące zadania:
 
 ### <a name="azure-classic-run-as-account"></a>Klasyczne konto Uruchom jako platformy Azure
 
-Klasyczne konto Uruchom jako platformy Azure zarządza klasycznymi zasobami platformy Azure na podstawie klasycznego modelu wdrażania. Aby utworzyć lub odnowić ten typ konta Uruchom jako, musisz być współadministratorem w ramach subskrypcji.
+Podczas tworzenia klasycznego konta Uruchom jako platformy Azure wykonywane są następujące zadania:
 
-Podczas tworzenia klasycznego konta Uruchom jako platformy Azure wykonywane są następujące zadania.
+> [!NOTE]
+> Aby utworzyć lub odnowić ten typ konta Uruchom jako, musisz być współadministratorem w ramach subskrypcji.
 
 * Tworzy certyfikat zarządzania w subskrypcji.
 
@@ -65,16 +68,44 @@ Podczas tworzenia klasycznego konta Uruchom jako platformy Azure wykonywane są 
 
 * Tworzy zasób połączenia usługi Automation o nazwie `AzureClassicRunAsConnection` w określonym koncie usługi Automation. Zasób połączenia zawiera nazwę subskrypcji, Identyfikator subskrypcji i nazwę zasobu certyfikatu.
 
->[!NOTE]
->Klasyczne konto Uruchom jako platformy Azure nie jest domyślnie tworzone w momencie tworzenia konta usługi Automation. To konto jest tworzone osobno zgodnie z procedurami opisanymi w artykule [Zarządzanie kontem Uruchom jako](manage-runas-account.md#create-a-run-as-account-in-azure-portal) .
-
 ## <a name="service-principal-for-run-as-account"></a>Nazwa główna usługi dla konta Uruchom jako
 
 Nazwa główna usługi dla konta Uruchom jako nie ma uprawnień do domyślnego odczytywania usługi Azure AD. Jeśli chcesz dodać uprawnienia do odczytu lub zarządzania usługą Azure AD, musisz udzielić uprawnień do jednostki usługi w obszarze **uprawnienia interfejsu API**. Aby dowiedzieć się więcej, zobacz [Dodawanie uprawnień w celu uzyskania dostępu do internetowego interfejsu API](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 
+## <a name="run-as-account-permissions"></a><a name="permissions"></a>Uprawnienia konta Uruchom jako
+
+Ta sekcja definiuje uprawnienia zarówno do zwykłych kont Uruchom jako, jak i klasycznych kont Uruchom jako.
+
+* Aby utworzyć lub zaktualizować konto Uruchom jako, administrator aplikacji w Azure Active Directory i właściciel subskrypcji może ukończyć wszystkie zadania.
+* Aby skonfigurować lub odnowić klasyczne konta Uruchom jako, musisz mieć rolę współadministrator na poziomie subskrypcji. Aby dowiedzieć się więcej o uprawnieniach klasycznych subskrypcji, zobacz [klasycznej subskrypcji platformy Azure](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+
+W przypadku rozdzielenia obowiązków w poniższej tabeli przedstawiono listę zadań, równoważne polecenie cmdlet i potrzebne uprawnienia:
+
+|Zadanie|Polecenie cmdlet  |Minimalne uprawnienia  |Ustawianie uprawnień|
+|---|---------|---------|---|
+|Tworzenie aplikacji usługi Azure AD|[New-AzADApplication](/powershell/module/az.resources/new-azadapplication)     | Rola dewelopera aplikacji<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Rejestracja aplikacji w domu > usługi Azure AD > |
+|Dodaj poświadczenie do aplikacji.|[New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential)     | Administrator aplikacji lub Administrator globalny<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Rejestracja aplikacji w domu > usługi Azure AD >|
+|Tworzenie i pobieranie jednostki usługi Azure AD|[New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)     | Administrator aplikacji lub Administrator globalny<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Rejestracja aplikacji w domu > usługi Azure AD >|
+|Przypisz lub uzyskaj rolę platformy Azure dla określonego podmiotu zabezpieczeń|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administrator lub właściciel dostępu użytkowników albo mają następujące uprawnienia:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Subskrypcja](../role-based-access-control/role-assignments-portal.md)</br>Subskrypcje > domowej > \<subscription name\> — Access Control (IAM)|
+|Utwórz lub Usuń certyfikat usługi Automation|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](/powershell/module/az.automation/remove-azautomationcertificate)     | Współautor w grupie zasobów         |Grupa zasobów konta usługi Automation|
+|Tworzenie lub usuwanie połączenia automatyzacji|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](/powershell/module/az.automation/remove-azautomationconnection)|Współautor w grupie zasobów |Grupa zasobów konta usługi Automation|
+
+<sup>1</sup> użytkownicy inni niż administratorzy w dzierżawie usługi Azure AD mogą [rejestrować aplikacje usługi AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) , jeśli opcja Użytkownicy dzierżawy usługi Azure AD **może rejestrować aplikacje** na stronie **Ustawienia użytkownika** jest ustawiona na **wartość tak**. Jeśli ustawienie rejestracji aplikacji ma wartość **nie**, użytkownik wykonujący tę akcję musi być zdefiniowany w tej tabeli.
+
+Jeśli nie jesteś członkiem wystąpienia Active Directory subskrypcji przed dodaniem do roli administratora globalnego subskrypcji, zostanie on dodany jako gość. W takiej sytuacji pojawi się `You do not have permissions to create…` ostrzeżenie na stronie **Dodawanie konta usługi Automation** .
+
+Aby sprawdzić, czy problem z wygenerowaniem komunikatu o błędzie został usunięty:
+
+1. W okienku Azure Active Directory w Azure Portal wybierz pozycję **Użytkownicy i grupy**.
+2. Wybierz pozycję **Wszyscy użytkownicy**.
+3. Wybierz swoją nazwę, a następnie wybierz pozycję **profil**.
+4. Upewnij się, że wartość atrybutu **typu użytkownika** w profilu użytkownika nie jest ustawiona na **gość**.
+
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
 Kontrola dostępu oparta na rolach jest dostępna w Azure Resource Manager, aby udzielić dozwolonych akcji do konta użytkownika usługi Azure AD i konta Uruchom jako, a także uwierzytelnić jednostkę usługi. Dalsze informacje pomagające w tworzeniu modelu zarządzania uprawnieniami w usłudze Automation można znaleźć w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).
+
+Jeśli masz ścisłe kontrole zabezpieczeń dla przypisania uprawnień w grupach zasobów, musisz przypisać członkostwo konta Uruchom jako do roli **współautor** w grupie zasobów.
 
 ## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Uwierzytelnianie elementu Runbook za pomocą hybrydowego procesu roboczego elementu Runbook
 

@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 01/28/2021
 ms.author: v-miegge
-ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 015e6058236190a04df152573621f0e57030d23b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344491"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054165"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Rozwiązywanie problemów podczas tworzenia nowego konta w witrynie Azure Portal lub Centrum konta platformy Azure
 
@@ -139,19 +139,18 @@ Uzupełnij umowę.
 
 ## <a name="other-issues"></a>Inne problemy
 
-### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Nie można aktywować planu korzyści platformy Azure, takiego jak MSDN, BizSpark, BizSparkPlus lub MPN
+### <a name="cant-activate-azure-benefit-plan-like-visual-studio-bizspark-bizsparkplus-or-mpn"></a>Nie można aktywować planu korzyści platformy Azure, takiego jak Visual Studio, BizSpark, BizSparkPlus lub MPN
 
 Sprawdź, czy używasz prawidłowych poświadczeń logowania. Następnie sprawdź program korzyści i upewnij się, że masz odpowiednie uprawnienia.
-- MSDN
-  - Sprawdź stan uprawnień na [stronie konta MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Jeśli nie możesz zweryfikować swojego stanu, skontaktuj się z [centrum obsługi klienta subskrypcji MSDN](/previous-versions/mappoint/aa493452(v=msdn.10)).
+- Visual Studio
+  - Sprawdź swój status uprawnień na [stronie konta programu Visual Studio](https://my.visualstudio.com/Benefits).
+  - Jeśli nie możesz zweryfikować swojego stanu, skontaktuj się z [pomocą techniczną Visual Studio Subscription](https://visualstudio.microsoft.com/subscriptions/support/).
 - Microsoft for Startups
   - Zaloguj się do portalu [Microsoft for Startups](https://startups.microsoft.com/#start-two), aby zweryfikować stan uprawnień do uczestniczenia w programie Microsoft for Startups.
   - Jeśli nie możesz zweryfikować stanu, możesz uzyskać pomoc [na forach programu Microsoft for Startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
 - MPN
   - Zaloguj się do portalu [MPN](https://mspartner.microsoft.com/Pages/Locale.aspx), aby zweryfikować stan uprawnień. Jeśli masz odpowiednie [kompetencje w zakresie platformy w chmurze](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx), możesz kwalifikować się do dodatkowych korzyści.
   - Jeśli nie możesz zweryfikować stanu, skontaktuj się z [działem pomocy technicznej MPN](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
-
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>Nie można aktywować nowej subskrypcji platformy Azure w ramach programu licencjonowania Open
 

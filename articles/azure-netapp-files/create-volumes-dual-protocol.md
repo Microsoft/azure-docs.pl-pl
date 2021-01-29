@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 47aefecce846f58128335768018ba59d3520bd87
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70b42fb5522b31b5e7e15b5715717f0d010d56dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726684"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052417"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
@@ -51,6 +51,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
     | `Unix`    | NFS   | NFSv3 tryb bitowy   | UNIX  | NFS i Windows   |
     | `Ntfs`    | Windows   | Listy ACL NTFS     | NTFS  |NFS i Windows|
 * Użytkownicy systemu UNIX instalujący wolumin stylu zabezpieczeń NTFS przy użyciu systemu plików NFS zostaną uwierzytelnieni jako użytkownik systemu Windows `root` dla systemu UNIX `root` i `pcuser` dla wszystkich innych użytkowników. Przed zainstalowaniem woluminu w systemie plików NFS upewnij się, że te konta użytkowników znajdują się w Active Directory. 
+* Jeśli masz duże topologie i używasz `Unix` stylu zabezpieczeń z dwuprotokołowym woluminem lub LDAP z rozszerzonymi grupami, Azure NetApp Files może nie być w stanie uzyskać dostępu do wszystkich serwerów w topologiach.  Jeśli wystąpi taka sytuacja, skontaktuj się z zespołem ds. klientów, aby uzyskać pomoc.  <!-- NFSAAS-15123 --> 
 * Do utworzenia dwuprotokołowego woluminu nie jest potrzebny certyfikat głównego urzędu certyfikacji serwera. Jest to wymagane tylko wtedy, gdy jest włączony protokół LDAP over TLS.
 
 

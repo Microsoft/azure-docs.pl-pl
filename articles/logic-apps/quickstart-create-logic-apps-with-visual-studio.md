@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/27/2020
-ms.openlocfilehash: ff195f7a0071c06d5309f95f77e32ae75f584f82
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 8181097425045e5b1ed838c5fcc08b0069185908
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749168"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051961"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Szybki start: Tworzenie automatycznych zadań, procesów i przepływów pracy przy użyciu usługi Azure Logic Apps — Visual Studio
 
@@ -60,6 +60,8 @@ W tym przewodniku szybki start utworzysz tę samą aplikację logiki przy użyci
   > [!IMPORTANT]
   > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
+* Jeśli aplikacja logiki musi komunikować się przez zaporę, która ogranicza ruch do określonych adresów IP, zapora musi zezwolić na dostęp *zarówno* do [przychodzącego](logic-apps-limits-and-config.md#inbound) , jak i [wychodzącego](logic-apps-limits-and-config.md#outbound) adresu IP używanego przez usługę Logic Apps lub środowisko uruchomieniowe w regionie platformy Azure, w którym znajduje się aplikacja logiki. Jeśli aplikacja logiki używa również łączników [zarządzanych](../connectors/apis-list.md#managed-api-connectors), takich jak łącznik usługi Office 365 Outlook lub łącznik SQL, lub używa [łączników niestandardowych](/connectors/custom-connectors/), zapora musi również zezwolić na dostęp *wszystkich* [wychodzących adresów IP łącznika zarządzanego](logic-apps-limits-and-config.md#outbound) w regionie platformy Azure aplikacji logiki.
+
 <a name="azure-government"></a>
 
 ## <a name="set-up-visual-studio-for-azure-government"></a>Set up Visual Studio for Azure Government (Konfigurowanie programu Visual Studio na potrzeby usługi Azure Government)
@@ -100,7 +102,7 @@ Aby rozpocząć, utwórz [projekt grupy zasobów platformy Azure](../azure-resou
 
    ![W menu „File” wybierz pozycję „Nowy” > „Projekt”](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
-1. W obszarze **Zainstalowane** wybierz pozycję **Visual C#** lub **Visual Basic**. Wybierz **Cloud**  >  **grupę zasobów** w chmurze Azure. Nazwij projekt, na przykład:
+1. W obszarze **Zainstalowane** wybierz pozycję **Visual C#** lub **Visual Basic**. Wybierz   >  **grupę zasobów** w chmurze Azure. Nazwij projekt, na przykład:
 
    ![Tworzenie projektu grupy zasobów platformy Azure](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
@@ -111,7 +113,7 @@ Aby rozpocząć, utwórz [projekt grupy zasobów platformy Azure](../azure-resou
 
    Jeśli używasz programu Visual Studio 2019, wykonaj następujące kroki:
 
-   1. W polu **Utwórz nowy projekt** wybierz projekt **Grupa zasobów platformy Azure** dla programu Visual C# lub Visual Basic. Wybierz pozycję **Dalej**.
+   1. W polu **Utwórz nowy projekt** wybierz projekt **Grupa zasobów platformy Azure** dla programu Visual C# lub Visual Basic. Wybierz opcję **Dalej**.
 
    1. Podaj nazwę grupy zasobów platformy Azure, której chcesz użyć, i inne informacje o projekcie. Wybierz przycisk **Utwórz**.
 

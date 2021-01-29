@@ -3,17 +3,17 @@ title: Inicjowanie obsługi administracyjnej urządzeń przy użyciu kluczy syme
 description: Jak używać kluczy symetrycznych do udostępniania urządzeń za pomocą wystąpienia usługi Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: eliotga
-ms.openlocfilehash: dc33dcd2c80b2a6d4a1cc27778e49dc06ac48b34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+manager: lizross
+ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967316"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051113"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Jak udostępnić urządzenia przy użyciu grup rejestracji kluczy symetrycznych
 
@@ -21,9 +21,7 @@ W tym artykule pokazano, jak bezpiecznie zainicjować obsługę wielu urządzeń
 
 Niektóre urządzenia mogą nie mieć certyfikatu, modułu TPM ani żadnej innej funkcji zabezpieczeń, której można użyć do bezpiecznego zidentyfikowania urządzenia. Usługa Device Provisioning obejmuje [zaświadczenie klucza symetrycznego](concepts-symmetric-key-attestation.md). Zaświadczenie klucza symetrycznego może służyć do identyfikowania urządzenia na podstawie unikatowych informacji, takich jak adres MAC lub numer seryjny.
 
-Jeśli można łatwo zainstalować [sprzętowy moduł zabezpieczeń (HSM)](concepts-service.md#hardware-security-module) i certyfikat, to może być lepszym rozwiązaniem do identyfikowania i aprowizacji urządzeń. Ponieważ takie podejście może pozwolić na obejście aktualizacji kodu wdrożonego na wszystkich urządzeniach, a w obrazie urządzenia nie zostanie osadzony klucz tajny.
-
-W tym artykule założono, że żaden moduł HSM lub certyfikat nie jest wykonalną opcją. Jednak zakłada się, że masz pewną metodę aktualizowania kodu urządzenia, aby używać usługi Device Provisioning do udostępniania tych urządzeń. 
+Jeśli można łatwo zainstalować [sprzętowy moduł zabezpieczeń (HSM)](concepts-service.md#hardware-security-module) i certyfikat, to może być lepszym rozwiązaniem do identyfikowania i aprowizacji urządzeń. Użycie modułu HSM umożliwi obejście aktualizacji kodu wdrożonego na wszystkich urządzeniach i nie ma klucza tajnego osadzonego w obrazach urządzeń. W tym artykule założono, że żaden moduł HSM lub certyfikat nie jest wykonalną opcją. Jednak zakłada się, że masz pewną metodę aktualizowania kodu urządzenia, aby używać usługi Device Provisioning do udostępniania tych urządzeń. 
 
 W tym artykule przyjęto również założenie, że aktualizacja urządzenia odbywa się w bezpiecznym środowisku, aby zapobiec nieautoryzowanemu dostępowi do klucza grupy głównej lub klucza urządzenia pochodnego.
 
@@ -142,39 +140,18 @@ W tym przykładzie używamy kombinacji adresu MAC i numeru seryjnego tworzącego
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Utwórz unikatowy identyfikator rejestracji dla urządzenia. Prawidłowe znaki to małe litery alfanumeryczne i myślnik ("-").
+Utwórz unikatowe identyfikatory rejestracji dla każdego urządzenia. Prawidłowe znaki to małe litery alfanumeryczne i myślnik ("-").
 
 
 ## <a name="derive-a-device-key"></a>Utwórz klucz urządzenia 
 
-Aby wygenerować klucz urządzenia, użyj klucza głównego grupy do obliczenia [algorytmu HMAC-SHA256](https://wikipedia.org/wiki/HMAC) unikatowego identyfikatora rejestracji dla urządzenia i Przekształć wynik w formacie base64.
+Aby wygenerować klucze urządzeń, użyj klucza głównego grupy rejestracji, aby obliczyć [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) identyfikatora rejestracji dla każdego urządzenia. Następnie wynik zostanie przekonwertowany do formatu Base64 dla każdego urządzenia.
 
 > [!WARNING]
-> Kod urządzenia powinien zawierać tylko pochodny klucz urządzenia dla poszczególnych urządzeń. Nie dodawaj klucza głównego grupy do kodu urządzenia. Złamany klucz główny ma możliwość naruszenia zabezpieczeń wszystkich uwierzytelnianych urządzeń.
+> Kod urządzenia dla każdego urządzenia powinien zawierać tylko odpowiedni pochodny klucz urządzenia dla tego urządzenia. Nie dodawaj klucza głównego grupy do kodu urządzenia. Złamany klucz główny ma możliwość naruszenia zabezpieczeń wszystkich uwierzytelnianych urządzeń.
 
 
-#### <a name="linux-workstations"></a>Stacje robocze systemu Linux
-
-Jeśli używasz stacji roboczej z systemem Linux, możesz użyć OpenSSL, aby wygenerować pochodny klucz urządzenia, jak pokazano w poniższym przykładzie.
-
-Zastąp wartość **klucza kluczem** **podstawowym** zanotowanym wcześniej.
-
-Zastąp wartość **REG_ID** identyfikatorem rejestracji.
-
-```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
-```
-
-```bash
-Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
-```
-
-
-#### <a name="windows-based-workstations"></a>Stacje robocze z systemem Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Jeśli używasz stacji roboczej z systemem Windows, możesz użyć programu PowerShell, aby wygenerować pochodny klucz urządzenia, jak pokazano w poniższym przykładzie.
 
@@ -197,8 +174,29 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
+# <a name="linux"></a>[Linux](#tab/linux)
 
-Urządzenie użyje pochodnego klucza urządzenia z unikatowym IDENTYFIKATORem rejestracji, aby przeprowadzić zaświadczenie klucza symetrycznego z grupą rejestracji podczas aprowizacji.
+Jeśli używasz stacji roboczej z systemem Linux, możesz użyć OpenSSL, aby wygenerować pochodny klucz urządzenia, jak pokazano w poniższym przykładzie.
+
+Zastąp wartość **klucza kluczem** **podstawowym** zanotowanym wcześniej.
+
+Zastąp wartość **REG_ID** identyfikatorem rejestracji.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+---
+
+Każde urządzenie używa pochodnego klucza urządzenia i unikatowego identyfikatora rejestracji do wykonywania zaświadczania klucza symetrycznego z grupą rejestracji podczas aprowizacji.
 
 
 
@@ -206,7 +204,7 @@ Urządzenie użyje pochodnego klucza urządzenia z unikatowym IDENTYFIKATORem re
 
 W tej sekcji zostanie zaktualizowany przykład aprowizacji o nazwie **Prov \_ dev \_ Client \_ Sample** znajdujący się w wcześniej skonfigurowanym zestawie SDK języka C usługi Azure IoT. 
 
-Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła żądanie aprowizacji do wystąpienia usługi Device Provisioning. Sekwencja rozruchu spowoduje, że urządzenie zostanie rozpoznane i przypisane do centrum IoT, które zostało skonfigurowane w grupie rejestracji.
+Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła żądanie aprowizacji do wystąpienia usługi Device Provisioning. Sekwencja rozruchu spowoduje, że urządzenie zostanie rozpoznane i przypisane do centrum IoT, które zostało skonfigurowane w grupie rejestracji. Ta wartość zostanie wykonana dla każdego urządzenia, które będzie obsługiwane przy użyciu grupy rejestracji.
 
 1. W witrynie Azure Portal wybierz kartę **Przegląd** dla swojej usługi Device Provisioning Service, a następnie zapisz wartość **_Zakres identyfikatorów_**.
 
@@ -280,10 +278,7 @@ Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła ż
 
 ## <a name="security-concerns"></a>Zagadnienia dotyczące zabezpieczeń
 
-Należy pamiętać, że spowoduje to pozostawienie pochodnego klucza urządzenia dołączanego jako część obrazu, co nie jest zalecanym najlepszym rozwiązaniem w zakresie zabezpieczeń. Jest to jeden z powodów, dla którego zabezpieczenia i łatwość użycia są kompromisami. 
-
-
-
+Należy pamiętać, że to pozostawia pochodny klucz urządzenia dołączony jako część obrazu dla każdego urządzenia, co nie jest zalecanym najlepszym rozwiązaniem w zakresie zabezpieczeń. Jest to jedną z przyczyn, dlaczego zabezpieczenia i łatwość użycia często są kompromisami. Należy w pełni sprawdzić zabezpieczenia urządzeń w oparciu o własne wymagania.
 
 
 ## <a name="next-steps"></a>Następne kroki

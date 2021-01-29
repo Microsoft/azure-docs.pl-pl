@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 2be1c7f76055cad1cf8b51938a65c7bbe6b2917e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 369ec11050fa7dbc09159d88793685ad5fbdb3e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881082"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053964"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Często zadawane pytania dotyczące aplikacji Microsoft Authenticator
 
@@ -67,7 +67,11 @@ Odp **.: począwszy** od wersji 6.2003.1704 uwierzytelniania systemu Android, do
 
 **P**: jakie dane są przechowywane w moim imieniu przez wystawcę uwierzytelniania i jak można je usunąć?
 
-Odp **.: aplikacja** Authenticator zbiera trzy rodzaje informacji:<ul><li>Informacje o koncie, które należy podać po dodaniu konta. Te dane można usunąć, usuwając Twoje konto.</li><li>Dane dziennika diagnostycznego, które pozostają tylko w aplikacji, do momentu wybrania opcji **Wyślij dzienniki** menu **Pomoc** aplikacji, aby wysłać dzienniki do firmy Microsoft. Te dzienniki mogą zawierać dane osobowe, takie jak adresy e-mail, adresy serwerów lub adresy IP. Mogą również zawierać dane urządzenia, takie jak nazwa urządzenia i wersja systemu operacyjnego. Wszystkie zebrane dane osobowe są ograniczone do informacji niezbędnych do rozwiązywania problemów z aplikacjami. Te pliki dzienników można przeglądać w aplikacji w dowolnym momencie, aby zobaczyć zebrane informacje. W przypadku wysłania plików dziennika inżynierowie aplikacji uwierzytelniania będą korzystać z nich tylko w celu rozwiązywania problemów zgłoszonych przez klientów.</li><li>Dane użycia nieidentyfikowalnego przez użytkownika, takie jak "uruchomiono Dodawanie przepływu konta/pomyślnie dodano konto" lub "powiadomienie zostało zatwierdzone". Te dane są integralną częścią naszych decyzji inżynieryjnych. Twoje użycie pomaga nam określić, gdzie możemy ulepszyć aplikacje w sposób, który są dla Ciebie ważne. Gdy aplikacja jest używana po raz pierwszy, zobaczysz powiadomienie o tej kolekcji danych. Informuje o tym, że można ją wyłączyć na stronie **ustawień** aplikacji. To ustawienie można włączyć lub wyłączyć w dowolnym momencie.</li></ul>
+Odp **.: aplikacja** Authenticator zbiera trzy rodzaje informacji:
+
+- Informacje o koncie, które należy podać po dodaniu konta. Te dane można usunąć, usuwając Twoje konto.
+- Dane dziennika diagnostycznego, które pozostają tylko w aplikacji, do momentu **wysłania opinii** w górnym menu aplikacji w celu wysłania dzienników do firmy Microsoft. Te dzienniki mogą zawierać dane osobowe, takie jak adresy e-mail, adresy serwerów lub adresy IP. Mogą również zawierać dane urządzenia, takie jak nazwa urządzenia i wersja systemu operacyjnego. Wszystkie zebrane dane osobowe są ograniczone do informacji niezbędnych do rozwiązywania problemów z aplikacjami. Te pliki dzienników można przeglądać w aplikacji w dowolnym momencie, aby zobaczyć zebrane informacje. W przypadku wysłania plików dziennika inżynierowie aplikacji uwierzytelniania będą korzystać z nich tylko w celu rozwiązywania problemów zgłoszonych przez klientów.
+- Dane użycia nieidentyfikowalnego przez użytkownika, takie jak "uruchomiono Dodawanie przepływu konta/pomyślnie dodano konto" lub "powiadomienie zostało zatwierdzone". Te dane są integralną częścią naszych decyzji inżynieryjnych. Twoje użycie pomaga nam określić, gdzie możemy ulepszyć aplikacje w sposób, który są dla Ciebie ważne. Gdy aplikacja jest używana po raz pierwszy, zobaczysz powiadomienie o tej kolekcji danych. Informuje o tym, że można ją wyłączyć na stronie **ustawień** aplikacji   . To ustawienie można włączyć lub wyłączyć w dowolnym momencie.
 
 ### <a name="codes-in-the-app"></a>Kody w aplikacji
 
@@ -102,7 +106,7 @@ Odp **.: kody** nie wymagają połączenia z Internetem ani nie są połączone 
 
 **P**: Dlaczego otrzymuję powiadomienia tylko wtedy, gdy aplikacja jest otwarta? Gdy aplikacja zostanie ZAMKNIĘTA, nie otrzymuję powiadomień.
 
-Odp **.: w przypadku** otrzymywania powiadomień, ale nie alertu, nawet w przypadku korzystania z dzwonka na, należy sprawdzić ustawienia aplikacji. Upewnij się, że aplikacja jest włączona, aby używać dźwięku lub aby przekonywać wibracji w celu otrzymywania powiadomień. Jeśli w ogóle nie otrzymujesz powiadomień, należy sprawdzić następujące warunki:<ul><li>Czy Twój telefon w trybie nie przeszkadza ani nie jest cichy? Te tryby mogą uniemożliwić aplikacjom wysyłanie powiadomień.</li><li>Czy można otrzymywać powiadomienia z innych aplikacji? Jeśli nie, może to być problem z połączeniami sieciowymi na telefonie lub kanałem powiadomień z systemu Android lub Apple. Możesz spróbować rozwiązać połączenia sieciowe przy użyciu ustawień telefonu. Może być konieczne skontaktowanie się z dostawcą usług w celu uzyskania pomocy dotyczącej kanału powiadomień dla systemu Android lub Apple.</li><li>Czy można otrzymywać powiadomienia dla niektórych kont w aplikacji, ale nie do innych? Jeśli tak, Usuń problematyczne konto z aplikacji, Dodaj je ponownie, zezwalając na powiadomienia, i sprawdź, czy ten problem został rozwiązany.</li></ul>Jeśli podjęto próbę wykonania wszystkich kroków i nadal występują problemy, zalecamy wysłanie plików dziennika do celów diagnostycznych. Otwórz aplikację, przejdź do **pomocy**, a następnie wybierz pozycję **Wyślij dzienniki**. Następnie przejdź do [forum aplikacji Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) i poinformuj nas o problemie, który widzisz, oraz o podjętych krokach.
+Odp **.: w przypadku** otrzymywania powiadomień, ale nie alertu, nawet w przypadku korzystania z dzwonka na, należy sprawdzić ustawienia aplikacji. Upewnij się, że aplikacja jest włączona, aby używać dźwięku lub aby przekonywać wibracji w celu otrzymywania powiadomień. Jeśli w ogóle nie otrzymujesz powiadomień, należy sprawdzić następujące warunki:<ul><li>Czy Twój telefon w trybie nie przeszkadza ani nie jest cichy? Te tryby mogą uniemożliwić aplikacjom wysyłanie powiadomień.</li><li>Czy można otrzymywać powiadomienia z innych aplikacji? Jeśli nie, może to być problem z połączeniami sieciowymi na telefonie lub kanałem powiadomień z systemu Android lub Apple. Możesz spróbować rozwiązać połączenia sieciowe przy użyciu ustawień telefonu. Może być konieczne skontaktowanie się z dostawcą usług w celu uzyskania pomocy dotyczącej kanału powiadomień dla systemu Android lub Apple.</li><li>Czy można otrzymywać powiadomienia dla niektórych kont w aplikacji, ale nie do innych? Jeśli tak, Usuń problematyczne konto z aplikacji, Dodaj je ponownie, zezwalając na powiadomienia, i sprawdź, czy ten problem został rozwiązany.</li></ul>Jeśli podjęto próbę wykonania wszystkich kroków i nadal występują problemy, zalecamy wysłanie plików dziennika do celów diagnostycznych. Otwórz aplikację, przejdź do menu najwyższego poziomu aplikacji, a następnie wybierz pozycję **Wyślij opinię**. Następnie przejdź do [forum aplikacji Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) i poinformuj firmę Microsoft o tym problemie oraz o podjętych krokach.
 
 ### <a name="switch-to-push-notifications"></a>Przełącz do powiadomień wypychanych
 
@@ -204,13 +208,13 @@ Odp.: Jeśli aplikacja nie jest wyświetlana na Twoim ekranie, spróbuj wykonać
 
 **P**: wystąpiła awaria aplikacji pomocnika my Apple Watch. Czy mogę wysłać do Ciebie dzienniki awaryjne, aby móc zbadać?
 
-Odp **.: najpierw** musisz się upewnić, że wybrano opcję udostępnienia analiz. Jeśli jesteś użytkownikiem usługi TestFlight, nastąpiło już zarejestrowanie. W przeciwnym razie możesz przejść do pozycji **ustawienia > prywatność > Analytics** i wybrać opcje **udostępnij telefon iPhone & Obejrzyj Analytics** i **udostępnić je deweloperom aplikacji** .<br>Po utworzeniu konta możesz spróbować odtworzyć awarię, aby dzienniki awarii były automatycznie wysyłane do firmy Microsoft w celu zbadania go. Jeśli jednak nie możesz odtworzyć awarii, możesz ręcznie skopiować pliki dziennika i wysłać je do nas.<ol><li>Otwórz aplikację Watch na telefonie, przejdź do pozycji **ustawienia > ogólne**, a następnie kliknij pozycję **Kopiuj Obejrzyj analizę**.</li><li>Znajdź odpowiednią awarię w obszarze **ustawienia > prywatność > analiza > dane analityczne**, a następnie ręcznie Skopiuj cały tekst.</li><li>Otwórz program Authenticator na telefonie i wklej skopiowany tekst do pola tekstowego **Udostępnij deweloperom aplikacji** na stronie **wysyłanie dzienników** .</li></ol>
+Odp **.: najpierw** musisz się upewnić, że wybrano opcję udostępnienia analiz. Jeśli jesteś użytkownikiem usługi TestFlight, nastąpiło już zarejestrowanie. W przeciwnym razie możesz przejść do pozycji **ustawienia > prywatność > Analytics** i wybrać opcje **udostępnij telefon iPhone & Obejrzyj Analytics** i **udostępnić je deweloperom aplikacji** .<br>Po utworzeniu konta możesz spróbować odtworzyć awarię, aby dzienniki awarii były automatycznie wysyłane do firmy Microsoft w celu zbadania go. Jeśli jednak nie możesz odtworzyć awarii, możesz ręcznie skopiować pliki dziennika i wysłać je do nas.<ol><li>Otwórz aplikację Watch na telefonie, przejdź do pozycji **ustawienia > ogólne**, a następnie kliknij pozycję **Kopiuj Obejrzyj analizę**.</li><li>Znajdź odpowiednią awarię w obszarze **ustawienia > prywatność > analiza > dane analityczne**, a następnie ręcznie Skopiuj cały tekst.</li><li>Otwórz wystawcy uwierzytelnienie na telefonie i wklej skopiowany tekst do pola  **opisz problem, w którym** występują problemy **?** na stronie  **Wyślij opinię** . </li></ol>
 
-## <a name="autofill-for-consumers"></a>Autowypełnianie dla użytkowników
+## <a name="autofill-with-authenticator"></a>Autowypełnianie przy użyciu uwierzytelniania
 
-**P**: co to jest Autowypełnianie w uwierzytelnianiu?
+**P**: co to jest Autowypełnianie przy użyciu uwierzytelniania?
 
-Odp **.: aplikacja** Authenticator teraz bezpiecznie przechowuje i wypełnia hasła dla aplikacji i witryn sieci Web odwiedzanych na telefonie. Za pomocą Autowypełniania można synchronizować i wypełniać hasła na urządzeniach z systemem iOS lub Android. Po skonfigurowaniu aplikacji uwierzytelniania jako dostawcy Autowypełniania na telefonie oferuje ona możliwość zapisywania haseł podczas wprowadzania ich na stronie logowania do witryny lub aplikacji. Hasła są zapisywane jako część [konto Microsoft](https://account.microsoft.com/account) i są również dostępne po zalogowaniu się do przeglądarki Microsoft Edge przy użyciu konto Microsoft.
+Odp **.: aplikacja** Authenticator teraz bezpiecznie przechowuje i wypełnia hasła dla aplikacji i witryn sieci Web odwiedzanych na telefonie. Za pomocą Autowypełniania można synchronizować i wypełniać hasła na urządzeniach z systemem iOS lub Android. Po skonfigurowaniu aplikacji uwierzytelniania jako dostawcy Autowypełniania na telefonie oferuje ona możliwość zapisywania haseł po wprowadzeniu ich w witrynie lub na stronie logowania do aplikacji. Hasła są zapisywane jako część [osobistego konto Microsoft](https://account.microsoft.com/account) i są również dostępne po zalogowaniu się do przeglądarki Microsoft Edge przy użyciu konto Microsoft osobistych.
 
 **P**: jakie informacje mogą wystawić na Autowypełnianie dla mnie?
 
@@ -221,23 +225,22 @@ Odp **.:** wystawca uwierzytelnienia może uzupełniać nazwy użytkowników i h
 Odp.: wykonaj następujące **kroki:**
 
 1. Otwórz aplikację Authenticator.
-1. W obszarze **Ustawienia** w obszarze **wersja beta** Włącz opcję **Autowypełnianie**.
 1. Na karcie **hasła** w obszarze wystawcy uwierzytelnienia wybierz pozycję **Zaloguj się przy użyciu konta Microsoft** i zaloguj się przy użyciu [konto Microsoft](https://account.microsoft.com/account). Ta funkcja obsługuje obecnie tylko konta Microsoft i nie obsługuje jeszcze kont służbowych.
 
 **P**: Jak mogę należy wystawić na mój telefon domyślnego dostawcę automatycznego Autowypełniania?
 
 Odp.: wykonaj następujące **kroki:**
 
-1. Otwórz **Ustawienia** uwierzytelniania i w obszarze **beta** Włącz **Autowypełnianie**.
-1. Na karcie **hasła** w aplikacji Zaloguj się przy użyciu [konto Microsoft](https://account.microsoft.com/account).
+1. Otwórz aplikację Authenticator.
+1. Na karcie **hasła** w aplikacji wybierz pozycję **Zaloguj się przy użyciu konta Microsoft** i zaloguj się przy użyciu [konto Microsoft](https://account.microsoft.com/account).
 1. Wykonaj jedną z następujących czynności:
 
    - W systemie iOS w obszarze **Ustawienia** wybierz pozycję **jak włączyć Autowypełnianie** w sekcji Ustawienia Autowypełniania, aby dowiedzieć się, jak ustawić wystawcę jako domyślnego dostawcę Autowypełniania.
-   - W systemie Android w obszarze **Ustawienia** wybierz pozycję **Ustaw jako dostawcę Autowypełniania** w sekcji Ustawienia Autowypełniania, aby ustawić wystawcę jako domyślnego dostawcę Autowypełniania.
+   - W systemie Android w obszarze **Ustawienia** wybierz pozycję **Ustaw jako dostawcę Autowypełniania** w sekcji Ustawienia Autowypełniania.
 
-**P**: co zrobić, jeśli przełącznik **Autowypełniania** jest wyszarzony dla mnie w ustawieniach?
+**P**: co zrobić, jeśli przełącznik **Autowypełniania** nie jest dostępny dla mnie w ustawieniach?
 
-Odp **.:** Autowypełnianie jest obecnie w wersji beta i nie zostało jeszcze włączone dla wszystkich organizacji lub typów kont. Jeśli ustawienia **Autowypełniania** w **ustawieniach** są wyszarzone dla Ciebie, prawdopodobnie używasz aplikacji uwierzytelniania z kontem służbowym. Tej funkcji można użyć na urządzeniu, na którym konto służbowe nie zostało dodane. Jeśli Twoja organizacja współpracuje z firmą Microsoft, przełącznik **Autowypełniania** zostanie włączony nawet po dodaniu konta służbowego do uwierzytelnienia.
+Odp.: Jeśli Autowypełnianie nie jest dostępne **w ramach** uwierzytelnienia, może to być spowodowane tym, że Autowypełnianie nie było jeszcze dozwolone dla organizacji lub typu konta. Tej funkcji można użyć na urządzeniu, na którym nie jest dodawane konto służbowe. Aby dowiedzieć się więcej o tym, jak zezwolić na Autowypełnianie w organizacji, zobacz [Autowypełnianie dla administratorów IT](#autofill-for-it-admins).
 
 **P**: Jak mogę zatrzymać Synchronizowanie haseł?
 
@@ -247,28 +250,24 @@ Odp **.: aby** zatrzymać Synchronizowanie haseł w aplikacji Authenticator, Otw
 
 Odp **.: aplikacja Authenticator ma już** wysoki poziom zabezpieczeń na potrzeby uwierzytelniania wieloskładnikowego i zarządzania kontami, a ten sam wysoki pasek zabezpieczeń jest również rozszerzony w celu zarządzania hasłami.
 
-- **Aplikacja Authenticator wymaga silnego uwierzytelniania**: zalogowanie się do uwierzytelniania jest wymagane przez drugi czynnik. Oznacza to, że hasła wewnątrz aplikacji uwierzytelniania nie są dostępne, nawet jeśli ktoś ma konto Microsoft hasło.
-- Automatyczne **wypełnianie danych jest chronione przy użyciu biometrii i kodu dostępu**: aby można było wyczyszczenie hasła w aplikacji lub lokacji, wystawca uwierzytelnienia wymaga biometrycznego lub kodu dostępu urządzenia. Gwarantuje to, że nawet jeśli ktoś inny ma dostęp do urządzenia, nie może wypełnić lub zobaczyć hasła, ponieważ nie może on dostarczyć biometrycznego ani numeru PIN urządzenia. Ponadto użytkownik nie może otworzyć strony hasła, chyba że poda wartość biometryczną lub PIN, nawet jeśli wyłącza blokadę aplikacji w ustawieniach aplikacji.
-- **Hasła szyfrowane na urządzeniu**: hasła na urządzeniu są szyfrowane, a klucze szyfrowania/odszyfrowywania nigdy nie są przechowywane i zawsze generowane na bieżąco. Hasła są odszyfrowywane tylko wtedy, gdy użytkownik chce, czyli podczas Autowypełniania, lub gdy użytkownik chce zobaczyć hasło, z których oba wymagają biometrycznych lub PIN.
-- **Bezpieczeństwo chmury i sieci**: hasła w chmurze są szyfrowane i odszyfrowywane tylko wtedy, gdy docierają do Twojego urządzenia. Hasła są synchronizowane za pośrednictwem połączenia HTTPS zabezpieczonego za pośrednictwem protokołu SSL, co uniemożliwia atakującemu eavesdrop danych poufnych podczas synchronizowania. Gwarantujemy również, że Sanity dane synchronizowane za pośrednictwem sieci przy użyciu funkcji kryptograficznych skrótów (w odniesieniu do kodu uwierzytelniania komunikatów opartych na skrócie).
+- **Aplikacja Authenticator wymaga silnego uwierzytelniania**: zalogowanie się do uwierzytelniania jest wymagane przez drugi czynnik. Oznacza to, że hasła wewnątrz aplikacji uwierzytelniania są chronione, nawet jeśli ktoś ma konto Microsoft hasło.
+- Automatyczne **wypełnianie danych jest chronione przy użyciu biometrii i kodu dostępu**: aby można było wyczyszczenie hasła w aplikacji lub lokacji, wystawca uwierzytelnienia wymaga biometrycznego lub kodu dostępu urządzenia. Pozwala to na dodanie dodatkowych zabezpieczeń, co oznacza, że nawet jeśli ktoś inny ma dostęp do urządzenia, nie może wypełnić lub zobaczyć hasła, ponieważ nie mogą podawać danych wejściowych biometrycznych lub numerów PIN urządzeń. Ponadto użytkownik nie może otworzyć strony hasła, chyba że poda wartość biometryczną lub PIN, nawet jeśli wyłącza blokadę aplikacji w ustawieniach aplikacji.
+- **Hasła szyfrowane na urządzeniu**: hasła na urządzeniu są szyfrowane, a klucze szyfrowania/odszyfrowywania nigdy nie są przechowywane i są zawsze generowane w razie konieczności. Hasła są odszyfrowywane tylko wtedy, gdy użytkownik chce, czyli podczas Autowypełniania, lub gdy użytkownik chce zobaczyć hasło, z których oba wymagają biometrycznych lub PIN.
+- **Bezpieczeństwo chmury i sieci**: hasła w chmurze są szyfrowane i odszyfrowywane tylko wtedy, gdy docierają do Twojego urządzenia. Hasła są synchronizowane za pośrednictwem połączenia HTTPS zabezpieczonego za pośrednictwem protokołu SSL, co pomaga zapobiec podsłuchiwaniu danych poufnych przez osobę atakującą podczas synchronizacji. Gwarantujemy również, że Sanity dane synchronizowane za pośrednictwem sieci przy użyciu funkcji kryptograficznych skrótów (w odniesieniu do kodu uwierzytelniania komunikatów opartych na skrócie).
 
 ## <a name="autofill-for-it-admins"></a>Autowypełnianie dla administratorów IT
 
 **P**: czy Moi pracownicy lub studenci mogą korzystać z automatycznego wypełniania haseł w aplikacji uwierzytelniania?
 
-Odp **.: nie**. Funkcja Autowypełniania jest obecnie w wersji beta i nie została jeszcze włączona dla wszystkich organizacji lub typów kont. Jeśli pracownik lub student dodał Twoje konto służbowe do Microsoft Authenticator aplikacji, Autowypełnianie haseł nie będzie dostępne dla użytkowników. Jedynym wyjątkiem od tego ograniczenia jest dodanie konta służbowego do usługi uwierzytelniania wieloskładnikowego firmy Microsoft opartego na chmurze lub konta [innej](user-help-auth-app-add-non-ms-account.md)firmy przez pracownika lub ucznia.
-
-**P**: Czy mogę udostępnić funkcję Autowypełniania dla moich pracowników (lub studentów)?
-
-Odp **.: tak**. Aby umożliwić pracownikom lub uczniom, Twoje przedsiębiorstwa lub szkoły można dodać do listy dozwolonych. Skontaktuj się z pomocą techniczną lub skontaktować się z firmą Microsoft, aby dodać do listy dozwolonych. Ponadto jeśli jesteś administratorem IT w organizacji, możesz również wypełnić formularz, aby dowiedzieć się, w jaki sposób można przystąpić do dołączania do usługi [uwierzytelniania w przedsiębiorstwie](https://aka.ms/RequestAutofillInAuthenticator).
+Odp.: tak, funkcja Autowypełniania **działa w przypadku** większości użytkowników w przedsiębiorstwie, nawet gdy do aplikacji uwierzytelniającej jest dodawane konto służbowe. Możesz wypełnić formularz, aby skonfigurować (Zezwalaj lub Odmów) Autowypełniania dla organizacji i [wysyłać ją do zespołu wystawcy uwierzytelnienia](https://aka.ms/ConfigureAutofillInAuthenticator).
 
 **P**: czy hasło konta służbowego użytkownika lub szkoły zostanie automatycznie zsynchronizowane?
 
 Odp **.: nie**. Autowypełnianie hasła nie będzie synchronizować hasła konta służbowego dla użytkowników. Gdy użytkownicy odwiedzają witrynę lub aplikację, wystawca uwierzytelnienia będzie oferować zapisanie hasła dla tej witryny lub aplikacji, a hasło jest zapisywane tylko wtedy, gdy użytkownik zdecyduje się na.
   
-**P**: Czy mogę zezwolić na Autowypełnianie tylko określonym użytkownikom mojej organizacji?
+**P**: Czy można dozwolonych tylko niektórych użytkowników mojej organizacji?
 
-Odp **.: nie**. Przedsiębiorstwa mogą włączać tylko Autowypełnianie haseł dla wszystkich lub żadnego z ich pracowników. Stopniowo rozszerzają te kontrolki.
+Odp **.: nie**. Przedsiębiorstwa mogą włączać tylko Autowypełnianie haseł dla wszystkich lub żadnego z ich pracowników.
 
 **Pytanie**: co zrobić, jeśli pracownik lub student ma wiele kont służbowych? Na przykład mój pracownik ma konta z wielu przedsiębiorstw lub szkół w Microsoft Authenticator.
 

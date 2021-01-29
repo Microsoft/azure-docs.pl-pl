@@ -7,18 +7,18 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842567"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054063"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Samouczek: Tworzenie przepływów pracy automatyzacji opartych na harmonogramie i cyklicznych za pomocą Azure Logic Apps
 
 W tym samouczku przedstawiono sposób tworzenia przykładowej [aplikacji logiki](../logic-apps/logic-apps-overview.md) , która automatyzuje przepływ pracy uruchamiany zgodnie z cyklicznym harmonogramem. W szczególności Ta przykładowa aplikacja logiki sprawdza czas podróży, w tym ruch, między dwoma miejscami i jest uruchamiany każdego dnia tygodnia rano. Jeśli czas przekracza określony limit, aplikacja logiki wyśle wiadomość e-mail zawierającą czas podróży i dodatkowy czas wymagany do osiągnięcia w miejscu docelowym. Przepływ pracy zawiera różne kroki, które zaczynają się od wyzwalacza opartego na harmonogramie, po którym następuje akcja mapy Bing, Akcja operacji na danych, Akcja przepływu sterowania i akcja powiadomienia e-mail.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenia pustej aplikacji logiki.
@@ -43,6 +43,8 @@ Po ukończeniu aplikacja logiki będzie ogólnie wyglądać jak ten przepływ pr
 
 * Aby pobrać czas podróży dla danej trasy, potrzebny jest klucz dostępu dla interfejsu API usługi Mapy Bing. Aby pobrać ten klucz, postępuj zgodnie z instrukcjami [uzyskiwania klucza usługi Mapy Bing](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
+* Jeśli aplikacja logiki musi komunikować się przez zaporę, która ogranicza ruch do określonych adresów IP, zapora musi zezwolić na dostęp *zarówno* do [przychodzącego](logic-apps-limits-and-config.md#inbound) , jak i [wychodzącego](logic-apps-limits-and-config.md#outbound) adresu IP używanego przez usługę Logic Apps lub środowisko uruchomieniowe w regionie platformy Azure, w którym znajduje się aplikacja logiki. Jeśli aplikacja logiki używa również łączników [zarządzanych](../connectors/apis-list.md#managed-api-connectors), takich jak łącznik usługi Office 365 Outlook lub łącznik SQL, lub używa [łączników niestandardowych](/connectors/custom-connectors/), zapora musi również zezwolić na dostęp *wszystkich* [wychodzących adresów IP łącznika zarządzanego](logic-apps-limits-and-config.md#outbound) w regionie platformy Azure aplikacji logiki.
+
 ## <a name="create-your-logic-app"></a>Tworzenie aplikacji logiki
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu poświadczeń konta Azure. Na stronie głównej platformy Azure wybierz pozycję **Utwórz zasób**.
@@ -57,10 +59,10 @@ Po ukończeniu aplikacja logiki będzie ogólnie wyglądać jak ten przepływ pr
 
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
-   | **Subskrypcja** | <*Azure — nazwa subskrypcji*> | Nazwa subskrypcji platformy Azure. Ten przykład używa `Pay-As-You-Go` . |
+   | **Subskrypcja** | <*Azure — nazwa subskrypcji*> | Nazwa subskrypcji platformy Azure. W tym przykładzie użyto wartości `Pay-As-You-Go`. |
    | **Grupa zasobów** | LA-TravelTime-RG | Nazwa [grupy zasobów platformy Azure](../azure-resource-manager/management/overview.md), która jest używana do organizowania powiązanych zasobów. Ten przykład tworzy nową grupę zasobów o nazwie `LA-TravelTime-RG` . |
-   | **Nazwa** | LA-TravelTime | Nazwa aplikacji logiki, która może zawierać tylko litery, cyfry, łączniki ( `-` ), podkreślenia ( `_` ), nawiasy ( `(` , `)` ) i kropki ( `.` ). Ten przykład używa `LA-TravelTime` . |
-   | **Lokalizacja** | Zachodnie stany USA | Region, w którym są przechowywane informacje o aplikacji logiki. Ten przykład używa `West US` . |
+   | **Nazwa** | LA-TravelTime | Nazwa aplikacji logiki, która może zawierać tylko litery, cyfry, łączniki ( `-` ), podkreślenia ( `_` ), nawiasy ( `(` , `)` ) i kropki ( `.` ). W tym przykładzie użyto wartości `LA-TravelTime`. |
+   | **Lokalizacja** | Zachodnie stany USA | Region, w którym są przechowywane informacje o aplikacji logiki. W tym przykładzie użyto wartości `West US`. |
    | **Log Analytics** | Wyłączone | Ustawienie **Wyłączone** umożliwia rejestrowanie w celach diagnostycznych. |
    ||||
 
@@ -96,7 +98,7 @@ Następnie Dodaj [wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-conc
    | **Częstotliwość** | Tak | Tydzień | Jednostka czasu cyklu |
    |||||
 
-1. W obszarze **Interwał** i **częstotliwość**Otwórz listę **Dodaj nowy parametr** i wybierz te właściwości, które mają zostać dodane do wyzwalacza.
+1. W obszarze **Interwał** i **częstotliwość** Otwórz listę **Dodaj nowy parametr** i wybierz te właściwości, które mają zostać dodane do wyzwalacza.
 
    * **W tych dniach**
    * **W tych godzinach**
@@ -131,7 +133,7 @@ Po utworzeniu wyzwalacza możesz dodać [akcję](../logic-apps/logic-apps-overvi
 
 1. W Projektancie aplikacji logiki w obszarze wyzwalacza cyklu wybierz pozycję **nowy krok**.
 
-1. W obszarze **Wybierz operację**wybierz pozycję **standardowa**. W polu wyszukiwania wprowadź `bing maps` i wybierz akcję o nazwie **Get Route**.
+1. W obszarze **Wybierz operację** wybierz pozycję **standardowa**. W polu wyszukiwania wprowadź `bing maps` i wybierz akcję o nazwie **Get Route**.
 
    ![Zrzut ekranu przedstawiający listę "Wybieranie operacji" przefiltrowaną przez akcje "mapy Bing" i wybraną akcję "Pobierz trasę".](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-get-route-action.png)
 
@@ -141,13 +143,13 @@ Po utworzeniu wyzwalacza możesz dodać [akcję](../logic-apps/logic-apps-overvi
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Nazwa połączenia** | Tak | BingMapsConnection | Podaj nazwę połączenia. Ten przykład używa `BingMapsConnection` . |
+   | **Nazwa połączenia** | Tak | BingMapsConnection | Podaj nazwę połączenia. W tym przykładzie użyto wartości `BingMapsConnection`. |
    | **Klucz interfejsu API** | Tak | <*Bing-Maps-interfejs API-Key*> | Wprowadź wcześniej otrzymany klucz interfejsu API usługi mapy Bing. Jeśli nie masz klucza usługi Mapy Bing, dowiedz się [jak uzyskać klucz](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
    |||||
 
 1. Zmień nazwę akcji na następujący Opis: `Get route and travel time with traffic` .
 
-1. W akcji Otwórz **listę Dodaj nowy parametr**i wybierz te właściwości.
+1. W akcji Otwórz **listę Dodaj nowy parametr** i wybierz te właściwości.
 
    * **Optymalizacja**
    * **Jednostka odległości**
@@ -182,7 +184,7 @@ Domyślnie Akcja **Pobierz trasę** zwraca bieżący czas podróży z ruchem w s
 
 1. W projektancie w obszarze Akcja **Pobierz trasę** wybierz pozycję **nowy krok**.
 
-1. W obszarze **Wybierz operację**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `variables` i wybierz akcję o nazwie **Initialize Variable**.
+1. W obszarze **Wybierz operację** wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `variables` i wybierz akcję o nazwie **Initialize Variable**.
 
    ![Zrzut ekranu przedstawiający wybraną akcję "zainicjuj zmienną".](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
@@ -192,7 +194,7 @@ Domyślnie Akcja **Pobierz trasę** zwraca bieżący czas podróży z ruchem w s
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Nazwa** | Tak | travelTime | Nazwa zmiennej. Ten przykład używa `travelTime` . |
+   | **Nazwa** | Tak | travelTime | Nazwa zmiennej. W tym przykładzie użyto wartości `travelTime`. |
    | **Typ** | Tak | Liczba całkowita | Typ danych dla zmiennej |
    | **Wartość** | Nie | Wyrażenie, które konwertuje bieżący czas podróży z sekund na minuty (zobacz kroki opisane w tej tabeli). | Początkowa wartość zmiennej |
    |||||
@@ -231,7 +233,7 @@ Następnie dodaj warunek, który sprawdzi, czy aktualny czas podróży jest dłu
 
 1. W obszarze **Utwórz zmienną do przechowywania czasu podróży** wybierz pozycję **nowy krok**.
 
-1. W obszarze **Wybierz operację**wybierz pozycję **wbudowane**. W polu wyszukiwania wpisz `condition`. z listy Akcje wybierz akcję o nazwie **warunek**.
+1. W obszarze **Wybierz operację** wybierz pozycję **wbudowane**. W polu wyszukiwania wpisz `condition`. z listy Akcje wybierz akcję o nazwie **warunek**.
 
    ![Zrzut ekranu przedstawiający wybraną akcję "warunek"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
 
@@ -241,7 +243,7 @@ Następnie dodaj warunek, który sprawdzi, czy aktualny czas podróży jest dłu
 
    1. W warunku po lewej stronie warunku kliknij wewnątrz pola **Wybierz wartość** .
 
-   1. Z wyświetlonej listy zawartości dynamicznej w obszarze **zmienne**wybierz właściwość o nazwie **travelTime**.
+   1. Z wyświetlonej listy zawartości dynamicznej w obszarze **zmienne** wybierz właściwość o nazwie **travelTime**.
 
       ![Zrzut ekranu pokazujący pole "Wybierz wartość" po lewej stronie warunku z otwartą listą zawartości dynamicznej i wybraną Właściwość "travelTime".](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
@@ -263,7 +265,7 @@ Teraz Dodaj akcję, która wysyła wiadomość e-mail, gdy czas podróży przekr
 
 1. W gałęzi **prawdy** warunku wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz operację**wybierz pozycję **standardowa**. W polu wyszukiwania wpisz `send email`. Lista zwraca wiele wyników, dlatego aby ułatwić filtrowanie listy, najpierw wybierz odpowiedni łącznik poczty e-mail.
+1. W obszarze **Wybierz operację** wybierz pozycję **standardowa**. W polu wyszukiwania wpisz `send email`. Lista zwraca wiele wyników, dlatego aby ułatwić filtrowanie listy, najpierw wybierz odpowiedni łącznik poczty e-mail.
 
    Jeśli na przykład masz konto e-mail w programie Outlook, wybierz łącznik dla swojego typu konta:
 
@@ -358,7 +360,7 @@ Aby utworzyć inne aplikacje logiki, które używają wyzwalacza **cykl** , zapo
 
 Aplikacja logiki kontynuuje działanie do momentu wyłączenia lub usunięcia aplikacji. Jeśli przykładowa aplikacja logiki nie jest już potrzebna, Usuń grupę zasobów zawierającą aplikację logiki i powiązane zasoby.
 
-1. W polu wyszukiwania Azure Portal wprowadź nazwę utworzonej grupy zasobów. Z wyników w obszarze **grupy zasobów**wybierz grupę zasobów.
+1. W polu wyszukiwania Azure Portal wprowadź nazwę utworzonej grupy zasobów. Z wyników w obszarze **grupy zasobów** wybierz grupę zasobów.
 
    Ten przykład utworzył grupę zasobów o nazwie `LA-TravelTime-RG` .
 

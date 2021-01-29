@@ -2,62 +2,62 @@
 title: Dostarczanie zdarzeń, tożsamość usługi zarządzanej i link prywatny
 description: W tym artykule opisano sposób włączania tożsamości usługi zarządzanej w temacie Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych.
 ms.topic: how-to
-ms.date: 10/22/2020
-ms.openlocfilehash: edb3e5ac8257a29ecd3835e1dfd4c116c3cc7164
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.date: 01/28/2021
+ms.openlocfilehash: ca154c252976911627184a63386cba1544ed21e0
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368617"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054421"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
-W tym artykule opisano sposób włączania [tożsamości usługi zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla tematów lub domen w usłudze Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
+W tym artykule opisano sposób włączania [tożsamości usługi zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla niestandardowych tematów lub domen w usłudze Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
 
 Poniżej przedstawiono kroki, które są szczegółowo omówione w tym artykule:
-1. Utwórz temat lub domenę z tożsamością przypisaną do systemu lub zaktualizuj istniejący temat lub domenę, aby włączyć tożsamość. 
+1. Utwórz niestandardowy temat lub domenę z tożsamością przypisaną do systemu lub zaktualizuj istniejący temat lub domenę niestandardową, aby włączyć tożsamość. 
 1. Dodaj tożsamość do odpowiedniej roli (na przykład Service Bus nadawcy danych) w miejscu docelowym (na przykład Kolejka Service Bus).
 1. Podczas tworzenia subskrypcji zdarzeń należy włączyć użycie tożsamości w celu dostarczenia zdarzeń do miejsca docelowego. 
 
 > [!NOTE]
 > Obecnie nie jest możliwe dostarczanie zdarzeń przy użyciu [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md). Aby uzyskać więcej informacji, zobacz sekcję [prywatne punkty końcowe](#private-endpoints) na końcu tego artykułu. 
 
-## <a name="create-a-topic-or-domain-with-an-identity"></a>Tworzenie tematu lub domeny z tożsamością
+## <a name="create-a-custom-topic-or-domain-with-an-identity"></a>Tworzenie niestandardowego tematu lub domeny z tożsamością
 Najpierw przyjrzyjmy się sposobom tworzenia tematu lub domeny z tożsamością zarządzaną przez system.
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
-Tożsamość przypisaną przez system można włączyć dla tematu lub domeny, podczas gdy tworzysz ją w Azure Portal. Na poniższej ilustracji przedstawiono sposób włączania tożsamości zarządzanej przez system dla tematu. W zasadzie należy wybrać opcję **Włącz tożsamość przypisany system** na stronie **Zaawansowane** Kreatora tworzenia tematu. Ta opcja zostanie wyświetlona na stronie **Zaawansowane** Kreatora tworzenia domeny. 
+Tożsamość przypisaną przez system można włączyć dla niestandardowego tematu lub domeny, podczas gdy tworzysz ją w Azure Portal. Na poniższej ilustracji przedstawiono sposób włączania tożsamości zarządzanej przez system dla tematu niestandardowego. W zasadzie należy wybrać opcję **Włącz tożsamość przypisany system** na stronie **Zaawansowane** Kreatora tworzenia tematu. Ta opcja zostanie wyświetlona na stronie **Zaawansowane** Kreatora tworzenia domeny. 
 
-![Włącz tożsamość podczas tworzenia tematu](./media/managed-service-identity/create-topic-identity.png)
+![Włącz tożsamość podczas tworzenia tematu niestandardowego](./media/managed-service-identity/create-topic-identity.png)
 
 ### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
-Możesz również użyć interfejsu wiersza polecenia platformy Azure do utworzenia tematu lub domeny z tożsamością przypisaną do systemu. Użyj `az eventgrid topic create` polecenia z `--identity` parametrem ustawionym na `systemassigned` . Jeśli nie określisz wartości tego parametru, `noidentity` zostanie użyta wartość domyślna. 
+Możesz również użyć interfejsu wiersza polecenia platformy Azure do utworzenia niestandardowego tematu lub domeny z tożsamością przypisaną przez system. Użyj `az eventgrid topic create` polecenia z `--identity` parametrem ustawionym na `systemassigned` . Jeśli nie określisz wartości tego parametru, `noidentity` zostanie użyta wartość domyślna. 
 
 ```azurecli-interactive
-# create a topic with a system-assigned identity
+# create a custom topic with a system-assigned identity
 az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCATION>  --identity systemassigned
 ```
 
 Podobnie można użyć `az eventgrid domain create` polecenia, aby utworzyć domenę z tożsamością zarządzaną przez system.
 
-## <a name="enable-an-identity-for-an-existing-topic-or-domain"></a>Włączanie tożsamości dla istniejącego tematu lub domeny
-W poprzedniej sekcji przedstawiono sposób włączania tożsamości zarządzanej przez system podczas tworzenia tematu lub domeny. W tej sekcji dowiesz się, jak włączyć tożsamość zarządzaną przez system dla istniejącego tematu lub domeny. 
+## <a name="enable-an-identity-for-an-existing-custom-topic-or-domain"></a>Włączanie tożsamości dla istniejącego niestandardowego tematu lub domeny
+W poprzedniej sekcji przedstawiono sposób włączania tożsamości zarządzanej przez system podczas tworzenia niestandardowego tematu lub domeny. W tej sekcji dowiesz się, jak włączyć tożsamość zarządzaną przez system dla istniejącego tematu lub domeny niestandardowej. 
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
-Poniższa procedura pokazuje, jak włączyć tożsamość zarządzaną przez system dla tematu. Kroki umożliwiające włączenie tożsamości dla domeny są podobne. 
+Poniższa procedura pokazuje, jak włączyć tożsamość zarządzaną przez system dla tematu niestandardowego. Kroki umożliwiające włączenie tożsamości dla domeny są podobne. 
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2. Wyszukaj **Tematy usługi Event Grid** na pasku wyszukiwania u góry.
-3. Wybierz **temat** , dla którego chcesz włączyć zarządzaną tożsamość. 
+3. Wybierz **temat niestandardowy** , dla którego chcesz włączyć zarządzaną tożsamość. 
 4. Przejdź do karty **tożsamość** . 
 5. Włącz **przełącznik, aby** włączyć tożsamość. 
 1. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienie. 
 
-    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Strona tożsamości tematu"::: 
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Strona tożsamości tematu niestandardowego"::: 
 
 Możesz użyć podobnych kroków, aby włączyć tożsamość dla domeny usługi Event Grid.
 
 ### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
-Użyj `az eventgrid topic update` polecenia z `--identity` ustawioną opcją `systemassigned` , aby włączyć tożsamość przypisaną przez system dla istniejącego tematu. Jeśli chcesz wyłączyć tożsamość, określ `noidentity` jako wartość. 
+Użyj `az eventgrid topic update` polecenia z `--identity` ustawioną opcją `systemassigned` , aby włączyć tożsamość przypisaną przez system dla istniejącego tematu niestandardowego. Jeśli chcesz wyłączyć tożsamość, określ `noidentity` jako wartość. 
 
 ```azurecli-interactive
 # Update the topic to assign a system-assigned identity. 
@@ -67,39 +67,39 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 Polecenie aktualizowania istniejącej domeny jest podobne ( `az eventgrid domain update` ).
 
 ## <a name="supported-destinations-and-azure-roles"></a>Obsługiwane miejsca docelowe i role platformy Azure
-Po włączeniu tożsamości dla tematu lub domeny w usłudze Event Grid platforma Azure automatycznie tworzy tożsamość w Azure Active Directory. Dodaj tę tożsamość do odpowiednich ról platformy Azure, aby temat lub domena mogły przesyłać zdarzenia do obsługiwanych miejsc docelowych. Na przykład Dodaj tożsamość do roli **nadawca danych usługi azure Event Hubs** dla przestrzeni nazw usługi Azure Event Hubs, aby temat usługi Event Grid mógł przesyłać zdarzenia do centrów zdarzeń w tej przestrzeni nazw. 
+Po włączeniu tożsamości dla niestandardowego tematu lub domeny usługi Event Grid platforma Azure automatycznie tworzy tożsamość w Azure Active Directory. Dodaj tę tożsamość do odpowiednich ról platformy Azure, aby niestandardowy temat lub domena mogły przesyłać zdarzenia do obsługiwanych miejsc docelowych. Na przykład Dodaj tożsamość do roli **nadawca danych usługi azure Event Hubs** dla przestrzeni nazw Event Hubs platformy Azure, tak aby niestandardowy temat usługi Event Grid mógł przesyłać zdarzenia do centrów zdarzeń w tej przestrzeni nazw. 
 
-Obecnie usługa Azure Event Grid obsługuje tematy lub domeny skonfigurowane przy użyciu tożsamości zarządzanej przypisanej przez system do przesyłania zdarzeń do następujących miejsc docelowych. Ta tabela zawiera również role, w których powinna znajdować się tożsamość, aby temat mógł przesłać dalej zdarzenia.
+Obecnie usługa Azure Event Grid obsługuje niestandardowe tematy lub domeny skonfigurowane przy użyciu tożsamości zarządzanej przypisanej przez system do przesyłania zdarzeń do następujących miejsc docelowych. Ta tabela zawiera również role, w których powinna być tożsamość, aby temat niestandardowy mógł przesłać dalej zdarzenia.
 
-| Miejsce docelowe | Rola na platformie Azure | 
+| Element docelowy | Rola na platformie Azure | 
 | ----------- | --------- | 
 | Service Bus kolejki i tematy | [Nadawca danych Azure Service Bus](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Azure Event Hubs | [Nadawca danych Event Hubs platformy Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Usługa Azure Blob Storage | [Współautor danych obiektu blob usługi Storage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Azure Blob Storage | [Współautor danych obiektu blob usługi Storage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
 | Azure Queue Storage |[Nadawca komunikatu o danych kolejki magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
 ## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Dodawanie tożsamości do ról platformy Azure w miejscach docelowych
-W tej sekcji opisano, jak dodać tożsamość tematu lub domeny do roli platformy Azure. 
+W tej sekcji opisano, jak dodać tożsamość niestandardowego tematu lub domeny do roli platformy Azure. 
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
-Za pomocą Azure Portal można przypisać temat lub tożsamość domeny do odpowiedniej roli, aby temat lub domena mogły przesyłać zdarzenia do miejsca docelowego. 
+Azure Portal można użyć do przypisania niestandardowego tematu lub tożsamości domeny do odpowiedniej roli, dzięki czemu niestandardowy temat lub domena mogą przesyłać zdarzenia do miejsca docelowego. 
 
-Poniższy przykład dodaje tożsamość zarządzaną dla tematu usługi Event Grid o nazwie **msitesttopic** do roli **nadawca danych Azure Service Bus** dla przestrzeni nazw Service Bus, która zawiera zasób kolejki lub tematu. Po dodaniu do roli na poziomie przestrzeni nazw temat może przesłać zdarzenia do wszystkich jednostek w przestrzeni nazw. 
+Poniższy przykład dodaje tożsamość zarządzaną dla tematu niestandardowego usługi Event Grid o nazwie **msitesttopic** do roli **nadawca danych Azure Service Bus** dla Service Bus przestrzeni nazw, która zawiera zasób kolejki lub tematu. Po dodaniu do roli na poziomie przestrzeni nazw, niestandardowy temat usługi Event Grid może przesłać zdarzenia do wszystkich jednostek w przestrzeni nazw. 
 
 1. Przejdź do **przestrzeni nazw Service Bus** w [Azure Portal](https://portal.azure.com). 
 1. W lewym okienku wybierz pozycję **Access Control** . 
 1. Wybierz pozycję **Dodaj** w sekcji **Dodawanie przypisania roli** . 
 1. Na stronie **Dodawanie przypisania roli** wykonaj następujące czynności:
     1. Wybierz rolę. W tym przypadku **Azure Service Bus nadawcy danych**. 
-    1. Wybierz **tożsamość** tematu lub domeny. 
+    1. Wybierz **tożsamość** niestandardowego tematu lub domeny usługi Event Grid. 
     1. Wybierz pozycję **Zapisz** , aby zapisać konfigurację.
 
 Kroki są podobne do dodawania tożsamości do innych ról wymienionych w tabeli. 
 
 ### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
-W przykładzie w tej sekcji pokazano, jak dodać tożsamość do roli platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Przykładowe polecenia są przeznaczone dla tematów usługi Event Grid. Polecenia dla domen usługi Event Grid są podobne. 
+W przykładzie w tej sekcji pokazano, jak dodać tożsamość do roli platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Przykładowe polecenia są przeznaczone dla tematów niestandardowych usługi Event Grid. Polecenia dla domen usługi Event Grid są podobne. 
 
-#### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Pobierz identyfikator podmiotu zabezpieczeń dla tożsamości systemu tematu 
+#### <a name="get-the-principal-id-for-the-custom-topics-system-identity"></a>Uzyskaj identyfikator podmiotu zabezpieczeń dla tożsamości systemowej tematu niestandardowego 
 Najpierw Pobierz identyfikator podmiotu zabezpieczeń tożsamości zarządzanej przez system i przypisz tożsamość do odpowiednich ról.
 
 ```azurecli-interactive
@@ -107,7 +107,7 @@ topic_pid=$(az ad sp list --display-name "$<TOPIC NAME>" --query [].objectId -o 
 ```
 
 #### <a name="create-a-role-assignment-for-event-hubs-at-various-scopes"></a>Tworzenie przypisania roli dla centrów zdarzeń w różnych zakresach 
-Poniższy przykład interfejsu wiersza polecenia pokazuje, jak dodać tożsamość tematu do roli **nadawca danych usługi Azure Event Hubs** na poziomie przestrzeni nazw lub na poziomie centrum zdarzeń. Jeśli utworzysz przypisanie roli na poziomie przestrzeni nazw, temat może przesłać zdarzenia do wszystkich centrów zdarzeń w tej przestrzeni nazw. Jeśli utworzysz przypisanie roli na poziomie centrum zdarzeń, w temacie można przesłać zdarzenia tylko do tego konkretnego centrum zdarzeń. 
+Poniższy przykład interfejsu wiersza polecenia pokazuje, jak dodać tożsamość tematu niestandardowego do roli **nadawca danych usługi Azure Event Hubs** na poziomie przestrzeni nazw lub na poziomie centrum zdarzeń. Jeśli utworzysz przypisanie roli na poziomie przestrzeni nazw, temat niestandardowy może przesłać zdarzenia do wszystkich centrów zdarzeń w tej przestrzeni nazw. Jeśli utworzysz przypisanie roli na poziomie centrum zdarzeń, temat niestandardowy może przesłać zdarzenia tylko do tego konkretnego centrum zdarzeń. 
 
 
 ```azurecli-interactive
@@ -123,7 +123,7 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$event
 ```
 
 #### <a name="create-a-role-assignment-for-a-service-bus-topic-at-various-scopes"></a>Tworzenie przypisania roli dla Service Bus tematu w różnych zakresach 
-Poniższy przykład interfejsu wiersza polecenia pokazuje, jak dodać tożsamość tematu do roli **nadawca danych Azure Service Bus** na poziomie przestrzeni nazw lub na poziomie tematu Service Bus. Jeśli utworzysz przypisanie roli na poziomie przestrzeni nazw, temat usługi Event Grid może przekazywać zdarzenia do wszystkich jednostek (Service Bus kolejki lub tematy) w tej przestrzeni nazw. Jeśli utworzysz przypisanie roli na poziomie kolejki lub tematu Service Bus, temat usługi Event Grid może przekazywać zdarzenia tylko do tej konkretnej kolejki Service Bus lub tematu. 
+Poniższy przykład interfejsu wiersza polecenia pokazuje, jak dodać tożsamość tematu niestandardowego w usłudze Event Grid do roli **nadawca danych Azure Service Bus** na poziomie przestrzeni nazw lub na poziomie tematu Service Bus. Jeśli utworzysz przypisanie roli na poziomie przestrzeni nazw, temat usługi Event Grid może przekazywać zdarzenia do wszystkich jednostek (Service Bus kolejki lub tematy) w tej przestrzeni nazw. Jeśli utworzysz przypisanie roli na poziomie kolejki lub tematu Service Bus, niestandardowy temat usługi Event Grid może przesłać zdarzenia tylko do tej konkretnej kolejki Service Bus lub tematu. 
 
 ```azurecli-interactive
 role="Azure Service Bus Data Sender" 
@@ -138,7 +138,7 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ```
 
 ## <a name="create-event-subscriptions-that-use-an-identity"></a>Tworzenie subskrypcji zdarzeń, które używają tożsamości
-Po utworzeniu tematu lub domeny z tożsamością zarządzaną przez system i dodaniu tożsamości do odpowiedniej roli w miejscu docelowym można utworzyć subskrypcje, które używają tożsamości. 
+Po utworzeniu niestandardowego tematu lub domeny z tożsamością zarządzaną przez system i dodaniu tożsamości do odpowiedniej roli w miejscu docelowym można utworzyć subskrypcje, które używają tożsamości. 
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 Podczas tworzenia subskrypcji zdarzeń zostanie wyświetlona opcja umożliwiająca użycie tożsamości przypisanej do systemu dla punktu końcowego w sekcji **Szczegóły punktu końcowego** . 
@@ -157,7 +157,7 @@ Najpierw określ wartości następujących zmiennych, które mają być używane
 
 ```azurecli-interactive
 subid="<AZURE SUBSCRIPTION ID>"
-rg = "<RESOURCE GROUP of EVENT GRID TOPIC>"
+rg = "<RESOURCE GROUP of EVENT GRID CUSTOM TOPIC>"
 topicname = "<EVENT GRID TOPIC NAME>"
 
 # get the service bus queue resource id
@@ -166,7 +166,7 @@ sb_esname = "<Specify a name for the event subscription>"
 ```
 
 #### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Tworzenie subskrypcji zdarzeń przy użyciu tożsamości zarządzanej do dostarczania 
-To przykładowe polecenie tworzy subskrypcję zdarzeń dla tematu usługi Event Grid z typem punktu końcowego ustawionym na **Service Bus Queue**. 
+To przykładowe polecenie tworzy subskrypcję zdarzeń dla tematu niestandardowego usługi Event Grid z typem punktu końcowego ustawionym na **Service Bus Queue**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -178,7 +178,7 @@ az eventgrid event-subscription create
 ```
 
 #### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery-and-dead-lettering"></a>Tworzenie subskrypcji zdarzeń przy użyciu tożsamości zarządzanej na potrzeby dostarczania i utraconych wiadomości
-To przykładowe polecenie tworzy subskrypcję zdarzeń dla tematu usługi Event Grid z typem punktu końcowego ustawionym na **Service Bus Queue**. Określa również, że tożsamość zarządzana przez system ma być używana w przypadku utraconych wiadomości. 
+To przykładowe polecenie tworzy subskrypcję zdarzeń dla tematu niestandardowego usługi Event Grid z typem punktu końcowego ustawionym na **Service Bus Queue**. Określa również, że tożsamość zarządzana przez system ma być używana w przypadku utraconych wiadomości. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -200,15 +200,15 @@ W tej sekcji dowiesz się, jak używać interfejsu wiersza polecenia platformy A
 #### <a name="define-variables"></a>Definiowanie zmiennych
 ```azurecli-interactive
 subid="<AZURE SUBSCRIPTION ID>"
-rg = "<RESOURCE GROUP of EVENT GRID TOPIC>"
-topicname = "<EVENT GRID TOPIC NAME>"
+rg = "<RESOURCE GROUP of EVENT GRID CUSTOM TOPIC>"
+topicname = "<EVENT GRID CUSTOM TOPIC NAME>"
 
 hubid=$(az eventhubs eventhub show --name <EVENT HUB NAME> --namespace-name <NAMESPACE NAME> --resource-group <RESOURCE GROUP NAME> --query id --output tsv)
 eh_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>" 
 ```
 
 #### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Tworzenie subskrypcji zdarzeń przy użyciu tożsamości zarządzanej do dostarczania 
-To przykładowe polecenie tworzy subskrypcję zdarzeń dla tematu usługi Event Grid z typem punktu końcowego ustawionym na **Event Hubs**. 
+To przykładowe polecenie tworzy subskrypcję zdarzeń dla tematu niestandardowego usługi Event Grid z typem punktu końcowego ustawionym na **Event Hubs**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -220,7 +220,7 @@ az eventgrid event-subscription create
 ```
 
 #### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery--deadletter"></a>Tworzenie subskrypcji zdarzeń przy użyciu tożsamości zarządzanej na potrzeby dostarczania i przesyłania wiadomości 
-To przykładowe polecenie tworzy subskrypcję zdarzeń dla tematu usługi Event Grid z typem punktu końcowego ustawionym na **Event Hubs**. Określa również, że tożsamość zarządzana przez system ma być używana w przypadku utraconych wiadomości. 
+To przykładowe polecenie tworzy subskrypcję zdarzeń dla tematu niestandardowego usługi Event Grid z typem punktu końcowego ustawionym na **Event Hubs**. Określa również, że tożsamość zarządzana przez system ma być używana w przypadku utraconych wiadomości. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -243,8 +243,8 @@ W tej sekcji dowiesz się, jak używać interfejsu wiersza polecenia platformy A
 
 ```azurecli-interactive
 subid="<AZURE SUBSCRIPTION ID>"
-rg = "<RESOURCE GROUP of EVENT GRID TOPIC>"
-topicname = "<EVENT GRID TOPIC NAME>"
+rg = "<RESOURCE GROUP of EVENT GRID CUSTOM TOPIC>"
+topicname = "<EVENT GRID CUSTOM TOPIC NAME>"
 
 # get the storage account resource id
 storageid=$(az storage account show --name <STORAGE ACCOUNT NAME> --resource-group <RESOURCE GROUP NAME> --query id --output tsv)
@@ -285,9 +285,9 @@ az eventgrid event-subscription create
 ## <a name="private-endpoints"></a>Prywatne punkty końcowe
 Obecnie nie jest możliwe dostarczanie zdarzeń przy użyciu [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md). Oznacza to, że nie ma żadnej obsługi, jeśli masz ścisłe wymagania izolacji sieciowej, gdy ruch zdarzeń nie może opuścić prywatnego obszaru adresów IP. 
 
-Jeśli jednak wymagania wymagają bezpiecznego sposobu wysyłania zdarzeń za pomocą zaszyfrowanego kanału i znanej tożsamości nadawcy (w tym przypadku Event Grid) przy użyciu publicznej przestrzeni adresów IP, można dostarczyć zdarzenia do Event Hubs, Service Bus lub usługi Azure Storage za pomocą tematu Azure Event Grid lub domeny z tożsamością zarządzaną przez system, jak pokazano w tym artykule. Następnie możesz użyć prywatnego linku skonfigurowanego w Azure Functions lub elementu webhook wdrożonego w sieci wirtualnej do ściągania zdarzeń. Zobacz przykład: [łączenie z prywatnymi punktami końcowymi przy użyciu Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+Jeśli jednak wymagania wymagają bezpiecznego sposobu wysyłania zdarzeń za pomocą zaszyfrowanego kanału i znanej tożsamości nadawcy (w tym przypadku Event Grid) przy użyciu publicznej przestrzeni adresów IP, można dostarczyć zdarzenia do Event Hubs, Service Bus lub usługi Azure Storage za pomocą niestandardowego tematu usługi Azure Event Grid lub domeny z tożsamością zarządzaną przez system, tak jak pokazano w tym artykule. Następnie możesz użyć prywatnego linku skonfigurowanego w Azure Functions lub elementu webhook wdrożonego w sieci wirtualnej do ściągania zdarzeń. Zobacz przykład: [łączenie z prywatnymi punktami końcowymi przy użyciu Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
 
-Należy pamiętać, że w ramach tej konfiguracji ruch przechodzi przez publiczny adres IP/Internet z Event Grid do Event Hubs, Service Bus lub Azure Storage, ale kanał może być zaszyfrowany i używana jest tożsamość zarządzana Event Grid. Jeśli skonfigurujesz Azure Functions lub element webhook wdrożony w sieci wirtualnej tak, aby używał Event Hubs, Service Bus lub usługi Azure Storage za pośrednictwem prywatnego linku, ta sekcja ruchu będzie oczywista na platformie Azure.
+W ramach tej konfiguracji ruch przechodzi przez publiczny adres IP/Internet z Event Grid do Event Hubs, Service Bus lub Azure Storage, ale kanał może być zaszyfrowany i używana jest tożsamość zarządzana Event Grid. Jeśli skonfigurujesz Azure Functions lub element webhook wdrożony w sieci wirtualnej tak, aby używał Event Hubs, Service Bus lub usługi Azure Storage za pośrednictwem prywatnego linku, ta sekcja ruchu będzie oczywista na platformie Azure.
 
 
 ## <a name="next-steps"></a>Następne kroki

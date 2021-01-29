@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 624cf4012316b832e507518aa7e0f0874f517971
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f79360269c19f6770fa12120ec34497b29015e7e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059136"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050689"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny OAuth2 w zasadach niestandardowych Azure Active Directory B2C
 
@@ -90,6 +90,7 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | ClaimsEndpointAccessTokenName | Nie | Nazwa parametru ciągu zapytania tokenu dostępu. Niektórzy punkty końcowe oświadczeń dostawców tożsamości obsługują pobieranie żądania HTTP. W takim przypadku token okaziciela jest wysyłany przy użyciu parametru ciągu zapytania zamiast nagłówka autoryzacji. Wartość domyślna: `access_token` . |
 | ClaimsEndpointFormatName | Nie | Nazwa parametru ciągu zapytania. Na przykład możesz ustawić nazwę jako `format` w tym punkcie końcowym oświadczeń usługi LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
 | ClaimsEndpointFormat | Nie | Wartość parametru ciągu zapytania. Na przykład można ustawić wartość tak jak `json` w tym punkcie końcowym oświadczeń usługi LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
+| BearerTokenTransmissionMethod | Nie | Określa sposób wysyłania tokenu. Metoda domyślna jest ciągiem zapytania. Aby wysłać token jako nagłówek żądania, Ustaw jako `AuthorizationHeader` . |
 | ProviderName | Nie | Nazwa dostawcy tożsamości. |
 | response_mode | Nie | Metoda wykorzystywana przez dostawcę tożsamości do wysyłania wyniku z powrotem do Azure AD B2C. Możliwe wartości: `query` , `form_post` (wartość domyślna), lub `fragment` . |
 | scope | Nie | Zakres żądania, który jest zdefiniowany zgodnie ze specyfikacją dostawcy tożsamości OAuth2. Takie jak `openid` , `profile` i `email` . |

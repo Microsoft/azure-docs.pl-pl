@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b980624ebf55c3666bcc7dd1d60f681d788c95ae
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 866af8b992374492286f47357f108a01f35e560b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98987062"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051045"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Limity i ograniczenia usługi Azure Active Directory B2C
 
@@ -40,17 +40,15 @@ W poniższej tabeli wymieniono limity konfiguracji administracyjnej w usłudze A
 |Kategoria  |Limit  |
 |---------|---------|
 |Liczba aplikacji na Azure AD B2C dzierżawcę   |250           |
-|Liczba zasad dla dzierżawy Azure AD B2C       |200          |
-|Maksymalny rozmiar pliku zasad      |400 KB          |
 |Liczba zakresów na aplikację        |1000          |
-|Liczba atrybutów niestandardowych na użytkownika <sup>1</sup>       |100         |
+|Liczba [atrybutów niestandardowych](user-profile-attributes.md#extension-attributes)   na użytkownika <sup>1</sup>       |100         |
 |Liczba adresów URL przekierowania na aplikację       |100         |
 |Liczba adresów URL wylogowania na aplikację        |1          |
 |Limit ciągu dla atrybutu      |250 znaków          |
 |Liczba dzierżawców B2C na subskrypcję      |20         |
 |Poziomy [dziedziczenia](custom-policy-overview.md#inheritance-model) w zasadach niestandardowych     |10         |
-|Liczba zasad dla dzierżawy Azure AD B2C      |200         |
-|Maksymalny rozmiar pliku zasad      |400 KB         |
+|Liczba zasad dla dzierżawy Azure AD B2C      |200          |
+|Maksymalny rozmiar pliku zasad      |400 KB          |
 
 <sup>1</sup> Zobacz również [limity i ograniczenia usługi Azure AD](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 

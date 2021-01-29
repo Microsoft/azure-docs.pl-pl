@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9b14dcb9ce2f2426d8d1496541022602a114cb6e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 61b45d6f6414b1e8e1f48f6d46957b21b9b8c58b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209973"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052502"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Włączanie śledzenia zmian i spisu na maszynie wirtualnej platformy Azure
 
@@ -22,7 +22,7 @@ W tym artykule opisano, jak można użyć maszyny wirtualnej platformy Azure w c
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](../index.yml) do zarządzania maszynami.
+* [Konto usługi Automation](../automation-security-overview.md) do zarządzania maszynami.
 * [Maszyna wirtualna](../../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -43,6 +43,6 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać szczegółowe informacje na temat pracy z funkcją [Manage Change Tracking](manage-change-tracking.md) , zobacz Zarządzanie [zapasami Change Tracking i zarządzanie nimi](manage-inventory-vms.md).
+* Aby uzyskać szczegółowe informacje na temat pracy z funkcją [](manage-change-tracking.md) , zobacz Zarządzanie [zapasami Change Tracking i zarządzanie nimi](manage-inventory-vms.md).
 
 * Rozwiązywanie ogólnych problemów z funkcją można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](../troubleshoot/change-tracking.md).

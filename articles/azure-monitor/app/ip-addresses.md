@@ -3,12 +3,12 @@ title: Adresy IP używane przez Azure Monitor
 description: Wyjątki zapory serwera wymagane przez Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 5a6cc190f84b74cc8a1d4ff24d10cbfa07f3c2fb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 78ef6f90f76afa613fdc3d039f3ae4e38e70ae9a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945061"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050604"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Adresy IP używane przez Azure Monitor
 [Azure monitor](../overview.md) używa wielu adresów IP. Azure Monitor składa się z podstawowych metryk platformy i dzienników oprócz Log Analytics i Application Insights. Może być konieczne poznanie tych adresów, jeśli monitorowana aplikacja lub infrastruktura jest hostowana za zaporą.
@@ -27,7 +27,7 @@ Należy otworzyć niektóre porty wychodzące w zaporze serwera, aby zezwolić A
 
 | Przeznaczenie | Adres URL | Adres IP | Porty |
 | --- | --- | --- | --- |
-| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0 | 443 |
+| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0<br/>13.69.106.208<br/>40.78.253.199<br/>40.78.253.198<br/>40.78.243.19 | 443 |
 | Transmisja strumieniowa metryk na żywo | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
 
 ## <a name="status-monitor"></a>Monitor stanu
@@ -245,7 +245,35 @@ Uwaga: domena loganalytics.io jest własnością zespołu Log Analytics.
 
 | Przeznaczenie | Adres IP | Porty
 | --- | --- | --- |
-| Generowanie alertów | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
+| Generowanie alertów | 13.66.60.119/32<br/>13.66.143.220/30<br/>13.66.202.14/32<br/>13.66.248.225/32<br/>13.66.249.211/32<br/>13.67.10.124/30<br/>13.69.109.132/30<br/>13.71.199.112/30<br/>13.77.53.216/30<br/>13.77.172.102/32<br/>13.77.183.209/32<br/>13.78.109.156/30<br/>13.84.49.247/32<br/>13.84.51.172/32<br/>13.84.52.58/32<br/>13.86.221.220/30<br/>13.106.38.142/32<br/>13.106.38.148/32<br/>13.106.54.3/32<br/>13.106.54.19/32<br/>13.106.57.181/32<br/>13.106.57.196/31<br/>20.38.149.132/30<br/>20.42.64.36/30<br/>20.43.121.124/30<br/>20.44.17.220/30<br/>20.45.123.236/30<br/>20.72.27.152/30<br/>20.150.172.228/30<br/>20.192.238.124/30<br/>20.193.202.4/30<br/>40.68.195.137/32<br/>40.68.201.58/32<br/>40.68.201.65/32<br/>40.68.201.206/32<br/>40.68.201.211/32<br/>40.68.204.18/32<br/>40.115.37.106/32<br/>40.121.219.215/32<br/>40.121.221.62/32<br/>40.121.222.201/32<br/>40.121.223.186/32<br/>51.104.9.100/30<br/>52.183.20.244/32<br/>52.183.31.0/32<br/>52.183.94.59/32<br/>52.184.145.166/32<br/>191.233.50.4/30<br/>191.233.207.64/26<br/>2603:1000:4:402::178/125<br/>2603:1000:104:402::178/125<br/>2603:1010:6:402::178/125<br/>2603:1010:101:402::178/125<br/>2603:1010:304:402::178/125<br/>2603:1010:404:402::178/125<br/>2603:1020:5:402::178/125<br/>2603:1020:206:402::178/125<br/>2603:1020:305:402::178/125<br/>2603:1020:405:402::178/125<br/>2603:1020:605:402::178/125<br/>2603:1020:705:402::178/125<br/>2603:1020:805:402::178/125<br/>2603:1020:905:402::178/125<br/>2603:1020: A04:402:: 178/125<br/>2603:1020: B04:402:: 178/125<br/>2603:1020: C04:402:: 178/125<br/>2603:1020: D04:402:: 178/125<br/>2603:1020: E04:402:: 178/125<br/>2603:1020: F04:402:: 178/125<br/>2603:1020:1004:800:: F8/125<br/>2603:1020:1104:400::178/125<br/>2603:1030: f:400:: 978/125<br/>2603:1030:10:402::178/125<br/>2603:1030:104:402::178/125<br/>2603:1030:107:400:: F0/125<br/>2603:1030:210:402::178/125<br/>2603:1030:40B: 400:: 978/125<br/>2603:1030:40C: 402:: 178/125<br/>2603:1030:504:802:: F8/125<br/>2603:1030:608:402::178/125<br/>2603:1030:807:402::178/125<br/>2603:1030: A07:402:: 8f8/125<br/>2603:1030: B04:402:: 178/125<br/>2603:1030: C06:400:: 978/125<br/>2603:1030: F05:402:: 178/125<br/>2603:1030:1005:402::178/125<br/>2603:1040:5:402::178/125<br/>2603:1040:207:402::178/125<br/>2603:1040:407:402::178/125<br/>2603:1040:606:402::178/125<br/>2603:1040:806:402::178/125<br/>2603:1040:904:402::178/125<br/>2603:1040: A06:402:: 178/125<br/>2603:1040: B04:402:: 178/125<br/>2603:1040: C06:402:: 178/125<br/>2603:1040: D04:800:: F8/125<br/>2603:1040: F05:402:: 178/125<br/>2603:1040:1104:400::178/125<br/>2603:1050:6:402::178/125<br/>2603:1050:403:400:: 1F8/125<br/> | 443 |
+
+Aby otrzymywać aktualizacje dotyczące zmian wprowadzonych w tych adresach IP, zalecamy skonfigurowanie alertu Service Health, który monitoruje powiadomienia informacyjne o usłudze grup akcji.
+
+### <a name="action-groups-service-tag"></a>Tag usługi grup akcji
+Zarządzanie zmianami źródłowych adresów IP może być czasochłonne. Korzystanie z **tagów usługi** eliminuje konieczność aktualizowania konfiguracji. Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza adresami IP i automatycznie aktualizuje tag usługi jako adresy, eliminując konieczność aktualizowania reguł zabezpieczeń sieciowych dla grupy akcji.
+
+1. W Azure Portal w obszarze usługi platformy Azure Wyszukaj *grupę zabezpieczeń sieci*.
+2. Kliknij pozycję **Dodaj** i Utwórz sieciową grupę zabezpieczeń.
+
+   1. Dodaj nazwę grupy zasobów, a następnie wprowadź *szczegóły wystąpienia*.
+   1. Kliknij przycisk **Przegląd + Utwórz** , a następnie kliknij przycisk *Utwórz*.
+   
+   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Przykład tworzenia sieciowej grupy zabezpieczeń."border="true":::
+
+3. Przejdź do grupy zasobów, a następnie kliknij utworzoną *grupę zabezpieczeń sieci* .
+
+    1. Wybierz pozycję *reguły zabezpieczeń dla ruchu przychodzącego*.
+    1. Kliknij przycisk **Dodaj**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Przykład dodawania znacznika usługi."border="true":::
+
+4. Nowe okno zostanie otwarte w okienku po prawej stronie.
+    1.  Wybierz źródło: **tag usługi**
+    1.  Tag usługi źródłowej: **ActionName**
+    1.  Kliknij pozycję **Dodaj**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Przykład dotyczący dodawania tagu usługi."border="true":::
+
 
 ## <a name="profiler"></a>Profiler
 
@@ -253,7 +281,7 @@ Uwaga: domena loganalytics.io jest własnością zespołu Log Analytics.
 | --- | --- | --- | --- |
 | Agent | agent.azureserviceprofiler.net<br/>*. agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamiczna | 443
-| Magazyn | *.core.windows.net | dynamiczna | 443
+| Storage | *.core.windows.net | dynamiczna | 443
 
 ## <a name="snapshot-debugger"></a>Debuger migawek
 
@@ -264,5 +292,5 @@ Uwaga: domena loganalytics.io jest własnością zespołu Log Analytics.
 | --- | --- | --- | --- |
 | Agent | agent.azureserviceprofiler.net<br/>*. agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamiczna | 443
-| Magazyn | *.core.windows.net | dynamiczna | 443
+| Storage | *.core.windows.net | dynamiczna | 443
 

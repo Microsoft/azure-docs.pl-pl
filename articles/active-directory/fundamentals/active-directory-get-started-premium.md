@@ -13,18 +13,15 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 425809339cf4c468293801460fdeb79d9e467968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 562162e0bd42b0a46b2b0c6d44ca9b37f1841750
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565603"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052864"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Rejestrowanie w usłudze Azure Active Directory w wersji Premium
 Istnieje możliwość zakupienia usługi Azure Active Directory (Azure AD) w wersji Premium i skojarzenia jej z Twoją subskrypcją platformy Azure. Jeśli chcesz utworzyć nową subskrypcję platformy Azure, musisz również uaktywnić plan licencjonowania i dostęp do usługi Azure AD.
-
-> [!NOTE]
->Klienci w Chinach mogą używać wersji Premium i Podstawowa usługi Azure AD za pośrednictwem wystąpienia usługi Azure Active Directory dostępnego na całym świecie. Wersje Premium i Podstawowa usługi Azure AD nie są obecnie obsługiwane w usłudze platformy Azure świadczonej przez firmę 21Vianet w Chinach. Aby uzyskać więcej informacji, porozmawiaj z nami, korzystając z [forum usługi Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Zanim zarejestrujesz się w usłudze Active Directory — wersja Premium 1 lub Premium 2, musisz określić, która z istniejących subskrypcji lub który z istniejących planów mają być używane:
 

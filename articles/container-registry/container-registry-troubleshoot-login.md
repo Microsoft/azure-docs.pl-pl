@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z logowaniem do rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas logowania do usługi Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379506"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052082"
 ---
 # <a name="troubleshoot-registry-login"></a>Rozwiązywanie problemów z logowaniem do rejestru
 
@@ -39,6 +39,8 @@ Może zawierać co najmniej jedną z następujących czynności:
 Uruchom polecenie [AZ ACR Check-Health](/cli/azure/acr#az-acr-check-health) , aby uzyskać więcej informacji na temat kondycji środowiska rejestru i opcjonalnego dostępu do rejestru docelowego. Na przykład Diagnozuj błędy konfiguracji platformy Docker lub Azure Active Directory problemy z logowaniem. 
 
 Przykłady poleceń można znaleźć [w temacie Sprawdzanie kondycji usługi Azure Container Registry](container-registry-check-health.md) . W przypadku zgłoszenia błędów Przejrzyj [Informacje o błędzie](container-registry-health-error-reference.md) i poniższe sekcje dotyczące zalecanych rozwiązań.
+
+Jeśli występują problemy przy użyciu rejestru wih usługę Azure Kubernetes, uruchom polecenie [AZ AKS Check-ACR](/cli/azure/aks#az_aks_check_acr) , aby sprawdzić, czy rejestr jest dostępny z klastra AKS.
 
 > [!NOTE]
 > Niektóre błędy uwierzytelniania lub autoryzacji mogą również wystąpić, jeśli istnieją konfiguracje zapory lub sieci, które uniemożliwiają dostęp do rejestru. Zobacz [Rozwiązywanie problemów z siecią przy użyciu rejestru](container-registry-troubleshoot-access.md).
@@ -77,9 +79,9 @@ Powiązane linki:
 Sprawdź poprawność poświadczeń używanych w danym scenariuszu lub przewidzianych przez właściciela rejestru. Niektóre możliwe problemy:
 
 * W przypadku używania jednostki usługi Active Directory upewnij się, że używasz poprawnych poświadczeń w dzierżawie Active Directory:
-  * Nazwa użytkownika — identyfikator aplikacji głównej usługi (nazywany także *identyfikatorem klienta* )
-  * Hasło — hasło główne usługi (nazywane także *kluczem tajnym klienta* )
-* W przypadku korzystania z usługi platformy Azure, takiej jak Azure Kubernetes Service lub Azure DevOps w celu uzyskania dostępu do rejestru, Potwierdź konfigurację rejestru dla usługi.
+  * Nazwa użytkownika — identyfikator aplikacji głównej usługi (nazywany także *identyfikatorem klienta*)
+  * Hasło — hasło główne usługi (nazywane także *kluczem tajnym klienta*)
+* W przypadku korzystania z usługi platformy Azure, takiej jak Azure Kubernetes Service lub Azure DevOps w celu uzyskania dostępu do rejestru, Potwierdź konfigurację rejestru dla usługi. 
 * W przypadku uruchomienia `az acr login` z `--expose-token` opcją, która umożliwia logowanie w rejestrze bez użycia demona Docker, należy się upewnić, że uwierzytelniasz się przy użyciu nazwy użytkownika `00000000-0000-0000-0000-000000000000` .
 * Jeśli rejestr jest skonfigurowany do [anonimowego dostępu ściągania](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), istniejące poświadczenia platformy Docker przechowywane z poprzedniego logowania platformy Docker mogą uniemożliwić dostęp anonimowy. Uruchom `docker logout` przed podjęciem próby anonimowej operacji ściągania w rejestrze.
 

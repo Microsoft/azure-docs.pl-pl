@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579457"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050774"
 ---
 # <a name="use-source-control-integration"></a>Korzystanie z integracji kontroli źródła
 
@@ -29,7 +29,7 @@ Azure Automation obsługuje trzy typy kontroli źródła:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Repozytorium kontroli źródła (GitHub lub Azure Repos)
-* [Konto Uruchom jako](manage-runas-account.md)
+* [Konto Uruchom jako](automation-security-overview.md#run-as-accounts)
 * [Najnowsze moduły platformy Azure](automation-update-azure-modules.md) na koncie usługi Automation, łącznie z `Az.Accounts` modułem (AZ module równoważne z `AzureRM.Profile` )
 
 > [!NOTE]
@@ -47,7 +47,7 @@ Użyj tej procedury, aby skonfigurować kontrolę źródła przy użyciu Azure P
 
     ![Wybierz kontrolę źródła](./media/source-control-integration/select-source-control.png)
 
-2. Wybierz **Typ kontroli źródła** , a następnie kliknij przycisk **Uwierzytelnij**.
+2. Wybierz **Typ kontroli źródła**, a następnie kliknij przycisk **Uwierzytelnij**.
 
 3. Zostanie otwarte okno przeglądarki z prośbą o zalogowanie się. Postępuj zgodnie z monitami, aby zakończyć uwierzytelnianie.
 
@@ -69,7 +69,7 @@ Użyj tej procedury, aby skonfigurować kontrolę źródła przy użyciu Azure P
    ![Podsumowanie kontroli źródła](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Identyfikator logowania dla repozytorium kontroli źródła może być inny niż identyfikator logowania dla Azure Portal. Upewnij się, że logujesz się przy użyciu odpowiedniego konta dla swojego repozytorium kontroli źródła podczas konfigurowania kontroli źródła. W razie wątpliwości Otwórz nową kartę w przeglądarce, Wyloguj się z **dev.Azure.com** , **VisualStudio.com** lub **GitHub.com** i spróbuj ponownie nawiązać połączenie z kontrolą źródła.
+> Identyfikator logowania dla repozytorium kontroli źródła może być inny niż identyfikator logowania dla Azure Portal. Upewnij się, że logujesz się przy użyciu odpowiedniego konta dla swojego repozytorium kontroli źródła podczas konfigurowania kontroli źródła. W razie wątpliwości Otwórz nową kartę w przeglądarce, Wyloguj się z **dev.Azure.com**, **VisualStudio.com** lub **GitHub.com** i spróbuj ponownie nawiązać połączenie z kontrolą źródła.
 
 ### <a name="configure-source-control-in-powershell"></a>Konfigurowanie kontroli źródła w programie PowerShell
 
@@ -86,7 +86,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Utwórz połączenie kontroli źródła dla Azure Repos (Git)
 
 > [!NOTE]
-> Azure Repos (Git) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com** , używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
+> Azure Repos (Git) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com**, używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
 
 
 ```powershell-interactive
@@ -96,7 +96,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Utwórz połączenie kontroli źródła dla Azure Repos (TFVC)
 
 > [!NOTE]
-> Azure Repos (TFVC) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com** , używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_versionControl` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
+> Azure Repos (TFVC) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com**, używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_versionControl` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -209,4 +209,4 @@ Obecnie nie można użyć Azure Portal, aby zaktualizować wartość w kontroli 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby zintegrować kontrolę źródła w Azure Automation, zobacz [Azure Automation: Integracja kontroli źródła w Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
-* Aby zintegrować kontrolę źródła elementu Runbook z usługą Visual Studio Online, zobacz [Azure Automation: Integrowanie kontroli źródła elementu Runbook za pomocą usługi Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
+* Aby zintegrować kontrolę źródła elementu Runbook z programem Visual Studio Codespaces, zobacz [Azure Automation: Integrowanie kontroli źródła elementu Runbook za pomocą programu Visual Studio Codespaces](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

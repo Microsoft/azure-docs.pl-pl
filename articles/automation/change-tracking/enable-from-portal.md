@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ca5b1df05c04937598278378e001f41f08ef23c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 63041e0b1b6e12c765299b12f28aa3637b6a6ccb
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183638"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052791"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Włącz Change Tracking i spis z Azure Portal
 
@@ -24,10 +24,10 @@ Liczba grup zasobów, których można użyć do zarządzania maszynami wirtualny
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](../index.yml) do zarządzania maszynami.
+* [Konto usługi Automation](../automation-security-overview.md) do zarządzania maszynami.
 * [Maszyna wirtualna](../../virtual-machines/windows/quick-create-portal.md).
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do platformy Azure pod adresem https://portal.azure.com .
 
@@ -60,5 +60,5 @@ Zaloguj się do platformy Azure pod adresem https://portal.azure.com .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać szczegółowe informacje na temat pracy z funkcją [Manage Change Tracking](manage-change-tracking.md) , zobacz Zarządzanie [zapasami Change Tracking i zarządzanie nimi](manage-inventory-vms.md).
+* Aby uzyskać szczegółowe informacje na temat pracy z funkcją [](manage-change-tracking.md) , zobacz Zarządzanie [zapasami Change Tracking i zarządzanie nimi](manage-inventory-vms.md).
 * Rozwiązywanie ogólnych problemów z funkcją można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](../troubleshoot/change-tracking.md).

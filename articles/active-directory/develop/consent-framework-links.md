@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5db45ea49f7e0be674f07a3f8e077656f3d6dee2
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: cd55375f2c5970ff0620e753923f369d40478cef
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064991"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052029"
 ---
 # <a name="how-application-consent-works"></a>Jak działa zgoda dla aplikacji
 
@@ -31,4 +31,4 @@ Ten artykuł ma na celu ułatwienie Dowiedz się więcej o tym, jak działa stru
 - Aby uzyskać więcej informacji, Dowiedz się, [jak zgoda jest obsługiwana w warstwie protokołu OAuth 2,0 podczas przepływu przydzielenia kodu autoryzacji.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
 
 ## <a name="next-steps"></a>Następne kroki
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

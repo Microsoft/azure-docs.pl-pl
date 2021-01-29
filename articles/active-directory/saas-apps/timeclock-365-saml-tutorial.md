@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 329e0fbfdea43f3933333744f89ed1c03ef0ed13
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d0c8364cc85cfce900021272d17456527919122b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729334"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050807"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeclock-365-saml"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą TimeClock 365 SAML
 
@@ -70,7 +70,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji **SAML Timeclock 365** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -109,7 +109,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-timeclock-365-saml-sso"></a>Konfigurowanie logowania jednokrotnego dla TimeClock 365 SAML
 
-1. Otwórz nową kartę w przeglądarce i zaloguj się do witryny firmy TimeClock 365 SAML jako administrator.
+1. Aby zautomatyzować konfigurację w programie TimeClock 365 SAML, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki, kliknij pozycję **Skonfiguruj Timeclock 365 SAML** przekieruje Cię do aplikacji SAML TimeClock 365. W tym miejscu podaj poświadczenia administratora, aby zalogować się do TimeClock 365 SAML. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-4.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować TimeClock 365 SAML w innym oknie przeglądarki sieci Web, zaloguj się do witryny firmy TimeClock 365 jako administrator.
 
 1. Wykonaj poniższe czynności.
 

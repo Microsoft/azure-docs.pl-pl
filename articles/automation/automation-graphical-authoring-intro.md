@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987325"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051585"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Tworzenie graficznych elementów Runbook w Azure Automation
 
@@ -61,7 +61,7 @@ Wybierz działanie na kanwie, aby skonfigurować jego właściwości i parametry
 
 Zestaw parametrów definiuje obowiązkowe i opcjonalne parametry, które akceptują wartości dla konkretnego polecenia cmdlet. Wszystkie polecenia cmdlet mają co najmniej jeden zestaw parametrów, a niektóre z nich mają kilka zestawów. Jeśli polecenie cmdlet ma wiele zestawów parametrów, należy wybrać tę, która ma zostać użyta, zanim będzie można skonfigurować parametry. Zestaw parametrów używany przez działanie można zmienić, wybierając pozycję **zestaw parametrów** i wybierając inny zestaw. W takim przypadku wszystkie wartości parametrów, które zostały już skonfigurowane, zostaną utracone.
 
-W poniższym przykładzie polecenie cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) ma trzy zestawy parametrów. W przykładzie zastosowano jeden zestaw o nazwie **ListVirtualMachineInResourceGroupParamSet**z jednym opcjonalnym parametrem w celu zwrócenia wszystkich maszyn wirtualnych w grupie zasobów. W przykładzie jest również wykorzystywany zestaw parametrów **GetVirtualMachineInResourceGroupParamSet** do określania maszyny wirtualnej do zwrócenia. Ten zestaw ma dwa obowiązkowe parametry i jeden opcjonalny parametr.
+W poniższym przykładzie polecenie cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) ma trzy zestawy parametrów. W przykładzie zastosowano jeden zestaw o nazwie **ListVirtualMachineInResourceGroupParamSet** z jednym opcjonalnym parametrem w celu zwrócenia wszystkich maszyn wirtualnych w grupie zasobów. W przykładzie jest również wykorzystywany zestaw parametrów **GetVirtualMachineInResourceGroupParamSet** do określania maszyny wirtualnej do zwrócenia. Ten zestaw ma dwa obowiązkowe parametry i jeden opcjonalny parametr.
 
 ![Zestaw parametrów](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -95,7 +95,7 @@ Po włączeniu opcji ponów dla działania można ustawić opóźnienie i warune
 
 Warunek ponawiania jest wyrażeniem programu PowerShell, które jest oceniane po każdym uruchomieniu działania. Jeśli wyrażenie jest rozpoznawane jako true, działanie zostanie uruchomione ponownie. Jeśli wyrażenie ma wartość false, działanie nie zostanie uruchomione ponownie, a element Runbook przejdzie do następnego działania.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Zrzut ekranu przedstawiający ustawienia funkcji Włącz ponowną próbę.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Zrzut ekranu przedstawiający ponowienie próby, dopóki ten warunek jest prawdziwy pola i Przykłady wyrażeń programu PowerShell, których można użyć w warunku ponawiania.":::
 
 Warunek ponawiania może używać zmiennej o nazwie `RetryData` , która zapewnia dostęp do informacji o ponownych próbach działania. Ta zmienna ma właściwości w poniższej tabeli:
 
@@ -258,7 +258,7 @@ Każdy parametr wejściowy jest definiowany przez właściwości w poniższej ta
 |:--- |:--- |
 | Nazwa | Wymagane. Nazwa parametru. Nazwa musi być unikatowa w elemencie Runbook. Musi rozpoczynać się od litery i może zawierać tylko litery, cyfry i znaki podkreślenia. Nazwa nie może zawierać spacji. |
 | Opis |Opcjonalny. Opis celu dla parametru wejściowego. |
-| Type | Opcjonalny. Oczekiwano typu danych dla wartości parametru. Azure Portal zapewnia odpowiednią kontrolę dla typu danych dla każdego parametru podczas monitowania o dane wejściowe. Obsługiwane typy parametrów to String, Int32, Int64, decimal, Boolean, DateTime i Object. Jeśli typ danych nie jest zaznaczony, domyślnie jest to ciąg.|
+| Typ | Opcjonalny. Oczekiwano typu danych dla wartości parametru. Azure Portal zapewnia odpowiednią kontrolę dla typu danych dla każdego parametru podczas monitowania o dane wejściowe. Obsługiwane typy parametrów to String, Int32, Int64, decimal, Boolean, DateTime i Object. Jeśli typ danych nie jest zaznaczony, domyślnie jest to ciąg.|
 | Obowiązkowy | Opcjonalny. Ustawienie określające, czy należy podać wartość dla parametru. W przypadku wybrania `yes` tej opcji należy podać wartość, gdy element Runbook zostanie uruchomiony. W przypadku wybrania `no` tej opcji wartość nie jest wymagana, gdy element Runbook jest uruchomiony, i można użyć wartości domyślnej. Nie można uruchomić elementu Runbook, jeśli nie podasz wartości dla każdego obowiązkowego parametru, który nie ma zdefiniowanej wartości domyślnej. |
 | Wartość domyślna | Opcjonalny. Wartość użyta dla parametru, jeśli nie jest ona przenoszona podczas uruchamiania elementu Runbook. Aby ustawić wartość domyślną, wybierz opcję `Custom` . Wybierz `None` , jeśli nie chcesz podawać żadnej wartości domyślnej. |
 
@@ -373,7 +373,7 @@ Poniższy przykład używa danych wyjściowych z działania o nazwie, `Get Twitt
 
 ## <a name="authenticate-to-azure-resources"></a>Uwierzytelnianie w zasobach platformy Azure
 
-Elementy Runbook w Azure Automation zarządzające zasobami platformy Azure wymagają uwierzytelniania na platformie Azure. [Konto Uruchom jako](./manage-runas-account.md), nazywane również jednostką usługi, jest domyślnym mechanizmem używanym przez element Runbook automatyzacji do uzyskiwania dostępu do Azure Resource Manager zasobów w ramach subskrypcji. Tę funkcję można dodać do graficznego elementu Runbook poprzez dodanie `AzureRunAsConnection` zasobu połączenia, który używa polecenia cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) programu PowerShell na kanwie. Możesz również dodać polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Ten scenariusz przedstawiono w poniższym przykładzie.
+Elementy Runbook w Azure Automation zarządzające zasobami platformy Azure wymagają uwierzytelniania na platformie Azure. [Konto Uruchom jako](./automation-security-overview.md), nazywane również jednostką usługi, jest domyślnym mechanizmem używanym przez element Runbook automatyzacji do uzyskiwania dostępu do Azure Resource Manager zasobów w ramach subskrypcji. Tę funkcję można dodać do graficznego elementu Runbook poprzez dodanie `AzureRunAsConnection` zasobu połączenia, który używa polecenia cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) programu PowerShell na kanwie. Możesz również dodać polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Ten scenariusz przedstawiono w poniższym przykładzie.
 
 ![Uruchom jako działania uwierzytelniania](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -388,7 +388,7 @@ Następne działanie, `Connect-AzAccount` dodaje uwierzytelnione konto Uruchom j
 >[!NOTE]
 >Dla elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są to aliasy dla `Connect-AzAccount` . Należy zauważyć, że te aliasy nie są dostępne dla graficznych elementów Runbook. Graficzny element Runbook może korzystać tylko z `Connect-AzAccount` siebie.
 
-Dla **pól parametrów**, **CERTIFICATETHUMBPRINT**i **TENANTID**, określ nazwę właściwości dla ścieżki pola, ponieważ działanie wyprowadza obiekt z wieloma właściwościami. W przeciwnym razie, gdy element Runbook zostanie wykonany, kończy się niepowodzeniem podczas próby uwierzytelnienia. Jest to wymaganie co najmniej minimalne uwierzytelnianie elementu Runbook za pomocą konta Uruchom jako.
+Dla **pól parametrów**, **CERTIFICATETHUMBPRINT** i **TENANTID**, określ nazwę właściwości dla ścieżki pola, ponieważ działanie wyprowadza obiekt z wieloma właściwościami. W przeciwnym razie, gdy element Runbook zostanie wykonany, kończy się niepowodzeniem podczas próby uwierzytelnienia. Jest to wymaganie co najmniej minimalne uwierzytelnianie elementu Runbook za pomocą konta Uruchom jako.
 
 Niektórzy subskrybenci tworzą konto usługi Automation przy użyciu [konta użytkownika usługi Azure AD](./shared-resources/credentials.md) do zarządzania klasycznym wdrożeniem platformy Azure lub zasobami Azure Resource Manager. Aby zachować zgodność z poprzednimi wersjami dla tych subskrybentów, mechanizm uwierzytelniania do użycia w elemencie Runbook jest `Add-AzureAccount` poleceniem cmdlet z [zasobem poświadczenia](./shared-resources/credentials.md). Element zawartości reprezentuje Active Directory użytkownika z dostępem do konta platformy Azure.
 

@@ -66,14 +66,20 @@
           href: automation-create-standalone-account.md
         - name: Tworzenie konta usługi Automation za pomocą szablonu usługi Resource Manager
           href: quickstart-create-automation-account-template.md
+        - name: Konto Uruchom jako
+          items:
+            - name: Utwórz konto Uruchom jako
+              href: create-run-as-account.md
+            - name: Usuwanie konta Uruchom jako
+              href: delete-run-as-account.md
+            - name: Zarządzaj kontem Uruchom jako
+              href: manage-runas-account.md
         - name: Konfigurowanie uwierzytelniania przy użyciu usługi Amazon Web Services
           href: automation-config-aws-account.md
         - name: Konfigurowanie uwierzytelniania przy użyciu usługi Azure AD
           href: automation-use-azure-ad.md
-        - name: Zarządzanie rekordem DNS używanym przez usługę Automation
+        - name: Zarządzanie rekordami DNS używanymi przez usługę Automation
           href: how-to/automation-region-dns-records.md
-        - name: Zarządzanie kontem Uruchom jako usługi Automation
-          href: manage-runas-account.md
         - name: Prywatne połączenie z kontem usługi Automation
           href: how-to/private-link-security.md
         - name: Zarządzanie uprawnieniami ról i zabezpieczeniami

@@ -3,14 +3,14 @@ title: Rozwiązywanie problemów z zasobami udostępnionymi Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów z zasobami udostępnionymi Azure Automation.
 services: automation
 ms.subservice: ''
-ms.date: 03/12/2019
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c4ede0bffedc256f4af621d4945ebbbea0f8a4b6
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896295"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053624"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Rozwiązywanie problemów z zasobami udostępnionymi
 
@@ -131,7 +131,7 @@ Nie masz uprawnień wymaganych do utworzenia lub zaktualizowania konta Uruchom j
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Aby utworzyć lub zaktualizować konto Uruchom jako, musisz mieć odpowiednie [uprawnienia](../manage-runas-account.md#permissions) do różnych zasobów używanych przez konto Uruchom jako. 
+Aby utworzyć lub zaktualizować konto Uruchom jako, musisz mieć odpowiednie [uprawnienia](../automation-security-overview.md#permissions) do różnych zasobów używanych przez konto Uruchom jako.
 
 Jeśli problem wynika z blokady, sprawdź, czy można usunąć blokadę. Następnie przejdź do zasobu, który jest zablokowany w Azure Portal, kliknij prawym przyciskiem myszy blokadę, a następnie wybierz pozycję **Usuń**.
 
@@ -147,7 +147,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Przyczyna
 
-Ten błąd jest najprawdopodobniej spowodowany niepoprawnie skonfigurowanym [kontem Uruchom jako](../manage-runas-account.md).
+Ten błąd jest najprawdopodobniej spowodowany niepoprawnie skonfigurowanym [kontem Uruchom jako](../automation-security-overview.md).
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -166,4 +166,3 @@ Jeśli ten artykuł nie rozwiąże problemu, wypróbuj jeden z następujących k
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
 * Połącz się z [@AzureSupport](https://twitter.com/azuresupport) . To oficjalne konto Microsoft Azure do łączenia społeczności platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 * Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**.
-

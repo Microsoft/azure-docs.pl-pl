@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: reference
 ms.date: 01/26/2021
 ms.author: banders
-ms.openlocfilehash: 40eb6bbb952596e015be7c1ed29dbefb3fb6016d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 12c13b8a65296fb0ee74e0ee0449b604facf2f48
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897717"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051265"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scenariusze automatyzacji dotyczące rozliczeń i zarządzania kosztami
 
@@ -49,8 +49,8 @@ Interfejsów API rozliczeń i zarządzania kosztami można używać w kilku scen
 | Szczegóły użycia               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Okresy rozliczeniowe             |             X             |         X        |           X          |         X        |                    |           |
 | Faktury                    |             X             |         X        |           X          |         X        |                    |           |
-| RateCard                    |             X             |                  |           X          |         X        |          X         |           |
-| Nieklasyfikowane użycie               |             X             |                  |           X          |                  |          X         |           |
+| Ceny detaliczne platformy Azure                    |             X             |                  |           X          |         X        |                    |           |
+
 
 > [!NOTE]
 > Mapowanie scenariuszy na interfejsy API nie obejmuje interfejsów API użycia w przypadku subskrypcji Enterprise. Jeśli to możliwe, w nowych scenariuszach programistycznych używaj ogólnych interfejsów API użycia.
@@ -74,9 +74,7 @@ Klienci korzystający z subskrypcji Web Direct i Enterprise mogą używać nast�
 
 -    [Interfejs API szczegółów użycia](/rest/api/consumption/usagedetails): umożliwia uzyskanie informacji o opłatach i użyciu dla wszystkich zasobów platformy Azure udostępnianych przez firmę Microsoft. Informacje te mają postać szczegółowych rekordów i aktualnie są udostępniane raz dziennie dla jednego miernika. Informacji tych można użyć do sumowania kosztów wszystkich zasobów lub analizowania kosztów/użycia określonych zasobów.
 
--    [Interfejs API usługi RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)): klienci korzystający z subskrypcji Web Direct mogą uzyskiwać stawki mierników. Zwrócone informacje można połączyć z informacjami o użyciu zasobów w celu ręcznego obliczenia kwoty rachunku.
-
--    [Interfejs API nieklasyfikowanego użycia](/previous-versions/azure/reference/mt219003(v=azure.100)): umożliwia pobieranie nieprzetworzonych informacji o użyciu przed rozpoczęciem pomiarów/naliczeniem opłat przez platformę Azure.
+-    [Ceny detaliczne platformy Azure](/rest/api/cost-management/retail-prices/azure-retail-prices): Uzyskaj stawki za opłaty za usługę płatność zgodnie z rzeczywistym użyciem. Zwrócone informacje można połączyć z informacjami o użyciu zasobów w celu ręcznego obliczenia kwoty rachunku.
 
 ### <a name="billing"></a>Rozliczenia
 -    [Interfejs API okresów rozliczeniowych](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): umożliwia określanie okresu rozliczeniowego do analizy i uzyskanie identyfikatorów faktur dla tego okresu. Identyfikatorów faktur można używać razem z interfejsem API faktur.
@@ -107,16 +105,6 @@ Te interfejsy API mają podobny zestaw funkcji i umożliwiają odpowiadanie na w
 
 - Interfejsy API użycia są dostępne dla wszystkich klientów z kilkoma wyjątkami. Aby uzyskać więcej informacji, zobacz [Przegląd interfejsu API użycia platformy Azure](consumption-api-overview.md) i [Dokumentacja interfejsu API użycia platformy Azure](/rest/api/consumption/). W najnowszych scenariuszach programistycznych zalecamy używanie udostępnionych interfejsów API.
 
-### <a name="whats-the-difference-between-the-usage-details-api-and-the-usage-api"></a>Czym różni się interfejs API szczegółów użycia od interfejsu API użycia?
-Te interfejsy API udostępniają zasadniczo różne dane:
-
-- [Interfejs API szczegółów użycia](/rest/api/consumption/usagedetails) udostępnia informacje o użyciu i kosztach platformy Azure dotyczące wystąpienia miernika. Udostępnione dane zostały już przetworzone przez system zliczania kosztów na platformie Azure, a koszty — wraz z ewentualnymi innymi zmianami — zostały zastosowane:
-
-   - Zmiany na koncie dotyczące korzystania z opłat z góry za platformę Azure
-   - Zmiany na koncie dotyczące rozbieżności użycia wykrytych przez platformę Azure
-
-- [Interfejs API użycia](/previous-versions/azure/reference/mt219003(v=azure.100)) udostępnia nieprzetworzone informacje o użyciu platformy Azure przed ich przekazaniem do systemu zliczania kosztów na platformie Azure. Dane te nie muszą być skorelowane z danymi użycia lub kwotą opłaty, które są generowane przez system pomiaru opłat platformy Azure.
-
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Czym różni się interfejs API faktur od interfejsu API szczegółów użycia?
 Te interfejsy API udostępniają różne widoki tych samych danych:
 
@@ -129,7 +117,7 @@ Te interfejsy API udostępniają podobne zestawy danych, ale są przeznaczone dl
 
 - [Interfejs API arkusza cen](/rest/api/consumption/pricesheet) udostępnia niestandardowy cennik, wynegocjowany dla klienta z subskrypcją Enterprise.
 
-- [Interfejs API usługi RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)) udostępnia publiczny cennik, przeznaczony dla klientów z subskrypcją Web Direct.
+- [Interfejs API cen detalicznych platformy Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) udostępnia publicznie dostępne dla klientów ceny z wynagrodzeniem zgodnie z rzeczywistym użyciem.
 
 ## <a name="next-steps"></a>Następne kroki
 

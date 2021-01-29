@@ -3,12 +3,12 @@ title: Tematy systemowe w Azure Event Grid
 description: Opisuje tematy systemowe w Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1fbecb1e372602f9c252d43d2a1f93524ef1846
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297287"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052969"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tematy systemowe w Azure Event Grid
 Temat systemowy w Event Grid reprezentuje jedno lub więcej zdarzeń opublikowanych przez usługi platformy Azure, takie jak Azure Storage i Azure Event Hubs. Na przykład temat systemowy może reprezentować **wszystkie zdarzenia obiektu BLOB** lub tylko **utworzone** zdarzenia BLOB i **usunięte obiekty blob** dla **określonego konta magazynu**. W tym przykładzie, gdy obiekt BLOB jest przekazywany do konta magazynu, usługa Azure Storage publikuje zdarzenie **utworzone obiektu BLOB** w temacie system w Event Grid, który następnie przekazuje zdarzenie do [subskrybentów](event-handlers.md) tematu, którzy odbierają i przetwarzają zdarzenia. 
@@ -34,6 +34,7 @@ Oto bieżąca lista usług platformy Azure, które obsługują tworzenie na nich
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Subskrypcje platformy Azure](event-schema-subscriptions.md)
+- [Azure Cache for Redis](event-schema-azure-cache.md)
 
 ## <a name="system-topics-as-azure-resources"></a>Tematy systemowe jako zasoby platformy Azure
 W przeszłości temat systemowy był niejawny i nie był narażony na prostotę. Tematy systemowe są teraz widoczne jako zasoby platformy Azure i zapewniają następujące możliwości:
@@ -49,7 +50,7 @@ Temat systemowy można utworzyć na dwa sposoby:
 - Utwórz [subskrypcję zdarzeń dla zasobu platformy Azure jako zasób rozszerzenia](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate), który automatycznie tworzy temat systemu o nazwie w formacie: `<Azure resource name>-<GUID>` . Temat systemowy utworzony w ten sposób jest automatycznie usuwany po usunięciu ostatniej subskrypcji zdarzeń dla tematu. 
 - Utwórz temat systemowy dla zasobu platformy Azure, a następnie Utwórz subskrypcję zdarzeń dla tego tematu systemu. Korzystając z tej metody, można określić nazwę tematu systemu. Temat systemowy nie jest usuwany automatycznie po usunięciu ostatniej subskrypcji zdarzenia. Należy ręcznie usunąć ten element. 
 
-    Gdy używasz Azure Portal, zawsze używasz tej metody. Podczas tworzenia subskrypcji zdarzeń przy użyciu [strony **zdarzenia** zasobu platformy Azure](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage)zostanie najpierw utworzony temat systemowy, a następnie zostanie utworzona subskrypcja tematu. Najpierw można utworzyć temat systemu przy użyciu [strony **Tematy dotyczące systemu Event Grid** ](create-view-manage-system-topics.md#create-a-system-topic) , a następnie utworzyć subskrypcję dla tego tematu. 
+    Gdy używasz Azure Portal, zawsze używasz tej metody. Podczas tworzenia subskrypcji zdarzeń przy użyciu [strony **zdarzenia** zasobu platformy Azure](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage)zostanie najpierw utworzony temat systemowy, a następnie zostanie utworzona subskrypcja tematu. Najpierw można utworzyć temat systemu przy użyciu [strony **Tematy dotyczące systemu Event Grid**](create-view-manage-system-topics.md#create-a-system-topic) , a następnie utworzyć subskrypcję dla tego tematu. 
 
 Korzystając z szablonu [CLI](create-view-manage-system-topics-cli.md), [rest](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate)lub [Azure Resource Manager](create-view-manage-system-topics-arm.md), można wybrać jedną z powyższych metod. Zalecamy najpierw utworzyć temat systemowy, a następnie utworzyć subskrypcję w temacie, ponieważ jest to Najnowsza metoda tworzenia tematów systemowych.
 

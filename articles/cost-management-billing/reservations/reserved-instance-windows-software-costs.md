@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 01/28/2021
 ms.author: banders
-ms.openlocfilehash: 625c40ea17cf20449f1be241a1605a80bf6a73f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 464e129314a369c14dcc6bc6c16eadf5f8bcf01f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353004"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052993"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Nieuwzględnianie kosztów oprogramowania w przypadku usługi Azure Reserved VM Instances
 
@@ -61,7 +61,7 @@ Rabaty na wystąpienia zarezerwowane maszyny wirtualnej i wydajność rezerwową
 
 ## <a name="get-rates-for-azure-meters"></a>Uzyskaj stawki za mierniki platformy Azure
 
-Informacje o koszcie poszczególnych mierników można uzyskać za pomocą interfejsu API usługi Azure RateCard. Aby dowiedzieć się, jak uzyskać stawki miernika platformy Azure, zobacz [Pobieranie informacji o cenach i metadanych dotyczących zasobów używanych w ramach subskrypcji platformy Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
+Koszt każdego z liczników można uzyskać za pomocą interfejsu API cen detalicznych platformy Azure. Aby uzyskać informacje na temat sposobu uzyskiwania stawek za usługę Azure licznik, zobacz [ceny detaliczne platformy Azure — omówienie](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:

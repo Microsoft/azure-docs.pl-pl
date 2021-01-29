@@ -2,14 +2,14 @@
 title: Limity i przydziały dotyczące usługi
 description: Informacje o domyślnych przydziałach Azure Batch, limitach i ograniczeniach oraz o sposobach zwiększania limitu przydziału
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 01/28/2021
 ms.custom: seodec18
-ms.openlocfilehash: 11c9ad1e916ad7e64b59cc13c0967d2b9daed4aa
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 433272c76b9ff27d9cad542cf65a8ec0d8fc0378
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814639"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052384"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -33,19 +33,7 @@ Należy również pamiętać, że limity przydziału nie są gwarantowane warto�
 
 ### <a name="cores-quotas-in-batch-service-mode"></a>Liczba przydziałów rdzeni w trybie usługi Batch
 
-Jest ulepszane wymuszanie dedykowanych limitów przydziału, a zmiany są dostępne na etapach i wykonane dla wszystkich kont usługi Batch na koniec stycznia 2021.
-
-Dla każdej serii maszyn wirtualnych obsługiwanej przez usługi Batch istnieją przydziały podstawowe i są one wyświetlane na stronie **przydziały** w portalu. Limity przydziału serii maszyn wirtualnych można aktualizować za pomocą żądania obsługi, jak opisano poniżej.
-
-Z istniejącym mechanizmem, który jest stopniowo wycofywany, limity przydziału dla serii maszyn wirtualnych nie są sprawdzane, wymuszany jest tylko całkowity limit przydziału dla konta. Oznacza to, że może być możliwe przydzielenie większej liczby rdzeni dla serii maszyn wirtualnych, niż jest wskazywane przez przydział serii maszyn wirtualnych, do całkowitego limitu przydziału konta.
-
-Zaktualizowany mechanizm wymusza limity przydziałów maszyn wirtualnych, a także całkowity limit przydziału konta. W ramach przejścia do nowego mechanizmu można zaktualizować wartości przydziału serii maszyn wirtualnych, aby uniknąć błędów alokacji — w przypadku wszystkich serii maszyn wirtualnych użytych w ostatnich miesiącach zostanie zaktualizowany przydział z serii maszyn wirtualnych w celu dopasowania go do całkowitego limitu przydziału konta. Ta zmiana nie umożliwi używania większej pojemności niż jest już dostępna.
-
-Istnieje możliwość ustalenia, czy dla konta usługi Batch włączono wymuszanie limitu przydziału serii VM, sprawdzając:
-
-* Właściwość interfejsu API [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) konta usługi Batch.
-
-* Tekst na stronie **przydziały** kont wsadowych w portalu.
+Dla każdej serii maszyn wirtualnych obsługiwanej przez usługi Batch istnieją przydziały podstawowe i są one wyświetlane na stronie **przydziały** w portalu. Limity przydziału serii maszyn wirtualnych można aktualizować za pomocą żądania obsługi, jak opisano poniżej. W przypadku węzłów dedykowanych usługi Batch wymuszają podstawowe limity przydziału dla każdej serii maszyn wirtualnych, a także łączny limit przydziału rdzeni dla całego konta usługi Batch. W przypadku węzłów o niskim priorytecie zadanie wsadowe wymusza jedynie łączny limit przydziału rdzeni dla konta usługi Batch bez różnic między różnymi seriami maszyn wirtualnych.
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Liczba rdzeni w trybie subskrypcji użytkownika
 
@@ -108,7 +96,7 @@ Możesz poprosić o zwiększenie limitu przydziału dla konta usługi Batch lub 
 
     1. **Typ**  >  limitu przydziału **Partia zadań**
 
-       Wybierz pozycję **Dalej**.
+       Wybierz opcję **Dalej**.
 
 1. W obszarze **Szczegóły**:
 
@@ -128,7 +116,7 @@ Możesz poprosić o zwiększenie limitu przydziału dla konta usługi Batch lub 
 
     1. Wybierz **wagę** zgodną z Twoim [wpływem na firmę](https://aka.ms/supportseverity).
 
-       Wybierz pozycję **Dalej**.
+       Wybierz opcję **Dalej**.
 
 1. W **informacjach kontaktowych**:
 

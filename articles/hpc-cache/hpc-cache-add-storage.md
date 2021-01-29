@@ -4,14 +4,14 @@ description: Jak zdefiniować cele magazynu, aby pamięć podręczna platformy A
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 01/28/2021
 ms.author: v-erkel
-ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657180"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054369"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -165,19 +165,21 @@ Obiekt docelowy magazynu NFS ma inne ustawienia niż obiekt docelowy magazynu ob
 
 Podczas tworzenia miejsca docelowego magazynu, które wskazuje system magazynu NFS, należy wybrać model użycia dla tego celu. Ten model określa, w jaki sposób dane są buforowane.
 
+Wbudowane modele użycia umożliwiają wybranie sposobu zrównoważenia szybkiego reagowania na ryzyko związane z uzyskaniem starych danych. Jeśli chcesz zoptymalizować szybkość odczytu plików, możesz nie zadbać o to, czy pliki w pamięci podręcznej są sprawdzane względem plików zaplecza. Z drugiej strony, jeśli chcesz upewnić się, że pliki są zawsze aktualne z magazynem zdalnym, wybierz model, który sprawdza się często.
+
 Dostępne są trzy opcje:
 
 * **Czytaj duże, rzadko** występujące zapisy — Użyj tej opcji, jeśli chcesz przyspieszyć dostęp do odczytu do plików, które są statyczne lub rzadko zmieniane.
 
-  Ta opcja powoduje buforowanie plików, które są odczytywane przez klientów, ale natychmiast przekazuje do magazynu zaplecza. Pliki przechowywane w pamięci podręcznej nigdy nie są porównywane z plikami znajdującymi się na woluminie magazynu NFS.
+  Ta opcja powoduje buforowanie plików, które są odczytywane przez klientów, ale natychmiast przekazuje do magazynu zaplecza. Pliki przechowywane w pamięci podręcznej nie są automatycznie porównywane z plikami znajdującymi się na woluminie magazynu NFS. (Przeczytaj uwagę poniżej dotyczącej weryfikacji zaplecza, aby dowiedzieć się więcej).
 
-  Nie należy używać tej opcji, jeśli istnieje ryzyko, że plik może być modyfikowany bezpośrednio w systemie magazynu bez wcześniejszego zapisania go w pamięci podręcznej. W takim przypadku buforowana wersja pliku nigdy nie będzie aktualizowana o zmiany z zaplecza, a zestaw danych może stać się niespójny.
+  Nie należy używać tej opcji, jeśli istnieje ryzyko, że plik może być modyfikowany bezpośrednio w systemie magazynu bez wcześniejszego zapisania go w pamięci podręcznej. W takim przypadku buforowana wersja pliku nie jest zsynchronizowana z plikiem zaplecza.
 
 * **Więcej niż 15% zapisów** — ta opcja przyspiesza zarówno wydajność odczytu, jak i zapisu. W przypadku korzystania z tej opcji Wszyscy klienci muszą uzyskać dostęp do plików za pośrednictwem pamięci podręcznej platformy Azure HPC zamiast bezpośrednio zainstalować magazyn zaplecza. Pliki w pamięci podręcznej będą miały ostatnio wprowadzone zmiany, które nie są przechowywane w zapleczu.
 
-  W tym modelu użycia pliki w pamięci podręcznej nie są sprawdzane względem plików w magazynie zaplecza. Założono, że w pamięci podręcznej znajduje się nowsza wersja pliku. Zmodyfikowany plik w pamięci podręcznej jest zapisywana w systemie magazynu zaplecza, po którym znajduje się w pamięci podręcznej przez godzinę bez dodatkowych zmian.
+  W tym modelu użycia pliki w pamięci podręcznej są sprawdzane tylko względem plików w magazynie zaplecza co osiem godzin. Założono, że w pamięci podręcznej znajduje się nowsza wersja pliku. Zmodyfikowany plik w pamięci podręcznej jest zapisywana w systemie magazynu zaplecza, po którym znajduje się w pamięci podręcznej przez godzinę bez dodatkowych zmian.
 
-* **Klienci zapisują w miejscu DOCELOWYM NFS, pomijając pamięć podręczną** — wybierz tę opcję, jeśli jakikolwiek klient w przepływie pracy zapisuje dane bezpośrednio w systemie magazynu bez wcześniejszego zapisu w pamięci podręcznej. Pliki, które są przechowywane w pamięci podręcznej żądań klientów, ale wszelkie zmiany tych plików z klienta są natychmiast przesyłane z powrotem do systemu magazynu zaplecza.
+* **Klienci zapisują w miejscu DOCELOWYM NFS, pomijając pamięć podręczną** — wybierz tę opcję, jeśli dowolni klienci w przepływie pracy zapisują dane bezpośrednio w systemie magazynu bez wcześniejszego zapisu w pamięci podręcznej lub jeśli chcesz zoptymalizować spójność danych. Pliki, które są przechowywane w pamięci podręcznej żądań klientów, ale wszelkie zmiany tych plików z klienta są natychmiast przesyłane z powrotem do systemu magazynu zaplecza.
 
   W tym modelu użycia pliki w pamięci podręcznej są często sprawdzane względem wersji zaplecza dla aktualizacji. Ta weryfikacja pozwala na zmianę plików poza pamięcią podręczną przy zachowaniu spójności danych.
 
@@ -186,8 +188,11 @@ Ta tabela zawiera podsumowanie różnic między modelami użycia:
 | Model użycia                   | Tryb buforowania | Weryfikacja zaplecza | Maksymalne opóźnienie zapisu |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Czytaj duże, rzadko występujące zapisy | Odczyt         | Nigdy                 | Brak                     |
-| Ponad 15% zapisów       | Odczyt/zapis   | Nigdy                 | 1 godzina                   |
+| Ponad 15% zapisów       | Odczyt/zapis   | 8 godzin               | 1 godzina                   |
 | Klienci pomijają pamięć podręczną      | Odczyt         | 30 sekund            | Brak                     |
+
+> [!NOTE]
+> Wartość **weryfikacyjna zaplecza** jest wyświetlana, gdy pamięć podręczna porównuje pliki z plikami źródłowymi w magazynie zdalnym. W pamięci podręcznej platformy Azure HPC można jednak wymusić Porównanie plików przez wykonanie operacji katalogu zawierającej żądanie READDIRPLUS. READDIRPLUS to standardowy interfejs API systemu plików NFS (nazywany także rozszerzonym odczytem), który zwraca metadane katalogu, co powoduje, że pamięć podręczna będzie porównywać i aktualizować pliki.
 
 ### <a name="create-an-nfs-storage-target"></a>Tworzenie miejsca docelowego magazynu NFS
 
