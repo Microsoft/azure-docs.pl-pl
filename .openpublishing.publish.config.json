@@ -38,7 +38,7 @@
     "master-sync-work",
     "live"
   ],
-  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs.pl-pl",
+ "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs.pl-pl",
   "git_repository_branch_open_to_public_contributors": "master",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
@@ -156,7 +156,12 @@
     {
       "path_to_root": "samples-durable-functions",
       "url": "https://github.com/Azure/azure-functions-durable-extension",
-      "branch": "master"
+      "branch": "main"
+    },
+    {
+      "path_to_root": "samples-durable-functions-python",
+      "url": "https://github.com/Azure/azure-functions-durable-python",
+      "branch": "main"
     },
     {
       "path_to_root": "functions-python-tensorflow-tutorial",
@@ -576,6 +581,11 @@
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "master"
+    },
+    {
+      "path_to_root": "digital-twins-docs-samples",
+      "url": "https://github.com/azure-samples/digital-twins-docs-code",
+      "branch": "main"
     }
   ],
   "branch_target_mapping": {
