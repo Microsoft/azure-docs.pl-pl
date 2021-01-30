@@ -3,12 +3,12 @@ title: Azure NetApp Files z rozwiązaniem VMware platformy Azure
 description: Używaj Azure NetApp Files z maszynami wirtualnymi rozwiązań VMware platformy Azure do migrowania i synchronizowania danych między serwerami lokalnymi, maszynami wirtualnymi rozwiązań VMware platformy Azure i infrastrukturami chmury.
 ms.topic: how-to
 ms.date: 01/20/2021
-ms.openlocfilehash: 97a9172dfbed2722d4af0abbd6231a0367dc4e3c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: b712b25130a8bed19bd784d2c45c18a55a582be6
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798460"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062982"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure NetApp Files z rozwiązaniem VMware platformy Azure
 
@@ -102,7 +102,7 @@ Poniżej przedstawiono zaledwie kilka atrakcyjnych Azure NetApp Files przypadkó
 - Udziały plików w rozwiązaniu VMware platformy Azure
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej [na temat limitów zasobów dla Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
-- Zapoznaj się z [zaleceniami dotyczącymi planowania Azure NetApp Files sieci](../azure-netapp-files/azure-netapp-files-network-topologies.md).
-- Dowiedz się więcej o [replikacji między regionami Azure NetApp Files woluminów](../azure-netapp-files/cross-region-replication-introduction.md). 
-- Zobacz [często zadawane pytania dotyczące Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md).
+- [Limity zasobów dla usługi Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)
+- [Wytyczne dotyczące planowania sieci usługi Azure NetApp Files](../azure-netapp-files/azure-netapp-files-network-topologies.md)
+- [Replikacja między regionami Azure NetApp Files woluminów](../azure-netapp-files/cross-region-replication-introduction.md) 
+- [Często zadawane pytania dotyczące usługi Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md)

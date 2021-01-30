@@ -6,16 +6,16 @@ ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 9ed53721b66dc03bad24e0510e0c8a970c61aec1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 79b74c9dccd68ac3abfd9ae6cb2d0c345e45d4bf
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492424"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070614"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Konfigurowanie wbudowanego rejestru kontenerów dla systemu Azure Red Hat OpenShift 4
 
-W systemie Azure Red Hat OpenShift jest dostępny zintegrowany rejestr obrazów kontenerów o nazwie [OpenShift Container Registry (OCR)](https://docs.openshift.com/aro/4/registry/architecture-component-imageregistry.html) , który umożliwia automatyczne Inicjowanie obsługi nowych repozytoriów obrazów na żądanie. Zapewnia to użytkownikom wbudowaną lokalizację, w której aplikacje kompilują w celu wypchnięcia powstających obrazów.
+W systemie Azure Red Hat OpenShift jest dostępny zintegrowany rejestr obrazów kontenerów o nazwie [OpenShift Container Registry (OCR)](https://docs.openshift.com/container-platform/4.6/registry/architecture-component-imageregistry.html) , który umożliwia automatyczne Inicjowanie obsługi nowych repozytoriów obrazów na żądanie. Zapewnia to użytkownikom wbudowaną lokalizację, w której aplikacje kompilują w celu wypchnięcia powstających obrazów.
 
 W tym artykule opisano sposób konfigurowania wbudowanego rejestru obrazów kontenerów w klastrze Red Hat OpenShift (ARO) 4. Omawiane tematy:
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób konfigurowania wbudowanego rejestru obrazów kont
 > * Konfigurowanie połączenia OpenID Connect
 > * Dostęp do rejestru wbudowanego obrazu kontenera
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster ARO. Jeśli potrzebujesz klastra ARO, zobacz samouczek ARO, [Tworzenie klastra usługi Azure Red Hat OpenShift 4](./tutorial-create-cluster.md). Należy utworzyć klaster z `--pull-secret` argumentem `az aro create` .  Jest to konieczne, aby skonfigurować uwierzytelnianie Azure Active Directory i wbudowany rejestr kontenerów.
 

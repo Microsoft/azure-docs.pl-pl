@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b318ed0d5cd97ca7c020097dff25516f0783c70e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 719bdd6a4d629bb4a35e7e11631670b0340e72a6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055301"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090016"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurowanie zgody właściciela grupy na aplikacje uzyskujące dostęp do danych grupy
 
@@ -31,7 +31,7 @@ Można skonfigurować, którzy użytkownicy mogą wyrazić zgodę na aplikacje u
 
 Wykonaj następujące kroki, aby zarządzać zgodą właściciela grupy na aplikacje uzyskujące dostęp do danych grupy:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../roles/permissions-reference.md#global-administrator).
 2. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **i uprawnienia do**  >  **ustawień zgody użytkownika**.
 3. W obszarze **właściciel grupy wyrażanie zgody na aplikacje uzyskujące dostęp do danych** wybierz opcję, którą chcesz włączyć.
 4. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.

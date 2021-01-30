@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756050"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090191"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Uprawnienia i zgoda na platformie tożsamości firmy Microsoft
 
@@ -164,7 +164,7 @@ Jeśli aplikacja żąda uprawnień aplikacji, a administrator przyznaje te upraw
 
 Po użyciu punktu końcowego zgody administratora, aby udzielić zgody administratora, wszystko zostało zakończone. Użytkownicy nie muszą podejmować żadnych dalszych działań. Po udzieleniu zgody administratora użytkownicy mogą uzyskać token dostępu za pomocą typowego przepływu uwierzytelniania. Uzyskany token dostępu ma odpowiednie uprawnienia.
 
-Gdy administrator firmy używa aplikacji i jest kierowany do punktu końcowego autoryzacji, platforma tożsamości firmy Microsoft wykrywa rolę użytkownika. Pyta, czy administrator firmy chce wyrazić zgodę w imieniu całej dzierżawy dla żądanych uprawnień. Zamiast tego możesz użyć dedykowanego punktu końcowego zgody administratora, aby proaktywnie zażądać uprawnień administratora w imieniu całej dzierżawy. Ten punkt końcowy jest również wymagany do żądania uprawnień aplikacji. Nie można żądać uprawnień aplikacji za pomocą autoryzowanego punktu końcowego.
+Gdy administrator globalny używa aplikacji i jest kierowany do punktu końcowego autoryzacji, platforma tożsamości firmy Microsoft wykrywa rolę użytkownika. Pyta, czy Administrator globalny chce wyrazić zgodę w imieniu całej dzierżawy dla żądanych uprawnień. Zamiast tego możesz użyć dedykowanego punktu końcowego zgody administratora, aby proaktywnie zażądać uprawnień administratora w imieniu całej dzierżawy. Ten punkt końcowy jest również wymagany do żądania uprawnień aplikacji. Nie można żądać uprawnień aplikacji za pomocą autoryzowanego punktu końcowego.
 
 W przypadku wykonania tych kroków aplikacja może zażądać uprawnień dla wszystkich użytkowników w dzierżawie, w tym zakresów z ograniczeniami administratora. Ta operacja ma duże uprawnienia. Użyj tej operacji tylko w razie potrzeby w danym scenariuszu.
 

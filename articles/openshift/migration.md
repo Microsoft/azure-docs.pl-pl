@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: Migracja, ARO, OpenShift, Red Hat
-ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9bfc924581d5dbe33c7c2683a0f6083cb2abc23
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469749"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071039"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Migrowanie z usługi Azure Red Hat OpenShift 3,11 do platformy Azure Red Hat OpenShift 4
 
@@ -71,17 +71,17 @@ az aro create \
 
 ## <a name="configure-the-target-openshift-4-cluster"></a>Konfigurowanie docelowego klastra OpenShift 4
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Aby użytkownicy mogli korzystać z usługi Azure Red Hat OpenShift, muszą najpierw uwierzytelniać się w klastrze. Warstwa uwierzytelniania identyfikuje użytkownika skojarzonego z żądaniami do interfejsu API Red Hat OpenShift platformy Azure. Następnie warstwa autoryzacji używa informacji o użytkowniku żądającym, aby określić, czy żądanie jest dozwolone.
 
-Podczas tworzenia klastra usługi Azure Red Hat OpenShift 4 zostaje utworzony tymczasowy użytkownik administracyjny. [Połącz się z klastrem](tutorial-connect-cluster.md), Dodaj użytkowników i grupy oraz [Skonfiguruj odpowiednie uprawnienia](https://docs.openshift.com/aro/4/authentication/understanding-authentication.html) dla obu tych programów.
+Podczas tworzenia klastra usługi Azure Red Hat OpenShift 4 zostaje utworzony tymczasowy użytkownik administracyjny. [Połącz się z klastrem](tutorial-connect-cluster.md), Dodaj użytkowników i grupy oraz [Skonfiguruj odpowiednie uprawnienia](https://docs.openshift.com/container-platform/4.6/authentication/understanding-authentication.html) dla obu tych programów.
 
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
-W przypadku usługi Azure Red Hat OpenShift 4 używane są kilka różnych operatorów do konfigurowania sieci w klastrze: [operator sieci klastra](https://docs.openshift.com/aro/4/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator), [operator DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html)i [operator](https://docs.openshift.com/aro/4/networking/ingress-operator.html)transferu danych przychodzących. Aby uzyskać więcej informacji na temat konfigurowania sieci w klastrze Red Hat OpenShift 4 na platformie Azure, zobacz [diagram sieci](concepts-networking.md) i [Informacje o sieci](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
+W przypadku usługi Azure Red Hat OpenShift 4 używane są kilka różnych operatorów do konfigurowania sieci w klastrze: [operator sieci klastra](https://docs.openshift.com/container-platform/4.6/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator), [operator DNS](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html)i [operator](https://docs.openshift.com/container-platform/4.6/networking/ingress-operator.html)transferu danych przychodzących. Aby uzyskać więcej informacji na temat konfigurowania sieci w klastrze Red Hat OpenShift 4 na platformie Azure, zobacz [diagram sieci](concepts-networking.md) i [Informacje o sieci](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html).
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Usługa Azure Red Hat OpenShift 4 obsługuje następujące wtyczki PersistentVolume:
 
 - Magazyn elastycznych bloków AWS (EBS)
@@ -98,13 +98,13 @@ Aby uzyskać informacje dotyczące konfigurowania tych typów magazynów, zobacz
 
 ### <a name="registry"></a>Rejestr
 
-W systemie Azure Red Hat OpenShift 4 można tworzyć obrazy z kodu źródłowego, wdrażać je i zarządzać ich cyklem życia. Aby to umożliwić, usługa Azure Red Hat OpenShift zapewnia 4 [wewnętrzny, zintegrowany rejestr obrazów kontenerów](https://docs.openshift.com/aro/4/registry/registry-options.html) , który można wdrożyć w środowisku usługi Azure Red Hat OpenShift do lokalnego zarządzania obrazami.
+W systemie Azure Red Hat OpenShift 4 można tworzyć obrazy z kodu źródłowego, wdrażać je i zarządzać ich cyklem życia. Aby to umożliwić, usługa Azure Red Hat OpenShift zapewnia 4 [wewnętrzny, zintegrowany rejestr obrazów kontenerów](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html) , który można wdrożyć w środowisku usługi Azure Red Hat OpenShift do lokalnego zarządzania obrazami.
 
-W przypadku korzystania z rejestrów zewnętrznych, takich jak [Azure Container Registry](../container-registry/index.yml), rejestrów z systemem [Red Hat](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options)lub [uwierzytelnianie z włączonym systemem Red Hat](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), wykonaj kroki w celu dostarczenia poświadczeń do klastra, aby umożliwić klastrowi dostęp do repozytoriów.
+W przypadku korzystania z rejestrów zewnętrznych, takich jak [Azure Container Registry](../container-registry/index.yml), rejestrów z systemem [Red Hat](ttps://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options)lub [uwierzytelnianie z włączonym systemem Red Hat](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), wykonaj kroki w celu dostarczenia poświadczeń do klastra, aby umożliwić klastrowi dostęp do repozytoriów.
 
 ### <a name="monitoring"></a>Monitorowanie
 
-System Red Hat OpenShift obejmuje wstępnie skonfigurowany, wstępnie zainstalowany i samoczynny stos monitorowania, który jest oparty na projekcie Prometheus Open Source i szerszym systemie ekonomicznym. Zapewnia ona monitorowanie składników klastra i zawiera zestaw alertów umożliwiających natychmiastowe powiadomienie administratora klastra o wszelkich występujących problemach i zestawie pulpitów nawigacyjnych Grafana. Stos monitorowania klastra jest obsługiwany tylko w przypadku monitorowania klastrów Red Hat OpenShift platformy Azure. Aby uzyskać więcej informacji, zobacz [monitorowanie klastrów na platformie Azure Red Hat OpenShift](https://docs.openshift.com/aro/4/monitoring/cluster_monitoring/about-cluster-monitoring.html).
+System Red Hat OpenShift obejmuje wstępnie skonfigurowany, wstępnie zainstalowany i samoczynny stos monitorowania, który jest oparty na projekcie Prometheus Open Source i szerszym systemie ekonomicznym. Zapewnia ona monitorowanie składników klastra i zawiera zestaw alertów umożliwiających natychmiastowe powiadomienie administratora klastra o wszelkich występujących problemach i zestawie pulpitów nawigacyjnych Grafana. Stos monitorowania klastra jest obsługiwany tylko w przypadku monitorowania klastrów Red Hat OpenShift platformy Azure. Aby uzyskać więcej informacji, zobacz [monitorowanie klastrów na platformie Azure Red Hat OpenShift](https://docs.openshift.com/container-platform/4.6/monitoring/understanding-the-monitoring-stack.html).
 
 Jeśli używasz [Azure monitor do kontenerów dla usługi Azure Red Hat OpenShift 3,11](../azure-monitor/insights/container-insights-azure-redhat-setup.md), możesz również włączyć Azure monitor dla kontenerów dla [klastrów usługi Azure Red Hat OpenShift 4](../azure-monitor/insights/container-insights-azure-redhat4-setup.md) i nadal korzystać z tego samego obszaru roboczego log Analytics.
 
@@ -127,4 +127,4 @@ az openshift delete --name $CLUSTER_NAME
                     [--yes]
 ```
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z dokumentacją usługi Azure Red Hat OpenShift dostarczoną przez Red Hat [tutaj](https://docs.openshift.com/aro/4/welcome/index.html).
+Zapoznaj się z dokumentacją Red Hat OpenShift [tutaj](https://docs.openshift.com/container-platform/4.6/welcome/index.html).

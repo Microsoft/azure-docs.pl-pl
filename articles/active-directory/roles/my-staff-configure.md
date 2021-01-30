@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 501fe17734be1e73ffc516a7b94300445c331e86
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740146"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090947"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Zarządzanie użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
 
@@ -89,7 +89,7 @@ Następujące role mają uprawnienia do resetowania hasła użytkownika:
 
 - [Administrator uwierzytelniania](permissions-reference.md#authentication-administrator)
 - [Administrator uprzywilejowanego uwierzytelniania](permissions-reference.md#privileged-authentication-administrator)
-- [Administrator globalny](permissions-reference.md#global-administrator--company-administrator)
+- [Administrator globalny](permissions-reference.md#global-administrator)
 - [Administrator pomocy technicznej](permissions-reference.md#helpdesk-administrator)
 - [Administrator użytkowników](permissions-reference.md#user-administrator)
 - [Administrator haseł](permissions-reference.md#password-administrator)
@@ -117,7 +117,7 @@ Aby zarządzać numerem telefonu użytkownika, należy przypisać jedną z nast�
 
 - [Administrator uwierzytelniania](permissions-reference.md#authentication-administrator)
 - [Administrator uprzywilejowanego uwierzytelniania](permissions-reference.md#privileged-authentication-administrator)
-- [Administrator globalny](permissions-reference.md#global-administrator--company-administrator)
+- [Administrator globalny](permissions-reference.md#global-administrator)
 
 ## <a name="search"></a>Wyszukaj
 

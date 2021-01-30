@@ -9,6 +9,8 @@
   items:
     - name: Interfejs wiersza polecenia
       href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
     - name: Szablon usługi Azure Resource Manager
       href: quick-create-template.md
 - name: Samouczki

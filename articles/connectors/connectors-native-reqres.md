@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920823"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063016"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
@@ -28,7 +28,7 @@ Na przykład możesz mieć aplikację logiki:
 
 W tym artykule pokazano, jak używać wyzwalacza żądań i akcji odpowiedzi, aby aplikacja logiki mogła odbierać wywołania przychodzące i odpowiadać na nie.
 
-Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako Secure SOCKETS Layer (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -194,7 +194,7 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 
    Na przykład można użyć narzędzia, takiego jak [ogłośer](https://www.getpostman.com/) , aby wysłać żądanie HTTP. Aby uzyskać więcej informacji na temat podstawowej definicji JSON wyzwalacza i sposobu wywoływania tego wyzwalacza, zobacz te tematy, [Typ wyzwalacza żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) oraz [przepływy pracy wywołania, wyzwalacza lub zagnieżdżania z punktami końcowymi http w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako Secure SOCKETS Layer (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 
 ## <a name="trigger-outputs"></a>Wyjściowe wyzwalacza
 
@@ -216,7 +216,7 @@ Korzystając z wyzwalacza żądania do obsługi żądań przychodzących, można
 > Jeśli akcja odpowiedzi zawiera te nagłówki, Logic Apps usuwa te nagłówki z wygenerowanego komunikatu odpowiedzi bez wyświetlania ostrzeżenia lub błędu:
 >
 > * `Allow`
-> * `Content-*` z następującymi wyjątkami: `Content-Disposition` , `Content-Encoding` , i `Content-Type`
+> * `Content-*` nagłówki z wyjątkiem `Content-Disposition` , `Content-Encoding` i, `Content-Type` gdy używane są operacje post i Put, ale nie są uwzględniane podczas operacji pobierania
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`

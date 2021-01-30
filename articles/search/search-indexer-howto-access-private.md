@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ff8aa6688d8a838fa2e06d2eef546025cdd9213f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 762db9d165358f3347fc9b7f3aaaf39f0c762308
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340057"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063200"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Tworzenie połączeń indeksatora za pomocą prywatnego punktu końcowego
 
@@ -42,12 +42,12 @@ W poniższej tabeli przedstawiono zasoby platformy Azure, dla których można ut
 | Azure Cosmos DB — interfejs API SQL | `Sql`|
 | Azure SQL Database | `sqlServer`|
 | Azure Database for MySQL (wersja zapoznawcza) | `mysqlServer`|
-| W usłudze Azure Key Vault | `vault` |
+| Azure Key Vault | `vault` |
 | Azure Functions (wersja zapoznawcza) | `sites` |
 
 Możesz również wysyłać zapytania dotyczące zasobów platformy Azure, dla których wychodzące połączenia prywatnego punktu końcowego są obsługiwane za pomocą [listy obsługiwanych interfejsów API](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-W pozostałej części tego artykułu mieszane interfejsy API [ARMClient](https://github.com/projectkudu/ARMClient) i [Poster](https://www.postman.com/) są używane do zademonstrowania wywołań interfejsu API REST.
+W pozostałej części tego artykułu jest to połączenie z interfejsem [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/) (lub [ARMClient](https://github.com/projectkudu/ARMClient) , jeśli wolisz) i programu [Poster](https://www.postman.com/) (lub dowolnego innego klienta http, takiego jak [zwinięcie](https://curl.se/) ), jest używany do zademonstrowania wywołań interfejsu API REST.
 
 > [!NOTE]
 > Przykłady w tym artykule są oparte na następujących założeniach:
@@ -69,7 +69,11 @@ Skonfiguruj konto magazynu tak, aby [zezwalało na dostęp tylko z określonych 
 
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Krok 1. Tworzenie zasobu udostępnionego linku prywatnego na koncie magazynu
 
-Aby zażądać Wyszukiwanie poznawcze platformy Azure w celu utworzenia wychodzącego połączenia z prywatnym punktem końcowym z kontem magazynu, wykonaj następujące wywołanie interfejsu API: 
+Aby zażądać Wyszukiwanie poznawcze platformy Azure w celu utworzenia wychodzącego połączenia prywatnego punktu końcowego z kontem magazynu, wykonaj następujące wywołanie interfejsu API, na przykład w [interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/): 
+
+`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+
+Lub jeśli wolisz używać [ARMClient](https://github.com/projectkudu/ARMClient):
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
@@ -99,6 +103,10 @@ Podobnie jak w przypadku wszystkich asynchronicznych operacji platformy Azure, `
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
 Można sondować ten identyfikator URI okresowo, aby uzyskać stan operacji. Przed kontynuowaniem zalecamy zaczekanie, aż operacja udostępnionego zasobu linku prywatnego osiągnie stan terminalu (oznacza to, że operacja jest w stanie *powodzenie*).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+
+Lub przy użyciu ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
@@ -130,6 +138,10 @@ Po zatwierdzeniu żądania połączenia z prywatnym punktem końcowym ruch *moż
 ### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Krok 2B: wykonywanie zapytania dotyczącego stanu udostępnionego zasobu linku prywatnego
 
 Aby upewnić się, że zasób udostępnionego linku prywatnego został zaktualizowany po zatwierdzeniu, uzyskaj jego stan przy użyciu [interfejsu API pobierania](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+
+Lub przy użyciu ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 

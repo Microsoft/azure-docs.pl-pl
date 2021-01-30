@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 477856bd5772cdc0a9ec00d81adf9c50847afdd0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3a7e75641f6bb84b490231fcd06e04c3cbad06d3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631953"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063470"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Samouczek: Nawiązywanie połączenia z kontem usługi Azure Cosmos przy użyciu prywatnego punktu końcowego platformy Azure
 
@@ -82,7 +82,7 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
@@ -106,7 +106,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
     | Region (Region) | Wybierz **Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -127,7 +127,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowa**|
     | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
    
-5. Wybierz pozycję **Przeglądanie + tworzenie**. 
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -183,9 +183,9 @@ W tej sekcji utworzysz konto Cosmos DB i skonfigurujesz prywatny punkt końcowy.
     | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak** |
     | Prywatna strefa DNS | Pozostaw domyślne (nowe) privatelink.documents.azure.com |
 
-7. Wybierz pozycję **OK**.
+7. Wybierz przycisk **OK**.
 
-8. Wybierz pozycję **Przeglądanie + tworzenie**.
+8. Wybierz pozycję **Przejrzyj i utwórz**.
 
 9. Wybierz pozycję **Utwórz**.
 
@@ -206,7 +206,7 @@ W tej sekcji utworzysz konto Cosmos DB i skonfigurujesz prywatny punkt końcowy.
     | Identyfikator kontenera | Wprowadź **mycontainerid** |
     | Klucz partycji | Wprowadź **/MyKey** |
 
-5. Wybierz pozycję **OK**.
+5. Wybierz przycisk **OK**.
 
 6. W sekcji **Ustawienia** konta CosmosDB wybierz pozycję **klucze**.
 
@@ -218,19 +218,19 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 1. W okienku nawigacji po lewej stronie wybierz pozycję **grupy zasobów** .
 
-2. Wybierz pozycję **myResourceGroup**.
+1. Wybierz pozycję **myResourceGroup**.
 
-3. Wybierz pozycję **myVM**.
+1. Wybierz pozycję **myVM**.
 
-4. Na stronie Przegląd dla **myVM** wybierz pozycję **Połącz** , a następnie **bastionu**.
+1. Na stronie Przegląd dla **myVM** wybierz pozycję **Połącz** , a następnie **bastionu**.
 
-5. Wybierz przycisk **bastionu Użyj** niebieska.
+1. Wybierz przycisk **bastionu Użyj** niebieska.
 
-6. Wprowadź nazwę użytkownika i hasło wprowadzone podczas tworzenia maszyny wirtualnej.
+1. Wprowadź nazwę użytkownika i hasło wprowadzone podczas tworzenia maszyny wirtualnej.
 
-7. Po nawiązaniu połączenia Otwórz program Windows PowerShell na serwerze.
+1. Po nawiązaniu połączenia Otwórz program Windows PowerShell na serwerze.
 
-8. Wprowadź `nslookup <cosmosdb-account-name>.documents.azure.com`. Zamień **\<cosmosdb-account-name>** na nazwę konta Cosmos DB utworzonego w poprzednich krokach. 
+1. Wprowadź `nslookup <cosmosdb-account-name>.documents.azure.com` i sprawdź poprawność rozpoznawania nazw. Zamień **\<cosmosdb-account-name>** na nazwę konta Cosmos DB utworzonego w poprzednich krokach. 
 
     ```powershell
     Server:  UnKnown
@@ -241,28 +241,31 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
     Address:  10.1.0.5
     Aliases:  mycosmosdb8675.documents.azure.com
     ```
-
     Prywatny adres IP **10.1.0.5** jest zwracany dla nazwy konta Cosmos DB.  Ten adres znajduje się w podsieci sieci wirtualnej, która została wcześniej utworzona.
+    
+1. Pobierz Azure Cosmos DB podstawowe parametry połączenia z portalu. Prawidłowe parametry połączenia są w formacie:
+   
+   Konta interfejsu API SQL: `https://<accountName>.documents.azure.com:443/;AccountKey=<accountKey>;` dla Azure Cosmos DB API dla MongoDB: `mongodb://<accountName>:<accountKey>@cdbmongo36.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false`
 
-9. Zainstaluj [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) na maszynie wirtualnej.
+1. Zainstaluj [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) na maszynie wirtualnej.
 
-10. Po zainstalowaniu **Eksplorator usługi Microsoft Azure Storage** wybierz pozycję **Zakończ** .  Pozostaw zaznaczone pole, aby otworzyć aplikację.
+1. Po zainstalowaniu **Eksplorator usługi Microsoft Azure Storage** wybierz pozycję **Zakończ** .  Pozostaw zaznaczone pole, aby otworzyć aplikację.
 
-11. Na ekranie **łączenie z usługą Azure Storage** wybierz pozycję **Anuluj**.
+1. Na ekranie **łączenie z usługą Azure Storage** wybierz pozycję **Anuluj**.
 
-12. W Eksplorator usługi Storage wybierz prawy przycisk myszy na **kontach Cosmos DB** i wybierz pozycję **Połącz z Cosmos DB**.
+1. W Eksplorator usługi Storage wybierz prawy przycisk myszy na **kontach Cosmos DB** i wybierz pozycję **Połącz z Cosmos DB**.
 
-13. Pozostaw wartość domyślną **SQL** w obszarze **Wybierz interfejs API**.
+1. Pozostaw wartość domyślną **SQL** w obszarze **Wybierz interfejs API**.
 
-14. W polu **Parametry połączenia** wklej parametry połączenia z konta Cosmos DB skopiowane w poprzednich krokach.
+1. W polu **Parametry połączenia** wklej parametry połączenia z konta Cosmos DB skopiowane w poprzednich krokach.
 
-15. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
-16. Sprawdź, czy ustawienia są poprawne w **podsumowaniu połączenia**.  
+1. Sprawdź, czy ustawienia są poprawne w **podsumowaniu połączenia**.  
 
-17. Wybierz pozycję **Połącz**.
+1. Wybierz pozycję **Połącz**.
 
-18. Zamknij połączenie z usługą **myVM**.
+1. Zamknij połączenie z usługą **myVM**.
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

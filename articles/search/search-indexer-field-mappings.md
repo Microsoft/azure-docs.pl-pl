@@ -3,19 +3,17 @@ title: Mapowania pól w indeksatorach
 titleSuffix: Azure Cognitive Search
 description: Skonfiguruj mapowania pól w indeksatorze, aby uwzględnić różnice w nazwach pól i reprezentacjach danych.
 manager: nitinme
-author: mattmsft
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.date: 01/28/2021
+ms.openlocfilehash: efee1e1cda7767620931ef81825708d94a1925c3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358936"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063183"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapowania pól i przekształcenia przy użyciu indeksatorów usługi Azure Wyszukiwanie poznawcze
 
@@ -28,7 +26,7 @@ Niektóre sytuacje, w których mapowania pól są użyteczne:
 * Źródło danych ma pole o nazwie `_id` , ale usługa Azure wyszukiwanie poznawcze nie zezwala na używanie nazw pól, które zaczynają się od znaku podkreślenia. Mapowanie pól pozwala efektywnie zmienić nazwę pola.
 * Chcesz wypełnić kilka pól w indeksie z tych samych danych źródła danych. Na przykład możesz chcieć zastosować różne analizatory do tych pól.
 * Chcesz wypełnić pole indeksu danymi z więcej niż jednego źródła danych, a źródła danych używają różnych nazw pól.
-* Musisz zakodować lub zdekodować dane w formacie base64. Mapowania pól obsługują kilka **funkcji mapowania** , w tym funkcje kodowania i dekodowania Base64.
+* Musisz zakodować lub zdekodować dane w formacie base64. Mapowania pól obsługują kilka **funkcji mapowania**, w tym funkcje kodowania i dekodowania Base64.
 
 > [!NOTE]
 > Mapowania pól w indeksatorach to prosty sposób mapowania pól danych do pól indeksu, z możliwością konwersji lekkich danych. Bardziej złożone dane mogą wymagać wstępnego przetwarzania, aby przetworzyć je w postaci, która jest w trakcie indeksowania. Jedna z opcji, którą można rozważyć, to [Azure Data Factory](../data-factory/index.yml).
@@ -46,7 +44,7 @@ Mapowania pól są dodawane do `fieldMappings` tablicy definicji indeksatora.
 > [!NOTE]
 > Jeśli nie zostaną dodane żadne mapowania pól, indeksatory przyjmuje pola źródła danych, które powinny być mapowane do pól indeksu o tej samej nazwie. Dodanie mapowania pól spowoduje usunięcie tych domyślnych mapowań pól dla pola źródłowego i docelowego. Niektórzy indeksatory, takie jak [indeksator usługi BLOB Storage](search-howto-indexing-azure-blob-storage.md), dodają domyślne mapowania pól dla pola klucz indeksu.
 
-## <a name="map-fields-using-the-rest-api"></a>Mapowanie pól przy użyciu interfejsu API REST
+## <a name="map-fields-using-rest"></a>Mapowanie pól przy użyciu REST
 
 Można dodać mapowania pól podczas tworzenia nowego indeksatora przy użyciu żądania interfejsu API [tworzenia indeksatora](/rest/api/searchservice/create-Indexer) . Można zarządzać mapowaniami pól istniejącego indeksatora przy użyciu żądania API [Update indeksator](/rest/api/searchservice/update-indexer) .
 
@@ -77,9 +75,8 @@ Do pola źródłowego można odwoływać się w wielu mapowaniach pól. Poniższ
 > [!NOTE]
 > Usługa Azure Wyszukiwanie poznawcze używa porównania bez uwzględniania wielkości liter, aby rozpoznać nazwy pól i funkcji w mapowaniu pól. Jest to wygodne (nie trzeba uzyskać całej wielkości liter), ale oznacza to, że źródło danych lub indeks nie mogą mieć pól, które różnią się tylko wielkością liter.  
 >
->
 
-## <a name="map-fields-using-the-net-sdk"></a>Mapowanie pól przy użyciu zestawu .NET SDK
+## <a name="map-fields-using-net"></a>Mapowanie pól przy użyciu platformy .NET
 
 Mapowania pól można definiować w zestawie .NET SDK przy użyciu klasy [fieldmapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) , która ma właściwości `SourceFieldName` i `TargetFieldName` i opcjonalne `MappingFunction` odwołanie.
 

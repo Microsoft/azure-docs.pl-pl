@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.date: 03/30/2020
+ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e3570a716eccf131cf19192454bfbc1008a6306e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: adbf3080367e54147c981c8ccf0bb6236111b8c7
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935040"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071209"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Szybki Start: Ustawianie i pobieranie klucza z Azure Key Vault przy użyciu Azure PowerShell
 
@@ -32,32 +32,11 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów platformy Azure za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
-```
+[!INCLUDE [Create a resource group](../../../includes/key-vault-powershell-rg-creation.md)]
 
 ## <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
 
-Następnie utworzysz magazyn kluczy. Podczas wykonywania tego kroku potrzebne będą pewne informacje:
-
-Chociaż w tym przewodniku szybki start używamy Key Vault nazwy "contoso KeyVault2", musisz użyć unikatowej nazwy.
-
-- **Nazwa magazynu**: Contoso Vault2.
-- **Nazwa grupy zasobów** ContosoResourceGroup.
-- **Lokalizacja** Wschodnie stany USA.
-
-```azurepowershell-interactive
-New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
-```
-
-Dane wyjściowe tego polecenia cmdlet pokazują właściwości nowo utworzonej usługi Key Vault. Zanotuj dwie poniższe właściwości:
-
-* **Nazwa magazynu**: w tym przykładzie jest to **Contoso-Vault2**. Ta nazwa będzie używana do innych poleceń cmdlet usługi Key Vault.
-* **Identyfikator URI magazynu**: w tym przykładzie jest to https://Contoso-Vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
-
-Po utworzeniu magazynu Twoje konto platformy Azure będzie jedynym kontem z uprawnieniami do wykonywania jakichkolwiek operacji na tym nowym magazynie.
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-kv-creation.md)]
 
 ## <a name="add-a-key-to-key-vault"></a>Dodaj klucz do Key Vault
 
@@ -66,27 +45,22 @@ Aby dodać klucz do magazynu, wystarczy wykonać kilka dodatkowych kroków. Ten 
 Wpisz poniższe polecenia, aby utworzyć nazwę o nazwie **ExampleKey** :
 
 ```azurepowershell-interactive
-Add-AzKeyVaultKey -VaultName 'Contoso-Vault2' -Name 'ExampleKey' -Destination 'Software'
+Add-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -Name "ExampleKey" -Destination "Software"
 ```
 
-Teraz można odwołać się do tego klucza, który został dodany do Azure Key Vault przy użyciu identyfikatora URI. Użyj **" https://Contoso-Vault2.vault.azure.net/keys/ExampleKey "** , aby pobrać bieżącą wersję. 
+Teraz można odwołać się do tego klucza, który został dodany do Azure Key Vault przy użyciu identyfikatora URI. Aby uzyskać aktualną wersję, użyj **nazwy "https://<identyfikator magazynu unikatowych kluczy>. Vault.Azure.NET/Keys/ExampleKey".** 
 
 Aby wyświetlić poprzednio przechowywany klucz:
 
 ```azurepowershell-interactive
-Get-AzKeyVaultKey -VaultName 'Contoso-Vault2' -KeyName 'ExampleKey'
+Get-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -KeyName "ExampleKey"
 ```
 
 Teraz utworzono Key Vault, Zapisano klucz i pobieramy go.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz korzystać z kolejnych przewodników Szybki start i samouczków, pozostaw te zasoby na swoim miejscu.
-Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Możesz usunąć zasoby w następujący sposób:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name ContosoResourceGroup
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

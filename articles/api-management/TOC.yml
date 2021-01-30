@@ -64,6 +64,8 @@
           href: api-management-error-handling-policies.md
     - name: Zabezpieczenia
       items:
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          href: ./security-controls-policy.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Subskrypcje

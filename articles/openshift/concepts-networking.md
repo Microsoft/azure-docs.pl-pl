@@ -6,16 +6,16 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 6d1fd873de3313678875a8c167b90fafb8ede7ae
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 07b0dd38b616525728c264bd315c5cb8ddcaa79a
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061652"
+ms.locfileid: "99072055"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Pojęcia dotyczące sieci na platformie Azure Red Hat OpenShift (ARO)
 
-Ten przewodnik obejmuje omówienie sieci na platformie Azure Red Hat OpenShift na klastrach OpenShift 4, a także diagram i listę ważnych punktów końcowych. Aby uzyskać więcej informacji o podstawowych pojęciach dotyczących sieci OpenShift, zobacz [dokumentację dotyczącą obsługi sieci na platformie Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
+Ten przewodnik obejmuje omówienie sieci na platformie Azure Red Hat OpenShift na klastrach OpenShift 4, a także diagram i listę ważnych punktów końcowych. Aby uzyskać więcej informacji o podstawowych pojęciach dotyczących sieci OpenShift, zobacz [dokumentację dotyczącą obsługi sieci na platformie Azure Red Hat OpenShift 4](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html).
 
 ![Diagram sieciowy usługi Azure Red Hat OpenShift 4](./media/concepts-networking/aro4-networking-diagram.png)
 
@@ -64,7 +64,7 @@ Poniższa lista obejmuje ważne składniki sieci w klastrze Red Hat OpenShift pl
 
 ## <a name="networking-basics-in-openshift"></a>Podstawowe informacje o sieci w OpenShift
 
-OpenShift Networking defined Network [(SDN)](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html) służy do konfigurowania sieci nakładki przy użyciu otwartego przełącznika VSwitch [(OVS)](https://www.openvswitch.org/), implementacji OpenFlow opartej na specyfikacji interfejsu sieciowego kontenera (CNI). SDN obsługuje różne wtyczki — zasady sieciowe są wtyczkami używanymi w systemie Red Hat na platformie OpenShift 4. Cała komunikacja sieciowa jest zarządzana przez SDN, więc do sieci wirtualnych nie są potrzebne żadne dodatkowe trasy, aby osiągnąć komunikację pod względem.
+OpenShift Networking defined Network [(SDN)](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/about-openshift-sdn.html) służy do konfigurowania sieci nakładki przy użyciu otwartego przełącznika VSwitch [(OVS)](https://www.openvswitch.org/), implementacji OpenFlow opartej na specyfikacji interfejsu sieciowego kontenera (CNI). SDN obsługuje różne wtyczki — zasady sieciowe są wtyczkami używanymi w systemie Red Hat na platformie OpenShift 4. Cała komunikacja sieciowa jest zarządzana przez SDN, więc do sieci wirtualnych nie są potrzebne żadne dodatkowe trasy, aby osiągnąć komunikację pod względem.
 
 ## <a name="networking--for-azure-red-hat-openshift"></a>Obsługa sieci na platformie Azure Red Hat OpenShift
 
@@ -79,7 +79,7 @@ Następujące funkcje sieciowe są specyficzne dla systemu Azure Red Hat OpenShi
 * Wartość CIDR powinna mieć rozmiar minimum/18. (Sieć pod nie obsługuje routingu IP i jest używana tylko wewnątrz OpenShift SDN).
 * Każdy węzeł jest przydzielony/23 podsieci (512 adresów IP) dla swoich zasobników. Tej wartości nie można zmienić.
 * Nie można dołączyć pod do wielu sieci.
-* Nie można skonfigurować statycznego adresu IP dla ruchu wychodzącego. (Jest to funkcja OpenShift. Aby uzyskać więcej informacji, zobacz [Konfigurowanie adresów IP ruchu](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)wychodzącego).
+* Nie można skonfigurować statycznego adresu IP dla ruchu wychodzącego. (Jest to funkcja OpenShift. Aby uzyskać więcej informacji, zobacz [Konfigurowanie adresów IP ruchu](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/assigning-egress-ips.html)wychodzącego).
 
 ## <a name="network-settings"></a>Ustawienia sieciowe
 
@@ -98,7 +98,7 @@ Sieciowe grupy zabezpieczeń są tworzone w grupie zasobów węzła, która jest
 Publicznie widoczny serwer interfejsu API nie pozwala na tworzenie sieciowych grup zabezpieczeń i przypisywanie ich do kart sieciowych.
 
 ## <a name="domain-forwarding"></a>Przekazywanie domen
-W systemie Azure Red Hat OpenShift jest używanych CoreDNS. Można skonfigurować przekazywanie domen. Nie można przenieść własnego serwera DNS do sieci wirtualnych. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [korzystania z przekazywania DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator).
+W systemie Azure Red Hat OpenShift jest używanych CoreDNS. Można skonfigurować przekazywanie domen. Nie można przenieść własnego serwera DNS do sieci wirtualnych. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [korzystania z przekazywania DNS](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html#nw-dns-forward_dns-operator).
 
 ## <a name="whats-new-in-openshift-45"></a>Co nowego w programie OpenShift 4,5
 

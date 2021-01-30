@@ -6,25 +6,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 01/20/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: aee064a15d465c412d16dd313279168c37af0e98
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6e71d9b4006d0353b094306424ba0fe99c581279
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948130"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090732"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/version-3-1)
 
-Dokumentacja referencyjna [v 3.1](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-previews)  |  kod źródłowy biblioteki [v 3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)  |  [pakiet v 3.1 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.3)  |  [v 3.1 — Przykłady](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+Dokumentacja referencyjna [v 3.1](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview)  |  kod źródłowy biblioteki [v 3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)  |  [pakiet v 3.1 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.3)  |  [v 3.1 — Przykłady](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
-Dokumentacja referencyjna [v3](/dotnet/api/azure.ai.textanalytics)  |  kod źródłowy biblioteki [v3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics)  |  [pakiet v3 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics)  |  [przykłady wersji 3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+Dokumentacja referencyjna [v3](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet)  |  kod źródłowy biblioteki [v3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics)  |  [pakiet v3 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics)  |  [przykłady wersji 3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
 
@@ -812,8 +812,7 @@ Key phrases:
 
 # <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/version-3-1)
 
-> [!CAUTION]
-> Aby użyć operacji Analizuj, upewnij się, że zasób platformy Azure korzysta z warstwy cenowej standardowa.
+[!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
 Utwórz nową funkcję o nazwie `AnalyzeOperationExample()` , która przybiera wcześniej utworzoną klienta i Wywołaj `StartAnalyzeOperationBatch()` funkcję. Zwrócony `AnalyzeOperation` obiekt będzie zawierać `Operation` obiekt interfejsu dla elementu `AnalyzeOperationResult` . Ponieważ jest to długotrwała operacja, `await` w `operation.WaitForCompletionAsync()` przypadku dla wartości, która ma zostać zaktualizowana. Po zakończeniu tego procesu `WaitForCompletionAsync()` Kolekcja powinna zostać zaktualizowana w `operation.Value` . Jeśli wystąpił błąd, wygeneruje `RequestFailedException` .
 

@@ -586,10 +586,12 @@
                   href: platform/it-service-management-connector-secure-webhook-connections.md
                 - name: Bezpieczny eksport — konfiguracja platformy Azure
                   href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
-                - name: Kontroler zarządzania płytą główną
-                  href: platform/itsmc-secure-webhook-connections-bmc.md
-                - name: ServiceNow
-                  href: platform/itsmc-secure-webhook-connections-servicenow.md
+                - name: Konfiguracja partnerów łącznika ITSM
+                  items:
+                    - name: Kontroler zarządzania płytą główną
+                      href: platform/itsmc-secure-webhook-connections-bmc.md
+                    - name: ServiceNow
+                      href: platform/itsmc-secure-webhook-connections-servicenow.md
         - name: Migrowanie reguł alertów klasycznych
           items:
             - name: Alerty klasyczne — informacje

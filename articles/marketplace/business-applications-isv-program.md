@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/19/2020
-ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 2d58ed26a4d2c03c8d0261426a410fcb11c09ee5
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95537139"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063049"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Przewodnik dołączania do programu Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
@@ -79,6 +79,6 @@ Poproś Menedżera kont lub skontaktuj się z [pomocą techniczną firmy Microso
 
 - [Business Applications dla niezależnych dostawców oprogramowania](https://partner.microsoft.com/solutions/business-applications/isv-overview) (artykuł w trybie online)
 - [Przegląd nowego programu dla Business Applications niezależnych dostawców oprogramowania](https://aka.ms/BizAppsISVProgram) (PDF)
-- [Business Applications programu ISV Connect — często zadawane pytania](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
 - [Nadchodzący program dla Business Applications niezależnych dostawców oprogramowania](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (wpis w blogu)
 - [Program ISV Connect — zasady programu](https://aka.ms/bizappsisvpolicies) (PDF)
+<!-- - [Business Applications ISV Connect Program FAQ](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF) AWAITING NEW LINK; MAKE 3rd BULLET-->

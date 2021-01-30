@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 99fd79fb6c51f577d9b62d15ac006b068a685bcf
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 04ee4ccc3b0553d6532869d6403000fdedd93b5f
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756547"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062715"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — Przenieś do środowiska produkcyjnego
 
@@ -32,20 +32,17 @@ Jeśli jesteś niezależnym dostawcą oprogramowania i utworzysz aplikację demo
 
 Należy wyjaśnić swoim klientom sposób wykonywania tych operacji. Aby uzyskać więcej informacji, zobacz [żądanie zgody dla całej dzierżawy](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Następne kroki
-
-Oto kilka linków, które pomogą Ci dowiedzieć się więcej:
+## <a name="code-samples"></a>Przykłady kodu
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-- Szybki Start: [Uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z poziomu aplikacji konsolowej przy użyciu tożsamości aplikacji](./quickstart-v2-netcore-daemon.md).
 - Dokumentacja referencyjna dla:
   - Tworzenie wystąpienia [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
   - Wywoływanie [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
 - Inne przykłady/samouczki:
-  - [program Microsoft-Identity-platform-Console DAEMON](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) oferuje prostą aplikację konsolową demona .NET Core, która wyświetla użytkowników dzierżawcy Microsoft Graph.
+  - [program Microsoft-Identity-platform-Console DAEMON](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) oferuje niewielką aplikację konsolową demona programu .NET Core, która wyświetla użytkowników dzierżawcy Microsoft Graph.
 
     ![Topologia aplikacji demona Przykładowa](media/scenario-daemon-app/daemon-app-sample.svg)
 
@@ -57,12 +54,18 @@ Oto kilka linków, które pomogą Ci dowiedzieć się więcej:
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
+---
+
+## <a name="next-steps"></a>Następne kroki
+
+Oto kilka linków, które pomogą Ci dowiedzieć się więcej:
+
 # <a name="python"></a>[Python](#tab/python)
 
 Wypróbuj Szybki Start [token i Wywołaj interfejs API Microsoft Graph z aplikacji konsolowej języka Python przy użyciu tożsamości aplikacji](./quickstart-v2-python-daemon.md).
 
 # <a name="java"></a>[Java](#tab/java)
 
-MSAL Java jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [MSAL Java dev Samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+Wypróbuj Szybki Start [token i Wywołaj interfejs API Microsoft Graph z aplikacji konsolowej Java przy użyciu tożsamości aplikacji](./quickstart-v2-java-daemon.md).
 
 ---

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266327"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090964"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu logowania 
 
@@ -90,12 +90,7 @@ Odpowiedzi na przykład następujące mogą wskazywać, że zarządzana tożsamo
 - PowerShell: *Invoke-WebRequest: nie można nawiązać połączenia z serwerem zdalnym*
 - Interfejs wiersza polecenia: *MSI: nie można pobrać tokenu z `http://localhost:50342/oauth2/token` z powodu błędu "HTTPConnectionPool (host =" localhost ", port = 50342)* 
 
-Jeśli zostanie wyświetlony jeden z tych błędów, Wróć do maszyny wirtualnej platformy Azure w [Azure Portal](https://portal.azure.com) i:
-
-- Przejdź do strony **tożsamość** i upewnij się, że **przypisany system** ma wartość "yes".
-- Przejdź do strony **rozszerzenia** i upewnij się, że zarządzane tożsamości dla rozszerzenia zasobów platformy Azure **(planowane do wycofania w styczniu 2019)** zostały pomyślnie wdrożone.
-
-Jeśli jeden z nich jest nieprawidłowy, może być konieczne ponowne wdrożenie zarządzanych tożsamości dla zasobów platformy Azure w ramach zasobu lub Rozwiązywanie problemów z błędem wdrożenia. Aby uzyskać pomoc dotyczącą konfiguracji maszyny wirtualnej [, zobacz Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md) .
+Jeśli zostanie wyświetlony jeden z tych błędów, Wróć do maszyny wirtualnej platformy Azure w [Azure Portal](https://portal.azure.com) i przejdź do strony **tożsamość** i upewnij się, że **przypisany system** ma wartość "yes".
 
 ## <a name="next-steps"></a>Następne kroki
 

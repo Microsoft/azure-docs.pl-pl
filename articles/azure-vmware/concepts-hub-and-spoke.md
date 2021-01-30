@@ -3,12 +3,12 @@ title: Koncepcja — Integruj wdrożenie rozwiązania Azure VMware z architektur
 description: Dowiedz się więcej na temat integrowania wdrożenia rozwiązania Azure VMware w architekturze gwiazdy i szprych na platformie Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 0d511c8d6a96ffb6fa666bcb7c989764f398bdc9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: bfc442e569572349b1323500fbd0b2f912ebbc62
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901389"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062749"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązań VMware platformy Azure z architekturą Hub i szprychy
 
@@ -76,7 +76,7 @@ Ponieważ Brama ExpressRoute nie zapewnia przechodniej routingu między podłąc
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware — rozwiązanie do przepływu ruchu w sieci wirtualnej Hub" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
-Więcej informacji na temat rozwiązań dotyczących sieci i łączności VMware firmy Azure można znaleźć w [dokumentacji produktu rozwiązania VMware platformy Azure](./concepts-networking.md).
+Aby uzyskać więcej informacji na temat rozwiązań dotyczących sieci i łączności VMware firmy Azure, zapoznaj się z [dokumentacją produktu Solution VMware](./concepts-networking.md).
 
 ### <a name="traffic-segmentation"></a>Segmentacja ruchu
 
@@ -103,7 +103,7 @@ Drugi poziom segmentacji ruchu przy użyciu sieciowych grup zabezpieczeń w szpr
 
 Platformy Azure Application Gateway V1 i v2 zostały przetestowane przy użyciu aplikacji sieci Web, które działają na maszynach wirtualnych rozwiązań VMware platformy Azure jako Pula zaplecza. Application Gateway jest obecnie jedyną obsługiwaną metodą udostępniania aplikacji sieci Web działających na maszynach wirtualnych rozwiązań VMware platformy Azure do Internetu. Może również bezpiecznie udostępnić aplikacje użytkownikom wewnętrznym.
 
-Zapoznaj się z artykułami dotyczącymi rozwiązań VMware platformy Azure w [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) , aby uzyskać szczegółowe informacje i wymagania.
+Aby uzyskać więcej informacji, zobacz artykuł dotyczący rozwiązań VMware platformy Azure w [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md).
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Drugi poziom segmentacji ruchu przy użyciu sieciowych grup zabezpieczeń" border="false":::
 

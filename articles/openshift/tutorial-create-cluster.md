@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 10/26/2020
-ms.openlocfilehash: 7b0aead6ada87ca259c838f3f56e68f1030302a2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 909385b4f670d084a9357b6ac2840a9458604667
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675713"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063032"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -21,7 +21,7 @@ W tym samouczku część jednej z trzech zostanie przygotowana do utworzenia kla
 > * Utwórz wymaganą sieć wirtualną i podsieci
 > * Wdrażanie klastra
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -92,7 +92,7 @@ Jeśli podano domenę niestandardową dla klastra, należy zwrócić uwagę na n
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Tworzenie sieci wirtualnej zawierającej dwie puste podsieci
 
-Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
+Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci. Jeśli masz istniejącą sieć wirtualną, która spełnia Twoje wymagania, możesz pominąć ten krok.
 
 1. **Ustaw następujące zmienne w środowisku powłoki, w którym będą wykonywane `az` polecenia.**
 
@@ -131,7 +131,7 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
 
 2. **Utwórz sieć wirtualną.**
 
-   Klastry usługi Azure Red Hat OpenShift z systemem OpenShift 4 wymagają sieci wirtualnej z dwiema pustymi podsieciami dla węzłów głównych i procesów roboczych.
+   Klastry usługi Azure Red Hat OpenShift z systemem OpenShift 4 wymagają sieci wirtualnej z dwiema pustymi podsieciami dla węzłów głównych i procesów roboczych. Można utworzyć nową sieć wirtualną dla tego lub użyć istniejącej sieci wirtualnej.
 
    Utwórz nową sieć wirtualną w tej samej grupie zasobów, która została utworzona wcześniej:
 

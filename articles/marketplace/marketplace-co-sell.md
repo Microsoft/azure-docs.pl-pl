@@ -3,16 +3,16 @@ title: Współpraca z partnerskim współsprzedażem — Microsoft Commercial Ma
 description: Program partnerski Microsoft Partner Center dla partnerów może pomóc Ci uzyskać rozległą bazę klientów i generować nową sprzedaż.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/2/2020
-ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/29/2021
+ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880291"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063083"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -22,7 +22,7 @@ Program współsprzedażowy jest dostępny dla **oprogramowania utworzonego za p
 
 - Oferty z ofertami do **przedlewej** są udostępniane sprzedającym w dziedzinie firmy Microsoft. Podczas pracy ze sprzedawcami firmy Microsoft, program współsprzedaży pomaga uzyskać rozległą społeczność klientów zarządzanych przez firmę Microsoft w celu współpracy nad szansami sprzedaży, które przyspieszają rozwój Twojej firmy.
 
-    ![Diagram przedstawiający sposób, w jaki następuje współsprzedaż, gdy potencjalni klienci są współdzieli, zaakceptowali i korzystali z klientów zarządzanych przez firmę Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="Diagram przedstawiający sposób, w jaki następuje współsprzedaż, gdy potencjalni klienci są współdzieli, zaakceptowali i korzystali z klientów zarządzanych przez firmę Microsoft.":::
 
 - **Sprzedawanie zachęcani** Oferty IP mogą zdobywać zachęty dla sprzedawców w dziedzinie firmy Microsoft, gdy są one sprzedawane we współpracy z zespołami sprzedaży firmy Microsoft, oprócz korzyści z witryny Marketplace wymienionych poniżej.</li></ul>
 
@@ -63,7 +63,7 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
 
 1. W menu po lewej stronie wybierz pozycję **współsprzedaż z firmą Microsoft**.
 
-    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::
+    [![Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
 1. Podaj podstawowe szczegóły dotyczące aukcji, aby pomóc sprzedającym firmy Microsoft w szybkim posortowaniu i znalezieniu oferty w sekcji **wystawiania** . (*Wymagane: wszystkie pola).*
 
@@ -71,29 +71,20 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
 
 1. Podaj szczegółowe informacje o ofercie i przekaż zabezpieczenia w sekcji **dokumenty** . Sprzedawcy firmy Microsoft będą korzystać z tych informacji w celu zaproponowania i sprzedaży oferty. *(Wymagane: rozwiązanie/oferowanie jednego modułu stronicowania i rozwiązania/oferty z ofertą. Wymagany do osiągnięcia stanu zachęcani "współsprzedażu" platformy Azure IP: diagram architektury referencyjnej.*
 
-    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Ten obraz przedstawia sekcję dokumenty na karcie współsprzedaż.":::
+    [![Ten obraz przedstawia sekcję dokumenty na karcie współsprzedaż.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
 
 1. Przekaż informacje kontaktowe sprzedaży w sekcji **kontakty** . Sprzedawcy firmy Microsoft mogą skontaktować się z tymi kontaktami, aby zażądać dodatkowych informacji o ofercie. (*Wymagane: kontakt dla każdej lokalizacji geograficznej, w której oferta jest* udostępniona).
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Ten obraz przedstawia sekcję kontakty na karcie współsprzedaż.":::
+    [![Ten obraz przedstawia sekcję kontakty na karcie współsprzedaż.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
 
 1. Zapisz wersję roboczą przed kontynuowaniem.
 1. Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji. W prawym górnym rogu wybierz pozycję **Przejrzyj i Opublikuj**. Przejrzyj szczegóły oferty, a następnie wybierz pozycję **Publikuj**.
-1. Po upewnieniu się, że spełniasz [kryteria dla posiadanego statusu współsprzedaży](#co-sell-publishing-steps-and-requirements), postępuj zgodnie z poniższymi wskazówkami, aby wyznaczyć ofertę dla współsprzedaży:
-    1. **Jeśli masz Menedżera partnerów firmy Microsoft (np. PDM):** skontaktuj się z menedżerem partnerów w celu uzyskania pomocy. Przeprowadzą Cię przez proces nominacji w celu uzyskania stanu gotowości do współtworzenia i Business Applications współpracy z platformą Azure
-
-    1. **Jeśli nie masz programu Microsoft Partner Manager (np. PDM):** [samodzielny dostęp za pośrednictwem usługi Cloud enableing Desk (CED)](https://aka.ms/cednominate). Wybierz pozycję "gotowe do współsprzedaj" w obszarze rozwijanym "żądane usługi CED Services":
-
-        :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Ten obraz przedstawia listę rozwijaną CED, aby zażądać przeglądu współsprzedawanego.":::
-
-    CED skontaktuje się z Tobą, aby ukończyć proces.
 
 ## <a name="see-your-offers-co-sell-status"></a>Zobacz stan współsprzedaży oferty
 
 W przypadku ofert mających [opcję współsprzedaży w komercyjnej witrynie Marketplace](commercial-marketplace-co-sell.md)można zobaczyć bieżący stan tej oferty na stronie przeglądu oferty:
 
- :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Ten obraz przedstawia bieżący stan współsprzedawanej oferty.":::
-
+[![Ten obraz przedstawia bieżący stan współsprzedawanej oferty.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
 

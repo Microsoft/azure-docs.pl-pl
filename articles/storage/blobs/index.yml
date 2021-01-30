@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentacja usługi Azure Blob Storage
-summary: Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Usługa Blob Storage jest zoptymalizowana pod kątem przechowywania olbrzymich ilości danych bez struktury.
+summary: Usługa Azure Blob Storage to rozwiązanie magazynu obiektów firmy Microsoft dla chmury. Magazyn obiektów blob jest zoptymalizowany pod kątem przechowywania olbrzymich ilości danych bez struktury.
 metadata:
   title: Dokumentacja usługi Azure Blob Storage
-  description: Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Usługa Blob Storage jest zoptymalizowana pod kątem przechowywania olbrzymich ilości danych bez struktury.
+  description: Usługa Azure Blob Storage to rozwiązanie magazynu obiektów firmy Microsoft dla chmury. Usługa Blob Storage jest zoptymalizowana pod kątem przechowywania olbrzymich ilości danych bez struktury.
   services: storage
   ms.service: storage
   ms.subservice: blobs
@@ -12,18 +12,18 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 38cf63766195c1e91662d725aeb1b21c06257ed9
-  ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-  ms.translationtype: HT
+  ms.openlocfilehash: d85631cd7ace8aa5b9b0725920f477e2447e78c0
+  ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/25/2020
-  ms.locfileid: "95912352"
+  ms.lasthandoff: 01/29/2021
+  ms.locfileid: "99072022"
 landingContent:
 - title: Informacje o usłudze Blob Storage
   linkLists:
   - linkListType: overview
     links:
-    - text: Co to jest Azure Blob Storage?
+    - text: Co to jest platforma Azure Blob Storage?
       url: storage-blobs-overview.md
 - title: Rozpoczęcie pracy
   linkLists:
@@ -91,15 +91,15 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure Blob Storage dla platformy.NET
+    - text: Blob Storage platformy Azure dla platformy .NET
       url: storage-quickstart-blobs-dotnet.md
-    - text: Azure Blob Storage dla języka Java
+    - text: Blob Storage platformy Azure dla języka Java
       url: storage-quickstart-blobs-java.md
-    - text: Azure Blob Storage dla języka Python
+    - text: Blob Storage platformy Azure dla języka Python
       url: storage-quickstart-blobs-python.md
-    - text: Azure Blob Storage dla języka JavaScript przy użyciu platformy Node.js
+    - text: Blob Storage platformy Azure dla języka JavaScript przy użyciu Node.js
       url: storage-quickstart-blobs-nodejs.md
-    - text: Azure Blob Storage dla języka JavaScript w przeglądarce
+    - text: Blob Storage platformy Azure dla języka JavaScript w przeglądarce
       url: quickstart-blobs-javascript-browser.md
     - text: Kierowanie zdarzeń do internetowego punktu końcowego
       url: ../../event-grid/blob-event-quickstart-portal.md

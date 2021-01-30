@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 01/28/2021
 ms.author: jeedes
-ms.openlocfilehash: e8a392f72af1ae5a3da8d8e3306f05cdec390591
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c6eac316a8d1849e193add2d74e81f8652c7a676
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735899"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090590"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-navex-one"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą NAVEX
 
@@ -76,10 +76,32 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<CLIENT_KEY>.navexglobal.com`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL przy użyciu jednego z następujących wzorców:
+
+    | Adres URL logowania |
+    |--------------|
+    | `https://<CLIENT_KEY>.navexglobal.com` |
+    | `https://<CLIENT_KEY>.navexglobal.eu` |
+    |
+
+    b. W polu tekstowym **Identyfikator** wpisz jeden z następujących adresów URL:
+
+    | Identyfikator |
+    |--------------|
+    | `https://doorman.navexglobal.com/Shibboleth` |
+    | `https://doorman.navexglobal.eu/Shibboleth` |
+    |
+
+    c. W polu tekstowym **adres URL odpowiedzi** wpisz jeden z następujących adresów URL:
+
+    | Adres URL odpowiedzi |
+    |--------------|
+    | `https://doorman.navexglobal.com/Shibboleth.sso/SAML2/POST` |
+    | `https://doorman.navexglobal.eu/Shibboleth.sso/SAML2/POST` |
+    |
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [NAVEX jednego zespołu obsługi klienta](mailto:ethicspoint@navexglobal.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Wartość adresu URL logowania nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [NAVEX jednego zespołu obsługi klienta](mailto:ethicspoint@navexglobal.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 

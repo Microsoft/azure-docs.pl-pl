@@ -8,19 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 3f403308c77e5ee0dfc066ec3dc53100e520d274
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652851"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090675"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
 Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktualność dzięki najnowszym zmianom, ten artykuł zawiera informacje o nowych wersjach i funkcjach.
+
+## <a name="january-2021"></a>Styczeń 2021 r.
+
+* `2021-01-15`Wersja modelu dla [nazwanej jednostki rozpoznawania](how-tos/text-analytics-how-to-entity-linking.md) v3. x, która zapewnia 
+  * Rozszerzona obsługa języków dla [kilku ogólnych kategorii jednostek](named-entity-types.md). 
+  * Udoskonalone ogólne kategorie dla wszystkich obsługiwanych języków v3. 
+
+* `2021-01-05`Model — wersja dla [wykrywania języka](how-tos/text-analytics-how-to-language-detection.md), która oferuje dodatkową [obsługę języka](language-support.md?tabs=language-detection).
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
@@ -66,7 +74,7 @@ Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktual
 ### <a name="text-analytics-for-health-container-updates"></a>analiza tekstu aktualizacji kontenera kondycji
 
 Następujące aktualizacje są specyficzne dla wydania września analiza tekstu tylko dla kontenera kondycji.
-* Nowy obraz kontenera z `1.1.013530001-amd64-preview` nowym modelem w wersji `2020-09-03` został ogłoszony do repozytorium containerpreview. 
+* Nowy obraz kontenera z `1.1.013530001-amd64-preview` nowym modelem w wersji `2020-09-03` został ogłoszony w repozytorium wersji zapoznawczej kontenera. 
 * Ta wersja modelu zapewnia ulepszenia rozpoznawania jednostek, wykrywania skrótów i ulepszeń opóźnienia.
 
 > [!div class="nextstepaction"]
@@ -191,7 +199,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 * Rozpoznawanie następujących głównych typów jednostek (tylko w języku angielskim):
     * Persontype
     * Produkt
-    * Wydarzenie
+    * Zdarzenie
     * Jednostka geopolityczna (GPE) jako podtyp w lokalizacji
     * Czy
 

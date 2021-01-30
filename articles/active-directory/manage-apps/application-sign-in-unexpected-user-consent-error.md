@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 25515c29ae3e5623b447232ed6f935a668a58c3a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658489"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090073"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Nieoczekiwany błąd podczas wyrażania zgody na aplikację
 
@@ -35,7 +35,7 @@ Niektóre warunki muszą być spełnione, aby użytkownik mógł wyrazić zgodę
 * **AADSTS90093:** &lt; clientAppDisplayName &gt; żąda co najmniej jednego uprawnienia, które nie jest autoryzowane do przyznania. Skontaktuj się z administratorem, który może wyrazić zgodę na tę aplikację w Twoim imieniu.
 * **AADSTS90094:** &lt; clientAppDisplayName &gt; musi mieć uprawnienia dostępu do zasobów w organizacji, które mogą przyznawać tylko Administratorzy. Poproś administratora o udzielenie uprawnienia do tej aplikacji, aby można było z niej korzystać.
 
-Ten błąd występuje, gdy użytkownik, który nie jest administratorem firmy, próbuje użyć aplikacji, która żąda uprawnień, które może udzielić tylko administrator. Ten błąd może zostać rozwiązany przez administratora, który udziela dostępu do aplikacji w imieniu swojej organizacji.
+Ten błąd występuje, gdy użytkownik, który nie jest administratorem globalnym, próbuje użyć aplikacji, która żąda uprawnień, które może udzielić tylko administrator. Ten błąd może zostać rozwiązany przez administratora, który udziela dostępu do aplikacji w imieniu swojej organizacji.
 
 Ten błąd może również wystąpić, gdy użytkownik nie jest w stanie przesłać do aplikacji z powodu wykrycia przez firmę Microsoft, że żądanie uprawnień jest ryzykowne. W takim przypadku zdarzenie inspekcji zostanie również zarejestrowane z kategorią "ApplicationManagement", typ działania "Zgoda na aplikację" i Przyczyna stanu "wykryto ryzykowną aplikację".
 
@@ -44,7 +44,7 @@ Innym scenariuszem, w którym ten błąd może wystąpić, jest wymagane przypis
 ## <a name="policy-prevents-granting-permissions-error"></a>Zasady uniemożliwiają udzielenie błędu uprawnień
 * **AADSTS90093:** Administrator usługi &lt; tenantDisplayName &gt; ustawił zasady, które uniemożliwiają przyznanie &lt; nazwy aplikacji &gt; , do której żądają uprawnienia. Skontaktuj się z administratorem &lt; tenantDisplayName &gt; , który może udzielić uprawnień do tej aplikacji w Twoim imieniu.
 
-Ten błąd występuje, gdy administrator firmy wyłącza możliwość wyrażania zgody użytkowników na aplikacje, a następnie użytkownik niebędący administratorem próbuje użyć aplikacji, która wymaga zgody. Ten błąd może zostać rozwiązany przez administratora, który udziela dostępu do aplikacji w imieniu swojej organizacji.
+Ten błąd występuje, gdy administrator globalny wyłączy użytkownikom zgodę na aplikacje, a następnie użytkownik nie będący administratorem próbuje użyć aplikacji wymagającej zgody. Ten błąd może zostać rozwiązany przez administratora, który udziela dostępu do aplikacji w imieniu swojej organizacji.
 
 ## <a name="intermittent-problem-error"></a>Błąd sporadycznego problemu
 * **AADSTS90090:** Wygląda na to, że proces logowania napotkał sporadyczny problem podczas rejestrowania uprawnień, które próbowano udzielić &lt; clientAppDisplayName &gt; . Spróbuj ponownie później.

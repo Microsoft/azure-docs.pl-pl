@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat szyfrowania w usłudze Azure Containe
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620454"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062732"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Szyfrowanie rejestru przy użyciu klucza zarządzanego przez klienta
 
@@ -566,21 +566,31 @@ Po wykonaniu powyższych kroków Obróć klucz na nowy klucz w magazynie kluczy 
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-### <a name="removing-user-assigned-identity"></a>Usuwanie tożsamości przypisanej przez użytkownika
+### <a name="removing-managed-identity"></a>Usuwanie tożsamości zarządzanej
 
-W przypadku próby usunięcia tożsamości przypisanej przez użytkownika z rejestru, który jest używany do szyfrowania, może zostać wyświetlony komunikat o błędzie podobny do:
+
+W przypadku próby usunięcia tożsamości zarządzanej przypisanej przez użytkownika lub przypisanej do systemu z rejestru, który jest używany do konfigurowania szyfrowania, może zostać wyświetlony komunikat o błędzie podobny do:
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Nie będzie też można zmienić (obrócić) klucza szyfrowania. W przypadku wystąpienia tego problemu należy najpierw ponownie przypisać tożsamość przy użyciu identyfikatora GUID wyświetlanego w komunikacie o błędzie. Na przykład:
+Nie będzie też można zmienić (obrócić) klucza szyfrowania. Kroki rozwiązania zależą od typu tożsamości używanej do szyfrowania.
+
+**Tożsamość przypisana przez użytkownika**
+
+Jeśli ten problem występuje w przypadku tożsamości przypisanej przez użytkownika, należy najpierw ponownie przypisać tożsamość przy użyciu identyfikatora GUID wyświetlanego w komunikacie o błędzie. Na przykład:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
         
 Następnie po zmianie klucza i przypisaniu innej tożsamości można usunąć oryginalną tożsamość przypisaną przez użytkownika.
+
+**Tożsamość przypisana przez system**
+
+Jeśli ten problem występuje w przypadku tożsamości przypisanej do systemu, [Utwórz bilet pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/) w celu uzyskania pomocy w celu przywrócenia tożsamości.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

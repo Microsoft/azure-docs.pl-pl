@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: e07ec17a4e14f0099d82bd444f2ee8d37abe9908
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3413c1a3f27b48c60ae730ad230c653928702faa
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435012"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063386"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Samouczek: dostęp do Microsoft Graph z zabezpieczonej aplikacji jako użytkownik
 
@@ -26,7 +26,7 @@ Dowiedz się, jak uzyskać dostęp do Microsoft Graph z aplikacji sieci Web dzia
 
 Chcesz dodać dostęp do Microsoft Graph z aplikacji sieci Web i wykonać jakąś akcję jako zalogowany użytkownik. W tej sekcji opisano sposób udzielania delegowanych uprawnień aplikacji sieci Web i uzyskiwania informacji o profilu zalogowanego użytkownika z Azure Active Directory (Azure AD).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -85,7 +85,7 @@ Aby wyświetlić ten kod jako część przykładowej aplikacji, zobacz [przykła
 
 ### <a name="install-client-library-packages"></a>Zainstaluj pakiety biblioteki klienta
 
-Zainstaluj pakiety NuGet [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) i [Microsoft. Graph](https://www.nuget.org/packages/Microsoft.Graph) w projekcie przy użyciu interfejsu wiersza polecenia platformy .NET Core lub konsoli Menedżera pakietów w programie Visual Studio.
+Zainstaluj pakiety NuGet [Microsoft. Identity.](https://www.nuget.org/packages/Microsoft.Identity.Web/) Web i [Microsoft. Identity. Web. MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) w projekcie przy użyciu interfejsu wiersza polecenia platformy .NET Core lub konsoli Menedżera pakietów w programie Visual Studio.
 
 # <a name="command-line"></a>[Wiersz polecenia](#tab/command-line)
 
@@ -94,18 +94,18 @@ Otwórz wiersz polecenia i przejdź do katalogu, który zawiera plik projektu.
 Uruchom polecenia instalacji.
 
 ```dotnetcli
-dotnet add package Microsoft.Graph
+dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 
 dotnet add package Microsoft.Identity.Web
 ```
 
 # <a name="package-manager"></a>[Menedżer pakietów](#tab/package-manager)
 
-Otwórz projekt/rozwiązanie w programie Visual Studio i Otwórz konsolę programu przy użyciu narzędzia Menedżer **Tools**  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
+Otwórz projekt/rozwiązanie w programie Visual Studio i Otwórz konsolę programu przy użyciu narzędzia Menedżer   >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
 
 Uruchom polecenia instalacji.
 ```powershell
-Install-Package Microsoft.Graph
+Install-Package Microsoft.Identity.Web.MicrosoftGraph
 
 Install-Package Microsoft.Identity.Web
 ```

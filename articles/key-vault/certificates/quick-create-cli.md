@@ -1,22 +1,21 @@
 ---
-title: 'Szybki Start: Ustawianie & wyświetlania certyfikatów Azure Key Vault — interfejs wiersza polecenia platformy Azure'
+title: Szybki Start — Ustawianie & wyświetlania certyfikatów Azure Key Vault za pomocą interfejsu wiersza polecenia platformy Azure
 description: Przewodnik Szybki Start przedstawiający sposób ustawiania i pobierania certyfikatu z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
-ms.date: 09/03/2019
+ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 2bb718d038dd7b3f5aa6f3bac1ce1de572c8e829
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 56e51d74358bcda96a6859a481e53710a6f78ec3
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936366"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072425"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Szybki Start: Ustawianie i pobieranie certyfikatu z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -30,30 +29,11 @@ W tym przewodniku szybki start utworzysz Magazyn kluczy w Azure Key Vault przy u
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. W poniższym przykładzie pokazano tworzenie grupy zasobów o nazwie *ContosoResourceGroup* w lokalizacji *eastus*.
-
-```azurecli
-az group create --name "ContosoResourceGroup" --location eastus
-```
+[!INCLUDE [Create a resource group](../../../includes/key-vault-cli-rg-creation.md)]
 
 ## <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
 
-Następnie utworzysz usługę Key Vault w grupie zasobów utworzonej w poprzednim kroku. Konieczne będzie podanie pewnych informacji:
-
-- W tym przewodniku Szybki start użyjemy nazwy **Contoso vault2**. W swoim teście musisz podać unikatową nazwę.
-- Nazwa grupy zasobów: **ContosoResourceGroup**.
-- Lokalizacja: **Wschodnie stany USA**.
-
-```azurecli
-az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus
-```
-
-Dane wyjściowe tego polecenia cmdlet pokazują właściwości nowo utworzonej usługi Key Vault. Zanotuj dwie poniższe właściwości:
-
-- **Nazwa magazynu**: w tym przykładzie jest to **Contoso-Vault2**. Ta nazwa będzie używana do innych poleceń usługi Key Vault.
-- **Identyfikator URI magazynu**: w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
-
-Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania jakichkolwiek operacji na tym nowym magazynie.
+[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
 
 ## <a name="add-a-certificate-to-key-vault"></a>Dodawanie certyfikatu do Key Vault
 
@@ -62,33 +42,28 @@ Aby dodać certyfikat do magazynu, wystarczy wykonać kilka dodatkowych kroków.
 Wpisz poniższe polecenia, aby utworzyć certyfikat z podpisem własnym z zasadami domyślnymi o nazwie **ExampleCertificate** :
 
 ```azurecli
-az keyvault certificate create --vault-name "Contoso-Vault2" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
+az keyvault certificate create --vault-name "<your-unique-keyvault-name>" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
 ```
 
-Teraz można odwołać się do tego certyfikatu, który został dodany do Azure Key Vault przy użyciu identyfikatora URI. Użyj **" https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate "** , aby pobrać bieżącą wersję. 
+Teraz można odwołać się do tego certyfikatu, który został dodany do Azure Key Vault przy użyciu identyfikatora URI. Aby uzyskać aktualną wersję, użyj **"https://<unikatowego magazynu kluczy — name>. Vault.Azure.NET/Certificates/ExampleCertificate"** . 
 
 Aby wyświetlić poprzednio zapisany certyfikat:
 
 ```azurecli
 
-az keyvault certificate show --name "ExampleCertificate" --vault-name "Contoso-Vault2"
+az keyvault certificate show --name "ExampleCertificate" --vault-name "<your-unique-keyvault-name>"
 ```
 
 Teraz utworzono Key Vault, Zapisano certyfikat i pobieramy go.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz korzystać z kolejnych przewodników Szybki start i samouczków, pozostaw te zasoby na swoim miejscu.
-Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete](/cli/azure/group). Możesz usunąć zasoby w następujący sposób:
-
-```azurecli
-az group delete --name ContosoResourceGroup
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-delete-resources.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim certyfikat. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Zobacz odwołanie do [interfejsu wiersza polecenia platformy Azure AZ](/cli/azure/keyvault?view=azure-cli-latest)
+- Zobacz odwołanie do [interfejsu wiersza polecenia platformy Azure AZ](/cli/azure/keyvault)
 - Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

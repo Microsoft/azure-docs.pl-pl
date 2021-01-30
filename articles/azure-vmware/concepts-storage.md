@@ -3,12 +3,12 @@ title: Pojęcia — magazyn
 description: Dowiedz się więcej o możliwościach magazynu kluczy w chmurach prywatnych rozwiązań platformy Azure VMware.
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8ad1fc3ff2e514330a9ffc680494b5564b1184e4
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289255"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062799"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Pojęcia dotyczące magazynu rozwiązań VMware platformy Azure
 
@@ -32,7 +32,7 @@ magazyny danych sieci vSAN korzystają domyślnie z szyfrowania Data-in-Rest. Ro
 
 ## <a name="scaling"></a>Skalowanie
 
-Pojemność magazynu natywnego klastra jest skalowana przez Dodawanie hostów do klastra. W przypadku klastrów, które korzystają z hostów, pierwotna pojemność całego klastra jest zwiększana o 15,4 TB z każdym dodatkowym hostem. W klastrach zbudowanych przy użyciu hostów zasad grupy ich pierwotna pojemność wzrosła o 7,7 TB z każdym dodatkowym hostem. W obu typach klastrów hosty trwają około 10 minut do dodania do klastra. Zobacz samouczek skalowanie [chmury prywatnej][tutorial-scale-private-cloud] , aby uzyskać instrukcje dotyczące skalowania klastrów.
+Pojemność magazynu natywnego klastra jest skalowana przez Dodawanie hostów do klastra. W przypadku klastrów, które korzystają z hostów, pierwotna pojemność całego klastra jest zwiększana o 15,4 TB z każdym dodatkowym hostem. W klastrach zbudowanych przy użyciu hostów zasad grupy ich pierwotna pojemność wzrosła o 7,7 TB z każdym dodatkowym hostem. W obu typach klastrów hosty trwają około 10 minut do dodania do klastra. Aby uzyskać instrukcje dotyczące skalowania klastrów, zapoznaj się z [samouczkiem skalowanie chmury prywatnej][tutorial-scale-private-cloud].
 
 ## <a name="azure-storage-integration"></a>Integracja z usługą Azure Storage
 

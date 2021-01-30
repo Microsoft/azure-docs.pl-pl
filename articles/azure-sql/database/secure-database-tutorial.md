@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f42db48e0fa0e85d919d6894e5476b7ef5380698
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985862"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089295"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Samouczek: Zabezpieczanie bazy danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -124,7 +124,7 @@ Aby ustawić administratora usługi Azure AD:
     ![wybierz usługę active directory](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
-    > Aby wykonać to zadanie, musisz mieć rolę „Administrator firmy” lub „Administrator globalny”.
+    > Aby wykonać to zadanie, musisz być administratorem globalnym.
 
 1. Na stronie **Dodawanie administratora** wyszukaj i wybierz użytkownika lub grupę usługi AD, a następnie wybierz pozycję **Wybierz**. Na liście znajdują się wszystkie grupy i wszyscy użytkownicy w usłudze Active Directory, a wpisy wyświetlane na szaro oznaczają elementy, które nie mogą zostać administratorami usługi Azure AD. Zobacz [funkcje i ograniczenia usługi Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations).
 
@@ -235,7 +235,7 @@ Aby skopiować bezpieczne parametry połączenia:
 
 Usługa Azure SQL Database udostępnia funkcje zabezpieczeń, które są dostępne w witrynie Azure Portal. Te funkcje są dostępne na poziomie bazy danych oraz serwera, z wyjątkiem maskowania danych, które jest dostępne wyłącznie na poziomie bazy danych. Aby dowiedzieć się więcej, zobacz temat [usługa Azure Defender dla SQL](azure-defender-for-sql.md), [Inspekcja](../../azure-sql/database/auditing-overview.md), [Dynamiczne maskowanie danych](dynamic-data-masking-overview.md)i [przezroczyste szyfrowanie danych](transparent-data-encryption-tde-overview.md).
 
-### <a name="azure-defender-for-sql"></a>Usługa Azure Defender dla bazy danych SQL
+### <a name="azure-defender-for-sql"></a>Azure Defender for SQL
 
 Funkcja Azure Defender for SQL wykrywa potencjalne zagrożenia w miarę ich występowania i zapewnia alerty zabezpieczeń w przypadku nietypowych działań. Użytkownicy mogą zbadać te podejrzane zdarzenia za pomocą funkcji inspekcji, aby określić, czy dane zdarzenie było próbą uzyskania dostępu, naruszenia zabezpieczeń lub wykorzystania danych w bazie danych. Użytkownicy mają do dyspozycji także przegląd zabezpieczeń z oceną podatności oraz narzędzie do odnajdowania i klasyfikacji danych.
 

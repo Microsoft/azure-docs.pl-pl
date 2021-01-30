@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292459"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062999"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z usługi Azure Logic Apps
 
@@ -26,7 +26,7 @@ Na przykład można monitorować punkt końcowy usługi dla witryny sieci Web, s
 
 W tym artykule pokazano, jak używać wyzwalacza HTTP i akcji HTTP, aby aplikacja logiki mogła wysyłać wywołania wychodzące do innych usług i systemów.
 
-Aby uzyskać informacje na temat szyfrowania, zabezpieczeń i autoryzacji wywołań wychodzących z aplikacji logiki, takich jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanych jako SSL (SSL), certyfikatów z podpisem własnym lub [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
+Aby uzyskać informacje na temat szyfrowania, zabezpieczeń i autoryzacji wywołań wychodzących z aplikacji logiki, takich jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanych jako Secure SOCKETS Layer (SSL), certyfikatów z podpisem własnym lub [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,7 +48,7 @@ Ten wbudowany wyzwalacz wykonuje wywołanie HTTP do określonego adresu URL dla 
 
 1. W polu wyszukiwania projektanta wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `http` jako filtr. Z listy **wyzwalacze** Wybierz wyzwalacz **http** .
 
-   ![Wybierz pozycję Wyzwalacz HTTP](./media/connectors-native-http/select-http-trigger.png)
+   ![Wybieranie wyzwalacza HTTP](./media/connectors-native-http/select-http-trigger.png)
 
    Ten przykład zmienia nazwę wyzwalacza na "wyzwalacz HTTP", tak aby krok miał bardziej opisową nazwę. Ponadto przykład później dodaje akcję HTTP, a obie nazwy muszą być unikatowe.
 
@@ -56,7 +56,7 @@ Ten wbudowany wyzwalacz wykonuje wywołanie HTTP do określonego adresu URL dla 
 
    ![Wprowadź parametry wyzwalacza HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
-   W przypadku wybrania typu uwierzytelniania innego niż **none**ustawienia uwierzytelniania różnią się w zależności od wybranej opcji. Aby uzyskać więcej informacji o typach uwierzytelniania dostępnych dla protokołu HTTP, zobacz następujące tematy:
+   W przypadku wybrania typu uwierzytelniania innego niż **none** ustawienia uwierzytelniania różnią się w zależności od wybranej opcji. Aby uzyskać więcej informacji o typach uwierzytelniania dostępnych dla protokołu HTTP, zobacz następujące tematy:
 
    * [Dodawanie uwierzytelniania do wywołań wychodzących](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [Uwierzytelnianie dostępu do zasobów za pomocą tożsamości zarządzanych](../logic-apps/create-managed-service-identity.md)
@@ -81,7 +81,7 @@ Ta wbudowana akcja powoduje wywołanie HTTP do określonego adresu URL dla punkt
 
    Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `http` jako filtr. Z listy **Akcje** wybierz akcję **http** .
+1. W obszarze **Wybierz akcję** wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `http` jako filtr. Z listy **Akcje** wybierz akcję **http** .
 
    ![Wybieranie akcji HTTP](./media/connectors-native-http/select-http-action.png)
 
@@ -91,7 +91,7 @@ Ta wbudowana akcja powoduje wywołanie HTTP do określonego adresu URL dla punkt
 
    ![Wprowadź parametry akcji HTTP](./media/connectors-native-http/http-action-parameters.png)
 
-   W przypadku wybrania typu uwierzytelniania innego niż **none**ustawienia uwierzytelniania różnią się w zależności od wybranej opcji. Aby uzyskać więcej informacji o typach uwierzytelniania dostępnych dla protokołu HTTP, zobacz następujące tematy:
+   W przypadku wybrania typu uwierzytelniania innego niż **none** ustawienia uwierzytelniania różnią się w zależności od wybranej opcji. Aby uzyskać więcej informacji o typach uwierzytelniania dostępnych dla protokołu HTTP, zobacz następujące tematy:
 
    * [Dodawanie uwierzytelniania do wywołań wychodzących](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [Uwierzytelnianie dostępu do zasobów za pomocą tożsamości zarządzanych](../logic-apps/create-managed-service-identity.md)
@@ -104,7 +104,7 @@ Ta wbudowana akcja powoduje wywołanie HTTP do określonego adresu URL dla punkt
 
 Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacza HTTP lub akcji, która zwraca te informacje:
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 |----------|------|-------------|
 | `headers` | Obiekt JSON | Nagłówki żądania |
 | `body` | Obiekt JSON | Obiekt z zawartością treści z żądania |
@@ -249,7 +249,7 @@ Jeśli wyzwalacz lub akcja HTTP zawiera te nagłówki, Logic Apps usuwa te nagł
 
 * `Accept-*` nagłówki z wyjątkiem `Accept-version`
 * `Allow`
-* `Content-*` z następującymi wyjątkami: `Content-Disposition` , `Content-Encoding` , i `Content-Type`
+* `Content-*` nagłówki z wyjątkiem `Content-Disposition` , `Content-Encoding` i, `Content-Type` gdy używane są operacje post i Put, ale nie są uwzględniane podczas operacji pobierania
 * `Cookie`
 * `Expires`
 * `Host`

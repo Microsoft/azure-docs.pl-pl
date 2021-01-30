@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: c3221063469315b2324c5039a46db622109826aa
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 0b337225c5909563ef4aeb49cf0754e11075a6fb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673625"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>Samouczek: integracja Azure Active Directory z usługą Bridge
 
@@ -106,7 +106,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Bridge, wy
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<company name>.bridgeapp.com`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. W celu uzyskania tych wartości skontaktuj się z [zespołem obsługi klienta aplikacji Bridge](https://community.bridgeapp.com/community/help). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. W celu uzyskania tych wartości skontaktuj się z [zespołem obsługi klienta aplikacji Bridge](https://community.bridgeapp.com/hc/en-us/community/topics). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (nieprzetworzony)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -124,7 +124,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Bridge, wy
 
 ### <a name="configure-bridge-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w aplikacji Bridge
 
-Aby skonfigurować logowanie jednokrotne po stronie aplikacji **Bridge**, musisz wysłać pobrany **certyfikat (nieprzetworzony)** i odpowiednie adresy URL skopiowane z witryny Azure Portal [zespołowi pomocy technicznej aplikacji Bridge](https://community.bridgeapp.com/community/help). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować logowanie jednokrotne po stronie aplikacji **Bridge**, musisz wysłać pobrany **certyfikat (nieprzetworzony)** i odpowiednie adresy URL skopiowane z witryny Azure Portal [zespołowi pomocy technicznej aplikacji Bridge](https://community.bridgeapp.com/hc/en-us/community/topics). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -179,7 +179,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 ### <a name="create-bridge-test-user"></a>Tworzenie użytkownika testowego aplikacji Bridge
 
-W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Bridge. Współpraca z [zespołem obsługi mostka](https://community.bridgeapp.com/community/help) , aby dodać użytkowników na platformie mostka. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Bridge. Współpraca z [zespołem obsługi mostka](https://community.bridgeapp.com/hc/en-us/community/topics) , aby dodać użytkowników na platformie mostka. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

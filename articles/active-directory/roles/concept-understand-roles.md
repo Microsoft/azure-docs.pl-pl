@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b46262e34f57b3ff9aeb6bd4ea671ec611b99df
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3101cf3650fcfb7f9313b13c1c07a03dd734e9dd
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740350"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089228"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Informacje o rolach w Azure Active Directory
 
@@ -61,7 +61,7 @@ Poniższa tabela jest oferowana jako pomoc w zrozumieniu tych kategorii ról. Ka
 Kategoria | Rola
 ---- | ----
 Role specyficzne dla usługi Azure AD | Administrator aplikacji<br>Deweloper aplikacji<br>Administrator uwierzytelniania<br>Administrator zestawu kluczy B2C IEF<br>Administrator zasad B2C IEF<br>Administrator aplikacji w chmurze<br>Administrator urządzenia w chmurze<br>Administrator dostępu warunkowego<br>Administratorzy urządzeń<br>Czytelnicy katalogów<br>Konta synchronizacji katalogów<br>Autorzy katalogów<br>Administrator przepływu użytkownika z IDENTYFIKATORem zewnętrznym<br>Administrator atrybutów przepływu użytkownika zewnętrznego ID<br>Administrator zewnętrznego dostawcy tożsamości<br>Administrator grup<br>Zapraszający gościa<br>Administrator pomocy technicznej<br>Administrator tożsamości hybrydowej<br>Administrator licencji<br>Obsługa pomoc partnera<br>Obsługa SVR partnera<br>Administrator haseł<br>Administrator uprzywilejowanego uwierzytelniania<br>Administrator ról uprzywilejowanych<br>Czytelnik raportów<br>Administrator konta użytkownika
-Role międzyusługowe | Administrator firmy<br>Administrator zgodności<br>Administrator danych zgodności<br>Czytelnik globalny<br>Administrator zabezpieczeń<br>Operator zabezpieczeń<br>Czytelnik zabezpieczeń<br>Administrator pomocy technicznej usługi
+Role międzyusługowe | Administrator globalny<br>Administrator zgodności<br>Administrator danych zgodności<br>Czytelnik globalny<br>Administrator zabezpieczeń<br>Operator zabezpieczeń<br>Czytelnik zabezpieczeń<br>Administrator pomocy technicznej usługi
 Role specyficzne dla usługi | Administrator usługi Azure DevOps<br>Azure Information Protection administrator<br>Administrator rozliczeń<br>Administrator usługi CRM<br>Osoba zatwierdzająca dostęp do skrytki klienta<br>Administrator usługi Desktop Analytics<br>Administrator usługi Exchange<br>Administrator usługi Insights<br>Lider biznesowy usługi Insights<br>Administrator usługi Intune<br>Usługi kaizala administrator<br>Administrator usługi Lync<br>Czytnik prywatności centrum wiadomości<br>Czytelnik centrum wiadomości<br>Nowoczesny użytkownik handlowy<br>Administrator sieci<br>Administrator aplikacji pakietu Office<br>Administrator usługi Power BI<br>Administrator platformy w elektrowni<br>Administrator drukarki<br>Technika drukarki<br>Administrator wyszukiwania<br>Edytor wyszukiwania<br>Administrator usługi SharePoint<br>Administratorzy zespołu ds. komunikacji<br>Inżynierowie pomocy technicznej dla zespołów<br>Zespoły ds. pomocy technicznej<br>Administrator urządzeń zespołów<br>Administrator usługi Teams
 
 ## <a name="next-steps"></a>Następne kroki

@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 69417945bcd5234a0e5e8d2d6aee42859bc95c20
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964715"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071056"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift — często zadawane pytania
 
@@ -81,7 +81,7 @@ Węzły są ponownie uruchamiane w ramach uaktualnienia.
 
 ### <a name="can-i-use-prometheus-to-monitor-my-applications"></a>Czy mogę używać Prometheus do monitorowania aplikacji?
 
-Prometheus jest wstępnie zainstalowana i skonfigurowana dla klastrów Red Hat OpenShift 4. x platformy Azure. Dowiedz się więcej o [monitorowaniu klastra](https://docs.openshift.com/container-platform/3.11/install_config/prometheus_cluster_monitoring.html).
+Prometheus jest wstępnie zainstalowana i skonfigurowana dla klastrów Red Hat OpenShift 4. x platformy Azure. Dowiedz się więcej o [monitorowaniu klastra](https://docs.openshift.com/container-platform/4.6/operators/operator_sdk/osdk-monitoring-prometheus.html).
 
 W przypadku klastrów z systemem Red Hat OpenShift 3,11 można wdrożyć Prometheus w przestrzeni nazw oraz monitorować aplikacje w przestrzeni nazw. Aby uzyskać więcej informacji, zobacz [Wdrażanie wystąpienia Prometheus w klastrze Red Hat OpenShift platformy Azure](howto-deploy-prometheus.md).
 
@@ -97,7 +97,7 @@ Dzienniki z bazowych maszyn wirtualnych są obsługiwane przez usługę zarządz
 
 ### <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-azure-red-hat-openshift-cluster"></a>Jak klient może uzyskać dostęp do metryk, takich jak procesor CPU/pamięć na poziomie węzła, aby podjąć działania w celu skalowania, debugowania problemów itp.? Nie mogę uruchomić polecenia kubectl góry w klastrze Red Hat OpenShift platformy Azure.
 
-W przypadku klastrów Azure Red Hat OpenShift 4. x OpenShift Konsola sieci Web zawiera wszystkie metryki na poziomie węzła. Aby uzyskać więcej informacji, zobacz dokumentację Red Hat dotyczącą [wyświetlania informacji o klastrze](https://docs.openshift.com/aro/4/web_console/using-dashboard-to-get-cluster-information.html).
+W przypadku klastrów Azure Red Hat OpenShift 4. x OpenShift Konsola sieci Web zawiera wszystkie metryki na poziomie węzła. Aby uzyskać więcej informacji, zobacz dokumentację Red Hat dotyczącą [wyświetlania informacji o klastrze](https://docs.openshift.com/container-platform/4.6/web_console/using-dashboard-to-get-cluster-information.html).
 
 W przypadku klastrów z systemem Red Hat OpenShift 3,11 klienci mogą uzyskać dostęp do metryk procesora/pamięci na poziomie węzła przy użyciu polecenia `oc adm top nodes` lub `kubectl top nodes` roli klastra klienta-administratora. Klienci mogą również uzyskać dostęp do metryk procesora/pamięci `pods` za pomocą polecenia `oc adm top pods` lub `kubectl top pods` .
 
@@ -116,18 +116,18 @@ Należy zachować ostrożność w przypadku używania określonych etykiet:
 - Nazwa hosta nie może być używana. Nazwa hosta jest często obracana z uaktualnieniami i aktualizacjami i jest zagwarantowana do zmiany.
 - Jeśli klient ma żądanie dotyczące określonych etykiet lub strategii wdrażania, można to osiągnąć, ale wymagałoby to wysiłków inżynieryjnych i nie jest to obecnie obsługiwane.
 
-Aby uzyskać więcej informacji, zobacz [kontrolowanie umieszczania pod](https://docs.openshift.com/aro/4/nodes/scheduling/nodes-scheduler-about.html).
+Aby uzyskać więcej informacji, zobacz [kontrolowanie umieszczania pod](https://docs.openshift.com/container-platform/4.6/nodes/scheduling/nodes-scheduler-about.html).
 
 ### <a name="is-the-image-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Czy rejestr obrazów jest dostępny zewnętrznie, aby można było używać narzędzi takich jak Jenkins?
 
 W przypadku klastrów 4. x należy uwidocznić bezpieczny rejestr i skonfigurować uwierzytelnianie. Aby uzyskać więcej informacji, zobacz następującą dokumentację Red Hat:
 
-- [Uwidacznianie rejestru](https://docs.openshift.com/aro/4/registry/securing-exposing-registry.html)
-- [Uzyskiwanie dostępu do rejestru](https://docs.openshift.com/aro/4/registry/accessing-the-registry.html)
+- [Uwidacznianie rejestru](https://docs.openshift.com/container-platform/4.6/registry/securing-exposing-registry.html)
+- [Uzyskiwanie dostępu do rejestru](https://docs.openshift.com/container-platform/4.6/registry/accessing-the-registry.html)
 
 W przypadku klastrów 3,11 jest dostępny rejestr platformy Docker. Rejestr platformy Docker jest dostępny z programu `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Możesz również użyć Azure Container Registry.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Czy mogę wdrożyć klaster w istniejącej sieci wirtualnej?
 
@@ -181,28 +181,28 @@ oc adm policy \
 
 Aby uzyskać więcej informacji, zapoznaj się z dokumentacją OpenShift dotyczącą wyłączania samoobsługowego udostępniania dla wersji klastra:
 
-- [Wyłączanie samoobsługowego udostępniania w klastrach 4,3](https://docs.openshift.com/aro/4/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
+- [Wyłączanie samoobsługowego udostępniania w klastrach 4,6](https://docs.openshift.com/container-platform/4.6/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
 - [Wyłączanie samoobsługowego udostępniania w klastrach 3,11](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning)
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Które prawa systemu UNIX (w IaaS) są dostępne dla węzłów wzorców/infrastruktury/aplikacji?
 
-W przypadku klastrów 4. x dostęp do węzła jest dostępny za pomocą roli klastra-administratora. Aby uzyskać więcej informacji, zobacz [KUBERNETES RBAC — Omówienie](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+W przypadku klastrów 4. x dostęp do węzła jest dostępny za pomocą roli klastra-administratora. Aby uzyskać więcej informacji, zobacz [KUBERNETES RBAC — Omówienie](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
 
 W przypadku klastrów 3,11 dostęp do węzła jest zabroniony.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Jakie są prawa OCP? Klaster-administrator? Projekt — administrator?
 
-W przypadku klastrów 4. x rola Administrator klastra jest dostępna. Aby uzyskać więcej informacji, zobacz [KUBERNETES RBAC — Omówienie](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+W przypadku klastrów 4. x rola Administrator klastra jest dostępna. Aby uzyskać więcej informacji, zobacz [KUBERNETES RBAC — Omówienie](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
 
 Aby uzyskać więcej informacji na temat klastrów 3,11, zobacz [Omówienie administrowania klastrami](https://docs.openshift.com/aro/admin_guide/index.html) .
 
 ### <a name="which-identity-providers-are-available"></a>Którzy dostawcy tożsamości są dostępni?
 
-W przypadku klastrów 4. x należy skonfigurować własnego dostawcę tożsamości. Aby uzyskać więcej informacji, zobacz dokumentację Red Hat dotyczącą [konfigurowania tożsamości prodivers](https://docs.openshift.com/aro/4/authentication/identity_providers/configuring-ldap-identity-provider.html).
+W przypadku klastrów 4. x należy skonfigurować własnego dostawcę tożsamości. Aby uzyskać więcej informacji, zobacz dokumentację Red Hat dotyczącą [konfigurowania dostawców tożsamości](https://docs.openshift.com/container-platform/4.6/authentication/identity_providers/configuring-ldap-identity-provider.html).
 
 W przypadku klastrów 3,11 można korzystać z integracji usługi Azure AD. 
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ### <a name="is-data-on-my-cluster-encrypted"></a>Czy dane w moim klastrze są szyfrowane?
 
@@ -210,13 +210,13 @@ Domyślnie dane są szyfrowane w stanie spoczynku. Platforma Azure Storage autom
 
 ### <a name="is-data-stored-in-etcd-encrypted-on-azure-red-hat-openshift"></a>Czy dane są przechowywane w etcd zaszyfrowane na platformie Azure Red Hat OpenShift?
 
-W przypadku klastrów z systemem Red Hat OpenShift 4 dane nie są szyfrowane domyślnie, ale istnieje możliwość włączenia szyfrowania. Aby uzyskać więcej informacji, zobacz Przewodnik dotyczący [szyfrowania etcd](https://docs.openshift.com/container-platform/4.3/authentication/encrypting-etcd.html).
+W przypadku klastrów z systemem Red Hat OpenShift 4 dane nie są szyfrowane domyślnie, ale istnieje możliwość włączenia szyfrowania. Aby uzyskać więcej informacji, zobacz Przewodnik dotyczący [szyfrowania etcd](https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html).
 
 W przypadku klastrów 3,11 dane nie są szyfrowane na poziomie etcd. Opcja włączenia szyfrowania jest obecnie nieobsługiwana. OpenShift obsługuje tę funkcję, ale działania inżynieryjne są wymagane do przetworzenia ich na mapie drogowej. Dane są szyfrowane na poziomie dysku. Aby uzyskać więcej informacji, zapoznaj się z artykułem [szyfrowanie danych w warstwie magazynu](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) .
 
 ### <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>Czy można wybrać dowolne trwałe rozwiązanie magazynu, takie jak OCS? 
 
-W przypadku klastrów 4. x dysk platformy Azure (Premium_LRS) jest skonfigurowany jako domyślna Klasa magazynu. Dodatkowe dostawcy magazynu i szczegółowe informacje dotyczące konfiguracji (w tym plik platformy Azure) znajdują się w dokumentacji Red Hat w [magazynie trwałym](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
+W przypadku klastrów 4. x dysk platformy Azure (Premium_LRS) jest skonfigurowany jako domyślna Klasa magazynu. Dodatkowe dostawcy magazynu i szczegółowe informacje dotyczące konfiguracji (w tym plik platformy Azure) znajdują się w dokumentacji Red Hat w [magazynie trwałym](https://docs.openshift.com/container-platform/4.6/storage/understanding-persistent-storage.html).
 
 W przypadku klastrów 3,11 domyślnie są dostępne dwie klasy magazynu: jeden dla dysku platformy Azure (Premium_LRS) i jeden dla plików platformy Azure.
 

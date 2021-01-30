@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e2623ebf929f6a24cfc977896acea514634ffb23
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054516"
+ms.locfileid: "99071702"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -48,7 +48,7 @@ W tej sekcji opisano sposób tworzenia tych punktów końcowych przy użyciu int
 
 ### <a name="create-the-endpoint"></a>Tworzenie punktu końcowego
 
-Po utworzeniu zasobów punktu końcowego można używać ich na potrzeby punktu końcowego usługi Azure Digital bliźniaczych reprezentacji. W poniższych przykładach pokazano, jak utworzyć punkty końcowe przy użyciu `az dt endpoint create` polecenia dla [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Zastąp symbole zastępcze w poleceniach szczegółowymi informacjami dotyczącymi własnych zasobów.
+Po utworzeniu zasobów punktu końcowego można używać ich na potrzeby punktu końcowego usługi Azure Digital bliźniaczych reprezentacji. W poniższych przykładach pokazano, jak utworzyć punkty końcowe za pomocą polecenia [AZ DT Endpoint Create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) dla [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Zastąp symbole zastępcze w poleceniach szczegółowymi informacjami dotyczącymi własnych zasobów.
 
 Aby utworzyć punkt końcowy Event Grid:
 
@@ -56,21 +56,39 @@ Aby utworzyć punkt końcowy Event Grid:
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Aby utworzyć punkt końcowy Event Hubs:
+Aby utworzyć punkt końcowy Event Hubs (uwierzytelnianie oparte na kluczach):
 ```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Aby utworzyć punkt końcowy tematu Service Bus:
+Aby utworzyć punkt końcowy tematu Service Bus (uwierzytelnianie oparte na kluczach):
 ```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 Po pomyślnym uruchomieniu tych poleceń, Siatka zdarzeń, centrum zdarzeń lub Service Bus będzie dostępny jako punkt końcowy w ramach bliźniaczych reprezentacji cyfrowych platformy Azure, pod nazwą podaną z `--endpoint-name` argumentem. Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
 
+#### <a name="create-an-endpoint-with-identity-based-authentication"></a>Tworzenie punktu końcowego z uwierzytelnianiem na podstawie tożsamości
+
+Możesz również utworzyć punkt końcowy z uwierzytelnianiem na podstawie tożsamości, aby użyć punktu końcowego z [tożsamością zarządzaną](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Ta opcja jest dostępna tylko dla punktów końcowych centrum zdarzeń i typu Service Bus (nie jest to obsługiwane w przypadku Event Grid).
+
+Polecenie interfejsu wiersza polecenia do utworzenia tego typu punktu końcowego jest poniżej. Aby podłączyć symbole zastępcze w poleceniu, potrzebne są następujące wartości:
+* Identyfikator zasobu platformy Azure wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+* Nazwa punktu końcowego
+* Typ punktu końcowego
+* Przestrzeń nazw zasobu punktu końcowego
+* Nazwa centrum zdarzeń lub tematu Service Bus
+* Lokalizacja wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Tworzenie punktu końcowego z utraconymi wiadomościami
 
 Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**.
+
+Punkty końcowe z włączoną obsługą utraconych wiadomości można skonfigurować przy użyciu interfejsu [wiersza polecenia](how-to-use-cli.md) lub [interfejsu API](how-to-use-apis-sdks.md#overview-control-plane-apis)Digital bliźniaczych reprezentacji platformy Azure.
 
 Aby dowiedzieć się więcej o utraconych wiadomościach, zobacz [*pojęcia: trasy zdarzeń*](concepts-route-events.md#dead-letter-events). Aby uzyskać instrukcje dotyczące sposobu konfigurowania punktu końcowego z utraconymi wiadomościami, przejdź do dalszej części tej sekcji.
 
@@ -78,7 +96,7 @@ Aby dowiedzieć się więcej o utraconych wiadomościach, zobacz [*pojęcia: tra
 
 Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć [konto magazynu](../storage/common/storage-account-create.md?tabs=azure-portal) z [kontenerem](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) skonfigurowanym na koncie platformy Azure. 
 
-Podasz adres URL dla tego kontenera podczas późniejszego tworzenia punktu końcowego. Lokalizacja utraconych wiadomości zostanie dostarczona do punktu końcowego jako adres URL kontenera z [tokenem sygnatury dostępu współdzielonego](../storage/common/storage-sas-overview.md). Ten token wymaga `write` uprawnień do kontenera docelowego na koncie magazynu. W pełni sformułowany adres URL będzie miał format: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` .
+Podaj identyfikator URI dla tego kontenera podczas późniejszego tworzenia punktu końcowego. Lokalizacja utraconych wiadomości zostanie dostarczona do punktu końcowego jako identyfikator URI kontenera z [tokenem sygnatury dostępu współdzielonego](../storage/common/storage-sas-overview.md). Ten token wymaga `write` uprawnień do kontenera docelowego na koncie magazynu. W pełni sformułowany **Identyfikator URI sygnatury dostępu współdzielonego z utraconymi wiadomościami** będzie miał format: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>` .
 
 Wykonaj poniższe kroki, aby skonfigurować te zasoby magazynu na koncie platformy Azure, aby przygotować się do skonfigurowania połączenia punktu końcowego w następnej sekcji.
 
@@ -99,25 +117,44 @@ Wykonaj poniższe kroki, aby skonfigurować te zasoby magazynu na koncie platfor
 
     :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Skopiuj token sygnatury dostępu współdzielonego, aby użyć go w kluczu tajnym utraconych wiadomości." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
     
-#### <a name="configure-the-endpoint"></a>Konfigurowanie punktu końcowego
+#### <a name="create-the-dead-letter-endpoint"></a>Tworzenie punktu końcowego utraconych wiadomości
 
-Aby utworzyć punkt końcowy, w którym włączono obsługę utraconych wiadomości, można utworzyć punkt końcowy przy użyciu Azure Resource Manager interfejsów API. 
+Aby utworzyć punkt końcowy, w którym włączono obsługę utraconych wiadomości, Dodaj następujący parametr utraconych wiadomości do polecenia [AZ DT Endpoint Create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) dla [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
-1. Najpierw użyj [dokumentacji interfejsów api Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) , aby skonfigurować żądanie utworzenia punktu końcowego, i Wypełnij wymagane parametry żądania. 
+Wartość parametru to **utracony identyfikator URI sygnatury dostępu współdzielonego** , składający się z nazwy konta magazynu, nazwy kontenera i tokenu sygnatury dostępu współdzielonego zebranego w [poprzedniej sekcji](#set-up-storage-resources). Ten parametr umożliwia utworzenie punktu końcowego przy użyciu uwierzytelniania opartego na kluczach.
 
-2. Następnie Dodaj `deadLetterSecret` pole do obiektu właściwości w **treści** żądania. Ustaw tę wartość zgodnie z szablonem poniżej, który określa adres URL z nazwy konta magazynu, nazwy kontenera i wartości tokena SAS zebrane w [poprzedniej sekcji](#set-up-storage-resources).
-      
-  :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
+```azurecli
+--deadletter-sas-uri https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
+```
 
-3. Wyślij żądanie, aby utworzyć punkt końcowy.
+Dodaj ten parametr na końcu poleceń tworzenia punktu końcowego ze strony [*Utwórz punkt końcowy*](#create-the-endpoint) , aby utworzyć punkt końcowy żądanego typu z włączonymi utraconymi komunikatami.
 
-Aby uzyskać więcej informacji na temat tworzenia struktury tego żądania, zobacz Dokumentacja interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji: [punkty końcowe — DigitalTwinsEndpoint metodę createorupdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Alternatywnie możesz tworzyć utracone punkty końcowe na [platformie Azure](how-to-use-apis-sdks.md#overview-control-plane-apis) , a nie interfejs wiersza polecenia. Aby to zrobić, zapoznaj się z [dokumentacją DigitalTwinsEndpoint](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) , aby zobaczyć, jak określić strukturę żądania i dodać parametry utraconych wiadomości.
 
-### <a name="message-storage-schema"></a>Schemat magazynu komunikatów
+#### <a name="create-a-dead-letter-endpoint-with-identity-based-authentication"></a>Tworzenie punktu końcowego utraconych wiadomości za pomocą uwierzytelniania opartego na tożsamościach
+
+Możesz również utworzyć punkt końcowy utraconych wiadomości, który ma uwierzytelnianie oparte na tożsamościach, aby użyć punktu końcowego z [tożsamością zarządzaną](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Ta opcja jest dostępna tylko dla punktów końcowych centrum zdarzeń i typu Service Bus (nie jest to obsługiwane w przypadku Event Grid).
+
+Aby utworzyć ten typ punktu końcowego, użyj tego samego polecenia CLI ze starszej wersji, aby [utworzyć punkt końcowy z uwierzytelnianiem na podstawie tożsamości](#create-an-endpoint-with-identity-based-authentication), z dodatkowym polem w ładunku JSON dla `deadLetterUri` .
+
+Poniżej znajdują się wartości, które należy podłączyć do symboli zastępczych w poleceniu:
+* Identyfikator zasobu platformy Azure wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+* Nazwa punktu końcowego
+* Typ punktu końcowego
+* Przestrzeń nazw zasobu punktu końcowego
+* Nazwa centrum zdarzeń lub tematu Service Bus
+* Szczegóły **utraconego identyfikatora URI sygnatury dostępu współdzielonego** : nazwa konta magazynu, nazwa kontenera
+* Lokalizacja wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
+#### <a name="message-storage-schema"></a>Schemat magazynu komunikatów
 
 Po skonfigurowaniu punktu końcowego z utraconymi komunikatami wiadomości utracone będą przechowywane w następującym formacie na koncie magazynu:
 
-`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+`{container}/{endpoint-name}/{year}/{month}/{day}/{hour}/{event-ID}.json`
 
 Wiadomości utracone będą zgodne ze schematem oryginalnego zdarzenia, które było przeznaczone do dostarczenia do oryginalnego punktu końcowego.
 
@@ -128,7 +165,7 @@ Poniżej znajduje się przykład wiadomości utraconej dla [powiadomienia o twor
   "specversion": "1.0",
   "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "type": "Microsoft.DigitalTwins.Twin.Create",
-  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "source": "<your-instance>.api.<your-region>.da.azuredigitaltwins-test.net",
   "data": {
     "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",

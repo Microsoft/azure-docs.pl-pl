@@ -5,67 +5,40 @@ description: Monitoruj stan, postęp i wyniki Wyszukiwanie poznawcze indeksator�
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 0107dfb24ddad2a5b0f9f0ab12d2fe701466e385
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.date: 01/28/2021
+ms.openlocfilehash: a94720e6b84821d53a3bfdcbdce249390078940f
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372833"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063265"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Jak monitorować stan i wyniki usługi Azure Wyszukiwanie poznawcze indeksator
 
-Usługa Azure Wyszukiwanie poznawcze udostępnia informacje o stanie i monitorowaniu dotyczące bieżących i historycznych przebiegów każdego indeksatora.
+Można monitorować przetwarzanie indeksatora w Azure Portal lub programowo za pomocą wywołań REST lub zestawu Azure SDK. Oprócz stanu samego indeksatora można przejrzeć godziny rozpoczęcia i zakończenia oraz szczegóły błędów i ostrzeżeń z określonego uruchomienia.
 
-Monitorowanie indeksatora jest przydatne, gdy chcesz:
+## <a name="monitor-using-azure-portal"></a>Monitoruj przy użyciu Azure Portal
 
-* Śledź postęp indeksatora w trakcie trwającego uruchomienia.
-* Przejrzyj wyniki trwającej lub poprzedniej przebiegu indeksatora.
-* Zidentyfikuj błędy indeksatora najwyższego poziomu oraz błędy lub ostrzeżenia dotyczące indeksowanych poszczególnych dokumentów.
-
-## <a name="get-status-and-history"></a>Pobierz stan i historię
-
-Informacje o monitorowaniu indeksatora można uzyskać na różne sposoby, w tym:
-
-* W [Azure Portal](#portal)
-* Korzystanie z [interfejsu API REST](#restapi)
-* Korzystanie z [zestawu SDK platformy .NET](#dotnetsdk)
-
-Dostępne informacje monitorowania indeksatora obejmują wszystkie następujące elementy (chociaż formaty danych różnią się w zależności od używanej metody dostępu):
-
-* Informacje o stanie samego indeksatora
-* Informacje na temat ostatniego przebiegu indeksatora, w tym jego stanu, godziny rozpoczęcia i zakończenia oraz szczegóły błędów i ostrzeżeń.
-* Lista przebiegów historycznego indeksatora oraz ich stan, wyniki, błędy i ostrzeżenia.
-
-Uruchamianie indeksatorów przetwarzających duże ilości danych może zająć dużo czasu. Na przykład indeksatory obsługujące miliony dokumentów źródłowych mogą być uruchamiane przez 24 godziny, a następnie ponownie uruchomione niemal od razu. Stan indeksatorów wysokiego woluminu może zawsze być **w toku** w portalu. Nawet gdy indeksator jest uruchomiony, dostępne są szczegóły dotyczące ciągłego postępu i poprzednich przebiegów.
-
-<a name="portal"></a>
-
-## <a name="monitor-using-the-portal"></a>Monitorowanie przy użyciu portalu
-
-Bieżący stan wszystkich indeksatorów znajduje się na liście **indeksatorów** na stronie Przegląd usługi wyszukiwania.
+Bieżący stan wszystkich indeksatorów można zobaczyć na stronie Przegląd usługi wyszukiwania. Strony portalu odświeżają co kilka minut, więc nie będzie można od razu zobaczyć dowód nowego uruchomienia indeksatora.
 
    ![Lista indeksatorów](media/search-monitor-indexers/indexers-list.png "Lista indeksatorów")
 
-Gdy indeksator jest wykonywany, stan na liście jest **w toku** , a wartość w polu **Dokumentacja zakończona pomyślnie** pokazuje liczbę dokumentów przetworzonych do tej pory. Aktualizacja wartości stanu indeksatora i liczby dokumentów przez portal może potrwać kilka minut.
+| Stan | Opis |
+|--------|-------------|
+| **W toku** | Wskazuje aktywne wykonanie. Portal wyśle raport dotyczący częściowych informacji. W miarę postępów indeksowania można obserwować, że **Dokumentacja została zakończona pomyślnie** . Uruchamianie indeksatorów przetwarzających duże ilości danych może zająć dużo czasu. Na przykład indeksatory obsługujące miliony dokumentów źródłowych mogą być uruchamiane przez 24 godziny, a następnie ponownie uruchomione niemal od razu. Stan indeksatorów wysokiego woluminu może zawsze być **w toku** w portalu. Nawet gdy indeksator jest uruchomiony, dostępne są szczegóły dotyczące ciągłego postępu i poprzednich przebiegów. |
+| **Powodzenie** | Wskazuje, że uruchomienie zakończyło się pomyślnie. Uruchomienie indeksatora może się powieść, nawet jeśli pojedyncze dokumenty mają Błędy, jeśli liczba błędów jest mniejsza niż wartość ustawienia **Maksymalny element elementów zakończonych niepowodzeniem** indeksatora. |
+| **Niepowodzenie** | Liczba błędów przekroczyła **maksymalną liczbę elementów zakończonych niepowodzeniem** i indeksowanie zostało zatrzymane. |
+| **Reset** | Wewnętrzny stan śledzenia zmian indeksatora został zresetowany. Indeksator zostanie uruchomiony w całości, odświeżone wszystkie dokumenty, a nie tylko za pomocą nowszych sygnatur czasowych. |
 
-Indeksator, którego ostatnie uruchomienie zakończyło się pomyślnie, pokazuje **powodzenie**. Uruchomienie indeksatora może się powieść, nawet jeśli pojedyncze dokumenty mają Błędy, jeśli liczba błędów jest mniejsza niż wartość ustawienia **Maksymalny element elementów zakończonych niepowodzeniem** indeksatora.
-
-Jeśli ostatnie uruchomienie zakończyło się błędem, stan wyświetli **się niepowodzeniem**. Stan **resetowania** oznacza, że stan śledzenia zmian indeksatora został zresetowany.
-
-Kliknij indeksator na liście, aby zobaczyć więcej szczegółów na temat bieżących i ostatnich przebiegów indeksatora.
+Możesz kliknąć indeksator na liście, aby zobaczyć więcej szczegółów na temat bieżących i ostatnich przebiegów indeksatora.
 
    ![Historia indeksatora i historię wykonywania](media/search-monitor-indexers/indexer-summary.png "Historia indeksatora i historię wykonywania")
 
 Na wykresie **podsumowania indeksatora** jest wyświetlany wykres liczby dokumentów przetworzonych w ostatnich uruchomieniach.
 
-Lista **szczegóły wykonania** przedstawia do 50 najnowszych wyników wykonania.
-
-Kliknij wynik wykonania na liście, aby zobaczyć szczegóły dotyczące tego uruchomienia. Obejmuje to czasy rozpoczęcia i zakończenia oraz wszelkie błędy i ostrzeżenia, które wystąpiły.
+Lista **szczegóły wykonania** przedstawia do 50 najnowszych wyników wykonania. Kliknij wynik wykonania na liście, aby zobaczyć szczegóły dotyczące tego uruchomienia. Obejmuje to czasy rozpoczęcia i zakończenia oraz wszelkie błędy i ostrzeżenia, które wystąpiły.
 
    ![Szczegóły wykonywania indeksatora](media/search-monitor-indexers/indexer-execution.png "Szczegóły wykonywania indeksatora")
 
@@ -73,13 +46,11 @@ Jeśli podczas przebiegu wystąpiły problemy specyficzne dla dokumentu, zostan�
 
    ![Szczegóły indeksatora z błędami](media/search-monitor-indexers/indexer-execution-error.png "Szczegóły indeksatora z błędami")
 
-Ostrzeżenia są wspólne dla niektórych typów indeksatorów i nie zawsze wskazują problem. Na przykład indeksatory korzystające z usług poznawczych mogą raportować ostrzeżenia, gdy pliki obrazów lub PDF nie zawierają żadnego tekstu do przetworzenia.
+Ostrzeżenia są wspólne dla niektórych typów indeksatorów i nie zawsze wskazują problem. Na przykład indeksatory korzystające z usług poznawczych mogą raportować ostrzeżenia, gdy pliki obrazów lub PDF nie zawierają żadnego tekstu do przetworzenia. 
 
 Aby uzyskać więcej informacji na temat badania błędów i ostrzeżeń indeksatora, zobacz [Rozwiązywanie typowych problemów indeksatora na platformie Azure wyszukiwanie poznawcze](search-indexer-troubleshooting.md).
 
-<a name="restapi"></a>
-
-## <a name="monitor-using-rest-apis"></a>Monitorowanie przy użyciu interfejsów API REST
+## <a name="monitor-using-get-indexer-status-rest-api"></a>Monitorowanie przy użyciu funkcji pobierania indeksatora (interfejs API REST)
 
 Można pobrać stan i historię wykonywania indeksatora przy użyciu [polecenia Pobierz indeksator stanu](/rest/api/searchservice/get-indexer-status):
 
@@ -122,15 +93,13 @@ Historia wykonywania zawiera maksymalnie 50 ostatnich przebiegów, które są so
 
 Należy pamiętać, że istnieją dwie różne wartości stanu. Stan najwyższego poziomu jest przeznaczony dla samego indeksatora. Stan indeksatora **oznacza, że indeksator** jest prawidłowo skonfigurowany i dostępny do uruchomienia, ale nie jest aktualnie uruchomiony.
 
-Każdy przebieg indeksatora ma również swój własny stan, który wskazuje, czy określone wykonanie jest **wykonywane (uruchomione** ), czy już zakończone **powodzeniem** , **transientFailure** lub **persistentFailure** . 
+Każdy przebieg indeksatora ma również swój własny stan, który wskazuje, czy określone wykonanie jest **wykonywane (uruchomione**), czy już zakończone **powodzeniem**, **transientFailure** lub **persistentFailure** . 
 
 Gdy indeksator zostanie zresetowany w celu odświeżenia stanu śledzenia zmian, zostanie dodany oddzielny wpis historii wykonania ze stanem **Reset** .
 
-Aby uzyskać więcej informacji na temat kodów stanu i danych monitorowania indeksatora, zobacz [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
+Aby uzyskać więcej informacji na temat kodów stanu i danych monitorowania indeksatora, zobacz [pobieranie stanu indeksatora](/rest/api/searchservice/get-indexer-status).
 
-<a name="dotnetsdk"></a>
-
-## <a name="monitor-using-the-net-sdk"></a>Monitorowanie przy użyciu zestawu .NET SDK
+## <a name="monitor-using-net"></a>Monitoruj przy użyciu platformy .NET
 
 Korzystając z zestawu SDK platformy Azure Wyszukiwanie poznawcze .NET, Poniższy przykład kodu w języku C# zapisuje informacje o stanie indeksatora i wyniki jego najnowszej (lub trwającej) przebiegu w konsoli programu.
 
@@ -180,7 +149,7 @@ Latest run
 
 Należy pamiętać, że istnieją dwie różne wartości stanu. Stan najwyższego poziomu to stan samego indeksatora. Stan indeksatora **oznacza,** że indeksator jest prawidłowo skonfigurowany i dostępny do wykonania, ale nie jest aktualnie wykonywany.
 
-Każdy przebieg indeksatora ma również swój własny stan dla tego, czy określone wykonanie jest w toku ( **uruchomione** ) czy zostało już wykonane z użyciem stanu **sukcesu** lub **TransientError** . 
+Każdy przebieg indeksatora ma również swój własny stan dla tego, czy określone wykonanie jest w toku (**uruchomione**) czy zostało już wykonane z użyciem stanu **sukcesu** lub **TransientError** . 
 
 Gdy indeksator zostanie zresetowany w celu odświeżenia stanu śledzenia zmian, zostanie dodany oddzielny wpis historii ze stanem **Reset** .
 

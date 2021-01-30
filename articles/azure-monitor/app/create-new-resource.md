@@ -3,12 +3,12 @@ title: Tworzenie nowego zasobu usługi Azure Application Insights | Microsoft Do
 description: Ręcznie skonfiguruj Application Insights monitorowania dla nowej aplikacji na żywo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: adc40db493c701a21fd30d10a4452edee1b87ab9
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: e69611d650f61630c8b36f7387b79cffbb61f227
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951274"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062917"
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -36,8 +36,8 @@ Zaloguj się do [Azure Portal](https://portal.azure.com)i utwórz zasób Applica
 
 Wprowadź odpowiednie wartości w wymaganych polach, a następnie wybierz pozycję **Przegląd + Utwórz**.
 
-[!div class="mx-imgBorder"]
-![Wprowadź wartości w wymaganych polach, a następnie wybierz pozycję "Przejrzyj + Utwórz".](./media/create-new-resource/review-create.png)
+> [!div class="mx-imgBorder"]
+> ![Wprowadź wartości w wymaganych polach, a następnie wybierz pozycję "Przejrzyj + Utwórz".](./media/create-new-resource/review-create.png)
 
 Po utworzeniu aplikacji zostanie otwarte nowe okienko. To okienko służy do wyświetlania danych dotyczących wydajności i użycia dotyczących monitorowanej aplikacji. 
 

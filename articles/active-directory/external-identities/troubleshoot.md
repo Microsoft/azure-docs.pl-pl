@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe34de0fa7847a23d9335dcdb0a38a33e006fdc
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa0d0d032c2ab6ae1d6c5e6b1c8b1793a6b3bd7c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355209"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090641"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Rozwiązywanie problemów Azure Active Directory współpracy B2B
 
@@ -92,7 +92,7 @@ Użytkownik, który ma konto gościa nie może się zalogować i otrzymuje nast�
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 ```
 
-Użytkownik ma konto użytkownika platformy Azure i jest porzuconym lub niezarządzanym dzierżawcą. Ponadto w dzierżawie nie ma żadnych administratorów globalnych ani firmowych.
+Użytkownik ma konto użytkownika platformy Azure i jest porzuconym lub niezarządzanym dzierżawcą. Ponadto nie ma żadnych administratorów globalnych w dzierżawie.
 
 Aby rozwiązać ten problem, musisz przejąć pozostałą dzierżawę. Zapoznaj się z artykułem  [przejmowanie niezarządzanego katalogu jako administrator w Azure Active Directory](../enterprise-users/domains-admin-takeover.md). Aby zapewnić bezpośredni dowód, że masz kontrolę nad przestrzenią nazw, należy również uzyskać dostęp do internetowego serwera DNS dla danego sufiksu domeny. Gdy dzierżawa zostanie zwrócona do stanu zarządzanego, zapoznaj się z klientem, czy opuszczenie użytkowników i zweryfikowanej nazwy domeny jest najlepszą opcją dla swojej organizacji.
 

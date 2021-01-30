@@ -4,12 +4,12 @@ description: Dowiedz się, jak połączyć aplikację funkcji, aby Application I
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e24f2b1a61d77dafd7a23b04d225d0301f82ca59
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684712"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070144"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Jak skonfigurować monitorowanie dla Azure Functions
 
@@ -246,7 +246,7 @@ Po wybraniu opcji **Utwórz** zasób Application Insights zostanie utworzony za 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Dodawanie do istniejącej aplikacji funkcji 
 
-Jeśli zasoby Application Insights nie zostały utworzone w aplikacji funkcji, wykonaj następujące kroki, aby utworzyć zasób. Następnie można dodać klucz Instrumentacji z tego zasobu jako [Ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) w aplikacji funkcji.
+Jeśli zasób Application Insights nie został utworzony w aplikacji funkcji, wykonaj następujące kroki, aby utworzyć zasób. Następnie można dodać klucz Instrumentacji z tego zasobu jako [Ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) w aplikacji funkcji.
 
 1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **aplikacja funkcji**, a następnie wybierz aplikację funkcji. 
 
@@ -271,6 +271,30 @@ Jeśli zasoby Application Insights nie zostały utworzone w aplikacji funkcji, w
 
 > [!NOTE]
 > Wczesne wersje funkcji używały wbudowanego monitorowania, które nie jest już zalecane. Podczas włączania integracji Application Insights dla takiej aplikacji funkcji należy również [wyłączyć wbudowane funkcje rejestrowania](#disable-built-in-logging).  
+
+## <a name="query-scale-controller-logs"></a>Dzienniki kontrolera skali zapytań
+
+Po włączeniu zarówno rejestrowania kontrolera skalowania, jak i integracji Application Insights można użyć przeszukiwania dzienników Application Insights, aby wykonać zapytanie dotyczące wyemitowanych dzienników kontrolera skalowania. Dzienniki kontrolera skalowania są zapisywane w `traces` kolekcji w kategorii **ScaleControllerLogs** .
+
+Poniższe zapytanie może służyć do wyszukiwania wszystkich dzienników kontrolera skalowania dla bieżącej aplikacji funkcji w określonym przedziale czasu:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+Następujące zapytanie zostaje rozwinięte w poprzednim zapytaniu, aby pokazać, jak uzyskać tylko dzienniki wskazujące zmianę w skali:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="disable-built-in-logging"></a>Wyłączanie wbudowanego rejestrowania
 

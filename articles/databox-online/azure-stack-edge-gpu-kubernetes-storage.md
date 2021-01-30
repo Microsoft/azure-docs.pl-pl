@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2d079f2fa3e67f1ec915a02de3e195ccac538209
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448707"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063320"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes Zarządzanie magazynem na urządzeniu GPU z systemem Azure Stack Edge
 
@@ -79,11 +79,11 @@ Wystąpią następujące czynności:
 
 Na urządzeniu z systemem Azure Stack Edge, alokacja statyczna `PersistentVolumes` jest tworzona przy użyciu funkcji magazynu urządzenia. Gdy udostępniasz udział i **korzystasz z opcji udział z funkcją COMPUTE Edge** , ta akcja powoduje automatyczne utworzenie zasobu PV w klastrze Kubernetes.
 
-![Tworzenie udziału lokalnego w Azure Portal na potrzeby inicjowania obsługi statycznej](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
+![Tworzenie udziału lokalnego w Azure Portal na potrzeby inicjowania obsługi statycznej](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
 Aby korzystać z obsługi warstw w chmurze, możesz utworzyć udział w chmurze krawędzi z włączoną opcją Użyj udziału z funkcją obliczeń Edge. Funkcja PV jest ponownie tworzona automatycznie dla tego udziału. Wszystkie dane aplikacji, które można zapisywać w udziale krawędzi, są warstwowe w chmurze. 
 
-![Tworzenie udziału w chmurze w Azure Portal na potrzeby inicjowania obsługi statycznej](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
+![Tworzenie udziału w chmurze w Azure Portal na potrzeby inicjowania obsługi statycznej](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
 Można utworzyć udziały SMB i NFS do statycznego udostępniania PVs na urządzeniu Azure Stack EDGE Pro. Po zainicjowaniu obsługi PV zostanie przesłany obwód PVC, aby przejąć ten magazyn. Poniżej znajduje się przykład wdrożenia obwodu PVC `yaml` , które jest oświadczeniem magazynu i korzysta z udostępnianych udziałów.
 

@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 9918c978ecb98b7586272da714bdc8d25920d114
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 7d0e3f8c55a2c8eff40c196719213390e96efb0a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920328"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089312"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 i Esv4
 
@@ -36,6 +36,7 @@ Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych. Aby korzys
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
+[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
 <br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
@@ -61,6 +62,7 @@ Rozmiary serii Esv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinu
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
+[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
 <br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
