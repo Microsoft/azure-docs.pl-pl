@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 128e93720da54132b9bc7c8a191038339434f096
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: f9e85960f3efc074eca18475c4a3e6c422c1990b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598942"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090845"
 ---
 # <a name="what-is-azure-active-directory"></a>Co to jest usługa Azure Active Directory?
 
@@ -93,7 +93,7 @@ Aby lepiej zrozumieć usługę Azure AD i jej dokumentację, zalecamy zapoznanie
 |Administrator konta|Ta klasyczna rola administratora subskrypcji określa właściciela subskrypcji odpowiedzialnego za rozliczenia. Ta rola ma dostęp do [Centrum konta platformy Azure](https://account.azure.com/Subscriptions) i pozwala zarządzać wszystkimi subskrypcjami na koncie. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrator usługi|Ta klasyczna rola administratora subskrypcji umożliwia zarządzanie wszystkimi zasobami platformy Azure, włącznie z dostępem. Ta rola ma takie same uprawnienia dostępu co użytkownik, któremu przypisano rolę właściciela w zakresie subskrypcji. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Właściciel|Ta rola ułatwia zarządzanie wszystkimi zasobami platformy Azure, włącznie z dostępem. Ta rola jest oparta na nowszym systemie autoryzacji o nazwie kontrola dostępu oparta na rolach (Azure RBAC), która zapewnia szczegółowe zarządzanie dostępem do zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrator globalny usługi Azure AD|Ta rola administratora jest automatycznie przypisywana osobie, która utworzyła dzierżawę usługi Azure AD. Administratorzy globalni mogą wykonywać wszystkie funkcje administracyjne usługi Azure AD i wszystkie usługi, które sfederować do usługi Azure AD, takie jak Exchange Online, SharePoint Online i Skype dla firm Online. Może istnieć wielu administratorów globalnych, ale tylko administratorzy globalni mogą przypisywać użytkownikom role administratora (włącznie z przypisywaniem innych administratorów globalnych). Należy pamiętać, że ta rola administratora jest nazywana administratorem globalnym w Azure Portal, ale jest nazywana **administratorem firmy** w interfejsie API Microsoft Graph i programie Azure AD PowerShell. Aby uzyskać więcej informacji o różnych rolach administratorów, zobacz [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md) (Uprawnienia ról administratorów w usłudze Azure Active Directory).|
+|Administrator globalny usługi Azure AD|Ta rola administratora jest automatycznie przypisywana osobie, która utworzyła dzierżawę usługi Azure AD. Administratorzy globalni mogą wykonywać wszystkie funkcje administracyjne usługi Azure AD i wszystkie usługi, które sfederować do usługi Azure AD, takie jak Exchange Online, SharePoint Online i Skype dla firm Online. Może istnieć wielu administratorów globalnych, ale tylko administratorzy globalni mogą przypisywać użytkownikom role administratora (włącznie z przypisywaniem innych administratorów globalnych). Aby uzyskać więcej informacji o różnych rolach administratorów, zobacz [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md) (Uprawnienia ról administratorów w usłudze Azure Active Directory).|
 |Subskrypcja platformy Azure| Używana do płacenia za usługi platformy Azure w chmurze. Możesz mieć wiele subskrypcji. Są one połączone z kartą kredytową.|
 |Dzierżawa platformy Azure| Dedykowane i zaufane wystąpienie usługi Azure AD, które jest tworzone automatycznie, gdy organizacja rejestruje się w ramach subskrypcji usług w chmurze firmy Microsoft, takiej jak Microsoft Azure, Microsoft Intune lub Microsoft 365. Dzierżawa usługi Azure reprezentuje jedną organizację.|
 |Pojedyncza dzierżawa| Dzierżawy platformy Azure, które uzyskują dostęp do innych usług w dedykowanym środowisku, są uznawane za jedną dzierżawę.|

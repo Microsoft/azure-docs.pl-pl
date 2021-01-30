@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 2ab87dfdeb18f97265c3bb2f34616c942a345c1e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8c688b1ba80050c49b9e2a36696ed7a2fb863e3f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698951"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089397"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Java przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "94698951"
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Tworzenie aplikacji konsolowej Java, która tworzy, ładuje i wysyła zapytanie do indeksu wyszukiwania za pomocą [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/)i [interfejsu API REST platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia aplikacji. Alternatywnie można [pobrać i uruchomić kompletną aplikację](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Tworzenie aplikacji konsolowej Java, która tworzy, ładuje i wysyła zapytanie do indeksu wyszukiwania za pomocą [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/)i [interfejsu API REST platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia aplikacji. Alternatywnie można [pobrać i uruchomić kompletną aplikację](https://developers.google.com/sheets/api/quickstart/java).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -35,7 +35,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Do utworzenia i przetestowania tego przewodnika Szybki Start użyto następującego oprogramowania i usług:
 
-+ [POMYSŁ IntelliJ](https://www.jetbrains.com/idea/)
++ [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
 + [Zestaw SDK języka Java 11](/java/azure/jdk/)
 
@@ -74,7 +74,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 ### <a name="specify-maven-dependencies"></a>Określ zależności Maven
 
-1. Wybierz **File** pozycję  >  **Ustawienia** pliku.
+1. Wybierz pozycję  >  **Ustawienia** pliku.
 1. W oknie **Ustawienia** wybierz pozycję **kompilacja, wykonanie,**  >  **narzędzia kompilacji** wdrożenia  >  **Maven**  >  **Importowanie**.
 1. Zaznacz pole wyboru  **Importuj projekty Maven automatycznie** , a następnie kliknij przycisk **OK** , aby zamknąć okno. Wtyczki Maven i inne zależności będą teraz automatycznie synchronizowane podczas aktualizacji pliku pom.xml w następnym kroku.
 
@@ -133,7 +133,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 ### <a name="set-up-the-project-structure"></a>Skonfiguruj strukturę projektu
 
-1. Wybierz **File** pozycję  >  **Struktura projektu** pliku.
+1. Wybierz pozycję  >  **Struktura projektu** pliku.
 1. Wybierz pozycję **moduły** i rozwiń drzewo źródłowe, aby uzyskać dostęp do zawartości `src`  >   `main` folderu.
 1. W `src`  >   `main`  >  `java` folderze Dodaj `app` `service` foldery i. Aby to zrobić, wybierz `java` folder, naciśnij klawisze ALT + INSERT, a następnie wprowadź nazwę folderu.
 1. W `src`  >   `main`  > `resources` folderze Dodaj `app` `service` foldery i.

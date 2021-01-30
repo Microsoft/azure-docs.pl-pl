@@ -45,12 +45,8 @@
       href: spring-cloud-concept-metrics.md
     - name: Siłownik Spring Boot platformy Azure
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Zabezpieczenia
-      items:
-        - name: Mechanizmy zabezpieczeń
-          href: spring-cloud-concept-security-controls.md
-        - name: Kontrole zabezpieczeń usługi Azure Policy
-          href: ./security-controls-policy.md
+    - name: Mechanizmy zabezpieczeń
+      href: spring-cloud-concept-security-controls.md
     - name: Opis stanu aplikacji
       href: spring-cloud-concept-app-status.md
     - name: Planowanie odzyskiwania po awarii

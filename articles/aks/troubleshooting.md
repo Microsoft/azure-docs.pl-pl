@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 02ff1581bafe62a092be87d16df51c7ca8c020b4
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 7dfb9e34daeb92d57a61c570055695867c4a8107
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830942"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071871"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -20,11 +20,11 @@ W przypadku tworzenia klastrów usługi Azure Kubernetes Service (AKS) lub zarz�
 Wypróbuj [oficjalny przewodnik dotyczący rozwiązywania problemów z klastrami Kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
 Istnieje również [Przewodnik rozwiązywania problemów](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md)Opublikowany przez inżyniera firmy Microsoft w celu rozwiązywania problemów z planami, węzłami, klastrami i innymi funkcjami.
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Otrzymuję błąd "Przekroczono limit przydziału" podczas tworzenia lub uaktualniania. Co mam zrobić? 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>`quota exceeded`Wystąpił błąd podczas tworzenia lub uaktualniania. Co mam zrobić? 
 
  [Zażądaj większej liczby rdzeni](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Otrzymuję błąd insufficientSubnetSize podczas wdrażania klastra AKS przy użyciu zaawansowanej sieci. Co mam zrobić?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>`insufficientSubnetSize`Wystąpił błąd podczas wdrażania klastra AKS przy użyciu zaawansowanej sieci. Co mam zrobić?
 
 Ten błąd wskazuje, że podsieć w użyciu dla klastra nie ma już dostępnych adresów IP w ramach CIDR dla pomyślnego przypisania zasobu. W przypadku klastrów korzystającą wtyczki kubenet wymaga wystarczającej przestrzeni adresowej IP dla każdego węzła w klastrze. W przypadku klastrów usługi Azure CNI wymagane jest wystarczające miejsce na adresy IP dla każdego węzła i znajdującego się w klastrze.
 Przeczytaj więcej na temat [projektowania usługi Azure CNI, aby przypisać adresy IP do zasobników](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).

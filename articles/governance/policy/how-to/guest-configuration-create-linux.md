@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gości
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 705c12cff5f4377249674ef9db155d1ed321ce42
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 38579bb43f012cac2b373bbbbb6ad757604f4c07
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755875"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070693"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -204,7 +204,17 @@ Polecenie cmdlet obsługuje również dane wejściowe z potoku programu PowerShe
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-Następnym krokiem jest opublikowanie pliku na platformie Azure Blob Storage.  Polecenie `Publish-GuestConfigurationPackage` wymaga `Az.Storage` modułu.
+Następnym krokiem jest opublikowanie pliku na platformie Azure Blob Storage. Polecenie `Publish-GuestConfigurationPackage` wymaga `Az.Storage` modułu.
+
+Parametry `Publish-GuestConfigurationPackage` polecenia cmdlet:
+
+- **Ścieżka**: lokalizacja pakietu do opublikowania
+- **ResourceGroupName**: Nazwa grupy zasobów, w której znajduje się konto magazynu
+- **StorageAccountName**: nazwa konta magazynu, w którym ma zostać opublikowany pakiet
+- **StorageContainerName**: (default: *guestconfiguration*) nazwa kontenera magazynu na koncie magazynu
+- **Wymuś**: Zastąp istniejący pakiet na koncie magazynu o tej samej nazwie
+
+W poniższym przykładzie jest publikowany pakiet do kontenera magazynu o nazwie "guestconfiguration".
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName

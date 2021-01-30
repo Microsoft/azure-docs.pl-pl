@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1b447e907bca3f8d21f522d888632aa687fd0f91
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934598"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070665"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorowanie i zgłaszanie alertów dla Azure Key Vault
 
@@ -203,12 +203,13 @@ Sprawdź następujące parametry konfiguracji.
 
 7. Tworzenie alertu 
 
+### <a name="example-email-alert"></a>Przykładowy alert e-mail 
+
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu, który wyróżnia informacje konieczne do skonfigurowania alertu e-mail.](../media/alert-20.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 Gratulacje, pomyślnie utworzono pulpit nawigacyjny monitorowania i skonfigurowano alerty dla magazynu kluczy. Po wykonaniu wszystkich powyższych czynności należy otrzymywać alerty e-mail, gdy Twój Magazyn kluczy spełnia skonfigurowane kryteria alertu. Przykład przedstawiono poniżej. Skorzystaj z narzędzi, które zostały skonfigurowane w tym artykule, aby aktywnie monitorować kondycję magazynu kluczy. 
 
-### <a name="example-email-alert"></a>Przykładowy alert e-mail 
 
-> [!div class="mx-imgBorder"]
-> ![Zrzut ekranu, który wyróżnia informacje konieczne do skonfigurowania alertu e-mail.](../media/alert-20.png)

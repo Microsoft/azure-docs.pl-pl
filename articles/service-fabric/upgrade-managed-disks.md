@@ -3,12 +3,12 @@ title: Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed di
 description: Oto jak uaktualnić istniejący klaster Service Fabric, aby używać usługi Azure Managed disks z niewielkim lub żadnym przestojem klastra.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c374c4536309a13abcf8c882b041a9c5357878e5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316158"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090658"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed disks
 
@@ -30,11 +30,11 @@ W tym artykule opisano kroki uaktualniania podstawowego typu węzła przykładow
 > [!CAUTION]
 > W tej procedurze wystąpi awaria tylko wtedy, gdy istnieją zależności w systemie DNS klastra (na przykład podczas uzyskiwania dostępu do [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Najlepszym rozwiązaniem w zakresie architektury dla usług frontonu](/azure/architecture/microservices/design/gateway) jest posiadanie pewnego rodzaju [modułu równoważenia obciążenia](/azure/architecture/guide/technology-choices/load-balancing-overview) przed typami węzłów w celu zapewnienia możliwości wymiany węzłów bez przestoju.
 
-Poniżej przedstawiono [Szablony i polecenia cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) dla Azure Resource Manager, które zostaną użyte do ukończenia scenariusza uaktualniania. Zmiany w szablonie zostaną omówione w temacie [Wdróż uaktualniony zestaw skalowania dla typu węzła podstawowego](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  poniżej.
+Poniżej przedstawiono [Szablony i polecenia cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) dla Azure Resource Manager, które zostaną użyte do ukończenia scenariusza uaktualniania. Zmiany w szablonie zostaną omówione w temacie [Wdróż uaktualniony zestaw skalowania dla typu węzła podstawowego](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  poniżej.
 
 ## <a name="set-up-the-test-cluster"></a>Konfigurowanie klastra testowego
 
-Skonfigurujmy wstępny klaster testowy Service Fabric. Najpierw [pobierz](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) Azure Resource Manager szablony przykładowe, których będziemy używać do realizacji tego scenariusza.
+Skonfigurujmy wstępny klaster testowy Service Fabric. Najpierw [pobierz](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) Azure Resource Manager szablony przykładowe, których będziemy używać do realizacji tego scenariusza.
 
 Następnie zaloguj się do konta platformy Azure.
 
@@ -263,7 +263,7 @@ Po zaimplementowaniu wszystkich zmian w plikach szablonu i parametrów przejdź 
 
 Aby wdrożyć zaktualizowaną konfigurację, należy najpierw uzyskać kilka odwołań do certyfikatu klastra przechowywanego w Key Vault. Najprostszym sposobem znalezienia tych wartości jest użycie Azure Portal. Potrzebne będą następujące elementy:
 
-* **Adres URL Key Vault certyfikatu klastra.** Na Key Vault w Azure Portal wybierz pozycję **Certyfikaty**  >  *żądany*  >  **Identyfikator tajny**certyfikatu:
+* **Adres URL Key Vault certyfikatu klastra.** Na Key Vault w Azure Portal wybierz pozycję **Certyfikaty**  >  *żądany*  >  **Identyfikator tajny** certyfikatu:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
@@ -373,6 +373,6 @@ Instrukcje:
 
 Zobacz też:
 
-* [Przykład: Uaktualnij węzły klastra, aby korzystać z usługi Azure Managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [Przykład: Uaktualnij węzły klastra, aby korzystać z usługi Azure Managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade)
 
 * [Zagadnienia dotyczące skalowania w pionie](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

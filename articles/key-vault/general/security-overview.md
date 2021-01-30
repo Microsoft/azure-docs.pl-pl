@@ -9,22 +9,21 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c4e9f0cd6a7421f5be29200816bb00a56b141367
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937764"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071573"
 ---
-# <a name="azure-key-vault-security-overview"></a>Omówienie zabezpieczeń Azure Key Vault
+# <a name="azure-key-vault-security"></a>Zabezpieczenia usługi Azure Key Vault
 
 Używasz Azure Key Vault do ochrony kluczy szyfrowania i wpisów tajnych, takich jak certyfikaty, ciągi połączeń i hasła w chmurze. W przypadku przechowywania danych poufnych i ważnych, należy podjąć kroki w celu zmaksymalizowania zabezpieczeń magazynów oraz przechowywanych w nich danych.
 
-Ten artykuł zawiera omówienie funkcji zabezpieczeń i najlepszych rozwiązań dotyczących Azure Key Vault. Aby uzyskać pełną listę zaleceń, które są oparte na [teście zabezpieczeń platformy Azure](../../security/benchmarks/introduction.md), zapoznaj się z [punktem odniesienia zabezpieczeń dla Azure Key Vault](security-baseline.md).
+Ten artykuł zawiera omówienie funkcji zabezpieczeń i najlepszych rozwiązań dotyczących Azure Key Vault. 
 
-## <a name="general-guidance"></a>Wskazówki ogólne
-
-Nasze zalecenie polega na użyciu magazynu dla każdej aplikacji na środowisko (projektowanie, przedprodukcyjne i produkcyjne). Ułatwia to nie udostępnianie wpisów tajnych w różnych środowiskach i zmniejsza zagrożenie w przypadku naruszenia.
+> [!NOTE]
+> Aby uzyskać pełną listę zaleceń dotyczących zabezpieczeń Azure Key Vault, zobacz [linię bazową zabezpieczeń dla Azure Key Vault](security-baseline.md).
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
@@ -109,20 +108,9 @@ Azure Key Vault trwałe usuwanie i przeczyszczanie ochrony umożliwia Odzyskiwan
 
 Należy również regularnie z powrotem korzystać z magazynu w celu aktualizowania/usuwania/tworzenia obiektów w magazynie.  
 
-Polecenia Azure PowerShell kopii zapasowej:
-
-* [Certyfikat kopii zapasowej](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Klucz kopii zapasowej](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Wpis tajny kopii zapasowej](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-Polecenia tworzenia kopii zapasowej interfejsu CLI platformy Azure
-
-* [Certyfikat kopii zapasowej](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Klucz kopii zapasowej](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Wpis tajny kopii zapasowej](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## <a name="next-steps"></a>Następne kroki
 
-- [Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md)
+- [Linia bazowa zabezpieczeń Azure Key Vault](security-baseline.md)
+- [Azure Key Vault najlepszych praktyk](security-baseline.md)
+- [Punkty końcowe usługi sieci wirtualnej dla usługi Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Wbudowane role](../../role-based-access-control/built-in-roles.md)

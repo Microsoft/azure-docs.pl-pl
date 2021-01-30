@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 01/21/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 8159010486371d619aa14a845050a0eb38aaeda8
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: d7f71afd1cf47ab1a94d984090e8fb52ee69c6b4
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683537"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99088942"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
 
@@ -26,8 +26,8 @@ ms.locfileid: "97683537"
 
 Analiza tekstu dla kondycji jest funkcją usługi interfejs API analizy tekstu, która wyodrębnia i etykietuje odpowiednie informacje medyczne z tekstów bez struktury, takich jak notatki lekarskie, podsumowania zrzutów, dokumenty kliniczne i rejestry kondycji elektronicznej.  Istnieją dwa sposoby korzystania z tej usługi: 
 
-* Internetowy interfejs API (asynchronicznie) 
-* Kontener platformy Docker (synchroniczny)   
+* [Internetowy interfejs API (asynchronicznie)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
+* [Kontener platformy Docker (synchroniczny)](#hosted-asynchronous-web-api-response)   
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
@@ -436,7 +436,7 @@ Dane wyjściowe wyodrębniania relacji zawierają odwołania identyfikatora URI 
 ]
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Kategorie nazwanych jednostek](../named-entity-types.md)

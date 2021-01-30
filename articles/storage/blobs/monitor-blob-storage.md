@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie usługi Azure Blob Storage | Microsoft Docs
-description: Dowiedz się, jak monitorować wydajność i dostępność usługi Azure Blob Storage. Monitoruj dane usługi Azure Blob Storage, Dowiedz się więcej o konfiguracji i analizuj dane dotyczące metryk i dzienników.
+title: Monitorowanie Blob Storage platformy Azure | Microsoft Docs
+description: Dowiedz się, jak monitorować wydajność i dostępność Blob Storage platformy Azure. Monitoruj dane Blob Storage platformy Azure, Dowiedz się więcej o konfiguracji i analizuj dane dotyczące metryk i dzienników.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9224d02e36dbca96d3e54946330d3135ff811829
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 76f266ec915754b5746f06a340b21146b84fa711
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590770"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071668"
 ---
-# <a name="monitoring-azure-blob-storage"></a>Monitorowanie magazynu obiektów blob platformy Azure
+# <a name="monitoring-azure-blob-storage"></a>Monitorowanie Blob Storage platformy Azure
 
-Jeśli masz krytyczne aplikacje i procesy biznesowe, które opierają się na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania, które są generowane przez usługę Azure Blob Storage, oraz sposób używania funkcji Azure Monitor do analizowania alertów dotyczących tych danych.
+Jeśli masz krytyczne aplikacje i procesy biznesowe, które opierają się na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania, które są generowane przez usługę Azure Blob Storage i jak można użyć funkcji Azure Monitor do analizowania alertów dotyczących tych danych.
 
 > [!NOTE]
 > Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników dla obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek i tabel. Ta funkcja jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Zobacz [Omówienie konta magazynu](../common/storage-account-overview.md).
@@ -28,7 +28,7 @@ Jeśli masz krytyczne aplikacje i procesy biznesowe, które opierają się na za
 Strona **Przegląd** w Azure Portal dla każdego zasobu usługi BLOB Storage zawiera krótki widok użycia zasobów, na przykład żądania i rozliczenia godzinowe. Te informacje są przydatne, ale dostępna jest tylko niewielka ilość danych monitorowania. Niektóre z tych danych są zbierane automatycznie i są dostępne do analizy zaraz po utworzeniu zasobu. Dodatkowe typy zbierania danych można włączyć za pomocą jakiejś konfiguracji.
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
-Usługa Azure Blob Storage tworzy dane monitorowania za pomocą [Azure monitor](../../azure-monitor/overview.md), który jest pełną usługą monitorowania stosu na platformie Azure. Azure Monitor oferuje pełny zestaw funkcji służących do monitorowania zasobów i zasobów platformy Azure w innych chmurach i lokalnych. 
+Usługa Azure Blob Storage tworzy dane monitorowania przy użyciu [Azure monitor](../../azure-monitor/overview.md), który jest pełną usługą monitorowania stosu na platformie Azure. Azure Monitor oferuje pełny zestaw funkcji służących do monitorowania zasobów i zasobów platformy Azure w innych chmurach i lokalnych. 
 
 Rozpocznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) , w którym opisano następujące kwestie:
 
@@ -42,9 +42,9 @@ Poniższe sekcje dotyczą tego artykułu, opisując szczegółowe dane zebrane z
 
 ## <a name="monitoring-data"></a>Dane monitorowania
 
-Usługa Azure Blob Storage zbiera te same dane monitorowania jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Usługa Azure Blob Storage gromadzi te same rodzaje danych monitorowania jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
 
-Aby uzyskać szczegółowe informacje na temat metryk i dzienników tworzonych przez usługę Azure Blob Storage, zobacz informacje o [danych monitorowania usługi Azure Blob Storage](monitor-blob-storage-reference.md) .
+Aby uzyskać szczegółowe informacje na temat metryk i dzienników tworzonych przez usługę Azure Blob Storage, zobacz informacje o [danych monitorowania BLOB Storage platformy Azure](monitor-blob-storage-reference.md) .
 
 Metryki i dzienniki w Azure Monitor obsługują tylko Azure Resource Manager kont magazynu. Azure Monitor nie obsługuje klasycznych kont magazynu. Jeśli chcesz użyć metryk lub dzienników na klasycznym koncie magazynu, musisz przeprowadzić migrację do konta magazynu Azure Resource Manager. Zobacz [Migrowanie do Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
@@ -279,12 +279,12 @@ W przypadku metryk, które obsługują wymiary, można filtrować metrykę przy 
 
 Aby uzyskać pełną listę wymiarów obsługiwanych przez usługę Azure Storage, zobacz [Dimension Metrics](monitor-blob-storage-reference.md#metrics-dimensions).
 
-Metryki dla usługi Azure Blob Storage znajdują się w następujących obszarach nazw: 
+Metryki dla Blob Storage platformy Azure znajdują się w następujących przestrzeniach nazw: 
 
 - Microsoft. Storage/storageAccounts
 - Microsoft. Storage/storageAccounts/blobServices
 
-Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, które obejmują usługę Azure Blob Storage, zobacz [Azure monitor obsługiwane metryki](../../azure-monitor/platform/metrics-supported.md).
+Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, które obejmują usługę Azure Blob Storage, zobacz temat [Azure monitor support Metrics](../../azure-monitor/platform/metrics-supported.md).
 
 
 ### <a name="accessing-metrics"></a>Uzyskiwanie dostępu do metryk
@@ -483,7 +483,7 @@ Nie dotyczy.
 
 Można uzyskać dostęp do dzienników zasobów jako obiektów BLOB na koncie magazynu, jako dane zdarzenia lub za pomocą zapytań analitycznych dzienników.
 
-Aby uzyskać szczegółowe informacje na temat pól, które pojawiają się w tych dziennikach, zobacz [odwołanie do danych monitorowania usługi Azure Blob Storage](monitor-blob-storage-reference.md).
+Aby uzyskać szczegółowe informacje na temat pól, które pojawiają się w tych dziennikach, zobacz [informacje dotyczące monitorowania BLOB Storage platformy Azure](monitor-blob-storage-reference.md).
 
 > [!NOTE]
 > Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont magazynu w warstwie Premium w celu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
@@ -601,6 +601,6 @@ Nie. Usługa Azure COMPUTE obsługuje metryki na dyskach. Aby uzyskać więcej i
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać informacje na temat dzienników i metryk utworzonych przez usługę Azure Blob Storage, zobacz [dokumentacja danych monitorowania usługi Azure Blob Storage](monitor-blob-storage-reference.md).
+- Informacje o dziennikach i metrykach utworzonych przez usługę Azure Blob Storage można znaleźć w temacie [azure BLOB Storage monitoring Data Reference](monitor-blob-storage-reference.md).
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - Aby uzyskać więcej informacji na temat migracji metryk, zobacz [migracja metryk usługi Azure Storage](../common/storage-metrics-migration.md).

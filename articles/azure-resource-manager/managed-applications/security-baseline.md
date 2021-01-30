@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3422c8eff847ed699fb75854a5ae52b4e8a08a24
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c1bcde3f2b1f61fd241143e308a508d5f19e7b0c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737103"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090574"
 ---
 # <a name="azure-security-baseline-for-azure-managed-applications"></a>Podstawa zabezpieczeń platformy Azure dla Azure Managed Applications
 
@@ -161,7 +161,7 @@ Usługa Azure Advanced Threat Protection (ATP) to rozwiązanie z zakresu zabezpi
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Ochrona i ograniczanie użytkowników z wysokim poziomem uprawnień
 
 **Wskazówki**: Azure Managed Applications używa Azure Active Directory (Azure AD) w celu uzyskania tożsamości i dostępu. Najważniejsze role wbudowane to usługa Azure AD — Administrator globalny i administrator ról uprzywilejowanych jako użytkownicy przypisani do tych dwóch ról mogą delegować role administratorów:
-- Administrator globalny/administrator firmy: Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w usłudze Azure AD, a także usług korzystających z tożsamości usługi Azure AD.
+- Administrator globalny: Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w usłudze Azure AD, a także usług korzystających z tożsamości usługi Azure AD.
 - Administrator ról uprzywilejowanych: Użytkownicy z tą rolą mogą zarządzać przypisaniami ról w usłudze Azure AD, a także w Azure AD Privileged Identity Management (PIM). Ponadto ta rola umożliwia zarządzanie wszystkimi aspektami jednostek PIM i administracyjnych.
 
 Uwaga: mogą istnieć inne role krytyczne, które należy zastosować w przypadku używania ról niestandardowych z określonymi przypisanymi uprawnieniami. Można również zastosować podobne kontrolki do konta administratora krytycznych zasobów firmy.

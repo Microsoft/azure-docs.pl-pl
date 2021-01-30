@@ -43,9 +43,11 @@
   items:
     - name: Podstawowe pojęcia
       href: basic-concepts.md
+    - name: Najlepsze rozwiązania
+      href: best-practices.md
     - name: Zabezpieczenia
       items:
-        - name: Omówienie zabezpieczeń
+        - name: Omówienie
           href: security-overview.md
         - name: Bezpieczny dostęp do magazynu kluczy
           href: secure-your-key-vault.md

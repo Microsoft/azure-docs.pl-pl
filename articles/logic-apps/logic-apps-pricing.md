@@ -1,180 +1,152 @@
 ---
-title: Cennik & model rozliczeń
-description: Przegląd sposobu działania cen i rozliczeń dla Azure Logic Apps
+title: Rozliczenia & modele cenowe
+description: Omówienie sposobu działania modeli cen i rozliczeń w Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: jonfancey
-ms.author: jonfan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 9243d089b4a000066ec03dbeeccd046db374f558
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 01/29/2021
+ms.openlocfilehash: 0de0c5d53bd3195a24f75f4a2e65c19602e2a2b3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673114"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99088925"
 ---
-# <a name="pricing-model-for-azure-logic-apps"></a>Model cen dla Azure Logic Apps
+# <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modele cen i rozliczeń dla Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) pomaga tworzyć i uruchamiać zautomatyzowane przepływy pracy integracji, które można skalować w chmurze. W tym artykule opisano sposób działania rozliczeń i cen dla Azure Logic Apps. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps).
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) pomaga tworzyć i uruchamiać zautomatyzowane przepływy pracy integracji, które można skalować w chmurze. W tym artykule opisano sposób działania modeli rozliczeń i cen dla usługi Logic Apps i powiązanych zasobów. Aby uzyskać określone stawki cenowe, zobacz [Cennik usługi Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps). Aby dowiedzieć się, jak planować i monitorować koszty, zarządzać nimi, zobacz [Planowanie i zarządzanie kosztami Azure Logic Apps](plan-manage-costs.md).
 
 <a name="consumption-pricing"></a>
 
-## <a name="consumption-pricing-model"></a>Model cen zużycia
+## <a name="multi-tenant-pricing"></a>Ceny z wieloma dzierżawcami
 
-W przypadku nowych aplikacji logiki, które są uruchamiane w publicznej, "globalnej" Azure Logic Apps wielodostępnej usłudze, płacisz tylko za to, czego używasz. Te aplikacje logiki korzystają z planu i modelu cen opartego na zużyciu. W aplikacji logiki każdy krok jest akcją, a Azure Logic Apps Gazomierze wszystkie akcje, które są uruchamiane w aplikacji logiki.
+Model cen użycia z opcją płatność za użycie dotyczy aplikacji logiki, które są uruchamiane w publicznej "globalnej" Logic Apps usłudze wielodostępnej. Wszystkie pomyślne i nieudane uruchomienia są naliczane i rozliczane.
 
-Na przykład akcje obejmują:
+Na przykład żądanie wykonywane przez wyzwalacz sondowania jest nadal mierzone jako wykonanie, nawet jeśli ten wyzwalacz zostanie pominięty, a wystąpienie przepływu pracy aplikacji logiki nie zostanie utworzone.
 
-* [Wyzwalacze](#triggers), które są specjalnymi akcjami. Wszystkie aplikacje logiki wymagają wyzwalacza jako pierwszy krok.
+| Elementy | Opis |
+|-------|-------------|
+| [Wbudowane](../connectors/apis-list.md#built-in) wyzwalacze i akcje | Uruchamiaj natywnie w usłudze Logic Apps i są mierzone przy użyciu ceny [ **akcji**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Na przykład wyzwalacz HTTP i wyzwalacz żądania są wbudowanymi wyzwalaczami, podczas gdy akcja i akcja HTTP są wbudowane. Operacje na danych, operacje wsadowe, operacje zmienne i [Akcje kontroli przepływu pracy](../connectors/apis-list.md#control-workflow), takie jak pętle, warunki, przełączanie, gałęzie równoległe itd., są również akcjami wbudowanymi. |
+| Standardowe wyzwalacze i akcje [łącznika](../connectors/apis-list.md#managed-connectors) <p><p>Wyzwalacze i akcje [łącznika niestandardowego](../connectors/apis-list.md#custom) | Mierzony przy użyciu [standardowej ceny łącznika](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Wyzwalacze i akcje [łącznika przedsiębiorstwa](../connectors/apis-list.md#managed-connectors) | Mierzony przy użyciu [ceny łącznika Enterprise](https://azure.microsoft.com/pricing/details/logic-apps/). Jednak w publicznej wersji zapoznawczej Łączniki przedsiębiorstwa są mierzone przy użyciu [ *standardowej* ceny łącznika](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Akcje wewnątrz [pętli](logic-apps-control-flow-loops.md) | Każda akcja uruchamiana w pętli jest naliczana dla każdego cyklu pętli, który działa. <p><p>Załóżmy na przykład, że masz pętlę "for each", która zawiera akcje, które przetwarzają listę. Usługa Logic Apps określa każdą akcję, która jest uruchamiana w tej pętli przez pomnożenie liczby elementów listy z liczbą akcji w pętli, a następnie dodaje akcję, która uruchamia pętlę. Dlatego obliczenia dla listy 10 elementów są (10 * 1) + 1, co skutkuje 11 wykonaniami akcji. |
+| Liczba ponownych prób | Aby obsłużyć najbardziej podstawowe wyjątki i błędy, można skonfigurować [zasady ponawiania](logic-apps-exception-handling.md#retry-policies) dla wyzwalaczy i akcji, w których są obsługiwane. Te ponownych prób wraz z pierwotnym żądaniem są rozliczone według stawek w zależności od tego, czy wyzwalacz lub akcja mają typ wbudowany, standardowy, czy Enterprise. Na przykład akcja wykonywana z 2 ponownych prób jest naliczana za 3 wykonania akcji. |
+| [Przechowywanie danych i użycie magazynu](#data-retention) | Mierzony przy użyciu ceny przechowywania danych, którą można znaleźć na [stronie cennika Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), w tabeli **szczegóły cennika** . |
+|||
 
-* ["Wbudowane" lub natywne akcje](../connectors/apis-list.md#built-in) , takie jak http, wywołania do Azure Functions i API Management itd.
+Aby uzyskać więcej informacji, zobacz następujące tematy:
 
-* Wywołania [łączników zarządzanych](../connectors/apis-list.md#managed-connectors) , takich jak Outlook 365, Dropbox itd.
+* [Wyświetlanie metryk związanych z wykonywaniem i użyciem magazynu](plan-manage-costs.md#monitor-billing-metrics)
+* [Limity w Azure Logic Apps](logic-apps-limits-and-config.md)
 
-* [Kontroluj akcje przepływu pracy](../connectors/apis-list.md#control-workflow) , takie jak pętle, instrukcje warunkowe i tak dalej
+### <a name="not-metered"></a>Bez pomiaru
 
-[Standardowe łączniki](../connectors/apis-list.md#managed-connectors) są rozliczane według [standardowej ceny łącznika](https://azure.microsoft.com/pricing/details/logic-apps). Ogólnie dostępne [Łączniki Enterprise](../connectors/apis-list.md#managed-connectors) są obciążane [kosztami łącznika przedsiębiorstwa](https://azure.microsoft.com/pricing/details/logic-apps), podczas gdy w publicznej wersji zapoznawczej Łączniki przedsiębiorstwa są obciążani opłatami za [Standardowy łącznik](https://azure.microsoft.com/pricing/details/logic-apps).
+* Wyzwalacze pominięte z powodu warunków niewypełnienia
+* Akcje, które nie zostały uruchomione, ponieważ aplikacja logiki została zatrzymana przed zakończeniem
+* [Wyłączone Aplikacje logiki](#disabled-apps)
 
-Dowiedz się więcej o tym, jak rozliczenia działają na poziomach [wyzwalaczy](#triggers) i [akcji](#actions) . Lub, aby uzyskać informacje na temat limitów, zobacz [limity i konfiguracja dla Azure Logic Apps](logic-apps-limits-and-config.md).
+### <a name="other-related-resources"></a>Inne powiązane zasoby
+
+Usługa Logic Apps współpracuje z innymi powiązanymi zasobami, takimi jak konta integracji, lokalne bramy danych i środowiska usługi integracji (ISEs). Aby dowiedzieć się więcej o cenach tych zasobów, zapoznaj się z tymi sekcjami w dalszej części tego tematu:
+
+* [On-premises data gateway (Lokalna brama danych)](#data-gateway)
+* [Model cen konta integracji](#integration-accounts)
+* [Model cen ISE](#fixed-pricing)
+
+### <a name="tips-for-estimating-consumption-costs"></a>Wskazówki dotyczące oszacowania kosztów zużycia
+
+Aby ułatwić oszacowanie dokładniejszych kosztów zużycia, zapoznaj się z następującymi wskazówkami:
+
+* Należy wziąć pod uwagę potencjalną liczbę komunikatów lub zdarzeń, które mogą się pojawić w danym dniu, zamiast wykonywać obliczenia tylko na podstawie interwału sondowania.
+
+* Gdy zdarzenie lub komunikat spełnia kryteria wyzwalacza, wiele wyzwalaczy natychmiast spróbuje odczytać wszystkie inne oczekujące zdarzenia lub komunikaty, które spełniają kryteria. To zachowanie oznacza, że nawet w przypadku wybrania dłuższego interwału sondowania uruchamiany jest wyzwalacz oparty na liczbie oczekujących zdarzeń lub komunikatów, które kwalifikują się do uruchomienia przepływów pracy. Wyzwalacze zgodne z tym zachowaniem obejmują Azure Service Bus i centrum zdarzeń platformy Azure.
+
+  Załóżmy na przykład, że skonfigurowano wyzwalacz, który sprawdza punkt końcowy codziennie. Gdy wyzwalacz sprawdza punkt końcowy i znajdzie 15 zdarzeń, które spełniają kryteria, wyzwalacz wyzwala i uruchamia odpowiedni przepływ pracy 15 razy. Usługa Logic Apps obejmuje wszystkie akcje wykonywane przez te 15 przepływów pracy, w tym żądania wyzwalacza.
 
 <a name="fixed-pricing"></a>
 
-## <a name="fixed-pricing-model"></a>Stały model cen
+## <a name="ise-pricing"></a>Cennik ISE
 
-[ *Środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) zapewnia izolowaną metodę tworzenia i uruchamiania aplikacji logiki, które mogą uzyskiwać dostęp do zasobów w sieci wirtualnej platformy Azure. Aplikacje logiki, które działają w ISE, nie wiążą się z kosztami przechowywania danych. Podczas tworzenia ISE i tylko podczas tworzenia można wybrać [poziom ISE lub "SKU"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), który ma różne [stawki cenowe](https://azure.microsoft.com/pricing/details/logic-apps):
+Stały model cen ma zastosowanie do aplikacji logiki, które działają w [ *środowisku usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). ISE jest rozliczany przy użyciu [ceny środowisko usługi integracji](https://azure.microsoft.com/pricing/details/logic-apps), która zależy od utworzonego [poziomu ISE lub *jednostki SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) . Ceny te różnią się od cen z wielu dzierżawców, ponieważ płacisz za zarezerwowaną pojemność i zasoby dedykowane niezależnie od tego, czy są one używane.
 
-* Wersja **Premium** ISE: jednostka podstawowa jednostki SKU ma stałą pojemność, ale jeśli potrzebujesz większej przepływności, możesz [dodać więcej jednostek skalowania](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) podczas tworzenia ISE lub później. Limity ISE można znaleźć w temacie [limity i konfiguracja dla Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+| JEDNOSTKA SKU ISE | Opis |
+|---------|-------------|
+| **Premium** | Jednostka podstawowa ma stałą pojemność i jest [rozliczana według stawki godzinowej dla jednostki SKU Premium](https://azure.microsoft.com/pricing/details/logic-apps). Jeśli potrzebujesz większej przepływności, możesz [dodać więcej jednostek skalowania](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) podczas tworzenia ISE lub później. Każda jednostka skalowania jest rozliczana według [stawki godzinowej, która jest w przybliżeniu połowa stawki jednostki bazowej](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>Aby uzyskać informacje o limitach, zobacz [limity ISE w Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+| **Deweloper** | Jednostka podstawowa ma stałą pojemność i jest [rozliczana według stawki godzinowej dla jednostki SKU dewelopera](https://azure.microsoft.com/pricing/details/logic-apps). Ta jednostka SKU nie ma możliwości skalowania w górę, umowy dotyczącej poziomu usług (SLA) ani opublikowanych limitów. Tej jednostki SKU należy używać tylko w przypadku eksploracji, eksperymentów, programowania i testowania, a nie produkcji lub testowania wydajności. |
+|||
 
-* **Deweloper** ISE: Ta jednostka SKU nie ma możliwości skalowania w górę, bez umowy dotyczącej poziomu usług i braku opublikowanych limitów. Tej jednostki SKU można używać tylko na potrzeby eksperymentowania, programowania i testowania, a nie produkcji ani testowania wydajności.
+### <a name="included-at-no-extra-cost"></a>Wliczone bez dodatkowych kosztów
 
-W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE, opłaty są naliczane za użycie [w ramach następujących](https://azure.microsoft.com/pricing/details/logic-apps) możliwości:
+| Elementy | Opis |
+|-------|-------------|
+| [Wbudowane](../connectors/apis-list.md#built-in) wyzwalacze i akcje | Wyświetl **podstawową** etykietę i uruchom w tym samym ISE, co Aplikacje logiki. |
+| [Łączniki standardowe](../connectors/apis-list.md#managed-connectors) <p><p>[Łączniki dla przedsiębiorstw](../connectors/apis-list.md#enterprise-connectors) | Łączniki zarządzane, które wyświetlają etykietę **ISE** , są specjalnie zaprojektowane do pracy bez lokalnej bramy danych i działają w tym samym ISE, co Aplikacje logiki. Cennik ISE obejmuje dowolną liczbę połączeń w przedsiębiorstwie. <p><p>— Łączniki, które nie wyświetlają etykiety ISE, są uruchamiane w usłudze Logic Apps wielodostępnej. Jednak Cennik usługi ISE obejmuje te wykonania dla aplikacji logiki, które działają w ISE. |
+| Akcje wewnątrz [pętli](logic-apps-control-flow-loops.md) | Cennik ISE obejmuje każdą akcję, która jest uruchamiana w pętli dla każdego cyklu pętli, który działa. <p><p>Załóżmy na przykład, że masz pętlę "for each", która zawiera akcje, które przetwarzają listę. Aby uzyskać łączną liczbę wykonań akcji, pomnóż liczbę elementów listy z liczbą akcji w pętli i Dodaj akcję, która uruchamia pętlę. Dlatego obliczenia dla listy 10 elementów są (10 * 1) + 1, co skutkuje 11 wykonaniami akcji. |
+| Liczba ponownych prób | Aby obsłużyć najbardziej podstawowe wyjątki i błędy, można skonfigurować [zasady ponawiania](logic-apps-exception-handling.md#retry-policies) dla wyzwalaczy i akcji, w których są obsługiwane. Cennik ISE obejmuje ponowną próbę wraz z pierwotnym żądaniem. |
+| [Przechowywanie danych i użycie magazynu](#data-retention) | Aplikacje Logic Apps w ISE nie powodują ponoszenia kosztów przechowywania i magazynowania. |
+| [Konta integracji](#integration-accounts) | Obejmuje użycie jednej warstwy konta integracji na podstawie jednostki SKU ISE bez dodatkowych kosztów. |
+|||
 
-* [Wbudowane](../connectors/apis-list.md#built-in) wyzwalacze i akcje
-
-  W ramach ISE wbudowane wyzwalacze i akcje wyświetlają **podstawową** etykietę i działają w tym samym ISE, co Aplikacje logiki.
-
-* Łączniki [standardowe](../connectors/apis-list.md#managed-connectors) i łączniki [Enterprise](../connectors/apis-list.md#enterprise-connectors) , które pozwalają na dołączenie do wielu połączeń w przedsiębiorstwie
-
-   Łączniki standardowe i Enterprise, które wyświetlają etykietę **ISE** , działają w tym samym ISE, jak aplikacje logiki. Łączniki, które nie wyświetlają etykiety ISE, są uruchamiane w publicznej "globalnej" Logic Apps usłudze z wieloma dzierżawcami. Stałe ceny dotyczą również łączników, które działają w usłudze z wieloma dzierżawcami, gdy są używane z aplikacjami logiki, które są uruchamiane w ISE.
-
-* Użycie [konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) bez dodatkowych kosztów na podstawie [jednostki SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
-
-  * Wersja **Premium** ISE SKU: jedno konto integracji [warstwy standardowej](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
-
-  * **Deweloper** ISE SKU: konto integracji pojedynczej [warstwy bezpłatnej](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
-
-  Aby uzyskać dodatkowe koszty, można utworzyć więcej kont integracji dla ISE [do całkowitego limitu](logic-apps-limits-and-config.md#integration-account-limits). 
-
-  * Wersja **Premium** ISE SKU: maksymalnie 19 więcej kont w warstwie Standardowa. Nie są dozwolone żadne konta bezpłatne ani podstawowe.
-
-  * **Deweloper** ISE SKU: maksymalnie 19 więcej standardowych kont, jeśli masz już bezpłatne konto lub 20 łącznych kont standardowych, jeśli nie masz bezpłatnego konta. Nie są dozwolone żadne konta podstawowe.
-
-  Aby uzyskać więcej informacji na temat limitów kont integracji, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Więcej informacji na temat [warstw kont integracji i ich modelu cen](#integration-accounts) można znaleźć w dalszej części tego tematu.
-
-<a name="connectors"></a>
-
-## <a name="connectors"></a>Łączniki
-
-Łączniki Azure Logic Apps pomagają aplikacji logiki uzyskiwać dostęp do aplikacji, usług i systemów w chmurze lub lokalnie, dostarczając [wyzwalacze](#triggers), [Akcje](#actions)lub obie te funkcje. Łączniki są klasyfikowane jako standardowe lub Enterprise. Aby zapoznać się z omówieniem tych łączników, zobacz [Łączniki dla Azure Logic Apps](../connectors/apis-list.md). Jeśli nie są dostępne wstępnie skompilowane łączniki dla interfejsów API REST, które mają być używane w aplikacjach logiki, można utworzyć [Łączniki niestandardowe](/connectors/custom-connectors), które są tylko otokami otaczającymi te interfejsy API REST. Łączniki niestandardowe są rozliczane jako łączniki standardowe. Poniższe sekcje zawierają więcej informacji na temat sposobu działania rozliczeń dla wyzwalaczy i akcji.
-
-<a name="triggers"></a>
-
-## <a name="triggers"></a>Wyzwalacze
-
-Wyzwalacz jest zawsze pierwszym krokiem w przepływie pracy aplikacji logiki i jest specjalną akcją, która tworzy i uruchamia wystąpienie aplikacji logiki, gdy zostaną spełnione określone kryteria lub wystąpi określone zdarzenie. Wyzwalacze działają na różne sposoby, które mają wpływ na sposób mierzenia aplikacji logiki. Oto różne rodzaje wyzwalaczy, które istnieją w Azure Logic Apps:
-
-* **Wyzwalacz cykliczny**: można użyć tego wyzwalacza generycznego, który nie jest specyficzny dla żadnej usługi lub systemu, aby uruchomić przepływ pracy aplikacji logiki i utworzyć wystąpienie aplikacji logiki, które jest uruchamiane na podstawie interwału cyklu, który został skonfigurowany w wyzwalaczu. Na przykład można skonfigurować wyzwalacz cykliczny, który jest uruchamiany co trzy dni lub bardziej skomplikowany harmonogram.
-
-* **Wyzwalacz sondowania**: można użyć tego bardziej wyspecjalizowanego wyzwalacza cyklu, który jest zazwyczaj skojarzony z zarządzanym łącznikiem dla określonej usługi lub systemu, aby sprawdzić, czy istnieją zdarzenia lub komunikaty spełniające kryteria tworzenia i uruchamiania wystąpienia aplikacji logiki na podstawie interwału cyklu, który został skonfigurowany w wyzwalaczu. Nawet wtedy, gdy nie zostanie utworzone wystąpienie aplikacji logiki, na przykład gdy wyzwalacze są pomijane, usługa Logic Apps liczników każdego żądania sondowania jako wykonanie. Aby określić interwał sondowania, skonfiguruj wyzwalacz za pomocą projektanta aplikacji logiki.
-
-  [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
-
-* **Wyzwalacz elementu webhook**: zamiast używać wyzwalacza sondowania, można użyć wyzwalacza elementu webhook, aby poczekać na wysłanie przez klienta żądania do aplikacji logiki przy użyciu adresu URL określonego punktu końcowego. Każde żądanie wysyłane do punktu końcowego elementu webhook jest traktowane jako wykonanie akcji. Na przykład żądanie i wyzwalacz elementu webhook protokołu HTTP to ogólne wyzwalacze elementu webhook. Niektóre łączniki dla usług lub systemów mają także wyzwalacze elementu webhook.
-
-<a name="actions"></a>
-
-## <a name="actions"></a>Akcje
-
-Azure Logic Apps mierników "wbudowanych", takich jak HTTP, jako natywnych akcji. Na przykład akcje wbudowane obejmują wywołania HTTP, wywołania z Azure Functions lub API Management i kroki przepływu sterowania, takie jak warunki, pętle i instrukcje Switch. Każda akcja ma własny typ akcji. Na przykład akcje wywołujące [Łączniki](/connectors) mają typ "ApiConnection". Te łączniki są klasyfikowane jako łączniki standardowe lub Enterprise, które są mierzone w oparciu o ich odpowiednie [ceny](https://azure.microsoft.com/pricing/details/logic-apps). Łączniki korporacyjne w *wersji zapoznawczej* są rozliczone jako łączniki standardowe.
-
-Azure Logic Apps Gazomierze wszystkie pomyślne i niepomyślne akcje jako wykonania. Niemniej jednak Logic Apps nie mierzą następujących działań:
-
-* Akcje, które zostaną pominięte ze względu na warunki niewypełnienia
-* Akcje, które nie są uruchamiane, ponieważ aplikacja logiki została zatrzymana przed zakończeniem
-
-W przypadku akcji uruchamianych wewnątrz pętli Azure Logic Apps zlicza każdą akcję dla każdego cyklu w pętli. Załóżmy na przykład, że masz pętlę "for each", która przetwarza listę. Logic Apps gazomierzy w tej pętli przez pomnożenie liczby elementów listy z liczbą akcji w pętli i dodanie akcji rozpoczynającej pętlę. Dlatego obliczenia dla listy 10 elementów są (10 * 1) + 1, co skutkuje 11 wykonaniami akcji.
-
-## <a name="disabled-logic-apps"></a>Wyłączone Aplikacje logiki
-
-Wyłączone Aplikacje logiki nie są rozliczone, ponieważ nie mogą tworzyć nowych wystąpień, gdy są one wyłączone. Po wyłączeniu aplikacji logiki wszystkie aktualnie uruchomione wystąpienia mogą upłynąć trochę czasu, zanim zostaną całkowicie zatrzymane.
+Aby uzyskać informacje o limitach, zobacz [limity ISE w Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
 <a name="integration-accounts"></a>
 
 ## <a name="integration-accounts"></a>Konta integracji
 
-[Stały model cen](https://azure.microsoft.com/pricing/details/logic-apps) ma zastosowanie do [kont integracji](logic-apps-enterprise-integration-create-integration-account.md) , w których można eksplorować, opracowywać i testować funkcje [B2B i EDI](logic-apps-enterprise-integration-b2b.md) i [przetwarzania XML](logic-apps-enterprise-integration-xml.md) w Azure Logic Apps bez dodatkowych kosztów. Każda subskrypcja platformy Azure może mieć do [określonego limitu kont integracji](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Każde konto integracji może przechowywać do określonego [limitu artefaktów, takich](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)jak partnerzy handlowi, umowy, mapy, schematy, zestawy, certyfikaty, konfiguracje wsadowe i tak dalej.
+[Konto integracji](../logic-apps/logic-apps-pricing.md#integration-accounts) to oddzielny zasób tworzony i połączony z usługą Logic Apps, dzięki czemu można eksplorować, kompilować i testować rozwiązania integracji B2B, które korzystają z możliwości [przetwarzania](logic-apps-enterprise-integration-xml.md) [EDI](logic-apps-enterprise-integration-b2b.md) i XML. Azure Logic Apps oferuje następujące poziomy kont integracji:
 
-Azure Logic Apps oferuje bezpłatne, podstawowe i standardowe konta integracji. Warstwy Basic i standard są obsługiwane przez Logic Apps umowę dotyczącą poziomu usług (SLA), natomiast warstwa Bezpłatna nie jest obsługiwana w ramach umowy SLA i ma limity dotyczące dostępności, przepływności i użycia regionu. Z wyjątkiem kont integracji w warstwie Bezpłatna możesz mieć więcej niż jedno konto integracji w każdym regionie świadczenia usługi Azure. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
+| Warstwa | Opis |
+|------|-------------|
+| **Podstawowa** | W przypadku scenariuszy, w których ma być obsługiwana obsługa komunikatów lub działać jako mały partner biznesowy, który ma relację partnera handlowego z większą jednostką biznesową. <p><p>Obsługiwane przez umowę SLA Logic Apps. |
+| **Standardowa** | Scenariusze, w których masz bardziej złożone relacje B2B i większą liczbę jednostek, które należy zarządzać. <p><p>Obsługiwane przez umowę SLA Logic Apps. |
+| **Bezpłatna** | W przypadku scenariuszy poznawczych, a nie scenariuszy produkcyjnych. Ta warstwa ma limity dotyczące dostępności regionów, przepływności i użycia. Na przykład warstwa Bezpłatna jest dostępna tylko dla regionów publicznych na platformie Azure, na przykład zachodnie stany USA lub Południowo-Wschodnia, ale nie dla Chin lub [Azure Government](../azure-government/documentation-government-welcome.md) [platformy Azure](/azure/china/overview-operations) . <p><p>**Uwaga**: nie jest obsługiwana przez umowę SLA Logic Apps. |
+|||
 
-Jeśli masz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), ISE może korzystać z jednego konta integracji bez dodatkowych kosztów, chociaż uwzględniony typ konta jest różny w zależności od [jednostki SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). Aby uzyskać [dodatkowe koszty](#fixed-pricing), można utworzyć więcej kont integracji dla ISE do [całkowitego limitu na kontach integracji](logic-apps-limits-and-config.md#integration-account-limits). Aby dowiedzieć się, jak działa stały model cen dla ISE, zobacz sekcję poprzedni [model cen stałych](#fixed-pricing) w tym temacie. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps).
+Aby uzyskać informacje na temat limitów kont integracji, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits), takich jak:
 
-Aby wybrać jedną z kont integracji bezpłatnej, podstawowej lub standardowej, zapoznaj się z następującymi opisami przypadków użycia:
+* [Limity dla kont integracji na subskrypcję platformy Azure](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
 
-* **Bezpłatnie**: w przypadku, gdy chcesz wypróbować scenariusze poznawcze, a nie w scenariuszach produkcyjnych. Ta warstwa jest dostępna tylko dla regionów publicznych na platformie Azure, na przykład zachodnie stany USA czy Azja Południowo-Wschodnia, ale nie dla Chin lub [Azure Government](../azure-government/documentation-government-welcome.md) [platformy Azure](/azure/china/overview-operations) .
+* [Limity różnych artefaktów na konto integracji](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). Artefakty obejmują partnerów handlowych, umowy, mapy, schematy, zestawy, certyfikaty, konfiguracje partii itd.
 
-* **Podstawowa**: w przypadku, gdy ma być obsługiwana obsługa komunikatów lub działać jako mały partner biznesowy, który ma relację partnera handlowego z większą jednostką biznesową
+### <a name="integration-accounts-for-consumption-based-logic-apps"></a>Konta integracji dla aplikacji logiki opartych na użyciu
 
-* **Standard**: w przypadku bardziej złożonych relacji B2B i większej liczby jednostek, które muszą być zarządzane
+Konta integracji są rozliczane przy użyciu ustalonej [ceny konta integracji](https://azure.microsoft.com/pricing/details/logic-apps/) opartej na używanej warstwie konta.
+
+### <a name="ise-based-logic-apps"></a>Aplikacje logiki oparte na ISE
+
+Bez dodatkowych kosztów ISE obejmuje pojedyncze konto integracji na podstawie jednostki SKU ISE. Aby uzyskać dodatkowe koszty, można utworzyć więcej kont integracji dla ISE, aby użyć do [całkowitego limitu ISE](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Więcej informacji na temat [modelu cen ISE](#fixed-pricing) znajduje się wcześniej w tym temacie.
+
+| JEDNOSTKA SKU ISE | Uwzględnione konto integracji | Dodatkowy koszt |
+|---------|------------------------------|-----------------|
+| **Premium** | Pojedyncze konto integracji [standardowej](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) | Maksymalnie 19 więcej kont w warstwie Standardowa. Nie są dozwolone żadne konta bezpłatne ani podstawowe. |
+| **Deweloper** | Pojedyncze konto [bezpłatnej](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integracji | Maksymalnie 19 więcej kont w warstwie Standardowa, jeśli masz już bezpłatne konto lub 20 łącznych kont standardowych, jeśli nie masz bezpłatnego konta. Nie są dozwolone żadne konta podstawowe. |
+||||
 
 <a name="data-retention"></a>
 
-## <a name="data-retention"></a>Przechowywanie danych
+## <a name="data-retention-and-storage-consumption"></a>Przechowywanie danych i użycie magazynu
 
-Z wyjątkiem aplikacji logiki, które są uruchamiane w środowisku usługi integracji (ISE), wszystkie dane wejściowe i wyjściowe, które są przechowywane w historii uruchamiania aplikacji logiki, są rozliczane na podstawie [okresu przechowywania uruchomienia](logic-apps-limits-and-config.md#run-duration-retention-limits)aplikacji logiki. Aplikacje logiki, które działają w ISE, nie wiążą się z kosztami przechowywania danych. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps).
+Wszystkie dane wejściowe i wyjściowe w historii uruchamiania aplikacji logiki są przechowywane i mierzone w oparciu o [czas trwania i okres przechowywania historii](logic-apps-limits-and-config.md#run-duration-retention-limits)przez tę aplikację.
 
-Aby ułatwić monitorowanie użycia magazynu aplikacji logiki, możesz:
+* W przypadku usługi Logic Apps w usłudze Logic Apps z wieloma dzierżawcami użycie magazynu jest rozliczane według ustalonej ceny, którą można znaleźć na [stronie cennika Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps), w tabeli **szczegóły cennika** .
 
-* Wyświetl liczbę jednostek magazynowych w GB, które są używane przez aplikację logiki miesięcznie.
+* W przypadku usługi Logic Apps w ISEs użycie magazynu nie wiąże się z kosztami przechowywania danych.
 
-* Wyświetl rozmiary danych wejściowych i wyjściowych określonej akcji w historii uruchamiania aplikacji logiki.
+Aby monitorować użycie magazynu, zobacz temat [wyświetlanie metryk dotyczących wykonywania i użycia magazynu](plan-manage-costs.md#monitor-billing-metrics).
 
-<a name="storage-consumption"></a>
+<a name="data-gateway"></a>
 
-### <a name="view-logic-app-storage-consumption"></a>Wyświetlanie użycia magazynu aplikacji logiki
+## <a name="on-premises-data-gateway"></a>Lokalna brama danych
 
-1. W Azure Portal Znajdź i Otwórz aplikację logiki.
+[Lokalna Brama danych](../logic-apps/logic-apps-gateway-install.md) jest osobnym tworzonym zasobem, dzięki czemu Aplikacje logiki mogą uzyskiwać dostęp do danych lokalnych przy użyciu określonych łączników obsługiwanych przez bramę. Operacje łączników, które są wykonywane za pomocą bramy, ponoszą opłaty, ale sama Brama nie wiąże się z opłatami.
 
-1. Z menu aplikacji logiki w obszarze **monitorowanie** wybierz pozycję **metryki**.
+<a name="disabled-apps"></a>
 
-1. W okienku po prawej stronie w obszarze **tytuł wykresu** z listy **Metryka** wybierz pozycję **użycie rozliczenia dla wykonań zużycia magazynu**.
+## <a name="disabled-logic-apps"></a>Wyłączone Aplikacje logiki
 
-   Ta Metryka zapewnia liczbę jednostek zużycia magazynu w GB miesięcznie, w których są naliczane opłaty.
-
-   > [!NOTE]
-   > Przebiegi, które zużywają mniej niż 500 MB w magazynie, mogą nie być wyświetlane w widoku monitorowanie, ale nadal są rozliczane.
-
-<a name="input-output-sizes"></a>
-
-### <a name="view-action-input-and-output-sizes"></a>Wyświetlanie rozmiarów danych wejściowych i wyjściowych akcji
-
-1. W Azure Portal Znajdź i Otwórz aplikację logiki.
-
-1. W menu aplikacji logiki wybierz pozycję **Przegląd**.
-
-1. W okienku po prawej stronie w obszarze **historia uruchamiania** wybierz przebieg zawierający dane wejściowe i wyjściowe, które chcesz sprawdzić.
-
-1. W obszarze **Uruchom aplikację logiki** wybierz pozycję **Uruchom szczegóły**.
-
-1. W okienku **szczegółów przebiegu aplikacji logiki** w tabeli Actions (akcje), która zawiera listę stanów i czas trwania akcji, należy wybrać akcję, która ma zostać wyświetlona.
-
-1. W okienku **Akcja aplikacji logiki** Znajdź rozmiary danych wejściowych i wyjściowych tej akcji. W obszarze łącze **linków i danych** **wyjściowych** Znajdź linki do tych danych wejściowych i wyjściowych.
-
-   > [!NOTE]
-   > W przypadku pętli tylko akcje najwyższego poziomu pokazują rozmiary dla danych wejściowych i wyjściowych. W przypadku akcji wewnątrz zagnieżdżonych pętli dane wejściowe i wyjściowe pokazują rozmiar zerowy i nie łączą.
+Wyłączone Aplikacje logiki nie są rozliczone, ponieważ nie mogą tworzyć nowych wystąpień, gdy są one wyłączone. Po wyłączeniu aplikacji logiki wszystkie aktualnie uruchomione wystąpienia mogą upłynąć trochę czasu, zanim zostaną całkowicie zatrzymane.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej o Azure Logic Apps](logic-apps-overview.md)
-* [Tworzenie pierwszej aplikacji logiki](quickstart-create-first-logic-app-workflow.md)
+* [Planowanie i zarządzanie kosztami Azure Logic Apps](plan-manage-costs.md)

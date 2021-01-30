@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87650f364f8ccfd3a531d710bfbdc4715f0ac5a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cc336781e9a55bbcb6c51677b01bfc402126f4a
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442188"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071904"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Zezwalanie na zaproszenia dla użytkowników B2B z określonych organizacji i blokowanie ich
 
@@ -42,10 +42,10 @@ Jest to najbardziej typowy scenariusz, w którym organizacja chce współpracowa
 Aby dodać listę Odmów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz **Azure Active Directory**pozycję  >  **Users**  >  **Ustawienia użytkownika**Azure Active Directory użytkownicy.
-3. W obszarze **użytkownicy zewnętrzni**wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
-4. W obszarze **ograniczenia dotyczące współpracy**wybierz pozycję **Odmów zaproszeń do określonych domen**.
-5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, które chcesz zablokować. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Na przykład:
+2. Wybierz pozycję  >    >  **Ustawienia użytkownika** Azure Active Directory użytkownicy.
+3. W obszarze **użytkownicy zewnętrzni** wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
+4. W obszarze **ograniczenia dotyczące współpracy** wybierz pozycję **Odmów zaproszeń do określonych domen**.
+5. W obszarze **domeny docelowe** wprowadź nazwę jednej z domen, które chcesz zablokować. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Na przykład:
 
    ![Wyświetla opcję Odmów z dodanymi domenami](./media/allow-deny-list/DenyListSettings.png)
  
@@ -63,10 +63,10 @@ Jeśli chcesz użyć listy dozwolonych, upewnij się, że poświęcasz czas na c
 Aby dodać listę dozwolonych:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz **Azure Active Directory**pozycję  >  **Users**  >  **Ustawienia użytkownika**Azure Active Directory użytkownicy.
-3. W obszarze **użytkownicy zewnętrzni**wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
-4. W obszarze **ograniczenia dotyczące współpracy**wybierz opcję **Zezwalaj na zaproszenia tylko do określonych domen (najbardziej restrykcyjne)**.
-5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, na które chcesz zezwolić. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Na przykład:
+2. Wybierz pozycję  >    >  **Ustawienia użytkownika** Azure Active Directory użytkownicy.
+3. W obszarze **użytkownicy zewnętrzni** wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
+4. W obszarze **ograniczenia dotyczące współpracy** wybierz opcję **Zezwalaj na zaproszenia tylko do określonych domen (najbardziej restrykcyjne)**.
+5. W obszarze **domeny docelowe** wprowadź nazwę jednej z domen, na które chcesz zezwolić. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Na przykład:
 
    ![Wyświetla opcję Zezwalaj z dodanymi domenami](./media/allow-deny-list/AllowListSettings.png)
  
@@ -126,7 +126,7 @@ Jeśli moduł nie jest zainstalowany lub nie masz wymaganej wersji, wykonaj jedn
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Aby skonfigurować zasady, Użyj poleceń cmdlet AzureADPolicy
 
-Aby utworzyć listę dozwolonych lub zablokowanych, użyj polecenia cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) . Poniższy przykład pokazuje, jak ustawić listę Odmów, która blokuje domenę "live.com".
+Aby utworzyć listę dozwolonych lub zablokowanych, użyj polecenia cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) . Poniższy przykład pokazuje, jak ustawić listę Odmów, która blokuje domenę "live.com".
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -140,19 +140,19 @@ Poniżej pokazano ten sam przykład, ale z definicją zasad w tekście.
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Aby ustawić zasady listy dozwolonych lub zablokowanych, należy użyć polecenia cmdlet [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
+Aby ustawić zasady listy dozwolonych lub zablokowanych, należy użyć polecenia cmdlet [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) . Na przykład:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Aby uzyskać zasady, należy użyć polecenia cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
+Aby uzyskać zasady, należy użyć polecenia cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) . Na przykład:
 
 ```powershell
-$currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
+$currentpolicy = Get-AzureADPolicy -All $true | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Aby usunąć zasady, należy użyć polecenia cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
+Aby usunąć zasady, należy użyć polecenia cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) . Na przykład:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

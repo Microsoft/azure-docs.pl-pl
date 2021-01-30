@@ -4,8 +4,6 @@
   items:
     - name: Informacje o usłudze Azure Digital Twins
       href: overview.md
-    - name: Różnice w stosunku do wcześniejszej wersji
-      href: overview-differences.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -169,6 +167,8 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
     - name: Żądania danych klienta
       href: resources-customer-data-requests.md
+    - name: Różnice od wersji oryginalnej
+      href: resources-compare-original-release.md
     - name: Interfejsy API i zestawy SDK
       items:
         - name: Płaszczyzna sterowania

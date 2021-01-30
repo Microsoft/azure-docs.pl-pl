@@ -83,6 +83,8 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: W języku C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+    - name: Używanie bardzo dużej lokalizacji bez zakotwiczenia
+      href: how-tos/use-coarse-relocalization-without-anchor-session.md
     - name: Konfiguracja projektu
       items:
         - name: C++/WinRT

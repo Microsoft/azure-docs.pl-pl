@@ -1,14 +1,14 @@
 ---
 title: Monitorowanie zmian delegowania w dzierżawie zarządzającej
 description: Dowiedz się, jak monitorować działania delegowania od dzierżawców klientów do dzierżawy zarządzającej.
-ms.date: 12/11/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: f65ffda642e67ec6e2c7694a823c2ba6845a7af4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936111"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089425"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorowanie zmian delegowania w dzierżawie zarządzającej
 
@@ -16,10 +16,12 @@ Jako usługodawcę możesz mieć świadomość, że subskrypcje klienta lub grup
 
 W dzierżawie zarządzającej [Dziennik aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) śledzi działania delegowania na poziomie dzierżawy. To zarejestrowane działanie obejmuje wszystkie dodane lub usunięte delegowania ze wszystkich dzierżawców klientów.
 
-W tym temacie objaśniono uprawnienia potrzebne do monitorowania działania delegowania dla dzierżawy (dla wszystkich klientów) oraz najlepszych rozwiązań związanych z tym rozwiązaniem. Zawiera również przykładowy skrypt, który pokazuje jedną metodę wykonywania zapytań i raportowania na tych danych.
+W tym temacie objaśniono uprawnienia potrzebne do monitorowania działania delegowania dla dzierżawy (dla wszystkich klientów). Zawiera również przykładowy skrypt, który pokazuje jedną metodę wykonywania zapytań i raportowania na tych danych.
 
 > [!IMPORTANT]
 > Wszystkie te kroki muszą być wykonywane w dzierżawie zarządzającej, a nie w żadnym dzierżawie klienta.
+>
+> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tych samych procesów.
 
 ## <a name="enable-access-to-tenant-level-data"></a>Włącz dostęp do danych na poziomie dzierżawy
 
@@ -33,33 +35,21 @@ Aby uzyskać szczegółowe instrukcje dotyczące dodawania i usuwania podniesien
 
 Po podwyższeniu poziomu dostępu Twoje konto będzie miało rolę administratora dostępu użytkownika na platformie Azure w zakresie głównym. To przypisanie roli umożliwia wyświetlanie wszystkich zasobów i przypisywanie dostępu w ramach dowolnej subskrypcji lub grupy zarządzania w katalogu, a także tworzenie przypisań ról w zakresie głównym.
 
-### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Utwórz nowe konto głównej usługi, aby uzyskać dostęp do danych na poziomie dzierżawy
+### <a name="assign-the-monitoring-reader-role-at-root-scope"></a>Przypisz rolę czytnika monitorowania w zakresie głównym
 
 Po podwyższeniu poziomu dostępu można przypisać odpowiednie uprawnienia do konta, aby można było wykonywać zapytania dotyczące danych dziennika aktywności na poziomie dzierżawy. To konto musi mieć przypisaną wbudowaną rolę [czytnika monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) w głównym zakresie dzierżawy zarządzającej.
 
 > [!IMPORTANT]
-> Przyznanie przypisania roli w zakresie głównym oznacza, że te same uprawnienia będą stosowane do każdego zasobu w dzierżawie.
+> Przyznanie przypisania roli w zakresie głównym oznacza, że te same uprawnienia będą stosowane do każdego zasobu w dzierżawie. Ponieważ jest to szeroki poziom dostępu, można [przypisać tę rolę do konta głównego usługi i używać tego konta do wykonywania zapytań dotyczących danych](#use-a-service-principal-account-to-query-the-activity-log). Możesz również przypisać rolę czytelnik monitorowania w zakresie głównym do poszczególnych użytkowników lub grup użytkowników, aby mogli [wyświetlać informacje o delegowaniu bezpośrednio w Azure Portal](#view-delegation-changes-in-the-azure-portal). W takim przypadku należy pamiętać, że jest to szeroki poziom dostępu, który powinien być ograniczony do możliwie najmniejszej liczby użytkowników.
 
-Ponieważ jest to szeroki poziom dostępu, zalecamy przypisanie tej roli do konta głównego usługi, a nie do pojedynczego użytkownika lub grupy.
-
- Ponadto zalecamy stosowanie następujących najlepszych rozwiązań:
-
-- [Utwórz nowe konto nazwy głównej usługi](../../active-directory/develop/howto-create-service-principal-portal.md) , które ma być używane tylko dla tej funkcji, zamiast przypisywać tę rolę do istniejącej jednostki usługi używanej do innej automatyzacji.
-- Upewnij się, że ta jednostka usługi nie ma dostępu do żadnych delegowanych zasobów klienta.
-- [Użyj certyfikatu do uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) i [bezpiecznego przechowywania w Azure Key Vault](../../key-vault/general/security-overview.md).
-- Ogranicz użytkowników, którzy mają dostęp do działania w imieniu jednostki usługi.
-
-> [!NOTE]
-> Możesz również przypisać wbudowaną rolę czytnika monitorowania platformy Azure w zakresie głównym do poszczególnych użytkowników lub grup użytkowników. Może to być przydatne, jeśli użytkownik ma mieć możliwość [wyświetlania informacji o delegowaniu bezpośrednio w Azure Portal](#view-delegation-changes-in-the-azure-portal). W takim przypadku należy pamiętać, że jest to szeroki poziom dostępu, który powinien być ograniczony do możliwie najmniejszej liczby użytkowników.
-
-Użyj jednej z następujących metod, aby utworzyć przypisania zakresu głównego.
+Użyj jednej z następujących metod, aby utworzyć przypisanie zakresu głównego.
 
 #### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ApplicationId $servicePrincipal.ApplicationId 
+New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ObjectId <objectId> 
 ```
 
 #### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
@@ -72,9 +62,32 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Usuń podwyższony poziom dostępu dla konta administratora globalnego
 
-Po utworzeniu konta nazwy głównej usługi i przypisaniu roli czytnika monitorowania w zakresie głównym należy [usunąć podwyższony poziom dostępu](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) do konta administratora globalnego, ponieważ nie będzie już potrzebne.
+Po przypisaniu roli czytnika monitorowania pod zakresem głównym do żądanego konta, pamiętaj o [usunięciu podwyższonego poziomu dostępu](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) dla konta administratora globalnego, ponieważ ten poziom dostępu nie będzie już potrzebny.
 
-## <a name="query-the-activity-log"></a>Wykonywanie zapytań względem dziennika aktywności
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Wyświetl zmiany delegowania w Azure Portal
+
+Użytkownicy, którym przypisano rolę czytelnik monitorowania w zakresie głównym, mogą przeglądać zmiany delegowania bezpośrednio w Azure Portal.
+
+1. Przejdź do strony **moi klienci** , a następnie wybierz pozycję **Dziennik aktywności** z menu nawigacji po lewej stronie.
+1. Upewnij się, że w filtrze w górnej części ekranu zaznaczono **aktywność katalogu** .
+
+Zostanie wyświetlona lista zmian delegowania. Możesz wybrać opcję **Edytuj kolumny** , aby pokazać lub ukryć **stan**, **kategorię zdarzenia**, **godzinę**, **sygnaturę czasową**, **subskrypcję**, **zdarzenie zainicjowane przez**, **grupę zasobów**, **Typ zasobu** i wartości **zasobów** .
+
+:::image type="content" source="../media/delegation-activity-portal.jpg" alt-text="Zrzut ekranu przedstawiający zmiany delegowania w Azure Portal.":::
+
+## <a name="use-a-service-principal-account-to-query-the-activity-log"></a>Używanie konta nazwy głównej usługi do wysyłania zapytań do dziennika aktywności
+
+Ze względu na to, że rola czytelnik monitorowania w zakresie głównym ma taki szeroki poziom dostępu, możesz przypisać rolę do konta głównego usługi i użyć tego konta do wykonywania zapytań dotyczących danych przy użyciu poniższego skryptu.
+
+> [!IMPORTANT]
+> Obecnie dzierżawcy z dużą ilością działania delegowania mogą wystąpić błędy podczas wykonywania zapytania o te dane.
+
+W przypadku korzystania z konta nazwy głównej usługi do wysyłania zapytań do dziennika aktywności zalecamy następujące najlepsze rozwiązania:
+
+- [Utwórz nowe konto nazwy głównej usługi](../../active-directory/develop/howto-create-service-principal-portal.md) , które ma być używane tylko dla tej funkcji, zamiast przypisywać tę rolę do istniejącej jednostki usługi używanej do innej automatyzacji.
+- Upewnij się, że ta jednostka usługi nie ma dostępu do żadnych delegowanych zasobów klienta.
+- [Użyj certyfikatu do uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) i [bezpiecznego przechowywania w Azure Key Vault](../../key-vault/general/security-overview.md).
+- Ogranicz użytkowników, którzy mają dostęp do działania w imieniu jednostki usługi.
 
 Po utworzeniu nowego konta nazwy głównej usługi z dostępem do programu z możliwością monitorowania do zakresu głównego dzierżawy zarządzającej możesz użyć go do zapytania i raportu o działaniach delegowania w dzierżawie.
 
@@ -164,18 +177,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-> [!TIP]
-> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tych samych procesów.
-
-## <a name="view-delegation-changes-in-the-azure-portal"></a>Wyświetl zmiany delegowania w Azure Portal
-
-Użytkownicy, którym przypisano wbudowaną rolę czytelnik monitorowania platformy Azure w zakresie głównym, mogą przeglądać zmiany delegowania bezpośrednio w Azure Portal.
-
-1. Przejdź do strony **moi klienci** , a następnie wybierz pozycję **Dziennik aktywności** z menu nawigacji po lewej stronie.
-1. Upewnij się, że w filtrze w górnej części ekranu zaznaczono **aktywność katalogu** .
-
-Zostanie wyświetlona lista zmian delegowania. Możesz wybrać opcję **Edytuj kolumny** , aby pokazać lub ukryć **stan**, **kategorię zdarzenia**, **godzinę**, **sygnaturę czasową**, **subskrypcję**, **zdarzenie zainicjowane przez**, **grupę zasobów**, **Typ zasobu** i wartości **zasobów** .
 
 ## <a name="next-steps"></a>Następne kroki
 

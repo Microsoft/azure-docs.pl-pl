@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/25/2018
+ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c79942aad2ce450bc22aa0a0cfc32e67a667bd48
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bb14a6a82535ac5a7d36213b082d08aedbb44da5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006238"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090624"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na zestawie skalowania maszyn wirtualnych przy użyciu wywołań interfejsu API REST
 
@@ -542,7 +542,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
 
 4. Jeśli nie masz żadnych tożsamości zarządzanych użytkownika lub systemu przypisanych do zestawu skalowania maszyn wirtualnych, użyj następującego polecenia, aby wywołać Azure Resource Manager punkt końcowy REST, aby przypisać do zestawu skalowania maszyn wirtualnych pierwszą tożsamość zarządzaną przez użytkownika.  Jeśli masz przypisane tożsamości zarządzane przez użytkownika lub system do zestawu skalowania maszyn wirtualnych, przejdź do kroku 5, w którym pokazano, jak dodać wiele zarządzanych tożsamości przypisanych do użytkownika do zestawu skalowania maszyn wirtualnych, jednocześnie zachowując także tożsamość zarządzaną przypisaną przez system.
 
-   Poniższy przykład przypisuje tożsamość zarządzaną przypisaną przez użytkownika `ID1` do zestawu skalowania maszyn wirtualnych o nazwie *myVMSS* w grupie zasobów *myResourceGroup* Grupa zasobu.  Zamień na `<ACCESS TOKEN>` wartość otrzymaną w poprzednim kroku, gdy zażądano tokenu dostępu okaziciela oraz `<SUBSCRIPTION ID>` wartości odpowiedniej dla danego środowiska.
+   Poniższy przykład przypisuje tożsamość zarządzaną przypisaną przez użytkownika `ID1` do zestawu skalowania maszyn wirtualnych o nazwie *myVMSS* w grupie zasobów Grupa zasobu.  Zamień na `<ACCESS TOKEN>` wartość otrzymaną w poprzednim kroku, gdy zażądano tokenu dostępu okaziciela oraz `<SUBSCRIPTION ID>` wartości odpowiedniej dla danego środowiska.
 
    **INTERFEJS API W WERSJI 2018-06-01**
 

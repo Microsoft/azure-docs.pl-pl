@@ -3,12 +3,12 @@ title: Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881790"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070648"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -261,6 +261,16 @@ New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/Audit
 ```
 
 Następnym krokiem jest opublikowanie pliku na platformie Azure Blob Storage. Polecenie `Publish-GuestConfigurationPackage` wymaga `Az.Storage` modułu.
+
+Parametry `Publish-GuestConfigurationPackage` polecenia cmdlet:
+
+- **Ścieżka**: lokalizacja pakietu do opublikowania
+- **ResourceGroupName**: Nazwa grupy zasobów, w której znajduje się konto magazynu
+- **StorageAccountName**: nazwa konta magazynu, w którym ma zostać opublikowany pakiet
+- **StorageContainerName**: (default: *guestconfiguration*) nazwa kontenera magazynu na koncie magazynu
+- **Wymuś**: Zastąp istniejący pakiet na koncie magazynu o tej samej nazwie
+
+W poniższym przykładzie jest publikowany pakiet do kontenera magazynu o nazwie "guestconfiguration".
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
