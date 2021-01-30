@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Virtual Network platformy Azure
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Virtual Network platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f82dd1b4bd13f58ca3a62b99a04a64b6802d4329
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5ae4db3b8ff1aa61c778b6385f9e84a5270d2b2c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797487"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096085"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-network"></a>Azure Policy kontroli zgodności z przepisami dla Virtual Network platformy Azure
 

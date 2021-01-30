@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: a2b26ae8debf1c52693018ce9a758bfa9b029fa2
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610152"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093380"
 ---
-# <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (wersja zapoznawcza)
+# <a name="microsoft-azure-attestation"></a>Usługa Microsoft Azure Attestation 
 
-Zaświadczanie Microsoft Azure (wersja zapoznawcza) to ujednolicone rozwiązanie służące do zdalnego weryfikowania wiarygodności platformy i integralności danych binarnych działających w tym środowisku. Usługa obsługuje zaświadczanie platform objętych usługą Trusted platform modules (moduły TPM) wraz z możliwością zaświadczania stanu zaufanych środowisk wykonywania (TEEs), takich jak [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) Enclaves i [zabezpieczenia oparte na wirtualizacji](/windows-hardware/design/device-experiences/oem-vbs) (vbs) enclaves. 
+Zaświadczanie Microsoft Azure to ujednolicone rozwiązanie służące do zdalnego weryfikowania wiarygodności platformy i integralności danych binarnych działających w tym środowisku. Usługa obsługuje zaświadczanie platform objętych usługą Trusted platform modules (moduły TPM) wraz z możliwością zaświadczania stanu zaufanych środowisk wykonywania (TEEs), takich jak [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) Enclaves i [zabezpieczenia oparte na wirtualizacji](/windows-hardware/design/device-experiences/oem-vbs) (vbs) enclaves. 
 
 Zaświadczanie to proces demonstrujący, że dane binarne oprogramowania zostały prawidłowo utworzone na zaufanej platformie. Zdalne jednostki uzależnione mogą wówczas mieć pewność, że tylko takie planowane oprogramowanie jest uruchomione na zaufanym sprzęcie. Zaświadczanie platformy Azure to ujednolicona usługa i struktura dla zaświadczania.
 
@@ -42,7 +42,7 @@ W przypadku programu OE są spełnione określone wymagania dotyczące weryfikac
 
 ### <a name="tpm-attestation"></a>Poświadczanie za pomocą modułu TPM 
 
-Zaświadczanie oparte na moduł TPM (TPM) ma kluczowe znaczenie dla zapewnienia dowodu stanu platformy. Moduł TPM pełni rolę główną zaufania i współprocesorem zabezpieczeń, aby zapewnić poprawność kryptograficzną dla pomiarów (dowodów). Urządzenia z modułem TPM mogą polegać na zaświadczeniu, aby udowodnić, że integralność rozruchowa nie została naruszona wraz z użyciem oświadczeń do wykrywania stanu funkcji w trakcie rozruchu. 
+Zaświadczanie oparte na Trusted Platform Module (TPM) ma kluczowe znaczenie dla zapewnienia dowodu stanu platformy. Moduł TPM pełni rolę główną zaufania i współprocesorem zabezpieczeń, aby zapewnić poprawność kryptograficzną dla pomiarów (dowodów). Urządzenia z modułem TPM mogą polegać na zaświadczeniu, aby udowodnić, że integralność rozruchowa nie została naruszona wraz z użyciem oświadczeń do wykrywania stanu funkcji w trakcie rozruchu. 
 
 Aplikacje klienckie można zaprojektować w taki sposób, aby korzystały z zaświadczania modułu TPM przez delegowanie zadań związanych z zabezpieczeniami, które są wykonywane tylko po zweryfikowaniu poprawności platformy pod kątem bezpieczeństwa. Takie aplikacje mogą następnie używać zaświadczania platformy Azure do rutynowego ustanawiania zaufania na platformie i uzyskiwania dostępu do poufnych danych.
 

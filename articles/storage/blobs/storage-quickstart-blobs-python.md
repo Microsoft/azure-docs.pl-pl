@@ -3,23 +3,23 @@ title: 'Szybki Start: Azure Blob Storage Library V12 — Python'
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć kontener i obiekt BLOB w magazynie obiektów BLOB (Object) przy użyciu biblioteki klienta Blob Storage platformy Azure w wersji 12 dla języka Python. Następnie dowiesz się, jak pobrać obiekt blob na komputer lokalny i jak wyświetlać listę wszystkich obiektów blob w kontenerze.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/28/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: b35144c1ff4de9324086629bc764caea4bef98b6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e315f0f4f7bfff03a659de430e6fe182037f1b8a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052740"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096410"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Python
 
 W tym przewodniku szybki start nauczysz się zarządzać obiektami BLOB przy użyciu języka Python. Obiekty blob są obiektami, które mogą przechowywać duże ilości danych tekstowych lub binarnych, w tym obrazy, dokumenty, multimedia strumieniowe i dane archiwalne. Będziesz przekazywać, pobierać i wyświetlać listy obiektów blob, a następnie tworzyć i usuwać kontenery.
 
-Dodatkowe zasoby:
+Więcej zasobów:
 
 * [Dokumentacja referencyjna interfejsu API](/python/api/azure-storage-blob)
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
@@ -54,7 +54,7 @@ Tworzenie aplikacji w języku Python o nazwie *BLOB-Start-V12*.
     cd blob-quickstart-v12
     ```
 
-1. W obszarze *obiekt BLOB — szybki start V12* katalog Utwórz inny katalog o nazwie *dane*. Jest to miejsce, w którym są tworzone i przechowywane pliki danych obiektów BLOB.
+1. W obszarze *obiekt BLOB — szybki start V12* katalog Utwórz inny katalog o nazwie *dane*. Ten katalog jest miejscem, w którym będą tworzone i przechowywane pliki danych obiektów BLOB.
 
     ```console
     mkdir data
@@ -80,17 +80,7 @@ Z katalogu projektu:
 
     Oto kod:
 
-    ```python
-    import os, uuid
-    from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, __version__
-
-    try:
-        print("Azure Blob Storage v" + __version__ + " - Python quickstart sample")
-        # Quick start code goes here
-    except Exception as ex:
-        print('Exception:')
-        print(ex)
-    ```
+    :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/app_framework.py":::
 
 1. Zapisz nowy plik jako *BLOB-QuickStart-V12.py* w katalogu *BLOB-Start-V12* .
 
@@ -98,7 +88,7 @@ Z katalogu projektu:
 
 ## <a name="object-model"></a>Model obiektów
 
-Usługa Azure Blob Storage jest zoptymalizowana pod kątem przechowywania dużych ilości danych bez struktury. Dane bez struktury są danymi, które nie są zgodne z żadnym modelem lub definicją danych, jak na przykład dane tekstowe lub binarne. Magazyn obiektów blob oferuje trzy typy zasobów:
+Usługa Azure Blob Storage jest zoptymalizowana pod kątem przechowywania dużych ilości danych bez struktury. Dane bez struktury to dane, które nie są zgodne z konkretnym modelem danych lub definicją, takimi jak dane tekstowe lub binarne. Magazyn obiektów blob oferuje trzy typy zasobów:
 
 * Konto magazynu
 * Kontener na koncie magazynu
@@ -116,7 +106,7 @@ Użyj następujących klas języka Python do korzystania z tych zasobów:
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienta Blob Storage platformy Azure dla języka Python:
+Te przykładowe fragmenty kodu przedstawiają sposób wykonywania następujących zadań za pomocą biblioteki klienta Blob Storage platformy Azure dla języka Python:
 
 * [Pobieranie parametrów połączenia](#get-the-connection-string)
 * [Tworzenie kontenera](#create-a-container)
@@ -127,19 +117,11 @@ Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności 
 
 ### <a name="get-the-connection-string"></a>Pobieranie parametrów połączenia
 
-Poniższy kod pobiera parametry połączenia dla konta magazynu ze zmiennej środowiskowej utworzonej w sekcji [Konfigurowanie parametrów połączenia magazynu](#configure-your-storage-connection-string) .
+Poniższy kod pobiera parametry połączenia konta magazynu ze zmiennej środowiskowej utworzonej w sekcji [Konfigurowanie parametrów połączenia magazynu](#configure-your-storage-connection-string) .
 
 Dodaj ten kod wewnątrz `try` bloku:
 
-```python
-# Retrieve the connection string for use with the application. The storage
-# connection string is stored in an environment variable on the machine
-# running the application called AZURE_STORAGE_CONNECTION_STRING. If the environment variable is
-# created after the application is launched in a console or with Visual Studio,
-# the shell or application needs to be closed and reloaded to take the
-# environment variable into account.
-connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_ConnectionString":::
 
 ### <a name="create-a-container"></a>Tworzenie kontenera
 
@@ -152,47 +134,20 @@ Utwórz wystąpienie klasy [BlobServiceClient](/python/api/azure-storage-blob/az
 
 Dodaj ten kod na końcu `try` bloku:
 
-```python
-# Create the BlobServiceClient object which will be used to create a container client
-blob_service_client = BlobServiceClient.from_connection_string(connect_str)
-
-# Create a unique name for the container
-container_name = "quickstart" + str(uuid.uuid4())
-
-# Create the container
-container_client = blob_service_client.create_container(container_name)
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_CreateContainer":::
 
 ### <a name="upload-blobs-to-a-container"></a>Przekazywanie obiektów BLOB do kontenera
 
 Następujący fragment kodu:
 
+1. Tworzy katalog lokalny do przechowywania plików danych.
 1. Tworzy plik tekstowy w katalogu lokalnym.
 1. Pobiera odwołanie do obiektu [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) przez wywołanie metody [get_blob_client](/python/api/azure-storage-blob/azure.storage.blob.containerclient#get-blob-client-blob--snapshot-none-) na [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) z sekcji [Create a Container](#create-a-container) .
 1. Przekazuje lokalny plik tekstowy do obiektu BLOB, wywołując metodę [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#upload-blob-data--blob-type--blobtype-blockblob---blockblob----length-none--metadata-none----kwargs-) .
 
 Dodaj ten kod na końcu `try` bloku:
 
-```python
-# Create a file in local data directory to upload and download
-local_path = "./data"
-local_file_name = "quickstart" + str(uuid.uuid4()) + ".txt"
-upload_file_path = os.path.join(local_path, local_file_name)
-
-# Write text to the file
-file = open(upload_file_path, 'w')
-file.write("Hello, World!")
-file.close()
-
-# Create a blob client using the local file name as the name for the blob
-blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
-
-print("\nUploading to Azure Storage as blob:\n\t" + local_file_name)
-
-# Upload the created file
-with open(upload_file_path, "rb") as data:
-    blob_client.upload_blob(data)
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_UploadBlobs":::
 
 ### <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
@@ -200,14 +155,7 @@ Utwórz listę obiektów BLOB w kontenerze, wywołując metodę [list_blobs](/py
 
 Dodaj ten kod na końcu `try` bloku:
 
-```python
-print("\nListing blobs...")
-
-# List the blobs in the container
-blob_list = container_client.list_blobs()
-for blob in blob_list:
-    print("\t" + blob.name)
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_ListBlobs":::
 
 ### <a name="download-blobs"></a>Pobieranie obiektów blob
 
@@ -215,42 +163,21 @@ Pobierz utworzony wcześniej obiekt BLOB, wywołując metodę [download_blob](/p
 
 Dodaj ten kod na końcu `try` bloku:
 
-```python
-# Download the blob to a local file
-# Add 'DOWNLOAD' before the .txt extension so you can see both files in the data directory
-download_file_path = os.path.join(local_path, str.replace(local_file_name ,'.txt', 'DOWNLOAD.txt'))
-print("\nDownloading blob to \n\t" + download_file_path)
-
-with open(download_file_path, "wb") as download_file:
-    download_file.write(blob_client.download_blob().readall())
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_DownloadBlobs":::
 
 ### <a name="delete-a-container"></a>Usuwanie kontenera
 
 Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie całego kontenera przy użyciu metody [delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-) . Możesz również usunąć pliki lokalne, jeśli chcesz.
 
-Aplikacja wstrzymuje się do wprowadzania danych przez użytkownika `input()` , wywołując przed usunięciem obiektu BLOB, kontenera i plików lokalnych. Jest to dobry szansa, aby sprawdzić, czy zasoby zostały utworzone prawidłowo, przed ich usunięciem.
+Aplikacja wstrzymuje się do wprowadzania danych przez użytkownika `input()` , wywołując przed usunięciem obiektu BLOB, kontenera i plików lokalnych. Przed usunięciem zasobów Sprawdź, czy zostały one utworzone prawidłowo.
 
 Dodaj ten kod na końcu `try` bloku:
 
-```python
-# Clean up
-print("\nPress the Enter key to begin clean up")
-input()
-
-print("Deleting blob container...")
-container_client.delete_container()
-
-print("Deleting the local source and downloaded files...")
-os.remove(upload_file_path)
-os.remove(download_file_path)
-
-print("Done")
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_CleanUp":::
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Ta aplikacja tworzy plik testowy w folderze lokalnym i przekazuje go do magazynu obiektów BLOB. Przykład następnie wyświetla listę obiektów BLOB w kontenerze i pobiera plik z nową nazwą, aby można było porównać stare i nowe pliki.
+Ta aplikacja tworzy plik testowy w folderze lokalnym i przekazuje go do usługi Azure Blob Storage. Przykład następnie wyświetla listę obiektów BLOB w kontenerze i pobiera plik z nową nazwą. Można porównać stare i nowe pliki.
 
 Przejdź do katalogu zawierającego plik *BLOB-QuickStart-V12.py* , a następnie wykonaj następujące polecenie, `python` Aby uruchomić aplikację.
 
@@ -279,7 +206,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Przed rozpoczęciem procesu oczyszczania Sprawdź, czy w folderze *danych* są dwa pliki. Możesz je otworzyć i sprawdzić, czy są identyczne.
+Przed rozpoczęciem procesu oczyszczania Sprawdź, czy w folderze *danych* istnieją dwa pliki. Można je otworzyć i sprawdzić, czy są one identyczne.
 
 Po zweryfikowaniu plików naciśnij klawisz **Enter** , aby usunąć pliki testowe i zakończyć demonstrację.
 

@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836074"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092670"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect często zadawane pytania
 
@@ -162,8 +162,8 @@ Zsynchronizowani użytkownicy mogą być autorami lub być zarządzani w środow
 **P: Dlaczego Atrybut userPrincipalName (UPN) w usłudze Azure AD nie jest zgodny z lokalną nazwą UPN?**  
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-* [Nazwy użytkowników w Microsoft 365, Azure lub Intune nie są zgodne z lokalną nazwą UPN lub alternatywnym IDENTYFIKATORem logowania](https://support.microsoft.com/kb/2523192)
-* [Zmiany nie są synchronizowane przez narzędzie Azure Active Directory Sync po zmianie nazwy UPN konta użytkownika w celu użycia innej domeny federacyjnej](https://support.microsoft.com/kb/2669550)
+* [Nazwy użytkowników w Microsoft 365, Azure lub Intune nie są zgodne z lokalną nazwą UPN lub alternatywnym IDENTYFIKATORem logowania](https://mskb.pkisolutions.com/kb/2523192)
+* [Zmiany nie są synchronizowane przez narzędzie Azure Active Directory Sync po zmianie nazwy UPN konta użytkownika w celu użycia innej domeny federacyjnej](https://mskb.pkisolutions.com/kb/2669550)
 
 Możesz również skonfigurować usługę Azure AD, aby umożliwić aparatowi synchronizacji aktualizowanie nazwy UPN, zgodnie z opisem w temacie [funkcje usługi synchronizacji Azure AD Connect](how-to-connect-syncservice-features.md).
 

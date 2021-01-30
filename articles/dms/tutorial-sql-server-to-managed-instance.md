@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 210d5b06cfe417f581995ad5b356d62e1c35a6d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 995fe7bc81b0fae75ebf93338722c21bd12bde49
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972622"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095577"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie offline za pomocą usługi DMS
 
@@ -66,7 +66,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
     >[!NOTE]
     >Domyślnie Azure Database Migration Service obsługuje tylko Migrowanie nazw logowania SQL. Można jednak włączyć możliwość migracji nazw logowania systemu Windows przez:
     >
-    >- Upewnienie się, że docelowe wystąpienie zarządzane SQL ma dostęp do odczytu usługi AAD, który można skonfigurować za pośrednictwem Azure Portal przez użytkownika z rolą **administratora firmy** lub **administratora globalnego**.
+    >- Upewnienie się, że docelowe wystąpienie zarządzane SQL ma dostęp do odczytu usługi AAD, który można skonfigurować za pośrednictwem Azure Portal przez użytkownika z rolą **administratora globalnego** .
     >- Konfigurowanie wystąpienia Azure Database Migration Service, aby umożliwić migrację logowania użytkownika/grupy systemu Windows, która jest konfigurowana za pośrednictwem Azure Portal na stronie Konfiguracja. Po włączeniu tego ustawienia należy ponownie uruchomić usługę, aby zmiany zaczęły obowiązywać.
     >
     > Po ponownym uruchomieniu usługi, logowania użytkownika/grupy systemu Windows są wyświetlane na liście nazw logowania dostępnych do migracji. W przypadku wszystkich migrowanych kont użytkowników/grup systemu Windows zostanie wyświetlony monit o podanie skojarzonej nazwy domeny. Konta użytkowników usługi (konto z nazwą domeny NT AUTHORITY) i wirtualne konta użytkowników (nazwa konta z usługą nazw domen NT) nie są obsługiwane.
@@ -203,7 +203,7 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
     |**Wybierz opcję tworzenia kopii zapasowej źródła** | Wybierz opcję **Dostarczę najnowsze pliki kopii zapasowej**, jeśli pełne pliki kopii zapasowej są już dostępne do użycia przez usługę DMS na potrzeby migracji bazy danych. Wybierz opcję **Umożliwię usłudze Azure Database Migration Service utworzenie plików kopii zapasowej**, jeśli usługa DMS ma pobrać pełną kopię zapasową źródłowej bazy danych i użyć jej na potrzeby migracji. |
     |**Udział lokalizacji sieciowej** | Lokalny udział sieciowy SMB, który Azure Database Migration Service może pobrać kopie zapasowe źródłowej bazy danych do programu. Konto usługi uruchamiające źródłowe wystąpienie programu SQL Server musi mieć uprawnienia do zapisu w tym udziale sieciowym. Podaj nazwę FQDN lub adresy IP serwera w udziale sieciowym, na przykład „\\\nazwa_serwera.nazwa_domeny.com\folder_kopii_zapasowych” lub „\\\adres_IP\folder_kopii_zapasowych”.|
     |**User name** (Nazwa użytkownika) | Upewnij się, że użytkownik systemu Windows ma uprawnienia pełnej kontroli w udziale sieciowym, który podano powyżej. Azure Database Migration Service personifikuje poświadczenia użytkownika w celu przekazania plików kopii zapasowej do kontenera usługi Azure Storage w celu wykonania operacji przywracania. W przypadku wybrania baz danych obsługujących szyfrowanie TDE użytkownik systemu Windows musi korzystać z wbudowanego konta administratora, a [kontrola konta użytkownika](/windows/security/identity-protection/user-account-control/user-account-control-overview) musi być wyłączona, aby usługa Azure Database Migration Service mogła przekazywać i usuwać pliki certyfikatów. |
-    |**Hasło** | Hasło użytkownika. |
+    |**Password** (Hasło) | Hasło użytkownika. |
     |**Ustawienia konta magazynu** | Identyfikator URI sygnatury dostępu współdzielonego, który zapewnia Azure Database Migration Service z dostępem do kontenera konta magazynu, do którego usługa przekazuje pliki kopii zapasowej i służy do migrowania baz danych do wystąpienia zarządzanego SQL. [Dowiedz się, jak uzyskać identyfikator URI sygnatury dostępu współdzielonego dla kontenera obiektów blob](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container). Ten identyfikator URI sygnatury dostępu współdzielonego musi być dla kontenera obiektów blob, a nie dla konta magazynu.|
     |**Ustawienia szyfrowania TDE** | W przypadku migrowania źródłowych baz danych z włączonym Transparent Data Encryption (TDE) należy mieć uprawnienia do zapisu w docelowym wystąpieniu zarządzanym SQL.  Wybierz subskrypcję, w ramach której obsługiwane jest wystąpienie zarządzane przez program SQL z menu rozwijanego.  Wybierz docelowe **wystąpienie zarządzane usługi Azure SQL Database** z menu rozwijanego. |
 

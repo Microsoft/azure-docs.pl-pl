@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/05/2020
+ms.date: 01/29/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 535b49cb20d60bd9ab294543b82bdb24b040eb7b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5f0c8d237e270177ef38c60c523364054bae15af
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879481"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090862"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
 
@@ -222,14 +222,9 @@ Ten administrator zarządza Federacją między organizacjami usługi Azure AD a 
 * Organizacje usługi Azure AD dla pracowników i partnerów: dodanie Federacji (np. z użyciem usługi Gmail) natychmiast wpłynie na wszystkie zaproszenia gościa, które nie zostały jeszcze zrealizowane. Zobacz [Dodawanie usługi Google jako dostawcy tożsamości dla użytkowników-Gości B2B](../external-identities/google-federation.md).
 * Azure Active Directory B2C organizacje: dodanie Federacji (na przykład w usłudze Facebook lub innej organizacji usługi Azure AD) nie wpływa natychmiast na przepływy użytkowników końcowych, dopóki dostawca tożsamości nie zostanie dodany jako opcja w przepływie użytkownika (nazywane również zasadami wbudowanymi). Zapoznaj się z przykładem dotyczącym [konfigurowania konto Microsoft jako dostawcy tożsamości](../../active-directory-b2c/identity-provider-microsoft-account.md) . Aby zmienić przepływy użytkowników, wymagana jest ograniczona rola "Administrator przepływu użytkownika B2C".
 
-### <a name="global-administrator--company-administrator"></a>[Administrator globalny/administrator firmy](#company-administrator-permissions)
+### <a name="global-administrator"></a>[Administrator globalny](#global-administrator-permissions)
 
-Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w Azure Active Directory, a także usług korzystających z tożsamości Azure Active Directory, takich jak Microsoft 365 Security Center, Microsoft 365 Centrum zgodności, Exchange Online, SharePoint Online i Skype dla firm Online. Ponadto administratorzy globalni mogą [podnieść poziom dostępu](../../role-based-access-control/elevate-access-global-admin.md) do zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania. Dzięki temu administratorzy globalni mogą uzyskać pełny dostęp do wszystkich zasobów platformy Azure przy użyciu odpowiedniej dzierżawy usługi Azure AD. Osoba, która zarejestruje się w usłudze Azure AD, zostaje administratorem globalnym. W Twojej firmie może istnieć więcej niż jeden administrator globalny. Administratorzy globalni mogą resetować hasła dla wszystkich użytkowników oraz wszystkich pozostałych administratorów.
-
-> [!NOTE]
-> W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator firmy". Jest to "Administrator globalny" w [Azure Portal](https://portal.azure.com).
->
->
+Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w Azure Active Directory, a także usług korzystających z tożsamości Azure Active Directory, takich jak Microsoft 365 Security Center, Microsoft 365 Centrum zgodności, Exchange Online, SharePoint Online i Skype dla firm Online. Ponadto administratorzy globalni mogą [podnieść poziom dostępu](../../role-based-access-control/elevate-access-global-admin.md) do zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania. Dzięki temu administratorzy globalni mogą uzyskać pełny dostęp do wszystkich zasobów platformy Azure przy użyciu odpowiedniej dzierżawy usługi Azure AD. Osoba, która zarejestruje się w usłudze Azure AD, zostaje administratorem globalnym. W Twojej firmie może istnieć więcej niż jeden administrator globalny. Administratorzy globalni mogą zresetować hasło dla dowolnego użytkownika i wszystkich innych administratorów.
 
 ### <a name="global-reader"></a>[Czytelnik globalny](#global-reader-permissions)
 
@@ -445,7 +440,7 @@ W | Można wykonać
 --- | ---
 [Microsoft 365 Security Center](https://protection.office.com) | Wyświetlanie zasad związanych z zabezpieczeniami w ramach usług Microsoft 365 Services<br>Wyświetl zagrożenia i alerty zabezpieczeń<br>Wyświetlanie raportów
 Centrum ochrony tożsamości | Przeczytaj wszystkie raporty i ustawienia zabezpieczeń dotyczące funkcji zabezpieczeń<br><ul><li>Antyspam<li>Szyfrowanie<li>Ochrona przed utratą danych<li>Ochrona przed złośliwym oprogramowaniem<li>Zaawansowana ochrona przed zagrożeniami<li>Ochrona przed phishingiem<li>Reguły Mailflow
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Ma dostęp tylko do odczytu do wszystkich informacji podanych w Azure AD Privileged Identity Management: zasady i raporty dotyczące przypisań ról i przeglądów zabezpieczeń usługi Azure AD.<br>**Nie można** zarejestrować się w usłudze Azure AD Privileged Identity Management ani wprowadzać w niej żadnych zmian. W portalu Privileged Identity Management lub za pośrednictwem programu PowerShell ktoś w tej roli może aktywować dodatkowe role (na przykład administratorów globalnych lub administrator ról uprzywilejowanych), jeśli użytkownik jest uprawniony do korzystania z nich.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Ma dostęp tylko do odczytu do wszystkich informacji podanych w Azure AD Privileged Identity Management: zasady i raporty dotyczące przypisań ról i przeglądów zabezpieczeń usługi Azure AD.<br>**Nie można** zarejestrować się w usłudze Azure AD Privileged Identity Management ani wprowadzać w niej żadnych zmian. W portalu Privileged Identity Management lub za pośrednictwem programu PowerShell ktoś w tej roli może aktywować dodatkowe role (na przykład administrator globalny lub administrator ról uprzywilejowanych), jeśli użytkownik jest uprawniony do korzystania z nich.
 [Centrum zgodności & zabezpieczeń pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Wyświetlanie zasad zabezpieczeń<br>Wyświetl i zbadaj zagrożenia bezpieczeństwa<br>Wyświetlanie raportów
 Windows Defender ATP i EDR | Wyświetlanie i badanie alertów. Po włączeniu kontroli dostępu opartej na rolach w usłudze Windows Defender ATP użytkownicy z uprawnieniami tylko do odczytu, takimi jak rola czytnika zabezpieczeń usługi Azure AD, tracą dostęp do momentu przypisania ich do roli usługi Windows Defender ATP.
 [Intune](/intune/role-based-access-control) | wyświetla informacje o użytkownikach, urządzeniach, rejestracji, konfiguracji i aplikacji. Nie może wprowadzać zmian w usłudze Intune.
@@ -747,9 +742,9 @@ Pełny dostęp do zarządzania urządzeniami w usłudze Azure AD.
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 
-### <a name="company-administrator-permissions"></a>Uprawnienia administratora firmy
+### <a name="global-administrator-permissions"></a>Uprawnienia administratora globalnego
 
-Może zarządzać wszystkimi aspektami usługi Azure AD i usługami firmy Microsoft, które korzystają z tożsamości usługi Azure AD. Ta rola jest również znana jako rola administratora globalnego. 
+Może zarządzać wszystkimi aspektami usługi Azure AD i usługami firmy Microsoft, które korzystają z tożsamości usługi Azure AD.
 
 > [!NOTE]
 > Ta rola ma dodatkowe uprawnienia poza Azure Active Directory. Aby uzyskać więcej informacji, zobacz opis roli powyżej.
@@ -1749,10 +1744,12 @@ Tworzy i zarządza zdarzeniami zabezpieczeń.
 | Microsoft. Directory/cloudAppSecurity/allProperties/allTasks | Odczytaj i skonfiguruj Microsoft Cloud App Security. |
 | Microsoft. Directory/identityProtection/allProperties/odczyt | Odczytuj wszystkie zasoby w Microsoft. AAD. identityProtection. |
 | Microsoft. Directory/privilegedIdentityManagement/allProperties/odczyt | Odczytuj wszystkie zasoby w Microsoft. AAD. privilegedIdentityManagement. |
+| Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytaj wszystkie właściwości dzienników aprowizacji. |
 | Microsoft. Intune/allEntities/allTasks | Zarządzaj wszystkimi aspektami usługi Intune. |
 | Microsoft. Office 365. securityComplianceCenter/allEntities/allTasks | Przeczytaj i skonfiguruj Centrum zabezpieczeń & zgodności. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
 | Microsoft. Windows. defenderAdvancedThreatProtection/allEntities/odczyt | Odczytywanie i Konfigurowanie zaawansowanej ochrony przed zagrożeniami w usłudze Windows Defender. |
+
 
 ### <a name="security-reader-permissions"></a>Uprawnienia czytelnika zabezpieczeń
 

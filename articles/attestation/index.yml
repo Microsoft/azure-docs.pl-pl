@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Microsoft Azure Attestation (wersja zapoznawcza)
+title: Usługa Microsoft Azure Attestation
 summary: Dowiedz się, jak korzystać z usługi Azure Attestation
 metadata:
   title: Dokumentacja usługi Azure Attestation
@@ -10,12 +10,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 07/20/2020
-  ms.openlocfilehash: 9740c315333d3f24e43a35b476243f323b6e3821
-  ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
-  ms.translationtype: HT
+  ms.openlocfilehash: 47e1a1cc838a7d8153c8dbea71a0aae576166f2e
+  ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 01/14/2021
-  ms.locfileid: "98209920"
+  ms.lasthandoff: 01/30/2021
+  ms.locfileid: "99093546"
 landingContent:
 - title: Informacje o usłudze Microsoft Azure Attestation
   linkLists:

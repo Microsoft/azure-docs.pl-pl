@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: d1360589fe2c2ec13c341dd14793db0ca8b809c4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358881"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094013"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -172,7 +172,7 @@ Logowania SQL z SQL Server źródłowych można przenieść do wystąpienia zarz
 
 Domyślnie Azure Database Migration Service obsługuje tylko Migrowanie nazw logowania SQL. Można jednak włączyć możliwość migracji nazw logowania systemu Windows przez:
 
-Upewnienie się, że docelowe wystąpienie zarządzane SQL ma dostęp do odczytu usługi Azure AD, który można skonfigurować za pośrednictwem Azure Portal przez użytkownika z rolą **administratora firmy** lub **administratora globalnego**.
+Upewnienie się, że docelowe wystąpienie zarządzane SQL ma dostęp do odczytu usługi Azure AD, który można skonfigurować za pośrednictwem Azure Portal przez użytkownika z rolą **administratora globalnego** .
 Konfigurowanie wystąpienia Azure Database Migration Service, aby umożliwić migrację logowania użytkownika/grupy systemu Windows, która jest konfigurowana za pośrednictwem Azure Portal na stronie Konfiguracja. Po włączeniu tego ustawienia należy ponownie uruchomić usługę, aby zmiany zaczęły obowiązywać.
 
 Po ponownym uruchomieniu usługi, logowania użytkownika/grupy systemu Windows są wyświetlane na liście nazw logowania dostępnych do migracji. W przypadku wszystkich migrowanych kont użytkowników/grup systemu Windows zostanie wyświetlony monit o podanie skojarzonej nazwy domeny. Konta użytkowników usługi (konto z nazwą domeny NT AUTHORITY) i wirtualne konta użytkowników (nazwa konta z usługą nazw domen NT) nie są obsługiwane.

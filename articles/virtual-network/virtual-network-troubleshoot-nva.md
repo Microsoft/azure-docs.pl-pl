@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219287"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095645"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemy z sieciowym urządzeniem wirtualnym na platformie Azure
 
@@ -30,7 +30,7 @@ Problemy z łącznością maszyn wirtualnych lub sieci VPN mogą wystąpić w pr
 Pomoc techniczna dla urządzeń WUS innych firm oraz integracja z platformą Azure jest świadczona przez dostawcę urządzenie WUS.
 
 > [!NOTE]
-> Jeśli występuje problem z łącznością lub routingiem, który obejmuje urządzenie WUS, należy [skontaktować się bezpośrednio z dostawcą urządzenie WUS](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) .
+> Jeśli występuje problem z łącznością lub routingiem, który obejmuje urządzenie WUS, należy [skontaktować się bezpośrednio z dostawcą urządzenie WUS](https://mskb.pkisolutions.com/kb/2984655) .
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -52,7 +52,7 @@ Pomoc techniczna dla urządzeń WUS innych firm oraz integracja z platformą Azu
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Sprawdź wymagania dotyczące minimalnej konfiguracji programu urządzeń WUS na platformie Azure
 
-Każdy urządzenie WUS ma podstawowe wymagania dotyczące konfiguracji, które działają poprawnie na platformie Azure. W poniższej sekcji przedstawiono kroki, które należy wykonać, aby sprawdzić te podstawowe konfiguracje. Aby uzyskać więcej informacji, [skontaktuj się z dostawcą urządzenie WUS](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Każdy urządzenie WUS ma podstawowe wymagania dotyczące konfiguracji, które działają poprawnie na platformie Azure. W poniższej sekcji przedstawiono kroki, które należy wykonać, aby sprawdzić te podstawowe konfiguracje. Aby uzyskać więcej informacji, [skontaktuj się z dostawcą urządzenie WUS](https://mskb.pkisolutions.com/kb/2984655).
 
 **Sprawdź, czy funkcja przekazywania adresów IP jest włączona w urządzenie WUS**
 
@@ -112,17 +112,17 @@ Korzystanie z programu PowerShell
     ```console
    netstat -an | grep -i listen
     ```
-2. Jeśli nie widzisz portu TCP, który jest używany przez oprogramowanie urządzenie WUS wymienione w wynikach, musisz skonfigurować aplikację na urządzenie WUS i maszynie wirtualnej, aby nasłuchiwać i odpowiadać na ruch, który dociera do tych portów. [Skontaktuj się z dostawcą urządzenie WUS, aby uzyskać pomoc w razie potrzeby](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. Jeśli nie widzisz portu TCP, który jest używany przez oprogramowanie urządzenie WUS wymienione w wynikach, musisz skonfigurować aplikację na urządzenie WUS i maszynie wirtualnej, aby nasłuchiwać i odpowiadać na ruch, który dociera do tych portów. [Skontaktuj się z dostawcą urządzenie WUS, aby uzyskać pomoc w razie potrzeby](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="check-nva-performance"></a>Sprawdź wydajność urządzenie WUS
 
 ### <a name="validate-vm-cpu"></a>Weryfikuj procesor maszyny wirtualnej
 
-Jeśli użycie procesora CPU zostanie zbliżone do 100%, mogą wystąpić problemy, które mają wpływ na porzucanie pakietów sieciowych. Maszyna wirtualna raportuje średni procesor CPU dla określonego przedziału czasu w Azure Portal. Podczas przechodzenia przez procesor CPU Sprawdź, który proces na maszynie wirtualnej gościa powoduje duże wykorzystanie procesora CPU, i Ogranicz go, jeśli to możliwe. Może być również konieczne zmianę rozmiaru maszyny wirtualnej na większy rozmiar jednostki SKU lub, w przypadku zestawu skalowania maszyn wirtualnych, zwiększenia liczby wystąpień lub ustawienia skalowania automatycznego przy użyciu procesora. W razie potrzeby należy [skontaktować się z dostawcą urządzenie WUS w celu uzyskania pomocy](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Jeśli użycie procesora CPU zostanie zbliżone do 100%, mogą wystąpić problemy, które mają wpływ na porzucanie pakietów sieciowych. Maszyna wirtualna raportuje średni procesor CPU dla określonego przedziału czasu w Azure Portal. Podczas przechodzenia przez procesor CPU Sprawdź, który proces na maszynie wirtualnej gościa powoduje duże wykorzystanie procesora CPU, i Ogranicz go, jeśli to możliwe. Może być również konieczne zmianę rozmiaru maszyny wirtualnej na większy rozmiar jednostki SKU lub, w przypadku zestawu skalowania maszyn wirtualnych, zwiększenia liczby wystąpień lub ustawienia skalowania automatycznego przy użyciu procesora. W razie potrzeby należy [skontaktować się z dostawcą urządzenie WUS w celu uzyskania pomocy](https://mskb.pkisolutions.com/kb/2984655).
 
 ### <a name="validate-vm-network-statistics"></a>Weryfikowanie statystyk sieci maszyn wirtualnych
 
-Jeśli w sieci maszyny wirtualnej używane są skoki lub przedstawiono okresy wysokiego użycia, może być również konieczne zwiększenie rozmiaru jednostki SKU maszyny wirtualnej w celu uzyskania większej przepływności. Możesz również ponownie wdrożyć maszynę wirtualną, korzystając z włączonej przyspieszonej sieci. Aby sprawdzić, czy urządzenie WUS obsługuje funkcję przyspieszonej sieci, należy [skontaktować się z dostawcą urządzenie WUS w celu uzyskania pomocy](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Jeśli w sieci maszyny wirtualnej używane są skoki lub przedstawiono okresy wysokiego użycia, może być również konieczne zwiększenie rozmiaru jednostki SKU maszyny wirtualnej w celu uzyskania większej przepływności. Możesz również ponownie wdrożyć maszynę wirtualną, korzystając z włączonej przyspieszonej sieci. Aby sprawdzić, czy urządzenie WUS obsługuje funkcję przyspieszonej sieci, należy [skontaktować się z dostawcą urządzenie WUS w celu uzyskania pomocy](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="advanced-network-administrator-troubleshooting"></a>Zaawansowane rozwiązywanie problemów z administratorem sieci
 
@@ -146,4 +146,4 @@ Przechwyć jednoczesne śledzenie sieci na źródłowej maszynie wirtualnej, urz
 
 Jeśli pakiety przychodzące do śladu maszyny wirtualnej wewnętrznej bazy danych nie są widoczne, prawdopodobnie sieciowej grupy zabezpieczeń lub UDR się z nieprawidłowymi tabelami routingu urządzenie WUS.
 
-Jeśli pakiety przychodzące są widoczne, ale brak jest odpowiedzi, być może musisz rozwiązać problem z zaporą lub aplikacją maszyny wirtualnej. W przypadku każdego z tych problemów należy [skontaktować się z dostawcą urządzenie WUS, aby uzyskać pomoc w razie potrzeby](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Jeśli pakiety przychodzące są widoczne, ale brak jest odpowiedzi, być może musisz rozwiązać problem z zaporą lub aplikacją maszyny wirtualnej. W przypadku każdego z tych problemów należy [skontaktować się z dostawcą urządzenie WUS, aby uzyskać pomoc w razie potrzeby](https://mskb.pkisolutions.com/kb/2984655).

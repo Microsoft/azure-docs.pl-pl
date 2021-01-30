@@ -13,12 +13,12 @@ ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a313633c6c1799136b8b8911ae780ca13be5d2c3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5b3f7f8016d9b5da70d76322aead551613b8d9c3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756119"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090225"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0
 
@@ -48,7 +48,7 @@ Następnie należy odwiedzić rejestrację aplikacji i zaktualizować identyfika
 
 ## <a name="request-an-authorization-code"></a>Żądanie kodu autoryzacji
 
-Przepływ kodu autoryzacji zaczyna się od klienta kierującego użytkownika do `/authorize` punktu końcowego. W tym żądaniu klient żąda `openid` `offline_access` uprawnień, i `https://graph.microsoft.com/mail.read ` od użytkownika.  Niektóre uprawnienia są ograniczone przez administratora, na przykład zapisywanie danych w katalogu organizacji przy użyciu programu `Directory.ReadWrite.All` . Jeśli aplikacja zażąda dostępu do jednego z tych uprawnień od użytkownika w organizacji, zostanie wyświetlony komunikat o błędzie informujący, że nie są uprawnieni do wyrażania zgody na uprawnienia aplikacji. Aby zażądać dostępu do zakresów z ograniczeniami administratora, należy zażądać ich bezpośrednio od administratora firmy.  Aby uzyskać więcej informacji, Odczytaj [uprawnienia z ograniczeniami administratora](v2-permissions-and-consent.md#admin-restricted-permissions).
+Przepływ kodu autoryzacji zaczyna się od klienta kierującego użytkownika do `/authorize` punktu końcowego. W tym żądaniu klient żąda `openid` `offline_access` uprawnień, i `https://graph.microsoft.com/mail.read ` od użytkownika.  Niektóre uprawnienia są ograniczone przez administratora, na przykład zapisywanie danych w katalogu organizacji przy użyciu programu `Directory.ReadWrite.All` . Jeśli aplikacja zażąda dostępu do jednego z tych uprawnień od użytkownika w organizacji, zostanie wyświetlony komunikat o błędzie informujący, że nie są uprawnieni do wyrażania zgody na uprawnienia aplikacji. Aby zażądać dostępu do zakresów z ograniczeniami administratora, należy zażądać ich bezpośrednio od administratora globalnego.  Aby uzyskać więcej informacji, Odczytaj [uprawnienia z ograniczeniami administratora](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only

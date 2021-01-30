@@ -86,6 +86,8 @@
       items:
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          href: ./security-controls-policy.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Skalowanie

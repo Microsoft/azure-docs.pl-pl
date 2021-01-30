@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 97f1f5d0f1f351164e05d18b9f80c7f26450f31b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 951c52cdba191aa291061259e1c15b9190513770
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661601"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092724"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integracja usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Time Series Insights
 
@@ -120,7 +120,7 @@ Aby utworzyć drugie centrum zdarzeń, możesz użyć poniższych instrukcji int
 3. Utwórz [regułę autoryzacji](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania. Określ nazwę reguły.
 
     ```azurecli-interactive
-        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
+    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
 
 ## <a name="configure-your-function"></a>Skonfiguruj funkcję
@@ -149,7 +149,7 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
     ```
 
-2. W aplikacji funkcji utwórz ustawienie aplikacji zawierające parametry połączenia:
+2. Użyj wartości *primaryConnectionString* z wyniku, aby utworzyć ustawienie aplikacji w aplikacji funkcji, która zawiera parametry połączenia:
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
@@ -163,7 +163,9 @@ Następnie skonfigurujesz wystąpienie Time Series Insights do odbierania danych
     1. Wybierz warstwę cenową **Gen2 (L1)** .
     2. Konieczne będzie wybranie **identyfikatora szeregów czasowych** dla tego środowiska. Identyfikator szeregów czasowych może zawierać maksymalnie trzy wartości, które będą używane do wyszukiwania danych w Time Series Insights. W tym samouczku można użyć **$dtId**. Przeczytaj więcej na temat wybierania wartości identyfikatora w [*najlepszych rozwiązaniach dotyczących wybierania identyfikatora szeregów czasowych*](../time-series-insights/how-to-select-tsid.md).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Interfejs użytkownika portalu tworzenia dla środowiska Time Series Insightsowego. Wybrana jest warstwa cenowa Gen2 (L1), a nazwa właściwości identyfikatora szeregów czasowych to $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png" alt-text="Interfejs użytkownika portalu tworzenia dla środowiska Time Series Insightsowego. Wybierz swoją subskrypcję, grupę zasobów i lokalizację z odpowiednich list rozwijanych i wybierz nazwę środowiska." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png":::
+        
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png" alt-text="Interfejs użytkownika portalu tworzenia dla środowiska Time Series Insightsowego. Wybrana jest warstwa cenowa Gen2 (L1), a nazwa właściwości identyfikatora szeregów czasowych to $dtId" lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png":::
 
 2. Wybierz pozycję **Dalej: Źródło zdarzenia** i wybierz z wcześniejszych informacji o centrum zdarzeń TSI. Należy również utworzyć nową grupę konsumentów Event Hubs.
     

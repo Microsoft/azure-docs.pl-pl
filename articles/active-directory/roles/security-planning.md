@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e38ca27606ecf04b08bd29867894ba269148260c
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055250"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090794"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -40,7 +40,7 @@ Zabezpieczanie uprzywilejowanego dostępu wymaga wprowadzenia zmian:
 Zabezpiecz dostęp uprzywilejowany w sposób, który jest zarządzany i raportowany w usługach firmy Microsoft. Jeśli masz lokalne konta administratorów, zapoznaj się ze wskazówkami dotyczącymi lokalnego i hybrydowego dostępu uprzywilejowanego w Active Directory na [zabezpieczenia uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
-> Wskazówki zawarte w tym artykule odnoszą się głównie do funkcji Azure Active Directory, które znajdują się w Azure Active Directory — wersja Premium planach P1 i P2. Azure Active Directory — wersja Premium P2 jest zawarty w pakiecie EMS E5 i pakiet Microsoft 365 E5. W tych wskazówkach przyjęto, że organizacja posiada już Azure AD — wersja Premium licencje na P2. Jeśli nie masz tych licencji, niektóre wskazówki mogą nie być stosowane w organizacji. Ponadto w tym artykule termin Administrator globalny (lub Administrator globalny) ma takie samo znaczenie jak "administrator firmy" lub "Administrator dzierżawy".
+> Wskazówki zawarte w tym artykule odnoszą się głównie do funkcji Azure Active Directory, które znajdują się w Azure Active Directory — wersja Premium planach P1 i P2. Azure Active Directory — wersja Premium P2 jest zawarty w pakiecie EMS E5 i pakiet Microsoft 365 E5. W tych wskazówkach przyjęto, że organizacja posiada już Azure AD — wersja Premium licencje na P2. Jeśli nie masz tych licencji, niektóre wskazówki mogą nie być stosowane w organizacji. Ponadto w tym artykule termin "administrator firmy" lub "Administrator dzierżawy" ma ten sam charakter.
 
 ## <a name="develop-a-roadmap"></a>Opracowywanie planu
 
@@ -147,7 +147,7 @@ Jeśli pierwotni Administratorzy globalni ponownie korzystają z istniejących p
 
 Osobiste konta e-mail są regularnie odwiedzane przez osoby atakujące cybernetycznymi, co stanowi zagrożenie, że osobiste adresy e-mail nie są akceptowalne dla kont administratorów globalnych. Aby pomóc w oddzieleniu ryzyka internetowego od uprawnień administracyjnych, Utwórz dedykowane konta dla każdego użytkownika z uprawnieniami administracyjnymi.
 
-* Należy utworzyć osobne konta dla użytkowników, aby wykonywać globalne zadania administracyjne.
+* Należy utworzyć osobne konta dla użytkowników, aby wykonywać zadania administratora globalnego.
 * Upewnij się, że administratorzy globalni nie otwierają przypadkowo wiadomości e-mail ani nie uruchamiają programów z kontami administratorów.
 * Upewnij się, że te konta są przekazywane pocztą e-mail do działającej skrzynki pocztowej.
 * Konta administratora globalnego (i innych uprzywilejowanych grup) powinny być kontami tylko w chmurze bez powiązań z Active Directoryami lokalnymi.
@@ -230,7 +230,7 @@ Etap 3 kompiluje środki zaradcze z etapu 2 i powinien zostać wdrożony w ciąg
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>Wykonaj przegląd dostępu użytkowników w rolach administratorów
 
-Więcej użytkowników firmowych uzyskuje dostęp uprzywilejowany za poorednictwem usług w chmurze, co może prowadzić do niezarządzanego dostępu. Obecnie użytkownicy mogą stać się administratorami globalnymi Microsoft 365, administratorami subskrypcji platformy Azure lub mieć dostęp administratora do maszyn wirtualnych lub za pośrednictwem aplikacji SaaS.
+Więcej użytkowników firmowych uzyskuje dostęp uprzywilejowany za poorednictwem usług w chmurze, co może prowadzić do niezarządzanego dostępu. Obecnie użytkownicy mogą stać się administratorami globalnymi Microsoft 365, Administratorzy subskrypcji platformy Azure lub mieć dostęp administratora do maszyn wirtualnych lub za pośrednictwem aplikacji SaaS.
 
 Organizacja powinna mieć wszystkich pracowników, którzy obsługują zwykłe transakcje biznesowe jako nieuprzywilejowani użytkownicy, a następnie udzielać praw administratora tylko w razie konieczności. Ukończ przeglądy dostępu, aby zidentyfikować i potwierdzić użytkowników, którzy są uprawnieni do aktywacji uprawnień administratora.
 
@@ -431,7 +431,7 @@ Aby uzyskać więcej informacji na temat sposobu, w jaki Microsoft Office 365 ob
 
 **P:** Co zrobić, jeśli jeszcze nie zaimplementowano żadnych bezpiecznych składników dostępu?
 
-**Odpowiedź:** Zdefiniuj co najmniej dwa konta ze szkła, przypisz uwierzytelnianie wieloskładnikowe do kont administratorów uprzywilejowanych i oddziel konta użytkowników od kont administratorów globalnych.
+**Odpowiedź:** Zdefiniuj co najmniej dwa konta ze szlifem, przypisz uwierzytelnianie wieloskładnikowe do kont administratorów uprzywilejowanych i oddziel konta użytkowników od kont administratora globalnego.
 
 **P:** Co to jest najpopularniejszy problem, który należy rozwiązać w pierwszej kolejności?
 

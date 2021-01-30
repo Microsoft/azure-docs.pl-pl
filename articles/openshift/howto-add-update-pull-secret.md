@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: Ściąganie kluczy tajnych, ARO, OpenShift, Red Hat
-ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1a8e45a2eab1b7b4c8a5936049f404d5bd3441c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294751"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071090"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Dodawanie lub aktualizowanie klucza tajnego Red Hat na platformie Azure Red Hat OpenShift 4
 
@@ -231,6 +231,6 @@ Jeśli nie widzisz operatorów certyfikowanych i Red Hat, odczekaj kilka minut i
 Aby upewnić się, że klucz tajny ściągania został zaktualizowany i działa prawidłowo, Otwórz OperatorHub i Wyszukaj dowolny operator zweryfikowanej Red Hat. Na przykład sprawdź, czy operator magazynu kontenerów OpenShift jest dostępny, i sprawdź, czy masz uprawnienia do instalacji.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o wpisach tajnych Red Hat, zobacz [using Image](https://docs.openshift.com/container-platform/4.5/openshift_images/managing_images/using-image-pull-secrets.html)Secret.
+Aby dowiedzieć się więcej o wpisach tajnych Red Hat, zobacz [using Image](https://docs.openshift.com/container-platform/4.6/openshift_images/managing_images/using-image-pull-secrets.html)Secret.
 
-Aby dowiedzieć się więcej na temat Red Hat OpenShift 4, zobacz [Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/welcome/index.html).
+Aby dowiedzieć się więcej na temat Red Hat OpenShift 4, zobacz artykuł [Red Hat OpenShift Container platform dokumentacji](https://docs.openshift.com/container-platform/4.6/welcome/index.html).

@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla usług CIS Microsoft Azure testy porównawcze
 description: Szczegółowe informacje na temat usług CIS Microsoft Azure stwierdzenia zgodności z przepisami testowymi. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 85467c086225c4d9e7699debb9871dbd197ebfd2
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e1b30ae4f0708fd48e1832c4b9272d8e0c4744f2
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807072"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091514"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Szczegółowe informacje na temat usług CIS Microsoft Azure stwierdzenia zgodności z przepisami testowymi
 
@@ -135,7 +135,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione obsługiwane rozwiązanie do oceny luk w zabezpieczeniach. Podstawowym składnikiem każdego cybernetycznymi ryzyka i programu zabezpieczeń jest identyfikacja i analiza luk w zabezpieczeniach. Standardowa warstwa cenowa Azure Security Center obejmuje skanowanie w poszukiwaniu luk w zabezpieczeniach maszyn wirtualnych bez dodatkowych kosztów. Ponadto Security Center może automatycznie wdrożyć to narzędzie. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
+|[Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione obsługiwane rozwiązanie do oceny luk w zabezpieczeniach. Podstawowym składnikiem każdego cybernetycznymi ryzyka i programu zabezpieczeń jest identyfikacja i analiza luk w zabezpieczeniach. Standardowa warstwa cenowa Azure Security Center obejmuje skanowanie w poszukiwaniu luk w zabezpieczeniach maszyn wirtualnych bez dodatkowych kosztów. Ponadto Security Center może automatycznie wdrożyć to narzędzie. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Upewnij się, że domyślne ustawienie zasad ASC "Monitoruj dostęp do sieci JIT" nie jest wyłączone
 

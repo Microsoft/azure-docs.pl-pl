@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 0c279916eb25c5ffe0b0b655818dd1a07849e582
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 7ef4a1542a050918249f602bbc63567cc8e13f2a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917470"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091718"
 ---
 # <a name="mv2-series"></a>Seria Mv2
 
@@ -27,6 +27,7 @@ Technologia technologii Mv2 firmy Intel® Hyper-Threading
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 [Akcelerator zapisu](./how-to-enable-write-accelerator.md): obsługiwane<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
+[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
 <br>
 
 |Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s) |

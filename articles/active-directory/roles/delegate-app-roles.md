@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36a29048d97798c2e1621fbdc957bde51b5a383
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740605"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071271"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegowanie uprawnień rejestracji aplikacji w Azure Active Directory
 
 W tym artykule opisano, jak używać uprawnień udzielonych przez role niestandardowe w usłudze Azure Active Directory (Azure AD) w celu rozwiązania potrzeb związanych z zarządzaniem aplikacjami. W usłudze Azure AD można delegować uprawnienia do tworzenia aplikacji i zarządzania nimi w następujący sposób:
 
-- [Ograniczenie użytkowników, którzy mogą tworzyć aplikacje](#restrict-who-can-create-applications) i zarządzać tworzonymi przez nie aplikacjami. Domyślnie w usłudze Azure AD wszyscy użytkownicy mogą rejestrować rejestracje aplikacji i zarządzać wszystkimi aspektami tworzonych przez nie aplikacji. Może to być ograniczone tylko do wybranych osób, które mają uprawnienia.
+- [Ograniczenie użytkowników, którzy mogą tworzyć aplikacje](#restrict-who-can-create-applications) i zarządzać tworzonymi przez nie aplikacjami. Domyślnie w usłudze Azure AD wszyscy użytkownicy mogą rejestrować aplikacje i zarządzać wszystkimi aspektami tworzonych przez nie aplikacji. Może to być ograniczone tylko do wybranych osób, które mają uprawnienia.
 - [Przypisywanie jednego lub większej liczby właścicieli do aplikacji](#assign-application-owners). Jest to prosty sposób udzielenia komuś możliwości zarządzania wszystkimi aspektami konfiguracji usługi Azure AD dla określonej aplikacji.
 - [Przypisanie wbudowanej roli administracyjnej](#assign-built-in-application-admin-roles) , która przyznaje dostęp do zarządzania konfiguracją w usłudze Azure AD dla wszystkich aplikacji. Jest to zalecany sposób udzielania ekspertom IT dostępu do zarządzania szerokimi uprawnieniami konfiguracji aplikacji bez udzielania dostępu do zarządzania innymi częściami usługi Azure AD niezwiązanych z konfiguracją aplikacji.
 - [Tworzenie roli niestandardowej](#create-and-assign-a-custom-role-preview) Definiowanie bardzo konkretnych uprawnień i przypisywanie jej do zakresu jednej aplikacji jako ograniczonej właściciela lub zakresu katalogu (wszystkie aplikacje) jako ograniczonego administratora.
@@ -34,7 +34,7 @@ Ważne jest, aby rozważyć udzielenie dostępu przy użyciu jednej z powyższyc
 
 ## <a name="restrict-who-can-create-applications"></a>Ogranicz, kto może tworzyć aplikacje
 
-Domyślnie w usłudze Azure AD wszyscy użytkownicy mogą rejestrować rejestracje aplikacji i zarządzać wszystkimi aspektami tworzonych przez nie aplikacji. Wszyscy mogą również wyrazić zgodę na aplikacje uzyskujące dostęp do danych firmy w ich imieniu. Możesz wybrać opcję selektywnego przydzielenia tych uprawnień przez ustawienie przełączników globalnych na wartość "No" (nie) i dodanie wybranych użytkowników do roli Deweloper aplikacji.
+Domyślnie w usłudze Azure AD wszyscy użytkownicy mogą rejestrować aplikacje i zarządzać wszystkimi aspektami tworzonych przez nie aplikacji. Wszyscy mogą również wyrazić zgodę na aplikacje uzyskujące dostęp do danych firmy w ich imieniu. Możesz wybrać opcję selektywnego przydzielenia tych uprawnień przez ustawienie przełączników globalnych na wartość "No" (nie) i dodanie wybranych użytkowników do roli Deweloper aplikacji.
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Aby wyłączyć domyślną możliwość tworzenia rejestracji aplikacji lub wyrażania zgody na aplikacje
 

@@ -278,6 +278,8 @@
           href: /rest/api/hdinsightspark/
         - name: Szablon usługi Resource Manager
           href: /azure/templates/microsoft.hdinsight/allversions
+        - name: Elementy wbudowane usługi Azure Policy
+          href: ./policy-reference.md
     - name: Zasoby
       items:
         - name: Wydania

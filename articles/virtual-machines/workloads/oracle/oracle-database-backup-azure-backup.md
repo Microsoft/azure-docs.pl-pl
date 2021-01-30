@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: d623d7b7ec25c096ebf54c030cf302e0a72e7fb2
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064074"
+ms.locfileid: "99072408"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 19c na maszynie wirtualnej z systemem Linux przy użyciu systemu Azure Backup
 
@@ -21,7 +21,7 @@ W tym artykule pokazano, jak używać Azure Backup do tworzenia migawek dysków 
 
 > [!div class="checklist"]
 >
-> * Tworzenie kopii zapasowej bazy danych przy użyciu spójności aplikacji
+> * Utwórz kopię zapasową bazy danych za pomocą kopii zapasowej spójnej z aplikacją
 > * Przywracanie i odzyskiwanie bazy danych z punktu odzyskiwania
 > * Przywracanie maszyny wirtualnej z punktu odzyskiwania
 
@@ -39,19 +39,19 @@ Aby przygotować środowisko, wykonaj następujące kroki:
 
 ### <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną
 
-Aby utworzyć sesję Secure Shell (SSH) z maszyną wirtualną, użyj następującego polecenia. Zastąp adres IP i kombinację nazwy hosta `<publicIpAddress>` wartością dla maszyny wirtualnej.
+1. Aby utworzyć sesję Secure Shell (SSH) z maszyną wirtualną, użyj następującego polecenia. Zastąp adres IP i kombinację nazwy hosta `<publicIpAddress>` wartością dla maszyny wirtualnej.
     
    ```bash
    ssh azureuser@<publicIpAddress>
    ```
    
-Przełącz do *głównego* użytkownika:
+1. Przełącz do *głównego* użytkownika:
 
    ```bash
    sudo su -
    ```
     
-Dodaj użytkownika Oracle do pliku */etc/sudoers* :
+1. Dodaj użytkownika Oracle do pliku */etc/sudoers* :
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
@@ -59,9 +59,9 @@ Dodaj użytkownika Oracle do pliku */etc/sudoers* :
 
 ### <a name="prepare-the-database"></a>Przygotowywanie bazy danych
 
-1. W tym kroku przyjęto założenie, że masz wystąpienie Oracle (*test*), które działa na maszynie wirtualnej o nazwie *vmoracle19c*.
+W tym kroku przyjęto założenie, że masz wystąpienie Oracle (*test*), które działa na maszynie wirtualnej o nazwie *vmoracle19c*.
 
-   Przełącz użytkownika na użytkownika *Oracle* :
+1. Przełącz użytkownika na użytkownika *Oracle* :
  
    ```bash
     sudo su - oracle
@@ -131,7 +131,7 @@ Dodaj użytkownika Oracle do pliku */etc/sudoers* :
     SQL> sqlplus / as sysdba
     ```
 
-6.  Uruchom bazę danych, jeśli nie została jeszcze uruchomiona:
+6.  Uruchom bazę danych, jeśli nie jest jeszcze uruchomiona:
 
     ```bash
     SQL> startup
@@ -156,7 +156,7 @@ Dodaj użytkownika Oracle do pliku */etc/sudoers* :
     NOARCHIVELOG
     ```
 
-    A jeśli w trybie NOARCHIVELOG, uruchom następujące polecenia:
+    Jeśli jest w trybie NOARCHIVELOG, uruchom następujące polecenia:
 
     ```bash
     SQL> SHUTDOWN IMMEDIATE;
@@ -205,19 +205,19 @@ Usługa Azure Backup udostępnia proste, bezpieczne i ekonomiczne rozwiązania d
 
 Usługa Azure Backup udostępnia [platformę](../../../backup/backup-azure-linux-app-consistent.md) do osiągnięcia spójności aplikacji podczas tworzenia kopii zapasowych maszyn wirtualnych z systemami Windows i Linux dla różnych aplikacji, takich jak Oracle, MySQL, Mongo DB, SAP HANA i PostGreSQL. Obejmuje to Wywoływanie skryptu wstępnego (w celu przełączenia w tryb spoczynku) przed wykonaniem migawki dysków i wywołaniem skryptu po zakończeniu wykonywania operacji po wykonaniu migawki, aby przywrócić aplikacje do trybu normalnego. Podczas gdy przykładowe skrypty wstępne i skrypty są udostępniane w serwisie GitHub, jego zadaniem jest tworzenie i obsługa tych skryptów. 
 
-Teraz Azure Backup zapewnia ulepszone środowisko skryptów i skryptów po skrypcie, gdzie usługa Azure Backup udostępnia spakowane skrypty wstępne i skrypty dla wybranych aplikacji. Azure Backup użytkownicy muszą mieć nazwę aplikacji, a następnie kopia zapasowa maszyny wirtualnej platformy Azure automatycznie wywoła odpowiednie skrypty wstępne. Spakowane przed skryptami i po nim skrypty będą obsługiwane przez zespół Azure Backup i dlatego użytkownicy będą mogli zapewnić pomoc techniczną, własność i ważność tych skryptów. Obecnie obsługiwane aplikacje dla rozszerzonej struktury to ***Oracle i MySQL** _, w przypadku których w przyszłości Oczekiwano większej liczby typów aplikacji.
+Teraz Azure Backup zapewnia ulepszone środowisko skryptów i skryptów po skrypcie, gdzie usługa Azure Backup udostępnia spakowane skrypty wstępne i skrypty dla wybranych aplikacji. Azure Backup użytkownicy muszą mieć nazwę aplikacji, a następnie kopia zapasowa maszyny wirtualnej platformy Azure automatycznie wywoła odpowiednie skrypty wstępne. Spakowane przed skryptami i po nim skrypty będą obsługiwane przez zespół Azure Backup i dlatego użytkownicy będą mogli zapewnić pomoc techniczną, własność i ważność tych skryptów. Obecnie obsługiwane aplikacje dla rozszerzonej struktury to *Oracle* i *MySQL*.
 
-W tej sekcji zostanie użyta Azure Backup rozszerzona platforma do tworzenia migawek spójnych z aplikacjami uruchomionej maszyny wirtualnej i bazy danych Oracle. Baza danych zostanie umieszczona w trybie tworzenia kopii zapasowej, co pozwala na wypróbowanie bezczynnościowej kopii zapasowej online, gdy Azure Backup wykonuje migawkę dysków maszyny wirtualnej. Migawka będzie pełną kopią magazynu, a nie przyrostową lub kopią na migawce zapisu, więc jest efektywnym czynnikiem do przywrócenia bazy danych z programu. Zaletą korzystania z migawek spójnych z aplikacjami Azure Backup są niezwykle szybkie, aby nie dochodzić do dużej ilości danych, a migawka może być używana w przypadku operacji przywracania, gdy tylko zostanie wykonana, bez konieczności oczekiwania na przekazanie jej do magazynu Recovery Services.
+W tej sekcji zostanie użyta Azure Backup ulepszona platforma do tworzenia migawek spójnych na poziomie aplikacji dla uruchomionej maszyny wirtualnej i bazy danych Oracle. Baza danych zostanie umieszczona w trybie tworzenia kopii zapasowej, co pozwala na wypróbowanie bezczynnościowej kopii zapasowej online, gdy Azure Backup wykonuje migawkę dysków maszyny wirtualnej. Migawka będzie pełną kopią magazynu, a nie przyrostową lub kopią na migawce zapisu, więc jest efektywnym czynnikiem do przywrócenia bazy danych z programu. Zaletą Azure Backup korzystania z migawek spójnych na poziomie aplikacji jest to, że bardzo szybkie nie zależą od dużej ilości bazy danych, a migawka może być używana do operacji przywracania, gdy tylko zostanie wykonana, bez konieczności oczekiwania na przekazanie jej do magazynu Recovery Services.
 
 Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wykonaj następujące kroki:
 
-1. Przygotuj środowisko do tworzenia kopii zapasowych spójnych z aplikacjami.
-1. Konfigurowanie kopii zapasowych spójnych z aplikacjami.
-1. Wyzwalanie kopii zapasowej maszyny wirtualnej spójnej na poziomie aplikacji
+1. Przygotuj środowisko do tworzenia kopii zapasowej spójnej na poziomie aplikacji.
+1. Konfigurowanie kopii zapasowych spójnych na poziomie aplikacji.
+1. Wyzwalanie kopii zapasowej maszyny wirtualnej spójnej na poziomie aplikacji.
 
-### <a name="prepare-the-environment-for-application-consistent-backup"></a>Przygotowywanie środowiska do tworzenia kopii zapasowych spójnych z aplikacjami
+### <a name="prepare-the-environment-for-an-application-consistent-backup"></a>Przygotowywanie środowiska do tworzenia kopii zapasowej spójnej na poziomie aplikacji
 
-1. Przejdź do elementu _ *root** User:
+1. Przełącz do *głównego* użytkownika:
 
    ```bash
    sudo su -
@@ -237,16 +237,15 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
    echo export PATH='$ORACLE_HOME'/bin:'$PATH' >> ~azbackup/.bashrc
    ```
    
-3. Skonfiguruj uwierzytelnianie zewnętrzne dla nowego użytkownika kopii zapasowej. 
-   Użytkownik kopii zapasowej musi mieć możliwość uzyskania dostępu do bazy danych przy użyciu uwierzytelniania zewnętrznego, aby nie zakwestionować hasła.
+3. Skonfiguruj uwierzytelnianie zewnętrzne dla nowego użytkownika kopii zapasowej. Użytkownik kopii zapasowej musi mieć możliwość uzyskania dostępu do bazy danych przy użyciu uwierzytelniania zewnętrznego, aby nie zakwestionować hasła.
 
-   Najpierw wróć do użytkownika **Oracle** :
+   Najpierw wróć do użytkownika *Oracle* :
 
    ```bash
    su - oracle
    ```
 
-   Zaloguj się do bazy danych przy użyciu polecenia sqlplus i sprawdź ustawienia domyślne uwierzytelniania zewnętrznego
+   Zaloguj się do bazy danych przy użyciu polecenia sqlplus i sprawdź ustawienia domyślne uwierzytelniania zewnętrznego:
    
    ```bash
    sqlplus / as sysdba
@@ -254,7 +253,7 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
    SQL> show parameter remote_os_authent
    ```
    
-   Dane wyjściowe powinny być wyświetlane 
+   Dane wyjściowe powinny wyglądać podobnie do tego przykładu: 
 
    ```output
    NAME                                 TYPE        VALUE
@@ -263,23 +262,30 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
    remote_os_authent                    boolean     FALSE
    ```
 
-   Teraz Utwórz użytkownika bazy danych azbackup uwierzytelniany zewnętrznie i Udziel uprawnień sysbackup:
+   Teraz Utwórz użytkownika bazy danych *azbackup* uwierzytelniany zewnętrznie i Udziel uprawnień sysbackup:
    
    ```bash
    SQL> CREATE USER ops$azbackup IDENTIFIED EXTERNALLY;
    SQL> GRANT CREATE SESSION, ALTER SESSION, SYSBACKUP TO ops$azbackup;
    ```
 
-   >[!IMPORTANT] 
-   >Jeśli zostanie wyświetlony komunikat o błędzie "ORA-46953: plik hasła nie ma formatu 12,2".  Po uruchomieniu instrukcji GRANT powyżej wykonaj następujące kroki, aby zmigrować plik orapwd do formatu 12,2:
+   > [!IMPORTANT] 
+   > Jeśli wystąpi błąd `ORA-46953: The password file is not in the 12.2 format.`  podczas uruchamiania `GRANT` instrukcji, wykonaj następujące kroki, aby zmigrować plik orapwd do formatu 12,2:
    >
-   >Wyjdź z programu sqlplus, Przenieś plik hasła o starym formacie do nowej nazwy, Migruj plik hasła, a następnie usuń stary plik. Po uruchomieniu poniższych poleceń ponownie uruchom operację Grant powyżej w sqlplus.
-   
-   ```bash
-   mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
-   orapwd file=$ORACLE_HOME/dbs/orapwtest input_file=$ORACLE_HOME/dbs/orapwtest.tmp
-   rm $ORACLE_HOME/dbs/orapwtest.tmp
-   ```
+   > 1. Wyjdź z sqlplus.
+   > 1. Przenieś plik hasła o starym formacie do nowej nazwy.
+   > 1. Migruj plik hasła.
+   > 1. Usuń stary plik.
+   > 1. Uruchom następujące polecenie:
+   >
+   >    ```bash
+   >    mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
+   >    orapwd file=$ORACLE_HOME/dbs/orapwtest input_file=$ORACLE_HOME/dbs/orapwtest.tmp
+   >    rm $ORACLE_HOME/dbs/orapwtest.tmp
+   >    ```
+   >
+   > 1. Ponownie uruchom `GRANT` operację w sqlplus.
+   >
    
 4. Utwórz procedurę przechowywaną do rejestrowania komunikatów kopii zapasowych w dzienniku alertów bazy danych:
 
@@ -300,20 +306,24 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
    SQL> QUIT
    ```
    
-### <a name="set-up-application-consistent-backups"></a>Konfigurowanie kopii zapasowych spójnych z aplikacjami  
+### <a name="set-up-application-consistent-backups"></a>Konfigurowanie kopii zapasowych spójnych na poziomie aplikacji  
 
-1. Przełącz do głównego użytkownika 
+1. Przełącz do *głównego* użytkownika:
+
    ```bash
    sudo su -
    ```
 
-2. Tworzenie katalogu roboczego kopii zapasowej spójnej na poziomie aplikacji
+2. Utwórz katalog roboczy kopii zapasowej spójnej na poziomie aplikacji:
+
    ```bash
    if [ ! -d "/etc/azure" ]; then
       sudo mkdir /etc/azure
    fi
    ```
-3. Utwórz plik w katalogu/etc/Azure o nazwie obciążeni **. conf** z następującą zawartością, która musi rozpoczynać się od `[workload]` . Następujące polecenie spowoduje utworzenie pliku i wypełnienie jego zawartości:
+
+3. Utwórz plik w katalogu */etc/Azure* o nazwie obciążeni *. conf* z następującą zawartością, która musi rozpoczynać się od `[workload]` . Następujące polecenie spowoduje utworzenie pliku i wypełnienie jego zawartości:
+
    ```bash
    echo "[workload]
    workload_name = oracle
@@ -321,14 +331,16 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
    ```
-1. Pobierz skrypty preOracleMaster. SQL i postOracleMaster. SQL z [repozytorium GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) i skopiuj je do katalogu/etc/Azure
 
-4. Zmień uprawnienia do pliku
-   ```bash
+4. Pobierz skrypty preOracleMaster. SQL i postOracleMaster. SQL z [repozytorium GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) i skopiuj je do katalogu */etc/Azure* .
+
+5. Zmień uprawnienia do pliku
+
+```bash
    chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
-### <a name="trigger-application-consistent-backup-of-the-vm"></a>Wyzwalanie kopii zapasowej maszyny wirtualnej spójnej na poziomie aplikacji
+### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>Wyzwalanie kopii zapasowej maszyny wirtualnej spójnej na poziomie aplikacji
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -375,7 +387,8 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
    ```azurecli
    az backup vault create --location eastus --name myVault --resource-group rg-oracle
    ```
-2. Włączanie ochrony kopii zapasowej maszyny wirtualnej
+
+2. Włącz ochronę kopii zapasowej dla maszyny wirtualnej:
 
    ```azurecli
    az backup protection enable-for-vm \
@@ -384,7 +397,8 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
       --vm vmoracle19c \
       --policy-name DefaultPolicy
    ```
-3. Wyzwól wykonywanie kopii zapasowej do uruchomienia teraz, zamiast czekać, aż kopia zapasowa zostanie wyzwolona zgodnie z harmonogramem domyślnym (5:00 UTC). 
+
+3. Wyzwól wykonywanie kopii zapasowej do uruchomienia teraz, zamiast czekać, aż kopia zapasowa zostanie wyzwolona zgodnie z harmonogramem domyślnym (5 godzin UTC): 
 
    ```azurecli
    az backup protection backup-now \
@@ -394,7 +408,8 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
       --container-name vmoracle19c \
       --item-name vmoracle19c 
    ```
-   Postęp zadania tworzenia kopii zapasowej można monitorować przy użyciu programu `az backup job list` i `az backup job show`
+
+   Postęp zadania tworzenia kopii zapasowej można monitorować przy użyciu `az backup job list` i `az backup job show` .
 
 ---
 
@@ -433,15 +448,15 @@ W dalszej części tego artykułu dowiesz się, jak przetestować proces odzyski
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. W Azure Portal Wyszukaj element magazyny Recovery Services *magazynu, a* następnie kliknij go.
+1. W Azure Portal Wyszukaj element magazyny Recovery Services *magazynu, a* następnie wybierz go.
 
     ![Magazyn Recovery Services elementy kopii zapasowej magazynu](./media/oracle-backup-recovery/recovery-service-06.png)
 
-2. W bloku **Przegląd** wybierz pozycję **elementy kopii zapasowej** i wybierz pozycję **_maszynę wirtualną platformy Azure_* _, która powinna zawierać liczbę elementów kopii zapasowej Anon-zero.
+2. W bloku **Przegląd** wybierz pozycję **elementy kopii zapasowej** i wybierz **maszynę wirtualną platformy Azure**, która powinna zawierać liczbę elementów kopii zapasowej Anon-zero.
 
     ![Magazyn Recovery Services liczba elementów kopii zapasowej maszyny wirtualnej platformy Azure](./media/oracle-backup-recovery/recovery-service-07.png)
 
-3. Na stronie elementy kopii zapasowej (Azure Virtual Machines) na liście zostanie wyświetlona wartość VM _ *vmoracle19c**. Kliknij przycisk wielokropka po prawej stronie, aby wyświetlić menu, a następnie wybierz pozycję **odzyskiwanie plików**.
+3. Na stronie elementy kopii zapasowej (Azure Virtual Machines) znajduje się lista **vmoracle19c** maszyny wirtualnej. Kliknij przycisk wielokropka po prawej stronie, aby wyświetlić menu, a następnie wybierz pozycję **odzyskiwanie plików**.
 
     ![Zrzut ekranu przedstawiający stronę odzyskiwania plików Recovery Services magazynów](./media/oracle-backup-recovery/recovery-service-08.png)
 
@@ -455,6 +470,7 @@ W dalszej części tego artykułu dowiesz się, jak przetestować proces odzyski
 
     > [!IMPORTANT]
     > W poniższym przykładzie upewnij się, że Zaktualizowano wartości adresów IP i folderów. Wartości muszą być mapowane do folderu, w którym zapisano plik.
+    >
 
     ```bash
     $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
@@ -500,6 +516,7 @@ W poniższym przykładzie pokazano, jak za pomocą polecenia Secure Copy (SCP) p
 
 > [!IMPORTANT]
 > W poniższym przykładzie upewnij się, że Zaktualizowano wartości adresów IP i folderów. Wartości muszą być mapowane do folderu, w którym zapisano plik.
+>
 
 ```bash
 $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
@@ -510,7 +527,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 
 1. Utwórz punkt instalacji przywracania i skopiuj do niego skrypt.
 
-    W poniższym przykładzie Utwórz katalog **_/Restore_* _ dla migawki, w której ma zostać wykonana instalacja, Przenieś plik do katalogu i Zmień plik tak, aby należał do użytkownika root i został utworzony jako plik wykonywalny.
+    W poniższym przykładzie Utwórz katalog */Restore* dla migawki, w której ma zostać wykonana instalacja, Przenieś plik do katalogu i Zmień plik tak, aby należał do użytkownika root i został utworzony jako plik wykonywalny.
 
     ```bash 
     ssh azureuser@<publicIpAddress>
@@ -528,7 +545,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
     ./vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py
     ```
 
-    Poniższy przykład pokazuje, co powinno być widoczne po uruchomieniu powyższego skryptu. Po wyświetleniu monitu o kontynuowanie wprowadź _ * Y * *.
+    Poniższy przykład pokazuje, co powinno być widoczne po uruchomieniu powyższego skryptu. Po wyświetleniu monitu o kontynuowanie wprowadź **Y**.
 
     ```output
     Microsoft Azure VM Backup - File Recovery
@@ -676,30 +693,28 @@ Aby przywrócić całą maszynę wirtualną, wykonaj następujące kroki:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Utwórz konto magazynu na potrzeby przemieszczania:
-   
-   Konfigurowanie File Storage w Azure Portal
+1. Utwórz konto magazynu na potrzeby przemieszczania w Azure Portal.
 
-   W Azure Portal wybierz pozycję **_+ Utwórz zasób_* _ i Wyszukaj i wybierz pozycję _*_konto magazynu_*_
+   1. W Azure Portal wybierz pozycję **+ Utwórz zasób** , a następnie wyszukaj i wybierz pozycję **konto magazynu**.
     
-   ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/storage-1.png)
+      ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/storage-1.png)
     
     
-   Na stronie Tworzenie konta magazynu wybierz istniejącą grupę zasobów _*_RG-Oracle_*_, nadaj nazwę swojemu kontu magazynu _*_oracrestore_*_ i wybierz pozycję _*_Storage v2 (GeneralPurpose v2)_*_ dla rodzaju konta. Zmień replikację na _*_Magazyn lokalnie nadmiarowy (LRS)_*_ i ustaw wydajność na _*_Standard_*_. Upewnij się, że lokalizacja jest ustawiona na ten sam region, co w przypadku wszystkich innych zasobów w grupie zasobów. 
+   1. Na stronie Tworzenie konta magazynu wybierz istniejącą grupę zasobów **RG-Oracle**, nadaj nazwę swojemu kontu magazynu **oracrestore** i wybierz pozycję **Storage v2 (GeneralPurpose v2)** dla rodzaju konta. Zmień replikację na **Magazyn lokalnie nadmiarowy (LRS)** i ustaw wydajność na **Standard**. Upewnij się, że lokalizacja jest ustawiona na ten sam region, co w przypadku wszystkich innych zasobów w grupie zasobów. 
     
-   ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/recovery-storage-1.png)
+      ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/recovery-storage-1.png)
    
-   Kliknij przycisk przegląd + Utwórz, a następnie kliknij przycisk Utwórz.
+   1. Kliknij przycisk przegląd + Utwórz, a następnie kliknij przycisk Utwórz.
 
-2. W Azure Portal Wyszukaj element magazyny _myVault * Recovery Services, a następnie kliknij go.
+2. W Azure Portal Wyszukaj element magazyny Recovery Services *magazynu, a* następnie kliknij go.
 
     ![Magazyn Recovery Services elementy kopii zapasowej magazynu](./media/oracle-backup-recovery/recovery-service-06.png)
     
-3.  W bloku **Przegląd** wybierz pozycję **elementy kopii zapasowej** i wybierz pozycję **_maszynę wirtualną platformy Azure_* _, która powinna zawierać liczbę elementów kopii zapasowej Anon-zero.
+3.  W bloku **Przegląd** wybierz pozycję **elementy kopii zapasowej** i wybierz **maszynę wirtualną platformy Azure**, która powinna zawierać liczbę elementów kopii zapasowej Anon-zero.
 
     ![Magazyn Recovery Services liczba elementów kopii zapasowej maszyny wirtualnej platformy Azure](./media/oracle-backup-recovery/recovery-service-07.png)
 
-4.  Na liście elementy kopii zapasowej (Azure Virtual Machines) znajduje się Strona maszyny wirtualnej _ *vmoracle19c**. Kliknij nazwę maszyny wirtualnej.
+4.  Na liście elementy kopii zapasowej (Azure Virtual Machines) znajduje się Strona **vmoracle19c** maszyny wirtualnej. Kliknij nazwę maszyny wirtualnej.
 
     ![Strona maszyny wirtualnej odzyskiwania](./media/oracle-backup-recovery/recover-vm-02.png)
 
@@ -916,11 +931,11 @@ Po przywróceniu maszyny wirtualnej należy ponownie przypisać oryginalny adres
 
 ### <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną
 
-* Aby nawiązać połączenie z maszyną wirtualną, użyj następującego skryptu:
+Aby nawiązać połączenie z maszyną wirtualną, użyj następującego skryptu:
 
-    ```azurecli
-    ssh <publicIpAddress>
-    ```
+```azurecli
+ssh <publicIpAddress>
+```
 
 ### <a name="start-the-database-to-mount-stage-and-perform-recovery"></a>Uruchom bazę danych, aby zainstalować etap i wykonać odzyskiwanie
 

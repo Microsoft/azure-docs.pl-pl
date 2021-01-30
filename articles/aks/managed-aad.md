@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: f229075d0bad4f9522e02e30bdabc1d42bb086cf
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 534c355961bb87a816f5ba50a3cc2d397e544a15
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684189"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072312"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integracja Azure Active Directory zarządzanej przez AKS
 
@@ -46,7 +46,6 @@ kubelogin --version
 ```
 
 Użyj [tych instrukcji](https://kubernetes.io/docs/tasks/tools/install-kubectl/) dla innych systemów operacyjnych.
-
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -188,6 +187,50 @@ Jeśli chcesz uzyskać dostęp do klastra, wykonaj kroki opisane [tutaj][access-
 
 Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, które nie są obecnie dostępne w polecenia kubectl. Możesz użyć, [`kubelogin`](https://github.com/Azure/kubelogin) Aby uzyskać dostęp do klastra przy użyciu logowania jednokrotnego podmiotu zabezpieczeń usługi.
 
+## <a name="use-conditional-access-with-azure-ad-and-aks"></a>Korzystanie z dostępu warunkowego w usłudze Azure AD i AKS
+
+Podczas integrowania usługi Azure AD z klastrem AKS można także korzystać z [dostępu warunkowego][aad-conditional-access] w celu kontrolowania dostępu do klastra.
+
+> [!NOTE]
+> Dostęp warunkowy usługi Azure AD jest możliwością Azure AD — wersja Premium.
+
+Aby utworzyć przykładowe zasady dostępu warunkowego, które mają być używane z usługą AKS, wykonaj następujące czynności:
+
+1. W górnej części Azure Portal Wyszukaj i wybierz pozycję Azure Active Directory.
+1. W menu dla Azure Active Directory po lewej stronie wybierz pozycję *aplikacje dla przedsiębiorstw*.
+1. W menu dla aplikacji dla przedsiębiorstw po lewej stronie wybierz pozycję *dostęp warunkowy*.
+1. W menu dla dostępu warunkowego po lewej stronie, wybierz pozycję *zasady* , a następnie *nowe zasady*.
+    :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="Dodawanie zasad dostępu warunkowego":::
+1. Wprowadź nazwę zasad, takich jak *AKS-Policy*.
+1. Wybierz pozycję *Użytkownicy i grupy*, a następnie w obszarze *dołączanie* wybierz *pozycję Wybierz użytkowników i grupy*. Wybierz użytkowników i grupy, w których chcesz zastosować zasady. Na potrzeby tego przykładu wybierz grupę usługi Azure AD, która ma dostęp administracyjny do klastra.
+    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Wybieranie użytkowników lub grup w celu zastosowania zasad dostępu warunkowego":::
+1. Wybierz pozycję *aplikacje w chmurze lub akcje*, a następnie w obszarze *dołączanie* wybierz pozycję *Wybierz aplikacje*. Wyszukaj *usługę Azure Kubernetes* i wybierz pozycję *Azure Kubernetes Service AAD Server*.
+    :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Wybieranie serwera usługi AD Kubernetes w celu zastosowania zasad dostępu warunkowego":::
+1. W obszarze *Kontrole dostępu* wybierz pozycję *Udziel*. Wybierz pozycję *Udziel dostępu* i *Wymagaj, aby urządzenie było oznaczone jako zgodne*.
+    :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="Wybieranie, aby zezwalać tylko na zgodne urządzenia dla zasad dostępu warunkowego":::
+1. W obszarze *Włączanie zasad* wybierz pozycję *włączone* i *Utwórz*.
+    :::image type="content" source="./media/managed-aad/conditional-access-enable-policy.png" alt-text="Włączanie zasad dostępu warunkowego":::
+
+Uzyskaj poświadczenia użytkownika, aby uzyskać dostęp do klastra, na przykład:
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+Postępuj zgodnie z instrukcjami, aby się zalogować.
+
+Użyj `kubectl get nodes` polecenia, aby wyświetlić węzły w klastrze:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Postępuj zgodnie z instrukcjami, aby zalogować się ponownie. Zwróć uwagę na komunikat o błędzie informujący, że logowanie zostało pomyślnie zakończone, ale administrator wymaga, aby urządzenie zażądało dostępu do tego zasobu przez usługę Azure AD.
+
+W Azure Portal przejdź do pozycji Azure Active Directory, wybierz pozycję *aplikacje dla przedsiębiorstw* , a następnie w obszarze *działania* wybierz pozycję *logowania*. Zwróć uwagę na wpis u góry ze *stanem* *Niepowodzenie* i *dostęp warunkowy* *sukcesu*. Wybierz wpis, a następnie wybierz pozycję *dostęp warunkowy* w obszarze *szczegóły*. Zwróć uwagę na to, że zasady dostępu warunkowego są wymienione na liście.
+
+:::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Nieudany wpis logowania ze względu na zasady dostępu warunkowego":::
+
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [integracji z usługą Azure RBAC na potrzeby autoryzacji Kubernetes][azure-rbac-integration]
@@ -202,6 +245,7 @@ Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, kt
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[aad-conditional-access]: ../active-directory/conditional-access/overview.md
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

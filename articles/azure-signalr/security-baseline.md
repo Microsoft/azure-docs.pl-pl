@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b750d4cc911dc72b60974171dd884b373921fad5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e123ab6d5b9d801908112239cf3e9cb72b4abbb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734600"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093969"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Linia bazowa zabezpieczeń Azure dla usługi Azure Signal
 
@@ -220,7 +220,7 @@ Usługa Azure Advanced Threat Protection (ATP) to rozwiązanie z zakresu zabezpi
 
 **Wskazówki**: najważniejsze wbudowane role są Azure Active Directory (Azure AD) są administratorami globalnymi i administrator ról uprzywilejowanych jako użytkownicy przypisani do tych dwóch ról mogą delegować role administratorów:
 
-- Administrator globalny/administrator firmy: Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w usłudze Azure AD, a także usług korzystających z tożsamości usługi Azure AD.
+- Administrator globalny: Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w usłudze Azure AD, a także usług korzystających z tożsamości usługi Azure AD.
 
 - Administrator ról uprzywilejowanych: Użytkownicy z tą rolą mogą zarządzać przypisaniami ról w Azure Active Directory (Azure AD), a także w Azure AD Privileged Identity Management (PIM). Ponadto ta rola umożliwia zarządzanie wszystkimi aspektami jednostek PIM i administracyjnych.
 

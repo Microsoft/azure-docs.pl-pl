@@ -7,53 +7,817 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 05/13/2020
+ms.date: 01/15/2021
 ms.author: aahi
-ms.openlocfilehash: 630f04bf2cc9e7de6331f9d25754a20fe2327d76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43864d3593fda986031cf9b59251b920672476bb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779575"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097291"
 ---
-Następujące kategorie jednostek są zwracane podczas wysyłania żądań do `/entities/recognition/general` punktu końcowego.
+Funkcja NER dla analiza tekstu zwraca następującą ogólną (nieidentyfikującą) kategorię jednostek. na przykład podczas wysyłania żądań do `/entities/recognition/general` punktu końcowego.
 
-| Kategoria   | Subcategory (Podkategoria) | Opis                          | Uruchamianie wersji modelu                                                    | Uwagi |
+
+| Kategoria | Opis                          |
 |------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
-| Osoba     | Nie dotyczy         | Nazwy osób.  | `2019-10-01`  | Zwrócone także przez NER v 2.1 |
-| Persontype | Nie dotyczy         | Typy zadań lub role przechowywane przez osobę. | `2020-02-01` | |
-|Lokalizacja    | Nie dotyczy         | Punkty orientacyjne, struktury, funkcje geograficzne i geopolityczne, w naturalny i ludzki sposób     |  `2019-10-01` | Zwrócone także przez NER v 2.1 |
-|Lokalizacja     | Jednostka geopolityczna (GPE)        | Miasta, kraje/regiony, Stany.      | `2020-02-01` | |
-|Lokalizacja     | Strukturalnych                       | Struktury zbudowanych. | `2020-04-01` | |
-|Lokalizacja     | Geograficznych       | Funkcje geograficzne i naturalne, takie jak rzek, oceany i Deserts. |  `2020-04-01` | |
-|Organizacja  | Nie dotyczy | Firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne.  | `2019-10-01` | Narodowe i religijne nie są uwzględnione w tym typie jednostki. Zwrócone także przez NER v 2.1 |
-|Organizacja | Leczniczych | Firmy medyczne i grupy. | `2020-04-01` |  |
-|Organizacja | Wymiana zapasowa | Giełdowe grupy wymiany. | `2020-04-01` | |
-| Organizacja | Sports | Organizacje dotyczące sportu. | `2020-04-01` |  |
-| Wydarzenie  | Nie dotyczy | Zdarzenia historyczne, społeczne i wystąpienia naturalne. | `2020-02-01` |  |
-| Wydarzenie  | Twórcz | Wydarzenia i święta kulturowe. | `2020-04-01` | |
-| Wydarzenie  | Tocz | Zdarzenia występujące w naturalny sposób. | `2020-04-01` |  |
-| Wydarzenie  | Sports | Wydarzenia sportowe.  | `2020-04-01` | |
-| Produkt | Nie dotyczy | Obiekty fizyczne różnych kategorii. | `2020-02-01` | |
-| Produkt | Produkty obliczeniowe | Produkty obliczeniowe. |  `2020-02-01 ` | |
-| Czy | Nie dotyczy | Możliwość, umiejętność lub doświadczenie. | `2020-02-01` |  |
-| Adres | Nie dotyczy | Pełne adresy wysyłkowe.  | `2020-04-01` |  |
-| PhoneNumber | Nie dotyczy | Numery telefonów (tylko numery telefonów USA i UE). | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Poczta e-mail | Nie dotyczy | Adresy e-mail. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Adres URL | Nie dotyczy | Adresy URL do witryn sieci Web. | `2019-10-01` | Zwrócone także przez NER v 2.1  |
-| Adres IP | Nie dotyczy | Adresy IP sieci. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| DateTime | Nie dotyczy | Daty i godziny dnia. | `2019-10-01` | Zwrócone także przez NER v 2.1 | 
-| Data i godzina | Data | Daty kalendarzowe. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Data i godzina | Godzina | Razy dziennie | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Data i godzina | Zakres dat | Zakresy dat. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Data i godzina | Zakres czasu | Zakresy czasu. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Data i godzina | Czas trwania | Czasów trwania. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Data i godzina | Zestaw | Ustawianie, powtarzające się czasy. |  `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Liczba | Nie dotyczy | Liczby i ilości liczbowe. | `2019-10-01` | Zwrócone także przez NER v 2.1  |
-| Ilość | Liczba | Numery. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Ilość | Procent | Wartości procentowe.| `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Ilość | Liczba porządkowa | Liczby porządkowe. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Ilość | Wiek | Ważności. | `2019-10-01` |  Zwrócone także przez NER v 2.1 |
-| Ilość | Waluta | Waluty. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Ilość | Wymiar | Wymiary i pomiary. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| Ilość | Temperatura | Nosząc. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| [Person (Osoba)](#category-person)     | Nazwy osób.  |
+| [Persontype](#category-persontype) | Typy zadań lub role przechowywane przez osobę. |
+| [Lokalizacja](#category-location)    | Punkty orientacyjne, struktury, funkcje geograficzne i geopolityczne, w naturalny i ludzki sposób |
+| [Organizacja](#category-organization)  | Firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne.  |
+| [Zdarzenie](#category-event)  | Zdarzenia historyczne, społeczne i wystąpienia naturalne. |
+| [Product](#category-product) | Obiekty fizyczne różnych kategorii. |
+| [Czy](#category-skill) | Możliwość, umiejętność lub doświadczenie.  |
+| [Adres](#category-address) | Pełne adresy wysyłkowe.  |
+| [Numer telefonu](#category-phonenumber) | Numery telefonów. |
+| [Poczta e-mail](#category-email) | Adresy e-mail. |
+| [Adres URL](#category-url) | Adresy URL do witryn sieci Web. |
+| [Adres IP](#category-ip) | Adresy IP sieci. |
+| [Data/godzina](#category-datetime) | Daty i godziny dnia. |
+
+
+### <a name="category-person"></a>Kategoria: osoba
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Person (Osoba)
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Nazwy osób.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, <br> `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt`-`pt`, `ru`, `es`, `sv`, `tr`   
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-persontype"></a>Kategoria: Persontype
+
+Ta kategoria zawiera następującą jednostkę:
+
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Persontype
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Typy zadań lub role przechowywane przez osobę
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-location"></a>Kategoria: Lokalizacja
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Lokalizacja
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Tereny, struktury, funkcje geograficzne i jednostki geopolityczne, w naturalny i ludzki sposób.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt-pt`, `ru`, `es`, `sv`, `tr`   
+      
+   :::column-end:::
+:::row-end:::
+
+#### <a name="subcategories"></a>Podkategorii
+
+Jednostka w tej kategorii może mieć następujące podkategorie.
+
+:::row:::
+    :::column span="":::
+        **Podkategoria jednostki**
+
+        Jednostka geopolityczna (GPE)
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Miasta, kraje/regiony, Stany.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Strukturalnych
+
+    :::column-end:::
+    :::column span="2":::
+
+        Struktury zbudowanych. 
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Geograficznych
+
+    :::column-end:::
+    :::column span="2":::
+
+        Funkcje geograficzne i naturalne, takie jak rzek, oceany i Deserts.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-organization"></a>Kategoria: organizacja
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Organizacja
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne. Narodowe i religijne nie są uwzględnione w tym typie jednostki.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt-pt`, `ru`, `es`, `sv`, `tr`   
+      
+   :::column-end:::
+:::row-end:::
+
+#### <a name="subcategories"></a>Podkategorii
+
+Jednostka w tej kategorii może mieć następujące podkategorie.
+
+:::row:::
+    :::column span="":::
+        **Podkategoria jednostki**
+
+        Leczniczych
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Firmy medyczne i grupy.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Wymiana zapasowa
+
+    :::column-end:::
+    :::column span="2":::
+
+        Giełdowe grupy wymiany. 
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Sports
+
+    :::column-end:::
+    :::column span="2":::
+
+        Organizacje dotyczące sportu.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-event"></a>Kategoria: zdarzenie
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Zdarzenie
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Zdarzenia historyczne, społeczne i wystąpienia naturalne.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es` , `fr` ,,, `de` `it` `zh-hans` , `ja` , `ko` `pt-pt` i `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+
+#### <a name="subcategories"></a>Podkategorii
+
+Jednostka w tej kategorii może mieć następujące podkategorie.
+
+:::row:::
+    :::column span="":::
+        **Podkategoria jednostki**
+
+        Twórcz
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Wydarzenia i święta kulturowe.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Tocz
+
+    :::column-end:::
+    :::column span="2":::
+
+        Zdarzenia występujące w naturalny sposób.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Sports
+
+    :::column-end:::
+    :::column span="2":::
+
+        Wydarzenia sportowe.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-product"></a>Kategoria: produkt
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Produkt
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Obiekty fizyczne różnych kategorii.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+
+
+#### <a name="subcategories"></a>Podkategorii
+
+Jednostka w tej kategorii może mieć następujące podkategorie.
+
+:::row:::
+    :::column span="":::
+        **Podkategoria jednostki**
+
+        Produkty obliczeniowe
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Produkty obliczeniowe.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-skill"></a>Kategoria: umiejętność
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Czy
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Możliwość, umiejętność lub doświadczenie.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`  
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-address"></a>Kategoria: adres
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Adres
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Pełny adres wysyłkowy.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-phonenumber"></a>Kategoria: numer telefonu
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        PhoneNumber
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Numery telefonów (tylko numery telefonów USA i UE).
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt` `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-email"></a>Kategoria: E-mail
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        E-mail
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Adresy e-mail.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-url"></a>Kategoria: adres URL
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Adres URL
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Adresy URL do witryn sieci Web. 
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-ip"></a>Kategoria: adres IP
+
+Ta kategoria zawiera następującą jednostkę:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Adres IP
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        adresy IP sieci. 
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-datetime"></a>Kategoria: Data i godzina
+
+Ta kategoria zawiera następujące jednostki:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        DateTime
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Daty i godziny dnia. 
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+Jednostki w tej kategorii mogą mieć następujące podkategorie
+
+#### <a name="subcategories"></a>Podkategorii
+
+Jednostka w tej kategorii może mieć następujące podkategorie.
+
+:::row:::
+    :::column span="":::
+        **Podkategoria jednostki**
+
+        Date (Data)
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Daty kalendarzowe.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Godzina
+
+    :::column-end:::
+    :::column span="2":::
+
+        Razy dziennie.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Zakres dat
+
+    :::column-end:::
+    :::column span="2":::
+
+        Zakresy dat.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Zakres czasu
+
+    :::column-end:::
+    :::column span="2":::
+
+        Zakresy czasu.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Czas trwania
+
+    :::column-end:::
+    :::column span="2":::
+
+        Czasów trwania.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Set
+
+    :::column-end:::
+    :::column span="2":::
+
+        Ustawianie, powtarzające się czasy.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+
+### <a name="category-quantity"></a>Kategoria: ilość
+
+Ta kategoria zawiera następujące jednostki:
+
+:::row:::
+    :::column span="":::
+        **Jednostka**
+
+        Liczba
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Liczby i ilości liczbowe.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+#### <a name="subcategories"></a>Podkategorii
+
+Jednostka w tej kategorii może mieć następujące podkategorie.
+
+:::row:::
+    :::column span="":::
+        **Podkategoria jednostki**
+
+        Liczba
+
+    :::column-end:::
+    :::column span="2":::
+        **Szczegóły**
+
+        Numery.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Procent
+
+    :::column-end:::
+    :::column span="2":::
+
+        Wartości procentowe
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Liczby porządkowe
+
+    :::column-end:::
+    :::column span="2":::
+
+        Liczby porządkowe.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Wiek
+
+    :::column-end:::
+    :::column span="2":::
+
+        Ważności.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Waluta
+
+    :::column-end:::
+    :::column span="2":::
+
+        Waluty
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Wymiary
+
+    :::column-end:::
+    :::column span="2":::
+
+        Wymiary i pomiary.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Temperatura
+
+    :::column-end:::
+    :::column span="2":::
+
+        Nosząc.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::

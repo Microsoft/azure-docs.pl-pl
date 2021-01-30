@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: aae2c8b51fabf22419028a17f5bbce6c97530ed5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b8eeb06b75ba0e0bdaf19957699ad638c6937891
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917306"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094762"
 ---
 # <a name="ncv3-series"></a>Seria NCv3
 
@@ -24,6 +24,7 @@ Maszyny wirtualne z serii seria NCV3 są obsługiwane przez procesory NVIDIA Tes
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): nieobsługiwane<br>
+[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
 NVIDIA NVLink Interconnect: nieobsługiwane<br>
 
 > [!IMPORTANT]

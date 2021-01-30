@@ -4,15 +4,15 @@ description: Preferowane rozwiązania w portalu Marketplace oraz sposób ich wyb
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: cpercy737
-ms.author: camper
+author: feospina
+ms.author: feospina
 ms.date: 06/27/2018
-ms.openlocfilehash: 300278edebdb489c39e8a3faca192de1788667dd
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: f5716ffff9f9149794491c4ed24cc1776569cfe6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062260"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093861"
 ---
 # <a name="preferred-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Preferowane rozwiązania w Microsoft AppSource i Azure Marketplace
 

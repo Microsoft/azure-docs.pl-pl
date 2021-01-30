@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347486"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096444"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
 
@@ -21,7 +21,7 @@ W tym artykule opisano sposób tworzenia i publikowania oferty usługi Edge dla 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
 3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **IoT Edge module**.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-iot-edge.png)
@@ -34,7 +34,7 @@ W tym artykule opisano sposób tworzenia i publikowania oferty usługi Edge dla 
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** , adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
@@ -78,7 +78,7 @@ Po opublikowaniu oferty w witrynie Marketplace z centrum partnerskim możesz opc
 
 Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym liderem:
 
-- [Potencjalni klienci z oferty komercyjnej witryny Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Potencjalni klienci z oferty na platformie handlowej](commercial-marketplace-get-customer-leads.md)
 - [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-faq.md#common-questions-about-lead-management)
 - [Rozwiązywanie problemów z błędami konfiguracji potencjalnego klienta](../lead-management-faq.md#publishing-config-errors)
 - [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
@@ -184,7 +184,7 @@ Musisz podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą tec
 
 W sekcji **skontaktuj się z pomocą techniczną** Podaj adres internetowy **witryny internetowej pomocy technicznej** , w której partnerzy mogą znaleźć pomoc techniczną dotyczącą oferty w zależności od tego, czy oferta jest dostępna na platformie Azure, Azure Government czy w obu tych przypadkach.
 
-W sekcji **kontakt programu z programem CSP** Podaj link ( **materiały marketingowe programu CSP** ), w którym partnerzy usług kryptograficznych mogą znaleźć materiały marketingowe oferty.
+W sekcji **kontakt programu z programem CSP** Podaj link (**materiały marketingowe programu CSP**), w którym partnerzy usług kryptograficznych mogą znaleźć materiały marketingowe oferty.
 
 #### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące wyświetlania w portalu Marketplace
 
@@ -305,8 +305,8 @@ Po utworzeniu planów na karcie **Przegląd planu** jest wyświetlana wartość:
 
 Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego stanu planu. Obejmują one:
 
-- **Usuń wersję roboczą** : Jeśli plan jest stanem wersja robocza.
-- **Zatrzymaj sprzedawanie planu** : Jeśli stan planu jest opublikowany na żywo.
+- **Usuń wersję roboczą**: Jeśli plan jest stanem wersja robocza.
+- **Zatrzymaj sprzedawanie planu**: Jeśli stan planu jest opublikowany na żywo.
 
 ### <a name="create-new-plan"></a>Utwórz nowy plan
 
@@ -403,15 +403,15 @@ Można wskazać wiele platform i udostępnić kilka wersji obrazu kontenera modu
 
 Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacje.
 
-**Wybierz źródło obrazu** : wybierz opcję **Azure Container Registry** .
+**Wybierz źródło obrazu**: wybierz opcję **Azure Container Registry** .
 
-**Identyfikator subskrypcji platformy Azure** : podaj identyfikator subskrypcji, w której raportowane jest użycie zasobów, a usługi są rozliczane dla Azure Container Registry zawierającego obraz kontenera. Ten identyfikator można znaleźć na [stronie Subskrypcje](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) w Azure Portal.
+**Identyfikator subskrypcji platformy Azure**: podaj identyfikator subskrypcji, w której raportowane jest użycie zasobów, a usługi są rozliczane dla Azure Container Registry zawierającego obraz kontenera. Ten identyfikator można znaleźć na [stronie Subskrypcje](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) w Azure Portal.
 
-**Nazwa grupy zasobów platformy Azure** : Podaj nazwę [grupy zasobów](../../azure-resource-manager/management/manage-resource-groups-portal.md) , która zawiera Azure Container Registry z obrazem kontenera. Grupa zasobów musi być dostępna w IDENTYFIKATORze subskrypcji (powyżej). Nazwę można znaleźć na stronie [grupy zasobów](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) w Azure Portal.
+**Nazwa grupy zasobów platformy Azure**: Podaj nazwę [grupy zasobów](../../azure-resource-manager/management/manage-resource-groups-portal.md) , która zawiera Azure Container Registry z obrazem kontenera. Grupa zasobów musi być dostępna w IDENTYFIKATORze subskrypcji (powyżej). Nazwę można znaleźć na stronie [grupy zasobów](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) w Azure Portal.
 
-**Nazwa rejestru kontenerów platformy Azure** : podaj nazwę [Azure Container Registry](../../container-registry/container-registry-intro.md) , w którym znajduje się obraz kontenera. Rejestr kontenerów musi znajdować się w podanej wcześniej grupie zasobów platformy Azure. Podaj tylko nazwę rejestru, a nie pełną nazwę serwera logowania. Pamiętaj, aby pominąć **azurecr.IO** z nazwy. Nazwę rejestru można znaleźć na [stronie rejestry kontenerów](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) w Azure Portal.
+**Nazwa rejestru kontenerów platformy Azure**: podaj nazwę [Azure Container Registry](../../container-registry/container-registry-intro.md) , w którym znajduje się obraz kontenera. Rejestr kontenerów musi znajdować się w podanej wcześniej grupie zasobów platformy Azure. Podaj tylko nazwę rejestru, a nie pełną nazwę serwera logowania. Pamiętaj, aby pominąć **azurecr.IO** z nazwy. Nazwę rejestru można znaleźć na [stronie rejestry kontenerów](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) w Azure Portal.
 
-**Nazwa użytkownika administratora dla Azure Container Registry** : Podaj [nazwę użytkownika administratora](../../container-registry/container-registry-authentication.md#admin-account)) skojarzoną z Azure Container Registryem zawierającym obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Aby uzyskać nazwę użytkownika i hasło administratora, ustaw właściwość z **obsługą administracyjną** na **wartość true** przy użyciu interfejsu Azure Command-Line Interface (CLI). Opcjonalnie możesz ustawić **użytkownika administracyjnego** , aby **włączyć** go w Azure Portal.
+**Nazwa użytkownika administratora dla Azure Container Registry**: Podaj [nazwę użytkownika administratora](../../container-registry/container-registry-authentication.md#admin-account)) skojarzoną z Azure Container Registryem zawierającym obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Aby uzyskać nazwę użytkownika i hasło administratora, ustaw właściwość z **obsługą administracyjną** na **wartość true** przy użyciu interfejsu Azure Command-Line Interface (CLI). Opcjonalnie możesz ustawić **użytkownika administracyjnego** , aby **włączyć** go w Azure Portal.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustruje okno dialogowe Aktualizowanie rejestru kontenerów.":::
 
@@ -419,7 +419,7 @@ Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacj
 
 1. Administrator
 
-<br>**Hasło dla Azure Container Registry** : Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show.](/cli/azure/acr/credential#az-acr-credential-show)
+<br>**Hasło dla Azure Container Registry**: Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show.](/cli/azure/acr/credential#az-acr-credential-show)
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustruje ekran klucz dostępu w Azure Portal.":::
 
@@ -429,7 +429,10 @@ Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacj
 2. Nazwa użytkownika
 3. Hasło
 
-**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Nazwa repozytorium jest określana podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  **strony repozytoria** Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](../../container-registry/container-registry-repositories.md). Po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
+**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Nazwa repozytorium jest określana podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [](https://azure.microsoft.com/services/container-registry/)  >  **strony repozytoria** Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](../../container-registry/container-registry-repositories.md). Po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
+
+> [!NOTE]
+> Nie obsługujemy zaszyfrowanej Azure Container Registry na potrzeby certyfikacji modułu brzegowego. Azure Container Registry należy utworzyć bez włączonego szyfrowania.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tagi obrazu dla nowych wersji oferty
 
@@ -443,7 +446,7 @@ Zdefiniuj najczęściej używane ustawienia w celu wdrożenia modułu IoT Edge. 
 
 **Trasy domyślne**. IoT Edge Hub zarządza komunikacją między modułami, IoT Hub i urządzeniami. Można ustawić trasy dla danych wejściowych i wyjściowych między modułami i IoT Hub, co zapewnia elastyczność wysyłania wiadomości, gdy wymagają one przechodzenia bez konieczności stosowania dodatkowych usług do przetwarzania komunikatów lub pisania dodatkowych kodów. Trasy są konstruowane przy użyciu par nazwa/wartość. Można zdefiniować maksymalnie pięć domyślnych nazw tras, które mają długość do 512 znaków.
 
-Należy pamiętać, aby użyć prawidłowej [składni trasy](../../iot-edge/module-composition.md#declare-routes)) w wartości trasy (zazwyczaj zdefiniowanej jako z/Message/* w $upstream). Oznacza to, że wszystkie komunikaty wysyłane przez dowolne moduły przejdą do IoT Hub. Aby odwołać się do modułu, użyj jego domyślnej nazwy, która będzie **nazwą oferty** , bez spacji i znaków specjalnych. Aby odwołać się do innych modułów, które nie są jeszcze znane, użyj <FROM_MODULE_NAME> Konwencji, aby poinformować klientów, że potrzebują oni zaktualizować te informacje. Aby uzyskać szczegółowe informacje na temat tras IoT Edge, zobacz [deklarowanie tras](../../iot-edge/module-composition.md#declare-routes)).
+Należy pamiętać, aby użyć prawidłowej [składni trasy](../../iot-edge/module-composition.md#declare-routes)) w wartości trasy (zazwyczaj zdefiniowanej jako z/Message/* w $upstream). Oznacza to, że wszystkie komunikaty wysyłane przez dowolne moduły przejdą do IoT Hub. Aby odwołać się do modułu, użyj jego domyślnej nazwy, która będzie **nazwą oferty**, bez spacji i znaków specjalnych. Aby odwołać się do innych modułów, które nie są jeszcze znane, użyj <FROM_MODULE_NAME> Konwencji, aby poinformować klientów, że potrzebują oni zaktualizować te informacje. Aby uzyskać szczegółowe informacje na temat tras IoT Edge, zobacz [deklarowanie tras](../../iot-edge/module-composition.md#declare-routes)).
 
 Na przykład, jeśli moduł ContosoModule nasłuchuje danych wejściowych na ContosoInput i dane wyjściowe w ContosoOutput, warto zdefiniować następujące dwie domyślne trasy:
 

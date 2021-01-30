@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla HIPAA HITRUST 9,2
 description: Szczegółowe informacje na temat wbudowanej inicjatywy zgodności z przepisami HIPAA HITRUST 9,2. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: bbec4e1ea72f458557281f76b5ca5178bce2c316
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 4ee5f87b5bf8d2476685eb469df05bb2267bcf2f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805598"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095760"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Szczegóły dotyczące wbudowanej inicjatywy zgodności z przepisami HIPAA HITRUST 9,2
 
@@ -1438,7 +1438,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione obsługiwane rozwiązanie do oceny luk w zabezpieczeniach. Podstawowym składnikiem każdego cybernetycznymi ryzyka i programu zabezpieczeń jest identyfikacja i analiza luk w zabezpieczeniach. Standardowa warstwa cenowa Azure Security Center obejmuje skanowanie w poszukiwaniu luk w zabezpieczeniach maszyn wirtualnych bez dodatkowych kosztów. Ponadto Security Center może automatycznie wdrożyć to narzędzie. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
+|[Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione obsługiwane rozwiązanie do oceny luk w zabezpieczeniach. Podstawowym składnikiem każdego cybernetycznymi ryzyka i programu zabezpieczeń jest identyfikacja i analiza luk w zabezpieczeniach. Standardowa warstwa cenowa Azure Security Center obejmuje skanowanie w poszukiwaniu luk w zabezpieczeniach maszyn wirtualnych bez dodatkowych kosztów. Ponadto Security Center może automatycznie wdrożyć to narzędzie. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 |[Luki w zabezpieczeniach w konfiguracjach zabezpieczeń kontenerów należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Inspekcja luk w zabezpieczeniach na maszynach z zainstalowanym systemem Docker i wyświetlanie ich jako rekomendacji w Azure Security Center. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Serwery, które nie spełniają skonfigurowanej linii bazowej, będą monitorowane przez Azure Security Center jako zalecenia |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Przeprowadź inspekcję luk w zabezpieczeniach systemu operacyjnego w zestawach skalowania maszyn wirtualnych, aby chronić je przed atakami. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
@@ -1461,7 +1461,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione obsługiwane rozwiązanie do oceny luk w zabezpieczeniach. Podstawowym składnikiem każdego cybernetycznymi ryzyka i programu zabezpieczeń jest identyfikacja i analiza luk w zabezpieczeniach. Standardowa warstwa cenowa Azure Security Center obejmuje skanowanie w poszukiwaniu luk w zabezpieczeniach maszyn wirtualnych bez dodatkowych kosztów. Ponadto Security Center może automatycznie wdrożyć to narzędzie. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
+|[Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione obsługiwane rozwiązanie do oceny luk w zabezpieczeniach. Podstawowym składnikiem każdego cybernetycznymi ryzyka i programu zabezpieczeń jest identyfikacja i analiza luk w zabezpieczeniach. Standardowa warstwa cenowa Azure Security Center obejmuje skanowanie w poszukiwaniu luk w zabezpieczeniach maszyn wirtualnych bez dodatkowych kosztów. Ponadto Security Center może automatycznie wdrożyć to narzędzie. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 
 ### <a name="patches-are-tested-and-evaluated-before-they-are-installed"></a>Poprawki są testowane i oceniane przed ich zainstalowaniem.
 

@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: eb8c69a6bf009543e104a472469c243638726f60
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060371"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096969"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
 
@@ -63,11 +63,7 @@ System Azure włącza przycisk **Prześlij** , gdy Otagowano wszystkie obrazy na
 
 Po przesłaniu tagów dla danych, platforma Azure Odświeża stronę nowym zestawem obrazów z kolejki roboczej.
 
-### <a name="assisted-machine-learning-preview"></a>Asystowana Uczenie maszynowe (wersja zapoznawcza) 
-
-> [!IMPORTANT]
-> Pomoc dotycząca uczenia maszynowego jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### <a name="assisted-machine-learning"></a>Uczenie maszynowe z asystą
 
 Mogą zostać wyzwolone algorytmy uczenia maszynowego. Jeśli te algorytmy są włączone w projekcie, mogą pojawić się następujące elementy:
 
@@ -75,7 +71,14 @@ Mogą zostać wyzwolone algorytmy uczenia maszynowego. Jeśli te algorytmy są w
 
 * W późniejszym czasie można zobaczyć, jakie **zadania są oznaczone** obok nazwy projektu.  Następnie zostaną wyświetlone obrazy z sugerowaną etykietą, która pochodzi z modelu klasyfikacji uczenia maszynowego. Żaden model uczenia maszynowego nie ma dokładności do 100%. Chociaż używamy tylko obrazów, dla których model jest pewny, te obrazy mogą nadal być nieprawidłowo oznaczone etykietami.  Gdy zobaczysz te etykiety, Popraw wszelkie niewłaściwe etykiety przed przesłaniem strony.  
 
-* W przypadku modeli wykrywania obiektów mogą pojawić się pola ograniczenia i etykiety już obecne.  Popraw te, które są nieprawidłowe przed przesłaniem strony.
+* W przypadku modeli identyfikacji obiektów mogą pojawić się pola ograniczenia i etykiety już obecne.  Popraw te, które są nieprawidłowe przed przesłaniem strony.
+
+* W przypadku modeli segmentacji można zobaczyć wielokąty i etykiety już obecne.  Popraw te, które są nieprawidłowe przed przesłaniem strony. 
+
+    > [!IMPORTANT]
+    > Funkcje wymienione w (wersja zapoznawcza) są dostępne w publicznej wersji zapoznawczej.   
+    > Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 W szczególności przede wszystkim w projekcie etykietowania model uczenia maszynowego może być wystarczająco dokładny tylko, aby można było oznaczyć mały podzestaw obrazów. Gdy te obrazy są oznaczone etykietami, projekt etykietowania powróci do ręcznego etykietowania, aby zebrać więcej danych dla następnej rundy szkolenia modeli. W miarę upływu czasu model będzie bardziej wiedział o większej liczbie obrazów, co spowodowało bardziej szczegółowe zadanie zadań w dalszej części projektu.
 

@@ -11,18 +11,18 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: d480239c0eb99ed48c13ec2fdb5b052574acc318
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092503"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095362"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Korzystanie z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów w Azure SQL Database
+# <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Używanie reguł i punktów końcowych usługi sieci wirtualnej dla serwerów w przypadku usługi Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Reguły sieci wirtualnej* to funkcja zabezpieczeń zapory, która kontroluje, czy serwer baz danych i pul elastycznych w [Azure SQL Database](sql-database-paas-overview.md) lub dla baz danych w [usłudze Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) akceptuje komunikaty wysyłane z określonych podsieci w sieciach wirtualnych. W tym artykule opisano, dlaczego reguły sieci wirtualnej są czasami najlepszą opcją bezpiecznego zezwalania na komunikację z bazą danych w SQL Database i analizą Azure Synapse.
+*Reguły sieci wirtualnej* są funkcją zabezpieczeń zapory, która kontroluje, czy serwer dla baz danych i pul elastycznych w [Azure SQL Database](sql-database-paas-overview.md) lub dla dedykowanej puli SQL (dawniej SQL DW) w [usłudze Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) akceptuje komunikację wysyłaną z określonych podsieci w sieciach wirtualnych. W tym artykule opisano, dlaczego reguły sieci wirtualnej są czasami najlepszą opcją bezpiecznego zezwalania na komunikację z bazą danych w SQL Database i analizą Azure Synapse.
 
 > [!NOTE]
 > Ten artykuł dotyczy programu SQL Database i usługi Azure Synapse Analytics. Dla uproszczenia termin *baza danych* odnosi się do obu baz danych w SQL Database i Azure Synapse Analytics. Podobnie wszystkie odwołania do *serwera* odnoszą się do [logicznego serwera SQL](logical-servers.md) , który hostuje SQL Database i usługi Azure Synapse Analytics.

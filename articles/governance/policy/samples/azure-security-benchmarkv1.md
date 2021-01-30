@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla usługi Azure Security test w wersji 1
 description: Szczegóły dotyczące wbudowanej inicjatywy zgodności z przepisami usługi Azure Security test w wersji 1. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1e285e8d0a8518b07a279fd4737afbc31826a5b6
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: d895c2bc191cfbbe6b54413e7ce921f6b273093b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811808"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091734"
 ---
 # <a name="details-of-the-azure-security-benchmark-v1-regulatory-compliance-built-in-initiative"></a>Szczegóły dotyczące wbudowanej inicjatywy zgodności z przepisami usługi Azure Security test w wersji 1
 
@@ -321,7 +321,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu usługi Azure 
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione obsługiwane rozwiązanie do oceny luk w zabezpieczeniach. Podstawowym składnikiem każdego cybernetycznymi ryzyka i programu zabezpieczeń jest identyfikacja i analiza luk w zabezpieczeniach. Standardowa warstwa cenowa Azure Security Center obejmuje skanowanie w poszukiwaniu luk w zabezpieczeniach maszyn wirtualnych bez dodatkowych kosztów. Ponadto Security Center może automatycznie wdrożyć to narzędzie. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
+|[Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione obsługiwane rozwiązanie do oceny luk w zabezpieczeniach. Podstawowym składnikiem każdego cybernetycznymi ryzyka i programu zabezpieczeń jest identyfikacja i analiza luk w zabezpieczeniach. Standardowa warstwa cenowa Azure Security Center obejmuje skanowanie w poszukiwaniu luk w zabezpieczeniach maszyn wirtualnych bez dodatkowych kosztów. Ponadto Security Center może automatycznie wdrożyć to narzędzie. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 |[Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniu zarządzanym SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Przeprowadź inspekcję każdego wystąpienia zarządzanego SQL, które nie ma włączonych skanów oceny luk w zabezpieczeniach. Ocena luk w zabezpieczeniach może wykrywać, śledzić i pomagać w korygowaniu potencjalnych luk w zabezpieczeniach bazy danych. |AuditIfNotExists, wyłączone |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |[Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Inspekcja serwerów SQL platformy Azure, które nie mają włączonej cyklicznej oceny ocen luk w zabezpieczeniach. Ocena luk w zabezpieczeniach może wykrywać, śledzić i pomagać w korygowaniu potencjalnych luk w zabezpieczeniach bazy danych. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
 

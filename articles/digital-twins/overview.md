@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664031"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071685"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
 
@@ -94,10 +94,10 @@ Na poniższym diagramie przedstawiono, gdzie usługa Azure Digital bliźniaczych
 
 ## <a name="service-limits"></a>Limity usługi
 
-Listę limitów cyfrowych bliźniaczych reprezentacji na platformie Azure można znaleźć w temacie [*Reference: Limits Service*](reference-service-limits.md).
+Listę limitów cyfrowych bliźniaczych reprezentacji na platformie Azure można znaleźć w temacie [*limity usługi Azure Digital bliźniaczych reprezentacji*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli pracujesz z pierwszą wersją zapoznawczą usługi Azure Digital bliźniaczych reprezentacji (październik 2018), Dowiedz się, co się zmieniło: [*przegląd: różnice od pierwszego wydania*](overview-differences.md).
+* Szczegółowe do pracy z usługą Azure Digital bliźniaczych reprezentacji w szybkim samouczku: [*Szybki Start: Eksplorowanie przykładowego scenariusza*](quickstart-adt-explorer.md).
 
-Możesz też przejść do pracy z usługą Azure Digital bliźniaczych reprezentacji i szczegółowe, korzystając z przewodnika Szybki Start: [*Eksplorowanie przykładowego scenariusza*](quickstart-adt-explorer.md).
+* Lub zacznij czytać informacje o pojęciach dotyczących usługi Azure Digital bliźniaczych reprezentacji z [*koncepcjami: modelami niestandardowymi*](concepts-models.md).

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: bc7893746cbb98a2d4adc4dabb39e22d015ab2c8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d4f8ab190d0418fbb25dad2cd7af231eabfe0f02
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050400"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090258"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
 
@@ -45,7 +45,7 @@ Aplikacja została skompilowana jako aplikacja ASP.NET MVC. Używa ona oprogramo
 
 Składnik "Demon" w tym przykładzie jest kontrolerem interfejsu API, `SyncController.cs` . Gdy kontroler jest wywoływany, pobiera listę użytkowników w dzierżawie Azure Active Directory klienta (Azure AD) z Microsoft Graph. `SyncController.cs` jest wyzwalany przez wywołanie AJAX w aplikacji sieci Web. Używa [biblioteki Microsoft Authentication Library (MSAL) dla platformy .NET](msal-overview.md) , aby uzyskać token dostępu dla Microsoft Graph.
 
-Ponieważ aplikacja jest aplikacją z wieloma dzierżawcami dla klientów firmy Microsoft, musi zapewnić klientom możliwość "rejestracji" lub "łączenia" aplikacji z danymi firmowymi. Podczas przepływu połączenia administrator firmy najpierw przyznaje *uprawnienia aplikacji* bezpośrednio do aplikacji, dzięki czemu może uzyskiwać dostęp do danych firmowych w sposób nieinteraktywny, bez obecności zalogowanego użytkownika. Większość logiki w tym przykładzie przedstawia sposób osiągnięcia tego przepływu połączenia przy użyciu punktu końcowego [zgody](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) na platformę tożsamości.
+Ponieważ aplikacja jest aplikacją z wieloma dzierżawcami dla klientów firmy Microsoft, musi zapewnić klientom możliwość "rejestracji" lub "łączenia" aplikacji z danymi firmowymi. Podczas przepływu połączenia Administrator globalny najpierw przyznaje *uprawnienia aplikacji* bezpośrednio do aplikacji, dzięki czemu może uzyskiwać dostęp do danych firmowych w sposób nieinteraktywny, bez obecności zalogowanego użytkownika. Większość logiki w tym przykładzie przedstawia sposób osiągnięcia tego przepływu połączenia przy użyciu punktu końcowego [zgody](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) na platformę tożsamości.
 
 ![Diagram przedstawia aplikację UserSync z trzema elementami lokalnymi, które łączą się z platformą Azure, z uwierzytelnianiem typu "Uruchom jako" w sposób interaktywny, aby połączyć się z platformą Azure A D, elementu AccountController otrzymywanie zgody administratora na łączenie się z platformą Azure A D i SyncController odczytywanie użytkownika w celu połączenia z Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 

@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a668fa9bf0ef4fd3b5451ff4c815b676fe237e51
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 88fda4ec810d0b410dcd75ac9c6be69bd54b16d9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410627"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092653"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Rozwiązywanie problemów z błędami podczas synchronizacji
 Błędy mogą wystąpić, gdy dane tożsamości są synchronizowane z systemu Windows Server Active Directory (AD DS) do Azure Active Directory (Azure AD). Ten artykuł zawiera omówienie różnych typów błędów synchronizacji, niektóre możliwe scenariusze, które powodują te błędy, oraz potencjalne sposoby naprawienia błędów. Ten artykuł zawiera typowe typy błędów i może nie obejmować wszystkich możliwych błędów.
@@ -34,7 +34,7 @@ Od 1 września 2016 [Azure Active Directory funkcja odporności na zduplikowane 
 Azure AD Connect wykonuje trzy typy operacji z katalogów, które synchronizują: import, synchronizacja i eksportowanie. Błędy mogą odbywać się we wszystkich operacjach. Ten artykuł dotyczy głównie błędów podczas eksportowania do usługi Azure AD.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Błędy podczas eksportowania do usługi Azure AD
-W poniższej sekcji opisano różne typy błędów synchronizacji, które mogą wystąpić podczas operacji eksportowania do usługi Azure AD przy użyciu łącznika usługi Azure AD. Ten łącznik może być identyfikowany przez format nazwy "contoso". *onmicrosoft.com* ".
+W poniższej sekcji opisano różne typy błędów synchronizacji, które mogą wystąpić podczas operacji eksportowania do usługi Azure AD przy użyciu łącznika usługi Azure AD. Ten łącznik może być identyfikowany przez format nazwy "contoso". *onmicrosoft.com*".
 Błędy podczas eksportowania do usługi Azure AD wskazują, że operacja \( Dodawanie, aktualizowanie, usuwanie itp. \) podjęto próbę przez \( aparat synchronizacji Azure AD Connect \) na Azure Active Directory nie powiodła się.
 
 ![Omówienie błędów eksportu](./media/tshoot-connect-sync-errors/Export_Errors_Overview_01.png)
@@ -78,7 +78,7 @@ Schemat Azure Active Directory nie zezwala, aby dwa lub więcej obiektów miało
    * SMTP bobs@contoso.com
    * SMTP bob.smith@contoso.com
    * **SMTP: Robert \@ contoso.com**
-5. Nowy użytkownik, **Robert Taylor** , jest dodawany do lokalnego Active Directory.
+5. Nowy użytkownik, **Robert Taylor**, jest dodawany do lokalnego Active Directory.
 6. Element **userPrincipalName** "Roberta Taylor" jest ustawiany jako **bobt \@ contoso.com**.
 7. **"abcdefghijkl0123456789 = =" "** to **sourceAnchor** obliczone przez Azure AD Connect przy użyciu **objectGUID** Taylora z Active Directory lokalnych. Obiekt Roberta Taylor nie został jeszcze zsynchronizowany z Azure Active Directory.
 8. Robert Taylor ma następujące wartości atrybutu proxyAddresses
@@ -148,7 +148,7 @@ Jeśli Azure AD Connect próbuje dodać nowy obiekt lub zaktualizować istnieją
    * SMTP bobs@contoso.com
    * SMTP bob.smith@contoso.com
    * **SMTP: Robert \@ contoso.com**
-4. Nowy użytkownik, **Robert Taylor** , jest dodawany do lokalnego Active Directory.
+4. Nowy użytkownik, **Robert Taylor**, jest dodawany do lokalnego Active Directory.
 5. Element **userPrincipalName** "Roberta Taylor" jest ustawiany jako **bobt \@ contoso.com**.
 6. **Robert Taylor** ma następujące wartości atrybutu **proxyAddresses** i. SMTP: bobt@contoso.com II. SMTP bob.taylor@contoso.com
 7. Obiekt Roberta Taylor został pomyślnie zsynchronizowany z usługą Azure AD.
@@ -195,13 +195,13 @@ W przypadku synchronizowanego użytkownika sufiks UserPrincipalName został zmie
 4. Element userPrincipalName Roberta nie zostanie zaktualizowany i spowoduje to błąd synchronizacji "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Jak rozwiązać problem
-Jeśli sufiks UserPrincipalName użytkownika został zaktualizowany z bob@ **contoso.com** do Roberta \@ **fabrikam.com** , gdzie **contoso.com** i **fabrikam.com** są **domenami federacyjnymi** , wykonaj następujące kroki, aby naprawić błąd synchronizacji
+Jeśli sufiks UserPrincipalName użytkownika został zaktualizowany z bob@**contoso.com** do Roberta \@ **fabrikam.com**, gdzie **contoso.com** i **fabrikam.com** są **domenami federacyjnymi**, wykonaj następujące kroki, aby naprawić błąd synchronizacji
 
 1. Zaktualizuj element UserPrincipalName użytkownika w usłudze Azure AD z bob@contoso.com programu do bob@contoso.onmicrosoft.com . Możesz użyć następującego polecenia programu PowerShell z modułem Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Zezwól na następny cykl synchronizacji w celu podjęcia próby synchronizacji. Ta synchronizacja przebiegła pomyślnie i zaktualizuje element UserPrincipalName Roberta bob@fabrikam.com zgodnie z oczekiwaniami.
 
 #### <a name="related-articles"></a>Powiązane artykuły
-* [Zmiany nie są synchronizowane przez narzędzie Azure Active Directory Sync po zmianie nazwy UPN konta użytkownika w celu użycia innej domeny federacyjnej](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+* [Zmiany nie są synchronizowane przez narzędzie Azure Active Directory Sync po zmianie nazwy UPN konta użytkownika w celu użycia innej domeny federacyjnej](/azure/active-directory/hybrid/howto-troubleshoot-upn-changes)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>Opis

@@ -76,6 +76,8 @@
               items:
                 - name: Punkt odniesienia zabezpieczeń
                   href: security-baseline.md
+                - name: Kontrole zabezpieczeń usługi Azure Policy
+                  href: ./security-controls-policy.md
                 - name: Przegląd zabezpieczeń
                   href: data-box-security.md
             - name: Transfer list kontroli dostępu i metadanych

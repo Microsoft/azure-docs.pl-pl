@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 0ba9a31c2b7cb76f7630c2d8dbde02d420c7c8c5
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: be367ed401ac0748f0d4f65bfa6643f08d767cc1
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98859910"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093290"
 ---
 ## <a name="azure-security-benchmark"></a>Test porównawczy zabezpieczeń platformy Azure
 
@@ -154,6 +154,17 @@ Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [HIPA
 |Dzienniki administratorów i operatorów |1270.09 ad1System. 12-09.ad |Organizacja zapewnia, że w celu inspekcji działań administratorów jest włączone odpowiednie rejestrowanie; i regularnie przegląda dzienniki i administratorów systemu. |[Alert dziennika aktywności powinien istnieć dla określonych operacji administracyjnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 |Dzienniki administratorów i operatorów |1271.09 ad1System. 1-09.ad |System wykrywania dostępu intruzów zarządzany poza kontrolą administratorów systemu i sieci jest używany do monitorowania działań związanych z administracją systemu i sieci w celu zapewnienia zgodności. |[Alert dziennika aktywności powinien istnieć dla określonych operacji administracyjnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 |Kontrolki sieci |0860.09 m1Organizational. 9-09. m |Organizacja zarządza sprzętem w sieci, w tym sprzętem w obszarach użytkownika. |[Wdróż ustawienia diagnostyczne dla sieciowych grup zabezpieczeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9c29499-c1d1-4195-99bd-2ec9e3a9dc89) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForNSG_Deploy.json) |
+
+## <a name="iso-270012013"></a>ISO 27001:2013
+
+Aby sprawdzić, jak dostępne Azure Policy wbudowane dla wszystkich usług platformy Azure są mapowane na ten standard zgodności, zobacz [Azure Policy zgodność z przepisami — ISO 27001:2013](../../../../articles/governance/policy/samples/iso-27001.md).
+Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html).
+
+|Domena |Identyfikator kontrolki |Tytuł formantu |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>GitHub</sub>  |
+|---|---|---|---|---|
+|Zabezpieczenia operacji |12.4.1 |Rejestrowanie zdarzeń |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) (Przeprowadzaj inspekcję ustawienia diagnostyki) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
+|Zabezpieczenia operacji |12.4.3 |Dzienniki administratorów i operatorów |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) (Przeprowadzaj inspekcję ustawienia diagnostyki) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
+|Zabezpieczenia operacji |12.4.4 |Synchronizacja zegara |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) (Przeprowadzaj inspekcję ustawienia diagnostyki) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
 
 ## <a name="nist-sp-800-171-r2"></a>NIST SP 800-171 R2
 

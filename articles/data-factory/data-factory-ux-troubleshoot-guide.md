@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bb4ff3198764a35bebc124ee1ce99a93428693d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632571"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095959"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Rozwiązywanie problemów dotyczących Azure Data Factory środowiska użytkownika
 
@@ -28,7 +28,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów dotyczącyc
 
 ### <a name="third-party-cookies-blocked"></a>Zablokowane pliki cookie innych firm
 
-ŚRODOWISKO APD ADF używa plików cookie przeglądarki do utrwalania sesji użytkownika i włączania interaktywnych środowisk programistycznych i monitorowania. Możliwe, że przeglądarka zablokuje pliki cookie innych firm, ponieważ używasz sesji incognito lub włączono blokadę AD. Zablokowanie plików cookie innych firm może powodować problemy podczas ładowania portalu, takie jak przekierowywanie do pustej strony https://adf.azure.com/accesstoken.html lub otrzymywanie komunikatu ostrzegawczego informującego, że pliki cookie innych firm są zablokowane. Aby rozwiązać ten problem, Włącz opcje plików cookie innych firm w przeglądarce, wykonując następujące czynności:
+ŚRODOWISKO APD ADF używa plików cookie przeglądarki do utrwalania sesji użytkownika i włączania interaktywnych środowisk programistycznych i monitorowania. Możliwe, że przeglądarka zablokuje pliki cookie innych firm, ponieważ używasz sesji incognito lub włączono blokadę AD. Zablokowanie plików cookie innych firm może powodować problemy podczas ładowania portalu, takie jak przekierowywanie do pustej strony, " https://adf.azure.com/accesstoken.html " lub otrzymywanie komunikatu ostrzegawczego informującego, że pliki cookie innych firm są zablokowane. Aby rozwiązać ten problem, Włącz opcje plików cookie innych firm w przeglądarce, wykonując następujące czynności:
 
 ### <a name="google-chrome"></a>Google Chrome
 
@@ -42,7 +42,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów dotyczącyc
 
 #### <a name="only-allow-adf-ux-to-use-cookies"></a>Zezwalaj tylko na korzystanie z plików cookie przez środowisko ADF
 Jeśli nie chcesz zezwalać na wszystkie pliki cookie, możesz opcjonalnie zezwolić na środowisko ADF:
-1. Odwiedź stronę **Chrome://Settings/cookies** .
+1. Odwiedź stronę **Chrome://Settings/cookies**.
 1. Wybierz pozycję **Dodaj** w obszarze **witryny, które mogą zawsze używać plików cookie** 
 
     ![Dodawanie środowiska ADF do dozwolonych witryn w programie Chrome](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
@@ -63,7 +63,7 @@ Jeśli nie chcesz zezwalać na wszystkie pliki cookie, możesz opcjonalnie zezwo
 
 Jeśli nie chcesz zezwalać na wszystkie pliki cookie, możesz opcjonalnie zezwolić na środowisko ADF:
 
-1. Odwiedź stronę **Edge://Settings/Content/cookies** .
+1. Odwiedź stronę **Edge://Settings/Content/cookies**.
 1. W obszarze **Zezwól** wybierz pozycję **Dodaj** i Dodaj witrynę **ADF.Azure.com** . 
 
     ![Dodawanie środowiska ADF do dozwolonych witryn w programie Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
@@ -71,17 +71,17 @@ Jeśli nie chcesz zezwalać na wszystkie pliki cookie, możesz opcjonalnie zezwo
 
 ## <a name="connection-failed-on-adf-ux"></a>Nie można nawiązać połączenia w interfejsie użytkownika usługi ADF
 
-Czasami widzisz błędy "połączenie nie powiodło się" w środowisku APD usługi ADF podobnym do poniższego zrzutu ekranu po kliknięciu przycisku **Testuj połączenie** , **wersji zapoznawczej** itd.
+Czasami widzisz błędy "połączenie nie powiodło się" w środowisku APD usługi ADF podobnym do poniższego zrzutu ekranu po kliknięciu przycisku **Testuj połączenie**, **wersji zapoznawczej** itd.
 
 ![Nie można nawiązać połączenia](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
 W takim przypadku można najpierw spróbować wykonać tę samą operację z trybem przeglądania InPrivate w przeglądarce.
 
-Jeśli nadal nie działa, w przeglądarce naciśnij klawisz F12, aby otworzyć **Narzędzia deweloperskie** . Przejdź do karty **Sieć** , zaznacz opcję **Wyłącz pamięć podręczną** , ponów próbę wykonania operacji zakończonej niepowodzeniem i Znajdź żądanie zakończone niepowodzeniem (w kolorze czerwonym).
+Jeśli nadal nie działa, w przeglądarce naciśnij klawisz F12, aby otworzyć **Narzędzia deweloperskie**. Przejdź do karty **Sieć** , zaznacz opcję **Wyłącz pamięć podręczną**, ponów próbę wykonania operacji zakończonej niepowodzeniem i Znajdź żądanie zakończone niepowodzeniem (w kolorze czerwonym).
 
 ![Żądanie zakończone niepowodzeniem](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-Następnie Znajdź **nazwę hosta** (w tym przypadku **dpnortheurope.svc.DataFactory.Azure.com** ) z **adresu URL żądania** żądania zakończonego niepowodzeniem.
+Następnie Znajdź **nazwę hosta** (w tym przypadku **dpnortheurope.svc.DataFactory.Azure.com**) z **adresu URL żądania** żądania zakończonego niepowodzeniem.
 
 Wpisz **nazwę hosta** bezpośrednio na pasku adresu przeglądarki. Jeśli w przeglądarce widzisz 404, zazwyczaj oznacza to, że po stronie klienta jest to prawidłowe, a problem występuje po stronie usługi ADF. Zastąp bilet pomocy technicznej **identyfikatorem działania** z komunikatu o błędzie środowiska ADF.
 
@@ -91,7 +91,7 @@ Jeśli nie, lub widzisz podobny błąd poniżej w przeglądarce, zazwyczaj oznac
 
 ![Błąd po stronie klienta](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-Otwórz **wiersz polecenia** i wpisz **nslookup dpnortheurope.svc.DataFactory.Azure.com** . Normalna odpowiedź powinna wyglądać następująco:
+Otwórz **wiersz polecenia** i wpisz **nslookup dpnortheurope.svc.DataFactory.Azure.com**. Normalna odpowiedź powinna wyglądać następująco:
 
 ![Odpowiedź na polecenie 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 
@@ -119,5 +119,5 @@ Aby uzyskać więcej informacji dotyczących rozwiązywania problemów, wypróbu
 * [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 * [Forum Stack Overflow dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
-* [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/)
+* [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/)
 * [Strona pytania&pytań i odpowiedzi](/answers/topics/azure-data-factory.html)

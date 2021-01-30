@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: e19bf5b4ee5b6c48f002ca79711646cca7b0ec5f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b8711b3995c322614c547434850d7c031abfadd5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729147"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094947"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -71,15 +71,15 @@ W przypadku korzystania z Azure Active Directory z replikacją geograficzną adm
 ## <a name="provision-azure-ad-admin-sql-managed-instance"></a>Inicjowanie obsługi administracyjnej usługi Azure AD (wystąpienie zarządzane SQL)
 
 > [!IMPORTANT]
-> Wykonaj te czynności tylko w przypadku aprowizacji wystąpienia zarządzanego Azure SQL. Tę operację można wykonać tylko przez administratora globalnego/firmy lub administratora ról uprzywilejowanych w usłudze Azure AD.
+> Wykonaj te czynności tylko w przypadku aprowizacji wystąpienia zarządzanego Azure SQL. Tę operację może wykonać tylko administrator globalny lub administrator ról uprzywilejowanych w usłudze Azure AD.
 >
 > W **publicznej wersji zapoznawczej** można przypisać rolę **czytelnicy Directory** do grupy w usłudze Azure AD. Właściciele grupy mogą następnie dodać tożsamość wystąpienia zarządzanego jako element członkowski tej grupy, co umożliwi udostępnienie administratora usługi Azure AD dla wystąpienia zarządzanego SQL. Aby uzyskać więcej informacji na temat tej funkcji, zobacz " [czytelnicy Directory role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 Wystąpienie zarządzane SQL wymaga uprawnień do odczytu usługi Azure AD w celu pomyślnego wykonania zadań, takich jak uwierzytelnianie użytkowników za pomocą przynależności do grupy zabezpieczeń lub tworzenie nowych użytkowników. Aby to umożliwić, należy przyznać uprawnienia wystąpienia zarządzanego SQL do odczytu usługi Azure AD. Można to zrobić przy użyciu Azure Portal lub programu PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
-Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD przy użyciu Azure Portal, zaloguj się jako Administrator globalny/firmowy w usłudze Azure AD i wykonaj następujące kroki:
+Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD przy użyciu Azure Portal, zaloguj się jako Administrator globalny w usłudze Azure AD i wykonaj następujące kroki:
 
 1. W [Azure Portal](https://portal.azure.com)w prawym górnym rogu wybierz połączenie z listy rozwijanej możliwych aktywnych katalogów.
 
@@ -126,7 +126,7 @@ Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD p
 
 ```powershell
 # Gives Azure Active Directory read permission to a Service Principal representing the SQL Managed Instance.
-# Can be executed only by a "Company Administrator", "Global Administrator", or "Privileged Role Administrator" type of user.
+# Can be executed only by a "Global Administrator" or "Privileged Role Administrator" type of user.
 
 $aadTenant = "<YourTenantId>" # Enter your tenant ID
 $managedInstanceName = "MyManagedInstance"
@@ -236,7 +236,7 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, 
 
 W poniższych dwóch procedurach pokazano, jak udostępnić administratorowi Azure Active Directory serwera w Azure Portal i przy użyciu programu PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) w prawym górnym rogu wybierz swoje połączenia, aby wyświetlić listę rozwijaną możliwych usług Active Directory. Wybierz odpowiednią usługę Active Directory jako domyślną usługę Azure AD. Ten krok łączy Active Directory skojarzone z subskrypcją z serwerem, upewniając się, że ta sama subskrypcja jest używana zarówno w przypadku usługi Azure AD, jak i serwera.
 

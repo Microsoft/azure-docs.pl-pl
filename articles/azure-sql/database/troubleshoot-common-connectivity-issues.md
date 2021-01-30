@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9f2e755047910aefa89c2f187cda956aca608b98
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791362"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093761"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Rozwiązywanie problemów z błędami połączeń przejściowych w SQL Database i wystąpieniu zarządzanym SQL
 
@@ -31,7 +31,7 @@ W tym artykule opisano, jak zapobiegać, rozwiązywać problemy, diagnozować i 
 
 Błąd przejściowy, nazywany także błędem przejściowym, ma zasadniczą przyczynę, która wkrótce wyeliminuje siebie. Sporadyczne wystąpienie błędów przejściowych polega na tym, że system Azure szybko przenosi zasoby sprzętowe w celu lepszego zrównoważenia obciążenia różnych obciążeń. Większość tych zdarzeń ponownej konfiguracji kończy się za mniej niż 60 sekund. Podczas tego przedziału czasu ponownej konfiguracji mogą wystąpić problemy z połączeniem z bazą danych w SQL Database. Aplikacje, które łączą się z bazą danych, powinny zostać skompilowane, aby oczekiwać na te błędy przejściowe. Aby je obsłużyć, należy wdrożyć logikę ponowień w kodzie, zamiast dopełniać je do użytkowników jako błędy aplikacji.
 
-Jeśli program kliencki używa ADO.NET, program jest powiadamiany o błędzie przejściowym przez throw **SqlException** .
+Jeśli program kliencki używa ADO.NET, program jest powiadamiany o błędzie przejściowym przez throw **SqlException**.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -126,7 +126,7 @@ Aby ten test był praktyczny, program rozpoznaje parametr środowiska uruchomien
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametry .NET SqlConnection dla ponowienia połączenia
 
-Jeśli program kliencki nawiązuje połączenie z bazą danych w SQL Database przy użyciu klasy .NET Framework **System. Data. SqlClient. SqlConnection** , użyj programu .NET 4.6.1 lub nowszego (lub platformy .NET Core), aby można było używać funkcji ponawiania połączeń. Aby uzyskać więcej informacji na temat funkcji, zobacz [Właściwość SqlConnection. ConnectionString](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
+Jeśli program kliencki nawiązuje połączenie z bazą danych w SQL Database przy użyciu klasy .NET Framework **System. Data. SqlClient. SqlConnection**, użyj programu .NET 4.6.1 lub nowszego (lub platformy .NET Core), aby można było używać funkcji ponawiania połączeń. Aby uzyskać więcej informacji na temat funkcji, zobacz [Właściwość SqlConnection. ConnectionString](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -134,9 +134,9 @@ Jeśli program kliencki nawiązuje połączenie z bazą danych w SQL Database pr
 
 Podczas tworzenia [parametrów połączenia](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) dla obiektu **SqlConnection** koordynuj wartości z następujących parametrów:
 
-- **ConnectRetryCount** : &nbsp; &nbsp; wartość domyślna to 1. Zakres to od 0 do 255.
-- **ConnectRetryInterval** : &nbsp; &nbsp; wartość domyślna to 10 sekund. Zakres to od 1 do 60.
-- **Limit czasu połączenia** : &nbsp; &nbsp; wartość domyślna to 15 sekund. Zakres to od 0 do 2147483647.
+- **ConnectRetryCount**: &nbsp; &nbsp; wartość domyślna to 1. Zakres to od 0 do 255.
+- **ConnectRetryInterval**: &nbsp; &nbsp; wartość domyślna to 10 sekund. Zakres to od 1 do 60.
+- **Limit czasu połączenia**: &nbsp; &nbsp; wartość domyślna to 15 sekund. Zakres to od 0 do 2147483647.
 
 W związku z tym wybrane wartości powinny mieć następujące równość: limit czasu połączenia = ConnectRetryCount * ConnectionRetryInterval
 
@@ -189,7 +189,7 @@ Zazwyczaj należy upewnić się, że tylko port 1433 jest otwarty dla komunikacj
 Na przykład, gdy program kliencki jest hostowany na komputerze z systemem Windows, można użyć zapory systemu Windows na hoście, aby otworzyć port 1433.
 
 1. Otwórz Panel sterowania.
-2. Wybierz kolejno **pozycje wszystkie elementy panelu sterowania**  >  Opcje **Zapora systemu Windows**  >  **Zaawansowane ustawienia**  >  **reguły ruchu wychodzącego**  >  **Actions**  >  **Nowa reguła** .
+2. Wybierz kolejno **pozycje wszystkie elementy panelu sterowania**  >  Opcje **Zapora systemu Windows**  >  **Zaawansowane ustawienia**  >  **reguły ruchu wychodzącego**  >    >  **Nowa reguła**.
 
 Jeśli program kliencki jest hostowany na maszynie wirtualnej platformy Azure, Odczytaj [porty powyżej 1433 dla ADO.NET 4,5 i SQL Database](adonet-v12-develop-direct-route-ports.md).
 
@@ -331,15 +331,15 @@ Biblioteka Enterprise Library 6 (EntLib60) to struktura klas platformy .NET, kt�
 Logika ponowień do obsługi błędów przejściowych to jeden obszar, w którym EntLib60 może pomóc. Aby uzyskać więcej informacji, zobacz [4-Perseverance, klucz tajny wszystkich Triumphs: Użyj bloku aplikacji do obsługi błędów przejściowych](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
-> Kod źródłowy EntLib60 jest dostępny do pobrania publicznie z [Centrum pobierania](https://go.microsoft.com/fwlink/p/?LinkID=290898). Firma Microsoft nie ma żadnych planów, aby podejmować dalsze aktualizacje funkcji lub aktualizacje konserwacji EntLib.
+> Kod źródłowy EntLib60 jest dostępny do pobrania publicznie z [Centrum pobierania](https://github.com/MicrosoftArchive/enterprise-library). Firma Microsoft nie ma żadnych planów, aby podejmować dalsze aktualizacje funkcji lub aktualizacje konserwacji EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>EntLib60 klasy dla błędów przejściowych i ponów próbę
 
-Następujące klasy EntLib60 są szczególnie przydatne w przypadku logiki ponawiania. Wszystkie te klasy są dostępne w lub w obszarze nazw **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandling** .
+Następujące klasy EntLib60 są szczególnie przydatne w przypadku logiki ponawiania. Wszystkie te klasy są dostępne w lub w obszarze nazw **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandling**.
 
-W przestrzeni nazw **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandling** :
+W przestrzeni nazw **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandling**:
 
 - Klasa **RetryPolicy**
   - **ExecuteAction** , Metoda
@@ -348,7 +348,7 @@ W przestrzeni nazw **Microsoft. Practices. EnterpriseLibrary. TransientFaultHand
 - Klasa **ReliableSqlConnection**
   - **ExecuteCommand** , Metoda
 
-W przestrzeni nazw **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandling. TestSupport** :
+W przestrzeni nazw **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandling. TestSupport**:
 
 - Klasa **AlwaysTransientErrorDetectionStrategy**
 - Klasa **NeverTransientErrorDetectionStrategy**

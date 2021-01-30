@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a321b2eb79ea01bbf94e1a413c189ac7f4614ad
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005864"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096427"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Disaster recovery and device failover for your StorSimple Virtual Array via Azure portal (Odzyskiwane po awarii i przełączanie urządzenia w tryb failover dla macierzy wirtualnej StorSimple w witrynie Azure Portal)
 
@@ -40,7 +40,7 @@ Program DR jest modelowany jako pełne przywracanie urządzenia przy użyciu war
 > 
 > 
 
-Odzyskiwanie po awarii jest zorganizowane przez funkcję przełączania do trybu failover urządzenia i jest inicjowane z bloku **urządzenia** . Ten blok umożliwia tabulację wszystkich urządzeń StorSimple podłączonych do usługi StorSimple Menedżer urządzeń. Dla każdego urządzenia można wyświetlić przyjazną nazwę, stan, zainicjowaną i maksymalną pojemność, typ i model.
+Odzyskiwanie po awarii jest zorganizowane przez funkcję przełączania do trybu failover urządzenia i jest inicjowane z bloku **urządzenia** . Ten blok umożliwia tabulację wszystkich urządzeń StorSimple podłączonych do usługi StorSimple Device Manager. Dla każdego urządzenia można wyświetlić przyjazną nazwę, stan, zainicjowaną i maksymalną pojemność, typ i model.
 
 ## <a name="prerequisites-for-device-failover"></a>Wymagania wstępne dotyczące trybu failover urządzenia
 
@@ -92,7 +92,7 @@ Po pomyślnym zakończeniu odzyskiwania po awarii, własność danych w chmurze 
 
 ## <a name="fail-over-to-a-virtual-array"></a>Przechodzenie w tryb failover do macierzy wirtualnej
 
-Zalecamy, aby przed uruchomieniem tej procedury zainicjować obsługę administracyjną, skonfigurować i zarejestrować kolejną macierz wirtualną StorSimple w usłudze StorSimple Menedżer urządzeń.
+Zalecamy, aby przed uruchomieniem tej procedury zainicjować obsługę administracyjną, skonfigurować i zarejestrować kolejną macierz wirtualną StorSimple w usłudze StorSimple Device Manager.
 
 > [!IMPORTANT]
 > 
@@ -102,7 +102,7 @@ Zalecamy, aby przed uruchomieniem tej procedury zainicjować obsługę administr
 
 Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządzenia wirtualnego StorSimple.
 
-1. Inicjowanie obsługi administracyjnej i Konfigurowanie urządzenia docelowego spełniającego [wymagania wstępne dotyczące przełączenia urządzenia w tryb failover](#prerequisites). Zakończ konfigurację urządzenia za pomocą lokalnego interfejsu użytkownika sieci Web i zarejestruj go w usłudze StorSimple Menedżer urządzeń. W przypadku tworzenia serwera plików przejdź do kroku 1 [konfiguracji jako serwer plików](storsimple-virtual-array-deploy3-fs-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device). W przypadku tworzenia serwera iSCSI przejdź do kroku 1 [konfiguracji jako serwer iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device).
+1. Inicjowanie obsługi administracyjnej i Konfigurowanie urządzenia docelowego spełniającego [wymagania wstępne dotyczące przełączenia urządzenia w tryb failover](#prerequisites). Zakończ konfigurację urządzenia za pomocą lokalnego interfejsu użytkownika sieci Web i zarejestruj go w usłudze StorSimple Device Manager. W przypadku tworzenia serwera plików przejdź do kroku 1 [konfiguracji jako serwer plików](storsimple-virtual-array-deploy3-fs-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device). W przypadku tworzenia serwera iSCSI przejdź do kroku 1 [konfiguracji jako serwer iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device).
 
 2. Przełącz woluminy/udziały w tryb offline na hoście. Aby przełączyć woluminy/udziały w tryb offline, zapoznaj się z instrukcjami dotyczącymi hosta w systemie operacyjnym. Jeśli nie jest jeszcze w trybie offline, musisz przełączyć wszystkie woluminy/udziały w tryb offline na urządzeniu, wykonując następujące czynności.
    
@@ -116,7 +116,7 @@ Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządze
    
     5. Kliknij pozycję **Przełącz do trybu offline**.
 
-3. W usłudze StorSimple Menedżer urządzeń przejdź do pozycji **zarządzanie > urządzenia**. W bloku **urządzenia** wybierz i kliknij swoje urządzenie źródłowe.
+3. W usłudze StorSimple Device Manager przejdź do pozycji **zarządzanie > urządzenia**. W bloku **urządzenia** wybierz i kliknij swoje urządzenie źródłowe.
 
 4. W bloku **pulpitu nawigacyjnego urządzenia** kliknij pozycję **Dezaktywuj**.
 
@@ -156,7 +156,7 @@ Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządze
     1. Wybierz i kliknij urządzenie StorSimple, które było używane jako urządzenie docelowe dla procesu przełączania do trybu failover.
     2. Przejdź do pozycji **ustawienia > zarządzanie > udziały** (lub **woluminy** , jeśli serwer iSCSI). W bloku **udziały** można wyświetlić wszystkie udziały (woluminy) ze starego urządzenia.
         ![Zrzut ekranu przedstawiający blok urządzeń. Urządzenie docelowe jest wyświetlane ze stanem online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. Należy [utworzyć alias DNS](https://support.microsoft.com/kb/168322) , aby wszystkie aplikacje, które próbują nawiązać połączenie, mogły zostać przekierowane do nowego urządzenia.
+14. Należy [utworzyć alias DNS](https://web.archive.org/web/20150307000707/http://support.microsoft.com:80/kb/168322) , aby wszystkie aplikacje, które próbują nawiązać połączenie, mogły zostać przekierowane do nowego urządzenia.
 
 ## <a name="errors-during-dr"></a>Błędy podczas odzyskiwania po awarii
 
@@ -174,7 +174,7 @@ Jeśli jedno z tych zaewidencjonowania nie jest spełnione, zobaczysz błędy sp
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>Ciągłość działania — odzyskiwanie po awarii (BCDR)
 
-Scenariusz ciągłości działania odzyskiwania po awarii (BCDR) występuje, gdy całe centrum danych platformy Azure przestanie działać. Może to mieć wpływ na usługę StorSimple Menedżer urządzeń i skojarzone urządzenia StorSimple.
+Scenariusz ciągłości działania odzyskiwania po awarii (BCDR) występuje, gdy całe centrum danych platformy Azure przestanie działać. Może to mieć wpływ na usługę StorSimple Device Manager i skojarzone urządzenia StorSimple.
 
 W przypadku urządzeń StorSimple, które zostały zarejestrowane tuż przed wystąpieniem awarii, może być konieczne usunięcie tych urządzeń StorSimple. Po awarii możesz ponownie utworzyć i skonfigurować te urządzenia.
 

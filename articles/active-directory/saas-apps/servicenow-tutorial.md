@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c90234249f3cf7eb6ed4793110d61e1f8190ed60
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353616"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092636"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi ServiceNow
 
@@ -36,7 +36,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 * Subskrypcja z włączonym logowaniem jednokrotnym (SSO) usługi usługi ServiceNow.
 * W przypadku usługi usługi ServiceNow wystąpienie lub dzierżawca usługi ServiceNow obsługuje Calgary, Kingston, Londyn, Madryt, Nowy Jork, Orlando i Paryż w wersji lub nowszej.
 * W przypadku programu usługi ServiceNow Express wystąpienie klasy usługi ServiceNow Express, w wersji Helsinki lub nowszej.
-* W dzierżawie usługi ServiceNow musi być włączona wtyczka [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) (wtyczka logowania jednokrotnego u wielu dostawców).
+* W dzierżawie usługi ServiceNow musi być włączona wtyczka [Multiple Provider Single Sign On Plugin](https://old.wiki/index.php/Multiple_Provider_Single_Sign-On#gsc.tab=0) (wtyczka logowania jednokrotnego u wielu dostawców).
 * W przypadku konfiguracji automatycznej włącz wtyczkę wielu dostawców dla usługi ServiceNow.
 * Aby zainstalować klasyczną aplikację usługi ServiceNow (Mobile), przejdź do odpowiedniego magazynu i Wyszukaj aplikację klasyczną usługi ServiceNow. Następnie pobierz go.
 
@@ -133,7 +133,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W obszarze **Nazwa** wprowadź `B.Simon` .  
    1. W polu **Nazwa użytkownika** wprowadź username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -320,7 +320,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
         1. Wprowadź **adres URL metadanych federacji aplikacji** , który został skopiowany z Azure Portal.
 
-        1. Wybierz pozycję **Import** (Importuj).
+        1. Wybierz pozycję **Importuj**.
 
     1. Odczytuje adres URL metadanych dostawcy tożsamości i wypełnia wszystkie informacje o polach.
 

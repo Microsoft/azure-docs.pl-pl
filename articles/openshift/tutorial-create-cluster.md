@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 10/26/2020
-ms.openlocfilehash: 909385b4f670d084a9357b6ac2840a9458604667
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063032"
+ms.locfileid: "99072239"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -88,7 +88,7 @@ Jeśli podano domenę niestandardową dla klastra, należy zwrócić uwagę na n
 
 * Konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 
-* Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras tworzonych w domenach niestandardowych `*.apps.example.com` .  Jeśli zdecydujesz się używać niestandardowej usługi DNS po nawiązaniu połączenia z klastrem, musisz postępować zgodnie z dokumentacją OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html).
+* Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras tworzonych w domenach niestandardowych `*.apps.example.com` .  Jeśli zdecydujesz się używać niestandardowej usługi DNS po nawiązaniu połączenia z klastrem, musisz postępować zgodnie z dokumentacją OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html).
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Tworzenie sieci wirtualnej zawierającej dwie puste podsieci
 

@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 15f66e836a2900349007fb5068a172b89f39d4de
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9953b51dc93738093ef56f9dbc64b4e1165cc40c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352800"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091399"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes Service (AKS) korzystającego ze stref dostępności
 
@@ -20,7 +20,7 @@ Definiując pule węzłów w klastrze w celu rozdzielenia wielu stref, węzły w
 
 W tym artykule pokazano, jak utworzyć klaster AKS i rozesłać składniki węzła w strefach dostępności.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -34,7 +34,7 @@ Klastry AKS można obecnie tworzyć przy użyciu stref dostępności w następuj
 * East US 
 * Wschodnie stany USA 2
 * Francja Środkowa
-* Japan East
+* Japonia Wschodnia
 * Europa Północna
 * Azja Południowo-Wschodnia
 * Południowe Zjednoczone Królestwo
@@ -204,4 +204,4 @@ W tym artykule szczegółowo opisano sposób tworzenia klastra AKS używającego
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
-[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/
+[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/labels-annotations-taints/
