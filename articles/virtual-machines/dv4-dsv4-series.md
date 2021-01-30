@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 96bcf70d2f5ec8301b16de5d23d94ad8a7e27b5a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: aea0a79d1ae27d987a6a30cfefe91e875f9a8382
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920345"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097510"
 ---
 # <a name="dv4-and-dsv4-series"></a>Serie Dv4 i Dsv4
 
@@ -35,6 +35,7 @@ Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych. Aby korzys
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
+[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
 <br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
@@ -58,6 +59,7 @@ Rozmiary serii Dsv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinu
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
+[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
 <br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |

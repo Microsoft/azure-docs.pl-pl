@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 93feaef01b234eeb7ac363c18d8e9d8f52b009de
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5e97a35a272684a99e1ca21cbec9c8f3edef253c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216533"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097426"
 ---
 # <a name="virtual-network-service-endpoints"></a>Punkty końcowe usługi dla sieci wirtualnej
 
@@ -30,7 +30,7 @@ Ta funkcja jest dostępna dla następujących regionów i usług platformy Azure
 
 - **[Usługa Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft. Storage*): ogólnie dostępna we wszystkich regionach świadczenia usługi Azure.
 - **[Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępna we wszystkich regionach świadczenia usługi Azure.
-- **[Usługa Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępna we wszystkich regionach świadczenia usługi Azure.
+- **[Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępna we wszystkich regionach świadczenia usługi Azure dla dedykowanych pul SQL (dawniej SQL DW).
 - **[Serwer Azure Database for PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępny w regionach platformy Azure, w których usługa bazy danych jest dostępna.
 - **[Serwer Azure Database for MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępny w regionach platformy Azure, w których usługa bazy danych jest dostępna.
 - **[Azure Database for MariaDB](../mariadb/concepts-data-access-security-vnet.md)** (*Microsoft. SQL*): ogólnie dostępna w regionach platformy Azure, w których usługa bazy danych jest dostępna.
@@ -81,7 +81,7 @@ Punkty końcowe usługi oferują następujące korzyści:
 
 ![Zabezpieczanie usług platformy Azure w sieciach wirtualnych](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 - Skonfiguruj punkty końcowe usługi w podsieci w sieci wirtualnej. Punkty końcowe współpracują z wystąpieniami obliczeniowymi dowolnego typu uruchomionymi w danej podsieci.
 - W podsieci można skonfigurować wiele punktów końcowych usługi dla wszystkich obsługiwanych usług platformy Azure (na przykład Azure Storage lub Azure SQL Database).

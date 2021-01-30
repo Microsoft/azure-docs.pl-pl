@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 854504347409efb4f0eafff0d776db23ca9fda07
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059844"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097543"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -24,7 +24,7 @@ Dowiedz się, jak tworzyć i uruchamiać projekty etykietowania danych w celu ta
 ## <a name="data-labeling-capabilities"></a>Możliwości etykietowania danych
 
 > [!Important]
-> Obecnie obsługiwane są tylko projekty klasyfikacji obrazów i identyfikacji obiektów. Ponadto obrazy danych muszą być dostępne w magazynie datastorage obiektów blob platformy Azure. (Jeśli nie masz istniejącego magazynu danych, możesz przekazać obrazy podczas tworzenia projektu).
+> Obrazy danych muszą być dostępne w magazynie datastorage obiektów blob platformy Azure. (Jeśli nie masz istniejącego magazynu danych, możesz przekazać obrazy podczas tworzenia projektu).
 
 Etykiety danych Azure Machine Learning to centralne miejsce do tworzenia i monitorowania projektów etykietowania oraz zarządzania nimi:
  - Koordynuj dane, etykiety i członków zespołu, aby efektywnie zarządzać zadaniami etykietowania. 
@@ -53,6 +53,11 @@ Aby utworzyć projekt, wybierz pozycję **Dodaj projekt**. Nadaj projektowi odpo
 * Wybierz **wiele klas klasyfikacji obrazów** dla projektów, gdy chcesz zastosować tylko *jedną etykietę* z zestawu etykiet do obrazu.
 * Wybierz opcję **Klasyfikacja obrazu wieloetykietowego** dla projektów, gdy chcesz zastosować *jedną lub więcej* etykiet z zestawu etykiet do obrazu. Na przykład zdjęcie psa może mieć etykietę z obu *pies* i *Daytime*.
 * Wybierz pozycję **Identyfikacja obiektu (pole ograniczenia)** dla projektów, gdy chcesz przypisać etykietę i pole ograniczenia do każdego obiektu w obrazie.
+* Wybierz pozycję **segmentacja wystąpień (wersja zapoznawcza** ) dla projektów, gdy chcesz przypisać etykietę i rysować Wielokąt wokół każdego obiektu w obrazie.
+
+> [!IMPORTANT]
+> Segmentacja wystąpień (Wielokąt) jest w publicznej wersji zapoznawczej.
+> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Wybierz pozycję **dalej** , gdy wszystko będzie gotowe do kontynuowania.
 
@@ -77,7 +82,7 @@ Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w
     * Dołącz "/* *" do ścieżki, aby uwzględnić wszystkie pliki w podfolderach wybranej ścieżki.
     * Dołącz "* */* . *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 
@@ -91,7 +96,7 @@ Aby bezpośrednio przekazać dane:
 1. *Opcjonalne:* Wybierz pozycję **Ustawienia zaawansowane** , aby dostosowywać magazyn danych, kontener i ścieżkę do swoich potrzeb.
 1. Wybierz pozycję **Przeglądaj** , aby wybrać pliki lokalne do przekazania.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.
@@ -141,6 +146,7 @@ W przypadku pól ograniczenia ważne pytania obejmują:
 
 Strona **etykietowania** z pomocąą ml umożliwia wyzwalanie automatycznych modeli uczenia maszynowego w celu przyspieszenia zadania etykietowania. Na początku projektu etykietowania obrazy są ustawiane losowo w kolejności losowej, aby zmniejszyć liczbę potencjalnych odchyleń. Jednak wszelkie bias, które znajdują się w zestawie danych, zostaną odzwierciedlone w modelu przeszkolonym. Na przykład jeśli 80% obrazów ma jedną klasę, wówczas około 80% danych używanych do uczenia modelu będzie tej klasy. To szkolenie nie obejmuje aktywnego uczenia się.
 
+
 Wybierz opcję *Włącz oznaczenie ml z etykietami* i określ procesor GPU, aby włączyć obsługę etykietowania, która składa się z dwóch faz:
 * Klastrowanie
 * Etykietowanie
@@ -150,7 +156,7 @@ Dokładna liczba obrazów z etykietami, które są niezbędne do rozpoczęcia et
 Ponieważ końcowe etykiety nadal opierają się na danych wejściowych z Labeler, Technologia ta jest czasami wywoływana *przez człowieka w pętli* etykiet.
 
 > [!NOTE]
-> Oznakowanie danych wspomaganych przez ML nie obsługuje domyślnych kont magazynu zabezpieczonych za [siecią wirtualną](how-to-network-security-overview.md). Musisz użyć konta magazynu innego niż domyślne do etykietowania danych z asystą w ML. Konto magazynu inne niż domyślne można zabezpieczyć za siecią wirtualną. 
+> Oznakowanie danych wspomaganych przez ML nie obsługuje domyślnych kont magazynu zabezpieczonych za [siecią wirtualną](how-to-network-security-overview.md). Musisz użyć konta magazynu innego niż domyślne do etykietowania danych z asystą w ML. Konto magazynu inne niż domyślne można zabezpieczyć za siecią wirtualną.
 
 ### <a name="clustering"></a>Klastrowanie
 
