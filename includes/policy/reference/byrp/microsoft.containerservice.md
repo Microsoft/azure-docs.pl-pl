@@ -2,20 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a8499b2695f32917619c94defc06738de925db04
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 58789b0e132a850165b67789aef95340ec3dcc7f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805517"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99213857"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Dozwolone zakresy adresów IP powinny być zdefiniowane w usługach Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e246bcf-5f6f-4f87-bc6f-775d4712c7ea) |Ogranicz dostęp do interfejs API zarządzania usługami Kubernetes przez przyznanie dostępu do interfejsu API tylko adresom IP w określonych zakresach. Zaleca się ograniczenie dostępu do autoryzowanych zakresów adresów IP w celu zapewnienia, że tylko aplikacje z dozwolonych sieci będą mogły uzyskiwać dostęp do klastra. |Inspekcja, wyłączona |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableIpRanges_KubernetesService_Audit.json) |
-|[Dodatek Azure Policy dla usługi Kubernetes Service (AKS) powinien być zainstalowany i włączony w klastrach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |Dodatek Azure Policy dla usługi Kubernetes Service (AKS) rozszerza strażnik v3, element webhook kontrolera usługi Admission Control dla programu Open Policy Agent (NIEPRZEZ), aby stosować zasady wymuszania i zabezpieczenia w klastrach w scentralizowany, spójny sposób. |Inspekcja, wyłączona |[1.0.1 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
+|[Dodatek Azure Policy dla usługi Kubernetes Service (AKS) powinien być zainstalowany i włączony w klastrach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |Dodatek Azure Policy dla usługi Kubernetes Service (AKS) rozszerza strażnik v3, element webhook kontrolera usługi Admission Control dla programu Open Policy Agent (NIEPRZEZ), aby stosować zasady wymuszania i zabezpieczenia w klastrach w scentralizowany, spójny sposób. |Inspekcja, wyłączona |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
 |[Systemy operacyjne i dyski danych w klastrach usługi Azure Kubernetes powinny być szyfrowane przez klucze zarządzane przez klienta](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7d7be79c-23ba-4033-84dd-45e2a5ccdd67) |Szyfrowanie dysków systemu operacyjnego i danych przy użyciu kluczy zarządzanych przez klienta zapewnia większą kontrolę i większą elastyczność zarządzania kluczami. Jest to typowy wymóg w wielu prawnych i branżowych standardach zgodności. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_CMK_Deny.json) |
 |[Wdrażanie dodatku Azure Policy w klastrach usługi Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8eff44f-8c92-45c3-a3fb-9880802d67a7) |Dodatek Azure Policy umożliwia zarządzanie i raportowanie stanu zgodności klastrów usługi Azure Kubernetes Service (AKS). Aby uzyskać więcej informacji, zobacz [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Deploy.json) |
 |[Wdrażanie GitOps w klastrze Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d61c4d2-aef2-432b-87fc-7f96b019b7e1) |Te zasady wdrażają klastry "sourceControlConfiguration" w celu zagwarantowania, że klastry będą odbierać swoje źródła prawdy ze zdefiniowanego repozytorium git. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, odwiedź stronę [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy) . |DeployIfNotExists |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster_DINE.json) |

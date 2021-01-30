@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c5c1fd202b52c8708ab067ca802481f4d4bb4e27
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 744343fe99b276da0264f9a7e40442f754b01169
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956330"
+ms.locfileid: "99215417"
 ---
 Ten samouczek wymaga następujących zasobów platformy Azure:
 
@@ -15,7 +15,7 @@ Ten samouczek wymaga następujących zasobów platformy Azure:
 
 W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) w celu wdrożenia wymaganych zasobów w ramach subskrypcji platformy Azure. W tym celu wykonaj następujące czynności:
 
-1. Otwórz usługę [Azure Cloud Shell](https://shell.azure.com).
+1. Otwórz usługę [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
 1. Jeśli używasz Cloud Shell po raz pierwszy, zostanie wyświetlony monit o wybranie subskrypcji w celu utworzenia konta magazynu i udziału plików Microsoft Azure. Wybierz pozycję **Utwórz magazyn** , aby utworzyć konto magazynu dla informacji sesji Cloud Shell. To konto magazynu jest niezależne od konta tworzonego przez skrypt do użycia z Twoim kontem Azure Media Services.
 1. W menu rozwijanym po lewej stronie okna Cloud Shell wybierz pozycję **bash** jako swoje środowisko.
 

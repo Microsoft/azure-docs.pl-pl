@@ -4,15 +4,13 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bc00f4de95d22eec71f9b1b2504b00f506232dc
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015433"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214932"
 ---
-W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail. Te 25 000 bezpłatne miesięczne wiadomości e-mail zapewniają dostęp do zaawansowanych raportów i analiz oraz [wszystkich interfejsów API][all APIs] (sieci Web, SMTP, Event, Parse itd.). Informacje o dodatkowych usługach SendGrid można znaleźć na stronie z [rozwiązaniami usługi SendGrid][SendGrid Solutions].
-
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Aby utworzyć konto usługi SendGrid
 1. Zaloguj się w witrynie [Azure Portal][Azure portal].
 2. W menu Azure Portal lub stronie głównej wybierz pozycję **Utwórz zasób**.
@@ -30,7 +28,7 @@ W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatny
 8. Utwórz nową **grupę zasobów** lub wybierz istniejącą.
 9. W sekcji **Warstwa cenowa** wybierz plan usługi SendGrid, w ramach którego chcesz utworzyć konto.
 
-    ![Zrzut ekranu przedstawiający okno dialogowe Tworzenie nowego konta SendGrid z otwartą sekcją wybierz warstwę cenową i wybraną warstwą Bezpłatna cena.][sendgrid-pricing]
+    ![Zrzut ekranu przedstawiający okno dialogowe Tworzenie nowego konta SendGrid z otwartą sekcją Wybieranie warstwy cenowej][sendgrid-pricing]
 10. Wprowadź **kod promocyjny**, jeśli go masz.
 11. Wprowadź **informacje kontaktowe**.
 12. Zapoznaj się z **postanowieniami prawnymi** i zaakceptuj je.
