@@ -3,12 +3,12 @@ title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: f8e9ed143d53afe2f7a24c832c69390c6ffcb36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9369c0fff31de4c6575d8e4903420cfa01461bf4
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575762"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062124"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware rozwiązanie dotyczące sieci i międzyłączności
 
@@ -53,11 +53,9 @@ Na poniższym diagramie przedstawiono międzyfirmowe łączenie z chmurą prywat
 * Gorąca/zimna vMotion — vCenter
 * Dostęp do zarządzania chmurą prywatną w usłudze Azure VMware
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Podstawowa Sieć wirtualna do łączności z chmurą prywatną" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Sieć wirtualna i lokalna pełna łączność z chmurą prywatną" border="false":::
 
-W celu uzyskania pełnej łączności z chmurą prywatną należy włączyć ExpressRoute Global Reach a następnie zażądać klucza autoryzacji i prywatnego identyfikatora komunikacji równorzędnej dla Global Reach w Azure Portal. Klucz autoryzacji i identyfikator komunikacji równorzędnej są używane do ustanawiania Global Reach między obwodem usługi ExpressRoute w ramach subskrypcji i obwodem usługi ExpressRoute dla nowej chmury prywatnej. Po połączeniu te dwa obwody usługi ExpressRoute kierują ruchem sieciowym między środowiskami lokalnymi a chmurą prywatną.  Zapoznaj się z [samouczkiem dotyczącym tworzenia ExpressRoute Global REACH komunikacji równorzędnej z chmurą prywatną](tutorial-expressroute-global-reach-private-cloud.md) w celu uzyskania procedur żądania i używania klucza autoryzacji i identyfikatora komunikacji równorzędnej.
-
-
+W celu uzyskania pełnej łączności z chmurą prywatną należy włączyć ExpressRoute Global Reach a następnie zażądać klucza autoryzacji i prywatnego identyfikatora komunikacji równorzędnej dla Global Reach w Azure Portal. Klucz autoryzacji i identyfikator komunikacji równorzędnej są używane do ustanawiania Global Reach między obwodem usługi ExpressRoute w ramach subskrypcji i obwodem usługi ExpressRoute dla nowej chmury prywatnej. Po połączeniu te dwa obwody usługi ExpressRoute kierują ruchem sieciowym między środowiskami lokalnymi a chmurą prywatną.  Aby uzyskać więcej informacji na temat procedur żądania i używania klucza autoryzacji i identyfikatora komunikacji równorzędnej, zobacz Samouczek dotyczący [tworzenia ExpressRoute Global REACH komunikacji równorzędnej z chmurą prywatną](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## <a name="next-steps"></a>Następne kroki 
 Zapoznaj się z [pojęciami dotyczącymi magazynu w chmurze prywatnej](concepts-storage.md).

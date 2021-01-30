@@ -16,6 +16,10 @@
       href: tutorial-delete-cluster.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Operacje klastra
+      items:
+        - name: Uaktualnianie klastra ARO
+          href: howto-upgrade.md
     - name: Networking
       items:
         - name: Tworzenie prywatnego klastra usługi ARO
@@ -28,6 +32,8 @@
           href: howto-create-a-storageclass.md
         - name: Korzystanie z wbudowanego rejestru kontenerów
           href: built-in-container-registry.md
+        - name: Korzystanie z usługi Azure Container Registry
+          href: howto-use-acr-with-aro.md
     - name: Zabezpieczenia i uwierzytelnianie
       items:
         - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory (interfejs wiersza polecenia)

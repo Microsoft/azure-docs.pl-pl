@@ -2,17 +2,19 @@
 title: Informacje o błędzie dotyczące kontroli kondycji rejestru
 description: Kody błędów i możliwe rozwiązania problemów odnalezionych przez uruchomienie polecenia AZ ACR Check-Health Diagnostic w Azure Container Registry
 ms.topic: article
-ms.date: 07/02/2019
-ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/25/2021
+ms.openlocfilehash: 05ae5a7ac19bb7748d5313ccb4974b639ab52d9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565602"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061872"
 ---
 # <a name="health-check-error-reference"></a>Informacje o błędach sprawdzania kondycji
 
 Poniżej znajdują się szczegółowe informacje o kodach błędów zwracanych przez polecenie [AZ ACR Check-Health][az-acr-check-health] . Dla każdego błędu są wyświetlane możliwe rozwiązania.
+
+Aby uzyskać informacje o uruchamianiu programu `az acr check-healh` , zobacz [Sprawdzanie kondycji usługi Azure Container Registry](container-registry-check-health.md).
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 
@@ -49,6 +51,12 @@ Ten błąd oznacza, że nie można odnaleźć klienta Helm za pomocą interfejsu
 Ten błąd oznacza, że interfejs wiersza polecenia nie może określić zainstalowanej wersji programu Helm. Taka sytuacja może wystąpić, jeśli używana wersja interfejsu wiersza polecenia platformy Azure (lub wersja Helm) jest przestarzała.
 
 *Potencjalne rozwiązania*: zaktualizuj do najnowszej wersji interfejsu wiersza polecenia platformy Azure lub zalecaną wersję Helm; Uruchom polecenie ręcznie i Sprawdź komunikat o błędzie.
+
+## <a name="cmk_error"></a>CMK_ERROR
+
+Ten błąd oznacza, że rejestr nie może uzyskać dostępu do tożsamości zarządzanej przypisanej przez użytkownika lub sysem użytej do skonfigurowania szyfrowania rejestru przy użyciu klucza zarządzanego przez klienta. Tożsamość zarządzana mogła zostać usunięta.  
+
+*Potencjalne rozwiązanie*: Aby rozwiązać problem i obrócić klucz przy użyciu innej tożsamości zarządzanej, zobacz kroki rozwiązywania problemów [z tożsamością przypisaną przez użytkownika](container-registry-customer-managed-keys.md#troubleshoot).
 
 ## <a name="connectivity_dns_error"></a>CONNECTIVITY_DNS_ERROR
 

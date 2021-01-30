@@ -3,12 +3,12 @@ title: Często zadawane pytania
 description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące rozwiązań VMware platformy Azure.
 ms.topic: conceptual
 ms.date: 1/14/2021
-ms.openlocfilehash: 8245cd8da983ce48ba88d7faef76ab9b7ceb8c26
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 090b29b1e013ffbceb9296250fed99a04d15a82c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218590"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062091"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -258,11 +258,11 @@ Program VMware HCX Enterprise jest dostępny w ramach rozwiązania Azure VMware 
 
 ### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Jak mogę zażądać zwiększenia limitu przydziału hosta dla rozwiązania Azure VMware?
 
-W przypadku subskrypcji zarządzanych przez dostawcę CSP klient musi przesłać żądanie do partnera. Zespół partnerski, a następnie nawiąże się z firmą Microsoft w celu zwiększenia limitu przydziału dla subskrypcji. Aby uzyskać szczegółowe informacje, zobacz [jak włączyć artykuł dotyczący zasobów rozwiązań VMware platformy Azure](enable-azure-vmware-solution.md) . 
+W przypadku subskrypcji zarządzanych przez dostawcę CSP klient musi przesłać żądanie do partnera. Zespół partnerski, a następnie nawiąże się z firmą Microsoft w celu zwiększenia limitu przydziału dla subskrypcji. Aby uzyskać więcej informacji, zobacz [How to enable Azure VMware Solution Resource](enable-azure-vmware-solution.md). 
 
 W przypadku subskrypcji EA należy wykonać poniższą procedurę. Najpierw będą potrzebne:
 
-* [Umowa Enterprise platformy Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
+* [Enterprise Agreement platformy Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
 * Konto platformy Azure w ramach subskrypcji platformy Azure.
 
 Aby można było utworzyć zasób rozwiązania Azure VMware, należy przesłać bilet pomocy technicznej w celu przydzielenia hostów. Potwierdzenie i spełnienie Twojego żądania zajmuje maksymalnie pięć dni roboczych. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i potrzebujesz większej liczby hostów, przejdziesz do tego samego procesu.

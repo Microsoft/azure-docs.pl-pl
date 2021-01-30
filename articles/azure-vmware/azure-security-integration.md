@@ -3,12 +3,12 @@ title: Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracj
 description: Dowiedz się, jak chronić maszyny wirtualne rozwiązań VMware platformy Azure przy użyciu natywnych narzędzi zabezpieczeń platformy Azure z poziomu jednego pulpitu nawigacyjnego w Azure Security Center.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937342"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061468"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center
 
@@ -45,7 +45,7 @@ Obszar roboczy Log Analytics można skonfigurować przy użyciu funkcji wskaźni
 
 ## <a name="create-a-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
 
-Do zbierania danych z różnych źródeł potrzebny jest obszar roboczy Log Analytics. Zapoznaj się z instrukcjami w artykule [tworzenie log Analytics obszaru roboczego z Azure Portal](../azure-monitor/learn/quick-create-workspace.md). 
+Do zbierania danych z różnych źródeł potrzebny jest obszar roboczy Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics przy użyciu Azure Portal](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Wdrażanie Security Center i Konfigurowanie maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -78,7 +78,7 @@ Usługa Azure Defender Azure Security Center rozszerza zaawansowaną ochronę pr
 5. Na karcie **szczegóły zasobu** wypełnij następujące informacje: 
     - Subskrypcja
     - Grupa zasobów
-    - Region 
+    - Region (Region) 
     - System operacyjny
     - Szczegóły serwera proxy
     
@@ -156,7 +156,7 @@ Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzy
 
     - Nazwa
     - Opis
-    - Taktykę
+    - Taktyka
     - Ważność
     - Stan
 
@@ -173,13 +173,13 @@ Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzy
         |where count_ > 3
         ```
         
-    - Mapuj jednostki
+    - Mapowanie jednostek
     - Planowanie zapytań
     - Próg alertu
     - Grupowanie zdarzeń
     - Pomijanie
 
-    Wybierz pozycję **Dalej**.
+    Wybierz opcję **Dalej**.
 
 6. Na karcie **Ustawienia zdarzenia** Włącz opcję **Utwórz zdarzenia na podstawie alertów wyzwalanych przez tę regułę analizy** , a następnie wybierz kolejno pozycje **Dalej: automatyczna odpowiedź >**.
  
@@ -229,7 +229,7 @@ Możesz tworzyć zapytania lub użyć dostępnego wstępnie zdefiniowanego zapyt
     - Opis
     - Zapytanie niestandardowe
     - Wprowadź mapowanie
-    - Taktykę
+    - Taktyka
     
 3. Wybierz przycisk **Utwórz**. Następnie można wybrać utworzone zapytanie, **uruchomić zapytanie** i **wyświetlić wyniki**.
 

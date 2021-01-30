@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 6fb460c65d37723b03c1dfd4fba2c353c19455bd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a1b5ba56d30124bea7a814c2ffcf0cfff28903aa
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944576"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062192"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Usługa Azure Private Link dla usługi Azure Data Factory
 
@@ -48,7 +48,7 @@ Dzięki obsłudze prywatnego linku do Azure Data Factory można:
 * Utwórz prywatny punkt końcowy w sieci wirtualnej.
 * Włącz połączenie prywatne z określonym wystąpieniem usługi Data Factory. 
 
-Komunikacja do Azure Data Factory usługi odbywa się za pośrednictwem prywatnego linku i pomaga zapewnić bezpieczną łączność prywatną. Nie musisz konfigurować poprzedniej domeny i portu w sieci wirtualnej ani firmowej zapory, aby zapewnić bezpieczniejszy sposób ochrony zasobów.  
+Komunikacja do Azure Data Factory usługi odbywa się za pośrednictwem prywatnego linku i pomaga zapewnić bezpieczną łączność prywatną. 
 
 ![Diagram prywatnego linku dla architektury Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
@@ -62,6 +62,9 @@ Włączenie usługi link prywatny dla każdego z powyższych kanałów komunikac
 
    > [!NOTE]
    > W przypadku funkcji, które nie są obecnie obsługiwane, nadal trzeba skonfigurować wcześniej wymienioną domenę i port w sieci wirtualnej lub zaporze firmowej. 
+
+   > [!NOTE]
+   > Nawiązywanie połączenia z Azure Data Factory za pośrednictwem prywatnego punktu końcowego ma zastosowanie tylko do własnego środowiska Integration Runtime w usłudze Data Factory. Nie jest obsługiwana w Synapse.
 
 > [!WARNING]
 > Podczas tworzenia połączonej usługi upewnij się, że Twoje poświadczenia są przechowywane w magazynie kluczy platformy Azure. W przeciwnym razie poświadczenia nie będą działały po włączeniu prywatnego linku w Azure Data Factory.

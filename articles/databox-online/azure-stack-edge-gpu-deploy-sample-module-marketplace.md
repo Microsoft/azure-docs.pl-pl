@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c46e8a7cae9ddba9606abf75ac022e804fde9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760063"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062508"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Wdrażanie modułu IoT z włączonym procesorem GPU z poziomu portalu Azure Marketplace na urządzeniu Azure Stack EDGE Pro GPU
 
@@ -53,7 +53,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
     ![Pobieranie przykładowego modułu](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/get-sample-module-1.png)
 
-4. Wybierz pozycję **Kontynuuj** , aby potwierdzić warunki użytkowania dostawcy i zasady zachowania poufności informacji. 
+4. Wybierz pozycję **Kontynuuj** , aby potwierdzić warunki użytkowania dostawcy i zasady zachowania poufności informacji. 
 
     ![Pobierz przykładowy moduł 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
@@ -63,13 +63,11 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 6. Wprowadź nazwę usługi IoT Hub, która została utworzona podczas konfigurowania urządzenia z systemem Azure Stack EDGE Pro. Aby znaleźć tę nazwę usługi IoT Hub, przejdź do Azure Stack zasobu brzegowego skojarzonego z urządzeniem w Azure Portal. 
 
-    1. W okienku po lewej stronie Opcje menu Przejdź do pozycji **Oblicz obliczenia > wprowadzenie**. 
-
-    1. Na kafelku **Konfigurowanie obliczeń brzegowych** wybierz pozycję **Wyświetl konfigurację**. 
+    1. W okienku po lewej stronie Opcje menu Przejdź do **usługi Edge services > IoT Edge**. 
 
         ![Wyświetl konfigurację obliczeń](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/view-config-1.png)
 
-    1. W bloku **Konfiguracja obliczeń krawędzi** :
+    1. Przejdź do pozycji **Właściwości**. 
 
         1. Zanotuj usługę IoT Hub, która została utworzona podczas konfigurowania obliczeń na urządzeniu z systemem Azure Stack EDGE Pro.
         2. Zanotuj nazwę urządzenia IoT Edge, które zostało utworzone podczas konfigurowania obliczeń. Ta nazwa będzie używana w kolejnym kroku.
@@ -78,16 +76,16 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 10. Wybierz pozycję **Wdróż na urządzeniu**.
 
-11. Wprowadź nazwę urządzenia IoT Edge lub wybierz pozycję **Znajdź urządzenie**,   Aby przeglądać urządzenia zarejestrowane w centrum.
+11. Wprowadź nazwę urządzenia IoT Edge lub wybierz pozycję **Znajdź urządzenie** , aby przeglądać urządzenia zarejestrowane w centrum.
 
     ![Znajdź urządzenie](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/find-device-1.png)
 
-12. Wybierz pozycję **Utwórz**,   Aby kontynuować standardowy proces konfigurowania manifestu wdrożenia, w tym w razie potrzeby Dodaj inne moduły. Szczegóły dotyczące nowego modułu, takie jak identyfikator URI obrazu, opcje tworzenia i żądane właściwości, są wstępnie zdefiniowane, ale można je zmienić.
+12. Wybierz pozycję **Utwórz** , aby kontynuować standardowy proces konfigurowania manifestu wdrożenia, w tym w razie potrzeby Dodaj inne moduły. Szczegóły dotyczące nowego modułu, takie jak identyfikator URI obrazu, opcje tworzenia i żądane właściwości, są wstępnie zdefiniowane, ale można je zmienić.
 
     ![Wybieranie pozycji Utwórz](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/target-devices-iot-edge-module-1.png)
 
 
-13. Sprawdź, czy moduł został wdrożony w IoT Hub w Azure Portal. Wybierz urządzenie, wybierz pozycję **Ustaw moduły**,   a moduł powinien zostać wyświetlony w sekcji **IoT Edge moduły**   .
+13. Sprawdź, czy moduł został wdrożony w IoT Hub w Azure Portal. Wybierz urządzenie, wybierz pozycję **Ustaw moduły** , a moduł powinien zostać wyświetlony w sekcji **IoT Edge moduły** .
 
     ![Wybierz pozycję Utwórz 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
@@ -97,7 +95,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 2. Wybierz subskrypcję i centrum IoT Hub zawierające urządzenie usługi IoT Edge, które chcesz skonfigurować. W takim przypadku wybierz subskrypcję używaną do wdrożenia urządzenia z usługą Azure Stack Edge, a następnie wybierz urządzenie IoT Edge utworzone dla urządzenia z Azure Stack Edge. Dzieje się tak w przypadku konfigurowania obliczeń za pośrednictwem Azure Portal w poprzednich krokach.
 
-3. W Eksploratorze VS Code rozwiń sekcję IoT Hub platformy Azure. W obszarze **urządzenia**powinna zostać wyświetlona IoT Edge urządzenie odpowiadające urządzeniu Azure Stack EDGE Pro. 
+3. W Eksploratorze VS Code rozwiń sekcję IoT Hub platformy Azure. W obszarze **urządzenia** powinna zostać wyświetlona IoT Edge urządzenie odpowiadające urządzeniu Azure Stack EDGE Pro. 
 
     1. Wybierz to urządzenie, kliknij prawym przyciskiem myszy i wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**.
   

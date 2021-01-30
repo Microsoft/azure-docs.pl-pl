@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 9cfe8c7e7d2484649bf458524032365b692c9243
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 6d1fd873de3313678875a8c167b90fafb8ede7ae
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093523"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061652"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Pojęcia dotyczące sieci na platformie Azure Red Hat OpenShift (ARO)
 
@@ -68,12 +68,15 @@ OpenShift Networking defined Network [(SDN)](https://docs.openshift.com/containe
 
 ## <a name="networking--for-azure-red-hat-openshift"></a>Obsługa sieci na platformie Azure Red Hat OpenShift
 
-Następujące funkcje sieciowe są specyficzne dla systemu Azure Red Hat OpenShift:
+Następujące funkcje sieciowe są specyficzne dla systemu Azure Red Hat OpenShift:  
 * Użytkownicy mogą utworzyć swój klaster ARO w istniejącej sieci wirtualnej lub utworzyć sieć wirtualną podczas tworzenia klastra.
 * W przypadku routingu CIDR sieci usług i usługi można konfigurować.
 * Węzły i wzorce znajdują się w różnych podsieciach.
 * Węzły i główne podsieci sieci wirtualnej powinny być minimalne/27.
-* Wartość CIDR powinna mieć wartość minimum/18 (sieć pod nie obsługuje adresów IP bez obsługi routingu i jest używana tylko wewnątrz OpenShift SDN).
+* Domyślna wartość CIDR (pod) to 10.128.0.0/14.
+* Domyślny CIDR usługi jest 172.30.0.0/16.
+* CIDR i sieciowe usługi nie powinny nakładać się na inne zakresy adresów używane w sieci i nie mogą należeć do zakresu adresów IP sieci wirtualnej w klastrze.
+* Wartość CIDR powinna mieć rozmiar minimum/18. (Sieć pod nie obsługuje routingu IP i jest używana tylko wewnątrz OpenShift SDN).
 * Każdy węzeł jest przydzielony/23 podsieci (512 adresów IP) dla swoich zasobników. Tej wartości nie można zmienić.
 * Nie można dołączyć pod do wielu sieci.
 * Nie można skonfigurować statycznego adresu IP dla ruchu wychodzącego. (Jest to funkcja OpenShift. Aby uzyskać więcej informacji, zobacz [Konfigurowanie adresów IP ruchu](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)wychodzącego).

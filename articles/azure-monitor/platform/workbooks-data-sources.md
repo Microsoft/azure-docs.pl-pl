@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3d94aca51d3d305b70c8c555e2b41e3d0ab857b3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927910"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061968"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor skoroszyty ze źródłami danych
 
@@ -59,7 +59,7 @@ Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej Źr
 
 ## <a name="azure-data-explorer"></a>Azure Data Explorer
 
-Skoroszyty obsługują teraz wykonywanie zapytań z klastrów [usługi Azure Eksplorator danych](/azure/data-explorer/) przy użyciu zaawansowanego języka zapytań [Kusto](/azure/kusto/query/index) .   
+Skoroszyty obsługują teraz wykonywanie zapytań z klastrów [usługi Azure Eksplorator danych](/azure/data-explorer/) przy użyciu zaawansowanego języka zapytań [Kusto](/azure/kusto/query/index) .
 
 ![Zrzut ekranu przedstawiający okno zapytania Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -79,9 +79,43 @@ Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej **t
 
 ![Zrzut ekranu zapytania alertów, który zawiera listy filtrów kondycji.](./media/workbooks-overview/resource-health.png)
 
+## <a name="change-analysis-preview"></a>Analiza zmian (wersja zapoznawcza)
+
+Aby kontrolka zapytania korzystała z [analizy zmian aplikacji](../app/change-analysis.md) jako źródła danych, Użyj listy rozwijanej *Źródło danych* i wybierz polecenie *Zmień analizę (wersja zapoznawcza)* i wybierz pojedynczy zasób. Można wyświetlić zmiany w ciągu ostatnich 14 dni. Lista rozwijana *poziomu* może służyć do filtrowania między zmianami "ważne", "normalne" i "zakłócenia", a ta lista rozwijana obsługuje parametry skoroszytu typu [listy rozwijanej](workbooks-dropdowns.md).
+
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu skoroszytu z analizą zmian](./media/workbooks-data-sources/change-analysis-data-source.png)
+
+## <a name="merge-data-from-different-sources"></a>Scalanie danych z różnych źródeł
+
+Często konieczne jest zebranie danych z różnych źródeł, które zwiększają możliwości wglądu w szczegółowe dane. Przykład rozszerza informacje o aktywnym alercie z powiązanymi danymi metryki. Dzięki temu użytkownicy mogą zobaczyć nie tylko efekt (aktywny Alert), ale również potencjalne przyczyny (na przykład duże użycie procesora). Domena monitorowania ma wiele takich skorelowanych źródeł danych, które często mają kluczowe znaczenie dla przepływu pracy Klasyfikacja i diagnostyki.
+
+Skoroszyty to nie tylko zapytania o różne źródła danych, ale udostępniają także proste formanty umożliwiające Scalanie lub sprzęganie danych w celu uzyskania szczegółowych informacji. `merge`Formant jest sposobem osiągnięcia tego celu.
+
+Poniższy przykład łączy dane alertów z danymi wydajności maszyny wirtualnej usługi log Analytics w celu uzyskania bogatej siatki szczegółowych informacji.
+
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu skoroszytu z kontrolką scalania, który łączy dane alertu i usługi log Analytics](./media/workbooks-data-sources/merge-control.png)
+
+Skoroszyty obsługują różne scalenia:
+
+* Wewnętrzne unikatowe sprzężenie
+* Pełne sprzężenie wewnętrzne
+* Pełne sprzężenie zewnętrzne
+* Lewe sprzężenie zewnętrzne
+* Prawe sprzężenie zewnętrzne
+* Lewe odłączanie
+* Prawe odłączanie
+* Lewe sprzężenie
+* Prawo do przyłączania
+* Unia
+* Duplikuj tabelę
+
 ## <a name="json"></a>JSON
 
 Dostawca JSON umożliwia utworzenie wyniku zapytania ze statycznej zawartości JSON. Jest najczęściej używany w parametrach do tworzenia parametrów listy rozwijanej wartości statycznych. Proste tablice JSON lub obiekty zostaną automatycznie przekonwertowane na wiersze siatki i kolumny.  W celu uzyskania bardziej szczegółowych zachowań można skonfigurować kolumny za pomocą karty wyniki i ustawień wykryto.
+
+Ten dostawca obsługuje [wykryto](workbooks-jsonpath.md).
 
 ## <a name="alerts-preview"></a>Alerty (wersja zapoznawcza)
 
@@ -100,12 +134,14 @@ Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej _Ź
 
 Skoroszyty obsługują pobieranie danych z dowolnego źródła zewnętrznego. Jeśli dane znajdują się poza platformą Azure, możesz je przenieść do skoroszytów przy użyciu tego typu źródła danych.
 
-Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej _Źródło danych_ w celu wybrania _niestandardowego punktu końcowego_ . Podaj odpowiednie parametry, takie jak `Http method` , `url` , `headers` , `url parameters` i/lub `body` . Upewnij się, że źródło danych obsługuje mechanizm [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) w przeciwnym razie żądanie zakończy się niepowodzeniem.
+Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej _Źródło danych_ w celu wybrania _niestandardowego punktu końcowego_. Podaj odpowiednie parametry, takie jak `Http method` , `url` , `headers` , `url parameters` i/lub `body` . Upewnij się, że źródło danych obsługuje mechanizm [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) w przeciwnym razie żądanie zakończy się niepowodzeniem.
 
-Aby uniknąć automatycznego wykonywania wywołań niezaufanych hostów podczas korzystania z szablonów, użytkownik musi oznaczyć używane hosty jako zaufane. Można to zrobić przez kliknięcie przycisku _Dodaj jako zaufany_ lub dodanie go jako zaufanego hosta w ustawieniach skoroszytu. Te ustawienia zostaną zapisane w przeglądarkach, które obsługują IndexDb z internetowymi procesami roboczymi. więcej informacji [znajdziesz tutaj](https://caniuse.com/#feat=indexeddb).
+Aby uniknąć automatycznego wykonywania wywołań niezaufanych hostów podczas korzystania z szablonów, użytkownik musi oznaczyć używane hosty jako zaufane. Można to zrobić przez kliknięcie przycisku _Dodaj jako zaufany_ lub dodanie go jako zaufanego hosta w ustawieniach skoroszytu. Te ustawienia zostaną zapisane w [przeglądarkach, które obsługują IndexDb z internetowymi](https://caniuse.com/#feat=indexeddb)procesami roboczymi.
 
 > [!NOTE]
 > Nie zapisuj żadnych wpisów tajnych w żadnym z pól ( `headers` , `parameters` , `body` , `url` ), ponieważ będą one widoczne dla wszystkich użytkowników skoroszytu.
+
+Ten dostawca obsługuje [wykryto](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,16 +4,16 @@ description: Zapoznaj się z omówieniem śledzenia użycia klientów na potrzeb
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: vikrambmsft
-ms.author: vikramb
+author: cpercy737
+ms.author: camper
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: e9e630f4199e0bfb67509f008f403c0a7a490887
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 989e50ec03dae5d00961d572b70d524a56b3d64c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436695"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062209"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -76,7 +76,7 @@ Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejest
 
 1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) w prawym górnym rogu, > **Ustawienia konta**.
 
-1. W obszarze identyfikatory **profilów organizacji**  >  **Identifiers** wybierz pozycję **Dodaj identyfikator GUID śledzenia**.
+1. W obszarze identyfikatory **profilów organizacji**  >  wybierz pozycję **Dodaj identyfikator GUID śledzenia**.
 
 1. W polu **GUID** wprowadź identyfikator GUID śledzenia. Wprowadź tylko identyfikator GUID bez `pid-` prefiksu. W polu **Opis** wprowadź nazwę lub opis oferty.
 
