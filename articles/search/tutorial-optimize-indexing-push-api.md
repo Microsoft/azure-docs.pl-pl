@@ -2,19 +2,19 @@
 title: Samouczek języka C# Optymalizacja indeksowania przy użyciu interfejsu API wypychania
 titleSuffix: Azure Cognitive Search
 description: Dowiedz się, jak efektywnie indeksować dane za pomocą interfejsu API push w usłudze Azure Wyszukiwanie poznawcze. Ten samouczek i przykładowy kod są w języku C#.
-manager: liamca
+manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/12/2020
+ms.date: 1/29/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d22ff5c863617a3feb2a08d4b1889d0a7c10cd3a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f97a99bf2d055805ee665ab51aff8cff12dc5a69
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693403"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094196"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Samouczek: Optymalizowanie indeksowania przy użyciu interfejsu API wypychania
 
@@ -54,7 +54,7 @@ Podczas wypychania danych do indeksu istnieje kilka kluczowych zagadnień, któr
 Sześć kluczowych czynników, które należy wziąć pod uwagę:
 
 + **Warstwa usług i liczba partycji/replik** — Dodawanie partycji i zwiększanie warstwy spowoduje zwiększenie szybkości indeksowania.
-+ **Indeksowanie schematu** — Dodawanie pól i Dodawanie dodatkowych właściwości do pól (takich jak *Wyszukiwanie*, *facetable* dodanie lub *filtrowanie*) zmniejsza szybkość indeksowania.
++ **Indeksowanie schematu** — Dodawanie pól i Dodawanie dodatkowych właściwości do pól (takich jak *Wyszukiwanie*, dodanie lub *filtrowanie*) zmniejsza szybkość indeksowania.
 + **Rozmiar wsadu** — optymalny rozmiar wsadu zależy od schematu indeksu i zestawu danych.
 + **Liczba wątków/procesów roboczych** — pojedynczy wątek nie będzie całkowicie korzystał z szybkości indeksowania
 + **Strategia ponawiania** — w celu zoptymalizowania indeksowania należy użyć strategii ponawiania prób wycofywania.
@@ -388,7 +388,7 @@ Operacja Pobierz statystyki indeksu zwraca liczbę dokumentów dla bieżącego i
 var indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 W Azure Portal Otwórz stronę **Przegląd** usługi wyszukiwania i Znajdź indeks **Optymalizacja —** indeksowanie na liście **indeksów** .
 

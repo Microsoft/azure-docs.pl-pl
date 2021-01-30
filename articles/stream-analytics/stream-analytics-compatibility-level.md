@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015984"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094091"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Poziom zgodności dla zadań Azure Stream Analytics
 
@@ -43,7 +43,7 @@ Aby zaktualizować poziom zgodności zadania w Azure Portal:
 4. Wybierz żądaną wartość poziomu zgodności.
 5. Wybierz pozycję **Zapisz** w dolnej części strony.
 
-![Stream Analytics poziom zgodności w Azure Portal](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Stream Analytics poziom zgodności w Azure Portal](media/stream-analytics-compatibility-level/stream-analytics-compat-level-1-2.png)
 
 Podczas aktualizowania poziomu zgodności, kompilator języka T sprawdza poprawność zadania z składnią odpowiadającą wybranemu poziomowi zgodności.
 

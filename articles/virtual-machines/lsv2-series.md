@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a08b5db19aab19402aa3c93cfa23ce7b39a0a838
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2416c0b4002f560e272393c95a86c543cb5f1009
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918692"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097846"
 ---
 # <a name="lsv2-series"></a>Seria Lsv2
 
@@ -33,6 +33,7 @@ Funkcja serii Lsv2 ma wysoką przepływność, małe opóźnienia, bezpośrednio
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 Rozrywanie: obsługiwane<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
+[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
 <br>
 
 | Rozmiar | Procesor wirtualny | Pamięć (GiB) | Dysk tymczasowy<sup>1</sup> (GIB) | Dyski interfejsu NVMe<sup>2</sup> | Przepływność dysków interfejsu NVMe<sup>3</sup> (odczyt operacji we/wy/s) | Przepływność dysku danych w pamięci podręcznej (IOPs/MB/s)<sup>4</sup> | Maksymalna przepływność dysku danych w niebuforowanej pamięci (IOPs/MB/s)<sup>5</sup>| Maksymalna liczba dysków danych | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s) |

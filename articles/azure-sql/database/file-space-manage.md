@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
 ms.date: 12/22/2020
-ms.openlocfilehash: 08cab806d6ad8b75821a92994dde0fa07db8b960
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 7bb754b892715adffc6ead99f3d866f9f9d8af9b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233597"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096495"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Zarządzanie miejscem plików dla baz danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -219,7 +219,7 @@ Polecenia zmniejszania wpływają na wydajność bazy danych podczas uruchamiani
 
 Należy również pamiętać o potencjalnym negatywnym wpływie zmniejszania plików bazy danych, zobacz sekcję ponowne [**Kompilowanie indeksów**](#rebuild-indexes) poniżej.
 
-Aby uzyskać więcej informacji na temat tego polecenia, zobacz [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
+Aby uzyskać więcej informacji na temat tego polecenia, zobacz [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>Autozmniejszanie
 

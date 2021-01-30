@@ -4,12 +4,12 @@ description: Ustawienia domyślne Azure Portal można zmienić, aby spełniały 
 keywords: Ustawienia, limit czasu, język, regionalne
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745642"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094114"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Zarządzanie ustawieniami i preferencjami witryny Azure Portal
 
@@ -91,7 +91,7 @@ Jeśli administrator włączył zasadę limitu czasu braku aktywności, nadal mo
 
 ### <a name="change-the-directory-timeout-setting-admin"></a>Zmień ustawienie limitu czasu katalogu (Administrator)
 
-Administratorzy w [roli administratora globalnego](../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) mogą wymusić maksymalny czas bezczynności przed wylogowaniem sesji. Ustawienie limitu czasu nieaktywności dotyczy poziomu katalogu. Ustawienie zacznie obowiązywać w przypadku nowych sesji. Nie będzie od razu stosowana dla wszystkich użytkowników, którzy są już zalogowani. Aby uzyskać więcej informacji o katalogach, zobacz [Active Directory Domain Services Omówienie](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Administratorzy w [roli administratora globalnego](../active-directory/roles/permissions-reference.md#global-administrator) mogą wymusić maksymalny czas bezczynności przed wylogowaniem sesji. Ustawienie limitu czasu nieaktywności dotyczy poziomu katalogu. Ustawienie zacznie obowiązywać w przypadku nowych sesji. Nie będzie od razu stosowana dla wszystkich użytkowników, którzy są już zalogowani. Aby uzyskać więcej informacji o katalogach, zobacz [Active Directory Domain Services Omówienie](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 Jeśli jesteś administratorem globalnym i chcesz wymusić ustawienie limitu czasu bezczynności dla wszystkich użytkowników Azure Portal, wykonaj następujące czynności:
 

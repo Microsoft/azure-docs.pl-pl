@@ -5,12 +5,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 76bf9376d3eb33153584f74c9d0d9196706428ae
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 88e2161cfddf95f7f250b8b76c067d045f1529da
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932101"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092238"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -50,6 +50,9 @@ Usługa HDInsight dodała sieciowe grupy zabezpieczeń (sieciowych grup zabezpie
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 Następujące zmiany zostaną wykonane w przyszłych wydaniach.
 
+### <a name="breaking-change-for-net-for-apache-spark-100"></a>Nieprzerwana zmiana dla programu .NET dla Apache Spark 1.0.0
+Usługa HDInsight wprowadzi pierwsze główne oficjalne wydanie programu .NET dla Apache Spark w kolejnej wersji. Zapewnia kompletność interfejsu API Dataframe dla platformy Spark 2.4. x i Spark 3.0. x wraz z innymi funkcjami. Istnieją istotne zmiany w tej wersji głównej. Zapoznaj się z [tym identyfikatorem GUID migracji](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) , aby poznać kroki wymagane do zaktualizowania kodu i potoków. Dowiedz się więcej [tutaj](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+
 ### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>Domyślny rozmiar maszyny wirtualnej klastra zostanie zmieniony na rodzinę EV3
 Począwszy od następnego wydania (z końcem stycznia), domyślne rozmiary maszyn wirtualnych klastra zostaną zmienione z rodziny D na rodzinę EV3. Ta zmiana dotyczy węzłów głównych i węzłów procesu roboczego. Aby uniknąć tej zmiany, Określ rozmiary maszyn wirtualnych, które mają być używane w szablonie ARM.
 
@@ -57,7 +60,7 @@ Począwszy od następnego wydania (z końcem stycznia), domyślne rozmiary maszy
 Od lutego 2021 domyślna wersja klastra usługi HDInsight zostanie zmieniona z 3,6 na 4,0. Aby uzyskać więcej informacji na temat dostępnych wersji, zobacz [dostępne wersje](./hdinsight-component-versioning.md#available-versions). Dowiedz się więcej na temat Nowości w usłudze [HDInsight 4,0](./hdinsight-version-release.md)
 
 ### <a name="os-version-upgrade"></a>Uaktualnienie wersji systemu operacyjnego
-Usługa HDInsight uaktualnia wersję systemu operacyjnego z 16,04 do 18,04. Uaktualnienie zostanie ukończone przed kwiecień 2021.
+Usługa HDInsight uaktualnia wersję systemu operacyjnego z 16,04 do 18,04. Uaktualnienie zakończyło się przed 2021 kwietnia.
 
 ### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>Usługa HDInsight 3,6 koniec wsparcia z 30 2021 czerwca
 Usługa HDInsight 3,6 zostanie zakończona. Od czerwca 30 2021 klienci nie mogą tworzyć nowych klastrów usługi HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przeniesienie do usługi HDInsight 4,0, aby uniknąć potencjalnych przerw w działaniu systemu/obsługi.
@@ -71,7 +74,7 @@ Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usłu
 ## <a name="known-issues"></a>Znane problemy
 ### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Zapobieganie okresowemu ponownemu uruchamianiu maszyn wirtualnych klastra usługi HDInsight
 
-Począwszy od połowy listopada 2020, mogą być regularnie uruchamiane maszyny wirtualne klastra usługi HDInsight. Może to być spowodowane przez:
+Począwszy od połowy listopada 2020, można zauważyć, że maszyny wirtualne klastrów usługi HDInsight są regularnie uruchamiane ponownie. Może to być spowodowane przez:
 
 1.  ClamAV jest włączona w klastrze. Nowy pakiet azsec-clamav zużywa dużą ilość pamięci, która wyzwala ponowny rozruch węzła. 
 2.  Zadanie firmy CRONUS jest planowane codziennie, które monitoruje zmiany do listy urzędów certyfikacji używanych przez usługi platformy Azure. Po udostępnieniu nowego certyfikatu urzędu certyfikacji skrypt dodaje certyfikat do magazynu zaufania JDK i planuje ponowne uruchomienie.

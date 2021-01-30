@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 15d01a8ac21264bf57ee7e65147e3989cd631b15
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011884"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095560"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Managing and maintaining the Log Analytics agent for Windows and Linux (Konserwacja agenta usługi Log Analytics dla systemów Windows i Linux oraz zarządzanie nim)
 
@@ -243,7 +243,7 @@ Pobrany plik dla agenta to samodzielny pakiet instalacyjny utworzony przy użyci
 
 1. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administracyjnymi.
 
-2. Do wyodrębnienia plików instalacyjnych agenta z wiersza polecenia z podwyższonym poziomem uprawnień `extract MMASetup-<platform>.exe` i pojawi się monit o ścieżkę, do której mają zostać wyodrębnione pliki. Alternatywnie możesz określić ścieżkę, przekazując argumenty `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>` . Aby uzyskać więcej informacji na temat przełączników wiersza polecenia obsługiwanych przez program IExpress, zobacz [przełączniki wiersza polecenia dla programu IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) , a następnie zaktualizujmy ten przykład do własnych potrzeb.
+2. Do wyodrębnienia plików instalacyjnych agenta z wiersza polecenia z podwyższonym poziomem uprawnień `extract MMASetup-<platform>.exe` i pojawi się monit o ścieżkę, do której mają zostać wyodrębnione pliki. Alternatywnie możesz określić ścieżkę, przekazując argumenty `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>` . Aby uzyskać więcej informacji na temat przełączników wiersza polecenia obsługiwanych przez program IExpress, zobacz [przełączniki wiersza polecenia dla programu IExpress](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/197147) , a następnie zaktualizujmy ten przykład do własnych potrzeb.
 
 3. W wierszu polecenia wpisz polecenie `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb` .
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d06d3d4aaa0d76b80257d2148fb62f71c3fdb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87009768"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093199"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Wyłączanie zapory systemu operacyjnego gościa na maszynie wirtualnej platformy Azure
 
@@ -47,7 +47,7 @@ Jeśli korzystasz z działającego agenta platformy Azure, możesz użyć [niest
 >   ```
 > * Jeśli Zapora jest ustawiona za pomocą zasad Active Directory, możesz użyć następującego skryptu, aby uzyskać tymczasowy dostęp. 
 >   ```
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
@@ -88,11 +88,11 @@ Jeśli korzystasz z działającego agenta platformy Azure, możesz użyć [niest
 
 #### <a name="mitigation-4-remote-registry"></a>Łagodzenie 4: Rejestr zdalny 
 
-Wykonaj następujące kroki, aby użyć [rejestru zdalnego](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
+Wykonaj następujące kroki, aby użyć [rejestru zdalnego](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837).
 
 1.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru, a następnie przejdź do **pliku**  >  **Connect Network Registry**.
 
-2.  Otwórz gałąź \System *maszyny docelowej*i określ następujące wartości:
+2.  Otwórz gałąź \System *maszyny docelowej* i określ następujące wartości:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -126,7 +126,7 @@ Jeśli masz sytuację, w której nie można nawiązać połączenia z maszyną w
 
 4.  Przed wprowadzeniem jakichkolwiek zmian Utwórz kopię folderu \Windows\System32\Config w przypadku, gdy konieczne jest wycofanie zmian.
 
-5.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit.exe). 
+5.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit.exe). 
 
 6.  W ramach tej procedury rozwiązywania problemów instalujemy gałęzie jako BROKENSYSTEM i BROKENSOFTWARE.
 

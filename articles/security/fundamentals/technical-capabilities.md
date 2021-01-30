@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 575486a89cd078325b76fa684ff9bd3d59a619c9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 353b1708a1c6014f9108ad2be62f22c1e0b0604c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844271"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092772"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -78,7 +78,7 @@ Poniżej przedstawiono podstawowe możliwości usługi Azure Identity Management
 
 - Privileged Identity Management
 
-- Ochrona tożsamości
+- Identity Protection
 
 #### <a name="single-sign-on"></a>Logowanie jednokrotne
 
@@ -140,7 +140,7 @@ Azure AD Privileged Identity Management pozwala:
 
 - Uzyskiwanie alertów dotyczących dostępu do roli uprzywilejowanej
 
-#### <a name="identity-protection"></a>Ochrona tożsamości
+#### <a name="identity-protection"></a>Identity Protection
 
 [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) to usługa zabezpieczeń, która zapewnia skonsolidowany wgląd w wykrywanie ryzyka i potencjalne luki w zabezpieczeniach wpływających na tożsamości organizacji. Usługa Identity Protection używa istniejących funkcji wykrywania anomalii w Azure Active Directory (dostępnych za pośrednictwem raportów o nietypowych działaniach w usłudze Azure AD) i wprowadza nowe typy wykrywania ryzyka, które mogą wykrywać anomalie w czasie rzeczywistym.
 
@@ -167,7 +167,7 @@ Jednym z kluczy ochrony danych w chmurze jest uwzględnienie możliwych stanów,
 - W spoczynku: obejmuje to wszystkie obiekty magazynu informacji, kontenery i typy, które znajdują się statycznie na nośniku fizycznym, jako dysk magnetyczny lub optyczny.
 - W tranzycie: w przypadku przesyłania danych między składnikami, lokalizacjami lub programami, takimi jak sieć, przez magistralę usług (od lokalnego do chmury i na odwrót, łącznie z połączeniami hybrydowymi, takimi jak ExpressRoute) lub w procesie wejścia/wyjścia, uważa się, że jest on ruchem.
 
-### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
+### <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
 
 Szyfrowanie w spoczynku zostało szczegółowo omówione w temacie [szyfrowanie danych na platformie Azure](encryption-atrest.md).
 
@@ -181,7 +181,7 @@ W przypadku organizacji, które muszą zabezpieczyć dostęp z wielu stacji robo
 
 W przypadku organizacji, które muszą zabezpieczyć dostęp z jednej stacji roboczej zlokalizowanej lokalnie na platformę Azure, użyj [sieci VPN typu punkt-lokacja](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
-Większe zestawy danych można przenieść za pomocą dedykowanego, szybkiego łącza sieci WAN, takiego jak [ExpressRoute](https://azure.microsoft.com/services/expressroute/). W przypadku wybrania opcji używania ExpressRoute można także szyfrować dane na poziomie aplikacji przy użyciu [protokołu SSL/TLS](https://support.microsoft.com/kb/257591) lub innych protokołów w celu zapewnienia dodatkowej ochrony.
+Większe zestawy danych można przenieść za pomocą dedykowanego, szybkiego łącza sieci WAN, takiego jak [ExpressRoute](https://azure.microsoft.com/services/expressroute/). W przypadku wybrania opcji używania ExpressRoute można także szyfrować dane na poziomie aplikacji przy użyciu [protokołu SSL/TLS](https://web.archive.org/web/20150221085231/http://support.microsoft.com:80/kb/257591) lub innych protokołów w celu zapewnienia dodatkowej ochrony.
 
 W przypadku korzystania z usługi Azure Storage za pośrednictwem witryny Azure Portal wszystkie transakcje odbywają się za pośrednictwem protokołu HTTPS. [Interfejs API REST magazynu](/rest/api/storageservices/) za pośrednictwem protokołu HTTPS może być również używany do współpracy z [usługą Azure Storage](https://azure.microsoft.com/services/storage/) i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
@@ -339,7 +339,7 @@ Usługa [Azure Security Center](../../security-center/security-center-introducti
 
 Centrum zabezpieczeń analizuje stan zabezpieczeń zasobów platformy Azure w celu identyfikowania potencjalnych luk w zabezpieczeniach. Lista zaleceń prowadzi użytkownika przez proces konfigurowania wymaganych elementów sterujących.
 
-Przykłady:
+Przykłady obejmują:
 
 - Inicjowanie ochrony przed złośliwym oprogramowaniem w celu identyfikacji i usuwania złośliwego oprogramowania
 

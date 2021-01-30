@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 7c3bca9e5ad87c681fc38a5c618331a3f7a97ae1
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8b46d08da87565d133962c23e8281b221544d9ca
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897513"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092520"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Samouczek: odnajdywanie maszyn wirtualnych funkcji Hyper-V z oceną serwera
 
@@ -87,7 +87,7 @@ Weryfikuj wymagania dotyczące hosta | Sprawdza, czy na hoście jest uruchomiona
 Weryfikuj wersję programu PowerShell | Sprawdza, czy skrypt jest uruchamiany w obsługiwanej wersji programu PowerShell. | Sprawdź, czy na hoście funkcji Hyper-V jest uruchomiony program PowerShell w wersji 4,0 lub nowszej.
 Tworzenie konta | Sprawdza, czy masz odpowiednie uprawnienia na hoście funkcji Hyper-V.<br/><br/> Umożliwia utworzenie konta użytkownika lokalnego z odpowiednimi uprawnieniami. | Opcja 1: Przygotuj konto z dostępem administratora do komputera hosta funkcji Hyper-V.<br/><br/> Opcja 2: przygotowywanie konta administratora lokalnego lub konta administratora domeny i Dodawanie konta do tych grup: Użytkownicy zarządzania zdalnego, Administratorzy funkcji Hyper-V i użytkownicy monitora wydajności.
 Włącz obsługę zdalną programu PowerShell | Włącza obsługę zdalną programu PowerShell na hoście, dzięki czemu urządzenie Azure Migrate może uruchamiać polecenia programu PowerShell na hoście przy użyciu połączenia usługi WinRM. | Aby skonfigurować program, na każdym hoście Otwórz konsolę programu PowerShell jako administrator i uruchom następujące polecenie: ``` powershell Enable-PSRemoting -force ```
-Konfigurowanie usług integracji funkcji Hyper-V | Sprawdza, czy usługi integracji funkcji Hyper-V są włączone na wszystkich maszynach wirtualnych zarządzanych przez hosta. | [Włącz usługi integracji funkcji Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md) na każdej maszynie wirtualnej.<br/><br/> Jeśli korzystasz z systemu Windows Server 2003, [postępuj zgodnie z tymi instrukcjami](prepare-windows-server-2003-migration.md).
+Konfigurowanie usług integracji funkcji Hyper-V | Sprawdza, czy usługi integracji funkcji Hyper-V są włączone na wszystkich maszynach wirtualnych zarządzanych przez hosta. | [Włącz usługi integracji funkcji Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) na każdej maszynie wirtualnej.<br/><br/> Jeśli korzystasz z systemu Windows Server 2003, [postępuj zgodnie z tymi instrukcjami](prepare-windows-server-2003-migration.md).
 Delegowanie poświadczeń, jeśli dyski maszyny wirtualnej znajdują się na zdalnych udziałach SMB | Delegowanie poświadczeń | Uruchom to polecenie, aby umożliwić dostawcy CredSSP Delegowanie poświadczeń na hostach z uruchomionymi maszynami wirtualnymi funkcji Hyper-V z dyskami w udziałach SMB: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> To polecenie można uruchomić zdalnie na wszystkich hostach funkcji Hyper-V.<br/><br/> Jeśli dodasz nowe węzły hosta do klastra, są one automatycznie dodawane do odnajdowania, ale musisz włączyć dostawcę CredSSP ręcznie.<br/><br/> Po skonfigurowaniu urządzenia należy zakończyć konfigurowanie dostawcy CredSSP, [włączając je na urządzeniu](#delegate-credentials-for-smb-vhds). 
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu

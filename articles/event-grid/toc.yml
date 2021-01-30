@@ -192,6 +192,8 @@
       items:
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          href: ./security-controls-policy.md
         - name: Uwierzytelnianie dostarczania zdarzeń do programów obsługi zdarzeń
           href: security-authentication.md
         - name: Uwierzytelnianie klientów publikowania

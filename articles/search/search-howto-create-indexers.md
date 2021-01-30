@@ -8,26 +8,26 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 0483030312493dde9a50ab9000fbe29f19bfaff4
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: c26529f48d03b8cd038ce4fea8164a305dfc17f3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064165"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097644"
 ---
 # <a name="create-a-search-indexer"></a>Tworzenie indeksatora wyszukiwania
 
-Indeksator wyszukiwania zapewnia zautomatyzowany przepływ pracy do przenoszenia dokumentów i zawartości z zewnętrznego źródła danych do indeksu wyszukiwania w usłudze wyszukiwania. Pierwotnie zaprojektowana funkcja wyodrębnia tekst i metadane ze źródeł danych platformy Azure, deserializacji dokumenty w formacie JSON i przekazuje te dokumenty do aparatu wyszukiwania w celu indeksowania. Jest to, że została rozszerzona o obsługę [wzbogacania zawartości AI](cognitive-search-concept-intro.md) do przetwarzania głębokiego. 
+Indeksator wyszukiwania zapewnia zautomatyzowany przepływ pracy do przenoszenia dokumentów i zawartości z zewnętrznego źródła danych do indeksu wyszukiwania w usłudze wyszukiwania. Jak pierwotnie zaprojektowany, wyodrębnia tekst i metadane ze źródła danych platformy Azure, deserializacji dokumenty w formacie JSON i przekazuje je do aparatu wyszukiwania do indeksowania. Jest to, że została rozszerzona o obsługę [wzbogacania zawartości AI](cognitive-search-concept-intro.md) do przetwarzania głębokiego. 
 
-Użycie indeksatorów znacznie zmniejsza liczbę i złożoność kodu, który należy napisać. Ten artykuł koncentruje się na Mechanics i strukturze indeksatorów, co wprowadza podstawę przed eksplorowaniem indeksatorów i [umiejętności](cognitive-search-working-with-skillsets.md).
+Użycie indeksatorów znacznie zmniejsza liczbę i złożoność kodu, który należy napisać. Ten artykuł koncentruje się na Mechanics tworzenia indeksatora jako przygotowania do bardziej zaawansowanej pracy z indeksatorami i [umiejętności](cognitive-search-working-with-skillsets.md).
 
 ## <a name="whats-an-indexer-definition"></a>Co to jest definicja indeksatora?
 
-Indeksatory są używane w przypadku indeksowania tekstowego, które pobiera tekst z pól źródłowych do pól indeksu lub przetwarzania opartego na formacie AI, który analizuje nierozróżniany tekst dla struktury lub analizuje obrazy w celu uzyskania tekstu i informacji. Następujące definicje indeksów są typowe dla każdego z tych scenariuszy.
+Indeksatory są używane w przypadku indeksowania tekstowego, który pobiera zawartość alfanumeryczną z pól źródłowych do pól indeksu lub przetwarzanie oparte na AI, które analizuje nierozróżniany tekst dla struktury, lub analizuje obrazy dla tekstu i informacji, a także dodaje tę zawartość do indeksu. Następujące definicje indeksów są typowe dla każdego z tych scenariuszy.
 
 ### <a name="indexers-for-text-content"></a>Indeksatory dla zawartości tekstowej
 
-Pierwotny cel indeksatora był uproszczenie złożonego procesu ładowania indeksu przez udostępnienie mechanizmu łączenia się i odczytywania zawartości tekstowej i liczbowej z pól w źródle danych, serializacji tej zawartości jako dokumentów JSON i przekazanie tych dokumentów do aparatu wyszukiwania w celu indeksowania. Jest to nadal podstawowy przypadek użycia i dla tej operacji trzeba utworzyć indeksator z właściwościami zdefiniowanymi w tej sekcji.
+Pierwotny cel indeksatora był uproszczenie złożonego procesu ładowania indeksu przez udostępnienie mechanizmu łączenia się i odczytywania zawartości tekstowej i liczbowej z pól w źródle danych, serializacji tej zawartości jako dokumentów JSON i przekazanie tych dokumentów do aparatu wyszukiwania w celu indeksowania. Jest to nadal podstawowy przypadek użycia i dla tej operacji trzeba utworzyć indeksator z właściwościami zdefiniowanymi w poniższym przykładzie.
 
 ```json
 {
@@ -42,17 +42,18 @@ Pierwotny cel indeksatora był uproszczenie złożonego procesu ładowania indek
   "fieldMappings": [ optional unless there are field discrepancies that need resolution]
 }
 ```
-**`name`** Właściwości, **`dataSourceName`** , i **`targetIndexName`** są wymagane i w zależności od sposobu tworzenia indeksatora, zarówno źródło danych, jak i indeks muszą już istnieć, zanim będzie można uruchomić indeksator. 
 
-**`parameters`** Właściwość informuje zachowania czasu wykonywania, na przykład liczbę błędów, które należy zaakceptować przed niepowodzeniem całego zadania. Parametry są również sposobem określania zachowań specyficznych dla źródła. Na przykład jeśli źródłem jest magazyn obiektów blob, można ustawić parametr, który filtruje rozszerzenia plików: `"parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }` .
+**`name`**, **`dataSourceName`** , I **`targetIndexName`** właściwości są wymagane i w zależności od sposobu tworzenia indeksatora, zarówno źródło danych, jak i indeks muszą już istnieć w usłudze, zanim będzie można uruchomić indeksator. 
 
-**`field mappings`** Właściwość służy do jawnego mapowania pól źródła do miejsca docelowego, jeśli te pola różnią się nazwami lub typem. Inne właściwości (niepokazywany) są używane do określania harmonogramu, tworzenia indeksatora w stanie wyłączonym lub określania klucza szyfrowania dodatkowego szyfrowania danych przechowywanych w spoczynku.
+**`parameters`** Właściwość modyfikuje zachowania w czasie wykonywania, takie jak liczba błędów, które mają być akceptowane przed błędem całego zadania. Parametry są również sposobem określania zachowań specyficznych dla źródła. Na przykład jeśli źródłem jest magazyn obiektów blob, można ustawić parametr, który filtruje rozszerzenia plików: `"parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }` .
+
+**`field mappings`** Właściwość służy do jawnego mapowania pól źródła do miejsca docelowego, jeśli te pola różnią się nazwami lub typem. Inne właściwości (niepokazywany) są używane do [określania harmonogramu](search-howto-schedule-indexers.md), tworzenia indeksatora w stanie wyłączonym lub określania [klucza szyfrowania](search-security-manage-encryption-keys.md) dodatkowego szyfrowania danych przechowywanych w spoczynku.
 
 ### <a name="indexers-for-ai-indexing"></a>Indeksatory dla indeksowania AI
 
-Ponieważ Indeksatory są mechanizmem, za pomocą którego usługa wyszukiwania wykonuje żądania wychodzące, indeksatory zostały rozszerzone pod kątem obsługi wzbogacania AI, Dodawanie kroków i obiektów niezbędnych do tego przypadku użycia.
+Ponieważ Indeksatory są mechanizmem, za pomocą którego usługa wyszukiwania wykonuje żądania wychodzące, indeksatory zostały rozszerzone pod kątem obsługi wzbogacania AI, Dodawanie infrastruktury i obiektów w celu zaimplementowania tego przypadku użycia.
 
-Wszystkie powyższe właściwości i parametry mają zastosowanie do indeksatorów, które wykonują wzbogacanie AI, z dodaniem trzech właściwości, które są specyficzne dla wzbogacania AI: **`skillSets`** , **`outputFieldMappings`** , **`cache`** (tylko wersja zapoznawcza i REST). 
+Wszystkie powyższe właściwości i parametry mają zastosowanie do indeksatorów, które wykonują wzbogacanie AI. Następujące właściwości są specyficzne dla wzbogacania AI: **`skillSets`** , **`outputFieldMappings`** , **`cache`** (tylko wersja zapoznawcza i REST). 
 
 ```json
 {
@@ -74,7 +75,7 @@ Wszystkie powyższe właściwości i parametry mają zastosowanie do indeksator�
 }
 ```
 
-Wzbogacanie AI wykracza poza zakres tego artykułu. Aby uzyskać więcej informacji, Zacznij od [umiejętności na platformie Azure wyszukiwanie poznawcze](cognitive-search-working-with-skillsets.md) lub [Utwórz zestawu umiejętności (REST)](/rest/api/searchservice/create-skillset).
+Wzbogacanie AI wykracza poza zakres tego artykułu. Aby uzyskać więcej informacji, Zacznij od następujących artykułów: [wzbogacanie AI](cognitive-search-concept-intro.md), [umiejętności na platformie Azure wyszukiwanie poznawcze](cognitive-search-working-with-skillsets.md)i [Tworzenie zestawu umiejętności (REST)](/rest/api/searchservice/create-skillset).
 
 ## <a name="choose-an-indexer-client-and-create-the-indexer"></a>Wybierz klienta indeksatora i Utwórz indeksator
 
@@ -90,7 +91,7 @@ Wszystkie [warstwy usług ograniczają](search-limits-quotas-capacity.md#indexer
 
 ### <a name="use-azure-portal-to-create-an-indexer"></a>Używanie Azure Portal do tworzenia indeksatora
 
-Portal udostępnia dwie opcje tworzenia indeksatora: [**Importuj dane**](search-import-data-portal.md) i **Nowy indeksator** , który udostępnia pola do określania definicji indeksatora. Kreator jest unikatowy w tym, że tworzy wszystkie wymagane elementy. Inne podejścia wymagają wstępnie zdefiniowanego źródła danych i indeksu.
+Portal udostępnia dwie opcje tworzenia indeksatora: [**Kreator importowania danych**](search-import-data-portal.md) i **Nowy indeksator** , który udostępnia pola do określania definicji indeksatora. Kreator jest unikatowy w tym, że tworzy wszystkie wymagane elementy. Inne podejścia wymagają wstępnie zdefiniowanego źródła danych i indeksu.
 
 Poniższy zrzut ekranu pokazuje, gdzie można znaleźć te funkcje w portalu. 
 
@@ -120,11 +121,20 @@ W przypadku Wyszukiwanie poznawcze zestawy SDK platformy Azure implementują og�
 
 ## <a name="run-the-indexer"></a>Uruchamianie indeksatora
 
-Indeksator jest uruchamiany automatycznie podczas tworzenia indeksatora w usłudze. Jest to moment, w którym można się dowiedzieć, czy występują błędy połączenia ze źródłem danych, problemy związane z mapowaniem pól lub problemy z zestawu umiejętności. Interaktywne żądanie HTTP dotyczące [tworzenia indeksatora](/rest/api/searchservice/create-indexer) lub [indeksatora aktualizacji](/rest/api/searchservice/update-indexer) spowoduje uruchomienie indeksatora. Uruchomienie programu, który wywołuje metody SearchIndexerClient, spowoduje również uruchomienie indeksatora.
+Indeksator jest uruchamiany automatycznie podczas tworzenia indeksatora w usłudze. Jest to moment, w którym można się dowiedzieć, czy występują błędy połączenia ze źródłem danych, problemy związane z mapowaniem pól lub problemy z zestawu umiejętności. 
 
-Aby uniknąć natychmiastowego uruchamiania indeksatora przy tworzeniu, należy uwzględnić **`disabled=true`** w definicji indeksatora.
+Istnieje kilka sposobów uruchamiania indeksatora:
 
-Gdy indeksator istnieje, można go uruchomić na żądanie przy użyciu polecenia [Run indeksatorer (REST)](/rest/api/searchservice/run-indexer) lub równoważnej metody zestawu SDK. Lub Umieść indeksator zgodnie z [harmonogramem](search-howto-schedule-indexers.md) , aby wywołać przetwarzanie w regularnych odstępach czasu. 
++ Wyślij żądanie HTTP dotyczące [utworzenia indeksatora](/rest/api/searchservice/create-indexer) lub [Update indeksatora](/rest/api/searchservice/update-indexer) w celu dodania lub zmiany definicji i uruchomienia indeksatora.
+
++ Wyślij żądanie HTTP dla [indeksatora uruchamiania](/rest/api/searchservice/run-indexer) , aby wykonać indeksator bez zmian w definicji.
+
++ Uruchom program, który wywołuje metody SearchIndexerClient w celu utworzenia, aktualizacji lub uruchomienia.
+
+> [!NOTE]
+> Aby uniknąć natychmiastowego uruchamiania indeksatora przy tworzeniu, należy uwzględnić **`disabled=true`** w definicji indeksatora.
+
+Alternatywnie można umieścić indeksator zgodnie z [harmonogramem](search-howto-schedule-indexers.md) , aby wywołać przetwarzanie w regularnych odstępach czasu. 
 
 Zaplanowane przetwarzanie zwykle pokrywa się z potrzebą przyrostowego indeksowania zmienionej zawartości. Logika wykrywania zmian jest funkcją wbudowaną w platformę źródłową. Zmiany w kontenerze obiektów BLOB są automatycznie wykrywane przez indeksator. Aby uzyskać wskazówki dotyczące korzystania z wykrywania zmian w innych źródłach danych, zapoznaj się z dokumentacją indeksatora dla określonych źródeł danych:
 
@@ -135,9 +145,9 @@ Zaplanowane przetwarzanie zwykle pokrywa się z potrzebą przyrostowego indeksow
 
 ## <a name="know-your-data"></a>Poznaj swoje dane
 
-Indeksatory oczekują zestawu wierszy tabelarycznych, gdzie każdy wiersz zmienia się w pełnym lub częściowym dokumencie wyszukiwania w indeksie. Często istnieje pełna zgodność jeden-do-jednego między wierszem a wyszukiwanym dokumentem wyszukiwania, gdzie wszystkie pola są wierszami. Można jednak użyć indeksatorów do wygenerowania tylko części dokumentu, na przykład jeśli używasz wielu indeksatorów lub podejścia do tworzenia indeksu. 
+Indeksatory oczekują zestawu wierszy tabelarycznych, gdzie każdy wiersz zmienia się w pełnym lub częściowym dokumencie wyszukiwania w indeksie. Często istnieje zgodność jeden do jednego między wierszem a wyszukiwanym dokumentem wyszukiwania, gdzie wszystkie pola w wierszu w pełni wypełniają każdy dokument. Można jednak użyć indeksatorów do wygenerowania tylko części dokumentu, na przykład jeśli używasz wielu indeksatorów lub podejścia do tworzenia indeksu. 
 
-Aby spłaszczyć relacyjne dane do zestawu wierszy, może być konieczne utworzenie widoku SQL lub utworzenie kwerendy zwracającej rekordy nadrzędne i podrzędne w tym samym wierszu. Przykładowo Wbudowany zestaw danych hoteli to baza danych SQL, która ma 50 rekordów (po jednym dla każdego hotelu), połączonych z rekordami pokoju w powiązanej tabeli. Zapytanie, które spłaszcza dane zbiorcze do zestawu wierszy, osadza wszystkie informacje o pokoju w dokumentach JSON w każdym rekordzie hotelu. Osadzone informacje o pomieszczeniu są generowane przez zapytanie, które używa klauzuli **for JSON** . Więcej informacji o tej metodzie można znaleźć w temacie [Definiowanie zapytania, które zwraca osadzony kod JSON](index-sql-relational-data.md#define-a-query-that-returns-embedded-json). Jest to tylko jeden przykład: można znaleźć inne podejścia, które spowodują powstanie tego samego efektu.
+Aby spłaszczyć relacyjne dane do zestawu wierszy, należy utworzyć widok SQL lub skompilować zapytanie, które zwraca rekordy nadrzędne i podrzędne w tym samym wierszu. Przykładowo Wbudowany zestaw danych hoteli to baza danych SQL, która ma 50 rekordów (po jednym dla każdego hotelu), połączonych z rekordami pokoju w powiązanej tabeli. Zapytanie, które spłaszcza dane zbiorcze do zestawu wierszy, osadza wszystkie informacje o pokoju w dokumentach JSON w każdym rekordzie hotelu. Osadzone informacje o pomieszczeniu są generowane przez zapytanie, które używa klauzuli **for JSON** . Więcej informacji o tej metodzie można znaleźć w temacie [Definiowanie zapytania, które zwraca osadzony kod JSON](index-sql-relational-data.md#define-a-query-that-returns-embedded-json). Jest to tylko jeden przykład: można znaleźć inne podejścia, które spowodują powstanie tego samego efektu.
 
 Oprócz spłaszczonych danych ważne jest, aby pobierać tylko dane z możliwością wyszukiwania. Dane z możliwością wyszukiwania są alfanumeryczne. Wyszukiwanie poznawcze nie może przeszukiwać danych binarnych w dowolnym formacie, chociaż mogą wyodrębnić i wywnioskować opisy tekstowe plików obrazów (zobacz [wzbogacanie AI](cognitive-search-concept-intro.md)), aby utworzyć zawartość do przeszukiwania. Podobnie, przy użyciu wzbogacania AI, duży tekst może być analizowany przez modele języka naturalnego, aby znaleźć strukturę lub istotne informacje, generując nową zawartość, którą można dodać do dokumentu wyszukiwania.
 
@@ -147,7 +157,7 @@ W przypadku, gdy indeksatory nie rozwiązują problemów z danymi, może być ko
 
 Wycofaj te indeksatory, które przechodzą z przeszukiwanych dokumentów do aparatu wyszukiwania w celu indeksowania. Tak samo jak indeksatory mają właściwości, które określają zachowanie wykonywania, schemat indeksu ma właściwości, które w praktyce zależą od sposobu indeksowania ciągów (tylko ciągi są analizowane i podlegają tokenom). W zależności od przypisań analizatora indeksowane ciągi mogą się różnić od tego, co zostało przesłane. Efekty analizatorów można oszacować przy użyciu [analizy tekstu (REST)](/rest/api/searchservice/test-analyzer). Aby uzyskać więcej informacji na temat analizatorów, zobacz [analizatory do przetwarzania tekstu](search-analyzers.md).
 
-Indeksatory sprawdzają tylko nazwy i typy pól. Nie ma kroku sprawdzania poprawności, który gwarantuje, że zawartość przychodząca jest poprawna dla odpowiedniego pola wyszukiwania w indeksie. W ramach kroku weryfikacji można uruchamiać zapytania na wypełnionym indeksie, które zwracają całe dokumenty lub wybrane pola. Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących zawartości indeksu, zobacz [Tworzenie podstawowego zapytania](search-query-create.md).
+Pod względem tego, jak indeksatory współdziałają z indeksem, indeksator sprawdza tylko nazwy pól i typy. Nie ma kroku sprawdzania poprawności, który gwarantuje, że zawartość przychodząca jest poprawna dla odpowiedniego pola wyszukiwania w indeksie. W ramach kroku weryfikacji można uruchamiać zapytania na wypełnionym indeksie, które zwracają całe dokumenty lub wybrane pola. Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących zawartości indeksu, zobacz [Tworzenie podstawowego zapytania](search-query-create.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

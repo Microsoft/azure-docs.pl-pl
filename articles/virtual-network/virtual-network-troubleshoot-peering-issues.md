@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 75b62eb00b1a1a534be01f9f118b4d5066e44a37
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222891"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096393"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Rozwiązywanie problemów dotyczących komunikacji równorzędnej sieci wirtualnych
 
@@ -87,7 +87,7 @@ Wykonaj kroki opisane w temacie: [Konfigurowanie tranzytu bramy sieci VPN dla ko
 Aby uzyskać więcej informacji, zobacz Tworzenie [łańcucha usług](./virtual-network-peering-overview.md#service-chaining).
 
 > [!Note]
-> Jeśli potrzebujesz pomocy przy konfigurowaniu urządzenie WUS, [skontaktuj się z dostawcą urządzenie WUS](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> Jeśli potrzebujesz pomocy przy konfigurowaniu urządzenie WUS, [skontaktuj się z dostawcą urządzenie WUS](https://mskb.pkisolutions.com/kb/2984655).
 
 Aby uzyskać pomoc dotyczącą rozwiązywania problemów z konfiguracją i routingiem urządzenia urządzenie WUS, zobacz [problemy dotyczące sieciowego urządzenia wirtualnego na platformie Azure](./virtual-network-troubleshoot-nva.md).
 
@@ -190,7 +190,7 @@ Dla połączeń punkt-lokacja:
 
 Sieć centrum musi zawierać urządzenie WUS. Skonfiguruj UDR w szprychach, które mają ustawioną urządzenie WUSę w następnym przeskoku, i Włącz opcję **Zezwalaj na ruch przesłany dalej** w sieci wirtualnej centrum.
 
-Aby uzyskać więcej informacji, zobacz Tworzenie [łańcucha usług](./virtual-network-peering-overview.md#service-chaining)i omawiaj wymagania przy użyciu wybranego przez siebie [dostawcy urządzenie WUS](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) .
+Aby uzyskać więcej informacji, zobacz Tworzenie [łańcucha usług](./virtual-network-peering-overview.md#service-chaining)i omawiaj wymagania przy użyciu wybranego przez siebie [dostawcy urządzenie WUS](https://mskb.pkisolutions.com/kb/2984655) .
 
 ## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Rozwiązywanie problemów z łącznością sieciową gwiazdy między sieciami wirtualnymi szprych w różnych regionach
 

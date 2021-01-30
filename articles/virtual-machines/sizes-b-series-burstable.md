@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 31a65cab7dfdd478560b7babba156cec7645cf33
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 833d96b8ca252cff5384cde114390aba8c2f51c3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917255"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097694"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -28,6 +28,7 @@ Seria B obejmuje następujące rozmiary maszyn wirtualnych:
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 [Przyspieszona sieć](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane * *<br>
+[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): obsługiwane <br>
 
 * Maszyny wirtualne z serii B są szeregowe, a tym samym liczby ACU są różne w zależności od obciążeń i podstawowych zastosowań.<br>
 * * Przyspieszona sieć jest obsługiwana tylko w przypadku *Standard_B12ms*, *Standard_B16ms* i *Standard_B20ms*.

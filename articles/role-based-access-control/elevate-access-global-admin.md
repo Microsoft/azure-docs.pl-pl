@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 6e57e495d34a265b5e0691106996206029656c5a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 850d50bc9e427ff559782d587d74b33089332a8d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371124"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091667"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Podnoszenie poziomu dostępu w celu zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania
 
@@ -33,7 +33,7 @@ Jeśli jesteś administratorem globalnym, może się zdarzyć, że chcesz wykona
 
 ## <a name="how-does-elevated-access-work"></a>Jak działa podwyższony poziom dostępu?
 
-Usługa Azure AD i zasoby platformy Azure są zabezpieczone niezależnie od siebie. Oznacza to, że przypisania ról usługi Azure AD nie zapewniają dostępu do zasobów platformy Azure, a przypisania ról platformy Azure nie udzielają dostępu do usługi Azure AD. Jeśli jednak jesteś [administratorem globalnym](../active-directory/roles/permissions-reference.md#company-administrator-permissions) w usłudze Azure AD, możesz przypisać sobie dostęp do wszystkich subskrypcji platformy Azure i grup zarządzania w Twoim katalogu. Użyj tej funkcji, jeśli nie masz dostępu do zasobów subskrypcji platformy Azure, takich jak maszyny wirtualne lub konta magazynu, i chcesz użyć uprawnienia administratora globalnego, aby uzyskać dostęp do tych zasobów.
+Usługa Azure AD i zasoby platformy Azure są zabezpieczone niezależnie od siebie. Oznacza to, że przypisania ról usługi Azure AD nie zapewniają dostępu do zasobów platformy Azure, a przypisania ról platformy Azure nie udzielają dostępu do usługi Azure AD. Jeśli jednak jesteś [administratorem globalnym](../active-directory/roles/permissions-reference.md#global-administrator-permissions) w usłudze Azure AD, możesz przypisać sobie dostęp do wszystkich subskrypcji platformy Azure i grup zarządzania w Twoim katalogu. Użyj tej funkcji, jeśli nie masz dostępu do zasobów subskrypcji platformy Azure, takich jak maszyny wirtualne lub konta magazynu, i chcesz użyć uprawnienia administratora globalnego, aby uzyskać dostęp do tych zasobów.
 
 Podniesienie poziomu dostępu spowoduje przypisanie roli [administratora dostępu użytkownika](built-in-roles.md#user-access-administrator) na platformie Azure w zakresie głównym ( `/` ).Pozwala to na wyświetlenie wszystkich zasobów i przypisanie dostępu w ramach dowolnej subskrypcji lub grupy zarządzania w katalogu. Przypisania ról administratora dostępu użytkowników można usuwać za pomocą Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
 
@@ -41,7 +41,7 @@ Ten podwyższony poziom dostępu należy usunąć po wprowadzeniu zmian, które 
 
 ![Podnoszenie poziomu dostępu](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Witryna Azure Portal
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Podnieś poziom dostępu dla administratora globalnego
 
@@ -53,17 +53,17 @@ Wykonaj następujące kroki, aby podwyższyć poziom dostępu administratora glo
 
 1. Otwórz **Azure Active Directory**.
 
-1. W obszarze **Zarządzaj**wybierz pozycję **Właściwości**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Właściwości**.
 
    ![Wybieranie właściwości właściwości Azure Active Directory — zrzut ekranu](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 
-1. W obszarze **Zarządzanie dostępem do zasobów platformy Azure**Ustaw przełącznik na **wartość tak**.
+1. W obszarze **Zarządzanie dostępem do zasobów platformy Azure** Ustaw przełącznik na **wartość tak**.
 
    ![Zarządzanie dostępem do zasobów platformy Azure — zrzut ekranu](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Po ustawieniu przełącznika na **wartość tak**przypiszesz rolę administratora dostępu użytkownika w usłudze Azure RBAC w zakresie głównym (/). To przyznaje uprawnienia do przypisywania ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Ten przełącznik jest dostępny tylko dla użytkowników, którym przypisano rolę administratora globalnego w usłudze Azure AD.
+   Po ustawieniu przełącznika na **wartość tak** przypiszesz rolę administratora dostępu użytkownika w usłudze Azure RBAC w zakresie głównym (/). To przyznaje uprawnienia do przypisywania ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Ten przełącznik jest dostępny tylko dla użytkowników, którym przypisano rolę administratora globalnego w usłudze Azure AD.
 
-   Po ustawieniu przełącznika na wartość **nie**rola administratora dostępu użytkowników w usłudze Azure RBAC zostanie usunięta z konta użytkownika. Nie można już przypisywać ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Można wyświetlać i zarządzać tylko subskrypcjami platformy Azure i grupami zarządzania, do których udzielono dostępu.
+   Po ustawieniu przełącznika na wartość **nie** rola administratora dostępu użytkowników w usłudze Azure RBAC zostanie usunięta z konta użytkownika. Nie można już przypisywać ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Można wyświetlać i zarządzać tylko subskrypcjami platformy Azure i grupami zarządzania, do których udzielono dostępu.
 
     > [!NOTE]
     > Jeśli używasz [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), dezaktywowanie przypisywania roli nie powoduje zmiany opcji **zarządzania dostępem dla zasobów platformy Azure** na wartość **nie**. Aby zachować najmniejszy dostęp uprzywilejowany, zalecamy ustawienie tego przełącznika na wartość **nie** przed dezaktywacją przypisania roli.

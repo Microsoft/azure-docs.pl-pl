@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: afa21e6aae769e69e8bc83b9fa0d4f9b76396f7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2f56fc285ed263b4b58985b5df620740a33cb3f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220316"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092355"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Zarządzanie usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell
 
@@ -242,7 +242,7 @@ Użyj `-Result` parametru, aby wykryć, czy zakończone zadania zostały ukończ
 * Anulowano
 * Niepowodzenie
 * Brak
-* Sukces
+* Powodzenie
 
 ``` powershell
 # List Successful jobs.
@@ -298,7 +298,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 
 ## <a name="analyzing-job-history"></a>Analizowanie historii zadań
 
-Używanie Azure PowerShell do analizowania historii zadań, które zostały uruchomione w Data Lake analizie, jest zaawansowaną techniką. Można go użyć, aby uzyskać wgląd w użycie i koszt. Więcej informacji można uzyskać, przeglądając [przykładowe repozytorium analizy historii zadań](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
+Używanie Azure PowerShell do analizowania historii zadań, które zostały uruchomione w Data Lake analizie, jest zaawansowaną techniką. Można go użyć, aby uzyskać wgląd w użycie i koszt. Więcej informacji można uzyskać, przeglądając [przykładowe repozytorium analizy historii zadań](https://github.com/jpalbright31/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="list-job-pipelines-and-recurrences"></a>Wyświetlanie listy potoków zadań i cykli
 
@@ -552,4 +552,4 @@ Możesz również użyć szablonu grupy zasobów platformy Azure, korzystając z
 ## <a name="next-steps"></a>Następne kroki
 * [Omówienie usługi Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Wprowadzenie do Data Lake Analytics przy użyciu [Azure Portal](data-lake-analytics-get-started-portal.md)  |  [Azure PowerShell](data-lake-analytics-get-started-powershell.md)  |  [interfejsu wiersza polecenia platformy Azure](data-lake-analytics-get-started-cli.md)
-* Zarządzanie Azure Data Lake Analytics przy [Azure portal](data-lake-analytics-manage-use-portal.md)użyciu  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [interfejsu wiersza polecenia](data-lake-analytics-manage-use-cli.md) Azure Portal Azure PowerShell
+* Zarządzanie Azure Data Lake Analytics przy [](data-lake-analytics-manage-use-portal.md)użyciu  |  [](data-lake-analytics-manage-use-powershell.md)  |  [interfejsu wiersza polecenia](data-lake-analytics-manage-use-cli.md) Azure Portal Azure PowerShell

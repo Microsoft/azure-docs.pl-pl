@@ -127,6 +127,10 @@
           href: iot-data-flow.md
         - name: Szablony mapowania łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
           href: iot-mapping-templates.md
+    - name: Zabezpieczenia
+      items:
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          href: ./security-controls-policy.md
 - name: Zasoby
   items:
     - name: Często zadawane pytania

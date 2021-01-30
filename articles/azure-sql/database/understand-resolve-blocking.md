@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1341d0e64a01ff428fe42735d198c5e6b74b0ce8
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725790"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093312"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Zrozumienie i rozwiązywanie problemów z blokowaniem Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -369,16 +369,16 @@ Poniższe scenariusze zostaną rozwinięcie w tych scenariuszach.
     KILL 99
     ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-* [Monitorowanie i dostrajanie wydajności usługi Azure SQL Database i wystąpienia zarządzanego Azure SQL](/monitor-tune-overview.md)
+* [Monitorowanie i dostrajanie wydajności usługi Azure SQL Database i wystąpienia zarządzanego Azure SQL](/azure/azure-sql/database/monitor-tune-overview)
 * [Monitorowanie wydajności za pomocą magazynu zapytań](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Przewodnik dotyczący blokowania transakcji i przechowywania wersji wierszy](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [USTAW POZIOM IZOLACJI TRANSAKCJI](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)
 * [Szybki start: zdarzenia rozszerzone w programie SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 * [Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych](intelligent-insights-overview.md)
 
-## <a name="learn-more"></a>Więcej informacji
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Azure SQL Database: ulepszanie dostrajania wydajności za pomocą dostrajania automatycznego](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
 * [Poprawianie wydajności Azure SQL Database przy użyciu dostrajania automatycznego](https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning)

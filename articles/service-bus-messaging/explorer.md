@@ -3,12 +3,12 @@ title: Używanie Azure Service Bus Explorer do wykonywania operacji na danych na
 description: Ten artykuł zawiera informacje dotyczące korzystania z Eksploratora Azure Service Bus opartego na portalu w celu uzyskania dostępu do Azure Service Bus danych.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: eb6610945ba4b09543308ab351d3a36ec7e587dd
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 06bc2ffffc6b467aa730e16599099bc95117dac9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684845"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092221"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Używanie Service Bus Explorer do wykonywania operacji na danych na Service Bus (wersja zapoznawcza)
 
@@ -37,9 +37,9 @@ Aby użyć narzędzia Eksplorator Service Bus, należy wykonać następujące za
     - [Szybki Start — Tworzenie kolejek](service-bus-quickstart-portal.md)
     - [Szybki Start — Tworzenie tematów](service-bus-quickstart-topics-subscriptions-portal.md)
 - Upewnij się, że jesteś członkiem jednej z tych ról w przestrzeni nazw: 
-    - [Właściciel danych Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
-    - [Współautor](../role-based-access-control/built-in-roles.md#contributor) 
-    - [Właściciel](/role-based-access-control/built-in-roles.md#owner)
+    - [Właściciel danych Service Bus](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) 
+    - [Współautor](/azure/role-based-access-control/built-in-roles#contributor) 
+    - [Właściciel](/azure/role-based-access-control/built-in-roles#owner)
 
 
 ## <a name="using-the-service-bus-explorer"></a>Korzystanie z Eksploratora Service Bus

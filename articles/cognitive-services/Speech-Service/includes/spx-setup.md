@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 68362b61aa0d919bd0e95f3cebb1cf1189f9f0f3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540471"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095189"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -19,9 +19,15 @@ ms.locfileid: "98540471"
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w systemie Windows:
 
 1. W systemie Windows wymagany jest [Microsoft Visual C++ redystrybucyjny dla programu Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) dla danej platformy. Zainstalowanie tego po raz pierwszy może wymagać ponownego uruchomienia.
-2. Pobierz [archiwum zip](https://aka.ms/speech/spx-zips.zip)interfejsu wiersza polecenia mowy, a następnie wyodrębnij je.
-3. Przejdź do katalogu, w którym został wyodrębniony `spx-zips` . Ten folder zawiera pliki programu dla interfejsu wiersza polecenia mowy na różnych platformach. 
-4. Wyodrębnij pliki dla swojej platformy ( `spx-net471` dla .NET Framework 4,7 lub `spx-netcore-win-x64` dla platformy .net Core 3,0 na procesorze x64). Pamiętaj, że będziesz uruchamiać `spx` z tego katalogu.
+1. Zainstaluj program [.NET Core 3,1](/dotnet/core/install/linux.md).
+2. Zainstaluj interfejs wiersza polecenia mowy przy użyciu NuGet, wprowadzając następujące polecenie:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
+
+Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
+
+> [!NOTE]
+> Alternatywą dla programu NuGet jest pobranie i wyodrębnienie [archiwum zip](https://aka.ms/speech/spx-zips.zip)interfejsu wiersza polecenia mowy, znalezienie i wyodrębnienie platformy z `spx-zips` katalogu oraz dodanie `spx` ścieżki do zmiennej **Path** systemu.
 
 ### <a name="run-the-speech-cli"></a>Uruchamianie interfejsu wiersza polecenia mowy
 
@@ -43,15 +49,16 @@ Jeśli dane wyjściowe są wyprowadzane do pliku, Edytor tekstu, taki jak Notatn
 
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w systemie Linux na PROCESORze x64:
 
-1. Zainstaluj program [.NET Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Pobierz [archiwum zip](https://aka.ms/speech/spx-zips.zip)interfejsu wiersza polecenia mowy, a następnie wyodrębnij je.
-3. Przejdź do katalogu głównego `spx-zips` wyodrębnionego z pobierania i Wyodrębnij `spx-netcore-30-linux-x64` go do nowego `~/spx` katalogu.
-4. W terminalu wpisz następujące polecenia:
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Zainstaluj program [.NET Core 3,1](/dotnet/core/install/linux.md).
+2. Zainstaluj interfejs wiersza polecenia mowy przy użyciu NuGet, wprowadzając następujące polecenie:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
 Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
+
+> [!NOTE]
+> Alternatywą dla programu NuGet jest pobranie plików binarnych w [archiwum zip](https://aka.ms/speech/spx-zips.zip), wyodrębnienie ich `spx-netcore-30-linux-x64` do nowego `~/spx` katalogu, wpisanie `sudo chmod +r+x spx` pliku binarnego i dodanie `~/spx` ścieżki do zmiennej systemowej PATH.
+
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalacja platformy Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 

@@ -15,12 +15,12 @@ ms.date: 01/04/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 3c320b8faf5ccb0b1aec521909b152dff171cbd7
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 0b43f30c25767a135b98b756d61ed2535e1fbd22
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862595"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092204"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Role administratora klasycznej subskrypcji, role platformy Azure i role usługi Azure AD
 
@@ -93,13 +93,13 @@ Po kliknięciu karty **Role** zostanie wyświetlona lista wbudowanych i niestand
 
 Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md).
 
-## <a name="azure-ad-roles"></a>Role usługi Azure AD
+## <a name="azure-ad-roles"></a>Role usługi Azure Active Directory
 
 Role usługi Azure AD służą do zarządzania zasobami usługi Azure AD w katalogu, takim jak tworzenie i edytowanie użytkowników, przypisywanie ról administracyjnych do innych, resetowanie haseł użytkowników, zarządzanie licencjami użytkowników i Zarządzanie domenami. W poniższej tabeli opisano kilka najważniejszych ról usługi Azure AD.
 
 | Rola usługi Azure AD | Uprawnienia | Uwagi |
 | --- | --- | --- |
-| [Administrator globalny](../active-directory/roles/permissions-reference.md#company-administrator-permissions) | <ul><li>Zarządzanie dostępem do wszystkich funkcji administracyjnych w usłudze Azure Active Directory, a także usług, które są sfederowane z usługą Azure Active Directory</li><li>Przypisywanie ról administratorów do innych osób</li><li>Resetowanie haseł wszystkich użytkowników oraz wszystkich innych administratorów</li></ul> | Osoba, która zarejestruje się dla dzierżawy usługi Azure Active Directory, staje się administratorem globalnym. |
+| [Administrator globalny](../active-directory/roles/permissions-reference.md#global-administrator-permissions) | <ul><li>Zarządzanie dostępem do wszystkich funkcji administracyjnych w usłudze Azure Active Directory, a także usług, które są sfederowane z usługą Azure Active Directory</li><li>Przypisywanie ról administratorów do innych osób</li><li>Resetowanie haseł wszystkich użytkowników oraz wszystkich innych administratorów</li></ul> | Osoba, która zarejestruje się dla dzierżawy usługi Azure Active Directory, staje się administratorem globalnym. |
 | [Administrator użytkowników](../active-directory/roles/permissions-reference.md#user-administrator) | <ul><li>Tworzenie i zarządzanie wszystkimi aspektami użytkowników i grup</li><li>Zarządzanie biletami pomocy technicznej</li><li>Monitorowanie kondycji usługi</li><li>Zmienianie haseł użytkowników, administratorów pomocy technicznej i innych administratorów użytkowników</li></ul> |  |
 | [Administrator rozliczeń](../active-directory/roles/permissions-reference.md#billing-administrator) | <ul><li>Dokonywanie zakupów</li><li>Zarządzanie subskrypcjami</li><li>Zarządzanie biletami pomocy technicznej</li><li>Monitorowanie kondycji usługi</li></ul> |  |
 
@@ -129,5 +129,5 @@ Kilka ról usługi Azure AD obejmuje usługę Azure AD i Microsoft 365, takie ja
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](overview.md)
-- [Uprawnienia ról administratorów w usłudze Azure Active Directory](../active-directory/roles/permissions-reference.md)
+- [Uprawnienia roli administratora w usłudze Azure Active Directory](../active-directory/roles/permissions-reference.md)
 - [Klasyczni administratorzy subskrypcji platformy Azure](classic-administrators.md)

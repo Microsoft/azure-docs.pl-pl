@@ -3,17 +3,17 @@ title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 2f49ec0fef5aa79c602e561746eb0f6dba16cb33
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 56013a51937915cc240e2bd0ec26342c24c79807
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876601"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095910"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -25,6 +25,61 @@ Regularnie aktualizacje pulpitu wirtualnego systemu Windows. W tym artykule znaj
 - Poprawki błędów
 
 Ten artykuł jest aktualizowany co miesiąc. Upewnij się, że w tym miejscu często należy zaznaczyć, aby zachować nowe aktualizacje.
+
+## <a name="client-updates"></a>Aktualizacje klienta
+
+Zapoznaj się z tymi artykułami, aby dowiedzieć się więcej o aktualizacjach naszych klientów dla pulpitu wirtualnego systemu Windows i Usługi pulpitu zdalnego:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
+- [Sieć Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="fslogix-updates"></a>Aktualizacje FSLogix
+
+Chcesz wiedzieć o najnowszych aktualizacjach dla FSLogix? Zapoznaj się z [nowościami w witrynie FSLogix](/fslogix/whats-new.md).
+
+## <a name="january-2021"></a>Styczeń 2021 r.
+
+Poniżej przedstawiono zmiany w styczniu 2021:
+
+### <a name="new-windows-virtual-desktop-offer"></a>Nowa oferta pulpitu wirtualnego systemu Windows
+
+Nowi klienci zapisują 30% kosztów obliczeniowych usług pulpitu wirtualnego systemu Windows dla maszyn wirtualnych z serii D i BS przez maksymalnie 90 dni w przypadku korzystania z natywnego rozwiązania firmy Microsoft. Tę ofertę można zrealizować w Azure Portal przed 31 marca 2021. Dowiedz się więcej na [stronie oferty pulpitu wirtualnego systemu Windows](https://azure.microsoft.com/services/virtual-desktop/offer/).
+
+### <a name="networksecuritygrouprules-value-change"></a>networkSecurityGroupRules zmiana wartości 
+
+W Azure Resource Manager zagnieżdżonym szablonie zmieniono wartość domyślną networkSecurityGroupRules z obiektu na tablicę. Pozwoli to zapobiec występowaniu błędów, jeśli używasz managedDisks-customimagevm.json bez określania wartości dla networkSecurityGroupRules. To nie jest istotna zmiana i jest zgodna z poprzednimi wersjami.
+
+### <a name="fslogix-hotfix-update"></a>Aktualizacja poprawki FSLogix
+
+Firma Microsoft udostępniła FSLogix w wersji 2009 HF_01 (2.9.7654.46150) w celu rozwiązywania problemów z poprzednią wersją (2.9.7621.30127). Zalecamy zaprzestanie korzystania z poprzedniej wersji i aktualizowanie FSLogix najszybciej, jak to możliwe.
+
+Aby uzyskać więcej informacji, zobacz informacje o wersji w artykule [co nowego w programie FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+
+### <a name="azure-portal-experience-improvements"></a>Ulepszenia środowiska Azure Portal
+
+Wprowadzono następujące udoskonalenia dotyczące środowiska Azure Portalowego:
+
+- Teraz można dodać poświadczenia administratora lokalnego maszyny wirtualnej bezpośrednio zamiast konieczności dodawania konta lokalnego utworzonego przy użyciu poświadczeń konta przyłączanie do domeny Active Directory.
+- Użytkownicy mogą teraz wyświetlać listę przypisań poszczególnych użytkowników i grup w osobnych kartach.
+- Numer wersji agenta wirtualnego systemu Windows jest teraz widoczny w temacie Omówienie pul hostów w maszynie wirtualnej.
+- Dodano usuwanie zbiorcze dla pul hostów i grup aplikacji.
+- Teraz można włączyć lub wyłączyć tryb opróżniania dla wielu hostów sesji w puli hostów.
+- Usunięto pole publiczny adres IP ze strony szczegółów maszyny wirtualnej.
+
+### <a name="windows-virtual-desktop-agent-troubleshooting"></a>Rozwiązywanie problemów z agentem usług pulpitu wirtualnego systemu Windows
+
+Niedawno został skonfigurowany [Przewodnik rozwiązywania problemów z agentem pulpitu wirtualnego systemu Windows](troubleshoot-agent.md) , aby pomóc klientom, którzy napotykali typowe problemy.
+
+### <a name="microsoft-defender-for-endpoint-integration"></a>Integracja usługi Microsoft Defender for Endpoint
+
+Integracja usługi Microsoft Defender for Endpoint jest teraz ogólnie dostępna. Ta funkcja umożliwia maszynom wirtualnym z systemem Windows Korzystanie z tego samego środowiska badania co na lokalnym komputerze z systemem Windows 10. Jeśli używasz wielu sesji systemu Windows 10 Enterprise, usługa Microsoft Defender dla punktów końcowych będzie obsługiwać maksymalnie 50 połączeń użytkowników współbieżnych, co zapewnia oszczędność kosztów dla wielu sesji systemu Windows 10 Enterprise i zaufanie usługi Microsoft Defender dla punktów końcowych. Aby uzyskać więcej informacji, zapoznaj się z naszym [wpisem w blogu](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
+
+### <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Linia bazowa zabezpieczeń Azure dla pulpitu wirtualnego systemu Windows
+
+Niedawno opublikowano [artykuł dotyczący podstawy zabezpieczeń Azure](security-baseline.md) dla pulpitu wirtualnego systemu Windows, do którego chcemy zwrócić uwagę. Te wytyczne zawierają informacje dotyczące sposobu zastosowania testu porównawczego zabezpieczeń platformy Azure w wersji 2,0 do pulpitu wirtualnego systemu Windows. W ramach testu porównawczego zabezpieczeń platformy Azure opisano ustawienia i praktyki, które zalecamy wykorzystać do zabezpieczenia rozwiązań w chmurze na platformie Azure.
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
@@ -257,16 +312,6 @@ Dodaliśmy nowy klaster bramy w Republice Południowej Afryki, aby zmniejszyć o
 Wprowadziliśmy kilka ulepszeń usługi Microsoft Teams dla systemu Windows Virtual Desktop. Co najważniejsze, pulpit wirtualny systemu Windows obsługuje teraz funkcję przekierowywania audio i wizualizacji dla wywołań. Przekierowanie zwiększa czas oczekiwania przez tworzenie bezpośrednich ścieżek między użytkownikami podczas wywoływania przy użyciu dźwięku lub wideo. Mniejsza odległość oznacza mniejszą liczbę przeskoków, co sprawia, że wywołania wyglądają i wygładzają dźwięk.
 
 Aby dowiedzieć się więcej, zobacz [nasz wpis w blogu](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
-
-## <a name="client-updates"></a>Aktualizacje klienta
-
-Zapoznaj się z tymi artykułami, aby dowiedzieć się więcej o aktualizacjach naszych klientów dla pulpitu wirtualnego systemu Windows i Usługi pulpitu zdalnego:
-
-- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
-- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
-- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
-- [Sieć Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
 ## <a name="next-steps"></a>Następne kroki
 

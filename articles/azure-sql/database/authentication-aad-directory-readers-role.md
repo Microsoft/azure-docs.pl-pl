@@ -9,19 +9,19 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 2374b1fb7f355b336c713a8a3240eacc8b1f188c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5764a8df862610fc076ce2810fcc0d4bf8dbda3c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675067"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094560"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rola czytelnicy Directory w Azure Active Directory dla usługi Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Ta funkcja jest dostępna w **publicznej wersji zapoznawczej** .
+> Ta funkcja jest dostępna w **publicznej wersji zapoznawczej**.
 
 Usługa Azure Active Directory (Azure AD) została wprowadzona [przy użyciu grup w chmurze do zarządzania przypisaniami ról w Azure Active Directory (wersja zapoznawcza)](../../active-directory/roles/groups-concept.md). Dzięki temu można przypisywać role usługi Azure AD do grup.
 
@@ -37,7 +37,7 @@ Rola **czytelnicy Directory** jest wymagana do:
 
 ## <a name="assigning-the-directory-readers-role"></a>Przypisywanie roli czytelnicy katalogów
 
-Aby można było przypisać rolę [**czytelnicy Directory**](../../active-directory/roles/permissions-reference.md#directory-readers) do tożsamości, wymagany jest użytkownik z uprawnieniami [administratora globalnego](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) lub [administratora roli uprzywilejowanej](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) . Użytkownicy, którzy często zarządzają lub wdrażają SQL Database, wystąpienie zarządzane SQL lub usługa Azure Synapse, mogą nie mieć dostępu do tych ról o wysokim poziomie uprawnień. Może to często prowadzić do komplikacji dla użytkowników, którzy tworzą nieplanowane zasoby usługi Azure SQL lub potrzebują pomocy z wysoce uprzywilejowanych członków roli, które często są niedostępne w dużych organizacjach.
+Aby można było przypisać rolę [**czytelnicy Directory**](../../active-directory/roles/permissions-reference.md#directory-readers) do tożsamości, wymagany jest użytkownik z uprawnieniami [administratora globalnego](../../active-directory/roles/permissions-reference.md#global-administrator) lub [administratora roli uprzywilejowanej](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) . Użytkownicy, którzy często zarządzają lub wdrażają SQL Database, wystąpienie zarządzane SQL lub usługa Azure Synapse, mogą nie mieć dostępu do tych ról o wysokim poziomie uprawnień. Może to często prowadzić do komplikacji dla użytkowników, którzy tworzą nieplanowane zasoby usługi Azure SQL lub potrzebują pomocy z wysoce uprzywilejowanych członków roli, które często są niedostępne w dużych organizacjach.
 
 W przypadku wystąpienia zarządzanego SQL rola **czytelnicy Directory** musi być przypisana do tożsamości wystąpienia zarządzanego, aby można było [skonfigurować administratora usługi Azure AD dla wystąpienia zarządzanego](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). 
 
@@ -45,7 +45,7 @@ Przypisanie roli **czytniki katalogów** do tożsamości serwera nie jest wymaga
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Przyznawanie roli czytniki katalogów do grupy usługi Azure AD
 
-Obecnie w **publicznej wersji zapoznawczej** można mieć uprawnienia administratora [globalnego](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) lub [administratora roli uprzywilejowanej](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) , aby utworzyć grupę usługi Azure AD i przypisać do niej uprawnienie do [**odczytywania katalogów**](../../active-directory/roles/permissions-reference.md#directory-readers) . Umożliwi to dostęp do interfejs API programu Graph usługi Azure AD dla członków tej grupy. Ponadto użytkownicy usługi Azure AD będący właścicielami tej grupy mogą przypisywać nowych członków tej grupy, w tym tożsamości serwerów logicznych usługi Azure SQL.
+Obecnie w **publicznej wersji zapoznawczej** można mieć uprawnienia administratora [globalnego](../../active-directory/roles/permissions-reference.md#global-administrator) lub [administratora roli uprzywilejowanej](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) , aby utworzyć grupę usługi Azure AD i przypisać do niej uprawnienie do [**odczytywania katalogów**](../../active-directory/roles/permissions-reference.md#directory-readers) . Umożliwi to dostęp do interfejs API programu Graph usługi Azure AD dla członków tej grupy. Ponadto użytkownicy usługi Azure AD będący właścicielami tej grupy mogą przypisywać nowych członków tej grupy, w tym tożsamości serwerów logicznych usługi Azure SQL.
 
 To rozwiązanie nadal wymaga, aby użytkownik o wysokim poziomie uprawnień (Administrator globalny lub administrator ról uprzywilejowanych) utworzył grupę i przypisał użytkowników jako jednorazowe działanie, ale właściciele grup usługi Azure AD będą mogli przypisywać dodatkowe elementy członkowskie do przodu. Eliminuje to konieczność poniesienia wysokiego uprawnienia użytkownikowi w przyszłości, aby skonfigurować wszystkie bazy danych SQL, wystąpienia zarządzane SQL lub serwery Azure Synapse w swojej dzierżawie usługi Azure AD.
 

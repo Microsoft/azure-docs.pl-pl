@@ -1,17 +1,17 @@
 ---
 title: Omówienie nadmiarowej wysokiej dostępności strefy przy użyciu Azure Database for MySQL elastyczny serwer
 description: Dowiedz się więcej o pojęciach nadmiarowej wysokiej dostępności strefy z Azure Database for MySQL elastyczny serwer
-author: mksuni
-ms.author: sumuth
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.date: 01/29/2021
+ms.openlocfilehash: f01a0869f7786ee6197835610456f4bb1cbd6b03
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241188"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097121"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Pojęcia dotyczące wysokiej dostępności w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
 
@@ -48,7 +48,7 @@ Poniżej przedstawiono niektóre zalety korzystania z funkcji HA o nadmiarowośc
 -   Replika wstrzymania zostanie wdrożona w ramach dokładnej konfiguracji maszyny wirtualnej, takiej jak rdzeni wirtualnych, Storage, ustawienia sieci (Sieć wirtualna, Zapora) itp.
 -   Możliwość usunięcia repliki rezerwy poprzez wyłączenie wysokiej dostępności.
 -   Automatyczne kopie zapasowe są oparte na migawkach, wykonywane z podstawowego serwera bazy danych i przechowywane w strefie nadmiarowej magazynu.
--   W przypadku wystąpienia zdarzenia trybu failover zostanie zainicjowana Nowa replika rezerwowa w pierwotnej podstawowej strefie dostępności.
+-   W przypadku przejścia w tryb failover Azure Database for MySQL elastyczny serwer automatycznie przejdzie w tryb failover w replice gotowości, jeśli jest włączona wysoka dostępność. Konfiguracja wysokiej dostępności spowoduje monitorowanie serwera podstawowego i przywrócenie jego do trybu online.
 -   Klienci zawsze łączą się z serwerem podstawowej bazy danych.
 -   W przypadku awarii bazy danych lub awarii węzła ponowne uruchomienie zostanie podjęte najpierw w tym samym węźle. Jeśli to się nie powiedzie, zostanie wyzwolona automatyczna praca awaryjna.
 -   Możliwość ponownego uruchomienia serwera w celu pobrania wszelkich zmian parametrów serwera statycznego.

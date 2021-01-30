@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656958"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096325"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Przeprowadź migrację do wersji 3. x interfejs API analizy tekstu
 
@@ -38,16 +38,13 @@ Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
 * [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
-#### <a name="client-libraries"></a>Biblioteki klienckie
+#### <a name="client-libraries"></a>Biblioteki klienta
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 ## <a name="ner-and-entity-linking"></a>[NER i łączenie jednostek](#tab/named-entity-recognition)
 
 ### <a name="feature-changes"></a>Zmiany funkcji
-
-> [!NOTE] 
-> Obecnie [Kategorie jednostek v3](named-entity-types.md) są zwracane tylko w języku angielskim i tekście hiszpańskim. Interfejs API zwraca wersję 2,1 wyników dla żądań w innych językach, pod warunkiem, że są one obsługiwane w wersji 2,1.
 
 W wersji 2,1 interfejs API analizy tekstu używa jednego punktu końcowego dla nazwanego rozpoznawania jednostek (NER) i konsolidacji jednostek. Wersja 3 zapewnia rozszerzone wykrywanie nazwanych jednostek i używa oddzielnych punktów końcowych dla żądań NER i konsolidacji jednostek. Począwszy od wersji v 3.1 — wersja zapoznawcza. 1, NER może dodatkowo wykrywać `pii` informacje osobiste i kondycję `phi` . 
 
@@ -70,9 +67,38 @@ Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
 * [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/EntitiesRecognitionGeneral)
 
-#### <a name="client-libraries"></a>Biblioteki klienckie
+#### <a name="client-libraries"></a>Biblioteki klienta
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
+
+#### <a name="version-21-entity-categories"></a>Kategorie jednostek w wersji 2,1
+
+Poniższa tabela zawiera listę kategorii jednostek zwróconych dla NER v 2.1.
+
+| Kategoria   | Opis                          |
+|------------|--------------------------------------|
+| Person (Osoba)   |   Nazwy osób.  |
+|Lokalizacja    | Punkty orientacyjne, struktury, funkcje geograficzne i geopolityczne, w naturalny i ludzki sposób |
+|Organizacja | Firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne. Narodowe i religijne nie są uwzględnione w tym typie jednostki. |
+| PhoneNumber | Numery telefonów (tylko numery telefonów USA i UE). |
+| E-mail | Adresy e-mail. |
+| Adres URL | Adresy URL do witryn sieci Web. |
+| Adres IP | Adresy IP sieci. |
+| DateTime | Daty i godziny dnia.| 
+| Date (Data) | Daty kalendarzowe. |
+| Godzina | Razy dziennie |
+| Zakres dat | Zakresy dat. |
+| Zakres czasu | Zakresy czasu. |
+| Czas trwania | Czasów trwania. |
+| Set | Ustawianie, powtarzające się czasy. |
+| Liczba | Liczby i ilości liczbowe. |
+| Liczba | Numery. |
+| Procent | Wartości procentowe.|
+| Liczba porządkowa | Liczby porządkowe. |
+| Wiek | Ważności. |
+| Waluta | Waluty. |
+| Wymiar | Wymiary i pomiary. |
+| Temperatura | Nosząc. |
 
 ## <a name="language-detection"></a>[Wykrywanie języka](#tab/language-detection)
 
@@ -91,7 +117,7 @@ Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
 * [Wersja 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
-#### <a name="client-libraries"></a>Biblioteki klienckie
+#### <a name="client-libraries"></a>Biblioteki klienta
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
@@ -112,13 +138,13 @@ Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
 * [Wersja 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/KeyPhrases)
 
-#### <a name="client-libraries"></a>Biblioteki klienckie
+#### <a name="client-libraries"></a>Biblioteki klienta
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 ---
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest interfejs API analizy tekstu](overview.md)
 * [Obsługa języków](language-support.md)
