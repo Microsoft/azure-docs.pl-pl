@@ -4,12 +4,12 @@ description: Nie widzisz danych w usłudze Azure Application Insights? Spróbuj 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 26ba586715c7b76ff8972c6574c3c29b837713a1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e41b0a9ce1ff86bc6010e12fdf5d3320f303fd87
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904469"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092455"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Rozwiązywanie problemów z brakiem danych — Application Insights dla platformy .NET/.NET Core
 
@@ -188,7 +188,7 @@ Dane wydajności (procesor CPU, szybkość operacji we/wy itd.) są dostępne dl
 * Sprawdź, czy wszystkie firmy Microsoft zostały faktycznie skopiowane. ApplicationInsights biblioteki dll na serwerze programu wraz z Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * W zaporze może być konieczne [otwarcie niektórych portów TCP](./ip-addresses.md).
 * Jeśli musisz użyć serwera proxy do wysłania z sieci firmowej, ustaw [defaultProxy](/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71)) w Web.config
-* Windows Server 2008: Upewnij się, że zainstalowano następujące aktualizacje: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: Upewnij się, że zainstalowano następujące aktualizacje: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://web.archive.org/web/20150129090641/http://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Użyto, aby wyświetlić dane, ale zostało ono zatrzymane
 * Czy osiągnięto miesięczny limit liczby punktów danych? Aby dowiedzieć się, Otwórz ustawienia/przydział i Cennik. Jeśli tak, możesz uaktualnić plan lub uregulować dodatkową pojemność. Zobacz [schemat cen](https://azure.microsoft.com/pricing/details/application-insights/).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee27f429dbfd1e550a45bbc26413a1c259c4fbe
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87058766"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092372"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Włączanie lub wyłączanie reguły zapory w systemie operacyjnym gościa maszyny wirtualnej platformy Azure
 
@@ -95,7 +95,7 @@ Jeśli maszyna wirtualna jest w trybie online i jest dostępna na innej maszynie
 
 #### <a name="mitigation-4-remote-registry"></a>Łagodzenie 4: Rejestr zdalny
 
-Jeśli maszyna wirtualna jest w trybie online i można uzyskać do niej dostęp z innej maszyny wirtualnej w tej samej sieci wirtualnej, możesz użyć [rejestru zdalnego](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) na drugiej maszynie wirtualnej.
+Jeśli maszyna wirtualna jest w trybie online i można uzyskać do niej dostęp z innej maszyny wirtualnej w tej samej sieci wirtualnej, możesz użyć [rejestru zdalnego](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837) na drugiej maszynie wirtualnej.
 
 1.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit.exe), a następnie wybierz kolejno pozycje **plik**  >  **Połącz z rejestrem sieciowym**.
 
