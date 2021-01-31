@@ -3,165 +3,209 @@ title: Szybki Start — Inicjowanie obsługi symulowanego urządzenia X. 509 na 
 description: Szybki Start — tworzenie i Inicjowanie obsługi symulowanego urządzenia X. 509 za pomocą zestawu SDK języka Python dla IoT Hub Device Provisioning Service (DPS). W tym przewodniku Szybki start używane są rejestracje indywidualne.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 01/29/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 28a65e9e5f85d3c1102875a97ae122a00456c607
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c151f78c6164cc62aac618a141a26eb1da574e3c
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001416"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218392"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki Start: Tworzenie i udostępnianie symulowanego urządzenia X. 509 za pomocą zestawu SDK języka Python dla IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-W tym przewodniku szybki start utworzysz symulowane urządzenie X. 509 na komputerze z systemem Windows. Używasz przykładowego kodu w języku Python do łączenia tego symulowanego urządzenia z usługą IoT Hub przy użyciu rejestracji indywidualnej w usłudze Device Provisioning Service (DPS).
+W tym przewodniku szybki start zainicjujesz komputer deweloperski jako urządzenie języka Python X. 509. Używasz przykładowego kodu urządzenia z [zestawu SDK usługi Azure IoT Python](https://github.com/Azure/azure-iot-sdk-python) , aby podłączyć urządzenie do centrum IoT. Rejestracja indywidualna jest używana z usługą Device Provisioning (DPS) w tym przykładzie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Zapoznaj się z pojęciami [aprowizacji](about-iot-dps.md#provisioning-process) .
 - Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md).
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Program Visual Studio 2015 +](https://visualstudio.microsoft.com/vs/) z programowaniem aplikacji klasycznych w języku C++.
-- [System kompilacji CMAKE](https://cmake.org/download/).
+- [Python 3.5.3 lub nowszy](https://www.python.org/downloads/)
 - Usługi [git](https://git-scm.com/download/).
 
-> [!IMPORTANT]
-> Ten artykuł dotyczy tylko przestarzałego zestawu SDK języka Python w wersji 1. Klienci urządzeń i usług dla usługi IoT Hub Device Provisioning nie są jeszcze dostępni w wersji 2. Zespół jest obecnie trudny w pracy, aby przywrócić dostęp do wersji 2.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Przygotowywanie środowiska 
 
-1. Upewnij się, że zainstalowano [program Visual studio](https://visualstudio.microsoft.com/vs/) 2015 lub nowszy z włączonym obciążeniem "Programowanie aplikacji klasycznych w języku C++" dla instalacji programu Visual Studio.
+1. Upewnij się, że na swojej maszynie masz zainstalowane oprogramowanie `git` i że jest ono dodane do zmiennych środowiskowych dostępnych z okna poleceń. Zobacz stronę z [narzędziami klienckimi Git organizacji Software Freedom Conservancy](https://git-scm.com/download/), aby uzyskać najnowszą wersję narzędzi `git` do zainstalowania, które obejmują powłokę **Git Bash**, czyli aplikację wiersza polecenia, która może służyć do interakcji z lokalnym repozytorium Git. 
 
-2. Pobierz i zainstaluj [system kompilacji CMake](https://cmake.org/download/).
-
-3. Upewnij się, że na swojej maszynie masz zainstalowane oprogramowanie `git` i że jest ono dodane do zmiennych środowiskowych dostępnych z okna poleceń. Zobacz stronę z [narzędziami klienckimi Git organizacji Software Freedom Conservancy](https://git-scm.com/download/), aby uzyskać najnowszą wersję narzędzi `git` do zainstalowania, które obejmują powłokę **Git Bash**, czyli aplikację wiersza polecenia, która może służyć do interakcji z lokalnym repozytorium Git. 
-
-4. Otwórz wiersz polecenia lub powłokę Git Bash. Sklonuj repozytorium GitHub dla przykładu kodu symulacji urządzenia.
+2. Otwórz wiersz polecenia git bash. Sklonuj repozytorium GitHub dla [zestawu Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python).
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
-5. Utwórz folder w swojej lokalnej kopii tego repozytorium GitHub dla procesu kompilacji CMake. 
 
-    ```cmd/sh
-    cd azure-iot-sdk-python/c
-    mkdir cmake
-    cd cmake
-    ```
+## <a name="create-a-self-signed-x509-device-certificate"></a>Tworzenie certyfikatu urządzenia X.509 z podpisem własnym 
 
-6. Uruchom następujące polecenie, aby utworzyć rozwiązanie programu Visual Studio służące do aprowizacji klienta.
-
-    ```cmd/sh
-    cmake -Duse_prov_client:BOOL=ON ..
-    ```
-
-
-## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Tworzenie certyfikatu urządzenia X.509 z podpisem własnym i wpisu rejestracji indywidualnej
-
-W tej sekcji użyjesz certyfikatu z podpisem własnym X.509. Należy pamiętać o następujących ważnych kwestiach:
+W tej sekcji utworzysz certyfikat X. 509 z podpisem własnym. Należy pamiętać o następujących ważnych kwestiach:
 
 * Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowania i nie powinny być używane w środowisku produkcyjnym.
 * Domyślny termin wygaśnięcia certyfikatu z podpisem własnym to jeden rok.
 
-Przykładowy kod z zestawu SDK języka C platformy usługi Azure IoT zostanie użyty do utworzenia certyfikatu, który będzie używany z indywidualnym wpisem rejestracji dla urządzenia symulowanego.
+Jeśli nie masz jeszcze certyfikatów urządzeń do uwierzytelniania urządzenia, możesz utworzyć certyfikat z podpisem własnym za pomocą OpenSSL do testowania w tym artykule.  OpenSSL jest dołączany do instalacji usługi git. 
+
+1. Uruchom następujące polecenie w wierszu polecenia narzędzia Git bash.
+
+    # <a name="windows"></a>[Windows](#tab/windows)
+    
+    ```bash
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -subj "//CN=Python-device-01"
+    ```
+
+    > [!IMPORTANT]
+    > Dodatkowy ukośnik w polu Nazwa podmiotu ( `//CN=Python-device-01` ) jest wymagany tylko w przypadku ucieczki ciągu przy użyciu usługi Git na platformach systemu Windows. 
+
+    # <a name="linux"></a>[Linux](#tab/linux)
+    
+    ```bash
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -subj "/CN=Python-device-01"
+    ```
+    
+    ---
+    
+2. Gdy zostanie wyświetlony monit o **wprowadzenie frazy dostępu PEM:**, użyj frazy Przekaż `1234` do testowania w tym artykule.    
+
+3. Po ponownym wyświetleniu monitu o ponowne **sprawdzenie frazy:** Użyj ponownie frazy `1234` .    
+
+Plik certyfikatu testowego (*Python-Device. pem*) i plik klucza prywatnego (*Python-Device. Key. pem*) są generowane w katalogu, w którym uruchomiono `openssl` polecenie.
+
+
+## <a name="create-an-individual-enrollment-entry-in-dps"></a>Tworzenie indywidualnego wpisu rejestracji w usłudze DPS
+
 
 Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
 
 - [Grupy rejestracji](concepts-service.md#enrollment-group): służą do rejestrowania wielu pokrewnych urządzeń.
 - [Rejestracje indywidualne](concepts-service.md#individual-enrollment): służy do rejestrowania jednego urządzenia.
 
-W tym artykule przedstawiono rejestracje indywidualne.
+W tym artykule przedstawiono rejestrację indywidualną dla jednego urządzenia, która ma zostać zainicjowana za pomocą Centrum IoT Hub.
 
-1. Otwórz rozwiązanie wygenerowane w folderze programu *cmake* o nazwie `azure_iot_sdks.sln` i skompiluj je w programie Visual Studio.
+1. Zaloguj się do Azure Portal, wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz swoją usługę aprowizacji.
 
-2. Kliknij prawym przyciskiem myszy projekt **dice\_device\_enrollment** w folderze **Provision\_Tools**, a następnie wybierz pozycję **Ustaw jako projekt startowy**. Uruchom rozwiązanie. 
+2. W menu usługi Device Provisioning wybierz pozycję **Zarządzaj rejestracjami**. Wybierz kartę **indywidualne rejestracje** i wybierz u góry przycisk **Dodaj rejestrację indywidualną** . 
 
-3. W oknie danych wyjściowych po wyświetleniu monitu wprowadź wartość `i`, aby przeprowadzić rejestrację indywidualną. W oknie danych wyjściowych zostanie wyświetlony lokalnie wygenerowany certyfikat X.509 dla symulowanego urządzenia. 
-    
-    ```output
-    Copy the first certificate to clipboard. Begin with the first occurrence of:
-    
-        -----BEGIN CERTIFICATE----- 
-        
-    End you copying after the first occurrence of:
-    
-        -----END CERTIFICATE-----
-        
-    Make sure to include both of those lines as well.
-    ``` 
-
-    ![Aplikacja Dice device enrollment](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
- 
-4. Utwórz plik o nazwie **_X509testcertificate.pem_** na maszynie z systemem Windows, otwórz go w wybranym edytorze, a następnie skopiuj zawartość schowka do tego pliku. Zapisz plik. 
-
-5. Zaloguj się do Azure Portal, wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz swoją usługę aprowizacji.
-
-6. W menu usługi Device Provisioning wybierz pozycję **Zarządzaj rejestracjami**. Wybierz kartę **indywidualne rejestracje** i wybierz u góry przycisk **Dodaj rejestrację indywidualną** . 
-
-7. W panelu **Dodawanie rejestracji** wprowadź następujące informacje:
+3. W panelu **Dodawanie rejestracji** wprowadź następujące informacje:
    - Wybierz opcję **X.509** jako *Mechanizm* poświadczania tożsamości.
-   - W obszarze *plik PEM lub CER certyfikatu podstawowego* wybierz *pozycję Wybierz plik* , aby wybrać plik certyfikatu **X509testcertificate. pem** utworzony w poprzednich krokach.
+   - W obszarze *plik PEM lub CER certyfikatu podstawowego* wybierz *opcję Wybierz plik* , aby wybrać plik certyfikatu **Python-Device. pem** , jeśli używasz certyfikatu testowego utworzonego wcześniej.
    - Opcjonalnie można podać następujące informacje:
      - Wybierz centrum IoT połączone z Twoją usługą aprowizacji.
-     - Wprowadź unikatowy identyfikator urządzenia. Nadając nazwę urządzeniu, unikaj korzystania z danych poufnych. 
      - Zaktualizuj pole **Początkowy stan bliźniaczej reprezentacji urządzenia** za pomocą wybranej konfiguracji początkowej dla urządzenia.
    - Po zakończeniu naciśnij przycisk **Zapisz** . 
 
      [![Dodawanie rejestracji indywidualnej dla zaświadczania X. 509 w portalu](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
-   Po pomyślnej rejestracji urządzenie X.509 jest wyświetlane jako **riot-device-cert** w kolumnie *Identyfikator rejestracji* na karcie *Indywidualne rejestracje*. 
+   Po pomyślnej rejestracji urządzenie X. 509 jest wyświetlane jako **Python-Device-01** w kolumnie *Identyfikator rejestracji* na karcie *indywidualne rejestracje* . Ta wartość rejestracji pochodzi z nazwy podmiotu w certyfikacie urządzenia. 
 
 ## <a name="simulate-the-device"></a>Symulowanie urządzenia
 
-1. W menu usługi Device Provisioning wybierz pozycję **Przegląd**. Zanotuj _zakres identyfikatorów_ i _globalny punkt końcowy usługi_.
+Przykład aprowizacji języka Python, [provision_x509. PR](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/provision_x509.py) , znajduje się w `azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios` katalogu. Ten przykład wykorzystuje sześć zmiennych środowiskowych do uwierzytelniania i aprowizacji urządzenia IoT przy użyciu usługi DPS. Te zmienne środowiskowe są następujące:
+
+| Nazwa zmiennej              | Opis                                     |
+| :------------------------- | :---------------------------------------------- |
+| `PROVISIONING_HOST`        |  Ta wartość jest globalnym punktem końcowym używanym do łączenia się z zasobem usługi DPS |    
+| `PROVISIONING_IDSCOPE`     |  Ta wartość jest zakresem identyfikatorów dla zasobu usługi DPS |    
+| `DPS_X509_REGISTRATION_ID` |  Ta wartość jest IDENTYFIKATORem urządzenia. Musi być również zgodna z nazwą podmiotu w certyfikacie urządzenia |    
+| `X509_CERT_FILE`           |  Nazwa pliku certyfikatu urządzenia |    
+| `X509_KEY_FILE`            |  Nazwa pliku klucza prywatnego dla certyfikatu urządzenia |
+| `PASS_PHRASE`              |  Hasło użyte do zaszyfrowania pliku certyfikatu i klucza prywatnego ( `1234` ). |    
+
+1. W menu usługi Device Provisioning wybierz pozycję **Przegląd**. Zanotuj _zakres identyfikatorów_ i _globalny punkt końcowy urządzenia_.
 
     ![Informacje o usłudze](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-2. Pobierz i zainstaluj środowisko [Python 2.x lub 3.x](https://www.python.org/downloads/). Upewnij się, że używasz 32-bitowej lub 64-bitowej instalacji zgodnie z wymaganiami konfiguracji. Po wyświetleniu monitu podczas instalacji upewnij się, że język Python został dodany do zmiennych środowiskowych specyficznych dla platformy. Jeśli używasz środowiska Python 2.x, może być konieczne [zainstalowanie lub uaktualnienie systemu zarządzania pakietami języka Python — *pip*](https://pip.pypa.io/en/stable/installing/).
+2. W wierszu polecenia usługi git bash Użyj następujących poleceń, aby dodać zmienne środowiskowe dla globalnego punktu końcowego urządzenia i zakresu identyfikatorów.
+
+    ```bash
+    $export PROVISIONING_HOST=global.azure-devices-provisioning.net
+    $export PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
+    ```
+
+3. Identyfikator rejestracji urządzenia IoT musi odpowiadać nazwie podmiotu w certyfikacie urządzenia. Jeśli Wygenerowano certyfikat testu z podpisem własnym, `Python-device-01` to nazwa podmiotu i Identyfikator rejestracji dla urządzenia. 
+
+    Jeśli masz już certyfikat urządzenia, możesz użyć `certutil` programu do zweryfikowania nazwy pospolitej podmiotu używanej przez urządzenie, jak pokazano poniżej dla certyfikatu testu z podpisem własnym:
+
+    ```bash
+    $ certutil python-device.pem
+    X509 Certificate:
+    Version: 3
+    Serial Number: fa33152fe1140dc8
+    Signature Algorithm:
+        Algorithm ObjectId: 1.2.840.113549.1.1.11 sha256RSA
+        Algorithm Parameters:
+        05 00
+    Issuer:
+        CN=Python-device-01
+      Name Hash(sha1): 1dd88de40e9501fb64892b698afe12d027011000
+      Name Hash(md5): a62c784820daa931b9d3977739b30d12
     
-    > [!NOTE] 
-    > Jeśli korzystasz z systemu Windows, zainstaluj również pakiet [Visual C++ Redistributable for Visual Studio 2015](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads). Pakiety pip wymagają pakietu redystrybucyjnego, aby ładować/wykonywać biblioteki DLL języka C.
-
-3. Postępuj zgodnie z [tymi instrukcjami](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md), aby skompilować pakiety języka Python.
-
-   > [!NOTE]
-   > Jeśli korzystasz z systemu `pip`, zainstaluj również pakiet `azure-iot-provisioning-device-client`.
-
-4. Przejdź do folderu z przykładami.
-
-    ```cmd/sh
-    cd azure-iot-sdk-python/provisioning_device_client/samples
+     NotBefore: 1/29/2021 7:05 PM
+     NotAfter: 1/29/2022 7:05 PM
+    
+    Subject:
+        ===> CN=Python-device-01 <===
+      Name Hash(sha1): 1dd88de40e9501fb64892b698afe12d027011000
+      Name Hash(md5): a62c784820daa931b9d3977739b30d12
     ```
 
-5. Korzystając ze zintegrowanego środowiska projektowego Python, poddaj edycji skrypt python o nazwie **provisioning\_device\_client\_sample.py**. Zmodyfikuj zmienne _GLOBAL\_PROV\_URI_ i _ID\_SCOPE_, ustawiając dla nich podane wcześniej wartości.
+    W wierszu polecenia narzędzia Git bash Ustaw zmienną środowiskową dla identyfikatora rejestracji w następujący sposób:
 
-    ```python
-    GLOBAL_PROV_URI = "{globalServiceEndpoint}"
-    ID_SCOPE = "{idScope}"
-    SECURITY_DEVICE_TYPE = ProvisioningSecurityDeviceType.X509
-    PROTOCOL = ProvisioningTransportProvider.HTTP
+    ```bash
+    $export DPS_X509_REGISTRATION_ID=Python-device-01
     ```
 
-6. Uruchom przykład. 
+4. W wierszu polecenia usługi git bash Ustaw zmienne środowiskowe dla pliku certyfikatu, pliku klucza prywatnego i frazę.
 
-    ```cmd/sh
-    python provisioning_device_client_sample.py
+    ```bash
+    $export X509_CERT_FILE=./python-device.pem
+    $export X509_KEY_FILE=./python-device.key.pem
+    $export PASS_PHRASE=1234
     ```
 
-7. Aplikacja nawiąże połączenie, zarejestruje urządzenie i wyświetli komunikat o pomyślnej rejestracji.
+5. Przejrzyj kod dla [provision_x509. PR](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/provision_x509.py) , jeśli nie używasz języka **Python w wersji 3,7** lub nowszej, wprowadź [tutaj zmianę kodu](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) , aby zamienić `asyncio.run(main())` i zapisać zmiany. 
 
-    ![pomyślna rejestracja](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
+6. Uruchom przykład. Przykład zostanie nawiązane połączenie, zainicjuje urządzenie w centrum i wyśle kilka komunikatów testowych do centrum.
 
-8. W portalu przejdź do centrum IoT Hub połączonego z usługą aprowizacji, a następnie otwórz blok **Device Explorer**. Po pomyślnej aprowizacji symulowanego urządzenia X.509 w centrum identyfikator urządzenia jest wyświetlany w bloku **Device Explorer** z pozycją *STATUS* (stan) ustawioną na wartość **enabled** (włączone). Może być konieczne naciśnięcie przycisku **Odśwież** w górnej części, jeśli blok został już otwarty przed uruchomieniem przykładowej aplikacji urządzenia. 
+    ```bash
+    $ winpty python azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios/provision_x509.py
+    RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
+    The complete registration result is
+    Python-device-01
+    TestHub12345.azure-devices.net
+    initialAssignment
+    null
+    Will send telemetry from the provisioned device
+    sending message #4
+    sending message #7
+    sending message #2
+    sending message #8
+    sending message #5
+    sending message #9
+    sending message #1
+    sending message #6
+    sending message #10
+    sending message #3
+    done sending message #4
+    done sending message #7
+    done sending message #2
+    done sending message #8
+    done sending message #5
+    done sending message #9
+    done sending message #1
+    done sending message #6
+    done sending message #10
+    done sending message #3
+    ```
+
+7. W portalu przejdź do centrum IoT Hub połączonego z usługą aprowizacji, a następnie otwórz blok **urządzenia IoT** znajdujący się w sekcji **eksplorators** w menu po lewej stronie. Po pomyślnej aprowizacji symulowanego urządzenia X.509 w centrum identyfikator urządzenia jest wyświetlany w bloku **Device Explorer** z pozycją *STATUS* (stan) ustawioną na wartość **enabled** (włączone). Może być konieczne naciśnięcie przycisku **Odśwież** w górnej części, jeśli blok został już otwarty przed uruchomieniem przykładowej aplikacji urządzenia. 
 
     ![Urządzenie jest rejestrowane w centrum IoT](./media/python-quick-create-simulated-device-x509/registration.png) 
 
@@ -179,7 +223,7 @@ Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urz�
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono symulowane urządzenie X. 509 na komputerze z systemem Windows i udostępniono je Centrum IoT Hub przy użyciu IoT Hub Device Provisioning Service platformy Azure w portalu. Aby dowiedzieć się, jak zarejestrować urządzenie X. 509 programowo, przejdź do przewodnika Szybki Start dotyczącego rejestrowania na urządzeniach X. 509. 
+W tym przewodniku szybki start utworzono symulowane urządzenie X. 509 na maszynie deweloperskiej i udostępniono je Centrum IoT Hub przy użyciu IoT Hub Device Provisioning Service platformy Azure w portalu. Aby dowiedzieć się, jak zarejestrować urządzenie X. 509 programowo, przejdź do przewodnika Szybki Start dotyczącego rejestrowania na urządzeniach X. 509. 
 
 > [!div class="nextstepaction"]
 > [Przewodnik Szybki Start platformy Azure — rejestrowanie urządzeń X. 509 w usłudze Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-python.md)

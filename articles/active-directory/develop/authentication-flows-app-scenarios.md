@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: c441d8e9fa5a3375b1ec4cd3e68d92e92738261d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: c302e10a169a190d11f016620ec048cc58e3ac28
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755781"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220168"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Przepływy uwierzytelniania i scenariusze aplikacji
 
@@ -42,8 +42,8 @@ W poniższych sekcjach opisano kategorie aplikacji.
 
 Scenariusze uwierzytelniania obejmują dwa działania:
 
-- **Uzyskiwanie tokenów zabezpieczających dla chronionego internetowego interfejsu API**: zalecamy używanie [bibliotek klienckich obsługiwanych przez firmę Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) do uzyskiwania tokenów. W szczególności zalecamy korzystanie z rodziny Microsoft Authentication Library (MSAL).
-- **Ochrona internetowego interfejsu API lub aplikacji sieci Web**: jednym wyzwaniem chroniącym te zasoby jest Weryfikowanie tokenu zabezpieczającego. Na niektórych platformach firma Microsoft oferuje [biblioteki oprogramowania pośredniczącego](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Uzyskiwanie tokenów zabezpieczających dla chronionego internetowego interfejsu API**: zalecamy używanie [biblioteki uwierzytelniania firmy Microsoft (MSAL)](reference-v2-libraries.md)opracowanej i obsługiwanej przez firmę Microsoft.
+- **Ochrona internetowego interfejsu API lub aplikacji sieci Web**: jednym wyzwaniem chroniącym te zasoby jest Weryfikowanie tokenu zabezpieczającego. Na niektórych platformach firma Microsoft oferuje [biblioteki oprogramowania pośredniczącego](reference-v2-libraries.md).
 
 ### <a name="with-users-or-without-users"></a>Z użytkownikami lub bez użytkowników
 
@@ -65,7 +65,7 @@ Tokeny zabezpieczające mogą być uzyskiwane przez wiele typów aplikacji. Te a
   - Aplikacje klasyczne, które wywołują interfejsy API sieci Web w imieniu zalogowanych użytkowników
   - Aplikacji mobilnych
   - Aplikacje działające na urządzeniach, które nie mają przeglądarki, takie jak procesy działające na IoT
-  
+
 - **Poufne aplikacje klienckie**: aplikacje w tej kategorii obejmują:
   - Aplikacje sieci Web wywołujące interfejs API sieci Web
   - Interfejsy API sieci Web wywołujące interfejs API sieci Web
@@ -95,7 +95,7 @@ Aplikacje używają różnych przepływów uwierzytelniania do logowania użytko
 
 Wiele nowoczesnych aplikacji sieci Web jest zbudowanych jako aplikacje jednostronicowe po stronie klienta. Aplikacje te używają języka JavaScript lub struktury, takich jak kątowy, Vue i reagują. Aplikacje te działają w przeglądarce internetowej.
 
-Aplikacje jednostronicowe różnią się od tradycyjnych aplikacji sieci Web po stronie serwera pod kątem cech uwierzytelniania. Korzystając z platformy tożsamości firmy Microsoft, aplikacje jednostronicowe mogą logować użytkowników i uzyskiwać tokeny umożliwiające dostęp do usług zaplecza lub interfejsów API sieci Web. Platforma tożsamości firmy Microsoft oferuje dwa typy dotacji dla aplikacji JavaScript: 
+Aplikacje jednostronicowe różnią się od tradycyjnych aplikacji sieci Web po stronie serwera pod kątem cech uwierzytelniania. Korzystając z platformy tożsamości firmy Microsoft, aplikacje jednostronicowe mogą logować użytkowników i uzyskiwać tokeny umożliwiające dostęp do usług zaplecza lub interfejsów API sieci Web. Platforma tożsamości firmy Microsoft oferuje dwa typy dotacji dla aplikacji JavaScript:
 
 | MSAL.js (2. x) | MSAL.js (1. x) |
 |---|---|
@@ -160,7 +160,7 @@ Aby uzyskać więcej informacji, zobacz [aplikacji mobilnej, która wywołuje in
 
 ### <a name="protected-web-api"></a>Chroniony internetowy interfejs API
 
-Platformy tożsamości firmy Microsoft można używać do zabezpieczania usług sieci Web, takich jak RESTful Web API aplikacji. Chroniony internetowy interfejs API jest wywoływany za pomocą tokenu dostępu. Token pomaga zabezpieczyć dane interfejsu API i uwierzytelniać żądania przychodzące. Obiekt wywołujący internetowy interfejs API dołącza token dostępu w nagłówku autoryzacji żądania HTTP.
+Z punktu końcowego platformy tożsamości firmy Microsoft można korzystać w celu zabezpieczania usług sieci Web, takich jak RESTful internetowy interfejs API aplikacji. Chroniony internetowy interfejs API jest wywoływany za pomocą tokenu dostępu. Token pomaga zabezpieczyć dane interfejsu API i uwierzytelniać żądania przychodzące. Obiekt wywołujący internetowy interfejs API dołącza token dostępu w nagłówku autoryzacji żądania HTTP.
 
 Jeśli chcesz chronić internetowy interfejs API usługi ASP.NET lub ASP.NET Core, musisz sprawdzić poprawność tokenu dostępu. W przypadku tej weryfikacji należy użyć oprogramowania pośredniczącego JWT ASP.NET. Walidacja jest wykonywana przez [rozszerzenia IdentityModel dla biblioteki .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) , a nie przez MSAL.NET.
 
@@ -309,7 +309,7 @@ W kolumnie Windows w poniższej tabeli, za każdym razem, gdy jest wymieniony pr
 | [Aplikacja demona](scenario-daemon-overview.md) <br/> [![Aplikacja demona](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [Internetowy interfejs API wywołujący internetowe interfejsy API](scenario-web-api-call-api-overview.md) <br/><br/> [![Internetowy interfejs API wywołujący internetowe interfejsy API](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core i MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core i MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core i MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
-Aby uzyskać więcej informacji, zobacz [biblioteki obsługiwane przez firmę Microsoft według systemu operacyjnego/języka](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
+Aby uzyskać więcej informacji, zobacz [biblioteki uwierzytelniania platformy tożsamości firmy Microsoft](reference-v2-libraries.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

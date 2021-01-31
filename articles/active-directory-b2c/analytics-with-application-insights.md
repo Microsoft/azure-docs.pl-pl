@@ -1,43 +1,57 @@
 ---
 title: Śledzenie zachowania użytkowników przy użyciu Application Insights
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak włączyć dzienniki zdarzeń w Application Insights z Azure AD B2C użytkowników przy użyciu zasad niestandardowych.
+description: Dowiedz się, jak włączyć dzienniki zdarzeń w Application Insights z Azure AD B2C użytkowników.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2020
+ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: ce80e3376482ef44b466757cf7e345c4bcf186ad
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385981"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218557"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Śledzenie zachowania użytkowników w Azure Active Directory B2C przy użyciu Application Insights
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) obsługuje wysyłanie danych zdarzeń bezpośrednio do [Application Insights](../azure-monitor/app/app-insights-overview.md) przy użyciu klucza Instrumentacji dostarczonego do Azure AD B2C.  Profil techniczny Application Insights umożliwia uzyskanie szczegółowych i dostosowanych dzienników zdarzeń dla użytkowników w celu:
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Azure Active Directory B2C (Azure AD B2C) obsługuje wysyłanie danych zdarzeń bezpośrednio do [Application Insights](../azure-monitor/app/app-insights-overview.md) przy użyciu klucza Instrumentacji dostarczonego do Azure AD B2C. Profil techniczny Application Insights umożliwia uzyskanie szczegółowych i dostosowanych dzienników zdarzeń dla użytkowników w celu:
 
 * Uzyskaj wgląd w zachowania użytkowników.
 * Rozwiązywanie problemów z własnymi zasadami w programowaniu lub w środowisku produkcyjnym.
 * Mierzenie wydajności.
 * Utwórz powiadomienia z Application Insights.
 
-## <a name="how-it-works"></a>Jak to działa
+## <a name="overview"></a>Omówienie
 
-Profil techniczny [Application Insights](application-insights-technical-profile.md) definiuje zdarzenie z Azure AD B2C. Profil określa nazwę zdarzenia, rejestrowane oświadczenia oraz klucz Instrumentacji. W celu opublikowania zdarzenia profil techniczny zostanie następnie dodany jako krok aranżacji w [podróży użytkownika](userjourneys.md).
+Aby włączyć niestandardowe dzienniki zdarzeń, należy dodać profil techniczny Application Insights. W profilu technicznym należy zdefiniować Application Insights klucz instrumentacji, nazwę zdarzenia i oświadczenia do rejestrowania. W celu opublikowania zdarzenia profil techniczny zostanie następnie dodany jako krok aranżacji w [podróży użytkownika](userjourneys.md).
 
-Application Insights może ujednolicić zdarzenia, używając identyfikatora korelacji do rejestrowania sesji użytkownika. Application Insights powoduje, że zdarzenie i sesja są dostępne w ciągu kilku sekund i prezentuje wiele narzędzi do wizualizacji, eksportowania i analitycznych.
+Korzystając z Application Insights, należy wziąć pod uwagę następujące kwestie:
+
+- Istnieje krótkie opóźnienie, zazwyczaj mniej niż pięć minut, zanim nowe dzienniki będą dostępne w Application Insights.
+- Azure AD B2C pozwala wybrać oświadczenia, które mają być rejestrowane. Nie dodawaj oświadczeń zawierających dane osobowe.
+- Aby zarejestrować sesję użytkownika, zdarzenia mogą być ujednolicone przy użyciu identyfikatora korelacji. 
+- Wywołaj Application Insights profil techniczny bezpośrednio od [podróży użytkownika](userjourneys.md) lub [podróży podrzędnych](subjourneys.md). Nie używaj Application Insights profilu technicznego jako [weryfikacji profilu technicznego](validation-technical-profile.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych](custom-policy-get-started.md). Należy mieć działającą niestandardową zasadę do rejestracji i logowania przy użyciu kont lokalnych.
+[!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
 ## <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -46,12 +60,12 @@ Jeśli używasz Application Insights z Azure AD B2C, wystarczy utworzyć zasób 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Upewnij się, że używasz katalogu, który zawiera subskrypcję platformy Azure, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający twoją subskrypcję. Ta dzierżawa nie jest dzierżawą Azure AD B2C.
 3. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Application Insights**.
-4. Kliknij przycisk **Utwórz**.
+4. Kliknij pozycję **Utwórz**.
 5. Wprowadź **nazwę** zasobu.
-6. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web ASP.NET**.
-7. W obszarze **Grupa zasobów**wybierz istniejącą grupę lub wprowadź nazwę nowej grupy.
-8. Kliknij przycisk **Utwórz**.
-4. Po utworzeniu zasobu Application Insights Otwórz go, rozwiń węzeł **Essentials**i skopiuj klucz Instrumentacji.
+6. W obszarze **Typ aplikacji** wybierz pozycję **aplikacja sieci Web ASP.NET**.
+7. W obszarze **Grupa zasobów** wybierz istniejącą grupę lub wprowadź nazwę nowej grupy.
+8. Kliknij pozycję **Utwórz**.
+4. Po utworzeniu zasobu Application Insights Otwórz go, rozwiń węzeł **Essentials** i skopiuj klucz Instrumentacji.
 
 ![Przegląd Application Insights i klucz Instrumentacji](./media/analytics-with-application-insights/app-insights.png)
 
@@ -102,11 +116,11 @@ W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazy
 
 ## <a name="add-new-technical-profiles"></a>Dodaj nowe profile techniczne
 
-Profile techniczne mogą być uznawane za funkcje w środowisku tożsamości Azure AD B2C. W tej tabeli opisano profile techniczne, które są używane do otwierania sesji i publikowania zdarzeń.
+Profile techniczne mogą być uznawane za funkcje w zasadach niestandardowych. W tej tabeli opisano profile techniczne, które są używane do otwierania sesji i publikowania zdarzeń. Rozwiązanie używa podejścia do [włączenia profilu technicznego](technicalprofiles.md#include-technical-profile) . Profil techniczny zawiera inny profil techniczny, aby zmienić ustawienia lub dodać nową funkcję.
 
 | Profil techniczny | Zadanie |
 | ----------------- | -----|
-| AppInsights-Common | Wspólny zestaw parametrów do uwzględnienia we wszystkich profilach technicznych usługi Azure Insights. |
+| AppInsights-Common | Typowy profil techniczny ze wspólnym zestawem konfiguracji. Dołączenie klucza Instrumentacji Application Insights, zbieranie oświadczeń do rejestrowania i tryb dewelopera. Następujące profile techniczne obejmują wspólny profil techniczny i dodają więcej oświadczeń, takich jak nazwa zdarzenia. |
 | AppInsights-SignInRequest | Rejestruje `SignInRequest` zdarzenie z zestawem oświadczeń po odebraniu żądania logowania. |
 | AppInsights-UserSignUp | Rejestruje `UserSignUp` zdarzenie, gdy użytkownik wyzwala opcję rejestracji w trakcie rejestracji/logowania. |
 | AppInsights-SignInComplete | Rejestruje `SignInComplete` zdarzenie po pomyślnym zakończeniu uwierzytelniania, gdy token został wysłany do aplikacji jednostki uzależnionej. |
@@ -129,6 +143,7 @@ Dodaj profile do pliku *TrustFrameworkExtensions.xml* z pakietu początkowego. D
       <InputClaims>
         <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->
         <InputClaim ClaimTypeReferenceId="EventTimestamp" PartnerClaimType="{property:EventTimestamp}" DefaultValue="{Context:DateTimeInUtc}" />
+        <InputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="{property:TenantId}" DefaultValue="{Policy:TrustFrameworkTenantId}" />
         <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
         <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:CorrelationId}" DefaultValue="{Context:CorrelationId}" />
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
@@ -155,6 +170,7 @@ Dodaj profile do pliku *TrustFrameworkExtensions.xml* z pakietu początkowego. D
         <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="SignInComplete" />
         <InputClaim ClaimTypeReferenceId="federatedUser" PartnerClaimType="{property:FederatedUser}" DefaultValue="false" />
         <InputClaim ClaimTypeReferenceId="parsedDomain" PartnerClaimType="{property:FederationPartner}" DefaultValue="Not Applicable" />
+        <InputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="{property:IDP}" DefaultValue="Local" />
       </InputClaims>
       <IncludeTechnicalProfile ReferenceId="AppInsights-Common" />
     </TechnicalProfile>
@@ -217,28 +233,97 @@ Natychmiast po `SendClaims` kroku aranżacji Wywołaj polecenie `AppInsights-Sig
 
 ## <a name="upload-your-file-run-the-policy-and-view-events"></a>Przekaż plik, uruchom zasady i Wyświetl zdarzenia
 
-Zapisz i Przekaż plik *TrustFrameworkExtensions.xml* . Następnie należy wywołać zasady jednostki uzależnionej z poziomu aplikacji lub użyć **Uruchom teraz** w Azure Portal. W ciągu kilku sekund Twoje zdarzenia są dostępne w Application Insights.
+Zapisz i Przekaż plik *TrustFrameworkExtensions.xml* . Następnie należy wywołać zasady jednostki uzależnionej z poziomu aplikacji lub użyć **Uruchom teraz** w Azure Portal. Poczekaj chwilę, a Twoje zdarzenia będą dostępne w Application Insights.
 
 1. Otwórz zasób **Application Insights** w dzierżawie Azure Active Directory.
-2. Wybierz **Usage**pozycję  >  **zdarzenia**użycia.
+2. Wybierz pozycję **użycie**, a następnie wybierz pozycję **zdarzenia**.
 3. Ustawiaj w **ciągu** **ostatniej godziny** i **przez** maksymalnie **3 minuty**.  Może być konieczne wybranie opcji **Odśwież** , aby wyświetlić wyniki.
 
 ![Application Insights USAGE-Events Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
 
-## <a name="optional-collect-more-data"></a>Obowiązkowe Zbieraj więcej danych
+## <a name="collect-more-data"></a>Zbieraj więcej danych
 
-Dodawanie typów i zdarzeń roszczeń do podróży użytkownika w celu dopasowania do Twoich potrzeb. Można użyć [resolverów oświadczeń](claim-resolver-overview.md) lub dowolnego typu oświadczenia ciągu, dodać oświadczenia poprzez dodanie elementu **oświadczenia wejściowego** do zdarzenia Application Insights lub do AppInsights-Common profilu technicznego.
+Aby dopasować się do potrzeb firmy, warto zarejestrować więcej oświadczeń. Aby dodać oświadczenie, najpierw [Zdefiniuj oświadczenie](#define-claims), a następnie Dodaj oświadczenie do kolekcji oświadczeń wejściowych. Oświadczenia dodawane do profilu technicznego *AppInsights-Common* są wyświetlane we wszystkich zdarzeniach. Oświadczenia dodawane do określonego profilu technicznego będą wyświetlane tylko w tym zdarzeniu. Element Claims input zawiera następujące atrybuty:
 
-- **ClaimTypeReferenceId** jest odwołaniem do typu zgłoszenia.
-- **PartnerClaimType** to nazwa właściwości, która pojawia się w usłudze Azure Insights. Użyj składni `{property:NAME}` , gdzie `NAME` jest dodawana właściwość do zdarzenia.
-- **Właściwość DefaultValue** używa dowolnej wartości ciągu lub mechanizmu rozwiązywania konfliktów.
+- **ClaimTypeReferenceId** — jest odwołaniem do typu zgłoszenia. 
+- **PartnerClaimType** — to nazwa właściwości, która pojawia się w usłudze Azure Insights. Użyj składni `{property:NAME}` , gdzie `NAME` jest dodawana właściwość do zdarzenia.
+- **DefaultValue** — zdefiniowana wartość, która ma zostać zarejestrowana, taka jak nazwa zdarzenia. Zgłoszenie, które jest używane w podróży użytkownika, takie jak nazwa dostawcy tożsamości. Jeśli to zgłoszenie jest puste, zostanie użyta wartość domyślna. Na przykład to zgłoszenie `identityProvider` jest ustawiane przez profile techniczne Federacji, takie jak Facebook. Jeśli to zgłoszenie jest puste, oznacza to, że użytkownik loguje się przy użyciu konta lokalnego. W ten sposób wartość domyślna to *Local*. Można też zarejestrować [resolvery roszczeń](claim-resolver-overview.md) z wartością kontekstową, taką jak identyfikator aplikacji lub adres IP użytkownika.
+
+### <a name="manipulating-claims"></a>Manipulowanie oświadczeniami
+
+Możesz użyć [przekształceń oświadczeń wejściowych](custom-policy-trust-frameworks.md#manipulating-your-claims) , aby zmodyfikować oświadczenia wejściowe lub wygenerować nowe przed wysłaniem do Application Insights. W poniższym przykładzie profil techniczny obejmuje transformację oświadczeń wejściowych *CheckIsAdmin* . 
 
 ```xml
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
-<InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />
+<TechnicalProfile Id="AppInsights-SignInComplete">
+  <InputClaimsTransformations>  
+    <InputClaimsTransformation ReferenceId="CheckIsAdmin" />
+  </InputClaimsTransformations>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="isAdmin" PartnerClaimType="{property:IsAdmin}"  />
+    ...
+  </InputClaims>
+  <IncludeTechnicalProfile ReferenceId="AppInsights-Common" />
+</TechnicalProfile>
+```
+
+### <a name="add-events"></a>Dodaj zdarzenia
+
+Aby dodać zdarzenie, Utwórz nowy profil techniczny zawierający profil techniczny *AppInsights-Common* . Następnie Dodaj profil techniczny jako krok aranżacji do [podróży użytkownika](custom-policy-trust-frameworks.md#orchestration-steps). Użyj [warunku wstępnego](userjourneys.md#preconditions) , aby wyzwolić zdarzenie w razie potrzeby. Na przykład zgłoś zdarzenie tylko wtedy, gdy użytkownicy uruchamiają się za pomocą usługi MFA.
+
+```xml
+<TechnicalProfile Id="AppInsights-MFA-Completed">
+  <InputClaims>
+     <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="MFA-Completed" />
+  </InputClaims>
+  <IncludeTechnicalProfile ReferenceId="AppInsights-Common" />
+</TechnicalProfile>
+```
+
+Teraz, gdy masz profil techniczny, Dodaj wydarzenie do podróży użytkownika. Następnie ponownie przenumerowane kroki bez pomijania wartości całkowitych z zakresu od 1 do N.
+
+```xml
+<OrchestrationStep Order="8" Type="ClaimsExchange">
+  <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+    <Value>isActiveMFASession</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+    </Precondition>
+  </Preconditions>
+  <ClaimsExchanges>
+    <ClaimsExchange Id="TrackUserMfaCompleted" TechnicalProfileReferenceId="AppInsights-MFA-Completed" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
+
+## <a name="enable-developer-mode"></a>Włącz tryb dewelopera
+
+Podczas definiowania zdarzeń przy użyciu Application Insights można wskazać, czy tryb dewelopera jest włączony. Tryb dewelopera kontroluje sposób buforowania zdarzeń. W środowisku programistycznym z minimalnym woluminem zdarzeń włączenie trybu dewelopera powoduje natychmiastowe wysyłanie zdarzeń do Application Insights. Wartość domyślna to `false`. Nie włączaj trybu dewelopera w środowiskach produkcyjnych.
+
+Aby włączyć tryb dewelopera, w profilu technicznym *AppInsights-Common* Zmień `DeveloperMode` metadane na `true` : 
+
+```xml
+<TechnicalProfile Id="AppInsights-Common">
+  <Metadata>
+    ...
+    <Item Key="DeveloperMode">true</Item>
+  </Metadata>
+</TechnicalProfile>
+```
+
+## <a name="disable-telemetry"></a>Wyłącz telemetrię
+
+Aby wyłączyć dzienniki usługi Application Insights, w profilu technicznym *AppInsights-Common* Zmień `DisableTelemetry` metadane na `true` : 
+
+```xml
+<TechnicalProfile Id="AppInsights-Common">
+  <Metadata>
+    ...
+    <Item Key="DisableTelemetry">true</Item>
+  </Metadata>
+</TechnicalProfile>
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o profilu technicznym [Application Insights](application-insights-technical-profile.md) w dokumentacji IEF. 
+- Dowiedz się, jak [tworzyć niestandardowe pulpity nawigacyjne wskaźników KPI przy użyciu usługi Azure Application Insights](../azure-monitor/learn/tutorial-app-dashboards.md). 
+
+::: zone-end

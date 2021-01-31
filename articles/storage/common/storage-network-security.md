@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c8807f0200f96dc12a3b3d43fa50a91bec85ed38
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071186"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219913"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
@@ -538,11 +538,11 @@ az storage account network-rule list \
 <a id="exceptions"></a>
 <a id="trusted-microsoft-services"></a>
 
-## <a name="grant-access-to-azure-services"></a>Udzielanie dostępu do usług platformy Azure 
+## <a name="grant-access-to-trusted-azure-services"></a>Udzielanie dostępu zaufanym usługom platformy Azure 
 
-Niektóre usługi platformy Azure działają z sieci, które nie mogą być uwzględnione w regułach sieci. Można udzielić podzestawu takich zaufanych usług platformy Azure do konta magazynu, zachowując reguły sieciowe dla innych aplikacji. Te zaufane usługi będą następnie używały silnego uwierzytelniania do bezpiecznego łączenia się z kontem magazynu. 
+Niektóre usługi platformy Azure działają z sieci, które nie mogą być uwzględnione w regułach sieci. Można udzielić podzestawu takich zaufanych usług platformy Azure do konta magazynu, zachowując reguły sieciowe dla innych aplikacji. Te zaufane usługi będą następnie używały silnego uwierzytelniania do bezpiecznego łączenia się z kontem magazynu.
 
-Można udzielić dostępu do zaufanych usług platformy Azure przez utworzenie wyjątku reguły sieci. Instrukcje krok po kroku znajdują się w sekcji [Zarządzanie wyjątkami](#manage-exceptions) w tym artykule. 
+Można udzielić dostępu do zaufanych usług platformy Azure przez utworzenie wyjątku reguły sieci. Instrukcje krok po kroku znajdują się w sekcji [Zarządzanie wyjątkami](#manage-exceptions) w tym artykule.
 
 Po udzieleniu dostępu do zaufanych usług platformy Azure przyznaje się następujące typy dostępu:
 
@@ -583,17 +583,23 @@ Poniższa tabela zawiera listę usług, które mogą mieć dostęp do danych kon
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Usługa Azure API Management           | Microsoft.ApiManagement/service        | Umożliwia usłudze API Management dostęp do kont magazynu za zaporą przy użyciu zasad. [Dowiedz się więcej](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft. Search/searchServices        | Umożliwia Wyszukiwanie poznawcze usługom dostęp do kont magazynu na potrzeby indeksowania, przetwarzania i wykonywania zapytań. |
-| Azure Cognitive Services       | Microsoft. CognitiveService             | Umożliwia Cognitive Services dostępu do kont magazynu. |
+| Azure Cognitive Services       | Microsoft. CognitiveService/konta    | Umożliwia Cognitive Services dostępu do kont magazynu. |
 | Usługa Azure Container Registry Tasks | Microsoft. ContainerRegistry/rejestry | Zadania ACR mogą uzyskać dostęp do kont magazynu podczas kompilowania obrazów kontenerów. |
 | Azure Data Factory             | Microsoft. DataFactory/fabryki        | Zezwala na dostęp do kont magazynu za pomocą środowiska uruchomieniowego ADF. |
 | Azure Data Share               | Microsoft. dataudział/konta           | Zezwala na dostęp do kont magazynu za poorednictwem udziału danych. |
+| Azure DevTest Labs             | Microsoft. wspólny/laboratoria              | Zezwala na dostęp do kont magazynu za poorednictwem DevTest Labs. |
 | Azure IoT Hub                  | Microsoft. Devices/IotHubs              | Umożliwia zapisanie danych z usługi IoT Hub w usłudze BLOB Storage. [Dowiedz się więcej](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft. Logic/przepływy pracy              | Umożliwia aplikacjom logiki dostęp do kont magazynu. [Dowiedz się więcej](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning Service | Microsoft.MachineLearningServices      | Autoryzowane Azure Machine Learning obszary robocze zapisują dane wyjściowe eksperymentu, modele i dzienniki w usłudze BLOB Storage i odczytywane danych. [Dowiedz się więcej](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
-| Azure Synapse Analytics       | Microsoft.Sql                          | Umożliwia importowanie i eksportowanie danych z określonych baz danych SQL przy użyciu instrukcji COPY lub Base (w puli dedykowanej) lub `openrowset` funkcji i tabel zewnętrznych w puli bezserwerowej. [Dowiedz się więcej](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
-| Azure SQL Database       | Microsoft.Sql                          | Umożliwia [Zapisywanie](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) danych inspekcji na kontach magazynu za zaporą. |
-| Usługa Azure Stream Analytics         | Microsoft. StreamAnalytics             | Umożliwia zapisanie danych z zadania przesyłania strumieniowego w usłudze BLOB Storage. [Dowiedz się więcej](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | Microsoft. Synapse/obszary robocze          | Umożliwia dostęp do danych w usłudze Azure Storage z usługi Azure Synapse Analytics. |
+| Azure Machine Learning Service | Microsoft.MachineLearningServices      | Autoryzowane Azure Machine Learning obszary robocze zapisują dane wyjściowe eksperymentu, modele i dzienniki w usłudze BLOB Storage i odczytywane danych. [Dowiedz się więcej](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Media Services           | Microsoft. Media/MediaServices          | Umożliwia dostęp do kont magazynu za poorednictwem Media Services. |
+| Azure Migrate                  | Microsoft. migrowana/migrateprojects      | Umożliwia dostęp do kont magazynu za poorednictwem Azure Migrate. |
+| Azure Purview                  | Microsoft. kontrolą/konta             | Zezwala usłudze kontrolą na dostęp do kont magazynu. |
+| Azure Remote Rendering         | Microsoft. MixedReality/remoteRenderingAccounts | Umożliwia dostęp do kont magazynu za poorednictwem renderowania zdalnego. |
+| Azure Site Recovery            | Microsoft. RecoveryServices/magazyny      | Umożliwia dostęp do kont magazynu za poorednictwem Site Recovery. |
+| Azure SQL Database             | Microsoft.Sql                          | Umożliwia [Zapisywanie](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) danych inspekcji na kontach magazynu za zaporą. |
+| Azure Synapse Analytics        | Microsoft.Sql                          | Umożliwia importowanie i eksportowanie danych z określonych baz danych SQL przy użyciu instrukcji COPY lub Base (w puli dedykowanej) lub `openrowset` funkcji i tabel zewnętrznych w puli bezserwerowej. [Dowiedz się więcej](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Usługa Azure Stream Analytics         | Microsoft. StreamAnalytics              | Umożliwia zapisanie danych z zadania przesyłania strumieniowego w usłudze BLOB Storage. [Dowiedz się więcej](../../stream-analytics/blob-output-managed-identity.md). |
+| Azure Synapse Analytics        | Microsoft. Synapse/obszary robocze           | Umożliwia dostęp do danych w usłudze Azure Storage z usługi Azure Synapse Analytics. |
 
 ## <a name="grant-access-to-storage-analytics"></a>Udzielanie dostępu do analizy magazynu
 

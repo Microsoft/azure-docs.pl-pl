@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.date: 01/29/2021
+ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706774"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219727"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-pojedynczym serwerze
 
@@ -82,6 +82,16 @@ Przywracanie do punktu w czasie jest przydatne w wielu scenariuszach. Na przykł
 
 Może być konieczne poczekanie na wykonanie następnej kopii zapasowej dziennika transakcji, aby można było przywrócić do punktu w czasie w ciągu ostatnich pięciu minut.
 
+Jeśli chcesz przywrócić porzucaną tabelę, 
+1. Przywróć serwer źródłowy przy użyciu metody wskazywanej w czasie.
+2. Zrzuć tabelę przy użyciu `pg_dump` z przywróconego serwera.
+3. Zmień nazwę tabeli źródłowej na oryginalnym serwerze.
+4. Importuj tabelę przy użyciu wiersza polecenia PSQL na oryginalnym serwerze.
+5. Opcjonalnie można usunąć przywrócony serwer.
+
+>[!Note]
+> Zaleca się, aby nie tworzyć wielu operacji przywracania dla tego samego serwera jednocześnie. 
+
 ### <a name="geo-restore"></a>Przywracanie geograficzne
 
 Serwer można przywrócić w innym regionie świadczenia usługi Azure, w którym usługa jest dostępna, jeśli skonfigurowano serwer pod kątem geograficznie nadmiarowych kopii zapasowych. Serwery obsługujące do 4 TB pamięci masowej można przywrócić do regionu z parą geograficzną lub do dowolnego regionu, który obsługuje maksymalnie 16 TB pamięci masowej. W przypadku serwerów, które obsługują do 16 TB pamięci masowej, można przywrócić kopie zapasowe w dowolnym regionie, w którym są również obsługiwane serwery 16 TB. Przejrzyj [Azure Database for PostgreSQL warstwy cenowe](concepts-pricing-tiers.md) , aby wyświetlić listę obsługiwanych regionów.
@@ -97,7 +107,7 @@ Podczas przywracania geograficznego konfiguracje serwera, które można zmienić
 
 Po przywróceniu z dowolnego mechanizmu odzyskiwania należy wykonać następujące zadania, aby uzyskać kopie zapasowe użytkowników i aplikacji:
 
-- Jeśli nowy serwer ma zastąpić oryginalny serwer, przekierować klientów i aplikacje klienckie na nowy serwer
+- Jeśli nowy serwer ma zastąpić oryginalny serwer, przekierować klientów i aplikacje klienckie na nowy serwer. Zmień również nazwę użytkownika na `username@new-restored-server-name` .
 - Upewnij się, że istnieją odpowiednie reguły zapory na poziomie serwera i sieci wirtualnej, aby użytkownicy mogli się łączyć. Te reguły nie są kopiowane z oryginalnego serwera.
 - Upewnij się, że istnieją odpowiednie identyfikatory logowania i uprawnienia na poziomie bazy danych
 - W razie potrzeby skonfiguruj alerty

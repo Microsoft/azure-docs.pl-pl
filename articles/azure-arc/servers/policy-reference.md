@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla serwerów z obsługą usługi Azure Arc
 description: Azure Policy wyświetla listę wbudowanych definicji zasad dla serwerów z obsługą usługi Azure ARC (wersja zapoznawcza). Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 10a7d57b8c750c885d81ed1f3b791500db1f661c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 1830d79c80d15631a3b70bb1d894ae108f48e2e6
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805121"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218931"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Azure Policy wbudowane definicje dla serwerów z obsługą usługi Azure Arc
 

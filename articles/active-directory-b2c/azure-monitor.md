@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 11/12/2020
-ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/29/2021
+ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170620"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219234"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor
 
@@ -31,6 +31,10 @@ Zdarzenia dziennika można kierować do:
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
 W tym artykule dowiesz się, jak przenieść dzienniki do obszaru roboczego usługi Azure Log Analytics. Następnie możesz utworzyć pulpit nawigacyjny lub utworzyć alerty, które są oparte na działaniach Azure AD B2C użytkownikach.
+
+> [!IMPORTANT]
+> Planując transfer dzienników Azure AD B2C do różnych rozwiązań monitorowania lub repozytorium, należy wziąć pod uwagę następujące kwestie. Dzienniki Azure AD B2C zawierają dane osobowe. Takie dane powinny być przetwarzane w sposób zapewniający odpowiednie bezpieczeństwo danych osobowych, w tym ochronę przed nieautoryzowanym lub sprzecznym przetwarzaniem, przy użyciu odpowiednich środków technicznych lub organizacyjnych.
+
 
 ## <a name="deployment-overview"></a>Omówienie wdrażania
 

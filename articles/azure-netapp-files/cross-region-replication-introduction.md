@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.custom: references_regions
+ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696095"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220908"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replikacja między regionami Azure NetApp Files woluminów
 
@@ -28,26 +29,31 @@ Funkcja replikacji Azure NetApp Files zapewnia ochronę danych za pomocą replik
 > [!IMPORTANT]
 > Funkcja replikacji między regionami jest obecnie w publicznej wersji zapoznawczej. Musisz przesłać żądanie waitlist, aby uzyskać dostęp do funkcji za Azure NetApp Files pomocą [strony przesyłania waitlist replikacji między regionami](https://aka.ms/anfcrrpreviewsignup). Przed rozpoczęciem korzystania z funkcji replikacji między regionami poczekaj oficjalne powiadomienie e-mail z zespołu Azure NetApp Files.
 
-## <a name="supported-region-pairs"></a>Obsługiwane pary regionów
+## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Obsługiwane pary replikacji między regionami
 
-Azure NetApp Files replikacja woluminu jest obecnie dostępna w następujących parach stałych obszarów:  
+Azure NetApp Files replikacja woluminu jest obsługiwana między różnymi [lokalnymi parami](/azure/best-practices-availability-paired-regions#azure-regional-pairs) i Nieparami platformy Azure. Azure NetApp Files replikacja woluminu jest obecnie dostępna w następujących regionach:  
 
-* Zachodnie stany USA i Wschodnie stany USA
-* Zachodnie stany USA 2 i Wschodnie stany USA 
-* Południowo-środkowe stany USA i środkowe stany USA 
-* Południowo-środkowe stany USA i wschód
-* Południowe Południowo-środkowe i Wschodnie stany USA 2 
-* Wschodnie stany USA i Wschodnie stany USA 2  
-* Wschodnie stany USA 2 i środkowe stany USA 
+### <a name="azure-regional-pairs"></a>Pary regionalne platformy Azure
+
+* Wschodnie stany USA i zachodnie stany USA
+* Wschodnie stany USA 2 i środkowe stany USA
 * Australia Wschodnia i Australia Południowo-Wschodnia
 * Kanada Środkowa i Kanada Wschodnia
-* Indie Środkowe i Indie Południowe
+* Indie Południowe i Indie Środkowe 
 * Niemcy Środkowo-Zachodnie i Niemcy Północne
 * Japonia Wschodnia i Japonia Zachodnia
 * Europa Północna i Europa Zachodnia
-* Azja Południowo-Wschodnia i Australia Wschodnia
-* Południowe Zjednoczone Królestwo i Niemcy Środkowo-Zachodnie
 * Południowe Zjednoczone Królestwo i Zachodnie Zjednoczone Królestwo
+
+### <a name="azure-regional-non-pairs"></a>Regionalne platformy Azure bez par
+
+*   Zachodnie stany USA 2 i Wschodnie stany USA
+*   Południowo-środkowe stany USA i środkowe stany USA
+*   Południowo-środkowe stany USA i Wschodnie stany USA
+*   Południowo-środkowe stany USA i Wschodnie stany USA 2
+*   Wschodnie stany USA i Wschodnie stany USA 2
+*   Australia Wschodnia i Azja Południowo-Wschodnia 
+*   Niemcy Środkowo-Zachodnie i Południowe Zjednoczone Królestwo
 
 ## <a name="service-level-objectives"></a>Cele poziomu usługi
 

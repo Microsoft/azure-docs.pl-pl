@@ -128,3 +128,9 @@
       href: production-readiness.md
     - name: Przejrzystość i zasady odpowiedzialnego korzystania ze sztucznej inteligencji
       href: 'https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/'
+- name: Zasoby
+  items:
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/updates/?category=media'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'

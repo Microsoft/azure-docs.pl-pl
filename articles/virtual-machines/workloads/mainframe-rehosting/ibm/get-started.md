@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: efc4f6293623278314df3ac55b2fecae2e28f7d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a2b5350e1aebeff3cc9dc3996f7e0a92c424ecf3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968353"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219998"
 ---
 # <a name="ibm-workloads-on-azure"></a>Obciążenia firmy IBM na platformie Azure
 
 Wiele obciążeń firmy IBM mainframe opartych na systemie z/OS może być replikowanych na platformie Azure bez utraty funkcjonalności, a użytkownicy nawet obserwowanie zmiany w ich podstawowych systemach. Ponowne hostowanie aplikacji na platformie Azure zapewnia funkcje podobne do komputera mainframe oraz elastyczność, dostępność oraz potencjalne oszczędności w chmurze.
 
-Platforma Azure obsługuje integrację z istniejącymi środowiskami firmy IBM mainframe, umożliwiając Migrowanie applicates, które mają sens, uruchamianie rozwiązań hybrydowych, a następnie Migrowanie w czasie. Mimo że można całkowicie ponownie napisać istniejące programy oparte na programie mainframe dla platformy Azure, jest to bardziej powszechne, aby ponownie je hostować. Ponowne zapisywanie powoduje dodanie kosztów, złożoności i czasu do projektów migracji. W przypadku rehostowania można:
+Platforma Azure obsługuje integrację z istniejącymi środowiskami firmy IBM mainframe, umożliwiając Migrowanie aplikacji, które mają sens, uruchamianie rozwiązań hybrydowych, a następnie Migrowanie w czasie. Mimo że można całkowicie ponownie napisać istniejące programy oparte na programie mainframe dla platformy Azure, jest to bardziej powszechne, aby ponownie je hostować. Ponowne zapisywanie powoduje dodanie kosztów, złożoności i czasu do projektów migracji. W przypadku rehostowania można:
 
 - Przenoszenie aplikacji do emulatora opartego na chmurze.
 
@@ -41,4 +41,4 @@ Dostępny jest obszerny ekosystem partnerów, który ułatwia Migrowanie system�
 - [Migracja komputera mainframe: mitów i fakty](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Zainstaluj środowisko IBM zD&w środowisku deweloperskim/testowym na platformie Azure](./install-ibm-z-environment.md)
 - [Konfigurowanie dystrybucji kontrolowanej przez deweloperów aplikacji (ADCD) w programie IBM zD&T v1](./demo.md)
-- [IBM DB2 pureScale na platformie Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [IBM DB2 pureScale na platformie Azure](ibm-db2-purescale-azure.md)

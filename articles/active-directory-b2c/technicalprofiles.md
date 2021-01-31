@@ -11,28 +11,28 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 66172fc9e258ae99e8ed263342025f5c33f7a168
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861874"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219676"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Profil techniczny zapewnia platformę z wbudowanym mechanizmem do komunikowania się z różnymi rodzajami stron przy użyciu zasad niestandardowych w Azure Active Directory B2C (Azure AD B2C). Profile techniczne są używane do komunikowania się z dzierżawcą Azure AD B2C, tworzenia użytkownika lub odczytywania profilu użytkownika. Profil techniczny może być samodzielnie potwierdzony w celu umożliwienia interakcji z użytkownikiem. Na przykład Zbierz poświadczenia użytkownika w celu zalogowania się, a następnie wyrenderowania strony rejestracji lub resetowania hasła.
+Profil techniczny zapewnia platformę z wbudowanym mechanizmem do komunikowania się z różnymi rodzajami stron. Profile techniczne są używane do komunikowania się z dzierżawcą Azure AD B2C, tworzenia użytkownika lub odczytywania profilu użytkownika. Profil techniczny może być samodzielnie potwierdzony w celu umożliwienia interakcji z użytkownikiem. Na przykład Zbierz poświadczenia użytkownika w celu zalogowania się, a następnie wyrenderowania strony rejestracji lub resetowania hasła.
 
 ## <a name="type-of-technical-profiles"></a>Typ profilów technicznych
 
 Profil techniczny umożliwia realizację następujących typów scenariuszy:
 
-- [Application Insights](application-insights-technical-profile.md) — wysyłanie danych zdarzenia do [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [Application Insights](analytics-with-application-insights.md) — wysyłanie danych zdarzenia do [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md) — zapewnia obsługę Azure Active Directory B2C zarządzania użytkownikami.
 - [Usługa Azure ad Multi-Factor Authentication](multi-factor-auth-technical-profile.md) — zapewnia obsługę weryfikowania numeru telefonu przy użyciu usługi azure AD Multi-Factor Authentication (MFA). 
 - [Przekształcanie oświadczeń](claims-transformation-technical-profile.md) — Wywołaj przekształcenia oświadczeń wyjściowych na potrzeby manipulowania wartościami oświadczeń, Weryfikuj oświadczenia lub ustaw wartości domyślne dla zestawu oświadczeń wyjściowych.
-- [Wskazówka tokenu identyfikatora](id-token-hint.md) — sprawdza poprawność `id_token_hint` podpisu tokenu JWT, nazwy wystawcy i odbiorcy tokenu oraz wyodrębnia z tokenu przychodzącego.
+- [Wskazówka tokenu identyfikatora](id-token-hint.md) — sprawdza poprawność `id_token_hint` podpisu tokenu JWT, nazwy wystawcy oraz odbiorców tokenu i wyodrębnia z tokenu przychodzącego.
 - [Wystawca tokenu JWT](jwt-issuer-technical-profile.md) — emituje token JWT, który jest zwracany z powrotem do aplikacji jednostki uzależnionej.
 - [OAuth1](oauth1-technical-profile.md) -Federacja z dowolnym dostawcą tożsamości protokołu OAuth 1,0.
 - [OAuth2](oauth2-technical-profile.md) -Federacja z dowolnym dostawcą tożsamości protokołu OAuth 2,0.
@@ -47,7 +47,7 @@ Profil techniczny umożliwia realizację następujących typów scenariuszy:
 
 ## <a name="technical-profile-flow"></a>Przepływ profilu technicznego
 
-Wszystkie typy profilów technicznych mają takie same koncepcje. Wysyłasz oświadczenia wejściowe, uruchamiaj transformację oświadczeń i Komunikuj się ze skonfigurowanymi stronami, takimi jak dostawca tożsamości, interfejs API REST lub usługi katalogowe Azure AD. Po zakończeniu procesu profil techniczny zwróci oświadczenia wyjściowe i może uruchomić transformację oświadczeń wyjściowych. Na poniższym diagramie pokazano, w jaki sposób przekształcenia i mapowania, do których odwołuje się profil techniczny, są przetwarzane. Bez względu na to, że profil techniczny współdziała z programem, po wykonaniu dowolnego przekształcenia oświadczeń dane wyjściowe z profilu technicznego są natychmiast przechowywane w zbiorze oświadczeń.
+Wszystkie typy profilów technicznych mają takie same koncepcje. Zacznij od odczytywania oświadczeń wejściowych, uruchamiaj transformację oświadczeń. Następnie należy skontaktować się ze skonfigurowaną stroną, taką jak dostawca tożsamości, interfejs API REST lub usługi katalogowe Azure AD. Po zakończeniu procesu profil techniczny zwróci oświadczenia wyjściowe i może uruchomić transformację oświadczeń wyjściowych. Na poniższym diagramie pokazano, w jaki sposób przekształcenia i mapowania, do których odwołuje się profil techniczny, są przetwarzane. Po wykonaniu transformacji oświadczeń, oświadczenia wyjściowe są natychmiast przechowywane w zbiorze oświadczeń. Bez względu na to, że profil techniczny współdziała z.
 
 ![Diagram ilustrujący przepływ profilu technicznego](./media/technical-profiles/technical-profile-flow.png)
 
@@ -64,7 +64,7 @@ Wszystkie typy profilów technicznych mają takie same koncepcje. Wysyłasz ośw
 1. **Przekształcenia oświadczeń wyjściowych** — po ukończeniu profilu technicznego Azure AD B2C uruchamia [transformację oświadczeń](claimstransformations.md)wyjściowych. 
 1. **Zarządzanie sesjami logowania jednokrotnego (SSO)** — utrzymuje dane profilu technicznego w sesji przy użyciu funkcji [zarządzania sesjami logowania jednokrotnego](custom-policy-reference-sso.md).
 
-Element **TechnicalProfiles** zawiera zestaw profilów technicznych obsługiwanych przez dostawcę usług. Każdy dostawca oświadczeń musi mieć co najmniej jeden profil techniczny, który określa punkty końcowe i protokoły wymagane do komunikowania się z dostawcą oświadczeń. Dostawca oświadczeń może mieć wiele profilów technicznych.
+Element **TechnicalProfiles** zawiera zestaw profilów technicznych obsługiwanych przez dostawcę usług. Każdy dostawca oświadczeń musi mieć co najmniej jeden profil techniczny. Profil techniczny określa punkty końcowe i protokoły, które są konieczne do komunikowania się z dostawcą oświadczeń. Dostawca oświadczeń może mieć wiele profilów technicznych.
 
 ```xml
 <ClaimsProvider>
@@ -96,14 +96,14 @@ Element **profilu technicznym** zawiera następujący atrybut:
 | Nazwa wyświetlana | 1:1 | Nazwa wyświetlana profilu technicznego. |
 | Opis | 0:1 | Opis profilu technicznego. |
 | Protokół | 1:1 | Protokół używany do komunikacji z drugą stroną. |
-| Metadane | 0:1 | Kolekcja par klucz/wartość, które są wykorzystywane przez protokół do komunikacji z punktem końcowym w trakcie transakcji. |
+| Metadane | 0:1 | Kolekcja klucz/wartość, która kontroluje zachowanie profilu technicznego. |
 | InputTokenFormat | 0:1 | Format tokenu wejściowego. Możliwe wartości: `JSON` , `JWT` , `SAML11` lub `SAML2` . `JWT`Wartość reprezentuje token sieci Web JSON zgodnie ze specyfikacją IETF. `SAML11`Wartość reprezentuje token zabezpieczający protokołu SAML 1,1 zgodnie ze specyfikacją języka Oasis.  `SAML2`Wartość reprezentuje token zabezpieczający protokołu SAML 2,0 zgodnie ze specyfikacją języka Oasis. |
 | OutputTokenFormat | 0:1 | Format tokenu wyjściowego. Możliwe wartości: `JSON` , `JWT` , `SAML11` lub `SAML2` . |
 | CryptographicKeys | 0:1 | Lista kluczy kryptograficznych, które są używane w profilu technicznym. |
 | InputClaimsTransformations | 0:1 | Lista wcześniej zdefiniowanych odwołań do transformacji oświadczeń, które należy wykonać przed wysłaniem jakichkolwiek oświadczeń do dostawcy oświadczeń lub jednostki uzależnionej. |
 | InputClaims | 0:1 | Lista wcześniej zdefiniowanych odwołań do typów zgłoszeń, które są pobierane jako dane wejściowe w profilu technicznym. |
-| PersistedClaims | 0:1 | Lista wcześniej zdefiniowanych odwołań do typów oświadczeń, które są utrwalane przez dostawcę oświadczeń odnoszących się do profilu technicznego. |
-| DisplayClaims | 0:1 | Lista wcześniej zdefiniowanych odwołań do typów oświadczeń, które są prezentowane przez dostawcę oświadczeń, które odnoszą się do [profilu technicznego z własnym potwierdzeniem](self-asserted-technical-profile.md). Funkcja DisplayClaims jest obecnie w **wersji zapoznawczej**. |
+| PersistedClaims | 0:1 | Lista wcześniej zdefiniowanych odwołań do typów zgłoszeń, które będą utrwalane przez profil techniczny. |
+| DisplayClaims | 0:1 | Lista wcześniej zdefiniowanych odwołań do typów zgłoszeń, które są prezentowane przez [własny profil techniczny](self-asserted-technical-profile.md). Funkcja DisplayClaims jest obecnie w **wersji zapoznawczej**. |
 | OutputClaims | 0:1 | Lista wcześniej zdefiniowanych odwołań do typów zgłoszeń, które są pobierane jako dane wyjściowe w profilu technicznym. |
 | OutputClaimsTransformations | 0:1 | Lista wcześniej zdefiniowanych odwołań do transformacji oświadczeń, które należy wykonać po odebraniu oświadczeń od dostawcy oświadczeń. |
 | ValidationTechnicalProfiles | 0: n | Lista odwołań do innych profilów technicznych używanych przez profil techniczny do celów weryfikacji. Aby uzyskać więcej informacji, zobacz temat [Sprawdzanie poprawności profilu technicznego](validation-technical-profile.md)|
@@ -121,7 +121,7 @@ Element **profilu technicznym** zawiera następujący atrybut:
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Nazwa | Tak | Nazwa prawidłowego protokołu obsługiwanego przez Azure AD B2C, który jest używany jako część profilu technicznego. Możliwe wartości: `OAuth1` , `OAuth2` ,,, `SAML2` `OpenIdConnect` `Proprietary` lub `None` . |
-| Program obsługi | Nie | Jeśli nazwa protokołu jest ustawiona na `Proprietary` , określ w pełni kwalifikowaną nazwę zestawu, który jest używany przez Azure AD B2C do określenia procedury obsługi protokołu. |
+| Program obsługi | Nie | Jeśli nazwa protokołu jest ustawiona na `Proprietary` , określ nazwę zestawu, który jest używany przez Azure AD B2C, aby określić procedurę obsługi protokołu. |
 
 ## <a name="metadata"></a>Metadane
 
@@ -129,7 +129,7 @@ Element **Metadata** zawiera odpowiednie opcje konfiguracji w określonym protok
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Element | 0: n | Metadane odnoszące się do profilu technicznego. Każdy typ profilu technicznego ma inny zestaw elementów metadanych. Aby uzyskać więcej informacji, zobacz sekcję typy profilów technicznych. |
+| Element | 0: n | Metadane odnoszące się do profilu technicznego. Każdy typ profilu technicznego ma inny zestaw elementów metadanych. Aby uzyskać więcej informacji, zobacz sekcję typy profilów technicznych.  |
 
 ### <a name="item"></a>Element
 
@@ -173,7 +173,7 @@ Poniższy przykład ilustruje użycie metadanych związanych z [profilem technic
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 
-Azure AD B2C przechowuje wpisy tajne i certyfikaty w formie [kluczy zasad](policy-keys-overview.md) , aby ustanowić relację zaufania z usługami, które integrują się z usługą. Podczas wykonywania przez profil techniczny Azure AD B2C pobiera klucze kryptograficzne z kluczy zasad Azure AD B2C, a następnie używa kluczy ustanawiania zaufania, szyfrowania lub podpisywania tokenu. Te relacje zaufania składają się z:
+Aby ustanowić relację zaufania z usługami, które integrują się z usługą, Azure AD B2C przechowuje wpisy tajne i certyfikaty w postaci [kluczy zasad](policy-keys-overview.md). Podczas wykonywania przez profil techniczny Azure AD B2C pobiera klucze kryptograficzne z kluczy zasad Azure AD B2C. Następnie używa kluczy ustanawiania zaufania, szyfrowania lub podpisywania tokenu. Te relacje zaufania składają się z:
 
 - Federacja z dostawcami tożsamości [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys)i [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys)
 - Zabezpieczanie połączenia za pomocą [usług interfejsu API REST](secure-rest-api.md)
@@ -198,7 +198,7 @@ Element **Key** zawiera następujący atrybut:
 
 Element **InputClaimsTransformations** może zawierać kolekcję elementów transformacji oświadczeń wejściowych, które są używane do modyfikowania oświadczeń wejściowych lub generują nowe. 
 
-Dane wyjściowe poprzedniej transformacji oświadczeń w kolekcji transformacji oświadczeń mogą być oświadczeniami wejściowymi kolejnych transformacji oświadczeń wejściowych, co pozwala na uzyskanie sekwencji transformacji oświadczeń w zależności od siebie.
+Dane wyjściowe poprzedniej transformacji oświadczeń w kolekcji transformacji oświadczeń mogą być oświadczeniami wejściowymi kolejnych transformacji oświadczeń wejściowych, co pozwala na zastosowanie sekwencji transformacji oświadczeń w zależności od siebie.
 
 Element **InputClaimsTransformations** zawiera następujący element:
 
@@ -251,13 +251,13 @@ Element **oświadczenie inputclaim** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Tak | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad. |
+| ClaimTypeReferenceId | Tak | Identyfikator typu żądania. Oświadczenie jest już zdefiniowane w sekcji schematu oświadczeń w pliku zasad lub nadrzędnym pliku zasad. |
 | DefaultValue | Nie | Wartość domyślna, która ma zostać użyta do utworzenia żądania, jeśli nie istnieje w nim zastrzeżenie wskazywane przez ClaimTypeReferenceId, aby uzyskane wystąpienie może być używane jako oświadczenie inputclaim przez profil techniczny. |
 | PartnerClaimType | Nie | Identyfikator typu dla partnera zewnętrznego, na który jest mapowany określony typ roszczeń zasad. Jeśli atrybut PartnerClaimType nie zostanie określony, określony typ roszczeń zasad jest mapowany na typ wiązania partnera o tej samej nazwie. Użyj tej właściwości, gdy nazwa typu usługi jest inna od drugiej strony. Na przykład nazwa pierwszego wystąpienia to "imięname", podczas gdy Partner używa roszczeń o nazwie "first_name". |
 
 ## <a name="display-claims"></a>Wyświetl oświadczenia
 
-Element **DisplayClaims** zawiera listę oświadczeń zdefiniowanych przez [własny profil techniczny](self-asserted-technical-profile.md) , które mają być prezentowane na ekranie w celu zbierania danych od użytkownika. W kolekcji Wyświetl oświadczenia można dołączyć odwołanie do [typu oświadczenia](claimsschema.md) [lub do utworzonego](display-controls.md) ekranu. 
+Element **DisplayClaims** zawiera listę oświadczeń, które mają być wyświetlane na ekranie w celu zbierania danych od użytkownika. W kolekcji Wyświetl oświadczenia można dołączyć odwołanie do [typu oświadczenia](claimsschema.md) [lub do utworzonego](display-controls.md) ekranu. 
 
 - Typ zgłoszenia to odwołanie do żądania, które ma być wyświetlane na ekranie. 
   - Aby wymusić użytkownikowi podanie wartości dla określonego żądania, ustaw **wymagany** atrybut elementu **DisplayClaim** na `true` .
@@ -326,7 +326,7 @@ Element **PersistedClaim** zawiera następujące atrybuty:
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Tak | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad. |
-| DefaultValue | Nie | Wartość domyślna, która ma zostać użyta do utworzenia żądania, jeśli nie istnieje w nim zastrzeżenie wskazywane przez ClaimTypeReferenceId, aby uzyskane wystąpienie może być używane jako oświadczenie inputclaim przez profil techniczny. |
+| DefaultValue | Nie | Wartość domyślna, która ma zostać użyta do utworzenia żądania, jeśli nie istnieje. |
 | PartnerClaimType | Nie | Identyfikator typu dla partnera zewnętrznego, na który jest mapowany określony typ roszczeń zasad. Jeśli atrybut PartnerClaimType nie zostanie określony, określony typ roszczeń zasad jest mapowany na typ wiązania partnera o tej samej nazwie. Użyj tej właściwości, gdy nazwa typu usługi jest inna od drugiej strony. Na przykład nazwa pierwszego wystąpienia to "imięname", podczas gdy Partner używa roszczeń o nazwie "first_name". |
 
 W poniższym przykładzie profil techniczny usługi **AAD-UserWriteUsingLogonEmail** lub [pakiet początkowy](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts), który tworzy nowe konto lokalne, utrzymuje następujące oświadczenia:
@@ -357,13 +357,13 @@ Element **oświadczenie outputclaim** zawiera następujące atrybuty:
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Tak | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad. |
-| DefaultValue | Nie | Wartość domyślna, która ma zostać użyta do utworzenia żądania, jeśli nie istnieje w nim zastrzeżenie wskazywane przez ClaimTypeReferenceId, aby uzyskane wystąpienie może być używane jako oświadczenie inputclaim przez profil techniczny. |
+| DefaultValue | Nie | Wartość domyślna, która ma zostać użyta do utworzenia żądania, jeśli nie istnieje. |
 |AlwaysUseDefaultValue |Nie |Wymuś użycie wartości domyślnej.  |
-| PartnerClaimType | Nie | Identyfikator typu dla partnera zewnętrznego, na który jest mapowany określony typ roszczeń zasad. Jeśli atrybut PartnerClaimType nie zostanie określony, określony typ roszczeń zasad jest mapowany na typ wiązania partnera o tej samej nazwie. Użyj tej właściwości, gdy nazwa typu usługi jest inna od drugiej strony. Na przykład nazwa pierwszego wystąpienia to "imięname", podczas gdy Partner używa roszczeń o nazwie "first_name". |
+| PartnerClaimType | Nie | Identyfikator typu dla partnera zewnętrznego, na który jest mapowany określony typ roszczeń zasad. Jeśli nie określono atrybutu typu wiązania partnera, określony typ żądania zasad jest mapowany na typ wiązania partnera o tej samej nazwie. Użyj tej właściwości, gdy nazwa typu usługi jest inna od drugiej strony. Na przykład nazwa pierwszego wystąpienia to "imięname", podczas gdy Partner używa roszczeń o nazwie "first_name". |
 
 ## <a name="output-claims-transformations"></a>Przekształcenia oświadczeń wyjściowych
 
-Element **OutputClaimsTransformations** może zawierać kolekcję elementów **OutputClaimsTransformation** , które są używane do modyfikowania oświadczeń wyjściowych lub generowania nowych. Po wykonaniu oświadczenia wyjściowe są umieszczane w zbiorze oświadczeń. Tych oświadczeń można użyć w kolejnych krokach aranżacji.
+Element **OutputClaimsTransformations** może zawierać kolekcję elementów **OutputClaimsTransformation** . Przekształcenia oświadczeń wyjściowych są używane do modyfikowania oświadczeń wyjściowych lub generowania nowych. Po wykonaniu oświadczenia wyjściowe są umieszczane w zbiorze oświadczeń. Tych oświadczeń można użyć w kolejnych krokach aranżacji.
 
 Dane wyjściowe poprzedniej transformacji oświadczeń w kolekcji transformacji oświadczeń mogą być oświadczeniami wejściowymi kolejnych transformacji oświadczeń wejściowych, co pozwala na uzyskanie sekwencji transformacji oświadczeń w zależności od siebie.
 
@@ -404,7 +404,7 @@ Poniższy profil techniczny odwołuje się do przekształcenia oświadczeń Asse
 
 ## <a name="validation-technical-profiles"></a>Sprawdzanie poprawności profilów technicznych
 
-Profil techniczny weryfikacji jest używany do sprawdzania poprawności niektórych lub wszystkich oświadczeń wyjściowych odwołujących się w [profilu technicznym z własnym potwierdzeniem](self-asserted-technical-profile.md#validation-technical-profiles). Profil techniczny weryfikacji jest zwykłym profilem technicznym z dowolnego protokołu, takiego jak [Azure Active Directory](active-directory-technical-profile.md) lub [interfejs API REST](restful-technical-profile.md). Profil techniczny walidacji zwraca oświadczenia wyjściowe lub zwraca kod błędu. Komunikat o błędzie jest renderowany do użytkownika na ekranie, dzięki czemu użytkownik może ponowić próbę.
+Profil techniczny weryfikacji służy do sprawdzania poprawności oświadczeń danych wyjściowych w [profilu technicznym](self-asserted-technical-profile.md#validation-technical-profiles), który został potwierdzony. Profil techniczny weryfikacji jest zwykłym profilem technicznym z dowolnego protokołu, takiego jak [Azure Active Directory](active-directory-technical-profile.md) lub [interfejs API REST](restful-technical-profile.md). Profil techniczny walidacji zwraca oświadczenia wyjściowe lub zwraca kod błędu. Komunikat o błędzie jest renderowany do użytkownika na ekranie, dzięki czemu użytkownik może ponowić próbę.
 
 Na poniższym diagramie pokazano, w jaki sposób Azure AD B2C sprawdzać poprawność poświadczeń użytkownika przy użyciu profilu technicznego weryfikacji
 
@@ -434,7 +434,9 @@ Element **ValidationTechnicalProfile** zawiera następujący atrybut:
 
 ## <a name="include-technical-profile"></a>Uwzględnij profil techniczny
 
-Profil techniczny może zawierać inny profil techniczny, aby zmienić ustawienia lub dodać nową funkcję. Element **IncludeTechnicalProfile** jest odwołaniem do wspólnego profilu technicznego, z którego pochodzi profil techniczny. Aby zmniejszyć nadmiarowość i złożoność elementów zasad, należy użyć dołączenia w przypadku wielu profilów technicznych, które współdzielą elementy podstawowe. Użyj wspólnego profilu technicznego ze wspólnym zestawem konfiguracji oraz z określonymi profilami technicznymi zadań, które obejmują wspólny profil techniczny. Załóżmy na przykład, że masz [profil techniczny interfejsu API REST](restful-technical-profile.md) z jednym punktem końcowym, w którym należy wysyłać różne zestawy oświadczeń dla różnych scenariuszy. Utwórz wspólny profil techniczny z udostępnianymi funkcjami, takimi jak identyfikator URI punktu końcowego interfejsu API REST, metadane, typ uwierzytelniania i klucze kryptograficzne. Następnie utwórz określone profile techniczne zadań, które obejmują wspólny profil techniczny, Dodaj oświadczenia wejściowe, oświadczenia wyjściowe lub Zastąp identyfikator URI punktu końcowego interfejsu API REST odpowiednie dla tego profilu technicznego.
+Profil techniczny może zawierać inny profil techniczny, aby zmienić ustawienia lub dodać nową funkcję. Element **IncludeTechnicalProfile** jest odwołaniem do wspólnego profilu technicznego, z którego pochodzi profil techniczny. Aby zmniejszyć nadmiarowość i złożoność elementów zasad, należy użyć dołączenia w przypadku wielu profilów technicznych, które współdzielą elementy podstawowe. Użyj wspólnego profilu technicznego ze wspólnym zestawem konfiguracji oraz z określonymi profilami technicznymi zadań, które obejmują wspólny profil techniczny. 
+
+Załóżmy, że masz [profil techniczny interfejsu API REST](restful-technical-profile.md) z jednym punktem końcowym, w którym należy wysyłać różne zestawy oświadczeń dla różnych scenariuszy. Utwórz wspólny profil techniczny z udostępnianymi funkcjami, takimi jak identyfikator URI punktu końcowego interfejsu API REST, metadane, typ uwierzytelniania i klucze kryptograficzne. Utwórz określone profile techniczne zadań, które obejmują wspólny profil techniczny. Następnie Dodaj oświadczenia wejściowe, oświadczenia wyjściowe lub Zastąp identyfikator URI punktu końcowego interfejsu API REST związany z tym profilem technicznym.
 
 Element **IncludeTechnicalProfile** zawiera następujący atrybut:
 
@@ -561,7 +563,10 @@ Odwołanie do elementu **UseTechnicalProfileForSessionManagement** do [profilu t
 - **OnItemExistenceInStringCollectionClaim**, wykonaj tylko wtedy, gdy element istnieje w ramach żądania kolekcji ciągów.
 - **OnItemAbsenceInStringCollectionClaim** wykonać tylko wtedy, gdy element nie istnieje w ramach żądania kolekcji ciągów.
 
-Korzystanie z **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** lub **OnItemAbsenceInStringCollectionClaim** wymaga podania następujących metadanych: **ClaimTypeOnWhichToEnable** określa typ zgłoszenia, który ma być oceniany, **ClaimValueOnWhichToEnable** określa wartość, która ma być porównana.
+Korzystanie z **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** lub **OnItemAbsenceInStringCollectionClaim** wymaga podania następujących metadanych: 
+
+- **ClaimTypeOnWhichToEnable** — określa typ zgłoszenia, który ma zostać obliczony.
+- **ClaimValueOnWhichToEnable** — określa wartość do porównania.
 
 Następujący profil techniczny jest wykonywany tylko wtedy, gdy kolekcja ciągów **skojarzeni** zawiera wartość `facebook.com` :
 

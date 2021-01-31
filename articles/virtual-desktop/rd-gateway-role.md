@@ -3,19 +3,24 @@ title: Wdrażanie roli bramy usług pulpitu zdalnego Windows Virtual Desktop —
 description: Jak wdrożyć rolę bramy usług pulpitu zdalnego w systemie Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca3c36f339d5cbca6d5b5990415fba180ae42a13
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 71bd7d38727d99c05a15c54e5141c613960d9050
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798438"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220823"
 ---
-# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop"></a>Wdrażanie roli Brama usług pulpitu zdalnego w systemie Windows Virtual Desktop
+# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop-preview"></a>Wdrażanie roli Brama usług pulpitu zdalnego w systemie Windows Virtual Desktop (wersja zapoznawcza)
 
-W tym artykule przedstawiono sposób wdrażania serwerów bramy Pulpit zdalny w środowisku programu. Role serwera można zainstalować na maszynach fizycznych lub maszynach wirtualnych, w zależności od tego, czy tworzysz środowisko lokalne, oparte na chmurze czy hybrydowe.
+> [!IMPORTANT]
+> Ta funkcja jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+W tym artykule przedstawiono sposób korzystania z roli bramy usług pulpitu zdalnego (wersja zapoznawcza) w celu wdrażania serwerów bramy Pulpit zdalny w danym środowisku. Role serwera można zainstalować na maszynach fizycznych lub maszynach wirtualnych w zależności od tego, czy tworzysz środowisko lokalne, oparte na chmurze czy hybrydowe.
 
 ## <a name="install-the-rd-gateway-role"></a>Instalowanie roli Brama usług pulpitu zdalnego
 

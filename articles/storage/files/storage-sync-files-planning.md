@@ -4,16 +4,16 @@ description: Zaplanuj wdrożenie z Azure File Sync, usługi, która pozwala na b
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 28b7419dfc889d1149765b884f1a5990a1e28f03
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898108"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219480"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -302,48 +302,16 @@ Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobac
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="azure-file-sync-region-availability"></a>Dostępność regionów usługi Azure File Sync
-Azure File Sync jest dostępny w następujących regionach:
 
-| Chmura Azure | Region geograficzny | Region platformy Azure | Kod regionu |
-|-------------|-------------------|--------------|-------------|
-| Publiczne | Azja | Azja Wschodnia | `eastasia` |
-| Publiczne | Azja | Southeast Asia | `southeastasia` |
-| Publiczne | Australia | Australia Wschodnia | `australiaeast` |
-| Publiczne | Australia | Australia Południowo-Wschodnia | `australiasoutheast` |
-| Publiczne | Brazylia | Brazylia Południowa | `brazilsouth` |
-| Publiczne | Kanada | Kanada Środkowa | `canadacentral` |
-| Publiczne | Kanada | Kanada Wschodnia | `canadaeast` |
-| Publiczne | Europa | Europa Północna | `northeurope` |
-| Publiczne | Europa | West Europe | `westeurope` |
-| Publiczne | Francja | Francja Środkowa | `francecentral` |
-| Publiczne | Francja | Francja Południowa * | `francesouth` |
-| Publiczne | Indie | Indie Środkowe | `centralindia` |
-| Publiczne | Indie | Indie Południowe | `southindia` |
-| Publiczne | Japonia | Japonia Wschodnia | `japaneast` |
-| Publiczne | Japonia | Japonia Zachodnia | `japanwest` |
-| Publiczne | Korea | Korea Środkowa | `koreacentral` |
-| Publiczne | Korea | Korea Południowa | `koreasouth` |
-| Publiczne | Republika Południowej Afryki | Północna Republika Południowej Afryki | `southafricanorth` |
-| Publiczne | Republika Południowej Afryki | Zachodnia Republika Południowej Afryki * | `southafricawest` |
-| Publiczne | Zjednoczone Emiraty Arabskie | Środkowe Zjednoczone Emiraty Arabskie * | `uaecentral` |
-| Publiczne | Zjednoczone Emiraty Arabskie | Północne Zjednoczone Emiraty Arabskie | `uaenorth` |
-| Publiczne | Zjednoczone Królestwo | Południowe Zjednoczone Królestwo | `uksouth` |
-| Publiczne | Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | `ukwest` |
-| Publiczne | USA | Central US | `centralus` |
-| Publiczne | USA | East US | `eastus` |
-| Publiczne | USA | Wschodnie stany USA 2 | `eastus2` |
-| Publiczne | USA | Północno-środkowe stany USA | `northcentralus` |
-| Publiczne | USA | South Central US | `southcentralus` |
-| Publiczne | USA | Zachodnio-środkowe stany USA | `westcentralus` |
-| Publiczne | USA | Zachodnie stany USA | `westus` |
-| Publiczne | USA | Zachodnie stany USA 2 | `westus2` |
-| US Gov | USA | US Gov Arizona | `usgovarizona` |
-| US Gov | USA | US Gov Teksas | `usgovtexas` |
-| US Gov | USA | US Gov Wirginia | `usgovvirginia` |
+Aby uzyskać dostęp do regionu, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-Azure File Sync obsługuje synchronizowanie tylko z udziałem plików platformy Azure, który znajduje się w tym samym regionie co usługa synchronizacji magazynu.
+Poniższe regiony wymagają zażądania dostępu do usługi Azure Storage, aby można było używać Azure File Sync z nimi:
 
-W przypadku regionów oznaczonych gwiazdkami należy skontaktować się z pomocą techniczną platformy Azure, aby zażądać dostępu do usługi Azure Storage w tych regionach. Proces został przedstawiony w [tym dokumencie](https://azure.microsoft.com/global-infrastructure/geographies/).
+- Francja Południowa
+- Zachodnia Republika Południowej Afryki
+- Środkowy Zjednoczone Emiraty Arabskie
+
+Aby zażądać dostępu do tych regionów, postępuj zgodnie z procesem w [tym dokumencie](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## <a name="redundancy"></a>Nadmiarowość
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]

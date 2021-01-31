@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: nowe przypisanie zasad przy użyciu interfejsu API REST'
 description: W tym przewodniku szybki start użyjesz interfejsu API REST do utworzenia przypisania Azure Policy, aby zidentyfikować niezgodne zasoby.
-ms.date: 10/14/2020
+ms.date: 01/29/2021
 ms.topic: quickstart
-ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 438d8004cd50e6e2ef7586c51adc63257f37978b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074009"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219981"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu interfejsu API REST
 
@@ -47,6 +47,11 @@ Uruchom następujące polecenie, aby utworzyć przypisanie zasad:
          "displayName": "Audit VMs without managed disks Assignment",
          "description": "Shows all virtual machines not using managed disks",
          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+         "nonComplianceMessages": [
+             {
+                 "message": "Virtual machines should use a managed disk"
+             }
+         ]
        }
      }
      ```
@@ -56,7 +61,7 @@ Poprzedni punkt końcowy i treść żądania korzystają z następujących infor
 IDENTYFIKATOR URI INTERFEJSU API REST:
 - **Zakres** — zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może ona przedziały od grupy zarządzania do pojedynczego zasobu. Pamiętaj, aby zastąpić `{scope}` jednym z następujących wzorców:
   - Grupa zarządzania: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Ramach `/subscriptions/{subscriptionId}`
+  - Subskrypcje: `/subscriptions/{subscriptionId}`
   - Grupa zasobów: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Zasoby `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
 - **Nazwa** —rzeczywista nazwa przypisania. W tym przykładzie użyto nazwy _audit-vm-manageddisks_.
@@ -65,6 +70,7 @@ Treść żądania:
 - **DisplayName** — nazwa wyświetlana przypisania zasad. W takim przypadku używasz _maszyn wirtualnych inspekcji bez przypisania dysków zarządzanych_.
 - **Opis** — dokładniejsze wyjaśnienie tego, czym są zasady lub dlaczego są przypisane do tego zakresu.
 - **policyDefinitionId** — identyfikator definicji zasad, na podstawie której tworzysz przypisanie. W takim przypadku jest IDENTYFIKATORem _maszyn wirtualnych inspekcji definicji zasad, które nie korzystają z dysków zarządzanych_.
+- **nonComplianceMessages** — ustawia komunikat wyświetlany, gdy odmówiono zasobu z powodu niezgodności lub oceniono, że nie jest on zgodny. Aby uzyskać więcej informacji, zobacz temat [przypisywanie komunikatów niezgodnych ze zgodnością](./concepts/assignment-structure.md#non-compliance-messages).
 
 ## <a name="identify-non-compliant-resources"></a>Identyfikowanie niezgodnych zasobów
 

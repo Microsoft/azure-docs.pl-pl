@@ -2,13 +2,13 @@
 title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 01/27/2021
+ms.openlocfilehash: dbe19dae4509e1dd6aa95763e4d034c339bb0531
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806875"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220857"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -92,7 +92,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | automationAccounts | grupa zasobów | 6-50 | Alfanumeryczne i łączniki.<br><br>Zacznij od litery i kończyć się znakiem alfanumerycznym. |
+> | automationAccounts | & regionu grupy zasobów <br>(Zobacz uwagi poniżej) | 6-50 | Alfanumeryczne i łączniki.<br><br>Zacznij od litery i kończyć się znakiem alfanumerycznym. |
 > | automationAccounts/certyfikaty | konto usługi Automation | 1-128 | Nie można użyć:<br> `<>*%&:\?.+/` <br><br>Nie można kończyć się spacją.  |
 > | automationAccounts/połączenia | konto usługi Automation | 1-128 | Nie można użyć:<br> `<>*%&:\?.+/` <br><br>Nie można kończyć się spacją. |
 > | automationAccounts/poświadczenia | konto usługi Automation | 1-128 | Nie można użyć:<br> `<>*%&:\?.+/` <br><br>Nie można kończyć się spacją. |
@@ -101,6 +101,9 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | automationAccounts/zmienne | konto usługi Automation | 1-128 | Nie można użyć:<br> `<>*%&:\?.+/` <br><br>Nie można kończyć się spacją. |
 > | automationAccounts/obserwatorzy | konto usługi Automation | 1-63 |  Alfanumeryczne, podkreślenia i łączniki.<br><br>Zacznij od litery. |
 > | automationAccounts/elementy webhook | konto usługi Automation | 1-128 | Nie można użyć:<br> `<>*%&:\?.+/` <br><br>Nie można kończyć się spacją. |
+
+> [!NOTE]
+> Nazwy kont usługi Automation są unikatowe dla poszczególnych regionów i grup zasobów. Nazwy usuniętych kont usługi Automation mogą nie być od razu dostępne.
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 

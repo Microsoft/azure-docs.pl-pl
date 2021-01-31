@@ -1,15 +1,15 @@
 ---
 title: Lista wbudowanych definicji zasad
 description: Utwórz listę wbudowanych definicji zasad dla Azure Policy. Kategorie obejmują Tagi, zgodność z przepisami, Key Vault, Kubernetes, konfigurację gościa i inne.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 9fcb66fbb7fdd94de0d265d19c547ca1567417e7
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 2c9d4432276abe5392a554e57087e38615aaf902
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807344"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220498"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy wbudowane definicje zasad
 
@@ -37,6 +37,10 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-app-service](../../../../includes/policy/reference/bycat/policies-app-service.md)]
 
+## <a name="attestation"></a>Zaświadczanie
+
+[!INCLUDE [azure-policy-reference-policies-attestation](../../../../includes/policy/reference/bycat/policies-attestation.md)]
+
 ## <a name="automanage"></a>Autozarządzanie
 
 [!INCLUDE [azure-policy-reference-policies-automanage](../../../../includes/policy/reference/bycat/policies-automanage.md)]
@@ -61,9 +65,9 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-batch](../../../../includes/policy/reference/bycat/policies-batch.md)]
 
-## <a name="bot-services"></a>Usługi bot Services
+## <a name="bot-service"></a>Bot Service
 
-[!INCLUDE [azure-policy-reference-policies-bot-services](../../../../includes/policy/reference/bycat/policies-bot-services.md)]
+[!INCLUDE [azure-policy-reference-policies-bot-service](../../../../includes/policy/reference/bycat/policies-bot-service.md)]
 
 ## <a name="cache"></a>Pamięć podręczna
 
@@ -73,7 +77,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
 
-## <a name="compute"></a>Obliczenia
+## <a name="compute"></a>Compute
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
 
@@ -185,7 +189,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 [!INCLUDE [azure-policy-reference-policies-storage](../../../../includes/policy/reference/bycat/policies-storage.md)]
 

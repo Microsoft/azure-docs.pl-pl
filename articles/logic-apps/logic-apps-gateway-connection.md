@@ -3,15 +3,15 @@ title: Dostęp do źródeł danych lokalnych
 description: Nawiązywanie połączenia z lokalnymi źródłami danych z Azure Logic Apps przez tworzenie zasobu bramy danych na platformie Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, divswa, logicappspm
+ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 08/18/2020
-ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009261"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218998"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connect to on-premises data sources from Azure Logic Apps (Łączenie z lokalnymi źródłami danych z usługi Azure Logic Apps)
 
@@ -57,8 +57,11 @@ Możesz również utworzyć [Łączniki niestandardowe](../logic-apps/custom-con
 * Masz to [samo konto platformy Azure i subskrypcję](../logic-apps/logic-apps-gateway-install.md#requirements) , które zostały użyte podczas instalacji bramy. To konto platformy Azure musi należeć tylko do jednej [dzierżawy lub katalogu usługi Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Musisz użyć tego samego konta platformy Azure i subskrypcji, aby utworzyć zasób bramy na platformie Azure, ponieważ tylko administrator bramy może utworzyć zasób bramy na platformie Azure. Nazwy główne usług nie są obecnie obsługiwane.
 
   * Podczas tworzenia zasobu bramy na platformie Azure należy wybrać instalację bramy, aby połączyć się z zasobem bramy i tylko z tym zasobem bramy. Każdy zasób bramy może łączyć się tylko z jedną instalacją bramy. Nie można wybrać instalacji bramy, która jest już skojarzona z innym zasobem bramy.
-  
-  * Twoja aplikacja logiki i zasób bramy nie muszą istnieć w tej samej subskrypcji platformy Azure. Pod warunkiem, że masz dostęp do subskrypcji, w wyzwalaczach i akcjach, które mogą uzyskać dostęp do lokalnych źródeł danych, możesz wybrać inne subskrypcje platformy Azure, które mają zasoby bramy.
+
+  * Twoja aplikacja logiki i zasób bramy nie muszą istnieć w tej samej subskrypcji platformy Azure. W wyzwalaczach i akcjach, w których można korzystać z zasobu bramy, można wybrać inną subskrypcję platformy Azure, która ma zasób bramy, ale tylko wtedy, gdy ta subskrypcja istnieje w tej samej dzierżawie usługi Azure AD lub w katalogu, w którym znajduje się aplikacja logiki. Musisz również mieć uprawnienia administratora do bramy, którą może skonfigurować inny administrator. Aby uzyskać więcej informacji, zobacz [Data Gateway: Automation przy użyciu programu PowerShell — część 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) i [PowerShell: Data Gateway-Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+
+    > [!NOTE]
+    > Obecnie nie można udostępnić zasobu lub instalacji bramy w wielu subskrypcjach. Aby przesłać opinię na temat produktu, zobacz [Microsoft Azure forum opinii](https://feedback.azure.com/forums/34192--general-feedback).
 
 <a name="create-gateway-resource"></a>
 
@@ -103,10 +106,10 @@ Po utworzeniu zasobu bramy i skojarzeniu subskrypcji platformy Azure z tym zasob
 
 1. Wybierz pozycję **Połącz za pośrednictwem lokalnej bramy danych**.
 
-1. W obszarze **bramy** z listy **subskrypcje** wybierz subskrypcję platformy Azure, dla której chcesz utworzyć żądany zasób bramy.
+1. W obszarze **brama**, z listy **subskrypcja** wybierz subskrypcję platformy Azure, która ma żądany zasób bramy.
 
-   Pod warunkiem posiadania dostępu do subskrypcji możesz wybrać różne subskrypcje platformy Azure, które są skojarzone z innym zasobem bramy. Twoja aplikacja logiki i zasób bramy nie muszą istnieć w tej samej subskrypcji platformy Azure.
-
+   Twoja aplikacja logiki i zasób bramy nie muszą istnieć w tej samej subskrypcji platformy Azure. Możesz wybrać jedną z innych subskrypcji platformy Azure, z których każdy ma zasób bramy, ale tylko wtedy, gdy te subskrypcje istnieją w tej samej dzierżawie usługi Azure AD lub w katalogu, w którym znajduje się aplikacja logiki, i masz uprawnienia administratora do bramy, którą może skonfigurować inny administrator. Aby uzyskać więcej informacji, zobacz [Data Gateway: Automation przy użyciu programu PowerShell — część 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) i [PowerShell: Data Gateway-Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  
 1. Z listy **brama połączeń** , która wyświetla dostępne zasoby bramy w wybranej subskrypcji, wybierz żądany zasób bramy. Każdy zasób bramy jest połączony z instalacją pojedynczej bramy.
 
    > [!NOTE]
@@ -139,7 +142,7 @@ Aby zaktualizować ustawienia dla połączenia bramy, można edytować połącze
 
 Aby znaleźć wszystkie połączenia interfejsu API skojarzone z subskrypcją platformy Azure:
 
-* Z menu Azure Portal wybierz pozycję **wszystkie usługi**  >  **Web**  >  **połączenia internetowego interfejsu API**.
+* Z menu Azure Portal wybierz pozycję **wszystkie usługi**  >    >  **połączenia internetowego interfejsu API**.
 * Lub z menu Azure Portal wybierz pozycję **wszystkie zasoby**. Ustaw filtr **typu** dla **połączenia interfejsu API**.
 
 <a name="change-delete-gateway-resource"></a>

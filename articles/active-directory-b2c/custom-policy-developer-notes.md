@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516102"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218778"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Uwagi dla deweloperów dotyczące zasad niestandardowych w Azure Active Directory B2C
 
@@ -37,14 +37,14 @@ Chociaż większość dostępnych opcji zasad niestandardowych jest teraz ogóln
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Obowiązki zasad niestandardowych — Ustawianie deweloperów
 
-Ręczna konfiguracja zasad zapewnia dostęp na niższym poziomie do podstawowej platformy Azure AD B2C i skutkuje tworzeniem unikatowej struktury zaufania. Wiele możliwych permutacji niestandardowych dostawców tożsamości, relacji zaufania, integracji z usługami zewnętrznymi i przepływów pracy krok po kroku wymagają założenia strategii do projektowania i konfigurowania.
+Ręczna konfiguracja zasad zapewnia dostęp na niższym poziomie do podstawowej platformy Azure AD B2C i skutkuje tworzeniem unikatowej struktury zaufania. Wiele możliwych permutacji niestandardowych dostawców tożsamości, relacji zaufania, integracji z usługami zewnętrznymi i przepływów pracy krok po kroku wymagają strategii metodycznej do projektowania i konfigurowania.
 
 Deweloperzy korzystający z zestawu funkcji zasad niestandardowych powinni przestrzegać następujących wytycznych:
 
 - Zapoznaj się z językiem konfiguracji zasad niestandardowych oraz zarządzania kluczami i wpisami tajnymi. Aby uzyskać więcej informacji, zobacz [TrustFrameworkPolicy](trustframeworkpolicy.md).
 - Przejmij na własność scenariusze i integracje niestandardowe. Zadokumentuj swoją służbową i poinformuj swoją organizację o działającej witrynie.
 - Wykonaj testy scenariusza metodyczne.
-- Postępuj zgodnie z najważniejszymi rozwiązaniami dotyczącymi tworzenia oprogramowania i przemieszczania, które są co najmniej jedno środowisko deweloperskie i testowe oraz jedno środowisko produkcyjne.
+- Postępuj zgodnie z zaleceniami dotyczącymi tworzenia oprogramowania i przemieszczania. Zalecane jest co najmniej jedno środowisko deweloperskie i testowe.
 - Bądź na bieżąco z informacjami dotyczącymi nowych osiągnięć od dostawców tożsamości i usług, z którymi integrujesz się. Na przykład Śledź zmiany w kluczach tajnych i zaplanowanych i nieplanowanych zmianach w usłudze.
 - Skonfiguruj aktywne monitorowanie i monitoruj czas odpowiedzi w środowiskach produkcyjnych. Aby uzyskać więcej informacji na temat integrowania z Application Insights, zobacz [Azure Active Directory B2C: zbieranie dzienników](analytics-with-application-insights.md).
 - Kontynuuj kontaktowe adresy e-mail z bieżącą subskrypcją platformy Azure i Kontynuuj pracę z wiadomościami e-mail zespołu w witrynie Microsoft Live.
@@ -58,7 +58,7 @@ Deweloperzy korzystający z zestawu funkcji zasad niestandardowych powinni przes
 
 ## <a name="features-by-stage-and-known-issues"></a>Funkcje według etapów i znanych problemów
 
-Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsługi tożsamości są stałe. Poniższa tabela zawiera indeks funkcji i dostępności składników.
+Niestandardowe możliwości zasad są pod stałym programowaniem. Poniższa tabela zawiera indeks funkcji i dostępności składników.
 
 
 ### <a name="protocols-and-authorization-flows"></a>Protokoły i przepływy autoryzacji
@@ -144,7 +144,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 | Witryna Azure Portal — środowisko IEF |  |  | X |  |
 | Przekazywanie zasad |  |  | X |  |
 | [Application Insights dzienniki podróży użytkownika](troubleshoot-with-application-insights.md) |  | X |  | Używane do rozwiązywania problemów podczas opracowywania.  |
-| [Application Insights dzienników zdarzeń](application-insights-technical-profile.md) |  | X |  | Służy do monitorowania przepływów użytkowników w środowisku produkcyjnym. |
+| [Application Insights dzienników zdarzeń](analytics-with-application-insights.md) |  | X |  | Służy do monitorowania przepływów użytkowników w środowisku produkcyjnym. |
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3d1238bffd785a47b6e0ffab70366a15dfff0ef3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757410"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218115"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -150,6 +150,7 @@ Maszyny wirtualne Gen2 | Obsługiwane <br> Azure Backup obsługuje tworzenie kop
 Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure z blokadami | Nieobsługiwane dla niezarządzanych maszyn wirtualnych. <br><br> Obsługiwane w przypadku zarządzanych maszyn wirtualnych.
 [Maszyny wirtualne typu spot](../virtual-machines/spot-vms.md) | Ich. Azure Backup przywraca maszyny wirtualne maszyn wirtualnych jako zwykłe maszyny wirtualne platformy Azure.
 [Dedykowany Host platformy Azure](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Obsługiwane
+Konfiguracja funkcji miejsca do magazynowania systemu Windows dla autonomicznych maszyn wirtualnych platformy Azure | Obsługiwane 
 
 ## <a name="vm-storage-support"></a>Obsługa magazynu maszyn wirtualnych
 

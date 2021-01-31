@@ -3,19 +3,24 @@ title: Konfigurowanie serwera proxy protokołu Kerberos centrum dystrybucji kluc
 description: Jak skonfigurować pulę hostów usług pulpitu wirtualnego systemu Windows do korzystania z serwera proxy centrum dystrybucji kluczy Kerberos.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f123659941eaeb3b8ceeb6a999abf836eb9cf5ea
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 102ddc1c8937c66a92416ddb6d5f2d25f2a3c349
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798420"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219659"
 ---
-# <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Konfigurowanie serwera proxy centrum dystrybucji kluczy protokołu Kerberos
+# <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Konfigurowanie serwera proxy protokołu Kerberos centrum dystrybucji kluczy (wersja zapoznawcza)
 
-W tym artykule opisano sposób konfigurowania serwera proxy centrum dystrybucji kluczy (KDC) protokołu Kerberos dla puli hostów. Ten serwer proxy umożliwia organizacjom uwierzytelnianie przy użyciu protokołu Kerberos poza granicami przedsiębiorstwa. Na przykład można użyć serwera proxy centrum dystrybucji kluczy do włączenia uwierzytelniania karty inteligentnej dla klientów zewnętrznych.
+> [!IMPORTANT]
+> Ta funkcja jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+W tym artykule opisano sposób konfigurowania serwera proxy usługi Kerberos centrum dystrybucji kluczy (KDC) (wersja zapoznawcza) dla puli hostów. Ten serwer proxy umożliwia organizacjom uwierzytelnianie przy użyciu protokołu Kerberos poza granicami przedsiębiorstwa. Na przykład można użyć serwera proxy centrum dystrybucji kluczy do włączenia uwierzytelniania karty inteligentnej dla klientów zewnętrznych.
 
 ## <a name="how-to-configure-the-kdc-proxy"></a>Jak skonfigurować serwer proxy centrum dystrybucji kluczy
 

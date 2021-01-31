@@ -2,13 +2,13 @@
 title: Azure Service Bus komunikatów, ładunków i serializacji | Microsoft Docs
 description: Ten artykuł zawiera omówienie Azure Service Bus komunikatów, ładunków, routingu wiadomości i serializacji.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/29/2021
+ms.openlocfilehash: db1989004e60c305341e54e62e42f31e40e47487
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341685"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219183"
 ---
 # <a name="messages-payloads-and-serialization"></a>Komunikaty, ładunki i serializacja
 
@@ -43,7 +43,7 @@ Równoważne nazwy używane na poziomie protokołu AMQP są wyświetlane w nawia
 | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber)                        | Numer sekwencyjny jest unikatowym 64-bitową liczbą całkowitą przypisaną do komunikatu, ponieważ jest akceptowany i przechowywany przez brokera i działa jako jego prawdziwy identyfikator. W przypadku jednostek partycjonowanych najwyżej 16 bitów odzwierciedla identyfikator partycji. Numery sekwencji monotonicznie zwiększają się i są gapless. Są one przenoszone do 0, gdy zostanie wyczerpany zakres 48-64 bitów. Ta właściwość jest tylko do odczytu.                                                                |
 | Identyfikator [sesji](/dotnet/api/microsoft.azure.servicebus.message.sessionid) (ID grupy)                  | W przypadku jednostek z obsługą sesji ta wartość zdefiniowana przez aplikację określa przynależność sesji. Komunikaty z tym samym identyfikatorem sesji podlegają blokowaniu podsumowującemu i umożliwiają dokładne przetwarzanie i demultiplekserowanie w kolejności. W przypadku jednostek, które nie obsługują sesji, ta wartość jest ignorowana.                                                                                                                                     |
 | [Rozmiar](/dotnet/api/microsoft.azure.servicebus.message.size)                                  | Odzwierciedla rozmiar przechowywanego komunikatu w dzienniku brokera w postaci liczby bajtów, ponieważ jest ono wliczane do limitu przydziału magazynu. Ta właściwość jest tylko do odczytu.                                                                                                                                                                                                                                                                                                       |
-| [State](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.state)                                 | Wskazuje stan komunikatu w dzienniku. Ta właściwość ma zastosowanie tylko podczas przeglądania komunikatów ("wgląd") w celu określenia, czy komunikat jest "aktywny" i dostępny do pobrania, gdy dociera do początku kolejki, czy jest odroczony, czy oczekuje na zaplanowanie. Ta właściwość jest tylko do odczytu.                                                                                                                                           |
+| [Stan](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.state)                                 | Wskazuje stan komunikatu w dzienniku. Ta właściwość ma zastosowanie tylko podczas przeglądania komunikatów ("wgląd") w celu określenia, czy komunikat jest "aktywny" i dostępny do pobrania, gdy dociera do początku kolejki, czy jest odroczony, czy oczekuje na zaplanowanie. Ta właściwość jest tylko do odczytu.                                                                                                                                           |
 | [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive)                            | Ta wartość jest względnym czasem trwania, po upływie którego wygasa komunikat, rozpoczynając od natychmiastowego komunikatu, który został zaakceptowany i zapisany przez brokera, zgodnie z **EnqueueTimeUtc**. Gdy nie ustawiono jawnie, przyjęta wartość to **DefaultTimeToLive** dla odpowiedniej kolejki lub tematu. Wartość **TimeToLive** na poziomie komunikatu nie może być dłuższa niż ustawienie **DefaultTimeToLive** jednostki. Jeśli jest dłuższy, jest on w trybie dyskretnym. |
 | [Do](/dotnet/api/microsoft.azure.servicebus.message.to) (do)                               | Ta właściwość jest zarezerwowana do użycia w przyszłości w scenariuszach routingu i obecnie ignorowana przez sam brokera. Aplikacje mogą używać tej wartości w scenariuszach opartych na regułach łańcucha autoprzesyłania dalej, aby wskazać zamierzone logiczne miejsce docelowe wiadomości.                                                                                                                                                                                   |
 | [ViaPartitionKey](/dotnet/api/microsoft.azure.servicebus.message.viapartitionkey)                       | Jeśli wiadomość jest wysyłana za pośrednictwem kolejki transferu w zakresie transakcji, ta wartość wybiera partycję kolejki transferu.                                                                                                                                                                                                                                                                                                                 |
@@ -70,8 +70,6 @@ W przeciwieństwie do wariantów Java lub .NET Standard, wersja .NET Framework i
 W przypadku korzystania ze starszego protokołu SBMP te obiekty są następnie serializowane przy użyciu domyślnego serializatora binarnego lub z serializatorem, który jest dostarczany zewnętrznie. W przypadku korzystania z protokołu AMQP obiekt jest serializowany do obiektu AMQP. Odbiornik może pobrać te obiekty za pomocą metody [GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) , dostarczając oczekiwany typ. W przypadku AMQP obiekty są serializowane do grafu AMQP **ArrayList** i **IDictionary<ciągu, obiektów>** obiekty i dowolnego klienta AMQP można zdekodować. 
 
 Mimo że ukryty magiczny serializacji jest wygodny, aplikacje powinny przejąć jawną kontrolę serializacji obiektu i przekształcić wykresy obiektów w strumienie przed dołączeniem ich do wiadomości, a następnie wykonać odwracanie po stronie odbiornika. Zapewnia to nieobsługiwane wyniki. Należy również zauważyć, że podczas gdy AMQP ma zaawansowany model kodowania binarny, jest on powiązany z ekosystemem obsługi komunikatów AMQP i klienci HTTP będą mogli rozkodować takie ładunki. 
-
-Ogólnie zalecamy używanie formatu JSON i Apache Avro jako formatów ładunków dla danych strukturalnych.
 
 Warianty interfejsów API .NET Standard i Java akceptują tylko tablice bajtowe, co oznacza, że aplikacja musi obsługiwać kontrolę serializacji obiektu. 
 

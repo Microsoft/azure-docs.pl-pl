@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f62cb6d5277ae202e8ea864aa99a3e19c3beef22
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835531"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220755"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehostowanie komputera mainframe na maszynach wirtualnych platformy Azure
 
@@ -70,7 +70,7 @@ Aby rozpocząć:
 
 Środowisko IBM DB2 pureScale udostępnia klaster bazy danych dla platformy Azure. Nie jest on identyczny z oryginalnym środowiskiem, ale zapewnia podobną dostępność i skalowanie jako IBM DB2 dla systemu z/OS działającego w ramach równoległej konfiguracji Sysplex.
 
-Aby rozpocząć, zobacz temat [IBM DB2 pureScale na platformie Azure](../../linux/ibm-db2-purescale-azure.md).
+Aby rozpocząć, zobacz temat [IBM DB2 pureScale na platformie Azure](.//ibm/ibm-db2-purescale-azure.md).
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
@@ -92,7 +92,7 @@ Dzięki platformie Azure IaaS, takiej jak maszyna wirtualna, konkretne funkcje s
 
 Komputery mainframe zazwyczaj skalują w górę, a środowiska chmury skalują w poziomie. Platforma Azure oferuje wiele rozmiarów systemów [Linux](../../sizes.md) i [Windows](../../sizes.md) spełniających Twoje potrzeby. Chmura również skaluje się w górę lub w dół, aby dopasować dokładne specyfikacje użytkownika. [Skalowanie](/azure/architecture/best-practices/auto-scaling) mocy obliczeniowej, magazynu i usług na żądanie w ramach modelu rozliczania opartego na użyciu.
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 W chmurze masz szereg elastycznych, skalowalnych opcji magazynu i płacisz tylko za to, czego potrzebujesz. Usługa [Azure Storage](../../../storage/common/storage-introduction.md) oferuje wysoce skalowalny magazyn obiektów dla obiektów danych, usługę systemu plików dla chmury, niezawodny magazyn komunikatów i Magazyn NoSQL. W przypadku maszyn wirtualnych dyski zarządzane i niezarządzane zapewniają trwały, bezpieczny magazyn dyskowy.
 

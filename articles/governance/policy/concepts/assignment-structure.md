@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury przypisania zasad
 description: Zawiera opis definicji przypisania zasad używanej przez Azure Policy do powiązania definicji zasad i parametrów z zasobami do oceny.
-ms.date: 09/22/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904081"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219570"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struktura przypisań usługi Azure Policy
 
@@ -17,11 +17,12 @@ Przypisania zasad są używane przez Azure Policy do definiowania zasobów, któ
 Aby utworzyć przypisanie zasad, należy użyć formatu JSON. Przypisanie zasad zawiera elementy dla:
 
 - Nazwa wyświetlana
-- description
+- description (opis)
 - metadane
 - Tryb wymuszania
 - wykluczone zakresy
 - Definicja zasad
+- komunikaty o niezgodności
 - parameters
 
 Na przykład poniższy kod JSON przedstawia przypisanie zasad w trybie _DoNotEnforce_ z parametrami dynamicznymi:
@@ -37,6 +38,11 @@ Na przykład poniższy kod JSON przedstawia przypisanie zasad w trybie _DoNotEnf
         "enforcementMode": "DoNotEnforce",
         "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+        "nonComplianceMessages": [
+            {
+                "message": "Resource names must start with 'DeptA' and end with '-LC'."
+            }
+        ],
         "parameters": {
             "prefix": {
                 "value": "DeptA"
@@ -61,7 +67,7 @@ Właściwość **wymuszmode** zapewnia klientom możliwość testowania wyniku z
 
 Ta właściwość ma następujące wartości:
 
-|Tryb |Wartość JSON |Type |Koryguj ręcznie |Wpis dziennika aktywności |Opis |
+|Tryb |Wartość JSON |Typ |Koryguj ręcznie |Wpis dziennika aktywności |Opis |
 |-|-|-|-|-|-|
 |Enabled (Włączony) |Domyślne |ciąg |Tak |Tak |Efekt zasad jest wymuszany podczas tworzenia lub aktualizowania zasobu. |
 |Disabled |DoNotEnforce |ciąg |Tak |Nie | Efekt zasad nie jest wymuszany podczas tworzenia lub aktualizowania zasobu. |
@@ -79,6 +85,32 @@ Jeśli w definicji zasad lub inicjatywy nie określono **wymuszania** , używana
 
 To pole musi zawierać pełną nazwę ścieżki definicji zasad lub definicji inicjatywy.
 `policyDefinitionId` jest ciągiem, a nie tablicą. Zaleca się, aby w zamian była często przypisywanych wielu zasad w celu użycia [inicjatywy](./initiative-definition-structure.md) .
+
+## <a name="non-compliance-messages"></a>Komunikaty o niezgodności
+
+Aby ustawić niestandardowy komunikat opisujący, dlaczego zasób nie jest zgodny z definicją zasad lub inicjatywy, ustaw `nonComplianceMessages` w definicji przypisania. Ten węzeł jest tablicą `message` wpisów. Ten komunikat niestandardowy jest uzupełnieniem domyślnego komunikatu o błędzie dla niezgodności i jest opcjonalny.
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    }
+]
+```
+
+Jeśli przypisanie dotyczy inicjatywy, można skonfigurować różne komunikaty dla każdej definicji zasad w ramach inicjatywy. Komunikaty używają `policyDefinitionReferenceId` wartości skonfigurowanej w definicji inicjatywy. Aby uzyskać szczegółowe informacje, zobacz [właściwości definicji właściwości](./initiative-definition-structure.md#policy-definition-properties).
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    },
+    {
+        "message": "Message for just this policy definition by reference ID",
+        "policyDefinitionReferenceId": "10420126870854049575"
+    }
+]
+```
 
 ## <a name="parameters"></a>Parametry
 

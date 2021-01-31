@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: ab83344f779f93107b59ca28348da3a66f1efc1a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: aec1967f0652e18c4a24ca258c14a103355b22af
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076865"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219319"
 ---
 # <a name="api-management-policy-expressions"></a>Wyrażenia zasad API Management
 W tym artykule omówiono składnię wyrażeń zasad w języku C# 7. Każde wyrażenie ma dostęp do niejawnie podanej zmiennej [kontekstowej](api-management-policy-expressions.md#ContextVariables) i dozwolone [podzbiór](api-management-policy-expressions.md#CLRTypes) typów .NET Framework.
@@ -220,7 +220,7 @@ Zmienna o nazwie `context` jest niejawnie dostępna w każdym [wyrażeniu](api-m
 |<a id="ref-context-request-headers"></a>kontekst ciągu. Request. Headers. GetValueOrDefault (headerName: String, DefaultValue: String)|headerName: ciąg<br /><br /> DefaultValue: ciąg<br /><br /> Zwraca wartości nagłówka żądania oddzielone przecinkami lub `defaultValue` Jeśli nagłówek nie zostanie znaleziony.|
 |<a id="ref-context-response"></a>Context. Reakcji|Treść: [IMessageBody](#ref-imessagebody)<br /><br /> [Headers](#ref-context-response-headers): IReadOnlyDictionary<String, String [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: ciąg|
 |<a id="ref-context-response-headers"></a>kontekst ciągu. Response. Headers. GetValueOrDefault (headerName: String, DefaultValue: String)|headerName: ciąg<br /><br /> DefaultValue: ciąg<br /><br /> Zwraca wartości nagłówka odpowiedzi rozdzielane przecinkami lub `defaultValue` nie można znaleźć nagłówka.|
-|<a id="ref-context-subscription"></a>Context. Ramach|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: ciąg<br /><br /> Klucz: ciąg<br /><br /> Name: ciąg<br /><br /> PrimaryKey: ciąg<br /><br /> SecondaryKey: ciąg<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-subscription"></a>Context. Ramach|CreatedDate: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: ciąg<br /><br /> Klucz: ciąg<br /><br /> Name: ciąg<br /><br /> PrimaryKey: ciąg<br /><br /> SecondaryKey: ciąg<br /><br /> StartDate: DateTime?|
 |<a id="ref-context-user"></a>Context. Użytkownicy|Adres e-mail: ciąg<br /><br /> FirstName: ciąg<br /><br /> Grupy: interfejs IEnumerable<[IGroup](#ref-igroup)\><br /><br /> ID: ciąg<br /><br /> Tożsamości: interfejs IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: ciąg<br /><br /> Uwaga: ciąg<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|ID: ciąg<br /><br /> Name: ciąg<br /><br /> Ścieżka: ciąg<br /><br /> Protokoły: interfejs IEnumerable<ciąg\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|ID: ciąg<br /><br /> Name: ciąg|

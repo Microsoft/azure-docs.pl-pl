@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755256"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219964"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft
 
@@ -68,7 +68,7 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) Użyj nowoczesnych rozwiązań uwierzytelniania (OAuth 2,0, [OpenID Connect Connect](v2-protocols-oidc.md)) do bezpiecznego logowania użytkowników.
 
-![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) nie program bezpośrednio w przypadku protokołów takich jak OAuth 2,0 i Open ID. Zamiast tego Skorzystaj z [biblioteki Microsoft Authentication Library (MSAL)](msal-overview.md). Biblioteki MSAL bezpiecznie zawijają protokoły zabezpieczeń w łatwej w użyciu bibliotece i udostępniamy wbudowaną obsługę scenariuszy [dostępu warunkowego](../conditional-access/overview.md) , [logowania](../manage-apps/what-is-single-sign-on.md)jednokrotnego dla całego urządzenia oraz wbudowanej obsługi buforowania tokenów. Aby uzyskać więcej informacji, zobacz listę [bibliotek klienckich](reference-v2-libraries.md#microsoft-supported-client-libraries) obsługiwanych przez firmę Microsoft i [bibliotek oprogramowania pośredniczącego](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) oraz listę [zgodnych bibliotek klientów](reference-v2-libraries.md#compatible-client-libraries)innych firm.<br/><br/>Jeśli konieczne jest przekazanie kodu dla protokołów uwierzytelniania, należy postępować zgodnie z metodologią, taką jak [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Zwróć szczególną uwagę na kwestie dotyczące zabezpieczeń w specyfikacjach standardów dla każdego protokołu.
+![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) nie program bezpośrednio w przypadku protokołów takich jak OAuth 2,0 i Open ID. Zamiast tego Skorzystaj z [biblioteki Microsoft Authentication Library (MSAL)](msal-overview.md). Biblioteki MSAL bezpiecznie zawijają protokoły zabezpieczeń w łatwej w użyciu bibliotece i udostępniamy wbudowaną obsługę scenariuszy [dostępu warunkowego](../conditional-access/overview.md) , [logowania](../manage-apps/what-is-single-sign-on.md)jednokrotnego dla całego urządzenia oraz wbudowanej obsługi buforowania tokenów. Aby uzyskać więcej informacji, zobacz listę [bibliotek klienckich](reference-v2-libraries.md)obsługiwanych przez firmę Microsoft. Jeśli konieczne jest ręczne przekazanie protokołów uwierzytelniania, należy postępować [zgodnie z tą](https://www.microsoft.com/sdl/default.aspx) metodą. Zwróć szczególną uwagę na kwestie dotyczące zabezpieczeń w specyfikacjach standardów dla każdego protokołu.
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) Migruj istniejące aplikacje z [biblioteki uwierzytelniania Azure Active Directory (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) do [biblioteki uwierzytelniania firmy Microsoft](msal-overview.md). MSAL to najnowsze rozwiązanie platformy tożsamości firmy Microsoft i jest preferowane dla biblioteki ADAL. Jest ona dostępna w systemach .NET, JavaScript, Android, iOS i macOS, a także w publicznej wersji zapoznawczej dla języków Python i Java. Dowiedz się więcej na temat migrowania aplikacji [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md)i [ADAL.NET i dla brokera systemu iOS](msal-net-migration-ios-broker.md) .
 

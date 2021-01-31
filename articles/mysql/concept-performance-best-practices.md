@@ -1,21 +1,21 @@
 ---
 title: Najlepsze rozwiązania w zakresie wydajności — Azure Database for MySQL
-description: W tym artykule opisano najlepsze rozwiązania dotyczące monitorowania i dostrajania wydajności Azure Database for MySQL.
-author: mksuni
-ms.author: sumuth
+description: W tym artykule opisano niektóre zalecenia dotyczące monitorowania i dostrajania wydajności Azure Database for MySQL.
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/28/2021
+ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880410"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217758"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Najlepsze rozwiązania w zakresie optymalnej wydajności Azure Database for MySQL pojedynczego serwera
 
-Zapoznaj się z najlepszymi rozwiązaniami dotyczącymi uzyskiwania najlepszej wydajności podczas pracy z jednym serwerem Azure Database for MySQL. Po dodaniu nowych funkcji do platformy będziemy nadal udoskonalać najlepsze rozwiązania opisane w tej sekcji.
+Dowiedz się, jak uzyskać najlepszą wydajność podczas pracy z jednym serwerem Azure Database for MySQL. Po dodaniu nowych funkcji do platformy będziemy nadal udoskonalać nasze zalecenia w tej sekcji.
 
 ## <a name="physical-proximity"></a>Fizyczna bliskość
 
@@ -49,6 +49,23 @@ Najlepszym rozwiązaniem w zakresie wydajności Azure Database for MySQL jest pr
 - Sprawdź, czy procent pamięci używany do osiągnięcia [limitów](./concepts-pricing-tiers.md) przy użyciu [metryk dla serwera MySQL](./concepts-monitoring.md). 
 - Skonfiguruj alerty dotyczące tych numerów, aby upewnić się, że w miarę jak serwery osiągnieją limity, aby rozwiązać ten problem. Na podstawie zdefiniowanych limitów Sprawdź, czy skalowanie w górę jednostki SKU bazy danych jest większe niż w przypadku wyższego rozmiaru lub do lepszej warstwy cenowej, co powoduje znaczący wzrost wydajności. 
 - Skaluj w górę do momentu, aż numery wydajności nie znikną znacznie po operacji skalowania. Aby uzyskać informacje na temat monitorowania metryk wystąpienia bazy danych, zobacz [metryki bazy danych MySQL](./concepts-monitoring.md#metrics).
+ 
+## <a name="use-innodb-buffer-pool-warmup"></a>Korzystanie z puli buforów InnoDB rozgrzewania
+
+Po ponownym uruchomieniu Azure Database for MySQL Server strony danych znajdujące się w magazynie są ładowane jako tabele zapytania, co prowadzi do zwiększonego opóźnienia i wolniejszej wydajności podczas pierwszego wykonywania zapytań. Może to nie być akceptowalne dla obciążeń z opóźnieniem. 
+
+Wykorzystanie puli buforów InnoDB rozgrzewania skraca okres rozgrzewania przez ponowne załadowanie stron dysku, które znajdowały się w puli buforów przed ponownym uruchomieniem, zamiast czekać na operacje DML lub SELECT w celu uzyskania dostępu do odpowiednich wierszy.
+
+Można skrócić okres rozgrzewania po ponownym uruchomieniu serwera Azure Database for MySQL, który reprezentuje zalety wydajności przez skonfigurowanie [parametrów serwera puli buforów InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB zapisuje wartość procentową ostatnio używanych stron dla każdej puli buforów podczas zamykania serwera i przywraca te strony podczas uruchamiania serwera.
+
+Należy również pamiętać, że zwiększona wydajność zapewnia koszt dłuższy od momentu uruchomienia serwera. Gdy ten parametr jest włączony, oczekiwane jest uruchamianie i czas ponownego uruchomienia serwera w zależności od liczby operacji we/wy zainicjowanej na serwerze. 
+
+Zalecamy testowanie i monitorowanie czasu ponownego uruchomienia, aby upewnić się, że wydajność uruchamiania/ponownego uruchamiania jest akceptowalna, ponieważ serwer jest niedostępny w tym czasie. Nie zaleca się używania tego parametru z mniej niż 1000 aprowizacji operacji we/wy (lub innymi słowy, gdy obsługa magazynu jest mniejsza niż 335 GB).
+
+Aby zapisać stan puli buforów podczas zamykania serwera, ustaw parametr serwera `innodb_buffer_pool_dump_at_shutdown` na `ON` . Analogicznie ustaw parametr Server `innodb_buffer_pool_load_at_startup` na, aby `ON` przywrócić stan puli buforów podczas uruchamiania serwera. Można kontrolować wpływ na czas uruchamiania/ponownego uruchamiania przez obniżenie i dostosowanie wartości parametru serwera `innodb_buffer_pool_dump_pct` . Domyślnie ten parametr jest ustawiony na `25` .
+
+> [!Note]
+> Parametry rozgrzewania puli buforów InnoDB są obsługiwane tylko na serwerach magazynu ogólnego przeznaczenia z magazynem o pojemności do 16 TB. Dowiedz się więcej na temat [opcji magazynu Azure Database for MySQL w tym miejscu](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ## <a name="next-steps"></a>Następne kroki
 
