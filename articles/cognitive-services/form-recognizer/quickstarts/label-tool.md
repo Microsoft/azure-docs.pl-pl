@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Przetwarzanie dokumentu
-ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845544"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221095"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -202,7 +202,7 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
    1. Kliknij **+** , aby utworzyć nowy tag.
    1. Wprowadź nazwę tagu.
    1. Naciśnij klawisz ENTER, aby zapisać tag.
-1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych. W _wersji zapoznawczej programu v 2.1.2_ można również kliknąć, aby wybrać _znaczniki wyboru_ , takie jak przyciski radiowe i pola wyboru jako pary klucz wartość. Aparat rozpoznawania formularzy zidentyfikuje, czy jako wartość jest zaznaczona opcja "wybrane" lub "niezaznaczona".
+1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych. W interfejsie API programu _v 2.1 Preview. 2_ można również kliknąć, aby wybrać _znaczniki wyboru_ , takie jak przyciski radiowe i pola wyboru jako pary klucz wartość. Aparat rozpoznawania formularzy zidentyfikuje, czy jako wartość jest zaznaczona opcja "wybrane" lub "niezaznaczona".
 1. Kliknij tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
     > [!Tip]
     > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach.

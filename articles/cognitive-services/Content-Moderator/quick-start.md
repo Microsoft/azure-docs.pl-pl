@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Content moderator, moderowanie zawartości
-ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8ad9c135fea4e582e6ba47764d0401936f8c295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905217"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221180"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Szybki Start: Wypróbuj Content Moderator w sieci Web
 
@@ -88,6 +88,6 @@ Lub przejdź do następnych kroków, aby rozpocząć korzystanie z interfejsów 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak używać interfejsów API moderowania w aplikacji.
-- Implementowanie moderowania obrazu. Użyj [konsoli interfejsu API](try-image-api.md) lub postępuj zgodnie z [biblioteką klienta lub z przewodnikiem Szybki start interfejsu API REST](client-libraries.md) , aby skanować obrazy i wykrywać potencjalną zawartość dla dorosłych i erotycznej przy użyciu tagów, wyników pewności i innych wyodrębnionych informacji.
-- Implementowanie moderowania tekstu. Użyj [konsoli interfejsu API](try-text-api.md) lub postępuj zgodnie z [biblioteką klienta lub z przewodnikiem Szybki start interfejsu API REST](client-libraries.md) , aby skanować zawartość tekstową pod kątem nieodpowiedniej niepotrzebnej do użycia maszynowego i nieodpowiedniej klasyfikacji tekstu
+- Implementowanie moderowania obrazu. Użyj [konsoli interfejsu API](try-image-api.md) lub postępuj zgodnie z [przewodnikiem Szybki Start](client-libraries.md) , aby skanować obrazy i wykrywać potencjalną zawartość dla dorosłych i erotycznej przy użyciu tagów, wyników pewności i innych wyodrębnionych informacji.
+- Implementowanie moderowania tekstu. Użyj [konsoli interfejsu API](try-text-api.md) lub postępuj zgodnie z [przewodnikiem Szybki Start](client-libraries.md) , aby skanować zawartość tekstową w celu uzyskania potencjalnej niepotrzebnej zawartości, danych osobowych i innego niepożądanego tekstu
 - Implementowanie moderowania wideo. Postępuj zgodnie z [przewodnikiem dotyczącym moderowania wideo dla języka C#](video-moderation-api.md) , aby skanować wideo i wykrywać potencjalną zawartość dla dorosłych i erotycznej. 

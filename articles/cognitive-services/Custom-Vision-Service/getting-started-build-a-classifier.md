@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Rozpoznawanie obrazu, aplikacja rozpoznawania obrazu, niestandardowa wizja
-ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d25b226f5dfff34aa572b40d1e4de142cf8e0b7b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131699"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221248"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Szybki Start: Tworzenie klasyfikatora przy użyciu witryny sieci Web Custom Vision
 
@@ -71,7 +71,7 @@ W przeglądarce internetowej przejdź do [strony sieci web Custom Vision](https:
 
 W tej sekcji zostaną przesłane i ręcznie oznakowane obrazy, aby ułatwić uczenie klasyfikatora. 
 
-1. Aby dodać obrazy, kliknij przycisk __Dodaj obrazy__ , a następnie wybierz __Przeglądaj pliki lokalne__. Wybierz pozycję __Otwórz__ , aby przejść do tagowania. Wybór tagu zostanie zastosowany do całej grupy obrazów wybranych do przekazania, dzięki czemu można łatwiej przekazywać obrazy w oddzielnych grupach zgodnie z odpowiednimi tagami. Możesz również zmienić Tagi dla poszczególnych obrazów po ich przekazaniu.
+1. Aby dodać obrazy, wybierz pozycję __Dodaj obrazy__ , a następnie wybierz pozycję __Przeglądaj pliki lokalne__. Wybierz pozycję __Otwórz__ , aby przejść do tagowania. Wybór tagu zostanie zastosowany do całej grupy obrazów wybranych do przekazania, dzięki czemu można łatwiej przekazywać obrazy w oddzielnych grupach zgodnie z ich zastosowanymi tagami. Możesz również zmienić Tagi dla poszczególnych obrazów po ich przekazaniu.
 
     ![Kontrolka Dodaj obrazy jest pokazywana w lewym górnym rogu i jako przycisk w dolnej części.](./media/getting-started-build-a-classifier/add-images01.png)
 

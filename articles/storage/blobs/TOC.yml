@@ -483,8 +483,10 @@
           href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Monitorowanie (klasyczne)
           items:
-            - name: Monitorowanie w witrynie Azure Portal (klasyczne)
-              href: ../common/storage-monitor-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Włącz metryki i zarządzaj nimi (klasyczne)
+              href: ../common/manage-storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Włączanie dzienników i zarządzanie nimi (klasyczny)
+              href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Rozwiązywanie problemów
           items:
             - name: Problemy z opóźnieniami

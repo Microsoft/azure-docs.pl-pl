@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1e6033f9a8f4cecd2429eca67a3d58e54d7ae1f6
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785599"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221112"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Rozwiązywanie problemów z opóźnieniami przy użyciu dzienników Analityki magazynu
 
@@ -27,7 +27,7 @@ W poniższych krokach pokazano, jak identyfikować i rozwiązywać problemy z op
 
 ## <a name="recommended-steps"></a>Zalecane czynności
 
-1. Pobierz [dzienniki analityka magazynu](./storage-analytics-logging.md#download-storage-logging-log-data).
+1. Pobierz [dzienniki analityka magazynu](./manage-storage-analytics-logs.md#download-storage-logging-log-data).
 
 2. Użyj poniższego skryptu programu PowerShell, aby przekonwertować nieprzetworzone dzienniki w formacie tabelarycznym:
 
@@ -114,7 +114,7 @@ Sprawdź następujące wartości, jak wspomniano w kroku 5 sekcji "zalecane krok
 * Server-Latency
 * Client-Latency
 
-W **operacji GetBlob** z **stanem żądania = Success** , jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta** , oznacza to, że usługa Azure Storage zajmuje dużo czasu na zapisanie danych do klienta. To opóźnienie wskazuje Client-Side problemu.
+W **operacji GetBlob** z **stanem żądania = Success**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, oznacza to, że usługa Azure Storage zajmuje dużo czasu na zapisanie danych do klienta. To opóźnienie wskazuje Client-Side problemu.
 
 **Zaleca**
 
@@ -129,7 +129,7 @@ Sprawdź następujące wartości, jak wspomniano w kroku 5 sekcji "zalecane krok
 * Server-Latency
 * Client-Latency
 
-W **operacji GetBlob** z **stanem żądania = (SAS) NetworkError** , jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta** , najczęściej spotykanym problemem jest odłączenie klienta przed upływem limitu czasu w usłudze Storage.
+W **operacji GetBlob** z **stanem żądania = (SAS) NetworkError**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, najczęściej spotykanym problemem jest odłączenie klienta przed upływem limitu czasu w usłudze Storage.
 
 **Zaleca**
 
@@ -144,7 +144,7 @@ Sprawdź następujące wartości, jak wspomniano w kroku 5 sekcji "zalecane krok
 * Server-Latency
 * Client-Latency
 
-W **operacji Put** z **stanem żądania = Success** , jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta** , oznacza to, że klient poświęca więcej czasu na wysyłanie danych do usługi Azure Storage. To opóźnienie wskazuje Client-Side problemu.
+W **operacji Put** z **stanem żądania = Success**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, oznacza to, że klient poświęca więcej czasu na wysyłanie danych do usługi Azure Storage. To opóźnienie wskazuje Client-Side problemu.
 
 **Zaleca**
 
@@ -159,7 +159,7 @@ Sprawdź następujące wartości, jak wspomniano w kroku 5 sekcji "zalecane krok
 * Server-Latency
 * Client-Latency
 
-W **operacji PutBlob** z **stanem żądania = (SAS) NetworkError** , jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta** , najczęściej spotykanym problemem jest odłączenie klienta przed upływem limitu czasu w usłudze Storage.
+W **operacji PutBlob** z **stanem żądania = (SAS) NetworkError**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, najczęściej spotykanym problemem jest odłączenie klienta przed upływem limitu czasu w usłudze Storage.
 
 **Zaleca**
 

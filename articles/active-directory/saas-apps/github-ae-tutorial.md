@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 3628cb6dbb397b561ff91ba6b6747293a39fd602
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632786"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221055"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą GitHub AE
 
@@ -71,7 +71,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji **GITHUB AE** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -93,11 +93,19 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![image (obraz)](common/default-attributes.png)
 
-1. Oprócz powyższych, aplikacja GitHub AE oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
-    
-    | Nazwa |  Atrybut źródłowy|
-    | ----------- | --------- |
-    | administrator | true |
+1. Edytuj **atrybuty użytkownika & oświadczenia**.
+
+1. Kliknij pozycję **Dodaj nowe** zgłoszenie i wprowadź nazwę jako **administrator** w polu tekstowym.
+
+1. Rozwiń **warunek roszczeń** i wybierz **członków** z **typu użytkownika**.
+
+1. Kliknij pozycję **Wybierz grupy** i Wyszukaj **grupę** , w której mają zostać uwzględnione te żądania, z których członkowie powinni być administratorami programu GHAE.
+
+1. Wybierz opcję **atrybut** dla **źródła** i wprowadź wartość **true** dla tej **wartości**. 
+
+10. Kliknij pozycję **Zapisz**.
+
+    ![Zarządzanie usługą Claim](./media/github-ae-tutorial/administrator.png)
 
     > [!NOTE]
     > Aby zapoznać się z instrukcjami dotyczącymi dodawania roszczeń, Skorzystaj z [linku](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).

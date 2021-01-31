@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: Tworzenie zasad w celu wymuszenia zgodności'
 description: W tym samouczku użyjesz zasad, aby wymusić standardy, kontrolować koszty, obsługiwać zabezpieczenia i nakładać zasady projektowania całego przedsiębiorstwa.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: tutorial
-ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005439"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221197"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności
 
@@ -71,6 +71,10 @@ Pierwszym krokiem w celu wymuszenia zgodności za pomocą usługi Azure Policy j
 1. Nie zaznaczaj zaznaczenia pola **Utwórz zadanie korygujące** . To pole umożliwia utworzenie zadania zmiany istniejących zasobów oprócz nowych lub zaktualizowanych zasobów. Aby uzyskać więcej informacji, zobacz [korygowanie zasobów](../how-to/remediate-resources.md).
 
 1. **Tworzenie tożsamości zarządzanej** jest automatycznie sprawdzane, ponieważ ta definicja zasad używa efektu [modyfikowania](../concepts/effects.md#modify) . **Uprawnienia** są ustawiane _automatycznie na_ podstawie definicji zasad. Aby uzyskać więcej informacji, zobacz tematy dotyczące [tożsamości zarządzanych](../../../active-directory/managed-identities-azure-resources/overview.md) i [sposobu działania zabezpieczeń w zakresie korygowania](../how-to/remediate-resources.md#how-remediation-security-works).
+
+1. Wybierz kartę **komunikaty niezgodności** w górnej części kreatora.
+
+1. Ustaw **komunikat o braku zgodności** dla _tego zasobu, który nie ma wymaganego tagu_. Ten niestandardowy komunikat jest wyświetlany, gdy zasób zostanie odrzucony lub dla niezgodnych zasobów podczas regularnej oceny.
 
 1. Wybierz kartę **Recenzja + tworzenie** w górnej części kreatora.
 

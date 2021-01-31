@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 61eb7d06773428074940d153b01d23b13468795d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 661af89ad223978abbefd71dd8008577475c5875
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788828"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221389"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planowanie i zarządzanie kosztami Cognitive Services platformy Azure
 
@@ -64,6 +64,32 @@ Po usunięciu zasobów QnA Maker następujące zasoby mogą nadal istnieć. W da
 
 Opłaty za Cognitive Services mogą być naliczane przy użyciu przedpłaty za korzystanie z platformy Azure (wcześniej zwanego zobowiązaniem pieniężnym). Nie można jednak używać środków zaliczkowych na platformie Azure, aby zapłacić za opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
 
+## <a name="monitor-costs"></a>Monitorowanie kosztów
+
+<!-- Note to Azure service writer: Modify the following as needed for your service. Replace example screenshots with ones taken for your service. If you need assistance capturing screenshots, ask banders for help. -->
+
+Gdy korzystasz z zasobów platformy Azure z Cognitive Services, naliczane są koszty. Koszty jednostkowe użycia zasobów platformy Azure różnią się w zależności od przedziałów czasu (sekund, minut, godzin i dni) lub według użycia jednostek (bajtów, megabajtów itd.). Po rozpoczęciu korzystania z usługi poznawczej (lub Cognitive Services) koszty są ponoszone, a koszty można zobaczyć w [analizie kosztów](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+Korzystając z analizy kosztów, można wyświetlać Cognitive Services koszty na wykresach i tabelach dla różnych interwałów czasu. Kilka przykładów jest dziennie, bieżącego i poprzedniego miesiąca oraz roku. Możesz również wyświetlić koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie może pomóc w identyfikowaniu trendów wydatków. I zobaczysz, gdzie mogły wystąpić przespędzanie. Jeśli utworzono budżety, możesz również łatwo zobaczyć, gdzie są przekraczane.
+
+Aby wyświetlić koszty Cognitive Services w analizie kosztów:
+
+1. Zaloguj się do witryny Azure Portal.
+2. Otwórz zakres w Azure Portal a następnie wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do pozycji **subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję  **Analiza kosztów** w menu. Wybierz **zakres** , aby przełączyć się do innego zakresu w analizie kosztów.
+3. Domyślnie koszt usług jest pokazywany na pierwszym wykresie pierścieniowym. Wybierz obszar na wykresie z etykietą Cognitive Services.
+
+Rzeczywiste koszty miesięczne są wyświetlane po pierwszym otwarciu analizy kosztów. Oto przykład pokazujący wszystkie miesięczne koszty użycia.
+
+:::image type="content" source="./media/cost-management/all-costs.png" alt-text="Przykład przedstawiający skumulowane koszty subskrypcji":::
+
+- Aby zawęzić koszty pojedynczej usługi, na przykład Cognitive Services, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi**. Następnie wybierz pozycję **Cognitive Services**.
+
+Oto przykład przedstawiający koszty tylko Cognitive Services.
+
+:::image type="content" source="./media/cost-management/cognitive-services-costs.png" alt-text="Przykład przedstawiający skumulowane koszty Cognitive Services":::
+
+W poprzednim przykładzie zobaczysz bieżący koszt usługi. Pokazywane są również koszty według regionów platformy Azure i kosztów Cognitive Services według grupy zasobów. W tym miejscu możesz dowiedzieć się o kosztach własnych.
+
 ## <a name="create-budgets"></a>Tworzenie budżetów
 
 W celu zarządzania kosztami można utworzyć [budżety](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) oraz [alerty](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn), które automatycznie powiadamiają uczestników o anomaliach w wydatkach i o ryzyku nadmiernych wydatków. Alerty są oparte na wydatkach w porównaniu z budżetem i progami kosztów. Budżety i alerty są tworzone dla subskrypcji platformy Azure i grup zasobów, dzięki czemu są one przydatne jako część ogólnej strategii monitorowania kosztów. 
@@ -73,13 +99,6 @@ Budżety można utworzyć za pomocą filtrów dla określonych zasobów lub usł
 ## <a name="export-cost-data"></a>Eksportowanie danych kosztów
 
 Możesz również [wyeksportować dane kosztu](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) do konta magazynu. Jest to przydatne, gdy potrzebujesz lub inne osoby mogą przeprowadzić dodatkową analizę danych pod kątem kosztów. Na przykład zespoły finansowe mogą analizować dane przy użyciu programu Excel lub Power BI. Możesz wyeksportować koszty codziennie, co tydzień lub miesięcznie i ustawić niestandardowy zakres dat. Eksportowanie danych o kosztach jest zalecanym sposobem na pobranie z nich zbiorów.
-
-<!--
-## Other ways to manage and reduce costs for Cognitive Services
-
-Work with Dean to complete this section in 2021.
-
--->
 
 ## <a name="next-steps"></a>Następne kroki
 

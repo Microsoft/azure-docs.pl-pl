@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure Kubernetes Service
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy usługi Azure Kubernetes. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 48ca3012cb64654d7b7985dff2ed734e0295c32b
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 17615dc5b9e1ccff3c35a561bc8e31ad1ec136aa
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805530"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221418"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Azure Policy wbudowane definicje usługi Azure Kubernetes Service
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Rozpoznawanie obrazu, aplikacja rozpoznawania obrazu, niestandardowa wizja
-ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 5ecd5fee565a8d31e0ff05f3b234771446242d02
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132583"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221299"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Szybki Start: Tworzenie detektora obiektów przy użyciu witryny sieci Web Custom Vision
 
@@ -70,7 +70,7 @@ W przeglądarce internetowej przejdź do [strony sieci web Custom Vision](https:
 
 W tej sekcji zostaną przesłane i ręcznie oznakowane obrazy, aby ułatwić uczenie detektora. 
 
-1. Aby dodać obrazy, kliknij przycisk __Dodaj obrazy__ , a następnie wybierz __Przeglądaj pliki lokalne__. Wybierz pozycję __Otwórz__ , aby przekazać obrazy.
+1. Aby dodać obrazy, wybierz pozycję __Dodaj obrazy__ , a następnie wybierz pozycję __Przeglądaj pliki lokalne__. Wybierz pozycję __Otwórz__ , aby przekazać obrazy.
 
     ![Kontrolka Dodaj obrazy jest pokazywana w lewym górnym rogu i jako przycisk w dolnej części.](./media/get-started-build-detector/add-images.png)
 
@@ -78,7 +78,7 @@ W tej sekcji zostaną przesłane i ręcznie oznakowane obrazy, aby ułatwić ucz
 
     ![Przekazane obrazy, w sekcji bez znaczników](./media/get-started-build-detector/images-untagged.png)
 
-1. Kliknij i przeciągnij prostokąt wokół obiektu w obrazie. Następnie wprowadź nową nazwę tagu z **+** przyciskiem lub wybierz istniejący tag z listy rozwijanej. Bardzo ważne jest, aby oznaczyć każde wystąpienie obiektów, które mają być wykrywane, ponieważ detektor używa nieoznakowanego obszaru tła jako negatywnego przykładu w szkoleniu. Gdy skończysz tagowanie, kliknij strzałkę po prawej stronie, aby zapisać tagi i przejść do następnego obrazu.
+1. Kliknij i przeciągnij prostokąt wokół obiektu w obrazie. Następnie wprowadź nową nazwę tagu z **+** przyciskiem lub wybierz istniejący tag z listy rozwijanej. Ważne jest, aby oznaczyć każde wystąpienie obiektów, które mają być wykrywane, ponieważ detektor używa nieoznakowanego obszaru tła jako negatywnego przykładu w szkoleniu. Gdy skończysz tagowanie, kliknij strzałkę po prawej stronie, aby zapisać tagi i przejść do następnego obrazu.
 
     ![Tagowanie obiektu prostokątnym zaznaczeniem](./media/get-started-build-detector/image-tagging.png)
 

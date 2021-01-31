@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: c7e8f96e7917173aaec308b8ae5218684a722483
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507476"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221163"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Kopiuj dane do i z Azure Databricks delty Lake przy użyciu Azure Data Factory
 
@@ -41,8 +41,8 @@ Ogólnie rzecz biorąc, Azure Data Factory obsługuje Delta Lake z następujący
 
 Aby użyć tego Azure Databricks różnicowego, należy skonfigurować klaster w Azure Databricks.
 
-- Aby skopiować dane do programu Delta Lake, działanie Copy wywołuje Azure Databricks klaster, aby odczytywać dane z usługi Azure Storage, czyli oryginalnego źródła lub obszaru przejściowego, w którym Data Factory po raz pierwsze zapisuje dane źródłowe za pomocą wbudowanej kopii przygotowanej. Dowiedz się więcej od usługi [Delta Lake jako źródła](#delta-lake-as-source).
-- Podobnie, aby skopiować dane z różnicowej usługi Lake, działanie Copy wywołuje Azure Databricks klaster w celu zapisywania danych w usłudze Azure Storage, czyli oryginalnego ujścia lub obszaru przejściowego, z którego Data Factory nadal zapisywać dane do końcowego ujścia za pośrednictwem wbudowanej kopii przygotowanej. Dowiedz się więcej od usługi [Delta Lake jako ujścia](#delta-lake-as-sink).
+- Aby skopiować dane do programu Delta Lake, działanie Copy wywołuje Azure Databricks klaster, aby odczytywać dane z usługi Azure Storage, czyli oryginalnego źródła lub obszaru przejściowego, w którym Data Factory po raz pierwsze zapisuje dane źródłowe za pomocą wbudowanej kopii przygotowanej. Dowiedz się więcej od usługi [Delta Lake jako ujścia](#delta-lake-as-sink).
+- Podobnie, aby skopiować dane z różnicowej usługi Lake, działanie Copy wywołuje Azure Databricks klaster w celu zapisywania danych w usłudze Azure Storage, czyli oryginalnego ujścia lub obszaru przejściowego, z którego Data Factory nadal zapisywać dane do końcowego ujścia za pośrednictwem wbudowanej kopii przygotowanej. Dowiedz się więcej od usługi [Delta Lake jako źródła](#delta-lake-as-source).
 
 Klaster datakostki musi mieć dostęp do obiektu blob platformy Azure lub konta Azure Data Lake Storage Gen2, kontenera/systemu plików używanego dla źródła/ujścia/przemieszczania oraz kontenera/systemu plików, w którym mają zostać zapisane tabele różnicowych Lake.
 
@@ -116,7 +116,7 @@ Następujące właściwości są obsługiwane dla Azure Databricks różnicowego
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | typ      | Właściwość Type zestawu danych musi być ustawiona na wartość **AzureDatabricksDeltaLakeDataset**. | Tak                         |
 | database | Nazwa bazy danych. |Nie dla źródła, tak dla ujścia  |
-| table (stolik) | Nazwa tabeli różnicowej. |Nie dla źródła, tak dla ujścia  |
+| tabela | Nazwa tabeli różnicowej. |Nie dla źródła, tak dla ujścia  |
 
 **Przykład:**
 

@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 4c0017a36d84973a4d99c49a5ea33faeb189b35f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639340"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221214"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Informacje o łączności z siecią pulpitu wirtualnego systemu Windows
 
@@ -50,7 +50,7 @@ Sekwencja połączeń klienta opisana poniżej:
 
 ## <a name="connection-security"></a>Zabezpieczenia połączeń
 
-Protokół TLS 1,2 jest używany dla wszystkich połączeń inicjowanych od klientów i hostów sesji do składników infrastruktury pulpitów wirtualnych systemu Windows.
+Protokół TLS 1,2 jest używany dla wszystkich połączeń inicjowanych od klientów i hostów sesji do składników infrastruktury pulpitów wirtualnych systemu Windows. Pulpit wirtualny systemu Windows używa tych samych szyfrów TLS 1,2 co [drzwi platformy Azure](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). Ważne jest, aby upewnić się, że zarówno komputery klienckie, jak i hosty sesji mogą korzystać z tych szyfrów.
 W przypadku transportowego łączenia zwrotnego zarówno klient, jak i Host sesji nawiązują połączenie z bramą usług pulpitu wirtualnego systemu Windows. Po ustanowieniu połączenia TCP klient lub Host sesji sprawdza poprawność certyfikatu bramy usług pulpitu wirtualnego systemu Windows.
 Po ustanowieniu transportu podstawowego protokół RDP ustanawia zagnieżdżone połączenie TLS między klientem i hostem sesji przy użyciu certyfikatów hosta sesji. Domyślnie certyfikat używany na potrzeby szyfrowania RDP jest generowany automatycznie przez system operacyjny podczas wdrażania. W razie potrzeby klienci mogą wdrażać centralne certyfikaty zarządzane przez urząd certyfikacji przedsiębiorstwa. Więcej informacji o konfigurowaniu certyfikatów znajduje się w [dokumentacji systemu Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

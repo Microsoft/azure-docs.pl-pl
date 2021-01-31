@@ -459,7 +459,8 @@
       displayName: 'forums, twitter, feedback'
       href: media-services-community.md
     - name: Harmonogram działania dla platformy Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+      displayName: azure updates
+      href: 'https://azure.microsoft.com/updates/?category=media'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: Filmy wideo
