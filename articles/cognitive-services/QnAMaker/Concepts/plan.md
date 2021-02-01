@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353174"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222869"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planowanie aplikacji QnA Maker
 
@@ -94,13 +94,13 @@ Teraz możesz mieć bazy wiedzy w różnych językach w ramach tego samego QnA M
 
 ### <a name="ingest-data-sources"></a>Pozyskiwanie źródeł danych
 
-Można użyć jednego z następujących pozyskiwanych [źródeł danych](../index.yml) do utworzenia bazy wiedzy:
+Można użyć jednego z następujących pozyskiwanych [źródeł danych](../Concepts/data-sources-and-content.md) do utworzenia bazy wiedzy:
 
 * Publiczny adres URL
 * Prywatny adres URL programu SharePoint
 * Plik
 
-Proces pozyskiwania umożliwia konwersję [obsługiwanych typów zawartości](../index.yml) na potrzeby promocji. Wszelkie dalsze edytowanie *odpowiedzi* odbywa się z użyciem promocji. Po utworzeniu bazy wiedzy można edytować [pary QNA](question-answer-set.md) w portalu QNA Maker przy użyciu [tekstu sformatowanego](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+Proces pozyskiwania umożliwia konwersję [obsługiwanych typów zawartości](../reference-document-format-guidelines.md) na potrzeby promocji. Wszelkie dalsze edytowanie *odpowiedzi* odbywa się z użyciem promocji. Po utworzeniu bazy wiedzy można edytować [pary QNA](question-answer-set.md) w portalu QNA Maker przy użyciu [tekstu sformatowanego](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Zagadnienia dotyczące formatu danych
 
@@ -124,7 +124,7 @@ Należy zaprojektować przepływ konwersacji przy użyciu pętli, aby użytkowni
 
 Współpracownicy mogą być innymi programistami, którzy korzystają z pełnego stosu deweloperów aplikacji bazy wiedzy lub mogą być ograniczeni do samego tworzenia bazy wiedzy.
 
-Tworzenie bazy wiedzy obsługuje kilka [uprawnień dostępu opartych na rolach](../index.yml) , które są stosowane w Azure Portal, aby ograniczyć zakres możliwości współpracowników.
+Tworzenie bazy wiedzy obsługuje kilka [uprawnień dostępu opartych na rolach](../reference-role-based-access-control.md) , które są stosowane w Azure Portal, aby ograniczyć zakres możliwości współpracowników.
 
 ## <a name="integration-with-client-applications"></a>Integracja z aplikacjami klienckimi
 

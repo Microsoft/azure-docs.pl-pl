@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 00b220e07dc3fa7580100d6d36108c14fe598d40
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572191"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222802"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Obsługa przemieszczania maszyn wirtualnych platformy Azure między regionami platformy Azure
 
@@ -154,7 +154,7 @@ Dysk w warstwie Premium P20, P30, P40 lub P50 | 16 KB lub większy |20 MB/s | 16
 --- | --- | ---
 Karta sieciowa | Obsługiwane | Określ istniejący zasób w regionie docelowym lub Utwórz nowy zasób podczas procesu przygotowywania. 
 Wewnętrzny moduł równoważenia obciążenia | Obsługiwane | Określ istniejący zasób w regionie docelowym lub Utwórz nowy zasób podczas procesu przygotowywania.  
-Publiczny moduł równoważenia obciążenia | Nie jest obecnie obsługiwana. | Określ istniejący zasób w regionie docelowym lub Utwórz nowy zasób podczas procesu przygotowywania.  
+Publiczny moduł równoważenia obciążenia | Obsługiwane | Określ istniejący zasób w regionie docelowym lub Utwórz nowy zasób podczas procesu przygotowywania.  
 Publiczny adres IP | Obsługiwane | Określ istniejący zasób w regionie docelowym lub Utwórz nowy zasób podczas procesu przygotowywania.<br/><br/> Publiczny adres IP jest specyficzny dla regionu i nie będzie przechowywany w regionie docelowym po przeniesieniu. Należy pamiętać o modyfikacji ustawień sieci (w tym reguł równoważenia obciążenia) w lokalizacji docelowej.
 Sieciowa grupa zabezpieczeń | Obsługiwane | Określ istniejący zasób w regionie docelowym lub Utwórz nowy zasób podczas procesu przygotowywania.  
 Zarezerwowany (statyczny) adres IP | Obsługiwane | Obecnie nie można tego skonfigurować. Wartość domyślna wartości to wartość źródłowa. <br/><br/> Jeśli karta sieciowa na źródłowej maszynie wirtualnej ma statyczny adres IP, a podsieć docelowa ma ten sam adres IP, jest on przypisany do docelowej maszyny wirtualnej.<br/><br/> Jeśli podsieć docelowa nie ma dostępnego tego samego adresu IP, inicjowanie przenoszenia dla maszyny wirtualnej zakończy się niepowodzeniem.
@@ -172,8 +172,8 @@ Maszyny wirtualne platformy Azure, które chcesz przenieść, wymagają dostępu
 
 **Nazwa** | **Chmura publiczna Azure** | **Szczegóły** 
 --- | --- | --- 
-Magazyn | `*.blob.core.windows.net`  | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. 
-Usługa Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
+Storage | `*.blob.core.windows.net`  | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. 
+Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
 Replikacja | `*.hypervrecoverymanager.windowsazure.com` | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. 
 Service Bus | `*.servicebus.windows.net` | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. 
 

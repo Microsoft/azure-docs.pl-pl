@@ -329,6 +329,8 @@
               href: platform/data-sources-linux-applications.md
             - name: Dzienniki usług IIS
               href: platform/data-sources-iis-logs.md
+            - name: Śledzenie zdarzeń dla danych systemu Windows
+              href: platform/data-sources-event-tracing-windows.md
             - name: Niestandardowe dzienniki
               href: platform/data-sources-custom-logs.md
             - name: Niestandardowe pola

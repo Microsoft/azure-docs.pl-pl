@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6e2ac9d80c1c3bf76b4a3d4c44f0654100670f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82247ae9817e5ff2e26d0862230654021876406b
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567422"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223296"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Zmiana ról zasobów dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -144,7 +144,13 @@ Usługa Azure AD może automatycznie przypisywać użytkownikom dostęp do witry
 
 1. Na stronie **Dodaj rolę zasobów do pakietu dostępu** kliknij pozycję **witryny programu SharePoint** , aby otworzyć okienko Wybieranie witryn usługi SharePoint Online.
 
-1. Wybierz witryny usługi SharePoint Online, które mają zostać uwzględnione w pakiecie dostępu.
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-portal.png" alt-text="Dostęp do pakietu — Dodawanie ról zasobów — Wybieranie witryn programu SharePoint — widok portalu":::
+
+1. Jeśli w programie SharePoint włączono [wiele lokalizacji geograficznych](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) , wybierz środowisko, z którego chcesz wybrać lokacje.
+    
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-select.png" alt-text="Dostęp do pakietu — Dodawanie ról zasobów — wybierz wiele witryn geograficznych programu SharePoint":::
+
+1. Jeśli nie jest włączona funkcja wiele lokalizacji geograficznych, nie trzeba wybierać środowiska. Wybierz witryny usługi SharePoint Online, które mają zostać uwzględnione w pakiecie dostępu.
 
     ![Dostęp do pakietu — Dodawanie ról zasobów — Wybieranie witryn usługi SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 

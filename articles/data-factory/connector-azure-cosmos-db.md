@@ -10,13 +10,13 @@ ms.service: multiple
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
-ms.openlocfilehash: bb9f2673eb080ee2919297fcbb5199f99d176bce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/29/2021
+ms.openlocfilehash: 1d9e43aafbe1f9fdd48596c54138075e23a25590
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013687"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222920"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiowanie i przekształcanie danych w usłudze Azure Cosmos DB (interfejs API SQL) za pomocą usługi Azure Data Factory
 
@@ -52,7 +52,7 @@ Data Factory integruje się z [Azure Cosmos DB zbiorczą biblioteką wykonawców
 > [!TIP]
 > Film dotyczący [migracji danych](https://youtu.be/5-SRNiC_qOU) przeprowadzi Cię przez kroki kopiowania danych z usługi Azure Blob storage do Azure Cosmos DB. Film wideo opisuje również zagadnienia dotyczące dostrajania wydajności dotyczące pozyskiwania danych do Azure Cosmos DB.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -160,6 +160,7 @@ W sekcji **Źródło** działania kopiowania są obsługiwane następujące wła
 | query |Określ zapytanie Azure Cosmos DB, aby odczytywać dane.<br/><br/>Przykład:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nie <br/><br/>Jeśli nie zostanie określony, ta instrukcja SQL jest wykonywana: `select <columns defined in structure> from mycollection` |
 | preferredRegions | Preferowana lista regionów do połączenia podczas pobierania danych z Cosmos DB. | Nie |
 | pageSize | Liczba dokumentów na stronie wyniku zapytania. Wartość domyślna to "-1", co oznacza użycie dynamicznego rozmiaru strony po stronie usługi do 1000. | Nie |
+| detectDatetime | Określa, czy ma zostać wykryta wartość DateTime z wartości ciągu w dokumentach. Dozwolone wartości to: **true** (wartość domyślna), **Fałsz**. | Nie |
 
 Jeśli używasz źródła typu "DocumentDbCollectionSource", jest ono nadal obsługiwane w przypadku zgodności z poprzednimi wersjami. Zalecane jest użycie nowego modelu do przesyłania dalej, który zapewnia bogatsze możliwości kopiowania danych z Cosmos DB.
 
@@ -295,13 +296,16 @@ Ustawienia specyficzne dla Azure Cosmos DB są dostępne na karcie **Ustawienia*
 * Brak: nie zostanie wykonana żadna akcja do kolekcji.
 * Utwórz ponownie: kolekcja zostanie porzucona i utworzona ponownie
 
-**Rozmiar wsadu**: określa, ile wierszy jest zapisywanych w każdym przedziale. Większe rozmiary partii zwiększają optymalizację kompresji i pamięci, ale grozi wyjątkami dotyczącymi pamięci podczas buforowania danych.
+**Rozmiar wsadu**: liczba całkowita reprezentująca liczbę obiektów, które są zapisywane do Cosmos DB kolekcji w każdej partii. Zwykle jest to wystarczające od domyślnego rozmiaru partii. Aby dodatkowo dostroić tę wartość, Uwaga:
+
+- Cosmos DB ogranicza rozmiar pojedynczego żądania do 2 MB. Formuła ma wartość "rozmiar żądania = rozmiar pojedynczego dokumentu * rozmiar wsadu". Jeśli wystąpi błąd mówiący, "rozmiar żądania jest zbyt duży", zmniejsz wartość rozmiaru partii.
+- Im większy rozmiar wsadu, tym większa przepływność APD można osiągnąć, a jednocześnie należy przydzielić wystarczającą ilość jednostek ru, aby zwiększyć obciążenie.
 
 **Klucz partycji:** Wprowadź ciąg, który reprezentuje klucz partycji dla kolekcji. Przykład: ```/movies/title```
 
 **Przepływność:** Ustaw opcjonalną wartość liczby jednostek ru, która ma zostać zastosowana do kolekcji CosmosDB dla każdego wykonywania tego przepływu danych. Wartość minimalna to 400.
 
-**Budżet przepływności zapisu:** Liczba całkowita reprezentująca liczbę jednostek ru, które mają zostać przydzielone do zadania platformy Spark pozyskiwania zbiorczego. Ta liczba jest poza łączną przepływność przydzieloną do kolekcji.
+**Budżet przepływności zapisu:** Liczba całkowita reprezentująca jednostek ru, która ma zostać przydzielona dla tej operacji zapisu przepływu danych, poza łączną przepływność przydzieloną do kolekcji.
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

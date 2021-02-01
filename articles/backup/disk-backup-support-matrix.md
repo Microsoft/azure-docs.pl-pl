@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień pomocy technicznej i ograniczenia ko
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6046c5e05db60b51d803d6391a655ced80b0be6e
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 7e390458884a2cdad0ba422c09165c825eb76d28
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986790"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223327"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Macierz obsługi kopii zapasowych na dysku platformy Azure (w wersji zapoznawczej)
 
@@ -22,7 +22,7 @@ Aby chronić dyski platformy Azure, można użyć [Azure Backup](./backup-overvi
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
-Kopia zapasowa Azure Disk jest dostępna w wersji zapoznawczej w następujących regionach: zachodnie stany USA, zachodnio-środkowe stany USA, Wschodnie stany USA 2, Korea środkowa, Korea Południowa, Japonia Zachodnia, Azja Wschodnia, Zjednoczone Emiraty Arabskie. 
+Kopia zapasowa Azure Disk jest dostępna w wersji zapoznawczej w następujących regionach: zachodnie stany USA, zachodnio-środkowe stany USA, Wschodnie stany USA 2, Korea środkowa, Korea Południowa, Japonia Zachodnia, Azja Wschodnia, Zjednoczone Emiraty Arabskie, Brazylia Południowa, Indie Środkowe. 
 
 Więcej regionów zostanie ogłoszonych, gdy staną się dostępne.
 

@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: 204399186ae229324f9dc478e0ef58a173060013
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 02/01/2021
+ms.openlocfilehash: d11125ed00491f87844c7b0b344473825ad52a99
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638180"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223478"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Skopiuj dane z programu i do usługi Dynamics 365 (Common Data Service) lub Dynamics CRM przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,16 +56,16 @@ Dla systemu Dynamics 365 obsługiwane są następujące typy aplikacji:
 
 Ten łącznik nie obsługuje innych typów aplikacji, takich jak finanse, operacje i talent.
 
-Ten łącznik systemu Dynamics jest oparty na [narzędziach programu Dynamics Xrm](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
-
 >[!TIP]
 >Aby skopiować dane z systemu Dynamics 365 Finanse i operacje, można użyć [łącznika programu Dynamics AX](connector-dynamics-ax.md).
+
+Ten łącznik systemu Dynamics jest oparty na [narzędziach programu Dynamics Xrm](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby użyć tego łącznika z uwierzytelnianiem głównym usługi Azure AD, należy skonfigurować uwierzytelnianie serwer-serwer (S2S) w Common Data Service lub Dynamics. Zapoznaj się z [tym artykułem](/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) , aby uzyskać szczegółowe instrukcje.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -172,7 +172,7 @@ Dla połączonej usługi Dynamics są obsługiwane następujące właściwości.
 
 ### <a name="dynamics-365-and-dynamics-crm-on-premises-with-ifd"></a>Dynamics 365 i Dynamics CRM w środowisku lokalnym z IFD
 
-Dodatkowe właściwości, które są porównywane z usługą Dynamics Online, to **Nazwa hosta** i **port** .
+Dodatkowe właściwości, które są porównywane z usługą Dynamics Online, to **Nazwa hosta** i **port**.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
@@ -326,7 +326,7 @@ Aby skopiować dane do dynamiki, sekcja **ujścia** działania kopiowania obsłu
 | writeBehavior | Zachowanie zapisu operacji. Wartość musi być równa "upsert". | Tak |
 | alternateKeyName | Alternatywna nazwa klucza zdefiniowana w jednostce do wykonania upsert. | Nie. |
 | writeBatchSize | Liczba wierszy danych zapisywana w Dynamics w każdej partii. | Nie. Wartość domyślna to 10. |
-| ignoreNullValues | Czy ignorować wartości null z danych wejściowych innych niż pola klucza podczas operacji zapisu.<br/><br/>Prawidłowe wartości to **true** i **false** :<ul><li>**True** : pozostawienie danych w obiekcie docelowym nie zmienia się po wykonaniu operacji upsert lub Update. Wstaw zdefiniowaną wartość domyślną podczas wykonywania operacji wstawiania.</li><li>**Fałsz** : zaktualizuj dane w obiekcie docelowym do wartości null po wykonaniu operacji upsert lub Update. Wstaw wartość null po wykonaniu operacji wstawiania.</li></ul> | Nie. Wartość domyślna to **false** . |
+| ignoreNullValues | Czy ignorować wartości null z danych wejściowych innych niż pola klucza podczas operacji zapisu.<br/><br/>Prawidłowe wartości to **true** i **false**:<ul><li>**True**: pozostawienie danych w obiekcie docelowym nie zmienia się po wykonaniu operacji upsert lub Update. Wstaw zdefiniowaną wartość domyślną podczas wykonywania operacji wstawiania.</li><li>**Fałsz**: zaktualizuj dane w obiekcie docelowym do wartości null po wykonaniu operacji upsert lub Update. Wstaw wartość null po wykonaniu operacji wstawiania.</li></ul> | Nie. Wartość domyślna to **false**. |
 
 >[!NOTE]
 >Wartość domyślna zarówno dla **writeBatchSize** ujścia, jak i działania copy **[ParallelCopies](copy-activity-performance-features.md#parallel-copy)** dla usługi Dynamics sink to 10. W związku z tym rekordy 100 są jednocześnie przesyłane domyślnie do programu Dynamics.
@@ -378,26 +378,26 @@ Skonfiguruj odpowiedni typ danych Data Factory w strukturze zestawu danych, któ
 | Typ danych Dynamics | Data Factory typ danych pośrednich | Obsługiwane jako źródło | Obsługiwane jako ujścia |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode. BigInt | Długo | ✓ | ✓ |
-| AttributeTypeCode. Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode. Boolean | Wartość logiczna | ✓ | ✓ |
 | AttributeType. Customer | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
 | AttributeType. DateTime | Datetime (data/godzina) | ✓ | ✓ |
 | AttributeType. Decimal | Liczba dziesiętna | ✓ | ✓ |
 | AttributeType. Double | Double | ✓ | ✓ |
-| AttributeType. EntityName | String | ✓ | ✓ |
+| AttributeType. EntityName | Ciąg | ✓ | ✓ |
 | AttributeType. Integer | Int32 | ✓ | ✓ |
 | AttributeType. Lookup | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
-| AttributeType. ManagedProperty | Boolean | ✓ | |
-| AttributeType. MEMO | String | ✓ | ✓ |
+| AttributeType. ManagedProperty | Wartość logiczna | ✓ | |
+| AttributeType. MEMO | Ciąg | ✓ | ✓ |
 | AttributeType. Money | Liczba dziesiętna | ✓ | ✓ |
 | AttributeType. Owner | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
 | AttributeType. Lista wyboru | Int32 | ✓ | ✓ |
 | AttributeType. unikatowy identyfikator | GUID | ✓ | ✓ |
-| AttributeType. String | String | ✓ | ✓ |
+| AttributeType. String | Ciąg | ✓ | ✓ |
 | AttributeType. State | Int32 | ✓ | ✓ |
 | AttributeType. status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Typy danych Dynamics, AttributeType **. CalendarRules** , **attributeType. MultiSelectPicklist** i **attributeType. PartyList** nie są obsługiwane.
+> Typy danych Dynamics, AttributeType **. CalendarRules**, **attributeType. MultiSelectPicklist** i **attributeType. PartyList** nie są obsługiwane.
 
 ## <a name="writing-data-to-a-lookup-field"></a>Zapisywanie danych w polu odnośnika
 
@@ -413,15 +413,15 @@ Aby zapisać dane w polu odnośnika z wieloma obiektami docelowymi, takimi jak k
 
 Załóżmy na przykład, że źródło ma te dwie kolumny:
 
-- Kolumna **CustomerField** typu **GUID** , która jest wartością klucza podstawowego jednostki docelowej w Dynamics.
-- Kolumna **docelowa** typu **String** , która jest nazwą logiczną jednostki docelowej.
+- Kolumna **CustomerField** typu **GUID**, która jest wartością klucza podstawowego jednostki docelowej w Dynamics.
+- Kolumna **docelowa** typu **String**, która jest nazwą logiczną jednostki docelowej.
 
-Załóżmy również, że chcesz skopiować takie dane do pola jednostki Dynamics **CustomerField** typu **Klient** .
+Załóżmy również, że chcesz skopiować takie dane do pola jednostki Dynamics **CustomerField** typu **Klient**.
 
 W mapowaniu kolumn operacji kopiowania Mapuj dwie kolumny w następujący sposób:
 
-- **CustomerField** do **CustomerField** . To mapowanie jest normalnym mapowaniem pól.
-- **Docelowa** **CustomerField \@ EntityReference** . Kolumna ujścia jest kolumną wirtualną reprezentującą odwołanie do jednostki. Wprowadzanie takich nazw pól w mapowaniu, ponieważ nie są one wyświetlane przez zaimportowanie schematów.
+- **CustomerField** do **CustomerField**. To mapowanie jest normalnym mapowaniem pól.
+- **Docelowa** **CustomerField \@ EntityReference**. Kolumna ujścia jest kolumną wirtualną reprezentującą odwołanie do jednostki. Wprowadzanie takich nazw pól w mapowaniu, ponieważ nie są one wyświetlane przez zaimportowanie schematów.
 
 ![Mapowanie kolumn pola wyszukiwania w Dynamics](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 

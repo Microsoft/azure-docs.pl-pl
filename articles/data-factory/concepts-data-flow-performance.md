@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 9706bee07f028c36b4d03311a7abbb969a1be685
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 01/29/2021
+ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944993"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222953"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -244,7 +244,7 @@ Dane **wyjściowe do pojedynczego pliku** łączą wszystkie dane w jedną party
 
 Podczas zapisywania w CosmosDB, zmiana przepływności i rozmiaru partii podczas wykonywania przepływu danych może zwiększyć wydajność. Te zmiany zaczną obowiązywać tylko w trakcie działania przepływu danych i po zakończeniu zostaną przywrócone do oryginalnych ustawień kolekcji. 
 
-**Rozmiar wsadu:** Oblicz przybliżony rozmiar wiersza danych i upewnij się, że rozmiar wiersza * rozmiar wsadu jest mniejszy niż 2 000 000. Jeśli tak, Zwiększ rozmiar partii, aby uzyskać lepszą przepływność
+**Rozmiar wsadu:** Zwykle jest to wystarczające od domyślnego rozmiaru partii. Aby dodatkowo dostroić tę wartość, Oblicz rozmiar nieprzebudowanego obiektu danych i upewnij się, że rozmiar obiektu * rozmiar wsadu jest mniejszy niż 2 MB. W takim przypadku można zwiększyć rozmiar wsadu w celu uzyskania lepszej przepływności.
 
 **Przepływność:** W tym miejscu ustaw wyższą wartość ustawienia przepływności, aby zezwolić na szybsze pisanie dokumentów w programie CosmosDB. Należy pamiętać o wyższych kosztach RU na podstawie ustawienia Wysoka przepływność.
 

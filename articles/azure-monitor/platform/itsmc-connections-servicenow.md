@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 221678da819d32539d0078b72a87c61851ed3e8f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: cc4f961c399e9ac5e853085106924584eb3935d0
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089262"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223393"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Połącz usługi ServiceNow z łącznik zarządzania usługami IT
 
@@ -29,10 +29,11 @@ Informacje o instalowaniu ITSMC można znaleźć [w temacie Dodawanie rozwiązan
 
 ### <a name="oauth-setup"></a>Konfiguracja protokołu OAuth
 
-Usługi ServiceNow obsługiwane wersje obejmują Orlando, Nowy Jork, Madryt, Londyn, Kingston, Dżakarta, Stambuł, Helsinki i Genewa.
+Obsługiwane są usługi ServiceNow wersje: Paryż, Orlando, Nowy Jork, Madryt, Londyn, Kingston, Dżakarta, Stambuł, Helsinki i Genewa.
 
 Administratorzy usługi ServiceNow muszą generować identyfikator klienta i klucz tajny klienta dla swojego wystąpienia usługi usługi ServiceNow. W razie potrzeby zobacz następujące informacje:
 
+- [Konfigurowanie protokołu OAuth dla paryskiego](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Konfigurowanie protokołu OAuth dla Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Konfigurowanie protokołu OAuth dla Nowego Jorku](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Konfigurowanie protokołu OAuth dla usługi Madryt](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

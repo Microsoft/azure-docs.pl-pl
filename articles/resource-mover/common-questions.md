@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb8cfa3e1aa874f807ce46b254a22f3003c2f600
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600657"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222819"
 ---
 # <a name="common-questions"></a>Często zadawane pytania
 
@@ -62,7 +62,7 @@ Tak, zarówno podczas przesyłania, jak i w spoczynku.
 
 ### <a name="how-is-managed-identity-used-in-resource-mover"></a>Jak jest używana tożsamość zarządzana w obszarze przenoszenia zasobów?
 
-[Tożsamość zarządzana](../active-directory/managed-identities-azure-resources/overview.md) (wcześniej znana jako tożsamość usługi ZARZĄDZANEJ (mis)) zapewnia usługi platformy Azure z automatyczną tożsamością zarządzaną w usłudze Azure AD.
+[Tożsamość zarządzana](../active-directory/managed-identities-azure-resources/overview.md) (znana wcześniej jako tożsamość usługi ZARZĄDZANEJ (msi)) zapewnia usługi platformy Azure z automatyczną tożsamością zarządzaną w usłudze Azure AD.
 - Funkcja przenoszenia zasobów używa tożsamości zarządzanej, dzięki czemu może uzyskiwać dostęp do subskrypcji platformy Azure w celu przenoszenia zasobów między regionami.
 - Kolekcja przenoszenia musi mieć przypisaną do systemu tożsamość, z dostępem do subskrypcji zawierającej zasoby, które są przenoszone.
 
@@ -74,7 +74,7 @@ Tak, zarówno podczas przesyłania, jak i w spoczynku.
 Tożsamość zarządzana usługi Azure Resource Mover wymaga co najmniej następujących uprawnień: 
 
 - Uprawnienie do zapisywania/tworzenia zasobów w ramach subskrypcji użytkownika, dostępne z rolą *współautor* . 
-- Uprawnienie do tworzenia przypisań ról. Zazwyczaj dostępne dla ról *administratora dostępu* *właściciela* lub użytkownika lub z rolą niestandardową z przypisanym *uprawnieniem Microsoft. Autoryzacja/przypisań ról/zapisem* . To uprawnienie nie jest konieczne, jeśli zarządzana tożsamość zasobu udziału danych ma już dostęp do magazynu danych platformy Azure. 
+- Uprawnienie do tworzenia przypisań ról. Zazwyczaj dostępne dla ról *administratora dostępu* *właściciela* lub użytkownika lub z rolą niestandardową z przypisanym *uprawnieniem Microsoft. Autoryzacja/przypisań ról/zapisem* . To uprawnienie nie jest wymagane, jeśli tożsamość zarządzana zasobu udziału danych ma już dostęp do magazynu danych platformy Azure. 
  
 Po dodaniu zasobów w centrum usługi Resource Mover w portalu, uprawnienia są obsługiwane automatycznie, o ile użytkownik ma uprawnienia opisane powyżej. W przypadku dodawania zasobów przy użyciu programu PowerShell można przypisywać uprawnienia ręcznie.
 

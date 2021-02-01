@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931310"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223103"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z i do punktu końcowego REST przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +26,7 @@ W tym artykule opisano sposób używania działania kopiowania w Azure Data Fact
 Różnica między tym łącznikiem REST, [łącznikiem http](connector-http.md)i [łącznikiem tabeli sieci Web](connector-web-table.md) :
 
 - **Łącznik REST** obsługuje kopiowanie danych z interfejsów API RESTful; 
-- **Łącznik http** jest ogólny do pobierania danych z dowolnego punktu końcowego http, na przykład do pobierania pliku. Przed udostępnieniem tego łącznika REST może wystąpić potrzeba użycia łącznika HTTP do kopiowania danych z interfejsu API RESTful, który jest obsługiwany, ale mniej funkcjonalny jest porównywany z łącznikiem REST.
+- **Łącznik http** jest ogólny do pobierania danych z dowolnego punktu końcowego http, na przykład do pobierania pliku. Przed tym łącznikiem REST można używać łącznika HTTP do kopiowania danych z interfejsu API RESTful, który jest obsługiwany, ale mniej funkcjonalny do porównywania łącznika REST.
 - **Łącznik tabeli sieci Web** wyodrębnia zawartość tabeli z strony html.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości

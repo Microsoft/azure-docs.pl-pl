@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/12/2021
-ms.openlocfilehash: 2fcb8f6d22e93f3a95be26b7bc61f3b5226ba090
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 01/29/2021
+ms.openlocfilehash: cb5ea99223b803435ecd8716a7a57152266878a8
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117133"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223370"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiuj wiele tabel zbiorczo przy użyciu Azure Data Factory w Azure Portal
 
@@ -261,7 +261,6 @@ Potok  **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każd
         ```
 
         ![Ustawienia ujścia kopiowania](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-
 
 1. Przejdź do karty **Ustawienia** i wykonaj następujące czynności: 
 
