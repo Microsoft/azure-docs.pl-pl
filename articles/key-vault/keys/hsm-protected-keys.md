@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 7fa8590b4fb148b2a8969c4f474f6627cea263df
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 17ef0cb7efcd2a76b46a6bb0dbc82268895dae00
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935329"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222204"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importowanie kluczy chronionych przez moduł HSM do usługi Key Vault
 
@@ -40,6 +40,7 @@ Transferowanie kluczy chronionych przez moduł HSM do Key Vault jest obsługiwan
 |Cryptomathic|Niezależnego dostawcy oprogramowania (system zarządzania kluczami przedsiębiorstwa)|Wiele marek i modeli modułu HSM, w tym<ul><li>Oprogramowanie wspomagające nCipher</li><li>Firmy Thales</li><li>Utimaco</li></ul>[Aby uzyskać szczegółowe informacje, zobacz witrynę Cryptomathic](https://www.cryptomathic.com/azurebyok)|[Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|
 |Securosys SA|Producent, moduł HSM jako usługa|Rodzina modułów HSM Primus, moduł HSM chmur Securosys|[Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|
 |StorMagic|Niezależnego dostawcy oprogramowania (system zarządzania kluczami przedsiębiorstwa)|Wiele marek i modeli modułu HSM, w tym<ul><li>Utimaco</li><li>Firmy Thales</li><li>Oprogramowanie wspomagające nCipher</li></ul>[Aby uzyskać szczegółowe informacje, zobacz witrynę StorMagic](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|
+|IBM|Producent|IBM 476x, CryptoExpress|Użyj nowej metody BYOK] (HSM-Protected-Keys-byok.md)|
 |||||
 
 ## <a name="next-steps"></a>Następne kroki

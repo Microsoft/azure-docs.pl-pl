@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: d4f8ab190d0418fbb25dad2cd7af231eabfe0f02
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: a85ae227d45c8de6c3d04e4a058ebf9715421ca2
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090258"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222068"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
 
@@ -237,8 +237,8 @@ Gdy nie jest już potrzebne, Usuń obiekt aplikacji, który został utworzony w 
 
 ## <a name="get-help"></a>Uzyskaj pomoc
 
-Aby uzyskać pomoc techniczną dla społeczności, użyj funkcji [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) .
-Zadawaj pytania w witrynie Microsoft Q&a i Przeglądaj istniejące problemy, aby zobaczyć, czy ktoś zażądał wcześniej pytania.
+Aby uzyskać pomoc techniczną dla społeczności, użyj funkcji [Microsoft Q&A](https://docs.microsoft.com/answers/products/) .
+Zadawaj pytania w witrynie [Microsoft Q&](https://docs.microsoft.com/answers/products/) a i Przeglądaj istniejące problemy, aby zobaczyć, czy ktoś zażądał wcześniej pytania.
 Upewnij się, że Twoje pytania lub komentarze są oznaczone za pomocą "Azure-AD-ADAL-make", "Azure-AD-msal" i "dotnet-standard".
 
 Jeśli znajdziesz usterkę w przykładzie, zgłoś problem w usłudze [GitHub](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).

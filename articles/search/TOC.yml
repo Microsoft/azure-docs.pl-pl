@@ -230,7 +230,7 @@
           items:
             - name: Wyszukiwanie w obiektach blob
               href: search-blob-storage-integration.md
-            - name: Omówienie stosowania obiektów blob ze sztuczną inteligencją
+            - name: Wzbogacanie AI z obiektów BLOB
               href: search-blob-ai-integration.md
             - name: Konfigurowanie indeksatora obiektów blob
               href: search-howto-indexing-azure-blob-storage.md

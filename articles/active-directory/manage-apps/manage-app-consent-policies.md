@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f8fe027b350968a99aab5458fc2d7c1699fb50e3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 62a8b48d6b33a92b62bc4c3634794190585615b7
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052519"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222031"
 ---
 # <a name="manage-app-consent-policies"></a>Zarządzanie zasadami wyrażania zgody aplikacji
 
@@ -152,4 +152,4 @@ Dodatkowe informacje:
 * [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
-* [Usługa Azure AD w systemie StackOverflow](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Usługa Azure AD w firmie Microsoft Q&A](https://docs.microsoft.com/answers/products/)

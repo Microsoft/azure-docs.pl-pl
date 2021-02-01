@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/01/2021
 ms.author: ambapat
-ms.openlocfilehash: a1c6b054a9caac8ba223bc81e164e7ebf34bd267
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 98da8057fb09cf43a59b921694386cbf3fa8ca21
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413330"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222221"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importuj klucze chronione przez moduł HSM do Key Vault (BYOK)
 
@@ -65,6 +65,7 @@ Poniższa tabela zawiera listę wymagań wstępnych dotyczących używania progr
 |Cryptomathic|Niezależnego dostawcy oprogramowania (system zarządzania kluczami przedsiębiorstwa)|Wiele marek i modeli modułu HSM, w tym<ul><li>Oprogramowanie wspomagające nCipher</li><li>Firmy Thales</li><li>Utimaco</li></ul>[Aby uzyskać szczegółowe informacje, zobacz witrynę Cryptomathic](https://www.cryptomathic.com/azurebyok)|[Cryptomathic BYOK — narzędzie i dokumentacja](https://www.cryptomathic.com/azurebyok)|
 |Securosys SA|Producent, moduł HSM jako usługa|Rodzina modułów HSM Primus, moduł HSM chmur Securosys|[Primus BYOK — narzędzie i dokumentacja](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|Niezależnego dostawcy oprogramowania (system zarządzania kluczami przedsiębiorstwa)|Wiele marek i modeli modułu HSM, w tym<ul><li>Utimaco</li><li>Firmy Thales</li><li>Oprogramowanie wspomagające nCipher</li></ul>[Aby uzyskać szczegółowe informacje, zobacz witrynę StorMagic](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS i Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
+|IBM|Producent|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
 ||||
 
 
@@ -121,7 +122,7 @@ Prześlij plik BYOK na podłączonym komputerze.
 > [!NOTE] 
 > Importowanie kluczy RSA 1 024-bitowe nie jest obsługiwane. Obecnie Importowanie klucza krzywej eliptyczna (EC) nie jest obsługiwane.
 > 
-> **Znany problem** : Importowanie klucza docelowego RSA 4K z Luna sprzętowych modułów zabezpieczeń jest obsługiwane tylko przy użyciu oprogramowania układowego 7.4.0 lub nowszego.
+> **Znany problem**: Importowanie klucza docelowego RSA 4K z Luna sprzętowych modułów zabezpieczeń jest obsługiwane tylko przy użyciu oprogramowania układowego 7.4.0 lub nowszego.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Krok 4. przeniesienie klucza do Azure Key Vault
 

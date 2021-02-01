@@ -1,5 +1,5 @@
 ---
-title: Używanie AI do zrozumienia danych magazynu obiektów BLOB
+title: Użyj AI do wzbogacania zawartości obiektów BLOB
 titleSuffix: Azure Cognitive Search
 description: Dowiedz się więcej o możliwościach analizy języka naturalnego i obrazu w usłudze Azure Wyszukiwanie poznawcze oraz o tym, jak te procesy mają zastosowanie do zawartości przechowywanej w obiektach Blob platformy Azure.
 manager: nitinme
@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a0d32f00bd3c7f8daa2984bdc7c9b9dfb5add218
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 3d427d80e502eed0825165e640acc0755515c5b0
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362801"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222052"
 ---
-# <a name="use-ai-to-understand-blob-storage-data"></a>Używanie AI do zrozumienia danych magazynu obiektów BLOB
+# <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Używanie systemu AI do przetwarzania i analizowania zawartości obiektów BLOB w usłudze Azure Wyszukiwanie poznawcze
 
-Dane w usłudze Azure Blob Storage to często wiele zawartości bez struktury, takich jak obrazy, długie teksty, pliki PDF i dokumenty pakietu Office. Korzystając z funkcji AI w usłudze Azure Wyszukiwanie poznawcze, można zrozumieć i wyodrębnić cenne informacje z obiektów BLOB na wiele sposobów. Przykłady zastosowania AI do zawartości obiektów BLOB obejmują:
+Zawartość w usłudze Azure Blob Storage, która składa się z obrazów lub długiego tekstu niezróżnicowanego, może zostać przeprojektowana w celu uzyskania i wyodrębnienia cennych informacji przydatnych dla aplikacji podrzędnych. Przy użyciu [wzbogacania AI](cognitive-search-concept-intro.md)można:
 
 + Wyodrębnij tekst z obrazów przy użyciu optycznego rozpoznawania znaków (OCR)
 + Tworzenie opisu sceny lub tagów ze zdjęcia
@@ -26,23 +26,23 @@ Dane w usłudze Azure Blob Storage to często wiele zawartości bez struktury, t
 
 Chociaż może być wymagana tylko jedna z tych funkcji AI, często można połączyć wiele z nich w ten sam potok (na przykład Wyodrębnianie tekstu z zeskanowanego obrazu, a następnie znalezienie wszystkich dat i miejsc, do których się odwołuje). Często istnieje również możliwość uwzględnienia niestandardowego przetwarzania plików AI lub uczenia maszynowego w formie zewnętrznych lub opartych na nich modeli, które są dostosowane do Twoich danych i wymagań.
 
-Wzbogacanie AI tworzy nowe informacje przechwycone jako tekst, przechowywane w polach. Po wzbogaceniu można uzyskać dostęp do tych informacji z indeksu wyszukiwania za pośrednictwem wyszukiwania pełnotekstowego lub wysłać wzbogacone dokumenty z powrotem do usługi Azure Storage, aby uzyskać nowe środowiska aplikacji, które obejmują Eksplorowanie danych w scenariuszach odnajdywania lub analizy. 
+Chociaż można zastosować wzbogacanie AI do dowolnego źródła danych obsługiwanego przez indeksator wyszukiwania, obiekty blob są najczęściej używanymi strukturami w potoku wzbogacania. Wyniki są ściągane do indeksu wyszukiwania dla wyszukiwania pełnotekstowego lub przekierowane z powrotem do usługi Azure Storage w celu zapewnienia obsługi nowych środowisk aplikacji, które obejmują Eksplorowanie danych w scenariuszach odnajdywania lub analizy. 
 
 W tym artykule przedstawiono wzbogacenie AI za pośrednictwem szerokiego obiektywu, dzięki czemu można szybko opanujesz cały proces od przekształcenia nieprzetworzonych danych w obiektach Blob do Queryable informacji w indeksie wyszukiwania lub w sklepie z bazami wiedzy.
 
 ## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>Co oznacza "wzbogacanie" danych obiektów blob z AI
 
-*Wzbogacanie AI* jest częścią architektury indeksowania platformy Azure wyszukiwanie poznawcze, która integruje wbudowane AI z firmy Microsoft lub niestandardowego AI, który zapewniasz. Ułatwia ona implementowanie kompleksowych scenariuszy, w których należy przetwarzać obiekty blob (zarówno istniejące, jak i nowe), ponieważ są one dostępne lub są aktualizowane), pęknięcie otwiera wszystkie formaty plików w celu wyodrębnienia obrazów i tekstu, wyodrębnienie wymaganych informacji przy użyciu różnych funkcji AI i indeksowanie ich w indeksie wyszukiwania w celu szybkiego wyszukiwania, pobierania i eksploracji. 
+*Wzbogacanie AI* jest częścią architektury indeksowania platformy Azure wyszukiwanie poznawcze, która integruje modele uczenia maszynowego od firmy Microsoft lub niestandardowych modeli uczenia. Ułatwia ona implementowanie kompleksowych scenariuszy, w których należy przetwarzać obiekty blob (zarówno istniejące, jak i nowe), ponieważ są one dostępne lub są aktualizowane), pęknięcie otwiera wszystkie formaty plików w celu wyodrębnienia obrazów i tekstu, wyodrębnienie wymaganych informacji przy użyciu różnych funkcji AI i indeksowanie ich w indeksie wyszukiwania w celu szybkiego wyszukiwania, pobierania i eksploracji. 
 
 Dane wejściowe są obiektami BLOB w jednym kontenerze w usłudze Azure Blob Storage. Obiekty blob mogą być niemal dowolnym rodzajem danych tekstowych lub graficznych. 
 
 Wyjście jest zawsze indeksem wyszukiwania używanym do szybkiego wyszukiwania tekstu, pobierania i eksploracji w aplikacjach klienckich. Ponadto dane wyjściowe mogą być również [*magazynem wiedzy*](knowledge-store-concept-intro.md) , który projektuje wzbogacone dokumenty do obiektów blob platformy Azure lub tabel platformy Azure w celu przeprowadzenia analizy podrzędnej w przypadku narzędzi takich jak Power BI lub obciążeń związanych z nauką danych.
 
-Między programem jest samą architekturą potoku. Potok jest oparty na funkcji *indeksatora* , do której można przypisać *zestawu umiejętności*, która składa się z co najmniej jednej *umiejętności* zapewniającej AI. Potok jest przeznaczony do tworzenia *wzbogaconych dokumentów* , które wprowadzają jako nieprzetworzoną zawartość, ale pobierają dodatkową strukturę, kontekst i informacje podczas poruszania się po potoku. Wzbogacone dokumenty są używane podczas indeksowania do tworzenia odwróconych indeksów i innych struktur używanych w wyszukiwaniu pełnotekstowym lub eksploracji i analizie.
+Między programem jest samą architekturą potoku. Potok jest oparty na [*indeksatorach*](search-indexer-overview.md), do których można przypisać [*zestawu umiejętności*](cognitive-search-working-with-skillsets.md), która składa się z co najmniej jednej *umiejętności* zapewniającej AI. Potok służy do tworzenia *wzbogaconych dokumentów* , które wprowadzają potok jako zawartość nieprzetworzona, ale pobierają dodatkową strukturę, kontekst i informacje podczas przechodzenia przez potok. Wzbogacone dokumenty są używane podczas indeksowania do tworzenia odwróconych indeksów i innych struktur używanych w wyszukiwaniu pełnotekstowym lub eksploracji i analizie.
 
 ## <a name="required-resources"></a>Wymagane zasoby
 
-Potrzebujesz usług Azure Blob Storage, Azure Wyszukiwanie poznawcze i trzeciej usługi lub mechanizmu, który zapewnia dysk AI:
+Oprócz magazynu obiektów blob platformy Azure i usługi Azure Wyszukiwanie poznawcze należy mieć trzecią usługę lub mechanizm, który zapewnia dysk AI:
 
 + W przypadku wbudowanych plików AI Wyszukiwanie poznawcze integruje się z platformą Azure Cognitive Services Vision i interfejsami API przetwarzania języka naturalnego. Możesz [dołączyć zasób Cognitive Services](cognitive-search-attach-cognitive-services.md) , aby dodać optyczne rozpoznawanie znaków (OCR), analizę obrazu lub przetwarzanie języka naturalnego (wykrywanie języka, tłumaczenie tekstu, rozpoznawanie jednostek, wyodrębnianie kluczowych fraz). 
 

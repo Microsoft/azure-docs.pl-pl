@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: 44ea6e8343203a9cb18947f31f45aa0b023178b0
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624578"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222138"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Usługa Defender dla interfejsów API konsoli zarządzania i czujnika IoT
 
@@ -56,33 +56,31 @@ Aby wygenerować token:
 
 W tej sekcji opisano następujące interfejsy API czujnika:
 
-- /api/v1/devices
+- [Pobieranie informacji o urządzeniu —/API/V1/Devices](#retrieve-device-information---apiv1devices)
 
-- /api/v1/devices/connections
+- [Pobieranie informacji o połączeniu z urządzeniem —/API/V1/Devices/Connections](#retrieve-device-connection-information---apiv1devicesconnections)
 
-- /api/v1/devices/cves
+- [Pobieranie informacji o CVEs-/API/V1/Devices/cves](#retrieve-information-on-cves---apiv1devicescves)
 
-- /api/v1/alerts
+- [Pobieranie informacji o alercie —/API/V1/Alerts](#retrieve-alert-information---apiv1alerts)
 
-- /api/v1/events
+- [Pobieranie zdarzeń osi czasu —/API/V1/Events](#retrieve-timeline-events---apiv1events)
 
-- /api/v1/reports/vulnerabilities/devices
+- [Pobierz informacje dotyczące luk w zabezpieczeniach —/API/V1/Reports/vulnerabilities/Devices](#retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices)
 
-- /api/v1/reports/vulnerabilities/security
+- [Pobieranie luk w zabezpieczeniach —/API/V1/Reports/vulnerabilities/Security](#retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity)
 
-- /api/v1/reports/vulnerabilities/operational
+- [Pobieranie luk w zabezpieczeniach —/API/V1/Reports/vulnerabilities/Operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
 
-- /api/external/authentication/validation
+- [Weryfikowanie poświadczeń użytkownika —/API/External/Authentication/Validation](#validate-user-credentials---apiexternalauthenticationvalidation)
 
-- /External/Authentication/set_password
+- [Zmień hasło —/External/Authentication/set_password](#change-password---externalauthenticationset_password)
 
-- /External/Authentication/set_password_by_admin
+- [Aktualizacja hasła użytkownika przez administratora systemu —/External/Authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
 
-### <a name="retrieve-device-information"></a>Pobieranie informacji o urządzeniu
+### <a name="retrieve-device-information---apiv1devices"></a>Pobieranie informacji o urządzeniu —/API/V1/Devices
 
 Użyj tego interfejsu API, aby zażądać listy wszystkich urządzeń, dla których wykryto czujnik usługi Defender for IoT.
-
-#### <a name="apiv1devices"></a>/api/v1/devices
 
 #### <a name="method"></a>Metoda
 
@@ -279,11 +277,15 @@ Tablica obiektów JSON reprezentujących urządzenia.
 ]
 ```
 
-### <a name="retrieve-device-connection-information"></a>Pobierz informacje o połączeniu z urządzeniem
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Devices | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https: <span> //127 <span> . 0.0.1/API/V1/Devices? autoryzowane = true |
+
+### <a name="retrieve-device-connection-information---apiv1devicesconnections"></a>Pobieranie informacji o połączeniu z urządzeniem —/API/V1/Devices/Connections
 
 Użyj tego interfejsu API, aby zażądać listy wszystkich połączeń na urządzenie.
-
-#### <a name="apiv1devicesconnections"></a>/api/v1/devices/connections
 
 #### <a name="method"></a>Metoda
 
@@ -447,11 +449,17 @@ Tablica obiektów JSON reprezentujących połączenia urządzeń.
 ]
 ```
 
-### <a name="retrieve-information-on-cves"></a>Pobieranie informacji o CVEs
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Typ | Interfejsy API | Przykład |
+> |--|--|--|
+> | GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Devices/Connections | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Devices/Connections |
+> | GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" "https://<IP_ADDRESS>/API/V1/Devices/ <deviceId> /Connections? lastActiveInMinutes =&discoveredBefore =&discoveredAfter =" | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/API/V1/Devices/2/Connections? lastActiveInMinutesd = 20&discoveredBefore = 1594550986000&discoveredAfter = 1594550986000" |
+
+### <a name="retrieve-information-on-cves---apiv1devicescves"></a>Pobieranie informacji o CVEs-/API/V1/Devices/cves
 
 Użyj tego interfejsu API, aby zażądać listy wszystkich znanych CVEs odnalezionych na urządzeniach w sieci.
-
-#### <a name="apiv1devicescves"></a>/api/v1/devices/cves
 
 #### <a name="method"></a>Metoda
 
@@ -557,11 +565,16 @@ Tablica obiektów JSON, która reprezentuje CVEs identyfikowane w adresach IP.
 ]
 ```
 
-### <a name="retrieve-alert-information"></a>Pobieranie informacji o alercie
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Devices/cves | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Devices/cves |
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Devices/ <deviceIpAddress> /cves? Top = | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Devices/10.10.10.15/cves? Top = 50 |
+
+### <a name="retrieve-alert-information---apiv1alerts"></a>Pobieranie informacji o alercie —/API/V1/Alerts
 
 Użyj tego interfejsu API, aby zażądać listy wszystkich alertów wykrytych przez usługę Defender for IoT.
-
-#### <a name="apiv1alerts"></a>/api/v1/alerts
 
 #### <a name="method"></a>Metoda
 
@@ -685,11 +698,16 @@ Tablica obiektów JSON, które reprezentują alerty.
 
 ```
 
-### <a name="retrieve-timeline-events"></a>Pobieranie zdarzeń osi czasu
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Typ | Interfejsy API | Przykład |
+> |--|--|--|
+> | GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" "https://<IP_ADDRESS>/API/V1/Alerts? State =&fromTime =&toTime =&Type =" | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/API/V1/Alerts? State = nieobsłużone&fromTime = 1594550986000&toTime = 1594550986001&Type = rozłączenia" |
+
+### <a name="retrieve-timeline-events---apiv1events"></a>Pobieranie zdarzeń osi czasu —/API/V1/Events
 
 Użyj tego interfejsu API, aby zażądać listy zdarzeń raportowanych do osi czasu zdarzeń.
-
-#### <a name="apiv1events"></a>/api/v1/events
 
 #### <a name="method"></a>Metoda
 
@@ -802,11 +820,15 @@ Tablica obiektów JSON, które reprezentują alerty.
 
 ```
 
-### <a name="retrieve-vulnerability-information"></a>Pobierz informacje dotyczące luk w zabezpieczeniach
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" "https://<IP_ADDRESS>/API/V1/Events? minutesTimeFramed =&Type =" | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/API/V1/Events? minutesTimeFramed = 20&Type = DEVICE_CONNECTION_CREATED" |
+
+### <a name="retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices"></a>Pobierz informacje dotyczące luk w zabezpieczeniach —/API/V1/Reports/vulnerabilities/Devices
 
 Użyj tego interfejsu API, aby zażądać wyników oceny luk w zabezpieczeniach dla każdego urządzenia.
-
-#### <a name="apiv1reportsvulnerabilitiesdevices"></a>/api/v1/reports/vulnerabilities/devices
 
 #### <a name="method"></a>Metoda
 
@@ -1052,13 +1074,17 @@ Obiekt urządzenia zawiera:
 
 ```
 
-### <a name="retrieve-security-vulnerabilities"></a>Pobieranie luk w zabezpieczeniach
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Reports/vulnerabilities/Devices | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Reports/vulnerabilities/Devices |
+
+### <a name="retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity"></a>Pobieranie luk w zabezpieczeniach —/API/V1/Reports/vulnerabilities/Security
 
 Ten interfejs API służy do żądania wyników ogólnej oceny luk w zabezpieczeniach. Ta ocena zawiera szczegółowe informacje na temat poziomu zabezpieczeń systemu.
 
 Ta ocena jest oparta na ogólnych informacjach dotyczących sieci i systemu, a nie na określonej ewaluacji urządzenia.
-
-#### <a name="apiv1reportsvulnerabilitiessecurity"></a>/api/v1/reports/vulnerabilities/security
 
 #### <a name="method"></a>Metoda
 
@@ -1295,11 +1321,15 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz może być dopuszczan
 
 ```
 
-### <a name="retrieve-operational-vulnerabilities"></a>Pobieranie luk w zabezpieczeniach
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Reports/vulnerabilities/Security | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Reports/vulnerabilities/Security |
+
+### <a name="retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational"></a>Pobieranie luk w zabezpieczeniach —/API/V1/Reports/vulnerabilities/Operational
 
 Ten interfejs API służy do żądania wyników ogólnej oceny luk w zabezpieczeniach. Ta ocena zapewnia wgląd w informacje o stanie operacyjnym sieci. Jest on oparty na ogólnych informacjach dotyczących sieci i systemu, a nie na określonej ocenie urządzenia.
-
-#### <a name="apiv1reportsvulnerabilitiesoperational"></a>/api/v1/reports/vulnerabilities/operational
 
 #### <a name="method"></a>Metoda
 
@@ -1333,7 +1363,7 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz zawiera tablicę wyni
 | Nazwa pola | Typ | Lista wartości |
 |--|--|--|
 | **adresowanie** s | Numeryczny | - |
-| **NFS** | Ciąg | Adres IP |
+| **network** | Ciąg | Adres IP |
 | **maska** | Ciąg | Maska podsieci |
 
 **protocolProblems**
@@ -1488,13 +1518,17 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz zawiera tablicę wyni
 
 ```
 
-### <a name="validate-user-credentials"></a>Weryfikowanie poświadczeń użytkownika
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Reports/vulnerabilities/Operational | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Reports/vulnerabilities/Operational |
+
+### <a name="validate-user-credentials---apiexternalauthenticationvalidation"></a>Weryfikowanie poświadczeń użytkownika —/API/External/Authentication/Validation
 
 Ten interfejs API umożliwia Weryfikowanie nazwy użytkownika i hasła usługi Defender dla usługi IoT. Wszystkie role użytkowników usługi Defender for IoT mogą współpracować z interfejsem API.
 
 Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender for IoT.
-
-#### <a name="apiexternalauthenticationvalidation"></a>/api/external/authentication/validation
 
 #### <a name="method"></a>Metoda
 
@@ -1551,11 +1585,15 @@ response:
 
 ```
 
-### <a name="change-password"></a>Zmień hasło
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/External/Authentication/Validation | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/External/Authentication/Validation |
+
+### <a name="change-password---externalauthenticationset_password"></a>Zmień hasło —/External/Authentication/set_password
 
 Użyj tego interfejsu API, aby umożliwić użytkownikom zmianę własnych haseł. Wszystkie role użytkowników usługi Defender for IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender for IoT.
-
-#### <a name="externalauthenticationset_password"></a>/External/Authentication/set_password
 
 #### <a name="method"></a>Metoda
 
@@ -1621,11 +1659,15 @@ response:
 | **hasło** | Ciąg | Nie |
 | **new_password** | Ciąg | Nie |
 
-### <a name="user-password-update-by-system-admin"></a>Aktualizacja hasła użytkownika przez administratora systemu
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| POST | zwinięcie-k-d "{" username ":" <USER_NAME> "," Password ":" <CURRENT_PASSWORD> "," new_password ":" <NEW_PASSWORD> "}"-H "Content-Type: Application/JSON" https://<IP_ADDRESS>/API/External/Authentication/set_password | zwinięcie-k-d "{" username ":" dbuser "," Password ":" 1234@abcd "," new_password ":" abcd@1234 "}"-H "Content-Type: Application/JSON" https:/ <span> /127.0.0.1/API/External/Authentication/set_password |
+
+### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Aktualizacja hasła użytkownika przez administratora systemu —/External/Authentication/set_password_by_admin
 
 Użyj tego interfejsu API, aby umożliwić administratorom systemu Zmienianie haseł dla określonych użytkowników. Usługi Defender dla administratorów IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender for IoT.
-
-#### <a name="externalauthenticationset_password_by_admin"></a>/External/Authentication/set_password_by_admin
 
 #### <a name="method"></a>Metoda
 
@@ -1697,6 +1739,13 @@ response:
 | **uż** | Ciąg | Nie |
 | **new_password** | Ciąg | Nie |
 
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Typ | Interfejsy API | Przykład |
+> |--|--|--|
+> | POST | zwinięcie-k-d "{" admin_username ":" <ADMIN_USERNAME> "," admin_password ":" <ADMIN_PASSWORD> "," username ":" <USER_NAME> "," new_password ":" <NEW_PASSWORD> "}"-H "typ zawartości: Application/JSON" https://<IP_ADDRESS>/API/External/Authentication/set_password_by_admin | zwinięcie-k-d "{" admin_user ":" adminUser "," admin_password ":" 1234@abcd "," username ":" WebUser "," new_password ":" abcd@1234 "}"-H "Content-Type: Application/JSON" https:/ <span> /127.0.0.1/API/External/Authentication/set_password_by_admin |
+
 ## <a name="on-premises-management-console-api-specifications"></a>Specyfikacje interfejsu API lokalnej konsoli zarządzania
 
 W tej sekcji opisano następujące interfejsy API lokalnej konsoli zarządzania:
@@ -1726,23 +1775,17 @@ Zdefiniowane w tym miejscu interfejsy API są wyświetlane w oknie **wykluczenia
 
 ```
 
-#### <a name="change-password"></a>Zmień hasło
+#### <a name="change-password---externalauthenticationset_password"></a>Zmień hasło —/External/Authentication/set_password
 
 Użyj tego interfejsu API, aby umożliwić użytkownikom zmianę własnych haseł. Wszystkie role użytkowników usługi Defender for IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender for IoT.
 
-- **/External/Authentication/set_password**
-
-#### <a name="user-password-update-by-system-admin"></a>Aktualizacja hasła użytkownika przez administratora systemu
+#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Aktualizacja hasła użytkownika przez administratora systemu —/External/Authentication/set_password_by_admin
 
 Użyj tego interfejsu API, aby umożliwić administratorom systemu Zmienianie haseł dla określonych użytkowników. Role użytkownika administratora usługi Defender dla IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender for IoT.
 
-- **/External/Authentication/set_password_by_admin**
-
-### <a name="retrieve-device-information"></a>Pobieranie informacji o urządzeniu
+### <a name="retrieve-device-information---externalv1devices"></a>Pobieranie informacji o urządzeniu —/External/V1/Devices
 
 Ten interfejs API żąda listy wszystkich urządzeń wykrywanych przez usługę Defender dla czujników IoT, które są połączone z lokalną konsolą zarządzania.
-
-- **/external/v1/devices**
 
 #### <a name="method"></a>Metoda
 
@@ -1959,11 +2002,15 @@ Tablica obiektów JSON reprezentujących urządzenia.
 ]
 ```
 
-### <a name="retrieve-alert-information"></a>Pobieranie informacji o alercie
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" "https://<>IP_ADDRESS>/External/V1/Devices? identyfikator witryny =&zoneId =&sensorId =&autoryzowane =" | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/External/V1/Devices? identyfikator witryny = 1&zoneId = 2&sensorId = 5&autoryzowane = true" |
+
+### <a name="retrieve-alert-information---externalv1alerts"></a>Pobieranie informacji o alercie —/External/V1/Alerts
 
 Ten interfejs API umożliwia pobieranie wszystkich lub odfiltrowanych alertów z lokalnej konsoli zarządzania.
-
-#### <a name="externalv1alerts"></a>/external/v1/alerts
 
 #### <a name="method"></a>Metoda
 
@@ -2116,6 +2163,13 @@ Ten interfejs API umożliwia pobieranie wszystkich lub odfiltrowanych alertów z
 ]
 ```
 
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Typ | Interfejsy API | Przykład |
+> |--|--|--|
+> | GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" "https://<>IP_ADDRESS>/External/V1/Alerts? State =&zoneId =&fromTime =&toTime =&identyfikator =&czujnik =" | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/External/V1/Alerts? State = nieobsłużone&zoneId = 1&fromTime = 0&toTime = 1594551777000&identyfikator = 1&Czujnik = 1" |
+
 ### <a name="qradar-alerts"></a>Alerty QRadar
 
 Integracja QRadar z usługą Defender for IoT ułatwia identyfikowanie alertów wygenerowanych przez usługę Defender for IoT i wykonywanie akcji przy użyciu tych alertów. Usługa QRadar odbiera dane z usługi Defender for IoT, a następnie kontaktuje się z publicznym składnikiem lokalnej konsoli zarządzania.
@@ -2213,15 +2267,19 @@ Tablica obiektów JSON reprezentujących urządzenia.
 }
 ```
 
-### <a name="alert-exclusions-maintenance-window"></a>Wykluczenia alertów (okno obsługi)
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| PUT | zwinięcie-k-X PUT-d "{" Action ":" <ACTION> "}"-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/External/V1/Alerts/<UUID> | zwinięcie-k-X PUT-d "{" Action ":" dojście "}"-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/External/V1/Alerts/1-1594550943000 |
+
+### <a name="alert-exclusions-maintenance-window---externalv1maintenancewindow"></a>Wykluczenia alertów (okno obsługi) —/external/v1/maintenanceWindow
 
 Zdefiniuj warunki, w których alerty nie będą wysyłane. Można na przykład definiować i aktualizować czasy zatrzymywania i uruchamiania, urządzenia lub podsieci, które powinny być wykluczone podczas wyzwalania alertów, lub aparat usługi Defender for IoT, który powinien zostać wykluczony. Na przykład w oknie obsługi można zatrzymać dostarczanie alertów dla wszystkich alertów z wyjątkiem alertów złośliwego oprogramowania na urządzeniach krytycznych.
 
 Zdefiniowane w tym miejscu interfejsy API są wyświetlane w oknie **wykluczenia alertów** w lokalnej konsoli zarządzania jako reguła wykluczania tylko do odczytu.
 
 :::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="Okno wykluczenia alertów, pokazujące listę wszystkich reguł wykluczeń. ":::
-
-#### <a name="externalv1maintenancewindow"></a>/external/v1/maintenanceWindow
 
 #### <a name="method---post"></a>Metoda — POST
 
@@ -2367,11 +2425,18 @@ Tablica obiektów JSON reprezentująca operacje okna obsługi.
 | **czas wygaśnięcia** | Numeryczny | - | tak |
 | **operationType** | Ciąg | Wartości to "OPEN", "UPDATE" i "CLOSE" | nie |
 
-### <a name="authenticate-user-credentials"></a>Uwierzytelnianie poświadczeń użytkownika
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| POST | zwinięcie-k-X POST-d "{" ticketId ":" <TICKET_ID> ", TTL": <TIME_TO_LIVE>, "Engines": [<ENGINE1, ENGINE2... ENGINEn>], "sensorIds": [<SENSOR_ID1, SENSOR_ID2... SENSOR_IDn>], "podsieci": [<SUBNET1, podsieci SUBNET2... SUBNETn>]} "-H" Authorization: <AUTH_TOKEN> "https:/ <span> /127.0.0.1/External/V1/maintenanceWindow | zwinięcie-k-X POST-d "{" ticketId ":" a5fe99c-D914-4bda-9332-307384fe40bf "," TTL ":" 20 "," Engines ": [" ANOMALIa "]," sensorIds ": [" 5 "," 3 "]," podsieci ": [" 10.0.0.3 "]}"-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/External/V1/maintenanceWindow |
+| PUT | zwinięcie-k-X PUT-d "{" ticketId ":" <TICKET_ID> ", TTL": "<TIME_TO_LIVE>"} "-H" Authorization: <AUTH_TOKEN> "https:/ <span> /127.0.0.1/External/V1/maintenanceWindow | zwinięcie-k-X PUT-d "{" ticketId ":" a5fe99c-D914-4bda-9332-307384fe40bf "," TTL ":" 20 "}"-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/External/V1/maintenanceWindow |
+| DELETE | zwinięcie-k-X DELETE-d "{" ticketId ":" <TICKET_ID> "}"-H "Authorization: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/External/V1/maintenanceWindow | zwinięcie-k-X DELETE-d "{" ticketId ":" a5fe99c-D914-4bda-9332-307384fe40bf "}"-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/External/V1/maintenanceWindow |
+| GET | zwinięcie-k-H "Authorization: <AUTH_TOKEN>" "https://<IP_ADDRESS>/external/v1/maintenanceWindow? fromDated =&toDate =&ticketId =&tokenname =" | zwinięcie-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/External/V1/maintenanceWindow? fromDated = 2020-01-01&ToDate = 2020-07-14&ticketId = a5fe99c-D914-4bda-9332-307384fe40bf&tokenname = a" |
+
+### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>Uwierzytelnianie poświadczeń użytkownika —/External/Authentication/Validation
 
 Użyj tego interfejsu API do zweryfikowania poświadczeń użytkownika. Wszystkie role użytkowników usługi Defender for IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender for IoT.
-
-#### <a name="externalauthenticationvalidation"></a>/external/authentication/validation
 
 #### <a name="method"></a>Metoda
 
@@ -2426,11 +2491,15 @@ response:
 }
 ```
 
-### <a name="change-password"></a>Zmień hasło
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| POST | zwinięcie-k-d "{" username ":" <USER_NAME> "," Password ":" PASSWORD "}" https://<IP_ADDRESS>/External/Authentication/Validation " | zwinięcie-k-d "{" username ":" dbuser "," Password ":" 1234@abcd "}" "https:/ <span> /127.0.0.1/External/Authentication/Validation" |
+
+### <a name="change-password---externalauthenticationset_password"></a>Zmień hasło —/External/Authentication/set_password
 
 Użyj tego interfejsu API, aby umożliwić użytkownikom zmianę własnych haseł. Wszystkie role użytkowników usługi Defender for IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender for IoT.
-
-#### <a name="externalauthenticationset_password"></a>/External/Authentication/set_password
 
 #### <a name="method"></a>Metoda
 
@@ -2496,11 +2565,15 @@ response:
 | **hasło** | Ciąg | Nie |
 | **new_password** | Ciąg | Nie |
 
-### <a name="user-password-update-by-system-admin"></a>Aktualizacja hasła użytkownika przez administratora systemu
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+| Typ | Interfejsy API | Przykład |
+|--|--|--|
+| POST | zwinięcie-k-d "{" username ":" <USER_NAME> "," Password ":" <CURRENT_PASSWORD> "," new_password ":" <NEW_PASSWORD> "}"-H "Content-Type: Application/JSON" https://<IP_ADDRESS>/External/Authentication/set_password | zwinięcie-k-d "{" username ":" dbuser "," Password ":" 1234@abcd "," new_password ":" abcd@1234 "}"-H "Content-Type: Application/JSON" https:/ <span> /127.0.0.1/External/Authentication/set_password |
+
+### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Aktualizacja hasła użytkownika przez administratora systemu —/External/Authentication/set_password_by_admin
 
 Użyj tego interfejsu API, aby umożliwić administratorom systemu Zmienianie haseł dla określonych użytkowników. Role użytkownika administratora usługi Defender dla IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender for IoT.
-
-#### <a name="externalauthenticationset_password_by_admin"></a>/External/Authentication/set_password_by_admin
 
 #### <a name="method"></a>Metoda
 
@@ -2572,6 +2645,15 @@ response:
 | **uż** | Ciąg | Nie |
 | **new_password** | Ciąg | Nie |
 
-## <a name="see-also"></a>Zobacz też
-[Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
- [Zbadaj wszystkie wykrycia czujnika przedsiębiorstwa w spisie urządzeń](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+#### <a name="curl-command"></a>Polecenie narzędzia Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Typ | Interfejsy API | Przykład |
+> |--|--|--|
+> | POST | zwinięcie-k-d "{" admin_username ":" <ADMIN_USERNAME> "," admin_password ":" <ADMIN_PASSWORD> "," username ":" <USER_NAME> "," new_password ":" <NEW_PASSWORD> "}"-H "typ zawartości: Application/JSON" https://<IP_ADDRESS>/External/Authentication/set_password_by_admin | zwinięcie-k-d "{" admin_user ":" adminUser "," admin_password ":" 1234@abcd "," username ":" WebUser "," new_password ":" abcd@1234 "}"-H "Content-Type: Application/JSON" https:/ <span> /127.0.0.1/External/Authentication/set_password_by_admin |
+
+## <a name="next-steps"></a>Następne kroki
+
+- [Badanie wykryć czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+
+- [Badanie wszystkich wykryć czujników przedsiębiorstwa w spisie urządzeń](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
