@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Networking
       href: concepts-network.md
-    - name: Magazyn
+    - name: Storage
       href: concepts-storage.md
     - name: Skalowanie
       href: concepts-scale.md
@@ -86,7 +86,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Sieć
+            - name: Networking
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -338,6 +338,8 @@
         - name: Tworzenie aplikacji z rozwiązaniem MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
+        - name: Wdrażanie otwartej wolności lub WebSphere wolności
+          href: howto-deploy-java-liberty-app.md
         - name: Korzystanie z usługi Azure API Management
           href: ../api-management/api-management-kubernetes.md
           maintainContext: true

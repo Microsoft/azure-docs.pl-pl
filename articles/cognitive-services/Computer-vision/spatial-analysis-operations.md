@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934730"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226062"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
@@ -130,7 +130,7 @@ Jest to przykład parametrów DETECTOR_NODE_CONFIG dla wszystkich operacji anali
 | `threshold` | float| Zdarzenia są egressed, gdy poziom zaufania modeli AI jest większy lub równy tej wartości. |
 | `type` | ciąg| Dla **cognitiveservices. Vision. spatialanalysis-personcount** powinno to być `count` .|
 | `trigger` | ciąg| Typ wyzwalacza do wysyłania zdarzenia. Obsługiwane wartości są używane `event` do wysyłania zdarzeń, gdy liczba zmienia się lub `interval` okresowo wysyła zdarzenia niezależnie od tego, czy liczba uległa zmianie, czy nie.
-| `interval` | ciąg| Czas w sekundach, przez który liczba osób zostanie zagregowana, zanim zdarzenie zostanie wyzwolone. Operacja będzie kontynuować analizowanie sceny z stałą szybkością i zwraca najbardziej typową liczbę w tym interwale. Interwał agregacji ma zastosowanie do obu `event` i `interval` .|
+| `output_frequency` | int | Częstotliwość, z jaką zdarzenia są egressed. Gdy `output_frequency` = x, każde zdarzenie X to egressed, np. `output_frequency` = 2 oznacza każde inne zdarzenie w danych wyjściowych. `output_frequency`Ma zastosowanie do obu `event` i `interval` . |
 | `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby).|
 
 ### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Konfiguracja linii dla cognitiveservices. Vision. spatialanalysis-personcrossingline
@@ -255,8 +255,7 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 | `threshold` | float| Zdarzenia są egressed, gdy poziom zaufania modeli AI jest większy lub równy tej wartości. |
 | `type` | ciąg| Dla **cognitiveservices. Vision. spatialanalysis-persondistance** powinno to być `people_distance` .|
 | `trigger` | ciąg| Typ wyzwalacza do wysyłania zdarzenia. Obsługiwane wartości są używane `event` do wysyłania zdarzeń, gdy liczba zmienia się lub `interval` okresowo wysyła zdarzenia niezależnie od tego, czy liczba uległa zmianie, czy nie.
-| `interval` | ciąg | Czas (w sekundach) agregowania naruszeń, zanim zdarzenie zostanie wyzwolone. Interwał agregacji ma zastosowanie do obu `event` i `interval` .|
-| `output_frequency` | int | Częstotliwość, z jaką zdarzenia są egressed. Gdy `output_frequency` = x, każde zdarzenie X to egressed, np. `output_frequency` = 2 oznacza każde inne zdarzenie w danych wyjściowych. Output_frequency ma zastosowanie do obu `event` i `interval` .|
+| `output_frequency` | int | Częstotliwość, z jaką zdarzenia są egressed. Gdy `output_frequency` = x, każde zdarzenie X to egressed, np. `output_frequency` = 2 oznacza każde inne zdarzenie w danych wyjściowych. `output_frequency`Ma zastosowanie do obu `event` i `interval` .|
 | `minimum_distance_threshold` | float| Odległość, która spowoduje wyzwolenie zdarzenia "TooClose", gdy ludzie są mniej niż odległość od siebie.|
 | `maximum_distance_threshold` | float| Odległość, która spowoduje wyzwolenie zdarzenia "TooFar", gdy ludzie są większe niż odległość od siebie.|
 | `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby).|

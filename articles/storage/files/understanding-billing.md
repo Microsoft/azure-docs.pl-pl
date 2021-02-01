@@ -1,23 +1,45 @@
 ---
-title: Informacje dotyczące rozliczeń Azure Files | Microsoft Docs
+title: Informacje na temat rozliczeń Azure Files | Microsoft Docs
 description: Dowiedz się, jak interpretować udostępniane modele rozliczeń i płatności zgodnie z rzeczywistym użyciem dla udziałów plików platformy Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632482"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226645"
 ---
-# <a name="understanding-azure-files-billing"></a>Informacje o rozliczeniach Azure Files
+# <a name="understand-azure-files-billing"></a>Informacje o rozliczeniach Azure Files
 Azure Files oferuje dwa odrębne modele rozliczeń: obsługiwane i płatność zgodnie z rzeczywistym użyciem. Model aprowizacji jest dostępny tylko dla udziałów plików w warstwie Premium, które są udziałami plików wdrożonymi w rodzaju konta magazynu **FileStorage** . Model płatność zgodnie z rzeczywistym użyciem jest dostępny tylko dla standardowych udziałów plików, czyli udziałów plików wdrożonych w ramach konta magazynu **ogólnego przeznaczenia w wersji 2 (GPv2)** . W tym artykule wyjaśniono, jak działają oba modele, aby pomóc Ci zrozumieć miesięczne Azure Files.
 
-Bieżące ceny dla Azure Files można znaleźć na [stronie cennika Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+Aby uzyskać informacje o cenach Azure Files, zobacz [stronę cennika Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="storage-units"></a>Jednostki magazynu    
+Azure Files używa jednostek miary z podstawową 2, aby reprezentować pojemność magazynu: KiB, MiB, GiB i TiB. System operacyjny może lub nie może korzystać z tej samej jednostki pomiaru lub systemu liczenia.
+
+### <a name="windows"></a>Windows
+
+Zarówno system operacyjny Windows, jak i Azure Files mierzą pojemność magazynu przy użyciu systemu inwentaryzacji 2, ale istnieje różnica w przypadku etykietowania jednostek. Azure Files etykiety pojemności magazynu z podstawową jednostką miary, podczas gdy system Windows oznacza, że pojemność magazynu jest podzielna na jednostki miary w podstawowej części 10. Podczas raportowania pojemności magazynu system Windows nie konwertuje pojemności magazynu z Base-2 do Base-10.
+
+|Wytycznym dotyczącym skrótowców  |Definicja  |Jednostka  |System Windows wyświetla jako  |
+|---------|---------|---------|---------|
+|KiB     |1 024 bajtów         |kibibyte         |KB (w kilobajtach)         |
+|-     |1 024 KiB (1 048 576 bajtów)         |mebibyte         |MB (MB)         |
+|GiB     |1024 MiB (1 073 741 824 bajtów)         |nazywana gigabajtem i         |GB (GB)         |
+|TiB     |1024 GiB (1 099 511 627 776 bajtów)         |tebibyte         |TB (terabajt)         |
+
+### <a name="macos"></a>macOS
+
+Zobacz, [jak system iOS i macOS pojemność magazynu raportów](https://support.apple.com/HT201402) w witrynie sieci Web firmy Apple, aby określić, który z nich jest używany.
+
+### <a name="linux"></a>Linux
+
+Każdy system operacyjny lub pojedyncze oprogramowanie może używać innego systemu zliczania. Zapoznaj się z dokumentacją, aby określić sposób zgłaszania pojemności magazynu.
 
 ## <a name="provisioned-model"></a>Model aprowizacji
 Azure Files korzysta z modelu aprowizacji dla udziałów plików w warstwie Premium. W modelu biznesowym z obsługą administracyjną można aktywnie określić usługi Azure Files, jakie są wymagania dotyczące magazynu, a nie na podstawie ich użycia. Jest to podobne do kupowania sprzętu lokalnie, w tym przypadku gdy udostępniasz udział plików platformy Azure z określoną ilością pamięci, płacisz za ten magazyn, bez względu na to, czy używasz tego magazynu, czy nie, tak jak w przypadku, gdy zaczniesz korzystać z przestrzeni dyskowej w środowisku lokalnym. W przeciwieństwie do kupowania multimediów fizycznych lokalnie udostępnione udziały plików można dynamicznie skalować w górę lub w dół w zależności od charakterystyki magazynu i wydajności operacji we/wy.
@@ -77,7 +99,7 @@ Jeśli wyłączysz rzadko używane obciążenia w warstwie zoptymalizowanej pod 
 
 Podobnie, jeśli umieścisz obciążenie o wysokiej dostępności w warstwie chłodna, będziesz płacić dużo więcej kosztów transakcji, ale nie tylko za koszty magazynowania danych. Może to prowadzić do sytuacji, w której zwiększone koszty z cen transakcji zwiększają się znacznie oszczędności wynikające z obniżonej ceny za magazyn danych, co prowadzi do płacenia pieniędzy w chłodnym czasie niż w przypadku optymalizacji transakcji. W przypadku niektórych poziomów użycia, gdy warstwa gorąca będzie najbardziej opłacalną warstwą, warstwa chłodna będzie tańsza niż Optymalizacja transakcji.
 
-Twoje obciążenie i poziom aktywności określają najbardziej opłacalną warstwę dla standardowego udziału plików. W ramach tej metody najlepszym sposobem wybrania najbardziej ekonomicznej warstwy jest poszukiwanie rzeczywistego zużycia zasobów udziału (dane przechowywane, transakcje zapisu itd.).
+Twoje obciążenie i poziom aktywności określają najbardziej opłacalną warstwę dla standardowego udziału plików. W przypadku najlepszym sposobem na wybranie najbardziej opłacalnej warstwy jest poszukiwanie rzeczywistego zużycia zasobów udziału (dane przechowywane, transakcje zapisu itd.).
 
 ### <a name="what-are-transactions"></a>Co to są transakcje?
 Transakcje są operacjami lub żądaniami względem Azure Files w celu przekazywania, pobierania lub manipulowania zawartością udziału plików. Każda Akcja podejmowana na udziale plików jest przetłumaczyć na co najmniej jedną transakcję i w standardowych udziałach korzystających z modelu rozliczania płatności zgodnie z rzeczywistym użyciem, który tłumaczy koszty transakcji.

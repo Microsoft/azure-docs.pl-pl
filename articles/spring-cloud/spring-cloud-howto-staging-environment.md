@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 8cae73e03fee0b59be0c7596f0783570ac14f6ee
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 991a335207fc29cef7b243d7e520dd5f62ff691f
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053113"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226116"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Konfigurowanie środowiska przejściowego w chmurze Azure wiosennej
 
@@ -22,6 +22,7 @@ W tym artykule omówiono sposób konfigurowania wdrożenia tymczasowego przy uż
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+* Wystąpienie chmury Azure wiosennej z **warstwą cenową** *standardowa* .
 * Uruchomiona aplikacja.  Zobacz [Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosennej](spring-cloud-quickstart.md).
 * [Rozszerzenie ASC](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) interfejsu wiersza polecenia platformy Azure
 
@@ -78,7 +79,7 @@ Przejrzyj wdrożone aplikacje przy użyciu poniższych procedur.
 1. W interfejsie wiersza polecenia platformy Azure Utwórz nowe wdrożenie i nadaj mu nazwę wdrożenia przejściowego "zielony".
 
     ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app default -n green --jar-path gateway/target/gateway.jar
+    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app <appName> -n green --jar-path gateway/target/gateway.jar
     ```
 
 1. Po pomyślnym zakończeniu wdrożenia interfejsu wiersza polecenia uzyskaj dostęp do strony aplikacji z poziomu **pulpitu nawigacyjnego aplikacji** i Wyświetl wszystkie wystąpienia na karcie **wdrożenia** po lewej stronie.
@@ -113,11 +114,11 @@ Aby sprawdzić, czy Zielona opracowywanie przemieszczania działa:
 
    [![Wdrażanie wdrożenia zestawu wdrożeń](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
 
-1. Wróć do strony **zarządzania wdrożeniem** .  `green`Stan wdrożenia wdrożenia powinien zostać wyświetlony . Jest to teraz uruchomiona kompilacja produkcyjna.
+1. Wróć do strony **zarządzania wdrożeniem** . Ustaw `green` wdrożenie na `production` . Po zakończeniu tego ustawienia `green` stan wdrożenia powinien zostać wyświetlony.  Jest to teraz uruchomiona kompilacja produkcyjna.
 
    [![Wynik wdrożenia zestawu wdrożeń](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
 
-1. Skopiuj i wklej adres URL do nowego okna przeglądarki, a nowa strona aplikacji powinna być wyświetlana ze zmianami.
+1. Adres URL aplikacji powinien zawierać zmiany.
 
 >[!NOTE]
 > Po ustawieniu zielonego wdrożenia jako środowiska produkcyjnego, poprzednie wdrożenie przejdzie do wdrożenia przejściowego.

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 161b7fcf4660ddb9515f0b82887f416d83598bdc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754431"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225803"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w jednostronicowej aplikacji pojedynczej
 
@@ -49,11 +49,11 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który demon
 > 1. Jeśli Twoje konto ma dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu i ustaw sesję portalu dla dzierżawy usługi Azure AD, której chcesz użyć.
 > 1. Postępuj zgodnie z instrukcjami, aby [zarejestrować aplikację jednostronicową](./scenario-spa-app-registration.md) w Azure Portal.
 > 1. Dodaj nową platformę w okienku **uwierzytelnianie** rejestracji aplikacji i zarejestruj identyfikator URI przekierowania: `http://localhost:4200/` .
-> 1. Ten przewodnik Szybki Start używa [niejawnego przepływu dotacji](v2-oauth2-implicit-grant-flow.md). Wybierz ustawienia **niejawnego przydzielenia** **tokenów identyfikatorów** i **tokenów dostępu**. Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja loguje się do użytkowników i wywołuje interfejs API.
+> 1. Ten przewodnik Szybki Start używa [niejawnego przepływu dotacji](v2-oauth2-implicit-grant-flow.md). W sekcji **niejawne udzielenie i przepływy hybrydowe** wybierz pozycję **identyfikatory tokeny** i **tokeny dostępu**. Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja loguje się do użytkowników i wywołuje interfejs API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w Azure Portal
-> Aby przykład kodu dla tego przewodnika Szybki Start działał, należy dodać identyfikator URI przekierowania **http://localhost:4200/** i włączyć **niejawny** przydział.
+> Aby przykład kodu dla tego przewodnika szybkiego startu działał, należy dodać identyfikator URI przekierowania **http://localhost:4200/** i włączyć * * * * niejawne przyznanie * *.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź zmiany automatycznie]()
 >

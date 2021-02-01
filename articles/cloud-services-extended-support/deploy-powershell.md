@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 8bfa7c164f5b974a8cf8974b3ff346f3401dd218
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ef9a7704dfc67032a601b995d41ef24273711317
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880223"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225532"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu Azure PowerShell
 
@@ -88,7 +88,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-9. Tworzenie usługi Key Vault. Ten Key Vault będzie używany do przechowywania certyfikatów skojarzonych z rolami usługi w chmurze (obsługa rozszerzona). Key Vault musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
+9. Tworzenie usługi Key Vault. Ten Key Vault będzie używany do przechowywania certyfikatów skojarzonych z rolami usługi w chmurze (obsługa rozszerzona). Upewnij się, że włączono zasady dostępu (w portalu), aby uzyskać dostęp do usługi "Azure Virtual Machines for Deployment" i "Azure Resource Manager for Template Deployment". Key Vault musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US” 
@@ -138,6 +138,8 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     $expiration = (Get-Date).AddYears(1) 
     $extension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension' -Credential $credential -Expiration $expiration -TypeHandlerVersion '1.2.1' 
 
+    $storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "ContosOrg" -Name "contosostorageaccount"
+    $configFile = "<WAD configuration file path>"
     $wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
     $extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
     ```

@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 4d6401c53071235784a5371a4a6315e4e25a438f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 30b7f1054f7bfee8dc58638791f0b8a424de92a4
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680268"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226425"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Samouczek: Logowanie użytkowników i wywoływanie chronionego interfejsu API z aplikacji Blazor webassembly
 
@@ -42,7 +42,7 @@ Każda aplikacja, która używa Azure Active Directory (Azure AD) do uwierzyteln
 - W przypadku **obsługiwanych typów kont** wybierz opcję **konta tylko w tym katalogu organizacji**.
 - Pozostaw pole listy rozwijanej **Identyfikator URI przekierowania** jako **Sieć Web** i wprowadź wartość `https://localhost:5001/authentication/login-callback` . Domyślnym portem dla aplikacji działającej w Kestrel jest 5001. Jeśli aplikacja jest dostępna na innym porcie, określ ten numer portu zamiast `5001` .
 
-Po zarejestrowaniu w obszarze **uwierzytelnianie**  >  **niejawnie Udziel** zaznacz pola wyboru dla **tokenów dostępu** i **tokenów identyfikatorów**, a następnie wybierz przycisk **Zapisz** .
+Po zarejestrowaniu w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**  >  **niejawne i przepływy hybrydowe**. Wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**, a następnie wybierz pozycję **Zapisz**.
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Tworzenie aplikacji przy użyciu interfejs wiersza polecenia platformy .NET Core
 
@@ -80,7 +80,7 @@ Składniki tego szablonu, które umożliwiają logowanie za pomocą usługi Azur
 
 [Microsoft Graph](/graph/overview) zawiera interfejsy API zapewniające dostęp do Microsoft 365 danych dla użytkowników i obsługuje tokeny wystawione przez platformę tożsamości firmy Microsoft, co sprawia, że jest to dobry chroniony interfejs API do użycia jako przykład. W tej sekcji dodasz kod do wywoływania Microsoft Graph i wyświetlania wiadomości e-mail użytkownika na stronie "pobieranie danych" aplikacji.
 
-Ta sekcja jest zapisywana przy użyciu typowego podejścia do wywoływania chronionego interfejsu API przy użyciu nazwanego klienta. Tej samej metody można użyć dla innych chronionych interfejsów API, które mają być wywoływane. Jeśli jednak planujesz wywołać Microsoft Graph z aplikacji, możesz użyć zestawu SDK programu Graph, aby zmniejszyć liczbę standardowych. Dokumentacja platformy .NET zawiera instrukcje dotyczące [korzystania z zestawu Graph SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
+Ta sekcja jest zapisywana przy użyciu typowego podejścia do wywoływania chronionego interfejsu API przy użyciu nazwanego klienta. Tej samej metody można użyć dla innych chronionych interfejsów API, które mają być wywoływane. Jeśli jednak planujesz wywołać Microsoft Graph z aplikacji, możesz użyć zestawu SDK programu Graph, aby zmniejszyć liczbę standardowych. Dokumentacja platformy .NET zawiera instrukcje dotyczące [korzystania z zestawu Graph SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0&preserve-view=true).
 
 Przed rozpoczęciem Wyloguj się z aplikacji, ponieważ będziesz wprowadzać zmiany w wymaganych uprawnieniach, a bieżący token nie będzie działać. Jeśli jeszcze tego nie zrobiono, uruchom ponownie aplikację i wybierz opcję **Wyloguj** się przed aktualizacją poniższego kodu.
 

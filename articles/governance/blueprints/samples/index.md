@@ -1,14 +1,14 @@
 ---
 title: Indeks przykładów strategii
 description: Indeks przykładów dotyczących zgodności i przykładów standardowych dotyczących wdrażania środowisk, zasad i podstaw struktury Cloud Adoptions Framework za pomocą usługi Azure Blueprints.
-ms.date: 01/27/2021
+ms.date: 02/01/2021
 ms.topic: sample
-ms.openlocfilehash: 7865a3ea5be374f36de70e62c7bc215fc88d04a5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 17bacecf8fcf7c0f1969a489561a3a3ac976872e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915696"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225145"
 ---
 # <a name="azure-blueprints-samples"></a>Przykłady usługi Azure Blueprints
 
@@ -28,7 +28,7 @@ Poniższa tabela zawiera linki do przykładów dla usługi Azure Blueprints. Ka�
 | [FedRAMP High](./fedramp-h/index.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem FedRAMP High. |
 | [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem HIPAA HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Zapewnia guardrails zgodności z urzędem skarbowym 1075.|
-| [ISO 27001](./iso27001/index.md) | Zapewnia zabezpieczenia zgodności z wytycznymi ISO 27001. |
+| [ISO 27001](./iso-27001-2013.md) | Zapewnia zabezpieczenia zgodności z wytycznymi ISO 27001. |
 | [Usługi udostępnione ISO 27001](./iso27001-shared/index.md) | Zawiera zestaw wzorców zgodnej infrastruktury i ochronę w postaci zasad, które ułatwiają zaświadczanie za pomocą standardu ISO 27001. |
 | [Obciążenie środowiska App Service Environment/bazy danych SQL ISO 27001](./iso27001-ase-sql-workload/index.md) | Oferuje więcej infrastruktury dla przykładu [usługi udostępnionej ISO 27001](./iso27001-shared/index.md) . |
 | [Media](./media/index.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem Media MPAA. |

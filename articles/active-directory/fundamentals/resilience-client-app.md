@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: b32f9dd10d9bd03a7e446616d9941e7bd1a9c3ed
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: bc3b041e44fad66a4edc6ff34c0e534dc423de86
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724912"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226594"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Zwiększanie odporności uwierzytelniania i autoryzacji w aplikacjach klienckich, które tworzysz
 
@@ -97,7 +97,7 @@ Ogólnie rzecz biorąc, Aplikacja korzystająca z nowoczesnego uwierzytelniania 
 
 ### <a name="cache-tokens"></a>Tokeny pamięci podręcznej
 
-Aplikacje powinny prawidłowo buforować tokeny otrzymane od tożsamości firmy Microsoft. Gdy aplikacja otrzymuje tokeny, odpowiedź HTTP, która zawiera tokeny, zawiera również właściwość "expires_in", która informuje aplikację o tym, jak długo buforuje i ponownie używa token. W takim przypadku aplikacje używają właściwości "expires_in" do określenia cykl życia tokenu. Aplikacja nigdy nie musi próbować zdekodować tokenu dostępu interfejsu API.
+Aplikacje powinny prawidłowo buforować tokeny otrzymane od tożsamości firmy Microsoft. Gdy aplikacja otrzymuje tokeny, odpowiedź HTTP, która zawiera tokeny, zawiera również właściwość "expires_in", która informuje aplikację o tym, jak długo buforuje i ponownie używa token. Należy pamiętać, że aplikacje używają właściwości "expires_in" do określenia cykl życia tokenu. Aplikacja nigdy nie musi próbować zdekodować tokenu dostępu interfejsu API.
 
 ![Aplikacja wywołująca tożsamość firmy Microsoft, ale wywołanie przechodzi przez pamięć podręczną tokenów na urządzeniu, na którym działa aplikacja](media/resilience-client-app/token-cache.png)
 

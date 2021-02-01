@@ -611,6 +611,8 @@
           items:
             - name: Monitorowanie i dostrajanie
               href: concepts-hyperscale-monitoring.md
+            - name: Dzienniki inspekcji
+              href: concepts-hyperscale-audit.md
         - name: Opcje konfiguracji
           href: concepts-hyperscale-configuration-options.md
         - name: Opłacanie wydajności rezerwowej z góry

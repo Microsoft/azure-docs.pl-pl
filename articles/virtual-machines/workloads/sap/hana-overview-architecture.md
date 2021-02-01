@@ -14,21 +14,21 @@ ms.workload: infrastructure
 ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ec3500c124d3e4f8cb1b46445c28c6a64c93526
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d941bd9735149d08bfbd63ec97337dd7a3bac43b
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195453"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226662"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Co to jest oprogramowanie SAP HANA na platformie Azure — duże wystąpienia?
 
-SAP HANA na platformie Azure (duże wystąpienia) to unikatowe rozwiązanie na platformie Azure. Oprócz zapewniania maszyn wirtualnych do wdrażania i uruchamiania SAP HANA system Azure oferuje możliwość uruchamiania i wdrażania SAP HANA na serwerach bez systemu operacyjnego, które są przeznaczone dla Ciebie. Rozwiązanie SAP HANA na platformie Azure (duże wystąpienia) kompiluje się w przypadku nieudostępnionego sprzętu hosta/serwera bez systemu operacyjnego, który jest przypisany do użytkownika. Sprzęt serwera jest osadzony w większych sygnaturach, które zawierają infrastrukturę obliczeniową/serwerową, sieciową i magazynową. W ramach tej kombinacji jest certyfikowana integracja centrów danych platformy HANA (TDI). SAP HANA na platformie Azure (duże wystąpienia) oferuje różne jednostki SKU serwera lub rozmiary. Jednostki mogą mieć 36 rdzeni procesora CPU firmy Intel i 768 GB pamięci i znajdować się w jednostkach, które mają do 480 rdzenie procesora Intel i do 24 TB pamięci.
+SAP HANA na platformie Azure (duże wystąpienia) to unikatowe rozwiązanie na platformie Azure. Oprócz zapewniania maszyn wirtualnych do wdrażania i uruchamiania SAP HANA system Azure oferuje możliwość uruchamiania i wdrażania SAP HANA na serwerach bez systemu operacyjnego, które są przeznaczone dla Ciebie. Rozwiązanie SAP HANA na platformie Azure (duże wystąpienia) kompiluje się w przypadku nieudostępnionego sprzętu hosta/serwera bez systemu operacyjnego, który jest przypisany do użytkownika. Sprzęt serwera jest osadzony w większych sygnaturach, które zawierają infrastrukturę obliczeniową/serwerową, sieciową i magazynową. SAP HANA na platformie Azure (duże wystąpienia) oferuje różne jednostki SKU serwera lub rozmiary. Jednostki mogą mieć 36 rdzeni procesora CPU firmy Intel i 768 GB pamięci i znajdować się w jednostkach, które mają do 480 rdzenie procesora Intel i do 24 TB pamięci.
 
 Izolacja klienta w ramach sygnatury infrastruktury jest wykonywana w dzierżawach, które wyglądają następująco:
 
 - **Sieć**: Izolacja klientów w stosie infrastruktury za pomocą sieci wirtualnych dla dzierżawy przypisanej do klienta. Dzierżawa jest przypisana do jednego klienta. Klient może mieć wielu dzierżawców. Izolacja sieci dzierżawców zabrania komunikacji sieciowej między dzierżawcami na poziomie sygnatury infrastruktury, nawet jeśli dzierżawy należą do tego samego klienta.
-- **Składniki magazynu**: Izolacja przy użyciu maszyn wirtualnych magazynu z przypisanymi woluminami magazynowymi. Woluminy magazynu można przypisywać tylko do jednej maszyny wirtualnej magazynu. Maszyna wirtualna magazynu jest przypisana wyłącznie do jednej dzierżawy w stosie certyfikowanej infrastruktury SAP HANA TDI. W związku z tym woluminy magazynu przypisane do maszyny wirtualnej magazynu są dostępne tylko w jednej określonej i powiązanej dzierżawie. Nie są one widoczne między różnymi wdrożonymi dzierżawcami.
+- **Składniki magazynu**: Izolacja przy użyciu maszyn wirtualnych magazynu z przypisanymi woluminami magazynowymi. Woluminy magazynu można przypisywać tylko do jednej maszyny wirtualnej magazynu. Maszyna wirtualna magazynu jest przypisana wyłącznie do jednej dzierżawy w stosie infrastruktury. W związku z tym woluminy magazynu przypisane do maszyny wirtualnej magazynu są dostępne tylko w jednej określonej i powiązanej dzierżawie. Nie są one widoczne między różnymi wdrożonymi dzierżawcami.
 - **Serwer lub host**: serwer lub jednostka hosta nie są współużytkowane przez klientów lub dzierżawców. Serwer lub host wdrożony dla klienta to niepodzielna jednostka obliczeniowa bez systemu operacyjnego, która jest przypisana do jednej dzierżawy. *Nie* jest używane żadne partycjonowanie sprzętowe ani partycjonowanie, które może spowodować udostępnienie hosta lub serwera innemu klientowi. Woluminy magazynu przypisane do maszyny wirtualnej magazynu określonej dzierżawy są instalowane na takim serwerze. Dzierżawca może mieć jeden do wielu jednostek serwera z różnymi jednostkami SKU przypisanymi wyłącznie.
 - Za pomocą sygnatury infrastruktury w ramach SAP HANA na platformie Azure (duże wystąpienia) wiele różnych dzierżawców jest wdrażanych i izolowanych nawzajem w oparciu o koncepcje dotyczące sieci, magazynu i mocy obliczeniowej. 
 

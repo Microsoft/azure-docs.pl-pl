@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: e8e62d92afb70ec9d4df40f677de05583ef472b0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955787"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226628"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Usługi platformy Azure obsługujące strefy dostępności
 
@@ -47,16 +47,16 @@ Aby zapewnić kompleksową ciągłość biznesową na platformie Azure, skompilu
 ## <a name="azure-regions-with-availability-zones"></a>Regiony platformy Azure z Strefy dostępności
 
 
-| Ameryki           | Europa         | Niemcy              | Afryka              | Azja i Pacyfik   |
-|--------------------|----------------|----------------------|---------------------|----------------|
-|                    |                |                      |                     |                |
-| Kanada Środkowa     | Francja Środkowa | Niemcy Środkowo-Zachodnie | Północna Republika Południowej Afryki * | Japonia Wschodnia     |
-| Central US         | Europa Północna   |                      |                     | Azja Południowo-Wschodnia |
-| East US            | Południowe Zjednoczone Królestwo       |                      |                     | Australia Wschodnia |
-| Wschodnie stany USA 2          | West Europe    |                      |                     |                |
-| Południowo-środkowe stany USA |                |                      |                     |                |
-| US Gov Wirginia * |                |                      |                     |                |
-| Zachodnie stany USA 2        |                |                      |                     |                |
+| Ameryki           | Europa               | Afryka              | Azja i Pacyfik   |
+|--------------------|----------------------|---------------------|----------------|
+|                    |                      |                     |                |
+| Kanada Środkowa     | Francja Środkowa       | Północna Republika Południowej Afryki * | Japonia Wschodnia     |
+| Central US         | Niemcy Środkowo-Zachodnie |                     | Southeast Asia |
+| East US            | Europa Północna         |                     | Australia Wschodnia |
+| Wschodnie stany USA 2          | Południowe Zjednoczone Królestwo             |                     |                |
+| Południowo-środkowe stany USA | West Europe          |                     |                |
+| US Gov Wirginia * |                      |                     |                |
+| Zachodnie stany USA 2        |                      |                     |                |
 
 
 \* Aby dowiedzieć się więcej na temat pomocy technicznej dotyczącej usług Strefy dostępności i dostępnych w tych regionach, skontaktuj się z przedstawicielem firmy Microsoft ds. sprzedaży lub klienta. W przypadku nadchodzących regionów, które będą obsługiwać Strefy dostępności, zobacz [Azure lokalizacje geograficzne](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).

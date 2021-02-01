@@ -1,18 +1,18 @@
 ---
 title: Konfigurowanie ustawień niestandardowych
 description: Skonfiguruj ustawienia, które mają zastosowanie do całego środowiska Azure App Service. Dowiedz się, jak to zrobić za pomocą szablonów Azure Resource Manager.
-author: stefsch
+author: ccompy
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 10/03/2020
-ms.author: stefsch
+ms.date: 01/29/2021
+ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c1e81d02aa35a40a296f04e456be09eeed10331
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713277"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226392"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Niestandardowe ustawienia konfiguracji dla środowisk App Service Environment
 ## <a name="overview"></a>Omówienie
@@ -61,7 +61,7 @@ Jeśli na przykład środowisko App Service Environment ma cztery frontony, koń
 
 ## <a name="enable-internal-encryption"></a>Włącz szyfrowanie wewnętrzne
 
-App Service Environment działa jako system czarnego pudełka, w którym nie są widoczne wewnętrzne składniki lub komunikacja w systemie. Aby zapewnić większą przepływność, szyfrowanie nie jest domyślnie włączone między składnikami wewnętrznymi. System jest zabezpieczony, ponieważ ruch jest całkowicie niedostępny do monitorowania lub dostępu. Jeśli istnieje wymóg zgodności, który wymaga pełnego szyfrowania ścieżki danych od końca do końca, istnieje możliwość włączenia tego elementu przy użyciu clusterSetting.  
+App Service Environment działa jako system czarnego pudełka, w którym nie są widoczne wewnętrzne składniki lub komunikacja w systemie. Aby zapewnić większą przepływność, szyfrowanie nie jest domyślnie włączone między składnikami wewnętrznymi. System jest zabezpieczony, ponieważ ruch jest niedostępny do monitorowania lub dostępu. Jeśli istnieje wymóg zgodności, który wymaga pełnego szyfrowania ścieżki danych od końca do końca, istnieje możliwość włączenia szyfrowania pełnej ścieżki danych za pomocą clusterSetting.  
 
 ```json
 "clusterSettings": [
@@ -71,7 +71,7 @@ App Service Environment działa jako system czarnego pudełka, w którym nie są
     }
 ],
 ```
-Spowoduje to zaszyfrowanie wewnętrznego ruchu sieciowego w środowisku ASE między frontonami i pracownikami, zaszyfrowanie pliku stronicowania, a także zaszyfrowanie dysków procesów roboczych. Po włączeniu InternalEncryption clusterSetting może mieć wpływ na wydajność systemu. Po wprowadzeniu zmiany w celu włączenia InternalEncryption środowisko ASE będzie w stanie niestabilnym, dopóki zmiana nie zostanie w pełni rozpropagowana. Zakończenie propagacji zmiany może potrwać kilka godzin, w zależności od liczby wystąpień w środowisku ASE. Zdecydowanie zalecamy, aby nie włączać tego na platformie ASE, gdy jest ona używana. Jeśli musisz włączyć tę funkcję w aktywnie używanym środowisku ASE, zdecydowanie zalecamy przekierowanie ruchu do środowiska kopii zapasowej do momentu zakończenia operacji. 
+Ustawienie InternalEncryption na true szyfruje wewnętrzny ruch sieciowy w środowisku ASE między frontonami i pracownikami, szyfruje plik stronicowania, a także szyfruje dyski procesów roboczych. Po włączeniu InternalEncryption clusterSetting może mieć wpływ na wydajność systemu. Po wprowadzeniu zmiany w celu włączenia InternalEncryption środowisko ASE będzie w stanie niestabilnym, dopóki zmiana nie zostanie w pełni rozpropagowana. Zakończenie propagacji zmiany może potrwać kilka godzin, w zależności od liczby wystąpień w środowisku ASE. Zdecydowanie zalecamy, aby nie włączać InternalEncryption w środowisku ASE, gdy jest on używany. Jeśli konieczne jest włączenie InternalEncryption na aktywnie używanym środowisku ASE, zdecydowanie zalecamy przekierowanie ruchu do środowiska kopii zapasowej do momentu zakończenia operacji. 
 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Wyłączanie protokołów TLS 1.0 i TLS 1.1
@@ -92,13 +92,13 @@ Jeśli chcesz wyłączyć całych ruch przychodzący protokołów TLS 1.0 i TLS 
 W nazwie ustawienia znajduje się numer wersji 1.0, ale po skonfigurowaniu wyłączane są protokoły TLS 1.0 i TLS 1.1.
 
 ## <a name="change-tls-cipher-suite-order"></a>Zmienianie kolejności zestawów szyfrowania protokołu TLS
-Kolejne pytanie klientów dotyczy tego, czy mogą oni modyfikować listę szyfrów wynegocjowaną przez serwer. Ten cel można osiągnąć, modyfikując atrybut **clusterSettings**, jak pokazano poniżej. Listę dostępnych zestawów szyfrowania można pobrać z [tego artykułu MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+Środowisko ASE obsługuje zmianę pakietu szyfrowania z domyślnego. Domyślny zestaw szyfrów jest tym samym zestawem, który jest używany w usłudze wielu dzierżawców. Zmiana mechanizmów szyfrowania ma wpływ na całe wdrożenie App Service, co jest możliwe tylko w przypadku środowiska ASE o pojedynczej dzierżawie. Istnieją dwa mechanizmy szyfrowania wymagane przez środowisko ASE; TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 i TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Jeśli chcesz pracować ze środowiskiem ASE z najsilniejszym i najbardziej minimalnym zestawem mechanizmów szyfrowania, użyj tylko dwóch wymaganych szyfrów. Aby skonfigurować środowisko ASE do korzystania tylko z wymaganych szyfrów, zmodyfikuj **clusterSettings** , jak pokazano poniżej. 
 
 ```json
 "clusterSettings": [
     {
         "name": "FrontEndSSLCipherSuiteOrder",
-        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+        "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
     }
 ],
 ```

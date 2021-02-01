@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 874488e5de7888edad5310afce1afd1baec4ece0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d790b466f669ed067863b6643c8f59662eb628a7
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753062"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226441"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z jednostronicowej aplikacji (SPA) języka JavaScript
 
@@ -275,7 +275,7 @@ Przed kontynuowaniem uwierzytelniania Zarejestruj swoją aplikację na **Azure A
 1. Wybierz pozycję **Zarejestruj**.
 1. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-1. W sekcji **niejawne udzielenie** wybierz pozycję **identyfikatory tokeny** i **tokeny dostępu**. Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
+1. W sekcji **niejawne udzielenie i przepływy hybrydowe** wybierz pozycję **identyfikatory tokeny** i **tokeny dostępu**. Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
 1. Wybierz pozycję **Zapisz**.
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Ustaw adres URL przekierowania dla Node.js

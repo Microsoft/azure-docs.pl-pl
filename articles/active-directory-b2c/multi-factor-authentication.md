@@ -12,18 +12,18 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5d656a27017f3c7ec97362efc6207917ffcd1a56
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111410"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225162"
 ---
-# <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Włączanie uwierzytelniania wieloskładnikowego w Azure Active Directory B2C
+# <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) integruje się bezpośrednio z [usługą Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) , co umożliwia dodanie drugiej warstwy zabezpieczeń do tworzenia kont i logowania w aplikacjach. Uwierzytelnianie wieloskładnikowe można włączyć bez konieczności pisania pojedynczego wiersza kodu. Jeśli utworzono już przepływy rejestracji i logowania użytkowników, nadal możesz włączyć uwierzytelnianie wieloskładnikowe.
+Azure Active Directory B2C (Azure AD B2C) integruje się bezpośrednio z [usługą Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) , co umożliwia dodanie drugiej warstwy zabezpieczeń do tworzenia kont i logowania w aplikacjach. Uwierzytelnianie wieloskładnikowe włącza się bez pisania nawet jednego wiersza kodu. Jeśli utworzono już przepływy rejestracji i logowania użytkowników, nadal możesz włączyć uwierzytelnianie wieloskładnikowe.
 
 Ta funkcja ułatwia aplikacjom obsługę scenariuszy, takich jak:
 
@@ -40,7 +40,9 @@ Ta funkcja ułatwia aplikacjom obsługę scenariuszy, takich jak:
 1. Wybierz pozycję **przepływy użytkownika**.
 1. Wybierz przepływ użytkownika, dla którego chcesz włączyć usługę MFA. Na przykład *B2C_1_signinsignup*.
 1. Wybierz pozycję **Właściwości**.
-1. W sekcji **uwierzytelnianie** wieloskładnikowe wybierz żądaną **metodę MFA**, a następnie w obszarze **wymuszania MFA** wybierz opcję **zawsze włączone**, lub **[warunkowo](conditional-access-user-flow.md) (zalecane)**. W przypadku warunku należy utworzyć zasady [dostępu warunkowego](conditional-access-identity-protection-setup.md) i określić aplikacje, do których mają być stosowane zasady. 
+1. W sekcji **uwierzytelnianie** wieloskładnikowe wybierz żądaną **metodę MFA**, a następnie w obszarze **wymuszania MFA** wybierz opcję **zawsze włączone**, lub **warunkowo (zalecane)**.
+  > [!NOTE]
+  > W przypadku wybrania **warunkowego (zalecane)** należy również [dodać zasady dostępu warunkowego](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) i określić aplikacje, do których mają być stosowane zasady.
 1. Wybierz pozycję Zapisz. Uwierzytelnianie wieloskładnikowe jest teraz włączone dla tego przepływu użytkownika.
 
 Aby sprawdzić środowisko, można użyć funkcji **Uruchom przepływ użytkownika** . Potwierdź następujący scenariusz:

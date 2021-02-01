@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/29/2021
+ms.date: 02/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 025694dc020bb18ce66574bac476f34034353721
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 7c1f78f405a67687168457448f62d46a39da165f
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072663"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225128"
 ---
 # <a name="azure-stack-edge-pro-with-fpga-2101-release-notes"></a>Azure Stack EDGE Pro z FPGA 2101 — informacje o wersji
 
@@ -38,7 +38,6 @@ Ta wersja zawiera również następujące aktualizacje:
 
 - Wszystkie aktualizacje zbiorcze aktualizacji systemu Windows i programu .NET Framework wydane do października 2020.
 - Wersja oprogramowania układowego kontrolera zarządzania płytą główną (BMC) jest uaktualniana z 3.32.32.32 do 3.36.36.36 podczas instalacji fabrycznej w celu rozwiązania niezgodności z nowszymi jednostkami zasilacza firmy Dell.
-- Statyczny adres IP dla Azure Data Box Gateway jest zachowywany w ramach aktualizacji oprogramowania.
 - Ta wersja obsługuje IoT Edge 1.0.9.3 na Azure Stack urządzeniach brzegowych.
 
 ## <a name="known-issues-in-this-release"></a>Znane problemy w tej wersji

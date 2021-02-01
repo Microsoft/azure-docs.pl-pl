@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: a85ae227d45c8de6c3d04e4a058ebf9715421ca2
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: a5f0a7d8221e970c8c1aa3c1ddffbfc56f2d5715
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222068"
+ms.locfileid: "99226189"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
 
@@ -110,7 +110,7 @@ Jeśli nie chcesz używać automatyzacji, wykonaj kroki opisane w poniższych se
 1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją do późniejszego użycia. Będzie ona potrzebna do skonfigurowania pliku konfiguracji programu Visual Studio dla tego projektu.
 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
 1. Ustaw **adres URL wylogowywania z kanału frontonu** na `https://localhost:44316/Account/EndSession` .
-1. W sekcji **niejawne udzielenie** wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga, aby [przepływ niejawnego przydzielenia](v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika i wywoływania interfejsu API.
+1. W sekcji **niejawne przyznanie i przepływy hybrydowe** wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga, aby [przepływ niejawnego przydzielenia](v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika i wywoływania interfejsu API.
 1. Wybierz pozycję **Zapisz**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Certyfikaty i wpisy tajne**.
 1. W sekcji wpisy **tajne klienta** wybierz pozycję **Nowy wpis tajny klienta**. 

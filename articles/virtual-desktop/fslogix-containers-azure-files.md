@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ef7f19d835f4fef1a911da01015321b2dda67682
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 0b977944f3a531365487b9655820e5d8f85e13d0
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861876"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225919"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Kontenery profili FSLogix i pliki platformy Azure
 
@@ -55,9 +55,9 @@ W poniższej tabeli przedstawiono zalety i ograniczenia dotyczące wcześniejszy
 
 #### <a name="performance"></a>Wydajność
 
-UPD wymaga [bezpośrednie miejsca do magazynowania (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) , aby rozwiązać wymagania dotyczące wydajności. UPD używa protokołu SMB (Server Message Block). Kopiuje profil do maszyny wirtualnej, w której użytkownik jest rejestrowany. UPD z funkcją S2D to rozwiązanie, które zalecamy dla pulpitu wirtualnego systemu Windows.
+UPD wymaga [bezpośrednie miejsca do magazynowania (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) , aby rozwiązać wymagania dotyczące wydajności. UPD używa protokołu SMB (Server Message Block). Kopiuje profil do maszyny wirtualnej, w której użytkownik jest rejestrowany.
 
-#### <a name="cost"></a>Cost (Koszt)
+#### <a name="cost"></a>Koszt
 
 Gdy klastry funkcji S2D osiągnąą wymaganą wydajność, koszt jest kosztowny dla klientów korporacyjnych, ale szczególnie kosztownych dla małych i średnich klientów. W przypadku tego rozwiązania firmy płacisz za dyski magazynu, a także koszt maszyn wirtualnych korzystających z dysków dla udziału.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 99dadea37a519289120fcf30e394df1e0f7af5e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 83c1d8ac316703d9d22d0716c86c5731c3db7133
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757715"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226475"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -83,7 +83,7 @@ Więcej informacji na temat tych zaleceń znajduje się na [stronie informacje o
 
 **Szacowana data zmiany:** Q2 2021
 
-Aktualna wersja zaleceń **poufnych danych w bazach danych SQL powinna być sklasyfikowana** w obszarze **Zastosuj klasyfikację danych** , która zostanie wycofana i zastąpiona nową wersją, która jest lepiej wyrównana z strategią klasyfikacji danych firmy Microsoft. W efekcie:
+Bieżąca wersja zaleceń **poufnych danych w bazach danych SQL powinna być sklasyfikowana** w obszarze **Zastosuj klasyfikację zabezpieczeń danych** , która będzie lepiej wyrównana z strategią klasyfikacji danych firmy Microsoft. W efekcie:
 
 - Zalecenie nie będzie już miało wpływu na swój Bezpieczny wynik
 - Kontrola zabezpieczeń ("Zastosuj klasyfikację danych") nie będzie już miała wpływu na swój Bezpieczny wynik

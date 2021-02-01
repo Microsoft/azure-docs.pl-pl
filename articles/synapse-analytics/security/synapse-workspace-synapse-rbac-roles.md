@@ -1,5 +1,5 @@
 ---
-title: Role RBAC Synapse
+title: Role kontroli dostępu opartej na rolach w usłudze Synapse
 description: W tym artykule opisano wbudowane role RBAC Synapse
 author: billgib
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 1ffbb5579ea19d7d608dd9c9d600342cd89d371c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572800"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225078"
 ---
 # <a name="synapse-rbac-roles"></a>Role RBAC Synapse
 
@@ -37,9 +37,9 @@ W poniższej tabeli opisano wbudowane role i zakresy, w których mogą być uży
 >[!Note]
 > Użytkownicy z dowolną rolą Synapse RBAC w dowolnym zakresie automatycznie mają rolę użytkownika Synapse w zakresie obszaru roboczego. 
 
-|Role |Uprawnienia|Zakresy|
+|Rola |Uprawnienia|Zakresy|
 |---|---|-----|
-|Synapse administrator  |Pełny Synapse dostęp do pul SQL bezserwerowych, pul Apache Spark i środowiska Integration Runtime.  Obejmuje uprawnienia do tworzenia, odczytu, aktualizowania i usuwania wszystkich opublikowanych artefaktów kodu.  Zawiera operator obliczeń, połączone Data Manager i uprawnienia użytkownika poświadczeń w ramach poświadczeń tożsamości systemu obszaru roboczego.  Obejmuje Przypisanie ról RBAC Synapse.  Uprawnienia platformy Azure są wymagane do tworzenia i usuwania zasobów obliczeniowych oraz zarządzania nimi. </br></br>_Może odczytywać i zapisywać artefakty </br> mogą wykonywać wszystkie działania w działaniach platformy Spark. </br> Może wyświetlać dzienniki puli platformy Spark </br> mogą wyświetlać zapisane Notesy i dane wyjściowe potoku </br> mogą korzystać z wpisów tajnych przechowywanych przez połączone usługi lub poświadczenia </br> mogą łączyć się z niektórymi punktami końcowymi programu SQL Server przy użyciu programu SQL `db_datareader` , `db_datawriter` , `connect` i uprawnienia do `grant` </br> przypisywania i odwoływania ról RBAC Synapse w bieżącym zakresie_|Workspace </br> Pula platformy Spark<br/>Integration Runtime </br>Połączona usługa</br>Poświadczenie |
+|Synapse administrator  |Pełny Synapse dostęp do pul SQL bezserwerowych, pul Apache Spark i środowiska Integration Runtime.  Obejmuje uprawnienia do tworzenia, odczytu, aktualizowania i usuwania wszystkich opublikowanych artefaktów kodu.  Zawiera operator obliczeń, połączone Data Manager i uprawnienia użytkownika poświadczeń w ramach poświadczeń tożsamości systemu obszaru roboczego.  Obejmuje Przypisanie ról RBAC Synapse. Oprócz administratora Synapse właściciele platformy Azure mogą również przypisywać role RBAC Synapse. Uprawnienia platformy Azure są wymagane do tworzenia i usuwania zasobów obliczeniowych oraz zarządzania nimi. </br></br>_Może odczytywać i zapisywać artefakty </br> mogą wykonywać wszystkie działania w działaniach platformy Spark. </br> Może wyświetlać dzienniki puli platformy Spark </br> mogą wyświetlać zapisane Notesy i dane wyjściowe potoku </br> mogą korzystać z wpisów tajnych przechowywanych przez połączone usługi lub poświadczenia </br> mogą łączyć się z niektórymi punktami końcowymi programu SQL Server przy użyciu programu SQL `db_datareader` , `db_datawriter` , `connect` i uprawnienia do `grant` </br> przypisywania i odwoływania ról RBAC Synapse w bieżącym zakresie_|Workspace </br> Pula platformy Spark<br/>Integration Runtime </br>Połączona usługa</br>Poświadczenie |
 |Synapse Apache Spark administrator</br>|Pełny dostęp Synapse do pul Apache Spark.  Twórz, Odczytuj, Aktualizuj i usuwaj dostęp do opublikowanych definicji zadań platformy Spark, notesów i ich wyjść oraz do bibliotek, połączonych usług i poświadczeń.  Obejmuje dostęp do odczytu do wszystkich innych opublikowanych artefaktów kodu. Nie obejmuje uprawnień do używania poświadczeń i uruchamiania potoków. Nie obejmuje udzielania dostępu. </br></br>_Może wykonywać wszystkie działania artefaktów platformy Spark </br> wszystkie akcje w działaniach platformy Spark_|Workspace</br>Pula platformy Spark|
 |Synapse administratora SQL|Pełny dostęp Synapse do pul SQL bezserwerowych.  Twórz, Odczytuj, Aktualizuj i usuwaj dostęp do opublikowanych skryptów SQL, poświadczeń i połączonych usług.  Obejmuje dostęp do odczytu do wszystkich innych opublikowanych artefaktów kodu.  Nie obejmuje uprawnień do używania poświadczeń i uruchamiania potoków. Nie obejmuje udzielania dostępu. </br></br>*Może wykonywać wszystkie akcje w skryptach SQL <br/> , które mogą łączyć się z niektórymi punktami końcowymi programu SQL Server przy użyciu programu SQL `db_datareader` , `db_datawriter` , `connect` i `grant` uprawnień*|Workspace|
 |Współautor Synapse|Pełny Synapse dostęp do pul SQL bezserwerowych, pul Apache Spark i środowiska Integration Runtime.  Obejmuje uprawnienia do tworzenia, odczytu, aktualizowania i usuwania wszystkich opublikowanych artefaktów kodu i ich danych wyjściowych, w tym poświadczeń i połączonych usług.  Obejmuje uprawnienia operatora obliczeniowego. Nie obejmuje uprawnień do używania poświadczeń i uruchamiania potoków. Nie obejmuje udzielania dostępu. </br></br>_Może odczytywać i zapisywać artefakty </br> mogą wyświetlać zapisane Notesy i dane wyjściowe potoku </br> . wszystkie akcje w działaniach platformy Spark </br> mogą wyświetlać dzienniki puli platformy Spark_|Workspace </br> Pula platformy Spark<br/> Integration Runtime|
@@ -58,7 +58,7 @@ W poniższej tabeli opisano wbudowane role i zakresy, w których mogą być uży
 
 W poniższej tabeli wymieniono wbudowane role i akcje/uprawnienia, które każda z nich obsługuje.
 
-Role|Akcje
+Rola|Akcje
 --|--
 Synapse administrator|obszary robocze/odczyt</br>obszary robocze/roleAssignments/zapis, usuwanie</br>obszary robocze/managedPrivateEndpoint/zapis, usuwanie</br>obszary robocze/bigDataPools/useCompute/akcja</br>obszary robocze/bigDataPools/viewLogs/akcja</br>obszary robocze/integrationRuntimes/useCompute/akcja</br>obszary robocze/artefakty/odczyt</br>obszary robocze/notesy/zapis, usuwanie</br>obszary robocze/sparkJobDefinitions/zapis, usuwanie</br>obszary robocze/sqlscripters/Write, DELETE</br>obszary robocze/przepływy/zapisywanie, usuwanie</br>obszary robocze/potoki/zapis, usuwanie</br>obszary robocze/wyzwalacze/zapis, Usuń</br>obszary robocze/zestawy danych/zapisywanie, usuwanie</br>obszary robocze/biblioteki/zapis, usuwanie</br>obszary robocze/linkedServices/zapis, usuwanie</br>obszary robocze/poświadczenia/zapis, usuwanie</br>obszary robocze/notesy/viewOutputs/akcja</br>obszary robocze/potoki/viewOutputs/akcja</br>obszary robocze/linkedServices/useSecret/akcja</br>obszary robocze/poświadczenia/useSecret/akcja|
 |Synapse Apache Spark administrator|obszary robocze/odczyt</br>obszary robocze/bigDataPools/useCompute/akcja</br>obszary robocze/bigDataPools/viewLogs/akcja</br>obszary robocze/notesy/viewOutputs/akcja</br>obszary robocze/artefakty/odczyt</br>obszary robocze/notesy/zapis, usuwanie</br>obszary robocze/sparkJobDefinitions/zapis, usuwanie</br>obszary robocze/biblioteki/zapis, usuwanie</br>obszary robocze/linkedServices/zapis, usuwanie</br>obszary robocze/poświadczenia/zapis, usuwanie|
@@ -75,7 +75,7 @@ Synapse administrator|obszary robocze/odczyt</br>obszary robocze/roleAssignments
 
 W poniższej tabeli wymieniono akcje Synapse oraz wbudowane role zezwalające na następujące akcje:
 
-Akcja|Role
+Akcja|Rola
 --|--
 obszary robocze/odczyt|Synapse administrator</br>Synapse Apache Spark administrator</br>Synapse administratora SQL</br>Współautor Synapse</br>Wydawca artefaktu Synapse</br>Użytkownik artefaktu Synapse</br>Operator obliczeń Synapse </br>Użytkownik poświadczenia Synapse</br>Synapse połączone Data Manager</br>Synapse użytkownika 
 obszary robocze/roleAssignments/zapis, usuwanie|Synapse administrator

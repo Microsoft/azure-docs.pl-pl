@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d79c296163dfcb1d81b4713f8a8673485950e05
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9fd10d6a4fb748a61b5e1d9e27777c2fa1134039
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919769"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225617"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
@@ -222,6 +222,7 @@ Specyficzne dla analizatora CSV wersja 1,0:
 Specyficzne dla analizatora CSV wersja 2,0:
 
 - Nie wszystkie typy danych są obsługiwane.
+- Maksymalna długość kolumny znaku to 8000.
 - Maksymalny rozmiar wiersza to 8 MB.
 - Następujące opcje nie są obsługiwane: DATA_COMPRESSION.
 - Pusty ciąg w cudzysłowie ("") jest interpretowany jako pusty ciąg.

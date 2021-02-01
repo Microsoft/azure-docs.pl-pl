@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2af8db1a6e8c774f1004b380c8aaaa06ba61d8c3
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 4814a12a870d5317ad91c3514327ba0daad7ed69
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862345"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225374"
 ---
 # <a name="deploy-azure-file-sync"></a>Wdrażanie usługi Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -506,7 +506,7 @@ Jeśli chcesz skonfigurować usługę Azure File Sync do pracy z ustawieniami za
 ![Konfigurowanie ustawień zapory i sieci wirtualnej do pracy z usługą Azure File Sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## <a name="onboarding-with-azure-file-sync"></a>Dołączanie za pomocą Azure File Sync
-Zalecane kroki do dołączenia na Azure File Sync w pierwszej kolejności bez przestojów podczas zachowywania pełnej wierności plików i listy kontroli dostępu (ACL) są następujące:
+Zalecane kroki do dołączenia na Azure File Sync po raz pierwszy z zerowym przestojem podczas zachowywania pełnej wierności plików i listy kontroli dostępu (ACL) są następujące:
  
 1. Wdróż usługę synchronizacji magazynu.
 1. Utwórz grupę synchronizacji.

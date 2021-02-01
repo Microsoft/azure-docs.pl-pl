@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7dc8aac730fdf46cab47a3297b8c001cb0b8e314
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219262"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226409"
 ---
 # <a name="test-vm-network-latency"></a>Testowanie opóźnienia sieci maszyn wirtualnych
 
@@ -45,7 +45,7 @@ Takie podejście służy do mierzenia opóźnień sieci między dwiema maszynami
 ### <a name="tools-for-testing"></a>Narzędzia do testowania
 Aby mierzyć opóźnienia, dostępne są dwa różne opcje narzędzi:
 
-* W przypadku systemów z systemem Windows: [latte.exe (system Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* W przypadku systemów z systemem Windows: [latte.exe (system Windows)](https://github.com/microsoft/latte/releases/download/v0/latte.exe)
 * W przypadku systemów z systemem Linux: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
 Za pomocą tych narzędzi można zagwarantować, że tylko czasy dostarczania protokołu TCP lub UDP są mierzone, a nie protokołu ICMP (ping) lub innych typów pakietów, które nie są używane przez aplikacje, i nie wpływają na ich wydajność.

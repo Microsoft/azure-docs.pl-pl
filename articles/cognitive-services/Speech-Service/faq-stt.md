@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072177"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226560"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -83,7 +83,7 @@ Odp **.: można** użyć [interfejsu API REST](https://centralus.dev.cognitive.m
 
 **P: Czy moje żądania są zarejestrowane?**
 
-Odp **.: domyślnie** żądania nie są rejestrowane (ani audio ani transkrypcja). W razie potrzeby można wybrać opcję *Rejestruj zawartość z tej opcji punktu końcowego* podczas [tworzenia niestandardowego punktu końcowego](./how-to-custom-speech-train-model.md). Możesz również włączyć rejestrowanie audio w [zestawie mowy SDK](speech-sdk.md) dla każdego żądania, bez tworzenia niestandardowego punktu końcowego. W obu przypadkach wyniki audio i rozpoznawania żądań będą przechowywane w bezpiecznym magazynie. Subskrypcje korzystające z magazynu należącego do firmy Microsoft będą dostępne przez 30 dni.
+Odp **.: domyślnie** żądania nie są rejestrowane (ani audio ani transkrypcja). W razie potrzeby można wybrać opcję *Rejestruj zawartość z tej opcji punktu końcowego* podczas [tworzenia niestandardowego punktu końcowego](how-to-custom-speech-train-model.md#deploy-a-custom-model). Możesz również włączyć rejestrowanie audio w [zestawie mowy SDK](how-to-use-logging.md) dla każdego żądania, bez tworzenia niestandardowego punktu końcowego. W obu przypadkach wyniki audio i rozpoznawania żądań będą przechowywane w bezpiecznym magazynie. Subskrypcje korzystające z magazynu należącego do firmy Microsoft będą dostępne przez 30 dni.
 
 Zarejestrowane pliki można wyeksportować na stronie wdrożenia w programie Speech Studio, jeśli używasz niestandardowego punktu końcowego z *zawartością dziennika z tego punktu końcowego* . Jeśli rejestrowanie audio jest włączone za pośrednictwem zestawu SDK, należy wywołać [interfejs API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) , aby uzyskać dostęp do plików.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 8b12df62a7080e57e47b52cb79ed8a67e12bd526
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 17cff66d3f8c816099bcc61322a1d331bfe58872
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753108"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226308"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Samouczek: Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
 
@@ -383,7 +383,7 @@ Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji 
 1. Dodaj adres URL protokołu SSL skopiowany z programu Visual Studio w kroku 1 (na przykład `https://localhost:44368/` ) w obszarze **URI przekierowania**.
 1. Wybierz pozycję **Zarejestruj**.
 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-1. W sekcji **niejawne przyznanie** wybierz pozycję **identyfikatory tokenów**, a następnie wybierz pozycję **Zapisz**.
+1. W sekcji **niejawne uprawnienia do przypisywania i hybrydowych przepływów** wybierz pozycję **identyfikatory tokenów**, a następnie wybierz pozycję **Zapisz**.
 1. Dodaj następujące elementy w pliku web.config znajdującym się w folderze głównym w `configuration\appSettings` sekcji:
 
     ```xml

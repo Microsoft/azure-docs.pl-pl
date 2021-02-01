@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: d4189e466d5e9b41247723165ce2a5c14c4a8dfa
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 39a675ff4947e7eca64298e1e68160cd6149f081
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756401"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226342"
 ---
 # <a name="single-page-application-app-registration"></a>Aplikacja jednostronicowa: Rejestracja aplikacji
 
@@ -47,7 +47,7 @@ Wykonaj następujące kroki, aby dodać identyfikator URI przekierowania dla apl
 1. W Azure Portal wybierz rejestrację aplikacji utworzoną wcześniej w temacie [Tworzenie rejestracji aplikacji](#create-the-app-registration).
 1. W obszarze **Zarządzanie** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**.
 1. W obszarze **aplikacje sieci Web** wybierz kafelek **aplikacji jednostronicowej** .
-1. W obszarze **identyfikatory URI przekierowania** wprowadź [Identyfikator URI przekierowania](reply-url.md). **Nie** zaznaczaj żadnych pól wyboru w obszarze **niejawne przyznanie**.
+1. W obszarze **identyfikatory URI przekierowania** wprowadź [Identyfikator URI przekierowania](reply-url.md). **Nie** zaznaczaj żadnych pól wyboru w obszarze **niejawny udział i przepływy hybrydowe**.
 1. Wybierz pozycję **Konfiguruj** , aby zakończyć dodawanie identyfikatora URI przekierowania.
 
 Zakończono rejestrację aplikacji jednostronicowej (SPA) i skonfigurowano identyfikator URI przekierowania, do którego zostanie przekierowany klient, i zostaną wysłane wszystkie tokeny zabezpieczające. Konfigurując identyfikator URI przekierowania przy użyciu kafelka **aplikacji jednostronicowej** w okienku **Dodaj platformę** , Rejestracja aplikacji jest skonfigurowana do obsługi przepływu kodu autoryzacji za pomocą PKCE i mechanizmu CORS.
@@ -62,7 +62,7 @@ Wykonaj następujące kroki, aby dodać identyfikator URI przekierowania dla jed
 1. W obszarze **Zarządzanie** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**.
 1. W obszarze **aplikacje sieci Web** wybierz kafelek **aplikacji jednostronicowej** .
 1. W obszarze **identyfikatory URI przekierowania** wprowadź [Identyfikator URI przekierowania](reply-url.md).
-1. Włącz **przepływ niejawny**:
+1. Włącz **niejawną transwartość i przepływy hybrydowe**:
     - Jeśli aplikacja loguje się do użytkowników, wybierz pozycję **identyfikatory tokenów**.
     - Jeśli aplikacja wymaga również wywołania chronionego internetowego interfejsu API, wybierz pozycję **tokeny dostępu**. Aby uzyskać więcej informacji na temat tych typów tokenów, zobacz [identyfikatory tokenów](id-tokens.md) i [tokeny dostępu](access-tokens.md).
 1. Wybierz pozycję **Konfiguruj** , aby zakończyć dodawanie identyfikatora URI przekierowania.

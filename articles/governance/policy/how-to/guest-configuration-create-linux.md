@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gości
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 38579bb43f012cac2b373bbbbb6ad757604f4c07
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 9d9a66ddad5bd3511d5372f62558af35cfcb5616
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070693"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226611"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -291,6 +291,27 @@ describe file(attr_path) do
 end
 ```
 
+Dodaj właściwość **AttributesYmlContent** w konfiguracji z dowolnym ciągiem jako wartość.
+Agent konfiguracji gościa automatycznie tworzy plik YAML używany przez specyfikację do przechowywania atrybutów. Zobacz przykład poniżej.
+
+```powershell
+Configuration AuditFilePathExists
+{
+    Import-DscResource -ModuleName 'GuestConfiguration'
+
+    Node AuditFilePathExists
+    {
+        ChefInSpecResource 'Audit Linux path exists'
+        {
+            Name = 'linux-path'
+            AttributesYmlContent = "fromParameter"
+        }
+    }
+}
+```
+
+Skompiluj ponownie plik MOF przy użyciu przykładów podanym w tym dokumencie.
+
 Polecenia cmdlet `New-GuestConfigurationPolicy` i `Test-GuestConfigurationPolicyPackage` zawierają parametr o nazwie **Parameter**. Ten parametr pobiera tablicę skrótów obejmującą wszystkie szczegóły każdego parametru i automatycznie tworzy wszystkie wymagane sekcje plików użytych do utworzenia każdej definicji Azure Policy.
 
 W poniższym przykładzie jest tworzona definicja zasad służąca do inspekcji ścieżki pliku, gdzie użytkownik udostępnia ścieżkę w momencie przypisywania zasad.
@@ -300,10 +321,10 @@ $PolicyParameterInfo = @(
     @{
         Name = 'FilePath'                             # Policy parameter name (mandatory)
         DisplayName = 'File path.'                    # Policy parameter display name (mandatory)
-        Description = "File path to be audited."      # Policy parameter description (optional)
-        ResourceType = "ChefInSpecResource"           # Configuration resource type (mandatory)
+        Description = 'File path to be audited.'      # Policy parameter description (optional)
+        ResourceType = 'ChefInSpecResource'           # Configuration resource type (mandatory)
         ResourceId = 'Audit Linux path exists'        # Configuration resource property name (mandatory)
-        ResourcePropertyName = "AttributesYmlContent" # Configuration resource property name (mandatory)
+        ResourcePropertyName = 'AttributesYmlContent' # Configuration resource property name (mandatory)
         DefaultValue = '/tmp'                         # Policy parameter default value (optional)
     }
 )
@@ -316,26 +337,10 @@ New-GuestConfigurationPolicy
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
     -Parameter $PolicyParameterInfo `
+    -Platform 'Linux' `
     -Version 1.0.0
 ```
 
-W przypadku zasad systemu Linux Uwzględnij Właściwość **AttributesYmlContent** w konfiguracji i Zastąp wartości zgodnie z potrzebami. Agent konfiguracji gościa automatycznie tworzy plik YAML używany przez specyfikację do przechowywania atrybutów. Zobacz przykład poniżej.
-
-```powershell
-Configuration AuditFilePathExists
-{
-    Import-DscResource -ModuleName 'GuestConfiguration'
-
-    Node AuditFilePathExists
-    {
-        ChefInSpecResource 'Audit Linux path exists'
-        {
-            Name = 'linux-path'
-            AttributesYmlContent = "path: /tmp"
-        }
-    }
-}
-```
 
 ## <a name="policy-lifecycle"></a>Cykl życia zasad
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: ab3677ede2805fc8ecb076e8a40da605c038b54b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fec130ff02d9796fb9a6cea7a831bbdcb25cb1ed
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937934"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225634"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Szybki Start: Dodawanie logowania za pomocą usługi OpenID Connect nawiązywanie połączenia z aplikacją sieci Web Node.js
 
@@ -45,7 +45,7 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który pokaz
 1. Wybierz pozycję **Dodaj platformę**  >  **sieci Web**. 
 1. W sekcji **identyfikatory URI przekierowania** wprowadź wartość `http://localhost:3000/auth/openid/return` .
 1. Wprowadź **adres URL wylogowania z przodu** `https://localhost:3000` .
-1. W sekcji niejawne udzielenie Sprawdź **tokeny identyfikatora** , ponieważ ten przykład wymaga, aby [przepływ niejawnego przydzielenia](./v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika.
+1. W sekcji **niejawne uprawnienia do przypisywania i hybrydowych przepływów** wybierz opcję **identyfikatory tokenów** , ponieważ ten przykład wymaga, aby [przepływ niejawnego przydzielenia](./v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika.
 1. Wybierz pozycję **Konfiguruj**.
 1. W obszarze **Zarządzaj** wybierz pozycję **Certyfikaty &** wpisy tajne  >  **nowy klucz tajny klienta**.
 1. Wprowadź opis klucza (dla wpisu tajnego aplikacji wystąpienia).

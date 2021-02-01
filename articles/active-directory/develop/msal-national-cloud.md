@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2f9396e20ae0f426dddd57b32297cfe98e135c44
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178623"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225820"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Korzystanie z MSAL w środowisku chmury krajowej
 
@@ -84,7 +84,7 @@ Aby włączyć aplikację MSAL.js dla suwerennych chmur:
 1. Na stronie **Przegląd** Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
     Ten samouczek wymaga włączenia [niejawnego przepływu dotacji](v2-oauth2-implicit-grant-flow.md). 
 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-1. W obszarze **niejawne przyznanie** wybierz pozycję **identyfikatory tokeny** i **tokeny dostępu**. Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
+1. W obszarze **niejawne przyznanie i przepływy hybrydowe** wybierz pozycję **identyfikatory tokeny** i **tokeny dostępu**. Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
 1. Wybierz pozycję **Zapisz**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Krok 2. Konfigurowanie serwera lub projektu sieci Web

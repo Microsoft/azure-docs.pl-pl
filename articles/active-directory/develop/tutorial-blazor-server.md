@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: b67d75ac99f247659723ac0b5a90fd32ebf627e3
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 5a631d9ae7a7d1792e3c4e4a2cbf8281e1168283
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569882"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226020"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Samouczek: Tworzenie aplikacji serwera Blazor, która używa platformy tożsamości firmy Microsoft do uwierzytelniania
 
@@ -40,7 +40,7 @@ Każda aplikacja, która używa Azure Active Directory (Azure AD) do uwierzyteln
 - W przypadku **obsługiwanych typów kont** wybierz opcję **konta tylko w tym katalogu organizacji**.
 - Pozostaw pole listy rozwijanej **Identyfikator URI przekierowania** jako **Sieć Web** i wprowadź wartość `https://localhost:5001/signin-oidc` . Domyślnym portem dla aplikacji działającej w Kestrel jest 5001. Jeśli aplikacja jest dostępna na innym porcie, określ ten numer portu zamiast `5001` .
 
-W obszarze **uwierzytelnianie**  >  **niejawnie Udziel** zaznacz pola wyboru dla **tokenów dostępu** i **tokenów identyfikatorów**, a następnie wybierz przycisk **Zapisz** .
+W obszarze **Zarządzaj** wybierz opcję **uwierzytelnianie**  >  **niejawne i przepływy hybrydowe**. Wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**, a następnie wybierz pozycję **Zapisz**.
 
 Na koniec, ponieważ aplikacja wywołuje chroniony interfejs API (w tym przypadku Microsoft Graph), wymaga klucza tajnego klienta, aby zweryfikować jego tożsamość, gdy żąda tokenu dostępu do wywołania tego interfejsu API.
 

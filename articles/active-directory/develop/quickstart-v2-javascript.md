@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 131cb325e3581a135be7a88f26c59637d35bc5f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937968"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225718"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA
 
@@ -55,8 +55,9 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 > 1. Wybierz pozycję **Zarejestruj**. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. Ten przewodnik Szybki start wymaga włączenia [przepływu niejawnego udzielenia](v2-oauth2-implicit-grant-flow.md). W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-> 1. W obszarze **Konfiguracja platformy** wybierz pozycję **Dodaj platformę**. Po lewej stronie zostanie otwarty panel. W tym miejscu wybierz region **aplikacje sieci Web** .
-> 1. Nadal po lewej stronie Ustaw wartość **identyfikatora URI przekierowania** na `http://localhost:3000/` . Następnie wybierz **token dostępu** i **token identyfikatora**.
+> 1. W obszarze **konfiguracje platformy**  >  **Dodaj platformę**. Wybierz pozycję **Sieć Web**.
+> 1. Ustaw wartość **identyfikatora URI przekierowania** na `http://localhost:3000/` . 
+> 1. Wybierz **tokeny dostępu** i **tokeny identyfikatorów** w obszarze **niejawne i przepływy hybrydowe**  .
 > 1. Wybierz pozycję **Konfiguruj**.
 
 > [!div class="sxs-lookup" renderon="portal"]

@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f3598c6f072d09d7e427db66dcfbf8721b92a3a1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752738"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226492"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft Identity platform i niejawny przepływ dotacji
 
@@ -44,7 +44,7 @@ Na poniższym diagramie przedstawiono, jak wygląda cały niejawny przepływ log
 Aby najpierw podpisać użytkownika w aplikacji, możesz wysłać żądanie uwierzytelniania [OpenID Connect Connect](v2-protocols-oidc.md) i uzyskać dostęp do usługi `id_token` Microsoft Identity platform.
 
 > [!IMPORTANT]
-> Aby pomyślnie zażądać tokenu identyfikatora i/lub tokenu dostępu, Rejestracja aplikacji na stronie [Azure Portal-rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) musi mieć odpowiedni niejawny przepływ, który jest włączony, wybierając **tokeny identyfikatora** i **tokeny dostępu** lub w sekcji **niejawne udzielenie** . Jeśli nie jest włączona, `unsupported_response` zostanie zwrócony błąd: **podana wartość parametru wejściowego "response_type" nie jest dozwolona dla tego klienta. Oczekiwana wartość to "Code"**
+> Aby pomyślnie zażądać tokenu identyfikatora i/lub tokenu dostępu, Rejestracja aplikacji na stronie [Azure Portal-rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) musi mieć odpowiedni niejawny przepływ dotacji, wybierając **tokeny identyfikatorów** i **tokeny dostępu** w sekcji **niejawne uprawnienia i przepływy hybrydowe** . Jeśli nie jest włączona, `unsupported_response` zostanie zwrócony błąd: `The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'`
 
 ```
 // Line breaks for legibility only

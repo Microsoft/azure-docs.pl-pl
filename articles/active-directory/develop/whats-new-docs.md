@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 0beaef9162f4bdb540764a100243c579b40d1324
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755951"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225483"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Dokumentacja platformy tożsamości firmy Microsoft: co nowego
 
@@ -24,13 +24,25 @@ Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wym
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Rejestrowanie w bibliotece MSAL dla systemu Android](msal-logging-android.md)
+- [Rejestrowanie na platformie MSAL.NET](msal-logging-dotnet.md)
+- [Rejestrowanie w bibliotece MSAL dla systemu iOS/macOS](msal-logging-ios.md)
+- [Rejestrowanie w bibliotece MSAL dla języka Java](msal-logging-java.md)
+- [Rejestrowanie w bibliotece MSAL.js](msal-logging-js.md)
+- [Rejestrowanie w bibliotece MSAL dla języka Python](msal-logging-python.md)
+
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
+- [Rozwiązywanie problemów z weryfikacją wydawcy](troubleshoot-publisher-verification.md)
+- [Model aplikacji](application-model.md)
 - [Uwierzytelnianie i autoryzacja](authentication-vs-authorization.md)
 - [Instrukcje: ograniczanie aplikacji usługi Azure AD do zestawu użytkowników w dzierżawie usługi Azure AD](howto-restrict-your-app-to-a-set-of-users.md)
 - [Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft](v2-permissions-and-consent.md)
 - [Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)](active-directory-configurable-token-lifetimes.md)
 - [Konfigurowanie zasad okresu istnienia tokenu (wersja zapoznawcza)](configure-token-lifetimes.md)
+- [Biblioteki uwierzytelniania platformy tożsamości firmy Microsoft](reference-v2-libraries.md)
 - [Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0](v2-oauth2-auth-code-flow.md)
 
 ## <a name="december-2020"></a>Grudzień 2020 r.

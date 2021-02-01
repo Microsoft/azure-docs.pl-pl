@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 369ec11050fa7dbc09159d88793685ad5fbdb3e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053964"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226526"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Często zadawane pytania dotyczące aplikacji Microsoft Authenticator
 
@@ -238,7 +238,7 @@ Odp.: wykonaj następujące **kroki:**
    - W systemie iOS w obszarze **Ustawienia** wybierz pozycję **jak włączyć Autowypełnianie** w sekcji Ustawienia Autowypełniania, aby dowiedzieć się, jak ustawić wystawcę jako domyślnego dostawcę Autowypełniania.
    - W systemie Android w obszarze **Ustawienia** wybierz pozycję **Ustaw jako dostawcę Autowypełniania** w sekcji Ustawienia Autowypełniania.
 
-**P**: co zrobić, jeśli przełącznik **Autowypełniania** nie jest dostępny dla mnie w ustawieniach?
+**P**: co zrobić, jeśli funkcja **Autowypełniania** nie jest dostępna dla mnie w ustawieniach?
 
 Odp.: Jeśli Autowypełnianie nie jest dostępne **w ramach** uwierzytelnienia, może to być spowodowane tym, że Autowypełnianie nie było jeszcze dozwolone dla organizacji lub typu konta. Tej funkcji można użyć na urządzeniu, na którym nie jest dodawane konto służbowe. Aby dowiedzieć się więcej o tym, jak zezwolić na Autowypełnianie w organizacji, zobacz [Autowypełnianie dla administratorów IT](#autofill-for-it-admins).
 

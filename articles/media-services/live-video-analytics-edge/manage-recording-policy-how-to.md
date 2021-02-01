@@ -3,12 +3,12 @@ title: Zarządzanie zasadami rejestrowania — Azure
 description: W tym temacie wyjaśniono, jak zarządzać zasadami rejestrowania.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: d3a1be915dc1cc8714e49cc7b2fe68bbe9cad161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87011485"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99224993"
 ---
 # <a name="manage-recording-policy"></a>Zarządzanie zasadami nagrywania
 
@@ -45,7 +45,7 @@ Powyższa reguła:
 * Określa, że po upływie okresu ważności obiektów BLOB przez 30 dni są one przenoszone z [warstwy dostępu gorąca do chłodna](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 * Po osiągnięciu wieku obiektów BLOB powyżej 90 dni zostaną one usunięte.
 
-Ponieważ usługa Analiza wideo na żywo archiwizuje wideo w określonym czasie, zasób będzie zawierać serię obiektów blob, jeden obiekt BLOB na segment. Gdy zasady zarządzania cyklem życia i usuwają starsze obiekty blob, będziesz mieć możliwość dostępu do pozostałych obiektów blob i ich odtwarzania za pośrednictwem interfejsów API usługi Media Service. Aby uzyskać więcej informacji, zobacz [odtwarzanie nagrań](playback-recordings-how-to.md). 
+W przypadku używania usługi Live Video Analytics do rejestrowania w elemencie zawartości należy określić `segmentLength` Właściwość informującą moduł, aby zagregł minimalny czas trwania wideo (w sekundach) przed zapisaniem w chmurze. Element zawartości będzie zawierać serię segmentów, z których każdy ma sygnaturę czasową utworzenia `segmentLength` nowszą od poprzedniej. Gdy zasady zarządzania cyklem życia są uruchamiane w programie, usuwa segmenty starsze niż określony próg. Jednak nadal będzie można uzyskiwać dostęp do pozostałych segmentów za pośrednictwem interfejsów API usługi Media Service i odtwarzać je. Aby uzyskać więcej informacji, zobacz [odtwarzanie zwrotne](playback-recordings-how-to.md). 
 
 ## <a name="limitations"></a>Ograniczenia
 

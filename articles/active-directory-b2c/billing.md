@@ -7,23 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/01/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949789"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225212"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Model rozliczeń dla Azure Active Directory B2C
 
 Ceny za Azure Active Directory B2C (Azure AD B2C) są oparte na miesięcznych aktywnych użytkowników (MAU), czyli liczbie unikatowych użytkowników z aktywnością uwierzytelniania w ciągu miesiąca kalendarzowego. Ten model rozliczeń dotyczy zarówno dzierżawców Azure AD B2C, jak i [współpracy użytkowników Gości usługi Azure AD (B2B)](../active-directory/external-identities/external-identities-pricing.md). Rozliczanie MAU pomaga obniżyć koszty, oferując bezpłatną warstwę i elastyczne, przewidywalne ceny. W tym artykule dowiesz się więcej na temat rozliczeń MAU, łączenia dzierżawców Azure AD B2C z subskrypcją i zmieniania warstwy cenowej.
 
 > [!IMPORTANT]
-> Ten artykuł nie zawiera szczegółów cennika. Aby uzyskać najnowsze informacje dotyczące rozliczeń i cen użytkowania, zobacz [Cennik usługi Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Ten artykuł nie zawiera szczegółów cennika. Aby uzyskać najnowsze informacje dotyczące rozliczeń i cen użytkowania, zobacz [Cennik usługi Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Aby uzyskać szczegółowe informacje o tym, gdzie jest dostępna usługa Azure AD B2C i gdzie są przechowywane dane użytkownika, zobacz również [Azure AD B2C dostępność regionu oraz miejsce zamieszkania danych](data-residency.md) .
 
 ## <a name="what-do-i-need-to-do"></a>Co mam zrobić?
 
@@ -61,16 +61,16 @@ Subskrypcja połączona z dzierżawą Azure AD B2C może być używana do rozlic
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający subskrypcję platformy Azure, której chcesz użyć (*nie* katalog zawierający dzierżawę Azure AD B2C).
 3. Wybierz pozycję **Utwórz zasób**, wprowadź wartość `Active Directory B2C` w polu **Wyszukaj w witrynie Marketplace** , a następnie wybierz pozycję **Azure Active Directory B2C**.
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. Wybierz pozycję **Połącz istniejącą dzierżawę Azure AD B2C z moją subskrypcją platformy Azure**.
 6. Wybierz **dzierżawę Azure AD B2C** z listy rozwijanej. Wyświetlane są tylko dzierżawy, dla których jesteś administratorem globalnym i które nie są już połączone z subskrypcją. Pole **nazwy zasobu Azure AD B2C** jest wypełniane nazwą domeny wybranej dzierżawy Azure AD B2C.
 7. Wybierz aktywną **subskrypcję** platformy Azure, której jesteś administratorem.
 8. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**, a następnie określ **lokalizację grupy zasobów**. Ustawienia grupy zasobów nie mają wpływu na lokalizację dzierżawy Azure AD B2C, wydajność ani stan rozliczeń.
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
     ![Strona tworzenia zasobów Azure AD B2C w programie Azure Portal](./media/billing/portal-01-create-b2c-resource-page.png)
 
-Po wykonaniu tych kroków dla dzierżawy Azure AD B2C subskrypcja platformy Azure jest rozliczana na podstawie szczegółowych informacji dotyczących usługi Azure Direct lub Umowa Enterprise, jeśli ma to zastosowanie.
+Po wykonaniu tych kroków dla dzierżawy Azure AD B2C subskrypcja platformy Azure jest rozliczana na podstawie szczegółowych informacji dotyczących usługi Azure Direct lub Enterprise Agreement, jeśli ma to zastosowanie.
 
 ## <a name="change-your-azure-ad-pricing-tier"></a>Zmień warstwę cenową usługi Azure AD
 
@@ -78,7 +78,7 @@ Dzierżawa musi być połączona z odpowiednią warstwą cenową platformy Azure
 
 Aby zmienić warstwę cenową, wykonaj następujące kroki.
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do witryny Azure Portal.
 
 2. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający subskrypcję platformy Azure, z którą jest połączona dzierżawa usługi Azure B2C (*nie* wybieraj samej dzierżawy Azure AD B2C).
 
@@ -125,7 +125,7 @@ Oto jak włączyć MAU rozliczeń dla istniejącego zasobu Azure AD B2C:
 
 Pomiar oparty na MAU jest włączony zaraz po wykonaniu tej subskrypcji/właściciela zasobu, potwierdzić zmianę. Rachunek miesięczny będzie uwzględniać jednostki uwierzytelniania, które są rozliczane do momentu zmiany, oraz nowe jednostki MAU rozpoczynające się od zmiany.
 
-Użytkownicy nie są wliczane podwójnie w ciągu miesiąca przejścia. Unikatowi aktywni użytkownicy, którzy uwierzytelniają się przed zmianą, są obciążani stawką za uwierzytelnianie w miesiącu kalendarzowym. Ci użytkownicy nie są włączeni do obliczenia MAU w pozostałej części cyklu rozliczeniowego subskrypcji. Przykład:
+Użytkownicy nie są wliczane podwójnie w ciągu miesiąca przejścia. Unikatowi aktywni użytkownicy, którzy uwierzytelniają się przed zmianą, są obciążani stawką za uwierzytelnianie w miesiącu kalendarzowym. Ci użytkownicy nie są włączeni do obliczenia MAU w pozostałej części cyklu rozliczeniowego subskrypcji. Na przykład:
 
 * Dzierżawa contoso B2C ma 1 000 użytkowników. 250 użytkowników jest aktywnych w danym miesiącu. Administrator subskrypcji zmieni się z uwierzytelniania na comiesięcznych użytkowników aktywnych (MAU) w dziesiątym miesiącu.
 * Naliczanie opłat za 1 dziesiątki jest rozliczane przy użyciu modelu na uwierzytelnianie.
