@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b7b67842e9ba385b34ea4d8fdbcac190076218
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398190"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428170"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrowanie danych z serii StorSimple 5000-7000 do urządzenia z serii 8000
 
@@ -137,9 +137,9 @@ Wykonaj następujące kroki, aby zainstalować narzędzie do migracji StorSimple
 2. Edytuj wartości odpowiadające kluczom i Zamień na:
 
     * `UserName` — Nazwa użytkownika, aby zalogować się do Azure Portal.
-    * `SubscriptionName and SubscriptionId` — Nazwa i Identyfikator subskrypcji platformy Azure. Na stronie docelowa usługi StorSimple Menedżer urządzeń w obszarze **Ogólne**kliknij pozycję **Właściwości**. Skopiuj nazwę subskrypcji i Identyfikator subskrypcji skojarzonej z usługą.
-    * `ResourceName` — Nazwa usługi StorSimple Menedżer urządzeń w Azure Portal. Podano również w obszarze właściwości usługi.
-    * `ResourceGroup` — Nazwa grupy zasobów skojarzonej z usługą StorSimple Menedżer urządzeń w Azure Portal. Podano również w obszarze właściwości usługi.
+    * `SubscriptionName and SubscriptionId` — Nazwa i Identyfikator subskrypcji platformy Azure. Na stronie docelowa usługi StorSimple Device Manager w obszarze **Ogólne** kliknij pozycję **Właściwości**. Skopiuj nazwę subskrypcji i Identyfikator subskrypcji skojarzonej z usługą.
+    * `ResourceName` — Nazwa usługi StorSimple Device Manager w Azure Portal. Podano również w obszarze właściwości usługi.
+    * `ResourceGroup` — Nazwa grupy zasobów skojarzonej z usługą StorSimple Device Manager w Azure Portal. Podano również w obszarze właściwości usługi.
     ![Sprawdź właściwości usługi dla urządzenia docelowego](media/storsimple-8000-migrate-from-5000-7000/check-service-properties1.png)
     * `TenantId` — Azure Active Directory identyfikator dzierżawy w Azure Portal. Zaloguj się do Microsoft Azure jako administrator. W Microsoft Azure Portal kliknij pozycję **Azure Active Directory**. W obszarze **Zarządzanie** kliknij przycisk **Właściwości**. Identyfikator dzierżawy jest wyświetlany w polu **Identyfikator katalogu** .
     ![Sprawdź identyfikator dzierżawy dla Azure Active Directory](media/storsimple-8000-migrate-from-5000-7000/check-tenantid-aad.png)
@@ -150,4 +150,4 @@ Wykonaj następujące kroki, aby zainstalować narzędzie do migracji StorSimple
   
 
 ## <a name="next-steps"></a>Następne kroki
-Pobierz instrukcje krok po kroku dotyczące [migrowania danych z serii StorSimple 5000-7000 do urządzenia z serii 8000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b).
+Pobierz instrukcje krok po kroku dotyczące [migrowania danych z serii StorSimple 5000-7000 do urządzenia z serii 8000](https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_Migration_Guide_20171115.pdf).

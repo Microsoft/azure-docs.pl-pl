@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: d3f859590b30aaeeaebaed7b1f2f85e1a86a92c9
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223410"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428677"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Usługa Azure SQL Managed Instance (często zadawane pytania)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -364,13 +364,6 @@ Tak. Zobacz [jak skonfigurować niestandardowy serwer DNS dla wystąpienia zarz�
 **Czy można odświeżyć DNS?**
 
 Tak. Zobacz [Ustawienia synchronizacji serwerów DNS sieci wirtualnej w klastrze wirtualnym wystąpienia zarządzanego SQL](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
-
-Konfiguracja DNS jest ostatecznie odświeżana:
-
-- Po wygaśnięciu dzierżawy DHCP.
-- Podczas uaktualniania platformy.
-
-W ramach tego problemu można obniżyć wystąpienie zarządzanego programu SQL Server do 4 rdzeni wirtualnych i ponownie uaktualnić je. Ma to efekt po stronie odświeżenia konfiguracji DNS.
 
 ## <a name="change-time-zone"></a>Zmień strefę czasową
 

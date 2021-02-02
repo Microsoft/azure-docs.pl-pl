@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 43ddae72270e801b1c9379c27ae6c7bde0d2a665
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd62c77b545664464b90248445e6280fba53255c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457031"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427705"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blackboard-learn"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z tablicami informacji
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować tablica z usługą Azure Active D
 * Kontrolka w usłudze Azure AD, która ma dostęp do informacji o tablicach.
 * Zezwól użytkownikom na automatyczne logowanie się w celu poznania informacji z kontami usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,22 +41,22 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Aplikacja Blackboard Learn obsługuje aprowizowanie użytkowników typu **Just In Time**
 
 
-## <a name="adding-blackboard-learn-from-the-gallery"></a>Dodawanie aplikacji Blackboard Learn z galerii
+## <a name="add-blackboard-learn-from-the-gallery"></a>Dodawanie tablica — informacje z galerii
 
 Aby skonfigurować integrację aplikacji Blackboard Learn z usługą Azure AD, należy dodać aplikację Blackboard Learn z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **Tablica informacji** w polu wyszukiwania.
 1. Wybierz pozycję **Tablica informacje** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-blackboard-learn"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD w celu poznania informacji
+## <a name="configure-and-test-azure-ad-sso-for-blackboard-learn"></a>Konfigurowanie i testowanie rejestracji jednokrotnej usługi Azure AD w celu poznania informacji
 
 Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD za pomocą funkcji Tablica — informacje o użytkowniku testowym o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w tablicy.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD z użyciem tablica, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD z użyciem tablica, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -71,9 +69,9 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD z uży
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **informacje** o integracji aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie **informacje** o integracji aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -113,15 +111,9 @@ W tej sekcji zostanie włączone Logowanie jednokrotne w usłudze B. Simon, przy
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście aplikacji wybierz pozycję **Blackboard Learn**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-blackboard-learn-sso"></a>Konfigurowanie tablica — informacje o rejestracji jednokrotnej
@@ -131,20 +123,18 @@ Aby skonfigurować Logowanie jednokrotne na stronie **Tablica** , Skorzystaj z [
 
 ### <a name="create-blackboard-learn-test-user"></a>Tworzenie użytkownika testowego aplikacji Blackboard Learn
 
-W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Blackboard Learn. Aplikacja Blackboard Learn obsługuje aprowizowanie użytkowników typu „just in time”. Upewnij się, że skonfigurowano oświadczenia zgodnie z opisem w sekcji Konfigurowanie logowania jednokrotnego **usługi Azure AD**.
+W tej sekcji użytkownik o nazwie B. Simon został utworzony w tablicach informacje. Tablica — informacje obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie ma elementu Action. Jeśli użytkownik nie znajduje się już w tabeli tablicami, zostanie utworzony nowy po uwierzytelnieniu.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka Blackboard Learn w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Blackboard Learn, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do lokalizacji adresu URL logowania, w którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź do pozycji tablica, aby uzyskać bezpośredni adres URL logowania, i zainicjuj tam przepływ logowania.
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka uczenie się w obszarze Moje aplikacje zostanie przekierowany do obszaru tablica adres URL logowania. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj usługę tablica z usługą Azure AD](https://aad.portal.azure.com/)
+Po skonfigurowaniu tabeli "tablica" można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

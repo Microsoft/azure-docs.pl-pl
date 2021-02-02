@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 8887474f07928462afe7863ffe2b3667ece536dc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575303"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429606"
 ---
 # <a name="backend-pool-management"></a>Zarządzanie pulą zaplecza
 Pula zaplecza jest krytycznym składnikiem modułu równoważenia obciążenia. Pula zaplecza definiuje grupę zasobów, która będzie obsługiwała ruch dla danej reguły równoważenia obciążenia.
@@ -25,6 +25,8 @@ Istnieją dwa sposoby konfigurowania puli zaplecza:
 Skonfiguruj pulę zaplecza przez kartę sieciową, gdy korzysta się z istniejących maszyn wirtualnych i zestawów skalowania maszyn wirtualnych. Ta metoda kompiluje najbardziej bezpośredni link między zasobem a pulą zaplecza. 
 
 Podczas wstępnie przydzielania puli zaplecza z zakresem adresów IP, który planujesz później tworzyć maszyny wirtualne i zestawy skalowania maszyn wirtualnych, skonfiguruj pulę zaplecza według adresu IP i kombinacji identyfikatorów sieci wirtualnej.
+
+Istnieje możliwość skonfigurowania pul zaplecza opartych na protokole IP i kart sieciowych dla tego samego modułu równoważenia obciążenia, ale nie można utworzyć pojedynczej puli zaplecza, która miesza adresy, które są używane przez karty sieciowe i adresy IP w tej samej puli.
 
 Sekcje konfiguracji tego artykułu dotyczą:
 

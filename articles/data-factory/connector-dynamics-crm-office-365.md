@@ -11,15 +11,16 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
-ms.openlocfilehash: d11125ed00491f87844c7b0b344473825ad52a99
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/02/2021
+ms.openlocfilehash: 63816a40aa710d26dc036dfe82018883e917beb6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223478"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428491"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Skopiuj dane z programu i do usługi Dynamics 365 (Common Data Service) lub Dynamics CRM przy użyciu Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z programów i do systemu Microsoft Dynamics 365 i Microsoft Dynamics CRM. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
@@ -88,7 +89,7 @@ Dla połączonej usługi Dynamics są obsługiwane następujące właściwości.
 | servicePrincipalCredential | Poświadczenia podmiotu zabezpieczeń usługi. <br/><br/>Użycie "ServicePrincipalKey" jako typu poświadczenia `servicePrincipalCredential` może być ciągiem, który Azure Data Factory szyfruje podczas wdrażania połączonej usługi. Lub może to być odwołanie do wpisu tajnego w Azure Key Vault. <br/><br/>W przypadku korzystania z poświadczeń "ServicePrincipalCert" `servicePrincipalCredential` musi być odwołaniem do certyfikatu w Azure Key Vault. | Tak, gdy uwierzytelnianie jest "AADServicePrincipal" |
 | nazwa użytkownika | Nazwa użytkownika służąca do łączenia się z usługą Dynamics. | Tak, gdy uwierzytelnianie ma wartość "Office 365" |
 | hasło | Hasło dla konta użytkownika, które zostało określone jako nazwa użytkownika. Oznacz to pole z "SecureString", aby bezpiecznie przechowywać je w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak, gdy uwierzytelnianie ma wartość "Office 365" |
-| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli wartość nie zostanie określona, właściwość używa domyślnego środowiska Azure Integration Runtime. | Nie dla źródła i tak dla ujścia, jeśli połączona usługa nie ma środowiska Integration Runtime |
+| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli wartość nie zostanie określona, właściwość używa domyślnego środowiska Azure Integration Runtime. | Nie |
 
 >[!NOTE]
 >Łącznik Dynamics korzystał wcześniej z opcjonalnej właściwości **organizationName** , aby zidentyfikować wystąpienie usługi Dynamics CRM lub Dynamics 365 online. Mimo że ta właściwość nadal działa, sugerujemy określenie nowej właściwości **ServiceUri** , aby uzyskać lepszą wydajność odnajdywania wystąpień.
@@ -184,7 +185,7 @@ Dodatkowe właściwości, które są porównywane z usługą Dynamics Online, to
 | authenticationType | Typ uwierzytelniania do nawiązywania połączenia z serwerem Dynamics. Określ "IFD" dla platformy Dynamics lokalnie z IFD. | Tak. |
 | nazwa użytkownika | Nazwa użytkownika służąca do łączenia się z usługą Dynamics. | Tak. |
 | hasło | Hasło dla konta użytkownika określonego dla nazwy użytkownika. To pole można oznaczyć jako "SecureString", aby bezpiecznie przechowywać je w Data Factory. Możesz również przechowywać hasło w Key Vault i pozwolić, aby działanie Copy odciągnąć się od tego momentu, gdy dane są kopiowane. Więcej informacji na temat [poświadczeń sklepu znajduje się w Key Vault](store-credentials-in-key-vault.md). | Tak. |
-| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli wartość nie zostanie określona, właściwość używa domyślnego środowiska Azure Integration Runtime. | Nie dla źródła i tak dla ujścia. |
+| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli wartość nie zostanie określona, właściwość używa domyślnego środowiska Azure Integration Runtime. | Nie |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Przykład: Dynamics lokalnego z IFD przy użyciu uwierzytelniania IFD
 

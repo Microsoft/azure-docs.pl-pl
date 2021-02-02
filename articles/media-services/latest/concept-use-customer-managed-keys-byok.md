@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 7e58daf72522071eb7d0031d4ea236a21c6d8bfb
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 27d357279a54d7abc351370e7afda3a7961bac33
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252325"
+ms.locfileid: "99428558"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Przenoszenie własnych kluczy (kluczy zarządzanych przez klienta) za pomocą Media Services
 
@@ -39,9 +39,10 @@ Możesz określić nazwę klucza i wersję klucza lub tylko nazwę klucza. Jeśl
 
 ## <a name="double-encryption"></a>Podwójne szyfrowanie
 
-Media Services obsługuje podwójne szyfrowanie.  Aby dowiedzieć się więcej na temat podwójnego szyfrowania, zobacz [Azure podwójne szyfrowanie](../../security/fundamentals/double-encryption.md).
+Media Services automatycznie obsługuje podwójne szyfrowanie. W przypadku danych przechowywanych w pierwszej warstwie szyfrowania jest używany klucz zarządzany przez klienta lub klucz zarządzany przez firmę Microsoft w zależności od `AccountEncryption` Ustawienia na koncie.  Druga warstwa szyfrowania danych magazynowanych jest udostępniana automatycznie przy użyciu oddzielnego klucza zarządzanego firmy Microsoft. Aby dowiedzieć się więcej na temat podwójnego szyfrowania, zobacz [Azure podwójne szyfrowanie](../../security/fundamentals/double-encryption.md).
 
-Podwójne szyfrowanie jest włączane automatycznie na koncie Media Services. Należy jednak skonfigurować klucz zarządzany przez klienta i dwukrotnie szyfrowanie na koncie magazynu.
+> [!NOTE]
+> Podwójne szyfrowanie jest włączane automatycznie na koncie Media Services. Należy jednak skonfigurować klucz zarządzany przez klienta i dwukrotnie szyfrowanie na koncie magazynu. Zobacz, [szyfrowanie Storege](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ## <a name="tutorials"></a>Samouczki
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 7ef4a1542a050918249f602bbc63567cc8e13f2a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 962fb8cbd4c64aa2ef625b478afa587099234617
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091718"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427638"
 ---
 # <a name="mv2-series"></a>Seria Mv2
 
@@ -24,7 +24,7 @@ Technologia technologii Mv2 firmy Intel® Hyper-Threading
 [Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 2<br>
 [Akcelerator zapisu](./how-to-enable-write-accelerator.md): obsługiwane<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
 [Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>

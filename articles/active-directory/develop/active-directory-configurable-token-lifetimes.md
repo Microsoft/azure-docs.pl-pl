@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755303"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428153"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
@@ -77,16 +77,14 @@ Aby zapoznać się z przykładem, zobacz [Tworzenie zasad logowania do sieci Web
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Zasady okresów istnienia tokenu dla tokenów odświeżania i tokenów sesji
 
-Można ustawić zasady okresu istnienia tokenu dla tokenów odświeżania i tokenów sesji.
+Nie można ustawić zasad okresów istnienia tokenu dla tokenów odświeżania i tokenów sesji.
 
 > [!IMPORTANT]
-> Od maja 2020 nowi dzierżawcy nie mogą konfigurować okresów istnienia odświeżania i tokenu sesji.  Dzierżawy z istniejącą konfiguracją mogą modyfikować zasady odświeżania i tokenów sesji do 30 stycznia 2021.   Azure Active Directory przestanie przestrzegać istniejących konfiguracji odświeżania i tokenu sesji w zasadach po 30 stycznia 2021. Po wycofaniu można nadal konfigurować okresy istnienia tokenu dostępu, SAML i identyfikatora.
->
-> Jeśli musisz nadal zdefiniować okres, po upływie którego użytkownik zostanie poproszony o ponowne zalogowanie, skonfiguruj częstotliwość logowania w polu dostęp warunkowy. Aby dowiedzieć się więcej na temat dostępu warunkowego, przeczytaj artykuł [Konfigurowanie sesji uwierzytelniania zarządzanie przy użyciu dostępu warunkowego](../conditional-access/howto-conditional-access-session-lifetime.md).
->
-> Jeśli nie chcesz korzystać z dostępu warunkowego po dacie wycofania, tokeny odświeżania i sesji zostaną ustawione na [domyślną konfigurację](#configurable-token-lifetime-properties-after-the-retirement) w tej dacie i nie będzie już można zmienić ich okresów istnienia.
+> Od 30 stycznia 2021 nie można konfigurować okresów istnienia odświeżania i tokenów sesji. Azure Active Directory nie będzie już przestrzegać konfiguracji odświeżania i tokenu sesji w istniejących zasadach.  Nowe tokeny wystawione po wygaśnięciu istniejących tokenów mają teraz ustawioną [konfigurację domyślną](#configurable-token-lifetime-properties-after-the-retirement). Nadal można konfigurować okresy istnienia tokenu dostępu, SAML i identyfikatora po wycofaniu konfiguracji tokenu sesji.
 >
 > Okres istnienia istniejącego tokenu nie zostanie zmieniony. Po ich wygaśnięciu nowy token zostanie wystawiony na podstawie wartości domyślnej.
+>
+> Jeśli musisz nadal zdefiniować okres, po upływie którego użytkownik zostanie poproszony o ponowne zalogowanie, skonfiguruj częstotliwość logowania w polu dostęp warunkowy. Aby dowiedzieć się więcej na temat dostępu warunkowego, przeczytaj artykuł [Konfigurowanie sesji uwierzytelniania zarządzanie przy użyciu dostępu warunkowego](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Informacje dotyczące emerytury":::
 

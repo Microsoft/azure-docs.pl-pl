@@ -2,18 +2,20 @@
 title: Zablokuj zasoby, aby uniemożliwić zmiany
 description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 912c7e86d253aa18b9a6c60717ceaa70e32fcf0e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98802449"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428321"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
-Jako administrator możesz chcieć zablokować subskrypcję, grupę zasobów lub zasób, aby zapobiec przypadkowemu usunięciu lub zmodyfikowaniu kluczowych zasobów przez innych użytkowników w organizacji. Poziom blokady można ustawić na wartość **CanNotDelete** lub **ReadOnly**. W portalu blokady są nazywane odpowiednio **usuwaniem** i **tylko do odczytu** .
+Jako administrator możesz zablokować subskrypcję, grupę zasobów lub zasób, aby zapobiec przypadkowemu usunięciu lub zmodyfikowaniu zasobów krytycznych przez innych użytkowników w organizacji. Blokada zastępuje wszystkie uprawnienia, które użytkownik może mieć.
+
+Poziom blokady można ustawić na wartość **CanNotDelete** lub **ReadOnly**. W portalu blokady są nazywane odpowiednio **usuwaniem** i **tylko do odczytu** .
 
 * **CanNotDelete** oznacza, że autoryzowani użytkownicy nadal mogą odczytywać i modyfikować zasób, ale nie mogą usunąć tego zasobu.
 * **ReadOnly** oznacza, że autoryzowani użytkownicy mogą odczytywać zasoby, ale nie mogą usuwać ani aktualizować zasobu. Zastosowanie tej blokady jest podobne do ograniczenia wszystkich autoryzowanych użytkowników do uprawnień udzielonych przez rolę **czytelnika** .

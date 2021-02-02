@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563736"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428187"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
@@ -133,9 +133,6 @@ Wirtualne centra sieci wirtualnej platformy Azure łączą wszystkie punkty koń
 
 **Rysunek 5. zabezpieczone centrum wirtualne za pomocą zapory platformy Azure**
 
-> [!NOTE]
-> Między koncentratorem a zaporą nie jest obecnie obsługiwane. Ruch między centrami zostanie przesunięty bezpośrednio z pominięciem zapory platformy Azure w każdym centrum.
-
 Zapora platformy Azure z wirtualną siecią WAN obsługuje następujące ścieżki połączeń zabezpieczonych globalnie. Litery w nawiasach są mapowane na rysunek 5.
 
 * Bezpieczne tranzyt połączeń między sieciami wirtualnymi (e)
@@ -152,6 +149,23 @@ Połączenie między sieciami wirtualnymi umożliwia sieci wirtualnych łączeni
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Odgałęzienie do Internetu lub usługa zabezpieczeń innych firm (j)
 Gałąź do Internetu umożliwia rozgałęzienia łączenia się z Internetem za pośrednictwem zapory platformy Azure w wirtualnym koncentratorze sieci WAN. Ruch do Internetu przez obsługiwane usługi zabezpieczeń innych firm nie przechodzi przez zaporę platformy Azure. Można skonfigurować ścieżkę rozgałęzienia do Internetu za pomocą obsługiwanej usługi zabezpieczeń innych firm przy użyciu Menedżera zapory platformy Azure. 
+
+### <a name="branch-to-branch-secured-transit-cross-region-f"></a>Międzyregionowo zabezpieczony transport między gałęziami (f)
+
+Gałęzie mogą być połączone z bezpiecznym koncentratorem wirtualnym za pomocą zapory platformy Azure przy użyciu obwodów usługi ExpressRoute i/lub połączeń sieci VPN typu lokacja-lokacja. Gałęzie można połączyć z koncentratorem wirtualnej sieci WAN, który znajduje się w regionie najbliższym gałęzi.
+
+Ta opcja umożliwia przedsiębiorstwom wykorzystanie szkieletu platformy Azure do łączenia gałęzi. Jednak mimo że ta funkcja jest dostępna, należy zastanowić się nad korzyściami z łączenia gałęzi za pośrednictwem wirtualnej sieci WAN platformy Azure a korzystanie z prywatnej sieci WAN.  
+
+> [!NOTE]
+> Przetwarzanie między centrami ruchu przez zaporę nie jest obecnie obsługiwane. Ruch między centrami zostanie skierowany do odpowiedniej gałęzi w zabezpieczonym koncentratorze wirtualnym, jednak ruch będzie pomijał zaporę platformy Azure w każdym centrum.
+
+### <a name="branch-to-vnet-secured-transit-g"></a>Bezpieczne przesyłanie z gałęzi do sieci wirtualnej (g)
+
+Zabezpieczone tranzyt między gałęziami umożliwia rozgałęzienia komunikację z sieciami wirtualnymi w tym samym regionie co koncentrator wirtualnych sieci WAN, a także inną siecią wirtualną połączoną z innym wirtualnym koncentratorem sieci WAN w innym regionie.
+
+> [!NOTE]
+> Między koncentratorem a zaporą nie jest obecnie obsługiwane. Ruch między centrami zostanie przesunięty bezpośrednio z pominięciem zapory platformy Azure w każdym centrum.  Ruch za pośrednictwem połączenia przeznaczonego dla sieci wirtualnej w tym samym regionie będzie przetwarzany przez zaporę platformy Azure w zabezpieczonym centrum.
+
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Jak mogę włączyć trasy domyślnej (0.0.0.0/0) w zabezpieczonym koncentratorze wirtualnym
 

@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f05afb3c23fc720bb0100a751a6943d7bb03453f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954787"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428304"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optymalizowanie wydajności i niezawodności usługi Azure Functions
 
@@ -63,6 +63,31 @@ Jak reaguje kod, jeśli wystąpi błąd po wstawieniu 5 000 elementów do kolejk
 Jeśli element kolejki został już przetworzony, zezwól funkcji na wartość No-op.
 
 Skorzystaj ze środków obronnych już dostarczonych dla składników, których używasz na platformie Azure Functions. Na przykład zobacz **Obsługa komunikatów trującej kolejki** w dokumentacji [wyzwalaczy i powiązań kolejki usługi Azure Storage](functions-bindings-storage-queue-trigger.md#poison-messages). 
+
+## <a name="function-organization-best-practices"></a>Najlepsze rozwiązania w zakresie organizacji
+
+W ramach rozwiązania można opracowywać i publikować wiele funkcji. Te funkcje są często połączone w jedną aplikację funkcji, ale mogą być również uruchamiane w oddzielnych aplikacjach funkcji. W planach hostingu Premium i dedykowanych (App Service) wiele aplikacji funkcji może również współużytkować te same zasoby, uruchamiając je w ramach tego samego planu. Sposób grupowania funkcji i aplikacji funkcji może mieć wpływ na wydajność, skalowanie, konfigurację, wdrożenie i bezpieczeństwo całego rozwiązania. Nie ma reguł mających zastosowanie do każdego scenariusza, dlatego należy wziąć pod uwagę informacje przedstawione w tej sekcji podczas planowania i opracowywania funkcji.
+
+### <a name="organize-functions-for-performance-and-scaling"></a>Organizowanie funkcji pod kątem wydajności i skalowania
+
+Każda utworzona funkcja ma rozmiar pamięci. Chociaż jest to zwykle małe, zbyt wiele funkcji w aplikacji funkcji może prowadzić do wolniejszego uruchamiania aplikacji w nowych wystąpieniach. Oznacza to również, że całkowite użycie pamięci przez aplikację funkcji może być wyższe. Trudno jest powiedzieć, ile funkcji powinna znajdować się w pojedynczej aplikacji, co zależy od konkretnego obciążenia. Jeśli jednak funkcja przechowuje wiele danych w pamięci, należy rozważyć użycie mniejszej liczby funkcji w pojedynczej aplikacji.
+
+W przypadku uruchamiania wielu aplikacji funkcji w ramach planu Premium lub dedykowanego (App Service) wszystkie te aplikacje są skalowane ze sobą. Jeśli masz jedną aplikację funkcji, która ma znacznie większą ilość pamięci niż pozostałe, używa nieproporcjonalnej ilości zasobów pamięci dla każdego wystąpienia, na którym aplikacja jest wdrożona. Ponieważ może to spowodować pozostawienie mniejszej ilości pamięci dla innych aplikacji w każdym wystąpieniu, może być konieczne uruchomienie aplikacji funkcji o wysokiej pamięci, takiej jak ta w osobnym planie hostingu.
+
+> [!NOTE]
+> W przypadku korzystania z [planu zużycia](./functions-scale.md)zalecamy zawsze umieszczenie każdej aplikacji w swoim planie, ponieważ aplikacje są skalowane niezależnie.
+
+Zastanów się, czy chcesz grupować funkcje o różnych profilach obciążenia. Na przykład jeśli masz funkcję, która przetwarza wiele tysięcy komunikatów w kolejce, a inna, która jest wywoływana tylko sporadycznie, ale ma wysokie wymagania dotyczące pamięci, możesz chcieć wdrożyć je w oddzielnych aplikacjach funkcji, aby uzyskać własne zestawy zasobów i skalować je niezależnie od siebie.
+
+### <a name="organize-functions-for-configuration-and-deployment"></a>Organizowanie funkcji konfiguracji i wdrażania
+
+Aplikacje funkcji mają `host.json` plik, który służy do konfigurowania zaawansowanego zachowania wyzwalaczy funkcji i środowiska uruchomieniowego Azure Functions. Zmiany w `host.json` pliku dotyczą wszystkich funkcji w aplikacji. Jeśli masz pewne funkcje, które wymagają konfiguracji niestandardowych, rozważ przeniesienie ich do własnej aplikacji funkcji.
+
+Wszystkie funkcje w projekcie lokalnym są wdrażane wraz z zestawem plików w aplikacji funkcji na platformie Azure. Może być konieczne oddzielne wdrożenie pojedynczych funkcji lub użycie takich funkcji jak miejsca [wdrożenia](./functions-deployment-slots.md) dla niektórych funkcji, a nie innych. W takich przypadkach należy wdrożyć te funkcje (w oddzielnych projektach kodu) do różnych aplikacji funkcji.
+
+### <a name="organize-functions-by-privilege"></a>Organizuj funkcje według uprawnień 
+
+Parametry połączenia i inne poświadczenia przechowywane w ustawieniach aplikacji dają wszystkie funkcje w aplikacji funkcji ten sam zestaw uprawnień w skojarzonym zasobie. Rozważ zminimalizowanie liczby funkcji mających dostęp do określonych poświadczeń, przenosząc funkcje, które nie używają tych poświadczeń do osobnej aplikacji funkcji. Można zawsze używać technik, takich jak [łańcuchy funkcji](/learn/modules/chain-azure-functions-data-using-bindings/) , do przekazywania danych między funkcjami w różnych aplikacjach funkcji.  
 
 ## <a name="scalability-best-practices"></a>Najlepsze rozwiązania dotyczące skalowalności
 

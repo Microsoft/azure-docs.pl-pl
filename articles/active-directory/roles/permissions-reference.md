@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 02/01/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f0c8d237e270177ef38c60c523364054bae15af
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: da85c80dd6450fd4427f83586e75cf1e9d62a605
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090862"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428778"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
 
@@ -69,13 +69,7 @@ Użytkownicy w tej roli mogą tworzyć rejestracje aplikacji, gdy ustawienie "u�
 
 ### <a name="authentication-administrator"></a>[Administrator uwierzytelniania](#authentication-administrator-permissions)
 
-Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami dla niektórych użytkowników i mogą aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania mogą wymagać od użytkowników, którzy nie są administratorami lub przypisani do niektórych ról do ponownego zarejestrowania istniejących poświadczeń niezwiązanych z hasłem (na przykład MFA lub FIDO), a także do odwoływania się do **zapamiętania usługi MFA na urządzeniu**, które monituje o usługę MFA przy następnym logowaniu. Te akcje dotyczą tylko użytkowników, którzy nie są administratorami lub mają przypisane co najmniej jedną z następujących ról:
-
-* Administrator uwierzytelniania
-* Czytelnicy katalogów
-* Zapraszający gościa
-* Czytelnik centrum wiadomości
-* Czytelnik raportów
+Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami dla niektórych użytkowników i mogą aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania mogą wymagać od użytkowników, którzy nie są administratorami lub przypisani do niektórych ról do ponownego zarejestrowania istniejących poświadczeń niezwiązanych z hasłem (na przykład MFA lub FIDO), a także do odwoływania się do **zapamiętania usługi MFA na urządzeniu**, które monituje o usługę MFA przy następnym logowaniu. Czy administrator uwierzytelniania może zresetować hasło użytkownika, zależy od roli przypisanej do użytkownika. Aby uzyskać listę ról, dla których administrator uwierzytelniania może zresetować hasła dla programu, zobacz [uprawnienia do resetowania haseł](#password-reset-permissions).
 
 Uprawnienie [administrator uwierzytelniania uprzywilejowanego](#privileged-authentication-administrator) ma uprawnienia do wymuszenia ponownej rejestracji i uwierzytelniania wieloskładnikowego dla wszystkich użytkowników.
 
@@ -253,14 +247,7 @@ Użytkownicy w tej roli mogą zarządzać Azure Active Directory zaproszeniami u
 
 ### <a name="helpdesk-administrator"></a>[Administrator pomocy technicznej](#helpdesk-administrator-permissions)
 
-Użytkownicy z tą rolą mogą zmieniać hasła, unieważniać tokeny odświeżania, zarządzać żądaniami obsługi oraz monitorować kondycję usługi. Unieważnienie tokenu odświeżania Wymusza ponowne zalogowanie użytkownika. Administratorzy pomocy technicznej mogą resetować hasła i unieważniać tokeny odświeżania innych użytkowników, którzy nie są administratorami lub przypisani tylko do następujących ról:
-
-* Czytelnicy katalogów
-* Zapraszający gościa
-* Administrator pomocy technicznej
-* Czytelnik centrum wiadomości
-* Administrator haseł
-* Czytelnik raportów
+Użytkownicy z tą rolą mogą zmieniać hasła, unieważniać tokeny odświeżania, zarządzać żądaniami obsługi oraz monitorować kondycję usługi. Unieważnienie tokenu odświeżania Wymusza ponowne zalogowanie użytkownika. Czy administrator pomocy technicznej może zresetować hasło użytkownika i unieważniać tokeny odświeżania, zależy od roli przypisanej do użytkownika. Aby uzyskać listę ról, które administrator pomocy technicznej może zresetować hasła dla i unieważniać tokeny odświeżania, zobacz [uprawnienia do resetowania haseł](#password-reset-permissions).
 
 > [!IMPORTANT]
 > Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
@@ -271,7 +258,7 @@ Użytkownicy z tą rolą mogą zmieniać hasła, unieważniać tokeny odświeża
 >- Administratorzy w innych usługach poza usługą Azure AD, np. Exchange Online, Centrum zabezpieczeń i zgodności pakietu Office oraz systemy kadr.
 >- Użytkownicy niebędący administratorami, w tym członkowie kierownictwa, prawnik prawny i pracownicy działu kadr, którzy mogą mieć dostęp do poufnych lub prywatnych informacji.
 
-Delegowanie uprawnień administracyjnych przez podzbiory użytkowników i stosowanie zasad do podzbioru użytkowników jest możliwe z [jednostkami administracyjnymi (teraz w publicznej wersji zapoznawczej)](administrative-units.md).
+Delegowanie uprawnień administracyjnych przez podzbiory użytkowników i stosowanie zasad do podzbioru użytkowników jest możliwe z [jednostkami administracyjnymi](administrative-units.md).
 
 Ta rola była wcześniej nazywana "administratorem haseł" w [Azure Portal](https://portal.azure.com/). Nazwa "Administrator pomocy technicznej" w usłudze Azure AD jest teraz zgodna z nazwą w programie Azure AD PowerShell i interfejsem API Microsoft Graph.
 
@@ -344,11 +331,7 @@ Nie używaj. Ta rola jest przestarzała i zostanie usunięta z usługi Azure AD 
 
 ### <a name="password-administrator"></a>[Administrator haseł](#password-administrator-permissions)
 
-Użytkownicy z tą rolą mają ograniczoną możliwość zarządzania hasłami. Ta rola nie przyznaje możliwości zarządzania żądaniami obsługi ani monitorowania kondycji usługi. Administratorzy haseł mogą resetować hasła innych użytkowników, którzy nie są administratorami lub tylko członkami następujących ról:
-
-* Czytelnicy katalogów
-* Zapraszający gościa
-* Administrator haseł
+Użytkownicy z tą rolą mają ograniczoną możliwość zarządzania hasłami. Ta rola nie przyznaje możliwości zarządzania żądaniami obsługi ani monitorowania kondycji usługi. Określa, czy administrator hasła może zresetować hasło użytkownika zależy od roli przypisanej do użytkownika. Aby uzyskać listę ról, dla których administrator haseł może zresetować hasła dla programu, zobacz [uprawnienia do resetowania haseł](#password-reset-permissions).
 
 ### <a name="power-bi-administrator"></a>[Power BI administrator](#power-bi-service-administrator-permissions)
 
@@ -371,13 +354,7 @@ Użytkownicy z tą rolą mogą rejestrować drukarki i zarządzać stanem drukar
 
 ### <a name="privileged-authentication-administrator"></a>[Administrator uprzywilejowanego uwierzytelniania](#privileged-authentication-administrator-permissions)
 
-Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia bez hasła dla wszystkich użytkowników, w tym administratorów globalnych, a także aktualizować hasła dla wszystkich użytkowników. Administratorzy uprzywilejowanego uwierzytelniania mogą zmusić użytkowników do ponownego zarejestrowania istniejących poświadczeń niezwiązanych z hasłem (takich jak MFA lub FIDO) i odwołać "Pamiętaj usługę MFA na urządzeniu", monitując o usługę MFA przy następnym logowaniu dla wszystkich użytkowników. Rola [administrator uwierzytelniania](#authentication-administrator) może wymusić ponowne zarejestrowanie i uwierzytelnianie wieloskładnikowe wyłącznie dla użytkowników niebędących administratorami i przypisanych do następujących ról usługi Azure AD:
-
-* Administrator uwierzytelniania
-* Czytelnicy katalogów
-* Zapraszający gościa
-* Czytelnik centrum wiadomości
-* Czytelnik raportów
+Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia bez hasła dla wszystkich użytkowników, w tym administratorów globalnych, a także aktualizować hasła dla wszystkich użytkowników. Administratorzy uprzywilejowanego uwierzytelniania mogą zmusić użytkowników do ponownego zarejestrowania istniejących poświadczeń niezwiązanych z hasłem (takich jak MFA lub FIDO) i odwołać "Pamiętaj usługę MFA na urządzeniu", monitując o usługę MFA przy następnym logowaniu dla wszystkich użytkowników.
 
 ### <a name="privileged-role-administrator"></a>[Administrator ról uprzywilejowanych](#privileged-role-administrator-permissions)
 
@@ -500,11 +477,12 @@ Użytkownicy z tą rolą mogą uzyskać dostęp do zagregowanych danych na pozio
 
 Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi aspektami użytkowników z pewnymi ograniczeniami (zobacz tabelę), a także aktualizować zasady wygasania haseł. Ponadto użytkownicy z tą rolą mogą tworzyć wszystkie grupy i zarządzać nimi. Ta rola obejmuje również możliwość tworzenia widoków użytkowników i zarządzania nimi, zarządzania biletami pomocy technicznej oraz monitorowania kondycji usługi. Administratorzy użytkowników nie mają uprawnień do zarządzania niektórymi właściwościami użytkowników w większości ról administratorów. Użytkownik z tą rolą nie ma uprawnień do zarządzania usługą MFA. Role, które są wyjątkami do tego ograniczenia, są wymienione w poniższej tabeli.
 
-| **Uprawnienie** | **Można wykonać** |
+| Uprawnienie administratora użytkownika | Uwagi |
 | --- | --- |
-|Uprawnienia ogólne|<p>Tworzenie użytkowników i grup</p><p>Tworzenie widoków użytkowników i zarządzanie nimi</p><p>Zarządzanie biletami pomocy technicznej pakietu Office<p>Aktualizowanie zasad wygasania haseł|
-| <p>Dla wszystkich użytkowników, w tym wszystkich administratorów</p>|<p>Zarządzanie licencjami</p><p>Zarządzanie wszystkimi właściwościami użytkowników z wyjątkiem głównej nazwy użytkownika</p>
-| Tylko dla użytkowników, którzy nie są administratorami ani w ramach jednej z następujących ograniczonych ról administratora:<ul><li>Czytelnicy katalogów<li>Administrator grup<li>Zapraszający gościa<li>Administrator pomocy technicznej<li>Czytelnik centrum wiadomości<li>Administrator haseł<li>Czytelnik raportów<li>Administrator użytkowników|<p>Usuń i Przywróć</p><p>Wyłącz i Włącz</p><p>Unieważnianie tokenów odświeżania</p><p>Zarządzanie wszystkimi właściwościami użytkowników, w tym główną nazwą użytkownika</p><p>Resetowanie hasła</p><p>Aktualizuj klucze urządzeń (FIDO)</p>|
+| Tworzenie użytkowników i grup<br/>Tworzenie widoków użytkowników i zarządzanie nimi<br/>Zarządzanie biletami pomocy technicznej pakietu Office<br/>Aktualizowanie zasad wygasania haseł |  |
+| Zarządzanie licencjami<br/>Zarządzanie wszystkimi właściwościami użytkowników z wyjątkiem głównej nazwy użytkownika | Dotyczy wszystkich użytkowników, w tym wszystkich administratorów |
+| Usuń i Przywróć<br/>Wyłącz i Włącz<br/>Zarządzanie wszystkimi właściwościami użytkowników, w tym główną nazwą użytkownika<br/>Aktualizuj klucze urządzeń (FIDO) | Dotyczy użytkowników, którzy nie są administratorami ani w żadnej z następujących ról:<ul><li>Administrator pomocy technicznej</li><li>Użytkownik bez roli</li><li>Administrator użytkowników</li></ul> |
+| Unieważnianie tokenów odświeżania<br/>Resetowanie hasła | Aby uzyskać listę ról, które administrator użytkowników może resetować hasła dla i unieważniać tokeny odświeżania, zobacz [uprawnienia do resetowania haseł](#password-reset-permissions). |
 
 > [!IMPORTANT]
 > Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
@@ -572,6 +550,7 @@ Może tworzyć wszystkie aspekty rejestracji aplikacji i aplikacji przedsiębior
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="application-developer-permissions"></a>Uprawnienia deweloperów aplikacji
 
@@ -647,6 +626,7 @@ Może zarządzać wszystkimi aspektami usługi Azure Information Protection.
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Uprawnienia administratora zestawu kluczy B2C IEF
 
@@ -725,6 +705,7 @@ Może tworzyć wszystkie aspekty rejestracji aplikacji i aplikacji przedsiębior
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="cloud-device-administrator-permissions"></a>Uprawnienia administratora urządzenia w chmurze
 
@@ -2064,6 +2045,31 @@ Obsługa warstwy 2 partnera | Niewyświetlane, ponieważ nie powinno być używa
 Ograniczony użytkownik-Gość | Niepokazywany, ponieważ nie można go użyć | NA
 Użytkownik | Niepokazywany, ponieważ nie można go użyć | NA
 Dołączanie urządzenia w miejscu pracy | Przestarzałe | [Dokumentacja przestarzałych ról](permissions-reference.md#deprecated-roles)
+
+## <a name="password-reset-permissions"></a>Uprawnienia do resetowania hasła
+
+Nagłówki kolumn reprezentują role, które mogą resetować hasła. Wiersze tabeli zawierają role, dla których można zresetować swoje hasła.
+
+Hasło może być resetowane | Administrator uwierzytelniania | Administrator pomocy technicznej | Administrator haseł | Administrator użytkownika | Administrator uwierzytelniania uprzywilejowanego | Administrator globalny
+------ | ------ | ------ | ------ | ------ | ------ | ------
+Administrator uwierzytelniania | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Czytelnicy katalogów | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrator globalny | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
+Administrator grup | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Gość | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Zapraszający gościa | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrator pomocy technicznej | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Czytelnik centrum wiadomości | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrator haseł | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrator uwierzytelniania uprzywilejowanego | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Administrator ról uprzywilejowanych | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Czytelnik raportów | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Gość z ograniczeniami | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Użytkownik (bez roli administratora) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrator użytkownika | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Czytnik raportów podsumowujących użycia | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+
+\* Administrator globalny nie może usunąć własnego przypisania administratora globalnego. Dzieje się tak, aby zapobiec sytuacji, w której organizacja ma 0 administratorów globalnych.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.custom: references_regions
+ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572820"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429283"
 ---
 # <a name="basic-concepts"></a>Koncepcje podstawowe
 
@@ -30,9 +31,9 @@ Poniżej przedstawiono podstawowe pojęcia związane z zaświadczeniem Microsoft
 
 Dostawca zaświadczania należy do dostawcy zasobów platformy Azure o nazwie Microsoft. zaświadczanie. Dostawca zasobów jest punktem końcowym usługi, który zapewnia umowę REST zaświadczania platformy Azure i jest wdrażany przy użyciu [Azure Resource Manager](../azure-resource-manager/management/overview.md). Każdy dostawca zaświadczania jest uznawany za określone, wykrywalne zasady. Dostawcy zaświadczania zostaną utworzeni przy użyciu domyślnych zasad dla każdego typu zaświadczania (należy zauważyć, że VBS enklawy nie ma zasad domyślnych). Zobacz [przykłady zasad zaświadczania](policy-examples.md) , aby uzyskać więcej szczegółowych informacji na temat zasad domyślnych dla SGX.
 
-### <a name="regional-default-provider"></a>Domyślny dostawca regionalny
+### <a name="regional-shared-provider"></a>Regionalny dostawca udostępniony
 
-Zaświadczanie platformy Azure zapewnia domyślnego dostawcę w każdym regionie. Klienci mogą wybrać użycie domyślnego dostawcy zaświadczania lub utworzyć własnych dostawców przy użyciu zasad niestandardowych. Dostawcy domyślnie są dostępni przez dowolnego użytkownika usługi Azure AD, a zasady skojarzone z domyślnym dostawcą nie mogą być modyfikowane.
+Zaświadczanie platformy Azure zapewnia regionalnego udostępnionego dostawcy w każdym z dostępnych regionów. Klienci mogą wybrać użycie regionalnego dostawcy udostępnionego do zaświadczania lub utworzyć własnych dostawców przy użyciu zasad niestandardowych. Dostawcy udostępnioną są dostępni przez dowolnego użytkownika usługi Azure AD, a skojarzone z nim zasady nie mogą zostać zmienione.
 
 | Region (Region) | Zaświadczanie identyfikatora URI | 
 |--|--|

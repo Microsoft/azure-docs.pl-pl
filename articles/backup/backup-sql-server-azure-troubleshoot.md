@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database
 description: Informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych SQL Server baz danych działających na maszynach wirtualnych platformy Azure z Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733947"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429470"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
 
@@ -217,7 +217,7 @@ Przed wyzwoleniem operacji ponownego rejestrowania Sprawdź co najmniej jeden z 
 
   - Brak uprawnień do wykonywania operacji związanych z kopiami zapasowymi na maszynie wirtualnej.
   - Zamykanie maszyny wirtualnej, dlatego nie można wykonać kopii zapasowych.
-  - Problemy z siecią.
+  - [Problemy z siecią](#usererrorvminternetconnectivityissue)
 
    ![Ponowne rejestrowanie maszyny wirtualnej](./media/backup-azure-sql-database/re-register-vm.png)
 

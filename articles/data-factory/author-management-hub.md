@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.date: 06/02/2020
-ms.openlocfilehash: aa1246a65dc6971107abe35f4a418b0bbb05641b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/01/2021
+ms.openlocfilehash: c3366b7ba0eb0b49d4d5b89481b7bed843e52c8e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486134"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429005"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centrum zarządzania w Azure Data Factory
 
@@ -40,7 +40,11 @@ Połączone usługi definiują informacje o połączeniu dla Azure Data Factory 
 
 ### <a name="git-configuration"></a>Konfiguracja usługi git
 
-Wyświetlanie i edytowanie skonfigurowanych ustawień repozytorium Git w centrum zarządzania. Aby uzyskać więcej informacji, zapoznaj się z informacjami o [kontroli źródła w Azure Data Factory](source-control.md).
+Wszystkie informacje związane z Git można wyświetlać/edytować w obszarze Ustawienia konfiguracji Git w centrum zarządzania. 
+
+Ostatnio opublikowane informacje o zatwierdzeniu są również wyświetlane i mogą pomóc w zrozumieniu dokładnego zatwierdzenia, które zostało ostatnio opublikowane/wdrożone w różnych środowiskach. Może być również pomocne przy wykonywaniu aktywnych poprawek w środowisku produkcyjnym.
+
+Aby uzyskać więcej informacji, zapoznaj się z informacjami o [kontroli źródła w Azure Data Factory](source-control.md).
 
 ![Zarządzanie repozytorium git](media/author-management-hub/management-hub-git.png)
 

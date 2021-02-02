@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fa6fc11441811589967ddd7728501b521f9f9155
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169277"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428035"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
 
@@ -95,6 +95,7 @@ Na przykład jeśli wystąpił kod błędu "AADSTS50058", wykonaj wyszukiwanie w
 | AADSTS50000 | TokenIssuanceError — wystąpił problem z usługą logowania. [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md), aby rozwiązać ten problem. |
 | AADSTS50001 | InvalidResource — zasób jest wyłączony lub nie istnieje. Sprawdź kod aplikacji, aby upewnić się, że został określony dokładny adres URL zasobu dla zasobu, do którego próbujesz uzyskać dostęp.  |
 | AADSTS50002 | NotAllowedTenant — logowanie nie powiodło się z powodu ograniczonego dostępu do serwera proxy w dzierżawie. Jeśli są to Twoje własne zasady dzierżawy, możesz zmienić ustawienia dzierżawy z ograniczeniami, aby rozwiązać ten problem. |
+| AADSTS500021 | Odmowa dostępu do dzierżawy "{dzierżawca}". AADSTS500021 wskazuje, że funkcja ograniczenia dzierżawy została skonfigurowana i że użytkownik próbuje uzyskać dostęp do dzierżawy, która nie znajduje się na liście dozwolonych dzierżawców określonych w nagłówku `Restrict-Access-To-Tenant` . Aby uzyskać więcej informacji, zobacz [Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS](/azure/active-directory/manage-apps/tenant-restrictions).|
 | AADSTS50003 | MissingSigningKey — logowanie nie powiodło się z powodu braku klucza podpisywania lub certyfikatu. Może to być spowodowane tym, że w aplikacji nie został skonfigurowany klucz podpisywania. Zapoznaj się z rozwiązaniami opisanymi pod adresem [.. /Manage-Apps/Application-Sign-in-problem-Federated-SSO-Gallery.MD # certyfikat-lub-Key-nie został skonfigurowany](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Jeśli nadal widzisz problemy, skontaktuj się z właścicielem aplikacji lub administratorem aplikacji. |
 | AADSTS50005 | DevicePolicyError — użytkownik próbował zalogować się na urządzeniu z platformy, która nie jest obecnie obsługiwana przez zasady dostępu warunkowego. |
 | AADSTS50006 | InvalidSignature — weryfikacja podpisu nie powiodła się z powodu nieprawidłowej sygnatury. |

@@ -223,6 +223,8 @@
           href: source-control.md
         - name: Ciągła integracja i ciągłe dostarczanie
           href: continuous-integration-deployment.md
+        - name: Automatyczne publikowanie
+          href: continuous-integration-deployment-improvements.md
     - name: Łączniki
       items:
         - name: Omówienie łączników

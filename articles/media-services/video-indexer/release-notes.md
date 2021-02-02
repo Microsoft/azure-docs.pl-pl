@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/06/2021
+ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120091"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427666"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -30,7 +30,23 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
 
-##  <a name="december-2020"></a>Grudzień 2020 r.
+## <a name="january-2021"></a>Styczeń 2021 r.
+
+### <a name="video-indexer-is-deployed-on-us-government-cloud"></a>Video Indexer jest wdrażana w chmurze dla instytucji rządowych Stanów Zjednoczonych 
+
+Teraz możesz utworzyć konto płatne Video Indexer w chmurze dla instytucji rządowych Stanów Zjednoczonych w regionach Wirginia i Arizona. Oferta bezpłatnej wersji próbnej Video Indexer nie jest dostępna w wymienionym regionie. Aby uzyskać więcej informacji, przejdź do dokumentacji Video Indexer. 
+
+### <a name="video-indexer-deployed-in-the-india-central-region"></a>Video Indexer wdrożone w regionie Indie Środkowe 
+
+Teraz można utworzyć konto płatne Video Indexer w regionie Indie Środkowe. 
+
+### <a name="new-dark-mode-for-the-video-indexer-website-experience"></a>Nowy tryb ciemny dla środowiska witryny sieci Web Video Indexer
+
+Środowisko Video Indexer witryny sieci Web jest teraz dostępne w trybie ciemnym. Aby włączyć tryb ciemny, Otwórz panel Ustawienia i Włącz opcję **tryb ciemny** . 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Ustawienie trybu ciemnego":::
+
+## <a name="december-2020"></a>Grudzień 2020 r.
 
 ### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>Video Indexer wdrożone w Szwajcaria Zachodnia i Szwajcaria Północna
 
@@ -216,13 +232,13 @@ Kod stanu 409 będzie teraz zwracany przez [ponowne indeksowanie wideo](https://
     
     W przypadku przekazywania wideo zamieniono polecenie zh-HANS na zh-CN, obie są obsługiwane, ale zaleca się, aby Metoda zh-CN była zalecana i bardziej dokładna.
     
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
  
 * Wyszukaj animowane znaki w galerii
 
     W przypadku indeksowania animowanych znaków można teraz wyszukiwać je w postaci szpaltowej wideo na koncie. Aby uzyskać więcej informacji, zobacz [rozpoznawanie znaków animowanych](animated-characters-recognition.md).
 
-## <a name="september-2019"></a>Wrzesień 2019
+## <a name="september-2019"></a>Wrzesień 2019 r.
  
 Wiele zaliczek zapowiedziano w IBC 2019:
  
@@ -242,7 +258,7 @@ Wiele zaliczek zapowiedziano w IBC 2019:
     
     Temat inferencing model obsługuje teraz bardziej szczegółowy stopień szczegółowości taksonomii IPTC. Przeczytaj wszystkie szczegółowe informacje o [Azure Media Services nowych innowacyjności opartych na AI](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
  
 ### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer wdrożony w programie Południowe Zjednoczone Królestwo
 
@@ -279,7 +295,7 @@ Obsługa ciągu zapytania URL o 4096 (zamiast 2048) na indeksowaniu wideo.
 
 Projekty można teraz tworzyć w oparciu o wideo indeksowane w różnych językach (tylko interfejsy API).
 
-## <a name="july-2019"></a>Lipiec 2019
+## <a name="july-2019"></a>Lipiec 2019 r.
 
 ### <a name="editor-as-a-widget"></a>Edytor jako widżet
 

@@ -7,18 +7,22 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: df1064128d6a4eca8497ebf3ea0c6ae8cd42255c
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 4fc799c1c6dcaaa3ed4bc41c93bd6b786f51591c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208441"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429249"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
 Rozpocznij pracę z [zaświadczeniem platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/attestation/attestation?view=azure-cli-latest).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 1. Zainstaluj to rozszerzenie przy użyciu poniższego polecenia CLI
 

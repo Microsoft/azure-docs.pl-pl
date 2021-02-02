@@ -9,31 +9,29 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59c1eb7936bc113f8935d6fa2ad378c6994c3ca9
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e8d21e57f9a844b3cc0538f4805780829a1350f4
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99408518"
+ms.locfileid: "99428592"
 ---
 # <a name="trusted-storage-for-media-services"></a>Zaufany magazyn dla Media Services
 
-Podczas tworzenia konta Media Services należy je skojarzyć z kontem magazynu. Media Services może uzyskać dostęp do tego konta magazynu przy użyciu uwierzytelniania systemu. Media Services sprawdza, czy konto Media Services i konto magazynu znajdują się w tej samej subskrypcji i sprawdza, czy użytkownik, który doda skojarzenie, uzyskuje dostęp do konta magazynu za pomocą Azure Resource Manager RBAC.
+Podczas tworzenia konta Media Services należy je skojarzyć z kontem magazynu. Media Services może uzyskać dostęp do tego konta magazynu przy użyciu uwierzytelniania systemu lub uwierzytelniania tożsamości zarządzanej. Media Services sprawdza, czy konto Media Services i konto magazynu znajdują się w tej samej subskrypcji i sprawdza, czy użytkownik, który doda skojarzenie, uzyskuje dostęp do konta magazynu za pomocą Azure Resource Manager RBAC.
 
-Jeśli jednak chcesz użyć zapory do zabezpieczenia konta magazynu i włączenia magazynu zaufanego, musisz użyć uwierzytelniania [tożsamości zarządzanych](concept-managed-identities.md) . Umożliwia Media Services dostępu do konta magazynu, które zostało skonfigurowane przy użyciu zapory lub ograniczenia sieci wirtualnej za pomocą zaufanego dostępu do magazynu.
+## <a name="trusted-storage-with-a-firewall"></a>Zaufany magazyn z zaporą
+
+Jeśli jednak chcesz użyć zapory do zabezpieczenia konta magazynu i włączenia magazynu zaufanego, preferowaną opcją jest uwierzytelnianie [tożsamości zarządzanych](concept-managed-identities.md) . Umożliwia Media Services dostępu do konta magazynu, które zostało skonfigurowane przy użyciu zapory lub ograniczenia sieci wirtualnej za pomocą zaufanego dostępu do magazynu. Umożliwia Media Services dostępu do konta magazynu, które zostało skonfigurowane przy użyciu zapory lub ograniczenia sieci wirtualnej za pomocą zaufanego dostępu do magazynu.
+
+> [!NOTE]
+> Aby Media Services mieć możliwość odczytywania i zapisywania danych w ramach konta magazynu, należy przyznać funkcji dostępu współautora dla magazynu tożsamości zarządzanego przez usługi AMS.  Przyznanie roli współautor generycznemu nie będzie możliwe, ponieważ nie spowoduje to włączenia prawidłowych uprawnień do płaszczyzny danych.
+
+## <a name="further-reading"></a>Dodatkowe informacje
 
 Aby zrozumieć metody tworzenia zaufanego magazynu z tożsamościami zarządzanymi, Odczytaj [zarządzane tożsamości i Media Services](concept-managed-identities.md).
 
-Aby uzyskać więcej informacji na temat kluczy zarządzanych przez klienta i Key Vault, zobacz temat [przenoszenie własnego klucza (kluczy zarządzanych przez klienta) przy użyciu Media Services](concept-use-customer-managed-keys-byok.md)
-
 Aby uzyskać więcej informacji na temat zaufanych usług firmy Microsoft, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../../storage/common/storage-network-security.md#trusted-microsoft-services).
-
-## <a name="tutorials"></a>Samouczki
-
-Te samouczki obejmują oba scenariusze wymienione powyżej.
-
-- [Użyj Azure Portal, aby użyć kluczy zarządzanych przez klienta lub BYOK z Media Services](tutorial-byok-portal.md)
-- [Użyj kluczy zarządzanych przez klienta lub BYOK za pomocą interfejsu API REST Media Services](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

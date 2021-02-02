@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: a2b26ae8debf1c52693018ce9a758bfa9b029fa2
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093380"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429266"
 ---
 # <a name="microsoft-azure-attestation"></a>Usługa Microsoft Azure Attestation 
 
@@ -67,7 +67,7 @@ Zaświadczanie o platformie Azure jest preferowanym wyborem dla zaświadczania T
 
 - Ujednolicone środowisko zaświadczania wielu środowisk, takich jak moduły TPM, SGX enclaves i VBS enclaves 
 - Usługa obejmująca wiele dzierżawców, która umożliwia konfigurowanie niestandardowych dostawców zaświadczania i zasad w celu ograniczenia generowania tokenów
-- Oferuje dostawców domyślnych, którzy mogą zaświadczać o braku konfiguracji od użytkowników
+- Oferuje regionalne udostępnione dostawcy, które mogą zaświadczać bez konfiguracji użytkowników
 - Chroni swoje dane, gdy jest używany z implementacją w SGX enklawy
 - Usługa o wysokiej dostępności 
 

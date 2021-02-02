@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 36eac4c60e0d7fd54ec304f0f17c2ecb454f0629
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: ce37e26730fbef9e5e40fd95190727062f9044ac
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063455"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428943"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Łączenie Data Factory z usługą Azure kontrolą (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -36,7 +36,7 @@ Azure kontrolą to nowa usługa w chmurze, która umożliwia użytkownikom danyc
 3. Po nawiązaniu połączenia powinna być widoczna nazwa konta kontrolą na karcie **konta kontrolą**. 
 4. Możesz użyć paska wyszukiwania w górnym centrum Azure Data Factory portalu, aby wyszukać dane. 
 
-Jeśli po zarejestrowaniu konta usługi Azure kontrolą na Data Factory zobaczysz ostrzeżenie w portalu usługi Azure Data Factor, wykonaj następujące kroki, aby rozwiązać ten problem:
+Jeśli po zarejestrowaniu konta usługi Azure kontrolą do Data Factory zostanie wyświetlone ostrzeżenie w portalu Azure Data Factory, wykonaj poniższe czynności, aby rozwiązać ten problem:
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Zrzut ekranu przedstawiający ostrzeżenie o rejestrowaniu konta usługi kontrolą.":::
 

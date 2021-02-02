@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
-ms.openlocfilehash: 4505deaa4cc11c00c7283ef686827d6893c2742a
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.date: 02/01/2021
+ms.openlocfilehash: b796b9eb065a221904fe4487c900efa2db1955af
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280415"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429547"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiowanie danych z tabeli SAP przy użyciu Azure Data Factory
 
@@ -53,7 +53,7 @@ W każdym przypadku ten łącznik tabeli SAP obsługuje:
 Wersja 7,01 lub nowsza odnosi się do wersji SAP NetWeaver zamiast wersji SAP ECC. Na przykład system SAP ECC 6,0 EHP 7 ogólnie ma wersję NetWeaver >= 7,4. Jeśli nie masz pewności o Twoim środowisku, poniżej przedstawiono kroki umożliwiające potwierdzenie wersji z systemu SAP:
 
 1. Połącz się z systemem SAP przy użyciu graficznego interfejsu użytkownika SAP. 
-2. Przejdź do **System** pozycji  ->  **stan** systemu. 
+2. Przejdź do pozycji  ->  **stan** systemu. 
 3. Sprawdź wersję SAP_BASIS, upewnij się, że jest równa lub większa niż 701.  
       ![Sprawdź SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
@@ -72,7 +72,7 @@ Aby użyć tego łącznika tabeli SAP, należy wykonać następujące:
   - Autoryzacja przy użyciu miejsc docelowych zdalnego wywołania funkcji (RFC).
   - Uprawnienia do wykonywania działania obiektu autoryzacji S_SDSAUTH.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -102,7 +102,7 @@ Następujące właściwości są obsługiwane dla SAP BW połączonej usługi:
 | `sncQop` | Poziom jakości ochrony SNC, który ma zostać zastosowany.<br/>Ma zastosowanie, gdy `sncMode` jest włączony. <br/>Dozwolone wartości to `1` (uwierzytelnianie), (integralność), ( `2` `3` `8` ustawienie domyślne), (wartość domyślna) `9` . | Nie |
 | `connectVia` | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Wymagane jest samodzielne środowisko Integration Runtime, jak wspomniano wcześniej w [wymaganiach wstępnych](#prerequisites). |Tak |
 
-**Przykład 1: łączenie z serwerem aplikacji SAP**
+### <a name="example-1-connect-to-an-sap-application-server"></a>Przykład 1: łączenie z serwerem aplikacji SAP
 
 ```json
 {
@@ -294,6 +294,60 @@ W programie `rfcTableOptions` można użyć następujących typowych operatorów
     }
 ]
 ```
+
+## <a name="join-sap-tables"></a>Dołącz do tabel SAP
+
+Aktualnie łącznik tabeli SAP obsługuje tylko jedną pojedynczą tabelę z domyślnym modułem funkcji. Aby uzyskać połączone dane wielu tabel, można wykorzystać Właściwość [customRfcReadTableFunctionModule](#copy-activity-properties) w łączniku tabeli SAP, wykonując poniższe kroki:
+
+- [Napisz niestandardowy moduł funkcji](#create-custom-function-module), który może pobrać zapytanie jako opcje i zastosować własną logikę w celu pobrania danych.
+- Dla "modułu funkcji niestandardowych" Wprowadź nazwę niestandardowego modułu funkcji.
+- Dla opcji "Opcje tabeli RFC" Określ instrukcję JOIN tabeli, która ma być źródłem do modułu funkcji jako opcje, takie jak " `<TABLE1>` Inner Join `<TABLE2>` on COLUMN0".
+
+Poniżej znajduje się przykład:
+
+![Sprzężenie tabeli SAP](./media/connector-sap-table/sap-table-join.png) 
+
+>[!TIP]
+>Można również rozważyć, że dołączone dane są agregowane w widoku, który jest obsługiwany przez łącznik tabeli SAP.
+>Możesz również spróbować wyodrębnić powiązane tabele, aby uzyskać dostęp do platformy Azure (np. usługi Azure Storage, Azure SQL Database), a następnie użyć przepływu danych, aby kontynuować dołączanie lub filtrowanie.
+
+## <a name="create-custom-function-module"></a>Utwórz niestandardowy moduł funkcji
+
+W przypadku tabeli SAP obecnie obsługujemy Właściwość [customRfcReadTableFunctionModule](#copy-activity-properties) w źródle kopii, która umożliwia korzystanie z własnych danych logiki i procesów.
+
+Aby uzyskać szybkie wskazówki, poniżej przedstawiono niektóre wymagania, które należy wykonać, aby rozpocząć pracę z niestandardowym modułem funkcji:
+
+- Definicja:
+
+    ![Definicja](./media/connector-sap-table/custom-function-module-definition.png) 
+
+- Eksportuj dane do jednej z poniższych tabel:
+
+    ![Eksportuj tabelę 1](./media/connector-sap-table/export-table-1.png) 
+
+    ![Eksportuj tabelę 2](./media/connector-sap-table/export-table-2.png)
+ 
+Poniżej przedstawiono ilustracje, jak łącznik tabeli SAP współpracuje z niestandardowym modułem funkcji:
+
+1. Tworzenie połączenia z serwerem SAP za pośrednictwem oprogramowania SAP NCO.
+
+1. Wywołaj "niestandardowy moduł funkcji" z parametrami ustawionymi w następujący sposób:
+
+    - QUERY_TABLE: Nazwa tabeli ustawiona w zestawie danych tabeli SAP dla systemu APD 
+    - Ogranicznik: ogranicznik ustawiony w źródle tabeli ADF w systemie SAP. 
+    - Liczba wierszy/opcji/pól: liczba pól/wartości zagregowanych ustawionych w źródle tabeli ADF.
+
+1. Pobierz wynik i Przeanalizuj dane w następujący sposób:
+
+    1. Przeanalizuj wartość w tabeli Fields, aby uzyskać schematy.
+
+        ![Analizowanie wartości w polach](./media/connector-sap-table/parse-values.png)
+
+    1. Pobierz wartości tabeli wyjściowej, aby zobaczyć, która tabela zawiera te wartości.
+
+        ![Pobierz wartości w tabeli wyjściowej](./media/connector-sap-table/get-values.png)
+
+    1. Pobierz wartości w OUT_TABLE, Przeanalizuj dane i Zapisz je w zlewie.
 
 ## <a name="data-type-mappings-for-an-sap-table"></a>Mapowania typu danych dla tabeli SAP
 
