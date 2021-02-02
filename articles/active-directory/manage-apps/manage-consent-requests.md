@@ -3,7 +3,7 @@ title: Zarządzanie zgodą na aplikacje i ocenianie żądań zgody w Azure Activ
 description: Dowiedz się, jak zarządzać żądaniami zgody, gdy wyrażasz zgodę użytkownika na wyłączenie lub ograniczenie, oraz jak oszacować żądanie administratora dla całej dzierżawy dla aplikacji w Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.openlocfilehash: 4664bdd515c815dbd742c0d4e05f1e5c03978526
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 189a89276d922665dd1ad0fbacc77ba499137048
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649196"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253106"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Zarządzanie zgodą na aplikacje i ocenianie żądań zgody
 

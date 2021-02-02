@@ -1,6 +1,6 @@
 ---
 title: Łączenie Azure Active Directory danych z platformą Azure — wskaźnikiem Microsoft Docs
-description: Dowiedz się, jak zbierać dane z Azure Active Directory i przesyłać dzienniki logowania usługi Azure AD i dzienniki inspekcji do usługi Azure wskaźnikowej.
+description: Dowiedz się, jak zbierać dane z Azure Active Directory i przesyłać dzienniki rejestracji, inspekcji i aprowizacji usługi Azure AD do usługi Azure wskaźnikowej.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,20 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: eb89d2a4e719e34ad5ea31656dc9e3c02472b07d
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f8931fedb380cf81d72b7b5280a5795498daaa57
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98802257"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99251985"
 ---
-# <a name="connect-data-from-azure-active-directory-azure-ad"></a>Łączenie danych z Azure Active Directory (Azure AD)
+# <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Łączenie danych Azure Active Directory (Azure AD) z platformą Azure — wskaźnikiem
 
-Korzystając z wbudowanego łącznika kontrolki Azure, można zbierać dane z [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) i przesyłać je strumieniowo do usługi Azure wskaźnikowej. Łącznik umożliwia przesyłanie strumieniowe [dzienników logowania](../active-directory/reports-monitoring/concept-sign-ins.md) i [dzienników inspekcji](../active-directory/reports-monitoring/concept-audit-logs.md).
+Korzystając z wbudowanego łącznika kontrolki Azure, można zbierać dane z [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) i przesyłać je strumieniowo do usługi Azure wskaźnikowej. Łącznik umożliwia przesyłanie strumieniowe następujących typów dzienników:
 
+- [**Dzienniki logowania**](../active-directory/reports-monitoring/concept-all-sign-ins.md), które zawierają informacje dotyczące [logowania użytkowników interakcyjnych](../active-directory/reports-monitoring/concept-all-sign-ins.md#user-sign-ins) , w przypadku których użytkownik udostępnia czynnik uwierzytelniania.
+
+    Łącznik usługi Azure AD zawiera teraz następujące trzy dodatkowe kategorie dzienników logowania, które są obecnie dostępne w **wersji zapoznawczej**:
+    
+    - [**Dzienniki logowania użytkowników nieinterakcyjnych**](../active-directory/reports-monitoring/concept-all-sign-ins.md#non-interactive-user-sign-ins), które zawierają informacje o logowania wykonywane przez klienta w imieniu użytkownika bez żadnej interakcji z użytkownikiem.
+    
+    - [**Dzienniki logowania nazwy głównej usługi**](../active-directory/reports-monitoring/concept-all-sign-ins.md#service-principal-sign-ins), które zawierają informacje dotyczące logowania przez aplikacje i jednostki usługi, które nie obejmują żadnego użytkownika. W tych logowaniach aplikacja lub usługa udostępnia poświadczenia w swoim imieniu w celu uwierzytelniania lub uzyskiwania dostępu do zasobów.
+    
+    - [**Dzienniki logowania tożsamości zarządzanej**](../active-directory/reports-monitoring/concept-all-sign-ins.md#managed-identity-for-azure-resources-sign-ins), które zawierają informacje dotyczące logowania za pomocą zasobów platformy Azure, które mają wpisy tajne zarządzane przez platformę Azure. Aby uzyskać więcej informacji, zobacz [co to są zarządzane tożsamości dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md)
+
+- [**Dzienniki inspekcji**](../active-directory/reports-monitoring/concept-audit-logs.md), które zawierają informacje o działaniu systemu związane z zarządzaniem użytkownikami i grupami, zarządzanymi aplikacjami i działaniami katalogu.
+
+- [**Dzienniki aprowizacji**](../active-directory/reports-monitoring/concept-provisioning-logs.md) (również w **wersji zapoznawczej**), które zawierają informacje o działaniu systemu dotyczące użytkowników, grup i ról, które są obsługiwane przez usługę aprowizacji usługi Azure AD. 
+
+> [!IMPORTANT]
+> Jak wskazano powyżej, niektóre z dostępnych typów dzienników są obecnie w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Musisz mieć subskrypcję [Azure AD — wersja Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) , aby pozyskiwanie dzienników logowania do platformy Azure — wskaźnik. Dodatkowe opłaty za gigabajty mogą dotyczyć Azure Monitor (Log Analytics) i platformy Azure.
+- Każda licencja usługi Azure AD (bezpłatna/O365/P1/P2) jest wystarczająca do pozyskiwania dzienników logowania do platformy Azure. Dodatkowe opłaty za gigabajty mogą dotyczyć Azure Monitor (Log Analytics) i platformy Azure.
 
 - Użytkownik musi mieć przypisaną rolę współautora wskaźnikowego platformy Azure w obszarze roboczym.
 
@@ -42,10 +58,7 @@ Korzystając z wbudowanego łącznika kontrolki Azure, można zbierać dane z [A
 
 1. Z galerii łączniki danych wybierz pozycję **Azure Active Directory** a następnie wybierz pozycję **Otwórz stronę łącznika**.
 
-1. Zaznacz pola wyboru obok typów dzienników, które chcesz przesłać strumieniowo do usługi Azure wskaźnikowej, a następnie kliknij przycisk **Połącz**. Oto typy dzienników, spośród których można wybrać:
-
-    - **Dzienniki logowania**: informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
-    - **Dzienniki inspekcji**: informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzane aplikacje i działania w katalogu.
+1. Zaznacz pola wyboru obok typów dzienników, które chcesz przesłać strumieniowo do usługi Azure wskaźnikowej (patrz powyżej), a następnie kliknij przycisk **Połącz**.
 
 ## <a name="find-your-data"></a>Znajdowanie danych
 
@@ -53,10 +66,14 @@ Po pomyślnym nawiązaniu połączenia dane pojawiają się w **dziennikach** w 
 
 - `SigninLogs`
 - `AuditLogs`
+- `AADNonInteractiveUserSignInLogs`
+- `AADServicePrincipalSignInLogs`
+- `AADManagedIdentitySignInLogs`
+- `AADProvisioningLogs`
 
 Aby wykonać zapytanie dotyczące dzienników usługi Azure AD, wprowadź odpowiednią nazwę tabeli w górnej części okna zapytania.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób nawiązywania połączenia Azure Active Directory z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
-- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Dowiedz się [, jak uzyskać wgląd w dane i potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).

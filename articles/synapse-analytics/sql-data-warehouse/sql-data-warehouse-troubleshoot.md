@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9b2fc61054c40f52f7e638117109ec556cc63a78
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: de6c7e47af3019d034d457f43334aad1aeafabdc
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678461"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254278"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Rozwiązywanie problemów z dedykowaną pulą SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
@@ -76,6 +76,7 @@ W tym artykule opisano typowe problemy związane z rozwiązywaniem problemów w 
 | Nieobsługiwane typy danych SQL Database   | Zobacz [nieobsługiwane typy danych](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
 | Ograniczenia procedury składowanej          | Zobacz [ograniczenia procedury składowanej](sql-data-warehouse-develop-stored-procedures.md#limitations) , aby poznać niektóre ograniczenia procedur składowanych. |
 | UDF nie obsługują instrukcji SELECT | Jest to bieżące ograniczenie naszych UDF.  Zobacz [Tworzenie funkcji](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dla składni obsługiwanej przez nas. |
+| sp_rename (wersja zapoznawcza) kolumn nie działa w schematach poza *dbo* | Jest to bieżące ograniczenie Synapse [sp_rename (wersja zapoznawcza) dla kolumn](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Kolumny w obiektach, które nie są częścią schematu *dbo* , można zmienić za pomocą CTAs w nową tabelę. |
 
 ## <a name="next-steps"></a>Następne kroki
 

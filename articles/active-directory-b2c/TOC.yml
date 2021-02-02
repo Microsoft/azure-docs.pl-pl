@@ -478,6 +478,18 @@
       href: page-layout.md
     - name: Dostępność w poszczególnych regionach i rezydencja danych
       href: data-residency.md
+    - name: Tworzenie pod kątem odporności
+      items:
+        - name: Azure AD B2C — wprowadzenie do odporności
+          href: ../active-directory/fundamentals/resilience-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+        - name: Środowisko użytkownika końcowego
+          href: ../active-directory/fundamentals/resilient-end-user-experience.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+        - name: Interfejsy z procesami zewnętrznymi
+          href: ../active-directory/fundamentals/resilient-external-processes.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+        - name: Azure AD B2C — najlepsze rozwiązania dla deweloperów
+          href: ../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+        - name: Monitorowanie i analizowanie
+          href: ../active-directory/fundamentals/resilience-with-monitoring-alerting.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Zarządzanie zagrożeniami
       href: threat-management.md
       displayName: security

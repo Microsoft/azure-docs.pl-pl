@@ -3,7 +3,7 @@ title: Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowani
 description: Wskazówki dotyczące określonych błędów podczas logowania do aplikacji skonfigurowanej do federacyjnego logowania jednokrotnego opartego na protokole SAML przy użyciu Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 62b828a23805c6d3ab544dd2b9f78b45a3327cde
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: feeed07021e31dfee44fa9372927e45b53131d1e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053401"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254057"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML
 Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie poniższych czynności w celu lepszego zdiagnozowania i zautomatyzowania kroków rozwiązania:

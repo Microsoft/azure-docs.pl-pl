@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: 93e705eea39443ffc15fbdd079e1376ec46cb51c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786694"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252614"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -528,6 +528,18 @@ Aby skonfigurować wzorzec żądania asynchronicznej odpowiedzi dla aplikacji lo
 W przypadku pełnych komunikatów o błędach Sprawdź rozszerzone dzienniki karty SAP. Możesz również [włączyć rozszerzony plik dziennika dla łącznika SAP](#extended-sap-logging-in-on-premises-data-gateway).
 
 W przypadku wersji lokalnej bramy danych z czerwca 2020 i nowszych można [włączyć dzienniki bramy w ustawieniach aplikacji](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app). 
+
+* Domyślny poziom rejestrowania to **Ostrzeżenie**.
+
+* W przypadku włączenia  **dodatkowego rejestrowania** w ustawieniach **diagnostycznych** aplikacji lokalnej bramy danych poziom rejestrowania zostanie zwiększony do **informacji**.
+
+* Aby zwiększyć poziom rejestrowania do **pełnego**, zaktualizuj następujące ustawienie w pliku konfiguracji. Zwykle plik konfiguracji znajduje się w lokalizacji `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config` .
+
+```json
+<setting name="SapTraceLevel" serializeAs="String">
+   <value>Verbose</value>
+</setting>
+```
 
 W przypadku wersji lokalnej bramy danych z kwietnia 2020 i wcześniejszych dzienniki są domyślnie wyłączone.
 

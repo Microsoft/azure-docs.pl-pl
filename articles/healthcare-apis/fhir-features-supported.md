@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 0ee32d37ca8e3a32ba603fd84cee81890ddac98b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747529"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252121"
 ---
 # <a name="features"></a>Funkcje
 
@@ -41,8 +41,8 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | create                         | Tak       | Tak       | Tak       | Obsługa funkcji POST/PUT                               |
 | Utwórz (warunkowo)           | Tak       | Tak       | Tak       | [#1382](https://github.com/microsoft/fhir-server/issues/1382) problemu |
 | search                         | Częściowe   | Częściowe   | Częściowe   | Zobacz poniżej                                           |
-| Wyszukiwanie łańcuchowe                 | Nie        | Tak       | Nie        |                                           |
-| Wyszukiwanie w łańcuchu wstecznym         | Nie        | Nie        | Nie        |                                            |
+| Wyszukiwanie łańcuchowe                 | Nie        | Tak       | Nie        |                                                     |
+| Wyszukiwanie w łańcuchu wstecznym         | Nie        | Tak       | Nie        |                                                     |
 | możliwości                   | Tak       | Tak       | Tak       |                                                     |
 | partia                          | Tak       | Tak       | Tak       |                                                     |
 | Transaction                    | Nie        | Tak       | Nie        |                                                     |
@@ -72,39 +72,39 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 |`:exact`               | Tak       | Tak       | Tak       |         |
 |`:contains`            | Tak       | Tak       | Tak       |         |
 |`:text`                | Tak       | Tak       | Tak       |         |
+|`:[type]` odwoła  | Tak       | Tak       | Tak       |         |
+|`:not`                 | Tak       | Tak       | Tak       |         |
+|`:below` adresu         | Tak       | Tak       | Tak       |         |
+|`:above` adresu         | Nie        | Nie        | Nie        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problemu |
 |`:in` klucza          | Nie        | Nie        | Nie        |         |
 |`:below` klucza       | Nie        | Nie        | Nie        |         |
 |`:above` klucza       | Nie        | Nie        | Nie        |         |
 |`:not-in` klucza      | Nie        | Nie        | Nie        |         |
-|`:[type]` odwoła  | Nie        | Nie        | Nie        |         |
-|`:below` adresu         | Tak       | Tak       | Tak       |         |
-|`:not`                 | Nie        | Nie        | Nie        |         |
-|`:above` adresu         | Nie        | Nie        | Nie        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problemu |
 
 | Typowy parametr wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
 |-------------------------| ----------| ----------| ----------|---------|
 | `_id`                   | Tak       | Tak       | Tak       |         |
 | `_lastUpdated`          | Tak       | Tak       | Tak       |         |
 | `_tag`                  | Tak       | Tak       | Tak       |         |
-| `_profile`              | Częściowe   | Częściowe   | Częściowe   | Obsługiwane tylko w STU3, brak obsługi w R4 |
+| `_list`                 | Tak       | Tak       | Tak       |         |
+| `_type`                 | Tak       | Tak       | Tak       | [#1562](https://github.com/microsoft/fhir-server/issues/1562) problemu        |
 | `_security`             | Tak       | Tak       | Tak       |         |
+| `_profile`              | Częściowe   | Częściowe   | Częściowe   | Obsługiwane tylko w STU3, brak obsługi w R4 |
 | `_text`                 | Nie        | Nie        | Nie        |         |
 | `_content`              | Nie        | Nie        | Nie        |         |
-| `_list`                 | Tak       | Tak       | Tak       |         |
 | `_has`                  | Nie        | Nie        | Nie        |         |
-| `_type`                 | Tak       | Tak       | Tak       |         |
 | `_query`                | Nie        | Nie        | Nie        |         |
 | `_filter`               | Nie        | Nie        | Nie        |         |
 
 | Parametry wyników wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_sort`                 | Częściowe        | Częściowe   | Częściowe        |   `_sort=_lastUpdated` jest obsługiwana       |
+| `_elements`             | Tak       | Tak       | Tak       | [#1256](https://github.com/microsoft/fhir-server/issues/1256) problemu        |
 | `_count`                | Tak       | Tak       | Tak       | `_count` jest ograniczone do 100 znaków. Jeśli ustawiona na wartość większą niż 100, zostaną zwrócone tylko 100, a w pakiecie zostanie zwrócone ostrzeżenie. |
 | `_include`              | Tak       | Tak       | Tak       |Uwzględnione elementy są ograniczone do 100. Dołączenie do PaaS i OSS na Cosmos DB nie obejmuje: ITERING support.|
-| `_revinclude`           | Tak       | Tak       | Tak       | Uwzględnione elementy są ograniczone do 100. Dołączenie do PaaS i OSS na Cosmos DB nie obejmuje: ITERING support.|
+| `_revinclude`           | Tak       | Tak       | Tak       | Uwzględnione elementy są ograniczone do 100. Dołączenie do PaaS i OSS na Cosmos DB nie [obejmuje: ITERING support](https://github.com/microsoft/fhir-server/issues/1313). [#1319](https://github.com/microsoft/fhir-server/issues/1319) problemu|
 | `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwana |
-| `_total`                | Częściowe   | Częściowe   | Częściowe   | _total = non i _total = dokładne      |
-| `_elements`             | Tak       | Tak       | Tak       |         |
+| `_total`                | Częściowe   | Częściowe   | Częściowe   | `_total=none` i `_total=accurate`      |
+| `_sort`                 | Częściowe   | Częściowe   | Częściowe   |   `_sort=_lastUpdated` jest obsługiwana       |
 | `_contained`            | Nie        | Nie        | Nie        |         |
 | `containedType`         | Nie        | Nie        | Nie        |         |
 | `_score`                | Nie        | Nie        | Nie        |         |

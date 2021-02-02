@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: ab03e0bdf7761e45a134ec90685955403fbc433b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 1d3ab2df51e80b44dce6057b02975fe210ebaa24
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060388"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254329"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Samouczek: migrowanie programu MySQL do usługi Azure Database for MySQL w trybie online przy użyciu usługi DMS
 
 Za pomocą Azure Database Migration Service można migrować bazy danych z lokalnego wystąpienia programu MySQL do [Azure Database for MySQL](../mysql/index.yml) z minimalnym przestojem. Innymi słowy migrację można przeprowadzić przy minimalnych przestojach w działaniu aplikacji. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **Employees** z lokalnego wystąpienia MySQL 5,7 do Azure Database for MySQL przy użyciu działania migracji w trybie online w programie Azure Database Migration Service.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 >
 > * Migrowanie przykładowego schematu za pomocą narzędzia mysqldump.
@@ -49,7 +49,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
-* Pobrany i zainstalowany program [MySQL Community Edition](https://dev.mysql.com/downloads/mysql/) w wersji 5.6 lub 5.7. Wersja lokalnego programu MySQL musi być zgodna z wersją usługi Azure Database for MySQL. Na przykład program MySQL 5.6 może być migrowany tylko do usługi Azure Database for MySQL 5.6, a nie do nowszej wersji 5.7. Migracja do lub z MySQL 8,0 nie jest obsługiwana. Migracja do lub z MySQL 8,0 nie jest obsługiwana.
+* Pobrany i zainstalowany program [MySQL Community Edition](https://dev.mysql.com/downloads/mysql/) w wersji 5.6 lub 5.7. Wersja lokalnego programu MySQL musi być zgodna z wersją usługi Azure Database for MySQL. Na przykład program MySQL 5.6 może być migrowany tylko do usługi Azure Database for MySQL 5.6, a nie do nowszej wersji 5.7. Migracja do lub z MySQL 8,0 nie jest obsługiwana.
 * [Utwórz wystąpienie usługi Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Zapoznaj się z artykułem [Nawiązywanie połączeń z danymi i wykonywanie na nich zapytań przy użyciu środowiska roboczego bazy danych MySQL](../mysql/connect-workbench.md), aby uzyskać szczegółowe informacje na temat nawiązywania połączenia i tworzenia bazy danych przy użyciu witryny Azure Portal.  
 * Utwórz Microsoft Azure Virtual Network dla Azure Database Migration Service przy użyciu Azure Resource Manager model wdrażania, który zapewnia łączność między lokacjami z lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](../expressroute/expressroute-introduction.md) lub [sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zapoznaj się z [dokumentacją Virtual Network](../virtual-network/index.yml), a w szczególności artykuły szybkiego startu z szczegółowymi szczegółami.
 
@@ -62,8 +62,8 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
     >
     > Ta konfiguracja jest konieczna, ponieważ Azure Database Migration Service brak łączności z Internetem.
 
-* Upewnij się, że reguły grupy zabezpieczeń sieci wirtualnej nie blokują następujących portów komunikacji przychodzącej do Azure Database Migration Service: 443, 53, 9354, 445, 12000. Aby uzyskać więcej szczegółów na temat filtrowania ruchu sieciowej grupy zabezpieczeń w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* [Zapora sytemu Windows skonfigurowana pod kątem dostępu do aparatu bazy danych](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Upewnij się, że reguły grupy zabezpieczeń sieci wirtualnej nie blokują następujących portów komunikacji wychodzącej, aby Azure Database Migration Service: 443, 53, 9354, 445, 12000. Aby uzyskać więcej szczegółów na temat filtrowania ruchu sieciowej grupy zabezpieczeń w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* [Zapora sytemu Windows skonfigurowana pod kątem dostępu do aparatu bazy danych](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules).
 * Otwórz Zaporę systemu Windows, aby umożliwić Azure Database Migration Service dostęp do źródłowego serwera MySQL, który domyślnie jest portem TCP 3306.
 * W przypadku korzystania z urządzenia zapory przed źródłowymi bazami danych może zajść potrzeba dodania reguł zapory, aby umożliwić Azure Database Migration Service dostęp do źródłowych baz danych na potrzeby migracji.
 * Utwórz [regułę zapory](../azure-sql/database/firewall-configure.md) na poziomie serwera dla Azure Database for MySQL, aby umożliwić Azure Database Migration Service dostęp do docelowych baz danych. Podaj zakres podsieci sieci wirtualnej używanej na potrzeby Azure Database Migration Service.

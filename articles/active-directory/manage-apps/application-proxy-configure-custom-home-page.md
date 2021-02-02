@@ -4,7 +4,7 @@ description: Obejmuje podstawowe informacje dotyczące łączników usługi Azur
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebef93455414c114fb60df9af8ebc629769a33e6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642065"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254432"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ustawianie niestandardowej strony głównej dla opublikowanych aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -58,7 +58,7 @@ Aby zmienić adres URL strony głównej aplikacji za pomocą portalu usługi Azu
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator.
 1. Wybierz pozycję **Azure Active Directory**, a następnie **rejestracje aplikacji**. Zostanie wyświetlona lista zarejestrowanych aplikacji.
 1. Wybierz aplikację z listy. Zostanie wyświetlona strona zawierająca szczegóły zarejestrowanej aplikacji.
-1. W obszarze **Zarządzaj**wybierz opcję **znakowanie**.
+1. W obszarze **Zarządzaj** wybierz opcję **znakowanie**.
 1. Zaktualizuj **adres URL strony głównej**  za pomocą nowej ścieżki.
 
    ![Strona znakowania dla zarejestrowanej aplikacji wyświetlającej pole adresu URL strony głównej](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
@@ -75,7 +75,7 @@ Aby skonfigurować stronę główną aplikacji przy użyciu programu PowerShell,
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Instalowanie modułu Azure AD PowerShell
 
-Przed zdefiniowaniem niestandardowego adresu URL strony głównej przy użyciu programu PowerShell zainstaluj moduł Azure AD PowerShell.Pakiet można pobrać z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16), który używa punktu końcowego interfejs API programu Graph.
+Przed zdefiniowaniem niestandardowego adresu URL strony głównej przy użyciu programu PowerShell zainstaluj moduł Azure AD PowerShell. Pakiet można pobrać z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16), który używa punktu końcowego interfejs API programu Graph.
 
 Aby zainstalować pakiet, wykonaj następujące kroki:
 
@@ -115,8 +115,8 @@ Uzyskasz identyfikator ObjectId aplikacji, wyszukując aplikację według nazwy 
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
    Alternatywnie można po prostu ściągnąć listę wszystkich aplikacji, przeszukać listę aplikacji z określoną nazwą wyświetlaną lub stroną główną, a następnie skopiować identyfikator ObjectId aplikacji po znalezieniu aplikacji.
@@ -169,8 +169,8 @@ Utwórz adres URL strony głównej i zaktualizuj aplikację przy użyciu tej war
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
 1. Uruchom ponownie aplikację, aby upewnić się, że Strona główna jest wyświetlana jako pierwszy ekran zgodnie z oczekiwaniami.

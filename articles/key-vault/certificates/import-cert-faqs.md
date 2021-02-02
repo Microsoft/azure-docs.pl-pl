@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e75786c42b54882c249b5ed7100ebd12f3f78e78
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289506"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254363"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Importowanie Azure Key Vault certyfikatów — często zadawane pytania
 
@@ -47,7 +47,7 @@ Aby wyświetlić bardziej opisowy błąd, zaimportuj plik certyfikatu za pomocą
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Jak można rozwiązać problem "typ błędu: odmowa dostępu lub użytkownik nie ma autoryzacji do importowania certyfikatu"?
     
-Operacja importowania wymaga udzielenia użytkownikowi uprawnień do importowania certyfikatu w ramach zasad dostępu. W tym celu przejdź do magazynu kluczy, wybierz pozycję **zasady dostępu**  >  **Dodaj zasady dostępu**  >  , **Wybierz pozycję uprawnienia certyfikatów**  >  **podmiot zabezpieczeń** , Wyszukaj użytkownika, a następnie Dodaj adres e-mail użytkownika. 
+Operacja importowania wymaga udzielenia użytkownikowi uprawnień do importowania certyfikatu w ramach zasad dostępu. W tym celu przejdź do magazynu kluczy, wybierz pozycję **zasady dostępu**  >  **Dodaj zasady dostępu**  >  ,**Wybierz pozycję uprawnienia certyfikatów**  >  **podmiot zabezpieczeń**, Wyszukaj użytkownika, a następnie Dodaj adres e-mail użytkownika. 
 
 Aby uzyskać więcej informacji na temat zasad dostępu związanych z certyfikatami, zobacz [Informacje o Azure Key Vault certyfikatów](./about-certificates.md#certificate-access-control).
 
@@ -62,6 +62,10 @@ Aby uzyskać więcej informacji, zobacz [operacja pobrania usuniętego certyfika
 Ten błąd może być spowodowany jedną z dwóch przyczyn:    
 * Nazwa podmiotu certyfikatu jest ograniczona do 200 znaków.
 * Hasło certyfikatu jest ograniczone do 200 znaków.
+
+
+### <a name="error-the-specified-pem-x509-certificate-content-is-in-an-unexpected-format-please-check-if-certificate-is-in-valid-pem-format"></a>Błąd "określona zawartość certyfikatu PEM X. 509 ma nieoczekiwany format. Sprawdź, czy certyfikat jest w prawidłowym formacie PEM.
+Sprawdź, czy zawartość pliku PEM korzysta z separatorów linii w stylu systemu UNIX `(\n)`
 
 ### <a name="can-i-import-an-expired-certificate-to-azure-key-vault"></a>Czy mogę zaimportować wygasły certyfikat do Azure Key Vault?
     

@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 66072032b3fd1ac33bef60922c62f73a8cfb11bd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 56d3b36d17ee044ce7aba2337429c45123801ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734668"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254516"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -130,7 +130,6 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 * W przypadku klientów, którzy muszą umożliwić Azure Container Registry pracy z prywatnym AKS, Container Registry sieci wirtualnej musi być połączona z siecią wirtualną klastra agentów.
 * Brak obsługi konwertowania istniejących klastrów AKS do klastrów prywatnych
 * Usunięcie lub zmodyfikowanie prywatnego punktu końcowego w podsieci klienta spowoduje, że klaster przestanie działać. 
-* Azure Monitor kontenerów danych na żywo nie są obecnie obsługiwane.
 * Po zaktualizowaniu rekordu A klienta na własnych serwerach DNS te zasobniki nadal rozwiązują apiserverą nazwę FQDN do starszego adresu IP po migracji do momentu ponownego uruchomienia. Po migracji płaszczyzny kontroli klienci muszą ponownie uruchomić hostNetworky i DNSPolicye.
 * W przypadku konserwacji na płaszczyźnie kontroli [AKS IP](./limit-egress-traffic.md) może ulec zmianie. W takim przypadku należy zaktualizować rekord A wskazujący prywatny adres IP serwera interfejsu API na niestandardowym serwerze DNS i ponownie uruchomić wszystkie niestandardowe zasobniki lub wdrożenia przy użyciu hostNetwork.
 

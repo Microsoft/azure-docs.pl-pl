@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: c11bb0e369075c3024824d65290e8aecfa68e6f4
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2020
+ms.openlocfilehash: 7e58daf72522071eb7d0031d4ea236a21c6d8bfb
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956144"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252325"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Przenoszenie własnych kluczy (kluczy zarządzanych przez klienta) za pomocą Media Services
 
@@ -36,6 +36,12 @@ Możesz określić nazwę klucza i wersję klucza lub tylko nazwę klucza. Jeśl
 
 > [!WARNING]
 > Media Services monitoruje dostęp do klucza klienta. Jeśli klucz klienta stanie się niedostępny (na przykład klucz został usunięty lub Key Vault został usunięty lub zostanie usunięty przydział dostępu), Media Services nastąpi przejście konta do stanu niedostępności klucza klienta (w efekcie wyłączenie konta). Konto można jednak usunąć w tym stanie. Jedyne obsługiwane operacje to account GET, LIST i DELETE; wszystkie inne żądania (kodowanie, przesyłanie strumieniowe itp.) będą kończyć się niepowodzeniem, dopóki nie zostanie przywrócony dostęp do klucza konta.
+
+## <a name="double-encryption"></a>Podwójne szyfrowanie
+
+Media Services obsługuje podwójne szyfrowanie.  Aby dowiedzieć się więcej na temat podwójnego szyfrowania, zobacz [Azure podwójne szyfrowanie](../../security/fundamentals/double-encryption.md).
+
+Podwójne szyfrowanie jest włączane automatycznie na koncie Media Services. Należy jednak skonfigurować klucz zarządzany przez klienta i dwukrotnie szyfrowanie na koncie magazynu.
 
 ## <a name="tutorials"></a>Samouczki
 
