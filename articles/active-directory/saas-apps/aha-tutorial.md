@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/09/2019
+ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 82f3a2dc7f43bd484d6a81efaa8d07f13b746d9e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: a8a33290c7fa904fc16b728a6e2411bd5b42683f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97671101"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259670"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Samouczek: integracja z usługą z Azure Active Directory
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować Aha! z Azure Active Directory (Az
 * Kontrolka w usłudze Azure AD, która ma dostęp do programu Aha!.
 * Zezwól użytkownikom na automatyczne logowanie do programu Aha! z kontami usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,22 +43,22 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Aha! Obsługa logowania jednokrotnego zainicjowane przez usługę **SP**
 * Aha! obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
-## <a name="adding-aha-from-the-gallery"></a>Dodawanie Aha! z galerii
+## <a name="add-aha-from-the-gallery"></a>Dodaj Aha! z galerii
 
 Aby skonfigurować integrację z programem Aha! w usłudze Azure AD musisz dodać Aha! z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **Aha!** .
 1. Wybierz pozycję **Aha!** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-aha"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla programu Aha!
+## <a name="configure-and-test-azure-ad-sso-for-aha"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla programu Aha!
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą programu Aha! przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie Aha!.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu Aha!, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu Aha!, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -73,9 +71,9 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/), w witrynie **Aha!** Strona integracja aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal, w witrynie **Aha!** Strona integracja aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -115,15 +113,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście aplikacji wybierz pozycję **Aha!**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-aha-sso"></a>Skonfiguruj Aha! Logowanie jednokrotne
@@ -140,23 +132,23 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. W menu u góry kliknij pozycję **Settings** (Ustawienia).
 
-    ![Ustawienia](./media/aha-tutorial/IC798950.png "Ustawienia")
+    ![Ustawienia](./media/aha-tutorial/setting.png "Ustawienia")
 
 5. Kliknij pozycję **Account** (Konto).
 
-    ![Profil](./media/aha-tutorial/IC798951.png "Profil")
+    ![Profil](./media/aha-tutorial/account.png "Profil")
 
 6. Kliknij pozycję **Security and single sign-on** (Zabezpieczenia i logowanie jednokrotne).
 
-    ![Zrzut ekranu, który podświetla opcję menu zabezpieczenia i logowanie jednokrotne.](./media/aha-tutorial/IC798952.png "Zabezpieczenia i logowanie jednokrotne")
+    ![Zrzut ekranu, który podświetla opcję menu zabezpieczenia i logowanie jednokrotne.](./media/aha-tutorial/security.png "Zabezpieczenia i logowanie jednokrotne")
 
 7. W sekcji **Single Sign-On** (Logowanie jednokrotne) wybierz w polu **Identity Provider** (Dostawca tożsamości) opcję **SAML2.0**.
 
-    ![Zabezpieczenia i logowanie jednokrotne](./media/aha-tutorial/IC798953.png "Zabezpieczenia i logowanie jednokrotne")
+    ![Zabezpieczenia i logowanie jednokrotne](./media/aha-tutorial/saml.png "Zabezpieczenia i logowanie jednokrotne")
 
 8. Na stronie konfiguracji **Single Sign On** (Logowanie jednokrotne) wykonaj następujące kroki:
 
-    ![Logowanie jednokrotne](./media/aha-tutorial/IC798954.png "Logowanie jednokrotne")
+    ![Logowanie jednokrotne](./media/aha-tutorial/sso.png "Logowanie jednokrotne")
 
     a. W polu tekstowym **Name** (Nazwa) wpisz nazwę konfiguracji.
 
@@ -172,14 +164,14 @@ W tej sekcji użytkownik o nazwie B. Simon został utworzony w Aha!. Aha! obsłu
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu przycisku Aha! kafelek w panelu dostępu, należy automatycznie zalogować się do programu Aha! dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do programu Aha! Adres URL logowania, w którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź do programu Aha! Bezpośrednio Zaloguj się adres URL i zainicjuj przepływ logowania.
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu przycisku Aha! kafelek w moich aplikacjach zostanie przekierowany do programu Aha! Adres URL logowania. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu Aha! można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

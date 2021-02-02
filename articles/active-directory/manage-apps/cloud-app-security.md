@@ -3,7 +3,7 @@ title: Widoczność i kontrola aplikacji za pomocą Microsoft Cloud App Security
 description: Dowiedz się, jak identyfikować poziomy ryzyka aplikacji, zatrzymywać naruszenia i wycieki w czasie rzeczywistym oraz korzystać z łączników aplikacji, aby korzystać z interfejsów API dostawcy w celu zapewnienia widoczności i zarządzania.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e3e0c10a7ec6b42420db30955ae4911bca27cc0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 682549b5b99169060437c8c91d465121002edc6e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651230"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259608"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Aplikacja w chmurze — widoczność i kontrola
 
@@ -34,7 +34,7 @@ Użyj funkcji odnajdywania aplikacji Microsoft Cloud (funkcja Azure Active Direc
 - Zaawansowane raporty wykrywania IT w tle
 - Kontrola zaakceptowanych aplikacji
  
-### <a name="learn-more"></a>Więcej informacji
+### <a name="learn-more"></a>Więcej tutaj
 
 - [Odkryj i Zarządzaj w tle w sieci ](/cloud-app-security/tutorial-shadow-it)
 - [Aplikacje odnalezione za pomocą Cloud App Security ](/cloud-app-security/discovered-apps)
@@ -51,7 +51,7 @@ Za pomocą tego formantu można:
 - Kontrolowanie dostępu do plików  
 - Ochrona dokumentów przy pobieraniu  
  
-### <a name="learn-more"></a>Więcej informacji
+### <a name="learn-more"></a>Więcej tutaj
 
 - [Ochrona aplikacji za pomocą kontroli sesji w Cloud App Security ](/cloud-app-security/proxy-intro-aad)
  
@@ -59,7 +59,7 @@ Za pomocą tego formantu można:
 
 Łączniki aplikacji korzystają z interfejsów API dostawców aplikacji w celu zapewnienia lepszej widoczności i kontroli przez Microsoft Cloud App Security za pośrednictwem aplikacji, z którymi nawiązywane jest połączenie. Cloud App Security korzysta z interfejsów API dostarczonych przez dostawcę chmury. Każda usługa ma własne ograniczenia dotyczące struktury i interfejsu API, takie jak ograniczanie przepustowości, limity interfejsu API, dynamiczne przesunięcia czasowe okien interfejsu API i inne. Zespół produktu Cloud App Security pracował z tymi usługami w celu zoptymalizowania użycia interfejsów API i zapewnienia najlepszej wydajności. Biorąc pod uwagę różne ograniczenia usług nakładających się na interfejsy API, aparaty Cloud App Security używają ich maksymalnej dozwolonej pojemności. Niektóre operacje, takie jak skanowanie wszystkich plików w dzierżawie, wymagają wielu wywołań interfejsu API, dzięki czemu są rozłożone w dłuższym okresie. Niektóre zasady mogą działać przez kilka godzin lub dni. 
  
-### <a name="learn-more"></a>Więcej informacji  
+### <a name="learn-more"></a>Więcej tutaj  
 
 - [Łączenie aplikacji w Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 68362b61aa0d919bd0e95f3cebb1cf1189f9f0f3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d6ae9585ce5b5a6f666a96ae8c5e7e9e3c5e248a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095189"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427171"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -29,14 +29,6 @@ Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
 > [!NOTE]
 > Alternatywą dla programu NuGet jest pobranie i wyodrębnienie [archiwum zip](https://aka.ms/speech/spx-zips.zip)interfejsu wiersza polecenia mowy, znalezienie i wyodrębnienie platformy z `spx-zips` katalogu oraz dodanie `spx` ścieżki do zmiennej **Path** systemu.
 
-### <a name="run-the-speech-cli"></a>Uruchamianie interfejsu wiersza polecenia mowy
-
-1. Otwórz wiersz polecenia lub program PowerShell, a następnie przejdź do katalogu, w którym został wyodrębniony interfejs użytkownika funkcji rozpoznawania mowy.  
-2. Wpisz `spx` , aby wyświetlić polecenia pomocy dla interfejsu wiersza polecenia mowy.
-
-> [!NOTE]
-> Program PowerShell nie sprawdza katalogu lokalnego podczas wyszukiwania polecenia. W programie PowerShell Zmień katalog na lokalizację `spx` i Wywołaj narzędzie, wprowadzając polecenie `.\spx` .
-> Jeśli dodasz ten katalog do ścieżki, program PowerShell i wiersz polecenia systemu Windows znajdą się `spx` z dowolnego katalogu bez `.\` prefiksu.
 
 ### <a name="font-limitations"></a>Ograniczenia dotyczące czcionek
 

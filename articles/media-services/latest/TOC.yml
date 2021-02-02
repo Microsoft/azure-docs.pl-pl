@@ -111,6 +111,8 @@
         - name: Tożsamości zarządzane i usługi multimedialne
           displayName: content protection
           href: concept-managed-identities.md
+        - name: Magazyn zaufany
+          href: concept-trusted-storage.md
         - name: Klucze zarządzane przez klienta
           href: concept-use-customer-managed-keys-byok.md
     - name: Elementy zawartości

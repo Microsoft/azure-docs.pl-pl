@@ -43,6 +43,8 @@
   items:
     - name: Tworzenie usługi zaufanego uwierzytelniania przy użyciu rozwiązania Azure Functions
       href: tutorials/trusted-service-tutorial.md
+    - name: Przygotowywanie aplikacji sieci Web dla usług komunikacyjnych (Node.js)
+      href: tutorials/building-app-start.md
 - name: Pojęcia
   expanded: false
   items:

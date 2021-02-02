@@ -4,7 +4,7 @@ description: Dowiedz się, jak dostosować datę wygaśnięcia certyfikatów fed
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87190e9a7aa3c3a26b77220dd0332d65c640bc2e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658999"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259223"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Zarządzanie certyfikatami federacyjnego logowania jednokrotnego w Azure Active Directory
 
@@ -30,7 +30,7 @@ Ten artykuł dotyczy tylko aplikacji skonfigurowanych do korzystania z logowania
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Automatycznie wygenerowany certyfikat dla galerii i aplikacji innych niż Galeria
 
-Gdy dodajesz nową aplikację z galerii i skonfigurujesz logowanie oparte na protokole SAML ( **przez wybranie protokołu** SAML logowania jednokrotnego  >  **SAML** ze strony przegląd aplikacji), usługa Azure AD generuje certyfikat dla aplikacji, która jest ważna przez trzy lata. Aby pobrać aktywny certyfikat jako plik certyfikatu zabezpieczeń (**. cer**), Wróć do tej strony (**Logowanie oparte na języku SAML**) i wybierz łącze pobierania w nagłówku **certyfikatu podpisywania SAML** . Można wybrać jeden certyfikat pierwotny (binarny) lub certyfikat Base64 (Base 64-Encoded Text). W przypadku aplikacji galerii w tej sekcji można także wyświetlić link umożliwiający pobranie certyfikatu jako pliku XML metadanych Federacji (plik **XML** ), w zależności od wymagań aplikacji.
+Gdy dodajesz nową aplikację z galerii i skonfigurujesz logowanie oparte na protokole SAML ( **przez wybranie protokołu** SAML logowania jednokrotnego  >   ze strony przegląd aplikacji), usługa Azure AD generuje certyfikat dla aplikacji, która jest ważna przez trzy lata. Aby pobrać aktywny certyfikat jako plik certyfikatu zabezpieczeń (**. cer**), Wróć do tej strony (**Logowanie oparte na języku SAML**) i wybierz łącze pobierania w nagłówku **certyfikatu podpisywania SAML** . Można wybrać jeden certyfikat pierwotny (binarny) lub certyfikat Base64 (Base 64-Encoded Text). W przypadku aplikacji galerii w tej sekcji można także wyświetlić link umożliwiający pobranie certyfikatu jako pliku XML metadanych Federacji (plik **XML** ), w zależności od wymagań aplikacji.
 
 ![Opcje pobierania aktywnego certyfikatu podpisywania SAML](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 

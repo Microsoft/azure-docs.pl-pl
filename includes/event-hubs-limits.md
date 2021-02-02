@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 02/01/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 45cc5120072f2a8c7742f79cfb79161042345505
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96152623"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427408"
 ---
 W poniższych tabelach przedstawiono limity przydziału i limity dotyczące [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Aby uzyskać informacje na temat cennika Event Hubs, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -30,7 +30,8 @@ Poniższe limity są wspólne dla wszystkich warstw.
 | Liczba odbiorników niezwiązanych z nieepoką na grupę konsumentów |- |5 |
 | Liczba reguł autoryzacji na przestrzeń nazw | Kolejne żądania utworzenia reguły autoryzacji są odrzucane.|12 |
 | Liczba wywołań metody GetRuntimeInformation — |  - | 50 na sekundę | 
-| Liczba reguł sieci wirtualnej (VNet) i konfiguracji adresów IP | - | 128 | 
+| Liczba sieci wirtualnych (VNet) | - | 128 | 
+| Liczba reguł konfiguracji adresu IP | - | 128 | 
 
 
 ### <a name="basic-vs-standard-tiers"></a>Warstwy Podstawowa i Standardowa
@@ -51,7 +52,7 @@ Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-clu
 
 | Cechy | Standardowa | Dedykowane |
 | --- |:---|:---|
-| Przepustowość | 20 TUs (do 40 TUs) | 20 jednostek |
+| Szerokość pasma | 20 TUs (do 40 TUs) | 20 jednostek |
 | Przestrzenie nazw |  1 | 50 na CU |
 | Event Hubs |  10 na przestrzeń nazw | 1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Płatność za milion zdarzeń | Dołączono |

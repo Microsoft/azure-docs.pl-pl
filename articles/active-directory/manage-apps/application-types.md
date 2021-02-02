@@ -3,19 +3,19 @@ title: Wyświetlanie aplikacji przy użyciu dzierżawy Azure Active Directory na
 description: Dowiedz się, jak wyświetlać wszystkie aplikacje za pomocą dzierżawy Azure Active Directory na potrzeby zarządzania tożsamościami.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: 18e29ce8bf744cabb31c5634c9b0ca547bca5acc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 443e8c83ec29f9f0478e3881b9e6d6a8eb0bf403
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020676"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259790"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Wyświetlanie aplikacji przy użyciu dzierżawy usługi Azure AD na potrzeby zarządzania tożsamościami
 [Seria szybkiego startu w zarządzaniu aplikacjami](view-applications-portal.md) zawiera podstawowe informacje. W tym temacie dowiesz się, jak wyświetlać wszystkie aplikacje korzystające z dzierżawy usługi Azure AD na potrzeby zarządzania tożsamościami. W tym artykule omówieniach się nieco bardziej szczegółowe informacje o typach aplikacji, które znajdziesz.

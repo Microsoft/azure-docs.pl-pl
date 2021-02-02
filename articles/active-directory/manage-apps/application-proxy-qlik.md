@@ -4,7 +4,7 @@ description: Włącz serwer proxy aplikacji w Azure Portal i zainstaluj łączni
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a03f3c57d3fbc7efe20055343eab3db33aa8194
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84760052"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259088"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Serwer proxy aplikacji i wykrywanie Qlik 
 Serwer proxy aplikacji usługi Azure Active Directory i Qlik ze sobą współpracowały, aby zapewnić możliwość korzystania z serwera proxy aplikacji w celu zapewnienia dostępu zdalnego do wdrożenia Qlik.  
@@ -45,7 +45,7 @@ Wykonaj następujące kroki, aby opublikować aplikację. Aby zapoznać się z b
    - **Wewnętrzny adres URL**: Ta aplikacja powinna mieć wewnętrzny adres URL, który jest samym adresem URL QlikSense. Na przykład **https&#58;//demo.qlikemm.com:4244** 
    - **Metoda wstępnego uwierzytelniania**: Azure Active Directory (zalecane, ale nie wymagane) 
 1. Wybierz pozycję **Dodaj** w dolnej części bloku. Aplikacja zostanie dodana i zostanie otwarte menu szybkiego startu. 
-2. W menu szybki Start wybierz pozycję **Przypisz użytkownika do testowania**i Dodaj co najmniej jednego użytkownika do aplikacji. Upewnij się, że to konto testowe ma dostęp do aplikacji lokalnej. 
+2. W menu szybki Start wybierz pozycję **Przypisz użytkownika do testowania** i Dodaj co najmniej jednego użytkownika do aplikacji. Upewnij się, że to konto testowe ma dostęp do aplikacji lokalnej. 
 3. Wybierz pozycję **Przypisz** , aby zapisać testowe przypisanie użytkownika. 
 4. Obowiązkowe W bloku Zarządzanie aplikacjami wybierz pozycję Logowanie jednokrotne. Wybierz **ograniczone delegowanie protokołu Kerberos** z menu rozwijanego i Wypełnij wymagane pola w oparciu o konfigurację Qlik. Wybierz pozycję **Zapisz**. 
 

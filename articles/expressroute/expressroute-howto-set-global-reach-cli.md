@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 27f16ac7d7d799c5467b11fd93352dc5fdef666c
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 55f1e4c030dc0e7c8d0011dcff0cc1c9f8fec06e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028067"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260235"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Konfigurowanie Global Reach ExpressRoute przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -56,7 +56,7 @@ Po uruchomieniu polecenia, aby włączyć łączność, należy zwrócić uwagę
 
 * *obwód równorzędny* powinien być pełnym identyfikatorem zasobu. Na przykład:
 
-  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
 
 * *prefiks adresu* musi być podsiecią IPv4 "/29" (na przykład "10.0.0.0/29"). Adresy IP w tej podsieci są używane do nawiązywania łączności między dwoma obwodami usługi ExpressRoute. Adresów w tej podsieci nie można używać w sieciach wirtualnych platformy Azure ani w sieciach lokalnych.
 

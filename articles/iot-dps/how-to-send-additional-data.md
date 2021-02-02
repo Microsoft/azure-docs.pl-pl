@@ -7,14 +7,14 @@ ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d94bc2fde63090d66da7e98cc239386d958e6bb2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a3ee7f3fca3fff1cd401f26489b01fb9cc4e09c5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950968"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259523"
 ---
-# <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Jak przenieść ładunek między urządzeniami i usługą DPS
+# <a name="how-to-transfer-payloads-between-devices-and-dps"></a>Jak transferować ładunki między urządzeniami i usługą DPS
 Czasami usługa DPS potrzebuje więcej danych z urządzeń, aby prawidłowo udostępnić je właściwym IoT Hub i że dane muszą być dostarczone przez urządzenie. Na odwrót usługa DPS może zwrócić dane do urządzenia w celu ułatwienia logiki po stronie klienta. 
 
 ## <a name="when-to-use-it"></a>Zastosowanie

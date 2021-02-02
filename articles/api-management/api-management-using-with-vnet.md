@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c63b71ad00a5621babe07597720a1e9ea87f1e4a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070970"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260252"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -117,7 +117,7 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 | */443                  | Wychodzący           | TCP                | VIRTUAL_NETWORK/magazyn             | **Zależność od usługi Azure Storage**                             | Wewnętrzna & zewnętrzna  |
 | */443                  | Wychodzący           | TCP                | VIRTUAL_NETWORK/usługi azureactivedirectory | [Azure Active Directory](api-management-howto-aad.md) i zależność magazynu kluczy platformy Azure                  | Wewnętrzna & zewnętrzna  |
 | */1433                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/SQL                 | **Dostęp do punktów końcowych usługi Azure SQL**                           | Wewnętrzna & zewnętrzna  |
-| */433                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Dostęp do magazynu kluczy platformy Azure**                           | Wewnętrzna & zewnętrzna  |
+| */443                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Dostęp do magazynu kluczy platformy Azure**                           | Wewnętrzna & zewnętrzna  |
 | */5671, 5672, 443          | Wychodzący           | TCP                | VIRTUAL_NETWORK/EventHub            | Zależność dla [dziennika do zasad usługi Event Hub](api-management-howto-log-event-hubs.md) i agenta monitorowania | Wewnętrzna & zewnętrzna  |
 | */445                      | Wychodzący           | TCP                | VIRTUAL_NETWORK/magazyn             | Zależność od udziału plików platformy Azure dla usługi [git](api-management-configuration-repository-git.md)                      | Wewnętrzna & zewnętrzna  |
 | */443, 12000                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Rozszerzenie kondycji i monitorowania         | Wewnętrzna & zewnętrzna  |
@@ -232,11 +232,11 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 | Azure — publiczna| Indie Zachodnie| 40.81.89.24|
 | Azure — publiczna| East US| 52.224.186.99|
 | Azure — publiczna| West Europe| 51.145.179.78|
-| Azure — publiczna| Japan East| 52.140.238.179|
+| Azure — publiczna| Japonia Wschodnia| 52.140.238.179|
 | Azure — publiczna| Francja Środkowa| 40.66.60.111|
 | Azure — publiczna| Kanada Wschodnia| 52.139.80.117|
 | Azure — publiczna| Północne Zjednoczone Emiraty Arabskie| 20.46.144.85|
-| Azure — publiczna| Brazil South| 191.233.24.179|
+| Azure — publiczna| Brazylia Południowa| 191.233.24.179|
 | Azure — publiczna| Brazylia Południowo-Wschodnia| 191.232.18.181|
 | Azure — publiczna| Southeast Asia| 40.90.185.46|
 | Azure — publiczna| Północna Republika Południowej Afryki| 102.133.130.197|

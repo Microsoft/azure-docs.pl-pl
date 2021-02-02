@@ -1017,7 +1017,7 @@
           items:
             - name: Interfejs wiersza polecenia platformy Azure
               href: ./linux/add-disk.md
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: ./linux/attach-disk-portal.md
         - name: Windows
           items:
@@ -1110,7 +1110,7 @@
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md'
             - name: Tworzenie migawki z dysku VHD
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md'
-- name: Sieć
+- name: Networking
   items:
     - name: Omówienie
       href: network-overview.md
@@ -1472,30 +1472,11 @@
     - name: Dane niestandardowe
       href: custom-data.md
     - name: Ansible
-      items:
-        - name: Instalowanie i konfigurowanie
-          href: /azure/developer/ansible/install-on-linux-vm
-        - name: Tworzenie maszyny wirtualnej z systemem Linux
-          href: /azure/developer/ansible/vm-configure
-        - name: Zarządzanie maszyną wirtualną z systemem Linux
-          href: /azure/developer/ansible/vm-manage
+      href: 'https://docs.microsoft.com/azure/developer/ansible/'
     - name: Terraform
-      items:
-        - name: Instalowanie i konfigurowanie
-          href: /azure/developer/terraform/install-configure
-        - name: Tworzenie pełnej maszyny wirtualnej
-          href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
+      href: 'https://docs.microsoft.com/azure/developer/terraform/'
     - name: Jenkins
-      href: /azure/developer/jenkins/overview
-      items:
-        - name: Tworzenie serwera Jenkins
-          href: /azure/developer/jenkins/configure-on-linux-vm
-        - name: Skalowanie przy użyciu agentów maszyn wirtualnych
-          href: /azure/developer/jenkins/scale-deployments-using-vm-agents
-        - name: Publikowanie artefaktów w usłudze Storage
-          href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
-        - name: Zabezpieczanie usługi Jenkins
-          href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
+      href: 'https://docs.microsoft.com/en-us/azure/developer/jenkins/'
     - name: Azure DevOps
       href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Rozwiązywanie problemów

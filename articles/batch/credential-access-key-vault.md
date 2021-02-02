@@ -1,17 +1,17 @@
 ---
-title: Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
+title: Korzystanie z certyfikatów i bezpiecznego dostępu Azure Key Vault przy użyciu programu Batch
 description: Dowiedz się, jak programowo uzyskać dostęp do poświadczeń z Key Vault przy użyciu Azure Batch.
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b8b3d2655e79862c068aa48c29c7e89b7df85482
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: eaaeaa05caca7897eb649b56504b643038f08d53
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350691"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260133"
 ---
-# <a name="securely-access-key-vault-with-batch"></a>Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
+# <a name="use-certificates-and-securely-access-azure-key-vault-with-batch"></a>Korzystanie z certyfikatów i bezpiecznego dostępu Azure Key Vault przy użyciu programu Batch
 
 W tym artykule dowiesz się, jak skonfigurować węzły wsadowe pod kątem bezpiecznego dostępu do poświadczeń przechowywanych w [Azure Key Vault](../key-vault/general/overview.md). Nie ma żadnego punktu podczas umieszczania poświadczeń administratora w Key Vault, a następnie do uzyskiwania dostępu do Key Vault ze skryptu. Rozwiązanie polega na użyciu certyfikatu, który przyznaje węzłom partii dostęp do Key Vault.
 

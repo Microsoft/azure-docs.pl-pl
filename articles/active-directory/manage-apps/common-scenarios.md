@@ -3,7 +3,7 @@ title: Typowe scenariusze zarządzania aplikacjami dla Azure Active Directory | 
 description: Scentralizowanie zarządzania aplikacjami za pomocą usługi Azure AD
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 882770fefbb48524ad5f11a56089132b319470aa
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 6372407a5deebefab60e09a9d0c01d977157357b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053350"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259574"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Scentralizowanie zarządzania aplikacjami za pomocą usługi Azure AD
 

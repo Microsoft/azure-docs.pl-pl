@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4ad619fa5f0fb8f8e87333f2681727dabedda42b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605154"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427339"
 ---
 W tej sekcji opisano, jak utworzyć centrum IoT przy użyciu witryny [Azure Portal](https://portal.azure.com).
 
@@ -35,17 +35,17 @@ W tej sekcji opisano, jak utworzyć centrum IoT przy użyciu witryny [Azure Port
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Tworzenie centrum w Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Utwórz centrum w Azure Portal.":::
 
 1. Wybierz pozycję **Dalej: sieć** , aby kontynuować tworzenie centrum.
 
    Wybierz punkty końcowe, które mogą łączyć się z IoT Hub. Można wybrać ustawienie domyślne **publiczny punkt końcowy (wszystkie sieci)** lub wybrać **publiczny punkt końcowy (wybrane zakresy adresów IP)** lub **prywatny punkt końcowy**. Zaakceptuj domyślne ustawienie tego przykładu.
 
-   ![Wybierz punkty końcowe, które mogą się łączyć](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Wybierz punkty końcowe, które mogą nawiązać połączenie.":::
 
 1. Wybierz pozycję **Dalej: Zarządzanie** , aby kontynuować tworzenie centrum.
 
-    ![Ustawianie rozmiaru i skali nowego centrum przy użyciu Azure Portal](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management-screen.png" alt-text="Ustaw rozmiar i skalę nowego centrum przy użyciu Azure Portal.":::
 
     W tym miejscu możesz zaakceptować ustawienia domyślne. W razie potrzeby można zmodyfikować dowolne z następujących pól:
 
@@ -60,14 +60,14 @@ W tej sekcji opisano, jak utworzyć centrum IoT przy użyciu witryny [Azure Port
 
     - **Ustawienia zaawansowane**  >  **Partycje między urządzeniami a chmurą**: Ta właściwość wiąże komunikaty z urządzenia z chmurą z liczbą jednoczesnych czytników komunikatów. Większość centrów potrzebuje tylko czterech partycji.
 
-1.  Wybierz pozycję **Dalej: Tagi** , aby przejść do następnego ekranu.
+1. Wybierz pozycję **Dalej: Tagi** , aby przejść do następnego ekranu.
 
     Tagi to pary nazwa/wartość. Można przypisać ten sam tag do wielu zasobów i grup zasobów, aby klasyfikować zasoby i konsolidować rozliczenia. Aby uzyskać więcej informacji, zobacz [Używanie tagów do organizowania zasobów platformy Azure](../articles/azure-resource-manager/management/tag-resources.md).
 
-    ![Przypisywanie tagów dla centrum przy użyciu Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Przypisz Tagi dla centrum przy użyciu Azure Portal.":::
 
-1.  Wybierz pozycję **Dalej: Przejrzyj i Utwórz** , aby przejrzeć wybrane opcje. Zobaczysz coś podobnego do tego ekranu, ale z wartościami wybranymi podczas tworzenia centrum. 
+1. Wybierz pozycję **Dalej: Przejrzyj i Utwórz** , aby przejrzeć wybrane opcje. Zobaczysz coś podobnego do tego ekranu, ale z wartościami wybranymi podczas tworzenia centrum.
 
-    ![Przejrzyj informacje dotyczące tworzenia nowego centrum](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Przejrzyj informacje dotyczące tworzenia nowego centrum.":::
 
-1.  Wybierz pozycję **Utwórz** , aby utworzyć nowe centrum. Utworzenie centrum zajmuje kilka minut.
+1. Wybierz pozycję **Utwórz** , aby utworzyć nowe centrum. Utworzenie centrum zajmuje kilka minut.

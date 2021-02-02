@@ -11,14 +11,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
+ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: cfa68bde2462cefd6f690247cfd1e3bd2e3dbc74
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b90d703a44cf89961eb0dca02abb1b8ea9cff166
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489211"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259206"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowanie Azure NetApp Files na Red Hat Enterprise Linux
 
@@ -91,6 +91,7 @@ Przeczytaj najpierw następujące informacje i dokumenty SAP:
     - [Zainstaluj SAP HANA na Red Hat Enterprise Linux do użycia w Microsoft Azure.](https://access.redhat.com/solutions/3193782)
     - [Konfigurowanie SAP HANA skalowalności w poziomie klastra Pacemaker w przypadku systemu plików HANA w udziałach NFS](https://access.redhat.com/solutions/5156571)
 - [NetApp aplikacje SAP na Microsoft Azure przy użyciu Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
+- [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
 ## <a name="overview"></a>Omówienie
 
@@ -694,3 +695,10 @@ W tej sekcji opisano, jak można testować konfigurację.
     ```
 
    Zalecamy dokładne przetestowanie konfiguracji klastra SAP HANA, wykonując także testy opisane w [instalatorze SAP HANA replikacji systemu na RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
+
+## <a name="next-steps"></a>Następne kroki
+
+* [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP][planning-guide]
+* [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP][deployment-guide]
+* [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP][dbms-guide]
+* [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)

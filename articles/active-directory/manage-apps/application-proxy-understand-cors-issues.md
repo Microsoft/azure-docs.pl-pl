@@ -3,7 +3,7 @@ title: Zrozumienie i rozwiązywanie problemów dotyczących platformy Azure serw
 description: Zawiera informacje o funkcji CORS w usłudze Azure serwer proxy aplikacji usługi Azure AD i sposobach identyfikowania i rozwiązywania problemów z mechanizmem CORS.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b57fc7e3af99819c9b27b6bc796e501d1db02818
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651859"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259172"
 ---
-# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Zrozumienie i rozwiązywanie problemów serwer proxy aplikacji usługi Azure Active Directory CORS
+# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Zrozumienie i rozwiązywanie problemów z usługą Azure Active Directory i serwerem proxy aplikacji CORS
 
 [Współużytkowanie zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/) może czasami stwarzać wyzwania dla aplikacji i interfejsów API publikowanych za pomocą serwer proxy aplikacji usługi Azure Active Directory. W tym artykule omówiono zagadnienia i rozwiązania CORS serwer proxy aplikacji usługi Azure AD platformy Azure.
 
@@ -42,9 +42,9 @@ Zasady tego samego źródła uniemożliwiają aplikacjom uzyskiwanie dostępu do
 
 Problemy CORS można zidentyfikować za pomocą narzędzi debugowania przeglądarki:
 
-1. Uruchom przeglądarkę i przejdź do aplikacji sieci Web.
-1. Naciśnij klawisz **F12** , aby wyświetlić konsolę debugowania.
-1. Spróbuj odtworzyć transakcję i przejrzyj komunikat konsoli. Naruszenie mechanizmu CORS powoduje błąd konsoli dotyczącej źródła.
+1. Uruchom przeglądarkę i przejdź do aplikacji internetowej.
+1. Naciśnij klawisz **F12**, aby wyświetlić konsolę debugowania.
+1. Spróbuj odtworzyć transakcję i przejrzyj komunikat konsoli. Naruszenie mechanizmu CORS powoduje błąd konsoli dotyczący źródła.
 
 Na poniższym zrzucie ekranu, wybierając przycisk **Wypróbuj ten** komunikat o błędzie, że nie znaleziono protokołu https: \/ /corswebclient-contoso.msappproxy.NET w nagłówku Access-Control-Allow-Origin.
 
@@ -112,9 +112,9 @@ Możesz zmienić aplikację, aby obsługiwała mechanizm CORS poprzez dodanie na
 
 ### <a name="option-5-extend-the-lifetime-of-the-access-token"></a>Opcja 5: zwiększenie okresu istnienia tokenu dostępu
 
-Nie można rozwiązać niektórych problemów CORS, na przykład gdy aplikacja przekieruje się do *login.microsoftonline.com* w celu uwierzytelnienia, a token dostępu wygasa. Wywołanie CORS nie powiedzie się. Obejście tego scenariusza polega na przekroczeniu okresu istnienia tokenu dostępu, aby zapobiec jego wygaśnięciu podczas sesji użytkownika. Aby uzyskać więcej informacji o tym, jak to zrobić, zobacz [konfigurowalne okresy istnienia tokenu w usłudze Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
+Nie można rozwiązać niektórych problemów CORS, na przykład gdy aplikacja przekieruje się do *login.microsoftonline.com* w celu uwierzytelnienia, a token dostępu wygasa. W takim przypadku wywołanie CORS nie powiedzie się. Obejście w tym scenariuszu polega na wydłużeniu okresu istnienia tokenu dostępu, aby zapobiec jego wygaśnięciu podczas sesji użytkownika. Aby uzyskać więcej informacji o tym, jak to zrobić, zobacz [konfigurowalne okresy istnienia tokenu w usłudze Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Planowanie wdrożenia serwera proxy aplikacji usługi Azure AD](application-proxy-deployment-plan.md) 
 - [Dostęp zdalny do aplikacji lokalnych za serwer proxy aplikacji usługi Azure Active Directory](application-proxy.md)
