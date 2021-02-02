@@ -3,7 +3,7 @@ title: serwer proxy aplikacji usługi Azure Active Directory i Tableau | Microso
 description: Dowiedz się, jak za pomocą serwera proxy aplikacji usługi Azure Active Directory (Azure AD) zapewnić dostęp zdalny do wdrożenia usługi Tableau.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6df0a0bf21f4be824738d86ac6bdb3c75c9c3564
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6720a5ad963bc73e11ef7b46150e946521928c01
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764506"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258629"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>serwer proxy aplikacji usługi Azure Active Directory i Tableau 
 
@@ -66,7 +66,7 @@ Dla:
 
 6. Wybierz pozycję **Dodaj** w górnej części bloku. Aplikacja zostanie dodana i zostanie otwarte menu szybkiego startu. 
 
-7. W menu szybki Start wybierz pozycję **Przypisz użytkownika do testowania**i Dodaj co najmniej jednego użytkownika do aplikacji. Upewnij się, że to konto testowe ma dostęp do aplikacji lokalnej. 
+7. W menu szybki Start wybierz pozycję **Przypisz użytkownika do testowania** i Dodaj co najmniej jednego użytkownika do aplikacji. Upewnij się, że to konto testowe ma dostęp do aplikacji lokalnej. 
 
 8. Wybierz pozycję **Przypisz** , aby zapisać testowe przypisanie użytkownika. 
 

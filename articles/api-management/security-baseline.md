@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1825767d8140421d4f0e22f9ebfde42f8262da5e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8a572221ca8899c5e4f4cf76e4b89c995952a2f3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201080"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258561"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Podstawa zabezpieczeń platformy Azure dla API Management
 
@@ -90,15 +90,11 @@ Uwaga: Ta funkcja jest dostępna w warstwach Premium i Developer API Management.
 
 Uwaga: Ta funkcja jest dostępna w warstwach Premium i Developer API Management.
 
-Włącz Standard Azure DDoS Protection w sieci wirtualnej skojarzonej z wdrożeniem API Management, aby chronić przed atakami rozproszonymi typu "odmowa usługi" (DDoS).
-
 Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi adresami IP.
 
 * [Jak zintegrować API Management w wewnętrznej sieci wirtualnej z Application Gateway](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 * [Omówienie usługi Azure Application Gateway](../application-gateway/index.yml)
-
-* [Jak skonfigurować Azure DDoS Protection Standard](../ddos-protection/manage-ddos-protection.md)
 
 * [Opis Azure Security Center zintegrowanej analizy zagrożeń](../security-center/azure-defender.md)
 
@@ -184,8 +180,7 @@ Przestroga: podczas konfigurowania sieciowej grupy zabezpieczeń w podsieci API 
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla ustawień sieciowych związanych z wdrożeniami API Management platformy Azure. Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft. ApiManagement" i "Microsoft. Network", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji sieci dla wdrożeń API Management platformy Azure i powiązanych zasobów. Możesz również używać wbudowanych definicji zasad dla sieci wirtualnych platformy Azure, takich jak:
-- Należy włączyć Standard DDoS Protection
+**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla ustawień sieciowych związanych z wdrożeniami API Management platformy Azure. Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft. ApiManagement" i "Microsoft. Network", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji sieci dla wdrożeń API Management platformy Azure i powiązanych zasobów. 
 
 Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) na platformie Azure i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
 

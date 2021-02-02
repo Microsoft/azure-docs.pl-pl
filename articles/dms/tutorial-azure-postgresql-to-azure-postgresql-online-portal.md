@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 772fc9f21f36a1487e2e3a1acbe644f9fd12e0f4
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 545359cd68c18fea8bf1369a57226d024489f293
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563198"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258935"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Samouczek: Migrowanie/uaktualnianie usługi Azure DB dla PostgreSQL — jeden serwer do usługi Azure DB dla PostgreSQL — pojedynczy serwer online przy użyciu systemu DMS za pośrednictwem Azure Portal
 
 Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia [jednego serwera Azure Database for PostgreSQLgo](../postgresql/overview.md#azure-database-for-postgresql---single-server) do tej samej lub innej wersji Azure Database for PostgreSQL-pojedynczego wystąpienia serwera lub Azure Database for PostgreSQL-elastycznego serwera o minimalnym przestoju. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **najmu dysku DVD** z Azure Database for PostgreSQL v10 do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu działania migracji online w Azure Database Migration Service.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 >
 > * Migruj Przykładowy schemat przy użyciu narzędzia pg_dump.
@@ -54,7 +54,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * [Utwórz serwer Azure Database for PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) lub [Utwórz serwer Azure Database for PostgreSQL-Citus](../postgresql/quickstart-create-hyperscale-portal.md) jako docelowy serwer baz danych, aby zmigrować dane do programu.
 * Utwórz Microsoft Azure Virtual Network dla Azure Database Migration Service przy użyciu modelu wdrażania Azure Resource Manager. Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zapoznaj się z [dokumentacją Virtual Network](../virtual-network/index.yml), a w szczególności artykuły szybkiego startu z szczegółowymi szczegółami.
 
-* Upewnij się, że reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) dla sieci wirtualnej nie blokują następujących portów komunikacji przychodzącej do Azure Database Migration Service: 443, 53, 9354, 445, 12000. Aby uzyskać więcej szczegółów na temat filtrowania ruchu sieciowej grupy zabezpieczeń w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Upewnij się, że reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) dla sieci wirtualnej nie blokują następujących portów komunikacji wychodzącej, aby Azure Database Migration Service: 443, 53, 9354, 445, 12000. Aby uzyskać więcej szczegółów na temat filtrowania ruchu sieciowej grupy zabezpieczeń w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Utwórz [regułę zapory](../azure-sql/database/firewall-configure.md) na poziomie serwera dla źródła Azure Database for PostgreSQL, aby umożliwić Azure Database Migration Service dostęp do źródłowych baz danych. Podaj zakres podsieci sieci wirtualnej używanej na potrzeby Azure Database Migration Service.
 * Utwórz [regułę zapory](../azure-sql/database/firewall-configure.md) na poziomie serwera dla elementu docelowego Azure Database for PostgreSQL, aby umożliwić Azure Database Migration Service dostęp do docelowych baz danych. Podaj zakres podsieci sieci wirtualnej używanej na potrzeby Azure Database Migration Service.
 * [Włącz replikację logiczną](../postgresql/concepts-logical.md) w źródle usługi Azure DB for PostgreSQL. 

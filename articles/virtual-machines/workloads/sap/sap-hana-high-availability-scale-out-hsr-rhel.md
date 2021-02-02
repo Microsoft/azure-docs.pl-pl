@@ -14,14 +14,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: c97975d6920cd0f04a7d2d4e73c00104a2b13235
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6ce169eee4f931d02071a326c65ba94cfe723ae1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685616"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259037"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowalnego w poziomie systemu na Red Hat Enterprise Linux 
 
@@ -91,7 +91,7 @@ Przed rozpoczęciem zapoznaj się z następującymi informacjami i dokumentami S
   * [Red Hat Enterprise Linux rozwiązanie do SAP HANA Scale-Out i replikacji systemu](https://access.redhat.com/solutions/4386601)
 * [NetApp aplikacje SAP na Microsoft Azure przy użyciu Azure NetApp Files][anf-sap-applications-azure]
 * [Dokumentacja Azure NetApp Files][anf-azure-doc] 
-
+* [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
 ## <a name="overview"></a>Omówienie
 
@@ -1172,4 +1172,5 @@ Zalecamy gruntowną przetestowanie konfiguracji klastra SAP HANA, wykonując tak
 * [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP][planning-guide]
 * [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP][deployment-guide]
 * [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP][dbms-guide]
+* [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 * Aby dowiedzieć się, jak zapewnić wysoką dostępność i zaplanować odzyskiwanie po awarii SAP HANA na maszynach wirtualnych platformy Azure, zobacz [wysoka dostępność SAP HANA na platformie azure Virtual Machines][sap-hana-ha].

@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 8c3c1d28a7fbb3e3c9c449feb03a75d48178b718
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fdefcabdda64402610f115832976ec9f7af81b80
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609041"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258833"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Znane problemy/ograniczenia migracji z migracją online z PostgreSQL do usługi Azure DB dla PostgreSQL
 
@@ -123,3 +123,4 @@ Podczas próby przeprowadzenia migracji w trybie online z AWS RDS PostgreSQL do 
 - Migracja wielu tabel o takiej samej nazwie, ale innym przypadku (np. Tabela1, TABELA1 i Tabela1) może spowodować nieprzewidywalne zachowanie i dlatego nie jest obsługiwana.
 - Przetwarzanie zmian [CREATE | ZMIEŃ | UPUŚĆ | Truncate] tabela DDLs nie jest obsługiwana.
 - W Azure Database Migration Service pojedyncze działanie migracji może obsługiwać maksymalnie cztery bazy danych.
+- Migracja tabeli pg_largeobject nie jest obsługiwana. 

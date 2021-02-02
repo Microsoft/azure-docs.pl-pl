@@ -118,9 +118,8 @@
         - name: Usługa Azure AD z zarządzaniem usługą Batch
           href: batch-aad-auth-management.md
         - name: Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
+          displayName: 'credential, certificate'
           href: credential-access-key-vault.md
-        - name: Używanie certyfikatów z usługą Batch
-          href: batch-certificates.md
     - name: Kopiowanie plików i aplikacji do węzłów puli
       items:
         - name: Kopiowanie aplikacji i danych do węzłów puli

@@ -3,7 +3,7 @@ title: Przykład programu PowerShell — rozszerzone informacje dotyczące aplik
 description: Przykład programu PowerShell, który wyświetla listę wszystkich aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD) wraz z IDENTYFIKATORem aplikacji (AppId), nazwą (DisplayName), zewnętrznym adresem URL (ExternalUrl), wewnętrznym adresem URL (InternalUrl) i typem uwierzytelniania (ExternalAuthenticationType).
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 62dae175b529bd54b2f139eece89bbde6f98cd38
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ccd0c7be7fd0dd533028faa0dc2bbdad30d74c79
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055012"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258714"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Pobierz wszystkie aplikacje serwera proxy aplikacji i Wyświetl informacje rozszerzone
 

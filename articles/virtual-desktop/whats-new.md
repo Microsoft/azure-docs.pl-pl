@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 56013a51937915cc240e2bd0ec26342c24c79807
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095910"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258799"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -38,7 +38,7 @@ Zapoznaj się z tymi artykułami, aby dowiedzieć się więcej o aktualizacjach 
 
 ## <a name="fslogix-updates"></a>Aktualizacje FSLogix
 
-Chcesz wiedzieć o najnowszych aktualizacjach dla FSLogix? Zapoznaj się z [nowościami w witrynie FSLogix](/fslogix/whats-new.md).
+Chcesz wiedzieć o najnowszych aktualizacjach dla FSLogix? Zapoznaj się z [nowościami w witrynie FSLogix](/fslogix/whats-new).
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
@@ -248,7 +248,7 @@ Aby dowiedzieć się więcej o nowych funkcjach, zapoznaj się z [wpisem w blogu
 
 Najnowsza wersja narzędzia skalowania automatycznego, która była w wersji zapoznawczej, jest teraz ogólnie dostępna. To narzędzie używa konta usługi Azure Automation i aplikacji logiki platformy Azure, aby automatycznie zamykać i ponownie uruchamiać maszyny wirtualne hosta sesji (VM) w puli hostów, zmniejszając koszty związane z infrastrukturą. Dowiedz się więcej na temat [skalowania hostów sesji przy użyciu Azure Automation](set-up-scaling-script.md).
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Teraz można wykonać następujące czynności w Azure Portal na pulpicie wirtualnym systemu Windows: 
 

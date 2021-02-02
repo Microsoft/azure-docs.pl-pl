@@ -4,7 +4,7 @@ description: Jak publikować lokalne aplikacje ASP.NET, które akceptują oświa
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c840722ae6b03a0b8a7fa44e5999e14730d4f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b90c2d47e70a4f7595ac535d5f8ba9506087eb72
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997600"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258528"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Praca z aplikacjami obsługującymi oświadczenia w serwerze proxy aplikacji
 [Aplikacje obsługujące oświadczenia](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) wykonują przekierowanie do usługi tokenu zabezpieczającego (STS). Usługa STS żąda poświadczeń od użytkownika w programie Exchange dla tokenu, a następnie przekierowuje użytkownika do aplikacji. Istnieje kilka sposobów włączania serwera proxy aplikacji do pracy z tymi przekierowaniami. Ten artykuł służy do konfigurowania wdrożenia aplikacji obsługujących oświadczenia. 

@@ -3,7 +3,7 @@ title: Dostęp do lokalnych interfejsów API za pomocą usługi Azure serwer pro
 description: Serwer proxy aplikacji Azure Active Directory pozwala natywnym aplikacjom bezpiecznie uzyskać dostęp do interfejsów API i logiki biznesowej, które są hostowane lokalnie lub na maszynach wirtualnych w chmurze.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: eaa4a8f92809dcf44969958573231ad37d908daa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9341646f32f6a2e05397b072d3f63186964fbd88
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835701"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258986"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Bezpieczny dostęp do lokalnych interfejsów API przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -77,7 +77,7 @@ Aby opublikować interfejs API sieci Web SecretAPI za pomocą serwera proxy apli
 
 1. Na stronie **SecretAPI — przegląd** wybierz pozycję **Właściwości** w okienku nawigacji po lewej stronie.
 
-1. Nie chcesz, aby interfejsy API były dostępne dla użytkowników końcowych w panelu Moje **aplikacje** , więc ustawione **dla użytkowników jako widoczne** w dolnej części strony **Właściwości** , a następnie wybierz pozycję **Zapisz**. **No**
+1. Nie chcesz, aby interfejsy API były dostępne dla użytkowników końcowych w panelu Moje **aplikacje** , więc ustawione **dla użytkowników jako widoczne** w dolnej części strony **Właściwości** , a następnie wybierz pozycję **Zapisz**. 
 
    ![Niewidoczne dla użytkowników](./media/application-proxy-secure-api-access/5-not-visible-to-users.png)
 

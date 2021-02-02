@@ -3,12 +3,12 @@ title: Wskazówki i najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092311"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258765"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 
@@ -66,16 +66,16 @@ Ponieważ magazyn jest objęty zakresem subskrypcji, Dopasuj projekt magazynu, a
 
 ### <a name="single-or-multiple-vault"></a>Jeden lub wiele magazynów
 
-Za pomocą jednego magazynu lub wielu magazynów można organizować kopie zapasowe i zarządzać nimi. Należy wziąć pod uwagę następujące wytyczne:
+Za pomocą jednego magazynu lub wielu magazynów można organizować kopie zapasowe i zarządzać nimi. Należy uwzględnić następujące wytyczne:
 
 * Jeśli Twoje obciążenia są zarządzane przez pojedynczą subskrypcję i pojedynczy zasób, można użyć jednego magazynu do monitorowania i zarządzania zapasami kopii.
 
 * Jeśli Twoje obciążenia są rozłożone między subskrypcjami, możesz utworzyć wiele magazynów, co najmniej jedną subskrypcję.
-  * Centrum kopii zapasowych umożliwia korzystanie z jednego okienka Glass do zarządzania wszystkimi zadaniami związanymi z tworzeniem kopii zapasowych. [Dowiedz się więcej tutaj]().
-  * Widoki można dostosować za pomocą szablonów skoroszytów. Eksplorator kopii zapasowych jest jednym z takich szablonów dla maszyn wirtualnych platformy Azure. [Dowiedz się więcej tutaj](monitor-azure-backup-with-backup-explorer.md).
-  * Jeśli potrzebujesz spójnych zasad w różnych magazynach, możesz użyć usługi Azure Policy do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Można napisać niestandardową [definicję Azure Policy](../governance/policy/concepts/definition-structure.md) , która używa efektu ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Można [przypisać](../governance/policy/assign-policy-portal.md) tę Azure Policy definicję do określonego zakresu (subskrypcja lub RG), tak aby wdrażał zasób "zasady kopii zapasowych" do wszystkich magazynów Recovery Services w zakresie przypisania Azure Policy. Ustawienia zasad tworzenia kopii zapasowych (takie jak częstotliwość tworzenia kopii zapasowych, przechowywanie i tak dalej) powinny zostać określone przez użytkownika jako parametry w przypisaniu Azure Policy.
+  * Centrum kopii zapasowych umożliwia korzystanie z jednego okienka Glass do zarządzania wszystkimi zadaniami związanymi z tworzeniem kopii zapasowych. [Więcej informacji można znaleźć tutaj]().
+  * Widoki można dostosować za pomocą szablonów skoroszytów. Eksplorator kopii zapasowych jest jednym z takich szablonów dla maszyn wirtualnych platformy Azure. [Więcej informacji można znaleźć tutaj](monitor-azure-backup-with-backup-explorer.md).
+  * Jeśli potrzebujesz spójnych zasad w różnych magazynach, możesz użyć usługi Azure Policy do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Można napisać niestandardową [definicję Azure Policy](../governance/policy/concepts/definition-structure.md) , która używa efektu ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Tę definicję Azure Policy można także [przypisać](../governance/policy/assign-policy-portal.md) do określonego zakresu (subskrypcja lub RG), tak aby wdrażał zasób "zasady kopii zapasowych" do wszystkich magazynów Recovery Services w zakresie przypisania Azure Policy. Ustawienia zasad tworzenia kopii zapasowych (takie jak częstotliwość tworzenia kopii zapasowych, przechowywanie i tak dalej) powinny zostać określone przez użytkownika jako parametry w przypisaniu Azure Policy.
 
-* W miarę rozwoju Twojej organizacji można przenieść obciążenia między subskrypcjami z następujących powodów: Wyrównaj według zasad tworzenia kopii zapasowej, Konsoliduj magazyny, a także Obniż poziom nadmiarowości, aby zaoszczędzić koszt (przechodzenie od GRS do LRS).  Azure Backup obsługuje przeniesienie magazynu Recovery Services między subskrypcjami platformy Azure lub inną grupą zasobów w ramach tej samej subskrypcji. [Dowiedz się więcej tutaj](backup-azure-move-recovery-services-vault.md).
+* W miarę rozwoju Twojej organizacji można przenieść obciążenia między subskrypcjami z następujących powodów: Wyrównaj według zasad tworzenia kopii zapasowej, Konsoliduj magazyny, a także Obniż poziom nadmiarowości, aby zaoszczędzić koszt (przechodzenie od GRS do LRS).  Azure Backup obsługuje przeniesienie magazynu Recovery Services między subskrypcjami platformy Azure lub inną grupą zasobów w ramach tej samej subskrypcji. [Więcej informacji można znaleźć tutaj](backup-azure-move-recovery-services-vault.md).
 
 ### <a name="review-default-settings"></a>Przejrzyj ustawienia domyślne
 
@@ -85,13 +85,13 @@ Przed skonfigurowaniem kopii zapasowych w magazynie Sprawdź ustawienia domyśln
 
 * Funkcja *usuwania nietrwałego* jest włączana domyślnie dla nowo utworzonych magazynów w celu ochrony danych kopii zapasowej przed przypadkowym lub złośliwym usunięciem. Wykonaj [następujące](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) kroki, aby przejrzeć i zmodyfikować ustawienia.
 
-* *Przywracanie między regionami* umożliwia przywracanie maszyn wirtualnych platformy Azure w regionie pomocniczym, który jest sparowanym regionem platformy Azure. Ta opcja umożliwia przechodzenie do szczegółów w celu spełnienia wymagań dotyczących inspekcji lub zgodności oraz przywrócenie maszyny wirtualnej lub jej dysku w przypadku awarii w regionie podstawowym. CRR to funkcja opcjonalna dla dowolnego magazynu GRS. [Dowiedz się więcej tutaj](backup-create-rs-vault.md#set-cross-region-restore).
+* *Przywracanie między regionami* umożliwia przywracanie maszyn wirtualnych platformy Azure w regionie pomocniczym, który jest sparowanym regionem platformy Azure. Ta opcja umożliwia przechodzenie do szczegółów w celu spełnienia wymagań dotyczących inspekcji lub zgodności oraz przywrócenie maszyny wirtualnej lub jej dysku w przypadku awarii w regionie podstawowym. CRR to funkcja opcjonalna dla dowolnego magazynu GRS. [Więcej informacji można znaleźć tutaj](backup-create-rs-vault.md#set-cross-region-restore).
 
 * Przed zakończeniem projektowania magazynu Przejrzyj [macierze obsługi magazynu](backup-support-matrix.md#vault-support) , aby poznać czynniki, które mogą mieć wpływ na lub ograniczyć wybór projektu.
 
 ## <a name="backup-policy-considerations"></a>Zagadnienia dotyczące zasad tworzenia kopii zapasowych
 
-Zasada Azure Backup ma dwa składniki: *Schedule* (Kiedy należy wykonać kopię zapasową) i *przechowywanie* (jak długo ma być przechowywana kopia zapasowa). Zasady można definiować na podstawie typu danych, których kopia zapasowa jest tworzona, wymagania RTO/RPO, potrzeby operacyjne lub prawne oraz typ obciążenia (na przykład maszyna wirtualna, baza danych, pliki). [Dowiedz się więcej tutaj](backup-architecture.md#backup-policy-essentials).
+Zasada Azure Backup ma dwa składniki: *Schedule* (Kiedy należy wykonać kopię zapasową) i *przechowywanie* (jak długo ma być przechowywana kopia zapasowa). Zasady można definiować na podstawie typu danych, których kopia zapasowa jest tworzona, wymagania RTO/RPO, potrzeby operacyjne lub prawne oraz typ obciążenia (na przykład maszyna wirtualna, baza danych, pliki). [Więcej informacji można znaleźć tutaj](backup-architecture.md#backup-policy-essentials).
 
 Podczas tworzenia zasad tworzenia kopii zapasowych należy wziąć pod uwagę następujące wytyczne:
 
@@ -130,7 +130,7 @@ Podczas tworzenia zasad tworzenia kopii zapasowych należy wziąć pod uwagę na
   * Zasady tworzenia kopii zapasowych są objęte zakresem magazynu.
   * Istnieje limit liczby elementów na zasady (na przykład maszyny wirtualne 100). Aby skalować, można utworzyć zduplikowane zasady z takimi samymi lub różnymi harmonogramami.
   * Nie można selektywnie usunąć określonych punktów odzyskiwania.
-  * Nie można całkowicie wyłączyć zaplanowanej kopii zapasowej i zachować źródła danych w stanie chronionym. Co najmniej częste kopie zapasowe, które można skonfigurować za pomocą zasad, mają mieć jedną cotygodniową zaplanowaną kopię zapasową. Alternatywą jest zatrzymanie ochrony z zachowaniem danych i włączenie ochrony za każdym razem, gdy chcesz utworzyć kopię zapasową, wykonać kopię zapasową na żądanie, a następnie wyłączyć ochronę, ale zachować dane kopii zapasowej. [Dowiedz się więcej tutaj](backup-azure-manage-vms.md#stop-protecting-a-vm).
+  * Nie można całkowicie wyłączyć zaplanowanej kopii zapasowej i zachować źródła danych w stanie chronionym. Co najmniej częste kopie zapasowe, które można skonfigurować za pomocą zasad, mają mieć jedną cotygodniową zaplanowaną kopię zapasową. Alternatywą jest zatrzymanie ochrony z zachowaniem danych i włączenie ochrony za każdym razem, gdy chcesz utworzyć kopię zapasową, wykonać kopię zapasową na żądanie, a następnie wyłączyć ochronę, ale zachować dane kopii zapasowej. [Więcej informacji można znaleźć tutaj](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
@@ -138,9 +138,9 @@ Aby pomóc w ochronie danych kopii zapasowych i spełnieniu potrzeb związanych 
 
 ### <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
 
-* Kontrola dostępu oparta na rolach na platformie Azure (RBAC) umożliwia precyzyjne zarządzanie dostępem, segregowanie obowiązków w zespole i udzielanie dostępu tylko użytkownikom potrzebnym do wykonywania swoich zadań. [Dowiedz się więcej tutaj](backup-rbac-rs-vault.md).
+* Kontrola dostępu oparta na rolach na platformie Azure (RBAC) umożliwia precyzyjne zarządzanie dostępem, segregowanie obowiązków w zespole i udzielanie dostępu tylko użytkownikom potrzebnym do wykonywania swoich zadań. [Więcej informacji można znaleźć tutaj](backup-rbac-rs-vault.md).
 
-* Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządzania kopiami zapasowymi: Współautorzy, operatorzy i czytelnicy kopii zapasowych. [Dowiedz się więcej tutaj](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions).
+* Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządzania kopiami zapasowymi: Współautorzy, operatorzy i czytelnicy kopii zapasowych. [Więcej informacji można znaleźć tutaj](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions).
 
 * Azure Backup ma kilka kontrolek zabezpieczeń wbudowanych w usługę, aby zapobiec wykryciu luk w zabezpieczeniach, wykrywać je i reagować na nie (Dowiedz się więcej)
 
@@ -154,23 +154,23 @@ Szyfrowanie chroni dane i pomaga sprostać wymaganiom dotyczącym zabezpieczeń 
 
 * Dane kopii zapasowej są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Alternatywnie możesz użyć własnych kluczy, nazywanych również [kluczami zarządzanymi przez klienta](encryption-at-rest-with-cmk.md).
 
-* Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych platformy Azure, w których dyski systemu operacyjnego/danych są szyfrowane za pomocą Azure Disk Encryption (ADE). [Dowiedz się więcej tutaj](backup-azure-vms-encryption.md).
+* Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych platformy Azure, w których dyski systemu operacyjnego/danych są szyfrowane za pomocą Azure Disk Encryption (ADE). [Więcej informacji można znaleźć tutaj](backup-azure-vms-encryption.md).
 
 ### <a name="protection-of-backup-data-from-unintentional-deletes"></a>Ochrona danych kopii zapasowej przed przypadkowym usunięciem
 
-Azure Backup zapewnia funkcje zabezpieczeń chroniące dane kopii zapasowej nawet po usunięciu. W przypadku usuwania nietrwałego, jeśli użytkownik usunie kopię zapasową (maszyny wirtualnej, SQL Server bazę danych, udział plików platformy Azure, baza danych SAP HANA), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, co pozwala na odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z pozostałymi kosztami. [Dowiedz się więcej tutaj](backup-azure-security-feature-cloud.md).
+Azure Backup zapewnia funkcje zabezpieczeń chroniące dane kopii zapasowej nawet po usunięciu. W przypadku usuwania nietrwałego, jeśli użytkownik usunie kopię zapasową (maszyny wirtualnej, SQL Server bazę danych, udział plików platformy Azure, baza danych SAP HANA), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, co pozwala na odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z pozostałymi kosztami. [Więcej informacji można znaleźć tutaj](backup-azure-security-feature-cloud.md).
 
 ### <a name="monitoring-and-alerts-of-suspicious-activity"></a>Monitorowanie i alerty podejrzanych działań
 
-Azure Backup udostępnia wbudowane funkcje monitorowania i alertów umożliwiające wyświetlanie i Konfigurowanie akcji dla zdarzeń związanych z Azure Backup. [Dowiedz się więcej tutaj](security-overview.md#monitoring-and-alerts-of-suspicious-activity).
+Azure Backup udostępnia wbudowane funkcje monitorowania i alertów umożliwiające wyświetlanie i Konfigurowanie akcji dla zdarzeń związanych z Azure Backup. [Więcej informacji można znaleźć tutaj](security-overview.md#monitoring-and-alerts-of-suspicious-activity).
 
 ### <a name="security-features-to-help-protect-hybrid-backups"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe
 
-Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych i przywracania plików, folderów oraz stanu woluminu lub systemu z komputera lokalnego na platformę Azure. Usługa MARS udostępnia teraz funkcje zabezpieczeń: hasło do szyfrowania przed przekazaniem i odszyfrowaniem po pobraniu z Azure Backup usunięte dane kopii zapasowej są przechowywane przez dodatkowe 14 dni od daty usunięcia, a operacja krytyczna (np. Zmiana hasła może być wykonywana tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure. [Dowiedz się więcej tutaj](backup-azure-security-feature.md).
+Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych i przywracania plików, folderów oraz stanu woluminu lub systemu z komputera lokalnego na platformę Azure. Usługa MARS udostępnia teraz funkcje zabezpieczeń: hasło do szyfrowania przed przekazaniem i odszyfrowaniem po pobraniu z Azure Backup usunięte dane kopii zapasowej są przechowywane przez dodatkowe 14 dni od daty usunięcia, a operacja krytyczna (np. Zmiana hasła może być wykonywana tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure. [Więcej informacji można znaleźć tutaj](backup-azure-security-feature.md).
 
 ## <a name="network-considerations"></a>Kwestie dotyczące sieci
 
-Azure Backup wymaga przenoszenia danych z obciążenia do magazynu Recovery Services. Azure Backup zapewnia kilka funkcji ochrony danych kopii zapasowej przed przypadkowym ujawnieniem (na przykład ataku typu man-in-the-Middle w sieci). Należy wziąć pod uwagę następujące wytyczne:
+Azure Backup wymaga przenoszenia danych z obciążenia do magazynu Recovery Services. Azure Backup zapewnia kilka funkcji ochrony danych kopii zapasowej przed przypadkowym ujawnieniem (na przykład ataku typu man-in-the-Middle w sieci). Należy uwzględnić następujące wytyczne:
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
@@ -184,7 +184,7 @@ Azure Backup wymaga przenoszenia danych z obciążenia do magazynu Recovery Serv
 
 [Prywatny punkt końcowy](../private-link/private-endpoint-overview.md) platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Azure Backup pozwala na bezpieczne wykonywanie kopii zapasowych i przywracanie danych z magazynów Recovery Services przy użyciu prywatnych punktów końcowych.
 
-* Po włączeniu prywatnych punktów końcowych dla magazynu są one używane tylko na potrzeby tworzenia kopii zapasowych i przywracania danych SQL i SAP HANA obciążeń na maszynach wirtualnych platformy Azure i w ramach kopii zapasowych agenta MARS.  Magazyn można również używać do tworzenia kopii zapasowych innych obciążeń (nie wymagają jednak prywatnych punktów końcowych). Oprócz wykonywania kopii zapasowych obciążeń SQL i SAP HANA oraz tworzenia kopii zapasowych przy użyciu agenta MARS prywatne punkty końcowe są również używane do odzyskiwania plików w przypadku tworzenia kopii zapasowych maszyny wirtualnej platformy Azure. [Dowiedz się więcej tutaj](private-endpoints.md#recommended-and-supported-scenarios).
+* Po włączeniu prywatnych punktów końcowych dla magazynu są one używane tylko na potrzeby tworzenia kopii zapasowych i przywracania danych SQL i SAP HANA obciążeń na maszynach wirtualnych platformy Azure i w ramach kopii zapasowych agenta MARS.  Magazyn można również używać do tworzenia kopii zapasowych innych obciążeń (nie wymagają jednak prywatnych punktów końcowych). Oprócz wykonywania kopii zapasowych obciążeń SQL i SAP HANA oraz tworzenia kopii zapasowych przy użyciu agenta MARS prywatne punkty końcowe są również używane do odzyskiwania plików w przypadku tworzenia kopii zapasowych maszyny wirtualnej platformy Azure. [Więcej informacji można znaleźć tutaj](private-endpoints.md#recommended-and-supported-scenarios).
 
 * Azure Active Directory nie obsługuje obecnie prywatnych punktów końcowych. W związku z tym adresy IP i nazwy FQDN wymagane dla Azure Active Directory muszą mieć dozwolony dostęp wychodzący z zabezpieczonej sieci podczas wykonywania kopii zapasowej baz danych na maszynach wirtualnych platformy Azure i kopii zapasowej przy użyciu agenta MARS. Możesz również użyć tagów sieciowej grupy zabezpieczeń i tagów zapory platformy Azure, aby umożliwić dostęp do usługi Azure AD, zgodnie z wymaganiami. Więcej informacji o [wymaganiach wstępnych znajdziesz tutaj](./private-endpoints.md#before-you-start).
 
@@ -194,13 +194,13 @@ Zarządzanie na platformie Azure jest implementowane głównie przy użyciu [Azu
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Azure Backup obsługiwać dwa kluczowe scenariusze za pośrednictwem wbudowanego Azure Policy
 
-* Upewnij się, że nowo utworzone maszyny o krytycznym znaczeniu dla firmy są tworzone automatycznie przy użyciu odpowiednich ustawień przechowywania. Azure Backup udostępnia wbudowane zasady (przy użyciu Azure Policy), które można przypisać do wszystkich maszyn wirtualnych platformy Azure w określonej lokalizacji w ramach subskrypcji lub grupy zasobów. Gdy te zasady są przypisane do danego zakresu, wszystkie nowe maszyny wirtualne utworzone w tym zakresie są automatycznie konfigurowane na potrzeby tworzenia kopii zapasowych w istniejącym magazynie w tej samej lokalizacji i subskrypcji. Użytkownik może określić magazyn i zasady przechowywania, do których mają być skojarzone maszyny wirtualne z kopią zapasową. [Dowiedz się więcej tutaj](backup-azure-auto-enable-backup.md).
+* Upewnij się, że nowo utworzone maszyny o krytycznym znaczeniu dla firmy są tworzone automatycznie przy użyciu odpowiednich ustawień przechowywania. Azure Backup udostępnia wbudowane zasady (przy użyciu Azure Policy), które można przypisać do wszystkich maszyn wirtualnych platformy Azure w określonej lokalizacji w ramach subskrypcji lub grupy zasobów. Gdy te zasady są przypisane do danego zakresu, wszystkie nowe maszyny wirtualne utworzone w tym zakresie są automatycznie konfigurowane na potrzeby tworzenia kopii zapasowych w istniejącym magazynie w tej samej lokalizacji i subskrypcji. Użytkownik może określić magazyn i zasady przechowywania, do których mają być skojarzone maszyny wirtualne z kopią zapasową. [Więcej informacji można znaleźć tutaj](backup-azure-auto-enable-backup.md).
 
-* Upewnij się, że nowo utworzone magazyny mają włączoną diagnostykę do obsługi raportów. Często dodanie ustawień diagnostycznych ręcznie dla magazynu może być skomplikowanym zadaniem. Ponadto każdy utworzony nowy magazyn musi mieć włączone ustawienia diagnostyczne, aby można było wyświetlać raporty dla tego magazynu. Aby uprościć tworzenie ustawień diagnostycznych na dużą skalę (z Log Analytics jako miejsce docelowe), Azure Backup udostępnia wbudowaną Azure Policy. Ta zasada dodaje ustawienie diagnostyki LA do wszystkich magazynów w każdej subskrypcji lub grupie zasobów. Poniższe sekcje zawierają instrukcje dotyczące korzystania z tych zasad. [Dowiedz się więcej tutaj](azure-policy-configure-diagnostics.md).
+* Upewnij się, że nowo utworzone magazyny mają włączoną diagnostykę do obsługi raportów. Często dodanie ustawień diagnostycznych ręcznie dla magazynu może być skomplikowanym zadaniem. Ponadto każdy utworzony nowy magazyn musi mieć włączone ustawienia diagnostyczne, aby można było wyświetlać raporty dla tego magazynu. Aby uprościć tworzenie ustawień diagnostycznych na dużą skalę (z Log Analytics jako miejsce docelowe), Azure Backup udostępnia wbudowaną Azure Policy. Ta zasada dodaje ustawienie diagnostyki LA do wszystkich magazynów w każdej subskrypcji lub grupie zasobów. Poniższe sekcje zawierają instrukcje dotyczące korzystania z tych zasad. [Więcej informacji można znaleźć tutaj](azure-policy-configure-diagnostics.md).
 
 ### <a name="azure-backup-cost-considerations"></a>Azure Backup zagadnienia dotyczące kosztów
 
-Możliwości usługi Azure Backup oferują elastyczność w skutecznym zarządzaniu kosztami i nadal spełniają wymagania biznesowe BCDR (ciągłość działania i odzyskiwanie po awarii). Należy wziąć pod uwagę następujące wytyczne:
+Możliwości usługi Azure Backup oferują elastyczność w skutecznym zarządzaniu kosztami i nadal spełniają wymagania biznesowe BCDR (ciągłość działania i odzyskiwanie po awarii). Należy uwzględnić następujące wytyczne:
 
 * Za pomocą kalkulatora cen można oceniać i optymalizować koszt, dostosowując różne dźwignie. [Dowiedz się więcej tutaj](azure-backup-pricing.md)
 
@@ -213,7 +213,7 @@ Możliwości usługi Azure Backup oferują elastyczność w skutecznym zarządza
 
 * Selektywne dyski kopii zapasowej: wykluczanie dysku (funkcja w wersji zapoznawczej) zapewnia wydajne i ekonomiczne rozwiązanie umożliwiające wybiórcze wykonywanie kopii zapasowych kluczowych danych. Na przykład utwórz kopię zapasową tylko jednego dysku, gdy nie chcesz tworzyć kopii zapasowej reszty dysków dołączonych do maszyny wirtualnej. Jest to przydatne również w przypadku wielu rozwiązań do tworzenia kopii zapasowych. Na przykład podczas tworzenia kopii zapasowej baz danych lub danych za pomocą rozwiązania do tworzenia kopii zapasowych obciążenia (SQL Server Database w kopii zapasowej maszyny wirtualnej platformy Azure) i chcesz użyć kopii zapasowej na poziomie maszyny wirtualnej platformy Azure dla wybranych dysków.
 
-* Azure Backup wykonuje migawki maszyn wirtualnych platformy Azure i przechowuje je razem z dyskami w celu zwiększenia tworzenia punktów odzyskiwania i przyspieszenia operacji przywracania. Jest to nazywane natychmiastowym przywracaniem. Domyślnie migawki przywracania natychmiastowego są przechowywane przez dwa dni. Ta funkcja pozwala wykonać operację przywracania z tych migawek, wycinając czasy przywracania. Skraca czas wymagany do przekształcania i kopiowania danych z magazynu. W związku z tym zobaczysz koszty magazynu odpowiadające migawkom pobranym w tym okresie. [Dowiedz się więcej tutaj](backup-instant-restore-capability.md#configure-snapshot-retention).
+* Azure Backup wykonuje migawki maszyn wirtualnych platformy Azure i przechowuje je razem z dyskami w celu zwiększenia tworzenia punktów odzyskiwania i przyspieszenia operacji przywracania. Jest to nazywane natychmiastowym przywracaniem. Domyślnie migawki przywracania natychmiastowego są przechowywane przez dwa dni. Ta funkcja pozwala wykonać operację przywracania z tych migawek, wycinając czasy przywracania. Skraca czas wymagany do przekształcania i kopiowania danych z magazynu. W związku z tym zobaczysz koszty magazynu odpowiadające migawkom pobranym w tym okresie. [Więcej informacji można znaleźć tutaj](backup-instant-restore-capability.md#configure-snapshot-retention).
 
 * Typ replikacji magazynu Azure Backup magazyn domyślnie jest ustawiany jako Geograficznie nadmiarowy (GRS). Tej opcji nie można zmienić po włączeniu ochrony elementów. Magazyn Geograficznie nadmiarowy (GRS) zapewnia wyższy poziom trwałości danych niż magazyn lokalnie nadmiarowy (LRS), dzięki czemu umożliwia korzystanie z funkcji przywracania między regionami i zwiększania kosztów. Zapoznaj się z kompromisem między niższymi kosztami i wyższą trwałością danych i zdecyduj, co jest najlepsze w danym scenariuszu. [Dowiedz się więcej tutaj](backup-create-rs-vault.md#set-storage-redundancy)
 
@@ -225,9 +225,9 @@ Jako użytkownik lub administrator kopii zapasowej powinien być w stanie monito
 
 ### <a name="monitoring"></a>Monitorowanie
 
-* Azure Backup udostępnia **wbudowane monitorowanie zadań** dla operacji, takich jak konfigurowanie kopii zapasowej, tworzenie kopii zapasowej, przywracanie, Usuwanie kopii zapasowej itd. Jest to zakres do magazynu i idealny do monitorowania pojedynczego magazynu. [Dowiedz się więcej tutaj](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+* Azure Backup udostępnia **wbudowane monitorowanie zadań** dla operacji, takich jak konfigurowanie kopii zapasowej, tworzenie kopii zapasowej, przywracanie, Usuwanie kopii zapasowej itd. Jest to zakres do magazynu i idealny do monitorowania pojedynczego magazynu. [Więcej informacji można znaleźć tutaj](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
 
-* Jeśli konieczne jest monitorowanie działań operacyjnych w odpowiedniej skali, program **Backup Explorer** zapewnia Zagregowany widok całej kopii zapasowej, co umożliwia szczegółowe analizowanie i rozwiązywanie problemów. Jest to wbudowany Azure Monitor skoroszyt, który udostępnia jedną, centralną lokalizację, która ułatwia monitorowanie działań operacyjnych w całej kopii zapasowej na platformie Azure, łączenie dzierżawców, lokalizacji, subskrypcji, grup zasobów i magazynów. [Dowiedz się więcej tutaj](monitor-azure-backup-with-backup-explorer.md).
+* Jeśli konieczne jest monitorowanie działań operacyjnych w odpowiedniej skali, program **Backup Explorer** zapewnia Zagregowany widok całej kopii zapasowej, co umożliwia szczegółowe analizowanie i rozwiązywanie problemów. Jest to wbudowany Azure Monitor skoroszyt, który udostępnia jedną, centralną lokalizację, która ułatwia monitorowanie działań operacyjnych w całej kopii zapasowej na platformie Azure, łączenie dzierżawców, lokalizacji, subskrypcji, grup zasobów i magazynów. [Więcej informacji można znaleźć tutaj](monitor-azure-backup-with-backup-explorer.md).
   * Służy do identyfikowania zasobów, które nie są skonfigurowane na potrzeby tworzenia kopii zapasowych, i zapewnienia, że nie zostaną kiedykolwiek pominięte ochronę najważniejszych danych w ramach rosnącej nieruchomości.
   * Pulpit nawigacyjny zawiera działania operacyjne z ostatnich siedmiu dni (maksimum). Jeśli chcesz zachować te dane, możesz je wyeksportować jako plik programu Excel i je zachować.
   * Jeśli jesteś użytkownikiem usługi Azure Lighthouse, możesz wyświetlić informacje dla wielu dzierżawców, co pozwala na monitorowanie mniejszej granicy.
@@ -238,8 +238,8 @@ Jako użytkownik lub administrator kopii zapasowej powinien być w stanie monito
   * Identyfikowanie kluczowych trendów na różnych poziomach szczegółowości.
 
 * W dodatku
-  * Możesz wysyłać dane (na przykład zadania, zasady itd.) do obszaru roboczego **log Analytics** . Spowoduje to włączenie funkcji dzienników Azure Monitor, aby umożliwić korelację danych z innymi danymi monitorowania zebranymi przez Azure Monitor, Konsoliduj wpisy dziennika z wielu subskrypcji platformy Azure i dzierżawców w jedną lokalizację do analizy razem, użyj zapytań dzienników do przeprowadzenia złożonej analizy i uzyskania szczegółowych informacji na temat wpisów dziennika. [Dowiedz się więcej tutaj](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
-  * Dane można wysyłać do centrum zdarzeń w celu wysyłania wpisów poza platformą Azure, na przykład do SIEM innych firm (informacji o zabezpieczeniach i zarządzania zdarzeniami) lub innych rozwiązań usługi log Analytics. [Dowiedz się więcej tutaj](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
+  * Możesz wysyłać dane (na przykład zadania, zasady itd.) do obszaru roboczego **log Analytics** . Spowoduje to włączenie funkcji dzienników Azure Monitor, aby umożliwić korelację danych z innymi danymi monitorowania zebranymi przez Azure Monitor, Konsoliduj wpisy dziennika z wielu subskrypcji platformy Azure i dzierżawców w jedną lokalizację do analizy razem, użyj zapytań dzienników do przeprowadzenia złożonej analizy i uzyskania szczegółowych informacji na temat wpisów dziennika. [Więcej informacji można znaleźć tutaj](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
+  * Dane można wysyłać do centrum zdarzeń w celu wysyłania wpisów poza platformą Azure, na przykład do SIEM innych firm (informacji o zabezpieczeniach i zarządzania zdarzeniami) lub innych rozwiązań usługi log Analytics. [Więcej informacji można znaleźć tutaj](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
   * Możesz wysłać dane do konta usługi Azure Storage, jeśli dane dziennika mają być przechowywane dłużej niż 90 dni na potrzeby inspekcji, statycznej analizy lub tworzenia kopii zapasowej. Jeśli musisz tylko zachować zdarzenia przez 90 dni lub mniej, nie musisz konfigurować archiwów na koncie magazynu, ponieważ zdarzenia dziennika aktywności są przechowywane na platformie Azure przez 90 dni. [Dowiedz się więcej](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>Generowanie alertów
@@ -247,14 +247,14 @@ Jako użytkownik lub administrator kopii zapasowej powinien być w stanie monito
 * Alerty są przede wszystkim sposobem na uzyskanie odpowiednich działań. W sekcji alerty kopii zapasowej znajdują się alerty wygenerowane przez usługę Azure Backup.
 
 * Azure Backup zapewnia wbudowany mechanizm powiadamiania o **alertach** za pośrednictwem poczty e-mail w przypadku błędów, ostrzeżeń i operacji krytycznych. Po wygenerowaniu alertu można określić poszczególne adresy e-mail lub listy dystrybucyjne. Możesz również wybrać, czy otrzymywać powiadomienia o każdym indywidualnym alercie, czy grupować je w co godzinę, a następnie otrzymywać powiadomienia.
-  * Te alerty są definiowane przez usługę i zapewniają obsługę ograniczonych scenariuszy — błędów tworzenia kopii zapasowej/przywracania, zatrzymywania ochrony przy zachowaniu danych/zatrzymywania ochrony przy użyciu usuwania danych itd. [Dowiedz się więcej tutaj](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
+  * Te alerty są definiowane przez usługę i zapewniają obsługę ograniczonych scenariuszy — błędów tworzenia kopii zapasowej/przywracania, zatrzymywania ochrony przy zachowaniu danych/zatrzymywania ochrony przy użyciu usuwania danych itd. [Więcej informacji można znaleźć tutaj](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
   * W przypadku wykonania operacji niszczącej, takiej jak zatrzymanie ochrony z usuwaniem danych, zostanie zgłoszony alert, a wiadomość e-mail zostanie wysłana do właścicieli subskrypcji, administratorów i współadministratorów, nawet jeśli **nie** skonfigurowano powiadomień dla magazynu Recovery Services.
-  * Niektóre obciążenia mogą generować wysoką częstotliwość niepowodzeń (na przykład SQL Server co 15 minut). Aby zapobiec przeciążeniu alertów zgłoszonych dla każdego wystąpienia błędu, alerty są konsolidowane. [Dowiedz się więcej tutaj](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
+  * Niektóre obciążenia mogą generować wysoką częstotliwość niepowodzeń (na przykład SQL Server co 15 minut). Aby zapobiec przeciążeniu alertów zgłoszonych dla każdego wystąpienia błędu, alerty są konsolidowane. [Więcej informacji można znaleźć tutaj](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * Wbudowane alerty nie mogą być dostosowane i są ograniczone do wiadomości e-mail zdefiniowanych w Azure Portal.
 
 * Jeśli musisz **utworzyć niestandardowe alerty** (na przykład alerty zadań zakończonych powodzeniem), Użyj log Analytics. W Azure Monitor można tworzyć własne alerty w obszarze roboczym Log Analytics. Obciążenia hybrydowe (DPM/serwera usługi MAB) mogą również wysyłać dane do LA i używać LA do zapewniania typowych alertów w ramach obciążeń obsługiwanych przez Azure Backup.
 
-* Możesz również otrzymywać powiadomienia za poorednictwem wbudowanych **dzienników aktywności**magazynu Recovery Services. Obsługiwane są jednak ograniczone scenariusze i nie są odpowiednie dla operacji, takich jak zaplanowane kopie zapasowe, które są lepiej dostosowane do dzienników zasobów niż w przypadku dzienników aktywności. Aby dowiedzieć się więcej o tych ograniczeniach i sposobach używania Log Analytics obszaru roboczego do monitorowania i generowania alertów dla wszystkich obciążeń chronionych przez Azure Backup, zapoznaj się z tym [artykułem](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+* Możesz również otrzymywać powiadomienia za poorednictwem wbudowanych **dzienników aktywności** magazynu Recovery Services. Obsługiwane są jednak ograniczone scenariusze i nie są odpowiednie dla operacji, takich jak zaplanowane kopie zapasowe, które są lepiej dostosowane do dzienników zasobów niż w przypadku dzienników aktywności. Aby dowiedzieć się więcej o tych ograniczeniach i sposobach używania Log Analytics obszaru roboczego do monitorowania i generowania alertów dla wszystkich obciążeń chronionych przez Azure Backup, zapoznaj się z tym [artykułem](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
 ## <a name="next-steps"></a>Następne kroki
 
