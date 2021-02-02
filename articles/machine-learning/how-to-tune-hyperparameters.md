@@ -2,24 +2,23 @@
 title: Parametr strojenia modelu
 titleSuffix: Azure Machine Learning
 description: Zautomatyzowanie dostrajania parametrów dla modeli uczenia głębokiego i uczenia maszynowego przy użyciu Azure Machine Learning.
-ms.author: swatig
-author: swatig007
+ms.author: anumamah
+author: Aniththa
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/30/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133865"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430365"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Parametr strojenia modelu z Azure Machine Learning
-
 
 Automatyzuj wydajne dostrajanie parametrów przy użyciu [pakietu](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py)Azure Machine Learning. Dowiedz się, jak wykonać kroki wymagane do dostrajania parametrów z [zestawem SDK Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py):
 
@@ -382,6 +381,30 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-hyperparameter-tuning-runs"></a>Wizualizacja przebiegów strojenia parametrów
 
+Możesz wizualizować przebiegi strojenia parametrów w programie Azure Machine Learning Studio lub użyć widżetu Notes.
+
+### <a name="studio"></a>Studio
+
+Wszystkie przebiegi strojenia parametrów można wizualizować w [Azure Machine Learning Studio](https://ml.azure.com). Aby uzyskać więcej informacji na temat sposobu wyświetlania eksperymentu w portalu, zobacz [Wyświetlanie rekordów uruchamiania w Studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+
+- **Wykres metryk**: Ta Wizualizacja śledzi metryki zarejestrowane dla każdego podrzędnego przebiegu na dysku przez okres strojenia parametru. Każdy wiersz reprezentuje uruchomienie podrzędne, a każdy punkt mierzy podstawową wartość metryki w tej iteracji środowiska uruchomieniowego.  
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Wykres metryk dostrajania parametrów":::
+
+- **Wykres równoległych współrzędnych**: Ta Wizualizacja przedstawia korelację między podstawową wydajnością metryki i poszczególnymi wartościami parametrów. Wykres jest interaktywny poprzez przenoszenie osi (kliknij i przeciągnij według etykiety osi), a następnie wyróżnij wartości na jednej osi (kliknij i przeciągnij pionowo wzdłuż jednej osi, aby zaznaczyć zakres żądanych wartości).
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Wykres współrzędnych równoległych strojenia parametrów":::
+
+- **Wykres punktowy 2-wymiarowy**: wizualizacja pokazuje korelację między dwoma pojedynczymi parametrami oraz skojarzoną z nią podstawową wartość metryki.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Wykres punktowy strojenia Hyparameter 2-wymiarowego":::
+
+- **Wykres punktowy** trójwymiarowy: wizualizacja jest taka sama jak 2D, ale pozwala na trzy parametry wymiarów korelacji z podstawową wartością metryki. Możesz również kliknąć i przeciągnąć, aby zmienić orientację wykresu, aby wyświetlić różne korelacje w przestrzeni trójwymiarowej.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Wykres punktowy strojenia Hyparameter 3-wymiarowego":::
+
+### <a name="notebook-widget"></a>Widżet notesu
+
 Za pomocą [widżetu Notes](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) można wizualizować postępy przebiegów szkoleniowych. Poniższy fragment kodu wizualizuje wszystkie przebiegi strojenia parametrów w jednym miejscu w notesie Jupyter:
 
 ```Python
@@ -391,17 +414,9 @@ RunDetails(hyperdrive_run).show()
 
 Ten kod przedstawia tabelę zawierającą szczegóły dotyczące szkoleń dla każdej konfiguracji parametrów.
 
-![Tabela strojenia parametru](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Tabela strojenia parametru":::
 
-Możesz również wizualizować wydajność poszczególnych przebiegów w miarę postępów szkoleniowych. 
-
-![Wykres strojenia parametru](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
-
-Można wizualnie zidentyfikować korelację między wydajnością i wartościami poszczególnych parametrów przy użyciu równoległych wykresów współrzędnych. 
-
-[![Współrzędne równoległe strojenia parametrów](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
-
-Możesz również wizualizować wszystkie przebiegi strojenia parametrów w portalu internetowym platformy Azure. Aby uzyskać więcej informacji na temat sposobu wyświetlania eksperymentu w portalu, zobacz [jak śledzić eksperymenty](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+Możesz również wizualizować wydajność poszczególnych przebiegów w miarę postępów szkoleniowych.
 
 ## <a name="find-the-best-model"></a>Znajdź najlepszy model
 

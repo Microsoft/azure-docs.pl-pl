@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2019
+ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 8ddebffcfc70440d5ce0988db87b4f6626531c73
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7068409c8d1dee7181948e3c3d1326f8538c6daf
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515547"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430521"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z osobami
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować osoby z usługą Azure Active Dir
 * Kontrolka w usłudze Azure AD, która ma dostęp do osób.
 * Zezwól użytkownikom na automatyczne logowanie do osób mających konta usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,22 +43,22 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 >[!NOTE]
 >Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
-## <a name="adding-people-from-the-gallery"></a>Dodawanie osób z galerii
+## <a name="add-people-from-the-gallery"></a>Dodawanie osób z galerii
 
 Aby skonfigurować integrację osób z usługą Azure AD, musisz dodać osoby z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **osoby** w polu wyszukiwania.
 1. Wybierz pozycję **osoby** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-people"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla osób
+## <a name="configure-and-test-azure-ad-sso-for-people"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla osób
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą osób przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w osobach.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą osób, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą osób, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -73,9 +71,9 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **osoby** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **osoby** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -108,7 +106,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -117,15 +115,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **osoby**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-people-sso"></a>Konfigurowanie logowania jednokrotnego dla osób
@@ -142,15 +134,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
    
 4. W menu po lewej stronie kliknij pozycję **Ustawienia**.
 
-    ![Zrzut ekranu pokazujący menu po lewej stronie z wybranymi ustawieniami "Ustawienia".](./media/people-tutorial/tutorial_people_001.png)
+    ![Zrzut ekranu pokazujący menu po lewej stronie z wybranymi ustawieniami "Ustawienia".](./media/people-tutorial/settings.png)
 
 5. Kliknij pozycję **Company** (Firma).
 
-    ![Zrzut ekranu pokazujący, że wybrano "Firma" z menu "Ustawienia".](./media/people-tutorial/tutorial_people_002.png)
+    ![Zrzut ekranu pokazujący, że wybrano "Firma" z menu "Ustawienia".](./media/people-tutorial/company.png)
 
-6. W **pliku metadanych SAML metadanych przekazywania "Logowanie**jednokrotne" kliknij przycisk **Przeglądaj** w celu przekazania pobranego pliku.
+6. W **pliku metadanych SAML metadanych przekazywania "Logowanie** jednokrotne" kliknij przycisk **Przeglądaj** w celu przekazania pobranego pliku.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/people-tutorial/tutorial_people_003.png)
+    ![Konfigurowanie logowania jednokrotnego](./media/people-tutorial/xml.png)
 
 ### <a name="create-people-test-user"></a>Utwórz użytkownika testowego
 
@@ -158,9 +150,13 @@ W tej sekcji utworzysz użytkownika o nazwie B. Simon w osobach. Współpracuj z
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka osoby w panelu dostępu należy automatycznie zalogować się do osób, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do osoby, na której można zainicjować przepływ logowania. 
+
+* Bezpośrednio przejdź do adresu URL logowania do osoby i zainicjuj przepływ logowania.
+
+* Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka osoby w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania do osoby. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="test-sso-for-people-mobile"></a>Testowanie logowania jednokrotnego dla osób (mobilnych)
 
@@ -176,12 +172,6 @@ Po kliknięciu kafelka osoby w panelu dostępu należy automatycznie zalogować 
 
     ![Raz](./media/people-tutorial/test03.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="next-steps"></a>Następne kroki
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
-
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj osoby z usługą Azure AD](https://aad.portal.azure.com)
+Po skonfigurowaniu osób można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

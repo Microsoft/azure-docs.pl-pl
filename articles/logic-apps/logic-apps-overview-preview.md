@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/01/2021
+ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760630"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430801"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Przegląd: Podgląd Azure Logic Apps
 
@@ -168,6 +168,8 @@ Aby uzyskać więcej informacji na temat modelu cen, które są stosowane do teg
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>Możliwości zmiany, ograniczone, niedostępne lub nieobsługiwane
 
 W Azure Logic Apps wersji zapoznawczej te funkcje zostały zmienione lub są obecnie ograniczone, niedostępne lub nieobsługiwane:
+
+* **Obsługa systemu operacyjnego**: obecnie projektant w Visual Studio Code nie działa w systemie operacyjnym Linux, ale nadal można wdrożyć aplikacje logiki, które używają środowiska uruchomieniowego Logic Apps w wersji zapoznawczej do maszyn wirtualnych opartych na systemie Linux. Na razie możesz skompilować Aplikacje logiki w Visual Studio Code w systemie Windows lub macOS, a następnie wdrożyć je na maszynie wirtualnej z systemem Linux.
 
 * **Wyzwalacze i akcje**: niektóre wbudowane wyzwalacze są niedostępne, takie jak przesuwanie okna i zadania wsadowego. Aby uruchomić przepływ pracy, użyj [wbudowanego wyzwalacza, żądania, protokołu HTTP, elementu webhook, Event Hubs lub Service Bus](../connectors/apis-list.md). Wbudowane wyzwalacze i akcje działają natywnie w środowisku uruchomieniowym Azure Logic Apps w wersji zapoznawczej, podczas gdy łączniki zarządzane są wdrażane na platformie Azure. W projektancie wbudowane wyzwalacze i akcje są wyświetlane na karcie **wbudowane** , podczas gdy zarządzane wyzwalacze łącznika i akcje są wyświetlane na karcie **Azure** .
 

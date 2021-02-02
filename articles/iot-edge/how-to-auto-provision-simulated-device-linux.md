@@ -8,20 +8,20 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046047"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430632"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Tworzenie i Inicjowanie obsługi administracyjnej urządzenia IoT Edge przy użyciu modułu TPM w systemie Linux
 
-W tym artykule pokazano, jak przetestować funkcję autoaprowizacji na urządzeniu z systemem Linux IoT Edge przy użyciu moduł TPM (TPM). Można automatycznie zainicjować obsługę administracyjną urządzeń Azure IoT Edge przy użyciu [usługi Device Provisioning](../iot-dps/index.yml). Jeśli nie znasz procesu inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z omówieniem [aprowizacji](../iot-dps/about-iot-dps.md#provisioning-process) .
+W tym artykule pokazano, jak przetestować funkcję autoaprowizacji na urządzeniu z systemem Linux IoT Edge przy użyciu Trusted Platform Module (TPM). Można automatycznie zainicjować obsługę administracyjną urządzeń Azure IoT Edge przy użyciu [usługi Device Provisioning](../iot-dps/index.yml). Jeśli nie znasz procesu inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z omówieniem [aprowizacji](../iot-dps/about-iot-dps.md#provisioning-process) .
 
 Zadania są następujące:
 
-1. Utwórz maszynę wirtualną z systemem Linux w funkcji Hyper-V z symulowanym moduł TPM (TPM) na potrzeby zabezpieczeń sprzętowych.
+1. Utwórz maszynę wirtualną z systemem Linux w funkcji Hyper-V z symulowanym Trusted Platform Module (TPM) na potrzeby zabezpieczeń sprzętowych.
 1. Utwórz wystąpienie IoT Hub Device Provisioning Service (DPS).
 1. Utwórz rejestrację indywidualną dla urządzenia.
 1. Zainstaluj środowisko uruchomieniowe IoT Edge i Połącz urządzenie z IoT Hub.
@@ -85,13 +85,13 @@ Po utworzeniu maszyny wirtualnej Otwórz jej ustawienia, aby włączyć moduł T
 
 3. Usuń zaznaczenie pola wyboru **Włącz bezpieczny rozruch**.
 
-4. Zaznacz **opcję włącz moduł TPM**.
+4. Zaznacz **opcję włącz Trusted Platform Module**.
 
 5. Kliknij przycisk **OK**.  
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Uruchom maszynę wirtualną i Zbierz dane modułu TPM
 
-Na maszynie wirtualnej Utwórz narzędzie, za pomocą którego można pobrać **Identyfikator rejestracji** i **Klucz poręczenia**urządzenia.
+Na maszynie wirtualnej Utwórz narzędzie, za pomocą którego można pobrać **Identyfikator rejestracji** i **Klucz poręczenia** urządzenia.
 
 1. W Menedżerze funkcji Hyper-V Uruchom maszynę wirtualną i nawiąż z nią połączenie.
 
@@ -151,11 +151,11 @@ Po utworzeniu rejestracji w usłudze DPS można zadeklarować **początkowy stan
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia IoT Hub Device Provisioning Service.
 
-2. W obszarze **Ustawienia**wybierz pozycję **Zarządzaj rejestracjami**.
+2. W obszarze **Ustawienia** wybierz pozycję **Zarządzaj rejestracjami**.
 
 3. Wybierz pozycję **Dodaj rejestrację indywidualną** , a następnie wykonaj następujące kroki, aby skonfigurować rejestrację:  
 
-   1. W obszarze **mechanizm**wybierz pozycję **TPM**.
+   1. W obszarze **mechanizm** wybierz pozycję **TPM**.
 
    2. Podaj **Klucz poręczenia** i **Identyfikator rejestracji** skopiowane z maszyny wirtualnej.
 
@@ -205,7 +205,11 @@ Po zainstalowaniu na urządzeniu środowiska uruchomieniowego skonfiguruj je za 
      attestation:
        method: "tpm"
        registration_id: "<REGISTRATION_ID>"
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
    ```
+
+   Opcjonalnie możesz użyć `always_reprovision_on_startup` linii lub, `dynamic_reprovisioning` Aby skonfigurować zachowanie ponownego inicjowania obsługi administracyjnej urządzenia. Jeśli urządzenie jest ustawione na ponowne Inicjowanie obsługi administracyjnej, będzie zawsze próbowało najpierw zainicjować obsługę administracyjną przy użyciu punktu dystrybucji, a następnie wrócić do tworzenia kopii zapasowej, jeśli to się nie powiedzie. Jeśli urządzenie jest ustawione na dynamiczną ponowną obsługę administracyjną, IoT Edge zostanie ponownie uruchomione i Zainicjuj obsługę administracyjną w przypadku wykrycia zdarzenia ponownego aprowizacji. Aby uzyskać więcej informacji, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](../iot-dps/concepts-device-reprovision.md).
 
 1. Zaktualizuj wartości `scope_id` i `registration_id` przy użyciu informacji o usłudze DPS i urządzeniu.
 

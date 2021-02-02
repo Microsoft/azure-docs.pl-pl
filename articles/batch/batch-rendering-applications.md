@@ -1,14 +1,14 @@
 ---
 title: Renderowanie aplikacji
 description: Możliwe jest korzystanie z aplikacji do renderowania z Azure Batch. Jednak obrazy maszyn wirtualnych portalu Azure Marketplace są dostępne ze wstępnie zainstalowanymi aplikacjami.
-ms.date: 09/19/2019
+ms.date: 02/01/2021
 ms.topic: how-to
-ms.openlocfilehash: d4eefa287575d68acccb2697e1d262c7e48dab62
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4eeb87c866858f2f1733b81e3e2154f4521e94bc
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234413"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430032"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Wstępnie zainstalowane aplikacje do renderowania wsadowego obrazów maszyn wirtualnych
 
@@ -18,7 +18,7 @@ W razie potrzeby Licencjonowanie za korzystanie z opcji płatność za użycie j
 
 Niektóre aplikacje obsługują tylko system Windows, ale większość z nich jest obsługiwana zarówno w systemie Windows, jak i Linux.
 
-## <a name="applications-on-centos-7-rendering-images"></a>Aplikacje na obrazach renderowania CentOS 7
+## <a name="applications-on-centos-7-rendering-image"></a>Aplikacje na obrazie renderowania CentOS 7
 
 Poniższa lista ma zastosowanie do CentOS 7,6 w wersji 1.1.6 obrazów renderowania.
 
@@ -33,7 +33,26 @@ Poniższa lista ma zastosowanie do CentOS 7,6 w wersji 1.1.6 obrazów renderowan
 * Blender (2.68)
 * Blender (2,8)
 
-## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Aplikacje na najnowszych obrazach renderowania systemu Windows Server 2016
+## <a name="applications-on-latest-windows-server-rendering-image"></a>Aplikacje na najnowszym obrazie renderowania systemu Windows Server
+
+Poniższa lista ma zastosowanie do obrazu renderowania systemu Windows Server w wersji 1.5.0.
+
+* Autodesk Maya operacji we/wy 2020 Update 4,4
+* Autodesk 3ds Max we/wy 2021 Update 3
+* Autodesk Arnold for Maya 2020 (Arnold Version 6.1.0.1) MtoA-4.1.1.1-2020
+* Autodesk Arnold for 3ds Max 2021 (Arnold wersja 6.1.0.1) MAXtoA-4.2.2.20-2021
+* Grupa chaos V-Ray dla Maya 2020 (wersja 5.00.21)
+* Grupa chaos V-Ray dla 3ds Max 2021 (wersja 5.00.05)
+* Blender (2.79)
+* Blender (2,80)
+* AZ 10
+
+> [!IMPORTANT]
+> Aby uruchomić polecenie V-Ray z Maya poza [szablonami rozszerzeń Azure Batch](https://github.com/Azure/batch-extension-templates), zacznij `vrayses.exe` przed uruchomieniem renderowania. Aby uruchomić vrayses.exe poza szablonami, można użyć poniższego polecenia `%MAYA_2020%\vray\bin\vrayses.exe"` .
+>
+> Aby zapoznać się z przykładem, zobacz Uruchamianie zadania [szablonu Maya i V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) w serwisie GitHub.
+
+## <a name="applications-on-previous-windows-server-rendering-images"></a>Aplikacje we wcześniejszych obrazach renderowania systemu Windows Server
 
 Poniższa lista ma zastosowanie do systemu Windows Server 2016, w wersji 1.3.8 images.
 
@@ -58,13 +77,6 @@ Poniższa lista ma zastosowanie do systemu Windows Server 2016, w wersji 1.3.8 i
 * Blender (2.79)
 * Blender (2,80)
 * AZ 10
-
-> [!IMPORTANT]
-> Aby uruchomić polecenie V-Ray z Maya poza [szablonami rozszerzeń Azure Batch](https://github.com/Azure/batch-extension-templates), zacznij `vrayses.exe` przed uruchomieniem renderowania. Aby uruchomić vrayses.exe poza szablonami, można użyć poniższego polecenia `%MAYA_2017%\vray\bin\vrayses.exe"` .
->
-> Aby zapoznać się z przykładem, zobacz Uruchamianie zadania [szablonu Maya i V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) w serwisie GitHub.
-
-## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Aplikacje we wcześniejszych obrazach renderowania systemu Windows Server 2016
 
 Poniższa lista ma zastosowanie do systemu Windows Server 2016, w wersji 1.3.7 images.
 

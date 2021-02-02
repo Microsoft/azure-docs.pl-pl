@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 4983e4b7f76c627cb3cb3081bc12e27111b2b521
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bff13c24e0b5818b352e76df1d8ecd8251a5f12c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951465"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430229"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł zbierania danych w programie Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania [agenta log Analytics](../platform/log-analytics-agent.md) i [rozszerzenia diagnostycznego](../platform/diagnostics-extension-overview.md) dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -21,7 +21,7 @@ Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-
 
 ## <a name="create-association-with-azure-vm"></a>Utwórz skojarzenie z maszyną wirtualną platformy Azure
 
-Poniższy przykład instaluje agenta Azure Monitor na maszynie wirtualnej platformy Microsoft Azure. Skojarzenie jest tworzone między maszyną wirtualną platformy Azure a regułą zbierania danych.
+Poniższy przykład tworzy skojarzenie między maszyną wirtualną platformy Azure i regułą zbierania danych.
 
 ### <a name="template-file"></a>Plik szablonu
 

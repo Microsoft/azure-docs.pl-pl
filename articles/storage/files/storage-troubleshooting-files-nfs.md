@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f684aff58f441fb0642779e54de39dff941e818c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878497"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430666"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Rozwiązywanie problemów z udziałami plików NFS systemu Azure
 
@@ -67,7 +67,6 @@ System plików NFS jest dostępny tylko na kontach magazynu z następującą kon
 
 - Warstwa — Premium
 - Rodzaj konta — FileStorage
-- Nadmiarowość — LRS
 - Regiony — [Lista obsługiwanych regionów](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Rozwiązanie
@@ -150,6 +149,17 @@ Protokół NFS komunikuje się z serwerem za pośrednictwem portu 2049, upewnij 
 #### <a name="solution"></a>Rozwiązanie
 
 Sprawdź, czy na kliencie jest otwarty port 2049, uruchamiając następujące polecenie: `telnet <storageaccountnamehere>.file.core.windows.net 2049` . Jeśli port nie jest otwarty, otwórz go.
+
+## <a name="ls-list-files-shows-incorrectinconsistent-results"></a>LS (lista plików) zawiera nieprawidłowe/niespójne wyniki
+
+### <a name="cause-inconsistency-between-cached-values-and-server-file-metadata-values-when-the-file-handle-is-open"></a>Przyczyna: niespójność między buforowanymi wartościami i wartościami metadanych pliku serwera po otwarciu dojścia do pliku
+Czasami polecenie "list Files" wyświetla niezerowy rozmiar w oczekiwany sposób, a w przypadku bardzo następnych plików list zamiast tego jest wyświetlany rozmiar 0 lub bardzo stara sygnatura czasowa. Jest to znany problem spowodowany niespójnym buforowaniem wartości metadanych plików, gdy plik jest otwarty. Aby rozwiązać ten problem, można użyć jednego z następujących obejść:
+
+#### <a name="workaround-1-for-fetching-file-size-use-wc--c-instead-of-ls--l"></a>Obejście 1: Aby uzyskać rozmiar pliku do pobrania, należy użyć do c zamiast ls-l
+Użycie funkcji s-c zawsze spowoduje pobranie najnowszej wartości z serwera i nie będzie miało żadnych niespójności.
+
+#### <a name="workaround-2-use-noac-mount-flag"></a>Obejście 2: Użyj flagi instalacji "noac"
+Zainstaluj ponownie system plików przy użyciu flagi "noac" z poleceniem instalacji. Zawsze zostaną pobrane wszystkie wartości metadanych z serwera. W przypadku użycia tego obejścia może wystąpić pewne niewielkie obciążenie wydajności dla wszystkich operacji metadanych.
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 Jeśli nadal potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , aby szybko rozwiązać problem.

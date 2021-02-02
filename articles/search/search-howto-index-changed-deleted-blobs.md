@@ -7,39 +7,44 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 2e73039418233c97fc20242ed7af7df14c5b47ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/29/2021
+ms.openlocfilehash: b23dabb4388331de9e37ee9db1d4b9d727ccde68
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534781"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430564"
 ---
 # <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Jak skonfigurować wykrywanie zmian i usuwania dla obiektów BLOB w usłudze Azure Wyszukiwanie poznawcze Indexing
 
-Po utworzeniu początkowego indeksu wyszukiwania można skonfigurować kolejne zadania indeksatora w celu pobrania tylko tych dokumentów, które zostały utworzone lub usunięte od momentu początkowego uruchomienia. W przypadku wyszukiwania zawartości pochodzącej z usługi Azure Blob Storage wykrywanie zmian odbywa się automatycznie w przypadku użycia harmonogramu do wyzwolenia indeksowania. Domyślnie usługa ponownie indeksuje tylko zmienione obiekty blob zgodnie z `LastModified` sygnaturą czasową obiektu BLOB. W przeciwieństwie do innych źródeł danych obsługiwanych przez indeksatory wyszukiwania, obiekty blob zawsze mają sygnaturę czasową, co eliminuje konieczność ręcznego skonfigurowania zasad wykrywania zmian.
+Po utworzeniu początkowego indeksu wyszukiwania można chcieć, aby kolejne zadania indeksatora miały tylko możliwość pobrania nowych i zmienionych dokumentów. W przypadku wyszukiwania zawartości pochodzącej z usługi Azure Blob Storage wykrywanie zmian odbywa się automatycznie w przypadku użycia harmonogramu do wyzwolenia indeksowania. Domyślnie usługa ponownie indeksuje tylko zmienione obiekty blob zgodnie z `LastModified` sygnaturą czasową obiektu BLOB. W przeciwieństwie do innych źródeł danych obsługiwanych przez indeksatory wyszukiwania, obiekty blob zawsze mają sygnaturę czasową, co eliminuje konieczność ręcznego skonfigurowania zasad wykrywania zmian.
 
 Chociaż wykrywanie zmian jest określone, wykrywanie usuwania nie jest. Jeśli chcesz wykryć usunięte dokumenty, upewnij się, że użyto podejścia "usuwanie nietrwałe". Po usunięciu obiektów blob z prawej strony, odpowiednie dokumenty nie zostaną usunięte z indeksu wyszukiwania.
 
-Istnieją dwa sposoby implementacji nietrwałego podejścia do usuwania. Oba te elementy zostały opisane poniżej.
+Istnieją dwa sposoby implementacji nietrwałego podejścia do usuwania:
+
++ Natywne usuwanie nietrwałe obiektów BLOB (wersja zapoznawcza), opisane dalej
++ [Usuwanie nietrwałe przy użyciu metadanych niestandardowych](#soft-delete-using-custom-metadata)
 
 ## <a name="native-blob-soft-delete-preview"></a>Natywne usuwanie nietrwałego obiektu BLOB (wersja zapoznawcza)
+
+W ramach tego podejścia do wykrywania usuwania Wyszukiwanie poznawcze zależy od [natywnej funkcji usuwania nietrwałego obiektu BLOB](../storage/blobs/soft-delete-blob-overview.md) w usłudze Azure Blob Storage, aby określić, czy obiekty blob zostały przeniesione do stanu nietrwałego usunięcia. Gdy obiekty blob są wykrywane w tym stanie, indeksator wyszukiwania używa tych informacji do usunięcia odpowiedniego dokumentu z indeksu.
 
 > [!IMPORTANT]
 > Obsługa natywnego usuwania nietrwałego obiektu BLOB jest w wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2020-06-30 — wersja zapoznawcza](./search-api-preview.md) zawiera tę funkcję. Obecnie nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
-> [!NOTE]
-> W przypadku używania natywnych zasad usuwania nietrwałego obiektu BLOB klucze dokumentów dla dokumentów w indeksie muszą być właściwościami obiektu BLOB lub obiektami BLOB.
+### <a name="prerequisites"></a>Wymagania wstępne
 
-W tej metodzie będziesz używać [natywnej funkcji usuwania nietrwałego obiektu BLOB](../storage/blobs/soft-delete-blob-overview.md) oferowanej przez usługę Azure Blob Storage. Jeśli na koncie magazynu jest włączone natywne trwałe usuwanie obiektów blob, źródło danych ma natywny zestaw zasad usuwania nietrwałego, a indeksator odnajdzie obiekt BLOB, który został przeniesiony do nietrwałego stanu usuniętego, indeksator usunie ten dokument z indeksu. Natywne zasady usuwania nietrwałego obiektu BLOB nie są obsługiwane podczas indeksowania obiektów blob z Azure Data Lake Storage Gen2.
++ [Włącz usuwanie nietrwałe dla obiektów BLOB](../storage/blobs/soft-delete-blob-enable.md).
++ Obiekty blob muszą znajdować się w kontenerze usługi Azure Blob Storage. Wyszukiwanie poznawcze natywne zasady usuwania nietrwałego obiektu BLOB są nieobsługiwane w przypadku obiektów blob z Azure Data Lake Storage Gen2.
++ Klucze dokumentów dla dokumentów w indeksie muszą być zamapowane na właściwości obiektu BLOB lub obiektu BLOB.
++ `api-version=2020-06-30-Preview`Aby skonfigurować obsługę usuwania nietrwałego, należy użyć interfejsu API REST (wersja zapoznawcza).
 
-Wykonaj następujące kroki:
+### <a name="how-to-configure-deletion-detection-using-native-soft-delete"></a>Jak skonfigurować wykrywanie usuwania przy użyciu natywnego usuwania nietrwałego
 
-1. Włącz [natywne usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](../storage/blobs/soft-delete-blob-overview.md). Zalecamy ustawienie zasad przechowywania na wartość, która jest znacznie wyższa niż harmonogram interwału indeksatora. W ten sposób, jeśli wystąpi problem z uruchamianiem indeksatora lub jeśli masz dużą liczbę dokumentów do indeksowania, istnieje dużo czasu, aby indeksator mógł ostatecznie przetworzyć usunięte nietrwałe obiekty blob. Indeksatory usługi Azure Wyszukiwanie poznawcze spowodują usunięcie dokumentu z indeksu tylko wtedy, gdy przetwarza on obiekt BLOB w stanie nietrwałego usunięcia.
+1. W usłudze BLOB Storage w przypadku włączania usuwania nietrwałego Ustaw dla zasad przechowywania wartość, która jest znacznie wyższa niż harmonogram interwału indeksatora. W ten sposób, jeśli wystąpi problem z uruchamianiem indeksatora lub jeśli masz dużą liczbę dokumentów do indeksowania, istnieje dużo czasu, aby indeksator mógł ostatecznie przetworzyć usunięte nietrwałe obiekty blob. Indeksatory usługi Azure Wyszukiwanie poznawcze spowodują usunięcie dokumentu z indeksu tylko wtedy, gdy przetwarza on obiekt BLOB w stanie nietrwałego usunięcia.
 
-1. Skonfiguruj zasady wykrywania natywnych usunięć obiektów BLOB w źródle danych. Przykład przedstawiono poniżej. Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, należy użyć interfejsu API REST.
-
-1. Uruchom indeksator lub ustaw indeksator do uruchomienia zgodnie z harmonogramem. Gdy indeksator działa i przetwarza obiekt BLOB, dokument zostanie usunięty z indeksu.
+1. W Wyszukiwanie poznawcze Ustaw natywne zasady wykrywania usuwania nietrwałego obiektów BLOB w źródle danych. Przykład przedstawiono poniżej. Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, należy użyć interfejsu API REST.
 
     ```http
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
@@ -56,27 +61,25 @@ Wykonaj następujące kroki:
     }
     ```
 
-### <a name="reindexing-un-deleted-blobs-using-native-soft-delete-policies"></a>Ponowne indeksowanie usuniętych obiektów BLOB (przy użyciu natywnych zasad usuwania nietrwałego)
+1. [Uruchom indeksator](/rest/api/searchservice/run-indexer) lub ustaw indeksator do uruchomienia [zgodnie z harmonogramem](search-howto-schedule-indexers.md). Gdy indeksator działa i przetwarza obiekt BLOB ze stanem usuwania nietrwałego, odpowiedni dokument wyszukiwania zostanie usunięty z indeksu.
 
-Jeśli usuniesz obiekt BLOB z usługi Azure Blob Storage z natywnym usuwaniem nieaktywnym włączonym na koncie magazynu, obiekt BLOB przejdzie do nietrwałego stanu usuniętego, co umożliwi usunięcie tego obiektu BLOB w ramach okresu przechowywania. W przypadku odwrócenia usunięcia po przetworzeniu indeksatora indeksator nie zawsze będzie indeksować przywróconego obiektu BLOB. Wynika to z faktu, że indeksator określa, które obiekty blob mają być indeksowane na podstawie `LastModified` sygnatury czasowej obiektu BLOB. Po usunięciu nietrwałego usuniętego obiektu BLOB jego `LastModified` sygnatura czasowa nie jest aktualizowana, więc jeśli indeksator przetworzył już obiekty blob o większej liczbie `LastModified` sygnatur czasowych, nie będzie on ponownie indeksować usuniętego obiektu BLOB. 
+### <a name="reindexing-undeleted-blobs-using-native-soft-delete-policies"></a>Ponowne indeksowanie nieusuniętych obiektów BLOB (przy użyciu natywnych zasad usuwania nietrwałego)
 
-Aby upewnić się, że nieusunięty obiekt BLOB jest ponownie indeksowany, należy zaktualizować `LastModified` sygnaturę czasową obiektu BLOB. Jednym ze sposobów na wykonanie tej czynności jest ponowne zapisanie metadanych tego obiektu BLOB. Nie musisz zmieniać metadanych, ale ponowne Zapisywanie metadanych spowoduje zaktualizowanie `LastModified` sygnatury czasowej obiektu BLOB, aby indeksator wiedział, że musi on ponownie zindeksować ten obiekt BLOB.
+W przypadku przywrócenia nietrwałego usuniętego obiektu BLOB w magazynie obiektów BLOB indeksator nie zawsze będzie ponownie indeksować go. Wynika to z faktu, że indeksator używa `LastModified` sygnatury czasowej obiektu BLOB, aby określić, czy jest konieczne indeksowanie. Po cofnięciu usunięcia nietrwałego usuniętego obiektu BLOB jego `LastModified` sygnatura czasowa nie jest aktualizowana, więc jeśli indeksator przetworzył już obiekty blob o większej liczbie `LastModified` sygnatur czasowych, nie będzie on ponownie indeksować nieusuniętego obiektu BLOB. 
+
+Aby upewnić się, że nieusunięty obiekt BLOB jest ponownie indeksowany, należy zaktualizować `LastModified` sygnaturę czasową obiektu BLOB. Jednym ze sposobów na wykonanie tej czynności jest ponowne zapisanie metadanych tego obiektu BLOB. Nie musisz zmieniać metadanych, ale ponowne Zapisywanie metadanych spowoduje zaktualizowanie `LastModified` sygnatury czasowej obiektu BLOB, tak aby indeksator mógł je pobrać.
 
 ## <a name="soft-delete-using-custom-metadata"></a>Usuwanie nietrwałe przy użyciu metadanych niestandardowych
 
-W tej metodzie metadane obiektu BLOB zostaną użyte do wskazania, kiedy dokument powinien zostać usunięty z indeksu wyszukiwania. Ta metoda wymaga dwóch oddzielnych akcji, usunięcie dokumentu wyszukiwania z indeksu, a następnie usunięcie obiektu BLOB w usłudze Azure Storage.
+Ta metoda używa metadanych obiektu BLOB w celu określenia, czy dokument wyszukiwania powinien zostać usunięty z indeksu. Ta metoda wymaga dwóch oddzielnych akcji, usunięcie dokumentu wyszukiwania z indeksu, a następnie usunięcie obiektu BLOB w usłudze Azure Storage.
 
-Wykonaj następujące kroki:
+Istnieją kroki, które należy wykonać w przypadku usługi BLOB Storage i Wyszukiwanie poznawcze, ale nie ma żadnych innych zależności funkcji. Ta funkcja jest obsługiwana w ogólnie dostępnych interfejsach API.
 
 1. Dodaj niestandardową parę klucz-wartość metadanych do obiektu BLOB, aby wskazać, że usługa Azure Wyszukiwanie poznawcze jest usuwana logicznie.
 
-1. Skonfiguruj zasady wykrywania nietrwałej kolumny usuwania w źródle danych. Przykład przedstawiono poniżej.
+1. Skonfiguruj zasady wykrywania nietrwałej kolumny usuwania w źródle danych. Na przykład następujące zasady uznają obiekt BLOB, który ma zostać usunięty, jeśli ma właściwość metadanych `IsDeleted` o wartości `true` :
 
-1. Gdy indeksator przetworzył obiekt BLOB i usunął dokument z indeksu, można usunąć obiekt BLOB w usłudze Azure Blob Storage.
-
-Na przykład następujące zasady uznają obiekt BLOB, który ma zostać usunięty, jeśli ma właściwość metadanych `IsDeleted` o wartości `true` :
-
-```http
+    ```http
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -92,20 +95,18 @@ Na przykład następujące zasady uznają obiekt BLOB, który ma zostać usunię
             "softDeleteMarkerValue" : "true"
         }
     }
-```
+    ```
 
-### <a name="reindexing-un-deleted-blobs-using-custom-metadata"></a>Ponowne indeksowanie usuniętych obiektów BLOB (przy użyciu metadanych niestandardowych)
+1. Gdy indeksator przetworzył obiekt BLOB i usunął dokument z indeksu, można usunąć obiekt BLOB w usłudze Azure Blob Storage.
+
+### <a name="reindexing-undeleted-blobs-using-custom-metadata"></a>Ponowne indeksowanie nieusuniętych obiektów BLOB (przy użyciu metadanych niestandardowych)
 
 Gdy indeksator przetwarza usunięty obiekt BLOB i usuwa odpowiedni dokument wyszukiwania z indeksu, nie będzie ponownie odwiedzany ten obiekt BLOB, jeśli zostanie przywrócony później, jeśli `LastModified` znacznik czasu obiektu BLOB jest starszy niż ostatni przebieg indeksatora.
 
 Jeśli chcesz ponownie zindeksować ten dokument, Zmień `"softDeleteMarkerValue" : "false"` dla tego obiektu BLOB i uruchom indeksator.
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam ulepszyć platformę Azure Wyszukiwanie poznawcze
-
-Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń, podaj dane wejściowe w usłudze [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Jeśli potrzebujesz pomocy przy korzystaniu z istniejącej funkcji, Opublikuj pytanie na [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
-
 ## <a name="next-steps"></a>Następne kroki
 
-* [Indeksatory w usłudze Azure Cognitive Search](search-indexer-overview.md)
-* [Jak skonfigurować indeksator obiektów BLOB](search-howto-indexing-azure-blob-storage.md)
-* [Omówienie indeksowania obiektów BLOB](search-blob-storage-integration.md)
++ [Indeksatory w usłudze Azure Cognitive Search](search-indexer-overview.md)
++ [Jak skonfigurować indeksator obiektów BLOB](search-howto-indexing-azure-blob-storage.md)
++ [Omówienie indeksowania obiektów BLOB](search-blob-storage-integration.md)

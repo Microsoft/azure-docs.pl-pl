@@ -3,14 +3,14 @@ title: Możliwości renderowania
 description: Standardowe możliwości Azure Batch są używane do uruchamiania renderowania obciążeń i aplikacji. Partia zadań zawiera określone funkcje do obsługi obciążeń renderowania.
 author: mscurrell
 ms.author: markscu
-ms.date: 01/14/2021
+ms.date: 02/01/2021
 ms.topic: how-to
-ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234277"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429806"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Możliwości renderowania Azure Batch
 
@@ -32,7 +32,7 @@ Większość aplikacji renderowania będzie wymagać licencji uzyskanych z serwe
 
 Obraz maszyny wirtualnej renderowania w portalu Azure Marketplace można określić w konfiguracji puli, jeśli trzeba będzie używać tylko wstępnie zainstalowanych aplikacji.
 
-Istnieje obraz systemu Windows 2016 i obraz CentOS.  W [portalu Azure Marketplace](https://azuremarketplace.microsoft.com)obrazy maszyn wirtualnych można znaleźć, wyszukując frazę "renderowanie wsadowe".
+Istnieje obraz systemu Windows i obraz CentOS.  W [portalu Azure Marketplace](https://azuremarketplace.microsoft.com)obrazy maszyn wirtualnych można znaleźć, wyszukując frazę "renderowanie wsadowe".
 
 Aby zapoznać się z przykładową konfiguracją puli, zobacz [samouczek renderowania interfejsu wiersza polecenia platformy Azure](./tutorial-rendering-cli.md).  Azure Portal i Batch Explorer udostępniają narzędzia graficznego interfejsu użytkownika, które umożliwiają wybranie renderowania obrazu maszyny wirtualnej podczas tworzenia puli.  W przypadku korzystania z interfejsu API usługi Batch określ następujące wartości właściwości [elementu imagereference](/rest/api/batchservice/pool/add#imagereference) podczas tworzenia puli:
 
@@ -70,13 +70,10 @@ Aby można było utworzyć wiersz polecenia dla zadań renderowania, należy okr
 
 |Aplikacja|Plik wykonywalny aplikacji|Zmienna środowiskowa|
 |---------|---------|---------|
-|Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
-|Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
-|Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
-|Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
-|Grupa chaos V-Ray Standalone|vray.exe|VRAY_3 VRAY_3.60.4_EXEC|
-Wiersz polecenia Arnold 2017|kick.exe|ARNOLD_2017_EXEC|
-|Wiersz polecenia Arnold 2018|kick.exe|ARNOLD_2018_EXEC|
+|Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
+|Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
+|Grupa chaos V-Ray Standalone|vray.exe|VRAY_4 VRAY_4.10.03_EXEC|
+|Wiersz polecenia Arnold 2020|kick.exe|ARNOLD_2020_EXEC|
 |Programem Blender|blender.exe|BLENDER_2018_EXEC|
 
 ## <a name="azure-vm-families"></a>Rodziny maszyn wirtualnych platformy Azure

@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2020
+ms.openlocfilehash: ca8fad59e581ef3f5a3ebf585356564d539f0bbd
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533414"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430734"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse za pośrednictwem usługi Open Hub przy użyciu Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z programu SAP Business Warehouse (BW) za pośrednictwem usługi Open Hub. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
@@ -38,7 +39,7 @@ Dane z programu SAP Business Warehouse można skopiować do dowolnego obsługiwa
 
 W ramach tego łącznika centrum danych programu SAP Business Warehouse obsługuje następujące rozwiązania:
 
-- SAP Business Warehouse **w wersji 7,01 lub nowszej (w ostatnim stosie pakietów pomocy technicznej SAP wydanej po roku 2015)**. Program SAP BW4/HANA nie jest obsługiwany przez ten łącznik.
+- SAP Business Warehouse **w wersji 7,01 lub nowszej (w ostatnim stosie pakietów pomocy technicznej SAP wydanej po roku 2015)**. Ten łącznik nie obsługuje SAP BW/4HANA.
 - Kopiowanie danych za pośrednictwem lokalnej tabeli docelowej centrum, która znajduje się poniżej, może być DSO, InfoCube, wieloelementowy, DataSource itd.
 - Kopiowanie danych przy użyciu uwierzytelniania podstawowego.
 - Nawiązywanie połączenia z serwerem aplikacji SAP lub serwerem komunikatów SAP.
@@ -73,7 +74,7 @@ Domyślnie moduł ADF nie odczytuje najnowszych różnic z otwartej tabeli centr
 
 Zwykle przechowujesz maksymalny identyfikator kopiowanego żądania w ostatnim przebiegu przez ADF w tymczasowym magazynie danych (takim jak obiekt blob platformy Azure na wyższym diagramie). W związku z tym to samo żądanie nie jest odczytywane po raz drugi przez ADF w kolejnym przebiegu. Należy zauważyć, że dane nie są automatycznie usuwane z otwartej tabeli centrum.
 
-W celu zapewnienia prawidłowej obsługi różnic nie można mieć identyfikatorów żądań z różnych DTPs w tej samej otwartej tabeli. W związku z tym nie należy tworzyć więcej niż jednego DTP dla każdego otwartego miejsca docelowego (OHD). Gdy wymagana jest Ekstrakcja pełna i różnicowa z tego samego InfoProvider, należy utworzyć dwa OHDs dla tego samego InfoProvider. 
+W przypadku prawidłowej obsługi różnic nie jest dozwolone posiadanie identyfikatorów żądań z różnych DTPs w tej samej otwartej tabeli. W związku z tym nie należy tworzyć więcej niż jednego DTP dla każdego otwartego miejsca docelowego (OHD). Gdy wymagana jest Ekstrakcja pełna i różnicowa z tego samego InfoProvider, należy utworzyć dwa OHDs dla tego samego InfoProvider. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -81,7 +82,7 @@ Aby użyć tego łącznika centrum danych SAP Business Warehouse, należy wykona
 
 - Skonfiguruj własne Integration Runtime w wersji 3,13 lub nowszej. Aby uzyskać szczegółowe informacje, zobacz artykuł [Integration Runtime samodzielny](create-self-hosted-integration-runtime.md) .
 
-- Pobierz **64-bitowy [Łącznik SAP .NET 3,0](https://support.sap.com/en/product/connectors/msnet.html) ** z witryny sieci Web SAP i zainstaluj go na samoobsługowej maszynie IR. W przypadku instalowania programu w oknie opcjonalne kroki instalacji upewnij się, że wybrano opcję **Zainstaluj zestawy do GAC** , jak pokazano na poniższej ilustracji. 
+- Pobierz **64-bitowy [Łącznik SAP .NET 3,0](https://support.sap.com/en/product/connectors/msnet.html)** z witryny sieci Web SAP i zainstaluj go na samoobsługowej maszynie IR. W przypadku instalowania programu w oknie opcjonalne kroki instalacji upewnij się, że wybrano opcję **Zainstaluj zestawy do GAC** , jak pokazano na poniższej ilustracji. 
 
     ![Instalowanie łącznika SAP .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 

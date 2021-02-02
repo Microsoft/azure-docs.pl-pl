@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e884ceab652136c505ce7032f0e78588fb20be89
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: b493ee7d77fc45018dbf8d2bac748b03e3d74b8a
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986958"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430213"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -93,6 +93,9 @@ Można użyć następujących kombinacji typów autoryzacji i usługi Azure Stor
 ### <a name="querying-firewall-protected-storage"></a>Wykonywanie zapytań względem magazynu chronionego przez zaporę
 
 Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory można użyć **tożsamości użytkownika** lub **tożsamości zarządzanej**.
+
+> [!NOTE]
+> Funkcja zapory w magazynie jest w publicznej wersji zapoznawczej i jest dostępna we wszystkich regionach chmury publicznej. 
 
 #### <a name="user-identity"></a>Tożsamość użytkownika
 

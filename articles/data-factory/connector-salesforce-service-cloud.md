@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: 755346c1da38f66c0c0fef6144d34eea62735273
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 02/02/2021
+ms.openlocfilehash: 91ab6ca1350a1c6964daeae401bf7b08c6b1cd91
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072087"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430768"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Skopiuj dane z i do chmury usługi Salesforce przy użyciu Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z i do chmury usługi Salesforce. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
@@ -70,10 +71,7 @@ Dla połączonej usługi Salesforce są obsługiwane następujące właściwośc
 | hasło |Określ hasło dla konta użytkownika.<br/><br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
 | Obiektu |Określ token zabezpieczający dla konta użytkownika. <br/><br/>Aby uzyskać ogólne informacje na temat tokenów zabezpieczających, zobacz [zabezpieczenia i interfejs API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). Token zabezpieczający można pominąć tylko wtedy, gdy dodasz adres IP Integration Runtime do [listy zaufanych adresów IP](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) w usłudze Salesforce. Korzystając z Azure IR, zapoznaj się z [Azure Integration Runtime adresami IP](azure-integration-runtime-ip-addresses.md).<br/><br/>Instrukcje dotyczące pobierania i resetowania tokenu zabezpieczającego znajdują się w temacie [Get a Security Token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Nie |
 | apiVersion | Określ wersję interfejsu API REST/Bulk usługi Salesforce, która ma zostać użyta, np. `48.0` . Domyślnie łącznik używa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) do kopiowania danych z usługi Salesforce i używa [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) do kopiowania danych do usługi Salesforce. | Nie |
-| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie dla źródła, tak dla ujścia, jeśli źródłowa usługa nie ma środowiska Integration Runtime |
-
->[!IMPORTANT]
->Podczas kopiowania danych do chmury usługi Salesforce nie można użyć domyślnego Azure Integration Runtime do wykonania kopiowania. Innymi słowy, jeśli źródłowa usługa połączona nie ma określonego środowiska Integration Runtime, jawnie [utwórz Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) przy użyciu lokalizacji zbliżonej do wystąpienia chmury usługi Salesforce. Skojarz połączoną usługę w chmurze usługi Salesforce, jak w poniższym przykładzie.
+| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie |
 
 **Przykład: Przechowuj poświadczenia w Data Factory**
 
@@ -313,25 +311,25 @@ Podczas kopiowania danych z chmury usługi Salesforce następujące mapowania s�
 
 | Typ danych w chmurze usługi Salesforce | Data Factory typ danych pośrednich |
 |:--- |:--- |
-| Numer Autokorekty |String |
-| Pole wyboru |Boolean |
+| Numer Autokorekty |Ciąg |
+| Pole wyboru |Wartość logiczna |
 | Waluta |Liczba dziesiętna |
-| Data |DateTime |
+| Date (Data) |DateTime |
 | Data/godzina |DateTime |
-| E-mail |String |
-| ID (Identyfikator) |String |
-| Relacja odnośnika |String |
-| Lista wyboru z wybórem |String |
+| E-mail |Ciąg |
+| ID (Identyfikator) |Ciąg |
+| Relacja odnośnika |Ciąg |
+| Lista wyboru z wybórem |Ciąg |
 | Liczba |Liczba dziesiętna |
 | Procent |Liczba dziesiętna |
-| Telefon |String |
-| Lista wyboru |String |
+| Telefon |Ciąg |
+| Lista wyboru |Ciąg |
 | Tekst |Ciąg |
-| Obszar tekstu |String |
-| Obszar tekstowy (Long) |String |
-| Obszar tekstowy (rozbudowany) |String |
-| Tekst (zaszyfrowany) |String |
-| Adres URL |String |
+| Obszar tekstu |Ciąg |
+| Obszar tekstowy (Long) |Ciąg |
+| Obszar tekstowy (rozbudowany) |Ciąg |
+| Tekst (zaszyfrowany) |Ciąg |
+| Adres URL |Ciąg |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

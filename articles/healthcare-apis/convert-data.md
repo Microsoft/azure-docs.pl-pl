@@ -8,14 +8,17 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 01/19/2021
 ms.author: ranku
-ms.openlocfilehash: c794af26fdfe2d3706d8d8d266d0756eff391b50
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 7518f5e2984029c087eec1e6697f3237410bda4b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747692"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430280"
 ---
-# <a name="how-to-convert-data-to-fhir"></a>Jak przekonwertować dane na FHIR
+# <a name="how-to-convert-data-to-fhir-preview"></a>Jak przekonwertować dane na FHIR (wersja zapoznawcza)
+
+> [!IMPORTANT]
+> Ta możliwość jest dostępna w publicznej wersji zapoznawczej, nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Niestandardowy punkt końcowy danych $convert w interfejsie API platformy Azure dla FHIR jest przeznaczony do konwersji danych z różnych formatów do FHIR. Używa aparatu szablonu płynu i szablonów z projektu [konwertera FHIR](https://github.com/microsoft/FHIR-Converter) jako domyślnych szablonów. Te szablony konwersji można dostosować zgodnie z wymaganiami. Obecnie obsługuje konwersję HL7v2 na FHIR.
 

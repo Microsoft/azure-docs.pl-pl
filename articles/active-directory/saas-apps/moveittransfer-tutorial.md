@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/25/2019
+ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: c79596747be655e372958e06021c50f23ff0fe03
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 31bcf1592178ebe3290403c3d3abb3f7a3a7cd27
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508302"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Samouczek: integracja Azure Active Directory z transferem MOVEit — integracja z usługą Azure AD
 
-W tym samouczku dowiesz się, jak zintegrować usługę MOVEit transfer — integrację z usługą Azure AD z usługą Azure Active Directory (Azure AD).
-Integrowanie transferu MOVEit — integracja usługi Azure AD z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę MOVEit transfer — integrację z usługą Azure AD z usługą Azure Active Directory (Azure AD). W przypadku integracji transferu MOVEit — integracji usługi Azure AD z usługą Azure AD można:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi MOVEit transfer — integracja z usługą Azure AD.
-* Możesz umożliwić użytkownikom automatyczne logowanie do MOVEit transfer — integracja z usługą Azure AD (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+* Kontrolka w usłudze Azure AD, która ma dostęp do MOVEit transfer — integracja z usługą Azure AD.
+* Zezwól użytkownikom na automatyczne logowanie do MOVEit transfer — integracja z usługą Azure AD z kontami usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację z usługą Azure AD za pomocą transferu MOVEit — integracja z usługą Azure AD wymaga następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Transfer MOVEit — subskrypcja obsługująca Logowanie jednokrotne w usłudze Azure AD
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Transfer MOVEit — subskrypcja z włączonym logowaniem jednokrotnym (SSO) integracji usługi Azure AD.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -43,59 +39,39 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 
 * Transfer MOVEit — integracja z usługą Azure AD obsługuje logowanie jednokrotne w ramach platformy **SP**
 
-## <a name="adding-moveit-transfer---azure-ad-integration-from-the-gallery"></a>Dodawanie MOVEit transfer — integracja z usługą Azure AD z galerii
+## <a name="add-moveit-transfer---azure-ad-integration-from-the-gallery"></a>Dodawanie MOVEit transfer — integracja z usługą Azure AD z galerii
 
 Aby skonfigurować integrację transferu MOVEit — integrację usługi Azure AD z usługą Azure AD, musisz dodać integrację MOVEit-Azure AD z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać MOVEit transfer — integrację z usługą Azure AD z galerii, wykonaj następujące czynności:**
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wpisz **MOVEit transfer-Azure AD Integration** w polu wyszukiwania.
+1. Wybierz pozycję **transfer MOVEit — integracja z usługą Azure AD** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-moveit-transfer---azure-ad-integration"></a>Konfigurowanie i testowanie rejestracji jednokrotnej usługi Azure AD do MOVEit transfer — integracja z usługą Azure AD
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą transferu MOVEit — integracja z usługą Azure AD przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w ramach transferu MOVEit — integracja z usługą Azure AD.
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą transferu MOVEit — integracja z usługą Azure AD, wykonaj następujące czynności:
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj transfer MOVEit — logowanie JEDNOkrotne w usłudze Azure AD Integration](#configure-moveit-transfer---azure-ad-integration-sso)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Tworzenie transferu MOVEit — Użytkownik testowy integracji usługi Azure AD](#create-moveit-transfer---azure-ad-integration-test-user)** ma odpowiedni odpowiednik B. Simon w usłudze MOVEit transfer — integracja z usługą Azure AD, która jest połączona z reprezentacją użytkownika usługi Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-4. W polu wyszukiwania wpisz **MOVEit transfer — integracja z usługą Azure AD**, wybierz pozycję **MOVEit transfer — integracja z usługą Azure AD** z poziomu panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+1. W Azure Portal na stronie integracja z **usługą MOVEit transfer-Azure AD Integration** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-     ![Transfer MOVEit — integracja z usługą Azure AD na liście wyników](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji należy skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą transferu MOVEit — integracja z usługą Azure AD oparta na użytkowniku testowym o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze MOVEit transfer-Azure AD Integration.
-
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi MOVEit transfer — integracja z usługą Azure AD, należy wykonać następujące bloki konstrukcyjne:
-
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie transferu MOVEit — logowanie](#configure-moveit-transfer---azure-ad-integration-single-sign-on)** jednokrotne w usłudze Azure AD — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Tworzenie MOVEit transfer — Użytkownik testowy integracji usługi Azure AD](#create-moveit-transfer---azure-ad-integration-test-user)** , który ma odpowiednik Britta Simon w MOVEit transfer — integracja z usługą Azure AD, która jest połączona z reprezentacją usługi Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu usługi MOVEit transfer — integracja z usługą Azure AD, wykonaj następujące czynności:
-
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja **MOVEit transfer-Azure AD Integration** wybierz pozycję **Logowanie jednokrotne**.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML**, jeśli masz **plik metadanych dostawcy usługi**, wykonaj następujące kroki:
 
@@ -111,7 +87,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu usługi M
 
     ![Transfer MOVEit — informacje dotyczące logowania jednokrotnego w ramach domeny i adresów URL integracji usługi Azure AD](common/sp-identifier-reply.png)
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://contoso.com`
+    W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://contoso.com`
 
     > [!NOTE]
     > Wartość **adresu URL logowania** nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Contact [MOVEit transfer — zespół obsługi klienta integracji usługi Azure AD](https://community.ipswitch.com/s/support) , aby pobrać wartość. **Plik metadanych dostawcy usług** można pobrać z **adresu URL metadanych dostawcy usług** , który został wyjaśniony w dalszej części artykułu **Konfigurowanie usługi MOVEit transfer — Azure AD Integration logowanie** jednokrotne w samouczku. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -124,48 +100,66 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu usługi M
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
-    b. Identyfikator usługi Azure AD
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-    c. Adres URL wylogowywania
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
-### <a name="configure-moveit-transfer---azure-ad-integration-single-sign-on"></a>Konfigurowanie transferu MOVEit — pojedyncza Sign-On integracji usługi Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi MOVEit transfer — integracja z usługą Azure AD.
+
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **transfer MOVEit — integracja z usługą Azure AD**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+
+### <a name="configure-moveit-transfer---azure-ad-integration-sso"></a>Konfigurowanie transferu MOVEit — Logowanie jednokrotne w usłudze Azure AD
 
 1. Zaloguj się do dzierżawy transferu MOVEit jako administrator.
 
 2. W okienku nawigacji po lewej stronie kliknij pozycję **Settings** (Ustawienia).
 
-    ![Sekcja ustawień po stronie aplikacji](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+    ![Sekcja ustawień po stronie aplikacji](./media/moveittransfer-tutorial/settings.png)
 
 3. Kliknij link **Single jednokrotnego** , który znajduje się w obszarze **zasady zabezpieczeń — > uwierzytelnienie użytkownika**.
 
-    ![Zasady zabezpieczeń po stronie aplikacji](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
+    ![Zasady zabezpieczeń po stronie aplikacji](./media/moveittransfer-tutorial/sso.png)
 
 4. Kliknij link adresu URL metadanych, aby pobrać dokument metadanych.
 
-    ![Adres URL metadanych dostawcy usług](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
+    ![Adres URL metadanych dostawcy usług](./media/moveittransfer-tutorial/metadata.png)
     
    * Sprawdź, czy **entityID** dopasowuje **Identyfikator** w sekcji **Podstawowa konfiguracja SAML** .
    * Sprawdź, czy adres URL lokalizacji **AssertionConsumerService** pasuje do **adresu URL odpowiedzi**  w sekcji **Podstawowa konfiguracja protokołu SAML** .
     
-     ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+     ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/moveittransfer-tutorial/xml.png)
 
 5. Kliknij przycisk **Dodaj dostawcę tożsamości** , aby dodać nowego dostawcy tożsamości federacyjnych.
 
-    ![Dodawanie dostawcy tożsamości](./media/moveittransfer-tutorial/tutorial_moveittransfer_003.png)
+    ![Dodawanie dostawcy tożsamości](./media/moveittransfer-tutorial/idp.png)
 
 6. Kliknij przycisk **Przeglądaj...** , aby wybrać plik metadanych pobrany z Azure Portal, a następnie kliknij pozycję **Dodaj dostawcę tożsamości** w celu przekazania pobranego pliku.
 
-    ![Dostawca tożsamości SAML](./media/moveittransfer-tutorial/tutorial_moveittransfer_004.png)
+    ![Dostawca tożsamości SAML](./media/moveittransfer-tutorial/saml.png)
 
 7. Wybierz pozycję "**tak**" jako **włączone** na stronie **Edytowanie ustawień dostawcy tożsamości federacyjnych** , a następnie kliknij przycisk **Zapisz**.
 
-    ![Ustawienia federacyjnego dostawcy tożsamości](./media/moveittransfer-tutorial/tutorial_moveittransfer_005.png)
+    ![Ustawienia federacyjnego dostawcy tożsamości](./media/moveittransfer-tutorial/save.png)
 
 8. Na stronie **Edytowanie ustawień użytkownika dostawcy tożsamości federacyjnych** wykonaj następujące czynności:
     
-    ![Edytowanie ustawień dostawcy tożsamości federacyjnych](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
+    ![Edytowanie ustawień dostawcy tożsamości federacyjnych](./media/moveittransfer-tutorial/attributes.png)
     
     a. Wybierz pozycję **SAML NameID** jako **nazwę logowania**.
     
@@ -177,57 +171,6 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu usługi M
     
     e. Kliknij przycisk **Save** (Zapisz).
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
-
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
-
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
-
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-
-    ![Przycisk Nowy użytkownik](common/new-user.png)
-
-3. We właściwościach użytkownika wykonaj następujące kroki.
-
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
-
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
-    Na przykład BrittaSimon@contoso.com
-
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
-
-    d. Kliknij przycisk **Utwórz**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
-
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi MOVEit transfer — integracja z usługą Azure AD.
-
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **transfer MOVEit — integracja z usługą Azure AD**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-2. Na liście Aplikacje wybierz pozycję **transfer MOVEit — integracja z usługą Azure AD**.
-
-    ![Link MOVEit transfer-Azure AD Integration na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
-
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
-
 ### <a name="create-moveit-transfer---azure-ad-integration-test-user"></a>Tworzenie transferu MOVEit — Użytkownik testowy integracji usługi Azure AD
 
 Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w usłudze transfer MOVEit — integracja z usługą Azure AD. MOVEit transfer — integracja z usługą Azure AD obsługuje obsługę just in Time, która została włączona. W tej sekcji nie musisz niczego robić. Nowy użytkownik jest tworzony podczas próby dostępu do usługi MOVEit transfer — integracja z usługą Azure AD, jeśli jeszcze nie istnieje.
@@ -235,16 +178,16 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w usłudze t
 >[!NOTE]
 >Jeśli musisz ręcznie utworzyć użytkownika, musisz skontaktować się z [zespołem pomocy technicznej MOVEit transfer — Azure AD Integration Client](https://community.ipswitch.com/s/support).
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka MOVEit transfer — integracja z usługą Azure AD w panelu dostępu należy automatycznie zalogować się do integracji MOVEit transfer-Azure AD, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do MOVEit transfer — adres URL logowania do integracji usługi Azure AD, w którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+* Przejdź do MOVEit transfer — adres URL logowania do usługi Azure AD Integration bezpośrednio i zainicjuj tam przepływ logowania.
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka MOVEit transfer — integracja z usługą Azure AD w obszarze Moje aplikacje należy automatycznie zalogować się do integracji MOVEit transfer-Azure AD, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu MOVEit transfer — integracja z usługą Azure AD można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

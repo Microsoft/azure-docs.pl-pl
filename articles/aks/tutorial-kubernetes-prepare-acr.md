@@ -3,14 +3,14 @@ title: Samouczek dotyczący usługi Kubernetes na platformie Azure — tworzenie
 description: W tym samouczku dotyczącym usługi Azure Kubernetes Service (AKS) utworzysz wystąpienie usługi Azure Container Registry i przekażesz przykładowy obraz kontenera aplikacji.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 01/31/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d1dce1c59c4bf40eaead89e4a8a088e9a8ea4f76
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 9f6ec14cea20192aef7d3010201e6613c5d03a9e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250625"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430967"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Samouczek: wdrażanie usługi Azure Container Registry i korzystanie z niej
 
@@ -61,7 +61,7 @@ Polecenie zwraca komunikat o *pomyślnym zalogowaniu* po zakończeniu.
 Aby wyświetlić listę bieżących obrazów lokalnych, użyj polecenia [docker images][docker-images]:
 
 ```console
-$ docker images
+docker images
 ```
 Dane wyjściowe powyższego polecenia pokazują listę bieżących obrazów lokalnych:
 
@@ -88,8 +88,8 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 
 Aby sprawdzić, czy tagi zostały zastosowane, ponownie uruchom polecenie [docker images][docker-images].
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
 
 Obraz jest tagowany za pomocą adresu wystąpienia usługi ACR i numeru wersji.

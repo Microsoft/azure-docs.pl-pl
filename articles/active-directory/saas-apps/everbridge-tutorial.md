@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/18/2019
+ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 732362ef7099e93697320d8e47180c1207e8cb32
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 37a59d6da6fdc844b0b3647c029d716429b50ef6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995900"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Samouczek: integracja Azure Active Directory z usługą EverBridge
 
@@ -26,8 +26,6 @@ Po zintegrowaniu usługi EverBridge z usługą Azure AD można:
 * Kontrolka w usłudze Azure AD, która ma dostęp do EverBridge.
 * Zezwól użytkownikom na automatyczne logowanie do EverBridge przy użyciu kont usługi Azure AD. Ta kontrola dostępu jest nazywana logowaniem jednokrotnym (SSO).
 * Zarządzaj kontami w jednej centralnej lokalizacji przy użyciu Azure Portal.
-Aby uzyskać więcej informacji na temat integracji aplikacji SaaS (Software as a Service) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,60 +40,39 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 
 * Usługa EverBridge obsługuje logowanie jednokrotne inicjowane przez usługę dostawcy tożsamości.
 
-## <a name="add-everbridge-from-the-azure-marketplace"></a>Dodawanie EverBridge z witryny Azure Marketplace
+## <a name="add-everbridge-from-the-gallery"></a>Dodaj EverBridge z galerii
 
-Aby skonfigurować integrację programu EverBridge z usługą Azure AD, Dodaj EverBridge z witryny Azure Marketplace do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu EverBridge z usługą Azure AD, musisz dodać EverBridge z galerii do listy zarządzanych aplikacji SaaS.
 
-Aby dodać EverBridge z portalu Azure Marketplace, wykonaj następujące kroki.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wpisz **EverBridge** w polu wyszukiwania.
+1. Wybierz pozycję **EverBridge** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-1. W [Azure Portal](https://portal.azure.com)w okienku nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-everbridge"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla EverBridge
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą EverBridge przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w EverBridge.
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą EverBridge, wykonaj następujące czynności:
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj Logowanie jednokrotne](#configure-everbridge-sso)** w usłudze EverBridge, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego EverBridge](#create-everbridge-test-user)** , aby dysponować odpowiednikiem B. Simon w EverBridge, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-3. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** w górnej części okna dialogowego.
+### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-4. W polu wyszukiwania wprowadź **EverBridge**. Wybierz pozycję **EverBridge** w panelu wyników, a następnie wybierz pozycję **Dodaj**.
+1. W Azure Portal na stronie integracja aplikacji **EverBridge** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-     ![EverBridge na liście wyników](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
-
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą EverBridge w oparciu o test użytkownika Britta Simon.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w EverBridge.
-
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi EverBridge, wykonaj następujące bloki konstrukcyjne:
-
-- [Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on) — aby umożliwić użytkownikom korzystanie z tej funkcji.
-- [Skonfiguruj EverBridge jako logowanie](#configure-everbridge-as-everbridge-manager-portal-single-sign-on) jednokrotne w programie EverBridge Manager, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-- [Skonfiguruj EverBridge jako logowanie jednokrotne w portalu elementów członkowskich,](#configure-everbridge-as-everbridge-member-portal-single-sign-on) aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-- [Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user) — aby przetestować logowanie jednokrotne usługi Azure AD za pomocą użytkownika Britta Simon.
-- [Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user) — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-- [Utwórz użytkownika testowego EverBridge](#create-an-everbridge-test-user) , aby uzyskać odpowiednik Britta Simon w EverBridge, który jest połączony z reprezentacją usługi Azure AD.
-- [Testowanie logowania jednokrotnego](#test-single-sign-on) — aby sprawdzić, czy konfiguracja działa.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą EverBridge, wykonaj następujące kroki.
-
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **EverBridge** wybierz pozycję **Logowanie jednokrotne**.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz pozycję **Edytuj** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** .
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
     >[!NOTE]
     >Skonfiguruj aplikację jako portal Menedżera *lub* jako portal elementu członkowskiego na Azure Portal i w portalu EverBridge.
@@ -104,9 +81,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą EverBridge,
 
     ![EverBridge domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
 
-    a. W polu **Identyfikator** wprowadź adres URL, który następuje po wzorcu `https://sso.everbridge.net/<API_Name>`
+    a. W polu **Identyfikator** wprowadź adres URL, który następuje po wzorcu.
+    `https://sso.everbridge.net/<API_Name>`
 
-    b. W polu **adres URL odpowiedzi** wprowadź adres URL zgodny ze wzorcem. `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`
+    b. W polu **adres URL odpowiedzi** wprowadź adres URL zgodny ze wzorcem.
+    `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`
 
     > [!NOTE]
     > To nie są rzeczywiste wartości. Zaktualizuj te wartości za pomocą wartości rzeczywiste identyfikator i adres URL odpowiedzi. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej EverBridge](mailto:support@everbridge.com). Można również odwołać się do wzorców przedstawionych w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
@@ -138,11 +117,31 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą EverBridge,
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    - Adres URL logowania
-    - Identyfikator usługi Azure AD
-    - Adres URL wylogowywania
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
-### <a name="configure-everbridge-as-everbridge-manager-portal-single-sign-on"></a>Konfigurowanie EverBridge jako rejestracji jednokrotnej w portalu EverBridge Manager
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
+
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi EverBridge.
+
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **EverBridge**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+
+### <a name="configure-everbridge-sso"></a>Konfigurowanie logowania jednokrotnego EverBridge
 
 Aby skonfigurować Logowanie jednokrotne w usłudze **EverBridge** jako aplikację **portalu EverBridge Manager** , wykonaj następujące kroki.
  
@@ -150,7 +149,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze **EverBridge** jako aplikacj
 
 1. W menu u góry wybierz kartę **Ustawienia** . W obszarze **zabezpieczenia** wybierz pozycję **Logowanie jednokrotne**.
    
-     ![Konfigurowanie logowania jednokrotnego](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Konfigurowanie logowania jednokrotnego](./media/everbridge-tutorial/sso.png)
    
      a. W polu **Nazwa** wprowadź nazwę dostawcy identyfikatora. Przykładem jest nazwa firmy.
    
@@ -166,72 +165,22 @@ Aby skonfigurować Logowanie jednokrotne w usłudze **EverBridge** jako aplikacj
 
      przykład Wybierz pozycję **Zapisz**.
 
-### <a name="configure-everbridge-as-everbridge-member-portal-single-sign-on"></a>Konfigurowanie EverBridge jako rejestracji jednokrotnej w portalu członków EverBridge
+### <a name="configure-everbridge-as-everbridge-member-portal-sso"></a>Konfigurowanie EverBridge jako logowanie jednokrotne w portalu elementu członkowskiego EverBridge
 
 Aby skonfigurować Logowanie jednokrotne na **EverBridge** jako **Portal elementu członkowskiego EverBridge**, Wyślij pobrany **XML metadanych Federacji** do [zespołu pomocy technicznej EverBridge](mailto:support@everbridge.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
-
-Aby utworzyć test User Britta Simon w Azure Portal, wykonaj następujące kroki.
-
-1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
-
-    ![Użytkownicy i wszyscy użytkownicy — linki](common/users.png)
-
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-
-    ![Przycisk Nowy użytkownik](common/new-user.png)
-
-3. W oknie dialogowym **Użytkownik** wykonaj następujące kroki.
-
-    ![Okno dialogowe użytkownika](common/user-properties.png)
-
-    a. W polu **Nazwa** wpisz **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** podaj wartość `brittasimon@yourcompanydomain.extension`. Może to być na przykład BrittaSimon@contoso.com.
-
-    c. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
-
-    d. Wybierz pozycję **Utwórz**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
-
-Włącz logowanie jednokrotne w usłudze Britta Simon, przyznając dostęp do usługi EverBridge.
-
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  > **EverBridge**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-2. Na liście Aplikacje wybierz pozycję **EverBridge**.
-
-    ![Link EverBridge na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link Użytkownicy i grupy](common/users-groups-blade.png)
-
-4. Wybierz pozycję **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Okno dialogowe Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **Britta Simon** na liście Użytkownicy. Użyj pozycji **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz jakiejkolwiek wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybieranie roli** wybierz odpowiednią rolę dla użytkownika z listy. Użyj pozycji **Wybierz** u dołu ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
-
-### <a name="create-an-everbridge-test-user"></a>Tworzenie użytkownika testowego EverBridge
+### <a name="create-everbridge-test-user"></a>Utwórz użytkownika testowego EverBridge
 
 W tej sekcji utworzysz test User Britta Simon w programie EverBridge. Aby dodać użytkowników na platformie EverBridge, należy skontaktować się z [zespołem pomocy technicznej EverBridge](mailto:support@everbridge.com). Przed użyciem logowania jednokrotnego należy utworzyć i aktywować użytkowników w usłudze EverBridge. 
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-Przetestuj konfigurację logowania jednokrotnego usługi Azure AD za pomocą panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-Po wybraniu kafelka EverBridge w panelu dostępu należy automatycznie zalogować się do konta EverBridge, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do EverBridge, dla którego skonfigurowano Logowanie jednokrotne.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka EverBridge w obszarze Moje aplikacje należy automatycznie zalogować się do EverBridge, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Następne kroki
+
+Po skonfigurowaniu EverBridge można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

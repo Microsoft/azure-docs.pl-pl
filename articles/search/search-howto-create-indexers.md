@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: c26529f48d03b8cd038ce4fea8164a305dfc17f3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ade5880a6b06f448df23eb77d81201a521f1d240
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097644"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430049"
 ---
 # <a name="create-a-search-indexer"></a>Tworzenie indeksatora wyszukiwania
 
@@ -155,7 +155,7 @@ W przypadku, gdy indeksatory nie rozwiązują problemów z danymi, może być ko
 
 ## <a name="know-your-index"></a>Poznaj swój indeks
 
-Wycofaj te indeksatory, które przechodzą z przeszukiwanych dokumentów do aparatu wyszukiwania w celu indeksowania. Tak samo jak indeksatory mają właściwości, które określają zachowanie wykonywania, schemat indeksu ma właściwości, które w praktyce zależą od sposobu indeksowania ciągów (tylko ciągi są analizowane i podlegają tokenom). W zależności od przypisań analizatora indeksowane ciągi mogą się różnić od tego, co zostało przesłane. Efekty analizatorów można oszacować przy użyciu [analizy tekstu (REST)](/rest/api/searchservice/test-analyzer). Aby uzyskać więcej informacji na temat analizatorów, zobacz [analizatory do przetwarzania tekstu](search-analyzers.md).
+Wycofaj te indeksatory, które przechodzą z przeszukiwanych dokumentów do aparatu wyszukiwania w celu indeksowania. Tak samo jak indeksatory mają właściwości, które określają zachowanie wykonywania, schemat indeksu ma właściwości, które mają wpływ na sposób indeksowania ciągów (tylko ciągi są analizowane i podlegają tokenom). W zależności od przypisań analizatora indeksowane ciągi mogą się różnić od tego, co zostało przesłane. Efekty analizatorów można oszacować przy użyciu [analizy tekstu (REST)](/rest/api/searchservice/test-analyzer). Aby uzyskać więcej informacji na temat analizatorów, zobacz [analizatory do przetwarzania tekstu](search-analyzers.md).
 
 Pod względem tego, jak indeksatory współdziałają z indeksem, indeksator sprawdza tylko nazwy pól i typy. Nie ma kroku sprawdzania poprawności, który gwarantuje, że zawartość przychodząca jest poprawna dla odpowiedniego pola wyszukiwania w indeksie. W ramach kroku weryfikacji można uruchamiać zapytania na wypełnionym indeksie, które zwracają całe dokumenty lub wybrane pola. Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących zawartości indeksu, zobacz [Tworzenie podstawowego zapytania](search-query-create.md).
 

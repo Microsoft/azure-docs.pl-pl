@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: ceeaad64734099f8669590d39f1629b9f4173e19
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: df393f54e7dfa83c8fc0feab3dbf42a156b296b7
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097152"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430466"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indeksatory w usłudze Azure Cognitive Search
 
@@ -47,6 +47,8 @@ Indeksatory przeszukują magazyny danych na platformie Azure.
 + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Wystąpienie zarządzane SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [Program SQL Server na maszynach wirtualnych platformy Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+
+Połączenia indeksatora ze zdalnymi źródłami danych mogą być nawiązywane przy użyciu standardowych połączeń internetowych (publicznych) lub szyfrowanych prywatnych połączeń, gdy używane są usługi Azure Virtual Networks dla aplikacji klienckich. Możesz również skonfigurować połączenia do uwierzytelniania za pomocą zaufanej tożsamości usługi. Aby uzyskać więcej informacji na temat bezpiecznych połączeń, zobacz [udzielanie dostępu za pośrednictwem prywatnych punktów końcowych](search-indexer-securing-resources.md#granting-access-via-private-endpoints) i [nawiązywanie połączenia ze źródłem danych przy użyciu tożsamości zarządzanej](search-howto-managed-identities-data-sources.md).
 
 ## <a name="stages-of-indexing"></a>Etapy indeksowania
 
