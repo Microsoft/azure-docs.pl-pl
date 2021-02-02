@@ -1,45 +1,40 @@
 ---
-title: Zarządzane tożsamości i magazyn zaufany
-description: Media Services można używać z tożsamościami zarządzanymi w celu włączenia magazynu zaufanego.
+title: Tożsamości zarządzane
+description: Media Services można używać z tożsamościami zarządzanymi przez platformę Azure.
+keywords: ''
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 291508a6beaa687b3a10f55df4591ce601ab51a0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 71a2b8f0734de80f71dbb2372f8600b464d6c606
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956178"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258443"
 ---
-# <a name="managed-identities-and-trusted-storage-with-media-services"></a>Zarządzane tożsamości i zaufane magazyny za pomocą usługi Media Services
+# <a name="managed-identities"></a>Tożsamości zarządzane
 
-Media Services można używać z [tożsamościami zarządzanymi](../../active-directory/managed-identities-azure-resources/overview.md) w celu włączenia magazynu zaufanego. Podczas tworzenia konta Media Services należy je skojarzyć z kontem magazynu. Media Services może uzyskać dostęp do tego konta magazynu przy użyciu uwierzytelniania systemu. Media Services sprawdza, czy konto Media Services i konto magazynu znajdują się w tej samej subskrypcji i sprawdza, czy użytkownik, który doda skojarzenie, uzyskuje dostęp do konta magazynu za pomocą Azure Resource Manager RBAC.
+Typowym wyzwaniem dla deweloperów jest zarządzanie kluczami tajnymi i poświadczeniami w celu zabezpieczenia komunikacji między różnymi usługami. Na platformie Azure tożsamości zarządzane eliminują konieczność zarządzania poświadczeniami przy użyciu tożsamości dla zasobów platformy Azure w usłudze Azure AD i uzyskiwania tokenów Azure Active Directory (Azure AD).
 
-## <a name="trusted-storage"></a>Magazyn zaufany
-
-Jeśli jednak chcesz użyć zapory do zabezpieczenia konta magazynu, musisz użyć uwierzytelniania tożsamości zarządzanej. Umożliwia Media Services dostępu do konta magazynu, które zostało skonfigurowane przy użyciu zapory lub ograniczenia sieci wirtualnej za pomocą zaufanego dostępu do magazynu.  Aby uzyskać więcej informacji na temat zaufanych usług firmy Microsoft, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../../storage/common/storage-network-security.md#trusted-microsoft-services).
-
-## <a name="media-services-managed-identity-scenarios"></a>Scenariusze tożsamości zarządzanych usług Media Services
-
-Obecnie istnieją dwa scenariusze, w których tożsamość zarządzana może być używana z Media Services:
+Obecnie istnieją dwa scenariusze, w których zarządzane tożsamości mogą być używane z Media Services:
 
 - Użyj zarządzanej tożsamości konta Media Services, aby uzyskać dostęp do kont magazynu.
 
 - Użyj zarządzanej tożsamości konta Media Services, aby uzyskać dostęp do Key Vault do uzyskiwania dostępu do kluczy klienta.
 
-W następnych dwóch sekcjach opisano różnice w dwóch scenariuszach.
+W dwóch następnych sekcjach opisano kroki dwóch scenariuszy.
 
-### <a name="use-the-managed-identity-of-the-media-services-account-to-access-storage-accounts"></a>Użyj zarządzanej tożsamości konta Media Services, aby uzyskać dostęp do kont magazynu
+## <a name="use-the-managed-identity-of-the-media-services-account-to-access-storage-accounts"></a>Użyj zarządzanej tożsamości konta Media Services, aby uzyskać dostęp do kont magazynu
 
 1. Utwórz konto Media Services przy użyciu tożsamości zarządzanej.
 1. Udziel zarządzanej tożsamości głównej dostępu do konta magazynu, którego jesteś posiadasz.
 1. Media Services może następnie uzyskać dostęp do konta magazynu w Twoim imieniu przy użyciu tożsamości zarządzanej.
 
-### <a name="use-the-managed-identity-of-the-media-services-account-to-access-key-vault-to-access-customer-keys"></a>Użyj zarządzanej tożsamości konta Media Services, aby uzyskać dostęp do Key Vault do uzyskiwania dostępu do kluczy klienta
+## <a name="use-the-managed-identity-of-the-media-services-account-to-access-key-vault-to-access-customer-keys"></a>Użyj zarządzanej tożsamości konta Media Services, aby uzyskać dostęp do Key Vault do uzyskiwania dostępu do kluczy klienta
 
 1. Utwórz konto Media Services przy użyciu tożsamości zarządzanej.
 1. Przyznaj podmiotowi zabezpieczeń tożsamości zarządzanej dostęp do Key Vault, którego jesteś członkiem.

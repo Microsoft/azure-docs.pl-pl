@@ -3,7 +3,7 @@ title: Przykład programu PowerShell — lista użytkowników & grup dla aplikac
 description: Przykład programu PowerShell, który wyświetla listę wszystkich użytkowników i grup przypisanych do konkretnej aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD).
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: c9885e42dc81d81dddea6205ed85be8276ffbf94
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 6fc94a7e9c8ed222b7612db691c687b8daa85d9a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861718"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258426"
 ---
 # <a name="display-users-and-groups-assigned-to-an-application-proxy-application"></a>Wyświetlanie użytkowników i grup przypisanych do aplikacji serwera proxy aplikacji
 
