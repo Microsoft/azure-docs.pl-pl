@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: f525666e91a482a6c23128e266b4f5669437a502
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 48eba42548287b54d99d1a2188786437f4b05a2b
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956025"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475475"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -231,7 +231,7 @@ System plików NFS gościa/serwera | Nie
 Interfejs iSCSI gościa/serwera | Dla migracji — tak<br/>W przypadku odzyskiwania po awarii — nie, iSCSI spowoduje powrót po awarii jako dołączony dysk do maszyny wirtualnej
 Gość/serwer SMB 3,0 | Nie
 RDM gościa/serwera | Tak<br/><br/> N/A dla serwerów fizycznych
-Dysk gościa/serwer > 1 TB | Tak, dysk musi być większy niż 1024 MB<br/><br/>Do 8 192 GB podczas replikowania na dyski zarządzane (wersja 9,26)<br></br> Do 4 095 GB podczas replikowania na konta magazynu
+Dysk gościa/serwer > 1 TB | Tak, dysk musi być większy niż 1024 MB<br/><br/>Do 32 TB podczas replikowania na dyski zarządzane (wersja 9,40)<br></br> Do 4 095 GB podczas replikowania na konta magazynu
 Dysk gościa/serwer z rozmiarem sektora fizycznego i 4 KB w kilobajtach | Nie
 Dysk gościa/serwer z logicznymi i 512mi 4K rozmiar sektora fizycznego | Nie
 Wolumin gościa/serwer z dyskiem rozłożonym >4 TB | Tak
@@ -292,7 +292,7 @@ Architektura systemu operacyjnego gościa | 64-bitowa. | Sprawdzanie kończy si�
 Rozmiar dysku systemu operacyjnego | Do 2 048 GB. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Liczba dysków systemu operacyjnego | 1 </br> partycja rozruchowa i systemowa na różnych dyskach nie jest obsługiwana | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Liczba dysków danych | 64 lub mniej. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Rozmiar dysku danych | Do 8 192 GB podczas replikowania na dysk zarządzany (wersja 9,26)<br></br>Do 4 095 GB podczas replikowania na konto magazynu| Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
+Rozmiar dysku danych | Do 32 TB podczas replikowania na dysk zarządzany (wersja 9,40)<br></br>Do 4 095 GB podczas replikowania na konto magazynu| Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Karty sieciowe | Obsługiwane są wiele kart. |
 Udostępniony wirtualny dysk twardy | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Dysk FC | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.

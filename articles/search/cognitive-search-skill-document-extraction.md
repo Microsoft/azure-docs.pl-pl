@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 5098d897d84ff6af31d430c0ddd2e26d8d6b08a7
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814299"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474850"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Umiejętność wyodrębniania dokumentów
 
@@ -37,7 +37,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 | Dane wejściowe | Dozwolone wartości | Opis |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Ustaw na `default` na potrzeby wyodrębniania dokumentów z plików, które nie są czystym tekstem ani JSON. Ustaw, aby `text` zwiększyć wydajność na zwykłych plikach tekstowych. Ustaw, aby `json` wyodrębnić zawartość strukturalną z plików JSON. Jeśli `parsingMode` wartość nie jest jawnie zdefiniowana, zostanie ustawiona na wartość `default` . |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Ustaw, aby `contentAndMetadata` wyodrębnić wszystkie metadane i zawartość tekstową z każdego pliku. Ustaw, aby `allMetadata` wyodrębnić tylko [metadane specyficzne dla typu zawartości](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (na przykład metadane unikatowe dla plików PNG). Jeśli `dataToExtract` wartość nie jest jawnie zdefiniowana, zostanie ustawiona na wartość `contentAndMetadata` . |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Ustaw, aby `contentAndMetadata` wyodrębnić wszystkie metadane i zawartość tekstową z każdego pliku. Ustaw, aby `allMetadata` wyodrębnić tylko [właściwości metadanych dla typu zawartości](search-blob-metadata-properties.md) (na przykład metadanych unikatowych dla plików PNG). Jeśli `dataToExtract` wartość nie jest jawnie zdefiniowana, zostanie ustawiona na wartość `contentAndMetadata` . |
 | `configuration` | Sprawdź poniżej. | Słownik parametrów opcjonalnych, który dostosowuje sposób wykonywania wyodrębniania dokumentu. Zapoznaj się z poniższą tabelą opisów obsługiwanych właściwości konfiguracji. |
 
 | Parametr konfiguracji   | Dozwolone wartości | Opis |
@@ -146,7 +146,7 @@ Ten obiekt odwołania do pliku może być wygenerowany jeden z trzech sposobów:
 }
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

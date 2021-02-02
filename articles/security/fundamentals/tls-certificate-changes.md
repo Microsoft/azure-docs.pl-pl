@@ -9,16 +9,16 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: bb49523858f07e54887a67d9df68eb894e27ad34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 04b68899b796088bd4b89509a413c7a1fe5369bb
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881252"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475356"
 ---
 # <a name="azure-tls-certificate-changes"></a>Zmiany certyfikatu protokołu TLS platformy Azure  
 
-Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów TLS z innego zestawu głównych urzędów certyfikacji (CA). Ta zmiana jest wykonywana, ponieważ bieżące certyfikaty urzędu certyfikacji nie są zgodne z jednym z wymagań linii bazowej urzędu certyfikacji/przeglądarki.
+Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów TLS z innego zestawu głównych urzędów certyfikacji (CA). Ta zmiana jest wykonywana, ponieważ bieżące certyfikaty urzędu certyfikacji nie są zgodne z jednym z wymagań linii bazowej urzędu certyfikacji/przeglądarki i zostaną odwołane 15 lutego 2021.
 
 ## <a name="when-will-this-change-happen"></a>Kiedy to nastąpi zmiana?
 

@@ -36,7 +36,7 @@
   items:
     - name: Chmury prywatne i klastry
       href: concepts-private-clouds-clusters.md
-    - name: Sieci prywatne w chmurze i łączność między lokalizacjami
+    - name: Łączność i sieci w chmurze prywatnej
       href: concepts-networking.md
     - name: Magazynowanie w chmurach prywatnych
       href: concepts-storage.md

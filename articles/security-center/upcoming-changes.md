@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 83c1d8ac316703d9d22d0716c86c5731c3db7133
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d5de16c8156762a229d6c707080bc197dc206a7c
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226475"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475594"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -38,7 +38,7 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 ### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>Zalecenia dotyczące ochrony obciążeń Kubernetes są wkrótce udostępniane w celu uzyskania ogólnej dostępności (GA)
 
-**Szacowana data zmiany:** Styczeń 2021
+**Szacowana data zmiany:** Luty 2021
 
 Zalecenia dotyczące ochrony obciążeń Kubernetes opisane w artykule [Ochrona obciążeń Kubernetes](kubernetes-workload-protections.md) są obecnie dostępne w wersji zapoznawczej. Mimo że zalecenie jest w wersji zapoznawczej, nie renderuje zasobów w złej kondycji i nie jest uwzględniane w obliczeniach bezpiecznego wyniku.
 

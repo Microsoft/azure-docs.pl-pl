@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 02/02/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9276fca62e96395150c9545b8f4dcb5c8c0afb87
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3315500e0d8ce090b058cbe0cb11d9ab8e56e193
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954246"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475002"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metody uwierzytelniania w tokenach OATH Azure Active Directory
 
@@ -49,7 +49,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
-> Upewnij się, że dołączysz wiersz nagłówka do pliku CSV.
+> Upewnij się, że dołączysz wiersz nagłówka do pliku CSV. Jeśli nazwa UPN ma pojedyncze cudzysłowy, należy to zrobić z innym pojedynczym cudzysłowem. Na przykład jeśli nazwa UPN to my user@domain.com , Zmień ją na mój "" user@domain.com podczas przekazywania pliku.
 
 Po poprawnym sformatowaniu pliku CSV administrator może następnie zalogować się do Azure Portal, przejść do **Azure Active Directory > zabezpieczenia > MFA > tokeny Oath** i przekazać plik CSV.
 

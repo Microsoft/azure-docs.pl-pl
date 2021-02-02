@@ -3,18 +3,20 @@ title: Monitorowanie wydajności na maszynach wirtualnych platformy Azure — Ap
 description: Monitorowanie wydajności aplikacji dla maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych platformy Azure. Załaduj wykres i czas odpowiedzi, informacje o zależnościach i ustaw alerty wydajności.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 0ea005427348e5265867a9e7ee805b0e6aa202f2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 01583cf5ecb85e4f66538afaba6984bff455ea99
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933905"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475458"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Wdrażanie agenta Application Insights Azure Monitor na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych platformy Azure
 
-Włączenie monitorowania w aplikacjach sieci Web opartych na architekturze .NET działających na [maszynach wirtualnych platformy Azure](https://azure.microsoft.com/services/virtual-machines/) i w [usłudze Azure Virtual Machine Sets](../../virtual-machine-scale-sets/index.yml) jest teraz łatwiejsze niż kiedykolwiek wcześniej. Uzyskaj wszystkie korzyści wynikające z używania Application Insights bez modyfikowania kodu.
+Włączenie monitorowania dla aplikacji sieci Web platformy .NET lub języka Java działających na [maszynach wirtualnych platformy Azure](https://azure.microsoft.com/services/virtual-machines/) i [zestawów skalowania maszyn wirtualnych platformy Azure](../../virtual-machine-scale-sets/index.yml) jest teraz łatwiejsze niż kiedykolwiek wcześniej. Uzyskaj wszystkie korzyści wynikające z używania Application Insights bez modyfikowania kodu.
 
 W tym artykule omówiono Włączanie monitorowania Application Insights przy użyciu agenta Application Insights i przedstawiono wstępne wskazówki dotyczące automatyzowania procesu wdrożeń na dużą skalę.
+> [!IMPORTANT]
+> Aplikacje **języka Java** działające na maszynach wirtualnych i VMSSach platformy Azure są monitorowane przy użyciu programu **[Application Insights Java 3,0 Agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)**, który jest ogólnie dostępny.
 
 > [!IMPORTANT]
 > Usługa Azure Application Insights Agent dla aplikacji ASP.NET działających na **maszynach wirtualnych platformy Azure i VMSS** jest obecnie w publicznej wersji zapoznawczej. Aby monitorować aplikacje ASP.Net uruchomione **lokalnie**, użyj [agenta Application Insights platformy Azure dla serwerów lokalnych](./status-monitor-v2-overview.md), które są ogólnie dostępne i w pełni obsługiwane.
@@ -25,23 +27,47 @@ W tym artykule omówiono Włączanie monitorowania Application Insights przy uż
 
 Istnieją dwa sposoby włączania monitorowania aplikacji dla maszyn wirtualnych platformy Azure i aplikacji hostowanych w ramach zestawów skalowania maszyn wirtualnych platformy Azure:
 
-* Bez **kodu** za pośrednictwem agenta Application Insights
-    * Ta metoda jest najłatwiejsza do włączenia i nie jest wymagana żadna Konfiguracja zaawansowana. Jest on często określany jako "środowisko uruchomieniowe".
+### <a name="auto-inctrumentation-via-application-insights-agent"></a>Autoinctrumentation za pośrednictwem agenta Application Insights
 
-    * W przypadku maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych platformy Azure zalecamy co najmniej włączenie tego poziomu monitorowania. Po tym, w zależności od konkretnego scenariusza, można sprawdzić, czy jest wymagana Instrumentacja ręczna.
+* Ta metoda jest najłatwiejsza do włączenia i nie jest wymagana żadna Konfiguracja zaawansowana. Jest on często określany jako "środowisko uruchomieniowe".
 
-    * Agent Application Insights wykonuje autozbieranie informacji o tej samej zależności, co oznacza, że jest to zestaw .NET SDK. Zobacz [autozbieranie zależności](./auto-collect-dependencies.md#net) , aby dowiedzieć się więcej.
-        > [!NOTE]
-        > Obecnie obsługiwane są tylko aplikacje obsługiwane przez program .NET IIS. Użyj zestawu SDK do Instrumentacji aplikacji ASP.NET Core, Java i Node.js hostowanych na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych.
-
-* **Oparte na kodzie** za pośrednictwem zestawu SDK
-
-    * Takie podejście jest znacznie bardziej dostosowywalne, ale wymaga [dodania zależności do pakietów NuGet zestawu Application Insights SDK](./asp-net.md). Ta metoda oznacza również, że konieczne jest zarządzanie aktualizacjami do najnowszej wersji pakietów.
-
-    * Jeśli konieczne jest wykonywanie niestandardowych wywołań interfejsu API w celu śledzenia zdarzeń/zależności, które nie są przechwytywane domyślnie przy użyciu monitorowania opartego na agentach, należy użyć tej metody. Zapoznaj się z [interfejsem API dla niestandardowych zdarzeń i metryk](./api-custom-events-metrics.md) , aby dowiedzieć się więcej.
+* W przypadku maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych platformy Azure zalecamy co najmniej włączenie tego poziomu monitorowania. Po tym, w zależności od konkretnego scenariusza, można sprawdzić, czy jest wymagana Instrumentacja ręczna.
 
 > [!NOTE]
-> W przypadku wykrycia zarówno Instrumentacji opartej na agencie, jak i ręcznego zestawu SDK można wykryć tylko ręczne ustawienia Instrumentacji. Ma to na celu uniemożliwienie wysyłania zduplikowanych danych. Aby dowiedzieć się więcej na ten temat, zapoznaj się z [sekcją rozwiązywania problemów](#troubleshooting) poniżej.
+> Funkcja autoinstrumentacja jest obecnie dostępna tylko dla aplikacji hostowanych przez program .NET IIS i środowisko Java. Użyj zestawu SDK do Instrumentacji aplikacji ASP.NET Core, Node.js i Python hostowanych na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych.
+
+
+#### <a name="net"></a>.NET
+
+  * Agent Application Insights wykonuje autozbieranie informacji o tej samej zależności, co oznacza, że jest to zestaw .NET SDK. Zobacz [autozbieranie zależności](./auto-collect-dependencies.md#net) , aby dowiedzieć się więcej.
+        
+#### <a name="java"></a>Java
+  * W przypadku języka Java zalecane podejście **[Application Insights java 3,0 Agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** . Najpopularniejsze biblioteki i struktury, jak również dzienniki i zależności, są [zbierane](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#auto-collected-requests-dependencies-logs-and-metrics)z wieloma [dodatkowymi konfiguracjami](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config)
+
+### <a name="code-based-via-sdk"></a>Oparte na kodzie za pośrednictwem zestawu SDK
+    
+#### <a name="net"></a>.NET
+  * W przypadku aplikacji .NET takie podejście jest znacznie bardziej dostosowywalne, ale wymaga [dodania zależności do pakietów NuGet zestawu Application Insights SDK](./asp-net.md). Ta metoda oznacza również, że konieczne jest zarządzanie aktualizacjami do najnowszej wersji pakietów.
+
+  * Jeśli konieczne jest wykonywanie niestandardowych wywołań interfejsu API w celu śledzenia zdarzeń/zależności, które nie są przechwytywane domyślnie przy użyciu monitorowania opartego na agentach, należy użyć tej metody. Zapoznaj się z [interfejsem API dla niestandardowych zdarzeń i metryk](./api-custom-events-metrics.md) , aby dowiedzieć się więcej.
+
+    > [!NOTE]
+    > Tylko dla aplikacji platformy .NET — Jeśli Instrumentacja oparta na agentach i ręczna z zestawem SDK zostanie wykryta, zostaną uznane tylko ręczne ustawienia Instrumentacji. Ma to na celu uniemożliwienie wysyłania zduplikowanych danych. Aby dowiedzieć się więcej na ten temat, zapoznaj się z [sekcją rozwiązywania problemów](#troubleshooting) poniżej.
+
+#### <a name="net-core"></a>.NET Core
+Aby monitorować aplikacje platformy .NET Core, użyj [zestawu SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 
+
+#### <a name="java"></a>Java 
+
+Jeśli potrzebujesz dodatkowej telemetrii dla aplikacji Java, zobacz co [to jest dostępne](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#send-custom-telemetry-from-your-application), Dodaj [niestandardowe wymiary](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#custom-dimensions)lub Użyj [procesorów telemetrii](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-telemetry-processors). 
+
+#### <a name="nodejs"></a>Node.js
+
+Aby instrumentować Node.js aplikację, użyj [zestawu SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+
+#### <a name="python"></a>Python
+
+Aby monitorować aplikacje Python, użyj [zestawu SDK](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>Zarządzanie agentem Application Insights dla aplikacji .NET na maszynach wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -168,7 +194,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 Znajdź wskazówki dotyczące rozwiązywania problemów Application Insights rozszerzenia agenta monitorowania dla aplikacji platformy .NET działających na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych.
 
 > [!NOTE]
-> Aplikacje .NET Core, Java i Node.js są obsługiwane tylko na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych platformy Azure za pośrednictwem usługi Instrumentacja ręcznego zestawu SDK, w związku z czym poniższe kroki nie mają zastosowania do tych scenariuszy.
+> Aplikacje .NET Core, Node.js i Python są obsługiwane tylko w maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych platformy Azure za pośrednictwem usługi Instrumentacja ręcznego zestawu SDK, w związku z czym poniższe kroki nie mają zastosowania do tych scenariuszy.
 
 Dane wyjściowe wykonania rozszerzenia są rejestrowane w plikach znalezionych w następujących katalogach:
 ```Windows

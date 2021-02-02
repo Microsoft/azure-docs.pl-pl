@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: b353fad64b08f5fc50af2b8d31abab77cd797e25
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055046"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475188"
 ---
 # <a name="virtual-network-service-tags"></a>Tagi usługi sieci wirtualnej
 <a name="network-service-tags"></a>
@@ -97,6 +97,7 @@ Domyślnie Tagi usług odzwierciedlają zakresy dla całej chmury. Niektóre Tag
 | **LogicAppsManagement** | Ruch związany z zarządzaniem dla Logic Apps. | Przychodzący | Nie | Nie |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Wychodzący | Nie | Nie |
 | **MicrosoftContainerRegistry** | Rejestr kontenerów dla obrazów kontenerów firmy Microsoft. <br/><br/>*Uwaga:* Ten tag ma zależność od tagu **AzureFrontDoor. FirstParty** . | Wychodzący | Tak | Tak |
+| **PowerBI** | PowerBi. *Uwaga: ten tag nie jest obecnie konfigurowalny za pomocą witryny Azure Portal.* | Oba | Nie | Nie|
 | **PowerQueryOnline** | Power Query w trybie online. | Oba | Nie | Nie |
 | **ServiceBus** | Azure Service Bus ruch korzystający z warstwy usługi Premium. | Wychodzący | Tak | Tak |
 | **ServiceFabric** | Service Fabric platformy Azure.<br/><br/>*Uwaga:* Ten tag reprezentuje punkt końcowy usługi Service Fabric dla płaszczyzny kontroli na region. Dzięki temu klienci mogą wykonywać operacje związane z zarządzaniem Service Fabric klastrami z sieci wirtualnej (np. https://westus.servicefabric.azure.com) | Oba | Nie | Nie |

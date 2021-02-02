@@ -4,16 +4,16 @@ description: Dowiedz się, jak identyfikować, diagnozować i rozwiązywać prob
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905115"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475730"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,6 +62,8 @@ Zapoznaj się z następującymi sekcjami, aby zrozumieć odpowiednie optymalizac
 - [Dołącz wymagane ścieżki do zasad indeksowania.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Informacje o tym, które funkcje systemowe używają indeksu.](#understand-which-system-functions-use-the-index)
+
+- [Popraw ciąg wykonywania funkcji systemu.](#improve-string-system-function-execution)
 
 - [Zrozumieć, które zapytania agregujące używają indeksu.](#understand-which-aggregate-queries-use-the-index)
 
@@ -198,10 +200,11 @@ W dowolnej chwili można dodać właściwości do zasad indeksowania bez wpływu
 
 Większość funkcji systemowych używa indeksów. Poniżej znajduje się lista niektórych typowych funkcji ciągów, które używają indeksów:
 
-- STARTSWITH (str_expr1, str_expr2, bool_expr)  
-- ZAWIERA (str_expr, str_expr, bool_expr)
-- LEFT(wyrażenie_ciągu, wyrażenie_liczbowe) = wyrażenie_ciągu
-- Podciąg (str_expr, num_expr, num_expr) = str_expr, ale tylko wtedy, gdy pierwszy num_expr wynosi 0
+- StartsWith
+- Contains
+- RegexMatch
+- Lewe
+- Podciąg — ale tylko wtedy, gdy pierwsze num_expr wynosi 0
 
 Poniżej przedstawiono niektóre typowe funkcje systemowe, które nie używają indeksu i muszą ładować każdy dokument:
 
@@ -210,11 +213,21 @@ Poniżej przedstawiono niektóre typowe funkcje systemowe, które nie używają 
 | GÓRNY/DOLNY                             | Zamiast używać funkcji system do normalizacji danych do porównania, należy znormalizować wielkość liter po wstawieniu. Zostanie zapytanie ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` ```SELECT * FROM c WHERE c.name = 'BOB'``` . |
 | Funkcje matematyczne (inne niż zagregowane) | Jeśli trzeba często obliczać wartość w zapytaniu, należy rozważyć przechowywanie wartości jako właściwości w dokumencie JSON. |
 
-------
+### <a name="improve-string-system-function-execution"></a>Ulepszanie wykonywania funkcji systemu ciągów
 
-Jeśli funkcja systemowa używa indeksów i nadal ma dużą opłatą w wysokości RU, możesz spróbować dodać `ORDER BY` do zapytania. W niektórych przypadkach dodanie `ORDER BY` może poprawić wykorzystanie indeksów funkcji systemu, szczególnie jeśli zapytanie jest długotrwałe lub rozciąga się na wiele stron.
+W przypadku niektórych funkcji systemowych, które używają indeksów, można poprawić wykonanie zapytania, dodając `ORDER BY` klauzulę do zapytania. 
 
-Rozważmy na przykład poniższe zapytanie z `CONTAINS` . `CONTAINS` należy użyć indeksu, ale Wyobraź sobie, że po dodaniu odpowiedniego indeksu nadal zobaczysz bardzo wysokie opłaty RU podczas uruchamiania poniższego zapytania:
+Dokładniej mówiąc, każda funkcja systemowa, której koszt RU zwiększa się w miarę wzrostu kardynalności właściwości, może korzystać z `ORDER BY` zapytania. Te zapytania wykonują skanowanie indeksu, dlatego posortowane wyniki zapytania mogą sprawiać, że zapytanie jest bardziej wydajne.
+
+Ta optymalizacja może poprawić wykonywanie następujących funkcji systemowych:
+
+- StartsWith (bez uwzględniania wielkości liter = true)
+- StringEquals (bez uwzględniania wielkości liter = true)
+- Contains
+- RegexMatch
+- EndsWith
+
+Rozważmy na przykład poniższe zapytanie z `CONTAINS` . `CONTAINS` użyje indeksów, ale czasami, nawet po dodaniu odpowiedniego indeksu, można nadal obserwować bardzo wysokie obciążenie RU podczas uruchamiania poniższego zapytania.
 
 Oryginalne zapytanie:
 
@@ -224,13 +237,32 @@ FROM c
 WHERE CONTAINS(c.town, "Sea")
 ```
 
-Zaktualizowano zapytanie `ORDER BY` :
+Aby poprawić wykonywanie zapytań, Dodaj `ORDER BY` następujące:
 
 ```sql
 SELECT *
 FROM c
 WHERE CONTAINS(c.town, "Sea")
 ORDER BY c.town
+```
+
+Ta sama Optymalizacja może pomóc w zapytaniach z dodatkowymi filtrami. W tym przypadku najlepiej dodać właściwości z filtrami równości do `ORDER BY` klauzuli.
+
+Oryginalne zapytanie:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+Można poprawić wykonywanie zapytania przez dodanie `ORDER BY` i [indeks złożony](index-policy.md#composite-indexes) dla (c.Name, c. miasto):
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
 ```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Zrozumienie, które zapytania agregujące używają indeksu

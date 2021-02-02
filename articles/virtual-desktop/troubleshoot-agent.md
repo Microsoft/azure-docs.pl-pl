@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 5f9d772a4cc5722201891450707a68fe487acc3a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540645"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475256"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Rozwiązywanie typowych problemów z agentem pulpitu wirtualnego systemu Windows
 
@@ -207,7 +207,7 @@ Aby rozwiązać ten problem, zwolnij miejsce na dysku przez:
 Otwórz okno programu PowerShell jako administrator i uruchom następujące polecenie cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object*
+Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
 ```
 
 Jeśli stan wymieniony dla hosta sesji lub hostów w puli hostów zawsze mówi **niedostępności** lub **uaktualnienie**, Instalacja agenta lub stosu zakończyła się niepowodzeniem

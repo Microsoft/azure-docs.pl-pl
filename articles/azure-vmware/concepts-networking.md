@@ -3,12 +3,12 @@ title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9369c0fff31de4c6575d8e4903420cfa01461bf4
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062124"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475424"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware rozwiązanie dotyczące sieci i międzyłączności
 
@@ -58,8 +58,11 @@ Na poniższym diagramie przedstawiono międzyfirmowe łączenie z chmurą prywat
 W celu uzyskania pełnej łączności z chmurą prywatną należy włączyć ExpressRoute Global Reach a następnie zażądać klucza autoryzacji i prywatnego identyfikatora komunikacji równorzędnej dla Global Reach w Azure Portal. Klucz autoryzacji i identyfikator komunikacji równorzędnej są używane do ustanawiania Global Reach między obwodem usługi ExpressRoute w ramach subskrypcji i obwodem usługi ExpressRoute dla nowej chmury prywatnej. Po połączeniu te dwa obwody usługi ExpressRoute kierują ruchem sieciowym między środowiskami lokalnymi a chmurą prywatną.  Aby uzyskać więcej informacji na temat procedur żądania i używania klucza autoryzacji i identyfikatora komunikacji równorzędnej, zobacz Samouczek dotyczący [tworzenia ExpressRoute Global REACH komunikacji równorzędnej z chmurą prywatną](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## <a name="next-steps"></a>Następne kroki 
-Zapoznaj się z [pojęciami dotyczącymi magazynu w chmurze prywatnej](concepts-storage.md).
 
+Teraz, gdy zostały omówione te pojęcia dotyczące sieci i międzyłączności, warto zapoznać się z tematem:
+
+- [Pojęcia dotyczące magazynu rozwiązań VMware platformy Azure](concepts-storage.md).
+- [Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure](concepts-identity.md)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

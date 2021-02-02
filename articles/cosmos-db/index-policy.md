@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 79791bf2db888912d5c1f016f4bf357e76bddcba
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681654"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475104"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,10 +42,7 @@ W Azure Cosmos DB łączny zużyty magazyn to kombinacja rozmiaru danych i rozmi
 
 * Rozmiar indeksu zależy od zasad indeksowania. Jeśli wszystkie właściwości są indeksowane, rozmiar indeksu może być większy niż rozmiar danych.
 * Gdy dane są usuwane, indeksy są kompaktowe blisko siebie. Jednak w przypadku małych usunięć danych nie należy od razu obniżyć rozmiaru indeksu.
-* Rozmiar indeksu można zwiększyć w następujących przypadkach:
-
-  * Czas trwania podziału partycji — miejsce na indeks jest wydawany po zakończeniu podziału partycji.
-  * Gdy partycja jest podzielna, przestrzeń indeksu zostanie tymczasowo zwiększona podczas dzielenia partycji. 
+* Rozmiar indeksu można tymczasowo zwiększyć podczas dzielenia partycji fizycznych. Przestrzeń indeksu jest wydawana po zakończeniu podziału partycji.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Uwzględnianie i wykluczanie ścieżek właściwości
 
@@ -186,33 +183,35 @@ Zasady indeksowania należy dostosować, aby można było obsłużyć wszystkie 
 
 Jeśli zapytanie zawiera filtry dla co najmniej dwóch właściwości, warto utworzyć indeks złożony dla tych właściwości.
 
-Rozważmy na przykład następujące zapytanie, które ma filtr równości dla dwóch właściwości:
+Rozważmy na przykład następujące zapytanie, które ma zarówno filtr równości, jak i zakres:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-To zapytanie będzie bardziej wydajne, co zajmuje mniej czasu i zużywa mniejszą liczbę jednostek RU, jeśli może wykorzystać indeks złożony w dniu (nazwa ASC, wiek ASC).
+To zapytanie będzie bardziej wydajne, co zajmuje mniej czasu i zużywa mniejszą liczbę jednostek RU, jeśli może korzystać ze złożonego indeksu w `(name ASC, age ASC)` .
 
-Zapytania z filtrami zakresu można także zoptymalizować przy użyciu indeksu złożonego. Jednak zapytanie może mieć tylko jeden filtr zakresu. Filtry zakresu obejmują `>` , `<` , `<=` , `>=` , i `!=` . Filtr zakresu powinien być zdefiniowany jako ostatni w indeksie złożonym.
+Zapytania z wieloma filtrami zakresów można także zoptymalizować przy użyciu indeksu złożonego. Jednak każdy indywidualny indeks złożony może zoptymalizować tylko jeden filtr zakresu. Filtry zakresu obejmują `>` , `<` , `<=` , `>=` , i `!=` . Filtr zakresu powinien być zdefiniowany jako ostatni w indeksie złożonym.
 
-Rozważ następujące zapytanie z filtrami równości i zakresu:
+Rozważmy następujące zapytanie z filtrem równości i dwoma zakresami filtrów:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-To zapytanie będzie bardziej wydajne z indeksem złożonym w dniu (nazwa ASC, wiek ASC). Jednak zapytanie nie korzysta ze złożonego indeksu w (Age ASC, Name ASC), ponieważ filtry równości muszą być zdefiniowane najpierw w indeksie złożonym.
+To zapytanie będzie bardziej wydajne z indeksem złożonym w systemach `(name ASC, age ASC)` i `(name ASC, _ts ASC)` . Jednak zapytanie nie używa indeksu złożonego, `(age ASC, name ASC)` ponieważ właściwości z filtrami równości muszą być zdefiniowane jako pierwsze w indeksie złożonym. Dwa oddzielne indeksy złożone są wymagane zamiast pojedynczego indeksu złożonego, `(name ASC, age ASC, _ts ASC)` ponieważ każdy indeks złożony może zoptymalizować tylko jeden filtr zakresu.
 
 Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych dla zapytań z filtrami dla wielu właściwości
 
+- Wyrażenia filtru mogą używać wielu indeksów złożonych.
 - Właściwości w filtrze zapytania powinny być zgodne z tymi w indeksie złożonym. Jeśli właściwość znajduje się w indeksie złożonym, ale nie jest uwzględniona w zapytaniu jako filtr, zapytanie nie będzie korzystać z indeksu złożonego.
 - Jeśli zapytanie ma dodatkowe właściwości w filtrze, który nie został zdefiniowany w indeksie złożonym, wówczas do obliczenia zapytania zostanie użyta kombinacja indeksów złożonych i zakresów. Będzie to wymagało mniejszej liczby jednostek RU niż w przypadku używania indeksów zakresów.
-- Jeśli właściwość ma filtr zakresu ( `>` ,,, `<` `<=` `>=` lub `!=` ), wówczas ta właściwość powinna być zdefiniowana jako Ostatnia w indeksie złożonym. Jeśli zapytanie ma więcej niż jeden filtr zakresu, nie będzie używać indeksu złożonego.
+- Jeśli właściwość ma filtr zakresu ( `>` ,,, `<` `<=` `>=` lub `!=` ), wówczas ta właściwość powinna być zdefiniowana jako Ostatnia w indeksie złożonym. Jeśli zapytanie ma więcej niż jeden filtr zakresu, może ono korzystać z wielu indeksów złożonych.
 - Podczas tworzenia indeksu złożonego do optymalizowania zapytań z wieloma filtrami `ORDER` indeks złożony nie będzie miał wpływu na wyniki. Ta właściwość jest opcjonalna.
-- Jeśli nie zdefiniujesz indeksu złożonego dla zapytania z filtrami dla wielu właściwości, zapytanie będzie nadal kończyło się pomyślnie. Koszt RU zapytania można jednak zmniejszyć przy użyciu indeksu złożonego.
-- Zapytania z agregacjami (np. COUNT lub SUM) i filtry korzystają również z indeksów złożonych.
-- Wyrażenia filtru mogą używać wielu indeksów złożonych.
 
 Rozważmy następujące przykłady, w których zdefiniowany jest indeks złożony w polu Nazwa właściwości, wiek i sygnatura czasowa:
 
@@ -227,43 +226,76 @@ Rozważmy następujące przykłady, w których zdefiniowany jest indeks złożon
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
 | ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
-### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Zapytania z filtrem, a także z klauzulą ORDER BY
+### <a name="queries-with-a-filter-and-order-by"></a>Zapytania z filtrem i KOLEJNOŚCIą według
 
 Jeśli zapytanie filtruje dla jednej lub wielu właściwości i ma inne właściwości w klauzuli ORDER BY, może być pomocne dodanie właściwości w filtrze do `ORDER BY` klauzuli.
 
-Na przykład dodając właściwości w filtrze do klauzuli ORDER BY, można ponownie napisać następujące zapytanie, aby użyć złożonego indeksu:
+Na przykład dodając właściwości w filtrze do `ORDER BY` klauzuli, można ponownie napisać następujące zapytanie, aby użyć złożonego indeksu:
 
 Zapytanie przy użyciu indeksu zakresu:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 Zapytanie przy użyciu indeksu złożonego:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-Te same optymalizacje wzorca i kwerendy mogą być uogólnione dla zapytań z wieloma filtrami równości:
+Te same optymalizacje zapytań można uogólnione dla wszystkich `ORDER BY` zapytań z filtrami, pamiętając, że poszczególne indeksy złożone mogą obsługiwać tylko jeden filtr zakresu.
 
 Zapytanie przy użyciu indeksu zakresu:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.timestamp
 ```
 
 Zapytanie przy użyciu indeksu złożonego:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.name, c.age, c.timestamp
+```
+
+Ponadto można użyć indeksów złożonych, aby zoptymalizować zapytania z funkcjami systemowymi i KOLEJNOŚCIą według:
+
+Zapytanie przy użyciu indeksu zakresu:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.lastName
+```
+
+Zapytanie przy użyciu indeksu złożonego:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.firstName, c.lastName
 ```
 
 Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w celu optymalizacji zapytania z `ORDER BY` klauzulą Filter i:
 
-* Jeśli zapytanie filtruje właściwości, należy je najpierw uwzględnić w `ORDER BY` klauzuli.
-* Jeśli zapytanie jest filtrowane dla wielu właściwości, filtry równości muszą być pierwszymi właściwościami w `ORDER BY` klauzuli
 * Jeśli nie zdefiniujesz indeksu złożonego w zapytaniu z filtrem dla jednej właściwości i oddzielną `ORDER BY` klauzulą używającą innej właściwości, zapytanie będzie nadal kończyć się powodzeniem. Koszt RU zapytania można jednak zmniejszyć przy użyciu indeksu złożonego, szczególnie jeśli właściwość w `ORDER BY` klauzuli ma wysoką Kardynalność.
+* Jeśli zapytanie filtruje właściwości, należy je najpierw uwzględnić w `ORDER BY` klauzuli.
+* Jeśli zapytanie jest filtrowane dla wielu właściwości, filtry równości muszą być pierwszymi właściwościami w `ORDER BY` klauzuli.
+* Jeśli zapytanie filtruje wiele właściwości, można użyć maksymalnie jednego filtru zakresu lub funkcji systemowej dla indeksu złożonego. Właściwość użyta w filtrze zakresu lub funkcji systemowej powinna być zdefiniowana jako Ostatnia w indeksie złożonym.
 * Wszystkie zagadnienia dotyczące tworzenia indeksów złożonych dla `ORDER BY` zapytań z wieloma właściwościami, a także zapytania z filtrami dla wielu właściwości nadal mają zastosowanie.
 
 
@@ -276,6 +308,7 @@ Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w cel
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
 
 ## <a name="modifying-the-indexing-policy"></a>Modyfikowanie zasad indeksowania
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 23a741e96807acdb7b162b65597c651a2a6c3235
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: eefc47e1308dc5b59d8b57d7481a5250a7d2af93
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92509254"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475746"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-travelperk"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą TravelPerk
 
@@ -31,7 +31,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę TravelPerk z usługą Az
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) TravelPerk.
+* Konto TravelPerk z subskrypcją Premium.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -85,9 +85,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<COMPANY>.travelperk.com/accounts/saml2/callback/<APPLICATION_ID>/?acs`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego adresu URL logowania, adresu URL odpowiedzi i identyfikatora. Skontaktuj się z [zespołem obsługi klienta TravelPerk](mailto:trex@travelperk.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego adresu URL logowania, adresu URL odpowiedzi i identyfikatora. Wartości można znaleźć w ramach konta TravelPerk: Przejdź do pozycji **ustawienia firmowe**  >  **integracja**  >  **rejestracji** jednokrotnej. Aby uzyskać pomoc, odwiedź stronę [TravelPerk HelpCenter](https://support.travelperk.com/hc/en-us/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML-).
 
-1. Aplikacja TravelPerk oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych, gdzie **EmailAddress** jest zamapowany z **użytkownikiem. mail**. Aplikacja TravelPerk oczekuje, że **EmailAddress** mają być mapowane przy użyciu elementu **User. userPrincipalName**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
+1. Aplikacja TravelPerk oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. W domyślnym mapowaniu **EmailAddress** jest mapowany z **User. mail**. Jednak aplikacja TravelPerk oczekuje, że **EmailAddress** mają być mapowane przy użyciu elementu **User. userPrincipalName**. W przypadku TravelPerk należy edytować Mapowanie atrybutów: kliknij ikonę **Edytuj** , a następnie zmień mapowanie atrybutu. Aby edytować atrybut, po prostu kliknij atrybut, aby otworzyć tryb edycji.
 
     ![image (obraz)](common/default-attributes.png)
 
@@ -108,7 +108,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

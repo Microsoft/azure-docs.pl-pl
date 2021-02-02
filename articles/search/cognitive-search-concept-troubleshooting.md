@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403385"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475492"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Wskazówki dotyczące wzbogacania AI na platformie Azure Wyszukiwanie poznawcze
 
@@ -100,7 +100,7 @@ Analiza obrazów jest intensywnie czasochłonna dla nawet prostych przypadków, 
 
 Maksymalny czas działania zależy od warstwy: kilka minut w warstwie Bezpłatna, indeksowanie 24-godzinne w warstwach płatnych. Jeśli przetwarzanie zakończy się niepowodzeniem w ciągu 24 godzin dla przetwarzania na żądanie, przejdź do harmonogramu, aby indeksator mógł pobrać, gdzie został pozostawiony. 
 
-W przypadku zaplanowanych indeksatorów indeksowanie zostaje wznowione zgodnie z harmonogramem w ostatnim znanym dobrym dokumencie. Korzystając z harmonogramu cyklicznego, indeksator może wykonać swój sposób przez zaległości obrazu w ciągu kilku godzin lub dni, do momentu przetworzenia wszystkich nieprzetwarzanych obrazów. Aby uzyskać więcej informacji na temat składni harmonogramu, zobacz [krok 3. Tworzenie — indeksator](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) lub zapoznaj [się z tematem planowanie indeksatorów dla usługi Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
+W przypadku zaplanowanych indeksatorów indeksowanie zostaje wznowione zgodnie z harmonogramem w ostatnim znanym dobrym dokumencie. Korzystając z harmonogramu cyklicznego, indeksator może wykonać swój sposób przez zaległości obrazu w ciągu kilku godzin lub dni, do momentu przetworzenia wszystkich nieprzetwarzanych obrazów. Aby uzyskać więcej informacji na temat składni harmonogramu, zobacz [Planowanie indeksatora](search-howto-schedule-indexers.md).
 
 > [!NOTE]
 > Jeśli indeksator jest ustawiony na określony harmonogram, ale wielokrotnie powtarza się w tym samym dokumencie za każdym razem, gdy zostanie on uruchomiony, indeksator zacznie działać w krótszym interwale (maksymalnie co 24 godziny) do momentu pomyślnego przekroczenia postępu.  Jeśli uważasz, że Rozwiązano problem, który spowodował zablokowanie indeksatora w określonym punkcie, można wykonać uruchomienie na żądanie indeksatora, a jeśli ten proces pomyślnie przejdzie, indeks ponownie powróci do jego ustawionego interwału harmonogramu.
@@ -109,12 +109,12 @@ W przypadku indeksowania opartego na portalu (zgodnie z opisem w przewodniku Szy
 
 ## <a name="tip-8-increase-indexing-throughput"></a>Porada 8: zwiększenie przepływności indeksowania
 
-W przypadku [indeksowania równoległego](search-howto-large-index.md)należy umieścić dane w wielu kontenerach lub w wielu folderach wirtualnych w tym samym kontenerze. Następnie Utwórz wiele par DataSource i indeksatora. Wszystkie indeksatory mogą używać tego samego zestawu umiejętności i zapisywać w tym samym docelowym indeksie wyszukiwania, dzięki czemu aplikacja wyszukiwania nie musi znać tego partycjonowania.
+W przypadku [indeksowania równoległego](search-howto-large-index.md)należy umieścić dane w wielu kontenerach lub w wielu folderach wirtualnych w tym samym kontenerze. Następnie Utwórz wiele par źródła danych i indeksatora. Wszystkie indeksatory mogą używać tego samego zestawu umiejętności i zapisywać w tym samym docelowym indeksie wyszukiwania, dzięki czemu aplikacja wyszukiwania nie musi znać tego partycjonowania.
 
 ## <a name="see-also"></a>Zobacz też
 
 + [Szybki Start: Tworzenie potoku wzbogacenia AI w portalu](cognitive-search-quickstart-blob.md)
 + [Samouczek: informacje o interfejsach API REST wzbogacania AI](cognitive-search-tutorial-blob.md)
-+ [Określanie poświadczeń źródła danych](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
++ [Jak skonfigurować indeksatory obiektów BLOB](search-howto-indexing-azure-blob-storage.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
 + [Jak zmapować wzbogacone pola na indeks](cognitive-search-output-field-mapping.md)

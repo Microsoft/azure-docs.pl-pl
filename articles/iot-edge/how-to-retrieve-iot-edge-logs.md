@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780743"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475543"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Pobieranie dzienników z wdrożeń IoT Edge
 
@@ -51,8 +51,8 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -70,8 +70,8 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
 | ID (Identyfikator) | ciąg | Wyrażenie regularne, które dostarcza nazwę modułu. Może on być zgodny z wieloma modułami na urządzeniu brzegowym. Oczekiwano formatu [wyrażeń regularnych programu .NET](/dotnet/standard/base-types/regular-expressions) . |
 | filter | Sekcja JSON | Filtry dzienników do zastosowania do modułów pasujących do `id` wyrażenia regularnego w spójnej kolekcji. |
 | drugorzędn | liczba całkowita | Liczba wierszy dziennika w przeszłości do pobrania od najnowszych. Obowiązkowe. |
-| Fire | liczba całkowita | Zwracaj dzienniki tylko od tego czasu, jako czas trwania (1 d, 90 m, 2 dni 3 godziny), sygnatury czasowej rfc3339 lub sygnatury czasowej systemu UNIX.  Jeśli oba `tail` i `since` są określone, dzienniki są pobierane przy użyciu `since` wartości pierwszej. Następnie `tail` wartość zostanie zastosowana do wyniku, a końcowy wynik jest zwracany. Obowiązkowe. |
-| Zanim | liczba całkowita | Zwróć tylko dzienniki przed określonym czasem, jako sygnatura czasowa rfc3339, sygnatura czasowa systemu UNIX lub czas trwania (1 d, 90 m, 2 dni 3 godz.). Obowiązkowe. |
+| Fire | ciąg | Zwracaj dzienniki tylko od tego czasu, jako czas trwania (1 d, 90 m, 2 dni 3 godziny), sygnatury czasowej rfc3339 lub sygnatury czasowej systemu UNIX.  Jeśli oba `tail` i `since` są określone, dzienniki są pobierane przy użyciu `since` wartości pierwszej. Następnie `tail` wartość zostanie zastosowana do wyniku, a końcowy wynik jest zwracany. Obowiązkowe. |
+| Zanim | ciąg | Zwróć tylko dzienniki przed określonym czasem, jako sygnatura czasowa rfc3339, sygnatura czasowa systemu UNIX lub czas trwania (1 d, 90 m, 2 dni 3 godz.). Obowiązkowe. |
 | poziom dziennika | liczba całkowita | Filtruj wiersze dziennika mniejsze niż lub równe określonemu poziomowi dziennika. Wiersze dziennika powinny być zgodne z zalecanym formatem rejestrowania i korzystać ze standardowego [poziomu ważności dziennika](https://en.wikipedia.org/wiki/Syslog#Severity_level) systemowego. Obowiązkowe. |
 | wyrażeń | ciąg | Filtruj wiersze dziennika, które mają zawartość zgodną z określonym wyrażeniem regularnym przy użyciu formatu [wyrażeń regularnych programu .NET](/dotnet/standard/base-types/regular-expressions) . Obowiązkowe. |
 | encoding | ciąg | Wartość `gzip` lub `none`. Wartość domyślna to `none`. |
@@ -160,8 +160,8 @@ Ta metoda akceptuje ładunek JSON podobny do **GetModuleLogs**, z dodaniem klucz
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -293,8 +293,8 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
 |-|-|-|
 | schemaVersion | ciąg | Ustaw wartość `1.0` |
 | Adresie sasurl | ciąg (URI) | [Adres URL sygnatury dostępu współdzielonego z dostępem do zapisu do kontenera usługi Azure Blob Storage](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
-| Fire | liczba całkowita | Zwracaj dzienniki tylko od tego czasu, jako czas trwania (1 d, 90 m, 2 dni 3 godziny), sygnatury czasowej rfc3339 lub sygnatury czasowej systemu UNIX. Obowiązkowe. |
-| Zanim | liczba całkowita | Zwróć tylko dzienniki przed określonym czasem, jako sygnatura czasowa rfc3339, sygnatura czasowa systemu UNIX lub czas trwania (1 d, 90 m, 2 dni 3 godz.). Obowiązkowe. |
+| Fire | ciąg | Zwracaj dzienniki tylko od tego czasu, jako czas trwania (1 d, 90 m, 2 dni 3 godziny), sygnatury czasowej rfc3339 lub sygnatury czasowej systemu UNIX. Obowiązkowe. |
+| Zanim | ciąg | Zwróć tylko dzienniki przed określonym czasem, jako sygnatura czasowa rfc3339, sygnatura czasowa systemu UNIX lub czas trwania (1 d, 90 m, 2 dni 3 godz.). Obowiązkowe. |
 | edgeRuntimeOnly | boolean | Jeśli wartość jest równa true, tylko te dzienniki są zwracane z agenta krawędzi, koncentratora brzegowego i demona zabezpieczeń brzegowych. Wartość domyślna: false.  Obowiązkowe. |
 
 > [!IMPORTANT]
