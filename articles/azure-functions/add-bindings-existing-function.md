@@ -1,16 +1,16 @@
 ---
-title: Dodaj powiązania do istniejącej funkcji w Azure Functions
-description: Dowiedz się, jak dodać powiązania do istniejącej funkcji w projekcie Azure Functions.
+title: Łączenie funkcji z innymi usługami platformy Azure
+description: Dowiedz się, jak dodać powiązania łączące się z innymi usługami platformy Azure z istniejącą funkcją w projekcie Azure Functions.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 23b7b05f9a9f9da5a48511ee555e3b6184a74179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c6f5bb8ca5fcf995b8a8d326abbec96f1d2e35
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654155"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258205"
 ---
-# <a name="add-bindings-to-an-existing-function-in-azure-functions"></a>Dodaj powiązania do istniejącej funkcji w Azure Functions
+# <a name="connect-functions-to-azure-services-using-bindings"></a>Łączenie funkcji z usługami platformy Azure przy użyciu powiązań
 
 Podczas tworzenia funkcji w projekcie zostanie dodany kod wyzwalacza charakterystyczny dla języka z zestawu szablonów wyzwalacza. Jeśli chcesz połączyć funkcję z innymi usługami przy użyciu powiązań wejściowych lub wyjściowych, musisz dodać określone definicje powiązań w funkcji. Aby dowiedzieć się więcej na temat powiązań, zobacz temat [Azure Functions wyzwalacze i koncepcje powiązań](functions-triggers-bindings.md).
 

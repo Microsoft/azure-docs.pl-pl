@@ -3,19 +3,19 @@ title: Informacje na temat sposobu przypisywania użytkowników do aplikacji w A
 description: Dowiedz się, jak użytkownicy są przypisani do aplikacji, która używa Azure Active Directory do zarządzania tożsamościami.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: aedcecf528f07d9d7f89c1d5659d8fcd2cb36df2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 161df0446c9478ca0f2b135c1e426f3786b164fc
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016732"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257444"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Informacje na temat sposobu przypisywania użytkowników do aplikacji w Azure Active Directory
 Ten artykuł ułatwia zrozumienie sposobu, w jaki użytkownicy są przypisani do aplikacji w dzierżawie.

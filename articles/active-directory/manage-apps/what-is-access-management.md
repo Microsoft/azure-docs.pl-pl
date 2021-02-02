@@ -3,19 +3,19 @@ title: Zarządzanie dostępem do aplikacji przy użyciu usługi Azure AD
 description: Opisuje, w jaki sposób Azure Active Directory umożliwia organizacjom Określanie aplikacji, do których każdy użytkownik ma dostęp.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: c73a5ccd9e16fb5efd9fefca6253701f942c3202
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5afc6aa8f52011eba6d7cfdfaa09b0ab995183e8
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367792"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257427"
 ---
 # <a name="managing-access-to-apps"></a>Zarządzanie dostępem do aplikacji
 
@@ -88,7 +88,7 @@ Istnieją trzy główne metody uzyskiwania dostępu do aplikacji opublikowanej p
 
 Niektóre aplikacje łączą te metody. Na przykład niektóre aplikacje firmy Microsoft są częścią subskrypcji Microsoft 365, ale nadal wymagają zgody.
 
-Użytkownicy mogą uzyskiwać dostęp do aplikacji Microsoft 365 za poorednictwem portali pakietu Office 365. Możesz również wyświetlać lub ukrywać Microsoft 365 aplikacje w obszarze Moje aplikacje ze znakiem [widoczności pakietu Office 365](hide-application-from-user-portal.md) w **ustawieniach użytkownika**w katalogu. 
+Użytkownicy mogą uzyskiwać dostęp do aplikacji Microsoft 365 za poorednictwem portali pakietu Office 365. Możesz również wyświetlać lub ukrywać Microsoft 365 aplikacje w obszarze Moje aplikacje ze znakiem [widoczności pakietu Office 365](hide-application-from-user-portal.md) w **ustawieniach użytkownika** w katalogu. 
 
 Podobnie jak w przypadku aplikacji dla przedsiębiorstw, można [przypisać użytkowników](assign-user-or-group-access-portal.md) do określonych aplikacji firmy Microsoft za pośrednictwem Azure Portal lub, jeśli opcja portalu jest niedostępna, przy użyciu programu PowerShell.
 

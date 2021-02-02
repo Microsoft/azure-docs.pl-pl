@@ -3,7 +3,7 @@ title: Udostępnianie użytkownikowi na żądanie przy użyciu Azure Active Dire
 description: Wymuś synchronizację
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629016"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255665"
 ---
 # <a name="on-demand-provisioning"></a>Aprowizacja na żądanie
 Użyj aprowizacji na żądanie, aby zapewnić użytkownikowi dostęp do aplikacji w ciągu kilku sekund. Można między innymi skorzystać z tej możliwości, aby:
@@ -124,7 +124,7 @@ Na koniec usługa aprowizacji wykonuje akcję, taką jak tworzenie, aktualizowan
 
 Oto przykład tego, co może być widoczne po pomyślnym zainicjowaniu obsługi użytkownika na żądanie:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Zrzut ekranu przedstawiający interfejs użytkownika Azure Portal na potrzeby aprowizacji użytkownika na żądanie.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Zrzut ekranu pokazujący Pomyślne inicjowanie obsługi użytkownika.":::
 
 #### <a name="view-details"></a>Wyświetl szczegóły
 

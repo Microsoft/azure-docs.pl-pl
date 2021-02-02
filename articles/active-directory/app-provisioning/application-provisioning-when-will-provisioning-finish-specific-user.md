@@ -3,7 +3,7 @@ title: Dowiedz się, kiedy określony użytkownik będzie mógł uzyskać dostę
 description: Jak dowiedzieć się, kiedy krytycznie ważny jest dostęp do aplikacji skonfigurowanej do aprowizacji użytkowników w usłudze Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 307a97b71fe453c89617a86a88063e60fcf28fa3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 890c4a8a5aec3b15b150908c64bb114bd85a61a1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994013"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256766"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Sprawdź stan aprowizacji użytkowników
 

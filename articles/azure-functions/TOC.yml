@@ -281,9 +281,10 @@
               href: functions-create-storage-queue-triggered-function.md
             - name: Wyzwalacz czasomierza
               href: functions-create-scheduled-function.md
-        - name: Dodawanie powiązań
+        - name: Łączenie z usługami
           items:
-            - name: Jak dodać powiązanie
+            - name: Jak nawiązać połączenie z usługami
+              displayName: 'bindings,integrate'
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB — portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -395,7 +396,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integracja
       items:
-        - name: Dodawanie powiązań
+        - name: Łączenie z usługami
           items:
             - name: Azure Cosmos DB — portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md

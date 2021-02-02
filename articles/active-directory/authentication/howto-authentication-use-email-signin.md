@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 0ca5f6a853852acbb4ef97adfce2364592bae270
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e39d7f15e3ca3c6e241c767a5f881d7170c6379
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559844"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255971"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Zaloguj się, aby Azure Active Directory przy użyciu poczty e-mail jako alternatywnego identyfikatora logowania (wersja zapoznawcza)
 
@@ -113,7 +113,7 @@ W trakcie korzystania z wersji zapoznawczej można obecnie włączyć tylko logo
 1. Sprawdź, czy zasady *HomeRealmDiscoveryPolicy* już istnieją w dzierżawie przy użyciu polecenia cmdlet [Get-AzureADPolicy][Get-AzureADPolicy] w następujący sposób:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 1. Jeśli obecnie nie ma skonfigurowanych zasad, polecenie zwróci wartość Nothing. Jeśli jest zwracana zasada, Pomiń ten krok i przejdź do następnego kroku, aby zaktualizować istniejące zasady.
@@ -121,10 +121,22 @@ W trakcie korzystania z wersji zapoznawczej można obecnie włączyć tylko logo
     Aby dodać zasady *HomeRealmDiscoveryPolicy* do dzierżawy, należy użyć polecenia cmdlet [New-AzureADPolicy][New-AzureADPolicy] i ustawić atrybut *AlternateIdLogin* na *"Enabled": true* , jak pokazano w następującym przykładzie:
 
     ```powershell
-    New-AzureADPolicy -Definition @('{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    New-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Po pomyślnym utworzeniu zasad polecenie zwróci identyfikator zasad, jak pokazano w następujących przykładowych danych wyjściowych:
@@ -156,17 +168,31 @@ W trakcie korzystania z wersji zapoznawczej można obecnie włączyć tylko logo
     Poniższy przykład dodaje atrybut *AlternateIdLogin* i zachowuje atrybut *AllowCloudPasswordValidation* , który mógł już zostać ustawiony:
 
     ```powershell
-    Set-AzureADPolicy -id b581c39c-8fe3-4bb5-b53d-ea3de05abb4b `
-        -Definition @('{"HomeRealmDiscoveryPolicy" :{"AllowCloudPasswordValidation":true,"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AllowCloudPasswordValidation" = $true
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      ID                    = "b581c39c-8fe3-4bb5-b53d-ea3de05abb4b"
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    
+    Set-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Upewnij się, że zaktualizowane zasady pokazują zmiany i że atrybut *AlternateIdLogin* jest teraz włączony:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 Po zastosowaniu zasad może upłynąć do czasu, aż będzie możliwe zalogowanie się i umożliwienie użytkownikom logowania się przy użyciu alternatywnego identyfikatora logowania.
@@ -207,7 +233,12 @@ Musisz mieć uprawnienia *administratora dzierżawy* , aby wykonać następując
 4. Jeśli nie ma żadnych istniejących zasad wdrażania etapowego dla tej funkcji, Utwórz nowe zasady wdrażania etapowego i zanotuj identyfikator zasad:
 
    ```powershell
-   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   $AzureADMSFeatureRolloutPolicy = @{
+      Feature    = "EmailAsAlternateId"
+      DisplayName = "EmailAsAlternateId Rollout Policy"
+      IsEnabled   = $true
+   }
+   New-AzureADMSFeatureRolloutPolicy @AzureADMSFeatureRolloutPolicy
    ```
 
 5. Znajdź IDENTYFIKATORobject grupy do dodania do zasad wdrażania etapowego. Zwróć uwagę na wartość zwróconą dla parametru *ID* , ponieważ zostanie ona użyta w następnym kroku.
@@ -241,7 +272,7 @@ Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false
 Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
 ```
 
-## <a name="troubleshoot"></a>Rozwiąż problemy
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Jeśli użytkownicy mają problemy ze zdarzeniami logowania przy użyciu adresu e-mail, należy zapoznać się z następującymi krokami rozwiązywania problemów:
 
@@ -250,7 +281,7 @@ Jeśli użytkownicy mają problemy ze zdarzeniami logowania przy użyciu adresu 
 1. Upewnij się, że zasady usługi Azure AD *HomeRealmDiscoveryPolicy* mają atrybut *AlternateIdLogin* ustawiony na *wartość "Enabled": true*:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 ## <a name="next-steps"></a>Następne kroki

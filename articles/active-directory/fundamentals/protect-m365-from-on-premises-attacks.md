@@ -1,6 +1,6 @@
 ---
 title: Ochrona Microsoft 365 z wykorzystaniem lokalnych ataków
-description: Wskazówki dotyczące zapewnienia, że ataku lokalnego nie ma wpływu na Microsoft 365
+description: Wskazówki dotyczące sposobu zapewnienia, że ataku lokalnego nie ma wpływu na Microsoft 365.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,208 +13,226 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecddb950c06c9f8e61f31e104051f5e3b3640ae5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 6e2e87196f9d4d38743847ee68983216b8790e0b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725014"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257274"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Ochrona Microsoft 365 z wykorzystaniem lokalnych ataków
 
-Wielu klientów nawiązuje połączenie prywatnych sieci firmowych w celu Microsoft 365 uzyskania korzyści dla użytkowników, urządzeń i aplikacji. Istnieje jednak wiele dobrze udokumentowanych sposobów zabezpieczenia tych sieci prywatnych. Ponieważ Microsoft 365 działa jako "system nerwowy" dla wielu organizacji, ma kluczowe znaczenie dla ochrony przed naruszeniem infrastruktury lokalnej.
+Wielu klientów nawiązuje połączenie prywatnych sieci firmowych w celu Microsoft 365 uzyskania korzyści dla użytkowników, urządzeń i aplikacji. Te sieci prywatne można jednak złamać na wiele dobrze udokumentowanych sposobów. Ponieważ Microsoft 365 działa jako rodzaj systemu nerwowego dla wielu organizacji, ma kluczowe znaczenie dla ochrony przed naruszeniem infrastruktury lokalnej.
 
-W tym artykule opisano sposób konfigurowania systemów w celu ochrony środowiska chmury Microsoft 365 z poziomu bezpieczeństwa lokalnego. Przede wszystkim skupiamy się na ustawieniach konfiguracji dzierżawy usługi Azure AD, jak można bezpiecznie połączyć dzierżawy usługi Azure AD z systemami lokalnymi oraz kompromisy wymagane do obsługi systemów w sposób chroniący systemy w chmurze przed naruszeniem lokalnym.
+W tym artykule opisano sposób konfigurowania systemów w celu ochrony środowiska chmury Microsoft 365 z poziomu bezpieczeństwa lokalnego. Skupiamy się głównie na: 
+
+- Ustawienia konfiguracji dzierżawy usługi Azure Active Directory (Azure AD).
+- Jak dzierżawy usługi Azure AD mogą być bezpiecznie połączone z systemami lokalnymi.
+- Wady wymagane do obsługi systemów w sposób chroniący systemy w chmurze przed naruszeniem lokalnym.
 
 Zdecydowanie zalecamy zaimplementowanie tych wskazówek w celu zabezpieczenia środowiska chmury Microsoft 365.
 > [!NOTE]
-> Ten artykuł został początkowo opublikowany jako wpis w blogu. Została przeniesiona tutaj do eksploatacji i konserwacji. <br>
-Aby utworzyć wersję w trybie offline tego artykułu, użyj funkcji drukowania do formatu PDF w przeglądarce. Sprawdź tutaj często aktualizacje.
+> Ten artykuł został początkowo opublikowany jako wpis w blogu. Została przeniesiona do bieżącej lokalizacji na potrzeby eksploatacji i konserwacji.
+>
+> Aby utworzyć wersję tego artykułu w trybie offline, użyj funkcji drukowania do pliku PDF w przeglądarce. Sprawdź tutaj często aktualizacje.
 
 ## <a name="primary-threat-vectors-from-compromised-on-premises-environments"></a>Podstawowe wektory zagrożeń ze złamanych środowisk lokalnych
 
 
-Środowisko chmury Microsoft 365 korzyści z rozbudowanej infrastruktury monitorowania i zabezpieczeń. Korzystanie z uczenia maszynowego i analizy ludzkiej, która przegląda cały ruch na całym świecie, może szybko wykrywać ataki i umożliwiać ponowną konfigurację w czasie niemal rzeczywistym. W przypadku wdrożeń hybrydowych, które łączą się z infrastrukturą lokalną w celu Microsoft 365, wiele organizacji delegowanie zaufania do składników lokalnych w celu uwierzytelniania krytycznego i podejmowania decyzji dotyczących zarządzania stanem obiektu katalogu.
-Niestety, jeśli środowisko lokalne zostanie naruszone, te relacje zaufania powodują, że użytkownicy atakujący mogą złamać środowisko Microsoft 365.
+Środowisko chmury Microsoft 365 korzyści z rozbudowanej infrastruktury monitorowania i zabezpieczeń. Korzystając z uczenia maszynowego i analizy ludzkiej, Microsoft 365 przeszukuje ruch na całym świecie. Może ona szybko wykrywać ataki i umożliwiać zmianę konfiguracji niemal w czasie rzeczywistym. 
 
-Dwa podstawowe wektory zagrożeń to **relacje zaufania federacji** i **Synchronizacja konta.** Oba wektory mogą udzielić atakującemu dostępu administracyjnego do chmury.
+W przypadku wdrożeń hybrydowych, które łączą się z infrastrukturą lokalną w celu Microsoft 365, wiele organizacji delegowanie zaufania do składników lokalnych w celu uwierzytelniania krytycznego i podejmowania decyzji dotyczących zarządzania stanem obiektu katalogu.
+Niestety, jeśli środowisko lokalne zostało naruszone, te relacje zaufania stają się szansami atakujących na złamanie środowiska Microsoft 365.
 
-* **Federacyjne relacje zaufania**, takie jak uwierzytelnianie SAML, są używane do uwierzytelniania Microsoft 365 za pośrednictwem lokalnej infrastruktury tożsamości. Jeśli certyfikat podpisywania tokenu SAML zostanie naruszony, Federacja zezwoli każdemu użytkownikowi tego certyfikatu na personifikację dowolnego użytkownika w chmurze. **Zalecamy wyłączenie relacji zaufania federacji na potrzeby uwierzytelniania, aby Microsoft 365, gdy jest to możliwe.**
+Dwa podstawowe wektory zagrożeń to *relacje zaufania federacji* i *Synchronizacja konta.* Oba wektory mogą udzielić atakującemu dostępu administracyjnego do chmury.
 
-* **Synchronizacja konta** może służyć do modyfikowania użytkowników uprzywilejowanych (łącznie z ich poświadczeniami) lub grup, którym przyznano uprawnienia administracyjne w Microsoft 365. **Zalecamy upewnienie się, że zsynchronizowane obiekty nie przechowują żadnych uprawnień poza użytkownikiem w Microsoft 365,** bezpośrednio lub przez dołączenie w zaufanych rolach lub grupach. Upewnij się, że te obiekty nie mają bezpośredniego lub zagnieżdżonego przypisania w zaufanych rolach lub grupach w chmurze.
+* **Federacyjne relacje zaufania**, takie jak uwierzytelnianie SAML, są używane do uwierzytelniania w Microsoft 365 za poorednictwem lokalnej infrastruktury tożsamości. Jeśli certyfikat podpisywania tokenu SAML zostanie naruszony, Federacja zezwoli każdemu, kto ma ten certyfikat do personifikacji dowolnego użytkownika w chmurze. *Zalecamy wyłączenie relacji zaufania federacji na potrzeby uwierzytelniania, aby Microsoft 365, gdy jest to możliwe.*
+
+* Przy użyciu **synchronizacji kont** można modyfikować uprzywilejowanych użytkowników (łącznie z ich poświadczeniami) lub grup, które mają uprawnienia administracyjne w Microsoft 365. *Zalecamy upewnienie się, że zsynchronizowane obiekty nie przechowują żadnych uprawnień poza użytkownikiem w Microsoft 365,* bezpośrednio lub przez dołączenie do zaufanych ról lub grup. Upewnij się, że te obiekty nie mają bezpośredniego lub zagnieżdżonego przypisania w zaufanych rolach lub grupach w chmurze.
 
 ## <a name="protecting-microsoft-365-from-on-premises-compromise"></a>Ochrona Microsoft 365 z poziomu naruszenia lokalnego
 
 
-Aby rozwiązać opisane powyżej wektory zagrożeń, zalecamy przestrzeganie zasad przedstawionych poniżej:
+Aby rozwiązać opisane wcześniej wektory zagrożeń, zalecamy przestrzeganie zasad przedstawionych na poniższym diagramie:
 
-![Architektura referencyjna do ochrony Microsoft 365 ](media/protect-m365/protect-m365-principles.png)
+![Architektura referencyjna do ochrony Microsoft 365.](media/protect-m365/protect-m365-principles.png)
 
-*  **W pełni Izoluj konta administratorów Microsoft 365.** Powinny być
+1. **W pełni Izoluj konta administratorów Microsoft 365.** Powinny być:
 
     * W usłudze Azure AD.
 
-     * Uwierzytelnianie za pomocą uwierzytelniania wieloskładnikowego (MFA).
+     * Uwierzytelniane przy użyciu uwierzytelniania wieloskładnikowego.
 
      *  Zabezpieczony przez dostęp warunkowy usługi Azure AD.
 
-     *  Dostępne tylko przy użyciu zarządzanych stacji roboczych platformy Azure.
+     *  Dostępne tylko przy użyciu stacji roboczych zarządzanych przez platformę Azure.
 
-Są to konta z ograniczeniami użycia. **W Microsoft 365 nie powinno być kont lokalnych z uprawnieniami administracyjnymi.** Aby uzyskać więcej informacji, zobacz ten [Przegląd ról administratorów Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
-Zobacz też [role Microsoft 365 w Azure Active Directory](../roles/m365-workload-docs.md).
+    Konta tych administratorów są kontami z ograniczeniami. *Żadne konta lokalne nie powinny mieć uprawnień administracyjnych w Microsoft 365.* 
 
-*  **Zarządzanie urządzeniami z poziomu Microsoft 365.** Za pomocą funkcji dołączania do usługi Azure AD i zarządzania urządzeniami przenośnymi (MDM) w chmurze można wyeliminować zależności od lokalnej infrastruktury zarządzania urządzeniami, które mogą naruszyć kontrolę nad urządzeniami i zabezpieczeniami.
+    Aby uzyskać więcej informacji, zobacz [Omówienie ról administratorów Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide). Zobacz też [role Microsoft 365 w usłudze Azure AD](../roles/m365-workload-docs.md).
 
-* **Żadne konto lokalne nie ma podniesionych uprawnień do Microsoft 365.**
-    Konta z dostępem do aplikacji lokalnych, które wymagają uwierzytelniania NTLM, LDAP lub Kerberos, muszą mieć konto w lokalnej infrastrukturze tożsamości w organizacji. Upewnij się, że te konta, w tym konta usług, nie są uwzględnione w uprzywilejowanych rolach lub grupach w chmurze i że zmiany tych kont nie wpłyną na integralność środowiska chmury. Uprzywilejowane oprogramowanie lokalne nie może wpływać na Microsoft 365 uprzywilejowanych kont lub ról.
+1. **Zarządzanie urządzeniami z poziomu Microsoft 365.** Użyj funkcji Dołącz do usługi Azure AD i zarządzania urządzeniami przenośnymi w chmurze, aby wyeliminować zależności od lokalnej infrastruktury zarządzania urządzeniami. Te zależności mogą naruszyć kontrolę nad urządzeniami i zabezpieczeniami.
 
-*  **Użyj uwierzytelniania w chmurze usługi Azure AD** , aby wyeliminować zależności dotyczące poświadczeń lokalnych. Zawsze używaj silnego uwierzytelniania, takich jak Windows Hello, FIDO, Microsoft Authenticator lub Azure AD MFA.
+1. **Upewnij się, że żadne konto lokalne nie ma podniesionych uprawnień do Microsoft 365.**
+    Niektóre konta uzyskują dostęp do aplikacji lokalnych, które wymagają uwierzytelniania NTLM, LDAP lub Kerberos. Te konta muszą znajdować się w lokalnej infrastrukturze tożsamości w organizacji. Upewnij się, że te konta, w tym konta usług, nie są uwzględnione w uprzywilejowanych rolach lub grupach w chmurze. Należy również upewnić się, że zmiany tych kont nie wpłyną na integralność środowiska chmury. Uprzywilejowane oprogramowanie lokalne nie może wpływać na Microsoft 365 uprzywilejowanych kont lub ról.
 
-## <a name="specific-recommendations"></a>Konkretne zalecenia
+1. **Użyj uwierzytelniania w chmurze usługi Azure AD** , aby wyeliminować zależności dotyczące poświadczeń lokalnych. Zawsze używaj silnego uwierzytelniania, takich jak Windows Hello, FIDO, Microsoft Authenticator lub uwierzytelnianie wieloskładnikowe usługi Azure AD.
+
+## <a name="specific-security-recommendations"></a>Szczególne zalecenia dotyczące zabezpieczeń
 
 
-Poniższe sekcje zawierają szczegółowe wskazówki dotyczące sposobu wdrażania zasad opisanych powyżej.
+Poniższe sekcje zawierają szczegółowe wskazówki dotyczące sposobu wdrażania zasad opisanych wcześniej.
 
 ### <a name="isolate-privileged-identities"></a>Izolowanie tożsamości uprzywilejowanych
 
 
-W usłudze Azure AD użytkownicy z rolami uprzywilejowanymi, takimi jak Administratorzy, są głównymi zaufania do kompilowania reszty środowiska i zarządzania nim. Zaimplementuj poniższe praktyki, aby zminimalizować wpływ naruszenia.
+W usłudze Azure AD użytkownicy posiadający role uprzywilejowane, na przykład Administratorzy, są głównym zaufaniem do kompilowania reszty środowiska i zarządzania nim. Zaimplementuj poniższe praktyki, aby zminimalizować wpływ naruszenia.
 
-* Używaj kont tylko w chmurze dla usługi Azure AD i ról uprzywilejowanych Microsoft 365. d
+* Używaj kont tylko w chmurze dla usługi Azure AD i ról uprzywilejowanych Microsoft 365.
 
 * Wdróż [uprzywilejowane urządzenia dostępu](/security/compass/privileged-access-devices#device-roles-and-profiles) dla uprzywilejowanego dostępu do zarządzania Microsoft 365 i usługi Azure AD.
 
-*  Wdróż [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) dla dostępu just in Time (JIT) do wszystkich kont ludzkich, które mają uprzywilejowane role, i wymagaj silnego uwierzytelniania, aby aktywować role.
+*  Wdróż [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) dla dostępu just-in-Time (JIT) do wszystkich kont ludzkich, które mają uprzywilejowane role. Wymagaj silnego uwierzytelniania, aby aktywować role.
 
-* Podaj role administracyjne o [najniższych uprawnieniach, które można wykonać w celu wykonania swoich zadań](../roles/delegate-by-task.md).
+* Podaj role administracyjne, które umożliwiają [najmniejsze uprawnienia wymagane do wykonywania wymaganych zadań](../roles/delegate-by-task.md).
 
-* Aby włączyć bardziej zaawansowane środowisko przypisywania ról, które obejmuje delegowanie i wiele ról w tym samym czasie, należy rozważyć użycie grup zabezpieczeń usługi Azure AD lub grup Microsoft 365 (grup w chmurze) i [włączenie kontroli dostępu opartej na rolach](../roles/groups-assign-role.md). Za pomocą [jednostek administracyjnych](../roles/administrative-units.md) można także ograniczyć zakres ról do części organizacji.
+* Aby włączyć zaawansowane środowisko przypisywania ról, które obejmuje delegowanie i wiele ról w tym samym czasie, należy rozważyć użycie grup zabezpieczeń usługi Azure AD lub grup Microsoft 365. Te grupy są nazywane zbiorczo *grupami w chmurze*. [Włącz również kontrolę dostępu opartą na rolach](../roles/groups-assign-role.md). Za pomocą [jednostek administracyjnych](../roles/administrative-units.md) można ograniczyć zakres ról do części organizacji.
 
-* Wdróż [konta dostępu awaryjnego](../roles/security-emergency-access.md) i nie używaj lokalnych magazynów haseł do przechowywania poświadczeń.
+* Wdróż [konta dostępu awaryjnego](../roles/security-emergency-access.md). *Nie* należy używać lokalnych magazynów haseł do przechowywania poświadczeń.
 
-Aby uzyskać więcej informacji, zobacz [Zabezpieczanie uprzywilejowanego dostępu](/security/compass/overview), który ma szczegółowe wskazówki dotyczące tego tematu. Należy również zapoznać się z tematami [dotyczącymi bezpiecznego dostępu dla administratorów w usłudze Azure AD](../roles/security-planning.md).
+Aby uzyskać więcej informacji, zobacz [Zabezpieczanie uprzywilejowanego dostępu](/security/compass/overview). Zobacz też [zasady bezpiecznego dostępu dla administratorów w usłudze Azure AD](../roles/security-planning.md).
 
 ### <a name="use-cloud-authentication"></a>Korzystanie z uwierzytelniania w chmurze 
 
-Poświadczenia są podstawowym wektorem ataków. Aby zapewnić bezpieczeństwo poświadczeń, należy zaimplementować poniższe zalecenia.
+Poświadczenia są podstawowym wektorem ataków. Aby zapewnić bezpieczeństwo poświadczeń, należy zaimplementować następujące rozwiązania:
 
-* [Wdróż uwierzytelnianie bezchronione hasłem](../authentication/howto-authentication-passwordless-deployment.md): Zmniejsz użycie haseł tak często, jak to możliwe, wdrażając poświadczenia bezhaseł. Te poświadczenia są zarządzane i weryfikowane natywnie w chmurze. Wybierz spośród opcji:
+* [Wdróż uwierzytelnianie bezhaseł](../authentication/howto-authentication-passwordless-deployment.md). W miarę możliwości należy ograniczyć użycie haseł przez wdrożenie poświadczeń bezhaseł. Te poświadczenia są zarządzane i weryfikowane natywnie w chmurze. Wybierz jedną z następujących metod uwierzytelniania:
 
    * [Funkcja Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
 
-   * [Aplikacja Authenticator](../authentication/howto-authentication-passwordless-phone.md)
+   * [Aplikacja Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md)
 
    * [FIDO2 klucze zabezpieczeń](../authentication/howto-authentication-passwordless-security-key-windows.md)
 
-* [Wdróż Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md): Zainicjuj obsługę [wielu silnych poświadczeń przy użyciu usługi Azure AD MFA](../fundamentals/resilience-in-credentials.md). Dzięki temu dostęp do zasobów w chmurze będzie wymagał poświadczeń, które są zarządzane w usłudze Azure AD, a także hasła lokalnego, które można manipulować.
+* [Wdróż uwierzytelnianie wieloskładnikowe](../authentication/howto-mfa-getstarted.md). Zainicjuj obsługę [wielu silnych poświadczeń przy użyciu uwierzytelniania wieloskładnikowego usługi Azure AD](../fundamentals/resilience-in-credentials.md). Dzięki temu dostęp do zasobów w chmurze będzie wymagał poświadczeń, które są zarządzane w usłudze Azure AD, a także hasła lokalnego, które można manipulować. Aby uzyskać więcej informacji, zobacz [Tworzenie elastycznej strategii zarządzania kontrolą dostępu przy użyciu usługi Azure AD](./resilience-overview.md).
 
-   * Aby uzyskać więcej informacji, zobacz [Tworzenie elastycznej strategii zarządzania kontroli dostępu w usłudze Azure Active Directory](./resilience-overview.md).
+### <a name="limitations-and-tradeoffs"></a>Ograniczenia i kompromisy
 
-**Ograniczenia i kompromisy**
+* Zarządzanie hasłami do konta hybrydowego wymaga składników hybrydowych, takich jak agenci ochrony haseł i agenci zapisywania zwrotnego haseł. Jeśli infrastruktura lokalna zostanie naruszona, osoby atakujące mogą kontrolować komputery, na których znajdują się agenci. Ta luka w zabezpieczeniach nie narusza infrastruktury chmurowej. Jednak konta w chmurze nie będą chronić tych składników przed naruszeniem lokalnym.
 
-* Zarządzanie hasłami do konta hybrydowego wymaga składników hybrydowych, takich jak agenci ochrony haseł i agenci zapisywania zwrotnego haseł. Jeśli infrastruktura lokalna zostanie naruszona, osoby atakujące mogą kontrolować komputery, na których znajdują się agenci. Chociaż nie spowoduje to naruszenia infrastruktury chmurowej, konta w chmurze nie będą chronić tych składników przed naruszeniem lokalnym.
-
-*  Konta lokalne zsynchronizowane z Active Directory są oznaczone jako niewygasające w usłudze Azure AD, w oparciu o założenie, że lokalne zasady haseł usługi AD spowodują rozwiązanie tego problemu. Jeśli nastąpi naruszenie zabezpieczeń lokalnej usługi AD, a synchronizacja z programu AD Connect musi być wyłączona, należy ustawić opcję [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md).
+*  Konta lokalne zsynchronizowane z Active Directory są oznaczone jako niewygasające w usłudze Azure AD. To ustawienie jest zwykle zmniejszane przez lokalne ustawienia hasła Active Directory. Jeśli jednak lokalne wystąpienie Active Directory zostało naruszone, a synchronizacja zostanie wyłączona, należy ustawić opcję [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md) , aby wymusić zmianę hasła.
 
 ## <a name="provision-user-access-from-the-cloud"></a>Inicjowanie dostępu użytkowników z chmury
 
-Inicjowanie obsługi odnosi się do tworzenia kont użytkowników i grup w aplikacjach lub dostawcach tożsamości.
+*Inicjowanie obsługi* odnosi się do tworzenia kont użytkowników i grup w aplikacjach lub dostawcach tożsamości.
 
-![Diagram architektury aprowizacji](media/protect-m365/protect-m365-provision.png)
+![Diagram architektury aprowizacji.](media/protect-m365/protect-m365-provision.png)
 
-* **Udostępnianie aplikacji w chmurze w usłudze Azure AD:** Pozwala to na odizolowanie lokalnego kompromisu bez zakłócania pracy łącznika — od aplikacji KADRowych w chmurze do usługi Azure AD.
+Zalecamy stosowanie następujących metod aprowizacji:
 
-* **Aplikacje w chmurze:** Jeśli to możliwe, wdróż [aplikacja usługi Azure AD aprowizacji](../app-provisioning/user-provisioning.md) w przeciwieństwie do lokalnych rozwiązań aprowizacji. Spowoduje to ochronę niektórych aplikacji SaaS przed zatruciem ze złośliwymi profilami użytkowników z powodu naruszeń lokalnych. 
+* Inicjowanie **obsługi administracyjnej aplikacji w chmurze w usłudze Azure AD**: Ta Provisioning umożliwia odizolowanie lokalnego kompromisu, bez zakłócania pracy łącznika — od aplikacji kadrowych w chmurze do usługi Azure AD.
 
-* **Tożsamości zewnętrzne:** Użyj [funkcji współpracy B2B usługi Azure AD](../external-identities/what-is-b2b.md).
-    Pozwoli to ograniczyć zależność od kont lokalnych do współpracy zewnętrznej z partnerami, klientami i dostawcami. Starannie Oceń każdą bezpośrednią Federację z innymi dostawcami tożsamości. Zalecamy ograniczenie kont gościa B2B w następujący sposób.
+* **Aplikacje w chmurze**: Jeśli to możliwe, wdróż [Inicjowanie obsługi aplikacji usługi Azure AD](../app-provisioning/user-provisioning.md) w przeciwieństwie do lokalnych rozwiązań aprowizacji. Ta metoda chroni niektóre aplikacje "oprogramowanie jako usługa" (SaaS), na które mają wpływ złośliwe profile hakerów w przypadku naruszeń lokalnych. 
 
-   *  Ogranicz dostęp gościa do grup przeglądania i innych właściwości w katalogu. Użyj zewnętrznych ustawień współpracy, aby ograniczyć możliwość odczytywania grup, których nie są członkami. 
+* **Tożsamości zewnętrzne**: Użyj [funkcji współpracy B2B usługi Azure AD](../external-identities/what-is-b2b.md).
+    Ta metoda zmniejsza zależność od kont lokalnych do współpracy zewnętrznej z partnerami, klientami i dostawcami. Starannie Oceń każdą bezpośrednią Federację z innymi dostawcami tożsamości. Zalecamy ograniczenie kont gościa B2B w następujący sposób:
 
-    *   Blokuj dostęp do Azure Portal. Można dokonać rzadkich niepotrzebnych wyjątków.  Utwórz zasady dostępu warunkowego, które obejmują wszystkich Gości i użytkowników zewnętrznych, a następnie [Zaimplementuj zasady w celu zablokowania dostępu](../../role-based-access-control/conditional-access-azure-management.md). 
+   *  Ogranicz dostęp gościa do grup przeglądania i innych właściwości w katalogu. Użyj zewnętrznych ustawień współpracy, aby ograniczyć Gościom możliwość odczytywania grup, których nie są członkami. 
 
-* **Odłączone lasy:** Korzystanie z [aprowizacji w chmurze usługi Azure AD](../cloud-provisioning/what-is-cloud-provisioning.md). Pozwala to na łączenie się z odłączonymi lasami, eliminując konieczność ustanowienia łączności między lasami lub relacji zaufania, co może rozszerzyć wpływ naruszenia lokalnego. * 
+    *   Blokuj dostęp do Azure Portal. Można dokonać rzadkich niepotrzebnych wyjątków.  Utwórz zasady dostępu warunkowego, które obejmują wszystkich Gości i użytkowników zewnętrznych. Następnie [Zaimplementuj zasady, aby zablokować dostęp](../../role-based-access-control/conditional-access-azure-management.md). 
+
+* **Odłączone lasy**: Użyj [usługi Azure AD Cloud aprowizacji](../cloud-provisioning/what-is-cloud-provisioning.md). Ta metoda umożliwia łączenie się z odłączonymi lasami, eliminując konieczność ustanowienia łączności między lasami lub relacji zaufania, co może poszerzyć skutki lokalnego naruszenia. 
  
-**Ograniczenia i wady:**
+### <a name="limitations-and-tradeoffs"></a>Ograniczenia i kompromisy
 
-* Gdy jest używany do aprowizacji kont hybrydowych, usługa Azure AD z systemu kadr w chmurze korzysta z synchronizacji lokalnej do kończenia przepływu danych z usługi AD do usługi Azure AD. Jeśli synchronizacja zostanie przerwana, nowe rekordy pracowników nie będą dostępne w usłudze Azure AD.
+W przypadku korzystania z kont hybrydowych usługa Azure-AD-z chmury i kadr opiera się na synchronizacji lokalnej w celu ukończenia przepływu danych z Active Directory do usługi Azure AD. Jeśli synchronizacja zostanie przerwana, nowe rekordy pracowników nie będą dostępne w usłudze Azure AD.
 
 ## <a name="use-cloud-groups-for-collaboration-and-access"></a>Korzystanie z grup w chmurze w celu współpracy i dostępu
 
 Grupy chmury umożliwiają rozdzielenie swojej współpracy i dostępu z infrastruktury lokalnej.
 
-* **Współpraca:** Korzystaj z grup Microsoft 365 i Microsoft Teams w celu uzyskania nowoczesnej współpracy. Likwidowanie lokalnych list dystrybucyjnych i [uaktualnianie list dystrybucyjnych do grup Microsoft 365 w programie Outlook](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
+* **Współpraca**: Korzystaj z grup Microsoft 365 i Microsoft Teams w celu uzyskania nowoczesnej współpracy. Likwidowanie lokalnych list dystrybucyjnych i [uaktualnianie list dystrybucyjnych do grup Microsoft 365 w programie Outlook](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
 
-* **Dostęp:** Użyj grup zabezpieczeń usługi Azure AD lub grup Microsoft 365, aby autoryzować dostęp do aplikacji w usłudze Azure AD.
-* **Licencjonowanie pakietu Office 365:** Użyj licencjonowania opartego na grupach, aby udostępnić pakiet Office 365 przy użyciu grup opartych tylko na chmurze. Powoduje to oddzielenie kontroli nad członkostwem w grupach z infrastruktury lokalnej.
+* **Dostęp**: Użyj grup zabezpieczeń usługi Azure AD lub grup Microsoft 365, aby autoryzować dostęp do aplikacji w usłudze Azure AD.
+* **Licencjonowanie pakietu office 365**: Użyj licencjonowania opartego na grupach, aby zainicjować pakiet Office 365 przy użyciu grup tylko w chmurze. Ta metoda oddzieli kontrolę nad członkostwem w grupie z infrastruktury lokalnej.
 
-Właściciele grup używanych do uzyskiwania dostępu powinni być uznawani za tożsamości uprzywilejowane, aby uniknąć przejęcia członkostwa z zasobów lokalnych.
-Przejmowanie obejmuje bezpośrednie manipulowanie członkostwem w grupie lokalnie lub manipulowanie atrybutami lokalnymi, które mogą mieć wpływ na członkostwo w grupie dynamicznej w Microsoft 365.
+Właściciele grup, którzy są używani do uzyskiwania dostępu, powinni być uznawani za tożsamości uprzywilejowane, aby uniknąć przejęcia członkostwa w środowisku lokalnym.
+Przejęcie może obejmować bezpośrednie manipulowanie członkostwem w grupie lokalnie lub manipulowanie atrybutami lokalnymi, które mogą mieć wpływ na członkostwo w grupie dynamicznej w Microsoft 365.
 
 ## <a name="manage-devices-from-the-cloud"></a>Zarządzanie urządzeniami z chmury
 
 
 Funkcje usługi Azure AD umożliwiają bezpieczne zarządzanie urządzeniami.
 
--   **Korzystanie z stacji roboczych z systemem Windows 10:** [wdrażanie urządzeń przyłączonych do usługi Azure AD](../devices/azureadjoin-plan.md) przy użyciu zasad MDM. Włącz automatyczne środowisko aprowizacji [systemu Windows](/mem/autopilot/windows-autopilot) .
+-   **Korzystanie z stacji roboczych z systemem Windows 10**: [wdrażanie urządzeń przyłączonych do usługi Azure AD](../devices/azureadjoin-plan.md) przy użyciu zasad MDM. Włącz automatyczne środowisko aprowizacji [systemu Windows](/mem/autopilot/windows-autopilot) .
 
-    -   Zaniechanie Windows 8.1 i wcześniejszych maszyn.
+    -   Przestarzałe maszyny z systemem Windows 8.1 i wcześniejszymi wersjami.
 
     -   Nie należy wdrażać maszyn systemu operacyjnego serwera jako stacji roboczych.
 
-    -   Użyj [Microsoft Intune](https://www.microsoft.com/en/microsoft-365/enterprise-mobility-security/microsoft-intune) jako źródła autoryzacji wszystkich obciążeń związanych z zarządzaniem urządzeniami.
+    -   Użyj [Microsoft Intune](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/microsoft-intune) jako źródła urzędu dla wszystkich obciążeń związanych z zarządzaniem urządzeniami.
 
--   [**Wdróż uprzywilejowane urządzenia dostępu**](/security/compass/privileged-access-devices#device-roles-and-profiles) dla uprzywilejowanego dostępu do zarządzania Microsoft 365 i usługi Azure AD.
+-   [**Wdróż uprzywilejowane urządzenia dostępu**](/security/compass/privileged-access-devices#device-roles-and-profiles): Użyj uprzywilejowanego dostępu, aby zarządzać Microsoft 365 i usługą Azure AD.
 
- ## <a name="workloads-applications-and-resources"></a>Obciążenia, aplikacje i zasoby 
+## <a name="workloads-applications-and-resources"></a>Obciążenia, aplikacje i zasoby 
 
--   **Lokalne systemy rejestracji jednokrotnej:** Należy zaniechać infrastruktury zarządzania lokalnego i usługi Dostęp w sieci Web i skonfigurować aplikacje do korzystania z usług Azure AD.  
+-   **Lokalne systemy logowania jednokrotnego (SSO)** 
 
--   **SaaS i aplikacje LOB obsługujące nowoczesne protokoły uwierzytelniania:** [Użyj usługi Azure AD do logowania jednokrotnego](../manage-apps/what-is-single-sign-on.md). Im więcej aplikacji skonfigurowanych do korzystania z usługi Azure AD do uwierzytelniania, tym mniejsze ryzyko w przypadku naruszenia bezpieczeństwa lokalnego.
+    Zaniechania infrastruktury zarządzania federacyjnymi i dostępnymi w sieci Web. Skonfiguruj aplikacje do korzystania z usługi Azure AD.  
+
+-   **SaaS i aplikacje biznesowe (LOB) obsługujące nowoczesne protokoły uwierzytelniania** 
+
+    [Użyj usługi Azure AD na potrzeby logowania jednokrotnego](../manage-apps/what-is-single-sign-on.md). Im więcej aplikacji skonfigurowanych do korzystania z usługi Azure AD na potrzeby uwierzytelniania, tym mniejsze ryzyko związane z bezpieczeństwem lokalnym.
 
 
 * **Starsze aplikacje** 
 
-   * Uwierzytelnianie, autoryzacja i dostęp zdalny do starszych aplikacji, które nie obsługują nowoczesnego uwierzytelniania, można włączyć za pośrednictwem [platformy Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy.md). Można je również włączyć za pośrednictwem rozwiązania sieciowego lub kontrolera dostarczania aplikacji przy użyciu  [bezpiecznych integracji partnera dostępu hybrydowego](../manage-apps/secure-hybrid-access.md).   
+   * Można włączyć uwierzytelnianie, autoryzację i dostęp zdalny do starszych aplikacji, które nie obsługują nowoczesnego uwierzytelniania. Użyj [usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy.md). Można je również włączyć za pośrednictwem rozwiązań sieciowych lub kontroler dostarczania aplikacji, używając [bezpiecznych integracji partnera dostępu hybrydowego](../manage-apps/secure-hybrid-access.md).   
 
-   * Wybierz dostawcę sieci VPN, który obsługuje nowoczesne uwierzytelnianie i Zintegruj jego uwierzytelnianie z usługą Azure AD. W przypadku złamania zabezpieczeń Anon, możesz użyć usługi Azure AD, aby wyłączyć lub zablokować dostęp poprzez wyłączenie sieci VPN.
+   * Wybierz dostawcę sieci VPN, który obsługuje nowoczesne uwierzytelnianie. Zintegruj swoje uwierzytelnianie z usługą Azure AD. W przypadku naruszenia bezpieczeństwa lokalnego można użyć usługi Azure AD w celu wyłączenia lub zablokowania dostępu przez wyłączenie sieci VPN.
 
 *  **Serwery aplikacji i obciążenia**
 
-   * Aplikacje lub zasoby, które są wymagane przez serwery, można migrować do usługi Azure IaaS i użyć [Azure AD Domain Services](../../active-directory-domain-services/overview.md) (AD DS platformy Azure), aby oddzielić zaufanie i zależność od lokalnego usługi AD. Aby osiągnąć to oddzielenie, sieci wirtualne używane na potrzeby usługi Azure AD DS nie powinny mieć połączenia z sieciami firmowymi.
+   * Aplikacje lub zasoby, które wymagane serwery można migrować do infrastruktury platformy Azure jako usługi (IaaS). Użyj [Azure AD Domain Services](../../active-directory-domain-services/overview.md) (AD DS platformy Azure), aby rozdzielić zaufanie i zależność od lokalnych wystąpień Active Directory. Aby osiągnąć to oddzielenie, upewnij się, że sieci wirtualne używane na platformie Azure AD DS nie mają połączenia z sieciami firmowymi.
 
    * Postępuj zgodnie ze wskazówkami dotyczącymi obsługi [warstw poświadczeń](/security/compass/privileged-access-access-model#ADATM_BM). Serwery aplikacji są zwykle uznawane za zasoby warstwy 1.
 
- ## <a name="conditional-access-policies"></a>Zasady dostępu warunkowego
+## <a name="conditional-access-policies"></a>Zasady dostępu warunkowego
 
-Użyj dostępu warunkowego usługi Azure AD w celu interpretacji sygnałów i podejmowania decyzji dotyczących uwierzytelniania na podstawie tych zdarzeń. Aby uzyskać więcej informacji, zobacz [plan wdrożenia dostępu warunkowego.](../conditional-access/plan-conditional-access.md)
+Użyj dostępu warunkowego usługi Azure AD, aby interpretować sygnały i używać ich do podejmowania decyzji dotyczących uwierzytelniania. Aby uzyskać więcej informacji, zobacz [plan wdrożenia dostępu warunkowego](../conditional-access/plan-conditional-access.md).
 
-* [Starsze protokoły uwierzytelniania](../fundamentals/auth-sync-overview.md): Użyj dostępu warunkowego, aby [blokować starsze protokoły uwierzytelniania](../conditional-access/howto-conditional-access-policy-block-legacy.md) zawsze wtedy, gdy jest to możliwe. Ponadto należy wyłączyć starsze protokoły uwierzytelniania na poziomie aplikacji przy użyciu konfiguracji specyficznej dla aplikacji.
+* Użyj dostępu warunkowego, aby [zablokować starsze protokoły uwierzytelniania](../conditional-access/howto-conditional-access-policy-block-legacy.md) , gdy jest to możliwe. Ponadto należy wyłączyć starsze protokoły uwierzytelniania na poziomie aplikacji przy użyciu konfiguracji specyficznej dla aplikacji.
 
-   * Zobacz szczegółowe informacje dotyczące [usługi Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) i [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
+   Aby uzyskać więcej informacji, zobacz [starsze protokoły uwierzytelniania](../fundamentals/auth-sync-overview.md). Lub Zobacz szczegółowe informacje dotyczące [usługi Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) i [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
 
-* Zaimplementuj zalecane [konfiguracje i dostęp do urządzeń.](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide)
+* Zaimplementuj zalecane [konfiguracje i dostęp do urządzeń](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide).
 
-* Jeśli używasz wersji usługi Azure AD, która nie obejmuje dostępu warunkowego, upewnij się, że używasz [domyślnych ustawień zabezpieczeń usługi Azure AD](../fundamentals/concept-fundamentals-security-defaults.md).
+* Jeśli używasz wersji usługi Azure AD, która nie zawiera dostępu warunkowego, upewnij się, że używasz [domyślnych ustawień zabezpieczeń usługi Azure AD](../fundamentals/concept-fundamentals-security-defaults.md).
 
-   * Aby uzyskać więcej informacji na temat licencjonowania funkcji usługi Azure AD, zobacz [Przewodnik po cenach usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+   Aby uzyskać więcej informacji na temat licencjonowania funkcji usługi Azure AD, zobacz [Przewodnik po cenach usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="monitoring"></a>Monitorowanie 
+## <a name="monitor"></a>Monitor 
 
 Po skonfigurowaniu środowiska do ochrony Microsoft 365 z poziomu naruszenia bezpieczeństwa lokalnego należy [aktywnie monitorować](../reports-monitoring/overview-monitoring.md) środowisko.
 ### <a name="scenarios-to-monitor"></a>Scenariusze do monitorowania
 
 Monitoruj poniższe scenariusze, oprócz wszelkich scenariuszy specyficznych dla Twojej organizacji. Na przykład należy aktywnie monitorować dostęp do aplikacji i zasobów o kluczowym znaczeniu dla firmy.
 
-* **Podejrzane działanie**: wszystkie [zdarzenia dotyczące ryzyka związane z usługą Azure AD](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) powinny być monitorowane w przypadku podejrzanych działań. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) jest natywnie zintegrowany z Azure Security Center.
+* **Podejrzane działania** 
 
-   * Zdefiniuj Sieć [o nazwie lokalizacje](../reports-monitoring/quickstart-configure-named-locations.md) , aby uniknąć wykrywania szumów w przypadku sygnałów opartych na lokalizacji. 
-*  **Alerty analizy zachowań jednostek użytkownika (UEBA)** Użyj UEBA, aby uzyskać szczegółowe informacje o wykrywaniu anomalii.
-   * Usługa Microsoft Cloud App Discovery (MCAS) zapewnia [UEBA w chmurze](/cloud-app-security/tutorial-ueba).
+    Monitoruj wszystkie [zdarzenia dotyczące ryzyka związane z usługą Azure AD](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) w przypadku podejrzanych działań. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) jest natywnie zintegrowany z Azure Security Center.
 
-   * Możesz [zintegrować lokalne UEBA z usługi Azure ATP](/defender-for-identity/install-step2). MCAS odczytuje sygnały z Azure AD Identity Protection. 
+    Zdefiniuj Sieć [o nazwie lokalizacje](../reports-monitoring/quickstart-configure-named-locations.md) , aby uniknąć wykrywania szumów w przypadku sygnałów opartych na lokalizacji. 
+*  **Alerty analizy zachowań użytkowników i jednostek (UEBA)** 
 
-* **Działania dotyczące kont dostępu awaryjnego**: każdy dostęp przy użyciu [kont dostępu awaryjnego](../roles/security-emergency-access.md) powinien być monitorowany, a alerty są tworzone na potrzeby badań. Monitorowanie musi obejmować: 
+    Użyj UEBA, aby uzyskać szczegółowe informacje o wykrywaniu anomalii.
+    * Microsoft Cloud App Security (MCAS) zapewnia [UEBA w chmurze](/cloud-app-security/tutorial-ueba).
+
+    * Możesz [zintegrować lokalne UEBA z usługą Azure Advanced Threat Protection (ATP)](/defender-for-identity/install-step2). MCAS odczytuje sygnały z Azure AD Identity Protection. 
+
+* **Działanie kont dostępu awaryjnego** 
+
+    Monitoruj dowolny dostęp, który używa [kont dostępu awaryjnego](../roles/security-emergency-access.md). Utwórz alerty dla badań. Monitorowanie musi obejmować: 
 
    * Logowania. 
 
@@ -222,41 +240,52 @@ Monitoruj poniższe scenariusze, oprócz wszelkich scenariuszy specyficznych dla
 
    * Wszystkie aktualizacje członkostwa w grupach. 
 
-   *    Przypisania aplikacji. 
-* **Działanie Privileged role**: Konfigurowanie i przeglądanie [alertów zabezpieczeń wygenerowanych przez usługę Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts).
+   * Przypisania aplikacji. 
+* **Działanie uprzywilejowane roli**
+
+    Skonfiguruj i przejrzyj [alerty zabezpieczeń wygenerowane przez Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts).
     Monitoruj bezpośrednie przypisanie uprzywilejowanych ról poza usługą PIM przez generowanie alertów za każdym razem, gdy użytkownik jest przypisany bezpośrednio.
-* **Konfiguracje dla całej dzierżawy usługi Azure AD**: Każda zmiana konfiguracji w całej dzierżawie powinna generować alerty w systemie. Należą do nich, ale nie są ograniczone do
-  *  Aktualizowanie domen niestandardowych  
 
-  * Zmiany listy dozwolonych/zablokowanych w usłudze Azure AD B2B.
-  * Dozwolone dostawcy tożsamości usługi Azure AD B2B (SAML dostawców tożsamości za pośrednictwem bezpośredniej Federacji lub logowania społecznego).  
-  * Zmiany dostępu warunkowego lub zasad ryzyka 
+* **Konfiguracje dla całej dzierżawy usługi Azure AD**
 
-* **Obiekty główne aplikacji i usługi**:
+    Wszystkie zmiany w konfiguracjach w całej dzierżawie powinny generować alerty w systemie. Te zmiany obejmują między innymi:
+
+  *  Zaktualizowano domeny niestandardowe.  
+
+  * Zmiany w usłudze Azure AD B2B w allowlists i listy blokowania adresów.
+
+  * Zmiany w usłudze Azure AD B2B na dozwolonych dostawców tożsamości (dostawcy tożsamości SAML za pośrednictwem bezpośredniej Federacji lub społecznościowych).  
+
+  * Zmiany dostępu warunkowego lub zasad ryzyka. 
+
+* **Application and service principal objects (Obiekty aplikacji i jednostki usługi)**
+    
    * Nowe aplikacje lub jednostki usługi, które mogą wymagać zasad dostępu warunkowego. 
 
-   * Dodano dodatkowe poświadczenia do podmiotów usługi.
+   * Dodano poświadczenia do podmiotów usługi.
    * Działanie zgody aplikacji. 
 
-* **Role niestandardowe**:
-   * Aktualizacje definicji ról niestandardowych. 
+* **Role niestandardowe**
+   * Aktualizuje definicje ról niestandardowych. 
 
-   * Utworzono nowe role niestandardowe. 
+   * Nowo utworzone role niestandardowe. 
 
 ### <a name="log-management"></a>Zarządzanie dziennikami
 
-Zdefiniuj magazyn dzienników i strategię przechowywania, projekt i implementację, aby ułatwić spójny zestaw narzędzi, taki jak systemy SIEM, takie jak platformy Azure, typowe zapytania i badania oraz dowodowych elementy PlayBook.
+Zdefiniuj magazyn dzienników i strategię przechowywania, projektowanie i implementację, aby ułatwić spójne Ustawianie zestawu narzędzi. Można na przykład rozważyć systemy zarządzania informacjami i zdarzeniami zabezpieczeń (SIEM), takie jak Azure, typowe zapytania i badania oraz dowodowych elementy PlayBook.
 
-* **Dzienniki usługi Azure AD** Pobieranie dzienników i sygnałów przy zachowaniu spójnych najlepszych rozwiązań, w tym ustawień diagnostycznych, przechowywania dzienników i pozyskiwania SIEM. Strategia dziennika musi zawierać następujące dzienniki usługi Azure AD:
+* **Dzienniki usługi Azure AD**: pozyskiwanie wygenerowanych dzienników i sygnałów przez spójne rozwiązanie dla ustawień takich jak diagnostyka, przechowywanie dzienników i pozyskiwanie Siem. 
+
+    Strategia dziennika musi zawierać następujące dzienniki usługi Azure AD:
    * Aktywność związana z logowaniem 
 
    * Dzienniki inspekcji 
 
    * Zdarzenia o podwyższonym ryzyku 
 
-Usługa Azure AD zapewnia [Azure monitor integrację](../reports-monitoring/concept-activity-logs-azure-monitor.md) z dziennikami aktywności logowania i dziennikami inspekcji. Zdarzenia o podwyższonym ryzyku można pozyskać za poorednictwem [Microsoft Graph interfejsu API](/graph/api/resources/identityriskevent). Dzienniki usługi [Azure AD można przesyłać strumieniowo do dzienników usługi Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+    Usługa Azure AD zapewnia [Azure monitor integrację](../reports-monitoring/concept-activity-logs-azure-monitor.md) z dziennikami aktywności logowania i dziennikami inspekcji. Zdarzenia o podwyższonym ryzyku można uzyskać za pomocą [interfejsu API Microsoft Graph](/graph/api/resources/identityriskevent). Dzienniki usługi [Azure AD można przesyłać strumieniowo do dzienników Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
-* **Dzienniki zabezpieczeń systemu operacyjnego infrastruktury hybrydowej.** Wszystkie dzienniki systemu operacyjnego infrastruktury tożsamości hybrydowej powinny być archiwizowane i starannie monitorowane jako <br>System warstwy 0 ma wpływ na powierzchnię. Obejmuje to następujące działania: 
+* **Dzienniki zabezpieczeń systemu operacyjnego infrastruktury hybrydowej**: wszystkie dzienniki systemu operacyjnego infrastruktury tożsamości hybrydowej powinny być archiwizowane i starannie monitorowane jako system warstwy 0 z powodu implikacji obszaru powierzchni. Uwzględnij następujące elementy: 
 
    *  Azure AD Connect. Aby monitorować synchronizację tożsamości, należy wdrożyć [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md) .
 
@@ -267,10 +296,10 @@ Usługa Azure AD zapewnia [Azure monitor integrację](../reports-monitoring/conc
 
    * Maszyny bramy ochrony hasła  
 
-   * Serwer NPS z rozszerzeniem usługi RADIUS Azure MFA 
+   * Serwery zasad sieciowych (NPSs) z rozszerzeniem usługi RADIUS uwierzytelniania wieloskładnikowego usługi Azure AD 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Tworzenie odporności na zarządzanie tożsamościami i dostępem za pomocą usługi Azure AD](resilience-overview.md)
+* [Tworzenie odporności na zarządzanie tożsamościami i dostępem przy użyciu usługi Azure AD](resilience-overview.md)
 
 * [Zabezpieczanie dostępu zewnętrznego do zasobów](secure-external-access-resources.md) 
 * [Integruj wszystkie aplikacje z usługą Azure AD](five-steps-to-full-application-integration-with-azure-ad.md)

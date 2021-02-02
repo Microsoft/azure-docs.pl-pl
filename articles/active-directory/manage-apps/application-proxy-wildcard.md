@@ -4,7 +4,7 @@ description: Dowiedz się, jak używać wieloznacznych aplikacji na serwerze pro
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2f3d1d47bd26167253296f06af5470818760850
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997515"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257984"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplikacje wieloznaczne w Azure Active Directory serwerze proxy aplikacji
 
@@ -156,7 +156,7 @@ Konfiguracja implementuje następującą strukturę:
 
 ![Pokazuje strukturę zaimplementowaną przez przykładową konfigurację](./media/application-proxy-wildcard/05.png)
 
-| Color (Kolor) | Opis |
+| Kolor | Opis |
 | ---   | ---         |
 | Blue (Niebieski)  | Aplikacje jawnie opublikowane i widoczne w Azure Portal. |
 | Szary  | Aplikacje, które można uzyskać za pomocą aplikacji nadrzędnej. |

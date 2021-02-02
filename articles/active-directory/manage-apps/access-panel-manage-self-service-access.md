@@ -3,7 +3,7 @@ title: Jak używać samoobsługowego dostępu do aplikacji w usłudze Azure AD
 description: Włącz samoobsługowe, aby użytkownicy mogli znaleźć aplikacje w usłudze Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: d99f0021ee53e972dacfdadb3e488498a3fc4ad0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 13f91fdd9e2d9501fba426bd6facbf9824a39285
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372467"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257021"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Jak korzystać z samoobsługowego dostępu do aplikacji
 
@@ -43,8 +43,8 @@ Aby włączyć samoobsługowy dostęp do aplikacji, wykonaj następujące czynno
 1. Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny.**
 2. Otwórz **rozszerzenie Azure Active Directory** , wybierając pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie.
 3. Wpisz ciąg **"Azure Active Directory**" w polu wyszukiwania filtru i wybierz element **Azure Active Directory** .
-4. Wybierz pozycję **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie Azure Active Directory.
-5. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
+4. Wybierz pozycję **Aplikacje dla przedsiębiorstw** z menu nawigacji usługi Azure Active Directory po lewej stronie.
+5. Wybierz pozycję **Wszystkie aplikacje**, aby wyświetlić listę wszystkich aplikacji.
    * Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje** i ustaw opcję **Pokaż** na **wszystkie aplikacje.**
 6. Wybierz aplikację, z której chcesz włączyć dostęp do funkcji samoobsługi z listy.
 7. Po załadowaniu aplikacji wybierz pozycję **samoobsługa** z menu nawigacji po lewej stronie aplikacji.

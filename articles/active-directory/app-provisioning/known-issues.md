@@ -3,7 +3,7 @@ title: Znane problemy związane z obsługą aplikacji w usłudze Azure AD
 description: Informacje o znanych problemach podczas pracy z automatyczną obsługą aplikacji w usłudze Azure AD.
 author: kenwith
 ms.author: kenwith
-manager: celestedg
+manager: daveba
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: bde5cecc4052724f795cac03f6efceb3451ea2ee
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 9eba671f6c824c8c88388f2b9d61512dfb1d122f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914352"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256647"
 ---
 # <a name="known-issues-application-provisioning"></a>Znane problemy: Inicjowanie obsługi aplikacji
 Znane problemy, które należy wziąć pod uwagę podczas pracy z obsługą aplikacji. Aby przekazać opinię na temat usługi Application Provisioning w witrynie UserVoice, zobacz temat [udostępnianie aplikacji usługi Azure AD](https://aka.ms/appprovisioningfeaturerequest)w usłudze UserVoice. Uważnie obserwujemy usługę UserVoice, abyśmy mogli ulepszyć usługi. 

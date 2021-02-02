@@ -4,7 +4,7 @@ description: Wybierz, które rozwiązanie proxy jest najlepsze w przypadku uaktu
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cccabaf069a3027e615892e36e218f865a6c983a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7d089d8f57bf8ef1278d262129cc8ddfc81d581
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706656"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257747"
 ---
 # <a name="compare-remote-access-solutions"></a>Porównywanie rozwiązań dostępu zdalnego
 
@@ -32,7 +32,7 @@ Serwer proxy aplikacji usługi Azure Active Directory jest jednym z dwóch rozwi
 
 Skorzystaj z tej tabeli, aby zrozumieć, jak Brama zarządzania zagrożeniami (TMG), Unified Access Gateway (UAG), serwer proxy aplikacji sieci Web (WAP) i usługa Azure serwer proxy aplikacji usługi Azure AD (AP) porównują się ze sobą.
 
-| Cecha | TMG | UAG | WAP | AP |
+| Cechy | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
 | Uwierzytelnianie certyfikatu | Tak | Tak | - | - |
 | Selektywne publikowanie aplikacji przeglądarki | Tak | Tak | Tak | Tak |

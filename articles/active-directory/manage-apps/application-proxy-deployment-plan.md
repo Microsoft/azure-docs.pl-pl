@@ -3,19 +3,19 @@ title: Planowanie wdrożenia serwer proxy aplikacji usługi Azure Active Directo
 description: Kompleksowy przewodnik planowania wdrażania serwera proxy aplikacji w organizacji
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 08289987dac81905584ee65b808cfcbf35525728
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 213f7d95916555ea32925a5b0af0865d900b0209
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835146"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257917"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia serwera proxy aplikacji usługi Azure AD
 
@@ -275,7 +275,7 @@ Do obsługi serwer proxy aplikacji usługi Azure AD platformy Azure mogą być u
 
 Firma Microsoft zaleca, aby udzielić najmniejszego możliwego uprawnienia do wykonywania niezbędnych zadań w usłudze Azure AD. [Zapoznaj się z różnymi rolami platformy Azure, które są dostępne](../roles/permissions-reference.md) , a następnie wybierz jedną z nich w celu rozwiązania potrzeb każdej osoby. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
 
-| Rola biznesowa| Zadania biznesowe| Role usługi Azure AD |
+| Rola biznesowa| Zadania biznesowe| Role usługi Azure Active Directory |
 |---|---|---|
 | Administrator pomocy technicznej | Zwykle ograniczone do kwalifikujących się problemów zgłoszonych przez użytkowników końcowych i wykonywania ograniczonych zadań, takich jak zmienianie haseł użytkowników, sprawdzanie poprawności tokenów odświeżania i kondycja usługi monitorowania. | Administrator pomocy technicznej |
 | Administrator tożsamości| Aby debugować problemy związane z serwerem proxy aplikacji, zapoznaj się z tematem rejestrowanie w raportach i dziennikach inspekcji usługi Azure AD| Czytelnik zabezpieczeń |

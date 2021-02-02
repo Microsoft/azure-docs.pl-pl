@@ -3,7 +3,7 @@ title: Uwierzytelnianie oparte na nagłówkach za pomocą PingAccess dla platfor
 description: Publikowanie aplikacji za pomocą PingAccess i serwera proxy aplikacji w celu obsługi uwierzytelniania opartego na nagłówkach.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e09bb0b07112a962b709c380c48f2a656c16097b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663728"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258171"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Logowanie jednokrotne z uwierzytelnianiem na podstawie nagłówka dzięki funkcji serwera proxy aplikacji i narzędziu PingAccess
 
@@ -48,7 +48,7 @@ Jeśli włączono serwer proxy aplikacji włączony i został już zainstalowany
 Łącznik serwera proxy aplikacji to usługa systemu Windows Server, która kieruje ruch od pracowników zdalnych do opublikowanych aplikacji. Aby uzyskać bardziej szczegółowe instrukcje dotyczące instalacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego za poorednictwem serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com/) jako administrator aplikacji. Zostanie wyświetlona strona **Centrum administracyjne Azure Active Directory** .
-1. Wybierz **Azure Active Directory** pozycję  >  Usługa łącznika pobierania **serwera proxy aplikacji** Azure Active Directory  >  **Download connector service**. Zostanie wyświetlona strona **pobierania łącznika serwera proxy aplikacji** .
+1. Wybierz pozycję  >  Usługa łącznika pobierania **serwera proxy aplikacji** Azure Active Directory  >  . Zostanie wyświetlona strona **pobierania łącznika serwera proxy aplikacji** .
 
    ![Pobieranie łącznika serwera proxy aplikacji](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
 
@@ -124,12 +124,12 @@ Oprócz zewnętrznego adresu URL do listy identyfikatorów URI przekierowania na
 
 Na koniec Skonfiguruj swoją aplikację lokalną, aby użytkownicy mieli dostęp do odczytu i do nich dostęp do odczytu i zapisu:
 
-1. Na pasku bocznym **rejestracje aplikacji** aplikacji wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienia do**  >  **Microsoft Graph interfejsów API firmy Microsoft**  >  **Microsoft Graph**. Zostanie wyświetlona strona **uprawnienia interfejsu API żądania** dla **Microsoft Graph** , która zawiera interfejsy api dla systemu Windows Azure Active Directory.
+1. Na pasku bocznym **rejestracje aplikacji** aplikacji wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienia do**  >  **Microsoft Graph interfejsów API firmy Microsoft**  >  . Zostanie wyświetlona strona **uprawnienia interfejsu API żądania** dla **Microsoft Graph** , która zawiera interfejsy api dla systemu Windows Azure Active Directory.
 
    ![Pokazuje stronę uprawnień interfejsu API żądania](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 1. Wybierz pozycję **uprawnienia delegowane** użytkownik  >  **użytkownik**  >  **. Odczytaj**.
-1. Wybierz pozycję **uprawnienia aplikacji** aplikacja aplikacja  >  **Application**  >  **. ReadWrite. wszystkie**.
+1. Wybierz pozycję **uprawnienia aplikacji** aplikacja aplikacja  >    >  **. ReadWrite. wszystkie**.
 1. Wybierz pozycję **Dodaj uprawnienia**.
 1. Na stronie **uprawnienia interfejsu API** wybierz pozycję **Udziel zgody administrator na \<your directory name>**.
 
@@ -151,7 +151,7 @@ Aby zebrać te informacje:
    ![Przegląd rejestracji dla aplikacji](./media/application-proxy-configure-single-sign-on-with-ping-access/registration-overview-for-an-application.png)
 
 1. Obok pozycji wartość **identyfikatora aplikacji (klienta)** wybierz ikonę **Kopiuj do schowka** , a następnie skopiuj i Zapisz. Tę wartość można określić później jako identyfikator klienta PingAccess.
-1. Następnie wybierz **Directory (tenant) ID** pozycję **Kopiuj do schowka**, a następnie skopiuj i Zapisz. Tę wartość można określić później jako wystawca PingAccess.
+1. Następnie wybierz  pozycję **Kopiuj do schowka**, a następnie skopiuj i Zapisz. Tę wartość można określić później jako wystawca PingAccess.
 1. Na pasku bocznym **rejestracje aplikacji** aplikacji wybierz pozycję **Certyfikaty i** wpisy tajne  >  **Nowy wpis tajny klienta**. Zostanie wyświetlona strona **Dodawanie wpisu tajnego klienta** .
 
    ![Pokazuje stronę Dodawanie wpisu tajnego klienta](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
@@ -164,7 +164,7 @@ Aby zebrać te informacje:
 **Zaktualizuj `acceptMappedClaims` pole:**
 
 1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com/) jako administrator aplikacji.
-1. Wybierz **Azure Active Directory**  >  **rejestracje aplikacji** Azure Active Directory. Zostanie wyświetlona lista aplikacji.
+1. Wybierz   >  **rejestracje aplikacji** Azure Active Directory. Zostanie wyświetlona lista aplikacji.
 1. Wybierz aplikację.
 1. Na pasku bocznym strony **rejestracje aplikacji** aplikacji wybierz pozycję **manifest**. Zostanie wyświetlony kod JSON manifestu dla rejestracji aplikacji.
 1. Wyszukaj `acceptMappedClaims` pole i zmień wartość na `True` .

@@ -3,7 +3,7 @@ title: Informacje na temat logowania jednokrotnego opartego na protokole SAML dl
 description: Informacje na temat logowania jednokrotnego opartego na protokole SAML dla aplikacji w Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 32e654f002e3ba0c8bf72fb781b32d9098d83c00
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f6422c3f751a7aaa430b93ee68ca1a3520ac915f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219848"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257696"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Omówienie logowania jednokrotnego opartego na protokole SAML
 
 W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami wiesz, jak używać usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) dla aplikacji. W tym artykule opisano opcję opartą na protokole SAML do logowania jednokrotnego. 
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) i Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać informacje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej dla logowania jednokrotnego opartego na protokole SAML, ten artykuł jest dla Ciebie.
 

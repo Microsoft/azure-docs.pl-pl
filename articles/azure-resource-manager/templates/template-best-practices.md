@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania dotyczące szablonów
 description: Opisuje zalecane podejścia do tworzenia szablonów Azure Resource Manager (szablony ARM). Oferuje sugestie pozwalające uniknąć typowych problemów związanych z korzystaniem z szablonów.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696350"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258001"
 ---
 # <a name="arm-template-best-practices"></a>Najlepsze praktyki dotyczące szablonów ARM
 
@@ -276,6 +276,8 @@ Poniższe informacje mogą być przydatne podczas pracy z [zasobami](template-sy
 
    > [!NOTE]
    > Aby upewnić się, że wpisy tajne są szyfrowane, gdy są one przesyłane jako parametry do maszyn wirtualnych i rozszerzeń, użyj `protectedSettings` właściwości odpowiednich rozszerzeń.
+
+* Określ wartości jawne dla właściwości, które mają wartości domyślne, które mogą ulec zmianie w czasie. Na przykład jeśli wdrażasz klaster AKS, możesz określić lub pominąć `kubernetesVersion` Właściwość. Jeśli nie zostanie on określony, [klaster zostanie domyślnie przystosowana do wersji pomocniczej N-1 i najnowszej poprawki](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). W przypadku wdrażania klastra przy użyciu szablonu ARM to zachowanie domyślne może nie być oczekiwane. Ponowne wdrożenie szablonu może spowodować nieoczekiwane uaktualnienie klastra do nowej wersji Kubernetes. Zamiast tego należy rozważyć określenie jawnego numeru wersji, a następnie jego ręczne zmianę, gdy wszystko jest gotowe do uaktualnienia klastra.
 
 ## <a name="use-test-toolkit"></a>Korzystanie z zestawu narzędzi testowych
 

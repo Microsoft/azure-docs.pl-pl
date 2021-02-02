@@ -3,7 +3,7 @@ title: Włączanie automatycznej aprowizacji użytkowników dla aplikacji wielod
 description: Przewodnik dla niezależnych dostawców oprogramowania, który umożliwia automatyczne Inicjowanie obsługi
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: d4c6c5b51e00f7f2ed7e29c27aa8e8bb88a2ea94
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 7bd0fc634109beb6cc674d89f56666e7035d33ef
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861362"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255699"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Włącz automatyczne Inicjowanie obsługi administracyjnej użytkowników dla aplikacji wielodostępnej
 

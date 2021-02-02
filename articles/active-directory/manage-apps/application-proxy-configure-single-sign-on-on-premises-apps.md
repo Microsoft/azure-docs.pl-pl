@@ -4,7 +4,7 @@ description: Dowiedz się, jak zapewnić Logowanie jednokrotne dla aplikacji lok
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,14 +16,14 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d51aa7e75d7e94d1c2ac66d7edb92a3ef9395b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 03c688952f37bf9fc91e9dd25e09d9c31cd980d4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657469"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257072"
 ---
-# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Logowanie jednokrotne SAML dla aplikacji lokalnych przy użyciu serwera proxy aplikacji
+# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Logowanie jednokrotne SAML dla aplikacji lokalnych opartych na serwerze proxy aplikacji
 
 Możesz udostępnić Logowanie jednokrotne do aplikacji lokalnych, które są zabezpieczone przy użyciu uwierzytelniania SAML i zapewniają dostęp zdalny do tych aplikacji za pomocą serwera proxy aplikacji. Za pomocą logowania jednokrotnego w protokole SAML usługa Azure Active Directory (Azure AD) uwierzytelnia się w aplikacji przy użyciu konta usługi Azure AD użytkownika. Usługa Azure AD komunikuje informacje logowania do aplikacji za pomocą protokołu połączenia. Możesz również mapować użytkowników na określone role aplikacji na podstawie reguł zdefiniowanych w oświadczeniach SAML. Po włączeniu serwera proxy aplikacji oprócz rejestracji jednokrotnej protokołu SAML użytkownicy będą mieli zewnętrzny dostęp do aplikacji i bezproblemowe środowisko logowania jednokrotnego.
 

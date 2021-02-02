@@ -9,22 +9,22 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618539"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256545"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
 Aby komunikować się z domeną zarządzaną Azure Active Directory Domain Services (Azure AD DS), używany jest protokół LDAP (Lightweight Directory Access Protocol). Domyślnie ruch związany z protokołem LDAP nie jest szyfrowany, co stanowi problem z zabezpieczeniami w wielu środowiskach.
 
-Za pomocą usługi Azure AD DS można skonfigurować domenę zarządzaną w taki sposób, aby korzystała z protokołu LDAPs (Secure Lightweight Directory Access Protocol). W przypadku korzystania z bezpiecznego protokołu LDAP ruch jest szyfrowany. Secure LDAP jest również znana jako LDAP over SSL (SSL) lub Transport Layer Security (TLS).
+Za pomocą usługi Azure AD DS można skonfigurować domenę zarządzaną w taki sposób, aby korzystała z protokołu LDAPs (Secure Lightweight Directory Access Protocol). W przypadku korzystania z bezpiecznego protokołu LDAP ruch jest szyfrowany. Secure LDAP jest również znana jako LDAP over Secure Sockets Layer (SSL) lub Transport Layer Security (TLS).
 
 W tym samouczku pokazano, jak skonfigurować LDAPs dla domeny zarządzanej AD DS platformy Azure.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie certyfikatu cyfrowego do użycia z platformą Azure AD DS
@@ -193,7 +193,7 @@ Przy użyciu certyfikatu cyfrowego utworzonego i wyeksportowanego, który zawier
 1. Domyślnie bezpieczny dostęp LDAP do domeny zarządzanej jest wyłączony. Przełącz **Secure LDAP** , aby **włączyć**.
 1. Secure LDAP dostęp do domeny zarządzanej za pośrednictwem Internetu jest domyślnie wyłączony. Po włączeniu publicznego dostępu do bezpiecznego protokołu LDAP domena jest podatna na ataki w trybie bezprawnego hasła przez Internet. W następnym kroku Grupa zabezpieczeń sieci jest skonfigurowana w celu blokowania dostępu tylko do wymaganych zakresów źródłowych adresów IP.
 
-    Przełącz **Zezwalanie na włączanie bezpiecznego dostępu do protokołu LDAP przez Internet** . **Enable**
+    Przełącz **Zezwalanie na włączanie bezpiecznego dostępu do protokołu LDAP przez Internet** . 
 
 1. Wybierz ikonę folderu obok **. Plik PFX z bezpiecznym certyfikatem LDAP**. Przejdź do ścieżki *. Plik PFX* , a następnie wybierz certyfikat utworzony w poprzednim kroku, który zawiera klucz prywatny.
 
@@ -212,6 +212,12 @@ Zostanie wyświetlone powiadomienie, że dla domeny zarządzanej jest konfigurow
 Włączenie bezpiecznego protokołu LDAP dla domeny zarządzanej może potrwać kilka minut. Jeśli certyfikat bezpiecznego protokołu LDAP, który nie jest zgodny z wymaganymi kryteriami, Akcja włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej nie powiedzie się.
 
 Niektóre typowe przyczyny niepowodzenia to jeśli nazwa domeny jest nieprawidłowa, algorytm szyfrowania dla certyfikatu nie jest *TripleDES-SHA1* lub certyfikat wygaśnie wkrótce lub już wygasł. Możesz ponownie utworzyć certyfikat z prawidłowymi parametrami, a następnie włączyć bezpieczny protokół LDAP przy użyciu tego zaktualizowanego certyfikatu.
+
+## <a name="change-an-expiring-certificate"></a>Zmiana certyfikatu wygasania
+
+1. Utwórz zastępczy certyfikat bezpiecznego protokołu LDAP, wykonując kroki umożliwiające [utworzenie certyfikatu dla bezpiecznego protokołu LDAP](#create-a-certificate-for-secure-ldap).
+1. Aby zastosować certyfikat zastępczy do usługi Azure AD DS, w menu po lewej stronie dla AD DS platformy Azure w Azure Portal wybierz pozycję **Secure LDAP**, a następnie wybierz pozycję **Zmień certyfikat**.
+1. Dystrybuuj certyfikat do dowolnego klienta, który nawiązuje połączenie przy użyciu protokołu Secure LDAP. 
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Zablokuj bezpieczny dostęp do protokołu LDAP za pośrednictwem Internetu
 

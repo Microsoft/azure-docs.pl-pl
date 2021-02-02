@@ -3,7 +3,7 @@ title: Udzielanie zgody administratora w całej dzierżawie na aplikację — Az
 description: Dowiedz się, jak przyznać całej dzierżawie zgodę na aplikację, tak aby użytkownicy końcowi nie monitowani o zgodę podczas logowania się do aplikacji.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaf8f92ec2c7d9653595b3249521582620670aaf
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089957"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258324"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Udzielanie zgody administratora całej dzierżawy dla aplikacji
 

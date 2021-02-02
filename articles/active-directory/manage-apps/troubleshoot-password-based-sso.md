@@ -2,7 +2,7 @@
 title: Rozwiązywanie problemów z logowaniem jednokrotnym opartym na haśle w Azure Active Directory
 description: Rozwiązywanie problemów z aplikacją usługi Azure AD, która została skonfigurowana pod kątem logowania jednokrotnego opartego na hasłach.
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 84aec5031dd8d19f8f2ad0aa32185002add378b1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: fdbbc6c53e43d3ecc9fd4ecb563bd7ec798f8888
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053983"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257583"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Rozwiązywanie problemów z logowaniem jednokrotnym opartym na hasłach w usłudze Azure AD
 

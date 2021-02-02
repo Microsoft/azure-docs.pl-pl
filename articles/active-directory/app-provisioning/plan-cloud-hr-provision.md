@@ -3,7 +3,7 @@ title: Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji 
 description: W tym artykule opisano proces wdrażania integracji systemów kadr w chmurze, takich jak Workday i SuccessFactors, z Azure Active Directory. Integracja usługi Azure AD z systemem zarządzania KADRą w chmurze skutkuje ukończeniem całego cyklu życia tożsamości.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174904"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256715"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
 

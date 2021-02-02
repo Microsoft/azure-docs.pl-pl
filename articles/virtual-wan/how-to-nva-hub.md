@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 7a52d3971e4ec0cb8ec104a57ba7fb4057c23b72
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 1f80da4014d4b6b27155db17d32800e54b51f40d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964647"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258069"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Jak utworzyć sieciowe urządzenie wirtualne w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
 
@@ -21,8 +21,7 @@ W tym artykule pokazano, jak używać wirtualnej sieci WAN do łączenia się z 
 
 Kroki opisane w tym artykule ułatwiają tworzenie wirtualnego urządzenia sieciowego **Barracuda CLOUDGEN WAN** w koncentratorze sieci WAN. Aby wykonać to ćwiczenie, musisz mieć urządzenie lokalne w chmurze Barracuda (CPE) i licencję na urządzenie sieci WAN CloudGen Barracuda, które zostało wdrożone w centrum przed rozpoczęciem.
 
-Aby zapoznać się z dokumentacją dotyczącą wdrażania **Cisco SD-WAN** w ramach wirtualnej sieci WAN platformy Azure — zobacz [Cisco Cloud Onpochylni dla chmury wielochmurowej](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). Aby zarejestrować swoje konto i uzyskać niezbędne licencje Cisco SD-WAN, Wyślij wiadomość e-mail do firmy Cisco pod następującym adresem e-mail: vwan_public_preview@external.cisco.com
-
+Aby zapoznać się z dokumentacją dotyczącą wdrażania **Cisco SD-WAN** w ramach wirtualnej sieci WAN platformy Azure — zobacz [Cisco Cloud Onpochylni dla chmury wielochmurowej](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

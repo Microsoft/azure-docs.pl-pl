@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860630"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257189"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 
@@ -78,7 +78,8 @@ Tak. Jeśli domena nie została zweryfikowana i dzierżawa nie przeszła [przej�
 W przypadku ustanowienia bezpośredniej Federacji z organizacją partnera ma ona wyższy priorytet niż jednorazowe uwierzytelnianie kodu dostępu do poczty e-mail dla nowych użytkowników-Gości z tej organizacji. Jeśli użytkownik-Gość wykorzystał zaproszenie przy użyciu jednorazowego uwierzytelniania kodu dostępu, przed skonfigurowaniem Federacji bezpośredniej będzie nadal korzystać z uwierzytelniania jednorazowego kodu dostępu. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>Czy bezpośrednie problemy z logowaniem do adresu federacyjnego są spowodowane częściowo zsynchronizowaną dzierżawą?
 Nie. w tym scenariuszu należy użyć funkcji [jednokrotnego kodu dostępu w wiadomości e-mail](one-time-passcode.md) . "Częściowo zsynchronizowana dzierżawa" odnosi się do dzierżawy usługi Azure AD partnera, w której tożsamości użytkowników lokalnych nie są w pełni zsynchronizowane z chmurą. Gość, którego tożsamość nie istnieje jeszcze w chmurze, ale próbujących zrealizować zaproszenie B2B nie będzie mógł się zalogować. Funkcja jednorazowy kod dostępu zezwoli temu gościa na logowanie. Funkcja Federacji bezpośredniej dotyczy scenariuszy, w których Gość ma własne konto organizacyjne zarządzane przez dostawcy tożsamości, ale w ogóle nie ma obecności usługi Azure AD.
-
+### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Czy po skonfigurowaniu bezpośredniej Federacji z organizacją należy wysłać każdy gościa i zrealizować pojedyncze zaproszenie?
+Skonfigurowanie Federacji bezpośredniej nie powoduje zmiany metody uwierzytelniania dla użytkowników-Gości, którzy już skorzystali z zaproszenia. Można zaktualizować metodę uwierzytelniania użytkownika-gościa, usuwając konto użytkownika-gościa z katalogu i zapraszając je.
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Krok 1. Konfigurowanie dostawcy tożsamości organizacji partnerskiej
 Najpierw organizacja partnera musi skonfigurować swojego dostawcę tożsamości z wymaganymi oświadczeniami i relacjami zaufania jednostek uzależnionych. 
 

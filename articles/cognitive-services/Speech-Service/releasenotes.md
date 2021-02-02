@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1c9c07d3770d2b71bee8f8e789022be6f831cc8f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4393607d6714bc4c1b10ac89d5ac69c173f8fef4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092872"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257325"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
 
@@ -26,7 +26,7 @@ ms.locfileid: "99092872"
 
 **Podsumowanie wyróżnionych**
 - Mniejsza ilość pamięci i dysku zwiększa efektywność zestawu SDK.
-- Ulepszono niestandardową jakość głosu i łatwość użycia. 
+- Formaty danych wyjściowych o wyższej wierności są dostępne dla niestandardowej wersji zapoznawczej prywatnego neuronowych.
 - Aparat rozpoznawania intencji może teraz zwrócić więcej niż najwyższy zamiar, co daje możliwość przeprowadzenia oddzielnej oceny dotyczącej intencji klienta.
 - Asystent głosowy lub bot jest teraz łatwiejszy do skonfigurowania i można natychmiast przerwać nasłuchiwanie i zapewnić większą kontrolę nad sposobem reagowania na błędy.
 - Ulepszona wydajność urządzenia dzięki kompresji opcjonalnej.
@@ -43,7 +43,7 @@ ms.locfileid: "99092872"
   - Biblioteki systemu Android są mniejsze od 3-5%.
 
 **Nowe funkcje**
-- **Wszystko**: niestandardowa jakość głosu nadal trwa. Dodano format 48kHz dla niestandardowych głosów TTS, co poprawia jakość audio głosów niestandardowych, których natywne stawki próbek wyjściowych są większe niż 24kHz.
+- **Wszystko**: nowe formaty danych wyjściowych 48KHz są dostępne dla prywatnej wersji zapoznawczej niestandardowego głosu neuronowych przez interfejs API syntezy mowy TTS: Audio48Khz192KBitRateMonoMp3, audio-48KHz-192kbitrate-mono-MP3, Audio48Khz96KBitRateMonoMp3, audio-48KHz-96kbitrate-mono-MP3, Raw48Khz16BitMonoPcm, RAW-48KHz
 - **Wszystko**: niestandardowy głos jest również łatwiejszy w użyciu. Dodano obsługę ustawiania niestandardowego głosu za pośrednictwem `EndpointId` ([C++](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setendpointid), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_), [JavaScript](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#endpointId), [obiektyw-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#endpoint-id)). Przed tą zmianą niestandardowi użytkownicy głosu musieli ustawić adres URL punktu końcowego za pomocą `FromEndpoint` metody. Teraz klienci mogą korzystać z `FromSubscription` metody, podobnie jak głosy publiczne, a następnie podać identyfikator wdrożenia według ustawienia `EndpointId` . Upraszcza to Konfigurowanie odgłosów niestandardowych. 
 - **C++/c #/Java/Objective-C/Python**: uzyskiwanie więcej niż najwyższego zamiaru `IntentRecognizer` . Obsługuje teraz Konfigurowanie wyniku JSON zawierającego wszystkie intencje i nie tylko górne przeznaczenie oceny za pośrednictwem `LanguageUnderstandingModel FromEndpoint` metody przy użyciu `verbose=true` parametru identyfikatora URI. Dotyczy to [problemów z usługą GitHub #880](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/880). Zapoznaj się z aktualizacją dokumentacji [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition/#add-a-languageunderstandingmodel-and-intents).
 - **C++/c #/Java**: niech asystent głosowy lub bot zatrzymać nasłuchiwanie immediatedly. `DialogServiceConnector` ([C++](https://docs.microsoft.com/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-java-stable)) ma teraz metodę do dołączenia `StopListeningAsync()` `ListenOnceAsync()` . Spowoduje to natychmiastowe zatrzymanie przechwytywania audio i bezpieczne zaczekanie na wynik, dzięki czemu będzie idealny do użycia z przyciskami "Zatrzymaj teraz".

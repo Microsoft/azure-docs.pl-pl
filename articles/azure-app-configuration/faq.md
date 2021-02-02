@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: alkemper
-ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 39ad20bd57e3da6345c63d4601f34b19e640c1d6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929569"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256479"
 ---
 # <a name="azure-app-configuration-faq"></a>Konfiguracja aplikacji platformy Azure — często zadawane pytania
 
@@ -105,7 +105,7 @@ Nie można obniżyć poziomu sklepu z warstwy Standardowa do warstwy Bezpłatna.
 
 ## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>Czy istnieją jakieś ograniczenia dotyczące liczby żądań dotyczących konfiguracji aplikacji?
 
-Magazyny konfiguracji w warstwie Bezpłatna są ograniczone do 1 000 żądań dziennie. W przypadku magazynów konfiguracji w warstwie Standardowa może wystąpić tymczasowe ograniczenie przepustowości, gdy częstotliwość żądań przekracza 20 000 żądań na godzinę.
+W obszarze Konfiguracja aplikacji, podczas odczytywania wartości kluczy, dane będą stronicowane i każde żądanie może odczytywać do 100 wartości kluczy. Podczas zapisywania wartości klucza każde żądanie może utworzyć lub zaktualizować jedną wartość klucza. Jest to obsługiwane za pomocą interfejsu API REST, zestawów SDK konfiguracji aplikacji i dostawców konfiguracji. Magazyny konfiguracji w warstwie Bezpłatna są ograniczone do 1 000 żądań dziennie. W przypadku magazynów konfiguracji w warstwie Standardowa może wystąpić tymczasowe ograniczenie przepustowości, gdy częstotliwość żądań przekracza 20 000 żądań na godzinę.
 
 Po osiągnięciu limitu magazyn zwróci kod stanu HTTP 429 dla wszystkich żądań zrealizowanych do czasu wygaśnięcia okresu. `retry-after-ms`Nagłówek w odpowiedzi zawiera sugerowany czas oczekiwania (w milisekundach) przed podjęciem próby wykonania żądania.
 

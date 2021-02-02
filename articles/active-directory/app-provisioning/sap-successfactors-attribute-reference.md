@@ -3,7 +3,7 @@ title: Odwołanie do atrybutu SAP SuccessFactors
 description: Dowiedz się, jakie atrybuty z SuccessFactors są obsługiwane przez inicjowanie obsługi SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d1a25f67d3550e79b2339ee060d37acaea0c1c4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87808511"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255546"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Odwołanie do atrybutu SAP SuccessFactors
 
@@ -89,7 +89,7 @@ Zapoznaj się z informacjami dotyczącymi [integracji oprogramowania SAP Success
 | 51 | EmpJob                                 | emplStatus                   | Odczyt           |
 | 52 | EmpJob                                 | endDate                      | Odczyt           |
 | 53 | EmpJob                                 | startDate                    | Odczyt           |
-| 54 | EmpJob                                 | Stanowiska                     | Odczyt           |
+| 54 | EmpJob                                 | jobTitle                     | Odczyt           |
 | 55 | EmpJob                                 | pozycja                     | Odczyt           |
 | 65 | EmpJob                                 | customString13               | Odczyt           |
 | 56 | EmpJob                                 | managerId                    | Odczyt           |
@@ -124,21 +124,21 @@ Poniższa tabela zawiera domyślne mapowanie atrybutów między SuccessFactorsmi
 |----|----------------------------------------|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------|
 | 1  | PerPerson                              | personIdExternal         | IDPracownika                              | Używane jako pasujący atrybut                                                                   |
 | 2  | PerPerson                              | perPersonUuid            | \[Nie zamapowano \- użyte jako zakotwiczenie źródła\] | Podczas synchronizacji początkowej usługa aprowizacji łączy personUuid z istniejącym objectGuid\.  |
-| 3  | PerPersonal                            | displayName              | displayName                             | Nie dotyczy                                                                                           |
-| 4  | PerPersonal                            | firstName                | givenName                               | Nie dotyczy                                                                                           |
-| 5  | PerPersonal                            | lastName                 | sn                                      | Nie dotyczy                                                                                           |
-| 6  | Użytkownik                                   | addressLine1             | streetAddress                           | Nie dotyczy                                                                                           |
-| 7  | Użytkownik                                   | city                     | l                                       | Nie dotyczy                                                                                           |
-| 8  | Użytkownik                                   | country                  | co                                      | Nie dotyczy                                                                                           |
-| 9  | Użytkownik                                   | stan                    | st                                      | Nie dotyczy                                                                                           |
-| 10 | Użytkownik                                   | nazwa użytkownika                 | samAccountName                          | Nie dotyczy                                                                                           |
-| 11 | Użytkownik                                   | Kod pocztowy                  | Pocztowy                              | Nie dotyczy                                                                                           |
-| 12 | PerEmail                               | emailAddress             | mail (poczta)                                    | Nie dotyczy                                                                                           |
-| 13 | EmpJob                                 | Stanowiska                 | title                                   | Nie dotyczy                                                                                           |
-| 14 | EmpJob                                 | managerId                | manager                                 | Nie dotyczy                                                                                           |
-| 15 | EmpJob \. firmy \. CountryOfRegistration | twoCharCountryCode       | c                                       | Nie dotyczy                                                                                           |
-| 16 | \.Dział EmpJob                     | działu,               | działu,                              | Nie dotyczy                                                                                           |
-| 17 | EmpJob \.                       | przegrod                 | company                                 | Nie dotyczy                                                                                           |
-| 18 | \.Lokalizacja EmpJob                       | officeLocationAddress    | streetAddress                           | Nie dotyczy                                                                                           |
-| 19 | \.Lokalizacja EmpJob                       | officeLocationZipCode    | Pocztowy                              | Nie dotyczy                                                                                           |
+| 3  | PerPersonal                            | displayName              | displayName                             | NA                                                                                           |
+| 4  | PerPersonal                            | firstName                | givenName                               | NA                                                                                           |
+| 5  | PerPersonal                            | lastName                 | sn                                      | NA                                                                                           |
+| 6  | Użytkownik                                   | addressLine1             | streetAddress                           | NA                                                                                           |
+| 7  | Użytkownik                                   | city                     | l                                       | NA                                                                                           |
+| 8  | Użytkownik                                   | country                  | co                                      | NA                                                                                           |
+| 9  | Użytkownik                                   | stan                    | st                                      | NA                                                                                           |
+| 10 | Użytkownik                                   | nazwa użytkownika                 | samAccountName                          | NA                                                                                           |
+| 11 | Użytkownik                                   | Kod pocztowy                  | postalCode                              | NA                                                                                           |
+| 12 | PerEmail                               | emailAddress             | mail (poczta)                                    | NA                                                                                           |
+| 13 | EmpJob                                 | jobTitle                 | tytuł                                   | NA                                                                                           |
+| 14 | EmpJob                                 | managerId                | manager                                 | NA                                                                                           |
+| 15 | EmpJob \. firmy \. CountryOfRegistration | twoCharCountryCode       | c                                       | NA                                                                                           |
+| 16 | \.Dział EmpJob                     | działu,               | działu,                              | NA                                                                                           |
+| 17 | EmpJob \.                       | przegrod                 | company                                 | NA                                                                                           |
+| 18 | \.Lokalizacja EmpJob                       | officeLocationAddress    | streetAddress                           | NA                                                                                           |
+| 19 | \.Lokalizacja EmpJob                       | officeLocationZipCode    | postalCode                              | NA                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | Jeśli activeEmploymentsCount = 0, wyłącz account\.                                           |

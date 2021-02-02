@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322538"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257410"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Znajdź pomoc i Otwórz bilet pomocy technicznej dla Azure Active Directory
 Firma Microsoft oferuje globalne wsparcie techniczne, przedsprzedaży, rozliczeń i subskrypcji dla Azure Active Directory (Azure AD). Pomoc techniczna jest dostępna zarówno w trybie online, jak i telefonicznie w przypadku subskrypcji Microsoft Azure płatnych i próbnych. Telefoniczna pomoc techniczna i pomoc online związana z rozliczeniami są dostępne w dodatkowych językach. 
@@ -41,18 +41,18 @@ Jeśli nie możesz znaleźć odpowiedzi przy użyciu zasobów samopomocowych, mo
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Jak otworzyć bilet pomocy technicznej dla usługi Azure AD w Azure Portal
 
 > [!NOTE]
-> W przypadku problemów dotyczących rozliczeń lub subskrypcji należy użyć [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com).
-> 
+> * W przypadku problemów dotyczących rozliczeń lub subskrypcji należy użyć [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com).  
+> * Jeśli używasz Azure AD B2C, Otwórz bilet pomocy technicznej, najpierw przełączając się do dzierżawy usługi Azure AD z skojarzoną z nią subskrypcją platformy Azure. Zwykle jest to Twoja dzierżawa pracownika lub domyślna dzierżawa utworzona dla Ciebie podczas rejestrowania się w celu uzyskania subskrypcji platformy Azure. Aby dowiedzieć się więcej, zobacz [jak subskrypcja platformy Azure jest powiązana z usługą Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Otwórz **Azure Active Directory**.
    
 1. Przewiń w dół do opcji **Rozwiązywanie problemów i obsługa** i wybierz pozycję **nowe żądanie obsługi**.
    
-1. W bloku **podstawowe** , w polu **typ problemu**wybierz pozycję **techniczne**.
+1. W bloku **podstawowe** , w polu **typ problemu** wybierz pozycję **techniczne**.
 
 1. Wybierz swoją **subskrypcję**.
 
-1. W obszarze **Usługa**wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Usługa** wybierz pozycję **Azure Active Directory**.
 
 1. Utwórz **Podsumowanie** dla żądania. Podsumowanie musi zawierać mniej niż 140 znaków.
   
@@ -74,7 +74,7 @@ Jeśli nie możesz znaleźć odpowiedzi przy użyciu zasobów samopomocowych, mo
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Jak otworzyć bilet pomocy technicznej dla usługi Azure AD w centrum administracyjnym Microsoft 365
 
 > [!NOTE]
-> Obsługa usługi Azure AD w [centrum administracyjnym Microsoft 365](https://admin.microsoft.com) jest dostępna tylko dla administratorów. 
+> Obsługa usługi Azure AD w [centrum administracyjnym Microsoft 365](https://admin.microsoft.com) jest dostępna tylko dla administratorów.
 
 1. Zaloguj się do [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com) przy użyciu konta z licencją Enterprise Mobility + Security (EMS).
 
@@ -82,9 +82,9 @@ Jeśli nie możesz znaleźć odpowiedzi przy użyciu zasobów samopomocowych, mo
 
 1. Na stronie **Przegląd pomocy technicznej** wybierz pozycję **Zarządzanie tożsamościami** lub **Zarządzanie użytkownikami i domeną**:
 
-1. W obszarze **Funkcja**wybierz funkcję usługi Azure AD, dla której chcesz uzyskać pomoc techniczną.
+1. W obszarze **Funkcja** wybierz funkcję usługi Azure AD, dla której chcesz uzyskać pomoc techniczną.
 
-1. W przypadku **symptomu**wybierz odpowiedni objaw, Podsumuj swój problem i podaj odpowiednie szczegóły, a następnie wybierz przycisk **dalej**.
+1. W przypadku **symptomu** wybierz odpowiedni objaw, Podsumuj swój problem i podaj odpowiednie szczegóły, a następnie wybierz przycisk **dalej**.
 
 1. Wybierz jeden z oferowanych zasobów samoobsługi lub wybierz pozycję **tak, Kontynuuj** lub **nie, Anuluj żądanie**.
 

@@ -3,7 +3,7 @@ title: Planowanie Azure Active Directory wdrożenia przy użyciu logowania jedno
 description: Przewodnik ułatwiający planowanie, wdrażanie i zarządzanie logowaniem jednokrotnym w organizacji.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5f207a0b5f829e952c92133a66313f49e9352f51
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 89f234ece2f7437e4a9d4092334e3dd3690e288d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053212"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258103"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planowanie wdrożenia logowania jednokrotnego
 

@@ -3,7 +3,7 @@ title: Planowanie Azure Active Directory konfiguracji aplikacji
 description: Przewodnik planowania, aby efektywnie korzystać z aplikacji w organizacji.
 services: active-directory
 author: barbaraselden
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 2dbda9dd736bb26329b9cc3b614056c67739db17
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 13fe9c52312ba6053a6093ec51d42f05a44627e0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055937"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258290"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planowanie Azure Active Directory konfiguracji aplikacji
 

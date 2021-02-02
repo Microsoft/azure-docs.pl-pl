@@ -1,23 +1,23 @@
 ---
-title: Rozwiązywanie problemów z logowaniem jednokrotnym opartym na protokole SAML w Azure Active Directory
+title: Rozwiązywanie problemów dotyczących logowania jednokrotnego opartego na protokole SAML w usłudze Azure Active Directory
 description: Rozwiązywanie problemów z aplikacją usługi Azure AD, która jest skonfigurowana do logowania jednokrotnego opartego na protokole SAML.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 2e8508d4fceb1e7fb580350c726dd70eeaea31c6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b169616042892c379196dd1d38c2343704aa1030
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658880"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257530"
 ---
-# <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Rozwiązywanie problemów z logowaniem jednokrotnym opartym na protokole SAML w Azure Active Directory
+# <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Rozwiązywanie problemów dotyczących logowania jednokrotnego opartego na protokole SAML w usłudze Azure Active Directory
 Jeśli wystąpi problem podczas konfigurowania aplikacji. Upewnij się, że wykonano wszystkie kroki samouczka dotyczące aplikacji. W konfiguracji aplikacji masz wbudowaną dokumentację dotyczącą konfigurowania aplikacji. Ponadto możesz uzyskać dostęp do [listy samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](../saas-apps/tutorial-list.md) , aby uzyskać szczegółowe wskazówki krok po kroku.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Nie można dodać innego wystąpienia aplikacji
@@ -46,7 +46,7 @@ Aby poznać wzorce, które zostały wstępnie skonfigurowane dla aplikacji:
     * Jeśli wzorzec nie jest obsługiwany, zobaczysz czerwony wykrzyknik przy próbie wprowadzenia wartości w polu tekstowym. Jeśli umieścisz wskaźnik myszy nad czerwonym wykrzyknikiem, zobaczysz obsługiwane wzorce.
     * W samouczku dotyczącym aplikacji można także uzyskać informacje o obsługiwanych wzorcach. W sekcji Konfigurowanie logowania jednokrotnego w **usłudze Azure AD** . Przejdź do kroku, aby skonfigurować wartości w sekcji **domen i adresów URL** .
 
-Jeśli wartości nie są zgodne ze wzorcami wstępnie skonfigurowanymi w usłudze Azure AD. Możesz:
+Jeśli wartości nie są zgodne ze wzorcami wstępnie skonfigurowanymi w usłudze Azure AD. Oto co możesz zrobić:
 -   Współpraca z dostawcą aplikacji w celu uzyskania wartości zgodnych ze wzorcem wstępnie skonfigurowanym w usłudze Azure AD
 -   Możesz też skontaktować się z zespołem usługi Azure AD lub <aadapprequest@microsoft.com> pozostawić komentarz w samouczku, aby zażądać aktualizacji obsługiwanych wzorców dla aplikacji
 
@@ -69,7 +69,7 @@ Aby pobrać metadane aplikacji lub certyfikat z usługi Azure AD, wykonaj nastę
 
 Usługa Azure AD nie udostępnia adresu URL do pobrania metadanych. Metadane można pobrać tylko jako plik XML.
 
-## <a name="customize-saml-claims-sent-to-an-application"></a>Dostosuj oświadczenia SAML wysyłane do aplikacji
+## <a name="customize-saml-claims-sent-to-an-application"></a>Dostosowywanie oświadczeń SAML wysyłanych do aplikacji
 Aby dowiedzieć się, jak dostosować oświadczenia atrybutu SAML wysyłane do aplikacji, zobacz [Mapowanie oświadczeń w Azure Active Directory](../develop/active-directory-claims-mapping.md) , aby uzyskać więcej informacji.
 
 ## <a name="next-steps"></a>Następne kroki

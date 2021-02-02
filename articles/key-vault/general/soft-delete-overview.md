@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589988"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257950"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault — omówienie usuwania nietrwałego
 
@@ -37,7 +37,7 @@ Magazyny kluczy Azure to śledzone zasoby zarządzane przez Azure Resource Manag
 
 2. W innym scenariuszu nieautoryzowany użytkownik może próbować usunąć magazyn kluczy lub obiekt magazynu kluczy, taki jak klucz w magazynie, aby spowodować zakłócenia działania firmy. Oddzielenie usunięcia magazynu kluczy lub obiektu magazynu kluczy od rzeczywistego usunięcia danych źródłowych może służyć jako środek bezpieczeństwa przez, na przykład, ograniczenie uprawnień do usuwania danych do innej zaufanej roli. Takie podejście efektywnie wymaga kworum dla operacji, co może spowodować natychmiastowe utratę danych.
 
-### <a name="soft-delete-behavior"></a>Zachowanie nietrwałego usuwania
+### <a name="soft-delete-behavior"></a>Zachowanie usuwania nietrwałego
 
 Po włączeniu usuwania nietrwałego zasoby oznaczone jako usunięte zasoby są zachowywane przez określony czas (domyślnie 90 dni). Usługa zapewnia Dodatkowo mechanizm odzyskiwania usuniętego obiektu, zasadniczo cofając operację usuwania.
 
@@ -99,5 +99,6 @@ Ogólnie rzecz biorąc, gdy obiekt (Magazyn kluczy lub klucz lub wpis tajny) jes
 
 Poniższe dwa przewodniki oferują podstawowe scenariusze użycia do korzystania z funkcji usuwania nietrwałego.
 
+- [Jak używać nietrwałego usuwania przy użyciu programu Key Vault w portalu](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
 - [Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell](./key-vault-recovery.md) 
 - [Jak używać usuwania nietrwałego w usłudze Key Vault z interfejsem wiersza polecenia](./key-vault-recovery.md)

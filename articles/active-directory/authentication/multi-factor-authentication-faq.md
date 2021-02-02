@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dfe99a2ed57ecc953c69d1bad89e2b2c8816ca3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a58fbf874339bf287ce1af62e1edb39ec6227d99
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741457"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257106"
 ---
 # <a name="frequently-asked-questions-about-azure-ad-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure AD Multi-Factor Authentication
 
@@ -37,7 +37,7 @@ Często zadawane pytania dotyczą często zadawanych pytań dotyczących usługi
 
 ### <a name="how-does-azure-multi-factor-authentication-server-handle-user-data"></a>Jak usługa Azure Serwer Multi-Factor Authentication obsługuje dane użytkowników?
 
-W przypadku Serwer Multi-Factor Authentication dane użytkownika są przechowywane tylko na serwerach lokalnych. Żadne trwałe dane użytkowników nie są przechowywane w chmurze. Gdy użytkownik przeprowadza weryfikację dwuetapową, Serwer Multi-Factor Authentication wysyła dane do usługi Azure AD Multi-Factor Authentication w chmurze w celu uwierzytelnienia. Komunikacja między Serwer Multi-Factor Authentication i Multi-Factor Authentication usługą w chmurze używa SSL (SSL) lub Transport Layer Security (TLS) przez port 443 wychodzące.
+W przypadku Serwer Multi-Factor Authentication dane użytkownika są przechowywane tylko na serwerach lokalnych. Żadne trwałe dane użytkowników nie są przechowywane w chmurze. Gdy użytkownik przeprowadza weryfikację dwuetapową, Serwer Multi-Factor Authentication wysyła dane do usługi Azure AD Multi-Factor Authentication w chmurze w celu uwierzytelnienia. Komunikacja między Serwer Multi-Factor Authentication i Multi-Factor Authentication usługą w chmurze używa Secure Sockets Layer (SSL) lub Transport Layer Security (TLS) przez port 443 wychodzące.
 
 Gdy żądania uwierzytelniania są wysyłane do usługi w chmurze, dane są zbierane do raportów dotyczących uwierzytelniania i użycia. Następujące pola danych są zawarte w dziennikach weryfikacji dwuetapowej:
 
@@ -190,7 +190,7 @@ W niektórych przypadkach tak.
 
 W przypadku jednokierunkowego SMS z usługą Azure MFA Server w wersji 7.0 lub nowszej można skonfigurować ustawienie limitu czasu, ustawiając klucz rejestru. Po wysłaniu wiadomości tekstowej przez usługę MFA w chmurze kod weryfikacyjny (lub jednorazowy kod dostępu) jest zwracany do serwera usługi MFA. Serwer MFA domyślnie przechowuje kod w pamięci przez 300 sekund. Jeśli użytkownik nie wprowadzi kodu przed upływem 300 sekund, jego uwierzytelnienie zostanie odrzucone. Wykonaj następujące kroki, aby zmienić domyślne ustawienie limitu czasu:
 
-1. Przejdź do adresu `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
+1. Przejdź do witryny `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
 2. Utwórz klucz rejestru **typu DWORD** o nazwie *pfsvc_pendingSmsTimeoutSeconds* i Ustaw czas w sekundach, w ciągu którego serwer usługi Azure MFA ma przechowywać kody dostępu jednorazowego.
 
 >[!TIP]

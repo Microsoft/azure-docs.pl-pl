@@ -3,19 +3,19 @@ title: Dokumentacja integracji Azure Active Directory i SAP SuccessFactors
 description: Techniczne głębokie szczegółowe do aprowizacji rozwiązań SAP SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: e97be7fef09287e6c4f8696e217702b97853fa6a
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: ed97600ca1802629f81f93f4f51c92ad4b1c9bd1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569457"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256225"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Jak Azure Active Directory aprowizacji integruje się z usługą SAP SuccessFactors 
 
