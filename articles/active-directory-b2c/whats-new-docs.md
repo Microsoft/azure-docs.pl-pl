@@ -1,7 +1,7 @@
 ---
 title: Co nowego w Azure Active Directory Business-to-Customer (B2C)
 description: Nowa i zaktualizowana dokumentacja dla Azure Active Directory Business-to-Customer (B2C).
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,53 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 8805caad990cd472b3199bda27130d8d63be3071
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e58f54d991cd190aba6eeb851e6cf2aec78e695
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559731"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255173"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: co nowego
 
 Zapoznaj się z nowościami w dokumentacji Azure Active Directory B2C. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze B2C, zobacz [co nowego w programie Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Styczeń 2021 r.
+
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Dostosowywanie interfejsu użytkownika w Azure Active Directory B2C](customize-ui.md)
+- [Limity i ograniczenia usługi Azure Active Directory B2C](service-limits.md)
+- [Konfigurowanie rejestracji i logowania przy użyciu konta Azure AD B2C z poziomu innej dzierżawy Azure AD B2C](identity-provider-azure-ad-b2c.md)
+- [Konfigurowanie dostawcy tożsamości konta lokalnego](identity-provider-local.md)
+- [Konfigurowanie przepływu logowania w Azure Active Directory B2C](add-sign-in-policy.md)
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Śledzenie zachowania użytkowników w Azure Active Directory B2C przy użyciu Application Insights](analytics-with-application-insights.md)
+- [TechnicalProfiles](technicalprofiles.md)
+- [Dostosuj interfejs użytkownika przy użyciu szablonów HTML w Azure Active Directory B2C](customize-ui-with-html.md)
+- [Zarządzanie Azure AD B2C przy użyciu Microsoft Graph](microsoft-graph-operations.md)
+- [Dodawanie AD FS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych w programie Azure Active Directory B2C](identity-provider-adfs.md)
+- [Konfigurowanie logowania za pomocą dostawcy SAML usługi Salesforce przy użyciu protokołu SAML w Azure Active Directory B2C](identity-provider-salesforce-saml.md)
+- [Samouczek: rejestrowanie aplikacji sieci Web w Azure Active Directory B2C](tutorial-register-applications.md)
+- [Skonfiguruj konto usługi Amazon i zaloguj się na nim przy użyciu Azure Active Directory B2C](identity-provider-amazon.md)
+- [Konfigurowanie rejestracji i logowania przy użyciu konta Azure AD B2C z poziomu innej dzierżawy Azure AD B2C](identity-provider-azure-ad-b2c.md)
+- [Konfigurowanie logowania do Azure Active Directory z wieloma dzierżawcami przy użyciu zasad niestandardowych w programie Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md)
+- [Konfigurowanie logowania dla konkretnej organizacji Azure Active Directory w programie Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md)
+- [Skonfiguruj konto i zaloguj się za pomocą konta w usłudze Facebook przy użyciu Azure Active Directory B2C](identity-provider-facebook.md)
+- [Skonfiguruj konto i zaloguj się przy użyciu konta usługi GitHub za pomocą Azure Active Directory B2C](identity-provider-github.md)
+- [Skonfiguruj konto usługi logowania i zaloguj się za pomocą konta Google przy użyciu Azure Active Directory B2C](identity-provider-google.md)
+- [Konfigurowanie rejestracji i logowania przy użyciu konta usługi ID.me za pomocą Azure Active Directory B2C](identity-provider-id-me.md)
+- [Konfigurowanie rejestracji i logowania za pomocą konta LinkedIn przy użyciu Azure Active Directory B2C](identity-provider-linkedin.md)
+- [Skonfiguruj konto i zaloguj się za pomocą konto Microsoft przy użyciu Azure Active Directory B2C](identity-provider-microsoft-account.md)
+- [Konfigurowanie rejestracji i logowania przy użyciu konta usługi QQ za pomocą Azure Active Directory B2C](identity-provider-qq.md)
+- [Skonfiguruj konto usługi Salesforce i zaloguj się przy użyciu usługi Azure Active Directory B2C](identity-provider-salesforce.md)
+- [Skonfiguruj konto usługi Twitter i zaloguj się przy użyciu usługi Azure Active Directory B2C](identity-provider-twitter.md)
+- [Konfigurowanie rejestracji i logowania przy użyciu konta usługi WeChat za pomocą Azure Active Directory B2C](identity-provider-wechat.md)
+- [Konfigurowanie rejestracji i logowania przy użyciu konta usługi Weibo za pomocą Azure Active Directory B2C](identity-provider-weibo.md)
+- [Przegląd zasad niestandardowych Azure AD B2C](custom-policy-trust-frameworks.md)
+
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a57e77ea572f899bf540714e8ac9968988f028
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741732"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255377"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Ochrona kont użytkowników przed atakami za pomocą usługi inteligentnego blokowania Azure Active Directory
 
@@ -70,7 +70,7 @@ Na podstawie wymagań organizacji można dostosować wartości inteligentnego bl
 Aby sprawdzić lub zmodyfikować wartości blokady inteligentnej dla organizacji, wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Wyszukaj i wybierz pozycję *Azure Active Directory*, a następnie **Security** wybierz pozycję  >  **metody uwierzytelniania** zabezpieczeń  >  **Ochrona hasłem**.
+1. Wyszukaj i wybierz pozycję *Azure Active Directory*, a następnie wybierz pozycję  >  **metody uwierzytelniania** zabezpieczeń  >  **Ochrona hasłem**.
 1. Ustaw **próg blokady** w zależności od liczby nieudanych logowań dozwolonych na koncie przed pierwszym zablokowaniem.
 
     Wartość domyślna to 10.
@@ -89,6 +89,8 @@ Aby sprawdzić lub zmodyfikować wartości blokady inteligentnej dla organizacji
 Po wyzwoleniu progu inteligentnego blokowania zostanie wyświetlony następujący komunikat, gdy konto jest zablokowane:
 
 *Twoje konto jest tymczasowo zablokowane, aby zapobiec nieautoryzowanemu użyciu. Spróbuj ponownie później, a jeśli nadal masz problemy, skontaktuj się z administratorem.*
+
+Podczas testowania inteligentnej blokady żądania logowania mogą być obsługiwane przez różne centra danych z powodu rozproszonego geograficznie i zrównoważonego obciążenia usługi Azure AD Authentication. W tym scenariuszu, ponieważ każde centrum danych usługi Azure AD nie jest śledzone niezależnie, może to potrwać więcej niż zdefiniowana progowa Liczba prób spowodowania blokady. Użytkownik ma (*threshold_limit * datacenter_count*) liczbę nieprawidłowych prób, jeśli użytkownik trafi każde centrum danych przed wystąpieniem blokady.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,7 +3,7 @@ title: Wyświetl listę grup łączników usługi Azure serwer proxy aplikacji u
 description: Przykład programu PowerShell, który wyświetla listę wszystkich grup łączników serwera proxy aplikacji programu Azure Active Directory (Azure AD) z przypisanymi aplikacjami.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 008959c3e22f026314ec28b42b649e6c2dabefee
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 2b093c97c595f6fe7fc8d0802b61a85d840b159c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861625"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254833"
 ---
 # <a name="get-all-application-proxy-apps-and-list-by-connector-group"></a>Pobierz wszystkie aplikacje i listy serwerów proxy aplikacji według grupy łączników
 

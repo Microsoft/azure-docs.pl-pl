@@ -4,7 +4,7 @@ description: Za pomocą kolekcji Moje aplikacje można dostosować strony Moje a
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,12 +14,12 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7743a1af54b01f848c4ac6f0cb1d4526d66f8132
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656789"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254986"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Tworzenie kolekcji w portalu Moje aplikacje
 
@@ -69,7 +69,7 @@ Aby utworzyć kolekcję, musisz mieć licencję na Azure AD — wersja Premium P
 
    ![Dodawanie użytkowników i grup](media/acces-panel-collections/add-users-and-groups.png)
 
-11. Wybierz pozycję **Recenzja + Utwórz**. Zostanie wyświetlona Właściwość nowej kolekcji.
+11. Wybierz pozycję **Przejrzyj i utwórz**. Zostanie wyświetlona Właściwość nowej kolekcji.
 
 
 ## <a name="view-audit-logs"></a>Wyświetlanie dzienników inspekcji
@@ -83,17 +83,17 @@ Dzienniki inspekcji rejestrują operacje kolekcje moje aplikacje, w tym tworzeni
 * Dodawanie aplikacji samoobsługowej (użytkownik końcowy)
 * Usuwanie aplikacji samoobsługowej (użytkownik końcowy)
 
-Aby uzyskać dostęp do dzienników inspekcji w [Azure Portal](https://portal.azure.com) , wybierz pozycję **Azure Active Directory**  >  **Enterprise Applications**  >  **dzienniki inspekcji** aplikacji w przedsiębiorstwie w sekcji działanie. W obszarze **Usługa** wybierz pozycję **Moje aplikacje**.
+Aby uzyskać dostęp do dzienników inspekcji w [Azure Portal](https://portal.azure.com) , wybierz pozycję **Azure Active Directory**  >    >  **dzienniki inspekcji** aplikacji w przedsiębiorstwie w sekcji działanie. W obszarze **Usługa** wybierz pozycję **Moje aplikacje**.
 
 ## <a name="get-support-for-my-account-pages"></a>Uzyskaj pomoc techniczną dotyczącą stron My Account
 
-Na stronie Moje aplikacje użytkownik może wybrać pozycję Moje konto **My account**  >  **Wyświetl moje konto** , aby otworzyć ustawienia konta. Na stronie **Moje konto** usługi Azure AD użytkownicy mogą zarządzać swoimi informacjami zabezpieczeń, urządzeniami, hasłami i nie tylko. Mogą również uzyskiwać dostęp do ustawień konta pakietu Office.
+Na stronie Moje aplikacje użytkownik może wybrać pozycję Moje konto   >  **Wyświetl moje konto** , aby otworzyć ustawienia konta. Na stronie **Moje konto** usługi Azure AD użytkownicy mogą zarządzać swoimi informacjami zabezpieczeń, urządzeniami, hasłami i nie tylko. Mogą również uzyskiwać dostęp do ustawień konta pakietu Office.
 
 Jeśli musisz przesłać żądanie pomocy technicznej w celu uzyskania problemu na stronie konta usługi Azure AD lub stronie konta pakietu Office, wykonaj następujące kroki, aby Twoje żądanie zostało prawidłowo przekierowane: 
 
 * W przypadku problemów z stroną **Moje konto usługi Azure AD** Otwórz żądanie pomocy technicznej z poziomu Azure Portal. Przejdź do **Azure Portal**  >  **Azure Active Directory**  >  **nowe żądanie obsługi**.
 
-* W przypadku problemów z stroną **"Moje konto" pakietu Office** Otwórz żądanie pomocy technicznej w centrum administracyjnym Microsoft 365. Przejdź do pomocy technicznej **Centrum administracyjnego Microsoft 365**  >  **Support**. 
+* W przypadku problemów z stroną **"Moje konto" pakietu Office** Otwórz żądanie pomocy technicznej w centrum administracyjnym Microsoft 365. Przejdź do pomocy technicznej **Centrum administracyjnego Microsoft 365**  >  . 
 
 ## <a name="next-steps"></a>Następne kroki
 [Środowisko użytkownika końcowego dla aplikacji w Azure Active Directory](end-user-experiences.md)
