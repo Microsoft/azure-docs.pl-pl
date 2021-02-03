@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3260787dec4ae26cd6ef7cc3bd562f39db8e3655
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006442"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526979"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors
 Celem tego samouczka jest przedstawienie kroków związanych z zapisywaniem atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors Employee Central. 
@@ -241,7 +241,7 @@ Ta sekcja zawiera kroki dla programu
 
 6. Po dodaniu aplikacji i wyświetleniu ekranu Szczegóły aplikacji wybierz opcję **aprowizacji**
 
-7. Zmień tryb **aprowizacji** **Mode** na **automatyczny**
+7. Zmień tryb **aprowizacji**  na **automatyczny**
 
 8. Wypełnij sekcję **poświadczenia administratora** w następujący sposób:
 
@@ -282,7 +282,7 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z Succe
    | 3 | 8448 | adres e-mail | Ta stała wartość jest wartością identyfikatora SuccessFactors skojarzoną z firmową pocztą e-mail. Zaktualizuj tę wartość, aby odpowiadała środowisku SuccessFactors. Zapoznaj się z sekcją [pobieranie stałej wartości parametru emailtype](#retrieve-constant-value-for-emailtype) , aby poznać procedurę ustawiania tej wartości. |
    | 4 | true | emailIsPrimary | Ten atrybut służy do ustawiania firmowej poczty e-mail jako podstawowej w SuccessFactors. Jeśli służbowy adres e-mail nie jest podstawowy, ustaw tę flagę na wartość false. |
    | 5 | userPrincipalName | [custom01 – custom15] | Przy użyciu **Dodaj nowe mapowanie** można opcjonalnie zapisać element userPrincipalName lub dowolny atrybut usługi Azure AD w atrybucie niestandardowym dostępnym w obiekcie użytkownika SuccessFactors.  |
-   | 6 | Premium-samAccountName | nazwa użytkownika | Przy użyciu **Dodaj nowe mapowanie** można opcjonalnie zmapować lokalny sAMAccountName na SuccessFactors atrybut username. |
+   | 6 | Na Premium SamAccountName | nazwa użytkownika | Przy użyciu **Dodaj nowe mapowanie** można opcjonalnie zmapować lokalny sAMAccountName na SuccessFactors atrybut username. Użyj [Azure AD Connect Sync: rozszerzenia katalogów](../hybrid/how-to-connect-sync-feature-directory-extensions.md) do synchronizacji konta sAMAccountName z usługą Azure AD. Zostanie ona wyświetlona na liście rozwijanej źródła jako *extension_yourTenantGUID_samAccountName* |
    | 7 | Logowanie jednokrotne | loginMethod | Jeśli dzierżawa SuccessFactors jest skonfigurowana dla [częściowego logowania jednokrotnego](https://apps.support.sap.com/sap/support/knowledge/en/2320766), za pomocą polecenia Dodaj nowe mapowanie można opcjonalnie ustawić loginMethod jako stałą wartość "SSO" lub "PWD". |
    | 8 | telephoneNumber | businessPhoneNumber | To mapowanie służy *do przepływu numeru* telefonu z usługi Azure AD do SuccessFactors służbowego lub służbowego. |
    | 9 | 10605 | businessPhoneType | Ta stała wartość jest wartością identyfikatora SuccessFactors skojarzoną z telefonem służbowym. Zaktualizuj tę wartość, aby odpowiadała środowisku SuccessFactors. Zapoznaj się z sekcją [pobieranie stałej wartości dla telefonutype](#retrieve-constant-value-for-phonetype) , aby poznać procedurę ustawiania tej wartości. |
@@ -326,7 +326,7 @@ Po zakończeniu konfiguracji aplikacji SuccessFactorsing (Inicjowanie obsługi a
 
 1. Wybierz **zakres**. Można wybrać jedną z następujących opcji: 
    * **Synchronizuj wszystkich użytkowników i grupy**: Wybierz tę opcję, jeśli planujesz napisać zamapowane atrybuty wszystkich użytkowników z usługi Azure AD do SuccessFactors, z zastrzeżeniem reguł określania zakresu zdefiniowanego w obszarze **mapowania**  ->  **obiektów źródłowych**. 
-   * **Synchronizuj tylko przypisanych użytkowników i grupy**: Wybierz tę opcję, jeśli planujesz napisać zamapowane atrybuty tylko dla użytkowników przypisanych do tej aplikacji w **Application**  ->  **Manage**  ->  opcji menu Zarządzanie **użytkownikami i grupami** aplikacji. Ci użytkownicy podlegają także regułom określania zakresu zdefiniowanym **Mappings** w obszarze  ->  **zakres obiektów źródłowych** mapowania.
+   * **Synchronizuj tylko przypisanych użytkowników i grupy**: Wybierz tę opcję, jeśli planujesz napisać zamapowane atrybuty tylko dla użytkowników przypisanych do tej aplikacji w   ->    ->  opcji menu Zarządzanie **użytkownikami i grupami** aplikacji. Ci użytkownicy podlegają także regułom określania zakresu zdefiniowanym w obszarze  ->  **zakres obiektów źródłowych** mapowania.
 
    > [!div class="mx-imgBorder"]
    > ![Wybierz zakres zapisywania zwrotnego](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)

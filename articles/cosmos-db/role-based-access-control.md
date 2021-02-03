@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2a5ec03bcd7d5002f85d32ed63614d277e95cfa0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: db6721754802a3eeda387339498dadb9d25b3685
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943762"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526945"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Kontrola dostępu oparta na rolach na platformie Azure w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,7 +26,8 @@ Poniżej przedstawiono wbudowane role obsługiwane przez Azure Cosmos DB:
 |---------|---------|
 |[Współautor konta DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Może zarządzać kontami Azure Cosmos DB.|
 |[Cosmos DB czytelnika konta](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Może odczytywać Azure Cosmos DB dane konta.|
-|[Operator kopii zapasowej Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Może przesłać żądanie przywracania dla bazy danych lub kontenera usługi Azure Cosmos. Nie można uzyskać dostępu do żadnych danych ani używać Eksplorator danych.|
+|[Operator kopii zapasowej Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| Może przesłać żądanie przywrócenia dla Azure Portal dla bazy danych okresowo włączonej kopii zapasowej lub do kontenera. Można modyfikować interwał i przechowywanie kopii zapasowych na Azure Portal. Nie można uzyskać dostępu do żadnych danych ani używać Eksplorator danych.  |
+| [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md) | Może wykonać akcję przywracania dla konta Azure Cosmos DB z trybem ciągłej kopii zapasowej.|
 |[Operator Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Może udostępniać konta, bazy danych i kontenery usługi Azure Cosmos. Nie można uzyskać dostępu do żadnych danych ani używać Eksplorator danych.|
 
 > [!IMPORTANT]

@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: d7bcf3e5c0b50d3d6eb8f71dc70f0ff064ff3465
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4f17afc6fb5001b4bbee16fe84697b58d062b292
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536034"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526928"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Migrowanie klasycznych reguł alertów za pomocą narzędzia do migracji dobrowolnej
 
-Jak [wcześniej ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. Narzędzie do migracji było dostępne w Azure Portal do klientów, którzy korzystali z klasycznych reguł alertów i którzy chcą wyzwolić migrację. W tym artykule wyjaśniono, jak używać tego narzędzia do migracji, które będzie również używane do pozostałych alertów oczekujących na dalsze ogłoszenie.
+Jak [wcześniej ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane dla użytkowników chmury publicznej, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. Narzędzie do migracji było dostępne w Azure Portal do klientów, którzy korzystali z klasycznych reguł alertów i którzy chcą wyzwolić migrację. W tym artykule wyjaśniono, jak używać tego narzędzia do migracji, które będzie również używane do pozostałych alertów oczekujących na dalsze ogłoszenie.
 
 ## <a name="benefits-of-new-alerts"></a>Zalety nowych alertów
 
