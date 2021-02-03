@@ -1,25 +1,25 @@
 ---
 title: Elastyczność rozmiaru maszyny wirtualnej — Azure Reserved VM Instances
 description: Dowiedz się, w jaki sposób seria rozmiarów ma zastosowanie rabat rezerwacji w przypadku wystąpienia zarezerwowanych maszyn wirtualnych.
-author: manish-shukla01
+author: yashesvi
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/03/2018
-ms.author: manshuk
-ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.author: yashesvi
+ms.openlocfilehash: e6e96ff41503751741c8afc2229d66fd596e0806
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855505"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525368"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Elastyczność rozmiaru maszyny wirtualnej w usłudze Reserved VM Instances
 
 Podczas zakupu wystąpienia zarezerwowanego maszyny wirtualnej można zoptymalizować pod kątem elastyczności rozmiaru wystąpienia lub priorytetu pojemności. Aby uzyskać więcej informacji na temat ustawiania lub zmieniania ustawienia optymalizacji dla wystąpień zarezerwowanych maszyn wirtualnych, zobacz [Zmiana ustawienia optymalizacji dla wystąpień zarezerwowanych maszyn wirtualnych](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
-W przypadku wystąpienia zarezerwowanej maszyny wirtualnej, która jest zoptymalizowana pod kątem elastyczności rozmiaru wystąpienia, rezerwacja kupowana może być stosowana do rozmiarów maszyn wirtualnych w tej samej elastycznej grupie o rozmiarze. Jeśli na przykład zakupisz rezerwację dla rozmiaru maszyny wirtualnej, która jest wymieniona w serii DSv2, tak jak Standard_DS5_v2, Rabat rezerwacji może dotyczyć innych czterech rozmiarów, które są wymienione w tej samej elastycznej grupie o rozmiarze wystąpienia:
+W przypadku wystąpienia zarezerwowanej maszyny wirtualnej, która jest zoptymalizowana pod kątem elastyczności rozmiaru wystąpienia, rezerwacja kupowana może być stosowana do rozmiarów maszyn wirtualnych w tej samej elastycznej grupie o rozmiarze. Jeśli na przykład zakupisz rezerwację dla rozmiaru maszyny wirtualnej, która jest wymieniona w serii DSv2, jak Standard_DS3_v2, Rabat rezerwacji może dotyczyć innych rozmiarów, które są wymienione w tej samej elastycznej grupie o rozmiarze wystąpienia:
 
 - Standardowa_DS1_v2
 - Standard_DS2_v2

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: e2b12d7a2206ab369328563af438c6ef1ea39327
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d094e1760db1ddfcff520b0022a232735d21d355
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184114"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525826"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Wycofanie wersji interfejsu API OperationalInsights
 Firma Microsoft zapewnia powiadomienie co najmniej 12 miesięcy przed wycofaniem interfejsu API w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Firma Microsoft udostępniła nową wersję (2020-08-01) dla interfejsów API dostawcy zasobów **OperationalInsights** i wycofa wszystkie starsze wersje interfejsu API w dniu 29 lutego 2024.
@@ -66,6 +66,15 @@ W zależności od używanej metody konfiguracji należy zaktualizować nową wer
     }
     ```
 
+
+### <a name="more-information"></a>Więcej informacji
+Jeśli masz pytania, uzyskaj odpowiedzi od [naszych specjalistów ds. społeczności Tech]( https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor). Jeśli masz plan pomocy technicznej i potrzebujesz pomocy technicznej, Utwórz [żądanie pomocy technicznej]( https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest): 
+1.  W obszarze *typ problemu* wybierz pozycję **techniczne**. 
+2.  W obszarze *Subskrypcja* wybierz swoją subskrypcję. 
+3.  W obszarze *Usługa* wybierz pozycję **Moje usługi**, a następnie wybierz pozycję **log Analytics**. 
+4.  W obszarze *Podsumowanie* wpisz opis problemu. 
+5.  W obszarze *typ problemu* wybierz pozycję **log Analytics zarządzanie obszarem roboczym**.  
+6.  W obszarze *podtyp problemu* wybierz pozycję **Szablony ARM, program PowerShell i interfejs wiersza polecenia**. 
 
 ## <a name="next-steps"></a>Następne kroki
 

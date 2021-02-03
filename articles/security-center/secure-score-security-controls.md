@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bd64ca877f0bfd81597e091ef8ef000ad1b76992
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752221"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526436"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 
@@ -244,8 +244,8 @@ Mimo że Security Center domyślna inicjatywa w zakresie zabezpieczeń jest opar
     <td class="tg-lboi"; width=55%>- Na maszynach wirtualnych należy włączyć adaptacyjne kontrolki aplikacji<br>- Agent monitorowania powinien być zainstalowany na maszynach wirtualnych<br>- Agent monitorowania powinien być zainstalowany na swoich maszynach<br>- Agenta Log Analytics należy zainstalować na komputerach z systemem Windows Azure ARC (wersja zapoznawcza)<br>- Agent Log Analytics powinien być zainstalowany na komputerach z systemem Linux Azure ARC (wersja zapoznawcza)<br>- Na maszynach należy rozwiązać problemy z kondycją agenta monitorowania</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Zastosuj klasyfikację danych (max Score 2)</p></strong>Klasyfikowanie danych organizacji według czułości i wpływu na działalność biznesową umożliwia określenie i przypisanie wartości do danych oraz zapewnia strategię i podstawę zarządzania.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a> może pomóc w klasyfikacji danych. Używa zasad szyfrowania, tożsamości i autoryzacji do ochrony danych i ograniczania dostępu do danych. Niektóre klasyfikacje, które są używane przez firmę Microsoft, są inne niż firmowe, publiczne, ogólne, poufne i wysoce poufne.</td>
-    <td class="tg-lboi"; width=55%>- Poufne dane w bazach danych SQL powinny zostać sklasyfikowane (wersja zapoznawcza)</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Zastosuj klasyfikację danych (max Score 0)</p></strong>Klasyfikowanie danych organizacji według czułości i wpływu na działalność biznesową umożliwia określenie i przypisanie wartości do danych oraz zapewnia strategię i podstawę zarządzania.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a> może pomóc w klasyfikacji danych. Używa zasad szyfrowania, tożsamości i autoryzacji do ochrony danych i ograniczania dostępu do danych. Niektóre klasyfikacje, które są używane przez firmę Microsoft, są inne niż firmowe, publiczne, ogólne, poufne i wysoce poufne.</td>
+    <td class="tg-lboi"; width=55%>- Poufne dane w bazach danych SQL powinny być klasyfikowane</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Ochrona aplikacji przed atakami DDoS (maksymalny wynik 2)</p></strong>Rozproszone ataki typu "odmowa usługi" (DDoS) powodują Przeciążenie zasobów i renderowanie aplikacji jako nieużytecznych. Użyj <a href="/azure/virtual-network/ddos-protection-overview">Azure DDoS Protection Standard</a> , aby chronić organizację przed trzema głównymi atakami DDoS:<br>- <strong>Ataki</strong> w postaci zalewania sieci z dozwolonym ruchem. DDoS Protection Standard ogranicza te ataki przez ich automatyczne przeabsorbowanie lub szybkie przejmowanie.<br>- <strong>Ataki protokołu</strong> powodują, że element docelowy jest niedostępny, wykorzystując słabe luki w stosie protokołu warstwy 3 i 4. DDoS Protection Standard ogranicza te ataki, blokując złośliwy ruch.<br>- <strong>Warstwa zasobów (aplikacji) atakują</strong> docelowe pakiety aplikacji sieci Web. Obrony przed tym typem za pomocą zapory aplikacji sieci Web i standardu DDoS Protection.</td>

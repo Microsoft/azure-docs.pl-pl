@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: d5de16c8156762a229d6c707080bc197dc206a7c
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 8ef0fedcbf7ce06063db22fb345a0711acddcb4d
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475594"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526385"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -31,39 +31,8 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 ## <a name="planned-changes"></a>Planowane zmiany
 
-- [Zalecenia dotyczące ochrony obciążeń Kubernetes są wkrótce udostępniane w celu uzyskania ogólnej dostępności (GA)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
 - [Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Ulepszenia zalecenia klasyfikacji danych SQL](#enhancements-to-sql-data-classification-recommendation)
-
-
-### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>Zalecenia dotyczące ochrony obciążeń Kubernetes są wkrótce udostępniane w celu uzyskania ogólnej dostępności (GA)
-
-**Szacowana data zmiany:** Luty 2021
-
-Zalecenia dotyczące ochrony obciążeń Kubernetes opisane w artykule [Ochrona obciążeń Kubernetes](kubernetes-workload-protections.md) są obecnie dostępne w wersji zapoznawczej. Mimo że zalecenie jest w wersji zapoznawczej, nie renderuje zasobów w złej kondycji i nie jest uwzględniane w obliczeniach bezpiecznego wyniku.
-
-Te rekomendacje wkrótce zostaną wydane w celu uzyskania ogólnej dostępności, a więc *zostaną* uwzględnione w obliczaniu wyniku. Jeśli jeszcze ich nie skorygowano, może to spowodować niewielki wpływ na bezpieczny wynik.
-
-Skoryguj je wszędzie tam, gdzie to możliwe (Dowiedz się, w jaki sposób [skorygować zalecenia w Azure Security Center](security-center-remediate-recommendations.md)).
-
-Zalecenia dotyczące ochrony obciążeń Kubernetes są następujące:
-
-- Dodatek Azure Policy dla Kubernetes powinien być zainstalowany i włączony w klastrach
-- Należy wymusić limity procesora CPU i pamięci kontenera
-- Należy unikać używania kontenerów uprzywilejowanych
-- Niezmienny (tylko do odczytu) główny system plików powinien zostać wymuszony dla kontenerów
-- Należy unikać kontenera z eskalacją uprawnień
-- Należy unikać uruchamiania kontenerów jako użytkownik główny
-- Należy unikać obsługi kontenerów chronionych przestrzeni nazw hosta
-- W przypadku kontenerów powinny być wymuszane najmniej uprzywilejowane funkcje systemu Linux.
-- Użycie instalacji woluminów HostPath na początku powinno być ograniczone do znanej listy
-- Kontenery powinny nasłuchiwać tylko na dozwolonych portach
-- Usługi powinny nasłuchiwać tylko na dozwolonych portach
-- Użycie sieci i portów hosta powinno być ograniczone
-- Zastępowanie lub wyłączanie profilowania AppArmor profil powinien być ograniczony
-- Obrazy kontenerów powinny być wdrażane tylko z zaufanych rejestrów             
-
-Dowiedz się więcej na temat tych zaleceń w obszarze [Ochrona obciążeń Kubernetes](kubernetes-workload-protections.md).
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe 
 
@@ -83,11 +52,7 @@ Więcej informacji na temat tych zaleceń znajduje się na [stronie informacje o
 
 **Szacowana data zmiany:** Q2 2021
 
-Bieżąca wersja zaleceń **poufnych danych w bazach danych SQL powinna być sklasyfikowana** w obszarze **Zastosuj klasyfikację zabezpieczeń danych** , która będzie lepiej wyrównana z strategią klasyfikacji danych firmy Microsoft. W efekcie:
-
-- Zalecenie nie będzie już miało wpływu na swój Bezpieczny wynik
-- Kontrola zabezpieczeń ("Zastosuj klasyfikację danych") nie będzie już miała wpływu na swój Bezpieczny wynik
-- Identyfikator zalecenia również zostanie zmieniony (obecnie b0df6f56-862d-4730-8597-38c0fd4ebd59)
+Dane dotyczące rekomendacji **w bazach danych SQL powinny zostać sklasyfikowane** w kontroli zabezpieczeń **Zastosuj klasyfikację danych** w nowej wersji, która jest lepiej wyrównana przy użyciu strategii klasyfikacji danych firmy Microsoft. W wyniku tego zostanie również zmieniony identyfikator zalecenia (obecnie b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 

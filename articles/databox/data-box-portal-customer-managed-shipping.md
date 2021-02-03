@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 9643e62f085888808b95698d068c5e383fb8d539
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 07529b18191c71776a9a36edbfa4cfd8ded5af4f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337971"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524553"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Użyj samozarządzanej wysyłki dla Azure Data Box w Azure Portal
 
@@ -24,12 +24,14 @@ W tym artykule opisano zadania wysyłki samozarządzane, które umożliwiają za
 Samoobsługowa wysyłka jest dostępna jako opcja w przypadku [zamówienia Azure Data Box](data-box-deploy-ordered.md). Samoobsługowa wysyłka jest dostępna tylko w następujących regionach:
 
 * US Government
+* Zjednoczone Królestwo
 * Europa Zachodnia
 * Japonia
 * Singapur
 * Korea Południowa
 * Indie
 * Republika Południowej Afryki
+* Australia
 
 ## <a name="use-self-managed-shipping"></a>Korzystanie z samodzielnej wysyłki
 
@@ -57,7 +59,7 @@ Po umieszczeniu zamówienia urządzenie Data Box można wybrać opcję wysyłki 
 
    ![Zaplanuj pobranie instrukcji platformy Azure](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
-6. Po zaplanowaniu odbioru urządzenia będzie można wyświetlić kod autoryzacji urządzenia w okienku **Planowanie pobrania dla platformy Azure** .
+6. Po zaplanowaniu odbioru urządzenia można wyświetlić kod autoryzacji urządzenia w okienku **Planowanie pobrania dla platformy Azure** .
 
    ![Wyświetlanie kodu autoryzacji urządzenia](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
@@ -73,7 +75,7 @@ Po umieszczeniu zamówienia urządzenie Data Box można wybrać opcję wysyłki 
 
 8. Po wybraniu urządzenia skopiuj dane do urządzenie Data Box w swojej lokacji. Po zakończeniu kopiowania danych możesz przygotować się do wysłania urządzenie Data Box. Aby uzyskać więcej informacji, zobacz [przygotowanie do wysłania](data-box-deploy-picked-up.md#prepare-to-ship).
 
-   Krok **przygotowanie do wysłania** musi zakończyć się bez błędów krytycznych, w przeciwnym razie trzeba będzie ponownie uruchomić ten krok po wprowadzeniu niezbędnych poprawek. Po pomyślnym zakończeniu przygotowania do wysłania można wyświetlić kod autoryzacji dla elementu Drop w lokalnym interfejsie użytkownika urządzenia.
+   Krok **przygotowanie do wysłania** musi zakończyć się bez błędów krytycznych. W przeciwnym razie musisz ponownie uruchomić ten krok po wprowadzeniu niezbędnych poprawek. Po pomyślnym ukończeniu kroku **przygotowanie do wysłania** można wyświetlić kod autoryzacji dla listy rozwijanej dla lokalnego interfejsu użytkownika urządzenia.
 
    > [!NOTE]
    > Nie udostępniaj kodu autoryzacji za pośrednictwem poczty e-mail. Jest to możliwe tylko do zweryfikowania w centrum danych podczas upuszczania.

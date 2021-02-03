@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: trbye
-ms.openlocfilehash: 9e230ff4e84eba7b61846540fef2915765fa4f77
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: baa48ede04b9de98bd69de69753c97b5fcee7329
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509699"
+ms.locfileid: "99525266"
 ---
 # <a name="what-is-custom-neural-voice"></a>Co to jest niestandardowy neuronowych Voice?
 
@@ -51,7 +51,7 @@ Dzięki możliwości dostosowywania niestandardowego głosu neuronowych można d
 
 ## <a name="responsible-use-of-ai"></a>Odpowiedzialne użycie sztucznej inteligencji
 
-Aby dowiedzieć się, jak używać niestandardowej neuronowych głosu, zobacz [uwagi dotyczące przezroczystości](https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice). Przejrzyste notatki firmy Microsoft mają na celu ułatwienie zrozumienia sposobu działania technologii AI. właściciele systemu wyboru mogą mieć wpływ na wydajność i zachowanie systemu oraz znaczenie dla całego systemu, w tym technologii, osób i środowiska.
+Aby dowiedzieć się, jak używać niestandardowej neuronowych głosu, zobacz [uwagi dotyczące przezroczystości](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context). Przejrzyste notatki firmy Microsoft mają na celu ułatwienie zrozumienia sposobu działania technologii AI. właściciele systemu wyboru mogą mieć wpływ na wydajność i zachowanie systemu oraz znaczenie dla całego systemu, w tym technologii, osób i środowiska.
 
 ## <a name="next-steps"></a>Następne kroki
 

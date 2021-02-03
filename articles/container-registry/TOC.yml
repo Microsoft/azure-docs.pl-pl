@@ -101,6 +101,8 @@
               href: container-registry-access-selected-networks.md
             - name: Ograniczanie dostępu przy użyciu punktów końcowych usługi (wersja zapoznawcza)
               href: container-registry-vnet.md
+            - name: Zezwalaj na dostęp za pomocą zaufanych usług
+              href: allow-access-trusted-services.md
             - name: Szyfrowanie przy użyciu klucza zarządzanego przez klienta
               href: container-registry-customer-managed-keys.md
             - name: Uzyskiwanie dostępu za zaporą

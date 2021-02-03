@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: dbda0aecdadd81da0f7681a5fc9b140157d5e8f3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3b2f111f83dbd731b69671e58d4bf9dc648a596f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756815"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526528"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
 
@@ -39,11 +39,19 @@ Każde zalecenie oferuje następujące informacje:
 
 ## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Jak firma Microsoft decyduje o tym, co wymaga zabezpieczenia i Ograniczanie funkcjonalności?
 
-Zalecenia dotyczące Security Center są oparte na teście zabezpieczeń platformy Azure. 
+Zalecenia dotyczące Security Center są oparte na teście zabezpieczeń platformy Azure. Prawie każde zalecenie ma podstawowe zasady, które pochodzą z wymogu w teście porównawczym.
 
-Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane do najlepszych rozwiązań w zakresie bezpieczeństwa i zapewniających zgodność. Ten powszechnie przestrzegany test porównawczy jest oparty na kontrolkach z [centrum na potrzeby zabezpieczeń internetowych (CIS)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) , które koncentrują się na zabezpieczeniach skoncentrowanych na chmurze.
+Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane do najlepszych rozwiązań w zakresie bezpieczeństwa i zapewniających zgodność. Ten powszechnie przestrzegany test porównawczy jest oparty na kontrolkach z [centrum na potrzeby zabezpieczeń internetowych (CIS)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) , które koncentrują się na zabezpieczeniach skoncentrowanych na chmurze. Dowiedz się więcej o [teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
 
-Dowiedz się więcej o [teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
+Gdy przeglądasz szczegóły zalecenia, często warto mieć możliwość wyświetlenia podstawowych zasad. Dla każdego zalecenia obsługiwanego przez zasady Użyj linku **Wyświetl definicję zasad** z strony Szczegóły zalecenia, aby przejść bezpośrednio do wpisu Azure Policy dla odpowiednich zasad:
+
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link do Azure Policy stronie dla określonych zasad wspierających zalecenie":::
+
+Użyj tego linku, aby wyświetlić definicję zasad i przejrzeć logikę oceny. 
+
+Jeśli przeglądasz listę zaleceń w [przewodniku dotyczącym zaleceń dotyczących zabezpieczeń](recommendations-reference.md), zobaczysz także linki do stron definicji zasad:
+
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Uzyskiwanie dostępu do strony Azure Policy dla określonych zasad bezpośrednio z poziomu strony informacje o zaleceniach Azure Security Center":::
 
 ## <a name="monitor-recommendations"></a>Zalecenia dotyczące monitorowania <a name="monitor-recommendations"></a>
 
@@ -63,9 +71,12 @@ Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potenc
 
     Strona zawiera następujące:
 
-    1. Przyciski **Wymuś** i **Odmów** w przypadku obsługiwanych zaleceń (zobacz zapobieganie błędom [konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md))
+    1. W przypadku obsługiwanych zaleceń na górnym pasku narzędzi są wyświetlane dowolne lub wszystkie z następujących przycisków:
+        - **Wymuszaj** i **Odmów** (zobacz [zapobieganie błędom konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md))
+        - **Wyświetl definicję zasad** , aby przejść bezpośrednio do wpisu Azure Policy dla podstawowych zasad
     1. **Wskaźnik ważności**
-    1. **Interwał Aktualności**  (jeśli dotyczy) 
+    1. **Interwał Aktualności** (jeśli dotyczy)
+    1. **Liczba wykluczonych zasobów** w przypadku, gdy istnieją wykluczenia dla tego zalecenia, spowoduje to wyświetlenie liczby wykluczonych zasobów
     1. **Opis** — Krótki opis problemu
     1. **Kroki zaradcze** — opis ręcznych kroków wymaganych do skorygowania problemu z zabezpieczeniami odpowiednich zasobów. W przypadku rekomendacji z opcją "szybkie rozwiązanie" można wybrać opcję **Wyświetl logikę korygowania** przed zastosowaniem sugerowanej poprawki do zasobów. 
     1. **Zasoby, których to dotyczy** — zasoby są pogrupowane na karty:

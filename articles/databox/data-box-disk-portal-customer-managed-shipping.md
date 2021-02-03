@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f512b4415f4a83e779a8f9bf790ba2806e3b05c5
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575167"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526334"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Użyj samozarządzanej wysyłki dla Azure Data Box Disk w Azure Portal
 
@@ -24,7 +24,9 @@ W tym artykule opisano zadania wysyłki samozarządzane w celu uporządkowania, 
 Samoobsługowa wysyłka jest dostępna jako opcja w przypadku [zamówienia Azure Data Box Disk](data-box-disk-deploy-ordered.md). Samoobsługowa wysyłka jest dostępna tylko w następujących regionach:
 
 * US Government
+* Zjednoczone Królestwo
 * Europa Zachodnia
+* Australia
 * Japonia
 * Singapur
 * Korea Południowa
@@ -35,7 +37,7 @@ Samoobsługowa wysyłka jest dostępna jako opcja w przypadku [zamówienia Azure
 
 Po umieszczeniu zamówienia Data Box Disk można wybrać opcję samodzielna wysyłka.
 
-1. W kolejności Azure Data Box Disk w obszarze **szczegóły kontaktu**wybierz pozycję **+ Dodaj adres wysyłkowy**.
+1. W kolejności Azure Data Box Disk w obszarze **szczegóły kontaktu** wybierz pozycję **+ Dodaj adres wysyłkowy**.
 
    ![Zrzut ekranu przedstawiający kreatora zamówień z etapem szczegóły kontaktu z opcją Dodaj adres wysyłkowy.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
@@ -53,34 +55,34 @@ Po umieszczeniu zamówienia Data Box Disk można wybrać opcję samodzielna wysy
 
    ![Zamówienie kuriera](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
-6. Po zaplanowaniu odbioru urządzenia będzie można wyświetlić kod autoryzacji w ramach  **zaplanowanego pobrania platformy Azure**.
+6. Po zaplanowaniu odbioru urządzenia można wyświetlić swój kod autoryzacji w temacie **Planowanie pobrania na platformie Azure**.
 
    ![Zrzut ekranu przedstawiający okno dialogowe Zaplanuj pobieranie na platformę Azure z kodem autoryzacji dla odbioru pola tekstowego o nazwie.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
-   Zanotuj ten **kod autoryzacji**.
+   Zanotuj ten kod autoryzacji.
 
-   Zgodnie z wymaganiami dotyczącymi zabezpieczeń, w chwili pobrania harmonogramu, konieczne jest zaprezentowanie nazwiska osoby, która będzie docierać do pobrania.
+   Zgodnie z wymaganiami dotyczącymi zabezpieczeń, podczas planowania pobrania należy zaprezentować nazwę osoby, która będzie mogła uzyskać do pobrania.
 
-   Należy również podać szczegółowe informacje o tym, kto zostanie przejściu do centrum danych w celu pobrania. Użytkownik lub punkt kontaktu musi posiadać zweryfikowany identyfikator fotograficzny dla instytucji rządowych, który zostanie sprawdzony w centrum danych.
+   Należy również podać szczegółowe informacje o tym, kto przejdzie do centrum danych w celu pobrania. Użytkownik lub punkt kontaktu musi posiadać identyfikator zdjęć zatwierdzony przez rząd, który zostanie sprawdzony w centrum danych.
 
-   Ponadto osoba, która wybiera urządzenie, musi mieć **kod autoryzacji**. Kod autoryzacji jest unikatowy dla odbioru lub odrzucania i jest sprawdzany w centrum danych.
+   Osoba, która wybiera urządzenie, musi również mieć kod autoryzacji. Kod autoryzacji jest unikatowy dla pobrania lub odrzucania i jest sprawdzany w centrum danych.
 
-7. Zamówienie jest automatycznie przenoszone do stanu **pobrania** , gdy urządzenie zostało pobrane z centrum danych.
+7. Zamówienie jest automatycznie przenoszone do stanu **pobrania** po pobraniu urządzenia z centrum danych.
 
    ![Pobrane](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-ready-disk-01b.png)
 
 8. Po wybraniu urządzenia można skopiować dane do Data Box Disk w danej lokacji. Po zakończeniu kopiowania danych możesz przygotować się do wysłania Data Box Disk.
 
-   Po zakończeniu kopiowania danych należy skontaktować się z operacjami w celu zaplanowania terminu odrzucania. Należy udostępnić szczegóły osoby przechodzącej do centrum danych w celu usunięcia dysków. Centrum danych będzie również wymagało zweryfikowania kodu autoryzacji w momencie jego rozwinięcia. Kod autoryzacji do odrzucania będzie dostępny w Azure Portal w obszarze **Porzuć harmonogram**.
+   Po zakończeniu kopiowania danych skontaktuj się z operacji w celu zaplanowania terminu dla elementu docelowego. Musisz udostępnić szczegóły osoby przechodzącej do centrum danych w celu usunięcia dysków. Centrum danych będzie również wymagało zweryfikowania kodu autoryzacji w momencie jego rozwinięcia. Kod autoryzacji do odrzucania można znaleźć w Azure Portal w obszarze nie **wyrzucaj harmonogramu**.
 
    > [!NOTE]
    > Nie udostępniaj kodu autoryzacji za pośrednictwem poczty e-mail. Jest to możliwe tylko do zweryfikowania w centrum danych podczas upuszczania.
 
-9. Jeśli otrzymasz termin, aby porzucić zamówienie, powinno teraz znajdować się w stanie **gotowy do odebrania w centrum danych platformy Azure** w Azure Portal.
+9. Po otrzymaniu terminu do odwinięcia, zamówienie powinno być w stanie **gotowe do odebrania w centrum danych platformy Azure** w Azure Portal.
 
    ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie adresu wysyłkowego z opcją Wyślij przy użyciu opcji wychodzące i Dodaj adres wysyłkowy.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
-10. Po zweryfikowaniu identyfikatora i kodu autoryzacji i usunięciu urządzenia w centrum danych należy **otrzymać**stan zamówienia.
+10. Po zweryfikowaniu identyfikatora i kodu autoryzacji i usunięciu urządzenia w centrum danych należy **otrzymać** stan zamówienia.
 
     ![Odebrano ukończone](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-received-01a.png)
 
@@ -88,4 +90,4 @@ Po umieszczeniu zamówienia Data Box Disk można wybrać opcję samodzielna wysy
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Szybki Start: wdrażanie Azure Data Box Disk przy użyciu Azure Portal](data-box-disk-quickstart-portal.md)
+* [Szybki start: wdrażanie usługi Azure Data Box Disk za pomocą witryny Azure Portal](data-box-disk-quickstart-portal.md)

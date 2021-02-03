@@ -2,13 +2,13 @@
 title: Importowanie obrazów kontenerów
 description: Zaimportuj obrazy kontenerów do usługi Azure Container Registry za pomocą interfejsów API platformy Azure bez konieczności uruchamiania poleceń platformy Docker.
 ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/15/2021
+ms.openlocfilehash: 364c90b857d0d7d479152e2aa56db4d80041f037
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019977"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524502"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importowanie obrazów kontenera do rejestru kontenerów
 
@@ -35,6 +35,11 @@ Aby zaimportować obrazy kontenerów, ten artykuł wymaga uruchomienia interfejs
 > [!NOTE]
 > Jeśli konieczne jest dystrybuowanie identycznych obrazów kontenerów w wielu regionach platformy Azure, Azure Container Registry obsługuje również [replikację geograficzną](container-registry-geo-replication.md). Dzięki replikacji geograficznej rejestru (wymagana warstwa usługi Premium) można obsłużyć wiele regionów z identycznymi nazwami obrazów i tagów z jednego rejestru.
 >
+
+> [!IMPORTANT]
+> Wprowadzono zmiany w importowaniu obrazów między dwoma rejestrami kontenerów platformy Azure, które zostały wprowadzone od stycznia 2021:
+> * Importowanie do lub z usługi Azure Container Registry z ograniczeniami w sieci wymaga, aby rejestr z ograniczeniami [**zezwalał na dostęp zaufanych usług**](allow-access-trusted-services.md) w celu obejścia sieci. Domyślnie to ustawienie jest włączone, co umożliwia import. Jeśli to ustawienie nie jest włączone w nowo utworzonym rejestrze z prywatnym punktem końcowym lub z regułami zapory rejestru, importowanie zakończy się niepowodzeniem. 
+> * W istniejącym w sieci ograniczonym rejestrze kontenerów platformy Azure, który jest używany jako źródło lub cel importu, włączenie tej funkcji zabezpieczeń sieci jest opcjonalne, ale zalecane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -92,6 +97,8 @@ Możesz zaimportować obraz z usługi Azure Container Registry w tej samej dzier
 * Rejestr może znajdować się w tej samej lub innej subskrypcji platformy Azure w tej samej dzierżawie Active Directory.
 
 * [Publiczny dostęp](container-registry-access-selected-networks.md#disable-public-network-access) do rejestru źródłowego może być wyłączony. Jeśli dostęp publiczny jest wyłączony, określ rejestr źródłowy według identyfikatora zasobu zamiast nazwy serwera logowania rejestru.
+
+* Jeśli rejestr źródłowy i/lub rejestr docelowy mają prywatny punkt końcowy lub reguły zapory rejestru są stosowane, należy się upewnić, że rejestr z ograniczeniami [zezwala zaufanym usługom](allow-access-trusted-services.md) na dostęp do sieci.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importuj z rejestru w ramach tej samej subskrypcji
 

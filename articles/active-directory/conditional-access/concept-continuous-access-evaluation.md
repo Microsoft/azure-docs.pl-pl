@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd14c7911676768a61d2b2c0e366d2c227455be8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678208"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524672"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -48,7 +48,7 @@ Ciągła ocena dostępu jest implementowana przez włączenie usług, takich jak
 - Hasło użytkownika jest zmieniane lub resetowane
 - Uwierzytelnianie wieloskładnikowe jest włączone dla użytkownika
 - Administrator jawnie odwołuje wszystkie tokeny odświeżania dla użytkownika
-- Wykryto podwyższone ryzyko użytkownika Azure AD Identity Protection
+- Wykryto duże ryzyko dla użytkownika Azure AD Identity Protection
 
 Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do organizacyjnych plików usługi SharePoint Online, wiadomości e-mail, kalendarza lub zadań, a także zespoły z Microsoft 365 aplikacji klienckich w ciągu minut od jednego z tych zdarzeń krytycznych. 
 
@@ -146,7 +146,7 @@ W przypadku usługi CAE dostępne są tylko szczegółowe informacje o nazwanych
 
 ### <a name="ip-address-configuration"></a>Konfiguracja adresu IP
 
-Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Przykład:
+Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Na przykład:
 
 - Dostawca tożsamości widzi jeden adres IP od klienta.
 - Dostawca zasobów widzi inny adres IP od klienta po przejściu przez serwer proxy.

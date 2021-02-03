@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368ab1bc6a1fc13c3001b437c3c2a8be2bbb9c04
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848129"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525995"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Ujednolicone & monitorowania alertów w Azure Monitor zastępują klasyczne alerty & monitorowania
 
 Azure Monitor teraz stać się ujednoliconą pełną usługą monitorowania stosu, która obsługuje teraz "jedną metrykę" i "jedno alerty" między zasobami; Aby uzyskać więcej informacji, zobacz nasz [wpis w blogu dotyczący nowych Azure monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Nowe platformy do monitorowania i zgłaszania alertów platformy Azure zostały skompilowane, aby były szybsze, inteligentniejsze i rozszerzalne — dzięki rozwijającej się expanse w chmurze obliczeniowej i w firmie Microsoft Intelligent Cloud.
 
-Dzięki nowej platformie monitorowania i wysyłania alertów platformy Azure klasyczne alerty w Azure Monitor są wycofywane, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. Data wycofania tych alertów została jeszcze przedłużona. Nowa data zostanie ogłoszona wkrótce w przypadku migracji pozostałych alertów, [Azure Government chmury](../../azure-government/documentation-government-welcome.md)i [platformy Azure w Chinach](https://docs.azure.cn/).
+Dzięki nowej platformie monitorowania i wysyłania alertów platformy Azure klasyczne alerty w Azure Monitor są wycofywane dla użytkowników chmury publicznej, chociaż nadal są ograniczone do zasobów, które jeszcze nie obsługują nowych alertów. Data wycofania tych alertów została jeszcze przedłużona. Nowa data zostanie ogłoszona wkrótce w przypadku migracji pozostałych alertów, [Azure Government chmury](../../azure-government/documentation-government-welcome.md)i [platformy Azure w Chinach](https://docs.azure.cn/).
 
- ![Alert klasyczny w Azure Portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
+ ![Alert klasyczny w Azure Portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 Zachęcamy do rozpoczęcia i ponownego utworzenia alertów na nowej platformie.
 
@@ -48,7 +48,7 @@ Nowsze metryki dla zasobów platformy Azure są dostępne jako:
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Wycofanie klasycznej platformy monitorowania i zgłaszania alertów
 
-Jak wspomniano wcześniej, starsze klasyczne monitorowanie i alerty są wycofywane; z uwzględnieniem zamknięcia powiązanych interfejsów API, Azure Portal interfejsu i usług w tym zakresie, mimo że nadal są ograniczone użycie dla zasobów, które jeszcze nie obsługują nowych alertów. W tym celu funkcje te będą przestarzałe:
+Jak wspomniano wcześniej, starsze klasyczne monitorowanie i alerty są wycofywane dla użytkowników chmury publicznej; z uwzględnieniem zamknięcia powiązanych interfejsów API, Azure Portal interfejsu i usług w tym zakresie, mimo że nadal są ograniczone użycie dla zasobów, które jeszcze nie obsługują nowych alertów. W tym celu funkcje te będą przestarzałe:
 
 - Starsze (klasyczne) metryki i alerty dla zasobów platformy Azure, które są obecnie dostępne za pośrednictwem [sekcji alertów (klasyczne)](./alerts-classic.overview.md) w Azure Portal; dostępne jako [Microsoft. Insights/alertrules](/rest/api/monitor/alertrules) Resource
 - Starsza (klasyczna) platforma i metryki niestandardowe dla Application Insights, a także alerty dla nich, które są obecnie dostępne za pośrednictwem [sekcji alerty (klasyczne)](./alerts-classic.overview.md) w Azure Portal i dostępne jako [Microsoft. Insights/alertrules](/rest/api/monitor/alertrules) Resource

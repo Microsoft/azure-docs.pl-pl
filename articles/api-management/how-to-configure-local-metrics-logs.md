@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie lokalnych metryk i dzienników dla platformy Azure API Management Brama samodzielna hostowana | Microsoft Docs
-description: Dowiedz się, jak skonfigurować lokalne metryki i dzienniki dla bramy samohostowanej platformy Azure API Management
+description: Dowiedz się, jak skonfigurować lokalne metryki i dzienniki dla platformy Azure API Management samohostowanej bramy na Kubernetes Custer
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254507"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526674"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurowanie lokalnych metryk i dzienników dla usługi Azure API Management Brama samoobsługowa
 
-Ten artykuł zawiera szczegółowe informacje dotyczące konfigurowania metryk i dzienników lokalnych dla [bramy samoobsługowej](./self-hosted-gateway-overview.md). Aby skonfigurować metryki i dzienniki w chmurze, zobacz [ten artykuł](how-to-configure-cloud-metrics-logs.md). 
+Ten artykuł zawiera szczegółowe informacje dotyczące konfigurowania metryk i dzienników lokalnych dla [bramy samohostowanej](./self-hosted-gateway-overview.md) wdrożonej w klastrze Kubernetes. Aby skonfigurować metryki i dzienniki w chmurze, zobacz [ten artykuł](how-to-configure-cloud-metrics-logs.md). 
 
 ## <a name="metrics"></a>Metryki
 Brama samoobsługowa obsługuje [statystyki](https://github.com/statsd/statsd), która staje się protokołem ujednolicania dla kolekcji metryk i agregacji. W tej sekcji omówiono procedurę wdrażania statystyki do Kubernetes, konfigurowania bramy w celu emitowania metryk przy użyciu statystyk i używania [Prometheus](https://prometheus.io/) do monitorowania metryk. 
@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
       - name: sputnik-metrics-statsd
-        image: prom/statsd-exporter
+        image: mcr.microsoft.com/aks/hcp/prom/statsd-exporter
         ports:
         - name: tcp
           containerPort: 9102
@@ -80,7 +80,7 @@ spec:
           - mountPath: /tmp
             name: sputnik-metrics-config-files
       - name: sputnik-metrics-prometheus
-        image: prom/prometheus
+        image: mcr.microsoft.com/oss/prometheus/prometheus
         ports:
         - name: tcp
           containerPort: 9090
@@ -152,9 +152,9 @@ Teraz, gdy wdrożono zarówno statystyki, jak i Prometheus, możemy zaktualizowa
 | Pole  | Domyślne | Opis |
 | ------------- | ------------- | ------------- |
 | Telemetria. Metrics. Local  | `none` | Włącza rejestrowanie z uwzględnieniem statystyk. Wartość może być `none` , `statsd` . |
-| Telemetria. Metrics. local. re\fieldd. Endpoint  | nie dotyczy | Określa punkt końcowy z statystyką. |
-| Telemetria. Metrics. local. re\fieldd. — próbkowanie  | nie dotyczy | Określa częstotliwość próbkowania metryk. Wartość może zawierać się w przedziale od 0 do 1. np., `0.5`|
-| dane telemetryczne. Metrics. local. invisiond. tag-format  | nie dotyczy | [Format tagowania](https://github.com/prometheus/statsd_exporter#tagging-extensions)eksportu statystycznego. Wartość może być `none` , `librato` , `dogStatsD` , `influxDB` . |
+| Telemetria. Metrics. local. re\fieldd. Endpoint  | n/d | Określa punkt końcowy z statystyką. |
+| Telemetria. Metrics. local. re\fieldd. — próbkowanie  | n/d | Określa częstotliwość próbkowania metryk. Wartość może zawierać się w przedziale od 0 do 1. np., `0.5`|
+| dane telemetryczne. Metrics. local. invisiond. tag-format  | n/d | [Format tagowania](https://github.com/prometheus/statsd_exporter#tagging-extensions)eksportu statystycznego. Wartość może być `none` , `librato` , `dogStatsD` , `influxDB` . |
 
 Oto Przykładowa konfiguracja:
 
@@ -189,7 +189,7 @@ Teraz wszystko zostało wdrożone i skonfigurowane, Brama samoobsługowa powinna
 
 Wykonaj pewne wywołania interfejsu API za pomocą bramy samohostowanej, jeśli wszystko jest prawidłowo skonfigurowane, powinno być możliwe wyświetlenie poniższych metryk:
 
-| Metryka  | Opis |
+| Metric  | Opis |
 | ------------- | ------------- |
 | Żądania  | Liczba żądań interfejsu API w danym okresie |
 | DurationInMS | Liczba milisekund od momentu odebrania żądania w bramie do momentu pełnego wysłania odpowiedzi |
@@ -212,11 +212,11 @@ Brama samoobsługowa obsługuje również wiele protokołów `localsyslog` , w t
 | ------------- | ------------- | ------------- |
 | Telemetria. logs. std  | `text` | Włącza rejestrowanie do strumieni standardowych. Wartość może być `none` , `text` , `json` |
 | dane telemetryczne. logs. Local  | `none` | Włącza rejestrowanie lokalne. Wartość może być `none` , `auto` , `localsyslog` , `rfc5424` , `journal`  |
-| Telemetria. logs. local. localsyslog. Endpoint  | nie dotyczy | Określa punkt końcowy localsyslog.  |
-| Telemetria. logs. local. localsyslog.  | nie dotyczy | Określa [kod funkcji](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. np., `7` 
-| Telemetria. logs. local. RFC5424. Endpoint  | nie dotyczy | Określa punkt końcowy RFC5424.  |
-| Telemetria. logs. local. RFC5424.  | nie dotyczy | Określa kod instrumentu na [RFC5424](https://tools.ietf.org/html/rfc5424). np., `7`  |
-| Telemetria. logs. local. Journal. Endpoint  | nie dotyczy | Określa punkt końcowy dziennika.  |
+| Telemetria. logs. local. localsyslog. Endpoint  | n/d | Określa punkt końcowy localsyslog.  |
+| Telemetria. logs. local. localsyslog.  | n/d | Określa [kod funkcji](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. np., `7` 
+| Telemetria. logs. local. RFC5424. Endpoint  | n/d | Określa punkt końcowy RFC5424.  |
+| Telemetria. logs. local. RFC5424.  | n/d | Określa kod instrumentu na [RFC5424](https://tools.ietf.org/html/rfc5424). np., `7`  |
+| Telemetria. logs. local. Journal. Endpoint  | n/d | Określa punkt końcowy dziennika.  |
 
 Poniżej przedstawiono przykładową konfigurację rejestrowania lokalnego:
 

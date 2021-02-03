@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 02/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225162"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525148"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure Active Directory B2C
 
@@ -41,9 +41,12 @@ Ta funkcja ułatwia aplikacjom obsługę scenariuszy, takich jak:
 1. Wybierz przepływ użytkownika, dla którego chcesz włączyć usługę MFA. Na przykład *B2C_1_signinsignup*.
 1. Wybierz pozycję **Właściwości**.
 1. W sekcji **uwierzytelnianie** wieloskładnikowe wybierz żądaną **metodę MFA**, a następnie w obszarze **wymuszania MFA** wybierz opcję **zawsze włączone**, lub **warunkowo (zalecane)**.
-  > [!NOTE]
-  > W przypadku wybrania **warunkowego (zalecane)** należy również [dodać zasady dostępu warunkowego](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) i określić aplikacje, do których mają być stosowane zasady.
-1. Wybierz pozycję Zapisz. Uwierzytelnianie wieloskładnikowe jest teraz włączone dla tego przepływu użytkownika.
+   > [!NOTE]
+   >
+   > - W przypadku wybrania **warunkowego (zalecane)** należy również [dodać zasady dostępu warunkowego](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) i określić aplikacje, do których mają być stosowane zasady.
+   > - Uwierzytelnianie wieloskładnikowe (MFA) jest domyślnie wyłączone dla przepływów użytkowników logujących się. Uwierzytelnianie wieloskładnikowe można włączyć w przepływach użytkownika przy użyciu rejestracji w telefonie, ale ponieważ numer telefonu jest używany jako identyfikator podstawowy, jedyną opcją dostępną dla drugiego czynnika uwierzytelniania jest adres e-mail.
+
+1. Wybierz pozycję **Zapisz**. Uwierzytelnianie wieloskładnikowe jest teraz włączone dla tego przepływu użytkownika.
 
 Aby sprawdzić środowisko, można użyć funkcji **Uruchom przepływ użytkownika** . Potwierdź następujący scenariusz:
 

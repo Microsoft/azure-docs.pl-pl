@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: b59d9ebf55f7a4c02891a782b7271eec2f521576
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 0650a173b02e1b8f1f829953be1dd852024e6f65
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663285"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524519"
 ---
 # <a name="create-a-custom-voice"></a>Tworzenie niestandardowego głosu
 
@@ -52,17 +52,21 @@ W poniższej tabeli przedstawiono Stany przetwarzania zaimportowanych zestawów 
 
 Po zakończeniu walidacji można zobaczyć łączną liczbę dopasowanych wyrażenia długości dla każdego z zestawów danych w kolumnie **wyrażenia długości** . Jeśli wybrany typ danych wymaga segmentacji w postaci długiego dźwięku, ta kolumna odzwierciedla tylko wyrażenia długości z segmentacją na podstawie transkrypcji lub za pośrednictwem usługi transkrypcji mowy. Można dokładniej pobrać zestaw danych zweryfikowany, aby wyświetlić szczegółowe wyniki pomyślnie zaimportowanego wyrażenia długości i ich transkrypcji mapowania. Wskazówka: przetwarzanie danych za długi-audio może trwać dłużej niż godzinę.
 
-W przypadku zestawów danych en-US i zh-CN można dodatkowo pobrać raport, aby sprawdzić wyniki wymowy i poziom szumów dla każdego nagrania. Wynik wymowy z zakresu od 0 do 100. Wynik poniżej 70 zwykle wskazuje błąd mowy lub niezgodność skryptu. Ciężki akcent może zmniejszyć wynik wymowy i mieć wpływ na wygenerowany głos cyfrowy.
+W widoku Szczegóły danych można dokładniej sprawdzić wyniki wymowy i poziom szumów dla każdego zestawu danych. Wynik wymowy z zakresu od 0 do 100. Wynik poniżej 70 zwykle wskazuje błąd mowy lub niezgodność skryptu. Ciężki akcent może zmniejszyć wynik wymowy i mieć wpływ na wygenerowany głos cyfrowy.
 
 Wyższy współczynnik sygnału do szumu (SNR) wskazuje niższy hałas w dźwięku. Zwykle możesz dotrzeć do 50 SNR przez nagranie w profesjonalnej Studios. Dźwięk z SNRem poniżej 20 może spowodować oczywisty hałas w wygenerowanym głosie.
 
 Rozważ ponowne nagranie wszelkich wyrażenia długości z wynikami niskiej wymowy lub słabego współczynnika sygnałów do szumów. Jeśli nie możesz zmienić rekordu, możesz wykluczyć te wyrażenia długości z zestawu danych.
 
+> [!NOTE]
+> W przypadku korzystania z niestandardowego głosu neuronowych należy zarejestrować talent głosu na karcie **Voice talent** . Podczas przygotowywania skryptu nagrywania upewnij się, że dołączysz poniższe zdanie, aby uzyskać potwierdzenie Talenti głosu przy użyciu danych głosowych, aby utworzyć model głosu TTS i wygenerować syntetyczną mowę. "I [stan imię i nazwisko] wie, że nagrania mojego głosu będą używane przez użytkownika [Nadaj nazwę firmie] do tworzenia i używania syntetycznej wersji mojego głosu".
+To zdanie zostanie użyte do sprawdzenia, czy nagrania w zestawach danych szkoleniowych są wykonywane przez tę samą osobę, która wyraża zgodę. [Dowiedz się więcej na temat sposobu przetwarzania danych i sposobu weryfikacji talent głosu](https://aka.ms/CNV-data-privacy). 
+
 ## <a name="build-your-custom-voice-model"></a>Tworzenie niestandardowego modelu głosu
 
 Po sprawdzeniu poprawności zestawu danych można go użyć do utworzenia niestandardowego modelu głosu.
 
-1.  Przejdź do obszaru **Zamiana tekstu na mowę > niestandardowego głosu > [nazwa projektu] > szkolenie**.
+1.  Przejdź do obszaru **Zamiana tekstu na mowę > niestandardowego głosu > [nazwa projektu] > model**.
 
 2.  Kliknij pozycję **uczenie modelu**.
 
@@ -72,15 +76,22 @@ Po sprawdzeniu poprawności zestawu danych można go użyć do utworzenia niesta
 
     Typowym zastosowaniem pola **Opis** jest zapisanie nazw zestawów danych, które zostały użyte do utworzenia modelu.
 
-4.  Na stronie **Wybierz dane szkoleniowe** wybierz co najmniej jeden zestaw danych, który ma być używany do szkoleń. Przed przesłaniem Sprawdź liczbę wyrażenia długości. Można zacząć od dowolnej liczby wyrażenia długości dla modeli głosu pl-US i zh-CN. W przypadku innych ustawień regionalnych należy wybrać więcej niż 2 000 wyrażenia długości, aby umożliwić uczenie głosu.
+4.  Na stronie **Wybierz dane szkoleniowe** wybierz co najmniej jeden zestaw danych, który ma być używany do szkoleń. Przed przesłaniem Sprawdź liczbę wyrażenia długości. Można zacząć od dowolnej liczby wyrażenia długości dla modeli głosu pl-US i zh-CN przy użyciu metody szkolenia "adaptacyjne". W przypadku innych ustawień regionalnych należy wybrać więcej niż 2 000 wyrażenia długości, aby umożliwić uczenie głosu przy użyciu warstwy Standardowa, w tym metod szkoleniowych "statystycznych parametrów" i "łączenie" oraz więcej niż 300 wyrażenia długości do uczenia niestandardowego głosu neuronowych. 
 
     > [!NOTE]
     > Zduplikowane nazwy audio zostaną usunięte z szkolenia. Upewnij się, że wybrane zestawy danych nie zawierają tych samych nazw audio w wielu plikach ZIP.
 
     > [!TIP]
-    > Użycie zestawów danych z tego samego prezentera jest wymagane w celu uzyskania jakości wyników. Gdy zbiory danych, które zostały przesłane do szkolenia, zawierają łączną liczbę 6 000 odrębnych wyrażenia długości, nauczysz swój model głosowy za pomocą statystycznej techniki syntezy. W przypadku, gdy dane szkoleniowe przekraczają łączną liczbę 6 000 odrębnych wyrażenia długości, rozpocznie się proces szkolenia przy użyciu techniki syntezy łączenia. Zwykle technologia łączenia może skutkować bardziej naturalnymi wynikami głosu i wyższym dokładnością. [Skontaktuj się z niestandardowym zespołem mowy](https://go.microsoft.com/fwlink/?linkid=2108737) , jeśli chcesz nauczyć model z najnowszą technologią neuronowych TTS, która może generować cyfrowy głos równoważny do publicznie dostępnych [głosów neuronowych](language-support.md#neural-voices).
+    > Użycie zestawów danych z tego samego prezentera jest wymagane w celu uzyskania jakości wyników. Różne metody szkoleniowe wymagają różnego rozmiaru danych szkoleniowych. Aby przeprowadzić uczenie modelu z metodą "statystyczną parametryczną", wymagane jest co najmniej 2 000 odrębnych wyrażenia długości. Dla metody "złączne" jest 6 000 wyrażenia długości, a w przypadku wartości "neuronowych" minimalne wymaganie dotyczące rozmiaru danych to 300 wyrażenia długości.
 
-5.  Kliknij pozycję **uczenie** , aby rozpocząć tworzenie modelu głosu.
+5. Wybierz **metodę uczenia** w następnym kroku. 
+
+    > [!NOTE]
+    > Jeśli chcesz przeprowadzić uczenie głosu neuronowych, musisz określić profil talenta głosowego z plikiem zgody na dźwięk dostarczonym w przypadku głosu talent, aby użyć jego danych mowy do uczenia niestandardowego modelu głosowego. Niestandardowy głos neuronowych jest dostępny z ograniczonym dostępem. Upewnij się, że rozumiesz odpowiednie [wymagania AI](https://aka.ms/gating-overview) , i [Zastosuj tutaj dostęp](https://aka.ms/customneural). 
+    
+    Na tej stronie możesz również wybrać opcję przekazania skryptu do testowania. Skrypt testowy musi być plikiem txt, mniejszym niż 1 MB. Obsługiwany format kodowania obejmuje ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE lub UTF-16. W każdym akapicie wypowiedź zostanie oddzielny dźwięk. Jeśli chcesz połączyć wszystkie zdania w jeden dźwięk, wprowadź je w jednym akapicie. 
+
+6. Kliknij pozycję **uczenie** , aby rozpocząć tworzenie modelu głosu.
 
 W tabeli szkoleń zostanie wyświetlony nowy wpis, który odnosi się do nowo utworzonego modelu. W tabeli jest również wyświetlany stan: przetwarzanie, zakończone powodzeniem, zakończone niepowodzeniem.
 
@@ -92,10 +103,13 @@ Wyświetlany stan odzwierciedla proces konwersji zestawu danych na model głosu,
 | Powodzenie | Twój model głosu został utworzony i można go wdrożyć. |
 | Niepowodzenie | Twój model głosowy nie powiódł się z powodu z wielu powodów, na przykład niewidocznych problemów z danymi lub problemów z siecią. |
 
-Czas uczenia zależy od ilości przetworzonych danych audio. Typowy przedziały czasu od około 30 minut dla setek wyrażenia długości do 40 godzin dla 20 000 wyrażenia długości. Po pomyślnym przeprowadzeniu szkolenia modelu można zacząć go przetestować.
+Czas uczenia zależy od ilości przetworzonych danych audio i wybranej metody szkoleniowej. Może ona mieć zakres od 30 minut do 40 godzin. Po pomyślnym przeprowadzeniu szkolenia modelu można zacząć go przetestować. 
 
 > [!NOTE]
 > Użytkownicy z bezpłatną subskrypcją (F0) mogą jednocześnie przeszkolić jedną czcionkę głosową. Użytkownicy Standard Subscription (S0) mogą szkolić trzy głosy jednocześnie. Jeśli osiągnięto limit, poczekaj na zakończenie szkolenia co najmniej jednej z Twoich czcionek głosowych, a następnie spróbuj ponownie.
+
+> [!NOTE]
+> Szkolenie niestandardowych głosów neuronowych nie jest bezpłatne. Sprawdź [ceny](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) tutaj. 
 
 > [!NOTE]
 > Maksymalna liczba modeli głosu, które mogą być przeszkolone na subskrypcję, to 10 modeli dla użytkowników bezpłatnych subskrypcji (F0) i 100 dla użytkowników w warstwie Standardowa (S0).
@@ -104,32 +118,27 @@ W przypadku korzystania z funkcji szkolenia głosu neuronowych można wybrać, a
 
 ## <a name="test-your-voice-model"></a>Testowanie modelu głosu
 
-Po pomyślnym skompilowaniu czcionki głosowej możesz ją przetestować przed wdrożeniem jej do użycia.
+Każde szkolenie spowoduje automatyczne wygenerowanie 100 przykładowych plików audio w celu ułatwienia przetestowania modelu. Po pomyślnym skompilowaniu modelu głosu można go przetestować przed wdrożeniem do użycia.
 
-1.  Przejdź do obszaru **zamiany tekstu na mowę > niestandardowego głosu > [nazwa projektu] > testowanie**.
+1.  Przejdź do obszaru **Zamiana tekstu na mowę > niestandardowego głosu > [nazwa projektu] > model**.
 
-2.  Kliknij przycisk **Dodaj test**.
+2.  Kliknij nazwę modelu, który chcesz przetestować.
 
-3.  Wybierz jeden lub wiele modeli, które chcesz przetestować.
+3.  Na stronie Szczegóły modelu można znaleźć przykładowe pliki audio na karcie **testowanie** . 
 
-4.  Podaj tekst, który ma być wypowiadany przez głos. Jeśli wybrano opcję jednoczesnego testowania wielu modeli, ten sam tekst będzie używany do testowania różnych modeli.
-
-    > [!NOTE]
-    > Język tekstu musi być taki sam jak język czcionki głosowej. Testy można testować tylko dla pomyślnie przeszkolonych modeli. W tym kroku jest obsługiwany tylko zwykły tekst.
-
-5.  Kliknij pozycję **Utwórz**.
-
-Po przesłaniu żądania testowego nastąpi powrót do strony testowej. Tabela zawiera teraz wpis odpowiadający nowemu żądaniu i kolumnie Stan. Wypróbowanie mowy może potrwać kilka minut. Gdy kolumna stanu **powiedzie się**, można odtworzyć dźwięk lub pobrać dane wejściowe tekstu (plik. txt) i dane wyjściowe audio (plik. wav), a następnie Audition je w celu zapewnienia jakości.
-
-Wyniki testów można również znaleźć na stronie szczegółów poszczególnych modeli wybranych do testowania. Przejdź do karty **szkolenie** i kliknij nazwę modelu, aby wprowadzić stronę szczegółów modelu.
+Jakość głosu zależy od wielu czynników, w tym rozmiaru danych szkoleniowych, jakości nagrania, dokładności pliku transkrypcji, jak dobrze zarejestrowany głos w danych szkoleniowych pasuje do osobowości zamierzonego głosu na potrzeby planowanego użycia i nie tylko. Zapoznaj się [z tym tutaj, aby dowiedzieć się więcej o możliwościach i ograniczeniach naszej technologii oraz najlepszych sposobach poprawy jakości modelu](https://aka.ms/CNV-limits). 
 
 ## <a name="create-and-use-a-custom-voice-endpoint"></a>Tworzenie niestandardowego punktu końcowego głosu i korzystanie z niego
 
 Po pomyślnym utworzeniu i przetestowaniu modelu głosu należy wdrożyć go w niestandardowym punkcie końcowym zamiany tekstu na mowę. Następnie należy użyć tego punktu końcowego zamiast zwykłego punktu końcowego podczas wykonywania żądań zamiany tekstu na mowę za pomocą interfejsu API REST. Niestandardowy punkt końcowy może być wywoływany tylko przez subskrypcję, która została użyta do wdrożenia czcionki.
 
-Aby utworzyć nowy niestandardowy punkt końcowy, przejdź do pozycji **Zamiana tekstu na mowę > niestandardowego głosu > wdrożenia**. Wybierz pozycję **Dodaj punkt końcowy** i wprowadź **nazwę** i **Opis** niestandardowego punktu końcowego. Następnie wybierz niestandardowy model głosu, który chcesz skojarzyć z tym punktem końcowym.
+Aby utworzyć nowy niestandardowy punkt końcowy, przejdź do pozycji **Zamiana tekstu na mowę > niestandardowego głosu > punkt końcowy**. Wybierz pozycję **Dodaj punkt końcowy** i wprowadź **nazwę** i **Opis** niestandardowego punktu końcowego. Następnie wybierz niestandardowy model głosu, który chcesz skojarzyć z tym punktem końcowym.
 
 Po kliknięciu przycisku **Dodaj** w tabeli punkt końcowy zobaczysz wpis dla nowego punktu końcowego. Utworzenie wystąpienia nowego punktu końcowego może potrwać kilka minut. Gdy stan wdrożenia zostanie **zakończony pomyślnie**, punkt końcowy jest gotowy do użycia.
+
+Można **wstrzymywać** i **wznawiać** punkt końcowy, jeśli nie jest on używany przez cały czas. Gdy punkt końcowy jest ponownie uaktywniany po zawieszeniu, adres URL punktu końcowego będzie przechowywany tak samo, więc nie trzeba zmieniać kodu w aplikacjach. 
+
+Możesz również zaktualizować punkt końcowy do nowego modelu. Aby zmienić model, upewnij się, że nowy model ma taką samą nazwę, jak ten, który ma zostać zaktualizowany. 
 
 > [!NOTE]
 > Użytkownicy z bezpłatną subskrypcją (F0) mogą mieć wdrożony tylko jeden model. Użytkownicy Standard Subscription (S0) mogą tworzyć do 50 punktów końcowych, z których każdy ma własny niestandardowy głos.

@@ -1,19 +1,19 @@
 ---
 title: GetCurrentDateTime w języku zapytań Azure Cosmos DB
 description: Dowiedz się więcej o funkcji GetCurrentDateTime systemu SQL w Azure Cosmos DB.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/18/2020
-ms.author: girobins
+ms.date: 02/03/2021
+ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 03a3183fe3001008cdd3f3caae1b8c3af81668fe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b48237b5a7eb836c495612758eeb9eaa45029b26
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340213"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526589"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,7 +48,8 @@ GetCurrentDateTime ()
 
 GetCurrentDateTime () jest funkcją niedeterministyczną. Zwrócony wynik to UTC. Precyzja to 7 cyfr z dokładnością do 100 nanosekund.
 
-Ta funkcja systemowa nie będzie używać indeksu.
+> [!NOTE]
+> Ta funkcja systemowa nie będzie używać indeksu. Jeśli musisz porównać wartości z bieżącą godziną, uzyskaj bieżącą godzinę przed wykonaniem zapytania i Użyj tej wartości ciągu stałego w `WHERE` klauzuli.
 
 ## <a name="examples"></a>Przykłady
   

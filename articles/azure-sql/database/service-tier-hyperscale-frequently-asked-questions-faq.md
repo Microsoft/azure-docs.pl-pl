@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 03/03/2020
-ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 02/03/2021
+ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459627"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526826"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database często zadawane pytania dotyczące skalowania
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,17 +42,17 @@ Warstwy usług oparte na rdzeń wirtualny są zróżnicowane w zależności od d
 
 | | Typ zasobu | Ogólnego przeznaczenia |  Hiperskala | Krytyczne dla działania firmy |
 |:---:|:---:|:---:|:---:|:---:|
-| **Optymalne zastosowanie** |Wszyscy|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
+| **Optymalne zastosowanie** |Wszystko|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
 |  **Typ zasobu** ||Wystąpienie zarządzane SQL Database/SQL | Pojedyncza baza danych | Wystąpienie zarządzane SQL Database/SQL |
 | **Rozmiar obliczeń**|SQL Database * | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych * | od 1 do 80 rdzeni wirtualnych |
-| **Rozmiar obliczeń**|Wystąpienie zarządzane SQL | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Brak | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
-| **Typ magazynu** | Wszyscy |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
+| **Rozmiar obliczeń**|Wystąpienie zarządzane SQL | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Nie dotyczy | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
+| **Typ magazynu** | Wszystko |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
 | **Rozmiar magazynu** | SQL Database *| 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
-| **Rozmiar magazynu** | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Brak | 32 GB – 4 TB |
+| **Rozmiar magazynu** | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Nie dotyczy | 32 GB – 4 TB |
 | **Liczba operacji we/wy na sekundę** | Pojedyncza baza danych | 500 operacji we/wy na sekundę z 7000 maksymalną liczbą IOPS | Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy będą zależeć od obciążenia. | 5000 operacji we/wy z maksymalną liczbą IOPS 200 000|
-| **Liczba operacji we/wy na sekundę** | Wystąpienie zarządzane SQL | Zależy od rozmiaru pliku | Brak | 1375 operacji we/wy na sekundę |
-|**Dostępność**|Wszyscy|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
-|**Tworzenie kopii zapasowych**|Wszyscy|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
+| **Liczba operacji we/wy na sekundę** | Wystąpienie zarządzane SQL | Zależy od rozmiaru pliku | Nie dotyczy | 1375 operacji we/wy na sekundę |
+|**Dostępność**|Wszystko|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
+|**Tworzenie kopii zapasowych**|Wszystko|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
 
 \* Pule elastyczne nie są obsługiwane w warstwie usługi w ramach skalowania
 
@@ -166,7 +166,7 @@ Rozmiar bazy danych jest automatycznie zwiększany podczas wstawiania/pozyskiwan
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Co to jest najmniejszy rozmiar bazy danych, który jest obsługiwany przez funkcję preskalowania lub zaczyna się od
 
-40 GB. Tworzona jest baza danych ze skalą o rozmiarze rozpoczynającym 10 GB. Następnie rozpocznie się zwiększanie o 10 GB co 10 minut, aż osiągnie rozmiar 40 GB. Każdy z tych 10 GB Chucks jest przypisywany na innym serwerze stronicowania w celu zapewnienia większej liczby operacji we/wy i większej równoległości operacji wejścia/wyjścia. Ze względu na tę optymalizację nawet w przypadku wybrania początkowej bazy danych o rozmiarze mniejszym niż 40 GB baza danych zostanie powiększona do co najmniej 40 GB.
+40 GB. Tworzona jest baza danych ze skalą o rozmiarze rozpoczynającym 10 GB. Następnie rozpocznie się zwiększanie o 10 GB co 10 minut, aż osiągnie rozmiar 40 GB. Każdy z tych fragmentów 10 GB jest przypisywany na innym serwerze stronicowania w celu zapewnienia większej liczby operacji we/wy i większej równoległości operacji wejścia/wyjścia. Ze względu na tę optymalizację nawet w przypadku wybrania początkowej bazy danych o rozmiarze mniejszym niż 40 GB baza danych zostanie powiększona do co najmniej 40 GB.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>W jaki sposób zwiększa się rozmiar bazy danych
 
@@ -233,7 +233,7 @@ Skalowanie jest w stanie zużywać 100 MB/s nowych/zmienionych danych, ale czas 
 
 Aplikacja kliencka może odczytywać dane z usługi Azure Storage i ładować obciążenia danych do bazy danych w formie wieloskali (podobnie jak w przypadku każdej innej bazy danych w Azure SQL Database). Baza Base nie jest obecnie obsługiwana w Azure SQL Database. Alternatywnie, aby zapewnić szybkie ładowanie, można użyć [Azure Data Factory](../../data-factory/index.yml)lub użyć zadania spark w [Azure Databricks](/azure/azure-databricks/) z [łącznikiem Spark dla SQL](spark-connector.md). Łącznik platformy Spark do bazy danych SQL obsługuje wstawianie zbiorcze.
 
-Istnieje również możliwość zbiorczego odczytywania danych z magazynu obiektów blob platformy Azure przy użyciu BULK INSERT lub OPENROWSET: [przykłady dostępu zbiorczego do danych w usłudze Azure Blob Storage](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+Istnieje również możliwość zbiorczego odczytywania danych z magazynu obiektów blob platformy Azure przy użyciu BULK INSERT lub OPENROWSET: [przykłady dostępu zbiorczego do danych w usłudze Azure Blob Storage](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Proste odzyskiwanie lub model rejestrowania zbiorczego nie jest obsługiwany w ramach skalowania. Model odzyskiwania pełnego jest wymagany w celu zapewnienia wysokiej dostępności i odzyskiwania do punktu w czasie. Jednak architektura dziennika z przeskalowaniem zapewnia lepszą szybkość pozyskiwania danych w porównaniu z innymi Azure SQL Database warstwami usług.
 

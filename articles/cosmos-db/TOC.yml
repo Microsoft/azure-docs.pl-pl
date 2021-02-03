@@ -110,8 +110,38 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Przydziały usług
       href: concepts-limits.md
-    - name: Gotowość przedsiębiorstwa — zgodność
-      href: compliance.md
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Wprowadzenie do tworzenia kopii zapasowych i przywracania
+          href: online-backup-and-restore.md
+        - name: Ciągła kopia zapasowa
+          items:
+            - name: Ciągła kopia zapasowa — wprowadzenie
+              href: continuous-backup-restore-introduction.md
+            - name: Ciągła kopia zapasowa — często zadawane pytania
+              href: continuous-backup-restore-frequently-asked-questions.md
+            - name: Ciągła kopia zapasowa — model zasobów
+              items:
+                - name: Omówienie modelu zasobów
+                  href: continuous-backup-restore-resource-model.md
+                - name: Konta dostępnych — lista
+                  href: restorable-database-accounts-list.md
+                - name: Konta dostępnych — lista według lokalizacji
+                  href: restorable-database-accounts-list-by-location.md
+                - name: Dostępnych zasobów SQL — lista
+                  href: restorable-sql-resources-list.md
+                - name: Bazy danych SQL dostępnych — lista
+                  href: restorable-sql-databases-list.md
+                - name: Kontenery SQL dostępnych — lista
+                  href: restorable-sql-containers-list.md
+                - name: Dostępnych MongoDB — Lista zasobów
+                  href: restorable-mongodb-resources-list.md
+                - name: Kolekcje dostępnych MongoDB — lista
+                  href: restorable-mongodb-collections-list.md
+                - name: Bazy danych dostępnych MongoDB — lista
+                  href: restorable-mongodb-databases-list.md
+        - name: Zgodność
+          href: compliance.md
     - name: Automatyczne zalecenia
       href: automated-recommendations.md
 - name: Interfejs API SQL/Core
@@ -1365,8 +1395,20 @@
           href: how-to-setup-cmk.md
     - name: Gotowość przedsiębiorstwa
       items:
-        - name: Tworzenie kopii zapasowych w trybie online i ich przywracanie na żądanie
-          href: online-backup-and-restore.md
+        - name: Zarządzanie ciągłymi kopiami zapasowymi
+          items:
+            - name: Ciągła kopia zapasowa — uprawnienia i role
+              href: continuous-backup-restore-permissions.md
+            - name: Ciągła kopia zapasowa — Portal
+              href: continuous-backup-restore-portal.md
+            - name: Ciągła kopia zapasowa — PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Ciągła kopia zapasowa — interfejs wiersza polecenia
+              href: continuous-backup-restore-command-line.md
+            - name: Ciągła kopia zapasowa — ARM
+              href: continuous-backup-restore-template.md
+        - name: Zarządzanie okresową kopią zapasową
+          href: configure-periodic-backup-restore.md
         - name: Żądanie zwiększenia limitu przydziału
           href: create-support-request-quota-increase.md
     - name: Monitorowanie

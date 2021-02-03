@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 1444ee3643222ceebc67298bdb580955b1432104
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617378"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526419"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Najlepsze rozwiązania dotyczące usługi Azure RBAC
 
@@ -41,6 +41,10 @@ Aby zmniejszyć ryzyko naruszenia przez zagrożonego właściciela, należy mie�
 Aby chronić konta uprzywilejowane przed złośliwymi atakami cybernetycznymiymi, możesz użyć Azure Active Directory Privileged Identity Management (PIM), aby skrócić czas ekspozycji uprawnień i zwiększyć widoczność do użycia w raportach i alertach. Usługa PIM pomaga chronić konta uprzywilejowane, zapewniając uprzywilejowany dostęp do usługi Azure AD i zasobów platformy Azure w odpowiednim czasie. Dostęp może być związany z upływem czasu, po którym uprawnienia są automatycznie odwoływane. 
 
 Aby uzyskać więcej informacji, zobacz [co to jest Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).
+
+## <a name="assign-roles-to-groups-not-users"></a>Przypisywanie ról do grup, a nie użytkowników
+
+Aby zarządzać przypisaniami ról, należy unikać przypisywania ról bezpośrednio do użytkowników. Zamiast tego Przypisz role do grup. Przypisywanie ról do grup zamiast użytkowników pozwala również zminimalizować liczbę przypisań ról, które mają [limit 2 000 przypisań ról na subskrypcję](troubleshooting.md#azure-role-assignments-limit). 
 
 ## <a name="next-steps"></a>Następne kroki
 

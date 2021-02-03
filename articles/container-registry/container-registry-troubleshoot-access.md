@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z siecią przy użyciu rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas uzyskiwania dostępu do usługi Azure Container Registry w sieci wirtualnej lub za zaporą
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052165"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525080"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Rozwiązywanie problemów z siecią przy użyciu rejestru
 
@@ -105,20 +105,20 @@ Powiązane linki:
 
 ### <a name="configure-service-access"></a>Konfigurowanie dostępu do usługi
 
-Obecnie Azure Security Center nie można przeprowadzić [skanowania w poszukiwaniu luk w zabezpieczeniach obrazów](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) w rejestrze, który ogranicza dostęp do prywatnych punktów końcowych, wybranych podsieci lub adresów IP. Ponadto zasoby następujących usług nie są w stanie uzyskać dostępu do rejestru kontenerów z ograniczeniami sieci:
+Obecnie dostęp do rejestru kontenerów z ograniczeniami sieci nie jest dozwolony z kilku usług platformy Azure:
 
-* Usługa Azure DevOps Services 
-* Azure Container Instances
-* Usługa Azure Container Registry Tasks
+* Azure Security Center nie może przeprowadzić [skanowania w poszukiwaniu luk w zabezpieczeniach](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) w rejestrze, który ogranicza dostęp do prywatnych punktów końcowych, wybranych podsieci lub adresów IP. 
+* Zasoby niektórych usług platformy Azure nie mogą uzyskać dostępu do rejestru kontenerów z ograniczeniami sieci, w tym Azure App Service i Azure Container Instances.
 
 Jeśli wymagany jest dostęp lub integracja tych usług platformy Azure z rejestrem kontenerów, Usuń ograniczenie sieci. Na przykład Usuń prywatne punkty końcowe rejestru lub Usuń lub zmodyfikuj reguły dostępu publicznego rejestru.
+
+Od stycznia 2021 można skonfigurować rejestr z ograniczeniami sieci, aby [zezwolić na dostęp](allow-access-trusted-services.md) z wybranych usług zaufanych.
 
 Powiązane linki:
 
 * [Azure Container Registry skanowania obrazów przez Security Center](../security-center/defender-for-container-registries-introduction.md)
 * Prześlij [opinię](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
-* [Konfigurowanie reguł sieci publicznych adresów IP](container-registry-access-selected-networks.md)
-* [Połącz się prywatnie z usługą Azure Container Registry przy użyciu prywatnego linku platformy Azure](container-registry-private-link.md)
+* [Zezwalaj zaufanym usługom na bezpieczny dostęp do rejestru kontenerów z ograniczeniami w sieci](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Zaawansowane rozwiązywanie problemów
@@ -140,5 +140,5 @@ Jeśli w tym miejscu nie rozwiążesz problemu, zapoznaj się z następującymi 
   * [Rozwiązywanie problemów z logowaniem do rejestru](container-registry-troubleshoot-login.md) 
   * [Rozwiązywanie problemów z wydajnością rejestru](container-registry-troubleshoot-performance.md)
 * Opcje [pomocy technicznej społeczności](https://azure.microsoft.com/support/community/)
-* [Pytania i odpowiedzi Microsoft](/answers/products/)
+* [Pytania i odpowiedzi Microsoft](https://docs.microsoft.com/answers/products/)
 * [Otwieranie biletu pomocy technicznej](https://azure.microsoft.com/support/create-ticket/)

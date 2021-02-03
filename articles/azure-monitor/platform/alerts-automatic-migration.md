@@ -4,16 +4,16 @@ description: Dowiedz się, jak działa proces automatycznego migrowania.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6a2d032c6aa33b72fe422638df45ca48bf8b1036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3550dcef174a4d970917fabfda3c4fd2a8df4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847287"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526555"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Omówienie procesu migracji automatycznej dla klasycznych reguł alertów
 
-Jak [wcześniej ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. W ramach procesu wycofywania, [Narzędzie do migracji](alerts-using-migration-tool.md) jest dostępne w Azure Portal, aby klienci mogli wyzwolić migrację.
+Jak [wcześniej ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane dla użytkowników chmury publicznej, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. W ramach procesu wycofywania, [Narzędzie do migracji](alerts-using-migration-tool.md) jest dostępne w Azure Portal, aby klienci mogli wyzwolić migrację.
 Ten artykuł przeprowadzi Cię przez proces migracji automatycznej i pomaga w rozwiązywaniu wszelkich problemów, które mogą zostać uruchomione.
 
   > [!NOTE]
@@ -21,9 +21,9 @@ Ten artykuł przeprowadzi Cię przez proces migracji automatycznej i pomaga w ro
 
 ## <a name="what-will-happen-during-the-automatic-migration-process"></a>Co się stanie w trakcie procesu migracji automatycznej?
 
-- Od **1 września 2019**klienci nie będą mogli tworzyć żadnych nowych klasycznych reguł alertów z wyjątkiem [określonych metryk](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
+- Od **1 września 2019** klienci nie będą mogli tworzyć żadnych nowych klasycznych reguł alertów z wyjątkiem [określonych metryk](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 - W przypadku wyjątków klient może nadal tworzyć nowe reguły klasycznego alertu i korzystać z ich klasycznych alertów do momentu dalszego anonsowania.
-- Od **1 września 2019**migracja klasycznych alertów zostanie wyzwolona w partiach dla wszystkich klientów, którzy mają klasyczne alerty.
+- Od **1 września 2019** migracja klasycznych alertów zostanie wyzwolona w partiach dla wszystkich klientów, którzy mają klasyczne alerty.
 - Podobnie jak w przypadku narzędzia do migracji dobrowolnej, niektóre reguły klasycznego alertu, które nie są migrowalna, zostaną pozostawione. Te klasyczne reguły alertów będą nadal obsługiwane do momentu dalszego anonsowania. Jednak wszystkie nieprawidłowe reguły klasycznego alertu zostaną usunięte, ponieważ są one niefunkcjonalne.
 Wszystkie klasyczne reguły alertów monitorujące usunięte zasoby docelowe lub [metryki, które nie są już obsługiwane,](alerts-understand-migration.md#classic-alert-rules-on-deprecated-metrics) są uznawane za nieprawidłowe.
 - Po rozpoczęciu migracji do subskrypcji, o ile nie występują żadne problemy, migracja powinna zostać zakończona w ciągu godziny. Klienci mogą monitorować stan migracji w [bloku migracja w Azure monitor](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel).

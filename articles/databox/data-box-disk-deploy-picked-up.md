@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d529c5900d851368d60099091bb5745660036dea
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 542eed34f2be05cce3829baab2f07a5c58413ba0
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029893"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526300"
 ---
 ::: zone target="docs"
 
@@ -30,7 +30,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem upewnij się, że zostały wykonane kroki opisane w artykule [Samouczek: kopiowanie danych na urządzenie Azure Data Box Disk i ich weryfikacja](data-box-disk-deploy-copy-data.md).
+Przed rozpoczęciem upewnij się, że ukończono [Samouczek: Kopiuj dane do Azure Data Box Disk i sprawdź](data-box-disk-deploy-copy-data.md).
 
 ## <a name="ship-data-box-disk-back"></a>Wysyłka zwrotna urządzenia Data Box Disk
 
@@ -63,7 +63,7 @@ W przypadku zwrotu urządzenia w Stanach Zjednoczonych lub Kanadzie wykonaj nast
 
     - Zadzwoń do lokalnego oddziału firmy UPS (numer bezpłatny dla danego kraju/regionu).
     - Podczas rozmowy podaj numer śledzenia przesyłki zwrotnej widoczny na wydrukowanej etykiecie.
-    - Jeśli nie podasz numeru śledzenia, firma UPS będzie wymagała uiszczenia dodatkowej opłaty podczas odbioru.
+    - Jeśli numer śledzenia nie jest ujęty w cudzysłów, zasilacz UPS będzie wymagał dodatkowej opłaty podczas odbioru.
     - Zamiast planowania odbioru możesz także dostarczyć urządzenie Data Box Disk do najbliższego punktu UPS.
 
 
@@ -119,13 +119,13 @@ W razie konieczności możesz skontaktować się z pomocą techniczną firmy Qua
 1. Upewnij się, że dołączono zwrotny list przewozowy.
 2. Wykonaj następujące czynności, aby zażądać odbioru, gdy jest dostępny list przewozowy:
     1. Zadzwoń na infolinię firmy *Quantium Solutions International* pod numer 070-8231-1418 w godzinach jej pracy (10:00–17:00, od poniedziałku do piątku). Powołaj się na *odbiór przesyłki w ramach platformy Microsoft Azure* i podaj numer żądania obsługi w celu zorganizowania odbioru urządzenia.  
-    2. Jeśli infolinia jest zajęta,wyślij wiadomość e-mail na adres `microsoft@rocketparcel.com` z tematem *Microsoft Azure Pickup* oraz numerem żądania obsługi.
-    3. Jeśli kurier nie zjawi się po odbiór przesyłki, zadzwoń na infolinię firmy *Quantium Solutions International*, aby zaplanować odbiór alternatywny.
+    2. Jeśli linia jest zajęta, Wyślij wiadomość e-mail [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) z tematem wiadomości e-mail *Microsoft Azure pobraniem* i numerem żądania obsługi dla odwołania.
+    3. Jeśli Courier nie dotarł do kolekcji, wywołaj *Quantium Solutions International* linia do alternatywnych rozwiązań.
     4. Otrzymasz wiadomość e-mail z potwierdzeniem terminu odbioru.
-3. Zrób tylko w przypadku braku listu przewozowego. Wykonaj następujące czynności, aby zażądać odbioru:
-    1. Zadzwoń na infolinię firmy *Quantium Solutions International* pod numer 070-8231-1418 w godzinach jej pracy (10:00–17:00, od poniedziałku do piątku). Powołaj się na *odbiór przesyłki w ramach platformy Microsoft Azure* i podaj numer żądania obsługi w celu zorganizowania odbioru urządzenia. Powiedz, że potrzebujesz nowego listu przewozowego w celu zaplanowania odbioru. Podaj dane nadawcy (klienta) i adresata (centrum danych platformy Azure) oraz numer referencyjny (numer żądania obsługi). 
-    2. Jeśli infolinia jest zajęta,wyślij wiadomość e-mail na adres `microsoft@rocketparcel.com` z tematem *Microsoft Azure Pickup* oraz numerem żądania obsługi.
-    3. Jeśli kurier nie zjawi się po odbiór przesyłki, zadzwoń na infolinię firmy *Quantium Solutions International*, aby zaplanować odbiór alternatywny.
+3. Wykonaj ten krok tylko wtedy, gdy nie ma uwagi dotyczącej przesyłki. Wykonaj następujące czynności, aby zażądać odbioru:
+    1. Zadzwoń na infolinię firmy *Quantium Solutions International* pod numer 070-8231-1418 w godzinach jej pracy (10:00–17:00, od poniedziałku do piątku). Powołaj się na *odbiór przesyłki w ramach platformy Microsoft Azure* i podaj numer żądania obsługi w celu zorganizowania odbioru urządzenia. Powiedz, że potrzebujesz nowego listu przewozowego w celu zaplanowania odbioru. Podaj dane nadawcy (klienta) i adresata (centrum danych platformy Azure) oraz numer referencyjny (numer żądania obsługi).
+    2. Jeśli linia jest zajęta, Wyślij wiadomość e-mail [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) z tematem wiadomości e-mail *Microsoft Azure pobranie* i numer żądania obsługi jako odwołanie.
+    3. Jeśli Courier nie dotarł do kolekcji, wywołaj *Quantium Solutions International* linia do alternatywnych rozwiązań.
     4. W przypadku rozmowy telefonicznej otrzymasz słowne potwierdzenie.
 
 ### <a name="singapore"></a>[Singapur](#tab/in-singapore)
@@ -152,7 +152,7 @@ W razie konieczności możesz skontaktować się z pomocą techniczną firmy Qua
    > * Przed 15:00 — odbiór odbędzie się następnego dnia roboczego między 9:00 a 13:00.
    > * Po 15:00 — odbiór odbędzie się następnego dnia roboczego między 14:00 a 18:00.
 
-   W razie jakichkolwiek problemów skontaktuj się z zespołem Data Box Operations Asia, pisząc na adres adbo@microsoft.com. Podaj nazwę zadania w nagłówku tematu oraz opisz napotkany problem.
+   Jeśli występują problemy, skontaktuj się z urządzenie Data Box operacji Azji w [adbo@microsoft.com](mailto:adbo@microsoft.com) . Podaj nazwę zadania w nagłówku tematu oraz opisz napotkany problem.
 
 3. Przekaż przesyłkę kurierowi.
 
@@ -185,7 +185,7 @@ W przypadku zwrotu urządzenia w Republice Południowej Afryki wykonaj następuj
 
     * Dostarcz paczkę do najbliższego punktu obsługującego usługę firmy DHL.
 
-5. W przypadku napotkania problemów wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) ze szczegółowymi informacjami o napotkanych problemach, a w wierszu tematu podaj numer listu przewozowego. Możesz również zadzwonić pod numer +27(0)119213902.
+5. W przypadku wystąpienia jakichkolwiek problemów wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) ze szczegółowymi informacjami o problemach, a w wierszu tematu podaj numer listu przewozowego. Możesz również zadzwonić pod numer +27(0)119213902.
 
 ### <a name="china"></a>[Chiny](#tab/in-china)
 
@@ -205,7 +205,7 @@ W przypadku zwrotu urządzenia w Chinach wykonaj następujące czynności.
 
 3. Po zakończeniu rezerwacji odbioru otrzymasz od firmy FedEx wiadomość e-mail z potwierdzeniem.  
 
-4. Jeśli napotkasz jakiekolwiek problemy, wyślij na adres e-mail [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) wiadomość ze szczegółami napotkanego problemu, w temacie umieszczając nazwę zamówienia.
+4. Jeśli występują problemy, Wyślij wiadomość e-mail [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) ze szczegółowymi informacjami o problemach i umieść ją w wierszu podmiot:.
 
 #### <a name="premier-customer-care-contact-information"></a>Informacje kontaktowe obsługi klienta Premier
 
@@ -229,20 +229,20 @@ W przypadku zwrotu urządzenia w Chinach wykonaj następujące czynności.
 
 ### <a name="self-managed"></a>[Samodzielne zarządzanie](#tab/in-selfmanaged)
 
-Jeśli korzystasz z urządzenia Data Box Disk w Japonii, Singapurze, Korei, Europie Zachodniej, Republice Południowej Afryki, Indiach lub w instytucji rządowej USA oraz masz wybraną opcję samodzielnego zarządzania wysyłką, postępuj zgodnie z następującymi instrukcjami podczas tworzenia zamówienia.
+Jeśli używasz Data Box Disk w instytucji rządowych USA, Japonia, Singapur, Korea, Zjednoczone Królestwo, Europa Zachodnia, Australia, Republika Południowej Afryki lub Indie i wybrano opcję wysyłki samozarządzanej podczas tworzenia zamówienia, postępuj zgodnie z tymi instrukcjami.
 
 1. Przejdź do bloku **Przegląd** odpowiedniego dla swojego zamówienia w witrynie Azure Portal. Wykonaj instrukcje wyświetlane po wybraniu pozycji **Zaplanuj odebranie**. Powinien zostać wyświetlony kod autoryzacji, który jest używany przy dostarczaniu zamówienia.
 
-2. Gdy zechcesz odesłać urządzenie, wyślij wiadomość e-mail do zespołu operacyjnego usługi Azure Data Box, korzystając z następującego szablonu.
+2. Wyślij wiadomość e-mail do zespołu operacji Azure Data Box, korzystając z następującego szablonu, gdy wszystko będzie gotowe do zwrócenia urządzenia.
 
     ```
     To: adbops@microsoft.com
     Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body:
      a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
     ```
-3. Zespół operacyjny usługi Azure Data Box zaplanuje razem z Tobą jego dostarczenie do centrum danych platformy Azure.
+3. Zespół operacyjny Azure Data Box będzie współdziałać z tym, aby rozmieścić listę rozwijaną z centrum danych platformy Azure.
 
 ---
 
@@ -256,7 +256,7 @@ W tym samouczku przedstawiono zagadnienia dotyczące urządzenia Azure Data Box 
 >
 > * Wysyłanie urządzenia Data Box Disk do firmy Microsoft
 
-Przejdź dalej, aby dowiedzieć się, jak zweryfikować przekazanie danych z urządzenia Data Box Disk do konta usługi Azure Storage.
+Przejdź do następnej procedury, aby dowiedzieć się, jak zweryfikować przekazywanie danych z Data Box Disk na konto usługi Azure Storage.
 
 > [!div class="nextstepaction"]
 > [Weryfikowanie przekazania danych z urządzenia Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)

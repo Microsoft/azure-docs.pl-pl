@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 83d7263d430ed9dc8f2f61711fc4c1339ba03810
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 118ab33c8d8ce46559957236daa21ba494655e69
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662934"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526283"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -392,10 +392,30 @@ Ponad 75 standardowych głosów jest dostępnych w ponad 45 językach i ustawien
 
 ### <a name="customization"></a>Dostosowywanie
 
-Dostosowanie głosu jest dostępne dla,,,,,,,, `de-DE` `en-GB` `en-IN` `en-US` `es-MX` `fr-FR` `it-IT` `pt-BR` i `zh-CN` . Wybierz odpowiednie ustawienia regionalne, które pasują do danych szkoleniowych, które są potrzebne do uczenia niestandardowego modelu głosu. Na przykład jeśli dane dotyczące nagrywania są wymawiane w języku angielskim z akcentem brytyjskim, wybierz opcję `en-GB` .
+Niestandardowy głos jest dostępny w warstwach Standardowa i neuronowych. Obsługiwane języki są różne dla tych dwóch warstw. 
+
+| Język | Regionalne | Standardowa | Neuronowych |
+|--|--|--|--|
+| Chiński (mandarynki, uproszczony) | `zh-CN` | Tak | Tak |
+| Chiński (mandarynki, uproszczony), dwujęzyczny w języku angielskim | `zh-CN` dwujęzyczn | Tak | Tak |
+| Angielski (Australia) | `en-AU` | Nie | Tak |
+| Angielski (Indie) | `en-IN` | Tak | Tak |
+| Angielski (Zjednoczone Królestwo) | `en-GB` | Tak | Tak |
+| Angielski (Stany Zjednoczone) | `en-US` | Tak | Tak |
+| francuski (Kanada) | `fr-CA` | Nie | Tak |
+| Francuski (Francja) | `fr-FR` | Tak | Tak |
+| Niemiecki (Niemcy) | `de-DE` | Tak | Tak |
+| Włoski (Włochy) | `it-IT` | Tak | Tak |
+| Japoński (Japonia) | `ja-JP` | Nie | Tak |
+| Koreański (Korea) | `ko-KR` | Nie | Tak |
+| Portugalski (Brazylia) | `pt-BR` | Tak | Tak |
+| Hiszpański (Meksyk) | `es-MX` | Tak | Tak |
+| hiszpański (Hiszpania) | `es-ES` | Nie | Tak |
+
+Wybierz odpowiednie ustawienia regionalne, które pasują do danych szkoleniowych, które są potrzebne do uczenia niestandardowego modelu głosu. Na przykład jeśli dane dotyczące nagrywania są wymawiane w języku angielskim z akcentem brytyjskim, wybierz opcję `en-GB` .
 
 > [!NOTE]
-> Nie obsługujemy szkolenia modelu dwujęzykowego w głosowaniu niestandardowym, z wyjątkiem Chinese-English dwujęzykowego. Wybierz pozycję "dwujęzyczne w języku chińskim English", jeśli chcesz nauczyć się nauczenie języka chińskiego w języku angielskim. Szkolenia głosowe we wszystkich ustawieniach regionalnych zaczynają się od zestawu danych 2000 + wyrażenia długości, z wyjątkiem tego, `en-US` `zh-CN` gdzie można zacząć od dowolnego rozmiaru danych szkoleniowych.
+> Nie obsługujemy szkolenia modelu dwujęzykowego w głosowaniu niestandardowym, z wyjątkiem Chinese-English dwujęzykowego. Wybierz pozycję "dwujęzyczne w języku chińskim English", jeśli chcesz nauczyć się nauczenie języka chińskiego w języku angielskim. Chinese-English szkolenia modelu dwujęzycznego przy użyciu standardowej metody są dostępne tylko w Europie Północnej i Północno-środkowe stany USA. Niestandardowe szkolenia głosowe neuronowych są dostępne w Południowe Zjednoczone Królestwo i Wschodnie stany USA.
 
 ## <a name="speech-translation"></a>Tłumaczenie mowy
 

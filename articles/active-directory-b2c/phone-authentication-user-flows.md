@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ce9b60ead9aff792bf2e4e98841469d58620ccd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1ed0ca069f29413083356a3147d4b97f1b6ed981
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754682"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525199"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Skonfiguruj rejestrację i logowanie za telefon na potrzeby przepływów użytkowników (wersja zapoznawcza)
 
@@ -59,7 +59,7 @@ Rejestracja w wiadomościach e-mail jest domyślnie włączona w ustawieniach do
 
 ## <a name="add-phone-sign-up-to-a-user-flow"></a>Dodawanie konta służbowego do przepływu użytkownika
 
-Po dodaniu rejestracji za pomocą telefonu jako opcji tożsamości dla kont lokalnych możesz dodać ją do przepływów użytkowników, o ile są one najnowszymi **zalecanymi** wersjami przepływu użytkownika. Poniżej znajduje się przykład przedstawiający sposób dodawania rejestracji do nowego przepływu użytkownika. Można jednak również dodać rejestrację telefonu do istniejących, zalecanych przepływów użytkowników (wybierz **przepływy użytkownika**  >  *Nazwa przepływu użytkownika*  >  **Identity providers**  >  **konta lokalnego Rejestracja** dostawcy). 
+Po dodaniu rejestracji za pomocą telefonu jako opcji tożsamości dla kont lokalnych możesz dodać ją do przepływów użytkowników, o ile są one najnowszymi **zalecanymi** wersjami przepływu użytkownika. Poniżej znajduje się przykład przedstawiający sposób dodawania rejestracji do nowego przepływu użytkownika. Można jednak również dodać rejestrację telefonu do istniejących, zalecanych przepływów użytkowników (wybierz **przepływy użytkownika**  >  *Nazwa przepływu użytkownika*  >    >  **konta lokalnego Rejestracja** dostawcy). 
 
 Oto przykład przedstawiający sposób dodawania rejestracji do nowego przepływu użytkownika.
 
@@ -89,7 +89,7 @@ Oto przykład przedstawiający sposób dodawania rejestracji do nowego przepływ
 9. W obszarze **dostawcy tożsamości społecznościowej** wybierz innych dostawców tożsamości, których chcesz zezwolić na ten przepływ użytkownika.
 
    > [!NOTE]
-   > Uwierzytelnianie wieloskładnikowe (MFA) jest domyślnie wyłączone. Usługę MFA można włączyć dla przepływu użytkownika w celu rejestracji telefonu, ale ponieważ numer telefonu jest używany jako identyfikator podstawowy, to jedyną opcją dostępną dla drugiego czynnika uwierzytelniania.
+   > Uwierzytelnianie wieloskładnikowe (MFA) jest domyślnie wyłączone dla przepływów użytkowników logujących się. Usługę MFA można włączyć dla przepływu użytkownika w celu rejestracji telefonu, ale ponieważ numer telefonu jest używany jako identyfikator podstawowy, to jedyną opcją dostępną dla drugiego czynnika uwierzytelniania.
 
 1. W sekcji **atrybuty użytkownika i oświadczenia tokenu** wybierz oświadczenia i atrybuty, które mają być zbierane i wysyłane przez użytkownika podczas tworzenia konta. Na przykład wybierz pozycję **Pokaż więcej**, a następnie wybierz atrybuty i oświadczenia dla **kraju/regionu**, **Nazwa wyświetlana** i **Kod pocztowy**. Wybierz przycisk **OK**.
 

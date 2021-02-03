@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2021
+ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: 5dd58dd5f43481184b17ca4bdd694a1df76697db
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: cdc29f89307a986b2d71604ca495eac45458632b
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916471"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526623"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -29,6 +29,49 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 
 > [!TIP]
 > Jeśli szukasz elementów starszych niż sześć miesięcy, znajdziesz je w [archiwum, co nowego w programie Azure Security Center](release-notes-archive.md).
+
+
+## <a name="february-2021"></a>Luty 2021
+
+Aktualizacje w lutym obejmują:
+
+- [Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [Bezpośrednie łącze do zasad z poziomu strony Szczegóły rekomendacji](#direct-link-to-policy-from-recommendation-details-page)
+- [Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik](#sql-data-classification-recommendation-no-longer-affect-your-secure-score)
+
+### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)
+
+Mamy przyjemność poinformować o ogólnej dostępności zestawu zaleceń dotyczących ochrony obciążeń Kubernetes.
+
+Aby zapewnić, że obciążenia Kubernetes są zabezpieczone domyślnie, Security Center dodaliśmy zalecenia dotyczące poziomu Kubernetes, w tym opcje wymuszania z Kubernetes Admission Control.
+
+Gdy w klastrze usługi Azure Kubernetes Service (AKS) jest zainstalowany dodatek Azure Policy dla programu Kubernetes, każde żądanie do serwera interfejsu API Kubernetes zostanie monitorowane względem wstępnie zdefiniowanego zestawu najlepszych rozwiązań — od 13 zaleceń dotyczących zabezpieczeń — przed utrwaleniem w klastrze. Następnie można skonfigurować w celu wymuszenia najlepszych rozwiązań i ich upoważnienia do przyszłych obciążeń.
+
+Na przykład można przystąpić do tego, że kontenery uprzywilejowane nie powinny być tworzone, a wszystkie przyszłe żądania, które należy wykonać, zostaną zablokowane.
+
+Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
+
+> [!NOTE]
+> Mimo że zalecenia były w wersji zapoznawczej, nie spowodowało to złej kondycji zasobów klastra AKS i nie zostały uwzględnione w obliczeniach bezpiecznego wyniku. w tym ogłoszeniu na ten temat zostanie uwzględniony wynik obliczeń. Jeśli jeszcze ich nie skorygowano, może to spowodować niewielki wpływ na bezpieczny wynik. Skoryguj je wszędzie tam, gdzie to możliwe, zgodnie z opisem zawartym w temacie [Koryguj zalecenia w Azure Security Center](security-center-remediate-recommendations.md).
+
+
+### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Bezpośrednie łącze do zasad z poziomu strony Szczegóły rekomendacji
+
+Gdy przeglądasz szczegóły zalecenia, często warto mieć możliwość wyświetlenia podstawowych zasad. Dla każdego zalecenia obsługiwanego przez zasady istnieje nowe łącze na stronie Szczegóły zalecenia:
+
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link do Azure Policy stronie dla określonych zasad wspierających zalecenie":::
+
+Użyj tego linku, aby wyświetlić definicję zasad i przejrzeć logikę oceny. 
+
+Jeśli przeglądasz listę zaleceń w [przewodniku dotyczącym zaleceń dotyczących zabezpieczeń](recommendations-reference.md), zobaczysz również następujące linki do stron definicji zasad:
+
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Uzyskiwanie dostępu do strony Azure Policy dla określonych zasad bezpośrednio z poziomu strony informacje o zaleceniach Azure Security Center":::
+
+
+### <a name="sql-data-classification-recommendation-no-longer-affect-your-secure-score"></a>Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik
+
+Nie ma już wpływu na **ważne dane w bazach danych SQL** . Jest to jedyne zalecenie w kontroli zabezpieczeń **Zastosuj klasyfikację danych** , dzięki czemu kontrolka ma teraz bezpieczną wartość oceny równą 0.
+
 
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
@@ -102,9 +145,12 @@ Dowiedz się więcej o [bezpiecznych kontrolach oceny i zabezpieczeń w Azure Se
 
 ### <a name="secure-score-api-is-released-for-general-availability-ga"></a>Interfejs API oceny zabezpieczeń jest publikowany na potrzeby ogólnej dostępności
 
-Teraz możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API protokołu Secure Score](/rest/api/securitycenter/securescores/). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć interfejsu API **Secure Scores** , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć interfejsu API **kontroli** zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
+Teraz możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API protokołu Secure Score](/rest/api/securitycenter/securescores/). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład:
 
-Aby zapoznać się z przykładowymi narzędziami zewnętrznymi z bezpiecznym interfejsem API oceny, zapoznaj [się z obszarem "bezpieczeństwo" w naszej społeczności usługi GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+- Korzystanie z interfejsu API funkcji **Secure Scores** w celu uzyskania wyników dla określonej subskrypcji
+- Użyj interfejsu API **kontroli wyników bezpiecznego** , aby wyświetlić listę kontrolek zabezpieczeń i bieżący wynik subskrypcji
+
+Dowiedz się więcej na temat zewnętrznych narzędzi, które są dostępne z interfejsem API oceny zabezpieczeń w [obszarze bezpiecznych punktów społeczności usługi GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
 Dowiedz się więcej o [bezpiecznych kontrolach oceny i zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
 
@@ -156,7 +202,7 @@ Dowiedz się więcej w:
 
 Rozszerzamy możliwości wykluczenia, aby uwzględnić wszystkie zalecenia. Udostępnienie dalszych opcji dostosowania zaleceń dotyczących zabezpieczeń, które Security Center dla subskrypcji, grupy zarządzania lub zasobów.
 
-Czasami zasób zostanie wyświetlony jako nieprawidłowy, gdy wiadomo, że problem został rozwiązany przez narzędzie innej firmy, które nie wykryto Security Center. Lub zalecenie będzie widoczne w zakresie, w którym uważasz, że nie należy. Zalecenie może być nieodpowiednie dla określonej subskrypcji. Lub być może Twoja organizacja zdecydowała się na zaakceptowanie ryzyka związanego z konkretnym zasobem lub zaleceniem.
+Czasami zasób zostanie wyświetlony jako nieprawidłowy, gdy wiadomo, że problem został rozwiązany przez narzędzie innej firmy, które nie wykryto Security Center. Lub zalecenie będzie widoczne w zakresie, w którym uważasz, że nie należy. Zalecenie może być nieodpowiednie dla określonej subskrypcji. Lub być może Twoja organizacja zdecydowała się zaakceptować ryzyko związane z konkretnym zasobem lub zaleceniem.
 
 Za pomocą tej funkcji w wersji zapoznawczej można teraz utworzyć wykluczenie dla zalecenia:
 
@@ -233,7 +279,7 @@ Podczas definiowania eksportu ciągłego należy ustawić częstotliwość ekspo
 
 :::image type="content" source="media/release-notes/export-frequency.png" alt-text="Wybieranie częstotliwości eksportu ciągłego":::
 
-- **Przesyłanie strumieniowe** — oceny są wysyłane w czasie rzeczywistym, gdy stan kondycji zasobu zostanie zaktualizowany (jeśli nie wystąpią żadne aktualizacje, nie będą wysyłane żadne dane).
+- **Przesyłanie strumieniowe** — oceny zostaną przesłane w czasie rzeczywistym, gdy stan kondycji zasobu zostanie zaktualizowany (jeśli nie wystąpią żadne aktualizacje, żadne dane nie zostaną wysłane).
 - **Migawki** — migawka bieżącego stanu wszystkich ocen zgodności z przepisami będzie wysyłana co tydzień (jest to funkcja w wersji zapoznawczej dla cotygodniowych migawek bezpiecznych ocen i danych zgodności z przepisami).
 
 Dowiedz się więcej na temat pełnych możliwości tej funkcji w [sposób ciągły eksportujący dane Security Center](continuous-export.md)
@@ -347,7 +393,7 @@ Strona spisu w Azure Security Center została odświeżona z następującymi zmi
 - **Przewodniki i opinie** dodane do paska narzędzi. Spowoduje to otwarcie okienka z linkami do powiązanych informacji i narzędzi. 
 - **Filtr subskrypcje** został dodany do domyślnych filtrów dostępnych dla Twoich zasobów.
 - **Otwórz link zapytania** , aby otworzyć bieżące opcje filtru jako zapytanie wykresu zasobów platformy Azure (dawniej "widok w Eksploratorze grafu zasobów").
-- **Opcje operatora** dla każdego filtru. Teraz można wybrać spośród dodatkowych operatorów logicznych innych niż "=". Na przykład możesz chcieć znaleźć wszystkie zasoby z aktywnymi zaleceniami, których tytuły zawierają ciąg "Szyfruj". 
+- **Opcje operatora** dla każdego filtru. Teraz można wybrać spośród większej liczby operatorów logicznych niż "=". Na przykład możesz chcieć znaleźć wszystkie zasoby z aktywnymi zaleceniami, których tytuły zawierają ciąg "Szyfruj". 
 
     :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Kontrolki dla opcji operatora w filtrach spisu zasobów":::
 
@@ -358,7 +404,7 @@ Dowiedz się więcej na temat spisu w temacie [Eksplorowanie zasobów i zarządz
 
 Zalecenie "aplikacje sieci Web powinno zażądać certyfikatu SSL dla wszystkich żądań przychodzących" zostało przeniesione z kontroli zabezpieczeń **Zarządzanie dostępem i uprawnieniami** (wartość maksymalna wynosząca 4) do **implementacji najlepszych** rozwiązań w zakresie zabezpieczeń (które nie uwzględnia żadnych punktów). 
 
-Zapewnienie, aby aplikacje sieci Web żądały certyfikatu, co sprawia, że są bezpieczniejsze. Jednak dla publicznych aplikacji sieci Web jest to nieistotne. Jeśli uzyskujesz dostęp do witryny za pośrednictwem protokołu HTTP, a nie HTTPS, nie otrzymasz żadnych certyfikatów klienta. Dlatego jeśli aplikacja wymaga certyfikatów klienta, nie należy zezwalać na żądania do aplikacji za pośrednictwem protokołu HTTP. Dowiedz się więcej w temacie [Konfigurowanie wzajemnego uwierzytelniania TLS dla Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
+Upewnienie się, że aplikacja internetowa żąda certyfikatu, co sprawia, że jest bezpieczniejsze. Jednak dla publicznych aplikacji sieci Web jest to nieistotne. Jeśli uzyskujesz dostęp do witryny za pośrednictwem protokołu HTTP, a nie HTTPS, nie otrzymasz żadnych certyfikatów klienta. Dlatego jeśli aplikacja wymaga certyfikatów klienta, nie należy zezwalać na żądania do aplikacji za pośrednictwem protokołu HTTP. Dowiedz się więcej w temacie [Konfigurowanie wzajemnego uwierzytelniania TLS dla Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
 W przypadku tej zmiany zalecenie jest teraz zalecanym najlepszym rozwiązaniem, które nie ma wpływu na ocenę. 
 
@@ -371,7 +417,7 @@ Azure Security Center monitoruje wszystkie połączone zasoby i generuje zalecen
 
 Ponieważ Security Center w dalszym ciągu rozszerza swój zakres i funkcje, lista zaleceń dotyczących zabezpieczeń rośnie co miesiąc. Na przykład zapoznaj [się z artykułem 29 zaleceń dotyczących wersji zapoznawczych, aby zwiększyć zakres testów zabezpieczeń platformy Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
 
-Mając listę rozwijaną, należy mieć możliwość filtrowania do zaleceń o największym znaczeniu. W listopadzie dodaliśmy filtry do strony zalecenia (zobacz [Lista zaleceń zawiera teraz filtry](#recommendations-list-now-includes-filters)).
+Mając listę rozwijaną, istnieje konieczność filtrowania zaleceń w celu znalezienia najważniejszych korzyści. W listopadzie dodaliśmy filtry do strony zalecenia (zobacz [Lista zaleceń zawiera teraz filtry](#recommendations-list-now-includes-filters)).
 
 Filtry dodane w tym miesiącu zapewniają opcje, aby uściślić listę zaleceń zgodnie z:
 
@@ -423,7 +469,7 @@ Aktualizacje w listopadzie obejmują:
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 zaleceń dotyczących wersji zapoznawczej dodanych w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
 
-Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane do najlepszych rozwiązań w zakresie bezpieczeństwa i zapewniających zgodność. [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
+Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane w oparciu o typowe struktury zgodności. [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
 
 Do Security Center dodano następujące zalecenia dotyczące wersji zapoznawczej w celu zwiększenia zakresu tego testu porównawczego.
 
@@ -475,7 +521,7 @@ Teraz można filtrować listę zaleceń dotyczących zabezpieczeń zgodnie z zak
 
 Funkcja autoaprowizacji pozwala zmniejszyć obciążenie związane z zarządzaniem przez zainstalowanie wymaganych rozszerzeń na nowych maszynach wirtualnych platformy Azure, które mogą korzystać z ochrony Security Center. 
 
-W miarę zwiększania Azure Security Center, opracowano więcej rozszerzeń i Security Center może monitorować większą listę typów zasobów. Narzędzia do samoobsługowego udostępniania zostały teraz rozwinięte w celu obsługi dodatkowych rozszerzeń i typów zasobów, wykorzystując możliwości Azure Policy.
+W miarę zwiększania Azure Security Center, opracowano więcej rozszerzeń i Security Center może monitorować większą listę typów zasobów. Narzędzia do samoobsługowego udostępniania zostały teraz rozwinięte w celu obsługi innych rozszerzeń i typów zasobów, wykorzystując możliwości Azure Policy.
 
 Teraz można skonfigurować funkcję samoobsługowego udostępniania:
 
@@ -575,7 +621,7 @@ Aby uzyskać więcej informacji na temat tego zalecenia i wszystkie inne zalecen
 
 Pulpit nawigacyjny zgodności z przepisami Security Center zapewnia wgląd w stan zgodności w zależności od tego, jak spełniasz określone wymagania kontroli zgodności.
 
-Pulpit nawigacyjny zawiera domyślny zestaw standardów prawnych. Jeśli którekolwiek z podanych standardów nie są odpowiednie dla Twojej organizacji, to teraz prosty proces, po prostu usunąć go z interfejsu użytkownika dla subskrypcji. Standardy można usuwać tylko na poziomie *subskrypcji* . to nie jest zakres grupy zarządzania.
+Pulpit nawigacyjny zawiera domyślny zestaw standardów prawnych. Jeśli którekolwiek z podanych standardów nie są odpowiednie dla Twojej organizacji, jest to prosty proces usuwania ich z interfejsu użytkownika dla subskrypcji. Standardy można usuwać tylko na poziomie *subskrypcji* . to nie jest zakres grupy zarządzania.
 
 Dowiedz się więcej w temacie [usuwanie standardu z pulpitu nawigacyjnego](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard).
 
@@ -699,7 +745,7 @@ Aktualizacje we wrześniu obejmują:
 
 ### <a name="security-center-gets-a-new-look"></a>Security Center Pobiera nowy wygląd!
 
-Opublikowano odświeżony interfejs użytkownika dla stron portalu Security Center. Nowe strony zawierają nową stronę przeglądu, a także pulpity nawigacyjne do zabezpieczania oceny, spisu zasobów i usługi Azure Defender.
+Opublikowano odświeżony interfejs użytkownika dla stron portalu Security Center. Nowe strony zawierają nową stronę przeglądu i pulpity nawigacyjne do zabezpieczania oceny, spisu zasobów i usługi Azure Defender.
 
 Przeprojektowana Strona przeglądu zawiera teraz kafelek umożliwiające dostęp do usług pulpitu nawigacyjnego bezpiecznego oceny, spisu zasobów i usługi Azure Defender. Zawiera również kafelek łączący pulpit nawigacyjny zgodności z przepisami.
 
@@ -892,114 +938,3 @@ Przykład zalecenia dotyczącego wersji zapoznawczej:
 Strona szczegóły dotyczące rekomendacji zawiera teraz wskaźnik czasu świeżości (jeśli dotyczy) oraz jasne wyświetlanie ważności zalecenia.
 
 :::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Strona rekomendacja przedstawiająca aktualność i ważność":::
-
-
-
-## <a name="august-2020"></a>Sierpień 2020 r.
-
-Aktualizacje w sierpniu obejmują:
-
-- [Spis zasobów — zaawansowany nowy widok stan zabezpieczeń zasobów](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
-- [Dodano obsługę domyślnych ustawień zabezpieczeń Azure Active Directory (w przypadku uwierzytelniania wieloskładnikowego)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
-- [Dodano zalecenie dotyczące jednostek usługi](#service-principals-recommendation-added)
-- [Ocena luk w zabezpieczeniach maszyn wirtualnych — zaleceń i zasad skonsolidowanych](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
-- [Nowe zasady zabezpieczeń AKS dodane do inicjatywy ASC_default — wyłącznie do użytku przez klientów prywatnej wersji zapoznawczej](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
-
-
-### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Spis zasobów — zaawansowany nowy widok stan zabezpieczeń zasobów
-
-Security Center spisu zasobów (obecnie w wersji zapoznawczej) umożliwia wyświetlenie stan zabezpieczeń zasobów, z którymi nawiązano połączenie Security Center.
-
-Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach. Jeśli którykolwiek z zasobów ma zaległe zalecenia, zostaną one wyświetlone w spisie.
-
-Widok i jego Filtry umożliwiają Eksplorowanie danych stan zabezpieczeń i podejmowanie dalszych działań w oparciu o Twoje wyniki.
-
-Dowiedz się więcej na temat [spisu zasobów](asset-inventory.md).
-
-
-### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Dodano obsługę domyślnych ustawień zabezpieczeń Azure Active Directory (w przypadku uwierzytelniania wieloskładnikowego)
-
-Security Center dodaliśmy pełną obsługę [zabezpieczeń domyślnych](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), bezpłatna ochrona zabezpieczeń firmy Microsoft.
-
-Wartości domyślne zabezpieczeń zapewniają wstępnie skonfigurowane ustawienia zabezpieczeń tożsamości, aby chronić organizację przed typowymi atakami związanymi z tożsamościami. Zabezpieczenia domyślne chronią już więcej niż 5 000 000 dzierżawców; dzierżawy 50 000 są również chronione przez Security Center.
-
-Security Center teraz zawiera zalecenie dotyczące zabezpieczeń, za każdym razem, gdy zidentyfikuje subskrypcję platformy Azure bez włączonej wartości domyślnej zabezpieczeń. Do tej pory Security Center zalecane włączenie uwierzytelniania wieloskładnikowego przy użyciu dostępu warunkowego, który jest częścią licencji Premium Azure Active Directory (AD). W przypadku klientów korzystających bezpłatnie z usługi Azure AD zalecamy włączenie ustawień domyślnych zabezpieczeń. 
-
-Naszym celem jest zachęcanie większej liczby klientów do zabezpieczania środowisk w chmurze za pomocą usługi MFA i łagodzenie jednego z największych zagrożeń, które są również najbardziej wpływem na [bezpieczny wynik](secure-score-security-controls.md).
-
-Dowiedz się więcej o [domyślnych ustawieniach zabezpieczeń](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
-
-
-### <a name="service-principals-recommendation-added"></a>Dodano zalecenie dotyczące jednostek usługi
-
-Dodano nowe zalecenie, aby zalecić Security Center klientom używającym certyfikatów zarządzania do zarządzania swoimi subskrypcjami przełączać się do podmiotów usługi.
-
-Zaleca się, **Aby Ochrona Twoich subskrypcji zamiast certyfikatów zarządzania była chroniona** przy użyciu jednostek usługi lub Azure Resource Manager do bezpieczniejszego zarządzania subskrypcjami. 
-
-Więcej informacji o [obiektach głównych aplikacji i usług znajduje się w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object).
-
-
-### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Ocena luk w zabezpieczeniach maszyn wirtualnych — zaleceń i zasad skonsolidowanych
-
-Security Center przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione rozwiązanie do oceny luk w zabezpieczeniach. Jeśli nie zostanie odnalezione rozwiązanie do oceny luk w zabezpieczeniach, Security Center zapewnia zalecenie upraszczające wdrożenie.
-
-Po znalezieniu luk w zabezpieczeniach Security Center zawiera zalecenia podsumowujące wyniki, które należy zbadać i skorygować w razie potrzeby.
-
-Aby zapewnić spójne środowisko dla wszystkich użytkowników, niezależnie od używanego typu skanera, zostały ujednolicone cztery zalecenia w następujących dwóch:
-
-|Ujednolicone zalecenie|Zmień opis|
-|----|:----|
-|**Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych**|Zastępuje dwa następujące zalecenia:<br> **•** Włącz wbudowane rozwiązanie do oceny luk w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys (obecnie przestarzałe) (dołączone do warstwy Standardowa)<br> **•** Rozwiązanie do oceny luk w zabezpieczeniach powinno być zainstalowane na maszynach wirtualnych (obecnie przestarzałe) (warstwy Standardowa i bezpłatna)|
-|**Luki w zabezpieczeniach maszyn wirtualnych należy skorygować**|Zastępuje dwa następujące zalecenia:<br>**•** Koryguj luki w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys) (obecnie przestarzałe)<br>**•** Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach (obecnie przestarzałe)|
-|||
-
-Teraz użyjesz tego samego zalecenia do wdrożenia rozszerzenia oceny luk w zabezpieczeniach Security Center lub rozwiązania z licencją prywatną ("BYOL") od partnera, takiego jak Qualys lub Rapid7.
-
-Ponadto po znalezieniu luk w zabezpieczeniach i zaraportowaniu ich do Security Center, jedno zalecenie będzie powiadamiać o wynikach niezależnie od rozwiązania do oceny luk w zabezpieczeniach, które je określiło.
-
-#### <a name="updating-dependencies"></a>Aktualizowanie zależności
-
-Jeśli masz skrypty, zapytania lub automatyzacje odwołujące się do poprzednich zaleceń lub kluczy zasad/nazw, Użyj poniższych tabel, aby zaktualizować odwołania:
-
-##### <a name="before-august-2020"></a>Przed 2020 sierpnia
-
-|Zalecenie|Zakres|
-|----|:----|
-|**Włącz wbudowane rozwiązanie do oceny luk w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys)**<br>Klucz: 550e890b-e652-4d22-8274-60b3bdb24c63|Wbudowane|
-|**Koryguj luki w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys)**<br>Klucz: 1195afff-c881-495e-9bc5-1486211ae03f|Wbudowane|
-|**Rozwiązanie do oceny luk w zabezpieczeniach powinno być zainstalowane na maszynach wirtualnych**<br>Klucz: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
-|**Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach**<br>Klucz: 71992a2a-D168-42e0-b10e-6b45fa2ecddb|BYOL|
-||||
-
-
-|Zasady|Zakres|
-|----|:----|
-|**Ocena luk w zabezpieczeniach powinna być włączona na maszynach wirtualnych**<br>Identyfikator zasad: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Wbudowane|
-|**Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach**<br>Identyfikator zasad: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
-||||
-
-
-##### <a name="from-august-2020"></a>Od sierpnia 2020
-
-|Zalecenie|Zakres|
-|----|:----|
-|**Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych**<br>Klucz: ffff0522-1e88-47fc-8382-2a80ba848f5d|Wbudowane + BYOL|
-|**Luki w zabezpieczeniach maszyn wirtualnych należy skorygować**<br>Klucz: 1195afff-c881-495e-9bc5-1486211ae03f|Wbudowane + BYOL|
-||||
-
-|Zasady|Zakres|
-|----|:----|
-|[**Ocena luk w zabezpieczeniach powinna być włączona na maszynach wirtualnych**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Identyfikator zasad: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Wbudowane + BYOL|
-||||
-
-
-### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Nowe zasady zabezpieczeń AKS dodane do inicjatywy ASC_default — wyłącznie do użytku przez klientów prywatnej wersji zapoznawczej
-
-Aby zapewnić, że obciążenia Kubernetes są zabezpieczone domyślnie, Security Center dodaje zasady na poziomie Kubernetes i zalecenia dotyczące ograniczania funkcjonalności, w tym opcje wymuszania z Kubernetes Admission Control.
-
-Wczesna Faza tego projektu obejmuje prywatną wersję zapoznawczą oraz dodanie nowych (domyślnie wyłączonych) zasad do inicjatywy ASC_default.
-
-Można bezpiecznie zignorować te zasady i nie będzie to miało wpływu na Twoje środowisko. Jeśli chcesz je włączyć, Utwórz konto w wersji zapoznawczej, https://aka.ms/SecurityPrP a następnie wybierz jedną z następujących opcji:
-
-1. **Pojedynczej wersji zapoznawczej** — aby dołączyć tylko do tej prywatnej wersji zapoznawczej. Jawnie wskaż "ciągłe skanowanie ASC" jako wersję zapoznawczą, do której chcesz dołączyć.
-1. **Program** będący w toku — zostanie dodany do tego i przyszłych wersji zapoznawczych. Musisz ukończyć profil i umowę o ochronie prywatności.

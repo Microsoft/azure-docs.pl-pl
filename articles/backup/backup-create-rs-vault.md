@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak tworzyć i konfigurować magazyny 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4022838575ca53608a802a6be95e150778db6ac7
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915730"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525978"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Tworzenie i Konfigurowanie magazynu Recovery Services
 
@@ -71,6 +71,7 @@ Ponieważ ten proces jest na poziomie magazynu, istnieją [implikacje cenowe](ht
 >- Po przypisaniu elementów kopii zapasowych w regionach pomocniczych może upłynąć do 48 godzin.
 >- Obecnie CRR dla maszyn wirtualnych platformy Azure są obsługiwane tylko dla maszyn wirtualnych platformy Azure z usługą Azure Resource Manager. Klasyczne maszyny wirtualne platformy Azure nie będą obsługiwane.  Gdy dodatkowe typy zarządzania obsługują CRR, zostaną one **automatycznie** zarejestrowane.
 >- **Nie można obecnie** przywrócić operacji przywracania między regionami do GRS lub LRS po zainicjowaniu ochrony po raz pierwszy.
+>- Obecnie punkt [odzyskiwania](azure-backup-glossary.md#rpo-recovery-point-objective) regionu pomocniczego to do 12 godzin z regionu podstawowego, nawet jeśli replikacja [geograficznie nadmiarowa do odczytu (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) jest 15 minut.
 
 ### <a name="configure-cross-region-restore"></a>Konfigurowanie przywracania między regionami
 

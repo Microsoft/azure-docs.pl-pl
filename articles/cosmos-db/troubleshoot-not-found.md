@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b112cc80984a761e780f134731476f9dff4f687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96017563"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525775"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnozowanie i rozwiązywanie problemów z nieznalezionymi wyjątkami Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -102,7 +102,7 @@ Poczekaj na przechwycenie lub zmianę zasad indeksowania przez indeksowanie.
 Baza danych lub kontener, w którym znajduje się element, został usunięty.
 
 #### <a name="solution"></a>Rozwiązanie:
-1. [Przywróć](./online-backup-and-restore.md#request-data-restore-from-a-backup) zasób nadrzędny lub ponownie utwórz zasoby.
+1. [Przywróć](./configure-periodic-backup-restore.md#request-restore) zasób nadrzędny lub ponownie utwórz zasoby.
 1. Utwórz nowy zasób, aby zastąpić usunięty zasób.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. nazwy kontenerów/kolekcji są rozróżniane wielkości liter

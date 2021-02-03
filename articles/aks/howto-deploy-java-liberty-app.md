@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: Java, jakartaee, JavaEE, mikroprofil, Open-wolność, WebSphere-wolność, AKS, Kubernetes
-ms.openlocfilehash: 4d6e335cd4b522593091094ac6251acc97873208
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 2e025c706512b6ab3945118da996b11a5a8a9585
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508064"
+ms.locfileid: "99526894"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>Wdróż aplikację Java z otwartą wolnością lub WebSphere wolnością w klastrze usługi Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ W tym przewodniku przedstawiono sposób uruchamiania aplikacji Java, Java EE, [D
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów, *środowisko Java-wolność-Project* przy użyciu polecenia [AZ Group Create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) w lokalizacji *Wschodnie* . Zostanie ona użyta do utworzenia wystąpienia Azure Container Registry (ACR) i klastra AKS w późniejszym czasie. 
+Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów, *środowisko Java-wolność-Project* przy użyciu polecenia [AZ Group Create](/cli/azure/group#az_group_create) w lokalizacji *Wschodnie* . Zostanie ona użyta do utworzenia wystąpienia Azure Container Registry (ACR) i klastra AKS w późniejszym czasie. 
 
 ```azurecli-interactive
 az group create --name java-liberty-project --location eastus
@@ -39,7 +39,7 @@ az group create --name java-liberty-project --location eastus
 
 ## <a name="create-an-acr-instance"></a>Tworzenie wystąpienia ACR
 
-Użyj polecenia [AZ ACR Create](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az_acr_create) , aby utworzyć wystąpienie ACR. Poniższy przykład tworzy wystąpienie ACR o nazwie *youruniqueacrname*. Upewnij się, że *youruniqueacrname* jest unikatowy na platformie Azure.
+Użyj polecenia [AZ ACR Create](/cli/azure/acr#az_acr_create) , aby utworzyć wystąpienie ACR. Poniższy przykład tworzy wystąpienie ACR o nazwie *youruniqueacrname*. Upewnij się, że *youruniqueacrname* jest unikatowy na platformie Azure.
 
 ```azurecli-interactive
 az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
@@ -70,7 +70,7 @@ Po `Login Succeeded` pomyślnym zalogowaniu się do wystąpienia ACR powinna zos
 
 ## <a name="create-an-aks-cluster"></a>Tworzenie klastra AKS
 
-Utwórz klaster AKS za pomocą polecenia [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create). W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Wykonanie tej czynności potrwa kilka minut.
+Utwórz klaster AKS za pomocą polecenia [az aks create](/cli/azure/aks#az_aks_create). W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Wykonanie tej czynności potrwa kilka minut.
 
 ```azurecli-interactive
 az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-managed-identity
@@ -87,13 +87,13 @@ Po kilku minutach polecenie zostanie wykonane i zwróci informacje w formacie JS
 
 ### <a name="connect-to-the-aks-cluster"></a>Nawiązywanie połączenia z klastrem AKS
 
-Aby zarządzać klastrem Kubernetes, należy użyć klienta wiersza polecenia usługi Kubernetes — narzędzia [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). Jeśli korzystasz z usługi Azure Cloud Shell, narzędzie `kubectl` jest już zainstalowane. Aby zainstalować narzędzie `kubectl` lokalnie, użyj polecenia [az aks install-cli](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_install_cli):
+Aby zarządzać klastrem Kubernetes, należy użyć klienta wiersza polecenia usługi Kubernetes — narzędzia [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). Jeśli korzystasz z usługi Azure Cloud Shell, narzędzie `kubectl` jest już zainstalowane. Aby zainstalować narzędzie `kubectl` lokalnie, użyj polecenia [az aks install-cli](/cli/azure/aks#az_aks_install_cli):
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_credentials). To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
+Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group java-liberty-project --name myAKSCluster --overwrite-existing
@@ -220,7 +220,7 @@ Otwórz przeglądarkę internetową na zewnętrznym adresie IP i porcie usługi 
 
 ## <a name="clean-up-the-resources"></a>Oczyszczanie zasobów
 
-Aby uniknąć naliczania opłat za platformę Azure, należy wyczyścić zasoby niepotrzebne.  Gdy klaster nie jest już wymagany, użyj polecenia [AZ Group Delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) , aby usunąć grupę zasobów, usługę kontenera, rejestr kontenerów i wszystkie powiązane zasoby.
+Aby uniknąć naliczania opłat za platformę Azure, należy wyczyścić zasoby niepotrzebne.  Gdy klaster nie jest już wymagany, użyj polecenia [AZ Group Delete](/cli/azure/group#az_group_delete) , aby usunąć grupę zasobów, usługę kontenera, rejestr kontenerów i wszystkie powiązane zasoby.
 
 ```azurecli-interactive
 az group delete --name java-liberty-project --yes --no-wait
