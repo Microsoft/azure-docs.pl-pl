@@ -3,12 +3,12 @@ title: Monitorowanie i rejestrowanie — Azure
 description: Ten artykuł zawiera omówienie monitorowania i rejestrowania w usłudze Live Video Analytics na IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878108"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507826"
 ---
 # <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
@@ -254,14 +254,14 @@ Wykonaj następujące kroki, aby włączyć zbieranie metryk z poziomu usługi L
       urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
 
     [[outputs.azure_monitor]]
-      namespace_prefix = ""
+      namespace_prefix = "lvaEdge"
       region = "westus"
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
     > Pamiętaj, aby zastąpić zmienne w pliku. toml. Zmienne są oznaczane nawiasami klamrowymi ( `{}` ).
 
-1. W tym samym folderze Utwórz zawierający `.dockerfile` następujące polecenia:
+1. W tym samym folderze Utwórz element pliku dockerfile, który zawiera następujące polecenia:
     ```
         FROM telegraf:1.15.3-alpine
         COPY telegraf.toml /etc/telegraf/telegraf.conf
@@ -305,12 +305,27 @@ Wykonaj następujące kroki, aby włączyć zbieranie metryk z poziomu usługi L
      `AZURE_CLIENT_SECRET`: Określa klucz tajny aplikacji do użycia.  
      
      >[!TIP]
-     > Można przyznać jednostce usługi rolę **wydawcy metryk monitorowania** .
+     > Można przyznać jednostce usługi rolę **wydawcy metryk monitorowania** . Postępuj zgodnie z instrukcjami w temacie **[Tworzenie nazwy głównej usługi](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** , aby utworzyć jednostkę usługi i przypisać rolę.
 
 1. Po wdrożeniu modułów metryki będą wyświetlane w Azure Monitor w ramach pojedynczej przestrzeni nazw. Nazwy metryk będą zgodne z tymi, które są emitowane przez Prometheus. 
 
    W takim przypadku w Azure Portal przejdź do centrum IoT Hub, a następnie wybierz pozycję **metryki** w okienku po lewej stronie. W tym miejscu powinny zostać wyświetlone metryki.
 
+Za pomocą Prometheus wraz z [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)można generować i [monitorować metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) , takie jak używane CPUPercent, MemoryUsedPercent itp. Korzystając z języka zapytań Kusto, możesz pisać zapytania jako poniżej i uzyskać procent użycia procesora przez moduły usługi IoT Edge.
+```kusto
+let cpu_metrics = promMetrics_CL
+| where Name_s == "edgeAgent_used_cpu_percent"
+| extend dimensions = parse_json(Tags_s)
+| extend module_name = tostring(dimensions.module_name)
+| where module_name in ("lvaEdge","yolov3","tinyyolov3")
+| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+cpu_metrics
+| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+| extend module_name = "Total"
+| union cpu_metrics
+```
+
+[![Diagram pokazujący metryki przy użyciu zapytania Kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## <a name="logging"></a>Rejestrowanie
 
 Podobnie jak w przypadku innych modułów IoT Edge, można również [przeanalizować dzienniki kontenerów](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) na urządzeniu brzegowym. Można skonfigurować informacje zapisane w dziennikach przy użyciu [następujących właściwości sznurka modułu](module-twin-configuration-schema.md) :

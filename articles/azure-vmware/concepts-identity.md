@@ -3,12 +3,12 @@ title: Pojęcia — tożsamość i dostęp
 description: Dowiedz się więcej na temat pojęć dotyczących tożsamości i uzyskiwania dostępu do rozwiązania Azure VMware
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: e9c0d62968d94e2b018186f67072b6ae7078db02
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: bd1b4cd918ce977cf57d641908b127f7a2d1b0cc
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536102"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509303"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure
 
@@ -53,7 +53,11 @@ Użyj konta "Administrator", aby uzyskać dostęp do Menedżera NSX-T. Ma pełne
   
 ## <a name="next-steps"></a>Następne kroki
 
-Następnym krokiem jest zapoznanie się z [pojęciami dotyczącymi uaktualniania chmury prywatnej][concepts-upgrades].
+Teraz, gdy został objęty usługą Azure VMware dostęp do rozwiązań i pojęcia związane z tożsamościami, warto zapoznać się z tematem:
+
+- [Pojęcia dotyczące uaktualniania chmury prywatnej](concepts-upgrades.md).
+- [vSphere kontroli dostępu opartej na rolach dla rozwiązań VMware platformy Azure](concepts-role-based-access-control.md).
+- [Jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 

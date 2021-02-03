@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4dd1941e6a749c2ccf7ca082ab89ef2a70baa0d6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131478"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509540"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Informacje o wersji agenta usługi Azure File Sync
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Instalacje systemów Windows Server są przekształcane w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -25,6 +25,7 @@ Obsługiwane są następujące wersje agenta Azure File Sync:
 
 | Rozwoju | Numer wersji agenta | Data wydania | Stan |
 |----|----------------------|--------------|------------------|
+| Wersja 11.2 — [KB4539952](https://support.microsoft.com/en-us/help/4539952)| 11.2.0.0 | 2 lutego 2021 | Obsługiwane — obsługa lotu |
 | Wersja v 11.1 — [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4 listopada 2020 | Obsługiwane |
 | V 10.1 wydanie- [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 czerwca 2020 | Obsługiwane |
 | 2020 — pakiet zbiorczy aktualizacji — [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 maj 2020 r. | Obsługiwane |
@@ -38,16 +39,42 @@ Następujące wersje agenta Azure File Sync wygasły i nie są już obsługiwane
 
 | Rozwoju | Numer wersji agenta | Data wydania | Stan |
 |----|----------------------|--------------|------------------|
-| Wersja wersji 7 | 7.0.0.0 - 7.2.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 1 września 2020 |
-| Wydanie w wersji 6 | 6.0.0.0 - 6.3.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 21 kwietnia 2020 |
-| Wersja V5 | 5.0.2.0 - 5.2.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 18 marca, 2020 |
-| Wersja v4 | 4.0.1.0 - 4.3.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 6 listopada, 2019 |
-| Wersja V3 | 3.1.0.0 - 3.4.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 19 sierpnia 2019 |
-| Agenci wstępnie GA | 1.1.0.0 — 3.0.13.0 | Brak | Nieobsługiwane — wersje agenta wygasły 1 października 2018 |
+| Wersja wersji 7 | 7.0.0.0 - 7.2.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 1 września 2020 |
+| Wydanie w wersji 6 | 6.0.0.0 - 6.3.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 21 kwietnia 2020 |
+| Wersja V5 | 5.0.2.0 - 5.2.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 18 marca, 2020 |
+| Wersja v4 | 4.0.1.0 - 4.3.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 6 listopada, 2019 |
+| Wersja V3 | 3.1.0.0 - 3.4.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 19 sierpnia 2019 |
+| Agenci wstępnie GA | 1.1.0.0 — 3.0.13.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 1 października 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Zasady aktualizacji agenta usługi Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-11200"></a>11.2.0.0 wersja agenta
+Poniższe informacje o wersji dotyczą wersji 11.2.0.0 agenta Azure File Sync wydanej 2 lutego 2021. Te informacje są uzupełnieniem informacji o wersji wymienionych dla wersji 11.1.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Ulepszenia i problemy, które zostały naprawione 
+- Jeśli sesja synchronizacji została anulowana z powodu dużej liczby błędów dla elementów, synchronizacja może przechodzić przez uzgadnianie podczas uruchamiania nowej sesji, jeśli usługa Azure File Sync określa niestandardową sesję synchronizacji wymaganą do skorygowania błędów poszczególnych elementów.
+- Zarejestrowanie serwera za pomocą polecenia cmdlet Register-AzStorageSyncServer może zakończyć się niepowodzeniem z powodu błędu "nieobsługiwany wyjątek".
+- Nowe polecenie cmdlet programu PowerShell (Add-StorageSyncAllowedServerEndpointPath) do konfigurowania dozwolonych ścieżek punktów końcowych serwera na serwerze. To polecenie cmdlet jest przydatne w scenariuszach, w których wdrożenie Azure File Sync jest zarządzane przez dostawcę rozwiązań w chmurze (CSP) lub dostawcę usług, a klient chce skonfigurować na serwerze ścieżki dozwolonych punktów końcowych serwera. W przypadku tworzenia punktu końcowego serwera, jeśli określona ścieżka nie znajduje się na liście dozwolonych, tworzenie punktu końcowego serwera zakończy się niepowodzeniem. Należy pamiętać, że jest to funkcja opcjonalna, a wszystkie obsługiwane ścieżki są domyślnie dozwolone podczas tworzenia punktu końcowego serwera.  
+
+    
+    - Aby dodać ścieżkę do punktu końcowego serwera, która jest dozwolona, uruchom następujące polecenia programu PowerShell na serwerze:
+
+    ```powershell
+    Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose
+    Add-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
+
+    - Aby uzyskać listę obsługiwanych ścieżek, uruchom następujące polecenie programu PowerShell:
+    
+    ```powershell
+    Get-StorageSyncAllowedServerEndpointPath
+    ```     
+    - Aby usunąć ścieżkę, uruchom następujące polecenie programu PowerShell:
+    
+    ```powershell
+    Remove-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
 ## <a name="agent-version-11100"></a>11.1.0.0 wersja agenta
 Poniższe informacje o wersji dotyczą wersji 11.1.0.0 agenta Azure File Sync (wydanej 4 listopada 2020).
 

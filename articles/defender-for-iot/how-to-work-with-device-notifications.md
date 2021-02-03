@@ -1,5 +1,5 @@
 ---
-title: Pracuj z powiadomieniami o urządzeniach
+title: Praca z powiadomieniami urządzeń
 description: Powiadomienia zawierają informacje o aktywności sieciowej, które mogą wymagać uwagi, wraz z zaleceniami dotyczącymi obsługi tego działania.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d113805322bd45584987460d57ad6bdba241ec10
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842827"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509035"
 ---
-# <a name="work-with-device-notifications"></a>Pracuj z powiadomieniami o urządzeniach
+# <a name="work-with-device-notifications"></a>Praca z powiadomieniami urządzeń
 
 Powiadomienia zawierają informacje o aktywności sieciowej, które mogą wymagać uwagi, wraz z zaleceniami dotyczącymi obsługi tego działania. Na przykład może zostać wyświetlone powiadomienie dotyczące:
 
@@ -60,13 +60,13 @@ W poniższej tabeli opisano typy zdarzeń powiadomień, które mogą zostać wy�
 
 | Typy zdarzeń powiadomień | Opis | Odpowiedzi |
 |--|--|--|
-| Nowe adresy IP | Z urządzeniem jest skojarzony nowy adres IP. Można wykryć pięć scenariuszy: <br /><br /> Z urządzeniem skojarzono dodatkowy adres IP. To urządzenie jest również skojarzone z istniejącym adresem MAC.<br /><br /> Wykryto nowy adres IP dla urządzenia korzystającego z istniejącego adresu MAC. Obecnie urządzenie nie komunikuje się za pomocą adresu IP.<br /> <br /> Wykryto nowy adres IP dla urządzenia korzystającego z nazwy NetBIOS. <br /><br /> Wykryto adres IP jako interfejs zarządzania dla urządzenia skojarzonego z adresem MAC. <br /><br /> Wykryto nowy adres IP dla urządzenia, które używa wirtualnego adresu IP. | **Ustawianie dodatkowego adresu IP na urządzenie** (Scalanie urządzeń) <br /> <br />**Zastąp istniejący adres IP** <br /> <br /> **Odrzuć**<br /> Usuń powiadomienie. |
+| Wykryto nowy adres IP | Z urządzeniem jest skojarzony nowy adres IP. Można wykryć pięć scenariuszy: <br /><br /> Z urządzeniem skojarzono dodatkowy adres IP. To urządzenie jest również skojarzone z istniejącym adresem MAC.<br /><br /> Wykryto nowy adres IP dla urządzenia korzystającego z istniejącego adresu MAC. Obecnie urządzenie nie komunikuje się za pomocą adresu IP.<br /> <br /> Wykryto nowy adres IP dla urządzenia korzystającego z nazwy NetBIOS. <br /><br /> Wykryto adres IP jako interfejs zarządzania dla urządzenia skojarzonego z adresem MAC. <br /><br /> Wykryto nowy adres IP dla urządzenia, które używa wirtualnego adresu IP. | **Ustawianie dodatkowego adresu IP na urządzenie** (Scalanie urządzeń) <br /> <br />**Zastąp istniejący adres IP** <br /> <br /> **Odrzuć**<br /> Usuń powiadomienie. |
 | Nieaktywne urządzenia | Nie wykryto ruchu na urządzeniu przez ponad 60 dni. | **Usuwanie** <br /> Jeśli to urządzenie nie jest częścią sieci, usuń je. <br /><br />**Odrzuć** <br /> Usuń powiadomienie, jeśli urządzenie jest częścią Twojej sieci. Jeśli urządzenie jest nieaktywne (na przykład dlatego, że zostało nieprzerwanie odłączone od sieci), Odrzuć powiadomienie i ponownie podłącz urządzenie. |
-| Nowe urządzenie nieposiadane | Podsieć zawiera urządzenie, które nie jest zdefiniowane w podsieci ICS. <br /><br /> Każda podsieć zawierająca co najmniej jedno z urządzeń można zdefiniować jako podsieć usługi ICS. Pozwala to na rozróżnienie między urządzeniami z systemem i na mapie. | **Ustaw jako podsieć usługi ICS** <br /> <br /> **Odrzuć** <br />Usuń powiadomienie, jeśli urządzenie nie jest częścią podsieci. |
+| Nowe urządzenia | Podsieć zawiera urządzenie, które nie jest zdefiniowane w podsieci ICS. <br /><br /> Każda podsieć zawierająca co najmniej jedno z urządzeń można zdefiniować jako podsieć usługi ICS. Pozwala to na rozróżnienie między urządzeniami z systemem i na mapie. | **Ustaw jako podsieć usługi ICS** <br /> <br /> **Odrzuć** <br />Usuń powiadomienie, jeśli urządzenie nie jest częścią podsieci. |
 | Nie skonfigurowano żadnych podsieci | W sieci nie ma obecnie skonfigurowanych podsieci. <br /><br /> Skonfiguruj podsieci, aby zapewnić lepszą reprezentację w mapie i możliwość rozróżnienia między urządzeniami NieA a IT. | **Otwórz konfigurację podsieci** i Skonfiguruj podsieci. <br /><br />**Odrzuć** <br /> Usuń powiadomienie. |
 | Zmiany systemu operacyjnego | Z urządzeniem skojarzono co najmniej jeden nowy system operacyjny. | Wybierz nazwę nowego systemu operacyjnego, który chcesz skojarzyć z urządzeniem.<br /><br /> **Odrzuć** <br /> Usuń powiadomienie. |
-| Wykryto podsieci | Wykryto nowe podsieci. | **Learn**<br />Automatycznie Dodaj podsieć.<br />**Otwórz konfigurację podsieci**<br />Dodaj wszystkie brakujące informacje o podsieci.<br />**Odrzuć**<br />Usuń powiadomienie. |
-| Wykryto zmianę typu urządzenia | Z urządzeniem skojarzono nowy typ urządzenia. | **Ustaw jako {...}**<br />Skojarz nowy typ z urządzeniem.<br />**Odrzuć**<br />Usuń powiadomienie. |
+| Nowe podsieci | Wykryto nowe podsieci. | **Learn**<br />Automatycznie Dodaj podsieć.<br />**Otwórz konfigurację podsieci**<br />Dodaj wszystkie brakujące informacje o podsieci.<br />**Odrzuć**<br />Usuń powiadomienie. |
+| Zmiany typu urządzenia | Z urządzeniem skojarzono nowy typ urządzenia. | **Ustaw jako {...}**<br />Skojarz nowy typ z urządzeniem.<br />**Odrzuć**<br />Usuń powiadomienie. |
 
 ## <a name="respond-to-many-notifications-simultaneously"></a>Reaguj jednocześnie na wiele powiadomień
 
@@ -98,6 +98,6 @@ Zbadaj zalecenia w celu wzbogacania klasyfikacji systemu operacyjnego. Te inform
 
 Po zaakceptowaniu zalecenia informacje o typie systemu operacyjnego zostaną zaktualizowane w czujniku.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Wyświetlanie alertów](how-to-view-alerts.md)

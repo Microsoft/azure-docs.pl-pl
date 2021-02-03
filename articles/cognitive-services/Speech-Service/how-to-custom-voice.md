@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 02/02/2021
 ms.author: trbye
-ms.openlocfilehash: e48dfd224a9656c7d8327dd77f1b55e9a744f3af
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 756c40be52f2739d3a7682752b038bfe3958d47d
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573092"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507714"
 ---
 # <a name="get-started-with-custom-voice"></a>Wprowadzenie do usługi Custom Voice
 
@@ -39,10 +39,7 @@ Na poniższym diagramie przedstawiono kroki umożliwiające utworzenie niestanda
 
 ## <a name="custom-neural-voices"></a>Niestandardowe głosy neuronowych
 
-Niestandardowy głos obecnie obsługuje warstwy Standardowa i neuronowych. Usługa Custom neuronowych Voice pozwala użytkownikom na tworzenie modeli głosu o wyższej jakości, a jednocześnie wymaga mniej danych, a także udostępnia środki ułatwiające wdrażanie odpowiedzialnych plików AI. Zalecamy korzystanie z niestandardowego głosu neuronowych w celu opracowywania bardziej realistycznych głosów dla bardziej naturalnych interfejsów konwersacji oraz umożliwienie klientom i użytkownikom końcowym korzystania z najnowszych technologii zamiany tekstu na mowę w odpowiedzialny sposób. [Dowiedz się więcej na temat niestandardowego głosu neuronowych](https://aka.ms/CNV-Transparency-Note). 
-
-> [!NOTE]
-> W ramach zobowiązania firmy Microsoft w zakresie projektowania odpowiedzialnych plików AI Neuronowychmy niestandardową obsługę głosu. Użytkownik może uzyskać dostęp do technologii dopiero po przejrzeniu aplikacji i zapewnieniu jej używania z naszymi właściwymi zasadami AI. Dowiedz się więcej [na temat zasad dotyczących limitu dostępu](https://aka.ms/gating-overview) i [Zastosuj tutaj](https://aka.ms/customneural). [Języki](language-support.md#customization) i [regiony](regions.md#custom-voices) obsługiwane w przypadku wersji Standard i neuronowych niestandardowego głosu są różne. Przed rozpoczęciem Sprawdź szczegóły.  
+Możliwość dostosowania głosu neuronowych jest obecnie dostępna w publicznej wersji zapoznawczej, ograniczona do wybranych klientów. Wypełnij ten [formularz aplikacji](https://go.microsoft.com/fwlink/?linkid=2108737) , aby rozpocząć pracę.
 
 ## <a name="set-up-your-azure-account"></a>Skonfiguruj swoje konto platformy Azure
 
@@ -56,7 +53,7 @@ Po utworzeniu konta platformy Azure i subskrypcji usługi mowy należy zalogowa�
 4. Jeśli chcesz przełączyć się na inną subskrypcję mowy, użyj ikony koło zębate znajdującej się w górnym obszarze nawigacji.
 
 > [!NOTE]
-> Aby można było korzystać z usługi, na platformie Azure musi być utworzony klucz usługi F0 lub S0. Niestandardowy głos neuronowych obsługuje tylko warstwę S0. 
+> Aby można było korzystać z usługi, na platformie Azure musi być utworzony klucz F0 lub S0.
 
 ## <a name="how-to-create-a-project"></a>Jak utworzyć projekt
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 8bfbacc77843c7978bcb1d364bd93f5e09381144
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 20b47204ea8f64bc430f436a9bcf1b2311409aa6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811667"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509490"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Trendy czujnika i raporty statystyczne
 
@@ -26,19 +26,29 @@ Można tworzyć wykresy widget i wykresy kołowe, aby uzyskać wgląd w trendy s
 Pulpit nawigacyjny składa się z widżetów, które opisują graficznie następujące rodzaje informacji:
 
 - Ruch według portu
+- Najpopularniejszy ruch według portu
 - Przepustowość kanału
 - Całkowita przepustowość
 - Aktywne połączenie TCP
+- Najpopularniejsza przepustowość według sieci VLAN
 - Devices (Urządzenia):
   - Nowe urządzenia
   - Zajęte urządzenia
   - Urządzenia według dostawcy
   - Urządzenia według systemu operacyjnego
+  - Liczba urządzeń na sieć VLAN
   - Odłączone urządzenia
-- Usuwanie łączności według godzin
+- Łączność spadnie o godz.
 - Alerty dla incydentów według typu
 - Dostęp do tabeli bazy danych
 - Elementy widget sekcji protokołu
+- DELTAV
+  - Rozkład operacji DeltaV Roc
+  - DeltaV zdarzenia Roc według nazwy
+  - Zdarzenia DeltaV według czasu
+- AMS
+  - Ruch AMS według portu serwera
+  - Ruch z AMS przez polecenie
 - Sieć Ethernet i adres IP:
   - Ruch sieciowy sieci Ethernet i IP według usługi PRZELEWu
   - Sieć Ethernet i ruch adresów IP według klasy przelew
@@ -49,6 +59,15 @@ Pulpit nawigacyjny składa się z widżetów, które opisują graficznie następ
 - S7 firmy Siemens:
   - Ruch S7 przez funkcję sterowania
   - Ruch S7 przez funkcję podfunkcji
+- OKREŚLONE
+  - Liczba urządzeń na sieć VLAN
+  - Najpopularniejsza przepustowość według sieci VLAN
+- 60870-5-104
+  - Ruch IEC-60870 przez ASDU
+- BACNET
+  - Usługi BACnet Services
+- DNP3
+  - Ruch DNP3 przez funkcję
 - SRTP:
   - Ruch SRTP według kodu usługi
   - SRTP błędów według dnia
@@ -74,7 +93,7 @@ Wybierz pozycję **trendy & dane statystyczne** w menu po stronie.
 
 Domyślnie wyniki są wyświetlane w celu wykrycia w ciągu ostatnich 7 dni. Możesz użyć narzędzi filtru Zmień ten zakres. Na przykład bezpłatne wyszukiwanie tekstu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Raportowanie](how-to-create-risk-assessment-reports.md) 
  oceny ryzyka Zapytania wyszukiwania danych [czujników](how-to-create-data-mining-queries.md) 

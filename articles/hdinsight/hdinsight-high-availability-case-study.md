@@ -5,12 +5,12 @@ keywords: Wysoka dostępność usługi Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6b995e2ab5ba663f6e33b009062859eb32928cc1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945354"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508595"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Analiza przypadku architektury rozwiązania o wysokiej dostępności usługi Azure HDInsight
 
@@ -71,7 +71,7 @@ Na poniższej ilustracji przedstawiono architekturę odzyskiwania po awarii o wy
 
 Usługi **Hive i Spark** wykorzystują [aktywne podstawowe modele replikacji na żądanie w](hdinsight-business-continuity-architecture.md#apache-spark) normalnych godzinach. Proces replikacji programu Hive jest uruchamiany okresowo i towarzyszy replikacji metadanych usługi Hive Azure SQL i konta magazynu Hive. Konto magazynu platformy Spark jest okresowo replikowane przy użyciu funkcji ADF pomocą distcp. Przejściowy charakter tych klastrów ułatwia optymalizację kosztów. Replikacja jest zaplanowana co 4 godziny, aby dotrzeć do punktu odzyskiwania, który jest dobrze w okresie pięciu godzin.
 
-Replikacja **HBase** korzysta z modelu [lidera —](hdinsight-business-continuity-architecture.md#apache-hbase) w normalnych godzinach, aby zapewnić, że dane są zawsze obsługiwane niezależnie od regionu, a cel punktu odzyskiwania wynosi zero.
+Replikacja **HBase** korzysta z modelu [lidera —](hdinsight-business-continuity-architecture.md#apache-hbase) w normalnych godzinach, aby zapewnić, że dane są zawsze obsługiwane niezależnie od regionu, a cel punktu odzyskiwania jest bardzo niski.
 
 Jeśli w regionie podstawowym wystąpi awaria regionalna, Strona sieci Web i zawartość zaplecza są obsługiwane z regionu pomocniczego przez 5 godzin w pewnym stopniu nieodświeżoności. Jeśli pulpit nawigacyjny kondycji usług platformy Azure nie wskazuje na odzyskiwanie w oknie 5-godzinnym, firma Contoso utworzy warstwę Hive i transformację platformy Spark w regionie pomocniczym, a następnie wskaże wszystkie nadrzędne źródła danych do regionu pomocniczego. Przetworzenie regionu pomocniczego może spowodować proces powrotu po awarii, który obejmuje replikację z powrotem do podstawowego.
 

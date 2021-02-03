@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625435"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508866"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Badanie wykryć czujników w spisie urządzeń
 
@@ -32,18 +32,18 @@ Następujące atrybuty są wyświetlane w tabeli spisu urządzeń.
 
 | Parametr | Opis |
 |--|--|
-| Nazwa | Nazwa urządzenia wykryta przez czujnik. |
-| Typ | Typ urządzenia. |
+| Nazwa | Nazwa urządzenia jako czujnik odnaleziony przez niego lub wprowadzona przez użytkownika. |
+| Typ | Typ urządzenia określony przez czujnik lub wprowadzony przez użytkownika. |
 | Dostawca | Nazwa dostawcy urządzenia, zgodnie z definicją w adresie MAC. |
-| System operacyjny | System operacyjny urządzenia. |
-| Oprogramowanie układowe | Oprogramowanie układowe urządzenia. |
-| Adres IP | Adres IP urządzenia. |
+| System operacyjny | System operacyjny urządzenia, jeśli został wykryty. |
+| Wersja oprogramowania układowego | Oprogramowanie układowe urządzenia, jeśli zostało wykryte. |
+| Adres IP | Adres IP urządzenia, w którym zdefiniowano. |
 | OKREŚLONE | Sieć VLAN urządzenia. Aby uzyskać szczegółowe informacje o tym, jak czujnik wykrywa sieci VLAN, zobacz [Definiowanie nazw sieci VLAN](how-to-manage-the-on-premises-management-console.md#define-vlan-names). (instrukcje: Definiowanie-Management-Console-Network-Settings. MD # define-VLAN-Names). |
 | Adres MAC | Adres MAC urządzenia. |
 | Protokoły | Protokoły używane przez urządzenie. |
 | Niepotwierdzone alerty | Liczba niepotwierdzonych alertów skojarzonych z tym urządzeniem. |
 | Jest autoryzowany | Stan autoryzacji zdefiniowany przez użytkownika:<br />- **Prawda**: urządzenie zostało autoryzowane.<br />- **False**: urządzenie nie zostało autoryzowane. |
-| Jest znany jako skaner | Zdefiniowane jako urządzenie skanujące przez użytkownika. |
+| Jest znany jako skaner | Zdefiniowane jako urządzenie do skanowania sieci przez użytkownika. |
 | Program jest urządzeniem programistycznym | Zdefiniowane jako autoryzowane urządzenie programistyczne przez użytkownika. <br />- **Prawda**: urządzenie wykonuje działania programistyczne dla plcs, RTUs i kontrolerów, które są istotne dla stacji inżynieryjnych. <br />- **False**: urządzenie nie jest urządzeniem programistycznym. |
 | Grupy | Grupy, w których uczestniczą to urządzenie. |
 | Ostatnia aktywność | Ostatnia aktywność przeprowadzona przez urządzenie. |
@@ -111,7 +111,7 @@ Po przełączeniu do widoku mapy filtrowane urządzenia są podświetlane i filt
 
 ## <a name="learn-windows-registry-details"></a>Informacje o rejestrze systemu Windows
 
-Oprócz uczenia urządzeń można wykryć urządzenia IT, w tym stacje robocze i serwery z systemem Microsoft Windows. Te urządzenia są również wyświetlane w spisie urządzeń. Po uzyskaniu informacji o urządzeniach można wzbogacić spis urządzeń ze szczegółowymi informacjami systemu Windows, takimi jak:
+Oprócz uczenia urządzeń można odkrywać stacje robocze i serwery z systemem Microsoft Windows. Te urządzenia są również wyświetlane w spisie urządzeń. Po uzyskaniu informacji o urządzeniach można wzbogacić spis urządzeń ze szczegółowymi informacjami systemu Windows, takimi jak:
 
 - Zainstalowana wersja systemu Windows
 
@@ -217,7 +217,7 @@ Aby zaimportować:
 
 ## <a name="export-device-inventory-information"></a>Eksportowanie informacji o spisie urządzeń
 
-Informacje o spisie urządzeń można wyeksportować do pliku programu Excel. Zaimportowane informacje zastępują bieżące informacje.
+Informacje o spisie urządzeń można wyeksportować do pliku programu Excel.
 
 Aby wyeksportować plik CSV:
 

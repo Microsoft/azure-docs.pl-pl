@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 81ae46a7b6c19557eeadd2d5b28ad2fa46e77115
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 28ec6659430cfdbc81533f05863ccb0ddc560e32
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881371"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508036"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Wprowadzenie do usługi Azure Defender dla programu SQL
 
@@ -72,7 +72,6 @@ Alerty obejmują szczegółowe informacje o zdarzeniu, które je wywołały, a t
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono informacje o usłudze Azure Defender dla programu SQL Server.
+W tym artykule przedstawiono informacje o usłudze Azure Defender dla programu SQL Server. Aby korzystać z usług, które zostały opisane:
 
-> [!div class="nextstepaction"]
-> [Skanowanie serwerów SQL pod kątem luk w zabezpieczeniach za pomocą usługi Azure Defender](defender-for-sql-usage.md)
+- Używanie usługi Azure Defender dla serwerów SQL na maszynach do [skanowania serwerów SQL pod kątem luk w zabezpieczeniach](defender-for-sql-usage.md)

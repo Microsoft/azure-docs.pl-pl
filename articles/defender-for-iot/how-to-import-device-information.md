@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 333ffbf4107dfd005ba7e7fae6a079a618e0c645
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625418"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509439"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importuj informacje o urządzeniu do czujnika
 
@@ -160,7 +160,7 @@ Aby zaimportować adres IP, system operacyjny i poziom poprawek:
 
    - **System operacyjny**: wybierz z listy rozwijanej.
 
-   - **Ostatnia aktualizacja**: Użyj formatu rrrr-mm-dd.
+   - **Data ostatniej aktualizacji**: Użyj formatu rrrr-mm-dd.
 
     :::image type="content" source="media/how-to-import-device-information/last-update-screen.png" alt-text="Zawartość na ekranie.":::
 
@@ -172,7 +172,7 @@ Aby zaimportować adres IP, system operacyjny i poziom poprawek:
 
 Aby zaimportować stan autoryzacji:
 
-1. Pobierz i Zapisz plik [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z centrum pomocy usługi Defender for IoT. Sprawdź, czy plik został zapisany jako wolumin CSV.
+1. Pobierz i Zapisz plik [authorized_devices-examples.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z centrum pomocy usługi Defender for IoT. Sprawdź, czy plik został zapisany jako wolumin CSV.
 
 2. Wprowadź informacje jako:
 

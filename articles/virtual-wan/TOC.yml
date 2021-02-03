@@ -4,6 +4,15 @@
   items:
     - name: Co to jest usługa Virtual WAN?
       href: virtual-wan-about.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Szablony usługi ARM
+      expanded: true
+      items:
+        - name: Routing dowolny-do-dowolnego
+          displayName: Resource Manager Any-to-any routing
+          href: quickstart-any-to-any-template.md
 - name: Samouczki
   expanded: true
   items:

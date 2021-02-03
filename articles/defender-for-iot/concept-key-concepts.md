@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: cb984ca1a74d8b3838b857f2f5679264d1445187
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621932"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508612"
 ---
 # <a name="basic-concepts"></a>Podstawowe pojęcia 
 
@@ -20,9 +20,9 @@ W tym artykule opisano najważniejsze zalety usługi Azure Defender dla IoT.
 
 ## <a name="rapid-non-invasive-deployment-and-passive-monitoring"></a>Szybkie wdrażanie nieinwazyjne i pasywne monitorowanie
 
-Usługa Defender for IoT umożliwia łączenie się z portem SPAN lub NACISKiem sieci i natychmiastowe rozpoczęcie zbierania ruchu sieciowego usługi ICS za pośrednictwem pasywnego monitorowania (bez agentów). Głębokiej inspekcji pakietów (DPI) używa się do DISSECT ruchu z urządzeń sieciowych z kontrolką zarówno serial i Ethernet. Usługa Defender for IoT nie ma wpływu na nieaktywne sieci, ponieważ nie jest umieszczana w ścieżce danych i nie skanuje urządzeń. 
+Usługa Defender for IoT służy do łączenia się z portami przełączeń i sieci, a następnie od razu zaczyna zbierać ruch sieciowy usługi ICS za pośrednictwem pasywnego monitorowania (bez agentów). Głębokiej inspekcji pakietów (DPI) używa się do DISSECT ruchu z urządzeń sieciowych z kontrolką zarówno serial i Ethernet. Usługa Defender for IoT nie ma wpływu na nieaktywne sieci, ponieważ nie jest umieszczana w ścieżce danych i nie skanuje urządzeń. 
 
-Aby zapewnić błyskawiczne migawki szczegółowych informacji o urządzeniu, usługa Defender dla czujnika IoT uzupełnia pasywne monitorowanie z opcjonalnym aktywnym składnikiem. Ten składnik używa bezpiecznych poleceń zaakceptowanych przez dostawcę do wykonywania zapytań dotyczących urządzeń z systemem Windows i kontrolerów w celu uzyskania szczegółowych informacji dotyczących urządzeń, tak często, jak to jest często.
+Aby zapewnić błyskawiczne migawki szczegółowych informacji o urządzeniu z systemem Windows, można skonfigurować usługę Defender for IoT sensor do uzupełniania pasywnego monitorowania z opcjonalnym aktywnym składnikiem. Ten składnik używa bezpiecznych poleceń zatwierdzonych przez dostawcę do wykonywania zapytań dotyczących urządzeń z systemem Windows w celu uzyskania szczegółowych informacji na temat urządzeń, tak często, jak to jest często.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Osadzona znajomość protokołów, urządzeń i aplikacji usługi ICS
 
@@ -73,7 +73,7 @@ Usługa Defender for IoT oferuje skonsolidowany widok wszystkich urządzeń. Zaw
 
 Usługa Defender for IoT umożliwia efektywne zarządzanie wieloma wdrożeniami oraz kompleksowy wgląd w sieć. Usługa Defender for IoT optymalizuje obsługę alertów i kontroluje zabezpieczenia sieci operacyjnej.
 
-Lokalna Konsola zarządzania jest platformą administracyjną opartą na sieci Web, która umożliwia monitorowanie i kontrolowanie działań instalacji czujnika globalnego. Oprócz zarządzania danymi otrzymanymi z wdrożonych czujników, lokalna Konsola zarządzania bezproblemowo integruje dane z różnych zasobów firmy: CMDB, DNS, zapory, interfejsy API sieci Web i inne.
+Lokalna Konsola zarządzania jest platformą administracyjną opartą na sieci Web, która umożliwia monitorowanie i kontrolowanie działań instalacji czujnika globalnego. Oprócz zarządzania danymi otrzymanymi od wdrożonych czujników, lokalna Konsola zarządzania bezproblemowo integruje dane z różnych zasobów firmy: CMDB, DNS, zapory, interfejsy API sieci Web i inne.
 
 :::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="Wyświetlana jest lokalna Konsola zarządzania.":::
 
@@ -83,7 +83,7 @@ Zalecamy zapoznanie się z pojęciami, funkcjami i funkcjami dostępnymi dla czu
 
 Możesz rozszerzyć możliwości usługi Defender for IoT, udostępniając zarówno informacje o urządzeniu, jak i alercie z systemami partnerskimi. Integracja pomaga przedsiębiorstwom w wykorzystaniu wcześniej silosowych rozwiązań w zakresie zabezpieczeń, aby znacząco ulepszyć widoczność urządzeń i analizę zagrożeń. Integracje pomagają również przedsiębiorstwom przyspieszyć reagowanie na całe systemy i zmniejszyć ryzyko. 
 
-Integracja zmniejsza złożoność i eliminuje jej silosy poprzez integrację z istniejącymi przepływami pracy SOC i stosem zabezpieczeń. Przykład:
+Integracja zmniejsza złożoność i eliminuje jej silosy poprzez integrację z istniejącymi przepływami pracy SOC i stosem zabezpieczeń. Na przykład:
 
 - Rozwiązań Siem, takie jak IBM QRadar, Splunk, ArcSight, LogRhythm i RSA — monitor
 

@@ -14,8 +14,6 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Limity przydziału i ograniczenia
       href: speech-services-quotas-and-limits.md
-    - name: Co nowego w dokumentacji?
-      href: whats-new.md
 - name: Zamiana mowy na tekst
   items:
     - name: Dokumentacja zamiany mowy na tekst
@@ -113,22 +111,10 @@
           href: long-audio-api.md
     - name: Dostosowywanie
       items:
-        - name: Odpowiedzialne wdrażanie
-          items:
-            - name: Kontrola głosu niestandardowego
-              href: concepts-gating-overview.md
-            - name: Wdrażanie technologii syntetycznej
-              href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Ujawnianie dotyczące aktorów głosowych
-              href: /legal/cognitive-services/speech-service/disclosure-voice-talent
-            - name: Wytyczne dotyczące projektowania ujawniania
-              href: concepts-disclosure-guidelines.md
-            - name: Wzorce projektowania ujawniania
-              href: concepts-disclosure-patterns.md
-            - name: Kodeks postępowania
-              href: /legal/cognitive-services/speech-service/tts-code-of-conduct
         - name: Portal głosu niestandardowego
           items:
+            - name: Co to jest niestandardowy neuronowych Voice?
+              href: custom-neural-voice.md
             - name: Wprowadzenie do usługi Custom Voice
               displayName: 'custom voice, neural voice'
               href: how-to-custom-voice.md
@@ -142,6 +128,32 @@
           items:
             - name: Tworzenie zawartości audio
               href: how-to-audio-content-creation.md
+    - name: Odpowiedzialne użycie sztucznej inteligencji
+      items:
+        - name: Niestandardowy głos neuronowych
+          items:
+            - name: Uwaga dotycząca przezroczystości
+              items:
+                - name: Przypadki użycia dla niestandardowego głosu neuronowych
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Charakterystyka i ograniczenia
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: Integracja i odpowiedzialne użycie
+              items:
+                - name: Ograniczony dostęp
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Odpowiedzialne wdrożenie syntetycznej mowy
+                  href: concepts-guidelines-responsible-deployment-synthetic.md
+                - name: Ujawnianie dotyczące aktorów głosowych
+                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+                - name: Wytyczne dotyczące projektowania ujawniania
+                  href: concepts-disclosure-guidelines.md
+                - name: Wzorce projektowania ujawniania
+                  href: concepts-disclosure-patterns.md
+                - name: Kodeks postępowania
+                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+            - name: 'Dane, prywatność i zabezpieczenia'
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
     - name: Dokumentacja
       items:
         - name: C++

@@ -302,10 +302,10 @@
               href: knowledge-store-projections-examples.md
     - name: Zapytania
       items:
-        - name: Typy i kompozycja zapytań
-          href: search-query-overview.md
         - name: Tworzenie podstawowego zapytania
           href: search-query-create.md
+        - name: Typy i kompozycja zapytań
+          href: search-query-overview.md
         - name: Używanie prostej składni (przykłady)
           href: search-query-simple-examples.md
         - name: Używanie pełnej składni Lucene (przykłady)

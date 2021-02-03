@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 01/13/2021
-ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234226"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507252"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 
@@ -166,7 +166,7 @@ Aby zmienić typ lub format wartości, można użyć tych funkcji konwersji. Na 
 | [liczba zmiennoprzecinkowa](../logic-apps/workflow-definition-language-functions-reference.md#float) | Zwróć liczbę zmiennoprzecinkową dla wartości wejściowej. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Zwróć wersję całkowitą dla ciągu. |
 | [kodu](../logic-apps/workflow-definition-language-functions-reference.md#json) | Zwróć wartość typu JavaScript Object Notation (JSON) lub obiekt dla ciągu lub XML. |
-| [parametry](../logic-apps/workflow-definition-language-functions-reference.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
+| [ciąg](../logic-apps/workflow-definition-language-functions-reference.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Zwróć wersję z kodowaniem URI dla wartości wejściowej przez zastępowanie znaków w adresie URL bez znaku ucieczki. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Zwróć wersję binarną dla ciągu zakodowanego za pomocą identyfikatora URI. |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Zwraca wersję ciągu dla ciągu zakodowanego przy użyciu identyfikatora URI. |
@@ -569,10 +569,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 Ten przykład dodaje 10 dni do określonej sygnatury czasowej:
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-I zwraca ten wynik: `"2018-03-25T00:00:0000000Z"`
+I zwraca ten wynik: `"2018-03-25T00:00:00.0000000Z"`
 
 *Przykład 2*
 
@@ -582,7 +582,7 @@ Ten przykład odejmuje pięć dni od określonej sygnatury czasowej:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-I zwraca ten wynik: `"2018-03-10T00:00:0000000Z"`
+I zwraca ten wynik: `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -614,7 +614,7 @@ Ten przykład dodaje 10 godzin do określonej sygnatury czasowej:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-I zwraca ten wynik: `"2018-03-15T10:00:0000000Z"`
+I zwraca ten wynik: "" 2018 r-03-15T10:00:00.0000000 Z "
 
 *Przykład 2*
 
@@ -624,7 +624,7 @@ Ten przykład odejmuje pięć godzin od określonej sygnatury czasowej:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-I zwraca ten wynik: `"2018-03-15T10:00:0000000Z"`
+I zwraca ten wynik: `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -2263,7 +2263,7 @@ guid('<format>')
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*Formatowanie*> | Nie | Ciąg | Pojedynczy [specyfikator formatu](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) dla ZWRÓCONEGO identyfikatora GUID. Domyślnie formatem jest "D", ale można użyć "N", "D", "B", "P" lub "X". |
+| <*Formatowanie*> | Nie | Ciąg | Pojedynczy [specyfikator formatu](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) dla ZWRÓCONEGO identyfikatora GUID. Domyślnie formatem jest "D", ale można użyć "N", "D", "B", "P" lub "X". |
 |||||
 
 | Wartość zwracana | Typ | Opis |
@@ -4011,7 +4011,7 @@ Ten przykład odejmuje jeden dzień od tej sygnatury czasowej:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-I zwraca ten wynik: `"2018-01-01T00:00:00:0000000Z"`
+I zwraca ten wynik: `"2018-01-01T00:00:00.0000000Z"`
 
 *Przykład 2*
 
@@ -4063,7 +4063,7 @@ I zwróć następujące wyniki:
 
 ### <a name="ticks"></a>taktów
 
-Zwraca liczbę taktów, które są interwałami 100-nanosekund od 1 stycznia 0001 12:00:00 północy (lub DateTime. Ticks w języku C#) do określonej sygnatury czasowej. Aby uzyskać więcej informacji, zobacz ten temat: [DateTime. Ticks, właściwość (system)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Zwraca liczbę taktów, które są interwałami 100-nanosekund od 1 stycznia 0001 12:00:00 północy (lub DateTime. Ticks w języku C#) do określonej sygnatury czasowej. Aby uzyskać więcej informacji, zobacz ten temat: [DateTime. Ticks, właściwość (system)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')

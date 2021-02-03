@@ -3,12 +3,12 @@ title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 49261f34f879c68f21b57f9256a58a9b0a44d637
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475424"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509286"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware rozwiązanie dotyczące sieci i międzyłączności
 
@@ -59,10 +59,11 @@ W celu uzyskania pełnej łączności z chmurą prywatną należy włączyć Exp
 
 ## <a name="next-steps"></a>Następne kroki 
 
-Teraz, gdy zostały omówione te pojęcia dotyczące sieci i międzyłączności, warto zapoznać się z tematem:
+Teraz, gdy została objęta usługą Azure VMware rozwiązanie dotyczące sieci i międzyłączności, warto zapoznać się z tematem:
 
 - [Pojęcia dotyczące magazynu rozwiązań VMware platformy Azure](concepts-storage.md).
-- [Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure](concepts-identity.md)
+- [Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure](concepts-identity.md).
+- [Jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

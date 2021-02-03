@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: fde82dde7df3fa9756c145940178f35ed255ce37
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 93eb2ab4df77afd3c2a55a04db2d39591a46e726
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986551"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507792"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -48,6 +48,8 @@ Ten samouczek wymaga następujących zasobów platformy Azure:
 W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) w celu wdrożenia wymaganych zasobów w ramach subskrypcji platformy Azure. W tym celu wykonaj następujące czynności:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com) i wybierz ikonę Cloud Shell.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. Jeśli używasz Cloud Shell po raz pierwszy, zostanie wyświetlony monit o wybranie subskrypcji w celu utworzenia konta magazynu i udziału plików Microsoft Azure. Wybierz pozycję **Utwórz magazyn** , aby utworzyć konto magazynu dla informacji sesji Cloud Shell. To konto magazynu jest niezależne od konta, które zostanie utworzone przez skrypt do użycia z Twoim kontem Azure Media Services.
 1. W menu rozwijanym po lewej stronie okna Cloud Shell wybierz pozycję **bash** jako swoje środowisko.
 
@@ -76,10 +78,10 @@ W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów
 W danych wyjściowych skryptu tabela zasobów zawiera nazwę Centrum IoT Hub. Poszukaj typu zasobu **`Microsoft.Devices/IotHubs`** i zanotuj nazwę. Ta nazwa będzie potrzebna w następnym kroku.  
 
 > [!NOTE]
-> Skrypt generuje również kilka plików konfiguracji w katalogu **_~/CloudDrive/LVA-Sample/_* _. Te pliki będą potrzebne w dalszej części przewodnika Szybki Start.
+> Skrypt generuje również kilka plików konfiguracji w katalogu ***~/CloudDrive/LVA-Sample/*** . Te pliki będą potrzebne w dalszej części przewodnika Szybki Start.
 
 > [!TIP]
-> Jeśli wystąpią problemy z zasobami platformy Azure, które zostaną utworzone, przejrzyj *[Przewodnik rozwiązywania problemów](troubleshoot-how-to.md#common-error-resolutions)**, aby rozwiązać niektóre często występujące problemy.
+> Jeśli wystąpią problemy z zasobami platformy Azure, które zostały utworzone, przejrzyj **[Przewodnik rozwiązywania problemów](troubleshoot-how-to.md#common-error-resolutions)** , aby rozwiązać niektóre często występujące problemy.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>Wdrażanie modułów na urządzeniu brzegowym
 

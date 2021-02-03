@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56751adedfc01b3927acc65f47910c3b1281f09c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811678"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507574"
 ---
 # <a name="sensor-data-mining-queries"></a>Zapytania wyszukiwania danych czujników
 
@@ -55,11 +55,11 @@ Tworzone zapytania wyszukiwania danych są aktualizowane dynamicznie przy każdy
 
 Za pomocą zapytań można obsługiwać szeroką gamę potrzeb związanych z zabezpieczeniami dla różnych zespołów zabezpieczeń:
 
-- **Odpowiedź na zdarzenia SOC**: generowanie raportu w czasie rzeczywistym, aby pomóc w rozproszeniu natychmiastowego reagowania na zdarzenia. Na przykład Wygeneruj raport zawierający listę urządzeń, które mogą wymagać zastosowania poprawek.
+- **Odpowiedź na zdarzenia SOC**: generowanie raportu w czasie rzeczywistym, aby pomóc w rozproszeniu natychmiastowego reagowania na zdarzenia. Na przykład wyszukiwanie danych może generować raport zawierający listę urządzeń, które mogą wymagać zastosowania poprawek.
 
 - **Dowodowych**: generowanie raportu opartego na danych historycznych dla raportów dochodzeniowych.
 
-- **Integralność sieci IT**: generowanie raportu, który pomaga ulepszyć ogólne zabezpieczenia sieci. Na przykład Wygeneruj raport zawierający listę urządzeń z słabymi poświadczeniami uwierzytelniania.
+- **Integralność sieci IT**: generowanie raportu, który pomaga ulepszyć ogólne zabezpieczenia sieci. Na przykład można wygenerować raport zawierający listę urządzeń z słabymi poświadczeniami uwierzytelniania.
 
 - **Widoczność**: Generuj raport obejmujący wszystkie elementy zapytania, aby wyświetlić wszystkie parametry linii bazowej sieci.
 

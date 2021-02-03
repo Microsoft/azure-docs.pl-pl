@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 1b5dd2fb4ef8cb3f6fd169477d9ee82e912c146e
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7cbb9a09a6f8eae6a9325f060664d50c5725e09f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956336"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508527"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Sprawdzanie i edytowanie plików przykładowych
 
@@ -16,16 +16,13 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 
 1. Przejdź do folderu *src/Cloud-to-Device-Console-App* . Tutaj zobaczysz *appsettings.jsw* pliku i kilku innych plikach:
 
-    * ***C2D-Console-App. csproj** _-plik projektu dla Visual Studio Code.
-    _ ***operations.jsna** _-listę operacji, które program ma uruchomić.
-    _ ***Program.cs** _ — przykładowy kod programu. Ten kod:
+    * operations.jslistę operacji, które program ma uruchomić.
+    * main.py — przykładowy kod programu. Ten kod:
 
-        Powoduje załadowanie ustawień aplikacji.
-        * Wywołuje bezpośrednie metody, które są ujawniane w module IoT Edge na żywo. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](../../../direct-methods.md).
+        * Ładuje ustawienia aplikacji.
+        * Wywołuje bezpośrednie metody, które są ujawniane w module IoT Edge na żywo. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie metod bezpośrednich.
         * Wstrzymuje działanie, aby można było przeanalizować dane wyjściowe programu w oknie **terminalu** i przeanalizować zdarzenia, które zostały wygenerowane przez moduł w oknie **danych wyjściowych** .
-        * Wywołuje bezpośrednie metody czyszczenia zasobów.
-
-
+        * Wywołuje bezpośrednie metody czyszczenia zasobów.  
 1. Edytuj *operations.jsw* pliku:
     * Zmień łącze do topologii grafu:
 

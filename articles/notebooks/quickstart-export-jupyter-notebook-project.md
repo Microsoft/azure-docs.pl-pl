@@ -1,38 +1,22 @@
 ---
-title: Eksportowanie projektu Jupyter Notebook z wersji zapoznawczej Azure Notebooks
-description: Szybko Eksportuj projekt Jupyter Notebook.
+title: Używanie Jupyter Notebook z ofertami firmy Microsoft
+description: Dowiedz się więcej o tym, jak notesy Jupyter mogą być używane z ofertami firmy Microsoft.
 ms.topic: quickstart
-ms.date: 06/29/2020
-ms.openlocfilehash: ea16bd61b542217fb6f2d5ba1d926a0bc19d4cce
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/01/2021
+ms.openlocfilehash: 5679c28d9cc8a4f1893ffad72002b66ad59861e6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606136"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507381"
 ---
-# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Szybki Start: Eksportowanie projektu Jupyter Notebook w wersji zapoznawczej Azure Notebooks
+# <a name="use-a-jupyter-notebook-with-microsoft-offerings"></a>Używanie Jupyter Notebook z ofertami firmy Microsoft
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-W tym przewodniku szybki start pobierzesz projekt Azure Notebooks do użycia w innych rozwiązaniach Jupyter Notebook. 
+W tym przewodniku szybki start dowiesz się, jak zaimportować Jupyter Notebook do użycia w oferowanych ofertach firmy Microsoft. 
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-Istniejący projekt Azure Notebooks.
-
-## <a name="export-an-azure-notebooks-project"></a>Eksportowanie projektu Azure Notebooks
-
-1. Przejdź do [Azure Notebooks](https://notebooks.azure.com) i zaloguj się. Aby uzyskać szczegółowe informacje, zobacz [Szybki Start — logowanie do Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
-
-1. Na stronie Twój profil publiczny wybierz pozycję **Moje projekty** w górnej części strony:
-
-    ![Link Moje projekty w górnej części okna przeglądarki](media/quickstarts/my-projects-link.png)
-
-1. Wybierz projekt.
-1. Kliknij przycisk Pobierz, aby wyzwolić pobranie pliku zip, który zawiera wszystkie pliki projektu.
-1. Alternatywnie z konkretnej strony projektu kliknij przycisk "Pobierz projekt", aby pobrać wszystkie pliki danego projektu.
-
-Po pobraniu plików projektu można używać ich z innymi rozwiązaniami Jupyter Notebook. Niektóre opcje opisane w poniższych sekcjach obejmują: 
+Jeśli masz istniejące notesy Jupyter lub chcesz uruchomić nowy projekt, możesz użyć ich z wieloma ofertami firmy Microsoft. Niektóre opcje opisane w poniższych sekcjach obejmują: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
 - [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
@@ -41,7 +25,7 @@ Po pobraniu plików projektu można używać ich z innymi rozwiązaniami Jupyter
 
 ## <a name="create-an-environment-for-notebooks"></a>Tworzenie środowiska dla notesów
 
-Jeśli chcesz utworzyć środowisko zgodne z wersją zapoznawczą Azure Notebooks, możesz użyć pliku skryptu dostępnego w witrynie GitHub.
+Jeśli chcesz utworzyć środowisko zgodne z wersją zapoznawczą Azure Notebooks, możesz użyć pliku skryptu dostępnego w serwisie GitHub.
 
 1. Przejdź do repozytorium Azure Notebooks [GitHub](https://github.com/microsoft/AzureNotebooks) lub [bezpośrednio uzyskaj dostęp do folderu Environment](https://aka.ms/aznbrequirementstxt).
 1. W wierszu polecenia przejdź do katalogu, który ma być używany dla projektów.
@@ -54,14 +38,14 @@ Jeśli chcesz utworzyć środowisko zgodne z wersją zapoznawczą Azure Notebook
 
 ![Obsługa Jupyter Notebook VS Code](media/vs-code-jupyter-notebook.png)
 
-Po [pobraniu](#export-an-azure-notebooks-project) plików projektu można ich używać z vs Code. Aby uzyskać wskazówki dotyczące używania VS Code z notesami Jupyter, zobacz [Praca z notesami Jupyter w programie Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support) i [nauka danych w](https://code.visualstudio.com/docs/python/data-science-tutorial) samouczkach Visual Studio Code.
+Jeśli masz istniejące pliki projektu lub chcesz utworzyć nowy Notes, możesz użyć VS Code! Aby uzyskać wskazówki dotyczące używania VS Code z notesami Jupyter, zobacz temat [Praca z notesami Jupyter w Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support) i analizą [danych w](https://code.visualstudio.com/docs/python/data-science-tutorial) samouczkach Visual Studio Code.
 
 Możesz również użyć [skryptu środowiska Azure Notebooks](#create-an-environment-for-notebooks) z Visual Studio Code, aby utworzyć środowisko zgodne z podglądem Azure Notebooks.
 
 ## <a name="use-notebooks-in-github-codespaces"></a>Korzystanie z notesów w usłudze GitHub Codespaces
 
 Usługa GitHub Codespaces udostępnia środowiska hostowane w chmurze, w których można edytować notesy za pomocą Visual Studio Code lub w przeglądarce internetowej. Oferuje to samo doskonałe środowisko Jupyter, co VS Code, ale bez konieczności instalowania żadnych elementów na urządzeniu. Jeśli nie chcesz konfigurować środowiska lokalnego i wolisz rozwiązania do tworzenia kopii zapasowych w chmurze, tworzenie codespace jest doskonałym rozwiązaniem. Aby rozpocząć:
-1. [Pobierz](#export-an-azure-notebooks-project) pliki projektu.
+1. Obowiązkowe Zbierz pliki projektu, których chcesz używać z usługą GitHub Codespaces.
 1. [Utwórz repozytorium GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) do przechowywania Twoich notesów.   
 1. [Dodaj pliki](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) do repozytorium.
 1. [Zażądaj dostępu do usługi GitHub Codespaces w wersji zapoznawczej](https://github.com/features/codespaces)
@@ -70,14 +54,14 @@ Usługa GitHub Codespaces udostępnia środowiska hostowane w chmurze, w któryc
 
 Azure Machine Learning zapewnia kompleksową platformę do uczenia maszynowego, która umożliwia użytkownikom szybsze tworzenie i wdrażanie modeli na platformie Azure. Usługa Azure ML umożliwia uruchamianie notesów Jupyter na maszynie wirtualnej lub w środowisku przetwarzania danych klastra. Jeśli korzystasz z rozwiązania opartego na chmurze do obciążeń związanych z chmurą przy użyciu śledzenia eksperymentów, zarządzania zestawami danych i nie tylko, zalecamy Azure Machine Learning. Aby rozpocząć pracę z platformą Azure ML:
 
-1. [Pobierz](#export-an-azure-notebooks-project) pliki projektu.
+1. Obowiązkowe Zbierz pliki projektu, które mają być używane z platformą Azure ML.
 1. [Utwórz obszar roboczy](../machine-learning/how-to-manage-workspace.md) w Azure Portal.
 
    ![Tworzenie obszaru roboczego](../machine-learning/media/how-to-manage-workspace/create-workspace.gif)
  
 1. Otwórz [usługę Azure Studio (wersja zapoznawcza)](https://ml.azure.com/).
 1. Na pasku nawigacyjnym po lewej stronie wybierz pozycję **Notes**.
-1. Kliknij przycisk **Przekaż pliki** i przekaż pliki projektu pobrane z Azure Notebooks.
+1. Kliknij przycisk **Przekaż pliki** i przekaż pliki projektu.
 
 Aby uzyskać dodatkowe informacje na temat platformy Azure ML i uruchamiania notesów Jupyter, możesz przejrzeć [dokumentację](../machine-learning/how-to-run-jupyter-notebooks.md) lub spróbować wykonać [wprowadzenie do Machine Learning](/learn/modules/intro-to-azure-machine-learning-service/) module w Microsoft Learn.
 
@@ -88,13 +72,13 @@ Aby uzyskać dodatkowe informacje na temat platformy Azure ML i uruchamiania not
 
 ![image (obraz)](../lab-services/media/tutorial-setup-classroom-lab/new-lab-button.png)
 
- Po [pobraniu](#export-an-azure-notebooks-project) plików projektu można ich używać z Azure Lab Services. Aby uzyskać wskazówki dotyczące konfigurowania laboratorium, zobacz [Konfigurowanie laboratorium do uczenia danych w języku Python i Jupyter notesów](../lab-services/class-type-jupyter-notebook.md)
+Jeśli masz istniejące pliki projektu lub chcesz utworzyć nowy Notes, możesz użyć Azure Lab Services. Aby uzyskać wskazówki dotyczące konfigurowania laboratorium, zobacz [Konfigurowanie laboratorium do uczenia danych w języku Python i Jupyter notesów](../lab-services/class-type-jupyter-notebook.md)
 
 ## <a name="use-github"></a>Korzystanie z usługi GitHub
 
 GitHub oferuje bezpłatne, chronione za pomocą kontroli źródła sposób przechowywania notesów (i innych plików), udostępnia Twoje notesy innym osobom oraz pracuje wspólnie. Jeśli szukasz sposobu udostępniania projektów i współpracy z innymi osobami, serwis GitHub jest doskonałym rozwiązaniem i może być połączony z usługą [GitHub Codespaces](#use-notebooks-in-github-codespaces) , aby uzyskać doskonałe środowisko programistyczne. Aby rozpocząć pracę z usługą GitHub
 
-1. [Pobierz](#export-an-azure-notebooks-project) pliki projektu.
+1. Obowiązkowe Zbierz pliki projektu, których chcesz używać z usługą GitHub.
 1. [Utwórz repozytorium GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) do przechowywania Twoich notesów. 
 1. [Dodaj pliki](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) do repozytorium.
 

@@ -1,5 +1,5 @@
 ---
-title: Śledź działanie czujnika
+title: Śledzenie działania czujnika
 description: Oś czasu zdarzeń przedstawia oś czasu aktywności wykrytych w sieci, w tym alerty i akcje zarządzania alertami, zdarzenia sieciowe i operacje użytkownika, takie jak logowanie użytkownika i usuwanie użytkownika.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3895e01b1fbfcde79ff91bd1eade8d902c33b852
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843036"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509103"
 ---
-# <a name="track-sensor-activity"></a>Śledź działanie czujnika
+# <a name="track-sensor-activity"></a>Śledzenie działania czujnika
 
 ## <a name="event-timeline"></a>Oś czasu zdarzeń
 
@@ -59,15 +59,15 @@ Aby odfiltrować oś czasu:
 
 2. Ustaw filtry zdarzeń w następujący sposób:
 
-   - **Uwzględnij adres**: Wyświetla określone urządzenia zdarzeń.
+   - **Uwzględnij adres**: Wyświetla zdarzenia dla określonych urządzeń.
 
-   - **Wyklucz adres**: Ukryj określone urządzenia zdarzeń.
+   - **Wyklucz adres**: Ukryj zdarzenia dla konkretnych urządzeń.
 
    - **Uwzględnij typy zdarzeń**: Wyświetlaj określone typy zdarzeń.
 
    - **Wyklucz typy zdarzeń**: Ukryj określone typy zdarzeń.
 
-   - **Grupa urządzeń**: Wybierz grupę urządzeń, która została zdefiniowana w mapie urządzeń. Prezentowane są tylko zdarzenia tej grupy.
+   - **Grupa urządzeń**: Wybierz grupę urządzeń, która została zdefiniowana w mapie urządzeń. Prezentowane są tylko zdarzenia z tej grupy.
 
 3. Wybierz pozycję **Wyczyść wszystko** , aby wyczyścić wszystkie wybrane filtry.
 
@@ -87,8 +87,8 @@ Aby odfiltrować oś czasu:
 
     - Wybierz **plik PCAP** , aby pobrać plik PCAP (jeśli istnieje) zawierający przechwycenie pakietu dla całej sieci w określonym czasie. 
     
-      Plik PCAP zawiera informacje techniczne, które mogą pomóc inżynierom w ustaleniu dokładnego miejsca, w którym wystąpiło zdarzenie i co się dzieje. Plik PCAP można analizować za pomocą analizatora protokołów sieciowych, takiego jak Wireshark, bezpłatnej aplikacji.
+      Plik PCAP zawiera informacje techniczne, które mogą pomóc inżynierom sieci ustalić dokładne parametry zdarzenia. Plik PCAP można analizować za pomocą analizatora protokołów sieciowych, takiego jak Wireshark, aplikacji typu open source.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Wyświetlanie alertów](how-to-view-alerts.md)

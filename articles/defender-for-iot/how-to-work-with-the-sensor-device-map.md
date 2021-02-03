@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: edd1438a665e4917d5dd4cdcfba08d9cee01d3bb
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976762"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509052"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Badanie wykrywania czujników na mapie urządzeń
 
@@ -63,7 +63,7 @@ Poniższy rysunek przedstawia zwinięty podsieć IT z 27 elementów sieci IT.
 
 Aby włączyć funkcję zwijania sieci IT:
 
-- W oknie Ustawienia systemu upewnij się, że funkcja sieci IT jest włączona.
+- W oknie **Ustawienia systemu** upewnij się, że włączone jest ustawienie Przełącz możliwość grupowania sieci IT.
 
 :::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="Okno Ustawienia systemu":::
 
@@ -76,7 +76,7 @@ Aby rozwinąć podsieć IT:
 
    :::image type="content" source="media/how-to-work-with-maps/subnet-list.png" alt-text="Konfiguracja podsieci":::
 
-2. W oknie konfiguracji edytowanie podsieci Wyczyść podsieć ICS dla każdej podsieci, która ma zostać zdefiniowana jako podsieć IT. Podsieci IT są wyświetlane jako zwinięte na mapie urządzeń z powiadomieniami dla urządzeń z ICS, takimi jak kontroler lub PLC, w sieciach IT.
+2. W oknie **konfiguracji edytowanie podsieci** wyczyść pole wyboru podsieć **ICS** dla każdej podsieci, która ma zostać zdefiniowana jako podsieć IT. Podsieci IT są wyświetlane jako zwinięte na mapie urządzeń z powiadomieniami dla urządzeń z ICS, takimi jak kontroler lub PLC, w sieciach IT.
 
    :::image type="content" source="media/how-to-work-with-maps/edit-config.png" alt-text="Edytuj konfigurację podsieci":::
 
@@ -106,13 +106,13 @@ Ikona zwijania zostanie zaktualizowana o zaktualizowaną liczbę rozbudowanych p
 
 ## <a name="view-or-highlight-device-groups"></a>Wyświetlanie lub wyróżnianie grup urządzeń
 
-Można dostosować wyświetlanie mapy na podstawie grup urządzeń. Na przykład grupy urządzeń skojarzone z określoną siecią VLAN lub podsiecią. Dostępne są wstępnie zdefiniowane grupy i można tworzyć grupy niestandardowe.
+Można dostosować wyświetlanie mapy na podstawie grup urządzeń. Na przykład grupy urządzeń skojarzone z konkretnym protokołem, VLAN lub podsiecią. Dostępne są wstępnie zdefiniowane grupy i można tworzyć grupy niestandardowe.
 
 Wyświetl grupy według:
 
   - **Wyróżnianie:** Zaznacz urządzenia należące do określonej grupy w kolorze niebieskim.
 
-  - **Filtrowanie:** Wyświetlaj tylko urządzenia na mapie, które należą do określonej grupy.
+  - **Filtrowanie:** Wyświetlanie tylko tych urządzeń, które należą do określonej grupy.
 
 :::image type="content" source="media/how-to-work-with-maps/port-standard.png" alt-text="Standardowy widok portu":::
 
@@ -120,17 +120,18 @@ Dostępne są następujące wstępnie zdefiniowane grupy:
 
 | Nazwa grupy | Opis |
 |--|--|
-| **Znane aplikacje lub porty inne niż standardowe (domyślnie)** | Urządzenia korzystające z portów zarezerwowanych, takich jak TCP. Urządzenia używające niestandardowych portów lub portów, które nie przypisały aliasu. |
-| **Protokoły (domyślnie)** | Urządzenia, które obsługują ruch z niedostępnym. |
-| **Autoryzacja (domyślnie)** | Urządzenia, które zostały wykryte w sieci podczas procesu uczenia lub zostały oficjalnie dodane do sieci |
+| **Znane aplikacje** | Urządzenia korzystające z portów zarezerwowanych, takich jak TCP.  |
+| **porty inne niż standardowe (domyślnie)** | Urządzenia używające niestandardowych portów lub portów, które nie przypisały aliasu. |
+| **Protokoły (domyślnie)** | Urządzenia, które obsługują znany ruch. |
+| **Autoryzacja (domyślnie)** | Urządzenia, które zostały wykryte w sieci w trakcie procesu uczenia lub zostały oficjalnie autoryzowane w sieci. |
 | **Filtry spisu urządzeń** | Urządzenia pogrupowane zgodnie z filtrami zapisywanymi w tabeli spisu urządzeń. |
 | **Interwały sondowania** | Urządzenia pogrupowane według interwałów sondowania. Interwały sondowania są generowane automatycznie według kanałów cyklicznych lub okresów. Na przykład 15,0 sekund, 3,0 sekund, 1,5 sekund lub interwału. Przejrzenie tych informacji pomaga sprawdzić, czy systemy są zbyt szybko lub wolno sondować. |
-| **Użytkow** | Stacje inżynieryjne i kontrolery z zaprogramowanymi |
+| **Użytkow** | Stacje inżynieryjne i maszyny programistyczne. |
 | **Podsieci** | Urządzenia należące do określonej podsieci. |
 | **OKREŚLONE** | Urządzenia skojarzone z konkretnym IDENTYFIKATORem sieci VLAN. |
-| **Połączenie między podsieciami** | Urządzenia skojarzone z połączeniem między podsieciami. |
+| **Połączenia między podsieciami** | Urządzenia, które komunikują się z jednej podsieci z inną podsiecią. |
 | **Przypięte alerty** | Urządzenia, dla których użytkownik przypięty alert. |
-| **Symulowanie symulacji wektora** | Zagrożone urządzenia wykryte w raportach wektorów ataków. Aby wyświetlić te urządzenia na mapie, zaznacz pole wyboru **Wyświetl w mapie urządzenia** podczas generowania wektora ataku. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Dodawanie symulowania wektorów ataków"::: |
+| **Symulowanie symulacji wektora** | Zagrożone urządzenia wykryte w raportach wektorów ataków. Aby wyświetlić te urządzenia na mapie, zaznacz pole wyboru **Wyświetl w mapie urządzenia** podczas generowania wektora ataku. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Dodawanie symulacji wektorów ataków":::. |
 | **Ostatnio widziano** | Urządzenia pogrupowane według przedziału czasowego, które były ostatnio widoczne, na przykład: jedna godzina, sześć godzin, jeden dzień, siedem dni. |
 | **Nie w Active Directory** | Wszystkie urządzenia inne niż PLC, które nie komunikują się z Active Directory. |
 
@@ -142,7 +143,7 @@ Aby wyróżnić lub filtrować urządzenia:
 
 3. W okienku grupy wybierz grupę, w której chcesz wyróżnić lub filtrować urządzenia.
 
-4. Wybierz opcję **Wyróżnij** lub **Filtruj**.
+4. Wybierz opcję **Wyróżnij** lub **Filtruj**. Przełącz ten sam wybór, aby usunąć wyróżnienie lub filtr.
 
 ## <a name="define-custom-groups"></a>Definiowanie grup niestandardowych
 
@@ -155,20 +156,20 @@ Aby utworzyć grupę:
 
 1. Wybierz pozycję **urządzenia** w menu po stronie. Zostanie wyświetlona mapa urządzenia.
 
-2. Wybierz pozycję :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="ustawienie grupy"::: , aby wyświetlić ustawienia grup.
+1. Wybierz pozycję :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="ustawienie grupy"::: , aby wyświetlić ustawienia grup.
 
-3. Wybierz :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="grupy"::: , aby utworzyć nową grupę niestandardową.
+1. Wybierz :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="grupy"::: , aby utworzyć nową grupę niestandardową.
 
 :::image type="content" source="media/how-to-work-with-maps/custom-group-v2.png" alt-text="Utwórz ekran grupy niestandardowej":::
 
-4. Dodaj nazwę grupy, użyj maksymalnie 30 znaków.
+1. Dodaj nazwę grupy, użyj maksymalnie 30 znaków.
 
-5. Wybierz odpowiednie urządzenia w następujący sposób:
+1. Wybierz odpowiednie urządzenia w następujący sposób:
 
    - Dodaj urządzenia z tego menu, wybierając je z listy (wybierz na przycisku strzałki),<br /> Lub: <br /> 
    - Dodaj urządzenia z tego menu, kopiując je z wybranej grupy (wybierz przycisk strzałki)
 
-6. Wybierz pozycję **Dodaj grupę**.
+1. Wybierz pozycję **Dodaj grupę** , aby dodać istniejące grupy do grup niestandardowych.
 
 ### <a name="add-devices-to-a-custom-group"></a>Dodawanie urządzeń do grupy niestandardowej
 
@@ -176,13 +177,13 @@ Możesz dodać urządzenia do grupy niestandardowej lub utworzyć nową grupę n
 
 1. Kliknij prawym przyciskiem myszy urządzenia na mapie.
 
-2. Wybierz pozycję **Dodaj do grupy**.
+1. Wybierz pozycję **Dodaj do grupy**.
 
-3. Wprowadź nazwę grupy w polu Grupa i wybierz pozycję +. Zostanie wyświetlona nowa grupa. Jeśli grupa już istnieje, zostanie dodana do istniejącej grupy niestandardowej.
+1. Wprowadź nazwę grupy w polu Grupa i wybierz pozycję +. Zostanie wyświetlona nowa grupa. Jeśli grupa już istnieje, zostanie dodana do istniejącej grupy niestandardowej.
 
    :::image type="content" source="media/how-to-work-with-maps/groups-section-v2.png" alt-text="Nazwa grupy":::
 
-4. Dodaj urządzenia do grupy przez powtórzenie kroków 1-3.
+1. Dodaj urządzenia do grupy przez powtórzenie kroków 1-3.
 
 ## <a name="map-zoom-views"></a>Widoki powiększenia mapy
 
@@ -319,12 +320,12 @@ Poniższe informacje można aktualizować ręcznie. Informacje wprowadzane ręcz
 | Informacje podstawowe | Podstawowe informacje są zbędne. |
 | Nazwa | Nazwa urządzenia. <br /> Domyślnie czujnik odnajduje nazwę urządzenia określoną w sieci. Na przykład nazwa zdefiniowana na serwerze DNS. <br /> Jeśli nie zdefiniowano takich nazw, w tym polu jest wyświetlany adres IP urządzenia. <br /> Nazwę urządzenia można zmienić ręcznie. Nadaj swoim urządzeniom znaczące nazwy, które odzwierciedlają ich funkcjonalność. |
 | Typ | Typ urządzenia wykryty przez czujnik. <br /> Aby uzyskać więcej informacji, zobacz [Wyświetlanie typów urządzeń](#view-device-types). |
-| Dostawca | Dostawca urządzenia. |
-| System operacyjny | System operacyjny urządzenia. |
+| Dostawca | Dostawca urządzenia. Jest to określane przez znaki wiodące adresu MAC urządzenia. To pole jest tylko do odczytu. |
+| System operacyjny | System operacyjny urządzenia wykryty przez czujnik. |
 | Warstwa Purdue | Warstwa Purdue określona przez czujnik dla tego urządzenia, w tym: <br /> -Automatyczne <br /> — Kontrola procesu <br /> -Nadzorcze <br /> - Enterprise |
 | Opis | Bezpłatne pole tekstowe. <br /> Dodaj więcej informacji o urządzeniu. |
 | Atrybuty | Wszystkie dodatkowe informacje, które zostały odnalezione na urządzeniu w okresie uczenia i nie należą do innych kategorii, są wyświetlane w sekcji atrybuty. <br /> Informacje są typu RO. |
-| Ustawienia | Ustawienia urządzenia można zmienić ręcznie, aby zapobiec zwracaniu fałszywych wartości dodatnich: <br /> - **Autoryzowane urządzenie**: w okresie uczenia wszystkie urządzenia wykryte w sieci są identyfikowane jako autoryzowane urządzenia. Gdy urządzenie zostanie odnalezione po okresie szkoleniowym, domyślnie pojawia się jako nieautoryzowane urządzenie. Tę definicję można zmienić ręcznie. <br /> - **Znane jako skaner**: Włącz tę opcję, Jeśli wiesz, że to urządzenie jest znane jako skaner i nie musisz otrzymywać alertów o tym urządzeniu. <br /> - **Urządzenie programistyczne**: Włącz tę opcję, Jeśli wiesz, że to urządzenie jest znane jako urządzenie programistyczne i nie musisz otrzymywać alertów o tym urządzeniu. |
+| Ustawienia | Ustawienia urządzenia można zmienić ręcznie, aby zapobiec zwracaniu fałszywych wartości dodatnich: <br /> - **Autoryzowane urządzenie**: w okresie uczenia wszystkie urządzenia wykryte w sieci są identyfikowane jako autoryzowane urządzenia. Gdy urządzenie zostanie odnalezione po okresie szkoleniowym, domyślnie pojawia się jako nieautoryzowane urządzenie. Tę definicję można zmienić ręcznie. <br /> - **Znane jako skaner**: Włącz tę opcję, Jeśli wiesz, że to urządzenie jest znane jako skaner i nie musisz otrzymywać alertów o tym urządzeniu. <br /> - **Urządzenie programistyczne**: Włącz tę opcję, Jeśli wiesz, że to urządzenie jest znane jako urządzenie programistyczne i służy do wprowadzania zmian programistycznych. Zidentyfikowanie go jako urządzenia programistycznego uniemożliwi alerty dotyczące zmian programistycznych pochodzących z tego elementu zawartości. |
 | Grupy niestandardowe | Grupy niestandardowe na mapie urządzeń, w której uczestniczą to urządzenie. |
 | Stan | Stan zabezpieczeń i autoryzacji urządzenia: <br /> — Stan to brak `Secured` alertów <br /> — W przypadku alertów dotyczących urządzenia zostanie wyświetlona liczba alertów <br /> — Stan `Unauthorized` jest wyświetlany w przypadku urządzeń, które zostały dodane do sieci po okresie szkoleniowym. Urządzenie można zdefiniować ręcznie jako `Authorized Device` Ustawienia <br /> -W przypadku, gdy adres tego urządzenia jest zdefiniowany jako adres dynamiczny, `DHCP` zostanie dodany do stanu. |
 
@@ -359,7 +360,7 @@ W poniższej tabeli przedstawiono wszystkie typy w systemie:
 | Kategoria | Typ urządzenia |
 |--|--|
 | SIECIOWEGO | Stacja inżynieryjna <br /> PLC <br />Historian <br />HMI <br />IED <br />Kontroler DCS <br />RTU <br />System pakowania przemysłowego <br />Skala przemysłowa <br />Robot branżowy <br />Gniazdo <br />Miernik <br />Zmienna częstotliwość dysku  <br />Kontroler robotów <br />Dysk SERVO <br />Urządzenie pneumatyczne <br />Wygaszacz |
-| IT | Kontroler domeny <br />Serwer bazy danych <br />Stacja robocza <br />Serwer <br />Stacja terminalowa <br />Magazyn <br />Telefon inteligentny <br />Tablet <br />Serwer kopii zapasowej |
+| IT | Kontroler domeny <br />Serwer bazy danych <br />Stacja robocza <br />Serwer <br />Stacja terminalowa <br />Storage <br />Telefon inteligentny <br />Tablet <br />Serwer kopii zapasowej |
 | IoT | Kamera IP <br />Drukarka  <br />Zegar dziurkowania <br />Bankomaty <br />Inteligentna telewizja <br />Konsola gry <br />DVR <br />Panel sterowania drzwiami <br />HVAC <br />Sterownika <br />Alarm ognia <br />Inteligentne oświetlenie <br />Przełącznik inteligentny <br />Wykrywanie ognia <br />Telefon IP <br />System alarmów <br />Siren alarmu <br />Wykrywanie ruchu <br />Opuścić <br />Czujnik wilgotności <br />Skaner kodów kreskowych <br />Zasilacz awaryjny UPS <br />System licznika osób <br />Intercom <br />Poprzeczk |
 | Sieć | Punkt dostępu bezprzewodowego <br />Router <br />Przełącznik <br />Firewall <br />VPN Gateway <br />Serwer NTP <br />Ananasy WiFi <br />Lokalizacja fizyczna <br />Adapter we/wy <br /> Konwerter protokołów |
 
@@ -369,7 +370,7 @@ Aby wyświetlić informacje o urządzeniu:
 
 2. Kliknij prawym przyciskiem myszy urządzenie, a następnie wybierz polecenie **Wyświetl właściwości**. Zostanie wyświetlona okno Właściwości urządzenia.
 
-3. Aby wyświetlić szczegółowe informacje o alertach dla tego urządzenia, wybierz pozycję na wymaganym alercie u dołu tego okna.
+3. Wybierz wymagany alert, aby wyświetlić szczegółowe informacje o alertach dla tego urządzenia.
 
 ### <a name="backplane-properties"></a>Właściwości planu
 
@@ -429,7 +430,7 @@ Zwiększ dowodowych, wyświetlając zdarzenia programistyczne wykonywane na urz�
 
 Można wyświetlić program z zaprogramowanym urządzeniem i przewinąć różne zmiany w programowaniu wykonywane przez inne urządzenia.
 
-Wyświetl kod, który został dodany, zmieniony, usunięty lub niezmieniony przez urządzenie programistyczne. Wyszukaj zmiany programistyczne oparte na typach plików, datach lub porach zainteresowania.
+Wyświetl kod, który został dodany, zmieniony, usunięty lub ponownie załadowany przez urządzenie programistyczne. Wyszukaj zmiany programistyczne oparte na typach plików, datach lub porach zainteresowania.
 
 ### <a name="when-to-review-programming-activity"></a>Kiedy należy przeglądać działania programistyczne 
 
@@ -443,7 +444,7 @@ Może być konieczne przejrzenie działań programistycznych:
 
 :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Programowy dziennik zmian":::
 
-Dodatkowe opcje pozwalają:
+Inne opcje pozwalają:
 
   - Oznacz zdarzenia zainteresowania gwiazdką.
 
@@ -476,13 +477,13 @@ Alerty są wyzwalane, gdy nieautoryzowane urządzenia programistyczne wykonują 
 :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Nieautoryzowane alerty programistyczne":::
 
 > [!NOTE]
-> Możesz również wyświetlić podstawowe informacje dotyczące programowania w okno Właściwości urządzeń i spisie urządzeń. Zobacz [informacje dotyczące programowania urządzeń: dodatkowe lokalizacje](#device-programming-information-additional-locations) , aby uzyskać szczegółowe informacje.
+> Możesz również wyświetlić podstawowe informacje dotyczące programowania w okno Właściwości urządzeń i spisie urządzeń.
 
 ### <a name="working-in-the-programming-timeline-window"></a>Praca w oknie programowanie osi czasu
 
 W tej sekcji opisano sposób wyświetlania plików programistycznych i porównywania wersji. Wyszukiwanie określonych plików wysyłanych na urządzenie z zaprogramowanym programem. Wyszukaj pliki na podstawie:
 
-  - Data
+  - Date (Data)
 
   - Typ pliku
 
@@ -539,7 +540,7 @@ Aby porównać:
 
 5. Plik wybrany z okienka ostatnie zdarzenia/pliki zawsze pojawia się po prawej stronie.
 
-### <a name="device-programming-information-additional-locations"></a>Informacje o programowaniu urządzeń: dodatkowe lokalizacje
+### <a name="device-programming-information-other-locations"></a>Informacje o programowaniu urządzeń: Inne lokalizacje
 
 Oprócz szczegółów na osi czasu programowania można uzyskać dostęp do informacji programistycznych na urządzeniu okno Właściwości i spisie urządzeń.
 
@@ -554,9 +555,9 @@ Czujnik nie aktualizuje ani nie wpływa na urządzenia bezpośrednio w sieci. Zm
 
 ### <a name="delete-devices"></a>Usuwanie urządzeń
 
-Jeśli uzyskane informacje nie są istotne, można usunąć urządzenie. Przykład:
+Jeśli uzyskane informacje nie są istotne, można usunąć urządzenie. Na przykład
 
-  - Wykonawca partnerski na stacji roboczej inżynieryjnej nawiązuje połączenie z aktualizacjami konfiguracji. Po zakończeniu zadania urządzenie nie powinno już być monitorowane.
+  - Wykonawca partnerski na stacji roboczej inżynieryjnej nawiązuje czasowo w celu przeprowadzenia aktualizacji konfiguracyjnych. Urządzenie zostanie usunięte po zakończeniu zadania.
 
   - Ze względu na zmiany w sieci niektóre urządzenia nie są już połączone.
 
@@ -566,7 +567,7 @@ Może zostać wyświetlony alert informujący o tym, że urządzenie nie odpowia
 
 Urządzenie zostanie usunięte z raportów dotyczących mapowania urządzeń, spisu urządzeń i wyszukiwania danych. Inne informacje, na przykład: informacje przechowywane w elementach widget zostaną zachowane.
 
-Urządzenie musi być aktywne przez co najmniej 10 minut, aby można było je usunąć.
+Urządzenie musi być nieaktywne przez co najmniej 10 minut, aby można je było usunąć.
 
 Aby usunąć urządzenie z mapy urządzeń:
 
@@ -576,11 +577,13 @@ Aby usunąć urządzenie z mapy urządzeń:
 
 ### <a name="merge-devices"></a>Scalanie urządzeń
 
-W pewnych okolicznościach może być konieczne scalenie urządzeń. Może to być wymagane, jeśli czujnik wykrył oddzielne jednostki sieciowe, które są jednym unikatowym urządzeniem. Przykład:
+W pewnych okolicznościach może być konieczne scalenie urządzeń. Może to być wymagane, jeśli czujnik wykrył oddzielne jednostki sieciowe, które są skojarzone z jednym unikatowym urządzeniem. Na przykład
 
-  - PLC z czterema kartami sieciowymi
+  - PLC z czterema kartami sieciowymi.
 
-  - Laptop z kartą sieci Wi-Fi i fizyczną
+  - Laptop z kartą sieci Wi-Fi i fizyczną.
+  
+  - Stacja robocza z co najmniej dwiema kartami sieciowymi.
 
 Podczas scalania należy polecić czujnikowi łączenie właściwości urządzenia z dwoma urządzeniami w jeden. Po wykonaniu tej czynności raporty dotyczące okno Właściwości i czujników urządzenia zostaną zaktualizowane o nowe szczegóły właściwości urządzenia.
 
@@ -596,7 +599,7 @@ Nie można cofnąć scalania urządzeń. Jeśli usunięto ponownie dwa urządzen
 
 Aby scalić urządzenia:
 
-1. Wybierz dwa urządzenia i kliknij prawym przyciskiem myszy jeden z nich.
+1. Wybierz dwa urządzenia (kliknij przycisk Shift-kliknięcie), a następnie kliknij prawym przyciskiem myszy jeden z nich.
 
 2. Wybierz pozycję **Scal** , aby scalić urządzenia. Scalanie może potrwać do 2 minut.
 
@@ -622,7 +625,7 @@ Jeśli przeniesiesz urządzenie na mapę lub ręcznie zmienisz właściwości ur
 
 #### <a name="unauthorized-devices---attack-vectors-and-risk-assessment-reports"></a>Nieautoryzowane urządzenia — wektory ataków i raporty oceny ryzyka
 
-Nieautoryzowane urządzenia są obliczane w raportach oceny ryzyka i w raportach wektorów ataków.
+Nieautoryzowane urządzenia są uwzględniane w raportach oceny ryzyka i w raportach wektorów ataków.
 
 - **Raporty wektorów ataków:** Urządzenia oznaczone jako nieautoryzowane są rozwiązywane w wektorze ataków jako podejrzane urządzenia, które mogą stanowić zagrożenie dla sieci.
 

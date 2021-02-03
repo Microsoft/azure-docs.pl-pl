@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: 62faaed3672f721b26587d1bca3ddb0947f733e7
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: ea2dc877c7bc6db387985e7b5cd1153e195ab4f1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220840"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509574"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>Uaktualnienie wersji głównej w Azure Database for MySQL pojedynczym serwerze
 
@@ -121,15 +121,7 @@ Ta funkcja jest planowana przed wycofaniem z programu MySQL v 5.6. Jednak funkcj
 
 ### <a name="will-this-cause-downtime-of-the-server-and-if-so-how-long"></a>Czy spowoduje to przestoje serwera, a jeśli tak, jak długo?
 
-Tak. serwer będzie niedostępny w trakcie procesu uaktualniania, dlatego zalecamy wykonanie tej operacji podczas planowanego okna obsługi. Szacowany czas przestoju zależy od rozmiaru bazy danych, obsługiwanego rozmiaru magazynu (alokowanej liczby operacji we/wy) i liczbie tabel w bazie danych. Czas uaktualnienia jest bezpośrednio proporcjonalny do liczby tabel na serwerze. Uaktualnienia podstawowych serwerów SKU powinny trwać dłużej niż w przypadku standardowej platformy magazynu. Aby oszacować przestoje środowiska serwera, zalecamy najpierw przeprowadzić uaktualnienie na przywróconej kopii serwera.  
-
-### <a name="it-is-noted-that-it-is-not-supported-on-replica-server-yet-what-does-that-mean-concrete"></a>Należy pamiętać, że nie jest jeszcze obsługiwana na serwerze repliki. Co oznacza konkretną?
-
-Obecnie uaktualnienie wersji głównej nie jest obsługiwane dla serwera repliki, co oznacza, że nie należy uruchamiać go dla serwerów objętych replikacją (serwera źródłowego lub repliki). Jeśli chcesz przetestować uaktualnienie serwerów związanych z replikacją przed dodaniem obsługi repliki dla funkcji uaktualniania, zalecamy wykonanie następujących czynności:
-
-1. Podczas planowanej konserwacji [Zatrzymaj replikację i Usuń serwer repliki](howto-read-replicas-portal.md) Po przechwyceniu jego nazwy i wszystkich informacji konfiguracyjnych (ustawienia zapory, konfiguracja parametru serwera, jeśli różni się od serwera źródłowego).
-2. Wykonaj uaktualnienie serwera źródłowego.
-3. Zainicjuj obsługę nowego serwera repliki odczytu o tej samej nazwie i ustawieniach konfiguracji przechwytywanych w kroku 1. Nowy serwer repliki będzie automatycznie w wersji 5.7, gdy serwer źródłowy zostanie uaktualniony do wersji 5.7.
+Tak. serwer będzie niedostępny w trakcie procesu uaktualniania, dlatego zalecamy wykonanie tej operacji podczas planowanego okna obsługi. Szacowany czas przestoju zależy od rozmiaru bazy danych, obsługiwanego rozmiaru magazynu (alokowanej liczby operacji we/wy) i liczbie tabel w bazie danych. Czas uaktualnienia jest bezpośrednio proporcjonalny do liczby tabel na serwerze. Uaktualnienia podstawowych serwerów SKU powinny trwać dłużej niż w przypadku standardowej platformy magazynu. Aby oszacować przestoje środowiska serwera, zalecamy najpierw przeprowadzić uaktualnienie na przywróconej kopii serwera. Rozważ [przeprowadzenie minimalnego czasu przestoju uaktualnienie wersji głównej z programu mysql 5,6 do bazy danych mysql 5,7 przy użyciu repliki odczytu.](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas)
 
 ### <a name="what-will-happen-if-we-do-not-choose-to-upgrade-our-mysql-v56-server-before-february-5-2021"></a>Co się stanie, jeśli nie zdecydujesz się na uaktualnienie naszego serwera MySQL v 5.6 przed 5 lutego 2021?
 

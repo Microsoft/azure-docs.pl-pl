@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ade5880a6b06f448df23eb77d81201a521f1d240
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430049"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509388"
 ---
-# <a name="create-a-search-indexer"></a>Tworzenie indeksatora wyszukiwania
+# <a name="creating-indexers-in-azure-cognitive-search"></a>Tworzenie indeksatorów na platformie Azure Wyszukiwanie poznawcze
 
 Indeksator wyszukiwania zapewnia zautomatyzowany przepływ pracy do przenoszenia dokumentów i zawartości z zewnętrznego źródła danych do indeksu wyszukiwania w usłudze wyszukiwania. Jak pierwotnie zaprojektowany, wyodrębnia tekst i metadane ze źródła danych platformy Azure, deserializacji dokumenty w formacie JSON i przekazuje je do aparatu wyszukiwania do indeksowania. Jest to, że została rozszerzona o obsługę [wzbogacania zawartości AI](cognitive-search-concept-intro.md) do przetwarzania głębokiego. 
 
@@ -99,7 +99,7 @@ Poniższy zrzut ekranu pokazuje, gdzie można znaleźć te funkcje w portalu.
 
 ### <a name="use-a-rest-client"></a>Korzystanie z klienta REST
 
-Zarówno program Poster, jak i Visual Studio Code (z rozszerzeniem dla systemu Azure Wyszukiwanie poznawcze) mogą działać jako klient indeksatora. Za pomocą dowolnego z tych narzędzi można nawiązać połączenie z usługą wyszukiwania i wysyłać żądania tworzące indeksatory i inne obiekty. Istnieje wiele samouczków i przykładów demonstrujących klientów REST do tworzenia obiektów. 
+Zarówno program Poster, jak i Visual Studio Code (z rozszerzeniem dla systemu Azure Wyszukiwanie poznawcze) mogą działać jako klient indeksatora. Za pomocą dowolnego z tych narzędzi można nawiązać połączenie z usługą wyszukiwania i wysyłać żądania [utworzenia indeksatora (REST)](/rest/api/searchservice/create-indexer) . Istnieje wiele samouczków i przykładów demonstrujących klientów REST do tworzenia obiektów. 
 
 Aby dowiedzieć się więcej na temat każdego klienta, Zacznij od jednego z poniższych artykułów:
 
@@ -110,7 +110,7 @@ Zapoznaj się z [operacjami indeksatora (REST)](/rest/api/searchservice/Indexer-
 
 ### <a name="use-an-sdk"></a>Korzystanie z zestawu SDK
 
-W przypadku Wyszukiwanie poznawcze zestawy SDK platformy Azure implementują ogólnie dostępne funkcje. W związku z tym można użyć dowolnego z zestawów SDK do tworzenia obiektów powiązanych indeksatorem. Wszystkie z nich implementują **SearchIndexerClient** , który dostarcza metody do tworzenia indeksatorów i powiązanych obiektów, w tym umiejętności.
+W przypadku Wyszukiwanie poznawcze zestawy SDK platformy Azure implementują ogólnie dostępne funkcje. W związku z tym można użyć dowolnego z zestawów SDK do tworzenia obiektów powiązanych indeksatorem. Wszystkie z nich zapewniają **SearchIndexerClient** , który ma metody tworzenia indeksatorów i powiązanych obiektów, w tym umiejętności.
 
 | Zestaw Azure SDK | Klient | Przykłady |
 |-----------|--------|----------|

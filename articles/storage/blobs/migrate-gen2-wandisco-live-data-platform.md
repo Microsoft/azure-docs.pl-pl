@@ -5,16 +5,16 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: db95f22a17c3776d84f12249693fb23b3d2d94e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a0d02530ba2b8758b467b77ff639437675e4cc81
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95914443"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508933"
 ---
 # <a name="meet-demanding-migration-requirements-with-wandisco-livedata-platform-for-azure-preview"></a>Zapoznaj się z wymaganymi wymaganiami dotyczącymi migracji przy użyciu platformy WANdisco LiveData dla platformy Azure
 
@@ -34,7 +34,9 @@ W przeciwieństwie do migracji danych w _trybie offline_ przez [Kopiowanie infor
 
 ## <a name="key-features-of-wandisco-livedata-platform-for-azure"></a>Najważniejsze funkcje platformy WANdisco LiveData dla platformy Azure
 
-[Platforma WANdisco LiveData dla platformy Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) korzysta z unikatowego, wielowarstwowego aparatu umożliwiającego osiągnięcie spójności danych oraz przeprowadzania replikacji danych na dużą skalę, gdy aplikacje mogą nadal modyfikować dane w ramach replikacji.  
+[Platforma WANdisco LiveData dla platformy Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) korzysta z unikatowego, wielowarstwowego aparatu umożliwiającego osiągnięcie spójności danych oraz przeprowadzania replikacji danych na dużą skalę, gdy aplikacje mogą nadal modyfikować dane w ramach replikacji. <br><br>
+
+>[!VIDEO https://www.youtube.com/embed/KRrmcYPxEho] 
 
 Najważniejsze funkcje platformy obejmują następujące elementy:
 
@@ -86,7 +88,9 @@ Migracje na dużą skalę lokalnych jezior danych do platformy Azure wymagają t
 Zachowaj spójność danych w lokalnych klastrach Hadoop i usłudze Azure Storage z płaszczyzną LiveData dla platformy Azure po migracji początkowej:
 
 1. Udostępniaj płaszczyznę LiveData dla platformy Azure lokalnie i na platformie Azure, rozpoczynając od Azure Portal. Nie są wymagane żadne zmiany aplikacji.
+
 2. Skonfiguruj reguły replikacji obejmujące te lokalizacje danych, które chcesz zachować spójność, na przykład: `/user/contoso/sales/region/WA` .
+
 3. Uruchamiaj aplikacje, które uzyskują dostęp do danych w dowolnej lokalizacji jako system plików zgodny z usługą Hadoop i modyfikuje je.
 
 Płaszczyzna LiveData na platformie Azure zapewnia spójność danych bez nakładania znaczących obciążeń na operacje klastra lub wydajność aplikacji. Modyfikuj lub Pozyskaj dane, podczas gdy wszystkie zmiany są replikowane spójnie.

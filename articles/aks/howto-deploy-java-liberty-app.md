@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: Java, jakartaee, JavaEE, mikroprofil, Open-wolność, WebSphere-wolność, AKS, Kubernetes
-ms.openlocfilehash: 93ffa3ded4d0771438c5d6a2dc23e6e184f04fe2
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 4d6e335cd4b522593091094ac6251acc97873208
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227629"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508064"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>Wdróż aplikację Java z otwartą wolnością lub WebSphere wolnością w klastrze usługi Azure Kubernetes Service (AKS)
 
@@ -213,7 +213,7 @@ Poczekaj, aż *zewnętrzny adres IP* zmieni się z *oczekującej* na rzeczywisty
 
 Otwórz przeglądarkę internetową na zewnętrznym adresie IP i porcie usługi ( `52.152.189.57:9080` na potrzeby powyższego przykładu), aby wyświetlić stronę główną aplikacji. W lewym górnym rogu strony powinna zostać wyświetlona nazwa pod nazwą replik aplikacji. Zaczekaj kilka minut i Odśwież stronę, prawdopodobnie zobaczysz inną nazwę pod nazwą wyświetlaną z powodu równoważenia obciążenia zapewnionego przez klaster AKS.
 
-:::image type="content" source="./media/howto-deploy-java-liberty-app/java-liberty-app-aks-deployed-success.png" alt-text="Aplikacja wolności Java została pomyślnie wdrożona na AKS":::
+:::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Aplikacja wolności Java została pomyślnie wdrożona na AKS":::
 
 >[!NOTE]
 > - Obecnie aplikacja nie korzysta z protokołu HTTPS. Zaleca się [włączenie protokołu TLS z własnymi certyfikatami](ingress-own-tls.md).

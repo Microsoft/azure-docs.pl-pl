@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 53052b35a50899d6f9e761301f31b9ffd20a4b91
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 38012c5b4bb9338c1200d9583256193ee8402c98
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610016"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507917"
 ---
-# <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>Moduł TPM (TPM) i zabezpieczenia oparte na wirtualizacji (VBS) enklawy — protokół zaświadczania 
+# <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>Trusted Platform Module (TPM) i zabezpieczenia oparte na wirtualizacji (VBS) enklawy — protokół zaświadczania 
 
-Microsoft Azure zaświadczania, aby zapewnić silną gwarancję bezpieczeństwa, polega na sprawdzeniu, czy łańcuch zaufania jest utrzymywany z poziomu głównego zaufania (TPM) do uruchamiania funkcji hypervisor i bezpiecznego jądra. Aby osiągnąć to zaświadczenie platformy Azure, należy zaświadczać o stanie rozruchu maszyny, zanim będziemy mogli ustanowić zaufanie w bezpiecznej enklawy. System operacyjny, funkcja hypervisor i bezpieczne pliki binarne jądra muszą być podpisane przez odpowiednie oficjalne urzędy firmy Microsoft i skonfigurowane w bezpieczny sposób. Po powiązaniu zaufania między moduł TPM (TPM) i kondycją funkcji hypervisor firma Microsoft może ufać zabezpieczeniom opartym na wirtualizacji (VBS) enklawy IDKs dostarczonym w mierzonym dzienniku rozruchu, dzięki czemu możemy sprawdzić, czy para kluczy została wygenerowana przez enklawy i mennic raport zaświadczania, który wiąże zaufanie w tym kluczu i zawiera inne oświadczenia, takie jak właściwości poziomu zabezpieczeń i zaświadczania rozruchu. 
+Microsoft Azure zaświadczania, aby zapewnić silną gwarancję bezpieczeństwa, polega na sprawdzeniu, czy łańcuch zaufania jest utrzymywany z poziomu głównego zaufania (TPM) do uruchamiania funkcji hypervisor i bezpiecznego jądra. Aby osiągnąć to zaświadczenie platformy Azure, należy zaświadczać o stanie rozruchu maszyny, zanim będziemy mogli ustanowić zaufanie w bezpiecznej enklawy. System operacyjny, funkcja hypervisor i bezpieczne pliki binarne jądra muszą być podpisane przez odpowiednie oficjalne urzędy firmy Microsoft i skonfigurowane w bezpieczny sposób. Po powiązaniu zaufania między Trusted Platform Module (TPM) i kondycją funkcji hypervisor firma Microsoft może ufać zabezpieczeniom opartym na wirtualizacji (VBS) enklawy IDKs dostarczonym w mierzonym dzienniku rozruchu, dzięki czemu możemy sprawdzić, czy para kluczy została wygenerowana przez enklawy i mennic raport zaświadczania, który wiąże zaufanie w tym kluczu i zawiera inne oświadczenia, takie jak właściwości poziomu zabezpieczeń i zaświadczania rozruchu. 
 
 VBS enclaves wymaga, aby moduł TPM zapewniał pomiar do sprawdzania poprawności podstawy zabezpieczeń. VBS enclaves są zaświadczone przez punkt końcowy modułu TPM z dodaniem do obiektu żądania w protokole. 
 
@@ -55,7 +55,7 @@ Zaświadczanie platformy Azure — klient >
 
 **Challenge** (BASE64URL (octets)): wartość losowa wystawiona przez usługę.
 
-**service_context** (BASE64URL (octets)): nieprzezroczysty, zaszyfrowanego kontekstu utworzonego przez usługę, w tym między innymi, wyzwaniem i czasem wygaśnięcia dla tego wyzwania. 
+**service_context** (BASE64URL (octets)): kontekst nieprzezroczysty utworzony przez usługę.
 
 
 ### <a name="request-message"></a>Komunikat żądania
@@ -236,7 +236,7 @@ Przykład enklawy TPM + VBS:
 
 - **value_type (String)**: typ danych wartości odszkodowania
 
-**service_context** (BASE64URL (octets)): nieprzezroczysty, szyfrowany kontekst utworzony przez usługę, w tym między innymi, wyzwanie i czas wygaśnięcia dla tego wyzwania.
+**service_context** (BASE64URL (octets)): kontekst nieprzezroczysty utworzony przez usługę.
 
 ### <a name="report-message"></a>Komunikat raportu
 

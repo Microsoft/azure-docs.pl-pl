@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: cb7acb2ab74cc3f1304e5278524918865185463f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: d544d884a82a7532bf343f38049102dfccae342f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491303"
+ms.locfileid: "99507281"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
@@ -173,6 +173,7 @@ Konfiguruje `groups` w tokenie dostępu użytkownika lub OAuth 2,0, który oczek
 - `"None"`
 - `"SecurityGroup"` (w przypadku grup zabezpieczeń i ról usługi Azure AD)
 - `"ApplicationGroup"` (Ta opcja obejmuje tylko grupy, które są przypisane do aplikacji)
+- `"DirectoryRole"` (Pobiera role katalogu usługi Azure AD, do których należy użytkownik)
 - `"All"` (spowoduje to wyświetlenie wszystkich grup zabezpieczeń, grup dystrybucyjnych i ról katalogu usługi Azure AD, do których należy użytkownik zalogowany).
 
 Przykład:

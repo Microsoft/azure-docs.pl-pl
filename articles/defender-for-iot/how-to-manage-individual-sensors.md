@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621218"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508764"
 ---
 # <a name="manage-individual-sensors"></a>Zarządzanie pojedynczymi czujnikami
 
@@ -367,9 +367,9 @@ Aby zmienić nazwę:
 
 1. Usuń czujnik z okna **Zarządzanie czujnikami** .
 
-1. Zarejestruj się przy użyciu nowej nazwy.
+1. Zarejestruj się ponownie, używając nowej nazwy.
 
-1. Pobierz i nowy plik aktywacji.
+1. Pobierz nowy plik aktywacji.
 
 1. Zaloguj się do czujnika i przekaż nowy plik aktywacji.
 

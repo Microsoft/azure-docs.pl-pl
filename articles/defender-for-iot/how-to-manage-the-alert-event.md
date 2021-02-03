@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803519"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508747"
 ---
 # <a name="manage-alert-events"></a>Zarządzanie zdarzeniami alertów
 
@@ -45,7 +45,7 @@ W niektórych sytuacjach może się zdarzyć, że czujnik nie pouczy się o wykr
 
 Po przeprowadzeniu środków zaradczych lub badań można wydać czujnikowi możliwość ukrycia alertu, wybierając pozycję **Potwierdź**. Jeśli zdarzenie zostanie wykryte ponownie, alert zostanie wyzwolony.
 
-Aby ukryć Alert:
+Aby wyczyścić Alert:
 
   - Wybierz pozycję **Potwierdź**.
 
@@ -72,7 +72,7 @@ W takich sytuacjach uczenie nie jest dostępne. Gdy nie można przeprowadzić uc
 
 Wyciszony scenariusz obejmuje urządzenia sieciowe i ruch wykryty dla zdarzenia. Tytuł alertu opisuje ruch, który jest wyciszony.
 
-Urządzenie lub urządzenia, które są wyciszone, będą wyświetlane jako obraz w alercie. Jeśli są wyświetlane dwa urządzenia, ruch między nimi będzie wyciszony.
+Urządzenie lub urządzenia, które są wyciszone, będą wyświetlane jako obraz w alercie. Jeśli są wyświetlane dwa urządzenia, nastąpi wyciszenie określonego ruchu z alertami między nimi.
 
 **Przykład 1**
 
@@ -106,6 +106,6 @@ Gdy zdarzenie jest wyciszone, jest ignorowane, gdy źródło wysyła nagłówek 
 
 2. Umieść kursor nad alertem, aby sprawdzić, czy jest wyciszony.  
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Sterowanie monitorowanym ruchem](how-to-control-what-traffic-is-monitored.md)

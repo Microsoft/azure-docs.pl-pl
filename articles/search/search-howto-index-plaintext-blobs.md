@@ -8,30 +8,30 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 422346430e32ccb8745d5a5d829c5d61089a99c6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b8881d3fa7ade08da103c5af4b828a12e74cc355
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430432"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509456"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Jak indeksować obiekty blob w postaci zwykłego tekstu na platformie Azure Wyszukiwanie poznawcze
 
-W przypadku użycia [indeksatora BLOB](search-howto-indexing-azure-blob-storage.md) do wyodrębnienia tekstu do przeszukiwania dla wyszukiwania pełnotekstowego można wywołać różne tryby analizy, aby uzyskać lepsze indeksowanie wyników. Domyślnie indeksator analizuje zawartość obiektu BLOB jako pojedynczy fragment tekstu. Jeśli jednak wszystkie obiekty blob zawierają zwykły tekst w tym samym kodowaniu, można znacząco poprawić wydajność indeksowania przy użyciu `text` trybu analizowania.
+W przypadku używania [indeksatora obiektów BLOB](search-howto-indexing-azure-blob-storage.md) do wyodrębniania wyszukiwania tekstu obiektu BLOB w celu przeszukiwania pełnotekstowego można przypisać tryb analizy, aby uzyskać lepszy indeks wyników. Domyślnie indeksator analizuje zawartość obiektu BLOB jako pojedynczy fragment tekstu. Jeśli jednak wszystkie obiekty blob zawierają zwykły tekst w tym samym kodowaniu, można znacząco poprawić wydajność indeksowania przy użyciu `text` trybu analizowania.
 
-W `text` przypadku:
+Zalecenia dotyczące zastosowania `text` analizy obejmują:
 
 + Typ pliku to. txt
 + Pliki są dowolnego typu, ale zawartość jest tekstem (na przykład kod źródłowy programu, HTML, XML itd.). W przypadku plików w języku oznaczania wszystkie znaki składni będą się znajdować jako tekst statyczny.
 
-Odwołaj te indeksatory serializacji do formatu JSON. Zawartość całego pliku tekstowego będzie indeksowana w ramach jednego dużego pola jako `"content": "<file-contents>"` . Instrukcje New line i Return są wyrażane jako `\r\n\` .
+Odwołaj wszystkie indeksatory serializacji do formatu JSON. Domyślnie zawartość całego pliku tekstowego będzie indeksowana w ramach jednego dużego pola jako `"content": "<file-contents>"` . Każdy nowy wiersz i instrukcje Return są osadzone w polu zawartości i wyrażane jako `\r\n\` .
 
-Jeśli chcesz uzyskać bardziej szczegółowy wynik, weź pod uwagę następujące rozwiązania:
+Jeśli chcesz uzyskać bardziej szczegółowy wynik i jeśli typ pliku jest zgodny, weź pod uwagę następujące rozwiązania:
 
 + [`delimitedText`](search-howto-index-csv-blobs.md) Tryb analizowania, jeśli źródło jest w formacie CSV
 + [ `jsonArray` lub `jsonLines` ](search-howto-index-json-blobs.md), jeśli źródło jest w formacie JSON
 
-Trzecia opcja dla podzielenia zawartości w wielu częściach wymaga zaawansowanych funkcji w postaci [wzbogacania AI](cognitive-search-concept-intro.md). Dodaje analizę identyfikującą i przypisuje fragmenty pliku do różnych pól wyszukiwania. Możesz znaleźć pełne lub częściowe rozwiązanie za pomocą [wbudowanych umiejętności](cognitive-search-predefined-skills.md), ale bardziej podobne rozwiązanie będzie modelem uczenia się, który zrozumie zawartość, w oparciu o model uczenia niestandardowego, opakowany w [niestandardową umiejętność](cognitive-search-custom-skill-interface.md).
+Trzecia opcja dla dzielenia zawartości na wiele części wymaga zaawansowanych funkcji w postaci [wzbogacania AI](cognitive-search-concept-intro.md). Dodaje analizę identyfikującą i przypisuje fragmenty pliku do różnych pól wyszukiwania. Możesz znaleźć pełne lub częściowe rozwiązanie za pomocą [wbudowanych umiejętności](cognitive-search-predefined-skills.md), ale bardziej podobne rozwiązanie będzie modelem uczenia się, który zrozumie zawartość, w oparciu o model uczenia niestandardowego, opakowany w [niestandardową umiejętność](cognitive-search-custom-skill-interface.md).
 
 ## <a name="set-up-plain-text-indexing"></a>Konfigurowanie indeksowania zwykłego tekstu
 

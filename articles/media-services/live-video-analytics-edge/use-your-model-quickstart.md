@@ -4,18 +4,16 @@ description: W tym przewodniku szybki start nastąpi zastosowanie funkcji analiz
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 8e3f0a5cb6a97ce55d848c2d3311ebab5151e186
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d3ba937abcc7bbfd9bb2afe7b15aec28ebb57446
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494991"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508515"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>Szybki Start: analizowanie wideo na żywo przy użyciu własnego modelu HTTP
 
 W tym przewodniku szybki start przedstawiono sposób korzystania z usługi Analiza filmów wideo na żywo na IoT Edge do analizowania strumieniowego kanału informacyjnego wideo z (symulowanej) kamery IP. Zobaczysz, jak zastosować model przetwarzania obrazów w celu wykrycia obiektów. Podzestaw ramek w dynamicznym kanale wideo jest wysyłany do usługi wnioskowania. Wyniki są wysyłane do centrum IoT Edge. 
-
-Ten przewodnik Szybki Start używa maszyny wirtualnej platformy Azure jako urządzenia IoT Edge i używa symulowanego strumienia wideo na żywo. Jest on oparty na przykładowym kodzie zapisanym w języku C# i kompiluje się w przewodniku [wykrywania zdarzeń i emisji](detect-motion-emit-events-quickstart.md) . 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/analyze-live-video-your-http-model-quickstart/csharp/header.md)]

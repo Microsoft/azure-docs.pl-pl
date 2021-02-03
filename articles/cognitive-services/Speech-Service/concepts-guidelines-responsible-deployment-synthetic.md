@@ -10,24 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: 715c09ef65358b21e78cfde204b4819db0c7875d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 371ad2220b2b2b1b73e5611c5abef74454a548ad
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428423"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508273"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej
 
-## <a name="general-considerations-to-keep-in-mind-when-implementing-ai-systems"></a>Ogólne zagadnienia, które należy wziąć pod uwagę podczas implementowania systemów AI 
-
-W tym artykule zapoznaj się z informacjami dotyczącymi syntetycznej mowy i niestandardowego głosu neuronowych oraz najważniejszych zagadnień związanych z korzystaniem z tej technologii. Ogólnie rzecz biorąc, istnieje kilka rzeczy, które należy wziąć pod uwagę uważnie podczas decydowania, jak używać i implementować produkty i funkcje zasilane z systemem AI: 
-
-* Czy ten produkt lub funkcja będzie działać poprawnie w tym scenariuszu? Przed wdrożeniem AI w Twoim scenariuszu należy sprawdzić, jak działa za pomocą danych w czasie rzeczywistym, i upewnić się, że może ona dostarczać potrzebną dokładność. 
-* Czy możemy identyfikować błędy i odpowiadać na nie? Produkty i funkcje zasilane AI nie zawsze będą zgodne z 100%, dlatego należy rozważyć sposób identyfikowania i reagowania na wszystkie błędy, które mogą wystąpić. 
-
-## <a name="general-guidelines-for-using-synthetic-voice-technology"></a>Ogólne wytyczne dotyczące korzystania z syntetycznej technologii głosowej 
-Poniżej przedstawiono ogólne wytyczne dotyczące projektowania firmy Microsoft dotyczące korzystania z syntetycznej technologii głosowej. Zostały one opracowane w badaniach, które firma Microsoft prowadziła przy użyciu głosu talent, konsumentów, a także osób z zaburzeniami mowy, aby zapewnić odpowiedzialny rozwój głosu syntetycznego.
+W tym artykule przedstawiono ogólne wytyczne dotyczące projektowania firmy Microsoft dotyczące korzystania z syntetycznej technologii głosowej. Te wytyczne zostały opracowane w ramach badań, które firma Microsoft prowadziła przy użyciu talent głosu, konsumentów i osób z zaburzeniami mowy, aby zapewnić odpowiedzialny rozwój głosów syntetycznych.
 
 W przypadku wdrażania syntetycznej technologii mowy w większości scenariuszy stosowane są następujące wytyczne.
 
@@ -39,10 +31,12 @@ Firma Microsoft wymaga od klientów ujawnienia syntetycznego charakteru niestand
 * Należy wziąć pod uwagę odpowiednie ujawnienie do rodziców lub innych stron z przypadkami użycia, które są przeznaczone dla małoletnich i podrzędnych — jeśli przypadek użycia jest przeznaczony dla małoletnich lub dzieci, należy się upewnić, że rodzice lub opiekuni prawne mogą zrozumieć ujawnienie informacji o korzystaniu z nośników syntetycznych i podjąć odpowiednie decyzje dotyczące małoletnich lub dzieci w zakresie korzystania z tego środowiska. 
 
 ### <a name="select-appropriate-voice-types-for-your-scenario"></a>Wybieranie odpowiednich typów głosu dla danego scenariusza
-Należy uważnie rozważyć kontekst użycia i potencjalną szkodę skojarzoną z użyciem głosu syntetycznego. Na przykład, głosy syntetyczne o wysokiej dokładności mogą nie być odpowiednie w scenariuszach o wysokim ryzyku, na przykład w przypadku komunikacji osobistej, transakcji finansowych lub złożonych sytuacji, które wymagają adaptacji ludzkiego lub empatię. Użytkownicy mogą również mieć różne oczekiwania na typy głosu. Na przykład podczas nasłuchiwania poufnych wiadomości odczytywanych przez syntetyczne dane głosowe niektórzy użytkownicy preferują bardziej empatycznegoe i podobne do odczytu wiadomości, podczas gdy inne preferują więcej niż jeden głos. Rozważ testowanie aplikacji, aby lepiej zrozumieć preferencje użytkownika.
+Należy uważnie rozważyć kontekst użycia i potencjalną szkodę skojarzoną z użyciem głosu syntetycznego. Na przykład, głosy syntetyczne o wysokiej dokładności mogą nie być odpowiednie w scenariuszach o wysokim ryzyku, na przykład w przypadku komunikacji osobistej, transakcji finansowych lub złożonych sytuacji, które wymagają adaptacji ludzkiego lub empatię. 
+
+Użytkownicy mogą również mieć różne oczekiwania na typy głosu. Na przykład podczas nasłuchiwania poufnych wiadomości odczytanych przez głos syntetyczny niektórzy użytkownicy preferują bardziej empatycznegoe i podobne do siebie tony, a inne wolą nieobciążonego głosu. Rozważ testowanie aplikacji, aby lepiej zrozumieć preferencje użytkownika.
 
 ### <a name="be-transparent-about-capabilities-and-limitations"></a>Przezroczyste informacje o możliwościach i ograniczeniach
-Użytkownicy mogą mieć większe oczekiwania w przypadku korzystania z syntetycznych agentów głosu o wysokiej wierności. W związku z tym, gdy możliwości systemu nie spełnią tych oczekiwań, zaufanie może pogorszyć się i może skutkować nieprzyjemnymi lub nawet szkodliwymi środowiskami.
+Użytkownicy mogą mieć większe oczekiwania w przypadku korzystania z syntetycznych agentów głosu o wysokiej wierności. Gdy możliwości systemu nie spełnią tych oczekiwań, zaufanie może pogorszyć się i może skutkować nieprzyjemnymi lub nawet szkodliwymi środowiskami.
 
 ### <a name="provide-optional-human-support"></a>Zapewnianie opcjonalnej pomocy technicznej
 W niejednoznacznych scenariuszach transakcyjnych (na przykład w centrum pomocy technicznej) użytkownicy nie zawsze ufają agentowi komputera, aby odpowiednio reagować na ich żądania. W takich sytuacjach może być wymagana pomoc techniczna, niezależnie od realistycznej jakości głosu lub możliwości systemu.
@@ -59,7 +53,7 @@ Niektóre oraz talenteme głosu nie znają potencjalnych złośliwych użycia te
 Podczas pracy z osobami z zaburzeniami mowy, aby utworzyć lub wdrożyć syntetyczną technologię głosową, obowiązują następujące wytyczne.
 
 ### <a name="provide-guidelines-to-establish-contracts"></a>Zapewnienie wytycznych w celu ustalenia umów
-Podaj wytyczne dotyczące ustanawiania kontraktów z osobami korzystającymi z syntetycznego głosu w celu uzyskania pomocy. Umowę należy rozważyć określenie podmiotów, które są właścicielami głosu, okresu użytkowania, kryteriów transferu własności, procedur usuwania czcionki głosowej i zapobiegania nieautoryzowanemu dostępowi. Ponadto należy włączyć umowny transfer własności dźwiękowej po śmierci do członków rodziny, jeśli dana osoba ma odpowiednie uprawnienia.
+Podaj wytyczne dotyczące ustanawiania kontraktów z osobami korzystającymi z syntetycznego głosu w celu uzyskania pomocy. Umowę należy rozważyć określenie podmiotów, które są właścicielami głosu, okresu użytkowania, kryteriów transferu własności, procedur usuwania czcionki głosowej i zapobiegania nieautoryzowanemu dostępowi. Ponadto należy włączyć przesyłanie własności czcionki głosowej po śmierci do członków rodziny, jeśli podano uprawnienia.
 
 ### <a name="account-for-inconsistencies-in-speech-patterns"></a>Konto dla niespójności w wzorcach mowy
 Dla użytkowników indywidualnych z zaburzeniami mowy, które nagrywają własne czcionki głosowe, niespójności we wzorcu mowy (gnojowicowanie lub niemożność wymawiania niektórych wyrazów) mogą spowodować skomplikowanie procesu rejestrowania. W takim przypadku syntetyczna technologia głosu i sesje rejestrowania powinny je obsłużyć (to znaczy zapewnić przerwy i dodatkową liczbę sesji rejestrowania).
@@ -71,7 +65,6 @@ Osoby z zaburzeniami mowy chcą wprowadzać aktualizacje do głosu syntetycznego
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
 * [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [Kontroli — Omówienie](concepts-gating-overview.md)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
 * [Wzorce projektowania ujawniania](concepts-disclosure-patterns.md)
 

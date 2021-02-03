@@ -1,55 +1,66 @@
 ---
-title: 'Samouczek: używanie sesji debugowania do diagnozowania, naprawiania i zatwierdzania zmian w zestawu umiejętności'
+title: 'Samouczek: używanie sesji debugowania do naprawy umiejętności'
 titleSuffix: Azure Cognitive Search
-description: Sesje debugowania (wersja zapoznawcza) zapewniają interfejs oparty na portalu do oceny i naprawy problemów/błędów w umiejętności
+description: Sesje debugowania (wersja zapoznawcza) to narzędzie Azure Portal używane do znajdowania, diagnozowania i naprawiania problemów w zestawu umiejętności.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
-ms.openlocfilehash: 8ec39c4616f5a34f8326b56d4f0ba6e15cdad91c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 02/02/2021
+ms.openlocfilehash: ed988baec46152d55cf63aec09fce7a298157212
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699121"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509153"
 ---
-# <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Samouczek: diagnozowanie, naprawianie i zatwierdzanie zmian w zestawu umiejętności
+# <a name="tutorial-debug-a-skillset-using-debug-sessions"></a>Samouczek: debugowanie zestawu umiejętności przy użyciu sesji debugowania
 
-Ten artykuł zawiera Azure Portal do uzyskiwania dostępu do sesji debugowania w celu naprawy problemów z podaną zestawu umiejętności. Zestawu umiejętności zawiera błędy, które należy rozwiązać. Ten samouczek przeprowadzi Cię przez sesję debugowania, aby identyfikować i rozwiązywać problemy związane z danymi wejściowymi i wyjściowymi.
+Umiejętności koordynuje serię akcji, które analizują lub przekształcają zawartość, gdzie dane wyjściowe jednej umiejętności staną się danymi wejściowymi innego. Gdy dane wejściowe są zależne od danych wyjściowych, błędy w definicjach zestawu umiejętności i skojarzeniach pól mogą spowodować nieodebrane operacje i dane.
+
+**Sesje debugowania** w Azure Portal udostępniają całościową wizualizację zestawu umiejętności. Korzystając z tego narzędzia, możesz przejść do szczegółów określonych kroków, aby łatwo zobaczyć, gdzie może zostać wyświetlona akcja.
+
+W tym artykule opisano, jak używać **sesji debugowania** do znajdowania i naprawienia 1) brakujących danych wejściowych i 2) mapowań pól wyjściowych. Samouczek to wszystko — włącznie. Zawiera dane do indeksowania (dane badań klinicznych), kolekcji programu Poster, która tworzy obiekty, oraz instrukcje dotyczące korzystania z **sesji debugowania** do znajdowania i rozwiązywania problemów w zestawu umiejętności.
 
 > [!Important]
 > Sesje debugowania to funkcja w wersji zapoznawczej, która jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-> [!div class="checklist"]
-> * Subskrypcja platformy Azure. Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) lub Użyj bieżącej subskrypcji
-> * Wystąpienie usługi Azure Wyszukiwanie poznawcze
-> * Konto usługi Azure Storage
-> * [Aplikacja klasyczna narzędzia Postman](https://www.getpostman.com/)
+Przed rozpoczęciem należy mieć na miejsce następujące wymagania wstępne:
 
-## <a name="create-services-and-load-data"></a>Tworzenie usług i ładowanie danych
++ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
 
-W tym samouczku jest stosowana usługa Azure Wyszukiwanie poznawcze i usługi Azure Storage.
++ Usługa Wyszukiwanie poznawcze platformy Azure. [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
-* [Pobierz przykładowe dane](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19) składające się z 19 plików.
++ Konto usługi Azure Storage z [magazynem obiektów BLOB](../storage/blobs/index.yml), służące do hostowania przykładowych danych i utrwalania danych tymczasowych utworzonych podczas sesji debugowania.
 
-* [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
++ [Publikowanie aplikacji klasycznych](https://www.getpostman.com/) i [kolekcji programu Poster](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) w celu tworzenia obiektów przy użyciu interfejsów API REST.
 
-   Wybierz ten sam region co usługa Azure Wyszukiwanie poznawcze, aby uniknąć naliczania opłat za przepustowość.
-   
-   Wybierz typ konta StorageV2 (ogólnego przeznaczenia w wersji 2).
++ [Przykładowe dane (próby kliniczne)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19).
 
-* Otwórz strony usługi Storage i Utwórz kontener. Najlepszym rozwiązaniem jest określenie poziomu dostępu "Private". Nazwij kontener `clinicaltrialdataset` .
+> [!NOTE]
+> Ten przewodnik Szybki Start używa również [usługi Azure Cognitive Services dla systemu](https://azure.microsoft.com/services/cognitive-services/) AI. Ze względu na to, że obciążenie jest małe, Cognitive Services jest wybierana w tle, aby można było bezpłatnie przetwarzać do 20 transakcji. Oznacza to, że można wykonać to ćwiczenie bez konieczności tworzenia dodatkowego zasobu Cognitive Services.
 
-* W kontenerze kliknij pozycję **Przekaż** , aby przekazać pliki przykładowe pobrane i rozpakowane w pierwszym kroku.
+## <a name="set-up-your-data"></a>Skonfiguruj dane
 
-* [Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start.
+W tej sekcji jest tworzony przykładowy zestaw danych w usłudze Azure Blob Storage, dzięki czemu indeksator i zestawu umiejętności mają zawartość do współpracy.
+
+1. [Pobierz przykładowe dane (badania kliniczne-PDF-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19)składające się z 19 plików.
+
+1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+
+   + Wybierz ten sam region co usługa Azure Wyszukiwanie poznawcze, aby uniknąć naliczania opłat za przepustowość.
+
+   + Wybierz typ konta StorageV2 (ogólnego przeznaczenia w wersji 2).
+
+1. Przejdź do stron usługi Azure Storage w portalu i Utwórz kontener obiektów BLOB. Najlepszym rozwiązaniem jest określenie poziomu dostępu "Private". Nazwij kontener `clinicaltrialdataset` .
+
+1. W kontenerze kliknij pozycję **Przekaż** , aby przekazać pliki przykładowe pobrane i rozpakowane w pierwszym kroku.
+
+1. W portalu Pobierz i Zapisz parametry połączenia dla usługi Azure Storage. Będzie ona potrzebna dla wywołań interfejsu API REST, które mają dane indeksu. Parametry połączenia można uzyskać z **ustawień**  >  **kluczy dostępu** w portalu.
 
 ## <a name="get-a-key-and-url"></a>Pobierz klucz i adres URL
 
@@ -59,88 +70,111 @@ Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla ka
 
 1. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Pobieranie punktu końcowego HTTP i klucza dostępu" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Pobieranie punktu końcowego HTTP i klucza dostępu" border="false":::
 
 Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
 ## <a name="create-data-source-skillset-index-and-indexer"></a>Tworzenie źródła danych, zestawu umiejętności, indeksu i indeksatora
 
-W tej sekcji, program ogłaszający i poświadczona kolekcja są używane do tworzenia źródła danych, zestawu umiejętności, indeksu i indeksatora usługi wyszukiwania.
+W tej sekcji, program ogłaszający i poświadczona kolekcja są używane do tworzenia Wyszukiwanie poznawcze źródła danych, indeksu i indeksatora. Jeśli nie znasz programu Poster, zapoznaj się z [tym przewodnikiem Szybki Start](search-get-started-rest.md).
 
-1. Jeśli nie masz narzędzia do księgowania, możesz [pobrać aplikację klasyczną](https://www.getpostman.com/).
-1. [Pobierz kolekcję sesji debugowania.](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions)
-1. Uruchom notkę
-1. W obszarze **pliki**  >  **nowe** wybierz kolekcję do zaimportowania.
+Do wykonania tego zadania będzie potrzebna [Kolekcja ogłoszeń](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) utworzona dla tego samouczka. 
+
+1. Uruchom notkę i zaimportuj kolekcję. W obszarze **pliki**  >  **nowe** wybierz kolekcję do zaimportowania.
 1. Po zaimportowaniu kolekcji rozwiń listę akcje (...).
 1. Kliknij pozycję **Edytuj**.
-1. Wprowadź nazwę searchService (na przykład, jeśli punkt końcowy to `https://mydemo.search.windows.net` , nazwa usługi to " `mydemo` ").
-1. Wprowadź apiKey z kluczem podstawowym lub pomocniczym usługi wyszukiwania.
-1. Wprowadź storageConnectionString na stronie klucze konta usługi Azure Storage.
-1. Wprowadź ContainerName dla kontenera utworzonego na koncie magazynu.
+1. W obszarze bieżąca wartość wprowadź nazwę `searchService` (na przykład, jeśli punkt końcowy to `https://mydemo.search.windows.net` , nazwa usługi to " `mydemo` ").
+1. Wprowadź wartość `apiKey` przy użyciu klucza podstawowego lub pomocniczego usługi wyszukiwania.
+1. Wprowadź wartość `storageConnectionString` ze strony klucze na koncie usługi Azure Storage.
+1. Wprowadź wartość `containerName` dla kontenera utworzonego na koncie magazynu, a następnie kliknij przycisk **Aktualizuj**.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Edytuj zmienne w programie Poster":::
+   :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Edytuj zmienne w programie Poster":::
 
-Kolekcja zawiera cztery różne wywołania REST, które są używane do ukończenia tej sekcji.
+Kolekcja zawiera cztery różne wywołania REST, które są używane do tworzenia obiektów używanych w tym samouczku.
 
-Pierwsze wywołanie tworzy źródło danych. `clinical-trials-ds`. Drugie wywołanie tworzy zestawu umiejętności, `clinical-trials-ss` . Trzecie wywołanie tworzy indeks, `clinical-trials` . Połączenie czwarte i końcowe tworzy indeksator, `clinical-trials-idxr` . Po zakończeniu wszystkich wywołań w kolekcji Zamknij program Poster i wróć do Azure Portal.
+Pierwsze wywołanie tworzy źródło danych. `clinical-trials-ds`. Drugie wywołanie tworzy zestawu umiejętności, `clinical-trials-ss` . Trzecie wywołanie tworzy indeks, `clinical-trials` . Połączenie czwarte i końcowe tworzy indeksator, `clinical-trials-idxr` .
 
-> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Tworzenie źródła danych przy użyciu programu Poster":::
++ Otwórz każde żądanie z kolei, a następnie kliknij przycisk **Wyślij** , aby wysłać każde żądanie do usługi wyszukiwania. 
 
-## <a name="check-the-results"></a>Sprawdzanie wyników
+Po zakończeniu wszystkich wywołań w kolekcji Zamknij program Poster i wróć do Azure Portal.
 
-Zestawu umiejętności zawiera kilka typowych błędów. W tej sekcji uruchomienie pustego zapytania w celu zwrócenia wszystkich dokumentów spowoduje wyświetlenie wielu błędów. W kolejnych krokach problemy zostaną rozwiązane przy użyciu sesji debugowania.
+## <a name="check-results-in-the-portal"></a>Sprawdź wyniki w portalu
 
-1. Przejdź do usługi wyszukiwania w Azure Portal. 
-1. Wybierz kartę **indeksy** . 
-1. Wybierz `clinical-trials` indeks
-1. Kliknij przycisk **Wyszukaj** , aby uruchomić puste zapytanie. 
+Przykładowy kod celowo tworzy indeks debugowania jako przyczynę problemów, które wystąpiły podczas wykonywania zestawu umiejętności. Wystąpił problem z brakującymi danymi. 
 
-Po zakończeniu wyszukiwania dwa pola bez danych na liście; "organizacje" i "lokalizacje" są wymienione w oknie. Postępuj zgodnie z instrukcjami, aby odnaleźć wszystkie problemy wygenerowane przez zestawu umiejętności.
+1. W Azure Portal na stronie Przegląd usługi wyszukiwania wybierz kartę **indeksy** . 
+1. Wybierz `clinical-trials` indeks.
+1. Wprowadź ten ciąg zapytania: `$select=metadata_storage_path, organizations, locations&$count=true` Aby zwrócić pola dla określonych dokumentów (identyfikowanych przez `metadata_storage_path` pole unikatowe).
+1. Kliknij przycisk **Wyszukaj** , aby uruchomić zapytanie, zwracając wszystkie 19 dokumentów, wyświetlając puste wartości dla "organizacje" i "lokalizacje".
 
-1. Wróć do strony Przegląd usługi wyszukiwania.
-1. Wybierz kartę **indeksatory** . 
-1. Kliknij `clinical-trials-idxr` i wybierz powiadomienie z ostrzeżeniami. 
+Pola te powinny zostać wypełnione przez [umiejętność rozpoznawania jednostek](cognitive-search-skill-entity-recognition.md)zestawu umiejętności, używane do znajdowania organizacji i lokalizacji w dowolnym miejscu w zawartości obiektu BLOB. W następnym ćwiczeniu sesja debugowania zostanie użyta do określenia, co poszło źle.
 
-Istnieje wiele problemów z mapowaniami pól danych wyjściowych projekcji i na stronie trzy istnieją ostrzeżenia, ponieważ co najmniej jedno dane wejściowe dotyczące umiejętności są nieprawidłowe.
+Innym sposobem badania błędów i ostrzeżeń jest użycie Azure Portal.
 
-Wróć do ekranu przegląd usługi wyszukiwania.
+1. Otwórz kartę **indeksatory** i wybierz pozycję `clinical-trials-idxr` .
+1. Zwróć uwagę, że gdy zadanie indeksatora zakończyło się pomyślnie, wystąpiły 57 ostrzeżeń.
+1. Kliknij pozycję **sukces** , aby wyświetlić ostrzeżenia (jeśli wystąpiły błędy w większości błędów), link szczegółowy nie powiedzie **się**. Zobaczysz długą listę wszystkich ostrzeżeń wyemitowanych przez indeksator.
+
+   :::image type="content" source="media/cognitive-search-debug/portal-indexer-errors-warnings.png" alt-text="Wyświetl ostrzeżenia":::
 
 ## <a name="start-your-debug-session"></a>Rozpocznij sesję debugowania
 
-> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Rozpocznij nową sesję debugowania":::
+:::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Rozpocznij nową sesję debugowania":::
 
-1. Kliknij kartę sesje debugowania (wersja zapoznawcza).
-1. Wybierz pozycję + NewDebugSession
+1. Na stronie Przegląd wyszukiwania kliknij kartę **sesje debugowania** .
+1. Wybierz pozycję **+ Nowa sesja debugowania**.
 1. Nadaj nazwę sesji. 
 1. Połącz sesję z kontem magazynu. 
-1. Podaj nazwę indeksatora. Indeksator zawiera odwołania do źródła danych, zestawu umiejętności i index.
+1. W szablonie indeksatora Podaj nazwę indeksatora. Indeksator zawiera odwołania do źródła danych, zestawu umiejętności i index.
 1. Zaakceptuj wybór dokumentu domyślnego dla pierwszego dokumentu w kolekcji. 
 1. **Zapisz** sesję. Zapisanie sesji spowoduje uruchomienie potoku wzbogacenia AI zgodnie z definicją zestawu umiejętności.
 
 > [!Important]
-> Sesja debugowania działa tylko z jednym dokumentem. Określony dokument w zestawie danych może zostać wybrany > lub sesja zostanie domyślnie ustawiona na pierwszy dokument.
+> Sesja debugowania działa tylko z jednym dokumentem. Możesz wybrać dokument do debugowania lub po prostu użyć pierwszego z nich.
 
-> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Rozpoczęto nową sesję debugowania":::
+<!-- > :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="New debug session started"::: -->
 
-Po zakończeniu wykonywania sesji debugowania wartość domyślna sesji na karcie wzbogacanie AI jest wyświetlona.
+Po zainicjowaniu sesji debugowania jest ona domyślnie ustawiana na kartę **wzbogacanie AI** , wyróżnianie **grafu umiejętności**. Wykres umiejętności zawiera wizualną hierarchię zestawu umiejętności i jej kolejność wykonywania sekwencyjnie i równolegle.
 
-+ Wykres umiejętności zawiera wizualną hierarchię zestawu umiejętności i jej kolejność wykonywania od góry do dołu. Umiejętności, które są obok siebie w grafie, są wykonywane równolegle. Kolorowe kodowanie umiejętności na grafie wskazuje typy umiejętności, które są wykonywane w zestawu umiejętności. W tym przykładzie Zielona umiejętność to tekst, a czerwona umiejętność to wizja. Kliknięcie poszczególnych umiejętności na grafie spowoduje wyświetlenie szczegółów tego wystąpienia umiejętności w prawym okienku okna sesji. Ustawienia umiejętności, Edytor JSON, szczegóły wykonania oraz błędy/ostrzeżenia są dostępne do przeglądu i edycji.
-+ Ulepszona struktura danych zawiera szczegóły węzłów w drzewie wzbogacania wygenerowanych przez umiejętności z zawartości dokumentu źródłowego.
+## <a name="find-issues-with-the-skillset"></a>Znajdź problemy z zestawu umiejętności
 
-Karta błędy/ostrzeżenia dostarczy znacznie mniejszej listy niż ta, która jest wyświetlana wcześniej, ponieważ ta lista zawiera tylko szczegóły błędów dla pojedynczego dokumentu. Podobnie jak lista wyświetlana przez indeksator, można kliknąć komunikat ostrzegawczy i wyświetlić szczegóły tego ostrzeżenia.
+Wszystkie problemy zgłaszane przez indeksatora można znaleźć na karcie sąsiadujące **Błędy/ostrzeżenia** . 
+
+Zauważ, że karta **Błędy/ostrzeżenia** dostarczy znacznie mniejszej listy niż ta, która jest wyświetlana wcześniej, ponieważ ta lista zawiera tylko szczegóły błędów dla pojedynczego dokumentu. Podobnie jak lista wyświetlana przez indeksator, można kliknąć komunikat ostrzegawczy i wyświetlić szczegóły tego ostrzeżenia.
+
+Wybierz pozycje **Błędy/ostrzeżenia** , aby przejrzeć powiadomienia. Powinna zostać wyświetlona trzy:
+
+   + "Nie można zmapować pola danych wyjściowych" Locations "na indeks wyszukiwania. Sprawdź Właściwość "outputFieldMappings" indeksatora.
+Brak wartości "/Document/merged_content/Locations". "
+
+   + "Nie można zmapować pola danych wyjściowych" Organizations "na indeks wyszukiwania. Sprawdź Właściwość "outputFieldMappings" indeksatora.
+Brak wartości "/Document/merged_content/Organizations". "
+
+   + "Umiejętność została wykonana, ale może mieć nieoczekiwane wyniki, ponieważ co najmniej jedno dane wejściowe kwalifikacji były nieprawidłowe.
+Brak opcjonalnego danych wejściowych umiejętności. Name: "languageCode", source: "/document/languageCode". Problemy z analizowaniem języka wyrażeń: brak wartości "/document/languageCode". "
+
+   Wiele umiejętności ma parametr "languageCode". Sprawdzając operację, można zobaczyć, że w programie nie ma tego danych wejściowych kodu języka `Enrichment.NerSkillV2.#1` , który jest tą samą umiejętnością rozpoznawania jednostek, która ma problemy z danymi wyjściowymi "Locations" i "Organizations". 
+
+Ponieważ wszystkie trzy powiadomienia dotyczą tej umiejętności, następnym krokiem jest debugowanie tej umiejętności. Jeśli to możliwe, najpierw Rozpocznij od rozwiązywania problemów wejściowych przed przejściem do outputFieldMapping problemów.
+
+ :::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="Rozpoczęto nową sesję debugowania":::
+
+<!-- + The Skill Graph provides a visual hierarchy of the skillset and its order of execution from top to bottom. Skills that are side by side in the graph are executed in parallel. Color coding of skills in the graph indicate the types of skills that are being executed in the skillset. In the example, the green skills are text and the red skill is vision. Clicking on an individual skill in the graph will display the details of that instance of the skill in the right pane of the session window. The skill settings, a JSON editor, execution details, and errors/warnings are all available for review and editing.
+
++ The Enriched Data Structure details the nodes in the enrichment tree generated by the skills from the source document's contents. -->
 
 ## <a name="fix-missing-skill-input-value"></a>Popraw brakującą wartość wejściową kwalifikacji
 
-Na karcie błędy/ostrzeżenia występuje błąd dla operacji oznaczonej etykietą `Enrichment.NerSkillV2.#1` . Szczegóły tego błędu wyjaśniają, że występuje problem z wartością wejściową "/document/languageCode". 
+Na karcie **Błędy/ostrzeżenia** występuje błąd dla operacji oznaczonej etykietą `Enrichment.NerSkillV2.#1` . Szczegóły tego błędu wyjaśniają, że występuje problem z wartością wejściową "/document/languageCode". 
 
-1. Wróć do karty wzbogacania AI.
+1. Wróć do karty **wzbogacania AI** .
 1. Kliknij **Wykres umiejętności**.
-1. Kliknij umiejętność z etykietą #1, aby wyświetlić jej szczegóły w okienku po prawej stronie.
+1. Kliknij umiejętność z etykietą **#1** , aby wyświetlić jej szczegóły w okienku po prawej stronie.
 1. Znajdź dane wejściowe dla "languageCode".
 1. Wybierz **</>** symbol na początku wiersza i Otwórz ewaluatora wyrażeń.
 1. Kliknij przycisk **Oceń** , aby potwierdzić, że to wyrażenie powoduje wystąpienie błędu. Upewnij się, że właściwość "languageCode" nie jest prawidłowym danymi wejściowymi.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Ewaluator wyrażeń":::
+   :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Ewaluator wyrażeń":::
 
 Istnieją dwa sposoby badania tego błędu w sesji. Pierwszy polega na tym, że dane wejściowe pochodzą z-jakie umiejętności w hierarchii powinny zostać wygenerowane? Na karcie wykonania w okienku Szczegóły umiejętności powinna zostać wyświetlona wartość źródła danych wejściowych. Jeśli nie ma źródła, oznacza to błąd mapowania pola.
 
@@ -148,9 +182,9 @@ Istnieją dwa sposoby badania tego błędu w sesji. Pierwszy polega na tym, że 
 1. Spójrz na dane wejściowe i Znajdź "languageCode". Brak źródła dla tego danych wejściowych wymienionych. 
 1. Przełącz okienko po lewej stronie, aby wyświetlić ulepszoną strukturę danych. Nie ma zmapowanej ścieżki odpowiadającej elementowi "languageCode".
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Ulepszona struktura danych":::
+   :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Ulepszona struktura danych":::
 
-Istnieje zmapowana ścieżka dla "języka". W związku z tym w ustawieniach umiejętności występuje literówka. Aby rozwiązać ten problem, należy zaktualizować wyrażenie w #1 kwalifikacje z wyrażeniem "/Document/Language".
+Istnieje zmapowana ścieżka dla "języka". W związku z tym w ustawieniach umiejętności występuje literówka. Aby naprawić to wyrażenie w #1ej, należy zaktualizować wyrażenie "/Document/Language".
 
 1. Otwórz ewaluatora wyrażeń **</>** dla ścieżki "Language" (język).
 1. Skopiuj wyrażenie. Zamknij okno.
@@ -164,11 +198,11 @@ Po zakończeniu wykonywania sesji debugowania kliknij kartę błędy/ostrzeżeni
 
 ## <a name="fix-missing-skill-output-values"></a>Popraw brakujące wartości wyjściowe kwalifikacji
 
-> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Błędy i ostrzeżenia":::
+:::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Błędy i ostrzeżenia":::
 
 Brak wartości wyjściowych z umiejętności. Aby zidentyfikować umiejętność z błędem, przejdź do wzbogaconej struktury danych, Znajdź nazwę wartości i sprawdź jej pierwotne źródło. W przypadku brakujących wartości organizacji i lokalizacji są one wyprowadzane z #1 umiejętności. Otwarcie <ewaluatora wyrażeń/> dla każdej ścieżki spowoduje wyświetlenie odpowiednio wyrażeń wymienionych jako "/Document/Content/Organizations" i "/Document/Content/Locations".
 
-> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Jednostka organizacji ewaluatora wyrażeń":::
+:::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Jednostka organizacji ewaluatora wyrażeń":::
 
 Dane wyjściowe dla tych jednostek są puste i nie powinny być puste. Jakie są dane wejściowe tego wyniku?
 
@@ -176,14 +210,14 @@ Dane wyjściowe dla tych jednostek są puste i nie powinny być puste. Jakie są
 1. Wybierz kartę **wykonania** w prawym okienku szczegółów umiejętności.
 1. Otwórz ewaluatora wyrażeń **</>** dla danych wejściowych "text".
 
-> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Dane wejściowe dotyczące kwalifikacji tekstu":::
+   :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Dane wejściowe dotyczące kwalifikacji tekstu":::
 
 Wyświetlany wynik dla tego danych wejściowych nie wygląda jak tekst wejściowy. Wygląda podobnie do obrazu, który jest ujęty w nowe wiersze. Brak tekstu oznacza, że nie można zidentyfikować żadnych jednostek. Spojrzenie na hierarchię zestawu umiejętności wyświetla zawartość, która jest najpierw przetwarzana przez umiejętność #6 (OCR), a następnie przenoszona do umiejętności #5 (merge). 
 
 1. Wybierz umiejętność #5 (merge) na **grafie umiejętności**.
 1. Wybierz kartę **wykonania** w prawym okienku szczegółów umiejętności i Otwórz ewaluatora wyrażeń **</>** dla danych wyjściowych "mergedText".
 
-> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Dane wyjściowe dla umiejętności scalania":::
+   :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Dane wyjściowe dla umiejętności scalania":::
 
 W tym miejscu tekst jest sparowany z obrazem. Spojrzenie na wyrażenie "/Document/merged_content" powoduje błąd w ścieżkach "Organizations" i "Locations" dla #1 umiejętności. Zamiast używać elementu "/Document/Content", powinien on używać elementu "/Document/merged_content" dla danych wejściowych "text".
 
@@ -203,7 +237,7 @@ Po zakończeniu działania indeksatora te błędy nadal są dostępne. Wróć do
 1. Przejdź do **ustawień umiejętności** , aby znaleźć "dane wyjściowe".
 1. Otwórz ewaluatora wyrażeń **</>** dla jednostki "organizacje".
 
-> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Dane wyjściowe dla jednostki organizacji":::
+   :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Dane wyjściowe dla jednostki organizacji":::
 
 Obliczenie wyniku wyrażenia daje prawidłowy wynik. Umiejętność działania umożliwia zidentyfikowanie poprawnej wartości dla jednostki "organizacje". Jednak mapowanie danych wyjściowych w ścieżce jednostki nadal zgłasza błąd. W porównaniu ze ścieżką wyjściową w polu umiejętność do ścieżki wyjściowej błędu, umiejętność nadrzędna danych wyjściowych, organizacji i lokalizacji w węźle/Document/Content. Chociaż mapowanie pola wyjściowego oczekuje, że wyniki mają być nadrzędne w węźle merged_content/Document/. W poprzednim kroku dane wejściowe zmieniły się z "/Document/Content" na "/Document/merged_content". Kontekst w ustawieniach umiejętności należy zmienić, aby upewnić się, że dane wyjściowe są generowane z odpowiednim kontekstem.
 
@@ -214,13 +248,15 @@ Obliczenie wyniku wyrażenia daje prawidłowy wynik. Umiejętność działania u
 1. Kliknij przycisk **Zapisz** w prawym okienku szczegółów umiejętności.
 1. W menu okna sesje kliknij polecenie **Uruchom** . Spowoduje to uruchomienie innego wykonywania zestawu umiejętności przy użyciu dokumentu.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Korekta kontekstu w ustawieniu umiejętności":::
+   :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Korekta kontekstu w ustawieniu umiejętności":::
 
 Wszystkie błędy zostały rozwiązane.
 
 ## <a name="commit-changes-to-the-skillset"></a>Zatwierdź zmiany w zestawu umiejętności
 
-Po zainicjowaniu sesji debugowania usługa wyszukiwania utworzyła kopię zestawu umiejętności. Zostało to zrobione, dlatego wprowadzone zmiany nie wpłyną na system produkcyjny. Po zakończeniu debugowania zestawu umiejętności można zatwierdzić poprawki (zastąpić oryginalny zestawu umiejętności) w systemie produkcyjnym. Jeśli chcesz kontynuować wprowadzanie zmian do zestawu umiejętności bez wpływu na system produkcyjny, sesja debugowania może zostać zapisana i ponownie otwarta.
+Po zainicjowaniu sesji debugowania usługa wyszukiwania utworzyła kopię zestawu umiejętności. Zostało to zrobione w celu ochrony oryginalnego zestawu umiejętności w usłudze wyszukiwania. Po zakończeniu debugowania zestawu umiejętności można zatwierdzić poprawki (zastąpić oryginalny zestawu umiejętności). 
+
+Alternatywnie, jeśli nie jesteś gotowy do zatwierdzania zmian, możesz zapisać sesję debugowania i otworzyć ją ponownie później.
 
 1. Kliknij pozycję **Zatwierdź zmiany** w głównym menu sesji debugowania.
 1. Kliknij przycisk **OK** , aby potwierdzić, że chcesz zaktualizować zestawu umiejętności.
@@ -229,11 +265,13 @@ Po zainicjowaniu sesji debugowania usługa wyszukiwania utworzyła kopię zestaw
 1. Kliknij przycisk **Resetuj**.
 1. Kliknij przycisk **Uruchom**. Kliknij przycisk **OK** , aby potwierdzić.
 
-Gdy indeksator zakończył działanie, powinien istnieć zielony znacznik wyboru, a słowo "powodzenie" obok sygnatury czasowej dla ostatniego uruchomienia na karcie Historia wykonywania. Aby upewnić się, że zmiany zostały zastosowane:
+Gdy indeksator zakończył działanie, powinien istnieć zielony znacznik wyboru, a słowo "powodzenie" obok sygnatury czasowej dla ostatniego uruchomienia na karcie **historia wykonywania** . Aby upewnić się, że zmiany zostały zastosowane:
 
-1. Zamknij **indeksator** i wybierz kartę **indeks** .
-1. Otwórz indeks "badania kliniczne", a następnie na karcie Eksplorator wyszukiwania kliknij pozycję **Wyszukaj**.
-1. W oknie wyników należy pokazać, że organizacje i lokalizacje obiektów są teraz wypełniane oczekiwanymi wartościami.
+1. Na stronie Przegląd wyszukiwania wybierz kartę **indeks** .
+1. Otwórz indeks "badania kliniczne", a następnie na karcie Eksplorator wyszukiwania wprowadź następujący ciąg zapytania: `$select=metadata_storage_path, organizations, locations&$count=true` Aby zwrócić pola dla określonych dokumentów (identyfikowanych przez pole unikatowe `metadata_storage_path` ).
+1. Kliknij przycisk **Wyszukaj**.
+
+Wyniki powinny wskazywać, że organizacje i lokalizacje są teraz wypełniane oczekiwanymi wartościami.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -245,6 +283,10 @@ Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech i
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Dowiedz się więcej o umiejętności](./cognitive-search-working-with-skillsets.md) 
->  [Dowiedz się więcej o zwiększeniu liczby przyrostowej i buforowaniu](./cognitive-search-incremental-indexing-conceptual.md)
+Ten samouczek dotykał różnych aspektów definicji i przetwarzania zestawu umiejętności. Aby dowiedzieć się więcej na temat pojęć i przepływów pracy, zapoznaj się z następującymi artykułami:
+
++ [Jak mapować pola danych wyjściowych zestawu umiejętności do pól w indeksie wyszukiwania](cognitive-search-output-field-mapping.md)
+
++ [Umiejętności na platformie Azure Wyszukiwanie poznawcze](cognitive-search-working-with-skillsets.md)
+
++ [Jak skonfigurować buforowanie na potrzeby wzbogacania przyrostowego](cognitive-search-incremental-indexing-conceptual.md)

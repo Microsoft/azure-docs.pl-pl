@@ -1,5 +1,5 @@
 ---
-title: Tworzenie indeksu wyszukiwania
+title: Tworzenie indeksu
 titleSuffix: Azure Cognitive Search
 description: Wprowadza indeksowanie pojęć i narzędzi na platformie Azure Wyszukiwanie poznawcze, w tym definicje schematów i fizyczną strukturę danych.
 manager: nitinme
@@ -7,80 +7,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2020
-ms.openlocfilehash: 3d5663177bb087e936a49dd7289659b684d85860
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 02/03/2021
+ms.openlocfilehash: d9f4ba48a7dc6cdcf6d60e4e9da5f68fcc6b1f28
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116198"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509337"
 ---
-# <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Tworzenie podstawowego indeksu wyszukiwania na platformie Azure Wyszukiwanie poznawcze
+# <a name="creating-search-indexes-in-azure-cognitive-search"></a>Tworzenie indeksów wyszukiwania na platformie Azure Wyszukiwanie poznawcze
 
-W usłudze Azure Wyszukiwanie poznawcze *indeks wyszukiwania* przechowuje zawartość do przeszukiwania używaną dla pełnych zapytań tekstowych i filtrowanych. Indeks został zdefiniowany przez schemat i zapisany w usłudze, z importowaniem danych, jak w drugim kroku. 
+Indeks wyszukiwania przechowuje zawartość do przeszukiwania używaną dla pełnych zapytań tekstowych i filtrowanych. Indeks został zdefiniowany przez schemat i zapisany w usłudze, z importowaniem danych, jak w drugim kroku. 
 
 Indeksy zawierają *dokumenty*. Koncepcyjnie dokument jest pojedynczą jednostką danych, które można przeszukiwać w indeksie. Sprzedawca detaliczny może mieć dokument dla każdego produktu, organizacja wiadomości może mieć dokument dla każdego artykułu i tak dalej. Mapowanie tych koncepcji do bardziej znanych odpowiedników bazy danych: *indeks wyszukiwania* jest równy *tabeli*, a *dokumenty* są mniej podobne do *wierszy* w tabeli.
 
-Struktura fizyczna indeksu jest określana przez schemat z polami oznaczonymi jako "z możliwością wyszukiwania", co powoduje odwrócenie indeksu utworzonego dla tego pola. 
+## <a name="whats-an-index-schema"></a>Co to jest schemat indeksu?
 
-Indeks można utworzyć przy użyciu następujących narzędzi i interfejsów API:
-
-* W Azure Portal Użyj kreatora **dodawania indeksu** lub **importowania danych**
-* Korzystanie z funkcji [tworzenia indeksu (interfejs API REST)](/rest/api/searchservice/create-index)
-* Korzystanie z [zestawu SDK platformy .NET](./search-get-started-dotnet.md)
-
-Łatwiej jest poznać narzędzie portalu. Portal wymusza wymagania i reguły schematu dla określonych typów danych, na przykład niezezwalanie na funkcje wyszukiwania pełnotekstowego w polach liczbowych. Gdy masz prawidłowo używany indeks, możesz przejść do kodu, pobierając definicję JSON z usługi za pomocą polecenia [Get index (REST API)](/rest/api/searchservice/get-index) i dodając ją do rozwiązania.
-
-## <a name="recommended-workflow"></a>Zalecany przepływ pracy
-
-Dotarcie do ostatecznego projektu indeksu jest procesem iteracyjnym. Często zaczynasz od portalu, aby utworzyć początkowy indeks, a następnie przełącz się do kodu, aby umieścić indeks pod kontrolą źródła.
-
-1. Określ, czy można użyć [**Importuj dane**](search-import-data-portal.md). Kreator wykonuje indeksowanie oparte na indeksie, jeśli dane źródłowe pochodzą z [obsługiwanego typu źródła danych na platformie Azure](search-indexer-overview.md#supported-data-sources).
-
-1. Jeśli nie możesz użyć **importowania danych**, Rozpocznij od **dodania indeksu** , aby zdefiniować schemat.
-
-   ![Dodaj indeks — polecenie](media/search-what-is-an-index/add-index.png "Dodaj indeks — polecenie")
-
-1. Podaj nazwę i klucz służące do unikatowego identyfikowania każdego dokumentu wyszukiwania w indeksie. Klucz jest obowiązkowy i musi być typu EDM. String. Podczas importowania należy zaplanować mapowanie unikatowego pola w danych źródłowych do tego pola. 
-
-   Portal udostępnia `id` pole klucza. Aby zastąpić wartość domyślną `id` , Utwórz nowe pole (na przykład nową definicję pola o nazwie `HotelId` ), a następnie wybierz je w **kluczu**.
-
-   ![Wypełnij wymagane właściwości](media/search-what-is-an-index//field-attributes.png "Wypełnij wymagane właściwości")
-
-1. Dodaj więcej pól. W portalu są wyświetlane [atrybuty pól](#index-attributes) , które są dostępne dla różnych typów danych. Jeśli nie jesteś nowym indeksem projektu, jest to przydatne.
-
-   Jeśli dane przychodzące mają charakter hierarchiczny, przypisz typ danych [typu złożonego](search-howto-complex-data-types.md) , aby reprezentować zagnieżdżone struktury. Wbudowany zestaw danych przykładowych, Hotele, ilustruje złożone typy przy użyciu adresu (zawiera wiele podpól), które mają relację jeden do jednego z każdym hotelem, oraz złożoną kolekcję pokojów, w której wiele pokojów jest skojarzonych z każdym hotelem. 
-
-1. Przypisz wszystkie [analizatory](#analyzers) do pól ciągów przed utworzeniem indeksu. Wykonaj te same czynności dla [sugestii](#suggesters) , jeśli chcesz włączyć Autouzupełnianie dla określonych pól.
-
-1. Kliknij przycisk **Utwórz** , aby skompilować struktury fizyczne w usłudze wyszukiwania.
-
-1. Po utworzeniu indeksu Użyj dodatkowych poleceń, aby przejrzeć definicje lub dodać więcej elementów.
-
-   ![Dodaj stronę indeksu pokazującą atrybuty według typu danych](media/search-what-is-an-index//field-definitions.png "Dodaj stronę indeksu pokazującą atrybuty według typu danych")
-
-1. Pobierz schemat indeksu przy użyciu polecenia [Pobierz indeks (interfejs API REST)](/rest/api/searchservice/get-index) i narzędzia do testowania sieci Web, takiego jak [Poster](search-get-started-rest.md). Teraz masz reprezentację w formacie JSON indeksu, który można dostosować do kodu.
-
-1. [Załaduj swój indeks z danymi](search-what-is-data-import.md). Usługa Azure Wyszukiwanie poznawcze akceptuje dokumenty JSON. Aby programowo załadować dane, można użyć programu Poster z dokumentami JSON w ładunku żądania. Jeśli dane nie są łatwo wyrażone w formacie JSON, ten krok będzie najbardziej pracochłonny. 
-
-    Gdy indeks zostanie załadowany z danymi, większość edycji istniejących pól będzie wymagała porzucenia i odbudowania indeksu.
-
-1. Zbadaj swój indeks, sprawdź wyniki i wykonaj kolejne iteracje na schemacie indeksu do momentu rozpoczęcia wyświetlania oczekiwanych wyników. Aby zbadać indeks, można użyć [**Eksploratora wyszukiwania**](search-explorer.md) lub programu Poster.
-
-Podczas opracowywania Planuj częste ponowne kompilacje. Ponieważ struktury fizyczne są tworzone w usłudze, [usuwanie i odtwarzanie indeksów](search-howto-reindex.md) jest niezbędne w przypadku większości modyfikacji istniejącej definicji pola. Możesz rozważyć pracę z podzbiorem danych, aby szybciej tworzyć kompilacje. 
-
-> [!Tip]
-> Kod, a nie podejście portalu, jest zalecany do pracy nad projektem indeksu i importem danych jednocześnie. Alternatywnie narzędzia, takie jak [Poster](search-get-started-rest.md) lub [Visual Studio Code](search-get-started-vs-code.md) , są przydatne do testowania koncepcji, gdy projekty programistyczne są nadal w fazie wczesnych faz. Możesz wprowadzić przyrostowe zmiany definicji indeksu w treści żądania, a następnie wysłać żądanie do usługi, aby ponownie utworzyć indeks przy użyciu zaktualizowanego schematu.
-
-## <a name="index-schema"></a>Schemat indeksu
-
-Indeks musi mieć nazwę i jedno wskazane pole klucza (w modelu EDM. String) w kolekcji Fields. [*Kolekcja Fields*](#fields-collection) jest zwykle największą częścią indeksu, gdzie każde pole ma nazwę, wpisano i jest przypisane do dozwolonych zachowań, które określają sposób ich używania. 
-
-Inne elementy obejmują [sugestie](#suggesters), [Profile oceniania](#scoringprofiles), [analizatory](#analyzers) używane do przetwarzania ciągów do tokenów zgodnie z regułami językowymi lub innymi charakterystykami obsługiwanymi przez analizator, a także ustawienia funkcji [tworzenia skryptów zdalnych (CORS) między różnymi źródłami](#corsoptions) .
+Struktura fizyczna indeksu jest określana przez schemat. Kolekcja "Fields" jest zazwyczaj największą częścią indeksu, gdzie każde pole ma nazwę, ma przypisany [Typ danych](/rest/api/searchservice/Supported-data-types)i jest przypisywane do dozwolonych zachowań, które określają, w jaki sposób jest używany.
 
 ```json
 {
-  "name": (optional on PUT; required on POST) "name_of_index",
+  "name": "name_of_index, unique across the service",
   "fields": [
     {
       "name": "name_of_field",
@@ -97,90 +44,75 @@ Inne elementy obejmują [sugestie](#suggesters), [Profile oceniania](#scoringpro
       "synonymMaps": [ "name_of_synonym_map" ] (optional, only one synonym map per field is currently supported)
     }
   ],
-  "suggesters": [
-    {
-      "name": "name of suggester",
-      "searchMode": "analyzingInfixMatching",
-      "sourceFields": ["field1", "field2", ...]
-    }
-  ],
-  "scoringProfiles": [
-    {
-      "name": "name of scoring profile",
-      "text": (optional, only applies to searchable fields) {
-        "weights": {
-          "searchable_field_name": relative_weight_value (positive #'s),
-          ...
-        }
-      },
-      "functions": (optional) [
-        {
-          "type": "magnitude | freshness | distance | tag",
-          "boost": # (positive number used as multiplier for raw score != 1),
-          "fieldName": "...",
-          "interpolation": "constant | linear (default) | quadratic | logarithmic",
-          "magnitude": {
-            "boostingRangeStart": #,
-            "boostingRangeEnd": #,
-            "constantBoostBeyondRange": true | false (default)
-          },
-          "freshness": {
-            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)
-          },
-          "distance": {
-            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
-            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
-          },
-          "tag": {
-            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)
-          }
-        }
-      ],
-      "functionAggregation": (optional, applies only when functions are specified) 
-        "sum (default) | average | minimum | maximum | firstMatching"
-    }
-  ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
   "analyzers":(optional)[ ... ],
   "charFilters":(optional)[ ... ],
   "tokenizers":(optional)[ ... ],
   "tokenFilters":(optional)[ ... ],
   "defaultScoringProfile": (optional) "...",
-  "corsOptions": (optional) {
-    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
-    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
-  },
-  "encryptionKey":(optional){
-    "keyVaultUri": "azure_key_vault_uri",
-    "keyVaultKeyName": "name_of_azure_key_vault_key",
-    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
-    "accessCredentials":(optional){
-      "applicationId": "azure_active_directory_application_id",
-      "applicationSecret": "azure_active_directory_application_authentication_key"
-    }
+  "corsOptions": (optional) { },
+  "encryptionKey":(optional){ }
   }
 }
 ```
 
-<a name="fields-collection"></a>
+Inne elementy są zwijane do zwięzłości, ale następujące linki mogą zapewnić szczegóły: [sugestie](index-add-suggesters.md), [Profile oceniania](index-add-scoring-profiles.md) [, analizatory używane do](search-analyzers.md) przetwarzania ciągów do tokenów zgodnie z regułami językowymi lub innymi charakterystykami obsługiwanymi przez analizatorze oraz ustawienia funkcji [tworzenia skryptów zdalnych między źródłami danych (CORS)](#corsoptions) .
 
-## <a name="fields-collection-and-field-attributes"></a>Kolekcja pól i atrybuty pól
+## <a name="choose-a-client"></a>Wybierz klienta
 
-Pola mają nazwę, typ, który klasyfikuje przechowywane dane, oraz atrybuty, które określają sposób używania pola.
+Istnieje kilka metod tworzenia indeksu wyszukiwania. Zalecamy używanie Azure Portal lub interfejsów API REST na potrzeby wczesnego tworzenia i testowania koncepcji.
 
-### <a name="data-types"></a>Typy danych
+Podczas opracowywania Planuj częste ponowne kompilacje. Ponieważ struktury fizyczne są tworzone w usłudze, [usuwanie i odtwarzanie indeksów](search-howto-reindex.md) jest niezbędne w przypadku większości modyfikacji istniejącej definicji pola. Możesz rozważyć pracę z podzbiorem danych, aby szybciej tworzyć kompilacje.
 
-| Typ | Opis |
-|------|-------------|
-| Edm.String |Tekst, który można opcjonalnie uzyskać tokeny na potrzeby wyszukiwania pełnotekstowego (dzielenia wyrazów, szukania rdzeni itd.). |
-| Collection(Edm.String) |Lista ciągów, które opcjonalnie można podzielić na tokeny na potrzeby wyszukiwania pełnotekstowego. Nie ma teoretycznej górnej granicy liczby elementów w kolekcji, ale rozmiar ładunku w kolekcjach jest ograniczony do 16 MB. |
-| Edm.Boolean |Zawiera wartości prawda/fałsz. |
-| Edm.Int32 |32-bitowe wartości całkowite. |
-| Edm.Int64 |64-bitowe wartości całkowite. |
-| Edm.Double |Dane liczbowe o podwójnej precyzji. |
-| Edm.DateTimeOffset |Wartości daty i godziny reprezentowane w formacie OData v4 (na przykład `yyyy-MM-ddTHH:mm:ss.fffZ` lub `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm` ). |
-| Edm.GeographyPoint |Punkt przedstawiający lokalizację geograficzną na świecie. |
+### <a name="permissions"></a>Uprawnienia
 
-Aby uzyskać więcej informacji, zobacz [obsługiwane typy danych](/rest/api/searchservice/Supported-data-types).
+Wszystkie operacje związane z indeksem wyszukiwania, w tym żądania GET, wymagają od [administratora klucza interfejsu API](search-security-api-keys.md) w żądaniu.
+
+### <a name="limits"></a>Limity
+
+Wszystkie [warstwy usług ograniczają](search-limits-quotas-capacity.md#index-limits) liczbę obiektów, które można utworzyć. W przypadku eksperymentowania w warstwie Bezpłatna możesz mieć tylko 3 indeksy w danym momencie.
+
+### <a name="use-azure-portal-to-create-a-search-index"></a>Użyj Azure Portal, aby utworzyć indeks wyszukiwania
+
+Portal udostępnia dwie opcje tworzenia indeksu wyszukiwania: [**Kreator importowania danych**](search-import-data-portal.md) i **Dodawanie indeksu** dostarczającego pola służące do określania schematu indeksu. Pakiety kreatora w dodatkowych operacjach, tworząc również indeksator, źródło danych i ładujące dane. Jeśli jest to więcej niż to, co jest potrzebne, należy tylko użyć **Dodaj indeks** lub innego podejścia.
+
+Poniższy zrzut ekranu pokazuje, gdzie można znaleźć **Dodaj indeks** w portalu. **Importowanie danych** to prawo do następnego drzwi.
+
+  :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="Dodaj indeks — polecenie" border="true":::
+
+> [!Tip]
+> Indeksowanie za pomocą portalu wymusza wymagania i reguły schematu dla określonych typów danych, takich jak niezezwalanie na funkcje wyszukiwania pełnotekstowego w polach liczbowych. Gdy masz prawidłowo używany indeks, możesz skopiować kod JSON z portalu i dodać go do rozwiązania.
+
+### <a name="use-a-rest-client"></a>Korzystanie z klienta REST
+
+Zarówno program Poster, jak i Visual Studio Code (z rozszerzeniem systemu Azure Wyszukiwanie poznawcze) mogą działać jako klient indeksu wyszukiwania. Za pomocą dowolnego z tych narzędzi można nawiązać połączenie z usługą wyszukiwania i wysyłać żądania [create index (REST)](/rest/api/searchservice/create-index) . Istnieje wiele samouczków i przykładów demonstrujących klientów REST do tworzenia obiektów. 
+
+Aby dowiedzieć się więcej na temat każdego klienta, Zacznij od jednego z poniższych artykułów:
+
++ [Tworzenie indeksu wyszukiwania przy użyciu REST i programu Poster](search-get-started-rest.md)
++ [Wprowadzenie do Visual Studio Code i platformy Azure Wyszukiwanie poznawcze](search-get-started-vs-code.md)
+
+Zapoznaj się z [operacjami indeksowania (REST)](/rest/api/searchservice/index-operations) , aby uzyskać pomoc dotyczącą formułowania żądań indeksu.
+
+### <a name="use-an-sdk"></a>Korzystanie z zestawu SDK
+
+W przypadku Wyszukiwanie poznawcze zestawy SDK platformy Azure implementują ogólnie dostępne funkcje. W związku z tym można użyć dowolnego z zestawów SDK do utworzenia indeksu wyszukiwania. Wszystkie z nich zapewniają **SearchIndexClient** , który ma metody do tworzenia i aktualizowania indeksów.
+
+| Zestaw Azure SDK | Klient | Przykłady |
+|-----------|--------|----------|
+| .NET | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [Azure-Search-dotnet-przykłady/szybki start/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) |
+| Java | [SearchIndexClient](/java/api/com.azure.search.documents.indexes.searchindexclient) | [CreateIndexExample. Java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java) |
+| JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [Indeksy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/indexes) |
+| Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations. PR](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
+
+## <a name="defining-fields"></a>Definiowanie pól
+
+Należy wyznaczyć jedno pole typu EDM. String jako klucz dokumentu. Służy do jednoznacznej identyfikacji każdego dokumentu wyszukiwania. Aby wypełnić stronę szczegółów, możesz pobrać dokument według swojego klucza.  
+
+Jeśli dane przychodzące mają charakter hierarchiczny, przypisz typ danych [typu złożonego](search-howto-complex-data-types.md) , aby reprezentować zagnieżdżone struktury. Wbudowany zestaw danych przykładowych, Hotele, ilustruje złożone typy przy użyciu adresu (zawiera wiele podpól), które mają relację jeden do jednego z każdym hotelem, oraz złożoną kolekcję pokojów, w której wiele pokojów jest skojarzonych z każdym hotelem. 
+
+Przypisz wszystkie analizatory do pól ciągów przed utworzeniem indeksu. Wykonaj te same czynności dla sugestii, jeśli chcesz włączyć Autouzupełnianie dla określonych pól.
 
 <a name="index-attributes"></a>
 
@@ -204,34 +136,6 @@ Chociaż możesz w dowolnym momencie dodać nowe pola, istniejące definicje pó
 > [!NOTE]
 > Interfejsy API używane do tworzenia indeksu mają różne ustawienia domyślne. W przypadku [interfejsów API REST](/rest/api/searchservice/Create-Index)większość atrybutów jest domyślnie włączonych (na przykład "możliwe do przeszukania" i "możliwy do pobierania" są spełnione w przypadku pól ciągów) i często należy je ustawić tylko wtedy, gdy chcesz je wyłączyć. W przypadku zestawu .NET SDK przeciwieństwem jest true. W przypadku każdej właściwości, która nie została ustawiona jawnie, domyślnie należy wyłączyć odpowiednie zachowanie wyszukiwania, chyba że zostanie to włączone.
 
-## `analyzers`
-
-Element analizatorzes ustawia nazwę analizatora języka, który ma być używany dla pola. Aby uzyskać więcej informacji na temat zakresu analizatorów dostępnych dla Ciebie, zobacz [Dodawanie analizatorów do indeksu wyszukiwanie poznawcze platformy Azure](search-analyzers.md). Analizatory mogą być używane tylko z polami z możliwością wyszukiwania. Gdy analizator zostanie przypisany do pola, nie można go zmienić, chyba że zostanie odbudowany indeks.
-
-## `suggesters`
-
-Sugerował to sekcja schematu, która określa, które pola w indeksie są używane do obsługi autouzupełniania lub zapytań typu "w wyszukiwaniach". Zazwyczaj częściowe ciągi wyszukiwania są wysyłane do [sugestii (interfejs API REST)](/rest/api/searchservice/suggestions) , podczas gdy użytkownik pisze zapytanie wyszukiwania, a interfejs API zwraca zestaw sugerowanych dokumentów lub fraz. 
-
-Pola dodane do sugestii są używane do kompilowania terminów wyszukiwania z wyprzedzeniem. Wszystkie terminy wyszukiwania są tworzone podczas indeksowania i zapisywane oddzielnie. Aby uzyskać więcej informacji na temat tworzenia struktury sugerującej, zobacz [Dodawanie sugestii](index-add-suggesters.md).
-
-## `corsOptions`
-
-Kod JavaScript po stronie klienta nie może domyślnie wywołać żadnych interfejsów API, ponieważ przeglądarka uniemożliwi wszystkie żądania między źródłami. Aby zezwolić na zapytania między źródłami do indeksu, Włącz funkcję CORS (Udostępnianie zasobów między źródłami) przez ustawienie atrybutu **corsOptions** . Ze względów bezpieczeństwa tylko interfejsy API zapytań obsługują mechanizm CORS. 
-
-Dla mechanizmu CORS można ustawić następujące opcje:
-
-+ **allowedOrigins** (wymagane): jest to lista źródeł, do których zostanie udzielony dostęp do Twojego indeksu. Oznacza to, że każdy kod JavaScript obsługiwany z tych źródeł będzie mógł wysyłać zapytania do indeksu (przy założeniu, że zawiera on prawidłowy klucz API-Key). Każdy punkt początkowy ma zwykle postać, `protocol://<fully-qualified-domain-name>:<port>` chociaż `<port>` jest często pomijany. Aby uzyskać więcej informacji, zobacz [udostępnianie zasobów między źródłami (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) .
-
-  Jeśli chcesz zezwolić na dostęp do wszystkich źródeł, Dołącz `*` jako pojedynczy element w tablicy **allowedOrigins** . *Nie jest to zalecane w przypadku usług wyszukiwania w środowisku produkcyjnym* , ale często jest to przydatne w przypadku programowania i debugowania.
-
-+ **atrybut maxageinseconds** (opcjonalnie): przeglądarki używają tej wartości, aby określić czas (w sekundach), w którym są buforowane odpowiedzi na inspekcje wstępne. Ta wartość musi być nieujemną liczbą całkowitą. Im większa wartość to, tym lepsza wydajność, ale im dłużej zacznie obowiązywać zmiana zasad CORS. Jeśli nie jest ustawiona, zostanie użyty domyślny czas trwania wynoszący 5 minut.
-
-## `scoringProfiles`
-
-[Profil oceniania](index-add-scoring-profiles.md) to sekcja schematu, która definiuje niestandardowe zachowania oceniania, które pozwalają na wpływ, które elementy są wyświetlane w wynikach wyszukiwania. Profile oceniania składają się z wag pól i funkcji. Aby ich użyć, należy określić profil według nazwy w ciągu zapytania.
-
-Domyślny profil oceniania działa w tle, aby obliczyć wynik wyszukiwania dla każdego elementu w zestawie wyników. Możesz użyć wewnętrznego, nienazwanego profilu oceniania. Alternatywnie można ustawić **defaultScoringProfile** , aby używał niestandardowego profilu jako domyślnego, wywołanego za każdym razem, gdy w ciągu zapytania nie określono profilu niestandardowego.
-
 <a name="index-size"></a>
 
 ## <a name="attributes-and-index-size-storage-implications"></a>Atrybuty i rozmiar indeksu (implikacje magazynu)
@@ -249,13 +153,26 @@ Indeksy obsługujące filtrowanie i sortowanie są proporcjonalnie większe niż
 > [!Note]
 > Architektura magazynu jest uważana za szczegóły implementacji platformy Azure Wyszukiwanie poznawcze i może ulec zmianie bez powiadomienia. Nie ma żadnej gwarancji, że bieżące zachowanie będzie nadal występowało w przyszłości.
 
+<a name="corsoptions"></a>
+
+## <a name="about-corsoptions"></a>O `corsOptions`
+
+Schematy indeksów zawierają sekcję dla ustawienia `corsOptions` . Kod JavaScript po stronie klienta nie może domyślnie wywołać żadnych interfejsów API, ponieważ przeglądarka uniemożliwi wszystkie żądania między źródłami. Aby zezwolić na zapytania między źródłami do indeksu, Włącz funkcję CORS (Udostępnianie zasobów między źródłami) przez ustawienie atrybutu **corsOptions** . Ze względów bezpieczeństwa tylko interfejsy API zapytań obsługują mechanizm CORS. 
+
+Dla mechanizmu CORS można ustawić następujące opcje:
+
++ **allowedOrigins** (wymagane): jest to lista źródeł, do których zostanie udzielony dostęp do Twojego indeksu. Oznacza to, że każdy kod JavaScript obsługiwany z tych źródeł będzie mógł wysyłać zapytania do indeksu (przy założeniu, że zawiera on prawidłowy klucz API-Key). Każdy punkt początkowy ma zwykle postać, `protocol://<fully-qualified-domain-name>:<port>` chociaż `<port>` jest często pomijany. Aby uzyskać więcej informacji, zobacz [udostępnianie zasobów między źródłami (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) .
+
+  Jeśli chcesz zezwolić na dostęp do wszystkich źródeł, Dołącz `*` jako pojedynczy element w tablicy **allowedOrigins** . *Nie jest to zalecane w przypadku usług wyszukiwania w środowisku produkcyjnym* , ale często jest to przydatne w przypadku programowania i debugowania.
+
++ **atrybut maxageinseconds** (opcjonalnie): przeglądarki używają tej wartości, aby określić czas (w sekundach), w którym są buforowane odpowiedzi na inspekcje wstępne. Ta wartość musi być nieujemną liczbą całkowitą. Im większa wartość to, tym lepsza wydajność, ale im dłużej zacznie obowiązywać zmiana zasad CORS. Jeśli nie jest ustawiona, zostanie użyty domyślny czas trwania wynoszący 5 minut.
+
 ## <a name="next-steps"></a>Następne kroki
 
-Dzięki zrozumieniu kompozycji indeksów można kontynuować w portalu, aby utworzyć swój pierwszy indeks. Zalecamy rozpoczęcie od kreatora **importu danych** , wybierając *realestate-US-Sample* lub *Hotele-przykładowe* hostowane źródła danych.
+Możesz skorzystać z możliwości tworzenia indeksu przy użyciu niemal każdej próbki lub wskazówki dotyczącej Wyszukiwanie poznawcze. Aby rozpocząć pracę, możesz wybrać dowolny z przewodników szybki start z spisu treści.
 
-> [!div class="nextstepaction"]
-> [Kreator importu danych (Portal)](search-get-started-portal.md)
+Warto również zapoznać się z metodologiami dotyczącymi ładowania indeksu do danych. Definicja indeksu i populacja są wykonywane razem. Poniższe artykuły zawierają więcej informacji.
 
-W przypadku obu zestawów danych Kreator może wywnioskować schemat indeksu, zaimportować dane i wyprowadzić indeks wyszukiwania, który można wykonać za pomocą Eksploratora wyszukiwania. Znajdź te źródła danych na stronie **Połącz z danymi** w kreatorze **importu danych** .
++ [Omówienie importowania danych](search-what-is-data-import.md)
 
-   ![Tworzenie przykładowego indeksu](media/search-what-is-an-index//import-wizard-sample-data.png "Tworzenie przykładowego indeksu")
++ [Dodawanie, aktualizowanie lub usuwanie dokumentów (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 

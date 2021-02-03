@@ -231,3 +231,7 @@
       href: ../../vpn-gateway/security-baseline.md
     - name: Linia bazowa zabezpieczeń systemu Windows Virtual Desktop
       href: ../../virtual-desktop/security-baseline.md
+- name: Zasoby
+  items:
+    - name: Mapowanie między ASB i CIS — test porównawczy
+      href: v2-cis-benchmark.md

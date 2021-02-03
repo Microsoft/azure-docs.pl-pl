@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7d045ad104f8e2055ae85b74f4aae8f4d3fd61a4
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623593"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509523"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Aktywowanie i konfigurowanie czujnika
 
@@ -81,7 +81,7 @@ Aby zalogować się i aktywować:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Usługa Azure Defender dla czujnika IoT.":::
 
-1. Wprowadź poświadczenia zdefiniowane podczas instalacji czujnika. Jeśli masz wstępnie skonfigurowany czujnik z strzałki, najpierw Wygeneruj hasło. Aby uzyskać więcej informacji na temat odzyskiwania hasła, zobacz [Badanie niepowodzenia hasła podczas początkowego logowania](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
+1. Wprowadź poświadczenia zdefiniowane podczas instalacji czujnika lub wybierz opcję **odzyskiwania hasła** . Jeśli masz wstępnie skonfigurowany czujnik z strzałki, najpierw Wygeneruj hasło. Aby uzyskać więcej informacji na temat odzyskiwania hasła, zobacz [Badanie niepowodzenia hasła podczas początkowego logowania](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
 1. Po zalogowaniu się zostanie otwarte okno dialogowe **Aktywacja** . Wybierz pozycję **Przekaż** i przejdź do pliku aktywacji, który został pobrany podczas dołączania do czujnika.
 
@@ -96,7 +96,7 @@ Aby zalogować się i aktywować:
 1. Zdefiniuj nazwę certyfikatu.
 1. Przekaż pliki CRT i Key.
 1. Wprowadź hasło i Przekaż plik PEM, jeśli jest to wymagane.
-1. Wybierz pozycję **Dalej**. Zostanie otwarty ekran walidacji. Domyślnie sprawdzanie poprawności między konsolą zarządzania i połączonymi czujnikami jest włączone.
+1. Wybierz opcję **Dalej**. Zostanie otwarty ekran walidacji. Domyślnie sprawdzanie poprawności między konsolą zarządzania i połączonymi czujnikami jest włączone.
 1. Wyłącz tryb **włączania walidacji całego systemu** , aby wyłączyć weryfikację. Zalecamy włączenie walidacji.
 1. Wybierz pozycję **Zapisz**.  
 
@@ -142,7 +142,7 @@ Początkowo to działanie jest wykonywane w trybie uczenia, co powoduje, że czu
 
 Sprawdź ustawienia systemowe czujnika, aby upewnić się, że czujnik jest skonfigurowany pod kątem optymalnego wykrywania i alertu.
 
-Zdefiniuj ustawienia systemowe czujnika. Przykład:
+Zdefiniuj ustawienia systemowe czujnika. Na przykład:
 
 - Definiowanie usługi ICS (lub IoT) i podsieci rozdzielonych.
 
@@ -152,7 +152,7 @@ Zdefiniuj ustawienia systemowe czujnika. Przykład:
 
 - Jeśli jest używany protokół DHCP, zdefiniuj legalne zakresy DHCP.
 
-- Zdefiniuj integrację z serwerami Active Directory i poczty e-mail.
+- W razie potrzeby Zdefiniuj integrację z programem Active Directory i serwerem poczty.
 
 ### <a name="disable-learning-mode"></a>Wyłącz tryb uczenia
 
@@ -181,7 +181,7 @@ Dostęp do narzędzi konsoli programu można uzyskać z menu po stronie.
 | -----------|--|--|
 | Pulpit nawigacyjny | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Wyświetl intuicyjną migawkę stanu zabezpieczeń sieci. |
 | Mapa urządzenia | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Wyświetlanie urządzeń sieciowych, połączeń urządzeń i właściwości urządzenia na mapie. Dostępne są różne opcje powiększenia, wyróżnienia i filtru umożliwiające wyświetlenie sieci. |
-| Spis urządzeń | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | W spisie urządzeń jest wyświetlany szeroki zakres atrybutów urządzeń wykrywanych przez ten czujnik. Dostępne są następujące opcje: <br /> — Filtrowanie informacji zgodnie z polami tabeli i wyświetlanie przefiltrowanych informacji. <br /> — Eksportowanie informacji do pliku CSV. <br /> -Zaimportuj szczegóły rejestru systemu Windows.|
+| Spis urządzeń | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | Spis urządzeń zawiera listę atrybutów urządzeń wykrywanych przez ten czujnik. Dostępne są następujące opcje: <br /> -Sortuj lub Przefiltruj informacje zgodnie z polami tabeli i wyświetlaj wyświetlane filtrowane informacje. <br /> — Eksportowanie informacji do pliku CSV. <br /> -Zaimportuj szczegóły rejestru systemu Windows.|
 | Alerty | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Wyświetlaj alerty po wystąpieniu naruszeń zasad, odchylenia od zachowania linii bazowej lub wykryciu dowolnego typu podejrzanych działań w sieci. |
 | Raporty | :::image type="icon" source="media/concept-sensor-console-overview/reports-icon-azure.png" border="false"::: | Wyświetlanie raportów opartych na zapytaniach wyszukiwania danych. |
 
@@ -196,7 +196,7 @@ Dostęp do narzędzi konsoli programu można uzyskać z menu po stronie.
 | Okno | Ikona | Opis |
 |---|---|---|
 | Wyszukiwanie danych | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Generuj kompletne i szczegółowe informacje o urządzeniach sieciowych w różnych warstwach. |
-| Trendy i statystyki | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Wyświetlaj trendy i statystyki w szerokim zakresie elementów widget. |
+| Badanie | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Wyświetlaj trendy i statystyki w szerokim zakresie elementów widget. |
 | Ocena ryzyka | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Wyświetl okno **luki w zabezpieczeniach** . |
 
 **Administracja**
@@ -204,7 +204,7 @@ Dostęp do narzędzi konsoli programu można uzyskać z menu po stronie.
 | Okno | Ikona | Opis |
 |---|---|---|
 | Użytkownicy | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Zdefiniuj użytkowników i role z różnymi poziomami dostępu. |
-| Przekazywanie danych | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Przekazywanie informacji o alercie do partnerów, którzy integrują się z usługą Defender for IoT, z adresami e-mail, serwerami webhook i innymi. <br /> Szczegóły można znaleźć w temacie [przekazywanie informacji o alercie](how-to-forward-alert-information-to-partners.md) . |
+| Przekazywanie danych | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Przekazuj informacje o alertach do partnerów, a wewnętrzne źródła (na przykład Wskaźnikowanie) integrujące się z usługą Defender for IoT, z adresami e-mail, serwerami elementów webhook i innymi. <br /> Szczegóły można znaleźć w temacie [przekazywanie informacji o alercie](how-to-forward-alert-information-to-partners.md) . |
 | Ustawienia systemowe | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Skonfiguruj ustawienia systemowe. Na przykład Zdefiniuj ustawienia DHCP, podaj szczegóły serwera poczty lub Utwórz aliasy portów. |
 | Ustawienia importu | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Wyświetl okno **Importowanie ustawień** . Można ręcznie zmieniać informacje o urządzeniu.<br /> Aby uzyskać szczegółowe informacje, zobacz [Importowanie informacji o urządzeniu](how-to-import-device-information.md) . |
 
