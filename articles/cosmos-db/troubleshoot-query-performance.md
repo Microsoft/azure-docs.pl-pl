@@ -8,12 +8,12 @@ ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475730"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524312"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -206,12 +206,15 @@ Większość funkcji systemowych używa indeksów. Poniżej znajduje się lista 
 - Lewe
 - Podciąg — ale tylko wtedy, gdy pierwsze num_expr wynosi 0
 
-Poniżej przedstawiono niektóre typowe funkcje systemowe, które nie używają indeksu i muszą ładować każdy dokument:
+Poniżej przedstawiono niektóre typowe funkcje systemowe, które nie używają indeksu i muszą ładować każdy dokument, gdy jest używany w `WHERE` klauzuli:
 
 | **Funkcja systemowa**                     | **Pomysły dotyczące optymalizacji**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| GÓRNY/DOLNY                             | Zamiast używać funkcji system do normalizacji danych do porównania, należy znormalizować wielkość liter po wstawieniu. Zostanie zapytanie ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` ```SELECT * FROM c WHERE c.name = 'BOB'``` . |
+| Górny/dolny                         | Zamiast używać funkcji system do normalizacji danych do porównania, należy znormalizować wielkość liter po wstawieniu. Zostanie zapytanie ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` ```SELECT * FROM c WHERE c.name = 'BOB'``` . |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Oblicz bieżącą godzinę przed wykonaniem zapytania i Użyj tej wartości ciągu w `WHERE` klauzuli. |
 | Funkcje matematyczne (inne niż zagregowane) | Jeśli trzeba często obliczać wartość w zapytaniu, należy rozważyć przechowywanie wartości jako właściwości w dokumencie JSON. |
+
+W przypadku użycia w `SELECT` klauzuli niewydajne funkcje systemowe nie wpłyną na sposób używania indeksów przez zapytania.
 
 ### <a name="improve-string-system-function-execution"></a>Ulepszanie wykonywania funkcji systemu ciągów
 
