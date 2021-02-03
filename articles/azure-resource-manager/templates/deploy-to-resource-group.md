@@ -3,12 +3,12 @@ title: Wdrażanie zasobów w grupach zasobów
 description: Opisuje sposób wdrażania zasobów w szablonie Azure Resource Manager. Pokazuje, jak należy określić więcej niż jedną grupę zasobów.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186230"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491558"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Wdrożenia grup zasobów przy użyciu szablonów ARM
 
@@ -128,9 +128,9 @@ Aby zapoznać się z przykładowym szablonem, zobacz [Tworzenie grupy zasobów](
 
 ### <a name="scope-to-tenant"></a>Zakres do dzierżawy
 
-Możesz tworzyć zasoby w dzierżawie, ustawiając dla ustawienia `scope` wartość `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
+Aby utworzyć zasoby w dzierżawie, należy ustawić `scope` na `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
 
-Można użyć wdrożenia zagnieżdżonego z `scope` i `location` zestawu.
+Aby użyć wdrożenia zagnieżdżonego, ustaw `scope` i `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -142,7 +142,7 @@ Aby uzyskać więcej informacji, zobacz [Grupa zarządzania](deploy-to-managemen
 
 ## <a name="deploy-to-target-resource-group"></a>Wdróż w docelowej grupie zasobów
 
-Aby wdrożyć zasoby w docelowej grupie zasobów, zdefiniuj te zasoby w sekcji **zasoby** szablonu. Poniższy szablon służy do tworzenia konta magazynu w grupie zasobów określonej w operacji wdrażania.
+Aby wdrożyć zasoby w docelowej grupie zasobów, zdefiniuj te zasoby w `resources` sekcji szablonu. Poniższy szablon służy do tworzenia konta magazynu w grupie zasobów określonej w operacji wdrażania.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 

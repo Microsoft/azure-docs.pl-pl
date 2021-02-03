@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837468"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491944"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurowanie zarządzania sesjami uwierzytelniania przy użyciu dostępu warunkowego
 
 W złożonych wdrożeniach organizacje mogą wymagać ograniczenia sesji uwierzytelniania. Niektóre scenariusze mogą obejmować:
 
@@ -88,7 +88,7 @@ Wartość domyślna usługi Azure AD na potrzeby trwałości sesji przeglądarki
 Dostęp warunkowy jest możliwością Azure AD — wersja Premium i wymaga licencji Premium. Jeśli chcesz dowiedzieć się więcej na temat dostępu warunkowego, zobacz [co to jest dostęp warunkowy w Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Jeśli używasz funkcji [okresowego istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md) , który jest obecnie w publicznej wersji zapoznawczej, pamiętaj, że nie obsługujemy tworzenia dwóch różnych zasad dla tej samej kombinacji użytkownika lub aplikacji: jeden z tą funkcją i inną z konfigurowalną funkcją okresu istnienia tokenu. Firma Microsoft planuje wycofać konfigurowalną funkcję okresu istnienia tokenu dla odświeżania i okresu istnienia tokenu sesji w dniu 30 stycznia 2021 i zamienić ją na funkcję zarządzania sesjami uwierzytelniania dostępu warunkowego.  
+> Jeśli używasz funkcji [okresowego istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md) , który jest obecnie w publicznej wersji zapoznawczej, pamiętaj, że nie obsługujemy tworzenia dwóch różnych zasad dla tej samej kombinacji użytkownika lub aplikacji: jeden z tą funkcją i inną z konfigurowalną funkcją okresu istnienia tokenu. Firma Microsoft wycofał konfigurowalną funkcję okresu istnienia tokenu dla odświeżania i okresu istnienia tokenu sesji w dniu 30 stycznia 2021 i zastąpiła przy użyciu funkcji zarządzania sesjami uwierzytelniania dostępu warunkowego.  
 >
 > Przed włączeniem częstotliwości logowania upewnij się, że inne ustawienia ponownego uwierzytelniania są wyłączone w dzierżawie. Jeśli jest włączona funkcja "Pamiętaj MFA na zaufanych urządzeniach", pamiętaj, aby ją wyłączyć przed użyciem częstotliwości logowania, ponieważ te dwa ustawienia mogą prowadzić do nieoczekiwanego monitowania użytkowników. Aby dowiedzieć się więcej o ponownym uwierzytelnianiu i okresach istnienia sesji, zobacz artykuł, [Optymalizacja ponownych prób uwierzytelniania i informacje o okresie istnienia sesji dla Multi-Factor Authentication usługi Azure AD](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
@@ -100,7 +100,7 @@ Dostęp warunkowy jest możliwością Azure AD — wersja Premium i wymaga licen
    > [!NOTE]
    > Zaleca się skonfigurowanie równej częstotliwości monitów uwierzytelniania dla Microsoft Office najważniejszych aplikacji, takich jak Exchange Online i SharePoint Online, w celu zapewnienia najlepszego środowiska użytkownika.
 
-1. Przejdź do **sesji kontroli dostępu**  >  **Session** , a następnie kliknij pozycję **częstotliwość logowania**
+1. Przejdź do **sesji kontroli dostępu**  >   , a następnie kliknij pozycję **częstotliwość logowania**
 1. Wprowadź wymaganą wartość dni i godziny w pierwszym polu tekstowym
 1. Wybierz wartość **godzin** lub **dni** z listy rozwijanej
 1. Zapisywanie zasad
@@ -117,7 +117,7 @@ Na zarejestrowanych urządzeniach z systemem Windows w usłudze Azure AD Zaloguj
    > [!NOTE]
    > Należy pamiętać, że ta kontrolka wymaga wybrania opcji "wszystkie aplikacje w chmurze" jako warunek. Trwałość sesji przeglądarki jest kontrolowana przez token sesji uwierzytelniania. Wszystkie karty w sesji przeglądarki współdzielą jeden token sesji i w związku z tym wszystkie muszą mieć stan trwałości.
 
-1. Przejdź do **sesji kontroli dostępu**  >  **Session** , a następnie kliknij pozycję **trwała sesja przeglądarki**
+1. Przejdź do **sesji kontroli dostępu**  >   , a następnie kliknij pozycję **trwała sesja przeglądarki**
 1. Wybierz wartość z listy rozwijanej
 1. Zapisz zasady
 

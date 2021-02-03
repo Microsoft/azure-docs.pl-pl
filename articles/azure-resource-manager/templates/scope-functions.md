@@ -3,12 +3,12 @@ title: Funkcje szablonu w wdrożeniach objętych zakresem
 description: Opisuje, jak funkcje szablonu są rozwiązywane w wdrożeniach o określonym zakresie. Zakresem może być dzierżawca, grupy zarządzania, subskrypcje i grupy zasobów.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: cb02a3dc808604a80fd9943138c1cd0d8648904e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681586"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492097"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Funkcje szablonu ARM w zakresach wdrożenia
 
@@ -40,15 +40,15 @@ W przypadku wdrażania w różnych zakresach istnieją pewne ważne zagadnienia:
 * Użyj funkcji [extensionResourceId ()](template-functions-resource.md#extensionresourceid) dla zasobów, które są zaimplementowane jako rozszerzenia grupy zarządzania. Niestandardowe definicje zasad wdrożone w grupie zarządzania to rozszerzenia grupy zarządzania.
 
   Aby uzyskać identyfikator zasobu dla niestandardowej definicji zasad na poziomie grupy zarządzania, użyj:
-  
+
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* Użyj funkcji [tenantResourceId](template-functions-resource.md#tenantresourceid) , aby uzyskać identyfikator zasobu wdrożonego w dzierżawie. Wbudowane definicje zasad to zasoby na poziomie dzierżawy. Podczas przypisywania wbudowanych zasad na poziomie grupy zarządzania Użyj funkcji tenantResourceId.
+* Użyj funkcji [tenantResourceId ()](template-functions-resource.md#tenantresourceid) , aby uzyskać identyfikator dla zasobu wdrożonego w dzierżawie. Wbudowane definicje zasad to zasoby na poziomie dzierżawy. Podczas przypisywania wbudowanych zasad na poziomie grupy zarządzania Użyj funkcji tenantResourceId.
 
   Aby uzyskać identyfikator zasobu dla wbudowanej definicji zasad, użyj:
-  
+
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -75,7 +75,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 Aby przetestować poprzedni szablon i zobaczyć wyniki, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus
@@ -138,6 +138,6 @@ Dane wyjściowe z poprzedniego przykładu to:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów Azure Resource Manager](template-syntax.md).
+* Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów ARM](template-syntax.md).
 * Aby uzyskać wskazówki dotyczące rozwiązywania typowych błędów wdrażania, zobacz [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](common-deployment-errors.md).
-* Informacje o wdrażaniu szablonu wymagającego tokenu SAS można znaleźć w temacie [Deploy Private Template with SAS token](secure-template-with-sas-token.md).
+* Aby uzyskać informacje na temat wdrażania szablonu wymagającego tokenu SAS, zobacz [wdrażanie prywatnego szablonu usługi ARM z tokenem SAS](secure-template-with-sas-token.md).

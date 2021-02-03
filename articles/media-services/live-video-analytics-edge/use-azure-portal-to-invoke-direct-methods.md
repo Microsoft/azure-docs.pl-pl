@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9d784e1697dfbcbfec509c1a51c9b832b533c97b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddd6a94015829a0b5dd4053f4d3a2fd6d2650d32
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830754"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492658"
 ---
 # <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Jak używać Azure Portal do wywoływania metod bezpośrednich
 
@@ -54,13 +54,13 @@ Użyj `GraphTopologyList` wywołania metody, aby pobrać listę wszystkich topol
 1. Skopiuj i wklej poniższy kod JSON w polu **ładunek** .
     ```json
     {
-    "@apiVersion":
+    "@apiVersion": "2.0"
     }
     ```
 1. Wybierz przycisk **Wywołaj metodę** w górnej części strony.<br><br>
     ![przycisk wywołania metody](media/use-azure-portal-to-invoke-directs-methods/direct-method.png)
 1. W obszarze **wynik** powinien zostać wyświetlony komunikat o stanie 200.<br><br>
-    ![przekroczenie limitu czasu połączenia](media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
+    ![limit czasu połączenia](media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
 
 ## <a name="responses"></a>Odpowiedzi
 

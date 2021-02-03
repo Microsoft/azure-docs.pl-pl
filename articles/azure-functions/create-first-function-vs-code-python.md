@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję języka Python, a następnie o
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d7b98c44b85e17d084994bbcaa285c55c7a5e4d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e022843f95e5d5b52a15eaab2d28b6b9eb923006
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880848"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493570"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji na platformie Azure przy użyciu języka Python za pomocą Visual Studio Code
 
@@ -54,7 +54,8 @@ W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure 
 
     + **Wybierz język dla projektu funkcji**: Wybierz plik `Python`.
 
-    + **Wybierz alias języka Python, aby utworzyć środowisko wirtualne**: Wybierz lokalizację interpretera języka Python. Jeśli lokalizacja nie jest wyświetlana, wpisz pełną ścieżkę do pliku binarnego języka Python.  
+    + **Wybierz alias języka Python, aby utworzyć środowisko wirtualne**: Wybierz lokalizację interpretera języka Python.  
+    Jeśli lokalizacja nie jest wyświetlana, wpisz pełną ścieżkę do pliku binarnego języka Python.  
 
     + **Wybierz szablon dla pierwszej funkcji projektu**: Wybierz plik `HTTP trigger`.
 
@@ -81,15 +82,18 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
 1. Wybierz ikonę platformy Azure na pasku działania, a następnie w obszarze **Azure: Functions** wybierz przycisk **Wdróż do aplikacji funkcji...** .
 
-    ![Publikowanie projektu na platformie Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publikowanie projektu na platformie Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Podaj następujące informacje po wyświetleniu monitów:
 
-    + **Wybierz folder**: Wybierz folder z obszaru roboczego lub przejdź do folderu, który zawiera aplikację funkcji. Nie zobaczysz tego, jeśli masz już otwartą prawidłową aplikację funkcji.
+    + **Wybierz folder**: Wybierz folder z obszaru roboczego lub przejdź do folderu, który zawiera aplikację funkcji.   
+    Nie zobaczysz tego, jeśli masz już otwartą prawidłową aplikację funkcji.
 
-    + **Wybierz subskrypcję**: wybierz subskrypcję do użycia. Nie zobaczysz tego, jeśli masz tylko jedną subskrypcję.
+    + **Wybierz subskrypcję**: wybierz subskrypcję do użycia.  
+    Nie zobaczysz tego, jeśli masz tylko jedną subskrypcję.
 
-    + **Wybierz aplikację funkcji na platformie Azure**: Wybierz plik `+ Create new Function App`. (Nie należy wybierać `Advanced` opcji, która nie jest objęta tym artykułem).
+    + **Wybierz aplikację funkcji na platformie Azure**: Wybierz plik `+ Create new Function App`.  
+    (Nie należy wybierać `Advanced` opcji, która nie jest objęta tym artykułem).
 
     + **Wprowadź globalnie unikatową nazwę aplikacji funkcji**: wpisz nazwę, która jest prawidłowa w ścieżce URL. Wpisana nazwa zostanie sprawdzona, aby upewnić się, że jest ona unikatowa w Azure Functions. 
 
@@ -97,17 +101,19 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
     + **Wybierz lokalizację dla nowych zasobów**: Aby uzyskać lepszą wydajność, wybierz [region](https://azure.microsoft.com/regions/) w sąsiedztwie.
 
+    Rozszerzenie pokazuje stan poszczególnych zasobów w miarę ich tworzenia na platformie Azure w obszarze powiadomień.
+
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Powiadomienie o tworzeniu zasobów platformy Azure":::
+
 1. Po zakończeniu następujące zasoby platformy Azure są tworzone w ramach subskrypcji przy użyciu nazw opartych na nazwie aplikacji funkcji:
 
-    + Grupa zasobów, która jest kontenerem logicznym dla powiązanych zasobów.
-    + Standardowe konto usługi Azure Storage, które zachowuje stan i inne informacje o projektach.
-    + Plan zużycia, który definiuje podstawowego hosta dla aplikacji funkcji bezserwerowej. 
-    + Aplikacja funkcji, która zapewnia środowisko do wykonywania kodu funkcji. Aplikacja funkcji umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia zarządzanie, wdrażanie i udostępnianie zasobów w ramach tego samego planu hostingu.
-    + Wystąpienie Application Insights połączone z aplikacją funkcji, która śledzi użycie funkcji bezserwerowej.
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Po utworzeniu aplikacji funkcji i zastosowaniu pakietu wdrożeniowego zostanie wyświetlone powiadomienie. 
 
-1. Wybierz pozycję **Wyświetl dane wyjściowe** w tym powiadomieniu, aby wyświetlić wyniki tworzenia i wdrażania, w tym utworzone zasoby platformy Azure. W przypadku odrzucenia powiadomienia wybierz ikonę dzwonka w prawym dolnym rogu, aby zobaczyć ją ponownie.
+    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
+
+4. Wybierz pozycję **Wyświetl dane wyjściowe** w tym powiadomieniu, aby wyświetlić wyniki tworzenia i wdrażania, w tym utworzone zasoby platformy Azure. W przypadku odrzucenia powiadomienia wybierz ikonę dzwonka w prawym dolnym rogu, aby zobaczyć ją ponownie.
 
     ![Utwórz pełne powiadomienie](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 
@@ -117,7 +123,7 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
 ## <a name="next-steps"></a>Następne kroki
 
-W programie Visual Studio Code utworzono aplikację funkcji z prostą funkcją wyzwalaną przez protokół HTTP. W następnym artykule można rozszerzyć tę funkcję, dodając powiązanie danych wyjściowych. To powiązanie zapisuje ciąg z żądania HTTP do wiadomości w kolejce usługi Azure Queue Storage. 
+Użyto [Visual Studio Code](functions-develop-vs-code.md?tabs=python) , aby utworzyć aplikację funkcji z prostą funkcją wyzwalaną przez protokół http. W następnym artykule można rozszerzyć tę funkcję, łącząc się z usługą Azure Storage. Aby dowiedzieć się więcej na temat nawiązywania połączenia z innymi usługami platformy Azure, zobacz [Dodawanie powiązań do istniejącej funkcji w Azure Functions](add-bindings-existing-function.md?tabs=python). 
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)

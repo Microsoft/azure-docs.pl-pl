@@ -2,15 +2,15 @@
 title: Konfigurowanie aplikacji systemu Linux Python
 description: Informacje o konfigurowaniu kontenera języka Python, w którym są uruchamiane aplikacje sieci Web, przy użyciu zarówno Azure Portal, jak i interfejsu wiersza polecenia platformy Azure.
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 02/01/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 83c49eea8bda10d665c0a08666276e905c60c584
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855060"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493706"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
 
@@ -22,7 +22,7 @@ Ten przewodnik zawiera najważniejsze pojęcia i instrukcje dla deweloperów ję
 
 Do konfiguracji można użyć [Azure Portal](https://portal.azure.com) lub interfejsu wiersza polecenia platformy Azure:
 
-- **Azure Portal** Użyj **Settings**  >  strony **konfiguracji** ustawienia aplikacji zgodnie z opisem w temacie [Konfigurowanie aplikacji App Service w Azure Portal](configure-common.md).
+- **Azure Portal** Użyj   >  strony **konfiguracji** ustawienia aplikacji zgodnie z opisem w temacie [Konfigurowanie aplikacji App Service w Azure Portal](configure-common.md).
 
 - **Interfejs wiersza polecenia platformy Azure**: masz dwie opcje.
 
@@ -67,10 +67,13 @@ Możesz uruchomić nieobsługiwaną wersję języka Python, kompilując w zamian
 
 System kompilacji App Service o nazwie Oryx, podczas wdrażania aplikacji przy użyciu pakietów Git lub zip wykonuje następujące czynności:
 
-1. Uruchom niestandardowy skrypt przed kompilacją, jeśli został określony przez `PRE_BUILD_COMMAND` ustawienie.
+1. Uruchom niestandardowy skrypt przed kompilacją, jeśli został określony przez `PRE_BUILD_COMMAND` ustawienie. (Skrypt może sama uruchamiać inne skrypty języka Python i Node.js, polecenia PIP i npm oraz narzędzia oparte na węzłach, takie jak przędza, na przykład `yarn install` i `yarn build` .)
+
 1. Uruchom polecenie `pip install -r requirements.txt`. Plik *requirements.txt* musi znajdować się w folderze głównym projektu. W przeciwnym razie proces kompilacji zgłosi błąd: "nie można znaleźć setup.py lub requirements.txt; Nie uruchomiono instalacji PIP ".
+
 1. Jeśli *manage.py* znajduje się w katalogu głównym repozytorium (wskazującym aplikację Django), uruchom *manage.py collectstatic*. Jeśli jednak `DISABLE_COLLECTSTATIC` ustawienie ma wartość `true` , ten krok zostanie pominięty.
-1. Uruchom niestandardowy skrypt po kompilacji, jeśli został określony przez `POST_BUILD_COMMAND` ustawienie.
+
+1. Uruchom niestandardowy skrypt po kompilacji, jeśli został określony przez `POST_BUILD_COMMAND` ustawienie. (Ponownie skrypt może uruchamiać inne skrypty języka Python i Node.js, polecenia PIP i npm oraz narzędzia oparte na węzłach).
 
 Domyślnie `PRE_BUILD_COMMAND` `POST_BUILD_COMMAND` Ustawienia, i `DISABLE_COLLECTSTATIC` są puste. 
 
@@ -131,6 +134,52 @@ W poniższej tabeli opisano ustawienia produkcyjne odpowiednie dla platformy Azu
 | `ALLOWED_HOSTS` | W środowisku produkcyjnym Django wymaga dołączenia adresu URL aplikacji w `ALLOWED_HOSTS` tablicy *Settings.py*. Ten adres URL można pobrać w czasie wykonywania przy użyciu kodu, `os.environ['WEBSITE_HOSTNAME']` . App Service automatycznie ustawia `WEBSITE_HOSTNAME` zmienną środowiskową na adres URL aplikacji. |
 | `DATABASES` | Zdefiniuj ustawienia w App Service dla połączenia z bazą danych i załaduj je jako zmienne środowiskowe w celu wypełnienia [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) słownika. Można na przykład zapisywać wartości (zwłaszcza nazwę użytkownika i hasło) jako Azure Key Vault wpisy [tajne](../key-vault/secrets/quick-create-python.md). |
 
+## <a name="serve-static-files-for-django-apps"></a>Obsługiwanie plików statycznych dla aplikacji Django
+
+Jeśli Twoja aplikacja sieci Web Django zawiera statyczne pliki frontonu, najpierw postępuj zgodnie z instrukcjami dotyczącymi [zarządzania plikami statycznymi](https://docs.djangoproject.com/en/3.1/howto/static-files/) w dokumentacji Django.
+
+W przypadku App Service następnie wprowadź następujące modyfikacje:
+
+1. Rozważ użycie zmiennych środowiskowych (do lokalnego tworzenia) i ustawień aplikacji (podczas wdrażania w chmurze), aby dynamicznie ustawiać Django `STATIC_URL` i `STATIC_ROOT` zmienne. Na przykład:    
+
+    ```python
+    STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
+    STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")    
+    ```
+
+    `DJANGO_STATIC_URL` i `DJANGO_STATIC_ROOT` można je zmienić w razie potrzeby w środowiskach lokalnych i w chmurze. Na przykład jeśli proces kompilacji dla plików statycznych umieszcza je w folderze o nazwie `django-static` , można ustawić, `DJANGO_STATIC_URL` Aby `/django-static/` uniknąć używania wartości domyślnej.
+
+1. Jeśli masz skrypt przed kompilacją, który generuje pliki statyczne w innym folderze, należy uwzględnić ten folder w zmiennej Django, `STATICFILES_DIRS` tak aby `collectstatic` proces Django go znalazł. Na przykład w przypadku uruchamiania `yarn build` w folderze frontonu, a przędza generuje `build/static` folder zawierający pliki statyczne, a następnie dołącza go w następujący sposób:
+
+    ```python
+    FRONTEND_DIR = "path-to-frontend-folder" 
+    STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
+    ```
+
+    Tutaj, `FRONTEND_DIR` Aby utworzyć ścieżkę do miejsca, w którym jest uruchamiane narzędzie kompilacji, takie jak przędza. W razie potrzeby można ponownie użyć ustawienia zmienna środowiskowa i aplikacja.
+
+1. Dodaj `whitenoise` do pliku *requirements.txt* . [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.Evans.IO) to pakiet języka Python, który ułatwia aplikacjom Django produkcyjnych tworzenie własnych plików statycznych. Whitenoise w pełni obsługuje te pliki, które znajdują się w folderze określonym przez `STATIC_ROOT` zmienną Django.
+
+1. W pliku *Settings.py* Dodaj następujący wiersz dla whitenoise:
+
+    ```python
+    STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
+    ```
+
+1. Zmodyfikuj również `MIDDLEWARE` listy i, `INSTALLED_APPS` Aby uwzględnić whitenoise:
+
+    ```python
+    MIDDLEWARE = [
+        "whitenoise.middleware.WhiteNoiseMiddleware",
+        # Other values follow
+    ]
+
+    INSTALLED_APPS = [
+        "whitenoise.runserver_nostatic",
+        # Other values follow
+    ]
+    ```
+
 ## <a name="container-characteristics"></a>Właściwości kontenera
 
 Po wdrożeniu w celu App Service aplikacje języka Python działają w kontenerze platformy Docker systemu Linux, który jest zdefiniowany w [repozytorium usługi GitHub App Service Python](https://github.com/Azure-App-Service/python). Konfiguracje obrazów można znaleźć w katalogach specyficznych dla danej wersji.
@@ -150,6 +199,8 @@ Ten kontener ma następujące cechy:
 
 - App Service automatycznie definiuje zmienną środowiskową o nazwie `WEBSITE_HOSTNAME` przy użyciu adresu URL aplikacji sieci Web, na przykład `msdocs-hello-world.azurewebsites.net` . Definiuje również `WEBSITE_SITE_NAME` nazwę aplikacji, na przykład `msdocs-hello-world` . 
    
+- npm i Node.js są instalowane w kontenerze, dzięki czemu można uruchamiać narzędzia do kompilacji oparte na węzłach, takie jak przędza.
+
 ## <a name="container-startup-process"></a>Proces uruchamiania kontenera
 
 Podczas uruchamiania kontener usługi App Service w systemie Linux wykonuje następujące kroki:
@@ -270,7 +321,7 @@ Na przykład jeśli utworzono ustawienie aplikacji o nazwie `DATABASE_SERVER` , 
 ```python
 db_server = os.environ['DATABASE_SERVER']
 ```
-    
+
 ## <a name="detect-https-session"></a>Wykrywanie sesji protokołu HTTPS
 
 W App Service na usługi równoważenia obciążenia sieciowego następuje [zakończenie protokołu SSL](https://wikipedia.org/wiki/TLS_termination_proxy) (Wikipedia.org), więc wszystkie żądania HTTPS docierają do aplikacji jako nieszyfrowane żądania HTTP. Jeśli logika aplikacji musi sprawdzać, czy żądania użytkownika są szyfrowane, czy nie, zbadaj nagłówek `X-Forwarded-Proto`.

@@ -3,12 +3,12 @@ title: Zakres dla typów zasobów rozszerzenia
 description: Opisuje sposób użycia właściwości Scope podczas wdrażania typów zasobów rozszerzenia.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ce08ca951e24c1c0a5450052cf814a68888837c2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179983"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492165"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Ustawianie zakresu dla zasobów rozszerzenia w szablonach ARM
 
@@ -85,6 +85,6 @@ Poniższy przykład tworzy konto magazynu i stosuje do niego rolę.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów Azure Resource Manager](template-syntax.md).
+* Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów ARM](template-syntax.md).
 * Aby uzyskać wskazówki dotyczące rozwiązywania typowych błędów wdrażania, zobacz [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](common-deployment-errors.md).
-* Informacje o wdrażaniu szablonu wymagającego tokenu SAS można znaleźć w temacie [Deploy Private Template with SAS token](secure-template-with-sas-token.md).
+* Aby uzyskać informacje na temat wdrażania szablonu wymagającego tokenu SAS, zobacz [wdrażanie prywatnego szablonu usługi ARM z tokenem SAS](secure-template-with-sas-token.md).

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 23f14e14bea665f838919ae357d11db32bddfa7f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: ced29c3222b7f4f5d7cf5f9e472c420c47341786
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579423"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493247"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Wprowadzenie do systemu FreeBSD na platformie Azure
 Ten artykuł zawiera omówienie uruchamiania maszyny wirtualnej FreeBSD na platformie Azure.
@@ -119,4 +119,4 @@ Opcjonalnie możesz uzyskać powłokę główną przy użyciu `sudo -s` .
 [Agent gościa maszyny wirtualnej platformy Azure](https://github.com/Azure/WALinuxAgent/) w wersji 2.2.2 ma [znany problem](https://github.com/Azure/WALinuxAgent/pull/517) , który powoduje niepowodzenie inicjowania obsługi maszyny wirtualnej FreeBSD na platformie Azure. Poprawka została przechwycona przez [agenta gościa maszyny wirtualnej platformy Azure](https://github.com/Azure/WALinuxAgent/) w wersji 2.2.3 i nowszych. 
 
 ## <a name="next-steps"></a>Następne kroki
-* Przejdź do [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/thefreebsdfoundation.freebsd-12_1?tab=Overview) , aby utworzyć maszynę wirtualną FreeBSD.
+* Przejdź do [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/thefreebsdfoundation.freebsd-12_2?tab=Overview) , aby utworzyć maszynę wirtualną FreeBSD.

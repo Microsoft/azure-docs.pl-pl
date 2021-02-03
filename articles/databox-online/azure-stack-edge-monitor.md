@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/15/2019
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 388be1b13f89a50bed003731c01c6ab6287faaf9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904405"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491068"
 ---
 # <a name="monitor-your-azure-stack-edge-pro"></a>Monitoruj Azure Stack Edge
 
@@ -26,7 +26,6 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Wyświetlanie zdarzeń urządzeń i odpowiadających im alertów
 > * Wyświetlanie stanu sprzętu dla składników urządzenia
 > * Wyświetlanie metryk pojemności i transakcji dla urządzenia
-> * Konfigurowanie alertów i zarządzanie nimi
 
 ## <a name="view-device-events"></a>Wyświetl zdarzenia urządzenia
 
@@ -59,29 +58,26 @@ W poniższej tabeli przedstawiono pełną listę metryk:
 
 |Metryki pojemności                     |Opis  |
 |-------------------------------------|-------------|
-|**Dostępna pojemność**               | Odnosi się do rozmiaru danych, które mogą być zapisywane na urządzeniu. Innymi słowy, jest to wydajność, którą można udostępnić na urządzeniu. <br></br>Możesz zwolnić pojemność urządzenia, usuwając lokalną kopię plików, która ma kopię zarówno na urządzeniu, jak i w chmurze.        |
-|**Całkowita pojemność**                   | Odnosi się do łącznej liczby bajtów na urządzeniu, do której mają zostać zapisane dane. Jest to również określane jako łączny rozmiar lokalnej pamięci podręcznej. <br></br> Teraz można zwiększyć pojemność istniejącego urządzenia wirtualnego, dodając dysk danych. Dodaj dysk danych za pomocą funkcji zarządzania funkcją hypervisor dla maszyny wirtualnej, a następnie uruchom ponownie maszynę wirtualną. Lokalna Pula magazynów urządzenia bramy zostanie rozszerzona w celu uwzględnienia nowo dodanego dysku z danymi. <br></br>Aby uzyskać więcej informacji, przejdź do obszaru [Dodawanie dysku twardego dla maszyny wirtualnej funkcji Hyper-V](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
+|**Dostępna pojemność**               | Odnosi się do rozmiaru danych, które mogą być zapisywane na urządzeniu. Innymi słowy, ta Metryka to wydajność, którą można udostępnić na urządzeniu. <br></br>Możesz zwolnić pojemność urządzenia, usuwając lokalną kopię plików, która ma kopię zarówno na urządzeniu, jak i w chmurze.        |
+|**Całkowita pojemność**                   | Odnosi się do łącznej liczby bajtów na urządzeniu, do której mają zostać zapisane dane, co jest również określane jako łączny rozmiar lokalnej pamięci podręcznej. <br></br> Teraz można zwiększyć pojemność istniejącego urządzenia wirtualnego, dodając dysk danych. Dodaj dysk danych za pomocą funkcji zarządzania funkcją hypervisor dla maszyny wirtualnej, a następnie uruchom ponownie maszynę wirtualną. Lokalna Pula magazynów urządzenia bramy zostanie rozszerzona w celu uwzględnienia nowo dodanego dysku z danymi. <br></br>Aby uzyskać więcej informacji, przejdź do obszaru [Dodawanie dysku twardego dla maszyny wirtualnej funkcji Hyper-V](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
 
 |Metryki transakcji              | Opis         |
 |-------------------------------------|---------|
 |**Przekazane bajty w chmurze (urządzenie)**    | Suma wszystkich bajtów przesłanych przez wszystkie udziały na urządzeniu        |
-|**Przekazane bajty w chmurze (udział)**     | Bajty przekazane na udział. Może to być: <br></br> Średnia, czyli (suma wszystkich bajtów przesłanych na udział/liczbę udziałów),  <br></br>Max, która jest maksymalną liczbą bajtów przekazana z udziału <br></br>Minimum, czyli minimalna liczba bajtów przekazana z udziału      |
-|**Przepływność pobierania w chmurze (udział)**| Bajty pobrane na udział. Może to być: <br></br> Średnia, czyli (suma wszystkich bajtów odczytywanych lub pobranych do udziału/liczby udziałów) <br></br> Max, czyli maksymalna liczba bajtów pobranych z udziału<br></br> i min, czyli minimalna liczba bajtów pobranych z udziału  |
+|**Przekazane bajty w chmurze (udział)**     | Bajty przekazane na udział. Ta Metryka może być: <br></br> Średnia, czyli (suma wszystkich bajtów przesłanych na udział/liczbę udziałów),  <br></br>Max, która jest maksymalną liczbą bajtów przekazana z udziału <br></br>Minimum, czyli minimalna liczba bajtów przekazana z udziału      |
+|**Przepływność pobierania w chmurze (udział)**| Bajty pobrane na udział. Ta Metryka może być: <br></br> Średnia, czyli (suma wszystkich bajtów odczytywanych lub pobranych do udziału/liczby udziałów) <br></br> Max, czyli maksymalna liczba bajtów pobranych z udziału<br></br> i min, czyli minimalna liczba bajtów pobranych z udziału  |
 |**Przepływność odczytu w chmurze**            | Suma wszystkich bajtów odczytanych z chmury między wszystkimi udziałami na urządzeniu     |
 |**Przepływność przekazywania w chmurze**          | Suma wszystkich bajtów zapisanych w chmurze dla wszystkich udziałów na urządzeniu     |
 |**Przepływność przekazywania w chmurze (udział)**  | Suma wszystkich bajtów zapisywana w chmurze z udziału/liczby udziałów jest średnia, maksymalna i minimalna na udział      |
-|**Przepływność odczytu (Sieć)**           | Obejmuje przepływność sieci systemowej dla wszystkich bajtów odczytanych z chmury. Ten widok może zawierać dane, które nie są ograniczone do udziałów. <br></br>Dzielenie spowoduje wyświetlenie ruchu przez wszystkie karty sieciowe na urządzeniu. Obejmuje to karty, które nie są połączone lub są włączone.      |
-|**Przepływność zapisu (Sieć)**       | Obejmuje przepływność sieci systemowej dla wszystkich bajtów zapisanych w chmurze. Ten widok może zawierać dane, które nie są ograniczone do udziałów. <br></br>Dzielenie spowoduje wyświetlenie ruchu przez wszystkie karty sieciowe na urządzeniu. Obejmuje to karty, które nie są połączone lub są włączone.          |
+|**Przepływność odczytu (Sieć)**           | Obejmuje przepływność sieci systemowej dla wszystkich bajtów odczytanych z chmury. Ten widok może zawierać dane, które nie są ograniczone do udziałów. <br></br>Podział będzie przedstawiał ruch przez wszystkie karty sieciowe na urządzeniu, w tym karty, które nie są połączone lub włączone.      |
+|**Przepływność zapisu (Sieć)**       | Obejmuje przepływność sieci systemowej dla wszystkich bajtów zapisanych w chmurze. Ten widok może zawierać dane, które nie są ograniczone do udziałów. <br></br>Podział będzie przedstawiał ruch przez wszystkie karty sieciowe na urządzeniu, w tym karty, które nie są połączone lub włączone.          |
 
 | Metryki obliczeń brzegowych              | Opis         |
 |-------------------------------------|---------|
 |**Obliczenia brzegowe — użycie pamięci**      |           |
 |**Obliczenia brzegowe — procentowy procesor CPU**    |         |
 
-## <a name="manage-alerts"></a>Zarządzanie alertami
-
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-manage-alerts.md)]
-
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak [zarządzać przepustowością](azure-stack-edge-manage-bandwidth-schedules.md).
+Dowiedz się, jak [zarządzać powiadomieniami o alertach zdarzeń urządzeń](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).

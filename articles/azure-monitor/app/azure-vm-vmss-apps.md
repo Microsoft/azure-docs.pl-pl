@@ -3,12 +3,12 @@ title: Monitorowanie wydajności na maszynach wirtualnych platformy Azure — Ap
 description: Monitorowanie wydajności aplikacji dla maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych platformy Azure. Załaduj wykres i czas odpowiedzi, informacje o zależnościach i ustaw alerty wydajności.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 01583cf5ecb85e4f66538afaba6984bff455ea99
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 48441711c8c6209b25974108fd91d1023fd6e6be
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475458"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493740"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Wdrażanie agenta Application Insights Azure Monitor na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych platformy Azure
 
@@ -27,7 +27,7 @@ W tym artykule omówiono Włączanie monitorowania Application Insights przy uż
 
 Istnieją dwa sposoby włączania monitorowania aplikacji dla maszyn wirtualnych platformy Azure i aplikacji hostowanych w ramach zestawów skalowania maszyn wirtualnych platformy Azure:
 
-### <a name="auto-inctrumentation-via-application-insights-agent"></a>Autoinctrumentation za pośrednictwem agenta Application Insights
+### <a name="auto-instrumentation-via-application-insights-agent"></a>Funkcja autoinstrumentacja za pośrednictwem agenta Application Insights
 
 * Ta metoda jest najłatwiejsza do włączenia i nie jest wymagana żadna Konfiguracja zaawansowana. Jest on często określany jako "środowisko uruchomieniowe".
 

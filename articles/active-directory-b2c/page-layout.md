@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976507"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492250"
 ---
 # <a name="page-layout-versions"></a>Wersje układu strony
 
@@ -24,7 +24,10 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 
 ## <a name="self-asserted-page-selfasserted"></a>Strona z własnym potwierdzeniem (selfasserted)
 
-**pkt**
+**2.1.2**
+- Rozwiązano problem z kodowaniem lokalizacji dla języków takich jak hiszpański i francuski.
+
+**2.1.1**
 
 - Dodano element UXString, który `heading` oprócz `intro` elementu ma być wyświetlany na stronie jako tytuł. Ta wartość jest domyślnie ukryta.
 - Dodano obsługę zapisywania haseł do łańcucha kluczy usługi iCloud.
@@ -71,7 +74,11 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Ujednolicona Strona rejestracji przy użyciu linku resetowania hasła (unifiedssp)
 
-**pkt**
+**2.1.2**
+- Rozwiązano problem z kodowaniem lokalizacji dla języków takich jak hiszpański i francuski.
+- Zezwalanie na używanie linku "zapomniane hasło" jako oświadczenia programu Exchange, takiego jak Social dostawcy tożsamości.
+
+**2.1.1**
 - Dodano element UXString, który `heading` oprócz `intro` elementu ma być wyświetlany na stronie jako tytuł. Ta wartość jest domyślnie ukryta.
 - Dodano obsługę używania zasad lub parametru QueryString w `pageFlavor` celu wybrania układu (klasyczny, oceanBlue lub slateGray).
 - Dodano obsługę zapisywania haseł do łańcucha kluczy usługi iCloud.
@@ -112,7 +119,7 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 - Dodano element UXString, który `heading` oprócz `intro` elementu ma być wyświetlany na stronie jako tytuł. Ta wartość jest domyślnie ukryta.  
 - Dodano obsługę używania zasad lub parametru QueryString w `pageFlavor` celu wybrania układu (klasyczny, oceanBlue lub slateGray).
 
-**ppkt**
+**1.2.1**
 
 - Poprawki ułatwień dostępu w domyślnych szablonach
 

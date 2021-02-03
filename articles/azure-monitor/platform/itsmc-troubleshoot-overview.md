@@ -1,87 +1,97 @@
 ---
-title: Rozwiązywanie problemów w łączniku ITSM
-description: Rozwiązywanie problemów z łącznik zarządzania usługami IT
+title: Rozwiązywanie problemów z ITSMC
+description: Dowiedz się, jak rozwiązywać typowe problemy w łącznik zarządzania usługami IT.
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: fce20626d5e000c08b8a057671c06a3084534187
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e8ae306a4900bc6e5815f6fc251dfa1b8b22964d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896040"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492420"
 ---
-# <a name="troubleshooting-problems-in-itsm-connector"></a>Rozwiązywanie problemów w łączniku ITSM
+# <a name="troubleshoot-problems-in-it-service-management-connector"></a>Rozwiązywanie problemów z łącznik zarządzania usługami IT
 
-W tym artykule omówiono typowe problemy w łącznik ITSM i sposoby rozwiązywania problemów z nimi.
+W tym artykule omówiono typowe problemy w programie łącznik zarządzania usługami IT (ITSMC) oraz sposoby rozwiązywania problemów z nimi.
 
-Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu.
-Klient może wybrać, jak chcą otrzymywać powiadomienia dotyczące alertu, niezależnie od tego, czy jest on wysyłany pocztą, wiadomości SMS, webhook, czy też do automatyzowania rozwiązania. Kolejną opcją powiadomienia jest użycie narzędzia ITSM.
-NARZĘDZIA ITSM umożliwia wysyłanie alertów do zewnętrznego systemu biletów, takiego jak usługi ServiceNow.
+Azure Monitor proaktywnie powiadamia w alertach o znalezieniu ważnych warunków w danych monitorowania. Te alerty ułatwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu.
 
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Wizualizuj i analizuj dane zdarzenia i żądania zmiany
+Możesz wybrać sposób otrzymywania alertów. Możesz wybrać opcję Poczta, wiadomość SMS lub element webhook, a nawet zautomatyzować rozwiązanie. 
 
-W zależności od konfiguracji podczas konfigurowania połączenia ITSMC może synchronizować do 120 dni zdarzenia i dane żądania zmiany. Schemat rekordów dziennika dla tych danych znajduje się w [sekcji dodatkowe informacje](./itsmc-synced-data.md) w tym artykule.
+Alternatywą jest powiadomienie za poorednictwem ITSMC. ITSMC umożliwia wysyłanie alertów do zewnętrznego systemu obsługi biletów, takiego jak usługi ServiceNow.
+
+## <a name="use-the-dashboard-to-analyze-incident-and-change-request-data"></a>Korzystanie z pulpitu nawigacyjnego do analizowania danych zdarzenia i żądania zmiany
+
+W zależności od konfiguracji podczas konfigurowania połączenia ITSMC może synchronizować do 120 dni zdarzenia i dane żądania zmiany. Aby uzyskać schemat rekordów dziennika dla tych danych, zapoznaj się [z artykułem synchronizowanie danych z produktu narzędzia ITSM](./itsmc-synced-data.md) .
 
 Możesz wizualizować dane zdarzenia i żądania zmiany za pomocą pulpitu nawigacyjnego ITSMC:
 
 ![Zrzut ekranu przedstawiający pulpit nawigacyjny ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
-Pulpit nawigacyjny zawiera również informacje o stanie łącznika, którego można użyć jako punktu wyjścia do analizowania problemów z połączeniami.
+Pulpit nawigacyjny zawiera również informacje o stanie łącznika. Tych informacji można użyć jako punktu wyjścia do analizowania problemów z połączeniami. Aby uzyskać więcej informacji, zobacz [Badanie błędów przy użyciu pulpitu nawigacyjnego](./itsmc-dashboard.md).
 
-Aby uzyskać więcej informacji na temat badania pulpitu nawigacyjnego, zobacz [Badanie błędów przy użyciu pulpitu nawigacyjnego](./itsmc-dashboard.md).
-
-### <a name="service-map"></a>Mapa usługi
+## <a name="use-service-map-to-visualize-incidents"></a>Użyj Service Map do wizualizacji zdarzeń
 
 Możesz również wizualizować zdarzenia zsynchronizowane z komputerami, których dotyczy problem, w Service Map.
 
-Service Map automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Umożliwia wyświetlanie Twoich serwerów w miarę ich działania: jako połączone systemy, które dostarczają usługi o kluczowym znaczeniu. Service Map przedstawia połączenia między serwerami, procesami i portami w ramach dowolnej architektury połączonej z protokołem TCP. Poza instalacją agenta nie jest wymagana żadna konfiguracja. Aby uzyskać więcej informacji, zobacz [używanie Service map](../insights/service-map.md).
+Service Map automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Umożliwia wyświetlanie Twoich serwerów w miarę ich działania: jako połączone systemy, które dostarczają usługi o kluczowym znaczeniu. 
 
-Jeśli używasz Service Map, możesz wyświetlić elementy pomocy technicznej utworzone w rozwiązaniach narzędzia ITSM, jak pokazano poniżej:
+Service Map przedstawia połączenia między serwerami, procesami i portami w ramach dowolnej architektury połączonej z protokołem TCP. Poza instalacją agenta nie jest wymagana żadna konfiguracja. Aby uzyskać więcej informacji, zobacz [używanie Service map](../insights/service-map.md).
+
+Jeśli używasz Service Map, możesz wyświetlić elementy pomocy technicznej utworzone w rozwiązaniach do zarządzania usługami IT (narzędzia ITSM), jak pokazano w tym przykładzie:
 
 ![Zrzut ekranu przedstawiający ekran Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## <a name="common-symptoms---how-should-it-be-resolved"></a>Często spotykane objawy — jak należy je rozwiązać?
+## <a name="resolve-problems"></a>Rozwiązywanie problemów
 
-Poniższa lista zawiera typowe objawy i sposób ich rozwiązywania:
+W poniższych sekcjach zidentyfikowano typowe objawy, możliwe przyczyny i rozwiązania. 
 
-* **Objaw**: Jeśli połączenie z systemem narzędzia ITSM nie powiedzie się i **wystąpi błąd podczas zapisywania komunikatu połączenia** .
+### <a name="a-connection-to-the-itsm-system-fails-and-you-get-an-error-in-saving-connection-message"></a>Połączenie z systemem narzędzia ITSM kończy się niepowodzeniem i jest wyświetlany komunikat "Wystąpił błąd podczas zapisywania połączenia"
 
-    **Przyczyna**: Przyczyna może być jedną z opcji:
-    * Nieprawidłowe poświadczenia
-     * Niewystarczające uprawnienia
-     * Aplikacja sieci Web powinna zostać wdrożona prawidłowo
+**Przyczyna**: Przyczyna może być jedną z następujących opcji:
 
-    **Rozwiązanie**:
-    * Dla połączeń usługi ServiceNow, Cherwell i Provance:
-        * Upewnij się, że poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.  
-        * W przypadku usługi ServiceNow: Upewnij się, że masz wystarczające uprawnienia w odpowiednim produkcie narzędzia ITSM, aby nawiązać połączenie w [określony](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role)sposób.
-  * Dla połączeń Service Manager:  
-      * Upewnij się, że aplikacja sieci Web została pomyślnie wdrożona, a połączenie hybrydowe zostało utworzone. Aby sprawdzić, czy połączenie zostało pomyślnie nawiązane z lokalnym komputerem Service Manager, przejdź do adresu URL aplikacji sieci Web, zgodnie z opisem w dokumentacji dotyczącej tworzenia [połączenia hybrydowego](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-* **Objaw**: utworzono zduplikowane elementy robocze
+* Poświadczenia są nieprawidłowe.
+* Niewystarczające uprawnienia.
+* Aplikacja sieci Web została niepoprawnie wdrożona.
 
-    **Przyczyna**: Przyczyna może być jedną z dwóch opcji:
-    * Dla tego alertu zdefiniowano więcej niż jedną akcję narzędzia ITSM.
-    * Alert został rozwiązany.
+**Rozwiązanie**:
 
-    **Rozwiązanie**: dostępne są dwa rozwiązania:
-    * Upewnij się, że masz pojedynczą narzędzia ITSM grupę akcji dla każdego alertu.
-    * Łącznik ITSM nie obsługuje aktualizacji stanu pasujących elementów roboczych po rozwiązaniu alertu. Zostanie utworzony nowy rozpoznany element roboczy.
-* **Objaw**: elementy robocze nie są tworzone
+* Dla połączeń usługi ServiceNow, Cherwell i Provance:
+  * Upewnij się, że poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.  
+  * W przypadku usługi ServiceNow upewnij się, że masz [wystarczające uprawnienia](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role) w odpowiednim produkcie narzędzia ITSM.
 
-    **Przyczyna**: może istnieć kilka przyczyn dla tego objawu:
-    * Modyfikowanie kodu po stronie usługi ServiceNow
-    * Niepozwolenia konfiguracja uprawnień
-    * Limity szybkości usługi ServiceNow są zbyt wysokie/niskie
-    * Token odświeżania wygasł
-    * łącznik ITSM został usunięty
+* Dla połączeń Service Manager:  
+  * Upewnij się, że aplikacja sieci Web została pomyślnie wdrożona, a połączenie hybrydowe zostało utworzone. Aby sprawdzić, czy połączenie zostało pomyślnie nawiązane z lokalnym komputerem Service Manager, przejdź do adresu URL aplikacji sieci Web, zgodnie z opisem w [dokumentacji dotyczącej tworzenia połączenia hybrydowego](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 
-    **Rozwiązanie**: można sprawdzić [pulpit nawigacyjny](itsmc-dashboard.md) i przejrzeć błędy w sekcji stan łącznika. Przejrzyj [typowe błędy](itsmc-dashboard-errors.md) i Dowiedz się, jak rozwiązać ten problem.
+### <a name="duplicate-work-items-are-created"></a>Utworzono zduplikowane elementy robocze
 
-* **Objaw**: nie można utworzyć akcji narzędzia ITSM dla grupy akcji
+**Przyczyna**: Przyczyna może być jedną z następujących dwóch opcji:
 
-    **Przyczyna**: nowo utworzona łącznik ITSM nie mogła ukończyć synchronizacji początkowej.
+* Dla alertu zdefiniowano więcej niż jedną akcję narzędzia ITSM.
+* Alert został rozwiązany.
 
-    **Rozwiązanie**: można przejrzeć [typowe błędy interfejsu użytkownika](itsmc-dashboard-errors.md#ui-common-errors) i dowiedzieć się, jak rozwiązać ten problem.
+**Rozwiązanie**: dostępne są dwa rozwiązania:
+
+* Upewnij się, że masz pojedynczą narzędzia ITSM grupę akcji dla każdego alertu.
+* ITSMC nie obsługuje aktualizacji stanu pasujących elementów roboczych podczas rozwiązywania alertu. Utwórz nowy rozpoznany element roboczy.
+
+### <a name="work-items-are-not-created"></a>Elementy robocze nie są tworzone
+
+**Przyczyna**: może istnieć kilka przyczyn tego symptomu:
+
+* Kod został zmodyfikowany po stronie usługi ServiceNow.
+* Uprawnienia są nieprawidłowo skonfigurowane.
+* Limity szybkości usługi ServiceNow są zbyt duże lub zbyt niskie.
+* Token odświeżania wygasł.
+* ITSMC został usunięty.
+
+**Rozwiązanie**: Sprawdź [pulpit nawigacyjny](itsmc-dashboard.md) i Przejrzyj błędy w sekcji stan łącznika. Następnie przejrzyj [typowe błędy i ich rozwiązania](itsmc-dashboard-errors.md).
+
+### <a name="you-cant-create-an-itsm-action-for-an-action-group"></a>Nie można utworzyć akcji narzędzia ITSM dla grupy akcji
+
+**Przyczyna**: nowo utworzone wystąpienie ITSMC jeszcze raz zakończyło synchronizację początkową.
+
+**Rozwiązanie**: Przejrzyj [typowe błędy i ich rozwiązania](itsmc-dashboard-errors.md).

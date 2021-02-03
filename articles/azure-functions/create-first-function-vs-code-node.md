@@ -3,12 +3,12 @@ title: Tworzenie funkcji języka JavaScript przy użyciu Visual Studio Code-Azur
 description: Dowiedz się, jak utworzyć funkcję języka JavaScript, a następnie opublikować lokalny projekt Node.js do hostingu bezserwerowego w Azure Functions przy użyciu rozszerzenia Azure Functions w Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: 11195531cafadcc8b73c0913bc99b4119aa2d4fb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 79da3686310013d4af2acebe5c7c941a38df1a8a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425080"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493621"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka JavaScript na platformie Azure przy użyciu Visual Studio Code
 
@@ -28,34 +28,34 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 
 + [Node.js](https://nodejs.org/), aktywne wersje LTS LTS i Maintenance (zalecane 10.14.1). Użyj `node --version` polecenia, aby sprawdzić wersję.  
 
-+ [Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
++ [Program Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-+ [Azure Functions rozszerzenie](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) Visual Studio Code.
++ [Rozszerzenie obsługujące usługę Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) dla programu Visual Studio Code.
 
 ## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Utwórz projekt lokalny
 
 W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt Azure Functions lokalnych w języku JavaScript. W dalszej części tego artykułu opublikujesz kod funkcji na platformie Azure.
 
-1. Wybierz ikonę platformy Azure na pasku działania, a następnie w obszarze **Azure: Functions** wybierz ikonę **Utwórz nowy projekt...** .
+1. Wybierz ikonę platformy Azure na pasku działań, a następnie w obszarze **Azure: Funkcje** wybierz ikonę **Utwórz nowy projekt...**.
 
-    ![Wybierz pozycję Utwórz nowy projekt](./media/functions-create-first-function-vs-code/create-new-project.png)
+    ![Wybieranie pozycji Utwórz nowy projekt](./media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz **pozycję Wybierz**.
+1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz pozycję **Wybierz**.
 
     > [!NOTE]
     > Te kroki zostały zaprojektowane do ukończenia poza obszarem roboczym. W takim przypadku nie wybieraj folderu projektu, który jest częścią obszaru roboczego.
 
-1. Podaj następujące informacje na ekranie:
+1. Podaj następujące informacje po wyświetleniu monitów:
 
-    + **Wybierz język projektu funkcji** : Wybierz `JavaScript` .
+    + **Wybierz język dla projektu funkcji**: Wybierz plik `JavaScript`.
 
-    + **Wybierz szablon dla pierwszej funkcji projektu** : Wybierz `HTTP trigger` .
+    + **Wybierz szablon dla pierwszej funkcji projektu**: Wybierz plik `HTTP trigger`.
 
-    + **Podaj nazwę funkcji** : type `HttpExample` .
+    + **Podaj nazwę funkcji**: Wpisz `HttpExample`.
 
-    + **Poziom autoryzacji** : Wybierz `Anonymous` , co umożliwi wszystkim wywoływanie punktu końcowego funkcji. Aby dowiedzieć się więcej o poziomie autoryzacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    + **Poziom autoryzacji**: Wybierz `Anonymous` , co umożliwi wszystkim wywoływanie punktu końcowego funkcji. Aby dowiedzieć się więcej o poziomie autoryzacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-    + **Wybierz, w jaki sposób chcesz otworzyć projekt** : Wybierz `Add to workspace` .
+    + **Wybierz, jak chcesz otworzyć projekt**: Wybierz plik `Add to workspace`.
 
 1. Korzystając z tych informacji, Visual Studio Code generuje projekt Azure Functions z wyzwalaczem HTTP. Pliki projektu lokalnego można wyświetlić w Eksploratorze. Aby dowiedzieć się więcej na temat tworzonych plików, zobacz [pliki wygenerowanego projektu](functions-develop-vs-code.md#generated-project-files). 
 
@@ -75,31 +75,33 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
 1. Wybierz ikonę platformy Azure na pasku działania, a następnie w obszarze **Azure: Functions** wybierz przycisk **Wdróż do aplikacji funkcji...** .
 
-    ![Publikowanie projektu na platformie Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publikowanie projektu na platformie Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
-1. Podaj następujące informacje na ekranie:
+1. Podaj następujące informacje po wyświetleniu monitów:
 
-    + **Wybierz folder** : Wybierz folder z obszaru roboczego lub przejdź do folderu, który zawiera aplikację funkcji. Nie zobaczysz tego, jeśli masz już otwartą prawidłową aplikację funkcji.
+    + **Wybierz folder**: Wybierz folder z obszaru roboczego lub przejdź do folderu, który zawiera aplikację funkcji. Nie zobaczysz tego, jeśli masz już otwartą prawidłową aplikację funkcji.
 
-    + **Wybierz subskrypcję** : wybierz subskrypcję do użycia. Nie zobaczysz tego, jeśli masz tylko jedną subskrypcję.
+    + **Wybierz subskrypcję**: wybierz subskrypcję do użycia. Nie zobaczysz tego, jeśli masz tylko jedną subskrypcję.
 
-    + **Wybierz Aplikacja funkcji na platformie Azure** : wybierz opcję `+ Create new Function App` . (Nie należy wybierać `Advanced` opcji, która nie jest objęta tym artykułem).
+    + **Wybierz aplikację funkcji na platformie Azure**: Wybierz plik `+ Create new Function App`. (Nie należy wybierać `Advanced` opcji, która nie jest objęta tym artykułem).
 
-    + **Wprowadź globalnie unikatową nazwę aplikacji funkcji** : wpisz nazwę, która jest prawidłowa w ścieżce URL. Wpisana nazwa zostanie sprawdzona, aby upewnić się, że jest ona unikatowa w Azure Functions.
+    + **Wprowadź globalnie unikatową nazwę aplikacji funkcji**: wpisz nazwę, która jest prawidłowa w ścieżce URL. Wpisana nazwa zostanie sprawdzona, aby upewnić się, że jest ona unikatowa w Azure Functions.
 
-    + **Wybierz środowisko uruchomieniowe** : wybierz wersję Node.js, która była uruchomiona lokalnie. Możesz użyć polecenia, `node --version` Aby sprawdzić wersję.
+    + **Wybierz środowisko uruchomieniowe**: wybierz wersję Node.js, która była uruchomiona lokalnie. Możesz użyć polecenia, `node --version` Aby sprawdzić wersję.
 
-    + **Wybierz lokalizację dla nowych zasobów** : Aby uzyskać lepszą wydajność, wybierz [region](https://azure.microsoft.com/regions/) w sąsiedztwie. 
+    + **Wybierz lokalizację dla nowych zasobów**: Aby uzyskać lepszą wydajność, wybierz [region](https://azure.microsoft.com/regions/) w sąsiedztwie. 
+
+    Rozszerzenie pokazuje stan poszczególnych zasobów w miarę ich tworzenia na platformie Azure w obszarze powiadomień.
+
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Powiadomienie o tworzeniu zasobów platformy Azure":::
 
 1. Po zakończeniu następujące zasoby platformy Azure są tworzone w ramach subskrypcji przy użyciu nazw opartych na nazwie aplikacji funkcji:
 
-    + Grupa zasobów, która jest kontenerem logicznym dla powiązanych zasobów.
-    + Standardowe konto usługi Azure Storage, które zachowuje stan i inne informacje o projektach.
-    + Plan zużycia, który definiuje podstawowego hosta dla aplikacji funkcji bezserwerowej. 
-    + Aplikacja funkcji, która zapewnia środowisko do wykonywania kodu funkcji. Aplikacja funkcji umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia zarządzanie, wdrażanie i udostępnianie zasobów w ramach tego samego planu hostingu.
-    + Wystąpienie Application Insights połączone z aplikacją funkcji, która śledzi użycie funkcji bezserwerowej.
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Po utworzeniu aplikacji funkcji i zastosowaniu pakietu wdrożeniowego zostanie wyświetlone powiadomienie. 
+
+    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
 
 1. Wybierz pozycję **Wyświetl dane wyjściowe** w tym powiadomieniu, aby wyświetlić wyniki tworzenia i wdrażania, w tym utworzone zasoby platformy Azure. W przypadku odrzucenia powiadomienia wybierz ikonę dzwonka w prawym dolnym rogu, aby zobaczyć ją ponownie.
 
@@ -111,7 +113,7 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
 ## <a name="next-steps"></a>Następne kroki
 
-W programie Visual Studio Code utworzono aplikację funkcji z prostą funkcją wyzwalaną przez protokół HTTP. W następnym artykule można rozszerzyć tę funkcję, dodając powiązanie danych wyjściowych. To powiązanie zapisuje ciąg z żądania HTTP do wiadomości w kolejce usługi Azure Queue Storage. 
+Użyto [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) , aby utworzyć aplikację funkcji z prostą funkcją wyzwalaną przez protokół http. W następnym artykule można rozszerzyć tę funkcję, łącząc się z usługą Azure Storage. Aby dowiedzieć się więcej na temat nawiązywania połączenia z innymi usługami platformy Azure, zobacz [Dodawanie powiązań do istniejącej funkcji w Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)

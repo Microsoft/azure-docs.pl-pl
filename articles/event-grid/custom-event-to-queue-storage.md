@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do kolejki magazynu — Event Grid, interfejs wiersza polecenia platformy Azure'
 description: 'Szybki Start: używanie Azure Event Grid i interfejsu wiersza polecenia platformy Azure do publikowania tematu i subskrybowania tego zdarzenia. Kolejka magazynu jest używana dla punktu końcowego.'
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566320"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493266"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do usługi Azure queue storage przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid
 
@@ -116,6 +116,11 @@ done
 Przejdź do magazynu kolejek w portalu i zwróć uwagę, że usługa Event Grid wysłała te trzy zdarzenia do kolejki.
 
 ![Wyświetlanie komunikatów](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> Jeśli używasz [wyzwalacza usługi Azure queue storage do Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) dla kolejki, która odbiera komunikaty z Event Grid, podczas wykonywania funkcji może zostać wyświetlony następujący komunikat o błędzie: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> Przyczyną jest to, że w przypadku korzystania z [wyzwalacza usługi Azure queue storage](../azure-functions/functions-bindings-storage-queue-trigger.md)Azure Functions oczekiwany **ciąg zakodowany w formacie base64**, ale Event Grid wysyła komunikaty do kolejki magazynu w formacie zwykłego tekstu. Obecnie nie jest możliwe skonfigurowanie wyzwalacza kolejki dla Azure Functions w celu zaakceptowania zwykłego tekstu. 
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

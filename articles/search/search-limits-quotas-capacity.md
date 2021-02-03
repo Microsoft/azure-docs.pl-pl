@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 02/02/2021
+ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591348"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493045"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limity usługi Azure Cognitive Search
 
@@ -139,7 +139,7 @@ W przypadku warstw zoptymalizowanych pod kątem magazynu (L1 i L2) należy oczek
 
 ## <a name="throttling-limits"></a>Limity ograniczania
 
-Zapytania wyszukiwania i żądania indeksowania są ograniczone, ponieważ system zbliża się do pojemności szczytowej. Ograniczanie przepływności działa inaczej dla różnych interfejsów API. Interfejsy API zapytań (wyszukiwanie/sugerowanie/Autouzupełnianie) i indeksowanie interfejsów API indeksowania dynamicznie na podstawie obciążenia usługi. Interfejsy API indeksu mają limity szybkości żądań statycznych. 
+Żądania interfejsu API są ograniczone, ponieważ system zbliża się do pojemności szczytowej. Ograniczanie przepływności działa inaczej dla różnych interfejsów API. Interfejsy API zapytań (wyszukiwanie/sugerowanie/Autouzupełnianie) i indeksowanie interfejsów API indeksowania dynamicznie na podstawie obciążenia usługi. Interfejsy API indeksowania i interfejs API operacji usługi mają limity szybkości żądań statycznych. 
 
 Limity liczby żądań statycznych dla operacji związanych z indeksem:
 
@@ -148,6 +148,10 @@ Limity liczby żądań statycznych dla operacji związanych z indeksem:
 + Utwórz indeks (POST/Indexes): 12 na minutę na jednostkę wyszukiwania
 + Utwórz lub zaktualizuj indeks (PUT/Indexes/MyIndex): 6 na sekundę na jednostkę wyszukiwania
 + Usuń indeks (DELETE/Indexes/MyIndex): 12 na minutę na jednostkę wyszukiwania 
+
+Limity liczby żądań statycznych dla operacji związanych z usługą:
+
++ Statystyki usługi (GET/servicestats): 4 na sekundę na jednostkę wyszukiwania
 
 ## <a name="api-request-limits"></a>Limity żądań interfejsu API
 * Maksymalnie 16 MB na żądanie <sup>1</sup>

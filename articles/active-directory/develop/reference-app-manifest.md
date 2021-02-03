@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: d855e124c84dee8554073d05fa04fe078b92ddaa
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: cb7acb2ab74cc3f1304e5278524918865185463f
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208893"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491303"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
@@ -105,7 +105,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| allowPublicClient | Boolean (wartość logiczna) |
+| allowPublicClient | Wartość logiczna |
 
 Określa typ aplikacji rezerwowej. Usługa Azure AD domyślnie wnioskuje typ aplikacji z replyUrlsWithType. Istnieją pewne scenariusze, w których usługa Azure AD nie może określić typu aplikacji klienta. Na przykład, taki scenariusz to [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) , gdzie żądanie HTTP odbywa się bez przekierowania adresu URL. W takich przypadkach usługa Azure AD interpretuje typ aplikacji na podstawie wartości tej właściwości. Jeśli ta wartość jest równa true, typ aplikacji rezerwowej jest ustawiany jako klient publiczny, taki jak zainstalowana aplikacja uruchomiona na urządzeniu przenośnym. Wartość domyślna to false, co oznacza, że rezerwowy typ aplikacji to poufny klient, taki jak aplikacja sieci Web.
 
@@ -315,7 +315,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowImplicitFlow | Boolean (wartość logiczna) |
+| oauth2AllowImplicitFlow | Wartość logiczna |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów dostępu protokołu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript. Aby dowiedzieć się więcej, wprowadź `OAuth 2.0 implicit grant flow` w spisie treści i zobacz tematy dotyczące przepływu niejawnego.
 
@@ -329,7 +329,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowIdTokenImplicitFlow | Boolean (wartość logiczna) |
+| oauth2AllowIdTokenImplicitFlow | Wartość logiczna |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów identyfikatora przepływu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript.
 
@@ -368,7 +368,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2RequiredPostResponse | Boolean (wartość logiczna) |
+| oauth2RequiredPostResponse | Wartość logiczna |
 
 Określa, czy w ramach żądania tokenu OAuth 2,0 usługa Azure AD będzie zezwalać na żądania POST, w przeciwieństwie do żądań GET. Wartość domyślna to false, co oznacza, że dozwolone są tylko żądania GET.
 
@@ -450,7 +450,7 @@ Zweryfikowana domena wydawcy dla aplikacji. Tylko do odczytu.
 Przykład:
 
 ```json
-    "publisherDomain": "https://www.contoso.com",
+    "publisherDomain": "{tenant}.onmicrosoft.com",
 ```
 
 ### <a name="replyurlswithtype-attribute"></a>replyUrlsWithType — atrybut

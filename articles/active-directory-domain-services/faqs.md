@@ -11,18 +11,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: justinha
-ms.openlocfilehash: e4e7a64b9f9d7283de728216934854f4ef8f8fd1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 89671d0e69d4e526e30c80619b57d698d5a5acc5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619737"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491169"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Często zadawane pytania dotyczące usług domenowych Azure Active Directory (AD)
 
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące Azure Active Directory Domain Services.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 * [Czy mogę utworzyć wiele domen zarządzanych dla jednego katalogu usługi Azure AD?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
 * [Czy mogę włączyć Azure AD Domain Services w klasycznej sieci wirtualnej?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)
@@ -106,7 +106,7 @@ Każde konto użytkownika, które jest częścią domeny zarządzanej, może do�
 Nie. Nie przyznano uprawnień administracyjnych w domenie zarządzanej. Uprawnienia *administratora domeny* i *administratora przedsiębiorstwa* nie są dostępne do użycia w ramach domeny. Członkowie grupy Administratorzy domeny lub Administratorzy przedsiębiorstwa w Active Directory lokalnym nie mają również uprawnień administratora domeny/przedsiębiorstwa w domenie zarządzanej.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Czy mogę modyfikować członkostwa w grupach przy użyciu protokołu LDAP lub innych narzędzi administracyjnych usługi AD w domenach zarządzanych?
-Nie można zmodyfikować użytkowników i grup, które są synchronizowane z Azure Active Directory do Azure AD Domain Services, ponieważ ich źródło pochodzenia jest Azure Active Directory. Dowolny użytkownik lub Grupa, która pochodzi z domeny zarządzanej, może zostać zmodyfikowana.
+Nie można zmodyfikować użytkowników i grup, które są synchronizowane z Azure Active Directory do Azure AD Domain Services, ponieważ ich źródło pochodzenia jest Azure Active Directory. Obejmuje to przeniesienie użytkowników lub grup z jednostki organizacyjnej zarządzanej przez użytkowników AADDC do niestandardowej jednostki organizacyjnej. Dowolny użytkownik lub Grupa, która pochodzi z domeny zarządzanej, może zostać zmodyfikowana.  
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Jak długo trwa wprowadzanie zmian wprowadzonych w katalogu usługi Azure AD, aby były widoczne w mojej domenie zarządzanej?
 Zmiany wprowadzone w katalogu usługi Azure AD za pomocą interfejsu użytkownika usługi Azure AD lub programu PowerShell są automatycznie synchronizowane z domeną zarządzaną. Ten proces synchronizacji jest uruchamiany w tle. Nie zdefiniowano okresu dla tej synchronizacji, aby zakończyć wszystkie zmiany obiektu.

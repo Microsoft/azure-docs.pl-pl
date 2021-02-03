@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 212a6b0786b371bfb92f2e193e67d9accd432bf8
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c0c7a6b25c15be2e521e0985c315baf819650aa5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657247"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491760"
 ---
 # <a name="api-management-transformation-policies"></a>Zasady przekształcania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
@@ -75,7 +75,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagane|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |apply|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -zawsze-zawsze stosuje konwersję.<br />-Content-Type-JSON — Konwertuj tylko w przypadku, gdy w nagłówku Content-Type jest obecność JSON.|Tak|Nie dotyczy|
 |Rozważ-Accept-header|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -true — Zastosuj konwersję, jeśli zażądano kodu XML w nagłówku akceptowania żądania.<br />-false — zawsze stosuj konwersję.|Nie|true|
@@ -119,7 +119,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagane|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |Natur|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -przyjazny dla języka JavaScript — przekonwertowany kod JSON ma postać przyjazną dla deweloperów języka JavaScript.<br />-Direct — przekonwertowane dane JSON odzwierciedlają strukturę oryginalnego dokumentu XML.|Tak|Nie dotyczy|
 |apply|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -zawsze Konwertuj zawsze.<br />-Content-Type-XML-Convert tylko wtedy, gdy w nagłówku Content-Type (odpowiedź) wskazuje obecność XML.|Tak|Nie dotyczy|
@@ -155,7 +155,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagane|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |wniosek|Ciąg do wyszukania.|Tak|Nie dotyczy|
 |na wartość|Ciąg zastępujący. Określ ciąg zastępczy o zerowej długości, aby usunąć ciąg wyszukiwania.|Tak|Nie dotyczy|
@@ -214,7 +214,7 @@ lub
 ```
 
 > [!NOTE]
-> Jednostki zaplecza mogą być zarządzane za pośrednictwem [interfejsu API](/rest/api/apimanagement/2019-12-01/backend) zarządzania i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Jednostki zaplecza mogą być zarządzane za pośrednictwem [Azure Portal](how-to-configure-service-fabric-backend.md), [interfejsu API](/rest/api/apimanagement)zarządzania i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Przykład
 
@@ -266,10 +266,10 @@ W tym przykładzie zasady kierują żądanie do zaplecza usługi Service Fabric 
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagane|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |podstawowy adres URL|Nowy podstawowy adres URL usługi zaplecza.|Jeden z `base-url` lub `backend-id` musi być obecny.|Nie dotyczy|
-|Identyfikator zaplecza|Identyfikator zaplecza do skierowania do. (Jednostki zaplecza są zarządzane za pośrednictwem [interfejsu API](/rest/api/apimanagement/2019-12-01/backend) i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|Jeden z `base-url` lub `backend-id` musi być obecny.|Nie dotyczy|
+|Identyfikator zaplecza|Identyfikator zaplecza do skierowania do. (Jednostki zaplecza są zarządzane za pośrednictwem [Azure Portal](how-to-configure-service-fabric-backend.md), [interfejsu API](/rest/api/apimanagement)i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|Jeden z `base-url` lub `backend-id` musi być obecny.|Nie dotyczy|
 |SF-Partition-Key|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric i jest określona przy użyciu identyfikatora zaplecza. Służy do rozwiązywania określonej partycji z usługi rozpoznawania nazw.|Nie|Nie dotyczy|
 |SF-Replica-Type|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric i jest określona przy użyciu identyfikatora zaplecza. Kontroluje, czy żądanie powinno przechodzić do podstawowej lub pomocniczej repliki partycji. |Nie|Nie dotyczy|
 |SF-Rozwiązuj — warunek|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric. Warunek określający, czy wywołanie Service Fabric zaplecza musi być powtórzone przy użyciu nowego rozwiązania.|Nie|Nie dotyczy|
@@ -402,7 +402,7 @@ W tym przykładzie zasady kierują żądanie do zaplecza usługi Service Fabric 
 
 ### <a name="properties"></a>Właściwości
 
-|Nazwa|Opis|Wymagane|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |szablon|Służy do zmiany trybu tworzenia szablonów, w którym będą uruchamiane zasady zestawu treści. Obecnie jedyną obsługiwaną wartością jest:<br /><br />-Liquid-zasady dotyczące zestawu treści będą używać aparatu ciekłej tworzenia szablonów |Nie||
 
@@ -517,7 +517,7 @@ OriginalUrl.
 
 ### <a name="properties"></a>Właściwości
 
-|Nazwa|Opis|Wymagane|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |Istnieje — akcja|Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` Rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wartości wyświetlane.|Nie|override|
 |name|Określa nazwę nagłówka, który ma zostać ustawiony.|Tak|Nie dotyczy|
@@ -572,7 +572,7 @@ OriginalUrl.
 
 ### <a name="properties"></a>Właściwości
 
-|Nazwa|Opis|Wymagane|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |Istnieje — akcja|Określa akcję, która ma zostać podjęta, gdy parametr zapytania jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego parametru.<br />-Skip — nie zastępuje istniejącej wartości parametru zapytania.<br />-Append-dołącza wartość do istniejącej wartości parametru zapytania.<br />-DELETE — Usuwa parametr zapytania z żądania.<br /><br /> Gdy ustawione na `override` Rejestrowanie wielu wpisów o tej samej nazwie powoduje, że parametr zapytania jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wartości wyświetlane.|Nie|override|
 |name|Określa nazwę parametru zapytania, który ma zostać ustawiony.|Tak|Nie dotyczy|
@@ -650,7 +650,7 @@ OriginalUrl.
 
 ### <a name="attributes"></a>Atrybuty
 
-|Atrybut|Opis|Wymagane|Domyślny|
+|Atrybut|Opis|Wymagane|Domyślne|
 |---------------|-----------------|--------------|-------------|
 |szablon|Rzeczywisty adres URL usługi sieci Web z dowolnymi parametrami ciągu zapytania. W przypadku używania wyrażeń cała wartość musi być wyrażeniem.|Tak|Nie dotyczy|
 |Kopiowanie — niedopasowane-parametry|Określa, czy parametry zapytania w żądaniu przychodzącym nie występują w oryginalnym szablonie adresu URL są dodawane do adresu URL zdefiniowanego przez ponowne zapisanie szablonu|Nie|true|

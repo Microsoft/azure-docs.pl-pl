@@ -4,12 +4,12 @@ description: Dowiedz się, jak wyświetlać i wykonywać zapytania dotyczące Az
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937301"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493774"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analizuj dane telemetryczne Azure Functions w Application Insights 
 
@@ -77,18 +77,18 @@ Wybierz pozycję **dzienniki** , aby zbadać lub zbadać zarejestrowane zdarzeni
 
 Oto przykład zapytania, który pokazuje rozkład żądań na proces roboczy w ciągu ostatnich 30 minut.
 
-<pre>
+```kusto
 requests
 | where timestamp > ago(30m) 
 | summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
-</pre>
+```
 
 Dostępne tabele są wyświetlane na karcie **schemat** po lewej stronie. Dane generowane przez wywołania funkcji można znaleźć w następujących tabelach:
 
 | Tabela | Opis |
 | ----- | ----------- |
-| **ścieżki** | Dzienniki utworzone przez środowisko uruchomieniowe i ślady z kodu funkcji. |
+| **ścieżki** | Dzienniki utworzone przez środowisko uruchomieniowe, kontroler skalowania i ślady z kodu funkcji. |
 | **żądania** | Jedno żądanie wywołania funkcji. |
 | **wyłączenia** | Wszystkie wyjątki zgłoszone przez środowisko uruchomieniowe. |
 | **customMetrics** | Liczba zakończonych powodzeniem i niepowodzeniem wywołań, współczynnik sukcesu i czas trwania. |
@@ -99,12 +99,38 @@ Inne tabele są przeznaczone dla testów dostępności, a dane telemetryczne kli
 
 W każdej tabeli niektóre dane specyficzne dla funkcji znajdują się w `customDimensions` polu.  Na przykład następujące zapytanie pobiera wszystkie ślady mające poziom rejestrowania `Error` .
 
-<pre>
+```kusto
 traces 
 | where customDimensions.LogLevel == "Error"
-</pre>
+```
 
 Środowisko uruchomieniowe udostępnia `customDimensions.LogLevel` `customDimensions.Category` pola i. W dziennikach można podać dodatkowe pola, które można napisać w kodzie funkcji. Aby zapoznać się z przykładem w języku C#, zobacz [Rejestrowanie strukturalne](functions-dotnet-class-library.md#structured-logging) w przewodniku dewelopera biblioteki klas .NET.
+
+## <a name="query-scale-controller-logs"></a>Dzienniki kontrolera skali zapytań
+
+_Ta funkcja jest w wersji zapoznawczej._
+
+Po włączeniu zarówno [rejestrowania kontrolera skalowania](configure-monitoring.md#configure-scale-controller-logs) , jak i [integracji Application Insights](configure-monitoring.md#enable-application-insights-integration)można użyć przeszukiwania dzienników Application Insights, aby wykonać zapytanie dotyczące wyemitowanych dzienników kontrolera skalowania. Dzienniki kontrolera skalowania są zapisywane w `traces` kolekcji w kategorii **ScaleControllerLogs** .
+
+Poniższe zapytanie może służyć do wyszukiwania wszystkich dzienników kontrolera skalowania dla bieżącej aplikacji funkcji w określonym przedziale czasu:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+Następujące zapytanie zostaje rozwinięte w poprzednim zapytaniu, aby pokazać, jak uzyskać tylko dzienniki wskazujące zmianę w skali:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="consumption-plan-specific-metrics"></a>Metryki specyficzne dla planu zużycia
 

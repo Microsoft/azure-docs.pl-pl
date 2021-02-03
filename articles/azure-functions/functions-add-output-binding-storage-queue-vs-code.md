@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: e280fddbe83da2a7ee89185046883f6c2c77167a
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 96384d2c50e7d5b4b5b6e652d01c4a89cd519573
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739823"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493400"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Łączenie Azure Functions z usługą Azure Storage przy użyciu Visual Studio Code
 
@@ -96,7 +96,7 @@ Teraz można dodać powiązanie danych wyjściowych magazynu do projektu.
 
 W funkcjach każdy typ powiązania wymaga `direction` , `type` i unikatowy `name` do zdefiniowania w function.jsna pliku. Sposób definiowania tych atrybutów zależy od języka aplikacji funkcji.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
@@ -148,35 +148,25 @@ Po zdefiniowaniu powiązania można użyć `name` powiązania, aby uzyskać do n
 
 [!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
 
-## <a name="update-the-test-set"></a>Aktualizowanie zestawu testów
+## <a name="update-the-tests"></a>Aktualizowanie testów
 
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
 ::: zone-end  
 
-<!--- Local testing section --->
+## <a name="run-the-function-locally"></a>Lokalne uruchamianie funkcji
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+1. Tak jak w poprzednim artykule, naciśnij klawisz <kbd>F5</kbd> , aby uruchomić program Aplikacja funkcji i podstawowe narzędzia. 
 
-[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
+1. Po uruchomieniu podstawowych narzędzi przejdź do obszaru **Azure: Functions** . W obszarze **funkcje** rozwiń pozycję funkcje **projektu lokalnego**  >  . Kliknij prawym przyciskiem myszy (Ctrl-kliknij na Mac) `HttpExample` funkcję i wybierz pozycję **Wykonaj funkcję teraz...**.
 
-::: zone-end
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Wykonaj funkcję teraz z Visual Studio Code":::
 
-::: zone pivot="programming-language-powershell"
+1. W obszarze **wprowadź treść żądania** zobaczysz wartość treść komunikatu żądania `{ "name": "Azure" }` . Naciśnij klawisz ENTER, aby wysłać ten komunikat żądania do funkcji.  
+ 
+1. Po zwróceniu odpowiedzi naciśnij <kbd>klawisze CTRL + C</kbd> , aby zatrzymać podstawowe narzędzia.
 
-[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
-
-::: zone-end
-
-Nowa kolejka o nazwie **requeue** została utworzona na koncie magazynu przez środowisko uruchomieniowe funkcji, gdy zostanie użyte powiązanie danych wyjściowych. Użyjesz Eksplorator usługi Storage, aby sprawdzić, czy kolejka została utworzona wraz z nową wiadomością.
-
-::: zone pivot="programming-language-java"  
-
-## <a name="update-the-tests"></a>Aktualizowanie testów
-
-[!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
-
-::: zone-end
+Ponieważ używane są parametry połączenia magazynu, funkcja nawiązuje połączenie z kontem usługi Azure Storage, gdy działa lokalnie. Nowa kolejka o nazwie **requeue** została utworzona na koncie magazynu przez środowisko uruchomieniowe funkcji, gdy zostanie użyte powiązanie danych wyjściowych. Użyjesz Eksplorator usługi Storage, aby sprawdzić, czy kolejka została utworzona wraz z nową wiadomością.
 
 ### <a name="connect-storage-explorer-to-your-account"></a>Łączenie Eksploratora usługi Storage z kontem
 
@@ -212,11 +202,7 @@ Teraz można ponownie opublikować zaktualizowaną aplikację funkcji na platfor
 
 1. Wybierz aplikację funkcji utworzoną w pierwszym artykule. Ponieważ wdrażasz ponownie projekt w tej samej aplikacji, wybierz pozycję **Wdróż** , aby odrzucić ostrzeżenie o zastąpieniu plików.
 
-1. Po zakończeniu wdrażania możesz ponownie użyć zapełnienia lub przeglądarki, aby przetestować ponownie wdrożoną funkcję. Tak jak wcześniej, dołącz ciąg zapytania `&name=<yourname>` do adresu URL, jak w poniższym przykładzie:
-
-    ```bash
-    curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-    ```
+1. Po zakończeniu wdrażania możesz ponownie użyć funkcji **Wykonaj teraz...** , aby wyzwolić funkcję na platformie Azure.
 
 1. Ponownie [Wyświetl komunikat w kolejce magazynu](#examine-the-output-queue) , aby sprawdzić, czy powiązanie danych wyjściowych ponownie generuje nowy komunikat w kolejce.
 

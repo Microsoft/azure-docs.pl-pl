@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f635a4c4c6e0b1dcb4d4842d3cddb337d2b26407
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 74009c7e7f2ad28655c9c5322a063a17da96e0c5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735164"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493925"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z pulpitem nawigacyjnym Meraki
 
@@ -103,7 +103,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Edytowanie certyfikatu podpisywania SAML](common/edit-certificate.png)
 
-1. W sekcji **certyfikat podpisywania SAML** Skopiuj **wartość odcisku palca** i Zapisz ją na komputerze.
+1. W sekcji **certyfikat podpisywania SAML** Skopiuj **wartość odcisku palca** i Zapisz ją na komputerze. Ta wartość musi zostać przekonwertowana, aby zawierała dwukropki w celu zrozumienia przez pulpit nawigacyjny Meraki. Na przykład, jeśli odcisk palca z platformy Azure zostanie `C2569F50A4AAEDBB8E` zmieniony na, aby `C2:56:9F:50:A4:AA:ED:BB:8E` użyć go później na pulpicie nawigacyjnym Meraki.
 
     ![Kopiowanie wartości Odcisk palca](common/copy-thumbprint.png)
 
@@ -165,7 +165,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Pulpit nawigacyjny Meraki Dodaj dostawcy tożsamości SAML](./media/meraki-dashboard-tutorial/configure-3.png)
 
-1. Wklej wartość **odcisku palca** , która została skopiowana z Azure Portal do pola tekstowego **odcisku palca SHA1 certyfikatu X. 590** . Następnie kliknij przycisk **Zapisz**. Po zapisaniu adres URL klienta zostanie wyświetlony. Skopiuj wartość adresu URL klienta i wklej ją do pola tekstowego **adresu URL odpowiedzi** w **sekcji Podstawowa konfiguracja SAML** w Azure Portal.
+1. Wklej przekonwertowaną wartość **odcisku palca** , która została skopiowana z Azure Portal i przekonwertowana w określonym formacie, jak wspomniano w kroku 9 poprzedniej sekcji do pola tekstowego **odcisku palca SHA1 certyfikatu** . Następnie kliknij przycisk **Zapisz**. Po zapisaniu adres URL klienta zostanie wyświetlony. Skopiuj wartość adresu URL klienta i wklej ją do pola tekstowego **adresu URL odpowiedzi** w **sekcji Podstawowa konfiguracja SAML** w Azure Portal.
 
     ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/configure-4.png)
 

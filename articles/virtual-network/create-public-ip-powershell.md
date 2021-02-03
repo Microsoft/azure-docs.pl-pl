@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 5b79a777ba8f7e615e4637f94311cba39e8a7f6c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ff768bceaba57c119aa88d5d4d99b11608917695
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223707"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492029"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Szybki Start: Tworzenie publicznego adresu IP przy użyciu Azure PowerShell
 
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # <a name="standard-sku---using-zones"></a>[**Standardowa jednostka SKU — używanie stref**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->Następujące polecenie działa w przypadku interfejsu API w wersji 2020-08-01 lub nowszej.  Aby uzyskać więcej informacji na temat aktualnie używanej wersji interfejsu API, zapoznaj się z [dostawcami zasobów i typami](../azure-resource-manager/management/resource-providers-and-types.md).
+>Następujące polecenie działa dla AZ. Network module w wersji 4.5.0 lub nowszej.  Aby uzyskać więcej informacji na temat aktualnie używanych modułów programu PowerShell, zapoznaj się z [dokumentacją PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget/?view=powershell-7.1).
 
 Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) , aby utworzyć strefę w warstwie Standardowa — nadmiarowy publiczny adres IP o nazwie **MyStandardZRPublicIP** w liście **zasobów**.
 
@@ -67,7 +67,7 @@ $zone = 1,2,3
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
 ```
 > [!IMPORTANT]
-> W przypadku wersji interfejsu API starszej niż 2020-08-01 Uruchom polecenie powyżej bez określania parametru strefy, aby utworzyć nadmiarowy adres IP strefy. 
+> Dla modułów AZ. Network, które są starsze niż 4.5.0, uruchom powyższe polecenie bez określania parametru strefy, aby utworzyć nadmiarowy adres IP strefy. 
 >
 
 Aby utworzyć standardowy publiczny adres IP stref w Strefa 2 o nazwie **myStandardZonalPublicIP** w liście **zasobów**, użyj następującego polecenia:
@@ -89,7 +89,7 @@ Należy pamiętać, że powyższe opcje dla stref są tylko prawidłowymi opcjam
 # <a name="standard-sku---no-zones"></a>[**Standardowa jednostka SKU — brak stref**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->Następujące polecenie działa w przypadku interfejsu API w wersji 2020-08-01 lub nowszej.  Aby uzyskać więcej informacji na temat aktualnie używanej wersji interfejsu API, zapoznaj się z [dostawcami zasobów i typami](../azure-resource-manager/management/resource-providers-and-types.md).
+>Następujące polecenie działa dla AZ. Network module w wersji 4.5.0 lub nowszej.  Aby uzyskać więcej informacji na temat aktualnie używanych modułów programu PowerShell, zapoznaj się z [dokumentacją PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget/?view=powershell-7.1).
 
 Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) , aby utworzyć standardowy publiczny adres IP jako zasób niebędący strefą o nazwie **MyStandardPublicIP** w liście **zasobów**.
 

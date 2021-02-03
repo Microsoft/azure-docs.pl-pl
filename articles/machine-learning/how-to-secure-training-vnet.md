@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9ef339fb0ccd14314a65d03b59e501069446c870
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029570"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493841"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Zabezpiecz środowisko szkoleniowe Azure Machine Learning z sieciami wirtualnymi
 
@@ -62,16 +62,19 @@ Aby można było użyć [zarządzanego __obiektu docelowego obliczeń__ Azure Ma
 > * Jeśli konta usługi Azure Storage dla obszaru roboczego są również zabezpieczone w sieci wirtualnej, muszą znajdować się w tej samej sieci wirtualnej co Azure Machine Learning wystąpienie obliczeniowe lub klaster. 
 > * Aby funkcja Jupyter wystąpienia obliczeniowego działała, należy się upewnić, że komunikacja gniazda internetowego nie jest wyłączona. Upewnij się, że sieć zezwala na połączenia protokołu WebSocket z *. instances.azureml.net i *. instances.azureml.ms. 
 > * Gdy wystąpienie obliczeniowe zostanie wdrożone w prywatnym obszarze roboczym łącza, można uzyskać do niego dostęp tylko z poziomu sieci wirtualnej. Jeśli używasz niestandardowego pliku DNS lub hosta, Dodaj wpis dla prywatnego `<instance-name>.<region>.instances.azureml.ms` adresu IP obszaru roboczego prywatnego punktu końcowego. Aby uzyskać więcej informacji, zobacz artykuł [niestandardowy DNS](./how-to-custom-dns.md) .
+> * Podsieć użyta do wdrożenia klastra/wystąpienia obliczeniowego nie powinna być delegowana do żadnej innej usługi, takiej jak ACI
+> * Zasady punktu końcowego usługi sieci wirtualnej nie działają w przypadku kont magazynu klastra obliczeniowego/wystąpienia systemu
+
     
 > [!TIP]
 > Wystąpienie obliczeniowe Machine Learning lub klaster automatycznie przydziela dodatkowe zasoby sieciowe __do grupy zasobów zawierającej sieć wirtualną__. Dla każdego wystąpienia obliczeniowego lub klastra usługa przydziela następujące zasoby:
 > 
 > * Jedna sieciowa Grupa zabezpieczeń
-> * Jeden publiczny adres IP
+> * Jeden publiczny adres IP. Jeśli zasady platformy Azure zabraniają tworzenia publicznego adresu IP, wdrożenie klastra/wystąpień zakończy się niepowodzeniem
 > * Jeden moduł równoważenia obciążenia
 > 
 > W przypadku klastrów te zasoby są usuwane (i tworzone ponownie) za każdym razem, gdy klaster jest skalowany w dół do 0 węzłów, jednak w przypadku wystąpienia, w którym znajdują się zasoby, do momentu całkowitego usunięcia wystąpienia. zatrzymywanie nie powoduje usunięcia zasobów. 
-> Te zasoby są ograniczone przez [limity zasobów](../azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji.
+> Te zasoby są ograniczone przez [limity zasobów](../azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. Jeśli grupa zasobów sieci wirtualnej jest zablokowana, usunięcie klastra i wystąpienia obliczeniowego zakończy się niepowodzeniem. Nie można usunąć modułu równoważenia obciążenia, dopóki klaster obliczeniowy/wystąpienie nie zostanie usunięte.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Wymagane porty

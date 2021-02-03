@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 01/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 22d2960801cac2222f868c384a55b4bf436bc75b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071289"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492607"
 ---
 # <a name="api-management-authentication-policies"></a>Zasady uwierzytelniania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
@@ -67,7 +67,10 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 -   **Zakresy zasad:** wszystkie zakresy
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Uwierzytelnianie przy użyciu certyfikatu klienta
- Zasady służą `authentication-certificate` do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu certyfikatu klienta. Certyfikat musi zostać [zainstalowany do API Management](./api-management-howto-mutual-certificates.md) jako pierwszy i jest identyfikowany przez jego odcisk palca.
+ Zasady służą `authentication-certificate` do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu certyfikatu klienta. Certyfikat musi zostać [zainstalowany do API Management](./api-management-howto-mutual-certificates.md) jako pierwszy i jest identyfikowany za pomocą odcisku palca lub identyfikatora certyfikatu (nazwa zasobu). 
+
+> [!CAUTION]
+> Jeśli certyfikat odwołuje się do certyfikatu przechowywanego w Azure Key Vault, zidentyfikuj go przy użyciu identyfikatora certyfikatu. Gdy certyfikat magazynu kluczy zostanie obrócony, jego odcisk palca w API Management ulegnie zmianie, a zasady nie rozpoznają nowego certyfikatu, jeśli zostanie on zidentyfikowany przez odcisk palca.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -77,18 +80,17 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 ### <a name="examples"></a>Przykłady
 
-W tym przykładzie certyfikat klienta jest identyfikowany za pomocą odcisku palca:
-
-```xml
-<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
-```
-
-W tym przykładzie certyfikat klienta jest identyfikowany przez nazwę zasobu:
+W tym przykładzie certyfikat klienta jest identyfikowany przez identyfikator certyfikatu:
 
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ``` 
 
+W tym przykładzie certyfikat klienta jest identyfikowany za pomocą odcisku palca:
+
+```xml
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
+```
 W tym przykładzie certyfikat klienta jest ustawiany w zasadach, a nie pobierany z wbudowanego magazynu certyfikatów:
 
 ```xml

@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję języka C#, a następnie opubl
 ms.topic: quickstart
 ms.date: 11/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 791416a54fa75091facf1f7bc2aadf6fccf54b05
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0068a9cbf99117a0a2432a02c9be934eb749f19a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968623"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493689"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka C# na platformie Azure przy użyciu Visual Studio Code
 
@@ -29,38 +29,38 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) w wersji 3. x.
 
-+ [Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
++ [Program Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-+ [Rozszerzenie C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) dla Visual Studio Code.  
++ [Rozszerzenie obsługujące język C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) dla programu Visual Studio Code.  
 
-+ [Azure Functions rozszerzenie](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) Visual Studio Code.
++ [Rozszerzenie obsługujące usługę Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) dla programu Visual Studio Code.
 
 ## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Utwórz projekt lokalny
 
 W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt Azure Functions lokalnych w języku C#. W dalszej części tego artykułu opublikujesz kod funkcji na platformie Azure.
 
-1. Wybierz ikonę platformy Azure na pasku działania, a następnie w obszarze **Azure: Functions** wybierz ikonę **Utwórz nowy projekt...** .
+1. Wybierz ikonę platformy Azure na pasku działań, a następnie w obszarze **Azure: Funkcje** wybierz ikonę **Utwórz nowy projekt...**.
 
-    ![Wybierz pozycję Utwórz nowy projekt](./media/functions-create-first-function-vs-code/create-new-project.png)
+    ![Wybieranie pozycji Utwórz nowy projekt](./media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz **pozycję Wybierz**.
+1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz pozycję **Wybierz**.
 
     > [!NOTE]
     > Te kroki zostały zaprojektowane do ukończenia poza obszarem roboczym. W takim przypadku nie wybieraj folderu projektu, który jest częścią obszaru roboczego.
 
-1. Podaj następujące informacje na ekranie:
+1. Podaj następujące informacje po wyświetleniu monitów:
 
-    + **Wybierz język projektu funkcji**: Wybierz `C#` .
+    + **Wybierz język dla projektu funkcji**: Wybierz plik `C#`.
 
-    + **Wybierz szablon dla pierwszej funkcji projektu**: Wybierz `HTTP trigger` .
+    + **Wybierz szablon dla pierwszej funkcji projektu**: Wybierz plik `HTTP trigger`.
 
-    + **Podaj nazwę funkcji**: type `HttpExample` .
+    + **Podaj nazwę funkcji**: Wpisz `HttpExample`.
 
-    + **Podaj przestrzeń nazw**: type `My.Functions` .
+    + **Podaj przestrzeń nazw**: Wpisz `My.Functions`.
 
     + **Poziom autoryzacji**: Wybierz `Anonymous` , co umożliwi wszystkim wywoływanie punktu końcowego funkcji. Aby dowiedzieć się więcej o poziomie autoryzacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-    + **Wybierz, w jaki sposób chcesz otworzyć projekt**: Wybierz `Add to workspace` .
+    + **Wybierz, jak chcesz otworzyć projekt**: Wybierz plik `Add to workspace`.
 
 1. Korzystając z tych informacji, Visual Studio Code generuje projekt Azure Functions z wyzwalaczem HTTP. Pliki projektu lokalnego można wyświetlić w Eksploratorze. Aby dowiedzieć się więcej na temat tworzonych plików, zobacz [pliki wygenerowanego projektu](functions-develop-vs-code.md#generated-project-files).
 
@@ -78,7 +78,7 @@ Po sprawdzeniu, że funkcja działa poprawnie na komputerze lokalnym, można uż
 
 ## <a name="next-steps"></a>Następne kroki
 
-W programie Visual Studio Code utworzono aplikację funkcji z prostą funkcją wyzwalaną przez protokół HTTP. W następnym artykule można rozszerzyć tę funkcję, dodając powiązanie danych wyjściowych. To powiązanie zapisuje ciąg z żądania HTTP do wiadomości w kolejce usługi Azure Queue Storage. 
+Użyto [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) , aby utworzyć aplikację funkcji z prostą funkcją wyzwalaną przez protokół http. W następnym artykule można rozszerzyć tę funkcję, łącząc się z usługą Azure Storage. Aby dowiedzieć się więcej na temat nawiązywania połączenia z innymi usługami platformy Azure, zobacz [Dodawanie powiązań do istniejącej funkcji w Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp)

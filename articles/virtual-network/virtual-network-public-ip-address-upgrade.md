@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: d6e8c4f4b6646254aeea12cf587f47047e661e3f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222874"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493723"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Uaktualnianie publicznych adresów IP
 
-Publiczne adresy IP platformy Azure są tworzone przy użyciu jednostki SKU (podstawowa lub standardowa), która określa aspekty ich funkcjonalności (w tym metody alokacji, użycie w strefach dostępności i zasoby, z którymi mogą one być skojarzone). 
+Publiczne adresy IP platformy Azure są tworzone przy użyciu jednostki SKU — podstawowa lub standardowa — która określa aspekty ich funkcjonalności (w tym metody alokacji, obsługę funkcji i zasoby, z którymi można kojarzyć). 
 
 W tym artykule opisano następujące scenariusze:
-* Jak uaktualnić publiczny adres IP podstawowej jednostki SKU do publicznego adresu IP jednostki SKU w warstwie Standardowa (przy użyciu portalu, programu PowerShell lub interfejsu wiersza polecenia)
+* Jak uaktualnić publiczny adres IP podstawowej jednostki SKU do publicznego adresu IP jednostki SKU w warstwie Standardowa (przy użyciu programu PowerShell lub interfejsu wiersza polecenia)
 * Jak przeprowadzić migrację klasycznego Zastrzeżony adres IP platformy Azure do Azure Resource Manager publicznego adresu IP podstawowej jednostki SKU
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Uaktualnij publiczny adres IP z podstawowej do standardowej jednostki SKU

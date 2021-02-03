@@ -68,6 +68,8 @@
           href: ./security-controls-policy.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
+    - name: Zaplecza
+      href: backends.md
     - name: Subskrypcje
       href: api-management-subscriptions.md
     - name: Wersje
@@ -104,10 +106,10 @@
           href: import-function-app-as-api.md
         - name: Importowanie aplikacji logiki
           href: import-logic-app-as-api.md
-        - name: Importowanie aplikacji usługi Service Fabric
-          href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
         - name: Edytowanie interfejsu API
           href: edit-api.md
+        - name: Konfigurowanie zaplecza Service Fabric
+          href: how-to-configure-service-fabric-backend.md
     - name: Aprowizowanie i skalowanie
       items:
         - name: Metryka pojemności

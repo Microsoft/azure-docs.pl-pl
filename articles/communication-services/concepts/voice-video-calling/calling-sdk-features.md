@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e0fff67d6998e55854d4dc3c8db261bc4499f0be
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936060"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492114"
 ---
 # <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
 
@@ -94,9 +94,9 @@ Na przykład ten element IFRAME umożliwia dostęp do aparatu i mikrofonu:
 ## <a name="calling-client-library-streaming-support"></a>Wywoływanie obsługi przesyłania strumieniowego biblioteki klienta
 Biblioteka klienta wywołującego usługi komunikacyjne obsługuje następujące konfiguracje przesyłania strumieniowego:
 
-|           |Sieć Web | System Android/iOS|
+|           |Internet | System Android/iOS|
 |-----------|----|------------|
-|**Liczba strumieni wychodzących, które mogą być wysyłane jednocześnie** |1 wideo + 1 udostępnianie ekranu | 1 wideo + 1 udostępnianie ekranu|
+|**Liczba strumieni wychodzących, które mogą być wysyłane jednocześnie** |1 wideo + 1 udostępnianie ekranu | 1 film wideo |
 |**Liczba strumieni przychodzących, które mogą być renderowane jednocześnie** |1 wideo + 1 udostępnianie ekranu| 6 wideo + 1 udostępnianie ekranu |
 
 

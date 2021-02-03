@@ -3,12 +3,12 @@ title: Odtwarzanie nagrań — platforma Azure
 description: Korzystając z usługi Analiza filmów wideo na żywo, możesz IoT Edge na potrzeby ciągłego nagrywania wideo, dzięki czemu możesz nagrać wideo w chmurze przez tygodnie lub miesiące. Możesz również ograniczyć nagranie do interesujących klipów za pośrednictwem rejestrowania opartego na zdarzeniach. W tym artykule omówiono sposób odtwarzania nagrań.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84261079"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490899"
 ---
 # <a name="playback-of-recordings"></a>Odtwarzanie nagrań 
 
@@ -48,11 +48,11 @@ W przypadku korzystania z programu CVR urządzenia odtwarzania nie mogą zażąd
 
 Wartość precyzji może być jedną z: Year, month, Day lub Full (jak pokazano poniżej). 
 
-|Precyzja|rok|miesiąc|dzień|szczegółowe|
+|Dokładność|rok|miesiąc|dzień|szczegółowe|
 |---|---|---|---|---|
 |Zapytanie|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
 |Reakcja|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Pełna wierność odpowiedzi. Jeśli wszystkie przerwy w sobie nie były dostępne, rozpoczęcie powinno wynosić startTime, a koniec endTime.|
-|Ogranicza|&#x2022;startTime <= endTime<br/>&#x2022;obu powinny mieć format rrrr, w przeciwnym razie zwracany jest błąd.<br/>Wartości &#x2022;mogą zawierać dowolną liczbę lat.<br/>Wartości &#x2022;są włącznie.|&#x2022;startTime <= endTime<br/>&#x2022;obu powinny mieć format RRRR-MM, w przeciwnym razie zwracany jest błąd.<br/>Wartości &#x2022;mogą się składać z maksymalnie 12 miesięcy od siebie.<br/>Wartości &#x2022;są włącznie.|&#x2022;startTime <= endTime<br/>&#x2022;obu powinny mieć format RRRR-MM-DD, w przeciwnym razie zwracany jest błąd.<br/>Wartości &#x2022;mogą się składać z maksymalnie 31 dni.<br/>Wartości są włącznie.|&#x2022;startTime < endTime<br/>Wartości &#x2022;mogą się składać z maksymalnie 25 godzin.<br/>Wartości &#x2022;są włącznie.|
+|Ograniczenia|&#x2022;startTime <= endTime<br/>&#x2022;obu powinny mieć format rrrr, w przeciwnym razie zwracany jest błąd.<br/>Wartości &#x2022;mogą zawierać dowolną liczbę lat.<br/>Wartości &#x2022;są włącznie.|&#x2022;startTime <= endTime<br/>&#x2022;obu powinny mieć format RRRR-MM, w przeciwnym razie zwracany jest błąd.<br/>Wartości &#x2022;mogą się składać z maksymalnie 12 miesięcy od siebie.<br/>Wartości &#x2022;są włącznie.|&#x2022;startTime <= endTime<br/>&#x2022;obu powinny mieć format RRRR-MM-DD, w przeciwnym razie zwracany jest błąd.<br/>Wartości &#x2022;mogą się składać z maksymalnie 31 dni.<br/>Wartości są włącznie.|&#x2022;startTime < endTime<br/>Wartości &#x2022;mogą się składać z maksymalnie 25 godzin.<br/>Wartości &#x2022;są włącznie.|
 
 #### <a name="additional-request-format-considerations"></a>Dodatkowe zagadnienia dotyczące formatu żądań
 

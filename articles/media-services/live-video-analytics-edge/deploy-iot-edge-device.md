@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 38d138b43441016e06fca5003bc09c940cb23efe
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ff5dbc8e643137008aa7819b455adcf97c05bfc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883320"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491794"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -240,7 +240,7 @@ Następnie umożliwia przetestowanie próbki przez wywołanie metody bezpośredn
     
     ```
     {
-        "@apiVersion" : "1.0"
+        "@apiVersion" : "2.0"
     }
     ```
 1. Kliknij opcję "Wywołaj metodę" u góry strony

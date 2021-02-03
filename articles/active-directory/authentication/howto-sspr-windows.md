@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741494"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491389"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Włącz Azure Active Directory samoobsługowego resetowania hasła na ekranie logowania systemu Windows
 
@@ -40,7 +40,7 @@ Następujące ograniczenia dotyczą korzystania z programu SSPR z ekranu logowan
 - Hybrydowe maszyny przyłączone do usługi Azure AD muszą mieć linię łączności sieciowej z kontrolerem domeny, aby użyć nowego hasła i zaktualizować buforowane poświadczenia. Oznacza to, że urządzenia muszą znajdować się w sieci wewnętrznej organizacji lub w sieci VPN z dostępem do sieci do lokalnego kontrolera domeny.
 - Jeśli używasz obrazu, przed uruchomieniem narzędzia Sysprep upewnij się, że pamięć podręczna sieci Web jest wyczyszczona dla wbudowanego administratora przed wykonaniem kroku CopyProfile. Więcej informacji na temat tego kroku można znaleźć w artykule dotyczącym pomocy technicznej [niska w przypadku używania niestandardowego domyślnego profilu użytkownika](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Następujące ustawienia są znane, aby zakłócać możliwość używania i resetowania haseł na urządzeniach z systemem Windows 10:
-    - Jeśli kombinacja klawiszy Ctrl + Alt + Del jest wymagana przez zasady w wersjach systemu Windows 10 przed v1909, **Resetowanie hasła** nie będzie działało.
+    - Jeśli kombinacja klawiszy Ctrl + Alt + Del jest wymagana przez zasady w systemie Windows 10, **Resetowanie hasła** nie będzie działało.
     - Jeśli powiadomienia ekranu blokady są wyłączone, **Resetowanie hasła** nie będzie działało.
     - *HideFastUserSwitching* jest ustawiona na wartość Enabled lub 1
     - *DontDisplayLastUserName* jest ustawiona na wartość Enabled lub 1
@@ -51,6 +51,10 @@ Następujące ograniczenia dotyczą korzystania z programu SSPR z ekranu logowan
     - Logowanie interakcyjne: nie wymagaj kombinacji klawiszy CTRL + ALT + DEL = wyłączone
     - *DisableLockScreenAppNotifications* = 1 lub włączony
     - Jednostka SKU systemu Windows nie jest w wersji Home ani Professional
+
+> [!NOTE]
+> Te ograniczenia mają zastosowanie również do resetowania numeru PIN usługi Windows Hello dla firm z ekranu blokady urządzenia.
+>
 
 ## <a name="windows-10-password-reset"></a>Resetowanie hasła w systemie Windows 10
 
@@ -75,7 +79,7 @@ Wdrożenie zmiany konfiguracji w celu włączenia SSPR na ekranie logowania przy
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Tworzenie zasad konfiguracji urządzenia w usłudze Intune
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Intune**.
-1. Utwórz nowy profil konfiguracji urządzenia, przechodząc do opcji profile **konfiguracji urządzeń**  >  **Profiles**, a następnie wybierz pozycję **+ Utwórz profil** .
+1. Utwórz nowy profil konfiguracji urządzenia, przechodząc do opcji profile **konfiguracji urządzeń**  >  , a następnie wybierz pozycję **+ Utwórz profil** .
    - W przypadku **platformy** wybierz *system Windows 10 i nowsze*
    - W obszarze **Typ profilu** wybierz pozycję *niestandardowy* .
 1. Wybierz pozycję **Utwórz**, a następnie podaj opisową nazwę profilu, na przykład *SSPR ekranu logowania systemu Windows 10*

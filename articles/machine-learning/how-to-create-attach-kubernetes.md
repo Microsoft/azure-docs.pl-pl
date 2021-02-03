@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 6400d3f3c721619551ba3989a2e5799b72ff9f38
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e485c2f0a7deeffe68c932688658ef099fec510e
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831928"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492759"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Tworzenie i dołączanie klastra usługi Azure Kubernetes Service
 
@@ -70,7 +70,9 @@ Azure Machine Learning można wdrożyć przeszkolone modele uczenia maszynowego 
     - [Ręczne skalowanie liczby węzłów w klastrze AKS](../aks/scale-cluster.md)
     - [Konfigurowanie automatycznego skalowania klastra w AKS](../aks/cluster-autoscaler.md)
 
-## <a name="azure-kubernetes-service-version"></a>Wersja usługi Azure Kubernetes
+- __Nie należy bezpośrednio aktualizować klastra przy użyciu konfiguracji YAML__. Chociaż usługi Azure Kubernetes Services obsługują aktualizacje za pośrednictwem konfiguracji YAML, wdrożenia Azure Machine Learning przesłonią zmiany. Tylko dwa pola YAML, które nie zostaną zastępować, są __limitami żądań__ oraz __procesora CPU i pamięci__.
+
+## <a name="azure-kubernetes-service-version"></a>Wersja usługi Azure Kubernetes Service
 
 Usługa Azure Kubernetes umożliwia tworzenie klastra przy użyciu różnych wersji programu Kubernetes. Aby uzyskać więcej informacji na temat dostępnych wersji, zobacz [obsługiwane wersje Kubernetes w usłudze Azure Kubernetes Service](../aks/supported-kubernetes-versions.md).
 
@@ -381,7 +383,6 @@ W Azure Machine Learning Studio wybierz pozycję __obliczenia__, __klastry wnios
 ---
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-
 ### <a name="update-the-cluster"></a>Aktualizowanie klastra
 
 Należy ręcznie zastosować aktualizacje Azure Machine Learning składników zainstalowanych w klastrze usługi Azure Kubernetes. 

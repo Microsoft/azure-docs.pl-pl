@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 7072720e2600221e7b8ad8d2337577b65b079afb
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: e894caddd037738645a37ccb43265a24d56e8afe
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660686"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493807"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ASP.NET Core
 
@@ -33,7 +33,7 @@ W tym samouczku pokazano, jak zaimplementować dynamiczne aktualizacje konfigura
 
 Aby wykonać kroki opisane w tym samouczku, można użyć dowolnego edytora kodu. [Visual Studio Code](https://code.visualstudio.com/) jest doskonałym rozwiązaniem dostępnym na platformach Windows, MacOS i Linux.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj swoją aplikację w celu zaktualizowania jej konfiguracji w odpowiedzi na zmiany w magazynie konfiguracji aplikacji.
@@ -186,6 +186,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        services.AddAzureAppConfiguration();
     }
     ```
     ---

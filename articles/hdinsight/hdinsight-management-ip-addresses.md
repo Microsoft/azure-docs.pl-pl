@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 89d749a04c22967198be217350ff38751336fe67
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5f694dec6deffde9efb32fefbab91ae3b7a44a2c
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944102"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490864"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresy IP zarządzania usługą HDInsight
 
@@ -79,6 +79,7 @@ Zezwalaj na ruch z adresów IP wymienionych dla usług Azure HDInsight Health i 
 | &nbsp; | Południowe Zjednoczone Królestwo | 51.140.47.39</br>51.140.52.16 | \*: 443 | Przychodzący |
 | Stany Zjednoczone | Central US | 13.89.171.122</br>13.89.171.124 | \*: 443 | Przychodzący |
 | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*: 443 | Przychodzący |
+| &nbsp; | Wschodnie stany USA 2 | 20.44.16.8/29</br>20.49.102.48/29 | \*: 443 | Przychodzący |
 | &nbsp; | Północno-środkowe stany USA | 157.56.8.38</br>157.55.213.99 | \*: 443 | Przychodzący |
 | &nbsp; | Zachodnio-środkowe stany USA | 52.161.23.15</br>52.161.10.167 | \*: 443 | Przychodzący |
 | &nbsp; | Zachodnie stany USA | 13.64.254.98</br>23.101.196.19 | \*: 443 | Przychodzący |

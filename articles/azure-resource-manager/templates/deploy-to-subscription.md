@@ -3,12 +3,12 @@ title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 1daf95945f619d0e904880d8a8a778810a685d9a
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b5c99e5dc21c2b93f1c9da3977302a2dd311277f
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183986"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491507"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Wdrożenia subskrypcji przy użyciu szablonów ARM
 
@@ -104,7 +104,7 @@ az deployment sub create \
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-W przypadku polecenia wdrażania programu PowerShell Użyj poleceń [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) i **New-AzSubscriptionDeployment**. Poniższy przykład wdraża szablon w celu utworzenia grupy zasobów:
+W przypadku polecenia wdrażania programu PowerShell Użyj polecenie [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) lub jego alias `New-AzSubscriptionDeployment` . Poniższy przykład wdraża szablon w celu utworzenia grupy zasobów:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -130,7 +130,7 @@ Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i op
 
 W przypadku wdrożeń na poziomie subskrypcji należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia. Wdrożenia [grup zarządzania](deploy-to-management-group.md) i [dzierżawców](deploy-to-tenant.md) wymagają również lokalizacji. W przypadku wdrożeń [grup zasobów](deploy-to-resource-group.md) lokalizacja grupy zasobów jest używana do przechowywania danych wdrożenia.
 
-Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
+Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie _azuredeploy.jsw_ programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Przykładowo w przypadku utworzenia wdrożenia subskrypcji o nazwie **deployment1** w **centrali** nie można utworzyć innego wdrożenia o nazwie **deployment1** , ale lokalizacji **zachodniej**. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 
@@ -173,9 +173,9 @@ Aby zapoznać się z przykładem wdrażania w grupie zasobów, zobacz [Tworzenie
 
 ### <a name="scope-to-tenant"></a>Zakres do dzierżawy
 
-Możesz tworzyć zasoby w dzierżawie, ustawiając dla ustawienia `scope` wartość `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
+Aby utworzyć zasoby w dzierżawie, należy ustawić `scope` na `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
 
-Można użyć wdrożenia zagnieżdżonego z `scope` i `location` zestawu.
+Aby użyć wdrożenia zagnieżdżonego, ustaw `scope` i `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
 
@@ -254,7 +254,7 @@ Użyj [kopiowania elementu](copy-resources.md) z grupami zasobów, aby utworzyć
 }
 ```
 
-Aby uzyskać informacje o iteracji zasobów, zobacz [wdrażanie więcej niż jednego wystąpienia zasobu w szablonach Azure Resource Manager](./copy-resources.md)i [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów Menedżer zasobów](./template-tutorial-create-multiple-instances.md).
+Aby uzyskać informacje o iteracji zasobów, zobacz [iteracja zasobów w szablonach ARM](./copy-resources.md)i [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów usługi ARM](./template-tutorial-create-multiple-instances.md).
 
 ### <a name="create-resource-group-and-resources"></a>Tworzenie grupy zasobów i zasobów
 

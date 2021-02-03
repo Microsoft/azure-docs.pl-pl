@@ -2,6 +2,8 @@
   href: index.yml
 - name: Omówienie
   href: overview.md
+- name: Co nowego w usłudze Azure — Wskaźnikowanie?
+  href: whats-new.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -225,7 +227,7 @@
           href: livestream.md
     - name: Usuwanie usługi Azure Sentinel
       href: offboard.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Role RBAC platformy Azure
       items:

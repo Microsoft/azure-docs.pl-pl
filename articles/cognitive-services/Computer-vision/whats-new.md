@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: d59826ba0e53c4b4146c13b354a85a124ac29b23
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738105"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490881"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
@@ -30,6 +30,12 @@ Nowa wersja [kontenera analizy przestrzennej](spatial-analysis-container.md) zos
 * Można teraz skonfigurować [operacje analizy przestrzennej](spatial-analysis-operations.md) , aby wykrywać, czy osoba jest w tej samej ochronie, na przykład jako maskę. 
     * Klasyfikator masek można włączyć dla `personcount` `personcrossingline` operacji i, `personcrossingpolygon` konfigurując `ENABLE_FACE_MASK_CLASSIFIER` parametr.
     * Atrybuty `face_mask` i `face_noMask` zostaną zwrócone jako metadane z wynikiem dopasowania dla każdej osoby wykrytej w strumieniu wideo
+* Operacja *personcrossingpolygon* została rozszerzona, aby umożliwić Obliczanie czasu mieszkania przez osobę w strefie. Można ustawić `type` parametr w konfiguracji strefy dla operacji do `zonedwelltime` i nowe zdarzenie typu *personZoneDwellTimeEvent* będzie zawierać `durationMs` pole wypełnione liczbą milisekund, jaką osoba spędziła w strefie.
+* **Zmiana podziału**: zmieniono nazwę zdarzenia *personZoneEvent* na *personZoneEnterExitEvent*. To zdarzenie jest zgłaszane przez operację *personcrossingpolygon* , gdy osoba wejdzie w stronę lub opuszcza ją i zawiera informacje kierunkowe z numerowaną stroną przekreślonej strefy.
+* Adres URL wideo można podać jako "prywatny parametr/zasłonięty" we wszystkich operacjach. Mieszanie jest teraz opcjonalne i działa tylko wtedy, gdy `KEY` i `IV` są dostarczane jako zmienne środowiskowe.
+* Kalibracja jest domyślnie włączona dla wszystkich operacji. Ustaw, `do_calibration: false` Aby go wyłączyć.
+* Dodano obsługę autokalibracji (domyślnie wyłączone) za pośrednictwem `enable_recalibration` parametru, zapoznaj się ze szczegółami [operacji analizy przestrzennej](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) , aby uzyskać szczegółowe informacje
+* Parametry kalibracji aparatu fotograficznego do `DETECTOR_NODE_CONFIG` . Aby uzyskać szczegółowe informacje, zobacz operacje związane z [analizą przestrzenną](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) .
 
 
 ## <a name="october-2020"></a>Październik 2020 r.

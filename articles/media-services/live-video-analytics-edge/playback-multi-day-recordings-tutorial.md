@@ -3,12 +3,12 @@ title: Odtwarzanie wielodniowych zapisów — Azure
 description: W ramach tego samouczka nauczysz się używać interfejsów API usługi Azure Media Service do odtwarzania wielodniowego ciągłego nagrywania wideo.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803436"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492792"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Samouczek: Odtwarzanie wielodniowych zapisów  
 
@@ -57,7 +57,7 @@ W ramach [samouczka CVR](continuous-video-recording-tutorial.md)utworzono konto 
 }
 ```
 
-Następnie w programie Visual Studio Code Otwórz pozycję src/AMS-Asset-Player. Ten folder zawiera pliki niezbędne dla tego samouczka. Otwórz appsettings.jspliku i skopiuj jego zawartość do nowego pliku, appsettings.development.js. Wprowadź następujące zmiany do ostatniego pliku:
+Następnie w programie Visual Studio Code Otwórz pozycję src/AMS-Asset-Player. Ten folder zawiera pliki niezbędne dla tego samouczka. Otwórz appsettings.jspliku i skopiuj jego zawartość do nowego pliku, appsettings.development.js. Wprowadź następujące zmiany do nowo utworzonego appsettings.development.jsw:
 
 ```
   "AMS" : {
@@ -78,7 +78,22 @@ Następnie w programie Visual Studio Code Otwórz pozycję src/AMS-Asset-Player.
 1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Ustawienia rozszerzenia" jest wybrany.
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Pokaż pełny komunikat":::
+1. <!--In Visual Studio Code, you can click-->Kliknij ikonę Uruchom po lewej stronie (lub CTRL + SHIFT + D), aby wyświetlić dostępne aplikacje do uruchomienia:
+
+    ![Zrzut ekranu przedstawia menu w Visual Studio Code z wybranym elementem Run.](./media/playback-multi-day-recordings-tutorial/run.png)
+1. Wybierz aplikację odtwarzacz zasobów usługi AMS w polu listy rozwijanej, jak pokazano poniżej, a następnie naciśnij klawisz F5, aby rozpocząć debugowanie.
+
+    ![Zrzut ekranu przedstawia menu w Visual Studio Code z wybranym odtwarzaczem zasobów AMS.](./media/playback-multi-day-recordings-tutorial/debug.png)
+
+Przykładowa aplikacja spowoduje skompilowanie i uruchomienie domyślnej aplikacji przeglądarki i otwarcie strony odtwarzacza zasobów AMS.
+
+> [!NOTE]
+> W zależności od ustawień zabezpieczeń w przeglądarce może pojawić się komunikat ostrzegawczy. Ponieważ strona sieci Web działa lokalnie, możesz wybrać ignorowanie ostrzeżenia.
+
+W odtwarzaczu zasobów AMS zostanie wyświetlony komunikat z prośbą o wprowadzenie nazwy zasobu usługi multimedialnej. Należy użyć nazwy zasobu, który został użyty do nagrywania wideo w [samouczku: ciągłe nagrywanie wideo](continuous-video-recording-tutorial.md).
+
+Po wpisaniu nazwy zasobu i przesłaniania, kod odtwarzacza spowoduje załadowanie adresu URL przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [Przewodnik: odtwarzanie nagrań](playback-recordings-how-to.md). Jeśli zgodnie z zaleceniem nadal nastąpi nagrywanie do elementu zawartości, odtwarzacz wykryje to i podejmie próbę nawiązania odtwarzania z najnowszą częścią zapisanego wideo. Znacznik czasu (w formacie UTC) można zobaczyć w lewym górnym rogu odtwarzacza. Na poniższym zrzucie ekranu Zanotuj, jak przycisk "Live" jest wybrany.
 
 ![Strumień](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  

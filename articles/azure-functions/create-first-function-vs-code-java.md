@@ -3,12 +3,12 @@ title: Tworzenie funkcji języka Java przy użyciu Visual Studio Code-Azure Func
 description: Dowiedz się, jak utworzyć funkcję języka Java, a następnie opublikować projekt lokalny do hostingu bezserwerowego w Azure Functions przy użyciu rozszerzenia Azure Functions w Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: daaa578b2842a6314706b3578f4c9e44d46aa6ce
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 36516abd8b50c0b0b7d72e6bae0b67701509ca65
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425071"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493638"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka Java na platformie Azure przy użyciu Visual Studio Code
 
@@ -31,44 +31,44 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 
 + [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
 
-+ [Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
++ [Program Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + [Pakiet rozszerzeń Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)  
 
-+ [Azure Functions rozszerzenie](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) Visual Studio Code. 
++ [Rozszerzenie obsługujące usługę Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) dla programu Visual Studio Code. 
 
 ## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Utwórz projekt lokalny
 
 W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure Functions w języku Java. W dalszej części tego artykułu opublikujesz kod funkcji na platformie Azure. 
 
-1. Wybierz ikonę platformy Azure na pasku działania, a następnie w obszarze **Azure: Functions** wybierz ikonę **Utwórz nowy projekt...** .
+1. Wybierz ikonę platformy Azure na pasku działań, a następnie w obszarze **Azure: Funkcje** wybierz ikonę **Utwórz nowy projekt...**.
 
-    ![Wybierz pozycję Utwórz nowy projekt](./media/functions-create-first-function-vs-code/create-new-project.png)
+    ![Wybieranie pozycji Utwórz nowy projekt](./media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz **pozycję Wybierz**.
+1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz pozycję **Wybierz**.
 
     > [!NOTE]
     > Te kroki zostały zaprojektowane do ukończenia poza obszarem roboczym. W takim przypadku nie wybieraj folderu projektu, który jest częścią obszaru roboczego.
 
-1. Podaj następujące informacje na ekranie:
+1. Podaj następujące informacje po wyświetleniu monitów:
 
-    + **Wybierz język projektu funkcji** : Wybierz `Java` .
+    + **Wybierz język dla projektu funkcji**: Wybierz plik `Java`.
 
-    + **Wybierz wersję środowiska Java** : Wybierz `Java 8` lub `Java 11` , wersję języka Java, na której funkcje są uruchamiane na platformie Azure. Wybierz wersję języka Java, która została zweryfikowana lokalnie.
+    + **Wybierz wersję środowiska Java**: Wybierz `Java 8` lub `Java 11` , wersję języka Java, na której funkcje są uruchamiane na platformie Azure. Wybierz wersję języka Java, która została zweryfikowana lokalnie.
 
-    + **Podaj identyfikator grupy** : Wybierz `com.function` .
+    + **Podaj identyfikator grupy**: Wybierz `com.function` .
 
-    + **Podaj identyfikator artefaktu** : Wybierz `myFunction` .
+    + **Podaj identyfikator artefaktu**: Wybierz `myFunction` .
 
-    + **Podaj wersję** : Wybierz `1.0-SNAPSHOT` .
+    + **Podaj wersję**: Wybierz `1.0-SNAPSHOT` .
 
-    + **Podaj nazwę pakietu** : wybierz opcję `com.function` .
+    + **Podaj nazwę pakietu**: wybierz opcję `com.function` .
 
-    + **Podaj nazwę aplikacji** : Wybierz `myFunction-12345` .
+    + **Podaj nazwę aplikacji**: Wybierz `myFunction-12345` .
 
-    + **Poziom autoryzacji** : Wybierz `Anonymous` , co umożliwi wszystkim wywoływanie punktu końcowego funkcji. Aby dowiedzieć się więcej o poziomie autoryzacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    + **Poziom autoryzacji**: Wybierz `Anonymous` , co umożliwi wszystkim wywoływanie punktu końcowego funkcji. Aby dowiedzieć się więcej o poziomie autoryzacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-    + **Wybierz, w jaki sposób chcesz otworzyć projekt** : Wybierz `Add to workspace` .
+    + **Wybierz, jak chcesz otworzyć projekt**: Wybierz plik `Add to workspace`.
 
 1. Korzystając z tych informacji, Visual Studio Code generuje projekt Azure Functions z wyzwalaczem HTTP. Pliki projektu lokalnego można wyświetlić w Eksploratorze. Aby dowiedzieć się więcej na temat tworzonych plików, zobacz [pliki wygenerowanego projektu](functions-develop-vs-code.md#generated-project-files). 
 
@@ -86,7 +86,7 @@ Po sprawdzeniu, że funkcja działa poprawnie na komputerze lokalnym, można uż
 
 ## <a name="next-steps"></a>Następne kroki
 
-W programie Visual Studio Code utworzono aplikację funkcji z prostą funkcją wyzwalaną przez protokół HTTP. W następnym artykule można rozszerzyć tę funkcję, dodając powiązanie danych wyjściowych. To powiązanie zapisuje ciąg z żądania HTTP do wiadomości w kolejce usługi Azure Queue Storage. 
+Użyto [Visual Studio Code](functions-develop-vs-code.md?tabs=java) , aby utworzyć aplikację funkcji z prostą funkcją wyzwalaną przez protokół http. W następnym artykule można rozszerzyć tę funkcję, łącząc się z usługą Azure Storage. Aby dowiedzieć się więcej na temat nawiązywania połączenia z innymi usługami platformy Azure, zobacz [Dodawanie powiązań do istniejącej funkcji w Azure Functions](add-bindings-existing-function.md?tabs=java). 
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-java)

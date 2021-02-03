@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3cbcb7eb3695e6f57daef741d4cd4b15577d8f58
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516550"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493279"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrowanie danych z Cassandra do konta interfejs API Cassandra Azure Cosmos DB przy użyciu Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,28 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> `spark.cassandra.output.concurrent.writes`Konfiguracje i `connections_per_executor_max` są ważne w przypadku unikania [ograniczania szybkości](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), co się dzieje, gdy żądania Cosmos DB przekraczają zainicjowaną przepływność ([jednostki żądania](./request-units.md)). Może być konieczne dostosowanie tych ustawień w zależności od liczby modułów wykonujących w klastrze Spark oraz potencjalnie rozmiaru (a tym samym kosztu RU) każdego rekordu zapisywanego w tabelach docelowych.
+> `spark.cassandra.output.batch.size.rows`, `spark.cassandra.output.concurrent.writes` I `connections_per_executor_max` konfiguracje mają na celu uniknięcie [ograniczenia szybkości](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), co się dzieje, gdy żądania Azure Cosmos DB przekraczają zainicjowaną przepływność/([jednostki żądania](./request-units.md)). Może być konieczne dostosowanie tych ustawień w zależności od liczby modułów wykonujących w klastrze Spark oraz potencjalnie rozmiaru (a tym samym kosztu RU) każdego rekordu zapisywanego w tabelach docelowych.
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+### <a name="rate-limiting-429-error"></a>Ograniczanie szybkości (błąd 429)
+Może zostać wyświetlony kod błędu 429 lub `request rate is large` tekst błędu, pomimo zmniejszenia powyższych ustawień do ich minimalnych wartości. Poniżej przedstawiono niektóre takie scenariusze:
+
+- **Przepływność przypisana do tabeli jest mniejsza niż 6000 [jednostek żądań](./request-units.md)**. Nawet przy minimalnych ustawieniach platforma Spark będzie mogła wykonywać zapisy z częstotliwością około 6000 jednostek żądań lub dłużej. Jeśli zainicjowano udostępnianie tabeli w przestrzeni kluczy z zainicjowaną funkcją udostępnionej przepustowości, istnieje możliwość, że ta tabela ma mniej niż 6000 jednostek ru dostępne w czasie wykonywania. Upewnij się, że w tabeli, do której przeprowadzasz migrację, znajduje się co najmniej 6000 jednostek ru, podczas uruchamiania migracji, i w razie potrzeby Przydziel dedykowane jednostki żądań do tej tabeli. 
+- **Nadmierne pochylenie danych z dużą ilością danych**. Jeśli masz dużą ilość danych (czyli wierszy tabeli) do migracji do danej tabeli, ale mają znaczące pochylenie w danych (tj. duża liczba rekordów dla tej samej wartości klucza partycji), możesz nadal korzystać z ograniczenia szybkości nawet wtedy, gdy w tabeli została zainicjowana duża ilość [jednostek żądań](./request-units.md) . Wynika to z faktu, że jednostki żądań są podzielone równomiernie między partycjami fizycznymi, a duże pochylenie danych może spowodować wąskie gardło żądań do pojedynczej partycji, co powoduje ograniczenie szybkości. W tym scenariuszu zaleca się ograniczenie do minimalnych ustawień przepływności w platformie Spark, aby uniknąć ograniczenia szybkości i wymusić spowolnienie działania migracji. Ten scenariusz może być bardziej typowy podczas migrowania tabel referencyjnych lub formantów, gdzie dostęp jest krótszy, ale skośność może być wysoka. Jednak jeśli w dowolnym innym typie tabeli występuje istotna pochylenie, warto również sprawdzić model danych, aby uniknąć problemów z partycją gorącą dla obciążenia podczas operacji w stanie stabilnym. 
+- **Nie można pobrać liczby dla dużej tabeli**. Uruchamianie `select count(*) from table` nie jest obecnie obsługiwane w przypadku dużych tabel. Możesz uzyskać licznik z metryk w Azure Portal (Zobacz artykuł dotyczący [rozwiązywania problemów](cassandra-troubleshoot.md)), ale jeśli chcesz określić liczbę dużych tabel z kontekstu zadania platformy Spark, możesz skopiować dane do tabeli tymczasowej, a następnie użyć platformy Spark SQL w celu uzyskania liczby, np. poniżej (Zamień `<primary key>` na niektóre pola z wynikowej tabeli tymczasowej).
+
+  ```scala
+  val ReadFromCosmosCassandra = sqlContext
+    .read
+    .format("org.apache.spark.sql.cassandra")
+    .options(cosmosCassandra)
+    .load
+
+  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
+  %sql
+  select count(<primary key>) from CosmosCassandraResult
+  ```
 
 ## <a name="next-steps"></a>Następne kroki
 

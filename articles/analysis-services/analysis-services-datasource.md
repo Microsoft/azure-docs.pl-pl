@@ -4,15 +4,15 @@ description: Opisuje źródła danych i łączniki obsługiwane w przypadku tabe
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b778cf55ea485d7b3b4d3730d3659750f27b2697
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685599"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493824"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usługach Azure Analysis Services.
 
@@ -24,12 +24,12 @@ ms.locfileid: "98685599"
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Tak      |    Tak      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
 |Azure Synapse Analytics (SQL DW)      |   Tak      |   Tak       |<sup>[dwóch](#azprovider)</sup>|
-|Azure Blob Storage      |   Tak       |    Nie      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   Tak       |    Nie      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Tak        |  Nie        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Tak       |    Nie      |<sup>[1](#tab1400a)</sup> |
+|Azure Blob Storage      |   Tak       |    Nie      | <sup>[jedno](#tab1400a)</sup> |
+|Azure Table Storage     |   Tak       |    Nie      | <sup>[jedno](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Tak        |  Nie        |<sup>[jedno](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Tak       |    Nie      |<sup>[jedno](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   Tak       |    Nie      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Usługa Azure HDInsight w systemie plików HDFS    |     Tak     |   Nie       |<sup>[1](#tab1400a)</sup> |
+|Usługa Azure HDInsight w systemie plików HDFS    |     Tak     |   Nie       |<sup>[jedno](#tab1400a)</sup> |
 |Azure HDInsight Spark     |   Tak       |   Nie       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
@@ -128,7 +128,9 @@ Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authenticati
 
 ## <a name="oauth-credentials"></a>Poświadczenia uwierzytelniania OAuth
 
-Dla modeli tabelarycznych na poziomie zgodności 1400 i wyższych przy użyciu trybu w pamięci, Azure SQL Database, Azure Synapse, Dynamics 365 i lista programu SharePoint obsługują poświadczenia uwierzytelniania OAuth. Azure Analysis Services zarządza odświeżanie tokenów dla źródeł danych OAuth w celu uniknięcia przekroczeń limitu czasu dla długotrwałych operacji odświeżania. Aby wygenerować prawidłowe tokeny, Ustaw poświadczenia przy użyciu Power Query.
+Dla modeli tabelarycznych na poziomie zgodności 1400 i wyższych przy użyciu trybu *w pamięci* , Azure SQL Database, Azure Synapse, Dynamics 365 i lista programu SharePoint obsługują poświadczenia uwierzytelniania OAuth. Aby wygenerować prawidłowe tokeny, Ustaw poświadczenia przy użyciu Power Query. Azure Analysis Services zarządza odświeżanie tokenów dla źródeł danych OAuth w celu uniknięcia przekroczeń limitu czasu dla długotrwałych operacji odświeżania. 
+> [!NOTE]
+> Odświeżanie tokenu zarządzanego nie jest obsługiwane dla źródeł danych, do których można uzyskać dostęp za pomocą bramy. Na przykład można uzyskać dostęp do co najmniej jednego źródła danych zapytania mashup za pomocą bramy i/lub właściwość [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) ma **wartość true**. 
 
 Tryb zapytania bezpośredniego nie jest obsługiwany z poświadczeniami uwierzytelniania OAuth.
 

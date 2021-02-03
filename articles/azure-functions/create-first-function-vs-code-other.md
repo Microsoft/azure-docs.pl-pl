@@ -3,12 +3,12 @@ title: Tworzenie funkcji w programie go lub Rust przy użyciu Visual Studio Code
 description: Dowiedz się, jak utworzyć funkcję go jako niestandardową procedurę obsługi Azure Functions, a następnie opublikować projekt lokalny na potrzeby hostingu bezserwerowego w Azure Functions przy użyciu rozszerzenia Azure Functions w Visual Studio Code.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 911e2ed263271cff41562f383f231d3ca8181854
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 4f2e0b30c4bf5e6c4629fc63f3125e5ddda70ad2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567604"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493666"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji go lub Rust na platformie Azure przy użyciu Visual Studio Code
 
@@ -226,7 +226,7 @@ Ten projekt można uruchomić na lokalnym komputerze deweloperskim przed opublik
 
 1. Zostanie zwrócona odpowiedź, która wygląda podobnie do następującej w przeglądarce:
 
-    ![Przeglądarka — przykładowe dane wyjściowe hosta lokalnego](../../includes/media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+    ![Przeglądarka — przykładowe dane wyjściowe hosta lokalnego](./media/create-first-function-vs-code-other/functions-test-local-browser.png)
 
 1. Informacje o żądaniu są wyświetlane w panelu **terminalu** .
 
@@ -308,7 +308,7 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
 1. Wybierz ikonę platformy Azure na pasku działania, a następnie w obszarze **Azure: Functions** wybierz przycisk **Wdróż do aplikacji funkcji...** .
 
-    ![Publikowanie projektu na platformie Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publikowanie projektu na platformie Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Podaj następujące informacje po wyświetleniu monitów:
 
@@ -337,19 +337,17 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
     + **Wybierz zasób Application Insights**: wybierz opcję `+ Create Application Insights resource` . Ta nazwa musi być globalnie unikatowa w ramach platformy Azure. Możesz użyć proponowanej nazwy w wierszu polecenia.
 
-    + **Wybierz lokalizację dla nowych zasobów**: Aby uzyskać lepszą wydajność, wybierz [region](https://azure.microsoft.com/regions/) w sąsiedztwie. 
+    + **Wybierz lokalizację dla nowych zasobów**: Aby uzyskać lepszą wydajność, wybierz [region](https://azure.microsoft.com/regions/) w sąsiedztwie. Rozszerzenie pokazuje stan poszczególnych zasobów w miarę ich tworzenia na platformie Azure w obszarze powiadomień.
 
-1. Po zakończeniu następujące zasoby platformy Azure są tworzone w ramach subskrypcji przy użyciu nazw opartych na nazwie aplikacji funkcji:
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Powiadomienie o tworzeniu zasobów platformy Azure":::
 
-    + Grupa zasobów, która jest kontenerem logicznym dla powiązanych zasobów.
-    + Standardowe konto usługi Azure Storage, które zachowuje stan i inne informacje o projektach.
-    + Plan zużycia, który definiuje podstawowego hosta dla aplikacji funkcji bezserwerowej. 
-    + Aplikacja funkcji, która zapewnia środowisko do wykonywania kodu funkcji. Aplikacja funkcji umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia zarządzanie, wdrażanie i udostępnianie zasobów w ramach tego samego planu hostingu.
-    + Wystąpienie Application Insights połączone z aplikacją funkcji, która śledzi użycie funkcji bezserwerowej.
+1. Po zakończeniu następujące zasoby platformy Azure są tworzone w ramach subskrypcji:
+
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Po utworzeniu aplikacji funkcji i zastosowaniu pakietu wdrożeniowego zostanie wyświetlone powiadomienie. 
 
-1. Wybierz pozycję **Wyświetl dane wyjściowe** w tym powiadomieniu, aby wyświetlić wyniki tworzenia i wdrażania, w tym utworzone zasoby platformy Azure. W przypadku odrzucenia powiadomienia wybierz ikonę dzwonka w prawym dolnym rogu, aby zobaczyć ją ponownie.
+4. Wybierz pozycję **Wyświetl dane wyjściowe** w tym powiadomieniu, aby wyświetlić wyniki tworzenia i wdrażania, w tym utworzone zasoby platformy Azure. W przypadku odrzucenia powiadomienia wybierz ikonę dzwonka w prawym dolnym rogu, aby zobaczyć ją ponownie.
 
     ![Utwórz pełne powiadomienie](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 

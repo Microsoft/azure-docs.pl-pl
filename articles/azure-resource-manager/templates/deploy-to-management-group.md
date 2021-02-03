@@ -3,12 +3,12 @@ title: Wdrażanie zasobów w grupie zarządzania
 description: Opisuje sposób wdrażania zasobów w zakresie grupy zarządzania w szablonie Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184020"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491619"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Wdrożenia grup zarządzania przy użyciu szablonów ARM
 
@@ -112,7 +112,7 @@ Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i op
 
 W przypadku wdrożeń na poziomie grupy zarządzania należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia. Wdrożenia [subskrypcji](deploy-to-subscription.md) i [dzierżawców](deploy-to-tenant.md) wymagają również lokalizacji. W przypadku wdrożeń [grup zasobów](deploy-to-resource-group.md) lokalizacja grupy zasobów jest używana do przechowywania danych wdrożenia.
 
-Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
+Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie _azuredeploy.jsw_ programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli na przykład utworzysz wdrożenie grupy zarządzania o nazwie **deployment1** w **centrali**, nie będzie można utworzyć innego wdrożenia o nazwie **deployment1** , ale lokalizacji **zachodniej**. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 
@@ -164,9 +164,9 @@ Aby użyć wdrożenia grupy zarządzania do utworzenia grupy zasobów w ramach s
 
 ### <a name="scope-to-tenant"></a>Zakres do dzierżawy
 
-Możesz tworzyć zasoby w dzierżawie, ustawiając dla ustawienia `scope` wartość `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
+Aby utworzyć zasoby w dzierżawie, należy ustawić `scope` na `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
 
-Można użyć wdrożenia zagnieżdżonego z `scope` i `location` zestawu.
+Aby użyć wdrożenia zagnieżdżonego, ustaw `scope` i `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
@@ -222,7 +222,7 @@ W następnym przykładzie zostanie utworzona nowa grupa zarządzania w grupie za
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Niestandardowe definicje zasad wdrożone w grupie zarządzania to rozszerzenia grupy zarządzania. Aby uzyskać identyfikator niestandardowej definicji zasad, użyj funkcji [extensionResourceId ()](template-functions-resource.md#extensionresourceid) . Wbudowane definicje zasad to zasoby na poziomie dzierżawy. Aby uzyskać identyfikator wbudowanej definicji zasad, użyj funkcji [tenantResourceId](template-functions-resource.md#tenantresourceid) .
+Niestandardowe definicje zasad wdrożone w grupie zarządzania to rozszerzenia grupy zarządzania. Aby uzyskać identyfikator niestandardowej definicji zasad, użyj funkcji [extensionResourceId ()](template-functions-resource.md#extensionresourceid) . Wbudowane definicje zasad to zasoby na poziomie dzierżawy. Aby uzyskać identyfikator wbudowanej definicji zasad, użyj funkcji [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
 
 Poniższy przykład pokazuje, jak [zdefiniować](../../governance/policy/concepts/definition-structure.md) zasady na poziomie grupy zarządzania i przypisać je.
 

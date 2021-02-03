@@ -5,19 +5,43 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: f959e4e230c1d9f89ad5141713b6a17a8cbb17a2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1dccb8e51fbc578f8f218fe1582f95f7bcaf42d7
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018925"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493791"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Praca z tablicami i obiektami w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Kluczową funkcją interfejsu API SQL Azure Cosmos DB jest tworzenie tablic i obiektów.
+Kluczową funkcją interfejsu API SQL Azure Cosmos DB jest tworzenie tablic i obiektów. Ten dokument zawiera przykłady, które można odtworzyć przy użyciu [zestawu danych rodziny](sql-query-getting-started.md#upload-sample-data).
+
+Oto przykład elementu w tym zestawie danych:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "gender": "female",
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "Seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 ## <a name="arrays"></a>Tablice
 
@@ -72,7 +96,7 @@ Wyniki są następujące:
 ]
 ```
 
-## <a name="iteration"></a><a id="Iteration"></a>Powtórz
+## <a name="iteration"></a><a id="Iteration"></a>Iteracja
 
 Interfejs API SQL zapewnia obsługę iteracji w tablicach JSON przy użyciu [słowa kluczowego in](sql-query-keywords.md#in) w źródle from. W poniższym przykładzie:
 
@@ -177,6 +201,8 @@ Wyniki są następujące:
 
 > [!NOTE]
 > W przypadku użycia słowa kluczowego IN dla iteracji nie można filtrować ani projektować żadnych właściwości poza tablicą. Zamiast tego należy użyć [sprzężeń](sql-query-join.md).
+
+Aby uzyskać dodatkowe przykłady, Przeczytaj nasz [wpis w blogu na temat pracy z tablicami w Azure Cosmos DB](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/).
 
 ## <a name="next-steps"></a>Następne kroki
 

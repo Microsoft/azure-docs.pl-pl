@@ -1,75 +1,89 @@
 ---
-title: Typowe błędy
-description: Ten dokument zawiera informacje o typowych błędach istniejących na pulpicie nawigacyjnym
+title: Błędy stanu łącznika na pulpicie nawigacyjnym ITSMC
+description: Informacje o typowych błędach istniejących na pulpicie nawigacyjnym łącznik zarządzania usługami IT.
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: be6d47d8f40746bfb2154ddb62cf2e9ce93e74aa
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: d1ba698cd95a074c021aa351a98eb12fc8ae0fc3
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955687"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492522"
 ---
-# <a name="errors-in-the-connector-status-section"></a>Błędy w sekcji stan łącznika
+# <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Błędy stanu łącznika na pulpicie nawigacyjnym ITSMC
 
-W sekcji Lista Stanów łącznika na pulpicie nawigacyjnym można znaleźć błędy, które mogą pomóc w rozwiązaniu problemów z łącznikiem narzędzia ITSM.
+Na pulpicie nawigacyjnym łącznik zarządzania usługami IT (ITSMC) są wyświetlane błędy, które mogą pomóc w rozwiązywaniu problemów z łącznikiem.
 
-## <a name="status-common-errors"></a>Typowe błędy stanu
+W poniższych sekcjach opisano typowe błędy, które pojawiają się w sekcji stan łącznika pulpitu nawigacyjnego i jak można je rozwiązać.
 
-W tej sekcji znajdują się typowe błędy, które przedstawiono w sekcji stan łącznika i jak należy je rozwiązać:
+## <a name="unexpected-response"></a>Nieoczekiwana odpowiedź
 
-* **Błąd**: "Nieoczekiwana odpowiedź z usługi ServiceNow wraz z kodem stanu sukcesu. Odpowiedź: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "result": [{"transform_map": "zdarzenie pakietu OMS", "Tabela": "zdarzenie", "stan": "błąd", "error_message": "{docelowy rekord nie został znaleziony | Nieprawidłowa tabela | Nieprawidłowa tabela przemieszczania "}"
+**Błąd**: "Nieoczekiwana odpowiedź z usługi ServiceNow wraz z kodem stanu sukcesu. Odpowiedź: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "result": [{"transform_map": "zdarzenie pakietu OMS", "Tabela": "zdarzenie", "stan": "błąd", "error_message": "{docelowy rekord nie został znaleziony | Nieprawidłowa tabela | Nieprawidłowa tabela przemieszczania "}"
 
-    **Przyczyna**: ten błąd jest zwracany z usługi ServiceNow, gdy:
-  * Skrypt niestandardowy wdrożony w wystąpieniu usługi ServiceNow powoduje ignorowanie zdarzeń.
-  * "Aplikacja integratora pakietu OMS" została zmodyfikowana po stronie usługi ServiceNow, np. za pomocą skryptu onbefore.
+**Przyczyna**: usługi ServiceNow zwraca ten błąd, gdy:
 
-  **Rozwiązanie**: Wyłącz wszystkie niestandardowe skrypty lub modyfikacje kodu.
+* Skrypt niestandardowy wdrożony w wystąpieniu usługi ServiceNow powoduje ignorowanie zdarzeń.
+* Kod "aplikacja integratora pakietu OMS" została zmodyfikowana po stronie usługi ServiceNow (na przykład za pomocą `onBefore` skryptu).
 
-* **Błąd**: "{" Error ": {" Message ":" operacja nie powiodła się "," Detail ":" Aktualizacja wyjątku listy ACL nie powiodła się z powodu ograniczeń zabezpieczeń "}"
+**Rozwiązanie**: Wyłącz wszystkie niestandardowe skrypty lub modyfikacje kodu.
 
-    **Przyczyna**: nieusługi servicenowa konfiguracja uprawnień
+## <a name="exception-update-failure"></a>Niepowodzenie aktualizacji wyjątku
 
-    **Rozwiązanie**: Sprawdź, czy wszystkie role zostały prawidłowo przypisane zgodnie z [podanym](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role)opisem.
+**Błąd**: "{" Error ": {" Message ":" operacja nie powiodła się "," Detail ":" Aktualizacja wyjątku listy ACL nie powiodła się z powodu ograniczeń zabezpieczeń "}"
 
-* **Błąd**: "Wystąpił błąd podczas wysyłania żądania."
+**Przyczyna**: uprawnienia usługi ServiceNow są błędnie skonfigurowane.
 
-    **Przyczyna**: "wystąpienie usługi ServiceNow niedostępne"
+**Rozwiązanie**: Sprawdź, czy wszystkie role są prawidłowo przypisane zgodnie z [podanym](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role)opisem.
 
-    **Rozwiązanie**: Sprawdź wystąpienie w usługi ServiceNow, które może zostać usunięte lub niedostępne.
+## <a name="problem-sending-a-request"></a>Wystąpił problem podczas wysyłania żądania
 
-* **Błąd**: "ServiceDeskHttpBadRequestException: StatusCode = 429"
+**Błąd**: "Wystąpił błąd podczas wysyłania żądania."
 
-    **Przyczyna**: limity szybkości usługi ServiceNow są zbyt wysokie/niskie.
+**Przyczyna**: wystąpienie usługi ServiceNow jest niedostępne.
 
-    **Rozwiązanie**: Zwiększ lub Anuluj limity szybkości w wystąpieniu usługi ServiceNow, jak wyjaśniono [tutaj](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
+**Rozwiązanie**: Sprawdź wystąpienie w usługi ServiceNow. Może być usunięty lub niedostępny.
 
-* **Błąd**: "AccessToken i RefreshToken są nieprawidłowe. Użytkownik musi ponownie przeprowadzić uwierzytelnienie ".
+## <a name="servicenow-rate-problem"></a>Problem z szybkością usługi ServiceNow
 
-    **Przyczyna**: token odświeżania wygasł.
+**Błąd**: "ServiceDeskHttpBadRequestException: StatusCode = 429"
 
-    **Rozwiązanie**: zsynchronizuj łącznik ITSM, aby wygenerować nowy token odświeżania, jak wyjaśniono [tutaj](./itsmc-resync-servicenow.md).
+**Przyczyna**: limity szybkości usługi ServiceNow są zbyt duże lub zbyt niskie.
 
-* **Błąd**: "nie można utworzyć/zaktualizować elementu pracy dla alertu {alertname}. Łącznik ITSM {connectionIdentifier} nie istnieje lub został usunięty. "
+**Rozwiązanie**: Zwiększ lub Anuluj limity szybkości w wystąpieniu usługi ServiceNow, zgodnie z opisem w [dokumentacji usługi ServiceNow](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
 
-    **Przyczyna**: Łącznik ITSM został usunięty.
+## <a name="invalid-refresh-token"></a>Nieprawidłowy token odświeżania
 
-    **Rozwiązanie**: Łącznik ITSM zostało usunięte, ale nie zdefiniowano dla niej grup akcji narzędzia ITSM. Istnieją dwie opcje rozwiązania tego problemu:
-  * Znajdowanie i wyłączanie lub usuwanie tych grup akcji
-  * [Skonfiguruj ponownie grupę akcji](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) , aby użyć istniejącej łącznik ITSM.
-  * [Utwórz nowy łącznik narzędzia ITSM](./itsmc-definition.md#create-an-itsm-connection) i [Skonfiguruj ponownie grupę akcji, aby z niej korzystać](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
+**Błąd**: "AccessToken i RefreshToken są nieprawidłowe. Użytkownik musi ponownie przeprowadzić uwierzytelnienie ".
 
-## <a name="ui-common-errors"></a>Typowe błędy interfejsu użytkownika
+**Przyczyna**: token odświeżania wygasł.
 
-* **Błąd**: "Wystąpił problem. Nie można pobrać szczegółów połączenia ". Ten błąd jest wyświetlany, gdy Klient definiuje grupę akcji narzędzia ITSM.
+**Rozwiązanie**: Sync ITSMC w celu wygenerowania nowego tokenu odświeżania, zgodnie z opisem w temacie [Ręczne rozwiązywanie problemów z synchronizacją](./itsmc-resync-servicenow.md).
 
-    **Przyczyna**: ten błąd jest wyświetlany, gdy:
-    * Nowo utworzony łącznik ITSM nie zakończył jeszcze synchronizacji początkowej.
-    * Łącznik nie został poprawnie zdefiniowany
+## <a name="missing-connector"></a>Brak łącznika
 
-    **Rozwiązanie**: 
-    * Po utworzeniu nowego łącznika narzędzia ITSM łącznik ITSM zaczyna synchronizować informacje z systemu narzędzia ITSM, takie jak szablony elementów roboczych i elementy robocze. Zsynchronizuj łącznik ITSM, aby wygenerować nowy token odświeżania, jak wyjaśniono [tutaj](./itsmc-resync-servicenow.md).
-    * Przejrzyj szczegóły połączenia w łączniku narzędzia ITSM, jak wyjaśniono [tutaj](./itsmc-connections-servicenow.md#create-a-connection) , i sprawdź, czy łącznik narzędzia ITSM można pomyślnie [synchronizować](./itsmc-resync-servicenow.md).
+**Błąd**: "nie można utworzyć/zaktualizować elementu pracy dla alertu {alertname}. Łącznik ITSM {connectionIdentifier} nie istnieje lub został usunięty. "
+
+**Przyczyna**: ITSMC został usunięty.
+
+**Rozwiązanie**: ITSMC został usunięty, ale zdefiniowane grupy akcji zarządzania usługami IT (narzędzia ITSM) nadal są z nim skojarzone. Istnieją trzy opcje rozwiązania tego problemu:
+
+* Znajdowanie i wyłączanie lub usuwanie tych grup akcji.
+* [Skonfiguruj ponownie grupy akcji](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) , tak aby korzystały z istniejącego wystąpienia ITSMC.
+* [Utwórz nowe wystąpienie ITSMC](./itsmc-definition.md#create-an-itsm-connection) i [ponownie skonfiguruj grupy akcji, aby z niego korzystać](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
+
+## <a name="lack-of-connection-details"></a>Brak szczegółów połączenia
+
+**Błąd**: "Wystąpił problem. Nie można pobrać szczegółów połączenia ". Ten błąd jest wyświetlany podczas definiowania grupy akcji narzędzia ITSM.
+
+**Przyczyna**: ten błąd występuje w jednej z następujących sytuacji:
+
+* Nowo utworzone wystąpienie łącznik ITSM nie zakończyło jeszcze synchronizacji początkowej.
+* Łącznik nie został poprawnie zdefiniowany.
+
+**Rozwiązanie**: 
+
+* Po utworzeniu nowego wystąpienia ITSMC rozpocznie się synchronizowanie informacji z systemu narzędzia ITSM, takich jak szablony elementów roboczych i elementy robocze. [ITSMC synchronizacji w celu wygenerowania nowego tokenu odświeżania](./itsmc-resync-servicenow.md).
+* [Przejrzyj szczegóły połączenia w ITSMC](./itsmc-connections-servicenow.md#create-a-connection) i sprawdź, czy ITSMC można pomyślnie [synchronizować](./itsmc-resync-servicenow.md).

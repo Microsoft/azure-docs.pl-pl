@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 3485c6ca5c2672fa48b6118a78600b9745994ce1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466980"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493916"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Włączanie Azure Monitor na urządzeniu z systemem Azure Stack Edge
 
@@ -30,7 +30,7 @@ Przed rozpoczęciem należy:
 - Ukończono Konfigurowanie kroków **obliczeniowych** zgodnie z [samouczkiem: Konfigurowanie obliczeń na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-configure-compute.md) na urządzeniu. Urządzenie powinno mieć skojarzony zasób IoT Hub, urządzenie IoT i urządzenie IoT Edge.
 
 
-## <a name="create-log-analytics-workspace"></a>Utwórz obszar roboczy Log Analytics.
+## <a name="create-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
 
 Wykonaj poniższe czynności, aby utworzyć obszar roboczy usługi log Analytics. Obszar roboczy usługi log Analytics to logiczna jednostka magazynowa, w której zbierane są dane dziennika i są przechowywane.
 
@@ -116,10 +116,10 @@ Wykonaj następujące kroki, aby włączyć usługi Container Insights w obszarz
     }
     ```
 
-1. Pobierz identyfikator zasobu i lokalizację. Przejdź do adresu `Your Log Analytics workspace > General > Properties`. Skopiuj następujące informacje:
+1. Pobierz identyfikator zasobu i lokalizację. Przejdź do witryny `Your Log Analytics workspace > General > Properties`. Skopiuj następujące informacje:
 
-    - **Identyfikator zasobu** , który jest w pełni kwalifikowany identyfikator zasobu platformy Azure w obszarze roboczym usługi Azure log Analytics. 
-    - **Lokalizacja** , która jest regionem świadczenia usługi Azure.
+    - **Identyfikator zasobu**, który jest w pełni KWALIFIKOWANYm identyfikatorem zasobów platformy Azure w obszarze roboczym usługi Azure log Analytics. 
+    - **Lokalizacja**, która jest regionem świadczenia usługi Azure.
 
     ![Właściwości obszaru roboczego Log Analytics](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
 
@@ -241,3 +241,4 @@ Wykonaj następujące kroki, aby włączyć usługi Container Insights w obszarz
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się, jak [monitorować obciążenia Kubernetes za pośrednictwem pulpitu nawigacyjnego Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+- Dowiedz się, jak [zarządzać powiadomieniami o alertach zdarzeń urządzeń](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 

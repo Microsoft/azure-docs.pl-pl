@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 79706b66dba46253843b1f53a26481170d6ff723
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 907a78b15cca4718308f79bc6be2e6258bc04d19
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729663"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492675"
 ---
 # <a name="connect-system-center-service-manager-with-it-service-management-connector"></a>Łączenie System Center Service Manager z łącznik zarządzania usługami IT
 
@@ -32,7 +32,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 > [!NOTE]
 > - Łącznik ITSM może łączyć się tylko z wystąpieniami usługi ServiceNow opartymi na chmurze. Lokalne wystąpienia usługi ServiceNow nie są obecnie obsługiwane.
-> - Aby można było używać [szablonów](./itsmc-definition.md#template-definitions) niestandardowych jako części akcji, parametr "projekcja" w szablonie SCSM powinien być zamapowany na "IncidentManagement! System. robocze. incydent. projekcja "
+> - Aby można było używać [szablonów](./itsmc-definition.md#define-a-template) niestandardowych jako części akcji, parametr "projekcja" w szablonie SCSM powinien być zamapowany na "IncidentManagement! System. robocze. incydent. projekcja "
 
 ## <a name="connection-procedure"></a>Procedura połączenia
 
@@ -165,6 +165,6 @@ Poniższy przykładowy obraz przedstawia szczegóły pomyślnego połączenia:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przegląd łącznik ITSM](itsmc-overview.md)
+* [Omówienie łącznika ITSM](itsmc-overview.md)
 * [Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
 * [Rozwiązywanie problemów w łączniku ITSM](./itsmc-resync-servicenow.md)
