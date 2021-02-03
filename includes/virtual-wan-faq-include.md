@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: af0082ef04416d6b3700bbcd96995a154614e0d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: b451e2509ee618ac0996fd91191a7d59dcfd9fc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798645"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500023"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Czy usługa Azure Virtual WAN jest dostępna w wersji GA?
 
@@ -140,6 +140,10 @@ Do 1 000 połączeń są obsługiwane na koncentratorze wirtualnym. Każde poł�
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Co to jest połączenie gałęzi z wirtualną siecią WAN platformy Azure?
 
 Połączenie między gałęzią lub urządzeniem sieci VPN a wirtualną siecią WAN platformy Azure to nic, ale połączenie sieci VPN, które łączy praktycznie lokację sieci VPN i VPN Gateway platformy Azure w koncentratorze wirtualnym.
+
+### <a name="what-happens-if-the-on-premise-vpn-device-only-has-1-tunnel-to-a-azure-virtual-wan-vpn-gateway"></a>Co się stanie, jeśli lokalne urządzenie sieci VPN ma tylko 1 tunel do bramy sieci VPN Azure Virtual WAN?
+
+Połączenie wirtualnej sieci WAN platformy Azure składa się z 2 tuneli. Wirtualna Brama sieci VPN w sieci WAN jest wdrażana w koncentratorze wirtualnym w trybie aktywny-aktywny, co oznacza, że istnieją oddzielne tunele z urządzeń lokalnych kończących się na oddzielnych isntances — jest to zalecenie dla wszystkich użytkowników. Jeśli jednak użytkownik zdecyduje się tylko na 1 tunel do jednego z wystąpień wirtualnej bramy sieci VPN, jeśli z jakiegoś powodu (Konserwacja, poprawki itp.),  wystąpienie bramy zostało przełączone w tryb offline, tunel zostanie przeniesiony do pomocniczego aktywnego wystąpienia, a użytkownik może napotkać ponowne połączenie. Należy również pamiętać, że sesja protokołu BGP nie będzie przenoszona między wystąpieniami.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>Czy lokalne urządzenie sieci VPN może łączyć się z wieloma koncentratorami?
 

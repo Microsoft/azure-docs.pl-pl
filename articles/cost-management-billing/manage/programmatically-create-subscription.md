@@ -9,14 +9,14 @@ ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a51a158700df52ced5288cf2c2f82ebcdf3de54d
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
-ms.translationtype: HT
+ms.openlocfilehash: 546ed24b5f9e7892f40c9d425b668f60ad705f8f
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254025"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493892"
 ---
-# <a name="create-azure-subscriptions-programatically"></a>Programowe tworzenie subskrypcji platformy Azure
+# <a name="create-azure-subscriptions-programmatically"></a>Programowe tworzenie subskrypcji platformy Azure
 
 Ten artykuł ułatwia zapoznanie się z opcjami dostępnymi w celu programowego tworzenia subskrypcji platformy Azure.
 

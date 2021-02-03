@@ -278,6 +278,8 @@
           items:
             - name: Korzystanie z wykresów metryk
               href: azure-stack-edge-monitor.md
+            - name: Zarządzanie alertami zdarzeń urządzeń
+              href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md
             - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
             - name: Korzystanie z usługi Azure Monitor

@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
-ms.openlocfilehash: 43864d3593fda986031cf9b59251b920672476bb
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c1ff099dd6dffe06e9707ff23fffd57ae753ab64
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097291"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99500035"
 ---
 Funkcja NER dla analiza tekstu zwraca następującą ogólną (nieidentyfikującą) kategorię jednostek. na przykład podczas wysyłania żądań do `/entities/recognition/general` punktu końcowego.
 
@@ -34,6 +34,7 @@ Funkcja NER dla analiza tekstu zwraca następującą ogólną (nieidentyfikując
 | [Adres URL](#category-url) | Adresy URL do witryn sieci Web. |
 | [Adres IP](#category-ip) | Adresy IP sieci. |
 | [Data/godzina](#category-datetime) | Daty i godziny dnia. |
+| [Liczba](#category-quantity) | Liczbowe pomiary i jednostki. |
 
 
 ### <a name="category-person"></a>Kategoria: osoba

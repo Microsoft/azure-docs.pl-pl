@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 512436c9d72e0318ec14bf7551a2fde76c6ef3d8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 520eb25bcb138c96b24166816d3374255fb7c3b2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735913"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493992"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-notion"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z pojęciem
 
@@ -40,7 +40,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Pojęcie obsługuje funkcję SSO zainicjowaną przez usługę **SP i dostawcy tożsamości**
 * Pojęcie obsługuje Inicjowanie obsługi użytkowników **just in Time**
 > [!NOTE]
-> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
+> Identyfikator tej aplikacji to stała wartość ciągu, dzięki czemu można skonfigurować jeden hipotetyczny obszar roboczy w jednej dzierżawie.
 
 
 ## <a name="adding-notion-from-the-gallery"></a>Dodawanie koncepcji z galerii
@@ -80,14 +80,14 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:  `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    W polu tekstowym **adres URL odpowiedzi** wprowadź adres URL z następującym wzorcem, który można uzyskać z ustawień obszaru roboczego z pojęciem **& członkowie** > **& tożsamość** > **adres URL logowania** jednokrotnego:  `https://www.notion.so/sso/saml/<CUSTOM_ID>`
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    W polu tekstowym **adres URL logowania** wprowadź następujący adres URL:  `https://www.notion.so/login`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj je, używając faktycznego adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta](mailto:team@makenotion.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj je, używając faktycznego adresu URL odpowiedzi i adresu URL logowania. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Pojęcie "aplikacja" oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -102,7 +102,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | lastName | user.surname |
 
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji**. Przejdź do pozycji Ustawienia obszaru roboczego z **pojęciem** **& członkowie**  >  **& tożsamość** i wklej wartość skopiowaną do pola **adres URL metadanych dostawcy tożsamości** .
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
@@ -132,7 +132,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-notion-sso"></a>Konfigurowanie koncepcji logowania jednokrotnego
 
-Aby **skonfigurować logowanie** jednokrotne, należy wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej](mailto:team@makenotion.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Przejdź do pozycji Ustawienia obszaru roboczego **pojęcia** **& członkowie**  >  **& tożsamość** i wklej wartość **adresu URL metadanych federacji aplikacji** skopiowaną do pola **adres URL metadanych dostawcy tożsamości** .
+
+Na tej samej stronie ustawień w obszarze **domeny poczty e-mail** kliknij pozycję **skontaktuj się z pomocą techniczną** , aby dodać domeny poczty e-mail w organizacji.
+
+Po zatwierdzeniu i dodaniu domen poczty e-mail Włącz logowanie jednokrotne SAML przy użyciu przełącznika **enable SAML** .
+
+Po pomyślnym przetestowaniu można wymusić Logowanie jednokrotne SAML przy użyciu przełącznika **Wymuś protokołu SAML** . Należy pamiętać, że w obszarze roboczym administrastrators nie można zalogować się za pomocą poczty e-mail, ale wszystkie inne elementy członkowskie będą musieli używać logowania jednokrotnego w celu zalogowania się do pojęcia.
 
 ### <a name="create-notion-test-user"></a>Utwórz użytkownika testowego koncepcji
 

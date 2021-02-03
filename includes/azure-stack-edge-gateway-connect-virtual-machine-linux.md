@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 08/03/2020
 ms.author: alkohli
-ms.openlocfilehash: caa17a02305c9e9fcba30cf8c39c4288d83d3da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92688051cf591470246094dd0d8ea1d436a8efb1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419410"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99500140"
 ---
-Nawiąż połączenie z maszyną wirtualną przy użyciu prywatnego adresu IP, który został przesłany podczas tworzenia maszyny wirtualnej.
+Nawiąż połączenie z maszyną wirtualną przy użyciu prywatnego adresu IP, który został przekazany podczas tworzenia maszyny wirtualnej.
 
 Otwórz sesję SSH, aby nawiązać połączenie z adresem IP.
 

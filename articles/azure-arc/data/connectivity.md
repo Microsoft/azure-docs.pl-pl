@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c7bff21a17af3c908caeed6a1e60de8e2fe4efc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d148509af45b93dce8dbd99b9afc674276b149b6
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287587"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493976"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Tryby i wymagania dotyczące łączności
 
@@ -24,7 +24,7 @@ ms.locfileid: "93287587"
 
 Istnieje wiele opcji dotyczących stopnia łączności ze środowiska usługi danych z włączonym usługą Azure Arc na platformę Azure. Ponieważ Twoje wymagania różnią się w zależności od zasad firmy, regulaminu rządowego lub dostępności łączności sieciowej z platformą Azure, można wybrać jeden z następujących trybów łączności.
 
-Usługi danych z obsługą usługi Azure ARC umożliwiają nawiązywanie połączenia z platformą Azure w dwóch różnych *trybach łączności* : 
+Usługi danych z obsługą usługi Azure ARC umożliwiają nawiązywanie połączenia z platformą Azure w dwóch różnych *trybach łączności*: 
 
 - Połączone bezpośrednio 
 - Połączono pośrednio
@@ -37,12 +37,10 @@ Ponadto Azure Active Directory i Azure Role-Based Access Control mogą być uży
 
 Niektóre usługi dołączone do platformy Azure są dostępne tylko wtedy, gdy można je uzyskać bezpośrednio, takich jak usługi Azure Defender Security Services, informacje o kontenerze i Azure Backup do magazynu obiektów BLOB.
 
-Obecnie w wersji zapoznawczej jest obsługiwany tylko pośredni połączony tryb. 
-
 ||**Połączono pośrednio**|**Połączone bezpośrednio**|**Nigdy nie połączono**|
 |---|---|---|---|
 |**Opis**|Tryb połączony bezpośrednio oferuje większość usług zarządzania lokalnie w danym środowisku bez bezpośredniego połączenia z platformą Azure.  Minimalna ilość danych musi być wysyłana do platformy Azure _wyłącznie_ w celach spisu i rozliczania. Jest on eksportowany do pliku i przekazywany do platformy Azure co najmniej raz na miesiąc.  Nie jest wymagane bezpośrednie ani ciągłe połączenie z platformą Azure.  Niektóre funkcje i usługi, które wymagają połączenia z platformą Azure, nie będą dostępne.|Tryb bezpośrednio połączony oferuje wszystkie dostępne usługi, gdy bezpośrednie połączenie można nawiązać z platformą Azure. Połączenia są zawsze inicjowane _ze_ środowiska na platformę Azure i używają standardowych portów i protokołów, takich jak https/443.|Żadne dane nie mogą być wysyłane do ani z platformy Azure w jakikolwiek sposób.|
-|**Bieżąca dostępność**| dostępna w wersji zapoznawczej.|Planowane na potrzeby wersji zapoznawczej w przyszłości.|Obecnie nie jest obsługiwane.|
+|**Bieżąca dostępność**| dostępna w wersji zapoznawczej.|dostępna w wersji zapoznawczej.|Obecnie nie jest obsługiwane.|
 |**Typowe przypadki użycia**|Lokalne centra danych, które nie umożliwiają łączności z lub z obszaru danych centrum danych z powodu zasad zgodności firmy lub przepisów lub nie są problemy z atakami zewnętrznymi lub eksfiltracji danych.  Typowe przykłady: instytucje finansowe, opieka zdrowotna, rządowy. <br/><br/>Lokalizacje lokacji brzegowych, w których lokacja graniczna nie ma zwykle łączności z Internetem.  Typowe przykłady: aplikacje ropopochodne lub gazowe lub wojskowe.  <br/><br/>Lokalizacje lokacji programu Edge, które mają sporadyczne połączenia z długim okresem przestoju.  Typowe przykłady: Stadium, statki wycieczkowe. | Organizacje korzystające z chmur publicznych.  Typowe przykłady: Azure, AWS lub Google Cloud.<br/><br/>Lokacje graniczne, w przypadku których połączenie z Internetem jest zwykle obecne i dozwolone.  Typowe przykłady: sklepy detaliczne, produkcja.<br/><br/>Firmowe centra danych z bardziej ograniczającymi zasadami dotyczącymi łączności z i z obszaru danych w danym regionie z Internetu.  Typowe przykłady: nieregulowane firmy, małe/średnie firmy|W prawdziwie środowiskach "Air-gapped", w których żadne dane nie mogą pochodzić z danego środowiska. Typowe przykłady: najważniejsze funkcje instytucji rządowych.|
 |**Jak dane są wysyłane do platformy Azure**|Istnieją trzy opcje, w jaki sposób dane dotyczące rozliczeń i spisu mogą być wysyłane na platformę Azure:<br><br> 1) dane są eksportowane z obszaru danych przez zautomatyzowany proces, który ma łączność zarówno z bezpiecznym regionem danych, jak i z platformą Azure.<br><br>2) dane są eksportowane z obszaru danych przez zautomatyzowany proces w obszarze danych, automatycznie kopiowane do mniej bezpiecznego regionu, a zautomatyzowany proces w mniej bezpiecznym regionie przekazuje dane do platformy Azure.<br><br>3) dane są ręcznie eksportowane przez użytkownika w bezpiecznym regionie, ręcznie wprowadzone do bezpiecznego regionu i ręcznie przekazane do platformy Azure. <br><br>Pierwsze dwie opcje są zautomatyzowanymi procesami ciągłymi, które mogą być uruchamiane często, aby zapewnić minimalne opóźnienie transferu danych do platformy Azure podmiotu tylko do dostępnej łączności z platformą Azure.|Dane są automatycznie i ciągle wysyłane do platformy Azure.|Dane nigdy nie są wysyłane do platformy Azure.|
 
@@ -87,7 +85,7 @@ Obecnie w wersji zapoznawczej jest obsługiwany tylko pośredni połączony tryb
 Obecnie w fazie zapoznawczej jest obsługiwany tylko tryb połączony bezpośrednio. W tym trybie istnieją tylko trzy połączenia wymagane do usług dostępnych w Internecie. Połączenia te obejmują:
 
 - [Microsoft Container Registry (MCR)](#microsoft-container-registry-mcr)
-- [Interfejsy API Azure Resource Manager](#azure-resource-manager-apis)
+- [Interfejsy API usługi Azure Resource Manager](#azure-resource-manager-apis)
 - [Interfejsy API usługi Azure monitor](#azure-monitor-apis)
 
 Wszystkie połączenia HTTPS z platformą Azure i Container Registry firmy Microsoft są szyfrowane przy użyciu protokołu SSL/TLS przy użyciu oficjalnie podpisanych i zweryfikowanych certyfikatów.
@@ -122,7 +120,7 @@ Tak
 
 Brak
 
-### <a name="azure-resource-manager-apis"></a>Interfejsy API Azure Resource Manager
+### <a name="azure-resource-manager-apis"></a>Interfejsy API usługi Azure Resource Manager
 Azure Data Studio [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] i interfejs wiersza polecenia platformy Azure łączy się z interfejsami api Azure Resource Manager w celu wysyłania i pobierania danych do i z platformy Azure w przypadku niektórych funkcji.
 
 #### <a name="connection-source"></a>Źródło połączenia

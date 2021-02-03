@@ -3,7 +3,7 @@ title: 'Samouczek: wdrażanie aplikacji Django języka Python za pomocą Postgre
 description: Utwórz aplikację sieci Web w języku Python z bazą danych PostgreSQL i Wdróż ją na platformie Azure. Samouczek używa platformy Django Framework, a aplikacja jest hostowana w Azure App Service w systemie Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/02/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 05bdbd6c9d5dc3862c3191e4564a79e7a44bc0b8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898593"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99494059"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL w Azure App Service
 
@@ -39,7 +39,7 @@ Możesz również użyć [wersji Azure Portal tego samouczka](/azure/developer/p
 
 1. Posiadanie konta platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Zainstaluj środowisko Python w wersji <a href="https://www.python.org/downloads/" target="_blank">3,6 lub nowszej</a>.
-1. Zainstaluj <a href="/cli/azure/install-azure-cli" target="_blank">interfejs wiersza polecenia platformy Azure</a> 2.0.80 lub nowszy, za pomocą którego uruchamiasz polecenia w dowolnej powłoce, aby udostępnić i skonfigurować zasoby platformy Azure.
+1. Zainstaluj <a href="/cli/azure/install-azure-cli" target="_blank">interfejs wiersza polecenia platformy Azure</a> 2.18.0 lub nowszy, za pomocą którego uruchamiasz polecenia w dowolnej powłoce, aby udostępnić i skonfigurować zasoby platformy Azure.
 
 Otwórz okno terminalu i sprawdź, czy wersja języka Python to 3,6 lub nowszego:
 
@@ -63,11 +63,13 @@ py -3 --version
 
 ---
 
-Sprawdź, czy wersja interfejsu wiersza polecenia platformy Azure to 2.0.80 lub nowszy:
+Sprawdź, czy wersja interfejsu wiersza polecenia platformy Azure to 2.18.0 lub nowszy:
 
 ```azurecli
 az --version
 ```
+
+Jeśli musisz uaktualnić program, spróbuj wykonać `az upgrade` polecenie (wymaga wersji 2.11 +) lub zobacz <a href="/cli/azure/install-azure-cli" target="_blank">Instalowanie interfejsu wiersza polecenia platformy Azure</a>.
 
 Następnie zaloguj się do platformy Azure za pomocą interfejsu wiersza polecenia:
 
@@ -229,7 +231,7 @@ Migracja baz danych Django upewnij się, że schemat w PostgreSQL w bazie danych
 
     Zamień na `<app-name>` nazwę użytą wcześniej w `az webapp up` poleceniu.
 
-    W systemach macOS i Linux można łączyć się Alternatywnie z sesją SSH za pomocą [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) polecenia.
+    Można nawiązać połączenie z sesją SSH za pomocą [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) polecenia. W systemie Windows to polecenie wymaga interfejsu wiersza polecenia platformy Azure 2.18.0 lub nowszego.
 
     Jeśli nie możesz połączyć się z sesją SSH, nie można uruchomić samej aplikacji. Szczegółowe informacje znajdują [się w dziennikach diagnostycznych](#6-stream-diagnostic-logs) . Jeśli na przykład w poprzedniej sekcji nie zostały utworzone wymagane ustawienia aplikacji, dzienniki będą wskazywać `KeyError: 'DBNAME'` .
 
@@ -239,8 +241,11 @@ Migracja baz danych Django upewnij się, że schemat w PostgreSQL w bazie danych
     # Change to the app folder
     cd $APP_PATH
     
-    # Activate the venv (requirements.txt is installed automatically)
+    # Activate the venv
     source /antenv/bin/activate
+
+    # Install requirements
+    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -398,6 +403,7 @@ Otwórz ponownie sesję SSH w przeglądarce, przechodząc do okna `https://<app-
 ```
 cd $APP_PATH
 source /antenv/bin/activate
+pip instal -r requirements.txt
 python manage.py migrate
 ```
 

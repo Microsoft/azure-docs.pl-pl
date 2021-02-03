@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga
-ms.openlocfilehash: 29a31948c5bfc9b5fd3a31f39144d186dbfe4885
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 99ae35aca485ac928f7c5ef9f98295eed4bc1245
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025485"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500506"
 ---
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Tworzenie obsługi zasobów platformy Azure dla funkcji
 
 Aby można było wdrożyć kod funkcji na platformie Azure, należy utworzyć trzy zasoby:
 
-- Grupa zasobów, która jest kontenerem logicznym dla powiązanych zasobów.
-- Konto magazynu, które zachowuje stan i inne informacje o projektach.
+- [Grupa zasobów](../articles/azure-resource-manager/management/overview.md), która jest kontenerem logicznym dla powiązanych zasobów.
+- [Konto magazynu](../articles/storage/common/storage-account-create.md), które jest używane do przechowywania stanu i innych informacji o funkcjach.
 - Aplikacja funkcji, która zapewnia środowisko do wykonywania kodu funkcji. Aplikacja funkcji jest mapowana na projekt funkcji lokalnej i umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia zarządzanie, wdrażanie i udostępnianie zasobów.
 
 Użyj następujących poleceń, aby utworzyć te elementy. Obsługiwane są zarówno interfejs wiersza polecenia platformy Azure, jak i program PowerShell.

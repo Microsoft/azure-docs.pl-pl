@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: ceb560a3f0c56a13b9f8da6c867f513b2b08e59b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0b04ebd9672990738d77bc5ae09d7f7fae4ffb9d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962230"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99499976"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Instance Metadata Service platformy Azure (IMDS)
 
@@ -78,7 +78,7 @@ Wszystkie żądania, które nie spełniają **obu** tych wymagań, zostaną odrz
 IMDS nie jest przeznaczona do użycia za serwerem proxy i **nie** jest to obsługiwane. Większość klientów HTTP zapewnia opcję wyłączania serwerów proxy na żądaniach, a tej funkcji należy używać podczas komunikacji z usługą IMDS. Aby uzyskać szczegółowe informacje, zapoznaj się z dokumentacją klienta.
 
 > [!IMPORTANT]
-> Nawet jeśli nie znasz żadnej konfiguracji serwera proxy w danym środowisku, **nadal musisz zastąpić wszystkie domyślne ustawienia serwera proxy klienta**. Konfiguracje serwera proxy mogą być wykrywane automatycznie i niepowodzenie pomijania takich konfiguracji ujawnia Outrage ryzyka, w przypadku których konfiguracja maszyny zostanie zmieniona w przyszłości.
+> Nawet jeśli nie znasz żadnej konfiguracji serwera proxy w danym środowisku, **nadal musisz zastąpić wszystkie domyślne ustawienia serwera proxy klienta**. Konfiguracje serwera proxy mogą być wykrywane automatycznie i niepowodzenie pomijania takich konfiguracji ujawnia ryzyko przestoju, jeśli konfiguracja maszyny zostanie zmieniona w przyszłości.
 
 ## <a name="rate-limiting"></a>Rate limiting (Ograniczanie szybkości)
 
@@ -98,7 +98,7 @@ Punkty końcowe mogą obsługiwać wymagane i/lub opcjonalne parametry. Aby uzys
 
 ### <a name="query-parameters"></a>Parametry zapytania
 
-Punkty końcowe IMDS obsługują parametry ciągu zapytania HTTP. Przykład: 
+Punkty końcowe IMDS obsługują parametry ciągu zapytania HTTP. Na przykład: 
 
 ```
 http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
@@ -191,7 +191,7 @@ filtruje do pierwszego elementu z `Network.interface` właściwości i zwraca:
 
 Domyślnie IMDS zwraca dane w formacie JSON ( `Content-Type: application/json` ). Jednak punkty końcowe obsługujące filtrowanie odpowiedzi (zobacz [Parametry tras](#route-parameters)) obsługują również format `text` .
 
-Aby uzyskać dostęp do formatu niedomyślnej odpowiedzi, należy określić żądany format jako parametr ciągu zapytania w żądaniu. Przykład:
+Aby uzyskać dostęp do formatu niedomyślnej odpowiedzi, należy określić żądany format jako parametr ciągu zapytania w żądaniu. Na przykład:
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
@@ -356,7 +356,7 @@ Podział schematu:
 | `resourceId` | W [pełni kwalifikowany](/rest/api/resources/resources/getbyid) identyfikator zasobu | 2019-03-11
 | `sku` | Określona jednostka SKU dla obrazu maszyny wirtualnej | 2017-04-02
 | `securityProfile.secureBootEnabled` | Określa, czy na maszynie wirtualnej jest włączony bezpieczny rozruch z interfejsem UEFI | 2020-06-01
-| `securityProfile.virtualTpmEnabled` | Określa, czy wirtualny moduł TPM (TPM) jest włączony na maszynie wirtualnej | 2020-06-01
+| `securityProfile.virtualTpmEnabled` | Określa, czy wirtualny Trusted Platform Module (TPM) jest włączony na maszynie wirtualnej | 2020-06-01
 | `storageProfile` | Zobacz Profil magazynu poniżej | 2019-06-01
 | `subscriptionId` | Subskrypcja platformy Azure dla maszyny wirtualnej | 2017-08-01
 | `tags` | [Tagi](../articles/azure-resource-manager/management/tag-resources.md) dla maszyny wirtualnej  | 2017-08-01
@@ -935,7 +935,7 @@ W poniższej tabeli przedstawiono przykłady wywoływania IMDS przy użyciu ró�
 
 ## <a name="errors-and-debugging"></a>Błędy i debugowanie
 
-Jeśli nie odnaleziono elementu danych lub nieprawidłowo sformułowane żądanie, Instance Metadata Service zwraca standardowe błędy HTTP. Przykład:
+Jeśli nie odnaleziono elementu danych lub nieprawidłowo sformułowane żądanie, Instance Metadata Service zwraca standardowe błędy HTTP. Na przykład:
 
 | Kod stanu HTTP | Przyczyna |
 |------------------|--------|
@@ -983,7 +983,7 @@ Wywołania metadanych muszą pochodzić z podstawowego adresu IP przypisanego do
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
-1. Zrzuć lokalną tabelę routingu i poszukaj wpisu IMDS. Przykład:
+1. Zrzuć lokalną tabelę routingu i poszukaj wpisu IMDS. Na przykład:
     ```console
     > route print
     IPv4 Route Table

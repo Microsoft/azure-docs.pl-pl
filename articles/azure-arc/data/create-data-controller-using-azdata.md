@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3d2652d2f6c1bb56dd009a9e4de375c42786986d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 50ab5a0d47292e36216a565a5bd39fbe7e850131
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735003"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99494021"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Utwórz kontroler danych usługi Azure ARC przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -269,6 +269,8 @@ Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitori
 W przypadku usługi Azure Red Hat OpenShift wymagane jest ograniczenie kontekstu zabezpieczeń.
 
 #### <a name="apply-the-security-context"></a>Zastosuj kontekst zabezpieczeń
+
+Przed utworzeniem kontrolera danych na platformie Azure Red Hat OpenShift należy zastosować określone ograniczenia kontekstu zabezpieczeń (SCC). W wersji zapoznawczej te zmniejszają ograniczenia zabezpieczeń. Przyszłe wersje będą udostępniać zaktualizowany SCC.
 
 [!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
