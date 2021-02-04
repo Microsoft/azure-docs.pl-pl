@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951314"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539488"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametry serwera w Azure Database for MySQL
 
@@ -31,7 +31,7 @@ Zapoznaj się z poniższymi sekcjami poniżej, aby dowiedzieć się więcej o li
 
 ### <a name="thread-pools"></a>Pule wątków
 
-MySQL tradycyjnie przypisuje wątek dla każdego połączenia z klientem. Wraz ze wzrostem liczby równoczesnych użytkowników istnieje odpowiednik porzucenia. Wiele aktywnych wątków może mieć wpływ na wydajność znacząco z powodu zwiększonego przełączenia kontekstu, rywalizacji o wątki i nieprawidłowej lokalizacji pamięci podręcznych procesora CPU.
+MySQL tradycyjnie przypisuje wątek dla każdego połączenia z klientem. Wraz ze wzrostem liczby równoczesnych użytkowników istnieje odpowiedni spadek wydajności. Wiele aktywnych wątków może mieć wpływ na wydajność znacząco z powodu zwiększonego przełączenia kontekstu, rywalizacji o wątki i nieprawidłowej lokalizacji pamięci podręcznych procesora CPU.
 
 Pule wątków, które są funkcją po stronie serwera i różnią się od puli połączeń, maksymalizują wydajność dzięki wprowadzeniu dynamicznej puli wątków roboczych, która może służyć do ograniczenia liczby aktywnych wątków uruchomionych na serwerze i minimalizowania zmian wątków. Pozwala to zagwarantować, że nastąpi brak zasobów na serwerze lub awaria z powodu braku pamięci. Pule wątków są najbardziej wydajne w przypadku krótkich zapytań i obciążeń intensywnie korzystających z procesora CPU, na przykład obciążeń OLTP.
 

@@ -1,25 +1,25 @@
 ---
-title: Bezpieczne wdrażanie między regionami — Menedżer wdrażania platformy Azure
-description: Dowiedz się, jak wdrożyć usługę w wielu regionach za pomocą usługi Azure Menedżer wdrażania i zapoznaj się z bezpiecznymi praktykami wdrażania.
+title: Bezpieczne wdrażanie między regionami — Deployment Manager platformy Azure
+description: Dowiedz się, jak wdrożyć usługę w wielu regionach za pomocą usługi Azure Deployment Manager i zapoznaj się z bezpiecznymi praktykami wdrażania.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baed44e04a0beca02cc959d302a4a29906b4a78e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333209"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539522"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Włączanie bezpiecznych praktyk wdrażania przy użyciu usługi Azure Menedżer wdrażania (publiczna wersja zapoznawcza)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Włączanie bezpiecznych praktyk wdrażania przy użyciu usługi Azure Deployment Manager (publiczna wersja zapoznawcza)
 
-Aby wdrożyć usługę w wielu regionach i upewnić się, że działa ona zgodnie z oczekiwaniami w każdym regionie, możesz użyć usługi Azure Menedżer wdrażania, aby koordynować etapowe wdrażanie usługi. Podobnie jak w przypadku dowolnego wdrożenia platformy Azure, można zdefiniować zasoby dla usługi w [szablonach Menedżer zasobów](template-syntax.md). Po utworzeniu szablonów należy używać Menedżer wdrażania do opisywania topologii usługi i sposobu jej wdrożenia.
+Aby wdrożyć usługę w wielu regionach i upewnić się, że działa ona zgodnie z oczekiwaniami w każdym regionie, możesz użyć usługi Azure Deployment Manager, aby koordynować etapowe wdrażanie usługi. Podobnie jak w przypadku dowolnego wdrożenia platformy Azure, można zdefiniować zasoby dla usługi w [szablonach Menedżer zasobów](template-syntax.md). Po utworzeniu szablonów należy używać Deployment Manager do opisywania topologii usługi i sposobu jej wdrożenia.
 
-Menedżer wdrażania jest funkcją Menedżer zasobów. Rozszerza możliwości podczas wdrażania. Menedżer wdrażania należy używać w przypadku złożonej usługi, która musi zostać wdrożona w kilku regionach. Dzięki etapowemu wdrażaniu Twojej usługi możesz znaleźć potencjalne problemy zanim zostanie ona wdrożona we wszystkich regionach. Jeśli nie są potrzebne dodatkowe środki ostrożności w przypadku wdrożenia przemieszczanego, użyj standardowych [opcji wdrażania](deploy-portal.md) dla Menedżer zasobów. Menedżer wdrażania bezproblemowo integruje się ze wszystkimi istniejącymi narzędziami innych firm, które obsługują wdrożenia Menedżer zasobów, takie jak oferty ciągłej integracji i ciągłego dostarczania (CI/CD).
+Deployment Manager jest funkcją Menedżer zasobów. Rozszerza możliwości podczas wdrażania. Deployment Manager należy używać w przypadku złożonej usługi, która musi zostać wdrożona w kilku regionach. Dzięki etapowemu wdrażaniu Twojej usługi możesz znaleźć potencjalne problemy zanim zostanie ona wdrożona we wszystkich regionach. Jeśli nie są potrzebne dodatkowe środki ostrożności w przypadku wdrożenia przemieszczanego, użyj standardowych [opcji wdrażania](deploy-portal.md) dla Menedżer zasobów. Deployment Manager bezproblemowo integruje się ze wszystkimi istniejącymi narzędziami innych firm, które obsługują wdrożenia Menedżer zasobów, takie jak oferty ciągłej integracji i ciągłego dostarczania (CI/CD).
 
-Usługa Azure Menedżer wdrażania jest w wersji zapoznawczej. Pomóż nam ulepszyć funkcję, przekazując [Opinie](https://aka.ms/admfeedback).
+Usługa Azure Deployment Manager jest w wersji zapoznawczej. Pomóż nam ulepszyć funkcję, przekazując [Opinie](https://aka.ms/admfeedback).
 
-Aby użyć Menedżer wdrażania, należy utworzyć cztery pliki:
+Aby użyć Deployment Manager, należy utworzyć cztery pliki:
 
 * Szablon topologii
 * Wdrażanie szablonu
@@ -30,14 +30,14 @@ Szablon topologii jest wdrażany przed wdrożeniem szablonu wdrożenia.
 
 Dodatkowe zasoby:
 
-- [Dokumentacja interfejsu API REST usługi Azure Menedżer wdrażania](/rest/api/deploymentmanager/).
-- [Samouczek: korzystanie z usługi Azure Menedżer wdrażania z szablonami Menedżer zasobów](./deployment-manager-tutorial.md).
-- [Samouczek: korzystanie z kontroli kondycji w usłudze Azure Menedżer wdrażania](./deployment-manager-tutorial-health-check.md).
-- [Przykład Menedżer wdrażania platformy Azure](https://github.com/Azure-Samples/adm-quickstart).
+* [Dokumentacja interfejsu API REST usługi Azure Deployment Manager](/rest/api/deploymentmanager/).
+* [Samouczek: korzystanie z usługi Azure Deployment Manager z szablonami Menedżer zasobów](./deployment-manager-tutorial.md).
+* [Samouczek: korzystanie z kontroli kondycji w usłudze Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+* [Przykład Deployment Manager platformy Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Tożsamość i dostęp
 
-W przypadku Menedżer wdrażania [tożsamość zarządzana przypisana przez użytkownika](../../active-directory/managed-identities-azure-resources/overview.md) wykonuje akcje wdrożenia. Tę tożsamość tworzysz przed rozpoczęciem wdrażania. Musi mieć dostęp do subskrypcji, w której jest wdrażana usługa, oraz wystarczających uprawnień do ukończenia wdrożenia. Informacje o akcjach przyznanych za pomocą ról można znaleźć [w temacie Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
+W przypadku Deployment Manager [tożsamość zarządzana przypisana przez użytkownika](../../active-directory/managed-identities-azure-resources/overview.md) wykonuje akcje wdrożenia. Tę tożsamość tworzysz przed rozpoczęciem wdrażania. Musi mieć dostęp do subskrypcji, w której jest wdrażana usługa, oraz wystarczających uprawnień do ukończenia wdrożenia. Informacje o akcjach przyznanych za pomocą ról można znaleźć [w temacie Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 Tożsamość musi znajdować się w tej samej lokalizacji co wdrożenie.
 
@@ -49,10 +49,10 @@ Szablon topologii zawiera opis zasobów platformy Azure, które składają się 
 
 Szablon topologii obejmuje następujące zasoby:
 
-* Źródło artefaktu — w którym są przechowywane Menedżer zasobów szablony i parametry
-* Topologia usługi — wskazuje Źródło artefaktu
-  * Usługi — określa lokalizację i Identyfikator subskrypcji platformy Azure
-    * Jednostki usługi — określa grupę zasobów, tryb wdrażania i ścieżkę do pliku szablonu i parametru
+* Źródło artefaktu — w którym są przechowywane Menedżer zasobów szablony i parametry.
+* Topologia usługi — wskazuje Źródło artefaktu.
+  * Usługi — określa lokalizację i Identyfikator subskrypcji platformy Azure.
+    * Jednostki usługi — określa grupę zasobów, tryb wdrażania i ścieżkę do plików szablonów i parametrów.
 
 Aby zrozumieć, co się dzieje na każdym poziomie, warto sprawdzić, jakie wartości są podane przez użytkownika.
 
@@ -87,7 +87,7 @@ Aby uzyskać więcej informacji, zobacz [artifactSources Template Reference](/az
 
 ### <a name="service-topology"></a>Topologia usługi
 
-Poniższy przykład przedstawia ogólny format zasobu topologii usług. Podaj identyfikator zasobu źródła artefaktu, który zawiera szablony i pliki parametrów. Topologia usługi zawiera wszystkie zasoby usługi. Aby upewnić się, że źródło artefaktów jest dostępne, topologia usługi jest zależna od niej.
+Poniższy przykład przedstawia ogólny format zasobu topologii usług. Podaj identyfikator zasobu źródła artefaktu, który zawiera szablony i pliki parametrów. Topologia usługi zawiera wszystkie zasoby usługi. Upewnij się, że źródło artefaktu jest dostępne, ponieważ zależy od niego topologia usługi.
 
 ```json
 {
@@ -175,11 +175,11 @@ Aby uzyskać więcej informacji, zobacz [Dokumentacja szablonu Serviceunits](/az
 
 Szablon wdrożenia zawiera opis czynności, które należy wykonać podczas wdrażania usługi. Należy określić topologię usługi, która ma być używana, i zdefiniować kolejność wdrażania jednostek usługi. Zawiera źródło artefaktu do przechowywania plików binarnych wdrożenia. W szablonie wdrożenia należy zdefiniować następującą hierarchię:
 
-* Źródło artefaktu
-* Krok
-* Mieszczenie
-  * Grupy kroków
-    * Operacje wdrażania
+* Źródło artefaktu.
+* Czynności.
+* Mieszczenie.
+  * Grupy kroków.
+    * Operacje wdrażania.
 
 Na poniższej ilustracji przedstawiono hierarchię szablonu wdrożenia:
 
@@ -193,9 +193,9 @@ W szablonie wdrożenia utworzysz Źródło artefaktów dla plików binarnych, kt
 
 ### <a name="steps"></a>Kroki
 
-Można zdefiniować krok do wykonania przed operacją wdrożenia lub po niej. Obecnie dostępny jest tylko `wait` krok i krok "healthCheck".
+Można zdefiniować krok do wykonania przed operacją wdrożenia lub po niej. Obecnie tylko `wait` krok i `healthCheck` krok są dostępne.
 
-Krok oczekiwania wstrzymuje wdrożenie przed kontynuowaniem. Umożliwia sprawdzenie, czy usługa działa zgodnie z oczekiwaniami przed wdrożeniem następnej jednostki usługi. W poniższym przykładzie przedstawiono ogólny format kroku oczekiwania.
+Ten `wait` krok wstrzymuje wdrożenie przed kontynuowaniem. Umożliwia sprawdzenie, czy usługa działa zgodnie z oczekiwaniami przed wdrożeniem następnej jednostki usługi. W poniższym przykładzie przedstawiono ogólny format `wait` kroku.
 
 ```json
 {
@@ -214,13 +214,13 @@ Krok oczekiwania wstrzymuje wdrożenie przed kontynuowaniem. Umożliwia sprawdze
 
 Właściwość Duration używa [standardu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). Poprzedni przykład określa czas oczekiwania na minutę.
 
-Aby uzyskać więcej informacji o kroku sprawdzania kondycji, zobacz [wprowadzenie do wdrożenia integracji kondycji na platformie azure Menedżer wdrażania](./deployment-manager-health-check.md) i [Samouczek: Używanie kontroli kondycji w usłudze Azure Menedżer wdrażania](./deployment-manager-tutorial-health-check.md).
+Aby uzyskać więcej informacji o kontrolach kondycji, zobacz [wprowadzenie do wdrożenia integracji kondycji na platformie azure Deployment Manager](./deployment-manager-health-check.md) i [Samouczek: Użyj kontroli kondycji w usłudze Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Aby uzyskać więcej informacji, zobacz [Dokumentacja szablonu kroków](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Wprowadzanie
 
-Aby upewnić się, że źródło artefaktu jest dostępne, jego wdrożenie zależy od niego. Wdrażanie definiuje grupy kroków dla każdej wdrożonej jednostki usługi. Można zdefiniować akcje przed wdrożeniem lub po nim. Można na przykład określić, że wdrożenie zaczeka po wdrożeniu jednostki usługi. Można zdefiniować kolejność grup kroków.
+Upewnij się, że źródło artefaktu jest dostępne, ponieważ jest od niego zależne. Wdrażanie definiuje grupy kroków dla każdej wdrożonej jednostki usługi. Można zdefiniować akcje przed wdrożeniem lub po nim. Na przykład można określić wdrożenie czekające po wdrożeniu jednostki usługi. Można zdefiniować kolejność grup kroków.
 
 Obiekt Identity określa [tożsamość zarządzaną przypisaną przez użytkownika](#identity-and-access) , która wykonuje akcje wdrożenia.
 
@@ -268,9 +268,9 @@ Tworzysz dwa pliki parametrów. Podczas wdrażania topologii usługi używany je
 
 ## <a name="containerroot-variable"></a>Zmienna containerRoot
 
-W przypadku wdrożeń z wersjami ścieżki do artefaktów zmieniają się wraz z każdą nową wersją. Przy pierwszym uruchomieniu wdrożenia może to być ścieżka `https://<base-uri-blob-container>/binaries/1.0.0.0` . Druga godzina może być `https://<base-uri-blob-container>/binaries/1.0.0.1` . Menedżer wdrażania upraszcza pobieranie prawidłowej ścieżki głównej dla bieżącego wdrożenia przy użyciu `$containerRoot` zmiennej. Ta wartość zmienia się w przypadku każdej wersji i nie jest znana przed wdrożeniem.
+W przypadku wdrożeń z wersjami ścieżki do artefaktów zmieniają się wraz z każdą nową wersją. Przy pierwszym uruchomieniu wdrożenia może to być ścieżka `https://<base-uri-blob-container>/binaries/1.0.0.0` . Druga godzina może być `https://<base-uri-blob-container>/binaries/1.0.0.1` . Deployment Manager upraszcza pobieranie prawidłowej ścieżki głównej dla bieżącego wdrożenia przy użyciu `$containerRoot` zmiennej. Ta wartość zmienia się w przypadku każdej wersji i nie jest znana przed wdrożeniem.
 
-Użyj `$containerRoot` zmiennej w pliku parametrów dla szablonu do wdrożenia zasobów platformy Azure. W czasie wdrażania ta zmienna jest zastępowana rzeczywistymi wartościami z wdrożenia.
+Użyj `$containerRoot` zmiennej w pliku parametrów dla szablonu, który wdraża zasoby platformy Azure. W czasie wdrażania ta zmienna jest zastępowana rzeczywistymi wartościami z wdrożenia.
 
 Na przykład podczas wprowadzania utworzysz Źródło artefaktu dla artefaktów binarnych.
 
@@ -294,9 +294,9 @@ Na przykład podczas wprowadzania utworzysz Źródło artefaktu dla artefaktów 
 },
 ```
 
-Zwróć uwagę `artifactRoot` na `sasUri` właściwości i. Element główny artefaktu może być ustawiony na wartość taką jak `binaries/1.0.0.0` . Identyfikator URI sygnatury dostępu współdzielonego jest identyfikatorem URI dla kontenera magazynu z tokenem SAS na potrzeby programu Access. Menedżer wdrażania automatycznie konstruuje wartość `$containerRoot` zmiennej. Łączy te wartości w formacie `<container>/<artifactRoot>` .
+Zwróć uwagę `artifactRoot` na `sasUri` właściwości i. Element główny artefaktu może być ustawiony na wartość taką jak `binaries/1.0.0.0` . Identyfikator URI sygnatury dostępu współdzielonego jest identyfikatorem URI dla kontenera magazynu z tokenem SAS na potrzeby programu Access. Deployment Manager automatycznie konstruuje wartość `$containerRoot` zmiennej. Łączy te wartości w formacie `<container>/<artifactRoot>` .
 
-Szablon i plik parametrów muszą znać poprawną ścieżkę do pobierania plików binarnych z wersjami. Na przykład, aby wdrożyć pliki dla aplikacji sieci Web, należy utworzyć następujący plik parametrów z zmienną $containerRoot. Musisz użyć dwóch ukośników odwrotnych ( `\\` ) dla ścieżki, ponieważ pierwszy jest znakiem ucieczki.
+Szablon i plik parametrów muszą znać poprawną ścieżkę do pobierania plików binarnych z wersjami. Na przykład, aby wdrożyć pliki dla aplikacji sieci Web, należy utworzyć następujący plik parametrów ze `$containerRoot` zmienną. Musisz użyć dwóch ukośników odwrotnych ( `\\` ) dla ścieżki, ponieważ pierwszy jest znakiem ucieczki.
 
 ```json
 {
@@ -330,13 +330,13 @@ Następnie użyj tego parametru w szablonie:
 }
 ```
 
-Wdrożenia z wersjami można zarządzać przez utworzenie nowych folderów i przekazanie ich w katalogu głównym podczas wdrażania. Ścieżka przechodzi przez szablon, który wdraża zasoby.
+Wdrożenia z wersjami można zarządzać przez utworzenie nowych folderów i przekazanie ich w ścieżce katalogu głównego podczas wdrażania. Ścieżka przechodzi przez szablon, który wdraża zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule omówiono Menedżer wdrażania. Przejdź do następnego artykułu, aby dowiedzieć się, jak wdrożyć program przy użyciu Menedżer wdrażania.
+W tym artykule omówiono Deployment Manager. Przejdź do następnego artykułu, aby dowiedzieć się, jak wdrożyć program przy użyciu Deployment Manager.
 
 > [!div class="nextstepaction"]
-> [Samouczek: korzystanie z usługi Azure Menedżer wdrażania z szablonami Menedżer zasobów](./deployment-manager-tutorial.md)
+> [Samouczek: korzystanie z usługi Azure Deployment Manager z szablonami Menedżer zasobów](./deployment-manager-tutorial.md)
 >
-> [Szybki Start: Wypróbuj usługę Azure Menedżer wdrażania w ciągu zaledwie kilku minut](https://github.com/Azure-Samples/adm-quickstart)
+> [Szybki Start: Wypróbuj usługę Azure Deployment Manager w ciągu zaledwie kilku minut](https://github.com/Azure-Samples/adm-quickstart)

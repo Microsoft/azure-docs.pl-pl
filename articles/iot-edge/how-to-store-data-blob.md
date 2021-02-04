@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2ee4e313366bafdd2f6e3bd0e104abd9f11b7776
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 6cefb60d794defcce54766b9c7f71e7fbf40fe5c
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108674"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539437"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Store data at the edge with Azure Blob Storage on IoT Edge (Przechowywanie danych na urządzeniu brzegowym dzięki usłudze Azure Blob Storage w usłudze IoT Edge)
 
@@ -184,6 +184,7 @@ Dokumentacja usługi Azure Blob Storage zawiera przykładowy kod szybkiego start
 W poniższych przykładach szybkiego startu są używane Języki, które są również obsługiwane przez IoT Edge, więc można je wdrożyć jako moduły IoT Edge obok modułu BLOB Storage:
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+  * Blob Storage platformy Azure w usłudze IoT Edge module v 1.4.0 i starszych są zgodne z WindowsAzure. Storage 9.3.3 SDK i v 1.4.1 również obsługuje platformę Azure. Storage. blob 12.8.0 SDK.
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Wersje przed V 2.1 zestawu SDK języka Python mają znany problem, w którym moduł nie zwraca czasu utworzenia obiektu BLOB. Z powodu tego problemu niektóre metody, takie jak obiekty blob list, nie działają. Aby obejść ten sposób, jawnie ustaw wersję interfejsu API na kliencie obiektów BLOB na "2017-04-17". Przyklad  `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Dołącz przykład obiektu BLOB](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
@@ -290,9 +291,9 @@ Ich
 
 Ten Blob Storage platformy Azure na IoT Edge module zapewnia teraz integrację z Event Grid na IoT Edge. Aby uzyskać szczegółowe informacje na temat integracji, zapoznaj się z [samouczkiem dotyczącym wdrażania modułów, publikowania zdarzeń i weryfikowania dostarczania zdarzeń](../event-grid/edge/react-blob-storage-events-locally.md).
 
-## <a name="release-notes"></a>Informacje o wersji
+## <a name="release-notes"></a>Uwagi do wersji
 
-Poniżej znajdują się [Informacje o wersji usługi Docker Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) dla tego modułu
+Poniżej znajdują się [Informacje o wersji usługi Docker Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) dla tego modułu. Więcej informacji dotyczących poprawek błędów i korygowania można znaleźć w informacjach o wersji określonej wersji.
 
 ## <a name="suggestions"></a>Sugestie
 
