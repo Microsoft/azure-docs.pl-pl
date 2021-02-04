@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: f4a1cc432a50a555fe6e050ca318b4cfaf1092d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dfb887004cd29b5bd9f1d9886b7dfa5f43c83dbe
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682250"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99532141"
 ---
-Pliki MP4 są zapisywane w katalogu na urządzeniu brzegowym skonfigurowanym w pliku *ENV* przy użyciu klucza OUTPUT_VIDEO_FOLDER_ON_DEVICE. Jeśli użyto wartości domyślnej, wyniki powinny znajdować się w folderze */var/media/* .
+Pliki MP4 są zapisywane w katalogu na urządzeniu brzegowym skonfigurowanym w pliku *ENV* przy użyciu klucza VIDEO_OUTPUT_FOLDER_ON_DEVICE. Jeśli użyto wartości domyślnej, wyniki powinny znajdować się w folderze */var/media/* .
 
 Aby odtworzyć klip MP4:
 

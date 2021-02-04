@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 67d6155d35f366429bf0210f18f052d9b6187820
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 9503d93afbf14be159e6b982d9be5977717349ac
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99214878"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531483"
 ---
 Ten samouczek wymaga następujących zasobów platformy Azure:
 
@@ -16,6 +16,8 @@ Ten samouczek wymaga następujących zasobów platformy Azure:
 W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) w celu wdrożenia wymaganych zasobów w ramach subskrypcji platformy Azure. W tym celu wykonaj następujące czynności:
 
 1. Otwórz usługę [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. Jeśli używasz Cloud Shell po raz pierwszy, zostanie wyświetlony monit o wybranie subskrypcji w celu utworzenia konta magazynu i udziału plików Microsoft Azure. Wybierz pozycję **Utwórz magazyn** , aby utworzyć konto magazynu dla informacji sesji Cloud Shell. To konto magazynu jest niezależne od konta tworzonego przez skrypt do użycia z Twoim kontem Azure Media Services.
 1. W menu rozwijanym po lewej stronie okna Cloud Shell wybierz pozycję **bash** jako swoje środowisko.
 
@@ -42,12 +44,12 @@ W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów
 
 1. Po zakończeniu działania skryptu wybierz nawiasy klamrowe, aby uwidocznić strukturę folderów. Zobaczysz kilka plików w katalogu *~/CloudDrive/LVA-Sample* . Są one przydatne w tym przewodniku szybki start:
 
-     * ***~/CloudDrive/LVA-Sample/Edge-Deployment/.env** _ — ten plik zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
-     _ ***~/clouddrive/lva-sample/appsetting.json** _ Visual Studio Code używa tego pliku do uruchomienia przykładowego kodu.
+     * ***~/CloudDrive/LVA-Sample/Edge-Deployment/.env*** — ten plik zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
+     * ***~/clouddrive/lva-sample/appsetting.json*** -Visual Studio Code używa tego pliku do uruchomienia przykładowego kodu.
      
     Te pliki będą potrzebne podczas konfigurowania środowiska deweloperskiego w Visual Studio Code w następnej sekcji. Możesz chcieć skopiować je do pliku lokalnego.
     
     ![Ustawienia aplikacji](../../../media/quickstarts/clouddrive.png)
 
 > [!TIP]
-> Jeśli wystąpią problemy z zasobami platformy Azure, które zostaną utworzone, przejrzyj *[Przewodnik rozwiązywania problemów](../../../troubleshoot-how-to.md#common-error-resolutions)**, aby rozwiązać niektóre często występujące problemy.
+> Jeśli wystąpią problemy z zasobami platformy Azure, które zostały utworzone, przejrzyj **[Przewodnik rozwiązywania problemów](../../../troubleshoot-how-to.md#common-error-resolutions)** , aby rozwiązać niektóre często występujące problemy.

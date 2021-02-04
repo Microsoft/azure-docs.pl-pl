@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 9419e5f419a358be50fbb3b8478d62dfe6e3dff0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509354"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536836"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Tworzenie zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -23,7 +23,7 @@ W przypadku tworzenia zapytania po raz pierwszy w tym artykule opisano podejści
 
 Zapytanie jest żądaniem tylko do odczytu w kolekcji docs jednego indeksu wyszukiwania. Określa "querytype" i wyrażenie zapytania, za pomocą parametru "Search". Wyrażenie zapytania może zawierać terminy wyszukiwania, frazę zawartą w cudzysłowie i operatory.
 
-Zapytanie może również mieć wartość "Count", aby zwrócić liczbę dopasowań znalezionych w indeksie, "Select" w celu wybrania pól, które są zwracane w wyniku wyszukiwania, i "OrderBy" w celu sortowania wyników. Poniższe przykłady przedstawiają żądanie zapytania z podzbiorem dostępnych parametrów. Aby uzyskać więcej informacji na temat kompozycji zapytania, zobacz [typy zapytań i kompozycje](search-query-overview.md) oraz [Wyszukiwanie dokumentów (REST)](/rest/api/searchservice/search-documents).
+Zapytanie może również mieć wartość "Count", aby zwrócić liczbę dopasowań znalezionych w indeksie, "Select" w celu wybrania pól, które są zwracane w wyniku wyszukiwania, i "OrderBy" w celu sortowania wyników. W poniższym przykładzie przedstawiono ogólny pomysł żądania zapytania, wyświetlając podzestaw dostępnych parametrów. Aby uzyskać więcej informacji na temat kompozycji zapytania, zobacz [typy zapytań i kompozycje](search-query-overview.md) oraz [Wyszukiwanie dokumentów (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -38,7 +38,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="choose-a-client"></a>Wybierz klienta
 
-Do utworzenia zapytania, takiego jak Azure Portal lub Poster lub kod, który tworzy wystąpienie programu Query Client, potrzebne jest narzędzie lub interfejs API. Zalecamy używanie Azure Portal lub interfejsów API REST na potrzeby wczesnego tworzenia i testowania koncepcji.
+Potrzebujesz narzędzia, takiego jak Azure Portal lub Poster, lub kodu, który tworzy wystąpienie programu Query Client przy użyciu interfejsów API. Zalecamy używanie Azure Portal lub interfejsów API REST na potrzeby wczesnego tworzenia i testowania koncepcji.
 
 ### <a name="permissions"></a>Uprawnienia
 
@@ -111,14 +111,6 @@ Aby uzyskać opis atrybutów pól, zobacz [Tworzenie indeksu (interfejs API REST
 Podczas indeksowania, aparat wyszukiwania używa analizatora do przeprowadzenia analizy tekstu dla ciągów, maksymalizując potencjał do dopasowania w czasie wykonywania zapytania. Minimalna wielkość liter w ciągach jest niższa, ale mogą one być również poddawane Lematyzacja i zatrzymywanie usuwania wyrazów. Większe ciągi lub wyrazy złożone są zwykle podzielone na spacje, łączniki lub łączniki, a także indeksowane jako oddzielne tokeny. 
 
 W tym miejscu warto pamiętać, że zawartość Twojego indeksu zawiera, a co w rzeczywistości może być inna. Jeśli zapytania nie zwracają oczekiwanych wyników, można sprawdzić tokeny utworzone przez analizator za pomocą [analizy tekstu (interfejs API REST)](/rest/api/searchservice/test-analyzer). Aby uzyskać więcej informacji na temat tokenizacji i wpływu na zapytania, zobacz [częściowe wyszukiwanie terminów i wzorce przy użyciu znaków specjalnych](search-query-partial-matching.md).
-
-## <a name="about-queries-per-second-qps"></a>Zapytania na sekundę (zapytań) — informacje
-
-Ze względu na dużą liczbę czynników, które przechodzą na wydajność zapytań, firma Microsoft nie publikuje oczekiwanych liczb zapytań. Oszacowania zapytań muszą być opracowywane niezależnie przez każdego klienta przy użyciu warstwy usług, konfiguracji, indeksu i konstrukcji zapytań, które są prawidłowe dla danej aplikacji. Rozmiar indeksu i złożoność, rozmiar zapytania i złożoność oraz wielkość ruchu to podstawowe znaczniki zapytań. Nie ma możliwości zaoferowania znaczących szacunków, gdy takie czynniki są nieznane.
-
-Oszacowania są bardziej przewidywalne, gdy są obliczane w usługach uruchomionych na dedykowanych zasobach (warstwach Podstawowa i standardowa). Możesz oszacować zapytań bardziej blisko, ponieważ masz kontrolę nad większymi parametrami. Aby uzyskać wskazówki dotyczące sposobu podejścia do oceny, zobacz temat [wydajność i optymalizacja na platformie wyszukiwanie poznawcze Azure](search-performance-optimization.md).
-
-W przypadku warstw zoptymalizowanych pod kątem magazynu (L1 i L2) należy oczekiwać mniejszej przepływności zapytań i wyższych opóźnień niż w przypadku warstw standardowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

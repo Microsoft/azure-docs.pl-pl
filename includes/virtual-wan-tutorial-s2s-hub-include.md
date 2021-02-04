@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 64470b42efeea49b7c778d6dffd88465b8445e36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31cfb321a60e700aecfdc1288ccdd379b89658ba
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606459"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531632"
 ---
 1. Zlokalizuj utworzoną wirtualną sieć WAN. Na stronie wirtualna sieć WAN w obszarze **łączność** wybierz pozycję **centra**.
 2. Na stronie centra wybierz pozycję **+ nowe centrum** , aby otworzyć stronę **Tworzenie wirtualnego centrum** .
@@ -25,7 +25,7 @@ ms.locfileid: "90606459"
 
    * Region (wcześniej nazywany lokalizacją)
    * Nazwa
-   * Prywatna przestrzeń adresowa centrum. Minimalną przestrzenią adresową jest/24, aby utworzyć centrum, co oznacza, że każdy zakres od/25 do/32 spowoduje wystąpienie błędu podczas tworzenia. Wirtualna sieć WAN platformy Azure będąca usługą zarządzaną przez firmę Microsoft tworzy odpowiednie podsieci w koncentratorze wirtualnym dla różnych bram/usług (np. bram sieci VPN, bram ExpressRoute, sieci VPN użytkownika/połączeń punkt-lokacja, zapory, routingu itp.). Nie ma potrzeby, aby użytkownik jawnie zaplanował przestrzeń adresową podsieci dla usług w koncentratorze wirtualnym, ponieważ firma Microsoft robi to jako część usługi.
+   * Prywatna przestrzeń adresowa centrum. Minimalną przestrzenią adresową jest/24, aby utworzyć centrum, co oznacza, że każdy zakres od/25 do/32 spowoduje wystąpienie błędu podczas tworzenia. Zaleca się jednak przydzielanie przestrzeni adresów/23 w celu zapewnienia wystarczającej liczby adresów IP do obsługi przyszłych usług, które można wdrożyć w koncentratorze wirtualnym. Wirtualna sieć WAN platformy Azure będąca usługą zarządzaną przez firmę Microsoft tworzy odpowiednie podsieci w koncentratorze wirtualnym dla różnych bram/usług (np. bram sieci VPN, bram ExpressRoute, sieci VPN użytkownika/połączeń punkt-lokacja, zapory, routingu itp.). Nie ma potrzeby, aby użytkownik jawnie zaplanował przestrzeń adresową podsieci dla usług w koncentratorze wirtualnym, ponieważ firma Microsoft robi to jako część usługi.
 4. Wybierz pozycję **Dalej: lokacja-lokacja**.
 
     ![Zrzut ekranu przedstawia okienko tworzenie wirtualnego centrum z wybraną lokacją lokacja.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Lokacja-lokacja")

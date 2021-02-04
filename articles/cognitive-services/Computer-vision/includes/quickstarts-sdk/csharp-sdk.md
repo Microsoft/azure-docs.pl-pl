@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58ad4acaa60abe56849490df39c91949abec2f5d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8bb0c8e58c7b5eb1a0ba8a8ca4006ef04b2e2423
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947341"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531519"
 ---
 <a name="HOLTop"></a>
 
@@ -255,9 +255,21 @@ W klasie **programu** Zapisz odwołanie do adresu URL obrazu, z którego ma zost
 
 ### <a name="call-the-read-api"></a>Wywoływanie interfejsu API odczytu
 
-Dodaj następującą metodę, która wywołuje metodę **ReadAsync** dla danego obrazu. Zwraca identyfikator operacji i uruchamia proces asynchroniczny w celu odczytania zawartości obrazu. Następnie Pobierz identyfikator operacji zwrócony z wywołania **ReadAsync** i użyj go do sondowania usługi pod kątem wyników operacji. Na koniec Wydrukuj wyodrębniony tekst w konsoli programu.
+Zdefiniuj nową metodę odczytywania tekstu. Dodaj poniższy kod, który wywołuje metodę **ReadAsync** dla danego obrazu. Zwraca identyfikator operacji i uruchamia proces asynchroniczny w celu odczytania zawartości obrazu.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_1)]
+
+### <a name="get-read-results"></a>Pobierz wyniki odczytu
+
+Następnie Pobierz identyfikator operacji zwrócony z wywołania **ReadAsync** i użyj go do wysyłania zapytań do usługi w celu uzyskania wyników operacji. Poniższy kod sprawdza operację do momentu zwrócenia wyników. Następnie program drukuje wyodrębnione dane tekstowe do konsoli programu.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_2)]
+
+### <a name="display-read-results"></a>Wyświetl wyniki odczytu
+
+Dodaj następujący kod, aby przeanalizować i wyświetlić pobrane dane tekstowe, a następnie Zakończ definicję metody.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_3)]
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 

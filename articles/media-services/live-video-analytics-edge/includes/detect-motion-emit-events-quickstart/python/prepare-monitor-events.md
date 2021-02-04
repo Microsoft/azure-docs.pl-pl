@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 98b9734bb1c31b08e7f4784558efaba3a393d0b0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 882ba60e16f770651a1d9fe3b02b61be2b4c34c8
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691151"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531914"
 ---
 Użyjesz usługi Analiza filmów wideo na żywo w IoT Edge module, aby wykryć ruch w przychodzącym strumieniu wideo na żywo i wysyłać zdarzenia do IoT Hub. Aby wyświetlić te zdarzenia, wykonaj następujące kroki:
 
@@ -13,3 +13,9 @@ Użyjesz usługi Analiza filmów wideo na żywo w IoT Edge module, aby wykryć r
 1. Kliknij prawym przyciskiem myszy pozycję **LVA-Sample-Device** i wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**.
 
     ![Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia](../../../media/quickstarts/start-monitoring-iothub-events.png)
+
+> [!NOTE]
+> Może zostać wyświetlony monit o podanie wbudowanych informacji o punkcie końcowym dla IoT Hub. Aby uzyskać te informacje, w Azure Portal przejdź do IoT Hub i poszukaj opcji **wbudowane punkty końcowe** w lewym okienku nawigacji. Kliknij tam i Wyszukaj **punkt końcowy zgodny z centrum zdarzeń** w sekcji **punkt końcowy zgodny z centrum zdarzeń** . Skopiuj i Użyj tekstu w polu. Punkt końcowy będzie wyglądać następująco:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
