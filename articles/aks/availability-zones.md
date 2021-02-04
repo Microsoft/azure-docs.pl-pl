@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 9953b51dc93738093ef56f9dbc64b4e1165cc40c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 319e56f5cec6df07230ded22277bc74c2a430133
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091399"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99561973"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes Service (AKS) korzystającego ze stref dostępności
 
@@ -34,9 +34,11 @@ Klastry AKS można obecnie tworzyć przy użyciu stref dostępności w następuj
 * East US 
 * Wschodnie stany USA 2
 * Francja Środkowa
+* Niemcy Środkowo-Zachodnie
 * Japonia Wschodnia
 * Europa Północna
 * Azja Południowo-Wschodnia
+* South Central US
 * Południowe Zjednoczone Królestwo
 * West Europe
 * Zachodnie stany USA 2
