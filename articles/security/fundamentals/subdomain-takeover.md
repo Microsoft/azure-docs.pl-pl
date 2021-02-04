@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7821d94ed032fd0fc52a756766e6a9af7c82cfde
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409896"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559243"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
 
 W tym artykule opisano typowe zagrożenie bezpieczeństwa związane z przejmowaniem domeny oraz czynności, które można podjąć w celu rozwiązania tego problemu.
 
 
-## <a name="what-is-subdomain-takeover"></a>Co to jest przejęcie poddomeny?
+## <a name="what-is-a-subdomain-takeover"></a>Co to jest przejęcie poddomeny?
 
 Przejęcia poddomen są typowymi zagrożeniami o wysokim znaczeniu dla organizacji, które regularnie tworzą i usuwają wiele zasobów. Przejęcie poddomeny może wystąpić, gdy istnieje [rekord DNS](../../dns/dns-zones-records.md#dns-records) wskazujący na niezainicjowany zasób platformy Azure. Takie rekordy DNS są również znane jako wpisy "zawieszonego DNS". Rekordy CNAME są szczególnie zagrożone tym zagrożeniem. Przejęcia domen podrzędnych umożliwiają złośliwym podmiotom przekierowywanie ruchu przeznaczonego dla domeny organizacji do lokacji wykonującej złośliwe działanie.
 
@@ -94,7 +94,7 @@ Narzędzie obsługuje zasoby platformy Azure wymienione w poniższej tabeli. Nar
 | Publiczne adresy IP       | Microsoft. Network/adresów publicipaddress         | Properties. dnsSettings. FQDN                | `abc.EastUs.cloudapp.azure.com` |
 | Azure Traffic Manager     | Microsoft. Network/trafficmanagerprofiles    | Properties. dnsConfig. FQDN                  | `abc.trafficmanager.net`        |
 | Wystąpienie kontenera platformy Azure  | Microsoft. containerinstance/containergroups | Properties. ipAddress. FQDN                  | `abc.EastUs.azurecontainer.io`  |
-| Azure API Management      | Microsoft. apimanagement/Service             | Properties. hostnameConfigurations. hostName | `abc.azure-api.net`             |
+| Usługa Azure API Management      | Microsoft. apimanagement/Service             | Properties. hostnameConfigurations. hostName | `abc.azure-api.net`             |
 | Azure App Service         | Microsoft. Web/witryny                         | Właściwości. defaultHostName                 | `abc.azurewebsites.net`         |
 | Azure App Service — miejsca | Microsoft. Web/Sites/miejsca                   | Właściwości. defaultHostName                 | `abc-def.azurewebsites.net`     |
 
@@ -144,6 +144,15 @@ Upewnienie się, że Twoja organizacja ma zaimplementowane procesy, aby zapobiec
 
 Niektóre usługi platformy Azure oferują funkcje, które ułatwiają tworzenie środków zapobiegawczych i są szczegółowo opisane poniżej. Inne metody przeciwdziałania tego problemu muszą zostać ustanowione w ramach najlepszych praktyk w zakresie lub standardowych procedur operacyjnych.
 
+### <a name="enable-azure-defender-for-app-service"></a>Włączanie usługi Azure Defender dla App Service
+
+Azure Security Center Zintegrowana platforma ochrony obciążeń w chmurze (CWPP), usługa Azure Defender oferuje szereg planów umożliwiających ochronę zasobów platformy Azure, hybrydowych i wielojęzycznych oraz obciążeń.
+
+Plan **usługi Azure Defender dla App Service** obejmuje wykrywanie nazw DNS zawieszonego. Po włączeniu tego planu otrzymasz alerty zabezpieczeń w przypadku zlikwidowania witryny sieci Web App Service, ale nie usuniesz jej domeny niestandardowej z rejestratora DNS.
+
+Ochrona usługi DNS w usłudze Azure Defender zawieszonego jest dostępna niezależnie od tego, czy domeny są zarządzane za pomocą Azure DNS, czy rejestratora domeny zewnętrznej i ma zastosowanie do App Service zarówno w systemie Windows, jak i Linux.
+
+Dowiedz się więcej na temat tego i innych korzyści płynących z tego planu usługi Azure Defender w temacie [wprowadzenie do usługi Azure Defender dla App Service](../../security-center/defender-for-app-service-introduction.md).
 
 ### <a name="use-azure-dns-alias-records"></a>Użyj Azure DNS rekordów aliasów
 
@@ -201,6 +210,8 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat usług pokrewnych i funkcji platformy Azure, których można użyć do obrony przed przejęciem domeny podrzędnej, zobacz następujące strony.
+
+- [Włącz usługę Azure Defender dla App Service](../../security-center/defender-for-app-service-introduction.md) — aby otrzymywać alerty w przypadku wykrycia wpisów DNS zawieszonego
 
 - [Zapobiegaj zawieszonego rekordów DNS z Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

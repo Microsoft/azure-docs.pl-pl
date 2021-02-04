@@ -3,19 +3,18 @@ title: Azure Defender for Storage — zalety i funkcje
 description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender dla magazynu.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 42e8a1f4ff06f6ca6af4afd428008ca174823c5f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: eb1635cec2b0bcf7f2c13101b2aeab25a869dc66
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916425"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558529"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Wprowadzenie do usługi Azure Defender dla magazynu
-
 
 **Usługa Azure Defender for Storage** to oparta na platformie Azure warstwa analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Wykorzystuje zaawansowane funkcje zabezpieczeń AI i [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) , aby zapewnić kontekstowe alerty i zalecenia dotyczące zabezpieczeń.
 
@@ -68,7 +67,40 @@ W przypadku podejrzenia, że plik zawiera złośliwe oprogramowanie, Security Ce
 >
 > **Usługę Azure Defender Storage** można włączyć na poziomie subskrypcji lub poziomu zasobów.
 
+## <a name="trigger-a-test-alert-for-azure-defender-for-storage"></a>Wyzwalanie alertu testowego usługi Azure Defender dla magazynu
 
+Aby przetestować alerty zabezpieczeń z usługi Azure Defender dla magazynu w środowisku, wygeneruj Alert "dostęp z węzła zakończenia sieci Tor do konta magazynu", wykonując następujące czynności:
+
+1. Otwórz konto magazynu za pomocą usługi Azure Defender dla magazynu.
+1. Na pasku bocznym wybierz pozycję "kontenery" i Otwórz istniejący kontener lub Utwórz nowy.
+
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Otwieranie kontenera obiektów blob z konta usługi Azure Storage" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+
+1. Przekaż plik do tego kontenera.
+
+    > [!CAUTION]
+    > Nie przekazuj pliku zawierającego poufne dane.
+
+1. Użyj menu kontekstowego w załadowanym pliku, aby wybrać polecenie Generuj sygnaturę dostępu współdzielonego.
+
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="Opcja Generuj sygnaturę dostępu współdzielonego dla pliku w kontenerze obiektów BLOB":::
+
+1. Pozostaw opcje domyślne i wybierz pozycję **Generuj token SAS i adres URL**.
+
+1. Skopiuj wygenerowany adres URL sygnatury dostępu współdzielonego.
+
+1. Na komputerze lokalnym Otwórz przeglądarkę sieci Tor.
+
+    > [!TIP]
+    > Tor można pobrać z witryny sieci Tor [https://www.torproject.org/download/](https://www.torproject.org/download/) .
+
+1. W przeglądarce tor przejdź do adresu URL sygnatury dostępu współdzielonego.
+
+1. Pobierz plik przekazany w kroku 3.
+
+    W ciągu dwóch godzin otrzymasz następujący alert zabezpieczeń z Security Center:
+
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Alert zabezpieczeń dotyczący dostępu z węzła zakończenia tor":::
 
 ## <a name="next-steps"></a>Następne kroki
 

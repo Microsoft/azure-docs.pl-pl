@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 589081149d08983d3cd5a4a8822873f5a6cfca0e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735268"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559433"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Dostosuj konfigurację węzła dla pul węzłów usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -166,7 +166,7 @@ Utwórz `linuxosconfig.json` plik o następującej zawartości:
 }
 ```
 
-Utwórz nowy klaster, określając konfiguracje kublet i OS przy użyciu plików JSON utworzonych w poprzednim kroku. 
+Utwórz nowy klaster, określając konfiguracje kubelet i OS przy użyciu plików JSON utworzonych w poprzednim kroku. 
 
 > [!NOTE]
 > Podczas tworzenia klastra można określić konfigurację kubelet, konfigurację systemu operacyjnego lub oba te elementy. Jeśli określisz konfigurację podczas tworzenia klastra, ta konfiguracja zostanie zastosowana tylko do węzłów w puli węzłów początkowych. Wszystkie ustawienia, które nie zostały skonfigurowane w pliku JSON, będą zachować wartość domyślną.

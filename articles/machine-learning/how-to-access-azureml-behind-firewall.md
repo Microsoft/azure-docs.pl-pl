@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 150e1aee38a724a0d52c83219c4d214265be9274
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: dc8044ee72689634a1d4ce3e0e8b1a499404c5ce
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538072"
+ms.locfileid: "99560301"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
@@ -93,6 +93,7 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie puli Azure Batch w sieci wirt
 
     | **Nazwa hosta** | **Cel** |
     | ---- | ---- |
+    | **graph.windows.net** | Używany przez Azure Machine Learning wystąpienie/klaster obliczeniowy. |
     | **anaconda.com**</br>**\*. anaconda.com** | Służy do instalowania pakietów domyślnych. |
     | **\*. anaconda.org** | Służy do pobierania danych repozytorium. |
     | **pypi.org** | Służy do wyświetlania listy zależności od domyślnego indeksu (jeśli istnieje), a indeks nie jest zastępowany przez ustawienia użytkownika. Jeśli indeks jest zastępowany, należy również zezwolić na **\* . pythonhosted.org**. |
@@ -145,6 +146,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **Wymagane przez** | **Azure — publiczna** | **Azure Government** | **Azure w Chinach — 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Klaster obliczeniowy/wystąpienie | \*. batchai.core.windows.net | \*. batchai.core.usgovcloudapi.net |\*. batchai.ml.azure.cn |
+| Klaster obliczeniowy/wystąpienie | graph.windows.net |  |  |
 | Wystąpienie obliczeniowe | \*. instances.azureml.net | \*. instances.azureml.us | \*. instances.azureml.cn |
 | Wystąpienie obliczeniowe | \*. instances.azureml.ms |  |  |
 

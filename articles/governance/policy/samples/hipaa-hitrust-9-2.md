@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla HIPAA HITRUST 9,2
 description: Szczegółowe informacje na temat wbudowanej inicjatywy zgodności z przepisami HIPAA HITRUST 9,2. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 4ee5f87b5bf8d2476685eb469df05bb2267bcf2f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 24604bf59ab7aaca5921f397f3fed74655442e44
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095760"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558747"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Szczegóły dotyczące wbudowanej inicjatywy zgodności z przepisami HIPAA HITRUST 9,2
 

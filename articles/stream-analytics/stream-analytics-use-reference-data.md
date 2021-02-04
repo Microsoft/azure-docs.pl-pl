@@ -6,12 +6,12 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: d4053cd02dd11922a402971c7f3934a8b818eaa4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e05a4cbbc5fefbfe8a92914ef480f32bdf43ca37
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015907"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560209"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Używanie danych referencyjnych do wyszukiwania w Stream Analytics
 
@@ -32,7 +32,7 @@ Stream Analytics obsługuje magazyn obiektów blob platformy Azure i Azure SQL D
 
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-Dane referencyjne są modelowane jako sekwencja obiektów BLOB (zdefiniowanych w konfiguracji wejściowej) w kolejności rosnącej daty/godziny określonej w nazwie obiektu BLOB. Obsługuje on **tylko** Dodawanie do końca sekwencji przy użyciu daty/godziny **większej** niż określona przez ostatni obiekt BLOB w sekwencji.
+Dane referencyjne są modelowane jako sekwencja obiektów BLOB (zdefiniowanych w konfiguracji wejściowej) w kolejności rosnącej daty/godziny określonej w nazwie obiektu BLOB. Obsługuje on **tylko** Dodawanie do końca sekwencji przy użyciu daty/godziny **większej** niż określona przez ostatni obiekt BLOB w sekwencji. Aby uzyskać więcej informacji, zobacz [Korzystanie z danych referencyjnych z BLOB Storage dla zadania Azure Stream Analytics](data-protection.md).
 
 ### <a name="configure-blob-reference-data"></a>Skonfiguruj dane referencyjne obiektów BLOB
 

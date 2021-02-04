@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 38115f18d9b35545912fad97767f38fd3827d626
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705408"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559993"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -65,7 +65,7 @@ W poniższej tabeli przedstawiono ogólne wytyczne.
 |                            | Zarządzanie QnA Maker | App Service | Azure Cognitive Search | Ograniczenia                      |
 | -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | **Eksperymentowanie**        | Bezpłatna jednostka SKU             | Warstwa Bezpłatna   | Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
-| **Środowisko deweloperskie/testowe**   | Standardowy SKU         | Udostępniona      | Podstawowe        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
+| **Środowisko deweloperskie/testowe**   | Standardowy SKU         | Udostępniona      | Podstawowa        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
 | **Środowisko produkcyjne** | Standardowy SKU         | Podstawowa       | Standardowa (Standard)     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
@@ -93,8 +93,8 @@ W poniższej tabeli przedstawiono ogólne wytyczne.
 |                            |Azure Cognitive Search | Ograniczenia                      |
 | -------------------------- |------------ | -------------------------------- |
 | **Eksperymentowanie**        |Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
-| **Środowisko deweloperskie/testowe**   |Podstawowe        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
-| **Środowisko produkcyjne** |Standard     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
+| **Środowisko deweloperskie/testowe**   |Podstawowa        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
+| **Środowisko produkcyjne** |Standardowa     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 ---
 
@@ -232,22 +232,14 @@ Usługa zarządzania QnA Maker jest używana tylko dla portalu QnA Maker i do ws
 
 Usługa QnA Maker obsługuje dwa rodzaje kluczy: **klucze autorstwa** i **klucze punktu końcowego zapytania** używane w środowisku uruchomieniowym hostowanym w usłudze App Service.
 
-Jeśli szukasz **klucza subskrypcji**, [terminologia została zmieniona](#subscription-keys).
-
 Te klucze są używane podczas wykonywania żądań do usługi za pomocą interfejsów API.
 
 ![Zarządzanie kluczami](../media/qnamaker-how-to-key-management/key-management.png)
 
 |Nazwa|Lokalizacja|Przeznaczenie|
 |--|--|--|
-|Klucz tworzenia|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
+|Klucz tworzenia/subskrypcji|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
 |Klucz punktu końcowego zapytania|[Portal usługi QnA Maker](https://www.qnamaker.ai)|Te klucze służą do wysyłania zapytań do opublikowanego punktu końcowego bazy wiedzy w celu uzyskania odpowiedzi na pytanie użytkownika. Ten punkt końcowy zapytania jest zazwyczaj używany w bot rozmowy lub w kodzie aplikacji klienta, który nawiązuje połączenie z usługą QnA Maker. Te klucze są tworzone podczas publikowania bazy wiedzy QnA Maker.<br><br>Te klucze znajdują się na stronie **ustawień usługi** . Znajdź Tę stronę w menu użytkownika w prawym górnym rogu strony z menu rozwijanego.|
-
-### <a name="subscription-keys"></a>Klucze subskrypcji
-
-Kluczowe terminy tworzenia i wykonywania zapytań są poprawnymi postanowieniami. Poprzedni termin był **kluczem subskrypcji**. Jeśli zostanie wyświetlona inna dokumentacja odwołująca się do kluczy subskrypcji, są one równoważne z tworzeniem kluczy punktu końcowego tworzenia i wykonywania zapytań (użytych w czasie wykonywania).
-
-Aby dowiedzieć się, który klucz należy znaleźć, należy znać dostęp do klucza, zarządzania bazami wiedzy lub zapytania bazy wiedzy.
 
 ### <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci
 
@@ -311,22 +303,14 @@ W programie QnA Maker Managed (wersja zapoznawcza) zarówno zarządzanie, jak i 
 
 Usługa Managed QnA Maker (wersja zapoznawcza) zajmuje się dwoma rodzajami kluczy: **klucze tworzenia** i **klucze wyszukiwanie poznawcze platformy Azure** używane do uzyskiwania dostępu do usługi w ramach subskrypcji klienta.
 
-Jeśli szukasz **klucza subskrypcji**, [terminologia została zmieniona](#subscription-keys).
-
 Te klucze są używane podczas wykonywania żądań do usługi za pomocą interfejsów API.
 
 ![Zarządzanie kluczami — wersja zapoznawcza](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
 
 |Nazwa|Lokalizacja|Przeznaczenie|
 |--|--|--|
-|Klucz tworzenia|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
+|Klucz tworzenia/subskrypcji|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
 |Klucz administratora usługi Azure Wyszukiwanie poznawcze|[Witryna Azure Portal](../../../search/search-security-api-keys.md)|Te klucze są używane do komunikowania się z usługą wyszukiwania poznawczego platformy Azure wdrożoną w ramach subskrypcji platformy Azure użytkownika. Po skojarzeniu wyszukiwania poznawczego platformy Azure z usługą QnA Maker Managed (wersja zapoznawcza) klucz administratora jest automatycznie przenoszona do usługi QnA Maker. <br><br>Te klucze można znaleźć w zasobie **usługi Azure wyszukiwanie poznawcze** na stronie **klucze** .|
-
-### <a name="subscription-keys"></a>Klucze subskrypcji
-
-Kluczowe terminy tworzenia i wykonywania zapytań są poprawnymi postanowieniami. Poprzedni termin był **kluczem subskrypcji**. Jeśli zostanie wyświetlona inna dokumentacja odwołująca się do kluczy subskrypcji, są one równoważne z tworzeniem kluczy punktu końcowego tworzenia i wykonywania zapytań (użytych w czasie wykonywania).
-
-Aby dowiedzieć się, który klucz należy znaleźć, należy znać dostęp do klucza, zarządzania bazami wiedzy lub zapytania bazy wiedzy.
 
 ### <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci 
 

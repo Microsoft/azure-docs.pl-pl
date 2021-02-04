@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786846"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559654"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Korzystanie z usług mowy za pomocą prywatnego punktu końcowego
 
@@ -268,8 +268,6 @@ Jeśli planujesz uzyskać dostęp do zasobu za pomocą tylko prywatnego punktu k
              westeurope.prod.vnet.cog.trafficmanager.net
    ```
 
-3. Upewnij się, że adres IP jest zgodny z adresem IP prywatnego punktu końcowego.
-
 > [!NOTE]
 > Rozpoznany adres IP wskazuje punkt końcowy proxy sieci wirtualnej, który wysyła ruch sieciowy do prywatnego punktu końcowego dla zasobu Cognitive Services. Zachowanie będzie inne dla zasobu z niestandardową nazwą domeny, ale *bez* prywatnych punktów końcowych. Szczegółowe informacje znajdują się w [tej sekcji](#dns-configuration) .
 
@@ -311,6 +309,10 @@ Jest to przykładowy adres URL żądania:
 ```http
 https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
+
+> [!NOTE]
+> Zobacz [ten artykuł](sovereign-clouds.md) , aby uzyskać Azure Government i punkty końcowe platformy Azure w Chinach.
+
 Po włączeniu niestandardowej domeny dla zasobu mowy (który jest konieczny dla prywatnych punktów końcowych) ten zasób będzie używał następującego wzorca nazwy DNS dla podstawowego punktu końcowego interfejsu API REST: <p/>`{your custom name}.cognitiveservices.azure.com`.
 
 Oznacza to, że w naszym przykładzie nazwa punktu końcowego interfejsu API REST będzie: <p/>`my-private-link-speech.cognitiveservices.azure.com`.
@@ -334,42 +336,35 @@ Po włączeniu niestandardowej nazwy domeny dla zasobu mowy, zazwyczaj zastępuj
 - [Cognitive Services regionalne punkty końcowe](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do komunikowania się z interfejsem API REST Cognitive Services w celu uzyskania tokenu autoryzacji
 - Specjalne punkty końcowe dla wszystkich innych operacji
 
-Szczegółowy opis specjalnych punktów końcowych i sposób przekształcania adresu URL dla zasobu mowy z obsługą prywatnego punktu końcowego jest dostępny w [tej podsekcji](#general-principles) dotyczącej użycia za pomocą zestawu Speech SDK. Ta sama zasada opisana dla zestawu SDK ma zastosowanie do interfejsu API REST "Zamiana mowy na tekst" i interfejsu API REST zamiany tekstu na mowę.
+> [!NOTE]
+> Zobacz [ten artykuł](sovereign-clouds.md) , aby uzyskać Azure Government i punkty końcowe platformy Azure w Chinach.
+
+Szczegółowy opis specjalnych punktów końcowych i sposób przekształcania adresu URL dla zasobu mowy z obsługą prywatnego punktu końcowego jest dostępny w [tej podsekcji](#construct-endpoint-url) dotyczącej użycia za pomocą zestawu Speech SDK. Ta sama zasada opisana dla zestawu SDK dotyczy interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku i interfejsu API REST zamiany tekstu na mowę.
 
 Zapoznaj się z materiałem znajdującym się w podsekcji wymienionym w poprzednim akapicie i zobacz Poniższy przykład. W tym przykładzie opisano interfejs API REST zamiany tekstu na mowę. Użycie interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku jest w pełni równoważne.
 
 > [!NOTE]
-> Jeśli używasz interfejsu API REST zamiany mowy na tekst w przypadku krótkiego dźwięku w scenariuszach prywatnych punktów końcowych, użyj tokenu autoryzacji [przekazaną przez](rest-speech-to-text.md#request-headers) `Authorization` [nagłówek](rest-speech-to-text.md#request-headers). Przekazywanie klucza subskrypcji mowy do specjalnego punktu końcowego za pośrednictwem `Ocp-Apim-Subscription-Key` nagłówka *nie* będzie działało i spowoduje to wygenerowanie błędu 401.
+> Gdy korzystasz z interfejsu API REST zamiany mowy na tekst dla krótkiego interfejsu API REST i zamiany tekstu na mowę w scenariuszach prywatnych punktów końcowych, użyj klucza subskrypcji przeprzesyłanego za pośrednictwem `Ocp-Apim-Subscription-Key` nagłówka. (Zobacz szczegóły dotyczące [interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku](rest-speech-to-text.md#request-headers) i [interfejsu API REST zamiany tekstu na mowę](rest-text-to-speech.md#request-headers))
+>
+> Użycie tokenu autoryzacji i przekazanie go do specjalnego punktu końcowego za pośrednictwem `Authorization` nagłówka będzie możliwe *tylko* wtedy, gdy włączono opcję dostępu **wszystkie sieci** w sekcji **Sieć** zasobu mowy. W innych przypadkach podczas `Forbidden` `BadRequest` próby uzyskania tokenu autoryzacji wystąpi błąd lub komunikat o błędzie.
 
 **Przykład użycia interfejsu API REST zamiany tekstu na mowę**
 
 Użyjemy Europa Zachodnia jako przykładowego regionu platformy Azure i `my-private-link-speech.cognitiveservices.azure.com` jako przykładowej nazwy DNS zasobu mowy (domena niestandardowa). Niestandardowa nazwa domeny `my-private-link-speech.cognitiveservices.azure.com` w naszym przykładzie należy do zasobu mowy utworzonego w regionie Europa Zachodnia.
 
-Aby uzyskać listę głosów obsługiwanych w regionie, wykonaj następujące dwie operacje:
+Aby uzyskać listę głosów obsługiwanych w regionie, należy wykonać następujące żądanie:
 
-- Uzyskaj Token autoryzacji:
-  ```http
-  https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
-  ```
-- Korzystając z tokenu, Pobierz listę głosów:
-  ```http
-  https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
-  ```
-Więcej szczegółów na temat powyższych kroków znajduje się w [dokumentacji interfejsu API REST zamiany tekstu na mowę](rest-text-to-speech.md).
+```http
+https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
+```
+Więcej szczegółów znajduje się w [dokumentacji interfejsu API REST zamiany tekstu na mowę](rest-text-to-speech.md).
 
-Dla zasobu mowy z obsługą prywatnego punktu końcowego należy zmodyfikować adresy URL punktu końcowego dla tej samej sekwencji operacji. Ta sama sekwencja będzie wyglądać następująco:
+W przypadku zasobu mowy z obsługą prywatnego punktu końcowego należy zmodyfikować adres URL punktu końcowego dla tej samej operacji. To samo żądanie będzie wyglądać następująco:
 
-- Uzyskaj Token autoryzacji:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
-  ```
-  Zapoznaj się ze szczegółowymi wyjaśnieniami w podsekcji ["Zamiana mowy na tekst" REST API v 3.0](#speech-to-text-rest-api-v30) .
-
-- Korzystając z uzyskanego tokenu, Pobierz listę głosów:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
-  ```
-  Zapoznaj się ze szczegółowym wyjaśnieniem w podsekcji [zasady ogólne](#general-principles) dotyczącej zestawu Speech SDK.
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
+```
+Zapoznaj się ze szczegółowymi wyjaśnieniami w podsekcji [konstrukcja adresu URL punktu końcowego](#construct-endpoint-url) dla zestawu Speech SDK.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Zasób mowy z niestandardową nazwą domeny i prywatnym punktem końcowym: użycie z zestawem Speech SDK
 
@@ -377,9 +372,9 @@ Korzystanie z zestawu Speech SDK z niestandardową nazwą domeny i zasobami mowy
 
 Użyjemy `my-private-link-speech.cognitiveservices.azure.com` jako przykładowej nazwy DNS zasobu mowy (domena niestandardowa) dla tej sekcji.
 
-##### <a name="general-principles"></a>Zasady ogólne
+##### <a name="construct-endpoint-url"></a>Adres URL punktu końcowego konstruowania
 
-Zwykle w scenariuszach z zestawem SDK (a także w scenariuszach interfejsu API REST zamiany tekstu na mowę) zasoby mowy wykorzystują dedykowane regionalne punkty końcowe dla różnych ofert usług. Format nazwy DNS dla tych punktów końcowych to:
+Zwykle w scenariuszach z zestawem SDK (a także w interfejsie API REST zamiany mowy na tekst na potrzeby krótkich i zamiany tekstu na mowę), zasoby mowy wykorzystują dedykowane regionalne punkty końcowe dla różnych ofert usług. Format nazwy DNS dla tych punktów końcowych to:
 
 `{region}.{speech service offering}.speech.microsoft.com`
 
@@ -387,7 +382,7 @@ Przykładowa nazwa DNS:
 
 `westeurope.stt.speech.microsoft.com`
 
-Wszystkie możliwe wartości dla regionu (pierwszy element nazwy DNS) są wymienione w obszarze [Obsługiwane regiony usługi mowy](regions.md). W poniższej tabeli przedstawiono możliwe wartości oferty usługi Speech Services (drugi element nazwy DNS):
+Wszystkie możliwe wartości dla regionu (pierwszy element nazwy DNS) są wymienione w obszarze [Obsługiwane regiony usługi mowy](regions.md). (Zobacz [ten artykuł](sovereign-clouds.md) , aby uzyskać Azure Government i punkty końcowe platformy Azure w Chinach). W poniższej tabeli przedstawiono możliwe wartości oferty usługi Speech Services (drugi element nazwy DNS):
 
 | Wartość nazwy DNS | Oferta usługi mowy                                    |
 |----------------|-------------------------------------------------------------|
@@ -459,7 +454,7 @@ Wykonaj następujące kroki, aby zmodyfikować kod:
 
 2. Utwórz `SpeechConfig` wystąpienie przy użyciu pełnego adresu URL punktu końcowego:
 
-   1. Zmodyfikuj właśnie określony punkt końcowy, zgodnie z opisem w sekcji wcześniejsze [zasady ogólne](#general-principles) .
+   1. Zmodyfikuj już ustalony punkt końcowy, zgodnie z opisem w sekcji wcześniejszy [adres URL punktu końcowego konstruowania](#construct-endpoint-url) .
 
    1. Zmodyfikuj sposób tworzenia wystąpienia `SpeechConfig` . Najprawdopodobniej aplikacja korzysta z podobnej do tego:
       ```csharp
@@ -537,76 +532,34 @@ Użycie funkcji zamiany mowy na tekst w interfejsie API v 3.0 jest w pełni rów
 
 ##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku i interfejsu API REST zamiany tekstu na mowę
 
-W takim przypadku użycie interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku i użycia interfejsu API REST zamiany tekstu na mowę nie ma żadnych różnic między ogólnym przypadkiem a jednym wyjątkiem dla interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku. (Zobacz poniższą uwagę). Należy używać obu interfejsów API, jak opisano w [interfejsie API REST zamiany mowy na tekst dla krótkiej](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) dokumentacji [interfejsu API REST audio i zamiany tekstu na mowę](rest-text-to-speech.md) .
+W takim przypadku użycie interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku i użycia interfejsu API REST zamiany tekstu na mowę nie ma żadnych różnic między ogólnym przypadkiem a jednym wyjątkiem. (Zobacz poniższą uwagę). Należy używać obu interfejsów API, jak opisano w [interfejsie API REST zamiany mowy na tekst dla krótkiej](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) dokumentacji [interfejsu API REST audio i zamiany tekstu na mowę](rest-text-to-speech.md) .
 
 > [!NOTE]
-> Jeśli używasz interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku w scenariuszach domeny niestandardowej, użyj tokenu autoryzacji [przekazaną przez](rest-speech-to-text.md#request-headers) `Authorization` [nagłówek](rest-speech-to-text.md#request-headers). Przekazywanie klucza subskrypcji mowy do specjalnego punktu końcowego za pośrednictwem `Ocp-Apim-Subscription-Key` nagłówka *nie* będzie działało i spowoduje to wygenerowanie błędu 401.
+> W przypadku korzystania z interfejsu API REST zamiany mowy na tekst dla krótkiego interfejsu API REST audio i zamiany tekstu na mowę w scenariuszach domen niestandardowych należy użyć klucza subskrypcji przenoszonego przez `Ocp-Apim-Subscription-Key` nagłówek. (Zobacz szczegóły dotyczące [interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku](rest-speech-to-text.md#request-headers) i [interfejsu API REST zamiany tekstu na mowę](rest-text-to-speech.md#request-headers))
+>
+> Użycie tokenu autoryzacji i przekazanie go do specjalnego punktu końcowego za pośrednictwem `Authorization` nagłówka będzie możliwe *tylko* wtedy, gdy włączono opcję dostępu **wszystkie sieci** w sekcji **Sieć** zasobu mowy. W innych przypadkach podczas `Forbidden` `BadRequest` próby uzyskania tokenu autoryzacji wystąpi błąd lub komunikat o błędzie.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Zasób mowy z niestandardową nazwą domeny i bez prywatnych punktów końcowych: użycie z zestawem Speech SDK
 
-Korzystanie z zestawu Speech SDK z niestandardowymi zasobami mowy z obsługą domeny *bez* prywatnych punktów końcowych wymaga przeglądu i ewentualnych zmian w kodzie aplikacji. Należy pamiętać, że zmiany te różnią się od wielkości liter [zasobów mowy z obsługą prywatnego punktu końcowego](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk). Pracujemy nad bardziej bezproblemowe wsparciem scenariuszy prywatnych punktów końcowych i domen niestandardowych.
+Używanie zestawu Speech SDK z niestandardowymi zasobami mowy z obsługą domeny *bez* prywatnych punktów końcowych jest równoznaczne z ogólnym przypadkiem opisanym w [dokumentacji zestawu Speech SDK](speech-sdk.md).
 
-Użyjemy `my-private-link-speech.cognitiveservices.azure.com` jako przykładowej nazwy DNS zasobu mowy (domena niestandardowa) dla tej sekcji.
+W przypadku zmodyfikowania kodu do użycia z [zasobem mowy z obsługą prywatnego punktu końcowego](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk)należy wziąć pod uwagę następujące kwestie.
 
 W sekcji dotyczącej [zasobów mowy z obsługą punktów końcowych](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk), wyjaśniono, jak określić adres URL punktu końcowego, zmodyfikować go i przeznaczyć na "od punktu końcowego"/"z punktem końcowym" Inicjowanie `SpeechConfig` wystąpienia klasy.
 
 Jednak jeśli spróbujesz uruchomić tę samą aplikację po usunięciu wszystkich prywatnych punktów końcowych (co pozwoli na jakiś czas na ponowne zainicjowanie odpowiedniego rekordu DNS), zostanie wyświetlony wewnętrzny błąd usługi (404). Przyczyną jest to, że [rekord DNS](#dns-configuration) wskazuje punkt końcowy Cognitive Services regionalny zamiast serwera proxy sieci wirtualnej, a ścieżki URL, takie jak `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` nie można znaleźć w tym miejscu.
 
-W przypadku wycofania aplikacji do standardowego wystąpienia programu `SpeechConfig` w stylu następującego kodu aplikacja zostanie przerwana z powodu błędu uwierzytelniania (401):
+Należy wycofać swoją aplikację do standardowego wystąpienia programu `SpeechConfig` w stylu następującego kodu:
 
 ```csharp
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
 
-##### <a name="modifying-applications"></a>Modyfikowanie aplikacji
-
-Aby umożliwić aplikacji używanie zasobu mowy z niestandardową nazwą domeny i bez prywatnych punktów końcowych, wykonaj następujące kroki:
-
-1. Zażądaj tokenu autoryzacji z interfejsu API REST Cognitive Services. W [tym artykule](../authentication.md#authenticate-with-an-authentication-token) pokazano, jak uzyskać token.
-
-   Użyj niestandardowej nazwy domeny w adresie URL punktu końcowego. W naszym przykładzie ten adres URL to:
-   ```http
-   https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
-   ```
-   > [!TIP]
-   > Ten adres URL można znaleźć w Azure Portal. Na stronie zasobów mowy w grupie **Zarządzanie zasobami** wybierz pozycję **klucze i punkt końcowy**.
-
-1. Utwórz `SpeechConfig` wystąpienie przy użyciu tokenu autoryzacji uzyskanego w poprzedniej sekcji. Załóżmy, że zdefiniowano następujące zmienne:
-
-   - `token`: Token autoryzacji uzyskany w poprzedniej sekcji
-   - `azureRegion`: nazwa [regionu](regions.md) zasobów mowy (przykład: `westeurope` )
-   - `outError`: (tylko w przypadku [celu C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror) Case)
-
-   Utwórz `SpeechConfig` wystąpienie takie jak:
-
-   ```csharp
-   var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
-   ```
-   ```cpp
-   auto config = SpeechConfig::FromAuthorizationToken(token, azureRegion);
-   ```
-   ```java
-   SpeechConfig config = SpeechConfig.fromAuthorizationToken(token, azureRegion);
-   ```
-   ```python
-   import azure.cognitiveservices.speech as speechsdk
-   speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
-   ```
-   ```objectivec
-   SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
-   ```
-> [!NOTE]
-> Obiekt wywołujący musi upewnić się, że token autoryzacji jest prawidłowy. Przed wygaśnięciem tokenu autoryzacji wywołujący musi odświeżyć go przez wywołanie tej metody ustawiającej z nowym prawidłowym tokenem. Ponieważ wartości konfiguracji są kopiowane podczas tworzenia nowego aparatu rozpoznawania lub syntezatora, Nowa wartość tokenu nie będzie stosowana do aparatów rozpoznawania lub syntezatorów, które zostały już utworzone.
->
-> W tym celu należy ustawić Token autoryzacji odpowiedniego aparatu rozpoznawania lub syntezatora w celu odświeżenia tokenu. Jeśli token nie zostanie odświeżony, aparat rozpoznawania lub syntezator napotka błędy podczas pracy.
-
-Po tej modyfikacji aplikacja powinna współpracować z zasobami mowy, które używają niestandardowej nazwy domeny bez prywatnych punktów końcowych.
-
 ## <a name="pricing"></a>Cennik
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="learn-more"></a>Więcej informacji
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Link prywatny platformy Azure](../../private-link/private-link-overview.md)
 * [Zestaw SDK rozpoznawania mowy](speech-sdk.md)

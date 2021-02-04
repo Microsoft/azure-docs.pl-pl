@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla zestawów skalowania maszyn wirtualnych platformy Azure
 description: Zawiera listę wbudowanych definicji zasad Azure Policy dla zestawów skalowania maszyn wirtualnych platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 96377f8b115b915fc21cab26132865607bbac639
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 7d02db9cb9256b7a7f3db3d5db48874be1d93a16
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095893"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560939"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Azure Policy wbudowane definicje dla zestawów skalowania maszyn wirtualnych platformy Azure
 
