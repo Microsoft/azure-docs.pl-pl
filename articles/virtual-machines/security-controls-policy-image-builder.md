@@ -1,19 +1,19 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla programu Azure Image Builder
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla usługi Azure Image Builder. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/27/2021
+ms.date: 02/04/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a6d1d54d0e28e0b8e27224943a4e31f8a36d017f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 2a43353c78d94b5a196fb357765394d68fbea77a
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055465"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557780"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Azure Policy kontroli zgodności z przepisami dla programu Azure Image Builder
 

@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z platformy Azure — wskaźnik watchlists
+title: Korzystanie z list obserwowanych usługi Azure Sentinel
 description: W tym artykule opisano, jak używać usługi Azure watchlists do badania zagrożeń, importowania danych firmowych, tworzenia list dozwolonych i wzbogacania danych zdarzeń.
 services: sentinel
 author: yelevin
@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 97509b878fb5e0cb28bddc5d1b58c21b32c34675
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797353"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555642"
 ---
-# <a name="use-azure-sentinel-watchlists"></a>Korzystanie z platformy Azure — wskaźnik watchlists
+# <a name="use-azure-sentinel-watchlists"></a>Korzystanie z list obserwowanych usługi Azure Sentinel
 
 > [!IMPORTANT]
 > Funkcja watchlists jest obecnie w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
@@ -28,7 +28,7 @@ Typowe scenariusze używania watchlists obejmują:
 
 - Szybkie **Badanie zagrożeń** i reagowanie na incydenty szybko przy użyciu szybkiego importowania adresów IP, skrótów plików i innych danych z plików CSV. Po zaimportowaniu można użyć par nazwa-wartość listy do obejrzenia dla sprzężeń i filtrów w regułach alertów, łowiectwu zagrożeń, skoroszytach, notesach i ogólnych zapytaniach.
 
-- **Importowanie danych firmowych** jako watchlists. Na przykład zaimportuj listy użytkowników z uprzywilejowanym dostępem do systemu lub zakończonego pracownikami, a następnie użyj listy do obejrzenia do utworzenia list dozwolonych i zablokowanych, które będą używane do wykrywania lub zapobiegania logowaniem użytkowników w sieci.
+- **Importowanie danych firmowych** jako listy do obejrzenia. Na przykład zaimportuj listy użytkowników z uprzywilejowanym dostępem do systemu lub zakończonego pracownikami, a następnie użyj listy do obejrzenia do utworzenia list dozwolonych i zablokowanych, które będą używane do wykrywania lub zapobiegania logowaniem użytkowników w sieci.
 
 - **Zmniejszenie zmęczenia alertu**. Utwórz listę dozwolonych, aby pomijać alerty od grupy użytkowników, takie jak użytkownicy z autoryzowanych adresów IP wykonujących zadania, które normalnie wyzwalają alert, i Zapobiegaj uruchamianiu niegroźnych zdarzeń.
 

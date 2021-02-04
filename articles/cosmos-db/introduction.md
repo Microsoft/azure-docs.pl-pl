@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: 2dd60d1962734f7a4264587fd1b5b0d2a03c9ff0
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 37ba5fc7ce118e2e8532ea4db18634265aaacb64
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359748"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556853"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB — Zapraszamy!
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -46,7 +46,7 @@ Szybkie tworzenie za pomocą interfejsów API Open Source, wielu zestawów SDK, 
 - Twórz aplikacje w oparciu o rdzeń (SQL) API przy użyciu wybranych przez siebie języków z zestawami SDK dla platform .NET, Java, Node.js i Python. Lub wybrane sterowniki dla dowolnego z innych interfejsów API bazy danych.
 - Uruchom analizę No-ETL na danych operacyjnych niemal w czasie rzeczywistym przechowywanych w Azure Cosmos DB za pomocą usługi Azure Synapse Analytics.
 - Źródło zmian ułatwia śledzenie i zarządzanie zmianami w kontenerach baz danych oraz Tworzenie zdarzeń wyzwalanych przy użyciu Azure Functions.
-- Usługa bez schematu Azure Cosmos DB automatycznie indeksuje wszystkie dane, niezależnie od modelu danych, do dostarczania szybkich zapytań niezwykle.
+- Usługa bez schematu Azure Cosmos DB automatycznie indeksuje wszystkie dane, niezależnie od modelu danych, w celu dostarczania szybkich zapytań niezwykle.
 
 ### <a name="mission-critical-ready"></a>Gotowość na sytuacje krytyczne dla działalności firmy
 

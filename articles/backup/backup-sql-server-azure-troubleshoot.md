@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database
 description: Informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych SQL Server baz danych działających na maszynach wirtualnych platformy Azure z Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549902"
+ms.locfileid: "99557742"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
 
@@ -206,14 +206,14 @@ Operacja została zablokowana, ponieważ magazyn osiągnął limit maksymalny dl
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-Operacja rozszerzenia obciążenia AzureBackup nie powiodła się. | Maszyna wirtualna jest wyłączona (lub) maszyna wirtualna nie może nawiązać kontaktu z usługą Azure Backup z powodu problemów z łącznością z Internetem.| -Upewnij się, że maszyna wirtualna jest uruchomiona i ma łączność z Internetem.<br>- [Zarejestruj ponownie rozszerzenie na maszynie wirtualnej SQL Server](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+Operacja rozszerzenia obciążenia AzureBackup nie powiodła się. | Maszyna wirtualna jest wyłączona lub maszyna wirtualna nie może skontaktować się z usługą Azure Backup z powodu problemów z łącznością z Internetem.| <li> Upewnij się, że maszyna wirtualna jest uruchomiona i ma łączność z Internetem.<li> [Zarejestruj ponownie rozszerzenie na maszynie wirtualnej SQL Server](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
 
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-Maszyna wirtualna nie może nawiązać kontaktu z usługą Azure Backup ze względu na problemy z łącznością z Internetem. | Maszyna wirtualna musi mieć łączność wychodzącą z usługą Azure Backup Service, Azure Storage lub Azure Active Directory Services.| — Jeśli używasz sieciowej grupy zabezpieczeń do ograniczania łączności, Użyj znacznika usługi *AzureBackup* , aby zezwalać na dostęp wychodzący do usługi Azure Backup i podobnie dla usług Azure AD (*usługi azureactivedirectory*) i Azure Storage (*Storage*). Wykonaj następujące [kroki](./backup-sql-server-database-azure-vms.md#nsg-tags) , aby udzielić dostępu.<br>-Upewnij się, że usługa DNS rozwiązuje punkty końcowe platformy Azure.<br>-Sprawdź, czy maszyna wirtualna znajduje się za modułem równoważenia obciążenia blokującym dostęp do Internetu. Przypisując publiczny adres IP do maszyn wirtualnych, odnajdywanie będzie działało.<br>-Sprawdź, czy nie istnieje Zapora/program antywirusowy/serwer proxy, które blokują wywołania powyższych trzech usług docelowych.
+Maszyna wirtualna nie może nawiązać kontaktu z usługą Azure Backup ze względu na problemy z łącznością z Internetem. | Maszyna wirtualna musi mieć łączność wychodzącą z usługą Azure Backup Service, Azure Storage lub Azure Active Directory Services.| <li> Jeśli używasz sieciowej grupy zabezpieczeń do ograniczania łączności, Użyj znacznika usługi *AzureBackup* , aby zezwalać na dostęp wychodzący do usługi Azure Backup i podobnie dla usług Azure AD (*usługi azureactivedirectory*) i Azure Storage (*Storage*). Wykonaj następujące [kroki](./backup-sql-server-database-azure-vms.md#nsg-tags) , aby udzielić dostępu. <li> Upewnij się, że usługa DNS rozwiązuje punkty końcowe platformy Azure. <li> Sprawdź, czy maszyna wirtualna znajduje się za modułem równoważenia obciążenia blokującym dostęp do Internetu. Przypisując publiczny adres IP do maszyn wirtualnych, odnajdywanie będzie działało. <li> Sprawdź, czy nie istnieje Zapora/program antywirusowy/serwer proxy, który blokuje wywołania powyżej trzech usług docelowych.
 
 ## <a name="re-registration-failures"></a>Błędy ponownej rejestracji
 

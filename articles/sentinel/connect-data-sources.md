@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: cffc41264dfa30fd833aef465a13abc799334b2f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c3bb05af3e0a24ebb10dc98b9174cfb235ddda13
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567468"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555918"
 ---
 # <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
@@ -66,11 +66,13 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
 
 - **Rozwiązania zewnętrzne za pośrednictwem interfejsu API**: Niektóre źródła danych są połączone przy użyciu interfejsów API, które są udostępniane przez połączone źródło danych. Zazwyczaj większość technologii zabezpieczeń zapewnia zestaw interfejsów API, za pomocą których można pobrać dzienniki zdarzeń. Interfejsy API nawiązują połączenie z platformą Azure, a następnie zbierają określone typy danych i wysyłają je do Log Analytics platformy Azure. Urządzenia połączone za pośrednictwem interfejsu API obejmują:
     
+    - [Agari phishing i ochrona przed markami](connect-agari-phishing-defense.md)
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [Zapora aplikacji internetowej Barracuda](connect-barracuda.md)
     - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
     - [BETTER Mobile Threat Defense](connect-better-mtd.md)
     - [Beyond Security beSECURE](connect-besecure.md)
+    - [Cisco Umbrella](connect-cisco-umbrella.md)
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
@@ -95,6 +97,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
 
     - **Zapory, proxy i punkty końcowe — CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
+        - [Zdarzenia zabezpieczeń Akamai](connect-akamai-security-events.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Citrix WAF](connect-citrix-waf.md)
@@ -104,24 +107,27 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
         - [Produkty firmy Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
         - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
+        - [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
         - [Łączenie z rozwiązaniem One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
-        - [Serwer Thycotic Secret](connect-thycotic-secret-server.md)
+        - [Thycotic Secret Server](connect-thycotic-secret-server.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
         - [Platforma dowodowych Network WireX](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [Inne urządzenia z systemem CEF](connect-common-event-format.md)
     - **Zapory, proxy i punkty końcowe — dziennik systemowy:**
+        - [Alsid Active Directory](connect-alsid-active-directory.md)
         - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
         - [Juniper SRX](connect-juniper-srx.md)
         - [Pulse Connect Secure](connect-pulse-connect-secure.md)
         - [Sophos XG](connect-sophos-xg-firewall.md)
-        - [Squid serwer proxy](connect-squid-proxy.md)
+        - [Squid Proxy](connect-squid-proxy.md)
         - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
         - [Inne urządzenia oparte na dzienniku systemu](connect-syslog.md)
+    - [Serwer Apache HTTP](connect-apache-http-server.md)
     - Rozwiązania DLP
     - [Dostawcy analizy zagrożeń](connect-threat-intelligence.md)
     - [Maszyny DNS](connect-dns.md) — Agent zainstalowany bezpośrednio na komputerze DNS
@@ -132,7 +138,6 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
 ## <a name="agent-connection-options"></a>Opcje połączenia z agentem<a name="agent-options"></a>
 
 Aby połączyć urządzenie zewnętrzne z centrum danych platformy Azure, należy wdrożyć agenta na dedykowanym komputerze (maszynie wirtualnej lub lokalnie), aby umożliwić obsługę komunikacji między urządzeniem i wskaźnikiem kontrolnym platformy Azure. Agenta można wdrożyć automatycznie lub ręcznie. Automatyczne wdrażanie jest dostępne tylko wtedy, gdy dedykowany komputer jest nową maszyną wirtualną, którą tworzysz na platformie Azure. 
-
 
 ![CEF na platformie Azure](./media/connect-cef/cef-syslog-azure.png)
 

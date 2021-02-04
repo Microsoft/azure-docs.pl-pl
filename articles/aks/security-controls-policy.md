@@ -1,16 +1,16 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla usługi Azure Kubernetes Service (AKS)
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla usługi Azure Kubernetes Service (AKS). Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: sample
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d291b074791f05219ac194651b2b61bd2174d63f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c0085a7e9fb480fb79622d8a9df724d2d4180386
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093226"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557496"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>Azure Policy kontroli zgodności z przepisami dla usługi Azure Kubernetes Service (AKS)
 

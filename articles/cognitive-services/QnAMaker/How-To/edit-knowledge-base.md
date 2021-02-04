@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: f5d7094920a21af630e10aec2aa759ce9c505050
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 8d9f54c1fcd142c77fb73c294b81bf0f11ee083f
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550588"
+ms.locfileid: "99557685"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edytuj pary QnA w bazie wiedzy
 
@@ -38,6 +38,8 @@ Każda para jest reprezentowana przez **Identyfikator**.
 ![QnA Maker bazy wiedzy](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
 ## <a name="add-an-editorial-qna-pair"></a>Dodaj parę redakcyjną QnA
+
+Jeśli nie masz wstępnie istniejącej zawartości do zapełnienia bazy wiedzy, możesz dodać pary QnA w portalu QnA Maker.
 
 1. Zaloguj się do [portalu QNA](https://www.qnamaker.ai/), a następnie wybierz bazę wiedzy, do której zostanie dodana para QNA.
 1. Na stronie **Edytuj** bazy wiedzy wybierz pozycję **Dodaj parę QNA** , aby dodać nową parę QNA.

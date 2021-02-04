@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Backup
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Backup. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: sample
 author: dcurwin
 ms.author: dacurwin
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: fa0368a99fe7f0bbd40fa2bda7b18168fae67a35
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: a745066644ff1659ee8bcf0457384c2cce564c94
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095438"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557836"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-backup"></a>Azure Policy kontroli zgodności z przepisami dla Azure Backup
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 8ef0fedcbf7ce06063db22fb345a0711acddcb4d
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526385"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555147"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -33,6 +33,7 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 - [Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Ulepszenia zalecenia klasyfikacji danych SQL](#enhancements-to-sql-data-classification-recommendation)
+- [Wycofanie z 11 alertów usługi Azure Defender](#deprecation-of-11-azure-defender-alerts)
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe 
 
@@ -53,6 +54,37 @@ Więcej informacji na temat tych zaleceń znajduje się na [stronie informacje o
 **Szacowana data zmiany:** Q2 2021
 
 Dane dotyczące rekomendacji **w bazach danych SQL powinny zostać sklasyfikowane** w kontroli zabezpieczeń **Zastosuj klasyfikację danych** w nowej wersji, która jest lepiej wyrównana przy użyciu strategii klasyfikacji danych firmy Microsoft. W wyniku tego zostanie również zmieniony identyfikator zalecenia (obecnie b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+
+### <a name="deprecation-of-11-azure-defender-alerts"></a>Wycofanie z 11 alertów usługi Azure Defender
+
+**Szacowana data zmiany:** Marzec 2021
+
+W następnym miesiącu jedenaście alertów usługi Azure Defender wymienionych poniżej zostanie wycofana.
+
+- Nowe alerty zastępują te dwa alerty i zapewniają lepsze pokrycie:
+
+    | AlertType                | AlertDisplayName                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | WERSJA zapoznawcza — wykryto uruchomienie funkcji "Get-AzureDomainInfo" zestawu narzędzi mikroserii |
+    | ARM_MicroBurstRunbook    | WERSJA zapoznawcza — wykryto uruchomienie funkcji "Get-AzurePasswords" zestawu narzędzi mikroserii  |
+    |                          |                                                                          |
+
+- Te dziewięć alertów odnoszą się do łącznika Azure Active Directory Identity Protection, który został już uznany za przestarzały:
+
+    | AlertType           | AlertDisplayName              |
+    |---------------------|-------------------------------|
+    | UnfamiliarLocation  | Nieznane właściwości logowania |
+    | AnonymousLogin      | Anonimowy adres IP          |
+    | InfectedDeviceLogin | Połączony adres IP złośliwego oprogramowania     |
+    | ImpossibleTravel    | Nietypowa podróż               |
+    | MaliciousIP         | Złośliwy adres IP          |
+    | LeakedCredentials   | Ujawnione poświadczenia            |
+    | PasswordSpray       | Rozpylanie hasła                |
+    | LeakedCredentials   | Analiza zagrożeń usługi Azure AD  |
+    | AADAI               | Usługa Azure AD AI                   |
+    |                     |                               |
+ 
 
 
 

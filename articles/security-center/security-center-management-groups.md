@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757651"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556435"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizowanie grup zarządzania, subskrypcji i widoczności dla całej dzierżawy
 
@@ -81,12 +81,14 @@ Możesz dodać subskrypcje do utworzonej grupy zarządzania.
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Przyznaj sobie uprawnienia na poziomie dzierżawy
 
-Użytkownik z rolą Azure Active Directory **administrator globalny** może korzystać z obowiązków obejmujących dzierżawę, ale nie ma uprawnień platformy Azure do wyświetlania informacji o całej organizacji w Azure Security Center. 
+Użytkownik z rolą Azure Active Directory (AD) **administratora globalnego** może korzystać z obowiązków obejmujących wiele dzierżawców, ale nie ma uprawnień platformy Azure do wyświetlania informacji o całej organizacji w Azure Security Center. Podniesienie uprawnień jest wymagane, ponieważ przypisania ról usługi Azure AD nie zapewniają dostępu do zasobów platformy Azure. 
 
 > [!TIP]
-> Jeśli organizacja zarządza dostępem do zasobów za pomocą [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)lub dowolnego innego narzędzia PIM, rola administratora globalnego musi być aktywna dla użytkownika wprowadzającego te zmiany.
+> Dowiedz się więcej na temat podniesienia uprawnień roli administratora globalnego w temacie [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami i grupami zarządzania platformy Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 Aby przypisać własne uprawnienia na poziomie dzierżawy:
+
+1. Jeśli organizacja zarządza dostępem do zasobów za pomocą [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)lub dowolnego innego narzędzia PIM, rola administratora globalnego musi być aktywna dla użytkownika zgodnie z poniższą procedurą.
 
 1. Jako Administrator globalny bez przypisywania do głównej grupy zarządzania dzierżawy Otwórz stronę **przegląd** Security Center, a następnie wybierz link **widoczność na poziomie dzierżawy** na banerze. 
 

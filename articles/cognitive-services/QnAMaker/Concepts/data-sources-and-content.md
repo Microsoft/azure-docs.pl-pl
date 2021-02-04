@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: a6488d2c7611513528ff02d4e620124763912730
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 0d4d32aba34a97c6a060c999694f66d79933d011
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353259"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556051"
 ---
 # <a name="importing-from-data-sources"></a>Importowanie ze źródeł danych
 
@@ -100,4 +100,4 @@ Dowiedz się więcej na temat [wytycznych dotyczących formatu](../reference-doc
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jakie informacje są przechowywane w [parze pytań i odpowiedzi (QNA)](question-answer-set.md).
+Dowiedz się, jak [edytować bazami](../how-to/edit-knowledge-base.md).

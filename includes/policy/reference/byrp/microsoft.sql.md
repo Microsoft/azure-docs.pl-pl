@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 92589a0ba5f17e8a8da38b516019d832ea2b71d0
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: be5e8ee63258d058bdc8bfa21607ae11b99fce2f
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99214752"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556834"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -19,6 +19,7 @@ ms.locfileid: "99214752"
 |[Dla serwerów SQL powinien zostać zainicjowany administrator Azure Active Directory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |Inspekcja aprowizacji Azure Active Directory administratora programu SQL Server w celu włączenia uwierzytelniania usługi Azure AD. Uwierzytelnianie usługi Azure AD umożliwia uproszczone zarządzanie uprawnieniami oraz scentralizowane zarządzanie tożsamościami użytkowników baz danych i innych usług firmy Microsoft. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 |[Inspekcja w programie SQL Server powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |Inspekcja w SQL Server powinna być włączona w celu śledzenia działań bazy danych we wszystkich bazach danych na serwerze i zapisywania ich w dzienniku inspekcji. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
 |[Azure SQL Database powinna mieć minimalną wersję protokołu TLS 1,2](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32e6bbec-16b6-44c2-be37-c5b672d103cf) |Ustawienie minimalnej wersji protokołu TLS na 1,2 zwiększa bezpieczeństwo, zapewniając dostęp do Azure SQL Database z klientów przy użyciu protokołu TLS 1,2. Korzystanie z wersji TLS mniejszej niż 1,2 nie jest zalecane, ponieważ mają one dobrze udokumentowane luki w zabezpieczeniach. |Inspekcja, wyłączona |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_MiniumTLSVersion_Audit.json) |
+|[Wdrażanie — Konfigurowanie ustawień diagnostycznych dla baz danych SQL w obszarze roboczym Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb79fa14e-238a-4c2d-b376-442ce508fc84) |Wdraża ustawienia diagnostyczne baz danych SQL w celu przesyłania strumieniowego dzienników diagnostycznych do obszaru roboczego Log Analytics, SQL Database gdy zostanie utworzony lub zaktualizowany brak tych ustawień diagnostycznych. |DeployIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DataConnectosSqlLogs_PolicyAssignment.json) |
 |[Wdróż zaawansowane zabezpieczenia danych na serwerach SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6134c3db-786f-471e-87bc-8f479dc890f6) |Ta zasada umożliwia zaawansowane zabezpieczenia danych na serwerach SQL. Obejmuje to włączenie wykrywania zagrożeń i oceny luk w zabezpieczeniach. Spowoduje to automatyczne utworzenie konta magazynu w tym samym regionie i grupie zasobów co program SQL Server do przechowywania wyników skanowania z prefiksem "sqlva". |DeployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAdvancedDataSecurity_Deploy.json) |
 |[Wdrażanie inspekcji na serwerach SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4c68484-132f-41f9-9b6d-3e4b1cb55036) |Te zasady zapewniają, że inspekcja jest włączona na serwerach SQL w celu zwiększenia bezpieczeństwa i zgodności. Spowoduje to automatyczne utworzenie konta magazynu w tym samym regionie, w którym znajduje się program SQL Server do przechowywania rekordów inspekcji. |DeployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Deploy.json) |
 |[Wdróż ustawienia diagnostyczne dla Azure SQL Database w centrum zdarzeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9a7c7a7d-49e5-4213-bea8-6a502b6272e0) |Wdraża ustawienia diagnostyczne dla Azure SQL Database w celu przesyłania strumieniowego do regionalnego centrum zdarzeń na dowolnym Azure SQL Database, w którym brakuje tych ustawień diagnostycznych. |DeployIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDB_DiagnosticsLog_Deploy.json) |

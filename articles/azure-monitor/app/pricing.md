@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531330"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556122"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -186,7 +186,7 @@ Ilość wysyłanych danych może być zarządzana przy użyciu następujących t
 
 * **Próbkowanie**: możesz użyć próbkowania, aby zmniejszyć ilość danych telemetrycznych wysyłanych z serwera i aplikacji klienckich przy minimalnym zniekształceniu metryk. Próbkowanie to podstawowe narzędzie, za pomocą którego można dostroić ilość wysyłanych danych. Dowiedz się więcej o [funkcjach pobierania próbek](./sampling.md).
 
-* **Ogranicz wywołania AJAX**: można [ograniczyć liczbę wywołań AJAX, które mogą być zgłaszane](./javascript.md#configuration) w każdym widoku strony, lub wyłączyć raportowanie AJAX.
+* **Ogranicz wywołania AJAX**: można [ograniczyć liczbę wywołań AJAX, które mogą być zgłaszane](./javascript.md#configuration) w każdym widoku strony, lub wyłączyć raportowanie AJAX. Należy pamiętać, że wyłączenie wywołań AJAX spowoduje wyłączenie [korelacji JavaScript](./javascript.md#enable-correlation).
 
 * **Wyłącz niepotrzebne moduły**: [Edytuj ApplicationInsights.config](./configuration-with-applicationinsights-config.md) , aby wyłączyć niepotrzebne moduły kolekcji. Na przykład można zdecydować, że liczniki wydajności lub dane zależności są nieistotne.
 

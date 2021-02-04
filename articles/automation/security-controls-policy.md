@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Automation
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Automation. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: sample
 author: mgoedtel
 ms.author: magoedte
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7d5a2e54d74180ba5015cf6b99852bbd1cc0c354
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 5d32b273a299a1ee19c762f5256366f867b785e2
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092931"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557461"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-automation"></a>Azure Policy kontroli zgodności z przepisami dla Azure Automation
 

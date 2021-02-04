@@ -2,31 +2,21 @@
 title: Konwertuj szablon portalu na specyfikację szablonu
 description: Opisuje sposób konwersji istniejącego szablonu w Galerii Azure Portal na specyfikacje szablonu.
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 8fe02f55348f2cdcabb43e05bb547819d4b51228
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c59275fca1eb3037b48b7293fc9e507df46b7fcb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98739110"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555940"
 ---
 # <a name="convert-template-gallery-in-portal-to-template-specs"></a>Konwertuj galerię szablonów w portalu na specyfikacje szablonu
 
-Azure Portal zapewnia sposób przechowywania szablonów Azure Resource Manager (szablony ARM) na Twoim koncie. **Ta funkcja jest przestarzała.** Aby nadal korzystać z szablonów w tej galerii, przekonwertuj je na [specyfikacje szablonu](template-specs.md).
+Azure Portal zapewnia sposób przechowywania szablonów Azure Resource Manager (szablony ARM) na Twoim koncie. Jednak [specyfikacje szablonów](template-specs.md) oferują łatwiejszy sposób udostępniania szablonów użytkownikom w organizacji oraz łączenia z innymi szablonami. W tym artykule przedstawiono sposób konwertowania istniejących szablonów w galerii szablonów na specyfikacje szablonu.
 
-W tym artykule przedstawiono sposób konwertowania istniejących szablonów w galerii szablonów na specyfikacje szablonu.
-
-W portalu przestarzała funkcja jest nazywana **szablonami (wersja zapoznawcza)**. Aby sprawdzić, czy masz jakieś szablony do przekonwertowania, Wyświetl [galerię szablonów w portalu](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). Te szablony mają typ zasobu `Microsoft.Gallery/myareas/galleryitems` .
-
-## <a name="deprecation-of-portal-feature"></a>Wycofanie funkcji portalu
-
-Galeria szablonów w portalu jest przestarzała 21 stycznia 2021. Możesz nadal z niego korzystać do 21 lutego. Od 22 lutego nie można tworzyć nowych szablonów w galerii portalu, ale nadal można wyświetlać i wdrażać istniejące szablony.
-
-22 czerwca funkcja zostanie usunięta z portalu, a wszystkie operacje interfejsu API zostaną zablokowane. Nie będziesz w stanie wyświetlać ani wdrażać żadnych szablonów z galerii.
-
-Przed 22 czerwca należy przeprowadzić migrację wszystkich szablonów, które mają być nadal używane. Aby przeprowadzić migrację szablonów, można użyć jednej z metod przedstawionych w tym artykule. Po usunięciu funkcji należy otworzyć sprawę pomocy technicznej, aby uzyskać wszystkie szablony, które nie zostały poddane migracji.
+Aby sprawdzić, czy masz jakieś szablony do przekonwertowania, Wyświetl [galerię szablonów w portalu](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). Te szablony mają typ zasobu `Microsoft.Gallery/myareas/galleryitems` .
 
 ## <a name="convert-with-powershell-script"></a>Konwertuj przy użyciu skryptu programu PowerShell
 

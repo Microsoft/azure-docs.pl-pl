@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8aa6a2168bff6e90d636770804900fa93f081ced
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1196982fedc7321805e36cceed27c90e43a6e705
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97426007"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558344"
 ---
 # <a name="set-up-msix-app-attach-preview-using-powershell"></a>Konfigurowanie dołączania aplikacji MSIX (wersja zapoznawcza) przy użyciu programu PowerShell
 
@@ -30,6 +30,7 @@ Oto, co jest potrzebne do skonfigurowania dołączania aplikacji MSIX:
 
 - Działające wdrożenie pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak wdrożyć pulpit wirtualny systemu Windows (klasyczny), zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Aby dowiedzieć się, jak wdrożyć pulpit wirtualny systemu Windows z integracją Azure Resource Manager, zobacz [Tworzenie puli hostów przy użyciu Azure Portal](./create-host-pools-azure-marketplace.md).
 - Pula hostów pulpitu wirtualnego systemu Windows z co najmniej jednym aktywnym hostem sesji.
+- Ta Pula hostów musi znajdować się w środowisku walidacji.
 - Zdalna Grupa aplikacji pulpitu.
 - Narzędzie MSIX pakowanie.
 - MSIX — spakowana aplikacja rozwinięta do obrazu MSIX, który jest przekazywany do udziału plików.

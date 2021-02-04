@@ -4,20 +4,23 @@ description: Dowiedz się, jak za pomocą usługi AAD zarządzane tożsamości z
 services: container-service
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: d992c5c5384c04fe39511481550ab7b0ea47069e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 22b7a03a8598aa6e4b7c392567905d467776360c
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217876"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557355"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Korzystanie z Azure Active Directory tożsamości zarządzanych w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
 Azure Active Directory tożsamości zarządzanych przez program używają prymitywów Kubernetes do kojarzenia [zarządzanych tożsamości dla zasobów platformy Azure][az-managed-identities] i tożsamości w usłudze Azure Active Directory (AAD) przy użyciu zasobników. Administratorzy tworzą tożsamości i powiązania jako elementy podstawowe Kubernetes, które zezwalają na dostęp do zasobów platformy Azure korzystających z usługi AAD jako dostawcy tożsamości.
 
+> [!NOTE]
+> W przypadku istniejącej instalacji programu AADPODIDENTITY należy usunąć istniejącą instalację. Włączenie tej funkcji oznacza, że składnik MIC nie jest wymagany.
+
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Musisz mieć zainstalowany następujący zasób:
 
