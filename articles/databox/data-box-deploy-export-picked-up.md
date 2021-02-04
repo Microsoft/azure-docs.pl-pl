@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 9ebf95f0a9c5cfc059f38a13ad99a545dd863d21
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525034"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537360"
 ---
 # <a name="tutorial-return-azure-data-box"></a>Samouczek: zwracanie Azure Data Box
 
@@ -172,6 +172,24 @@ W razie konieczności możesz skontaktować się z pomocą techniczną firmy Qua
 
 W przypadku wystąpienia jakichkolwiek problemów w wiadomościach e-mail urządzenie Data Box operacje Azji, [adbo@microsoft.com](mailto:adbo@microsoft.com) podając nazwę zadania w nagłówku tematu i napotkany problem.
 
+## <a name="united-arab-emirates"></a>[Zjednoczone Emiraty Arabskie](#tab/in-uae)
+
+1. Zachowaj oryginalne pudełko użyte do wysłania urządzenia na potrzeby wysyłki zwrotnej.
+2. Upewnij się, że kopiowanie danych na urządzenie zostało ukończone, a krok **przygotowanie do wysłania** zakończył się pomyślnie.
+3. Zwróć uwagę na numer odwołania na stronie **przygotowanie do wysłania** lokalnego interfejsu użytkownika sieci Web urządzenia.
+4. Wyłącz zasilanie urządzenia i Usuń kable. Zwiń przewód zasilający dostarczony wraz z urządzeniem i umieść go bezpiecznie z tyłu urządzenia.
+6. Na potrzeby wysyłki zwrotnej zapakuj urządzenie w oryginalne pudełko.
+7. [Azure Data Box operacji](mailto:adbops@microsoft.com) w celu uzyskania identyfikatora, który zostanie użyty do zidentyfikowania pakietu po nadejściu go do centrum danych.
+8. Zapisz ten identyfikator na drukowanej etykiecie wysyłkowej obok adresu zwrotnego, aby był widoczny.  
+9. Zarezerwuj przebiór w tryb online, przechodząc do [DHL ekspresowego](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab)  >  **Zaplanuj odbiór**.
+   - Wprowadź numer referencyjny ze strony **przygotowanie do wysłania** lokalnego interfejsu użytkownika sieci Web urządzenia w polu Numer list rzeczy.
+   - Rezerwacje są akceptowane od 9:00 AM – 2:00 PM sześć dni w tygodniu (z wyjątkiem pt i dni wolnych od pracy).
+   - Żądania pobrania należy umieścić co najmniej 90 minut przed godziną zamknięcia klienta.
+10. Jeśli masz problemy z narzędziem do rezerwacji DHL, możesz skontaktować się z DHL przy użyciu dowolnej z następujących metod:
+    - Wywołanie 04-2924545.
+    - Wyślij wiadomość e-mail [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) ze szczegółowymi informacjami o problemach i umieść numer list kontrolnych w wierszu subject:.
+    - Zadzwoń do działu obsługi klienta DHL o 600 567567.
+
 ## <a name="self-managed"></a>[Samodzielne zarządzanie](#tab/in-selfmanaged)
 
 Jeśli używasz urządzenie Data Box w Japonii, Singapur, Korea, Indie, Republika Południowej Afryki, Zjednoczone Królestwo, Europa Zachodnia lub Australia i wybrano opcję wysyłki samozarządzanej podczas tworzenia zamówienia, postępuj zgodnie z tymi instrukcjami.
@@ -209,5 +227,3 @@ Przejdź do następnego artykułu, aby dowiedzieć się, jak zarządzać urządz
 
 > [!div class="nextstepaction"]
 > [Zarządzanie urządzenie Data Box za pośrednictwem Azure Portal](./data-box-portal-admin.md)
-
-

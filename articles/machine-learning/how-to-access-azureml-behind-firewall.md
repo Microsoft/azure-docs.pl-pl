@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8ffbe5debaa980385a2c6dc0078de5f1cc2e9bde
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 150e1aee38a724a0d52c83219c4d214265be9274
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045516"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538072"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
@@ -33,15 +33,22 @@ W przypadku korzystania z zapory platformy Azure należy używać funkcji __tran
 
 Jeśli używasz __wystąpienia obliczeniowego__ Azure Machine Learning lub __klastra obliczeniowego__, Dodaj [zdefiniowane przez użytkownika trasy (UDR)](../virtual-network/virtual-networks-udr-overview.md) dla podsieci, która zawiera zasoby Azure Machine Learning. Ta trasa wymusza ruch __z__ adresów IP `BatchNodeManagement` i `AzureMachineLearning` zasobów do publicznego adresu IP wystąpienia obliczeniowego i klastra obliczeniowego.
 
-Te UDR umożliwiają usłudze Batch komunikowanie się z węzłami obliczeniowymi w celu planowania zadań. Należy również dodać adres IP dla usługi Azure Machine Learning, w której znajdują się zasoby, ponieważ jest to wymagane w celu uzyskania dostępu do wystąpień obliczeniowych. Aby uzyskać listę adresów IP usługi Batch i usługi Azure Machine Learning, należy użyć jednej z następujących metod:
+Te UDR umożliwiają usłudze Batch komunikowanie się z węzłami obliczeniowymi w celu planowania zadań. Należy również dodać adres IP dla usługi Azure Machine Learning, ponieważ jest to wymagane w celu uzyskania dostępu do wystąpień obliczeniowych. Podczas dodawania adresu IP dla usługi Azure Machine Learning należy dodać adres IP zarówno dla __podstawowego, jak i pomocniczego__ regionu platformy Azure. Region podstawowy, w którym znajduje się obszar roboczy.
+
+Aby znaleźć region pomocniczy, zobacz [zapewnianie ciągłości działania & odzyskiwania po awarii przy użyciu sparowanych regionów platformy Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Na przykład jeśli usługa Azure Machine Learning jest w regionie Wschodnie stany USA 2, region pomocniczy to środkowe stany USA. 
+
+Aby uzyskać listę adresów IP usługi Batch i usługi Azure Machine Learning, należy użyć jednej z następujących metod:
 
 * Pobierz [zakresy adresów IP i Tagi usług platformy Azure](https://www.microsoft.com/download/details.aspx?id=56519) , a następnie wyszukaj plik dla `BatchNodeManagement.<region>` i `AzureMachineLearning.<region>` , gdzie `<region>` jest Twoim regionem świadczenia usługi Azure.
 
-* Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) , aby pobrać te informacje. Poniższy przykład pobiera informacje o adresie IP i filtruje informacje dla regionu Wschodnie stany USA 2:
+* Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) , aby pobrać te informacje. Poniższy przykład pobiera informacje o adresie IP i filtruje informacje dla regionu Wschodnie stany USA 2 (podstawowy) i regionu środkowe stany USA (pomocniczy):
 
     ```azurecli-interactive
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+    # Get primary region IPs
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+    # Get secondary region IPs
+    az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
     ```
 
     > [!TIP]

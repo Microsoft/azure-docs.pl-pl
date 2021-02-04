@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/03/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: d7f71afd1cf47ab1a94d984090e8fb52ee69c6b4
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f7ba6363ec3a38d37ea3df0f76409289069638e8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088942"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537800"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
 
@@ -113,6 +113,9 @@ Rozmiar dokumentu musi zawierać 5 120 znaków na dokument. Aby uzyskać maksyma
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Tworzenie struktury żądania interfejsu API dla hostowanego asynchronicznego interfejsu API sieci Web
 
 W przypadku kontenera i hostowanego interfejsu API sieci Web należy utworzyć żądanie POST. Możesz [użyć](text-analytics-how-to-call-api.md)programu do wypełniania, polecenia lub **konsoli testowania interfejsu API** w analiza tekstu, aby [uzyskać informacje o kondycji hostowanego interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) , aby szybko utworzyć i wysłać żądanie post do hostowanego interfejsu API sieci Web w żądanym regionie. 
+
+> [!NOTE]
+> Zarówno asynchroniczny `/analyze` , jak i `/health` punkt końcowy są dostępne tylko w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA 2, środkowe stany USA, Europa Północna i Europa Zachodnia.  Aby wykonać pomyślne żądania do tych punktów końcowych, upewnij się, że zasób został utworzony w jednym z tych regionów.
 
 Poniżej znajduje się przykład pliku JSON dołączonego do analiza tekstu dla treści wpisu żądania interfejsu API kondycji:
 

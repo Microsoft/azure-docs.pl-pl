@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e5f8264221ada261ccae1b347c47cdf27967d5d8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96001885"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537166"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 

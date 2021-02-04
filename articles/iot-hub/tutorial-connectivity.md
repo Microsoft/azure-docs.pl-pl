@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: d9ca9dd345be7fb8f1a2b613386bdca7bdcd835a
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 253ec23a421415c11e4b47670dca870ebc463256
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070378"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538779"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Samouczek: testowanie łączności z centrum IoT za pomocą urządzenia symulowanego
 
@@ -66,15 +66,15 @@ Urządzenie musi zostać uwierzytelnione w centrum, zanim możliwa będzie wymia
 
 Zaloguj się w portalu i przejdź do swojego centrum IoT. Następnie przejdź do narzędzia **Urządzenia IoT**:
 
-![Narzędzie Urządzenia IoT](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="Narzędzie Urządzenia IoT":::
 
-Aby zarejestrować nowe urządzenie, kliknij przycisk **+ Dodaj**, w polu **Identyfikator urządzenia** ustaw wartość **MyTestDevice** i kliknij przycisk **Zapisz**:
+Aby zarejestrować nowe urządzenie, kliknij pozycję **+ Nowy**, ustaw **Identyfikator urządzenia** na **MyTestDevice**, a następnie kliknij przycisk **Zapisz**.
 
-![Dodawanie nowego urządzenia](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Dodawanie nowego urządzenia":::
 
-Aby pobrać parametry połączenia dla urządzenia **MyTestDevice**, kliknij je na liście urządzeń, a następnie skopiuj wartość **Parametry połączenia — klucz podstawowy**. Te parametry połączenia zawierają *klucz dostępu współdzielonego* dla urządzenia.
+Aby pobrać parametry połączenia dla **MyTestDevice**, kliknij je na liście urządzeń, a następnie skopiuj wartość **podstawowe parametry połączenia** . Te parametry połączenia zawierają *klucz dostępu współdzielonego* dla urządzenia.
 
-![Pobieranie parametrów połączenia urządzenia](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Pobierz parametry połączenia z urządzeniem}":::
 
 Aby symulować wysyłanie danych telemetrycznych przez urządzenie **MyTestDevice** do centrum IoT, uruchom pobraną wcześniej aplikację urządzenia symulowanego Node.js.
 
@@ -218,7 +218,7 @@ Po otrzymaniu wywołania metody bezpośredniej urządzenie symulowane drukuje ko
 
 ![Otrzymanie wywołania metody bezpośredniej przez urządzenie symulowane](media/tutorial-connectivity/receive-method-call.png)
 
-Gdy urządzenie symulowane pomyślnie otrzyma wywołanie metody bezpośredniej, wysyła potwierdzenie z powrotem do centrum:
+Gdy symulowane urządzenie pomyślnie odbierze wywołanie metody bezpośredniej, wyśle potwierdzenie z powrotem do centrum:
 
 ![Odbierz potwierdzenie metody bezpośredniej](media/tutorial-connectivity/method-acknowledgement.png)
 

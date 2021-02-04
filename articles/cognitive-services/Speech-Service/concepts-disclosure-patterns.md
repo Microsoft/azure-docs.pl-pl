@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 5cf933a11956bb8459bf6f5cd1b2b366eb8419d8
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508646"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537344"
 ---
 # <a name="disclosure-design-patterns"></a>Wzorce projektowania ujawniania
 Teraz, gdy&#39;ve ustaliły odpowiedni [poziom ujawniania](concepts-disclosure-guidelines.md#disclosure-assessment) w przypadku głosu syntetycznego,&#39;s jest dobrym czasem, aby poznać potencjalne wzorce projektowe.
@@ -237,20 +237,14 @@ Użyj ujawnienia jako możliwości bezproblemowego niepowodzenia.
 - [Zapewnianie możliwości Dowiedz się więcej o tym, jak nastąpiło głos](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
 - [Oddanie ludzi](#conversational-transparency)
 
-
-
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 - [Wytyczne dotyczące bot firmy Microsoft](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
 - [Wskazówki dotyczące projektowania Cortany](/cortana/voice-commands/voicecommand-design-guidelines)
 - [Wskazówki dotyczące projektowania mowy w systemie Microsoft Windows platformy UWP](/windows/uwp/design/input/speech-interactions)
 - [Wskazówki dotyczące poleceń głosowych programu Microsoft Windows Mixed Reality](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## <a name="reference-docs"></a>Dokumentacja dokumentacji
+## <a name="see-also"></a>Zobacz też
 
-* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent)
+* [Ujawnienie dla talent głosu](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
-
-## <a name="next-steps"></a>Następne kroki
-
-* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent)

@@ -63,6 +63,8 @@
       items:
         - name: Tworzenie zestawu skalowania maszyn wirtualnych
           href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: Tworzenie zestawu skalowania maszyn wirtualnych i zarządzanie nim
+          href: ./scripts/cli-sample-manage-scale-set.md
         - name: Tworzenie zestawu skalowania na podstawie niestandardowego obrazu maszyny wirtualnej
           href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
         - name: Instalowanie aplikacji w zestawie skalowania

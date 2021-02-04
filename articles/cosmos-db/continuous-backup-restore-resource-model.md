@@ -7,17 +7,22 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 64033182356e66d6a69bd47c1780b7081416019e
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527555"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538508"
 ---
-# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature"></a>Model zasobów dla funkcji przywracania do punktu w czasie Azure Cosmos DB
+# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Model zasobów dla funkcji przywracania do momentu Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-W tym artykule wyjaśniono model zasobów dla Azure Cosmos DB funkcji przywracania do punktu w czasie. Wyjaśniono parametry, które obsługują ciągłą kopię zapasową i zasoby, które można przywrócić w Azure Cosmos DB interfejsie API dla kont SQL i MongoDB.
+> [!IMPORTANT]
+> Funkcja przywracania do punktu w czasie (tryb ciągłej kopii zapasowej) dla Azure Cosmos DB jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+W tym artykule wyjaśniono model zasobów dla funkcji przywracania do punktu w czasie Azure Cosmos DB (wersja zapoznawcza). Wyjaśniono parametry, które obsługują ciągłą kopię zapasową i zasoby, które można przywrócić w Azure Cosmos DB interfejsie API dla kont SQL i MongoDB.
 
 ## <a name="database-accounts-resource-model"></a>Model zasobów konta bazy danych
 

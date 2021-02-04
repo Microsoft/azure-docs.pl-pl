@@ -7,17 +7,22 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 3614a85a6df2e793a73a2609d6f5762e4dc873fb
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 9d30f5325162b9ea447d54aadc092dbd9aa29132
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527623"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538759"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Zarządzaj uprawnieniami do przywracania konta Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB umożliwia izolowanie i ograniczanie uprawnień przywracania dla konta ciągłej kopii zapasowej do określonej roli lub podmiotu zabezpieczeń. Właściciel konta może wyzwolić przywracanie i przypisać rolę do innych podmiotów zabezpieczeń, aby wykonać operację przywracania. Te uprawnienia można stosować w zakresie subskrypcji lub dokładniej w zakresie konta źródłowego, jak pokazano na poniższej ilustracji:
+> [!IMPORTANT]
+> Funkcja przywracania do punktu w czasie (tryb ciągłej kopii zapasowej) dla Azure Cosmos DB jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Cosmos DB pozwala odizolować i ograniczyć uprawnienia przywracania do ciągłego tworzenia kopii zapasowych (wersja zapoznawcza) do określonej roli lub podmiotu zabezpieczeń. Właściciel konta może wyzwolić przywracanie i przypisać rolę do innych podmiotów zabezpieczeń, aby wykonać operację przywracania. Te uprawnienia można stosować w zakresie subskrypcji lub dokładniej w zakresie konta źródłowego, jak pokazano na poniższej ilustracji:
 
 :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="Lista ról wymaganych do wykonania operacji przywracania." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" border="false":::
 

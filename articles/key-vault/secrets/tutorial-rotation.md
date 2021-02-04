@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 61e1e729ab0aeac1f7b8e5ee6787da38c5fef108
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: cd90043c8f03361244d3500f83f6df5347f1d867
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020149"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539403"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które używają jednego zestawu poświadczeń uwierzytelniania
 
@@ -38,14 +38,14 @@ W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych d
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* W usłudze Azure Key Vault
+* Azure Key Vault
 * SQL Server
 
 Jeśli nie masz istniejących Key Vault i SQL Server, możesz użyć poniższego linku wdrażania:
 
 [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**. Nadaj grupie nazwę **akvrotation**.
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**. Nadaj nazwę grupie, używamy **akvrotation** w tym samouczku.
 1. W obszarze **Logowanie administratora SQL** wpisz nazwę logowania administratora SQL. 
 1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**
@@ -248,7 +248,7 @@ Przejdź do adresu URL wdrożonej aplikacji:
 
 Gdy aplikacja zostanie otwarta w przeglądarce, zostanie wyświetlona **wartość wygenerowanego klucza tajnego** i **połączona wartość bazy danych** *true*.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - Samouczek: [rotacja zasobów przy użyciu dwóch zestawów poświadczeń](tutorial-rotation-dual.md)
 - Przegląd: [monitorowanie Key Vault z Azure Event Grid](../general/event-grid-overview.md)

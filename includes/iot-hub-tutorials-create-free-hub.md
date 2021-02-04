@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4e2abda6e0e3ef3d638952c05c31a50d91d24e88
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9151a84aa03e9b87b02278672622d458fbc5281e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98901099"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538780"
 ---
 Aby utworzyć usługę IoT Hub przy użyciu witryny Azure Portal:
 
@@ -35,37 +35,37 @@ Aby utworzyć usługę IoT Hub przy użyciu witryny Azure Portal:
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Tworzenie centrum w Azure Portal](media/iot-hub-tutorials-create-free-hub/hub-definition-basics.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-basics.png" alt-text="Tworzenie centrum w Azure Portal":::
 
 1. Wybierz pozycję **Dalej: sieć** , aby kontynuować tworzenie centrum.
 
    Wybierz punkty końcowe, które mogą łączyć się z IoT Hub. Można wybrać ustawienie domyślne **publiczny punkt końcowy (wszystkie sieci)** lub wybrać **publiczny punkt końcowy (wybrane zakresy adresów IP)** lub **prywatny punkt końcowy**. Zaakceptuj domyślne ustawienie dla tego samouczka.
 
-   ![Wybierz punkty końcowe, które mogą się łączyć](media/iot-hub-tutorials-create-free-hub/hub-definition-networking.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-networking.png" alt-text="Wybierz punkty końcowe, które mogą nawiązać połączenie.":::
 
 1. Wybierz pozycję **Dalej: Zarządzanie** , aby kontynuować tworzenie centrum.
 
-    ![Ustawianie rozmiaru i skali nowego centrum przy użyciu Azure Portal](media/iot-hub-tutorials-create-free-hub/hub-definition-management.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-management.png" alt-text="Ustaw rozmiar i skalę nowego centrum przy użyciu Azure Portal.":::
 
-    W tym miejscu możesz zaakceptować ustawienia domyślne. W razie potrzeby można zmodyfikować dowolne z następujących pól:
+   W tym miejscu możesz zaakceptować ustawienia domyślne. W razie potrzeby można zmodyfikować dowolne z następujących pól:
 
-    - **Cennik i warstwa skalowania**: wybrana warstwa. Wybierz warstwę bezpłatna. Warstwa Bezpłatna służy do testowania i oceny. Umożliwia podłączenie 500 urządzeń do centrum oraz do 8 000 komunikatów dziennie. Każda subskrypcja platformy Azure może utworzyć jedno Centrum IoT Hub w warstwie Bezpłatna.
+   - **Cennik i warstwa skalowania**: wybrana warstwa. Wybierz warstwę bezpłatna. Warstwa Bezpłatna służy do testowania i oceny. Umożliwia podłączenie 500 urządzeń do centrum oraz do 8 000 komunikatów dziennie. Każda subskrypcja platformy Azure może utworzyć jedno Centrum IoT Hub w warstwie Bezpłatna.
 
-    - **Jednostki centrum IoT**: liczba dozwolonych komunikatów na jednostkę dziennie zależy od warstwy cenowej centrum. Na przykład jeśli chcesz, aby koncentrator obsługiwał ruch przychodzący z 700 000 komunikatów, wybierz dwie jednostki warstwy S1.
-    Każda subskrypcja platformy Azure może utworzyć jedno Centrum IoT Hub w warstwie Bezpłatna. Aby uzyskać szczegółowe informacje na temat innych opcji warstw, zobacz [Choosing the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md) (Wybieranie właściwej warstwy usługi IoT Hub).
+   - **Jednostki centrum IoT**: liczba dozwolonych komunikatów na jednostkę dziennie zależy od warstwy cenowej centrum. Na przykład jeśli chcesz, aby koncentrator obsługiwał ruch przychodzący z 700 000 komunikatów, wybierz dwie jednostki warstwy S1.
+   Każda subskrypcja platformy Azure może utworzyć jedno Centrum IoT Hub w warstwie Bezpłatna. Aby uzyskać szczegółowe informacje na temat innych opcji warstw, zobacz [Choosing the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md) (Wybieranie właściwej warstwy usługi IoT Hub).
 
-    - **Defender for IoT**: Włącz tę opcję, aby dodać dodatkową warstwę ochrony przed zagrożeniami do IoT i urządzeń. Ta opcja jest niedostępna dla centrów w warstwie Bezpłatna. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [Azure Security Center for IoT](/azure/asc-for-iot/).
+   - **Defender for IoT**: Włącz tę opcję, aby dodać dodatkową warstwę ochrony przed zagrożeniami do IoT i urządzeń. Ta opcja jest niedostępna dla centrów w warstwie Bezpłatna. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [Azure Security Center for IoT](/azure/asc-for-iot/).
 
-    - **Ustawienia zaawansowane**  >  **Partycje między urządzeniami a chmurą**: Ta właściwość wiąże komunikaty z urządzenia z chmurą z liczbą jednoczesnych czytników komunikatów. Większość centrów potrzebuje tylko czterech partycji. Koncentrator warstwy Bezpłatna jest ograniczony do dwóch partycji.
+   - **Ustawienia zaawansowane**  >  **Partycje między urządzeniami a chmurą**: Ta właściwość wiąże komunikaty z urządzenia z chmurą z liczbą jednoczesnych czytników komunikatów. Większość centrów potrzebuje tylko czterech partycji. Koncentrator warstwy Bezpłatna jest ograniczony do dwóch partycji.
 
-1.  Wybierz pozycję **Dalej: Tagi** , aby przejść do następnego ekranu.
+1. Wybierz pozycję **Dalej: Tagi** , aby przejść do następnego ekranu.
 
-    Tagi to pary nazwa/wartość. Można przypisać ten sam tag do wielu zasobów i grup zasobów, aby klasyfikować zasoby i konsolidować rozliczenia. Aby uzyskać więcej informacji, zobacz [Używanie tagów do organizowania zasobów platformy Azure](../articles/azure-resource-manager/management/tag-resources.md).
+   Tagi to pary nazwa/wartość. Można przypisać ten sam tag do wielu zasobów i grup zasobów, aby klasyfikować zasoby i konsolidować rozliczenia. Aby uzyskać więcej informacji, zobacz [Używanie tagów do organizowania zasobów platformy Azure](../articles/azure-resource-manager/management/tag-resources.md).
 
-    ![Przypisywanie tagów dla centrum przy użyciu Azure Portal](media/iot-hub-tutorials-create-free-hub/hub-definition-tags.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-tags.png" alt-text="Przypisz Tagi dla centrum przy użyciu Azure Portal.":::
 
-1.  Wybierz pozycję **Dalej: Przejrzyj i Utwórz** , aby przejrzeć wybrane opcje. Zobaczysz coś podobnego do tego ekranu, ale z wartościami wybranymi podczas tworzenia centrum.
+1. Wybierz pozycję **Dalej: Przejrzyj i Utwórz** , aby przejrzeć wybrane opcje. Zobaczysz coś podobnego do tego ekranu, ale z wartościami wybranymi podczas tworzenia centrum.
 
-    ![Przejrzyj informacje dotyczące tworzenia nowego centrum](media/iot-hub-tutorials-create-free-hub/hub-definition-create.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-create.png" alt-text="Przejrzyj informacje dotyczące tworzenia nowego centrum.":::
 
 1. Zanotuj nazwę wybranego centrum IoT. Będzie potrzebna w dalszej części samouczka.

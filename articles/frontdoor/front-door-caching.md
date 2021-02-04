@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535835"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538055"
 ---
 # <a name="caching-with-azure-front-door"></a>Buforowanie z usługami frontonu platformy Azure
 Poniższy dokument określa zachowania dla drzwi zewnętrznych z regułami routingu, które mają włączone buforowanie. Przód drzwi to nowoczesne Content Delivery Network (CDN) z funkcją dynamicznego przyspieszania witryn i równoważenia obciążenia, ale również obsługuje zachowania buforowania, podobnie jak w przypadku innych sieci CDN.
@@ -24,13 +24,13 @@ Poniższy dokument określa zachowania dla drzwi zewnętrznych z regułami routi
 ## <a name="delivery-of-large-files"></a>Dostarczanie dużych plików
 Drzwi frontonu platformy Azure zapewniają duże pliki bez limitu rozmiaru pliku. Drzwi przednich wykorzystują technikę nazywaną fragmentem obiektu. Jeśli są żądane duże pliki, usługa Front Door pobiera mniejsze części pliku z zaplecza. Po otrzymaniu żądania pliku o pełnym lub bajtowym rozmiarze środowisko z przodu zażąda pliku z zaplecza w fragmentach 8 MB.
 
-</br>Po nadejściu fragmentu w środowisku z drzwiami jest on buforowany i natychmiast obsługiwany przez użytkownika. Następnie przede wszystkim wstępnie pobiera Następny fragment równolegle. To wstępne pobranie zapewnia, że zawartość pozostaje jednym fragmentem przed użytkownikiem, co zmniejsza opóźnienia. Ten proces jest kontynuowany, dopóki cały plik nie zostanie pobrany (jeśli będzie to wymagane) lub klient zamknie połączenie.
+Po nadejściu fragmentu w środowisku z drzwiami jest on buforowany i natychmiast obsługiwany przez użytkownika. Następnie przede wszystkim wstępnie pobiera Następny fragment równolegle. To wstępne pobranie zapewnia, że zawartość pozostaje jednym fragmentem przed użytkownikiem, co zmniejsza opóźnienia. Ten proces jest kontynuowany, dopóki cały plik nie zostanie pobrany (jeśli będzie to wymagane) lub klient zamknie połączenie.
 
-</br>Aby uzyskać więcej informacji na temat żądania zakresu bajtów, przeczytaj artykuł [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Aby uzyskać więcej informacji na temat żądania zakresu bajtów, przeczytaj artykuł [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Drzwi z przodu buforują wszystkie fragmenty po odebraniu, aby cały plik nie musiał być buforowany w pamięci podręcznej z przodu. Żądania dotyczące plików lub zakresów bajtów są obsługiwane z pamięci podręcznej. Jeśli fragmenty nie są przechowywane w pamięci podręcznej, wstępne pobieranie jest używane do żądania fragmentów z zaplecza. Ta optymalizacja polega na możliwości obsługi żądań o zakresie bajtów przez wewnętrzną bazę danych. Jeśli zaplecze nie obsługuje żądań zakresu bajtów, Ta optymalizacja nie obowiązuje.
 
 ## <a name="file-compression"></a>Kompresja pliku
-Drzwi tylne umożliwiają dynamiczne kompresowanie zawartości na krawędzi, co powoduje skrócenie i krótsze czas odpowiedzi dla klientów. Wszystkie pliki kwalifikują się do kompresji. Jednak plik musi być typu MIME, aby można go było kwalifikować do kompresji. Obecnie przed drzwiami nie zezwala się na zmianę tej listy. Bieżąca lista:</br>
+Drzwi tylne umożliwiają dynamiczne kompresowanie zawartości na krawędzi, co powoduje skrócenie i krótsze czas odpowiedzi dla klientów. Aby plik mógł być objęty kompresją, należy włączyć buforowanie, a plik musi być typu MIME, aby kwalifikować się do kompresji. Obecnie przed drzwiami nie zezwala się na zmianę tej listy. Bieżąca lista:
 - "Application/EOT"
 - "aplikacja/czcionka"
 - "Application/Font-sfnt"
@@ -93,7 +93,7 @@ Zasoby w pamięci podręcznej są umieszczane do momentu wygaśnięcia czasu wyg
 
 Najlepszym rozwiązaniem, aby upewnić się, że użytkownicy zawsze uzyskują najnowszą kopię zasobów, są w wersji zasobów dla każdej aktualizacji i publikują je jako nowe adresy URL. Drzwi z przodu natychmiast spowodują pobranie nowych zasobów dla kolejnych żądań klientów. Czasami możesz chcieć przeczyścić zawartość pamięci podręcznej ze wszystkich węzłów brzegowych i wymusić, aby wszystkie nowe zasoby były pobierane. Przyczyną może być aktualizacja aplikacji sieci Web lub szybkie aktualizowanie zasobów zawierających nieprawidłowe informacje.
 
-Wybierz zasoby, które chcesz przeczyścić z węzłów krawędzi. Aby wyczyścić wszystkie zasoby, wybierz pozycję **Przeczyść wszystko**. W przeciwnym razie w polu **ścieżka**wprowadź ścieżkę do każdego zasobu, który ma zostać przeczyszczony.
+Wybierz zasoby, które chcesz przeczyścić z węzłów krawędzi. Aby wyczyścić wszystkie zasoby, wybierz pozycję **Przeczyść wszystko**. W przeciwnym razie w polu **ścieżka** wprowadź ścieżkę do każdego zasobu, który ma zostać przeczyszczony.
 
 Te formaty są obsługiwane na listach ścieżek do przeczyszczenia:
 

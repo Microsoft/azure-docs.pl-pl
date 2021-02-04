@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 849c159f31a14441ef9c6aa19b8704b286727bd7
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 7c89bfab6c4914cee26726006e6928eeb14c0686
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507185"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538191"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
 
@@ -1046,18 +1046,19 @@ Może zarządzać wszystkimi aspektami produktu Exchange.
 | --- | --- |
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
-| Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Aktualizacja właściwości groups. Unified w Azure Active Directory. |
-| Microsoft. Directory/Groups/Unified/Basic/Update | Aktualizuj podstawowe właściwości grup Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Create | Utwórz grupy Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Delete | Usuń grupy Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Members/Update | Aktualizowanie członkostwa w grupach Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Owners/Update | Aktualizowanie własności grup Microsoft 365. |
+| Microsoft. Directory/Groups/hiddenMembers/Read | Odczytaj ukryte elementy członkowskie grupy |
+| Microsoft. Directory/groups. Unified/Basic/Update | Aktualizuj podstawowe właściwości grup Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Create | Utwórz grupy Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Delete | Usuń grupy Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Restore | Przywracanie grup Microsoft 365 |
+| Microsoft. Directory/groups. Unified/Members/Update | Aktualizowanie członkostwa w grupach Microsoft 365. |
+| Microsoft. Directory/groups. Unified/właściciele/aktualizacja | Aktualizowanie własności grup Microsoft 365. |
 | Microsoft. Office 365. Exchange/allEntities/allTasks | Zarządzaj wszystkimi aspektami usługi Exchange Online. |
 | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytaj strony wydajności sieci w centrum administracyjnym Microsoft 365. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
-| Microsoft. Office 365. usageReports/allEntities/odczyt | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
-| Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
+| Microsoft. Office 365. usageReports/allEntities/allProperties/Read | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="external-id-user-flow-administrator-permissions"></a>Identyfikator zewnętrzny — uprawnienia administratora przepływu użytkownika
 
@@ -1295,23 +1296,24 @@ Może zarządzać wszystkimi aspektami produktu usługi Intune.
 | Microsoft. Directory/Devices/extensionAttributes/Update | Zaktualizuj wszystkie wartości właściwości Devices. extensionAttributes w Azure Active Directory. |
 | Microsoft. Directory/Devices/registeredOwners/Update | Zaktualizuj Właściwość Devices. registeredOwners w Azure Active Directory. |
 | Microsoft. Directory/Devices/registeredUsers/Update | Zaktualizuj Właściwość Devices. registeredUsers w Azure Active Directory. |
-| Microsoft. Directory/Groups/appRoleAssignments/Update | Zaktualizuj Właściwość groups. appRoleAssignments w Azure Active Directory. |
-| Microsoft. Directory/Groups/Basic/Update | Zaktualizuj podstawowe właściwości dla grup w Azure Active Directory. |
-| Microsoft. Directory/Groups/Create | Utwórz grupy w Azure Active Directory. |
-| Microsoft. Directory/Groups/createAsOwner | Utwórz grupy w Azure Active Directory. Twórca jest dodawany jako pierwszy właściciel, a tworzony obiekt jest liczony według przydziału 250 obiektów utworzonych przez twórcę. |
-| Microsoft. Directory/Groups/Delete | Usuń grupy w Azure Active Directory. |
+| Microsoft. Directory/deviceManagementPolicies/Standard/Read | Odczytywanie właściwości standardowych zasad aplikacji dotyczących zarządzania urządzeniami |
+| Microsoft. Directory/deviceRegistrationPolicy/Standard/Read | Odczytywanie właściwości standardowych zasad rejestracji urządzeń |
 | Microsoft. Directory/Groups/hiddenMembers/Read | Odczytaj właściwości groups. hiddenMembers w Azure Active Directory. |
-| Microsoft. Directory/Groups/Members/Update | Aktualizowanie właściwości groups. Members w Azure Active Directory. |
-| Microsoft. Directory/Groups/Owners/Update | Aktualizacja właściwości groups. Owners w Azure Active Directory. |
-| Microsoft. Directory/Groups/Restore | Przywróć grupy w Azure Active Directory. |
-| Microsoft. Directory/Groups/Settings/Update | Aktualizowanie właściwości groups. Settings w Azure Active Directory. |
-| Microsoft. Directory/Users/appRoleAssignments/Update | Zaktualizuj Właściwość Users. appRoleAssignments w Azure Active Directory. |
+| Microsoft. Directory/groups. Security/Basic/Update | Zaktualizuj podstawowe właściwości dla grup w Azure Active Directory. |
+| Microsoft. Directory/groups. Security/klasyfikacyjn/Update | Zaktualizuj Właściwość klasyfikacji grup zabezpieczeń z wykluczeniem grup do przypisania ról |
+| Microsoft. Directory/groups. Security/Create | Utwórz grupy w Azure Active Directory. |
+| Microsoft. Directory/groups. Security/Delete | Usuń grupy w Azure Active Directory. |
+| Microsoft. Directory/groups. Security/dynamicMembershipRule/Update | Zaktualizuj Właściwość dynamicMembershipRule grup zabezpieczeń z wykluczeniem grup do przypisania ról |
+| Microsoft. Directory/groups. Security/GroupType/Update | Aktualizowanie właściwości typu grupy grup zabezpieczeń z wykluczeniem grup z możliwością przypisywania ról |
+| Microsoft. Directory/groups. Security/Members/Update | Aktualizowanie właściwości groups. Members w Azure Active Directory. |
+| Microsoft. Directory/groups. Security/Owners/Update | Aktualizacja właściwości groups. Owners w Azure Active Directory. |
+| Microsoft. Directory/groups. Security/Visibility/Update | Aktualizacja właściwości widoczności grup zabezpieczeń z wykluczeniem grup z możliwością przypisania |
 | Microsoft. Directory/Users/Basic/Update | Zaktualizuj podstawowe właściwości użytkowników w Azure Active Directory. |
 | Microsoft. Directory/Users/Manager/Update | Aktualizowanie właściwości users. Manager w Azure Active Directory. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
 | Microsoft. Intune/allEntities/allTasks | Zarządzaj wszystkimi aspektami usługi Intune. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
-| Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="kaizala-administrator-permissions"></a>Uprawnienia administratora usługi kaizala
 
@@ -1458,13 +1460,18 @@ Nie używaj — nie jest przeznaczony do użytku ogólnego.
 | Microsoft. Directory/Contacts/Create | Utwórz kontakty w Azure Active Directory. |
 | Microsoft. Directory/kontakty/usuwanie | Usuń kontakty w Azure Active Directory. |
 | Microsoft. Directory/Groups/Create | Utwórz grupy w Azure Active Directory. |
-| Microsoft. Directory/Groups/createAsOwner | Utwórz grupy w Azure Active Directory. Twórca jest dodawany jako pierwszy właściciel, a tworzony obiekt jest liczony według przydziału 250 obiektów utworzonych przez twórcę. |
+| Microsoft. Directory/Groups/Delete | Usuwanie grup, z wyłączeniem grupy przypisanej do roli |
 | Microsoft. Directory/Groups/Members/Update | Aktualizowanie właściwości groups. Members w Azure Active Directory. |
 | Microsoft. Directory/Groups/Owners/Update | Aktualizacja właściwości groups. Owners w Azure Active Directory. |
-| Microsoft. Directory/Users/appRoleAssignments/Update | Zaktualizuj Właściwość Users. appRoleAssignments w Azure Active Directory. |
+| Microsoft. Directory/Groups/Restore | Przywracanie usuniętych grup |
+| Microsoft. Directory/elementu oauth2permissiongrants/allProperties/allTasks | Tworzenie i usuwanie dotacji do uwierzytelniania OAuth 2,0 oraz odczytywanie i aktualizowanie wszystkich właściwości |
+| Microsoft. Directory/serviceprincipals/appRoleAssignedTo/Update | Aktualizowanie przypisań ról głównych usługi |
 | Microsoft. Directory/Users/assignLicense | Zarządzanie licencjami użytkowników w Azure Active Directory. |
 | Microsoft. Directory/Users/Basic/Update | Zaktualizuj podstawowe właściwości użytkowników w Azure Active Directory. |
+| Microsoft. Directory/Users/Create | Dodawanie użytkowników |
 | Microsoft. Directory/Users/Delete | Usuń użytkowników w Azure Active Directory. |
+| Microsoft. Directory/Users/Disable | Wyłącz użytkowników |
+| Microsoft. Directory/Users/Enable | Włącz użytkowników |
 | Microsoft. Directory/Users/invalidateAllRefreshTokens | Unieważnienie wszystkich tokenów odświeżania użytkownika w Azure Active Directory. |
 | Microsoft. Directory/Users/Manager/Update | Aktualizowanie właściwości users. Manager w Azure Active Directory. |
 | Microsoft. Directory/Users/hasło/aktualizacja | Aktualizowanie haseł dla wszystkich użytkowników w Azure Active Directory. Zobacz dokumentację online, aby uzyskać więcej szczegółów. |
@@ -1472,9 +1479,9 @@ Nie używaj — nie jest przeznaczony do użytku ogólnego.
 | Microsoft. Directory/Users/userPrincipalName/Update | Zaktualizuj Właściwość Users. userPrincipalName w Azure Active Directory. |
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
-| Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="partner-tier2-support-permissions"></a>Uprawnienia do obsługi SVR partnerów
 
@@ -1498,16 +1505,25 @@ Nie używaj — nie jest przeznaczony do użytku ogólnego.
 | Microsoft. Directory/Contacts/Basic/Update | Aktualizowanie podstawowych właściwości kontaktów w Azure Active Directory. |
 | Microsoft. Directory/Contacts/Create | Utwórz kontakty w Azure Active Directory. |
 | Microsoft. Directory/kontakty/usuwanie | Usuń kontakty w Azure Active Directory. |
-| Microsoft. Directory/domen/allTasks | Tworzenie i usuwanie domen oraz odczytywanie i aktualizowanie standardowych właściwości w Azure Active Directory. |
+| Microsoft. Directory/domen/Basic/allTasks | Tworzenie i usuwanie domen oraz odczytywanie i aktualizowanie standardowych właściwości w Azure Active Directory. |
 | Microsoft. Directory/Groups/Create | Utwórz grupy w Azure Active Directory. |
 | Microsoft. Directory/Groups/Delete | Usuń grupy w Azure Active Directory. |
 | Microsoft. Directory/Groups/Members/Update | Aktualizowanie właściwości groups. Members w Azure Active Directory. |
+| Microsoft. Directory/Groups/Owners/Update | Aktualizowanie właścicieli grup, z wyłączeniem grup przypisanych do ról |
 | Microsoft. Directory/Groups/Restore | Przywróć grupy w Azure Active Directory. |
+| Microsoft. Directory/elementu oauth2permissiongrants/allProperties/allTasks | Tworzenie i usuwanie dotacji do uwierzytelniania OAuth 2,0 oraz odczytywanie i aktualizowanie wszystkich właściwości |
 | Microsoft. Directory/Organization/Basic/Update | Aktualizuj podstawowe właściwości organizacji w Azure Active Directory. |
-| Microsoft. Directory/Users/appRoleAssignments/Update | Zaktualizuj Właściwość Users. appRoleAssignments w Azure Active Directory. |
+| Microsoft. Directory/roleAssignments/allProperties/allTasks | Tworzenie i usuwanie przypisań ról oraz odczytywanie i aktualizowanie wszystkich właściwości przypisywania ról |
+| Microsoft. Directory/roleDefinitions/allProperties/allTasks | Tworzenie i usuwanie definicji ról oraz odczytywanie i aktualizowanie wszystkich właściwości |
+| Microsoft. Directory/scopedRoleMemberships/allProperties/allTasks | Tworzenie i usuwanie scopedRoleMemberships oraz odczytywanie i aktualizowanie wszystkich właściwości |
+| Microsoft. Directory/serviceprincipals/appRoleAssignedTo/Update | Aktualizowanie przypisań ról głównych usługi |
+| Microsoft. Directory/subscribedSkus/Standard/Read | Odczytywanie podstawowych właściwości subskrypcji |
 | Microsoft. Directory/Users/assignLicense | Zarządzanie licencjami użytkowników w Azure Active Directory. |
 | Microsoft. Directory/Users/Basic/Update | Zaktualizuj podstawowe właściwości użytkowników w Azure Active Directory. |
+| Microsoft. Directory/Users/Create | Dodawanie użytkowników |
 | Microsoft. Directory/Users/Delete | Usuń użytkowników w Azure Active Directory. |
+| Microsoft. Directory/Users/Disable | Wyłącz użytkowników |
+| Microsoft. Directory/Users/Enable | Włącz użytkowników |
 | Microsoft. Directory/Users/invalidateAllRefreshTokens | Unieważnienie wszystkich tokenów odświeżania użytkownika w Azure Active Directory. |
 | Microsoft. Directory/Users/Manager/Update | Aktualizowanie właściwości users. Manager w Azure Active Directory. |
 | Microsoft. Directory/Users/hasło/aktualizacja | Aktualizowanie haseł dla wszystkich użytkowników w Azure Active Directory. Zobacz dokumentację online, aby uzyskać więcej szczegółów. |
@@ -1515,9 +1531,9 @@ Nie używaj — nie jest przeznaczony do użytku ogólnego.
 | Microsoft. Directory/Users/userPrincipalName/Update | Zaktualizuj Właściwość Users. userPrincipalName w Azure Active Directory. |
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
-| Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="password-administrator-permissions"></a>Uprawnienia administratora hasła
 
@@ -1785,18 +1801,18 @@ Może zarządzać wszystkimi aspektami usługi programu SharePoint.
 | --- | --- |
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
-| Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Aktualizacja właściwości groups. Unified w Azure Active Directory. |
-| Microsoft. Directory/Groups/Unified/Basic/Update | Aktualizuj podstawowe właściwości grup Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Create | Utwórz grupy Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Delete | Usuń grupy Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Members/Update | Aktualizowanie członkostwa w grupach Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Owners/Update | Aktualizowanie własności grup Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Basic/Update | Aktualizuj podstawowe właściwości grup Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Create | Utwórz grupy Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Delete | Usuń grupy Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Members/Update | Aktualizowanie członkostwa w grupach Microsoft 365. |
+| Microsoft. Directory/groups. Unified/właściciele/aktualizacja | Aktualizowanie własności grup Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Restore | Przywracanie grup Microsoft 365 |
 | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytaj strony wydajności sieci w centrum administracyjnym M365. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 | Microsoft. Office. SharePoint/allEntities/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie standardowych właściwości w Microsoft. Office 365. SharePoint. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
-| Microsoft. Office 365. usageReports/allEntities/odczyt    | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
-| Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
+| Microsoft. Office 365. usageReports/allEntities/allProperties/Read | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="teams-communications-administrator-permissions"></a>Zespoły — uprawnienia administratora
 
@@ -1880,16 +1896,19 @@ Może zarządzać usługą Microsoft Teams.
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
 | Microsoft. Directory/Groups/hiddenMembers/Read | Odczytaj właściwości groups. hiddenMembers w Azure Active Directory. |
 | Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Aktualizacja właściwości groups. Unified w Azure Active Directory. |
-| Microsoft. Directory/Groups/Unified/Basic/Update | Aktualizuj podstawowe właściwości grup Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Create | Utwórz grupy Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Delete | Usuń grupy Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Members/Update | Aktualizowanie członkostwa w grupach Microsoft 365. |
-| Microsoft. Directory/Groups/Unified/Owners/Update | Aktualizowanie własności grup Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Basic/Update | Aktualizuj podstawowe właściwości grup Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Create | Utwórz grupy Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Delete | Usuń grupy Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Members/Update | Aktualizowanie członkostwa w grupach Microsoft 365. |
+| Microsoft. Directory/groups. Unified/właściciele/aktualizacja | Aktualizowanie własności grup Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Restore | Przywracanie grup Microsoft 365 |
+| Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj zgodę na delegowane uprawnienia w imieniu grupy |
 | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytaj strony wydajności sieci w centrum administracyjnym M365. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
+| Microsoft. Office 365. skypeForBusiness/allEntities/allTasks | Zarządzanie wszystkimi aspektami usługi Skype dla firm Online |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
-| Microsoft. Office 365. usageReports/allEntities/odczyt | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
-| Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
+| Microsoft. Office 365. usageReports/allEntities/allProperties/Read | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 | Microsoft. Teams/allEntities/allProperties/allTasks | Zarządzanie wszystkimi zasobami w zespołach. |
 
 ### <a name="usage-summary-reports-reader-permissions"></a>Uprawnienia czytelnika do raportów podsumowania użycia

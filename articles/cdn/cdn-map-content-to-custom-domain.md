@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 03ed47ee97f52aca708118f202fad583753549bf
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b0e8f2b14d506eb408660b939a7c925a33215cca
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331231"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537749"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Samouczek: Dodawanie domeny niestandardowej do punktu końcowego
 
@@ -27,7 +27,7 @@ Przykładowy adres URL to **https://contoso.azureedge.net/photo.png**.
 
 Azure CDN oferuje opcję kojarzenia domeny niestandardowej z punktem końcowym usługi CDN. Ta opcja dostarcza zawartość z domeną niestandardową w adresie URL zamiast w domenie domyślnej.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Tworzenie rekordu DNS CNAME.
 > - Kojarzenie domeny niestandardowej z punktem końcowym usługi CDN.
@@ -69,7 +69,7 @@ Możesz zmapować domenę niestandardową z różnymi domenami poddomeny do tego
 > Ten samouczek używa typu rekordu CNAME. Jeśli używasz typów rekordów AAAA lub, wykonaj te same kroki i Zastąp rekord CNAME wybranym typem.
 
 ---
-# <a name="azure-dns"></a>[**System DNS platformy Azure**](#tab/azure-dns)
+# <a name="azure-dns"></a>[**Azure DNS**](#tab/azure-dns)
 
 Azure DNS używa rekordów aliasów dla zasobów platformy Azure w ramach tej samej subskrypcji.
 
@@ -94,7 +94,7 @@ Aby dodać rekord aliasu dla punktu końcowego Azure CDN:
 
 5. Zmień **czas wygaśnięcia** rekordu na wartość.
 
-6. Wybierz pozycję **OK**.
+6. Wybierz przycisk **OK**.
 
 # <a name="dns-provider"></a>[**Dostawca DNS**](#tab/dns-provider)
 
@@ -116,7 +116,7 @@ Aby utworzyć rekord CNAME z poziomu poddomeny cdnverify:
 
 2. Utwórz wpis rekordu CNAME dla domeny niestandardowej, a następnie wypełnij pola, tak jak pokazano w poniższej tabeli (nazwy pól mogą być inne):
 
-    | Element źródłowy                    | Typ  | Miejsce docelowe                     |
+    | Element źródłowy                    | Typ  | Element docelowy                     |
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
@@ -140,7 +140,7 @@ Aby utworzyć rekord CNAME dla domeny niestandardowej:
 
 2. Utwórz wpis rekordu CNAME dla domeny niestandardowej, a następnie wypełnij pola, tak jak pokazano w poniższej tabeli (nazwy pól mogą być inne):
 
-    | Element źródłowy          | Typ  | Miejsce docelowe           |
+    | Element źródłowy          | Typ  | Element docelowy           |
     |-----------------|-------|-----------------------|
     | www.contoso.com | CNAME | contoso.azureedge.net |
 
@@ -162,6 +162,10 @@ Aby utworzyć rekord CNAME dla domeny niestandardowej:
 ## <a name="associate-the-custom-domain-with-your-cdn-endpoint"></a>Tworzenie skojarzenia domeny niestandardowej z punktem końcowym usługi CDN
 
 Po zarejestrowaniu domeny niestandardowej można dodać ją do punktu końcowego usługi CDN. 
+
+
+---
+# <a name="azure-portal"></a>[**Azure Portal**](#tab/azure-portal)
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) i przejdź do profilu usługi CDN zawierającego punkt końcowy, który ma być mapowany na domenę niestandardową.
     
@@ -189,7 +193,43 @@ Po zarejestrowaniu domeny niestandardowej można dodać ją do punktu końcowego
     - W przypadku profili usługi **Azure CDN Standard from Akamai** propagacja zwykle trwa mniej niż jedną minutę. 
     - W przypadku profilów usługi **Azure CDN Standard from Verizon** oraz usługi **Azure CDN Premium from Verizon** propagacja zwykle trwa do 10 minut.   
 
+# <a name="powershell"></a>[**Program PowerShell**](#tab/azure-powershell)
 
+1. Zaloguj się do Azure PowerShell:
+
+```azurepowershell-interactive
+    Connect-AzAccount
+
+```
+2. Użyj [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) , aby zmapować domenę niestandardową do punktu końcowego usługi CDN. 
+
+    * Zastąp **myendpoint8675.azureedge.NET** adresem URL punktu końcowego.
+    * Zastąp **myendpoint8675** nazwą punktu końcowego usługi CDN.
+    * Zastąp **www.contoso.com** nazwą domeny niestandardowej.
+    * Zastąp **myCDN** nazwą profilu CDN.
+    * Zastąp **myResourceGroupCDN** nazwą grupy zasobów.
+
+```azurepowershell-interactive
+    $parameters = @{
+        Hostname = 'myendpoint8675.azureedge.net'
+        EndPointName = 'myendpoint8675'
+        CustomDomainName = 'www.contoso.com'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    New-AzCdnCustomDomain @parameters
+```
+
+Platforma Azure sprawdzi, czy dla wprowadzonej nazwy domeny niestandardowej istnieje rekord CNAME. Jeśli rekord CNAME jest poprawny, domena niestandardowa zostanie zweryfikowana. 
+
+   Propagacja ustawień nowej domeny niestandardowej do wszystkich węzłów brzegowych usługi CDN może zająć trochę czasu: 
+
+- W przypadku profili usługi **Azure CDN Standard from Microsoft** propagacja zwykle trwa do 10 minut. 
+- W przypadku profili usługi **Azure CDN Standard from Akamai** propagacja zwykle trwa mniej niż jedną minutę. 
+- W przypadku profilów usługi **Azure CDN Standard from Verizon** oraz usługi **Azure CDN Premium from Verizon** propagacja zwykle trwa do 10 minut.   
+
+
+---
 ## <a name="verify-the-custom-domain"></a>Weryfikowanie domeny niestandardowej
 
 Po zakończeniu rejestracji domeny niestandardowej upewnij się, że domena niestandardowa odwołuje się do punktu końcowego usługi CDN.
@@ -198,7 +238,10 @@ Po zakończeniu rejestracji domeny niestandardowej upewnij się, że domena nies
 
 2. W przeglądarce przejdź do adresu pliku przy użyciu domeny niestandardowej. Na przykład jeśli domena niestandardowa to `www.contoso.com` , adres URL pliku w pamięci podręcznej powinien wyglądać podobnie do następującego adresu URL: `http://www.contoso.com/my-public-container/my-file.jpg` . Sprawdź, czy wynik jest taki sam jak w przypadku uzyskiwania dostępu do punktu końcowego usługi CDN bezpośrednio pod adresem **\<endpoint-hostname>** . azureedge.NET.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+---
+# <a name="azure-portal"></a>[**Azure Portal**](#tab/azure-portal-cleanup)
 
 Jeśli nie chcesz już kojarzyć punktu końcowego z domeną niestandardową, Usuń domenę niestandardową, wykonując następujące czynności:
  
@@ -208,6 +251,29 @@ Jeśli nie chcesz już kojarzyć punktu końcowego z domeną niestandardową, Us
 
    Skojarzenie domeny niestandardowej z punktem końcowym zostanie usunięte.
 
+# <a name="powershell"></a>[**Program PowerShell**](#tab/azure-powershell-cleanup)
+
+Jeśli nie chcesz już kojarzyć punktu końcowego z domeną niestandardową, Usuń domenę niestandardową, wykonując następujące czynności:
+
+1. Użyj [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) , aby usunąć domenę niestandardową z punktu końcowego:
+
+    * Zastąp **myendpoint8675** nazwą punktu końcowego usługi CDN.
+    * Zastąp **www.contoso.com** nazwą domeny niestandardowej.
+    * Zastąp **myCDN** nazwą profilu CDN.
+    * Zastąp **myResourceGroupCDN** nazwą grupy zasobów.
+
+
+```azurepowershell-interactive
+    $parameters = @{
+        CustomDomainName = 'www.contoso.com'
+        EndPointName = 'myendpoint8675'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    Remove-AzCdnCustomDomain @parameters
+```
+
+---
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:

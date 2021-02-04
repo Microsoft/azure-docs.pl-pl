@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: 9e943be3544da38788d16e54011e09e1ac3426cc
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8366978d50875389ce872c2d1402f0defa2a7371
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122198"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539353"
 ---
 # <a name="configure-expressroute-global-reach-using-the-azure-portal"></a>Konfigurowanie Global Reach ExpressRoute przy użyciu Azure Portal
 
 W tym artykule opisano sposób konfigurowania ExpressRoute Global Reach przy użyciu programu PowerShell. Aby uzyskać więcej informacji, zobacz [ExpressRouteRoute Global REACH](expressroute-global-reach.md).
 
- ## <a name="before-you-begin"></a>Przed rozpoczęciem
+ ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji Potwierdź następujące kryteria:
 
@@ -68,7 +68,7 @@ Jeśli dwa obwody nie znajdują się w tej samej subskrypcji platformy Azure, b�
 
    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="Generuj klucz autoryzacji"::: 
 
-   Zanotuj identyfikator prywatnego komunikacji równorzędnej obwodu 2 i klucz autoryzacji.
+   Zanotuj identyfikator zasobu obwodu 2 i klucz autoryzacji.
 
 1. Wybierz konfigurację **prywatnej** komunikacji równorzędnej Azure. 
 

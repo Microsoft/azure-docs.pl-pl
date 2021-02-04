@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6f63315c3e9b150a54e122d9a1c6948087603d51
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359085"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537411"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>SQL Server Skonfiguruj zawsze dostępną grupę dostępności w różnych regionach platformy Azure
 
@@ -86,6 +86,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
    - Użyj sondy portu TCP określonego dla adresu IP.
    - Mieć regułę równoważenia obciążenia specyficzną dla SQL Server w tym samym regionie.  
    - Usługa Load Balancer w warstwie Standardowa, jeśli maszyny wirtualne w puli zaplecza nie są częścią pojedynczego zestawu dostępności lub zestawu skalowania maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [standardowe omówienie Azure Load Balancer](../../../load-balancer/load-balancer-overview.md).
+   - Usługa Load Balancer w warstwie Standardowa, jeśli dwie sieci wirtualne w dwóch różnych regionach są połączone za pomocą komunikacji równorzędnej globalnej sieci równorzędnej. Aby uzyskać więcej informacji, zobacz artykuł [Azure Virtual Network często zadawane pytania](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 1. [Dodaj funkcję Klaster trybu failover do nowej SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 

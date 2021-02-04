@@ -8,17 +8,22 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: f8ba08c6147320160e99e522536f00fc98855eb4
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 036f086c88267f6a20da51746ca875c48a248712
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527624"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538856"
 ---
-# <a name="continuous-backup-with-point-in-time-restore-feature-in-azure-cosmos-db"></a>Ciągła kopia zapasowa z funkcją przywracania do punktu w czasie w Azure Cosmos DB
+# <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Ciągła kopia zapasowa z funkcją przywracania do punktu w czasie (wersja zapoznawcza) w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Funkcja przywracania do punktu w czasie Azure Cosmos DB pomaga w wielu scenariuszach, takich jak następujące:
+> [!IMPORTANT]
+> Funkcja przywracania do punktu w czasie (tryb ciągłej kopii zapasowej) dla Azure Cosmos DB jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Funkcja przywracania do punktu w czasie Azure Cosmos DB (wersja zapoznawcza) pomaga w wielu scenariuszach, takich jak następujące:
 
 * Odzyskiwanie po przypadkowym operacji zapisu lub usuwania w kontenerze.
 * Przywrócenie usuniętego konta, bazy danych lub kontenera.
@@ -58,17 +63,17 @@ Poniżej przedstawiono niektóre z kluczowych scenariuszy, które są rozwiązyw
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Zdarzenia cyklu życia z sygnaturami czasowymi dla konta dostępnych." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
-a. **Przywracanie usuniętego konta** — wszystkie usunięte konta, które można przywrócić, są widoczne w okienku **przywracanie** . Na przykład jeśli "konto A" jest usuwane w sygnaturze czasowej T3. W takim przypadku sygnatura czasowa tuż przed łączem T3, lokalizacją, nazwą konta docelowego, grupą zasobów i nazwą konta docelowego jest wystarczająca do przywracania z [Azure Portal](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)lub [interfejsu wiersza polecenia](continuous-backup-restore-command-line.md).  
+a. **Przywracanie usuniętego konta** — wszystkie usunięte konta, które można przywrócić, są widoczne w okienku **przywracanie** . Na przykład jeśli "konto A" jest usuwane w sygnaturze czasowej T3. W takim przypadku sygnatura czasowa tuż przed łączem T3, lokalizacją, nazwą konta docelowego, grupą zasobów i nazwą konta docelowego jest wystarczająca do przywracania z [Azure Portal](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)lub [interfejsu wiersza polecenia](continuous-backup-restore-command-line.md#trigger-restore).  
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="Zdarzenia cyklu życia z sygnaturami czasowymi dla bazy danych dostępnych i kontenera." lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
-b. **Przywracanie danych konta w określonym regionie** — na przykład jeśli "konto a" istnieje w dwóch regionach "Wschodnie stany USA" i "zachodnie stany USA", sygnatura czasowa T3. Jeśli potrzebujesz kopii konta A w pozycji "zachodnie stany USA", możesz wykonać przywracanie do punktu w czasie z [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md)lub [interfejsu wiersza polecenia](continuous-backup-restore-command-line.md) w regionie zachodnie stany USA jako lokalizację docelową.
+b. **Przywracanie danych konta w określonym regionie** — na przykład jeśli "konto a" istnieje w dwóch regionach "Wschodnie stany USA" i "zachodnie stany USA", sygnatura czasowa T3. Jeśli potrzebujesz kopii konta A w pozycji "zachodnie stany USA", możesz wykonać przywracanie do punktu w czasie z [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)lub [interfejsu wiersza polecenia](continuous-backup-restore-command-line.md#trigger-restore) w regionie zachodnie stany USA jako lokalizację docelową.
 
-c. **Odzyskaj od przypadkowej operacji zapisu lub usuwania w obrębie kontenera ze znaną sygnaturą czasową przywracania** — na przykład, jeśli **wiesz** , że zawartość "Container 1" w ramach "Database 1" została przypadkowo zmodyfikowana z sygnaturą czasową T3. Możesz wykonać przywracanie do punktu w czasie z [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md)lub [interfejsu wiersza polecenia](continuous-backup-restore-command-line.md) do innego konta w sygnaturze czasowej T3, aby odzyskać żądany stan kontenera.
+c. **Odzyskaj od przypadkowej operacji zapisu lub usuwania w obrębie kontenera ze znaną sygnaturą czasową przywracania** — na przykład, jeśli **wiesz** , że zawartość "Container 1" w ramach "Database 1" została przypadkowo zmodyfikowana z sygnaturą czasową T3. Możesz wykonać przywracanie do punktu w czasie z [Azure Portal](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)lub [interfejsu wiersza polecenia](continuous-backup-restore-command-line.md#trigger-restore) do innego konta w sygnaturze czasowej T3, aby odzyskać żądany stan kontenera.
 
-d. **Przywróć konto do wcześniejszego punktu w czasie przed przypadkowym usunięciem bazy danych** — w [Azure Portal](continuous-backup-restore-portal.md)możesz użyć okienka źródło zdarzeń, aby określić, kiedy baza danych została usunięta, i Znajdź czas przywracania. Podobnie, przy użyciu [interfejsu wiersza polecenia platformy Azure](continuous-backup-restore-command-line.md) i [programu PowerShell](continuous-backup-restore-powershell.md), można wykryć zdarzenie usunięcia bazy danych przez Wyliczenie źródła zdarzeń bazy danych, a następnie Wyzwól polecenie Restore z wymaganymi parametrami.
+d. **Przywróć konto do wcześniejszego punktu w czasie przed przypadkowym usunięciem bazy danych** — w [Azure Portal](continuous-backup-restore-portal.md#restore-live-account)możesz użyć okienka źródło zdarzeń, aby określić, kiedy baza danych została usunięta, i Znajdź czas przywracania. Podobnie, przy użyciu [interfejsu wiersza polecenia platformy Azure](continuous-backup-restore-command-line.md#trigger-restore) i [programu PowerShell](continuous-backup-restore-powershell.md#trigger-restore), można wykryć zdarzenie usunięcia bazy danych przez Wyliczenie źródła zdarzeń bazy danych, a następnie Wyzwól polecenie Restore z wymaganymi parametrami.
 
-e. **Przywróć konto do wcześniejszego punktu w czasie przed przypadkowym usunięciem lub modyfikacją właściwości kontenera.** -W [Azure Portal](continuous-backup-restore-portal.md)można użyć okienka źródło zdarzeń, aby określić, kiedy kontener został utworzony, zmodyfikowany lub usunięty, aby znaleźć czas przywracania. Podobnie jak w przypadku [interfejsu wiersza polecenia platformy Azure](continuous-backup-restore-command-line.md) i [programu PowerShell](continuous-backup-restore-powershell.md), można odnaleźć wszystkie zdarzenia kontenera, wyliczając źródło zdarzeń kontenera, a następnie wyzwalając polecenie Restore z wymaganymi parametrami.
+e. **Przywróć konto do wcześniejszego punktu w czasie przed przypadkowym usunięciem lub modyfikacją właściwości kontenera.** -W [Azure Portal](continuous-backup-restore-portal.md#restore-live-account)można użyć okienka źródło zdarzeń, aby określić, kiedy kontener został utworzony, zmodyfikowany lub usunięty, aby znaleźć czas przywracania. Podobnie jak w przypadku [interfejsu wiersza polecenia platformy Azure](continuous-backup-restore-command-line.md#trigger-restore) i [programu PowerShell](continuous-backup-restore-powershell.md#trigger-restore), można odnaleźć wszystkie zdarzenia kontenera, wyliczając źródło zdarzeń kontenera, a następnie wyzwalając polecenie Restore z wymaganymi parametrami.
 
 ## <a name="permissions"></a>Uprawnienia
 

@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: 83e1c7c27e8c5d179c4ec6aa4ba64b3367294a48
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: c19de134f40c58a687dcf6bac6ac156e46cef7da
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527936"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537547"
 ---
 # <a name="list-restorable-collections-in-azure-cosmos-db-api-for-mongodb-using-rest-api"></a>Utwórz listę dostępnych kolekcji w interfejsie API Azure Cosmos DB dla MongoDB przy użyciu interfejsu API REST
+
+> [!IMPORTANT]
+> Funkcja przywracania do punktu w czasie (tryb ciągłej kopii zapasowej) dla Azure Cosmos DB jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Pokaż źródło zdarzeń wszystkich mutacji wykonanych na wszystkich przeAzure Cosmos DBch interfejsu API dla kolekcji MongoDB w ramach określonej bazy danych. Pomaga to w scenariuszu, w którym kontener został przypadkowo usunięty. Ten interfejs API wymaga `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` uprawnień
 

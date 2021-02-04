@@ -7,17 +7,22 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7a41eb8bdd573ac08b0c76eb9a6c2b0724637c39
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: c0af1db12f3ade2945524f48e4539d2d2e9aa6b9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527965"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539188"
 ---
-# <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature"></a>Często zadawane pytania dotyczące funkcji przywracania do punktu w czasie Azure Cosmos DB
+# <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Często zadawane pytania dotyczące funkcji przywracania do momentu Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Ten artykuł zawiera listę często zadawanych pytań Azure Cosmos DB dotyczących funkcji przywracania do punktu w czasie, która została osiągnięta przy użyciu trybu ciągłej kopii zapasowej.
+> [!IMPORTANT]
+> Funkcja przywracania do punktu w czasie (tryb ciągłej kopii zapasowej) dla Azure Cosmos DB jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Ten artykuł zawiera listę często zadawanych pytań dotyczących funkcji przywracania do punktu w czasie Azure Cosmos DB (wersja zapoznawcza), która jest realizowana przy użyciu trybu ciągłej kopii zapasowej.
 
 ## <a name="how-much-time-does-it-takes-to-restore"></a>Ile czasu trwa przywracanie?
 Czas trwania przywracania zależy od rozmiaru danych.

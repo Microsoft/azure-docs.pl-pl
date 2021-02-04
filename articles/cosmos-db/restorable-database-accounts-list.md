@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: 442f7e3abdf065377c78f71f003733ee295b312a
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 71aafc756e5291e148c3b162f8946544b6e3c2d0
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527663"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537581"
 ---
 # <a name="list-restorable-database-accounts-using-azure-cosmos-db-rest-api"></a>Wyświetlanie listy kont bazy danych dostępnych przy Azure Cosmos DB użyciu interfejsu API REST
+
+> [!IMPORTANT]
+> Funkcja przywracania do punktu w czasie (tryb ciągłej kopii zapasowej) dla Azure Cosmos DB jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Wyświetla listę wszystkich kont bazy danych dostępnych Azure Cosmos DB dostępnych w ramach subskrypcji. To wywołanie wymaga `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` uprawnień.
 

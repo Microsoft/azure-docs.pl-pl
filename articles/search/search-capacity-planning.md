@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702789"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537225"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Oszacuj i Zarządzaj pojemnością usługi Wyszukiwanie poznawcze platformy Azure
 
@@ -207,6 +207,14 @@ Ogólne zalecenia dotyczące wysokiej dostępności są następujące:
 Umowy dotyczące poziomu usług (SLA) dla usługi Azure Wyszukiwanie poznawcze są przeznaczone dla operacji zapytań i aktualizacji indeksu, które obejmują dodawanie, aktualizowanie lub usuwanie dokumentów.
 
 Warstwa Podstawowa jest przeznaczona dla jednej partycji i trzech replik. Jeśli chcesz, aby elastyczność natychmiast reagować na wahania popytu dla indeksowania i przepływności zapytań, weź pod uwagę jedną z warstw standardowych.  Jeśli okaże się, że wymagania dotyczące magazynu rośnie znacznie szybciej niż przepływność zapytań, należy rozważyć jedną z warstw zoptymalizowanych pod kątem magazynu.
+
+## <a name="about-queries-per-second-qps"></a>Zapytania na sekundę (zapytań) — informacje
+
+Ze względu na dużą liczbę czynników, które przechodzą na wydajność zapytań, firma Microsoft nie publikuje oczekiwanych liczb zapytań. Oszacowania zapytań muszą być opracowywane niezależnie przez każdego klienta przy użyciu warstwy usług, konfiguracji, indeksu i konstrukcji zapytań, które są prawidłowe dla danej aplikacji. Rozmiar indeksu i złożoność, rozmiar zapytania i złożoność oraz wielkość ruchu to podstawowe znaczniki zapytań. Nie ma możliwości zaoferowania znaczących szacunków, gdy takie czynniki są nieznane.
+
+Oszacowania są bardziej przewidywalne, gdy są obliczane w usługach uruchomionych na dedykowanych zasobach (warstwach Podstawowa i standardowa). Możesz oszacować zapytań bardziej blisko, ponieważ masz kontrolę nad większymi parametrami. Aby uzyskać wskazówki dotyczące sposobu podejścia do oceny, zobacz temat [wydajność i optymalizacja na platformie wyszukiwanie poznawcze Azure](search-performance-optimization.md).
+
+W przypadku warstw zoptymalizowanych pod kątem magazynu (L1 i L2) należy oczekiwać mniejszej przepływności zapytań i wyższych opóźnień niż w przypadku warstw standardowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

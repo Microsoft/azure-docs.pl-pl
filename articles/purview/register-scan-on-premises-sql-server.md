@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 26012b23a10f560158e3ba3919e12f5c15759189
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555903"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539319"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Rejestrowanie i skanowanie lokalnego programu SQL Server
 
@@ -50,21 +50,17 @@ Istnieje tylko jeden sposób na skonfigurowanie uwierzytelniania dla lokalnego p
 
 ### <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
-Tożsamość SQL musi mieć dostęp do podstawowej bazy danych. Lokalizacja jest `sys.databases` przechowywana. `sys.databases`Aby można było znaleźć wszystkie wystąpienia bazy danych SQL na serwerze, skaner kontrolą musi zostać wyliczony.
+Konto SQL musi mieć dostęp do bazy danych **Master** . Dzieje się tak, ponieważ `sys.databases` znajduje się w bazie danych Master. Skaner kontrolą musi zostać wyliczony, `sys.databases` Aby można było znaleźć wszystkie bazy danych SQL na serwerze.
 
 #### <a name="using-an-existing-server-administrator"></a>Korzystanie z istniejącego administratora serwera
 
 Jeśli planujesz użyć istniejącego użytkownika administratora serwera (SA) do skanowania lokalnego programu SQL Server, upewnij się, że:
 
-1. `sa` nie jest typem uwierzytelniania systemu Windows.
+1. `sa` nie jest kontem uwierzytelniania systemu Windows.
 
-2. Użytkownik na poziomie serwera, który ma być używany, musi mieć role serwera Public i sysadmin. Można to sprawdzić, przechodząc do SQL Server Management Studio (SSMS), nawiązując połączenie z serwerem, przechodząc do zabezpieczeń, wybierając nazwę logowania, którego planujesz użyć, klikając prawym przyciskiem myszy pozycję **Właściwości** , a następnie wybierając pozycję **role serwera**.
+2. Nazwa logowania na poziomie serwera, która ma być używana, musi mieć role serwera Public i sysadmin. Można to sprawdzić przez połączenie z serwerem, przechodzenie do SQL Server Management Studio (SSMS), przechodzenie do zabezpieczeń, Wybieranie nazwy logowania, która ma być używana, kliknij prawym przyciskiem myszy pozycję **Właściwości** , a następnie wybierz pozycję **role serwera**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Identyfikator logowania na poziomie serwera.":::
-
-3. Bazy danych są mapowane do użytkownika, który ma co najmniej db_datareader dostęp na poziomie każdej bazy danych.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping-sa.png" alt-text="Mapowanie użytkownika dla skojarzenia zabezpieczeń.":::
 
 #### <a name="creating-a-new-login-and-user"></a>Tworzenie nowego identyfikatora logowania i użytkownika
 
@@ -74,9 +70,9 @@ Jeśli chcesz utworzyć nową nazwę logowania i użytkownika, aby umożliwić s
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Utwórz nową nazwę logowania i użytkownika.":::
 
-2. Wybierz pozycję Role serwera po lewej stronie nawigacyjnej i wybierz opcję publiczny i administrator systemu.
+2. Wybierz pozycję Role serwera po lewej stronie nawigacyjnej i upewnij się, że przypisano rolę publiczną.
 
-3. Wybierz pozycję Mapowanie użytkowników po lewej stronie nawigacyjnej i wybierz wszystkie bazy danych na mapie.
+3. Wybierz pozycję Mapowanie użytkowników na lewym pasku nawigacyjnym, zaznacz wszystkie bazy danych na mapie i wybierz rolę bazy danych: **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="Mapowanie użytkownika.":::
 
@@ -88,8 +84,7 @@ Jeśli chcesz utworzyć nową nazwę logowania i użytkownika, aby umożliwić s
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Przechowywanie hasła logowania SQL w magazynie kluczy i Tworzenie poświadczeń w usłudze kontrolą
 
-1. Przejdź do magazynu kluczy w Azure Portal
-1. Wybierz pozycję **ustawienia > wpisy tajne**
+1. Przejdź do magazynu kluczy w usłudze Azure portal1. Wybierz pozycję **ustawienia > wpisy tajne**
 1. Wybierz pozycję **+ Generuj/Importuj** i wprowadź **nazwę** i **wartość** jako *hasło* z identyfikatora logowania programu SQL Server
 1. Wybierz pozycję **Utwórz** , aby zakończyć
 1. Jeśli Twój Magazyn kluczy nie jest jeszcze połączony z usługą kontrolą, konieczne będzie [utworzenie nowego połączenia z magazynem kluczy](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)

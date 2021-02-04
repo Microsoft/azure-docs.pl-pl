@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 286d826f61a6c99396ef04af0a0855567bc4d1e4
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7615e1dbce040002d9d1a13502637f78100965fb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951387"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538911"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Funkcje usługi Azure Wyszukiwanie poznawcze
 
@@ -49,7 +49,7 @@ Usługa Azure Wyszukiwanie poznawcze udostępnia aparat wyszukiwania pełnotekst
 
 | Kategorii&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Funkcje |
 |-------------------|----------|
-| Szyfrowanie danych | [**Szyfrowanie zarządzane przez firmę Microsoft — w spoczynku**](search-security-overview.md#encrypted-transmissions-and-storage) jest wbudowane w wewnętrzną warstwę magazynu i jest nieodwołalne. <br/><br/>[**Zarządzane przez klienta klucze szyfrowania**](search-security-manage-encryption-keys.md) tworzone i zarządzane w Azure Key Vault mogą służyć do uzupełniania szyfrowania indeksów i mapowań synonimów. W przypadku usług utworzonych po sierpniu 1 2020 szyfrowanie CMK rozciąga się do danych na dyskach tymczasowych, co umożliwia pełne szyfrowanie indeksowanej zawartości.|
+| Szyfrowanie danych | [**Szyfrowanie zarządzane przez firmę Microsoft — w spoczynku**](search-security-overview.md#encryption) jest wbudowane w wewnętrzną warstwę magazynu i jest nieodwołalne. <br/><br/>[**Zarządzane przez klienta klucze szyfrowania**](search-security-manage-encryption-keys.md) tworzone i zarządzane w Azure Key Vault mogą służyć do uzupełniania szyfrowania indeksów i mapowań synonimów. W przypadku usług utworzonych po sierpniu 1 2020 szyfrowanie CMK rozciąga się do danych na dyskach tymczasowych, co umożliwia pełne szyfrowanie indeksowanej zawartości.|
 | Program Endpoint Protection | [**Reguły adresów IP dla obsługi zapory przychodzącej**](service-configure-firewall.md) umożliwiają skonfigurowanie zakresów adresów IP, za pomocą których usługa wyszukiwania będzie akceptować żądania.<br/><br/>[**Utwórz prywatny punkt końcowy**](service-create-private-endpoint.md) przy użyciu linku prywatnego platformy Azure, aby wymusić wszystkie żądania za pośrednictwem sieci wirtualnej. |
 | Zabezpieczenia dla ruchu wychodzącego (indeksatory) | [**Dostęp do danych za pomocą prywatnych punktów końcowych**](search-indexer-howto-access-private.md) umożliwia Indeksatorowi łączenie się z zasobami platformy Azure, które są chronione za pomocą prywatnego linku platformy Azure.<br/><br/>[**Dostęp do danych przy użyciu zaufanej tożsamości**](search-howto-managed-identities-data-sources.md) oznacza, że parametry połączenia z zewnętrznymi źródłami danych mogą pominąć nazwy użytkownika i hasła. Gdy indeksator nawiązuje połączenie ze źródłem danych, jest to możliwe, jeśli usługa wyszukiwania została wcześniej zarejestrowana jako usługa zaufana. |
 

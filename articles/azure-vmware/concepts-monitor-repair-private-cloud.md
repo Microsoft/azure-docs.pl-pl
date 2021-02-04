@@ -3,13 +3,13 @@ title: Pojęcia — monitorowanie i naprawa prywatnych chmur rozwiązań platfor
 description: Dowiedz się, jak rozwiązanie VMware firmy Azure monitoruje i naprawia serwery VMware ESXi w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: conceptual
 ms.custom: contperf-fy21q2
-ms.date: 11/20/2020
-ms.openlocfilehash: 7f367a6ef9b86f235a16a698735cfb58a11f6862
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 02/03/2021
+ms.openlocfilehash: 6174df429fd9b21c7f685c8ba14e6d5c0bba4c83
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033599"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538962"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitorowanie i naprawa chmur prywatnych rozwiązania Azure VMware
 
@@ -43,10 +43,7 @@ Proces korygowania hosta jest uruchamiany przez dodanie nowego węzła w dobrej 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Oto kilka tematów, dla których warto dowiedzieć się więcej na temat:
+Po zapoznaniu się ze sposobem, w jaki rozwiązanie VMware firmy Azure monitoruje i naprawia chmurę prywatną, warto zapoznać się z tematem:
 
-- [Uaktualnienia chmury prywatnej rozwiązań VMware platformy Azure](concepts-upgrades.md)
-- [Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure](lifecycle-management-of-azure-vmware-solution-vms.md)
-- [Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center](azure-security-integration.md)
-- [Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu Azure Backup Server](backup-azure-vmware-solution-virtual-machines.md)
-- [Ukończ odzyskiwanie po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware](disaster-recovery-for-virtual-machines.md)
+- [Uaktualnianie chmury prywatnej rozwiązań VMware platformy Azure](concepts-upgrades.md).
+- [Jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md).

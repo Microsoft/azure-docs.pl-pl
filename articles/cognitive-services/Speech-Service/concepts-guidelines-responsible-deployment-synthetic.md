@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: 371ad2220b2b2b1b73e5611c5abef74454a548ad
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 9a7a8868497433ea0de8f2f8b32f8e8fbaa497eb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508273"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537188"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej
 
@@ -62,14 +62,8 @@ Dla użytkowników indywidualnych z zaburzeniami mowy, które nagrywają własne
 Osoby z zaburzeniami mowy chcą wprowadzać aktualizacje do głosu syntetycznego w celu odzwierciedlenia przedawnienia (na przykład elementu podrzędnego, który dociera do puberty). Użytkownicy mogą również mieć preferencje stylistyczne, które zmieniają się wraz z upływem czasu i mogą chcieć wprowadzić zmiany w wysokości, akcentie lub innych cechach głosu.
 
 
-## <a name="reference-docs"></a>Dokumentacja dokumentacji
+## <a name="see-also"></a>Zobacz też
 
-* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [Jak ujawnić](concepts-disclosure-guidelines.md)
-* [Wzorce projektowania ujawniania](concepts-disclosure-patterns.md)
-
-## <a name="next-steps"></a>Następne kroki
-
-* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent)
+* [Ujawnienie dla talent głosu](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
 * [Wzorce projektowania ujawniania](concepts-disclosure-patterns.md)

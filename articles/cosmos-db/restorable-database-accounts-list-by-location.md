@@ -6,16 +6,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: 2a3fbc1bb00c57c20436c19602c135f1917c6a60
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 26c07ddaf4db71961d4aeff50e482740d969f0ef
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527664"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537682"
 ---
 # <a name="list-restorable-database-accounts-by-location-using-azure-cosmos-db-rest-api"></a>Wyświetlanie listy kont bazy danych dostępnych według lokalizacji przy użyciu interfejsu API REST Azure Cosmos DB
 
-Wyświetla listę wszystkich kont bazy danych dostępnych Azure Cosmos DB dostępnych w ramach subskrypcji i w regionie. To wywołanie wymaga `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` uprawnień.
+> [!IMPORTANT]
+> Funkcja przywracania do punktu w czasie (tryb ciągłej kopii zapasowej) dla Azure Cosmos DB jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Wyświetla listę wszystkich kont bazy danych dostępnych Azure Cosmos DB dostępnych dostępnych w ramach subskrypcji i w regionie. To wywołanie wymaga `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` uprawnień.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts?api-version=2020-06-01-preview

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 228f837a8826612bbbadf2ca8c5ef339ab248397
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524996"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539115"
 ---
 ::: zone target="docs"
 
@@ -267,6 +267,35 @@ Po zakończeniu przekazywania danych na platformę Azure dane z dysków urządze
     ```
 
 W przypadku wystąpienia jakichkolwiek problemów wyślij wiadomość e-mail do działu Data Box Operations Asia na adres [adbo@microsoft.com](mailto:adbo@microsoft.com) ze szczegółowymi informacjami o problemach, a w wierszu tematu podaj nazwę zadania.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Weryfikowanie przekazania danych na platformę Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Wymazywanie danych z urządzenia Data Box
+ 
+
+::: zone-end
+
+## <a name="united-arab-emirates"></a>[Zjednoczone Emiraty Arabskie](#tab/in-uae)
+
+1. Zachowaj oryginalne pudełko użyte do wysłania urządzenia na potrzeby wysyłki zwrotnej.
+2. Upewnij się, że kopiowanie danych na urządzenie zostało ukończone, a krok **przygotowanie do wysłania** zakończył się pomyślnie.
+3. Zwróć uwagę na numer odwołania na stronie **przygotowanie do wysłania** lokalnego interfejsu użytkownika sieci Web urządzenia.
+4. Wyłącz zasilanie urządzenia i Usuń kable. Zwiń przewód zasilający dostarczony wraz z urządzeniem i umieść go bezpiecznie z tyłu urządzenia.
+6. Na potrzeby wysyłki zwrotnej zapakuj urządzenie w oryginalne pudełko.
+7. [Azure Data Box operacji](mailto:adbops@microsoft.com) w celu uzyskania identyfikatora, który zostanie użyty do zidentyfikowania pakietu po nadejściu go do centrum danych.
+8. Zapisz ten identyfikator na drukowanej etykiecie wysyłkowej obok adresu zwrotnego, aby był widoczny.  
+9. Zarezerwuj przebiór w tryb online, przechodząc do [DHL ekspresowego](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab)  >  **Zaplanuj odbiór**.
+   - Wprowadź numer referencyjny ze strony **przygotowanie do wysłania** lokalnego interfejsu użytkownika sieci Web urządzenia w polu Numer list rzeczy.
+   - Rezerwacje są akceptowane od 9:00 AM – 2:00 PM sześć dni w tygodniu (z wyjątkiem pt i dni wolnych od pracy).
+   - Żądania pobrania należy umieścić co najmniej 90 minut przed godziną zamknięcia klienta.
+10. Jeśli masz problemy z narzędziem do rezerwacji DHL, możesz skontaktować się z DHL przy użyciu dowolnej z następujących metod:
+    - Wywołanie 04-2924545.
+    - Wyślij wiadomość e-mail [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) ze szczegółowymi informacjami o problemach i umieść numer list kontrolnych w wierszu subject:.
+    - Zadzwoń do działu obsługi klienta DHL o 600 567567.
 
 ::: zone target="chromeless"
 

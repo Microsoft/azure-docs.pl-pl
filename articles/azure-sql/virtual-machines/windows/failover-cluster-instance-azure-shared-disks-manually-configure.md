@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 8daec71745c9eff9a7db5bb34cb3596973def4aa
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70f4ac69721db57aa06c0d8fda12189f43e79686
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736417"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537834"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,7 +32,7 @@ Aby dowiedzieć się więcej, zobacz Omówienie [FCI z SQL Server na maszynach w
 Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać następujące czynności:
 
 - Subskrypcja platformy Azure. Zacznij korzystać [bezpłatnie](https://azure.microsoft.com/free/). 
-- [Co najmniej dwie maszyny wirtualne z systemem Windows Azure](failover-cluster-instance-prepare-vm.md). [Zestawy dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md) i [grupy umieszczania zbliżeniowe](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) obsługiwane dla stref SSD w warstwie Premium i [dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) są obsługiwane dla Ultra Disks. Jeśli używasz PPG, wszystkie węzły muszą istnieć w tej samej grupie.
+- [Co najmniej dwie maszyny wirtualne z systemem Windows Azure](failover-cluster-instance-prepare-vm.md). [Zestawy dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md) i [grupy umieszczania zbliżeniowe](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) obsługiwane dla stref SSD w warstwie Premium i [dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) są obsługiwane dla Ultra Disks. Wszystkie węzły muszą istnieć w tej samej [grupie umieszczania sąsiedztwa](../../../virtual-machines/co-location.md#proximity-placement-groups).
 - Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
 - Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps). 
 

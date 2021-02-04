@@ -2,13 +2,13 @@
 title: Pojęcia — chmury prywatne i klastry
 description: Dowiedz się więcej na temat kluczowych możliwości rozwiązań VMware platformy Azure zdefiniowanych przez oprogramowanie oraz klastrów vSphere.
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.openlocfilehash: 6a2bb0f41bb1809d0f43b08c71766acc914c0689
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: 960187629c5dc1120b720ec9009276fa3f313e5d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509269"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538928"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Rozwiązanie Azure VMware Private Cloud i pojęcia dotyczące klastrów
 

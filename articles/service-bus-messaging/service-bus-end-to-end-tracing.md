@@ -2,14 +2,14 @@
 title: Azure Service Bus kompleksowe śledzenie i Diagnostyka | Microsoft Docs
 description: Przegląd Service Bus diagnostyki klienta i kompleksowego śledzenia (klient przez wszystkie usługi, które są związane z przetwarzaniem).
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 19b284aceb83fbbc2bcf662b2b58941e6a5b36f9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601249"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539217"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Śledzenie rozproszone i korelacja za poorednictwem Service Bus Messaging
 
@@ -135,12 +135,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 W tym przykładzie, odbiornik rejestruje czas trwania, wynik, unikatowy identyfikator i godzinę rozpoczęcia dla każdej operacji Service Bus.
 
 ### <a name="events"></a>Zdarzenia
-Dla każdej operacji są wysyłane dwa zdarzenia: "Start" i "Stop". Najprawdopodobniej interesuje Cię tylko zdarzenia "Stop". Zapewniają one wynik operacji oraz czas rozpoczęcia i czas trwania jako właściwości działania.
-
-Ładunek zdarzenia udostępnia odbiornik z kontekstem operacji, replikuje parametry przychodzące interfejsu API i wartość zwracaną. Ładunek zdarzenia "Stop" ma wszystkie właściwości ładunku zdarzenia "Start", więc można zignorować wydarzenie "Start" w całości.
-
-Każde zdarzenie "Stop" ma `Status` Właściwość z `TaskStatus` operacją asynchroniczną została ukończona z, która jest również pomijana w poniższej tabeli dla uproszczenia.
-
 Wszystkie zdarzenia będą miały następujące właściwości, które są zgodne ze specyfikacją Open telemetrii: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md .
 
 - `message_bus.destination` — ścieżka kolejki/tematu/subskrypcji

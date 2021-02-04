@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: d9f4ba48a7dc6cdcf6d60e4e9da5f68fcc6b1f28
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509337"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539098"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Tworzenie indeksów wyszukiwania na platformie Azure Wyszukiwanie poznawcze
 
-Indeks wyszukiwania przechowuje zawartość do przeszukiwania używaną dla pełnych zapytań tekstowych i filtrowanych. Indeks został zdefiniowany przez schemat i zapisany w usłudze, z importowaniem danych, jak w drugim kroku. 
+Wyszukiwanie poznawcze przechowuje zawartość do przeszukiwania używaną dla pełnych zapytań tekstowych i filtrowanych w *indeksie wyszukiwania*. Indeks został zdefiniowany przez schemat i zapisany w usłudze, z importowaniem danych, jak w drugim kroku. 
 
-Indeksy zawierają *dokumenty*. Koncepcyjnie dokument jest pojedynczą jednostką danych, które można przeszukiwać w indeksie. Sprzedawca detaliczny może mieć dokument dla każdego produktu, organizacja wiadomości może mieć dokument dla każdego artykułu i tak dalej. Mapowanie tych koncepcji do bardziej znanych odpowiedników bazy danych: *indeks wyszukiwania* jest równy *tabeli*, a *dokumenty* są mniej podobne do *wierszy* w tabeli.
+Indeksy zawierają *dokumenty wyszukiwania*. Koncepcyjnie dokument jest pojedynczą jednostką danych, które można przeszukiwać w indeksie. Sprzedawca detaliczny może mieć dokument dla każdego produktu, organizacja wiadomości może mieć dokument dla każdego artykułu i tak dalej. Mapowanie tych koncepcji do bardziej znanych odpowiedników bazy danych: *indeks wyszukiwania* jest równy *tabeli*, a *dokumenty* są mniej podobne do *wierszy* w tabeli.
 
 ## <a name="whats-an-index-schema"></a>Co to jest schemat indeksu?
 
@@ -106,7 +106,9 @@ W przypadku Wyszukiwanie poznawcze zestawy SDK platformy Azure implementują og�
 | JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [Indeksy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/indexes) |
 | Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations. PR](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
 
-## <a name="defining-fields"></a>Definiowanie pól
+## <a name="define-fields"></a>Zdefiniuj pola
+
+Dokument wyszukiwania jest definiowany przez `fields` kolekcję. Potrzebne będą pola zapytań i kluczy. Prawdopodobnie potrzebne są również pola do obsługi filtrów, aspektów i sortowania. Konieczne może być również posiadanie pól dla danych, które użytkownik nigdy nie widzi, na przykład w przypadku marginesów zysku lub promocji marketingowych, których można użyć do zmodyfikowania rangi wyszukiwania.
 
 Należy wyznaczyć jedno pole typu EDM. String jako klucz dokumentu. Służy do jednoznacznej identyfikacji każdego dokumentu wyszukiwania. Aby wypełnić stronę szczegółów, możesz pobrać dokument według swojego klucza.  
 
@@ -146,9 +148,11 @@ Poniższy zrzut ekranu ilustruje wzorce magazynu indeksów, które wynikają z r
 
 ![Rozmiar indeksu na podstawie wybranego atrybutu](./media/search-what-is-an-index/realestate-index-size.png "Rozmiar indeksu na podstawie wybranego atrybutu")
 
-Chociaż te warianty indeksów są sztuczne, możemy odnieść się do nich w celu uzyskania szerokiego porównania wpływu atrybutów na magazyn. Czy ustawienie "pobierania" zwiększa rozmiar indeksu? Nie. Czy dodanie pól do **sugestii** zwiększa rozmiar indeksu? Tak.
+Chociaż te warianty indeksów są sztuczne, możemy odnieść się do nich w celu uzyskania szerokiego porównania wpływu atrybutów na magazyn. Czy ustawienie "pobierania" zwiększa rozmiar indeksu? Nie. Czy dodanie pól do **sugestii** zwiększa rozmiar indeksu? Tak. 
 
-Indeksy obsługujące filtrowanie i sortowanie są proporcjonalnie większe niż indeksy obsługujące tylko wyszukiwanie pełnotekstowe. Wynika to z tego, że operacje filtrowania i sortowania sprawdzają dokładne dopasowania, wymagając obecności ciągów tekstowych Verbatim. Natomiast pola z możliwością wyszukiwania obsługujące zapytania pełnotekstowe używają odwróconych indeksów, które są wypełniane za pomocą tokenów, które zużywają mniej miejsca niż całe dokumenty. 
+Dodanie pola do filtrowania lub sortowania powoduje również dodanie do użycia magazynu, ponieważ pola filtrowane i sortowane nie są oparte na tokenach, dzięki czemu sekwencje znaków można dopasować do Verbatim.
+
+Nie dotyczy to również wpływu [analizatorów](search-analyzers.md)w powyższej tabeli. Jeśli używasz edgeNgram tokenizatora do przechowywania sekwencji Verbatim znaków (a, AB, ABC, ABCD), rozmiar indeksu będzie większy niż w przypadku użycia analizatora standardowego.
 
 > [!Note]
 > Architektura magazynu jest uważana za szczegóły implementacji platformy Azure Wyszukiwanie poznawcze i może ulec zmianie bez powiadomienia. Nie ma żadnej gwarancji, że bieżące zachowanie będzie nadal występowało w przyszłości.
@@ -169,9 +173,9 @@ Dla mechanizmu CORS można ustawić następujące opcje:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz skorzystać z możliwości tworzenia indeksu przy użyciu niemal każdej próbki lub wskazówki dotyczącej Wyszukiwanie poznawcze. Aby rozpocząć pracę, możesz wybrać dowolny z przewodników szybki start z spisu treści.
+Możesz skorzystać z możliwości tworzenia indeksu przy użyciu niemal każdej próbki lub wskazówki dotyczącej Wyszukiwanie poznawcze. W przypadku startów można wybrać dowolny z przewodników szybki start z spisu treści.
 
-Warto również zapoznać się z metodologiami dotyczącymi ładowania indeksu do danych. Definicja indeksu i populacja są wykonywane razem. Poniższe artykuły zawierają więcej informacji.
+Ale warto również zapoznać się z metodologiami dotyczącymi ładowania indeksu do danych. Strategie definiowania indeksu i importowania danych są zdefiniowane wspólnie. Poniższe artykuły zawierają więcej informacji na temat ładowania indeksu.
 
 + [Omówienie importowania danych](search-what-is-data-import.md)
 
