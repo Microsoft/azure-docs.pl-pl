@@ -1,5 +1,5 @@
 ---
-title: Wysyłanie zdarzeń do punktu końcowego sieci Web przy użyciu usługi Azure App Configuration
+title: Użyj Event Grid na potrzeby powiadomień o zmianach danych konfiguracji aplikacji
 description: Dowiedz się, jak wysyłać zdarzenia modyfikacji klucz-wartość do punktu końcowego sieci Web przy użyciu subskrypcji zdarzeń konfiguracji aplikacji platformy Azure
 services: azure-app-configuration
 author: AlexandraKemperMS
@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4e005d2f929fd615080d22e93a102a7cc5c1174a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: c188a4b7fe8e9223faa1cdeb52ae01ed83b94d84
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696108"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549783"
 ---
-# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Kierowanie zdarzeń konfiguracji aplikacji platformy Azure do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="use-event-grid-for-app-configuration-data-change-notifications"></a>Użyj Event Grid na potrzeby powiadomień o zmianach danych konfiguracji aplikacji
 
 W tym artykule dowiesz się, jak skonfigurować subskrypcje zdarzeń konfiguracji aplikacji platformy Azure w celu wysyłania zdarzeń modyfikacji klucz-wartość do punktu końcowego w sieci Web. Użytkownicy usługi Azure App Configuration mogą subskrybować zdarzenia emitowane za każdym razem, gdy wartości klucza są modyfikowane. Zdarzenia te mogą wyzwalać elementy webhook, Azure Functions, kolejki usługi Azure Storage lub inne procedury obsługi zdarzeń obsługiwane przez Azure Event Grid. Zazwyczaj użytkownik wysyła zdarzenia do punktu końcowego, w którym następuje przetwarzanie danych zdarzenia i są wykonywane akcje. Jednak aby uprościć ten artykuł, zdarzenia zostaną wysłane do aplikacji internetowej, która zbiera i wyświetla komunikaty.
 

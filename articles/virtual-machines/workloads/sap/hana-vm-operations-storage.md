@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/23/2021
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 48d1c04e59d316ac19000f5b890c0cb1c96fb213
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746751"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549443"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -81,7 +81,13 @@ Odczytywanie szczegółowych informacji jest oczywiste, że korzystanie z tej fu
 
 
 ## <a name="linux-io-scheduler-mode"></a>Tryb harmonogramu we/wy systemu Linux
-System Linux ma kilka różnych trybów planowania operacji we/wy. Typowym zaleceniem za pośrednictwem dostawców systemu Linux i SAP jest ponowna konfiguracja trybu harmonogramu we/wy dla woluminów dysku z trybu **MQ/nieprzekraczalny** lub **kyber** do **aktualizujący nie działa** (poza autokolejką) lub **Brak** dla (wielokolejkowe). Szczegółowe informacje znajdują się w [#1984787 uwagi SAP](https://launchpad.support.sap.com/#/notes/1984787). 
+System Linux ma kilka różnych trybów planowania operacji we/wy. Typowym zaleceniem za pośrednictwem dostawców systemu Linux i SAP jest ponowne skonfigurowanie trybu harmonogramu we/wy dla woluminów dyskowych z trybu **MQ/nieprzekraczalny** lub **kyber** do **aktualizujący nie działa** (poza wielokolejką) lub **Brak** dla (wielokolejowej), jeśli nie zostało to jeszcze zrobione przez profile SLES saptune. Szczegóły znajdują się w: 
+
+- [#1984787 uwagi SAP](https://launchpad.support.sap.com/#/notes/1984787)
+- [#2578899 uwagi SAP](https://launchpad.support.sap.com/#/notes/2578899) 
+- [Problem z ustawieniem aktualizujący nie działa w SLES 12 SP4](https://www.suse.com/support/kb/doc/?id=000019547)
+
+W systemie Red Hat Pozostaw ustawienia określone przez określone profile dostrajania dla różnych aplikacji SAP.
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Rozwiązania z usługami Premium Storage i Azure akcelerator zapisu dla maszyn wirtualnych z serii M platformy Azure

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942052"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551080"
 ---
-# <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
+# <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym środowiskiem Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -244,7 +244,7 @@ Zainstaluj sterowniki dla źródłowych i docelowych magazynów danych w docelow
  
 Jeśli ruch nie może przechodzić przez sieć między dwoma magazynami danych (na przykład są one konfigurowane w dwóch sieciach wirtualnych), nie można zakończyć kopiowania w jednym działaniu nawet z zainstalowanym systemem IR. Jeśli nie można zakończyć kopiowania w pojedynczym działaniu, można utworzyć dwa działania kopiowania z dwoma urzędami skarbowymi, każdy w odpowietrzeniu: 
 * Kopiuj jedno środowisko IR z magazynu danych 1 do platformy Azure Blob Storage
-* Skopiuj inne środowisko IR z usługi Azure Blob Storage do ddatastore 2. 
+* Skopiuj inne środowisko IR z usługi Azure Blob Storage do magazynu danych 2. 
 
 To rozwiązanie może symulować wymaganie, aby przy użyciu środowiska IR utworzyć mostek łączący dwa rozłączone magazyny danych.
 
@@ -710,7 +710,7 @@ To powiadomienie ma zastosowanie do następujących scenariuszy:
 
 Jak określić, czy ma to wpływ:
 
-- *Nie* ma to żadnego oddziaływania, jeśli definiujesz reguły zapory na podstawie w pełni kwalifikowanych nazw domen (FQDN) korzystających z metody opisanej w temacie [Konfigurowanie konfiguracji zapory i listy dozwolonych adresów IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- *Nie* ma to żadnego oddziaływania, jeśli definiujesz reguły zapory na podstawie w pełni kwalifikowanych nazw domen (FQDN) korzystających z metody opisanej w temacie [Konfigurowanie konfiguracji zapory i listy dozwolonych adresów IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - Ma *to zastosowanie* , jeśli jawnie włączysz listę dozwolonych wychodzących adresów IP w zaporze firmowej.
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2021
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: cdc29f89307a986b2d71604ca495eac45458632b
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: fe031fa6de86b8059ba175fc4e1df6385ca7e796
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526623"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551030"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -37,7 +37,8 @@ Aktualizacje w lutym obejmują:
 
 - [Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Bezpośrednie łącze do zasad z poziomu strony Szczegóły rekomendacji](#direct-link-to-policy-from-recommendation-details-page)
-- [Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik](#sql-data-classification-recommendation-no-longer-affect-your-secure-score)
+- [Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
+- [Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)
 
@@ -63,15 +64,21 @@ Gdy przeglądasz szczegóły zalecenia, często warto mieć możliwość wyświe
 
 Użyj tego linku, aby wyświetlić definicję zasad i przejrzeć logikę oceny. 
 
-Jeśli przeglądasz listę zaleceń w [przewodniku dotyczącym zaleceń dotyczących zabezpieczeń](recommendations-reference.md), zobaczysz również następujące linki do stron definicji zasad:
+Jeśli przeglądasz listę zaleceń w [przewodniku dotyczącym zaleceń dotyczących zabezpieczeń](recommendations-reference.md), zobaczysz także linki do stron definicji zasad:
 
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Uzyskiwanie dostępu do strony Azure Policy dla określonych zasad bezpośrednio z poziomu strony informacje o zaleceniach Azure Security Center":::
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Uzyskiwanie dostępu do strony Azure Policy dla określonych zasad bezpośrednio z poziomu strony informacje o zaleceniach Azure Security Center" lightbox="media/release-notes/view-policy-definition-from-documentation.png":::
 
 
-### <a name="sql-data-classification-recommendation-no-longer-affect-your-secure-score"></a>Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik
+### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik
 
 Nie ma już wpływu na **ważne dane w bazach danych SQL** . Jest to jedyne zalecenie w kontroli zabezpieczeń **Zastosuj klasyfikację danych** , dzięki czemu kontrolka ma teraz bezpieczną wartość oceny równą 0.
 
+
+### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)
+
+Dodaliśmy trzeci typ danych do opcji wyzwalacza dla automatyzacji przepływu pracy: zmiany dotyczące oceny zgodności z przepisami.
+
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Używanie zmian do oceny zgodności z przepisami w celu wyzwalania automatyzacji przepływu pracy" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
@@ -499,7 +506,7 @@ Powiązane linki:
 
 Standard NIST SP 800-171 R2 jest teraz dostępny jako wbudowana inicjatywa do używania z pulpitem nawigacyjnym zgodności z przepisami Azure Security Center. Mapowania dla formantów są opisane [szczegółowo w artykule NIST SP 800-171 R2 zgodność z przepisami](../governance/policy/samples/nist-sp-800-171-r2.md). 
 
-Aby zastosować Standard do subskrypcji i stale monitorować stan zgodności, użyj instrukcji w temacie [Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md).
+Aby zastosować Standard do subskrypcji i stale monitorować stan zgodności, Skorzystaj z instrukcji w temacie [Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md).
 
 :::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Standard NIST SP 800 171 R2 na pulpicie nawigacyjnym zgodności z przepisami Security Center":::
 

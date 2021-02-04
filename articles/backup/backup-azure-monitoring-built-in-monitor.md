@@ -4,18 +4,29 @@ description: W tym artykule omówiono możliwości monitorowania i powiadamiania
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 978e98bc623cecd768b1f2dda0a129e0459521da
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174014"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550351"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 
 Azure Backup oferuje wiele rozwiązań do tworzenia kopii zapasowych opartych na wymaganiach dotyczących kopii zapasowych i topologii infrastruktury (lokalnie i na platformie Azure). Każdy użytkownik kopii zapasowej lub administrator powinien zobaczyć, co się dzieje we wszystkich rozwiązaniach, i może zostać powiadomiony w ważnych scenariuszach. W tym artykule opisano możliwości monitorowania i powiadamiania udostępniane przez usługę Azure Backup.
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
+## <a name="backup-items-in-recovery-services-vault"></a>Elementy kopii zapasowej w magazynie Recovery Services
+
+Możesz monitorować wszystkie elementy kopii zapasowej za pośrednictwem magazynu Recovery Servicesowego. Przechodzenie do sekcji **elementy kopii zapasowej** w magazynie otwiera widok, który zapewnia liczbę elementów kopii zapasowej każdego typu obciążenia skojarzonego z magazynem. Kliknięcie dowolnego wiersza powoduje otwarcie widoku szczegółowego zawierającego listę wszystkich elementów kopii zapasowej danego typu obciążenia, z informacjami na temat ostatniego stanu kopii zapasowej dla każdego elementu, dostępnego najnowszego punktu przywracania i tak dalej.
+
+![Elementy kopii zapasowej magazynu RS](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+
+> [!NOTE]
+> W przypadku elementów, których kopia zapasowa jest wykonywana na platformie Azure przy użyciu programu DPM, na liście zostaną wyświetlone wszystkie źródła danych chronione (zarówno na dysku, jak i w trybie online) przy użyciu serwera DPM Jeśli ochrona źródła danych z zachowaną kopią zapasową jest zatrzymana, źródło danych będzie nadal wyświetlane w portalu. Możesz przejść do szczegółów źródła danych, aby sprawdzić, czy punkty odzyskiwania znajdują się na dysku, w trybie online, czy w obu. Ponadto źródła danych, dla których ochrona online jest zatrzymana, ale dane są zachowywane, rozliczenia punktów odzyskiwania online są kontynuowane do momentu całkowitego usunięcia danych.
+>
+> Wersja programu DPM musi mieć wartość DPM 1807 (5.1.378.0) lub DPM 2019 (wersja 10.19.58.0 lub nowsza), aby elementy kopii zapasowej były widoczne w portalu magazynu Recovery Services.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Zadania tworzenia kopii zapasowej w magazynie Recovery Services
 
@@ -68,7 +79,7 @@ W przypadku rozwiązań do tworzenia kopii zapasowych platformy Azure, takich ja
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Wyjątki w przypadku niezgłoszenia alertu
 
-Istnieje kilka wyjątków, gdy alert nie zostanie zgłoszony w przypadku awarii. Oto one:
+Istnieje kilka wyjątków, gdy alert nie zostanie zgłoszony w przypadku awarii. Są to:
 
 - Użytkownik jawnie anulował uruchomione zadanie
 - Zadanie nie powiodło się, ponieważ trwa inne zadanie tworzenia kopii zapasowej (nic nie działa, ponieważ oczekujemy na zakończenie poprzedniego zadania)

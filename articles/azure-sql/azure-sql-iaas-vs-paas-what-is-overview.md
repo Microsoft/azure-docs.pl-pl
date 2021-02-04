@@ -12,21 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 99703acc4965a38337a39fe23cc19cafddd1531d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7f267b4909817e89444883403bef6662771332ad
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791124"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550882"
 ---
 # <a name="what-is-azure-sql"></a>Co to jest usługa Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 Usługa Azure SQL to rodzina zarządzanych, bezpiecznych i inteligentnych produktów, które korzystają z aparatu bazy danych SQL Server w chmurze platformy Azure.
 
-- **Azure SQL Database** : obsługa nowoczesnych aplikacji w chmurze w inteligentnej, zarządzanej bazie danych, która obejmuje obliczenia bezserwerowe. 
-- **Wystąpienie zarządzane Azure SQL** : modernizowanie istniejących aplikacji SQL Server na dużą skalę dzięki inteligentnemu w pełni zarządzanemu wystąpieniu jako usługi z niemal 100% zgodnością funkcji z aparatem bazy danych SQL Server. Najlepsze dla większości migracji do chmury.
-- **SQL Server na maszynach wirtualnych platformy Azure** : podnieś i Przenieś swoje obciążenia SQL Server z łatwością i Zachowaj 100% SQL Server zgodność i dostęp na poziomie systemu operacyjnego. 
+- **Azure SQL Database**: obsługa nowoczesnych aplikacji w chmurze w inteligentnej, zarządzanej bazie danych, która obejmuje obliczenia bezserwerowe. 
+- **Wystąpienie zarządzane Azure SQL**: modernizowanie istniejących aplikacji SQL Server na dużą skalę dzięki inteligentnemu w pełni zarządzanemu wystąpieniu jako usługi z niemal 100% zgodnością funkcji z aparatem bazy danych SQL Server. Najlepsze dla większości migracji do chmury.
+- **SQL Server na maszynach wirtualnych platformy Azure**: podnieś i Przenieś swoje obciążenia SQL Server z łatwością i Zachowaj 100% SQL Server zgodność i dostęp na poziomie systemu operacyjnego. 
  
 Usługa Azure SQL jest oparta na znanym aparacie SQL Server, dzięki czemu można z łatwością migrować aplikacje i nadal korzystać z narzędzi, języków i zasobów, z którymi znasz. Twoje umiejętności i możliwości przesyłania danych do chmury, dzięki czemu masz jeszcze więcej możliwości. 
 
@@ -53,7 +53,7 @@ Poświęcaj więcej czasu na innowacje i mniej czasu na stosowanie poprawek, akt
 
 Platforma Azure stale monitoruje dane pod kątem zagrożeń. Za pomocą usługi Azure SQL można:
 
-- Koryguj potencjalne zagrożenia w czasie rzeczywistym za pomocą inteligentnych alertów dotyczących [zaawansowanego wykrywania zagrożeń](../security/fundamentals/threat-detection.md#advanced-threat-detection-features-other-azure-services) i oceny luk w zabezpieczeniach. 
+- Koryguj potencjalne zagrożenia w czasie rzeczywistym za pomocą inteligentnych alertów dotyczących [zaawansowanego wykrywania zagrożeń](../security/fundamentals/threat-detection.md#threat-protection-features-other-azure-services) i oceny luk w zabezpieczeniach. 
 - Uzyskaj wiodącą w branży ochronę wielowarstwową za pomocą [wbudowanych mechanizmów kontroli zabezpieczeń](https://azure.microsoft.com/overview/security/) , takich jak T-SQL, uwierzytelnianie, Sieć i zarządzanie kluczami. 
 - Skorzystaj z najbardziej kompleksowego poziomu [zgodności](https://azure.microsoft.com/overview/trusted-cloud/compliance/) dla dowolnej usługi bazy danych w chmurze. 
 
@@ -76,9 +76,9 @@ Jak widać na diagramie, każda oferta usługi może być scharakteryzowana wed�
 
 Na platformie Azure możesz mieć SQL Server obciążenia działające jako usługa hostowana ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) lub infrastruktura hostowana ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). W ramach programu PaaS masz wiele opcji produktu i warstw usług w poszczególnych opcjach. Kluczowym pytaniem, które należy zadać w przypadku podejmowania decyzji o wyborze między PaaS lub IaaS, jest zarządzanie bazą danych, stosowanie poprawek i wykonywanie kopii zapasowych. Czy chcesz delegować te operacje na platformę Azure?
 
-### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Database
 
-[Azure SQL Database](database/sql-database-paas-overview.md) to relacyjna baza danych jako usługa (DBaaS) hostowana na platformie Azure, która znajduje się w kategorii branżowej *platformy jako usługi (PaaS)* . 
+[Azure SQL Database](database/sql-database-paas-overview.md) to relacyjna baza danych jako usługa (DBaaS) hostowana na platformie Azure, która znajduje się w kategorii branżowej *platformy jako usługi (PaaS)*. 
 - Najlepsze dla nowoczesnych aplikacji w chmurze, które chcą korzystać z najnowszych stabilnych funkcji SQL Server oraz ograniczeń czasowych w programowaniu i marketingu. 
 - W pełni zarządzany aparat bazy danych SQL Server w oparciu o najnowszą stabilną wersję Enterprise SQL Server. W SQL Database dostępne są dwie opcje wdrażania oparte na standardowym sprzęcie i oprogramowaniu, które są własnością, hostowane i utrzymywane przez firmę Microsoft. 
 
@@ -128,13 +128,13 @@ Niezależnie od tego, czy jesteś pewien, że jest to strapped dla środków pie
 Obecnie zarówno **SQL Database** , jak i **wystąpienie zarządzane SQL** są sprzedawane jako usługa i są dostępne z kilkoma opcjami i w kilku warstwach usług z różnymi cenami dla zasobów, które są rozliczane godzinowo według ustalonej stawki na podstawie wybranej warstwy usług i rozmiaru. Aby uzyskać najnowsze informacje o bieżących obsługiwanych warstwach usług, rozmiarach obliczeniowych i kwotach magazynu, zobacz [model zakupu oparty na](database/service-tiers-dtu.md) jednostkach DTU dla [modelu zakupu SQL Database i oparty na rdzeń wirtualny w przypadku wystąpienia zarządzanego SQL Database i SQL](database/service-tiers-vcore.md).
 
 - Za pomocą SQL Database można wybrać warstwę usług, która odpowiada potrzebom z szerokiego zakresu cen, rozpoczynając od 5 USD/miesiąc dla warstwy Podstawowa i można utworzyć [Pule elastyczne](database/elastic-pool-overview.md) umożliwiające udostępnianie zasobów między bazami danych w celu ograniczenia kosztów i przekroczenia użycia.
-- W przypadku wystąpienia zarządzanego SQL możesz również wprowadzić własną licencję. Aby uzyskać więcej informacji na temat przygotowywania licencji, zobacz [Przenośność licencji w ramach programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/) lub Użyj [kalkulatora korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) , aby dowiedzieć się, jak **zaoszczędzić do 40%** .
+- W przypadku wystąpienia zarządzanego SQL możesz również wprowadzić własną licencję. Aby uzyskać więcej informacji na temat przygotowywania licencji, zobacz [Przenośność licencji w ramach programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/) lub Użyj [kalkulatora korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) , aby dowiedzieć się, jak **zaoszczędzić do 40%**.
 
 Rozliczany jest również internetowy ruch wychodzący po zwykłych [stawkach transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/). Możesz dynamicznie dostosować warstwy usług i rozmiary obliczeń, aby odpowiadały potrzebom różnych przepływności aplikacji.
 
 W przypadku **SQL Database** i **wystąpienia zarządzanego SQL** oprogramowanie bazy danych jest automatycznie konfigurowane, poprawiane i uaktualniane przez platformę Azure, co zmniejsza koszty administracyjne. Ponadto [wbudowana funkcja tworzenia kopii zapasowych](database/automated-backups-overview.md) pozwala osiągnąć znaczne oszczędności, zwłaszcza w przypadku dużej liczby baz danych.
 
-Korzystając z **języka SQL na maszynach wirtualnych platformy Azure** , możesz użyć dowolnych z SQL Server obrazów dostarczonych przez platformę (w tym licencji) lub skorzystać z licencji SQL Server. Dostępne są wszystkie obsługiwane wersje SQL Server (2008R2, 2012, 2014, 2016, 2017, 2019) i wersje (Developer, Express, Web, standard, Enterprise). Ponadto są dostępne wersje bring-your-own-license (BYOL) obrazów. W przypadku użycia obrazów dostarczanych przez platformę Azure koszty operacyjne zależą od rozmiaru maszyny wirtualnej, a także od wybranej wersji programu SQL Server. Niezależnie od rozmiaru maszyny wirtualnej lub wersji SQL Server, użytkownik uiszcza koszt licencjonowania za minutę SQL Server i serwera z systemem Windows lub Linux wraz z kosztem usługi Azure Storage dla dysków maszyny wirtualnej. Opcja rozliczania co minutę pozwala używać programu SQL Server tak długo, jak jest to konieczne bez wykupywania dodatkowych licencji programu SQL Server. Jeśli wprowadzisz własną licencję SQL Server na platformę Azure, opłaty są naliczone wyłącznie za koszty związane z serwerem i magazynem. Więcej informacji na temat przenoszenia własnej licencji można znaleźć w temacie [Przenośność licencji za pośrednictwem programu Software Assurance w systemie Azure](https://azure.microsoft.com/pricing/license-mobility/). Rozliczany jest również internetowy ruch wychodzący po zwykłych [stawkach transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/).
+Korzystając z **języka SQL na maszynach wirtualnych platformy Azure**, możesz użyć dowolnych z SQL Server obrazów dostarczonych przez platformę (w tym licencji) lub skorzystać z licencji SQL Server. Dostępne są wszystkie obsługiwane wersje SQL Server (2008R2, 2012, 2014, 2016, 2017, 2019) i wersje (Developer, Express, Web, standard, Enterprise). Ponadto są dostępne wersje bring-your-own-license (BYOL) obrazów. W przypadku użycia obrazów dostarczanych przez platformę Azure koszty operacyjne zależą od rozmiaru maszyny wirtualnej, a także od wybranej wersji programu SQL Server. Niezależnie od rozmiaru maszyny wirtualnej lub wersji SQL Server, użytkownik uiszcza koszt licencjonowania za minutę SQL Server i serwera z systemem Windows lub Linux wraz z kosztem usługi Azure Storage dla dysków maszyny wirtualnej. Opcja rozliczania co minutę pozwala używać programu SQL Server tak długo, jak jest to konieczne bez wykupywania dodatkowych licencji programu SQL Server. Jeśli wprowadzisz własną licencję SQL Server na platformę Azure, opłaty są naliczone wyłącznie za koszty związane z serwerem i magazynem. Więcej informacji na temat przenoszenia własnej licencji można znaleźć w temacie [Przenośność licencji za pośrednictwem programu Software Assurance w systemie Azure](https://azure.microsoft.com/pricing/license-mobility/). Rozliczany jest również internetowy ruch wychodzący po zwykłych [stawkach transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 #### <a name="calculating-the-total-application-cost"></a>Obliczanie całkowitego kosztu aplikacji
 

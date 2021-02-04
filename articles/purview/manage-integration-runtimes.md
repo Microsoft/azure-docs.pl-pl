@@ -6,17 +6,20 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d365787ea3603ef0adb8ad0b48bef9792ffb003
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 02/03/2021
+ms.openlocfilehash: 72efcacf20b0d67c9d6a8255426a09f9813f17b4
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553654"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550502"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Tworzenie własnego środowiska Integration Runtime i zarządzanie nim
 
-W tym artykule opisano sposób tworzenia własnego środowiska Integration Runtime (SHIR) i zarządzania nim w celu ułatwienia skanowania źródeł danych.
+W tym artykule opisano sposób tworzenia własnego środowiska Integration Runtime (SHIR) i zarządzania nim, które umożliwia skanowanie źródeł danych na platformie Azure kontrolą.
+
+> [!NOTE]
+> Nie można udostępnić Integration Runtime kontrolą z usługą Azure Synapse Analytics lub Azure Data Factory Integration Runtime na tym samym komputerze. Należy ją zainstalować na rozdzielonej maszynie.
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Tworzenie własnego środowiska Integration Runtime
 
@@ -24,31 +27,31 @@ W tym artykule opisano sposób tworzenia własnego środowiska Integration Runti
 
 2. W obszarze **źródła i skanowanie** w okienku po lewej stronie wybierz pozycję **Integration Runtimes**, a następnie wybierz pozycję **+ Nowy**.
 
-    :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Kliknij pozycję IR.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Kliknij pozycję IR.":::
 
 3. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **samodzielna** , aby utworzyć Self-Hosted IR, a następnie wybierz pozycję **Kontynuuj**.
 
-    :::image type="content" source="media/manage-integration-runtimes/select-self-hosted-ir.png" alt-text="Utwórz nowy SHIR.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-self-hosted-ir.png" alt-text="Utwórz nowy SHIR.":::
 
 4. Wprowadź nazwę dla swojego środowiska IR, a następnie wybierz pozycję Utwórz.
 
 5. Na stronie **ustawienia Integration Runtime** postępuj zgodnie z instrukcjami w sekcji **Konfiguracja ręczna** . Konieczne będzie pobranie środowiska Integration Runtime z witryny pobierania na maszynę wirtualną lub na maszynę, na której zamierzasz ją uruchomić.
 
-    :::image type="content" source="media/manage-integration-runtimes/integration-runtime-settings.png" alt-text="Pobierz klucz":::
+   :::image type="content" source="media/manage-integration-runtimes/integration-runtime-settings.png" alt-text="Pobierz klucz":::
 
-    a. Skopiuj i Wklej klucz uwierzytelniania.
-        
-    b. Pobierz własne środowisko Integration Runtime z [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) na lokalnym komputerze z systemem Windows. Uruchom instalatora.
-        
-    c. Na stronie **rejestrowanie Integration Runtime (Self-Hosted)** wklej jeden z dwóch kluczy, które zostały zapisane wcześniej, a następnie wybierz pozycję **zarejestruj**.
+   - Skopiuj i Wklej klucz uwierzytelniania.
 
-    :::image type="content" source="media/manage-integration-runtimes/register-integration-runtime.png" alt-text="klucz wejściowy.":::
+   - Pobierz własne środowisko Integration Runtime z [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) na lokalnym komputerze z systemem Windows. Uruchom instalatora.
 
-    d. Na stronie **nowy węzeł Integration Runtime (Self-Hosted)** wybierz pozycję **Zakończ**.
+   - Na stronie **rejestrowanie Integration Runtime (Self-Hosted)** wklej jeden z dwóch kluczy, które zostały zapisane wcześniej, a następnie wybierz pozycję **zarejestruj**.
+
+     :::image type="content" source="media/manage-integration-runtimes/register-integration-runtime.png" alt-text="klucz wejściowy.":::
+
+   - Na stronie **nowy węzeł Integration Runtime (Self-Hosted)** wybierz pozycję **Zakończ**.
 
 6. Po pomyślnym zarejestrowaniu własnego środowiska Integration Runtime zostanie wyświetlone następujące okno:
 
-    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="pomyślnie zarejestrowano.":::
+   :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="pomyślnie zarejestrowano.":::
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>Zarządzanie własnym środowiskiem Integration Runtime
 
@@ -62,4 +65,4 @@ Możesz usunąć własne środowisko Integration Runtime, przechodząc do **śro
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Jak skany wykrywają usunięte zasoby](concept-detect-deleted-assets.md)
+[Jak skanowanie wykrywa usunięte zasoby](concept-detect-deleted-assets.md)

@@ -3,12 +3,12 @@ title: 'Samouczek: automatyczne zmienianie rozmiarów przekazanych obrazów przy
 description: 'Samouczek: Azure Event Grid mogą wyzwalać operacje przekazywania obiektów BLOB w usłudze Azure Storage. W ten sposób można wysyłać obrazy przekazane do usługi Azure Storage do innych usług, takich jak Azure Functions, zmieniać ich rozmiar i wprowadzać inne ulepszenia.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca231fc65162fe38f4dcb8b8d5677ef42c7807bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326596"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550520"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Samouczek: Automatyzowanie zmiany rozmiarów załadowanych obrazów przy użyciu Event Grid
 
@@ -28,7 +28,7 @@ Aby dodać funkcję zmiany rozmiaru do istniejącej aplikacji do przekazywania o
 
 ---
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta usługi Azure Storage
@@ -43,7 +43,7 @@ W celu ukończenia tego samouczka:
 
 Musisz wcześniej ukończyć poprzedni samouczek na temat usługi Blob Storage: [Przekazywanie danych obrazu w chmurze za pomocą usługi Azure Storage][previous-tutorial].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Potrzebna jest [subskrypcja platformy Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). Ten samouczek nie działa z **bezpłatną** subskrypcją. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -263,7 +263,7 @@ Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają
 
 1.  Wybierz pozycję Wybierz **integrację** , a następnie wybierz **wyzwalacz Event Grid** i wybierz pozycję **Utwórz subskrypcję Event Grid**.
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Wybieranie funkcji miniatury w portalu" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Przejdź do dodawania subskrypcji Event Grid w Azure Portal" :::
 
 1. Użyj ustawień subskrypcji zdarzeń w sposób określony w tabeli poniżej.
     
@@ -283,7 +283,7 @@ Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają
 
 1. Przejdź do karty **filtry** i wykonaj następujące czynności:
     1. Zaznacz pole wyboru **Enable subject filtering** (Włącz filtrowanie tematów).
-    1. W polu **Subject begins with** (Temat rozpoczyna się od) wprowadź następującą wartość: **/blobServices/default/containers/images/blobs/**.
+    1. Dla **tematu zaczyna** się od, Wprowadź następującą wartość: **/blobServices/default/Containers/images/**.
 
         ![Określ filtr dla subskrypcji zdarzeń](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

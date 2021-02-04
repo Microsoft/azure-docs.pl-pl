@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 9c042d044f5ceba5a64d6bd7dfefa34bbc69b107
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e4f0e229488093067b231a5c92334238ca216234
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353208"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550559"
 ---
 # <a name="manage-qna-maker-app"></a>Zarządzanie aplikacją QnA Maker
 
@@ -70,49 +70,6 @@ Gdy osoba, do której udostępniono usługę QnA Maker, loguje się do [portalu 
 Po wybraniu bazy wiedzy jej bieżąca rola dla tego zasobu QnA Maker będzie widoczna obok nazwy bazy wiedzy.
 
 :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Zrzut ekranu bazy wiedzy w trybie edycji z nazwą roli w nawiasach obok nazwy bazy wiedzy w lewym górnym rogu strony sieci Web.":::
-
-## <a name="upgrade-runtime-version-to-use-active-learning"></a>Uaktualnij wersję środowiska uruchomieniowego, aby użyć usługi Active Learning
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
-
-Usługa Active Learning jest obsługiwana w środowisku uruchomieniowym w wersji 4.4.0 i nowszych. Jeśli baza wiedzy została utworzona w starszej wersji, [Uaktualnij środowisko uruchomieniowe](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) , aby użyć tej funkcji.
-
-# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
-
-W QnA Maker Managed (wersja zapoznawcza), ponieważ środowisko wykonawcze jest hostowane przez usługę QnA Maker, nie ma potrzeby ręcznego uaktualniania środowiska uruchomieniowego.
-
----
-
-## <a name="turn-on-active-learning-for-alternate-questions"></a>Włącz aktywną naukę w przypadku pytań alternatywnych
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
-
-Aktywna nauka jest domyślnie wyłączona. Włącz tę opcję, aby zobaczyć sugerowane pytania. Po włączeniu aktywnego uczenia należy wysłać informacje z aplikacji klienckiej do QnA Maker. Aby uzyskać więcej informacji, zobacz temat [Architektura przepływu na potrzeby używania GenerateAnswer i uczenia interfejsów API z bot](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
-
-1. Wybierz pozycję **Publikuj** , aby opublikować bazę wiedzy. Aktywne zapytania szkoleniowe są zbierane tylko z punktu końcowego przewidywania interfejsu API GenerateAnswer. Zapytania do okienka test w portalu QnA Maker nie wpływają na aktywną naukę.
-
-1. Aby włączyć aktywną naukę w portalu QnA Maker, przejdź do prawego górnego rogu, wybierz swoją **nazwę** i przejdź do pozycji [**Ustawienia usługi**](https://www.qnamaker.ai/UserSettings).
-
-    ![Na stronie ustawień usługi Włącz zaproponowane wątpliwości dotyczące aktywnego uczenia. Wybierz swoją nazwę użytkownika w prawym górnym menu, a następnie wybierz pozycję Ustawienia usługi.](../media/improve-knowledge-base/Endpoint-Keys.png)
-
-
-1. Znajdź usługę QnA Maker a następnie Przełącz **aktywną naukę**.
-
-    > [!div class="mx-imgBorder"]
-    > [![Na stronie Ustawienia usługi Przełącz funkcję Active Learning. Jeśli nie możesz przełączać tej funkcji, może być konieczne uaktualnienie usługi.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
-    > [!Note]
-    > Dokładna wersja na powyższym obrazie jest pokazywana tylko jako przykład. Twoja wersja może być inna.
-    Po włączeniu **aktywnej uczenia** baza wiedzy sugeruje nowe pytania w regularnych odstępach czasu na podstawie pytań przesłanych przez użytkownika. **Aktywną naukę** można wyłączyć, przełączając ponownie ustawienie.
-
-# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
-
-Domyślnie usługa Active Learning jest **włączona** w QNA Maker Managed (wersja zapoznawcza). Aby wyświetlić sugerowane pytania alternatywne, [Użyj opcji wyświetlania](../How-To/improve-knowledge-base.md#view-suggested-questions) na stronie Edycja.
-
----
-
-## <a name="review-suggested-alternate-questions"></a>Przejrzyj sugerowane pytania alternatywne
-
-Zapoznaj się z [alternatywnymi sugerowanymi pytaniami](improve-knowledge-base.md) na stronie **edytowania** każdej bazy wiedzy.
 
 ## <a name="next-steps"></a>Następne kroki
 

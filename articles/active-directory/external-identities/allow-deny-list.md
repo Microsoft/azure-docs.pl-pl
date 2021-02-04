@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/15/2018
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cc336781e9a55bbcb6c51677b01bfc402126f4a
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: bb5a785cba4a560fc15963363d4e5f6b811af97a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071904"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548835"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Zezwalanie na zaproszenia dla użytkowników B2B z określonych organizacji i blokowanie ich
 
@@ -27,7 +27,7 @@ Możesz użyć listy dozwolonych lub listy zablokowanych, aby zezwalać na zapro
 
 - Można utworzyć listę dozwolonych lub listę Odmów. Nie można skonfigurować obu typów list. Domyślnie, niezależnie od tego, gdzie domeny nie ma na liście dozwolonych, znajdują się na liście Odmów i na odwrót. 
 - Można utworzyć tylko jedną zasadę dla każdej organizacji. Zasady można zaktualizować w celu uwzględnienia większej liczby domen lub można je usunąć, aby utworzyć nowe. 
-- Liczba domen, które można dodać do listy dozwolonych lub zablokowanych, jest ograniczona tylko rozmiarem zasad. Maksymalny rozmiar wszystkich zasad to 25 KB (25 000 znaków), które obejmują listę dozwolonych lub listę Odmów oraz inne parametry skonfigurowane dla innych funkcji.
+- Liczba domen, które można dodać do listy dozwolonych lub zablokowanych, jest ograniczona tylko rozmiarem zasad. Ten limit dotyczy liczby znaków, dzięki czemu można mieć więcej krótszych domen lub mniej domen. Maksymalny rozmiar wszystkich zasad to 25 KB (25 000 znaków), które obejmują listę dozwolonych lub listę Odmów oraz inne parametry skonfigurowane dla innych funkcji.
 - Ta lista działa niezależnie od usług OneDrive dla firm i SharePoint online na listach dozwolonych/zablokowanych. Jeśli chcesz ograniczyć udostępnianie poszczególnych plików w usłudze SharePoint Online, musisz skonfigurować listę dozwolonych lub zablokowanych dla usług OneDrive dla firm i SharePoint Online. Aby uzyskać więcej informacji, zobacz [udostępnianie domen z ograniczeniami w usłudze SharePoint Online i OneDrive dla firm](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
 - Lista nie ma zastosowania do użytkowników zewnętrznych, którzy już skorzystali z zaproszenia. Lista zostanie wymuszona po skonfigurowaniu listy. Jeśli zaproszenie użytkownika jest w stanie oczekiwania i ustawisz zasady, które blokują swoją domenę, próba zrealizowania zaproszenia przez użytkownika zakończy się niepowodzeniem.
 

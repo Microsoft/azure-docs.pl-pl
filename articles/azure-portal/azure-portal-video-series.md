@@ -4,12 +4,12 @@ description: Poznaj pokazy wideo dotyczące pracy z usługami platformy Azure w 
 keywords: ''
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 131ec94e321388a3578cd2fd59fdb2fd75339c5e
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852612"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550445"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Seria instruktażowych wideo dla witryny Azure Portal
 
@@ -17,17 +17,17 @@ W Azure Portal seriach filmów wideo przedstawiono sposób pracy z usługami pla
 
 ## <a name="featured-video"></a>Polecane wideo
 
-W tym polecanym filmie wideo pokazano, jak zacząć pracę na platformie Azure przy użyciu centrum szybkiego startu platformy Azure.
+W tym polecanym filmie wideo pokazano, jak używać widoków Azure Cost Management.
 
-> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
+> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
 
-[Jak rozpocząć pracę na platformie Azure przy użyciu centrum szybkiego startu platformy Azure](https://www.youtube.com/watch?v=mb5k9nXMtBM)
+[Jak używać widoków Azure Cost Management](https://www.youtube.com/watch?v=VRJA5bn2VH0)
 
 Zapoznaj się z tymi ostatnimi filmami wideo, które mogły zostać pominięte:
 
-| [Jak zarządzać aplikacjami w usłudze Azure Kubernetes Service](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [Jak kompilować skoroszyty platformy Azure przy użyciu dzienników i parametrów](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [Jak dodać i zabezpieczyć domenę niestandardową w aplikacji sieci Web App Service](https://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [Jak używać Pills do filtrowania w Azure Portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Jak uzyskać widok wizualizacji zasobów](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [Jak przypiąć zawartość do pulpitu nawigacyjnego Azure Portal](https://www.youtube.com/watch?v=eyOJkhYItSg) |
 | ------| ------ | ------ |
-| [![Ilustracja dotycząca sposobu zarządzania aplikacjami w usłudze Azure Kubernetes Service](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![Obraz wideo w serwisie YouTube dotyczący tworzenia skoroszytów platformy Azure przy użyciu dzienników i parametrów](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![Obraz przedstawiający film wideo w usłudze YouTube dotyczący dodawania i zabezpieczania domeny niestandardowej w aplikacji sieci Web App Service](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [![Obraz wideo w serwisie YouTube dotyczący sposobu używania Pills do filtrowania w Azure Portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Obraz wideo w serwisie YouTube dotyczący sposobu uzyskiwania widoku wizualizacji zasobów](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Obraz wideo w usłudze YouTube dotyczący sposobu przypinania zawartości do pulpitu nawigacyjnego Azure Portal](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
 
 ## <a name="video-playlist"></a>Lista odtwarzania wideo
 

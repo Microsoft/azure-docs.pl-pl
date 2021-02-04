@@ -4,8 +4,7 @@ description: Artykuł zawiera omówienie procesu testowania penetracji oraz spos
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,22 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2020
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 84229ce3562f9cdcc4b55704eaa4f3b891a43d75
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 9f65133f622c71189f35a1533e278ca09ab02085
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968946"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550205"
 ---
 # <a name="penetration-testing"></a>Testy penetracyjne
 
 Jedną z zalet korzystania z platformy Azure do testowania i wdrażania aplikacji jest możliwość szybkiego uzyskiwania utworzonych środowisk. Nie musisz martwić się o rozmieszczenie, nabywanie i "rozmieszczenie" sprzętu lokalnego.
 
 Szybkie tworzenie środowisk jest doskonałe, ale nadal musisz mieć pewność, że chcesz mieć normalne zachowanie z powodu zabezpieczeń. Jednym z elementów, które prawdopodobnie chcesz zrobić, jest przetestowanie aplikacji wdrażanych na platformie Azure.
-
-Być może wiesz już, że firma Microsoft przeprowadza [testowanie penetracji środowiska platformy Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Te testy pomagają w ulepszaniu platformy Azure.
 
 Nie przeprowadzimy testów dla aplikacji, ale rozumiemy, że chcesz, aby przetestować swoje aplikacje. Jest to dobry efekt, ponieważ w przypadku zwiększenia bezpieczeństwa aplikacji pomaga zwiększyć bezpieczeństwo całego ekosystemu platformy Azure.
 

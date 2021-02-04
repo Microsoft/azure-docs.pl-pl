@@ -478,6 +478,8 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Dodawanie elementów runbook usługi Automation do planów odzyskiwania
       href: site-recovery-runbook-automation.md
+    - name: Szablony usługi ARM
+      href: asr-arm-templates.md
 - name: Monitorowanie
   items:
     - name: Typowe pytania dotyczące monitorowania

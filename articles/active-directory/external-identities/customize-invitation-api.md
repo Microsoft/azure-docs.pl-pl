@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/11/2017
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442052"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548665"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory interfejs API współpracy B2B i dostosowywanie
 
@@ -67,6 +66,16 @@ Interfejs API oferuje następujące możliwości:
     "invitedUserType": "Member"
     ```
 
+## <a name="determine-if-a-user-was-already-invited-to-your-directory"></a>Ustalanie, czy użytkownik został już zaproszony do Twojego katalogu
+
+Za pomocą interfejsu API zaproszenia można określić, czy użytkownik już istnieje w dzierżawie zasobów. Może to być przydatne w przypadku tworzenia aplikacji, która używa interfejsu API zaproszenia do zapraszania użytkownika. Jeśli użytkownik już istnieje w katalogu zasobów, nie otrzyma zaproszenia, więc można najpierw uruchomić zapytanie, aby określić, czy istnieje już wiadomość e-mail, jako nazwę UPN lub inną właściwość logowania.
+
+1. Upewnij się, że domena poczty e-mail użytkownika nie jest częścią zweryfikowanej domeny dzierżawy zasobów.
+2. W dzierżawie zasobu Użyj następującej kwerendy {0} , gdzie jest adresem e-mail, do którego się zapraszasz:
+
+   ```
+   “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
+   ```
 
 ## <a name="authorization-model"></a>Model autoryzacji
 
@@ -83,7 +92,7 @@ W kontekście tylko aplikacji aplikacja wymaga elementu User. zaprasza. All, aby
 Aby uzyskać więcej informacji, zobacz: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 Za pomocą programu PowerShell możesz łatwo dodawać i zapraszać użytkowników zewnętrznych do organizacji. Utwórz zaproszenie przy użyciu polecenia cmdlet:
 

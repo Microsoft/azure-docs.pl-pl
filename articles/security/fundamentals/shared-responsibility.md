@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72518371"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548953"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Wspólna odpowiedzialność w chmurze
 
@@ -50,4 +50,4 @@ Na poniższym diagramie przedstawiono tradycyjne podejście, w którym wiele obo
 W podejściu z obsługą chmury można także korzystać z funkcji zabezpieczeń opartych na chmurze w celu zwiększenia efektywności i korzystania z usługi Cloud Intelligence w celu ulepszania wykrywania zagrożeń i czasu odpowiedzi. Dzięki przesunięciu obowiązków do dostawcy usług w chmurze organizacje mogą uzyskać więcej informacji o zabezpieczeniach, co umożliwia im ponowne przydzielanie zasobów zabezpieczeń i budżetu do innych priorytetów firmy.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat działu odpowiedzialności między ty i firmą Microsoft w ramach wdrożenia SaaS, PaaS i IaaS, zobacz [udostępnianie obowiązków w chmurze obliczeniowej](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Aby uzyskać więcej informacji na temat działu odpowiedzialności między ty i firmą Microsoft w ramach wdrożenia SaaS, PaaS i IaaS, zobacz [udostępnianie obowiązków w chmurze obliczeniowej](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/).

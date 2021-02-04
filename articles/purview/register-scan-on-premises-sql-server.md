@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 26012b23a10f560158e3ba3919e12f5c15759189
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 86942f509ab067a53c47b5132c451f0585760050
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539319"
+ms.locfileid: "99549647"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Rejestrowanie i skanowanie lokalnego programu SQL Server
 
@@ -65,6 +65,9 @@ Jeśli planujesz użyć istniejącego użytkownika administratora serwera (SA) d
 #### <a name="creating-a-new-login-and-user"></a>Tworzenie nowego identyfikatora logowania i użytkownika
 
 Jeśli chcesz utworzyć nową nazwę logowania i użytkownika, aby umożliwić skanowanie programu SQL Server, wykonaj poniższe kroki:
+
+> [!Note]
+    > Wszystkie poniższe kroki można wykonać przy użyciu kodu podanego w [tym miejscu](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
 
 1. Przejdź do SQL Server Management Studio (SSMS), Połącz się z serwerem, przejdź do zabezpieczenia, kliknij prawym przyciskiem myszy pozycję Logowanie i Utwórz nową nazwę logowania. Upewnij się, że wybrano opcję uwierzytelnianie SQL.
 

@@ -1,14 +1,14 @@
 ---
 title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
-ms.date: 12/18/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732415"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550865"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -169,6 +169,8 @@ Jeśli zauważysz problem związany z zachowaniem węzła lub zadań uruchomiony
 
 W przypadku kont usługi Batch w trybie subskrypcji użytkownika zautomatyzowane uaktualnienia systemu operacyjnego mogą przerwać postęp zadania, zwłaszcza jeśli zadania są długotrwałe. [Kompilowanie zadań idempotentne](#build-durable-tasks) może pomóc w zmniejszeniu błędów spowodowanych przez te przerwy. Zalecamy również [Planowanie uaktualnień obrazów systemu operacyjnego przez czas, w którym zadania nie są oczekiwane](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
+W przypadku pul systemu Windows program `enableAutomaticUpdates` jest domyślnie ustawiony na wartość `true` . Zezwalanie na aktualizacje automatyczne jest zalecane, ale możesz ustawić tę wartość na, `false` Jeśli chcesz mieć pewność, że aktualizacja systemu operacyjnego nie wystąpi nieoczekiwanie.
+
 ## <a name="isolation-security"></a>Zabezpieczenia izolacji
 
 W celu przeprowadzenia izolacji, jeśli scenariusz wymaga izolowania zadań od siebie, należy to zrobić, umieszczając je w osobnych pulach. Pula to granica izolacji zabezpieczeń w usłudze Batch, a domyślnie dwie pule nie są widoczne ani nie mogą komunikować się ze sobą. Należy unikać używania odrębnych kont usługi Batch jako metody izolacji.
@@ -189,8 +191,7 @@ Zapoznaj się z poniższymi wskazówkami dotyczącymi łączności w rozwiązani
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i trasy zdefiniowane przez użytkownika (UDR)
 
-Podczas aprowizacji pul usługi [Batch w sieci wirtualnej](batch-virtual-network.md)należy się upewnić, że są one zgodne z wytycznymi dotyczącymi korzystania z `BatchNodeManagement` tagu usług, portów, protokołów i kierunku reguły.
-Użycie znacznika usługi jest zdecydowanie zalecane zamiast korzystania z źródłowych adresów IP usługi Batch. Wynika to z faktu, że adresy IP mogą ulec zmianie z upływem czasu. Korzystanie z adresów IP usługi Batch bezpośrednio może spowodować niestabilność, przerwy lub awarię pul usługi Batch.
+Podczas aprowizacji pul usługi [Batch w sieci wirtualnej](batch-virtual-network.md)należy się upewnić, że są one zgodne z wytycznymi dotyczącymi korzystania z `BatchNodeManagement` tagu usług, portów, protokołów i kierunku reguły. Użycie znacznika usługi jest zdecydowanie zalecane zamiast korzystania z źródłowych adresów IP usługi Batch. Wynika to z faktu, że adresy IP mogą ulec zmianie z upływem czasu. Korzystanie z adresów IP usługi Batch bezpośrednio może spowodować niestabilność, przerwy lub awarię pul usługi Batch.
 
 W przypadku tras zdefiniowanych przez użytkownika (UDR) Upewnij się, że masz proces w miejscu, aby okresowo aktualizować adresy IP usługi Batch w tabeli tras, ponieważ te adresy zmieniają się z upływem czasu. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md). Adresy IP usługi Batch zostaną skojarzone z `BatchNodeManagement` tagiem usługi (lub odmianą regionalną zgodną z regionem konta usługi Batch).
 

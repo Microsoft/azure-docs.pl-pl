@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
 ms.author: Zhchia
-ms.openlocfilehash: 51410bd86fa9679aea76f6d5c48f267ddec79026
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 67b114ac355b293db61d00b89816ab73aaa2e5b2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430700"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550272"
 ---
 # <a name="tutorial-configure-atea-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Atea na potrzeby automatycznego aprowizacji użytkowników
 
@@ -48,7 +48,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-2-configure-atea-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie Atea w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-Aby skonfigurować intranet tęczówki do obsługi aprowizacji za pomocą usługi Azure AD, należy uzyskać **adres URL dzierżawy** i **token tajny** przez upuszczenie poczty do [zespołu pomocy technicznej Atea](mailto:servicedesk@atea.dk). Te wartości zostaną wprowadzone w polu **token tajny** i **adres URL dzierżawy** na karcie aprowizacji aplikacji Atea w Azure Portal.
+Aby skonfigurować Atea do obsługi aprowizacji za pomocą usługi Azure AD — Napisz wiadomość e-mail do zespołu pomocy technicznej Atea <SSO.Support@atea.com>
 
 ## <a name="step-3-add-atea-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie Atea z galerii aplikacji usługi Azure AD
 

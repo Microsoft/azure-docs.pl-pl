@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database
 description: Informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych SQL Server baz danych działających na maszynach wirtualnych platformy Azure z Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429470"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549902"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
 
@@ -202,6 +202,13 @@ Operacja została zablokowana, ponieważ osiągnięto limit liczby operacji dozw
 |---|---|---|
 Operacja została zablokowana, ponieważ magazyn osiągnął limit maksymalny dla takich operacji dozwolony w okresie 24 godzin. | Po osiągnięciu maksymalnego dopuszczalnego limitu operacji w okresie 24-godzinnym ten błąd pojawia się. Ten błąd występuje zazwyczaj, gdy istnieją operacje na skalę, takie jak modyfikacja zasad lub ochrona automatyczne. W przeciwieństwie do przypadku CloudDosAbsoluteLimitReached, nie ma dużo możliwości rozwiązania tego stanu. W rzeczywistości usługa Azure Backup ponowi próbę wykonania operacji wewnętrznie dla wszystkich elementów, których to dotyczy.<br> Na przykład: Jeśli masz dużą liczbę źródeł danych chronionych przy użyciu zasad i podjęto próbę zmodyfikowania tych zasad, zostanie wyzwolone skonfigurowanie zadań ochrony dla każdego z chronionych elementów i czasami może wystąpić maksymalny limit dozwolony dla takich operacji dziennie.| Usługa Azure Backup automatycznie ponowi próbę wykonania tej operacji po 24 godzinach.
 
+### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
+
+| Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
+|---|---|---|
+Operacja rozszerzenia obciążenia AzureBackup nie powiodła się. | Maszyna wirtualna jest wyłączona (lub) maszyna wirtualna nie może nawiązać kontaktu z usługą Azure Backup z powodu problemów z łącznością z Internetem.| -Upewnij się, że maszyna wirtualna jest uruchomiona i ma łączność z Internetem.<br>- [Zarejestruj ponownie rozszerzenie na maszynie wirtualnej SQL Server](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+
+
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
@@ -212,7 +219,7 @@ Maszyna wirtualna nie może nawiązać kontaktu z usługą Azure Backup ze wzgl�
 
 Przed wyzwoleniem operacji ponownego rejestrowania Sprawdź co najmniej jeden z następujących objawów:
 
-- Wszystkie operacje (takie jak tworzenie kopii zapasowej, przywracanie i konfigurowanie kopii zapasowej) kończą się niepowodzeniem na maszynie wirtualnej z jednym z następujących kodów błędów: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Wszystkie operacje (takie jak tworzenie kopii zapasowej, przywracanie i konfigurowanie kopii zapasowej) kończą się niepowodzeniem na maszynie wirtualnej z jednym z następujących kodów błędów: **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - Jeśli obszar **stanu kopii** zapasowej dla elementu kopii zapasowej jest wyświetlany jako **nieosiągalny**, należy wykluczyć wszystkie inne przyczyny, które mogą spowodować wystąpienie tego samego stanu:
 
   - Brak uprawnień do wykonywania operacji związanych z kopiami zapasowymi na maszynie wirtualnej.

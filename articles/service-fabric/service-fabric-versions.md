@@ -3,12 +3,12 @@ title: Uaktualnij wersję klastra usługi Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: a99b38a33a5bb83345898769b466ce0cab0a4d4d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 5abfe83fcb68fcab7df22f1fd266cc695f2b9c80
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918113"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549072"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Uaktualnij wersję klastra usługi Azure Service Fabric
 
@@ -40,7 +40,7 @@ Klastry usługi Azure Service Fabric uruchomione w wersjach od 5,7 do 6.3.63. * 
 Uaktualnij program do obsługiwanej Service Fabric wersji, aby zapobiec przestojom lub utracie funkcjonalności związanej z tą zmianą. Upewnij się, że w klastrach działa co najmniej następujące wersje, aby zapobiec problemom w danym środowisku.
 
 > [!Note]
-> Wszystkie wydane wersje 7,2 obejmują niezbędne zmiany.
+> **Wszystkie wydane wersje 7,2 obejmują niezbędne zmiany**.
   
   | System operacyjny | Bieżące środowisko uruchomieniowe Service Fabric w klastrze | Wydanie w wersji CU/patch |
   | --- | --- |--- |
@@ -75,9 +75,15 @@ Aby zapobiec przestojom lub utracie funkcjonalności, należy się upewnić, że
 Wersje Service Fabric w tabeli zawierają niezbędne zmiany, aby zapobiec utracie funkcjonalności. Upewnij się, że używasz jednej z tych wersji.  
 
 > [!Note]
-> Wszystkie wersje wydań 7,2 obejmują niezbędne zmiany.
+> **Klastry usługi Azure Service Fabric działające w wersji 6,5 muszą wykonywać wiele uaktualnień w tym samym czasie przed zmianą infrastucuture, aby uniknąć utraty funkcjonalności klastra**. 
+>   -   1. Uaktualnij do 7.0.466. **W tej wersji pośredniej nie mogą znajdować się klastry z systemem operacyjnym Windows, w którym włączono funkcję kontenerów systemu Windows. Muszą oni wykonać następny krok (II) poniżej. oznacza to, że  Uaktualnij, aby uzyskać bezpieczniejsze i zgodne wersja, aby uniknąć przerw w działaniu usługi**
+>   -   2. Uaktualnij do najnowszej wersji programu skargi w wersji 7,0 * Release (7.0.478) lub dowolnej z wyższych wersji wymienionych poniżej.
 
-  | System operacyjny | Bieżące środowisko uruchomieniowe Service Fabric w klastrze | Wydanie w wersji CU/patch |
+
+> [!Note]
+> **Wszystkie wersje wydań 7,2 obejmują niezbędne zmiany**.
+
+ | System operacyjny | Bieżące środowisko uruchomieniowe Service Fabric w klastrze | Wydanie w wersji CU/patch |
   | --- | --- |--- |
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |

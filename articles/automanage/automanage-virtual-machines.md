@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 7772d57937393da1c48fa2658818d8a1a2b28a1f
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695674"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550788"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -42,7 +42,6 @@ Na koniec środowisko jest niezwykle proste.
 Przed próbą włączenia usługi Azure automanage na maszynach wirtualnych należy wziąć pod uwagę kilka wymagań wstępnych.
 
 - Tylko maszyny wirtualne z systemem Windows Server
-- Maszyny wirtualne muszą być uruchomione
 - Maszyny wirtualne muszą znajdować się w obsługiwanym regionie (zobacz akapit poniżej)
 - Użytkownik musi mieć odpowiednie uprawnienia (patrz akapit poniżej)
 - W tej chwili usługa autozarządzania nie obsługuje subskrypcji piaskownicy

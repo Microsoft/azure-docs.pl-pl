@@ -2,13 +2,13 @@
 title: Tworzenie biblioteki zawartości w celu wdrożenia maszyn wirtualnych w rozwiązaniu VMware platformy Azure
 description: Utwórz bibliotekę zawartości, aby wdrożyć maszynę wirtualną w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: 57db8ac4da8eef826d85feb11680c9c87823ee36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 02/03/2021
+ms.openlocfilehash: 9e27529ee355ece62f12cc2e6de491dddb5d3f28
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461689"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550542"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Tworzenie biblioteki zawartości w celu wdrożenia maszyn wirtualnych w rozwiązaniu VMware platformy Azure
 
@@ -92,7 +92,10 @@ Teraz, po utworzeniu biblioteki zawartości, można dodać obraz ISO, aby wdroż
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli planujesz używanie programu VMware HCX do migrowania obciążeń maszyn wirtualnych do chmury prywatnej, użyj procedury [Wdróż i skonfiguruj program VMware HCX](tutorial-deploy-vmware-hcx.md) .
+Teraz, po utworzeniu biblioteki zawartości w celu wdrożenia maszyn wirtualnych w rozwiązaniu VMware platformy Azure, warto zapoznać się z tematem:
+
+- [Wdrażanie i Konfigurowanie programu VMware HCX](tutorial-deploy-vmware-hcx.md) w celu migrowania obciążeń maszyn wirtualnych do chmury prywatnej.
+- [Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure](lifecycle-management-of-azure-vmware-solution-vms.md).
 
 <!-- LINKS - external-->
 

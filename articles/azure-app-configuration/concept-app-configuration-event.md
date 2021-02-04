@@ -7,22 +7,22 @@ ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: 640be797b2653f9e6c969306b7e2b99393b99c39
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 12a62bbd06cf9adf3b5978bb061e1d014599b44c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078208"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550746"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagowanie na zdarzenia konfiguracji aplikacji platformy Azure
 
 Zdarzenia konfiguracji aplikacji platformy Azure umożliwiają aplikacjom reagowanie na zmiany w kluczowych wartościach. Jest to wykonywane bez konieczności stosowania skomplikowanego kodu lub kosztownych i nieefektywnych usług sondowania. Zamiast tego zdarzenia są wypychane za pośrednictwem [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) do subskrybentów, takich jak [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)lub nawet do własnego niestandardowego odbiornika http. W sposób krytyczny płacisz tylko za to, czego używasz.
 
-Zdarzenia konfiguracji aplikacji platformy Azure są wysyłane do Azure Event Grid, które zapewniają niezawodne usługi dostarczania dla aplikacji dzięki rozbudowanym zasadom ponowień i dostarczaniu wiadomości utraconych. Aby dowiedzieć się więcej, zobacz [Event Grid dostarczania komunikatów i ponów próbę](../event-grid/delivery-and-retry.md).
+Zdarzenia konfiguracji aplikacji platformy Azure są wysyłane do Azure Event Grid, które zapewniają niezawodne usługi dostarczania do aplikacji dzięki rozbudowanym zasadom ponawiania i dostarczaniu wiadomości utraconych. Aby dowiedzieć się więcej, zobacz [Event Grid dostarczania komunikatów i ponów próbę](../event-grid/delivery-and-retry.md).
 
 Typowe scenariusze zdarzeń konfiguracji aplikacji obejmują odświeżanie konfiguracji aplikacji, wyzwalanie wdrożeń lub przepływ pracy zorientowany na konfigurację. Gdy zmiany są rzadko wykonywane, ale scenariusz wymaga natychmiastowej reakcji, Architektura oparta na zdarzeniach może być szczególnie wydajna.
 
-Zapoznaj się z tematem [kierowanie zdarzeń konfiguracji aplikacji platformy Azure do niestandardowego punktu końcowego sieci Web — interfejs wiersza polecenia](./howto-app-configuration-event.md) na potrzeby szybkiego przykładu. 
+Zapoznaj się z tematem [używanie Event Grid na potrzeby powiadomień o zmianach danych](./howto-app-configuration-event.md) . 
 
 ![Model Event Grid](./media/event-grid-functional-model.png)
 
@@ -40,7 +40,7 @@ Zdarzenia konfiguracji aplikacji platformy Azure zawierają wszystkie informacje
 > |Właściwość|Typ|Opis|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |temat|ciąg|Pełny Azure Resource Manager Identyfikator konfiguracji aplikacji, która emituje zdarzenie.|
-> |Temat|ciąg|Identyfikator URI wartości klucz-wartość, która jest podmiotem zdarzenia.|
+> |subject|ciąg|Identyfikator URI wartości klucz-wartość, która jest podmiotem zdarzenia.|
 > |eventTime|ciąg|Data/godzina wygenerowania zdarzenia w formacie ISO 8601.|
 > |eventType|ciąg|"Microsoft. AppConfiguration. KeyValueModified" lub "Microsoft. AppConfiguration. KeyValueDeleted".|
 > |Id|ciąg|Unikatowy identyfikator tego zdarzenia.|
@@ -87,4 +87,4 @@ W aplikacjach, które obsługują zdarzenia konfiguracji aplikacji, powinny być
 Dowiedz się więcej o Event Grid i wydawanie zdarzeń konfiguracji aplikacji platformy Azure spróbuj:
 
 - [Event Grid — informacje](../event-grid/overview.md)
-- [Kierowanie zdarzeń konfiguracji aplikacji platformy Azure do niestandardowego internetowego punktu końcowego](./howto-app-configuration-event.md)
+- [Jak używać Event Grid do powiadomień o zmianach danych](./howto-app-configuration-event.md)

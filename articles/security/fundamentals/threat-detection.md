@@ -1,10 +1,10 @@
 ---
-title: Wykrywanie zaawansowanych zagrożeń na platformie Azure | Microsoft Docs
-description: Dowiedz się więcej na temat wbudowanych funkcji zaawansowanego wykrywania zagrożeń na platformie Azure, takich jak usługa Azure AD Identity Protection.
+title: Ochrona przed zagrożeniami na platformie Azure | Microsoft Docs
+description: Poznaj wbudowaną funkcję ochrony przed zagrożeniami dla platformy Azure, taką jak usługa Azure AD Identity Protection.
 services: security
 documentationcenter: na
-author: UnifyCloud
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
-ms.author: TomSh
-ms.openlocfilehash: c8fbb2f6d858b2f654ff404bef3b415bf170ab37
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.date: 02/03/2021
+ms.author: terrylan
+ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747277"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549953"
 ---
-# <a name="azure-advanced-threat-detection"></a>Zaawansowane wykrywanie zagrożeń na platformie Azure
+# <a name="azure-threat-protection"></a>Ochrona przed zagrożeniami platformy Azure
 
-Usługa Azure oferuje wbudowaną funkcję wykrywania zagrożeń za pomocą usług, takich jak Azure Active Directory (Azure AD), dzienniki Azure Monitor i Azure Security Center. Ta kolekcja usług i funkcji zabezpieczeń zapewnia prosty i szybki sposób zrozumienia, co dzieje się w ramach wdrożeń platformy Azure.
+Usługa Azure oferuje wbudowaną funkcję ochrony przed zagrożeniami za pomocą usług, takich jak Azure Active Directory (Azure AD), dzienniki Azure Monitor i Azure Security Center. Ta kolekcja usług i funkcji zabezpieczeń zapewnia prosty i szybki sposób zrozumienia, co dzieje się w ramach wdrożeń platformy Azure.
 
 System Azure oferuje szeroką gamę opcji konfigurowania i dostosowywania zabezpieczeń w celu spełnienia wymagań wdrożeń aplikacji. W tym artykule omówiono sposób spełniania tych wymagań.
 
@@ -84,23 +84,9 @@ Oprócz zapewniania cennych usług samodzielnie dzienniki Azure Monitor można z
 
 ### <a name="holistic-security-and-compliance-posture"></a>Kompleksowe zabezpieczenia i zgodność stan
 
-[Pulpit nawigacyjny Security and Audit log Analytics](../../security-center/security-center-introduction.md) zapewnia kompleksowy wgląd w stan zabezpieczeń IT Twojej organizacji, dzięki wbudowanym zapytaniom wyszukiwania dla istotnych problemów, które wymagają uwagi. Pulpit nawigacyjny Security and Audit jest ekranem głównym dla wszystkich elementów związanych z zabezpieczeniami w dziennikach Azure Monitor. Zawiera ogólne informacje o stanie zabezpieczeń komputerów. Możesz również wyświetlić wszystkie zdarzenia z ostatnich 24 godzin, 7 dni lub dowolnego innego niestandardowego przedziału czasu.
+[Azure Security Center](../../security-center/security-center-introduction.md) zapewnia kompleksowy wgląd w stan zabezpieczeń IT Twojej organizacji z wbudowaną kwerendą wyszukiwania w celu uzyskania istotnych problemów wymagających uwagi. Zawiera ogólne informacje o stanie zabezpieczeń komputerów. Możesz również wyświetlić wszystkie zdarzenia z ostatnich 24 godzin, 7 dni lub dowolną inną niestandardową ramkę czasową.
 
 Dzienniki Azure Monitor ułatwiają szybkie i łatwe zrozumienie ogólnych stan zabezpieczeń w każdym środowisku, a wszystko to w kontekście operacji IT, w tym oceny aktualizacji oprogramowania, oceny ochrony przed złośliwym kodem i linii bazowych konfiguracji. Dane dziennika zabezpieczeń są łatwo dostępne, aby usprawnić procesy inspekcji zabezpieczeń i zgodności.
-
-![Pulpit nawigacyjny Security and Audit Log Analytics](./media/threat-detection/azure-threat-detection-fig3.jpg)
-
-Pulpit nawigacyjny Security and Audit Log Analytics jest podzielony na cztery główne kategorie:
-
--   **Domeny zabezpieczeń**: umożliwia dalsze Eksplorowanie rekordów zabezpieczeń w czasie; dostęp do oceny złośliwego oprogramowania; oceny aktualizacji; Wyświetl informacje o zabezpieczeniach, tożsamości i dostępie sieci; Wyświetlanie komputerów ze zdarzeniami zabezpieczeń; i szybko Uzyskuj dostęp do pulpitu nawigacyjnego Azure Security Center.
-
--   Istotne **problemy**: umożliwiają szybką identyfikację liczby aktywnych problemów i ważności problemów.
-
--   **Wykrycia (wersja zapoznawcza)**: umożliwia identyfikowanie wzorców ataków przez wyświetlanie alertów zabezpieczeń w miarę ich występowania z zasobami.
-
--   **Analiza zagrożeń**: umożliwia identyfikację wzorców ataków, wyświetlając całkowitą liczbę serwerów z wychodzącym złośliwym ruchem IP, typ złośliwego zagrożenia oraz mapę lokalizacji adresów IP.
-
--   **Typowe zapytania dotyczące zabezpieczeń**: lista najczęstszych zapytań zabezpieczeń, których można użyć do monitorowania środowiska. Po wybraniu dowolnego zapytania zostanie otwarte okienko wyszukiwania i zostaną wyświetlone wyniki dla tego zapytania.
 
 ### <a name="insight-and-analytics"></a>Wgląd i analiza
 W centrum [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md) jest repozytorium, które jest hostowane przez platformę Azure.
@@ -109,21 +95,16 @@ W centrum [dzienników Azure monitor](../../azure-monitor/log-query/log-query-ov
 
 Dane można zbierać do repozytorium z połączonych źródeł przez skonfigurowanie źródeł danych i dodanie rozwiązań do subskrypcji.
 
-![Pulpit nawigacyjny dzienników Azure Monitor](./media/threat-detection/azure-threat-detection-fig5.png)
-
 Wszystkie źródła danych i rozwiązania tworzą oddzielne typy rekordów z własnymi zestawami właściwości, ale można je analizować razem w zapytaniach do repozytorium. Możesz użyć tych samych narzędzi i metod do pracy z różnymi danymi, które są zbierane przez różne źródła.
-
 
 Większość interakcji z dziennikami Azure Monitor polega na Azure Portal, które działają w dowolnej przeglądarce i zapewniają dostęp do ustawień konfiguracji oraz wielu narzędzi do analizowania zebranych danych i wykonywania na nich działań. W portalu możesz użyć:
 * [Przeszukiwanie dzienników](../../azure-monitor/log-query/log-query-overview.md) , w których są konstruowane zapytania w celu analizowania zebranych danych.
 * [Pulpity nawigacyjne](../../azure-monitor/learn/tutorial-logs-dashboards.md), które można dostosować za pomocą widoków graficznych najbardziej cennych wyszukiwań.
 * [Rozwiązania](../../azure-monitor/insights/solutions.md), które oferują dodatkowe funkcje i narzędzia do analizy.
 
-![Narzędzia do analizy](./media/threat-detection/azure-threat-detection-fig6.png)
-
 Rozwiązania umożliwiają dodawanie funkcji do dzienników Azure Monitor. Są one wykonywane głównie w chmurze i zapewniają analizę danych zebranych w repozytorium usługi log Analytics. Rozwiązania mogą również definiować nowe typy rekordów do zebrania, które można analizować za pomocą wyszukiwania w dziennikach lub przy użyciu dodatkowego interfejsu użytkownika, który oferuje rozwiązanie na pulpicie nawigacyjnym usługi log Analytics.
 
-Pulpit nawigacyjny Security and Audit jest przykładem tego typu rozwiązań.
+Security Center to przykład typów rozwiązań.
 
 ### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automatyzacja i kontrola: alert dotyczący dryfów konfiguracji zabezpieczeń
 
@@ -216,7 +197,7 @@ Azure Security Center współpracuje z zespołami badań i analizy danych na ca�
 
 Te połączone wysiłki skutkująją się w nowych i ulepszonych wykryciach, z których można korzystać natychmiast. Nie ma żadnych działań do wykonania.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Funkcje zaawansowanego wykrywania zagrożeń: inne usługi platformy Azure
+## <a name="threat-protection-features-other-azure-services"></a>Funkcje ochrony przed zagrożeniami: inne usługi platformy Azure
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Maszyny wirtualne: Microsoft chroniące przed złośliwym oprogramowaniem
 
@@ -367,7 +348,7 @@ Cloud App Security integruje widoczność z chmurą przez:
 
 Przy zbieraniu danych z tych źródeł Cloud App Security uruchamia zaawansowaną analizę. Natychmiast generuje alerty o nietypowych działaniach i daje szczegółowy wgląd w środowisko chmury. W usłudze Cloud App Security możesz skonfigurować zasady i używać ich do ochrony wszystkiego w środowisku chmury.
 
-## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Zaawansowane możliwości wykrywania zagrożeń innych firm za pomocą witryny Azure Marketplace
+## <a name="third-party-threat-protection-capabilities-through-the-azure-marketplace"></a>Możliwości ochrony przed zagrożeniami innych firm za pomocą witryny Azure Marketplace
 
 ### <a name="web-application-firewall"></a>Web Application Firewall
 

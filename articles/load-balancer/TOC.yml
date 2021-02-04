@@ -79,6 +79,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Konfiguracja pływającego adresu IP
       href: load-balancer-floating-ip.md
+    - name: Tryby dystrybucji
+      href: distribution-mode-concepts.md
     - name: Zabezpieczenia
       items:
         - name: Punkt odniesienia zabezpieczeń

@@ -5,15 +5,15 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ee0bf9b4ce009f37dd1931d4ed030defa24e7d38
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 0233e58a404721586af0ae2fbdf78dbab6d424ed
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95996268"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550394"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure
 
@@ -81,7 +81,7 @@ Musimy skonfigurować naszą aplikację aparatu Unity z widokiem immersyjny, a n
 4. Wybierz go, a w **Inspektorze** zmień jego nazwę **z** **MixedRealityCloud**. Wybierz pozycję **Dodaj składnik** i Wyszukaj i Dodaj **AzureSpatialAnchorsScript**.
 
 **Utwórz sferę PREFAB**
-1. Przejdź do **GameObject**  ->  sfery **obiektu 3D gry 3W**  ->  **Sphere**.
+1. Przejdź do   ->  sfery **obiektu 3D gry 3W**  ->  .
 2. W **Inspektorze** ustaw jej skalę na **0,25, 0,25, 0,25**.
 3. Znajdź obiekt **Sphere** w okienku **Hierarchia** . Kliknij go i przeciągnij do folderu **Assets** w okienku **projektu** .
 4. Kliknij prawym przyciskiem myszy i **Usuń** oryginalną sferę utworzoną w okienku **Hierarchia** .
@@ -106,7 +106,7 @@ Przed kontynuowaniem musimy ustawić PREFAB sferę utworzoną na naszej zmiennej
 1. W aparacie **Unity** wybierz obiekt **MixedRealityCloud** w okienku **Hierarchia** .
 2. Kliknij PREFAB **sferę** , która została zapisana w okienku **projektu** . Przeciągnij **sferę** klikniętą w obszarze **sfera PREFAB** w obszarze **skrypt zakotwiczenia przestrzenne platformy Azure** w okienku **Inspektor** .
 
-Teraz należy mieć rolę PREFAB **Sphere** w skrypcie. Skompiluj z **aparatu Unity** , a następnie ponownie otwórz powstałe rozwiązanie **programu Visual Studio** , tak jak właśnie [było to możliwe.](#trying-it-out)
+Teraz należy mieć rolę PREFAB  w skrypcie. Skompiluj z **aparatu Unity** , a następnie ponownie otwórz powstałe rozwiązanie **programu Visual Studio** , tak jak właśnie [było to możliwe.](#trying-it-out)
 
 W programie **Visual Studio** ponownie otwórz program `AzureSpatialAnchorsScript.cs` . Dodaj następujący kod do `Start()` metody. Ten kod zostanie poddany `GestureRecognizer` , który zostanie wywołany `HandleTap` po wykryciu nacisku na środowisko powietrzne.
 
@@ -140,36 +140,13 @@ Możemy użyć pętli Update (), aby sprawdzić, czy w kolejce występuje akcja.
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Pobierz zestaw SDK zakotwiczeń przestrzennych platformy Azure
 
-## <a name="via-unity-package-manager-upm-package"></a>[Za pomocą pakietu Menedżera pakietów Unity (UPM)](#tab/UPMPackage)
+### <a name="download-packages"></a>Pobierz pakiety
+[!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-Ta metoda jest zgodna z wersjami Unity 2019.1 +.
+### <a name="import-packages"></a>Importowanie pakietów
+[!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
-### <a name="add-the-registry-to-your-unity-project"></a>Dodawanie rejestru do projektu środowiska Unity
-
-1. W Eksploratorze plików przejdź do folderu projektu aparatu Unity `Packages` . Otwórz plik manifestu projektu, `manifest.json` w edytorze tekstu.
-2. W górnej części pliku, na tym samym poziomie, co `dependencies` sekcja, Dodaj następujący wpis, aby dołączyć rejestr zakotwiczeń przestrzennych platformy Azure do projektu. `scopedRegistries`Wpis informuje aparat Unity, gdzie należy szukać pakietów zestawu SDK kotwice przestrzenne platformy Azure.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
-
-### <a name="add-the-sdk-package-to-your-unity-project"></a>Dodawanie pakietu SDK do projektu środowiska Unity
-
-1. Dodaj wpis z zakotwiczeniami przestrzennymi platformy Azure Windows SDK nazwą pakietu ( `com.microsoft.azure.spatial-anchors-sdk.windows` ) i wersją pakietu do `dependencies` sekcji w manifeście projektu. Zobacz przykład poniżej.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-20&highlight=12)]
-
-2. Zapisz i Zamknij `manifest.json` plik. Gdy wrócisz do aparatu Unity, aparat Unity powinien automatycznie wykryć zmiany manifestu projektu i pobrać określone pakiety. Można rozwinąć `Packages` folder w widoku projektu, aby sprawdzić, czy odpowiednie pakiety zostały zaimportowane.
-
-## <a name="via-unity-asset-package"></a>[Pakiet zasobów aparatu Unity](#tab/UnityAssetPackage)
-
-> [!WARNING]
-> Dystrybucja pakietu zasobów środowiska Unity zestawu Azure przestrzenny kotwice zostanie zaniechana po 2.5.0 wersji zestawu SDK.
-
-Pobierzmy zestaw SDK kotwic przestrzennych platformy Azure. Przejdź do [strony usługi GitHub dotyczącej zakotwiczenia przestrzennego platformy Azure](https://github.com/Azure/azure-spatial-anchors-samples/releases). W obszarze **zasoby** Pobierz **AzureSpatialAnchors. UNITYPACKAGE**. W środowisku Unity przejdź do pozycji **zasoby**, wybierz pozycję **Importuj** pakiet  >  **niestandardowy..**.. Przejdź do pakietu i wybierz pozycję **Otwórz**.
-
-W oknie Nowy **Importuj pakiet Unity** , który zostanie wystawiony, usuń zaznaczenie **wtyczek** , a następnie wybierz pozycję **Importuj** w prawym dolnym rogu.
-
----
-
+### <a name="prepare-code"></a>Przygotuj kod
 W rozwiązaniu **programu Visual Studio** Dodaj następujący import do programu `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs` :
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]

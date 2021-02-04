@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879784"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549189"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
 
@@ -102,8 +102,8 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Wszystkie pliki mają te same nagłówki
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
-    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. W tym przykładzie nie wprowadzimy żadnych opcji. Wybierz opcję **Dalej**.
-
+    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla **day_of_week**, tak aby nie był uwzględniany. Wybierz opcję **Dalej**.
+         ![Formularz schematu](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. Na formularzu **Potwierdź szczegóły** Sprawdź, czy informacje są zgodne z informacjami o tym, co zostało wcześniej wypełnione w **podstawowych informacjach, magazynie danych i wyborze plików** oraz w formularzach **podglądu** .
     
     1. Wybierz pozycję **Utwórz** , aby zakończyć tworzenie zestawu danych.
@@ -170,12 +170,6 @@ Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta 
         
         Wybierz pozycję **Zapisz**.
     
-    1. Wybierz pozycję **Wyświetl ustawienia cechowania**. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do cechowania w tym eksperymentie.
-
-        ![Cechowania zaznaczenie](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Wybierz pozycję **Zapisz**.
-
 1. Wybierz pozycję **Zakończ** , aby uruchomić eksperyment. Po rozpoczęciu przygotowania eksperymentu zostanie otwarty ekran **szczegóły uruchamiania**  ze **stanem Uruchom** na górze. Ten stan jest aktualizowany w miarę postępu eksperymentu. Powiadomienia są również wyświetlane w prawym górnym rogu Studio, aby poinformować o stanie eksperymentu.
 
 >[!IMPORTANT]

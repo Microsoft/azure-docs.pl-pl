@@ -52,6 +52,8 @@
       href: application-development.md
 - name: Procedura
   items:
+    - name: Fortanix — Menedżer przetwarzania poufnego
+      href: how-to-fortanix-confidential-computing-manager.md
     - name: Fortanix Enclave Manager
       href: how-to-fortanix-enclave-manager.md
 - name: Odwołania

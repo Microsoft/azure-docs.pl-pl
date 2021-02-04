@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1062f126da8be6b37f6b52eee520425b3edcde16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7528d12dcbfba09b4dae4ac07a5c683a7c11bd88
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84744344"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548805"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Wyłącz zasady sieciowe dla źródłowego adresu IP usługi linku prywatnego
 
 Aby można było wybrać źródłowy adres IP dla usługi linku prywatnego, `privateLinkServiceNetworkPolicies` w podsieci musi być wymagane jawne ustawienie Wyłącz. To ustawienie dotyczy tylko określonego prywatnego adresu IP, który został wybrany jako źródłowy adres IP usługi łącza prywatnego. W przypadku innych zasobów w podsieci dostęp jest kontrolowany na podstawie definicji reguł zabezpieczeń sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń). 
  
-W przypadku korzystania z dowolnego klienta platformy Azure (środowiska PowerShell, interfejsu wiersza polecenia lub szablonów) do zmiany tej właściwości wymagany jest dodatkowy krok. Zasady można wyłączyć za pomocą usługi Cloud Shell z poziomu Azure Portal lub instalacji lokalnych Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonów Azure Resource Manager.  
+W przypadku tworzenia usługi linku prywatnego przy użyciu portalu to ustawienie jest automatycznie wyłączone w ramach procesu tworzenia. Wdrożenia przy użyciu dowolnego klienta platformy Azure (środowiska PowerShell, interfejsu wiersza polecenia lub szablonów) wymagają dodatkowego kroku, aby zmienić tę właściwość. Zasady można wyłączyć za pomocą usługi Cloud Shell z poziomu Azure Portal lub instalacji lokalnych Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonów Azure Resource Manager.  
  
 Wykonaj poniższe kroki, aby wyłączyć zasady sieci usługi link prywatny dla sieci wirtualnej o nazwie *myVirtualNetwork* z *domyślną* podsiecią hostowaną w grupie zasobów o nazwie Moja *resourceName*. 
 

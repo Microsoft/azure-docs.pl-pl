@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 637f09c5ee52928631b965dfa6caea9368b44991
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936842"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550763"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -88,6 +88,10 @@ Zapoznaj się z przewodnikiem dewelopera dotyczącym Twojego języka, aby dowied
 + [JavaScript](functions-reference-node.md#write-trace-output-to-logs) 
 + [Program PowerShell](functions-reference-powershell.md#logging)
 + [Python](functions-reference-python.md#logging)
+
+## <a name="analyze-data"></a>Analizowanie danych
+
+Domyślnie dane zbierane z aplikacji funkcji są przechowywane w Application Insights. W [Azure Portal](https://portal.azure.com)Application Insights zawiera obszerny zestaw wizualizacji danych telemetrycznych. Możesz przejść do szczegółów dzienników błędów i zdarzeń zapytań i metryk. Aby dowiedzieć się więcej, zapoznaj się z podstawowymi przykładami wyświetlania zebranych danych i wykonywania na nich zapytań, zobacz [analizowanie Azure Functions telemetrii w Application Insights](analyze-telemetry-data.md). 
 
 ## <a name="streaming-logs"></a>Dzienniki przesyłania strumieniowego
 

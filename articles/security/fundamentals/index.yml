@@ -11,13 +11,13 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 10/28/2019
-  ms.openlocfilehash: 95136ee22ec6799a4e35b9b4619d62994d708fc1
-  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
-  ms.translationtype: HT
+  ms.date: 02/03/2021
+  ms.openlocfilehash: 87584400894b97f0ef0522d8f7c421100a673cba
+  ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/10/2020
-  ms.locfileid: "94410083"
+  ms.lasthandoff: 02/04/2021
+  ms.locfileid: "99550306"
 landingContent:
 - title: Informacje o zabezpieczeniach platformy Azure
   linkLists:
@@ -51,7 +51,7 @@ landingContent:
     links:
     - text: Zarządzanie i monitorowanie
       url: management-monitoring-overview.md
-    - text: Zaawansowane wykrywanie zagrożeń
+    - text: Ochrona przed zagrożeniami
       url: threat-detection.md
 - title: Najlepsze rozwiązania dotyczące zabezpieczania rozwiązań w chmurze
   linkLists:

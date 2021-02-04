@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2021
 ms.author: Zhchia
-ms.openlocfilehash: 89e64b6e8018fafb22820e8594bc2b3c888bb04a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 43b783d9462205b01d3ac4de0c5779fdc9864470
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732162"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550462"
 ---
 # <a name="tutorial-configure-fortes-change-cloud-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie platformy Fort Zmień chmurę na potrzeby automatycznej aprowizacji użytkowników
 
@@ -50,11 +50,11 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-2-configure-fortes-change-cloud-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie platformy Fort Zmień chmurę w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-1. Zaloguj się przy użyciu konta administratora, aby obfort zmiany w chmurze. Kliknij **ikonę Ustawienia** , a następnie przejdź do **ustawień Standard scim**.
+1. Zaloguj się przy użyciu konta administratora, aby obfort zmiany w chmurze. Kliknij **ikonę Ustawienia** , a następnie przejdź do okna **Inicjowanie obsługi użytkowników (standard scim)**.
 
     [![Na stronie Czterdziesta zmiana ustawienia ](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png) usługi Cloud Standard scim](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png#lightbox)
 
-2. W nowym oknie skopiuj i Zapisz **token podstawowy**. Ta wartość zostanie wprowadzona w polu token tajny na karcie Inicjowanie obsługi administracyjnej zmian w aplikacji w chmurze w Azure Portal.
+2. W nowym oknie skopiuj i Zapisz **adres URL dzierżawy** oraz **token podstawowy**. Adres URL dzierżawy zostanie wprowadzony w polu **adres URL dzierżawy** *, a token podstawowy zostanie wprowadzony w polu **tajne** * token na karcie Inicjowanie obsługi administracyjnej zmian w aplikacji w chmurze w Azure Portal.
      
       [" ![ Fort" Zmień token podstawowy w chmurze](media/fortes-change-cloud-provisioning-tutorial/primary-token.png)](media/fortes-change-cloud-provisioning-tutorial/primary-token.png#lightbox)
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/30/2020
-ms.openlocfilehash: ee6c116d02a7be1682d9e8379037ef1b8c92bce8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.date: 02/03/2021
+ms.openlocfilehash: d4500229800fa5d1743779b29927637777647e47
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967042"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550661"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Tworzenie środowiska usługi integracji (ISE) przy użyciu interfejsu API REST usługi Logic Apps
 
@@ -188,17 +188,28 @@ W tej przykładowej treści żądania pokazano przykładowe wartości:
 
 ## <a name="add-custom-root-certificates"></a>Dodawanie niestandardowych certyfikatów głównych
 
-Często używasz ISE do łączenia się z usługami niestandardowymi w sieci wirtualnej lub lokalnie. Te niestandardowe usługi są często chronione przez certyfikat wystawiony przez niestandardowy urząd certyfikacji przedsiębiorstwa, taki jak urząd certyfikacji lub certyfikat z podpisem własnym. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Aby ISE pomyślnie łączył się z tymi usługami za poorednictwem usługi Transport Layer Security (TLS), ISE musi mieć dostęp do tych certyfikatów głównych. Aby zaktualizować ISE za pomocą niestandardowego zaufanego certyfikatu głównego, wprowadź to `PATCH` żądanie https:
+Często używasz ISE do łączenia się z usługami niestandardowymi w sieci wirtualnej lub lokalnie. Te niestandardowe usługi są często chronione przez certyfikat wystawiony przez niestandardowy urząd certyfikacji przedsiębiorstwa, taki jak urząd certyfikacji lub certyfikat z podpisem własnym. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Aby ISE pomyślnie łączył się z tymi usługami za poorednictwem usługi Transport Layer Security (TLS), ISE musi mieć dostęp do tych certyfikatów głównych.
 
-`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+#### <a name="considerations-for-adding-custom-root-certificates"></a>Zagadnienia dotyczące dodawania niestandardowych certyfikatów głównych
 
-Przed wykonaniem tej operacji zapoznaj się z następującymi kwestiami:
+Przed aktualizacją ISE za pomocą niestandardowego zaufanego certyfikatu głównego, zapoznaj się z następującymi kwestiami:
 
 * Upewnij się, że przekażesz certyfikat główny *i* wszystkie certyfikaty pośrednie. Maksymalna liczba certyfikatów wynosi 20.
 
 * Przekazywanie certyfikatów głównych jest operacją zastępczą, w której ostatnie przekazanie zastępuje poprzednie operacje przekazywania. Na przykład w przypadku wysłania żądania przekazującego jeden certyfikat, a następnie wysłania kolejnego żądania przekazania innego certyfikatu, ISE używa tylko drugiego certyfikatu. Jeśli musisz użyć obu certyfikatów, Dodaj je razem w tym samym żądaniu.  
 
 * Przekazywanie certyfikatów głównych jest operacją asynchroniczną, która może zająć trochę czasu. Aby sprawdzić stan lub wynik, można wysłać `GET` żądanie przy użyciu tego samego identyfikatora URI. Komunikat odpowiedzi zawiera `provisioningState` pole, które zwraca wartość, `InProgress` gdy operacja przekazywania nadal działa. Gdy `provisioningState` wartość jest równa `Succeeded` , operacja przekazywania zostanie zakończona.
+
+#### <a name="request-syntax"></a>Składnia żądania
+
+Aby zaktualizować ISE za pomocą niestandardowego zaufanego certyfikatu głównego, wyślij następujące żądanie poprawki HTTPS do [adresu URL Azure Resource Manager, który różni się w zależności od środowiska platformy Azure](../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane), na przykład:
+
+| Środowisko | Adres URL Azure Resource Manager |
+|-------------|----------------------------|
+| Azure Global (wiele dzierżawców) | `PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Azure Government | `PATCH https://management.usgovcloudapi.net/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| 21Vianet: Microsoft Azure — Chiny | `PATCH https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+|||
 
 #### <a name="request-body-syntax-for-adding-custom-root-certificates"></a>Składnia żądania dodania niestandardowych certyfikatów głównych
 

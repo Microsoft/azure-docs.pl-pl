@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 702ca4f4c3fc92eca70479ba02b1ddc8f6858857
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223231"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549664"
 ---
 # <a name="public-ip-addresses"></a>Publiczne adresy IP
 
@@ -54,7 +54,7 @@ Publiczne adresy IP jednostki SKU:
 - Ich dostosowywalny limit czasu bezczynności dla przepływu opartego na ruchu przychodzącym wynosi od 4 do 30 minut przy domyślnej wartości 4 minut, a stały limit czasu bezczynności dla przepływu opartego na ruchu wychodzącym wynosi 4 minuty.
 - Zabezpiecz domyślnie i zamknięto w ruchu przychodzącym. Zezwalaj na wyświetlanie listy ruchu przychodzącego z [sieciową grupą zabezpieczeń](./network-security-groups-overview.md#network-security-groups).
 - Przypisane do interfejsów sieciowych, standardowych publicznych modułów równoważenia obciążenia lub bram aplikacji. Aby uzyskać więcej informacji na temat usługi równoważenia obciążenia w warstwie Standardowa, zobacz [Azure usługa Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Mogą być nadmiarowe strefowo (pochodzące ze wszystkich 3 stref) lub zona (można utworzyć strefę i zagwarantować w określonej strefie dostępności). Aby dowiedzieć się więcej o strefach dostępności, zobacz [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Omówienie stref dostępności) oraz [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Nadmiarowe adresy IP stref można tworzyć tylko w regionach, w których znajdują się [3 strefy dostępności](../availability-zones/az-region.md) .** Adresy IP utworzone przed na żywo nie będą strefowo nadmiarowe.
+- Mogą być nadmiarowe strefowo (wydzielone ze wszystkich 3 stref), zona (gwarantowane w określonej wstępnie wybranej strefie dostępności) lub bez strefy (nieskojarzonej z określoną wstępnie wybraną strefą dostępności). Aby dowiedzieć się więcej o strefach dostępności, zobacz [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Omówienie stref dostępności) oraz [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Nadmiarowe adresy IP stref można tworzyć tylko w regionach, w których znajdują się [3 strefy dostępności](../availability-zones/az-region.md) .** Adresy IP utworzone przed na żywo nie będą strefowo nadmiarowe.
 - Mogą być używane jako adresy IP frontonu dla [międzyregionowych modułów równoważenia obciążenia](../load-balancer/cross-region-overview.md) (funkcji wersji zapoznawczej).
  
 > [!NOTE]
@@ -63,7 +63,7 @@ Publiczne adresy IP jednostki SKU:
 > [!NOTE]
 > W przypadku korzystania z [usługi metadanych wystąpienia IMDS](../virtual-machines/windows/instance-metadata-service.md)są dostępne tylko publiczne adresy IP z podstawową jednostką SKU. Standardowa jednostka SKU nie jest obsługiwana.
 
-### <a name="basic"></a>Podstawowe
+### <a name="basic"></a>Podstawowa
 
 Wszystkie publiczne adresy IP utworzone przed wprowadzeniem jednostek SKU są publicznymi adresami IP opartymi na podstawowej jednostce SKU. 
 

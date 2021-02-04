@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 02a6e934b517cdd118b6175d9cfef73bee4c996d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7d0c83f1ae18d36557a7a5b0222aee2905e05cb7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223010"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550239"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Szybki Start: Tworzenie publicznego adresu IP przy użyciu Azure Portal
 
 W tym artykule pokazano, jak utworzyć zasób publicznego adresu IP przy użyciu Azure Portal. Aby uzyskać więcej informacji na temat zasobów, z którymi może być skojarzone, różnica między podstawową i standardową jednostką SKU i innymi powiązanymi informacjami, zobacz [publiczne adresy IP](./public-ip-addresses.md).  Na potrzeby tego przykładu będziemy skupić się tylko na adresach IPv4. Aby uzyskać więcej informacji na temat adresów IPv6, zobacz [IPv6 dla sieci wirtualnej platformy Azure](./ipv6-overview.md).
 
-# <a name="standard-sku---using-zones"></a>[**Standardowa jednostka SKU — używanie stref**](#tab/option-create-public-ip-standard-zones)
+# <a name="standard-sku"></a>[**Standardowy SKU**](#tab/option-create-public-ip-standard-zones)
 
 Wykonaj następujące kroki, aby utworzyć strefę standardowa — nadmiarowy publiczny adres IP o nazwie **myStandardZRPublicIP**.
 
@@ -44,9 +44,9 @@ Wykonaj następujące kroki, aby utworzyć strefę standardowa — nadmiarowy pu
     | Subskrypcja            | Wybierz subskrypcję.   |
     | Grupa zasobów          | Wybierz pozycję **Utwórz nowy** , wprowadź nazwę zasobu, a następnie wybierz przycisk **OK** . |
     | Lokalizacja                | Wybierz **Wschodnie stany USA 2**      |
-    | Strefa dostępności       | Wybierz **strefę nadmiarową** lub wybierz konkretną strefę (patrz Uwaga poniżej) |
+    | Strefa dostępności       | Wybierz **strefowo nadmiarowe**, brak strefy lub wybierz konkretną strefę (patrz Uwaga poniżej) |
 
-Należy pamiętać, że są to tylko prawidłowe wybory w regionach z [strefy dostępności](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  (Można również wybrać określoną strefę w tych regionach, chociaż nie będzie ona odporna na awarie strefy).
+Należy pamiętać, że są to tylko prawidłowe wybory w regionach z [strefy dostępności](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  (Można również wybrać określoną strefę w tych regionach, chociaż nie będzie ona odporna na awarie strefy).  Aby uzyskać więcej informacji na temat stref dostępności, zobacz temat [strefy dostępności — Omówienie](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 \* = Warstwa odnosi się do [Międzyregionowej funkcji Load Balancer](../load-balancer/cross-region-overview.md) , obecnie w wersji zapoznawczej.
 

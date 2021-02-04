@@ -6,20 +6,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 652986c4850a0b51fc86b84133d7e93813423c9a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919531"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550323"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatyzowanie odpowiedzi na wyzwalacze Security Center
 
 Każdy program zabezpieczeń zawiera wiele przepływów pracy dotyczących odpowiedzi na zdarzenia. Procesy te mogą obejmować Powiadamianie właściwych uczestników projektu, uruchamianie procesu zarządzania zmianami i stosowanie określonych czynności zaradczych. Specjaliści ds. zabezpieczeń zaleca się zautomatyzować dowolną liczbę kroków tych procedur. Automatyzacja redukuje obciążenie. Pozwala również zwiększyć bezpieczeństwo, zapewniając, że kroki procesu są wykonywane szybko, spójnie i zgodnie ze wstępnie zdefiniowanymi wymaganiami.
 
-W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Center. Ta funkcja może wyzwolić Logic Apps na temat alertów zabezpieczeń i zaleceń. Na przykład możesz chcieć, aby Security Center e-mail określonego użytkownika w przypadku wystąpienia alertu. Dowiesz się również, jak utworzyć Logic Apps przy użyciu [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Center. Ta funkcja umożliwia wyzwolenie Logic Apps na alerty zabezpieczeń, zalecenia i zmiany zgodności z przepisami. Na przykład możesz chcieć, aby Security Center e-mail określonego użytkownika w przypadku wystąpienia alertu. Dowiesz się również, jak utworzyć Logic Apps przy użyciu [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="availability"></a>Dostępność
@@ -70,10 +70,12 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 
     Projektant aplikacji logiki obsługuje te Security Center wyzwalacze:
 
-    * **Po utworzeniu lub wyzwoleniu rekomendacji Azure Security Center** — Jeśli aplikacja logiki korzysta z rekomendacji, która jest przestarzała lub zastępowana, Automatyzacja przestanie działać i konieczne będzie zaktualizowanie wyzwalacza. Aby śledzić zmiany w zaleceniach, zobacz [Azure Security Center informacji o wersji](release-notes.md).
+    - **Po utworzeniu lub wyzwoleniu rekomendacji Azure Security Center** — Jeśli aplikacja logiki korzysta z rekomendacji, która jest przestarzała lub zastępowana, Automatyzacja przestanie działać i konieczne będzie zaktualizowanie wyzwalacza. Aby śledzić zmiany w zaleceniach, zobacz [Azure Security Center informacji o wersji](release-notes.md).
 
-    * **Po utworzeniu lub wyzwoleniu alertu Azure Security Center** można dostosować wyzwalacz, aby odnosił się tylko do alertów z poziomami ważności, które Cię interesują.
+    - **Po utworzeniu lub wyzwoleniu alertu Azure Security Center** można dostosować wyzwalacz, aby odnosił się tylko do alertów z poziomami ważności, które Cię interesują.
     
+    - **Po utworzeniu oceny zgodności z przepisami Security Center lub wyzwoleniu** automatyzacji na podstawie aktualizacji oceny zgodności z przepisami.
+
     > [!NOTE]
     > Jeśli używasz starszego wyzwalacza "gdy zostanie wyzwolona odpowiedź na Azure Security Center alertu", Aplikacje logiki nie będą uruchamiane przez funkcję automatyzacji przepływu pracy. Zamiast tego należy użyć dowolnego wyzwalacza wymienionego powyżej. 
 

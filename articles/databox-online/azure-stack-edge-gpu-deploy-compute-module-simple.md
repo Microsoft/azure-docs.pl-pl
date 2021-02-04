@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 290aed6c817b5e1cfc8bc75b3551bfe15a7b3691
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 44265efd4d125bb2701742a490fc883c48f1877b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524832"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550995"
 ---
 # <a name="tutorial-run-a-compute-workload-with-iot-edge-module-on-azure-stack-edge-pro-gpu"></a>Samouczek: uruchamianie obciążenia obliczeniowego za pomocą modułu IoT Edge na Azure Stack brzegowych procesorów GPU
 
@@ -151,4 +151,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Aby dowiedzieć się, jak administrować urządzeniem Azure Stack EDGE Pro, zobacz:
 
 > [!div class="nextstepaction"]
-> [Korzystanie z lokalnego interfejsu użytkownika sieci Web do administrowania Azure Stack krawędzią Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Korzystanie z lokalnego interfejsu użytkownika sieci Web do administrowania Azure Stack krawędzią Pro](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md)

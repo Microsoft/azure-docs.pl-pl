@@ -4,12 +4,12 @@ description: Dowiedz się, jak wyświetlać i wykonywać zapytania dotyczące Az
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 9e03a36824853a3e43bbf8628fd12481cfbcaf25
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493774"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549562"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analizuj dane telemetryczne Azure Functions w Application Insights 
 
@@ -139,6 +139,18 @@ W przypadku korzystania z [planu zużycia](consumption-plan.md) *koszt* wykonani
 Następujące zapytania telemetryczne są specyficzne dla metryk, które wpływają na koszt działania funkcji w planie zużycia.
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
+
+## <a name="azure-monitor-metrics"></a>Metryki Azure Monitor
+
+Oprócz danych telemetrycznych zbieranych przez Application Insights można również uzyskać dane dotyczące sposobu działania aplikacji funkcji z [Azure monitor metryk](../azure-monitor/platform/data-platform-metrics.md). Wraz z typowymi [metrykami dostępnymi dla App Service aplikacji](../app-service/web-sites-monitor.md#understand-metrics)istnieją dwie metryki specyficzne dla interesujących Cię funkcji:
+
+| Metric | Opis |
+| ---- | ---- |
+| **FunctionExecutionCount** | Licznik wykonywania funkcji wskazuje liczbę wykonań aplikacji funkcji. Jest to skorelowane z liczbą przypadków uruchomienia funkcji w aplikacji. Ta Metryka nie jest obecnie obsługiwana w przypadku planów Premium i dedykowanych (App Service) działających w systemie Linux. |
+| **FunctionExecutionUnits** | Jednostki wykonywania funkcji są kombinacją czasu wykonywania i użycia pamięci.  Dane pamięci nie są obecnie dostępne w Azure Monitor. Jeśli jednak chcesz zoptymalizować użycie pamięci przez aplikację, można użyć danych licznika wydajności zebranych przez Application Insights. Ta Metryka nie jest obecnie obsługiwana w przypadku planów Premium i dedykowanych (App Service) działających w systemie Linux.|
+
+Aby dowiedzieć się więcej o obliczaniu kosztów planu zużycia przy użyciu danych Application Insights, zobacz [szacowanie kosztów planu zużycia](functions-consumption-costs.md). Aby dowiedzieć się więcej o korzystaniu z Eksploratora monitora do wyświetlania metryk, zobacz [wprowadzenie do usługi Azure Eksplorator metryk](../azure-monitor/platform/metrics-getting-started.md).
+
 
 ## <a name="next-steps"></a>Następne kroki
 
