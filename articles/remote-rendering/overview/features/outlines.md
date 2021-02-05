@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 55151ab965b13a944fee5517a2ca8b4f9eb64bb0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c04f2312926d3b6d668dff712eedb57d816c8bf3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207244"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592011"
 ---
 # <a name="outline-rendering"></a>Renderowanie konturów
 
@@ -36,9 +36,9 @@ Klasa `OutlineSettings` przechowuje ustawienia związane z właściwościami kon
 Poniższy kod przedstawia przykład ustawiania parametrów konspektu za pośrednictwem interfejsu API:
 
 ```cs
-void SetOutlineParameters(AzureSession session)
+void SetOutlineParameters(RenderingSession session)
 {
-    OutlineSettings outlineSettings = session.Actions.OutlineSettings;
+    OutlineSettings outlineSettings = session.Connection.OutlineSettings;
     outlineSettings.Color = new Color4Ub(255, 255, 0, 255);
     outlineSettings.PulseRateHz = 2.0f;
     outlineSettings.PulseIntensity = 0.5f;
@@ -46,9 +46,9 @@ void SetOutlineParameters(AzureSession session)
 ```
 
 ```cpp
-void SetOutlineParameters(ApiHandle<AzureSession> session)
+void SetOutlineParameters(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<OutlineSettings> outlineSettings = session->Actions()->GetOutlineSettings();
+    ApiHandle<OutlineSettings> outlineSettings = session->Connection()->GetOutlineSettings();
     Color4Ub outlineColor;
     outlineColor.channels = { 255, 255, 0, 255 };
     outlineSettings->SetColor(outlineColor);
@@ -63,8 +63,8 @@ Renderowanie konspektu może mieć znaczny wpływ na wydajność renderowania. T
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
-* [Właściwość RemoteManager. OutlineSettings języka C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
-* [Zdalnymanager:: OutlineSettings ()](/cpp/api/remote-rendering/remotemanager#outlinesettings)
+* [C# RenderingConnection. OutlineSettings — Właściwość](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.outlinesettings)
+* [C++ RenderingConnection:: OutlineSettings ()](/cpp/api/remote-rendering/renderingconnection#outlinesettings)
 
 ## <a name="next-steps"></a>Następne kroki
 

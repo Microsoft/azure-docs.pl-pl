@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 39eb007c85d9f0623b4a5611e36d4ed7a75423e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6611f5ca7ddae243c4bc314be73a9030311cec89
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941184"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594438"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrowanie Apache Spark i Apache Hive z łącznikiem magazynu Hive w usłudze Azure HDInsight
 
@@ -38,7 +38,11 @@ Niektóre operacje obsługiwane przez łącznik magazynu Hive są następujące:
 ## <a name="hive-warehouse-connector-setup"></a>Konfiguracja łącznika magazynu Hive
 
 > [!IMPORTANT]
-> Wystąpienie interaktywne serwera hiveserver2 zainstalowane w klastrach pakiet Enterprise Security platformy Spark 2,4 nie jest obsługiwane do użycia z łącznikiem magazynu Hive. Zamiast tego należy skonfigurować oddzielny klaster serwera hiveserver2 Interactive do hostowania interaktywnych obciążeń serwera hiveserver2. Konfiguracja łącznika magazynu programu Hive wykorzystująca pojedynczy klaster Spark 2,4 nie jest obsługiwana.
+> - Wystąpienie interaktywne serwera hiveserver2 zainstalowane w klastrach pakiet Enterprise Security platformy Spark 2,4 nie jest obsługiwane do użycia z łącznikiem magazynu Hive. Zamiast tego należy skonfigurować oddzielny klaster serwera hiveserver2 Interactive do hostowania interaktywnych obciążeń serwera hiveserver2. Konfiguracja łącznika magazynu programu Hive wykorzystująca pojedynczy klaster Spark 2,4 nie jest obsługiwana.
+> - Biblioteka łącznika magazynu Hive (obsługiwane) nie jest obsługiwana w przypadku klastrów zapytań interaktywnych, w których włączona jest funkcja zarządzania obciążeniami (WLM). <br>
+W scenariuszu, w którym masz tylko obciążenia platformy Spark i chcesz korzystać z biblioteki obsługiwane, upewnij się, że w klastrze zapytań interaktywnych nie jest włączona funkcja zarządzania obciążeniami ( `hive.server2.tez.interactive.queue` Konfiguracja nie jest ustawiona w konfiguracjach Hive). <br>
+W przypadku scenariusza, w którym istnieją zarówno obciążenia Spark (obsługiwane), jak i LLAP natywne, należy utworzyć dwa oddzielne klastry zapytań interaktywnych z udostępnioną bazą danych magazynu metadanych. Jeden klaster dla natywnych obciążeń LLAP, w których funkcja WLM może być włączona na potrzeby i innych klastrach w celu obsługiwane obciążenia, w przypadku których nie należy konfigurować funkcji WLM.
+Należy pamiętać, że można wyświetlić plany zasobów WLM z obu klastrów, nawet jeśli są one włączone tylko w jednym klastrze. Nie wprowadzaj żadnych zmian w planach zasobów w klastrze, w którym funkcja WLM jest wyłączona, ponieważ może to mieć wpływ na funkcjonalność WLM w innym klastrze.
 
 Łącznik magazynu Hive wymaga oddzielnych klastrów dla obciążeń Spark i Interactive zapytań. Wykonaj następujące kroki, aby skonfigurować te klastry w usłudze Azure HDInsight.
 

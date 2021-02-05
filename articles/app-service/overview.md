@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0bfacc4169de6b30272229283e9aef9a9d69fad5
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936213"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592334"
 ---
 # <a name="app-service-overview"></a>Omówienie usługi App Service
 
@@ -50,13 +50,13 @@ Nieaktualne środowiska uruchomieniowe są okresowo usuwane z Web Apps tworzenia
 
 Gdy nieaktualne środowisko uruchomieniowe jest ukryte w portalu, wszystkie istniejące witryny korzystające z tej wersji będą nadal działać. Jeśli środowisko uruchomieniowe zostanie całkowicie usunięte z platformy App Service, właściciele subskrypcji platformy Azure otrzymają wiadomość e-mail przed usunięciem.
 
-Jeśli musisz utworzyć inną aplikację sieci Web z nieaktualną wersją środowiska uruchomieniowego, która nie jest już wyświetlana w portalu, zobacz przewodniki dotyczące konfiguracji języka, aby uzyskać instrukcje dotyczące sposobu uzyskania wersji środowiska uruchomieniowego. Za pomocą interfejsu wiersza polecenia platformy Azure można utworzyć inną lokację przy użyciu tego samego środowiska uruchomieniowego. Alternatywnie możesz użyć przycisku **Eksportuj szablon** w bloku aplikacji sieci Web w portalu, aby wyeksportować szablon ARM lokacji. Możesz ponownie użyć tego szablonu, aby wdrożyć nową lokację z tym samym środowiskiem uruchomieniowym i konfiguracją.
+Jeśli musisz utworzyć inną aplikację sieci Web z nieaktualną wersją środowiska uruchomieniowego, która nie jest już wyświetlana w portalu, zobacz przewodniki dotyczące konfiguracji języka, aby uzyskać instrukcje dotyczące sposobu uzyskania wersji środowiska uruchomieniowego. Za pomocą interfejsu wiersza polecenia platformy Azure można utworzyć inną lokację przy użyciu tego samego środowiska uruchomieniowego. Alternatywnie możesz użyć przycisku **Eksportuj szablon** w bloku aplikacji sieci Web w portalu, aby wyeksportować szablon ARM lokacji. Można ponownie użyć tego szablonu, aby wdrożyć nową lokację z tym samym środowiskiem uruchomieniowym i konfiguracją.
 
 ### <a name="limitations"></a>Ograniczenia
 
 - App Service w systemie Linux nie jest obsługiwana w warstwie cenowej [udostępnionej](https://azure.microsoft.com/pricing/details/app-service/plans/) . 
 - Nie można mieszać aplikacji systemu Windows i Linux w ramach tego samego planu App Service.  
-- W tej samej grupie zasobów nie można mieszać aplikacji systemu Windows i Linux w tym samym regionie.
+- W przeszłości nie można mieszać aplikacji systemu Windows i Linux w tej samej grupie zasobów. Jednak w tym scenariuszu wszystkie grupy zasobów utworzone w dniu lub po 21 stycznia 2021. W przypadku grup zasobów utworzonych przed 21 stycznia 2021 możliwość dodania mieszanych wdrożeń platformy zostanie wdrożona w regionach platformy Azure (w tym regionach w chmurze krajowej) wkrótce.
 - W Azure Portal są wyświetlane tylko funkcje, które obecnie działają w przypadku aplikacji systemu Linux. Gdy funkcje są włączone, są aktywowane w portalu.
 - Po wdrożeniu wbudowanych obrazów do kodu i zawartości są przydzielone woluminy magazynu dla zawartości sieci Web, obsługiwane przez usługę Azure Storage. Opóźnienie dysku tego woluminu jest większe i bardziej zmienne niż opóźnienie systemu plików kontenera. Aplikacje wymagające dużego dostępu tylko do odczytu do plików zawartości mogą korzystać z opcji niestandardowego kontenera, która umieszcza pliki w systemie plików kontenera zamiast na woluminie zawartości.
 

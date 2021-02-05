@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 4e09f9b8564c9319e68984df1c0f8db7a496a6d0
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: beb45d0d650b07f6106a3307d2d3a955095ee8b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584808"
+ms.locfileid: "99592266"
 ---
 # <a name="manage-qna-maker-resources"></a>Zarządzanie zasobami QnA Maker
 
@@ -92,60 +92,10 @@ Ta procedura służy do tworzenia zasobów platformy Azure wymaganych do zarząd
     ![Zasób utworzył nową usługę QnA Maker Managed (wersja zapoznawcza)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 
     Zasób z typem _Cognitive Services_ ma Twoje klucze _subskrypcji_ .
-
+    
 ---
 
-## <a name="find-authoring-keys-in-the-azure-portal"></a>Znajdź klucze tworzenia w Azure Portal
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
-
-Klucze tworzenia można wyświetlić i zresetować z poziomu Azure Portal, w którym został utworzony zasób QnA Maker. Te klucze mogą być określane jako klucze subskrypcji.
-
-1. Przejdź do zasobu QnA Maker w Azure Portal i wybierz zasób, który ma _Cognitive Services_ typ:
-
-    ![Lista zasobów QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
-
-2. Przejdź do pozycji **klucze i punkt końcowy**:
-
-    ![Klucz subskrypcji zarządzany przez QnA Maker (wersja zapoznawcza)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Znajdowanie kluczy punktu końcowego zapytania w portalu QnA Maker
-
-Punkt końcowy znajduje się w tym samym regionie, w którym znajduje się zasób, ponieważ klucze punktów końcowych są używane do wywołania bazy wiedzy.
-
-Kluczami punktów końcowych można zarządzać z poziomu [portalu QNA Maker](https://qnamaker.ai).
-
-1. Zaloguj się do [portalu QNA Maker](https://qnamaker.ai), przejdź do swojego profilu, a następnie wybierz pozycję **Ustawienia usługi**:
-
-    ![Klucz punktu końcowego](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
-
-2. Wyświetl lub zresetuj klucze:
-
-    > [!div class="mx-imgBorder"]
-    > ![Menedżer kluczy punktu końcowego](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
-
-    >[!NOTE]
-    >Odśwież klucze, jeśli uważasz, że zostały naruszone. Może to wymagać odpowiednich zmian w aplikacji klienckiej lub kodzie bot.
-
-# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
-
-Klucze tworzenia można wyświetlać i resetować z Azure Portal, w którym utworzono zasób QnA Maker Managed (wersja zapoznawcza). Te klucze mogą być określane jako klucze subskrypcji.
-
-1. Przejdź do zasobu Managed QnA Maker (wersja zapoznawcza) w Azure Portal i wybierz zasób, który ma *Cognitive Services* typ:
-
-    ![Lista zasobów z zarządzaną QnA Maker (wersja zapoznawcza)](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
-
-2. Przejdź do pozycji **klucze i punkt końcowy**:
-
-    ![Klucz subskrypcji zarządzany przez QnA Maker (wersja zapoznawcza)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="update-the-resources"></a>Aktualizowanie zasobów
-
-Dowiedz się, jak uaktualnić zasoby używane przez bazę wiedzy. QnA Maker zarządzane (wersja zapoznawcza) jest **bezpłatna** w wersji zapoznawczej. 
-
----
-
-### <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci
+## <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
 

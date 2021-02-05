@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 33f5314c80dc33dbec50dc21a71f4cb507979e12
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 68c0c04feba2779598a500c84b2ba4a9086b104d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427432"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593956"
 ---
 # <a name="limitations"></a>Ograniczenia
 
@@ -19,8 +19,8 @@ Niektóre funkcje mają rozmiar, liczbę lub inne ograniczenia.
 ## <a name="azure-frontend"></a>Fronton platformy Azure
 
 Do interfejsu API frontonu (C++ i C#) mają zastosowanie następujące ograniczenia:
-* Łączna liczba wystąpień [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend) na proces: 16.
-* Łączna liczba wystąpień [AzureSession](/dotnet/api/microsoft.azure.remoterendering.azuresession) na [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend): 16.
+* Łączna liczba wystąpień [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient) na proces: 16.
+* Łączna liczba wystąpień [RenderingSession](/dotnet/api/microsoft.azure.remoterendering.renderingsession) na [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient): 16.
 
 ## <a name="objects"></a>Obiekty
 
@@ -32,7 +32,7 @@ Do interfejsu API frontonu (C++ i C#) mają zastosowanie następujące ogranicze
 * **Animacja:** Animacje są ograniczone do animowania poszczególnych transformacji [obiektów gry](../concepts/entities.md). Animacje szkieletowe z karnacjami lub animacjami wierzchołków nie są obsługiwane. Ścieżki animacji z pliku zasobów źródłowych nie są zachowywane. Zamiast tego animacje przekształcenia obiektów muszą być sterowane przez kod klienta.
 * **Niestandardowe programy do cieniowania:** Tworzenie niestandardowych programów do cieniowania nie jest obsługiwane. Można używać tylko wbudowanych [materiałów kolorów](../overview/features/color-materials.md) lub [materiałów](../overview/features/pbr-materials.md) .
 * **Maksymalna liczba odrębnych materiałów** w elemencie zawartości: 65 535. Aby uzyskać więcej informacji na temat automatycznego zmniejszania liczby materiałów, zobacz rozdział dotyczący [materiałów do usuwania duplikatów](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
-* **Maksymalny wymiar pojedynczej tekstury** : 16 384 x 16 384. Rozmiar większych tekstur źródłowych zostanie zmniejszony przez proces konwersji.
+* **Maksymalny wymiar pojedynczej tekstury**: 16 384 x 16 384. Rozmiar większych tekstur źródłowych zostanie zmniejszony przez proces konwersji.
 
 ### <a name="overall-number-of-polygons"></a>Ogólna liczba wielokątów
 

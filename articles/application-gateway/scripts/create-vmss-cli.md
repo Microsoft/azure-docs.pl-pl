@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 81c936acc00801f8473c1ec74aa50dbf2abb4936
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2e766bcdee2afa3ff4ed75476c619326c4c0e0c2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397029"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591654"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Zarządzanie ruchem internetowym przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -48,8 +48,8 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda 
 | [az group create](/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az network vnet create](/cli/azure/network/vnet) | Tworzy sieć wirtualną. |
 | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Tworzy podsieć w sieci wirtualnej. |
-| [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest) | Tworzy publiczny adres IP dla bramy aplikacji. |
-| [az network application-gateway create](/cli/azure/network/application-gateway?view=azure-cli-latest) | Tworzy bramę aplikacji. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Tworzy publiczny adres IP dla bramy aplikacji. |
+| [az network application-gateway create](/cli/azure/network/application-gateway) | Tworzy bramę aplikacji. |
 | [az vmss create](/cli/azure/vmss) | Tworzy zestaw skalowania maszyn wirtualnych. |
 | [az network public-ip show](/cli/azure/network/public-ip) | Pobiera publiczny adres IP bramy aplikacji. |
 

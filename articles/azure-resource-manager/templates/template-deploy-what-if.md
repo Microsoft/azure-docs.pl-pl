@@ -3,14 +3,14 @@ title: Template deployment
 description: Przed wdrożeniem szablonu Azure Resource Manager Ustal, jakie zmiany będą miały miejsce w swoich zasobach.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/05/2021
 ms.author: tomfitz
-ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673974"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591628"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operacja analizy co-jeżeli wdrożenia szablonu usługi Resource Manager
 
@@ -18,13 +18,9 @@ Przed wdrożeniem szablonu Azure Resource Manager (szablon ARM) można wyświetl
 
 Operacji działania warunkowego można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub operacji interfejsu API REST. Co to jest obsługiwane dla wdrożeń grupy zasobów, subskrypcji, grupy zarządzania i na poziomie dzierżawy.
 
-## <a name="install-azure-powershell-module"></a>Instalowanie modułu programu Azure PowerShell
+## <a name="install-azure-powershell-module"></a>Zainstaluj moduł Azure PowerShell
 
 Aby użyć tego, co jest dostępne w programie PowerShell, musisz mieć wersję **4,2 lub nowszą w programie AZ module**.
-
-Jednak przed zainstalowaniem wymaganego modułu upewnij się, że masz rdzeń programu PowerShell (6. x lub 7. x). Jeśli masz program PowerShell 5. x lub starszy, [Zaktualizuj swoją wersję programu PowerShell](/powershell/scripting/install/installing-powershell). Nie można zainstalować wymaganego modułu w programie PowerShell 5. x lub starszym.
-
-### <a name="install-latest-version"></a>Zainstaluj najnowszą wersję
 
 Aby zainstalować moduł, użyj:
 
@@ -326,7 +322,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 Operacja działania warunkowego obsługuje używanie [trybu wdrożenia](deployment-modes.md). Po ustawieniu na tryb kompletny zasoby, które nie znajdują się w szablonie, są usuwane. W poniższym przykładzie wdrożono [szablon, który nie zawiera żadnych zasobów zdefiniowanych](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) w trybie kompletnym.
 
-Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj parametru przełącznika potwierdzania w ramach polecenia wdrażania. Jeśli zmiany są zgodnie z oczekiwaniami, potwierdź, że wdrożenie ma zostać ukończone.
+Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj parametru przełącznika potwierdzania w ramach polecenia wdrażania. Jeśli zmiany są zgodnie z oczekiwaniami, należy odpowiedzieć na zakończenie wdrożenia.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

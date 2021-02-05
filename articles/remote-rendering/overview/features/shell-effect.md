@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 10/23/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f59c4f8225d31b61df08f30863c8b9300e20e820
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7af95cba807cea340438a7de30f096758d0369ad
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447875"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594167"
 ---
 # <a name="shell-rendering"></a>Renderowanie powłoki
 
@@ -30,7 +30,7 @@ Klasa `ShellRenderingSettings` przechowuje ustawienia związane z właściwości
 
 Zapoznaj się również z poniższą tabelą, aby poznać Przykłady efektów parametrów w przypadku zastosowania do całej sceny:
 
-|                | 0 | 0,25 | 0,5 | 0,75 | 1,0 | 
+|                | 0 | 0,25 | 0,5 | 0,75 | 1.0 | 
 |----------------|:-:|:----:|:---:|:----:|:---:|
 | **Nasycenie** | ![Nasycenie — 0,0](./media/shell-desaturation-00.png) | ![Nasycenie — 0,25](./media/shell-desaturation-025.png) | ![Nasycenie — 0,5](./media/shell-desaturation-05.png) | ![Nasycenie — 0,75](./media/shell-desaturation-075.png) | ![Nasycenie — 1,0](./media/shell-desaturation-10.png) |
 | **Spalin**      | ![Nieprzezroczystość — 0,0](./media/shell-opacity-00.png) | ![Nieprzezroczystość — 0,25](./media/shell-opacity-025.png) | ![Nieprzezroczystość — 0,5](./media/shell-opacity-05.png) | ![Nieprzezroczystość — 0,75](./media/shell-opacity-075.png) | ![Nieprzezroczystość — 1,0](./media/shell-opacity-10.png) |
@@ -42,18 +42,18 @@ Efekt powłoki jest stosowany w końcowym kolorze nieprzezroczystym, a scena bę
 Poniższy kod przedstawia przykład użycia `ShellRenderingSettings` stanu za pośrednictwem interfejsu API:
 
 ```cs
-void SetShellSettings(AzureSession session)
+void SetShellSettings(RenderingSession session)
 {
-    ShellRenderingSettings shellRenderingSettings = session.Actions.ShellRenderingSettings;
+    ShellRenderingSettings shellRenderingSettings = session.Connection.ShellRenderingSettings;
     shellRenderingSettings.Desaturation = 0.5f;
     shellRenderingSettings.Opacity = 0.1f;
 }
 ```
 
 ```cpp
-void SetShellSettings(ApiHandle<AzureSession> session)
+void SetShellSettings(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Actions()->GetShellRenderingSettings();
+    ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Connection()->GetShellRenderingSettings();
     shellRenderingSettings->SetDesaturation(0.5f);
     shellRenderingSettings->SetOpacity(0.1f);
 }

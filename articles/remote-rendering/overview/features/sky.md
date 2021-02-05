@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58c07654c174f5b94512574cb4c279d35897dc71
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 9c5ad4b21b428f38bbd4d9f7d19fa633c5161b5c
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701946"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594184"
 ---
 # <a name="sky-reflections"></a>Odbicia nieba
 
@@ -41,57 +41,41 @@ Aby uzyskać więcej informacji na temat modelu oświetlenia, zapoznaj się z ro
 Aby zmienić mapę środowiska, wystarczy [załadować teksturę](../../concepts/textures.md) i zmienić jej `SkyReflectionSettings` :
 
 ```cs
-LoadTextureAsync _skyTextureLoad = null;
-void ChangeEnvironmentMap(AzureSession session)
+async void ChangeEnvironmentMap(RenderingSession session)
 {
-    _skyTextureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap));
-
-    _skyTextureLoad.Completed += (LoadTextureAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                try
-                {
-                    session.Actions.SkyReflectionSettings.SkyReflectionTexture = res.Result;
-                }
-                catch (RRException exception)
-                {
-                    System.Console.WriteLine($"Setting sky reflection failed: {exception.Message}");
-                }
-            }
-            else
-            {
-                System.Console.WriteLine("Texture loading failed!");
-            }
-        };
+    try
+    {
+        Texture skyTex = await session.Connection.LoadTextureFromSasAsync(new LoadTextureFromSasOptions("builtin://VeniceSunset", TextureType.CubeMap));
+        session.Connection.SkyReflectionSettings.SkyReflectionTexture = skyTex;
+    }
+    catch (RRException exception)
+    {
+        System.Console.WriteLine($"Setting sky reflection failed: {exception.Message}");
+    }
 }
 ```
 
 ```cpp
-void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+void ChangeEnvironmentMap(ApiHandle<RenderingSession> session)
 {
-    LoadTextureFromSASParams params;
+    LoadTextureFromSasOptions params;
     params.TextureType = TextureType::CubeMap;
-    params.TextureUrl = "builtin://VeniceSunset";
-    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
-
-    skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
+    params.TextureUri = "builtin://VeniceSunset";
+    session->Connection()->LoadTextureFromSasAsync(params, [&](Status status, ApiHandle<Texture> res) {
+        if (status == Status::OK)
         {
-            if (res->GetIsRanToCompletion())
-            {
-                ApiHandle<SkyReflectionSettings> settings = session->Actions()->GetSkyReflectionSettings();
-                settings->SetSkyReflectionTexture(res->GetResult());
-            }
-            else
-            {
-                printf("Texture loading failed!\n");
-            }
-        });
+            ApiHandle<SkyReflectionSettings> settings = session->Connection()->GetSkyReflectionSettings();
+            settings->SetSkyReflectionTexture(res);
+        }
+        else
+        {
+            printf("Texture loading failed!\n");
+        }
+    });
 }
-
 ```
 
-Należy zauważyć, że `LoadTextureFromSASAsync` wariant jest używany powyżej, ponieważ załadowana została wbudowana tekstura. W przypadku ładowania z [połączonych magazynów obiektów BLOB](../../how-tos/create-an-account.md#link-storage-accounts)Użyj `LoadTextureAsync` wariantu.
+Należy zauważyć, że `LoadTextureFromSasAsync` wariant jest używany powyżej, ponieważ załadowana została wbudowana tekstura. W przypadku ładowania z [połączonych magazynów obiektów BLOB](../../how-tos/create-an-account.md#link-storage-accounts)Użyj `LoadTextureAsync` wariantu.
 
 ## <a name="sky-texture-types"></a>Typy tekstury przestrzeni powietrznej
 
@@ -105,7 +89,7 @@ W odniesieniu do tego jest nieopakowany mapy sześciennej:
 
 ![Nieopakowany mapy sześciennej](media/Cubemap-example.png)
 
-Użyj `AzureSession.Actions.LoadTextureAsync` /  `LoadTextureFromSASAsync` with `TextureType.CubeMap` , aby ładować tekstury mapy sześciennej.
+Użyj `RenderingSession.Connection.LoadTextureAsync` /  `LoadTextureFromSasAsync` with `TextureType.CubeMap` , aby ładować tekstury mapy sześciennej.
 
 ### <a name="sphere-environment-maps"></a>Mapy środowiska sfery
 
@@ -113,7 +97,7 @@ W przypadku używania tekstury 2D jako mapy środowiska obraz musi znajdować si
 
 ![Obraz w przestrzeni powietrznej we współrzędnych sferycznych](media/spheremap-example.png)
 
-Za pomocą programu `AzureSession.Actions.LoadTextureAsync` `TextureType.Texture2D` można ładować mapy środowiska sferycznego.
+Za pomocą programu `RenderingSession.Connection.LoadTextureAsync` `TextureType.Texture2D` można ładować mapy środowiska sferycznego.
 
 ## <a name="built-in-environment-maps"></a>Wbudowane mapy środowiska
 
@@ -138,8 +122,8 @@ Zdalne renderowanie na platformie Azure udostępnia kilka wbudowanych map środo
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
-* [Właściwość RemoteManager. SkyReflectionSettings języka C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
-* [Zdalnymanager:: SkyReflectionSettings ()](/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
+* [C# RenderingConnection. SkyReflectionSettings — Właściwość](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.skyreflectionsettings)
+* [C++ RenderingConnection:: SkyReflectionSettings ()](/cpp/api/remote-rendering/renderingconnection#skyreflectionsettings)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e9908c106e57801cb1b7def8b3353a983cc97de0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555570"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591943"
 ---
 # <a name="pbr-materials"></a>Materiały PBR
 
@@ -51,7 +51,7 @@ Te właściwości są wspólne dla wszystkich materiałów:
 
 ## <a name="pbr-material-properties"></a>Właściwości materiału PBR
 
-Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właściwości *BaseColor* , *metalu* i *chropowatości* do emulowania szerokiego zakresu materiałów rzeczywistych. Szczegółowy opis programu PBR wykracza poza zakres tego artykułu. Aby uzyskać więcej informacji na temat usługi PBR, zobacz [inne źródła](http://www.pbr-book.org). Następujące właściwości są specyficzne dla materiałów PBR:
+Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właściwości *BaseColor*, *metalu* i *chropowatości* do emulowania szerokiego zakresu materiałów rzeczywistych. Szczegółowy opis programu PBR wykracza poza zakres tego artykułu. Aby uzyskać więcej informacji na temat usługi PBR, zobacz [inne źródła](http://www.pbr-book.org). Następujące właściwości są specyficzne dla materiałów PBR:
 
 * **baseColor:** W materiałach PBR *kolor albedo* jest określany jako *kolor podstawowy*. W przypadku renderowania zdalnego na platformie Azure Właściwość *Color albedo* jest już obecna za pomocą wspólnych właściwości materiału, więc nie istnieje dodatkowa Właściwość koloru podstawowego.
 
@@ -92,9 +92,9 @@ Nie zawsze jest możliwe przekonwertowanie z *odblasków-Glossiness* na *sztywno
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
 * [Klasa PbrMaterial języka C#](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [Zdalnymanager. demateriał ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C# RenderingConnection. setmateriał ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
 * [Klasa C++ PbrMaterial](/cpp/api/remote-rendering/pbrmaterial)
-* [C++ RemoteManager:: demateriał ()](/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C++ RenderingConnection:: ()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## <a name="next-steps"></a>Następne kroki
 

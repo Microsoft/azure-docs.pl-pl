@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 915aca5f7400496aacb3c3cf248120dff39d747c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468542"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594454"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Samouczek: Konfigurowanie sieci dla Azure Stack krawędzi mini R
 
@@ -126,6 +126,7 @@ Wykonaj następujące kroki, aby skonfigurować sieć dla urządzenia.
    - Jeżeli w Twoim środowisku włączony jest protokół DHCP, interfejsy sieciowe są automatycznie konfigurowane. Adres IP, podsieć, brama i DNS są przypisywane automatycznie.
    - Jeśli usługa DHCP nie jest włączona, w razie konieczności można przypisywać statyczne adresy IP.
    - Interfejs sieciowy można skonfigurować jako adres IPv4.
+   - Tworzenie zespołu kart interfejsu sieciowego (NIC) lub agregacja łączy nie jest obsługiwane w przypadku Azure Stack Edge.
    - Numer seryjny dowolnego portu odpowiada numerowi seryjnemu węzła. W przypadku urządzenia z serii K zostanie wyświetlony tylko jeden numer seryjny.
 
      >[!NOTE] 
@@ -152,7 +153,7 @@ Wykonaj następujące kroki, aby włączyć obliczenia i skonfigurować sieć ob
     > Kubernetes na Azure Stack Edge używa podsieci 172.27.0.0/16 dla usługi w podsieci pod i 172.28.0.0/16. Upewnij się, że nie są one używane w sieci. Jeśli te podsieci są już używane w sieci, można zmienić te podsieci, uruchamiając `Set-HcsKubeClusterNetworkInfo` polecenie cmdlet z interfejsu programu PowerShell urządzenia. Aby uzyskać więcej informacji, zobacz [Zmienianie Kubernetes pod i podsieci usługi](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
 
-1. Przypisywanie **adresów IP usług zewnętrznych Kubernetes**. Są to również adresy IP równoważenia obciążenia. Te ciągłe adresy IP są przeznaczone dla usług, które mają zostać ujawnione poza klastrem Kubernetes, i określają zakres statycznych adresów IP w zależności od liczby ujawnionych usług. 
+1. Przypisywanie **adresów IP usług zewnętrznych Kubernetes**. Są to również adresy IP równoważenia obciążenia. Te przyległe adresy IP są przeznaczone dla usług, które mają być udostępniane poza klastrem Kubernetes, i określają zakres statycznych adresów IP w zależności od liczby ujawnionych usług. 
     
     > [!IMPORTANT]
     > Zdecydowanie zalecamy, aby określić co najmniej 1 adres IP dla usługi Azure Stack krawędź mini R Hub, aby uzyskać dostęp do modułów obliczeniowych. Opcjonalnie można określić dodatkowe adresy IP dla innych usług/modułów IoT Edge (1 na usługę/moduł), które muszą być dostępne spoza klastra. Adresy IP usługi można później zaktualizować. 
@@ -161,7 +162,7 @@ Wykonaj następujące kroki, aby włączyć obliczenia i skonfigurować sieć ob
 
     ![Strona obliczeniowa w lokalnym interfejsie użytkownika 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/compute-network-3.png)
 
-1. Zastosowanie konfiguracji trwa kilka minut, a może być konieczne odświeżenie przeglądarki. Można sprawdzić, czy określony port jest włączony dla obliczeń. 
+1. Zastosowanie konfiguracji trwa kilka minut i może być konieczne odświeżenie przeglądarki. Można sprawdzić, czy określony port jest włączony dla obliczeń. 
  
     ![Strona obliczeniowa w lokalnym interfejsie użytkownika 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/compute-network-4.png)
 

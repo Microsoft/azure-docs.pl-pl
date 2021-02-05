@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: Tworzenie grupy zarządzania za pomocą interfejsu wiersza polecenia platformy Azure'
 description: W tym przewodniku szybki start utworzysz grupę zarządzania w celu zorganizowania zasobów w hierarchii zasobów przy użyciu interfejsu wiersza polecenia platformy Azure.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 54d7afbaa4bfe2799ca0d68927394a38d9845c53
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: fe38882bd3b025635662e228ae919a24b03dee78
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920665"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592470"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Szybki Start: Tworzenie grupy zarządzania za pomocą interfejsu wiersza polecenia platformy Azure
 

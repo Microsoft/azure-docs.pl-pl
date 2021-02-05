@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 37a665c776a64558a13910875f221462fb7d0ef8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: fea9deae3948b36732b5ea5203fceea6bec07fb9
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205068"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594082"
 ---
 # <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided"::: dawania
 
@@ -19,7 +19,7 @@ Większość renderowania korzysta z [odtwarzania z tyłu](https://en.wikipedia.
 
 Sposobem nieniezawodnego zapobiegania temu problemowi jest renderowanie trójkątów *dwukrotnie*. Jako że nie korzystasz z funkcji usuwania z tyłu, ma to wpływ na wydajność, ponieważ domyślne renderowanie zdalne platformy Azure przełącza się tylko na dwustronne Renderowanie siatek, które są przecinane z płaszczyzną wycinania.
 
-Ustawienie * :::no-loc text="single-sided"::: renderowania* pozwala dostosować to zachowanie.
+Ustawienie *:::no-loc text="single-sided"::: renderowania* pozwala dostosować to zachowanie.
 
 > [!CAUTION]
 > :::no-loc text="single-sided":::Ustawienie renderowania jest funkcją eksperymentalną. Może zostać ponownie usunięta w przyszłości. Nie zmieniaj ustawienia domyślnego, chyba że naprawdę rozwiąże problem krytyczny w aplikacji.
@@ -41,9 +41,9 @@ Istnieją trzy różne tryby:
 Zmiany :::no-loc text="single-sided"::: ustawień renderowania można wykonać w następujący sposób:
 
 ```cs
-void ChangeSingleSidedRendering(AzureSession session)
+void ChangeSingleSidedRendering(RenderingSession session)
 {
-    SingleSidedSettings settings = session.Actions.SingleSidedSettings;
+    SingleSidedSettings settings = session.Connection.SingleSidedSettings;
 
     // Single-sided geometry is rendered as is
     settings.Mode = SingleSidedMode.Normal;
@@ -54,9 +54,9 @@ void ChangeSingleSidedRendering(AzureSession session)
 ```
 
 ```cpp
-void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
+void ChangeSingleSidedRendering(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<SingleSidedSettings> settings = session->Actions()->GetSingleSidedSettings();
+    ApiHandle<SingleSidedSettings> settings = session->Connection()->GetSingleSidedSettings();
 
     // Single-sided geometry is rendered as is
     settings->SetMode(SingleSidedMode::Normal);
@@ -68,8 +68,8 @@ void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
-* [Właściwość RemoteManager. SingleSidedSettings języka C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.singlesidedsettings)
-* [Zdalnymanager:: SingleSidedSettings ()](/cpp/api/remote-rendering/remotemanager#singlesidedsettings)
+* [C# RenderingConnection. SingleSidedSettings — Właściwość](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.singlesidedsettings)
+* [C++ RenderingConnection:: SingleSidedSettings ()](/cpp/api/remote-rendering/renderingconnection#singlesidedsettings)
 
 ## <a name="next-steps"></a>Następne kroki
 

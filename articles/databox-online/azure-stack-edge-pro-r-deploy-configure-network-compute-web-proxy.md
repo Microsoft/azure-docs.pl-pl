@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: ad0010a1885c1e9bac8fa2341771cedc12115adc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 11c1d76b5784587f234455f81595778897569eb1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468445"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594353"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-r"></a>Samouczek: Konfigurowanie sieci dla Azure Stack EDGE — Pro R
 
@@ -72,6 +72,7 @@ Wykonaj następujące kroki, aby skonfigurować sieć dla urządzenia.
    * Jeżeli w Twoim środowisku włączony jest protokół DHCP, interfejsy sieciowe są automatycznie konfigurowane. Adres IP, podsieć, brama i DNS są przypisywane automatycznie.
    * Jeśli usługa DHCP nie jest włączona, w razie konieczności można przypisywać statyczne adresy IP.
    * Interfejs sieciowy można skonfigurować jako adres IPv4.
+   * Tworzenie zespołu kart interfejsu sieciowego (NIC) lub agregacja łączy nie jest obsługiwane w przypadku Azure Stack Edge.
    * Numer seryjny dowolnego portu odpowiada numerowi seryjnemu węzła.
     <!--* On the 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.-->
     Po skonfigurowaniu sieci urządzenia aktualizacje są aktualizowane jak pokazano poniżej.

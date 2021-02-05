@@ -1,14 +1,14 @@
 ---
 title: Konfigurowanie środowiska dla operatora tworzenia planów
 description: Dowiedz się, jak skonfigurować środowisko platformy Azure do użycia z wbudowaną rolą Azure Operatorion.
-ms.date: 11/24/2020
+ms.date: 02/05/2021
 ms.topic: how-to
-ms.openlocfilehash: db8450516feab2fae4136f549959a29b006059aa
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 0e0f6680ab39481a480919af10fadc0f7103a1fb
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95804917"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591605"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Konfigurowanie środowiska dla operatora strategii
 

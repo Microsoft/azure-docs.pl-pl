@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 514ce0a43904048952f38edd6a9d38713f6ef8f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936659"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592844"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Przegląd zasad niestandardowych Azure AD B2C
 
@@ -115,7 +115,7 @@ Każdy pakiet startowy zawiera następujące pliki:
 Model dziedziczenia jest następujący:
 
 - Zasady podrzędne na dowolnym poziomie mogą dziedziczyć z zasad nadrzędnych i zwiększać je, dodając nowe elementy.
-- W przypadku bardziej złożonych scenariuszy można dodać więcej poziomów dziedziczenia (do 5 w sumie).
+- W przypadku bardziej złożonych scenariuszy można dodać więcej poziomów dziedziczenia (łącznie do 10).
 - Można dodać więcej zasad jednostki uzależnionej. Na przykład Usuń moje konto, Zmień numer telefonu, zasady jednostek uzależnionych SAML i nie tylko.
 
 Na poniższym diagramie przedstawiono relację między plikami zasad i aplikacjami jednostki uzależnionej.

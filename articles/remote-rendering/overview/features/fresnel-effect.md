@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 11/09/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8ecd3afc95cf4b8054cd7db3530c15afebea3ce
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f63cd3b50642c3cf531387b4446992b6f15116f2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498238"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594116"
 ---
 # <a name="fresnel-effect"></a>Efekt Fresnela
 
@@ -49,7 +49,7 @@ Jak pokazano, obiekty na przekątnej są w pełni przezroczyste, ale wygaszania 
 W poniższych przykładach kodu pokazano, jak włączyć i dostosować efekt wygaszania Fresnela dla [materiału](../../overview/features/pbr-materials.md) i [koloru](../../overview/features/color-materials.md)w języku PBR:
 
 ```cs
-    void SetFresnelEffect(AzureSession session, Material material)
+    void SetFresnelEffect(RenderingSession session, Material material)
     {
         if (material.MaterialSubType == MaterialType.Pbr)
         {
@@ -69,7 +69,7 @@ W poniższych przykładach kodu pokazano, jak włączyć i dostosować efekt wyg
 ```
 
 ```cpp
-void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> material)
+void SetFresnelEffect(ApiHandle<RenderingSession> session, ApiHandle<Material> material)
 {
     if (material->GetMaterialSubType() == MaterialType::Pbr)
     {

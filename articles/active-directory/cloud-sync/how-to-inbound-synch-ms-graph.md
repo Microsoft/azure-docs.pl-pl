@@ -1,5 +1,5 @@
 ---
-title: Synchronizacja ruchu przychodzącego dla synchronizacji z chmurą przy użyciu usługi MS interfejs API programu Graph
+title: Jak programowo skonfigurować synchronizację z chmurą przy użyciu usługi MS interfejs API programu Graph
 description: W tym temacie opisano sposób włączania synchronizacji przychodzącej przy użyciu tylko interfejs API programu Graph
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3796b3d86f647e38cf2ff018e8c0c903d9a64e41
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682042"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593165"
 ---
-# <a name="inbound-synchronization-for-cloud-sync-using-ms-graph-api"></a>Synchronizacja ruchu przychodzącego dla synchronizacji z chmurą przy użyciu usługi MS interfejs API programu Graph
+# <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Jak programowo skonfigurować synchronizację z chmurą przy użyciu usługi MS interfejs API programu Graph
 
 W poniższym dokumencie opisano sposób replikowania profilu synchronizacji od podstaw przy użyciu tylko interfejsów API MSGraph.  
 Struktura, w jaki należy to zrobić, składa się z następujących kroków.  Są to:
@@ -28,6 +28,7 @@ Struktura, w jaki należy to zrobić, składa się z następujących kroków.  S
 - [Utwórz zadanie synchronizacji](#create-sync-job)
 - [Aktualizowanie domeny dostosowanej](#update-targeted-domain)
 - [Włącz skróty haseł synchronizacji](#enable-sync-password-hashes-on-configuration-blade)
+- [Przypadkowe usunięcie](#accidental-deletes)
 - [Rozpocznij zadanie synchronizacji](#start-sync-job)
 - [Przegląd stanu](#review-status)
 
@@ -210,6 +211,71 @@ W tym miejscu wyróżniona wartość "domena" jest nazwą lokalnej domeny Active
 ```
 
  Dodaj schemat w treści żądania. 
+
+## <a name="accidental-deletes"></a>Przypadkowe usunięcie
+Ta sekcja zawiera informacje na temat sposobu programistycznego włączania/wyłączania i używania [przypadkowych usunięć](how-to-accidental-deletes.md) .
+
+
+### <a name="enabling-and-setting-the-threshold"></a>Włączanie i Ustawianie progu
+Istnieją dwa ustawienia poszczególnych zadań, których można użyć:
+
+ - DeleteThresholdEnabled — włącza zapobieganie przypadkowemu usuwaniu dla zadania, gdy ustawiono wartość "true". Domyślnie ustawiono wartość "true".
+ - DeleteThresholdValue — określa maksymalną liczbę usunięć, która będzie dozwolona w każdym wykonaniu zadania w przypadku włączenia zapobiegania przypadkowym usunięciem. Wartość jest domyślnie ustawiona na 500.  Tak więc, jeśli wartość jest równa 500, Maksymalna Liczba usunięć dozwolonych będzie 499 w każdym wykonaniu.
+
+Ustawienia progu usuwania są częścią `SyncNotificationSettings` i mogą być modyfikowane za pośrednictwem grafu. 
+
+Będziemy musieli zaktualizować SyncNotificationSettings tej konfiguracji, aby zaktualizować wpisy tajne.
+
+ ```
+ PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
+ ```
+
+ Dodaj następującą parę klucz/wartość w tabeli poniżej wartości na podstawie tego, co próbujesz zrobić:
+
+```
+ Request body -
+ {
+   "value":[
+             {
+               "key":"SyncNotificationSettings",
+               "value": "{\"Enabled\":true,\"Recipients\":\"foobar@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"
+              }
+            ]
+  }
+
+
+```
+
+Ustawienie "Enabled" w powyższym przykładzie dotyczy włączania/wyłączania wiadomości e-mail z powiadomieniami, gdy zadanie jest poddawane kwarantannie.
+
+
+Obecnie nie są obsługiwane żądania poprawek dla wpisów tajnych, więc musisz dodać wszystkie wartości w treści żądania PUT (jak w powyższym przykładzie), aby zachować inne wartości.
+
+Istniejące wartości dla wszystkich wpisów tajnych można pobrać przy użyciu polecenia 
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+```
+
+### <a name="allowing-deletes"></a>Zezwalanie na usuwanie
+Aby umożliwić usuwanie przepływów po przejściu zadania do kwarantanny, należy wydać ponownie polecenie "ForceDeletes" jako zakres. 
+
+```
+Request:
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+```
+Request Body:
+{
+  "criteria": {"resetScope": "ForceDeletes"}
+}
+```
+
+
+
+
+
 
 ## <a name="start-sync-job"></a>Rozpocznij zadanie synchronizacji
 Zadanie można pobrać ponownie za pomocą następującego polecenia:

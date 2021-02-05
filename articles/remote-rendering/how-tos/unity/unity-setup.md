@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/27/2020
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4a0be44d8709726e159e17e703566c6c576bc18f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f01058d8e879a9610e76638215214c059982fa
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018981"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594218"
 ---
 # <a name="set-up-remote-rendering-for-unity"></a>Konfigurowanie usługi Remote Rendering dla środowiska Unity
 
@@ -19,7 +19,7 @@ Aby włączyć zdalne renderowanie na platformie Azure (ARR) w środowisku Unity
 
 ## <a name="startup-and-shutdown"></a>Uruchamianie i zamykanie
 
-Aby zainicjować renderowanie zdalne, użyj `RemoteManagerUnity` . Ta klasa wywołuje ogólne, `RemoteManager` ale już implementuje szczegółowe dane specyficzne dla aparatu Unity. Na przykład środowisko Unity używa określonego układu współrzędnych. Podczas wywoływania `RemoteManagerUnity.Initialize` odpowiednia Konwencja zostanie skonfigurowana. Wywołanie wymaga również podania aparatu Unity, który ma być używany do wyświetlania zdalnie renderowanej zawartości.
+Aby zainicjować renderowanie zdalne, użyj `RemoteManagerUnity` . Ta klasa wywołuje ogólne, `RenderingConnection` ale już implementuje szczegółowe dane specyficzne dla aparatu Unity. Na przykład środowisko Unity używa określonego układu współrzędnych. Podczas wywoływania `RemoteManagerUnity.Initialize` odpowiednia Konwencja zostanie skonfigurowana. Wywołanie wymaga również podania aparatu Unity, który ma być używany do wyświetlania zdalnie renderowanej zawartości.
 
 ```cs
 // initialize Azure Remote Rendering for use in Unity:
@@ -30,7 +30,7 @@ RemoteManagerUnity.InitializeManager(clientInit);
 
 Aby zamknąć zdalne renderowanie, wywołaj polecenie `RemoteManagerStatic.ShutdownRemoteRendering()` .
 
-Po `AzureSession` utworzeniu i wybraniu jako podstawowej sesji renderowania należy zarejestrować ją w `RemoteManagerUnity` :
+Po `RenderingSession` utworzeniu i wybraniu jako podstawowej sesji renderowania należy zarejestrować ją w `RemoteManagerUnity` :
 
 ```cs
 RemoteManagerUnity.CurrentSession = ...
@@ -46,17 +46,18 @@ RemoteUnityClientInit clientInit = new RemoteUnityClientInit(Camera.main);
 RemoteManagerUnity.InitializeManager(clientInit);
 
 // create a frontend
-AzureFrontendAccountInfo accountInfo = new AzureFrontendAccountInfo();
-// ... fill out accountInfo ...
-AzureFrontend frontend = new AzureFrontend(accountInfo);
+SessionConfiguration sessionConfig = new SessionConfiguration();
+// ... fill out sessionConfig ...
+RemoteRenderingClient client = new RemoteRenderingClient(sessionConfig);
 
 // start a session
-AzureSession session = await frontend.CreateNewRenderingSessionAsync(new RenderingSessionCreationParams(RenderingSessionVmSize.Standard, 0, 30)).AsTask();
+CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(new RenderingSessionCreationOptions(RenderingSessionVmSize.Standard, 0, 30));
+RenderingSession session = result.Session;
 
 // let RemoteManagerUnity know about the session we want to use
 RemoteManagerUnity.CurrentSession = session;
 
-session.ConnectToRuntime(new ConnectToRuntimeParams());
+await session.ConnectAsync(new RendererInitOptions());
 
 /// When connected, load and modify content
 

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0945b35f7aff8e93a1a3ba23b89db288db3d8efa
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80681872"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593895"
 ---
 # <a name="object-and-resource-lifetime"></a>Okres istnienia obiektu i zasobu
 
@@ -32,7 +32,7 @@ Wiele zasobów jest niezmiennych dla [siatek](meshes.md) wystąpień i [tekstur]
 
 ### <a name="built-in-resources"></a>Zasoby wbudowane
 
-Zdalne renderowanie na platformie Azure zawiera niektóre wbudowane zasoby, które mogą zostać załadowane przez zaczekanie na odpowiedni identyfikator w `builtin://` trakcie wywołania do `AzureSession.Actions.LoadXYZAsync()` . Dostępne zasoby wbudowane są wymienione w dokumentacji dotyczącej poszczególnych funkcji. Na przykład rozdział do [przestrzeni powietrznej](../overview/features/sky.md) zawiera listę wbudowanych tekstur.
+Zdalne renderowanie na platformie Azure zawiera niektóre wbudowane zasoby, które mogą zostać załadowane przez zaczekanie na odpowiedni identyfikator w `builtin://` trakcie wywołania do `RenderingSession.Connection.LoadXYZAsync()` . Dostępne zasoby wbudowane są wymienione w dokumentacji dotyczącej poszczególnych funkcji. Na przykład rozdział do [przestrzeni powietrznej](../overview/features/sky.md) zawiera listę wbudowanych tekstur.
 
 ## <a name="general-lifetime"></a>Ogólny okres istnienia
 

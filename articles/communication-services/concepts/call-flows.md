@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9fe5cb13ee352b2c49ab6ae57cabd6116cdfa720
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667677"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593641"
 ---
-# <a name="call-flows"></a>Przepływy wywołań
+# <a name="call-flows"></a>Przepływy połączenia
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -26,7 +26,7 @@ Poniższa sekcja zawiera omówienie przepływów wywołań w usłudze Azure Comm
 
 Po nawiązaniu połączenia równorzędnego lub grupowego dwa protokoły są używane w tle — HTTP (REST) do sygnalizowania i SRTP na nośniku. 
 
-Sygnalizowanie między bibliotekami klienta lub między bibliotekami klienckimi i kontrolerami sygnałów usług komunikacyjnych jest obsługiwane przy użyciu protokołu HTTP REST (TLS). W przypadku ruchu w czasie rzeczywistym (RTP) preferowany jest protokół UDP (User Datagram). Jeśli korzystanie z protokołu UDP jest uniemożliwione przez zaporę, Biblioteka klienta będzie używać Transmission Control Protocol (TCP) dla nośnika. 
+Sygnalizowanie między bibliotekami klienta lub między bibliotekami klienckimi i kontrolerami sygnałów usług komunikacyjnych jest obsługiwane przy użyciu protokołu HTTP REST (TLS). W przypadku usługi Real-Time Media (RTP) preferowany jest protokół UDP (User Datagram). Jeśli korzystanie z protokołu UDP jest uniemożliwione przez zaporę, Biblioteka klienta będzie używać Transmission Control Protocol (TCP) dla nośnika. 
 
 Przejrzyjmy protokoły sygnalizujące i multimedialne w różnych scenariuszach. 
 
@@ -44,13 +44,13 @@ Jeśli dwa urządzenia znajdują się w podsieciach, które nie mogą nawiązywa
 
 W przypadku programu Alicja będzie to translator adresów sieciowych w sklepie kawowym i dla Roberta, który będzie translatorem adresów sieciowych biura domowego. Urządzenie Alicja wyśle adres zewnętrzny jego translatora adresów sieciowych i Robert będzie tego samego. Biblioteki klienckie zawierają informacje o adresach zewnętrznych z usługi STUN (narzędzia do przechodzenia do sesji dla translatora adresów sieciowych), które są bezpłatnie dostępne dla usług Azure Communication Services. Logika, która obsługuje uzgadnianie między Alicja i Robert, jest wbudowana w udostępnione biblioteki klienta usługi Azure Communications Services. (Nie jest wymagana żadna dodatkowa konfiguracja)
 
-:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
+:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagram przedstawiający wywołanie VOIP korzystające z połączenia STUN.":::
 
 ### <a name="case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible"></a>Przypadek 3: VoIP, gdzie nie jest możliwe połączenie bezpośrednie ani z translatorem adresów sieciowych
 
 Jeśli jedno lub oba urządzenia klienckie znajdują się za symetrycznym translatorem adresów sieciowych, wymagana jest oddzielna usługa w chmurze przekazująca nośnik między dwiema bibliotekami klienckimi. Ta usługa jest wywoływana (przechodzenie przy użyciu przekaźników wokół translatora adresów sieciowych) i jest również udostępniana przez usługi komunikacyjne. Biblioteka klienta wywołująca usługi komunikacyjne automatycznie korzysta z WŁĄCZania usług na podstawie wykrytych warunków sieci. Opłaty za korzystanie z usługi Microsoft skręć są naliczone osobno.
 
-:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
+:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram przedstawiający wywołanie VOIP, które wykorzystuje połączenie z połączeniem.":::
  
 ### <a name="case-4-group-calls-with-pstn"></a>Przypadek 4: wywołania grupowe za pomocą sieci PSTN
 
@@ -58,7 +58,7 @@ Zarówno sygnalizowanie, jak i multimedia dla wywołań PSTN używają zasobu te
 
 Ruch multimediów PSTN przez składnik o nazwie procesor multimediów.
 
-:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
+:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Diagram przedstawiający wywołanie grupy PSTN przy użyciu usług komunikacyjnych.":::
 
 > [!NOTE]
 > W przypadku tych, które zapoznają się z przetwarzaniem multimediów, nasz procesor multimedialny jest również odwracany do agenta użytkownika, zgodnie z definicją w [dokumencie RFC 3261 SIP:](https://tools.ietf.org/html/rfc3261)calling Protocol. Kontroler sygnalizujący usługi Azure Communication Services to implementacja firmy Microsoft serwera proxy SIP na ten sam dokument.
@@ -70,11 +70,11 @@ Domyślny protokół w czasie rzeczywistym (RTP) dla wywołań grup to UDP (User
 > [!NOTE]
 > Procesor multimediów może pełnić rolę jednostki kontroli MultiPoint (MIKROKONTROLERY) lub jednostki przekierowania selektywnego (SFU)
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagram przedstawiający przepływ procesu multimediów UDP w ramach usług komunikacyjnych.":::
 
 Jeśli Biblioteka klienta nie może używać protokołu UDP dla multimediów z powodu ograniczeń zapory, zostanie podjęta próba użycia Transmission Control Protocol (TCP). Należy pamiętać, że składnik procesora multimediów wymaga protokołu UDP, więc w takim przypadku usługa komunikacji zostanie dodana do wywołania grupy, aby przetłumaczyć protokół TCP na UDP. W takim przypadku naliczanie opłat będzie naliczane, chyba że funkcje WYŁĄCZania nie zostaną wyłączone ręcznie.
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram przedstawiający przepływ procesu multimediów TCP w ramach usług komunikacyjnych.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

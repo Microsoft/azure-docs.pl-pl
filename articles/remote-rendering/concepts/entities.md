@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcfa4c5ed57489c56ebf845d238198944150a96
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29952353b8c3452d95bcced163fafa81fe158f64
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202892"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593405"
 ---
 # <a name="entities"></a>Jednostki
 
@@ -23,7 +23,7 @@ Jednostki mają transformację zdefiniowaną przez pozycję, rotację i skalę. 
 
 Najważniejszym aspektem samej jednostki jest hierarchia i wyniki transformacji hierarchicznej. Na przykład jeśli wiele jednostek jest dołączanych jako elementy podrzędne do współużytkowanej jednostki nadrzędnej, wszystkie te jednostki można przenieść, obrócić i skalować w artykułem, zmieniając transformację jednostki nadrzędnej. Ponadto stan jednostki może służyć `enabled` do wyłączania widoczności i odpowiedzi na rzutowanie promieni dla pełnego wykresu podrzędnego w hierarchii.
 
-Obiekt jest jednoznacznie własnością elementu nadrzędnego, co oznacza, że gdy element nadrzędny zostanie zniszczony za pomocą `Entity.Destroy()` , to są jego elementy podrzędne i wszystkie połączone [składniki](components.md). W ten sposób usuwanie modelu z sceny odbywa się przez wywołanie `Destroy` na głównym węźle modelu, zwrócone przez `AzureSession.Actions.LoadModelAsync()` lub jego wariant SAS `AzureSession.Actions.LoadModelFromSASAsync()` .
+Obiekt jest jednoznacznie własnością elementu nadrzędnego, co oznacza, że gdy element nadrzędny zostanie zniszczony za pomocą `Entity.Destroy()` , to są jego elementy podrzędne i wszystkie połączone [składniki](components.md). W ten sposób usuwanie modelu z sceny odbywa się przez wywołanie `Destroy` na głównym węźle modelu, zwrócone przez `RenderingSession.Connection.LoadModelAsync()` lub jego wariant SAS `RenderingSession.Connection.LoadModelFromSasAsync()` .
 
 Jednostki są tworzone, gdy serwer załaduje zawartość lub kiedy użytkownik chce dodać obiekt do sceny. Na przykład jeśli użytkownik chce dodać płaszczyznę wycinania w celu wizualizacji wnętrza siatki, użytkownik może utworzyć jednostkę, w której powinna istnieć płaszczyzna, a następnie dodać do niej składnik wycinania płaszczyzny.
 
@@ -32,19 +32,19 @@ Jednostki są tworzone, gdy serwer załaduje zawartość lub kiedy użytkownik c
 Aby dodać nową jednostkę do sceny, na przykład przekazać ją jako obiekt główny do ładowania modeli lub dołączyć do niej składniki, użyj następującego kodu:
 
 ```cs
-Entity CreateNewEntity(AzureSession session)
+Entity CreateNewEntity(RenderingSession session)
 {
-    Entity entity = session.Actions.CreateEntity();
+    Entity entity = session.Connection.CreateEntity();
     entity.Position = new LocalPosition(1, 2, 3);
     return entity;
 }
 ```
 
 ```cpp
-ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+ApiHandle<Entity> CreateNewEntity(ApiHandle<RenderingSession> session)
 {
     ApiHandle<Entity> entity(nullptr);
-    if (auto entityRes = session->Actions()->CreateEntity())
+    if (auto entityRes = session->Connection()->CreateEntity())
     {
         entity = entityRes.value();
         entity->SetPosition(Double3{ 1, 2, 3 });
@@ -106,33 +106,24 @@ Metadane to dodatkowe dane przechowywane w obiektach, które są ignorowane prze
 Zapytania metadanych to wywołania asynchroniczne dla określonej jednostki. Zapytanie zwraca tylko metadane pojedynczej jednostki, a nie scalone informacje wykresu podrzędnego.
 
 ```cs
-MetadataQueryAsync metaDataQuery = entity.QueryMetaDataAsync();
-metaDataQuery.Completed += (MetadataQueryAsync query) =>
-{
-    if (query.IsRanToCompletion)
-    {
-        ObjectMetaData metaData = query.Result;
-        ObjectMetaDataEntry entry = metaData.GetMetadataByName("MyInt64Value");
-        System.Int64 intValue = entry.AsInt64;
-
-        // ...
-    }
-};
+Task<ObjectMetadata> metaDataQuery = entity.QueryMetadataAsync();
+ObjectMetadata metaData = await metaDataQuery;
+ObjectMetadataEntry entry = metaData.GetMetadataByName("MyInt64Value");
+System.Int64 intValue = entry.AsInt64;
+// ...
 ```
 
 ```cpp
-ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
-metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+entity->QueryMetadataAsync([](Status status, ApiHandle<ObjectMetadata> metaData) 
+{
+    if (status == Status::OK)
     {
-        if (query->GetIsRanToCompletion())
-        {
-            ApiHandle<ObjectMetaData> metaData = query->GetResult();
-            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
-            int64_t intValue = *entry->GetAsInt64();
+        ApiHandle<ObjectMetadataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+        int64_t intValue = *entry->GetAsInt64();
 
-            // ...
-        }
-    });
+        // ...
+    }
+});
 ```
 
 Zapytanie powiedzie się, nawet jeśli obiekt nie zawiera żadnych metadanych.
@@ -140,9 +131,9 @@ Zapytanie powiedzie się, nawet jeśli obiekt nie zawiera żadnych metadanych.
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
 * [Klasa jednostki C#](/dotnet/api/microsoft.azure.remoterendering.entity)
-* [Zdalnymanager. GetEntity () C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [C# RenderingConnection. GetEntity ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createentity)
 * [Klasa jednostki C++](/cpp/api/remote-rendering/entity)
-* [C++ RemoteManager:: GetEntity ()](/cpp/api/remote-rendering/remotemanager#createentity)
+* [C++ RenderingConnection:: GetEntity ()](/cpp/api/remote-rendering/renderingconnection#createentity)
 
 ## <a name="next-steps"></a>Następne kroki
 

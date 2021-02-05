@@ -1,15 +1,15 @@
 ---
 title: Obsługiwane Azure Resource Manager typy zasobów
 description: Podaj listę typów zasobów Azure Resource Manager obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 01/06/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 4198c60bc298eb6a1b9902bb92e3df44648b2c0b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 865aed468f8a6bcb848b77a82467efc2c531398b
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251781"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594337"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -130,6 +130,9 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. azurestack/linkedsubscriptions
 - Microsoft. Azurestack/rejestracje (centra Azure Stack)
 - Microsoft. AzureStackHCI/klastry (Azure Stack HCL)
+- Microsoft. azurestackhci/galleryimages
+- Microsoft. azurestackhci/NetworkInterfaces
+- Microsoft. azurestackhci/virtualnetworks
 - Microsoft. baremetal/consoleconnections
 - Microsoft. BareMetal/crayServers (serwery Cray)
 - Microsoft. BareMetal/monitoringServers (serwery monitorowania)
@@ -331,6 +334,9 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Insights/workbooktemplates (szablony skoroszytów platformy Azure)
 - Microsoft. IntelligentITDigitalTwin/digitalTwins (Minervas)
 - Microsoft. intelligentitdigitaltwin/digitaltwins/Assets
+- Microsoft. intelligentitdigitaltwin/digitaltwins/executionplans
+- Microsoft. intelligentitdigitaltwin/digitaltwins/testplans
+- Microsoft. intelligentitdigitaltwin/digitaltwins/Tests
 - Microsoft. IoTCentral/IoTApps (aplikacje IoT Central)
 - Microsoft. IoTSpaces/Graph (bliźniaczych reprezentacji Digital) (przestarzałe)
 - Microsoft./Magazyn kluczy/hsmpools
@@ -494,6 +500,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. resources/templateSpecs (specyfikacje szablonu)
 - Microsoft. resources/templatespecs/wersje
 - Microsoft. SaaS/aplikacje (oprogramowanie jako usługa (klasyczne))
+- Microsoft. SaaS/zasoby (CPX-symbol zastępczy)
 - Microsoft. Scheduler/jobCollections (Kolekcje zadań usługi Scheduler)
 - Microsoft. SCVMM/chmury
 - Microsoft. SCVMM/virtualMachines (maszyna wirtualna SCVMM — Azure ARC)
@@ -588,6 +595,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Web/StaticSites (Web Apps statyczny (wersja zapoznawcza)
 - Microsoft. WindowsESU/multipleActivationKeys (klucze wielokrotnej aktywacji systemu Windows)
 - Microsoft. WindowsIoT/DeviceServices (Windows 10 IoT Core Services)
+- Microsoft. workloadbuilder/migrationagents
 - Microsoft. workloadbuilder/obciążenia
 - MyGet. PackageManagement/Services (MyGet-Hosted NuGet, NPM, Bower i VSIX)
 - Paraleap. CloudMonix/Services (CloudMonix)

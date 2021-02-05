@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2021
 ms.author: allensu
-ms.openlocfilehash: 7f2525b89f03e8bc1a2c3166b46c40b4dbb6ff17
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 22d7af4f307a99d2d2e29bc1f494d327394e4f10
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99562004"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594286"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Skonfiguruj tryb dystrybucji dla Azure Load Balancer
 
@@ -46,8 +46,8 @@ Konfigurację trybu dystrybucji można zmienić, modyfikując regułę równowa�
 Dostępne są następujące opcje: 
 
 * **Brak (oparte na skrócie)** — określa, że kolejne żądania z tego samego klienta mogą być obsługiwane przez dowolną maszynę wirtualną.
-* **Adres IP klienta (koligacja źródłowego adresu IP 2-krotka)** — określa, że kolejne żądania z tego samego adresu IP klienta będą obsługiwane przez tę samą maszynę wirtualną.
-* **IP i protokół klienta (koligacja źródłowego adresu IP 3-krotka)** — określa, że kolejne żądania z tego samego adresu IP klienta i kombinacji protokołów będą obsługiwane przez tę samą maszynę wirtualną.
+* **Adres IP klienta (koligacja źródłowego adresu IP — dwie kolekcje)** — określa, że kolejne żądania z tego samego adresu IP klienta będą obsługiwane przez tę samą maszynę wirtualną.
+* Adres **IP i protokół klienta (koligacja źródłowego adresu IP z trzema krotką)** — określa, że kolejne żądania z tego samego adresu IP klienta i kombinacji protokołów będą obsługiwane przez tę samą maszynę wirtualną.
 
 5. Wybierz tryb dystrybucji, a następnie wybierz pozycję **Zapisz**.
 
@@ -66,13 +66,36 @@ $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-Ustaw wartość `LoadDistribution` elementu dla wymaganej ilości usługi równoważenia obciążenia. 
+Ustaw wartość `LoadDistribution` elementu dla typu wymaganego do równoważenia obciążenia. 
 
-Określ **sourceIP** dla dwóch krotek (źródłowy adres IP i docelowy adres IP). 
+* Określ **SourceIP** dla dwóch krotek (źródłowy adres IP i docelowy adres IP). 
 
-Określ **sourceIPProtocol** dla funkcji równoważenia obciążenia dla trzech krotek (źródłowy adres IP, docelowy adres IP i typ protokołu). 
+* Określ **SourceIPProtocol** dla funkcji równoważenia obciążenia dla trzech krotek (źródłowy adres IP, docelowy adres IP i typ protokołu). 
 
-Określ **wartość domyślną** dla zachowania domyślnego z pięcioma kolekcjami równoważenia obciążenia.
+* Określ **wartość domyślną** dla zachowania domyślnego z pięcioma kolekcjami równoważenia obciążenia.
+
+# <a name="cli"></a>[**Interfejs**](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+Użyj interfejsu wiersza polecenia platformy Azure, aby zmienić ustawienia dystrybucji modułu równoważenia obciążenia na istniejącą regułę równoważenia obciążenia.  Następujące polecenie aktualizuje tryb dystrybucji:
+
+```azurecli-interactive
+az network lb rule update \
+    --lb-name myLoadBalancer \
+    --load-distribution SourceIP \
+    --name myHTTPRule \
+    --resource-group myResourceGroupLB 
+```
+Ustaw wartość `--load-distribution` dla wymaganego typu równoważenia obciążenia.
+
+* Określ **SourceIP** dla dwóch krotek (źródłowy adres IP i docelowy adres IP). 
+
+* Określ **SourceIPProtocol** dla funkcji równoważenia obciążenia dla trzech krotek (źródłowy adres IP, docelowy adres IP i typ protokołu). 
+
+* Określ **wartość domyślną** dla zachowania domyślnego z pięcioma kolekcjami równoważenia obciążenia.
+
+Aby uzyskać więcej informacji na temat polecenia użytego w tym artykule, zobacz [AZ Network lb Rule Update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
 
 ---
 

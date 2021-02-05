@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: acdb635dec5abd73341cc1dda4991b58b82a18c0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574520"
+ms.locfileid: "99593959"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview
 
@@ -197,12 +197,13 @@ jobs:
 
 ## <a name="monorepo-support"></a>Obsługa wielorepozytorium
 
-Transrepozytorium zawiera kod dla więcej niż jednej aplikacji. Domyślnie statyczny plik przepływu pracy Web Apps śledzi wszystkie pliki w repozytorium, ale można dostosować ją do docelowej pojedynczej aplikacji. W związku z tym, w przypadku repozytoriów, każda lokacja statyczna ma własny plik konfiguracji, który działa obok siebie w folderze *git* repozytorium.
+Transrepozytorium zawiera kod dla więcej niż jednej aplikacji. Domyślnie statyczny plik przepływu pracy Web Apps śledzi wszystkie pliki w repozytorium, ale można dostosować ją do docelowej pojedynczej aplikacji. W związku z tym, w przypadku repozytoriów, każda aplikacja statyczna ma własny plik konfiguracji, który działa obok siebie w folderze *. GitHub/przepływy pracy* repozytorium.
 
 ```files
-├── .git
-│   ├── azure-static-web-apps-purple-pond.yml
-│   └── azure-static-web-apps-yellow-shoe.yml
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
 │
 ├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
@@ -210,7 +211,7 @@ Transrepozytorium zawiera kod dla więcej niż jednej aplikacji. Domyślnie stat
 ├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
 │
-└── readme.md
+└── README.md
 ```
 
 Aby wskazać plik przepływu pracy w pojedynczej aplikacji, należy określić ścieżki w `push` `pull_request` sekcjach i.
@@ -236,7 +237,7 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-W tym przypadku tylko zmiany wprowadzone w plikach następujących plików wyzwalają nową kompilację:
+W tym przypadku tylko zmiany wprowadzone do następujących plików wyzwalają nową kompilację:
 
 - Wszystkie pliki w folderze *APP1*
 - Wszystkie pliki w folderze *API1*

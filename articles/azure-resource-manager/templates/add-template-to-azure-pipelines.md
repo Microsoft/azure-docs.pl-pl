@@ -2,25 +2,29 @@
 title: Ciągłej integracji/ciągłego wdrażania za pomocą Azure Pipelines i szablonów
 description: Opisuje sposób konfigurowania ciągłej integracji w programie Azure Pipelines przy użyciu szablonów Azure Resource Manager. Pokazano, jak używać skryptu programu PowerShell lub skopiować pliki do lokalizacji tymczasowej i wdrożyć je stamtąd.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.date: 02/05/2021
+ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233818"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594201"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrowanie szablonów usługi ARM z usługą Azure Pipelines
 
-Szablony Azure Resource Manager (szablony ARM) można zintegrować z Azure Pipelines na potrzeby ciągłej integracji i ciągłego wdrażania (CI/CD). Samouczek [ciągła integracja szablonów ARM z Azure Pipelines](deployment-tutorial-pipeline.md) pokazuje, jak za pomocą [zadania wdrażania szablonu ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) wdrożyć szablon z repozytorium GitHub. To podejście działa, gdy chcesz wdrożyć szablon bezpośrednio z repozytorium.
+Szablony Azure Resource Manager (szablony ARM) można zintegrować z Azure Pipelines na potrzeby ciągłej integracji i ciągłego wdrażania (CI/CD). W tym artykule przedstawiono dwa bardziej zaawansowane sposoby wdrażania szablonów przy użyciu Azure Pipelines.
 
-W tym artykule przedstawiono dwa sposoby wdrażania szablonów przy użyciu Azure Pipelines. W tym artykule pokazano, jak:
+## <a name="select-your-option"></a>Wybierz opcję
 
-* **Dodaj zadanie, które uruchamia skrypt Azure PowerShell**. Ta opcja ma zalety zapewnienia spójności w całym cyklu życia programistycznego, ponieważ można użyć tego samego skryptu, który został użyty podczas uruchamiania testów lokalnych. Skrypt wdraża szablon, ale może również wykonywać inne operacje, takie jak pobieranie wartości jako parametrów.
+Przed przejściem do tego artykułu Rozważmy różne opcje wdrażania szablonu ARM z potoku.
+
+* **Użyj zadania wdrażania szablonu ARM**. Ta opcja jest najłatwiejszym rozwiązaniem. To podejście działa, gdy chcesz wdrożyć szablon bezpośrednio z repozytorium. Ta opcja nie została omówiona w tym artykule, ale jest omówiona w samouczku [ciągła integracja szablonów ARM z Azure Pipelines](deployment-tutorial-pipeline.md). Pokazano, jak wdrożyć szablon z repozytorium GitHub przy użyciu [zadania wdrażania szablonu ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) .
+
+* **Dodaj zadanie, które uruchamia skrypt Azure PowerShell**. Ta opcja ma zalety zapewnienia spójności w całym cyklu życia programistycznego, ponieważ można użyć tego samego skryptu, który został użyty podczas uruchamiania testów lokalnych. Skrypt wdraża szablon, ale może również wykonywać inne operacje, takie jak pobieranie wartości jako parametrów. Ta opcja jest pokazana w tym artykule. Zobacz [Azure PowerShell zadanie](#azure-powershell-task).
 
    Program Visual Studio udostępnia [projekt grupy zasobów platformy Azure](create-visual-studio-deployment-project.md) , który zawiera skrypt programu PowerShell. Etapy skryptu są artefaktami z projektu do konta magazynu, do którego Menedżer zasobów może uzyskać dostęp. Artefakty to elementy w projekcie, takie jak połączone szablony, skrypty i pliki binarne aplikacji. Jeśli chcesz kontynuować używanie skryptu z projektu, Użyj zadania skryptu programu PowerShell pokazanego w tym artykule.
 
-* **Dodawanie zadań do kopiowania i wdrażania zadań**. Ta opcja oferuje wygodną alternatywę dla skryptu projektu. W potoku konfiguruje się dwa zadania. Jedno zadanie etapuje artefakty do dostępnej lokalizacji. Inne zadanie wdraża szablon z tej lokalizacji.
+* **Dodawanie zadań do kopiowania i wdrażania zadań**. Ta opcja oferuje wygodną alternatywę dla skryptu projektu. W potoku konfiguruje się dwa zadania. Jedno zadanie etapuje artefakty do dostępnej lokalizacji. Inne zadanie wdraża szablon z tej lokalizacji. Ta opcja jest pokazana w tym artykule. Zobacz [kopiowanie i wdrażanie zadań](#copy-and-deploy-tasks).
 
 ## <a name="prepare-your-project"></a>Przygotowywanie projektu
 

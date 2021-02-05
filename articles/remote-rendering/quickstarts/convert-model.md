@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b2a15bcc9d9dce922470031fd07b66cf9899f0b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c9b5d525954e7f0742cd13fe4d64a73df64ea854
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281360"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594471"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Szybki start: Konwertowanie modelu do renderowania
 
@@ -70,7 +70,7 @@ Kliknięcie tego przycisku spowoduje wyświetlenie następującego ekranu z wła
 Wypełnij formularz w następujący sposób:
 
 * Utwórz nową grupę zasobów z linku poniżej pola listy rozwijanej i nadaj jej nazwę **ARR_Tutorial**
-* W polu **nazwa konta magazynu**wprowadź unikatową nazwę. **Ta nazwa musi być globalnie unikatowa**, w przeciwnym razie zostanie wyświetlony monit z informacją o tym, że nazwa jest już zajęta. W zakresie tego przewodnika Szybki Start **arrtutorialstoragemy**IT. W związku z tym należy zamienić ją na nazwę dowolnego wystąpienia w tym przewodniku Szybki Start.
+* W polu **nazwa konta magazynu** wprowadź unikatową nazwę. **Ta nazwa musi być globalnie unikatowa**, w przeciwnym razie zostanie wyświetlony monit z informacją o tym, że nazwa jest już zajęta. W zakresie tego przewodnika Szybki Start **arrtutorialstoragemy** IT. W związku z tym należy zamienić ją na nazwę dowolnego wystąpienia w tym przewodniku Szybki Start.
 * Wybierz **lokalizację** bliską. Najlepiej używać tej samej lokalizacji, która jest używana do konfigurowania renderowania w innym przewodniku Szybki Start.
 * **Wydajność** ustawiona na wartość "Standardowa"
 * **Rodzaj konta** ustawiony na wartość "StorageV2 (ogólnego przeznaczenia w wersji 2)"
@@ -155,7 +155,7 @@ Skrypt odczytuje swoją konfigurację z pliku *Scripts\arrconfig.jsna*. Otwórz 
 
 Konfiguracja w ramach grupy **accountSettings** (Identyfikator konta i klucz) powinna zostać wypełniona analogicznie do poświadczeń w [modelu renderowania za pomocą aparatu Unity — szybki start](render-model.md).
 
-Upewnij się, że w grupie **assetConversionSettings** należy zmienić grupę **zasobów**, **blobInputContainerName**i **blobOutputContainerName** , jak pokazano powyżej.
+Upewnij się, że w grupie **assetConversionSettings** należy zmienić grupę **zasobów**, **blobInputContainerName** i **blobOutputContainerName** , jak pokazano powyżej.
 Należy pamiętać, że wartość **arrtutorialstorage** musi zostać zastąpiona unikatową nazwą, którą pobrano podczas tworzenia konta magazynu.
 
 Zmień **localAssetDirectoryPath** tak, aby wskazywał katalog na dysku, który zawiera model, który ma zostać przekonwertowany. Należy zachować ostrożność w prawidłowym wykorzystaniu ukośników odwrotnych (" \\ ") w ścieżce przy użyciu podwójnych ukośników odwrotnych (" \\ \\ ").
@@ -188,8 +188,8 @@ Powinieneś wyglądać następująco: ![Conversion.ps1](./media/successful-conve
 ### <a name="3-conversion-via-api-calls"></a>3. Konwersja za pośrednictwem wywołań interfejsu API
 
 Zarówno język C#, jak i interfejs API C++ zapewniają punkt wejścia do współpracy z usługą:
-* [C# AzureFrontend. StartAssetConversionAsync ()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
-* [C++ AzureFrontend:: StartAssetConversionAsync ()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+* [C# RemoteRenderingClient. StartAssetConversionAsync ()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.startassetconversionasync)
+* [C++ RemoteRenderingClient:: StartAssetConversionAsync ()](/cpp/api/remote-rendering/remoterenderingclient#startassetconversionasync)
 
 
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>Wstaw nowy model do przykładowej aplikacji szybkiego startu
@@ -207,7 +207,7 @@ Identyfikator URI sygnatury dostępu współdzielonego utworzony przez skrypt ko
 1. Przejdź do witryny [Azure Portal](https://www.portal.azure.com).
 1. Kliknij zasób **konta magazynu** : ![ zrzut ekranu, który wyróżnia wybrany zasób konta magazynu.](./media/portal-storage-accounts.png)
 1. Na poniższym ekranie kliknij pozycję **Eksplorator magazynu** na lewym panelu i Znajdź model wyjściowy (plik *. arrAsset* ) w kontenerze magazynu obiektów BLOB *arroutput* . Kliknij prawym przyciskiem myszy plik i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego** z menu kontekstowego: ![ dostęp do podpisu](./media/portal-storage-explorer.png)
-1. Zostanie otwarty nowy ekran, w którym można wybrać datę wygaśnięcia. Naciśnij pozycję **Utwórz**i skopiuj identyfikator URI, który jest wyświetlany w następnym oknie dialogowym. Ten nowy identyfikator URI zastępuje tymczasowy identyfikator URI utworzony przez skrypt.
+1. Zostanie otwarty nowy ekran, w którym można wybrać datę wygaśnięcia. Naciśnij pozycję **Utwórz** i skopiuj identyfikator URI, który jest wyświetlany w następnym oknie dialogowym. Ten nowy identyfikator URI zastępuje tymczasowy identyfikator URI utworzony przez skrypt.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 34a947a2a0f6d8c87c0580f273130b671b4f17fc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722236"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593337"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -191,9 +191,9 @@ W pakiecie NuGet języka C++ istnieje `microsoft.azure.remoterendering.Cpp.targe
 
 W przypadku gdy renderowane obiekty pozornie są przenoszone wraz z przesunięciami, mogą wystąpić problemy związane z *reprojektem późnego etapu* (LSR). Zapoznaj się z sekcją dotyczącą [przemieszczenia na późnym etapie](../overview/features/late-stage-reprojection.md) w celu uzyskania wskazówek dotyczących sposobu podejścia do takiej sytuacji.
 
-Kolejną przyczyną niestabilnych hologramów (Wobbling, zniekształcenia, zakłócenia lub hologramów przeskoków) może być słaba łączność sieciowa, w szczególności niewystarczająca przepustowość sieci lub zbyt wysokie opóźnienia. Dobrym wskaźnikiem jakości połączenia sieciowego jest wartość [Statystyka wydajności](../overview/features/performance-queries.md) `ARRServiceStats.VideoFramesReused` . Ponownie używane ramki wskazują sytuacje, w których stara ramka wideo jest wymagana ponownie na stronie klienta, ponieważ nie jest dostępna nowa ramka wideo — na przykład ze względu na utratę pakietów lub z powodu różnic w opóźnieniu sieci. Jeśli `ARRServiceStats.VideoFramesReused` jest często większa od zera, oznacza to problem z siecią.
+Kolejną przyczyną niestabilnych hologramów (Wobbling, zniekształcenia, zakłócenia lub hologramów przeskoków) może być słaba łączność sieciowa, w szczególności niewystarczająca przepustowość sieci lub zbyt wysokie opóźnienia. Dobrym wskaźnikiem jakości połączenia sieciowego jest wartość [Statystyka wydajności](../overview/features/performance-queries.md) `ServiceStatistics.VideoFramesReused` . Ponownie używane ramki wskazują sytuacje, w których stara ramka wideo jest wymagana ponownie na stronie klienta, ponieważ nie jest dostępna nowa ramka wideo — na przykład ze względu na utratę pakietów lub z powodu różnic w opóźnieniu sieci. Jeśli `ServiceStatistics.VideoFramesReused` jest często większa od zera, oznacza to problem z siecią.
 
-Inna wartość, która ma być wyszukiwana `ARRServiceStats.LatencyPoseToReceiveAvg` . Powinien on być spójny poniżej 100 ms. Wyświetlanie wyższych wartości może wskazywać, że połączenie z centrum danych jest zbyt daleko.
+Inna wartość, która ma być wyszukiwana `ServiceStatistics.LatencyPoseToReceiveAvg` . Powinien on być spójny poniżej 100 ms. Wyświetlanie wyższych wartości może wskazywać, że połączenie z centrum danych jest zbyt daleko.
 
 Aby zapoznać się z listą potencjalnych środków zaradczych, zobacz [wytyczne dotyczące łączności sieciowej](../reference/network-requirements.md#guidelines-for-network-connectivity).
 

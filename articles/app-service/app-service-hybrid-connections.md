@@ -4,15 +4,15 @@ description: Dowiedz się, jak tworzyć i używać połączeń hybrydowych w pro
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 20bdeef0a45bb02fab8841c0dd8ec7755143c693
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575995"
+ms.locfileid: "99594235"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Połączenia hybrydowe usługi Azure App Service
 
@@ -201,9 +201,16 @@ Każda osoba mająca `Reader` dostęp do przekaźnika będzie mogła _zobaczyć_
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów ##
 
-Stan "połączone" oznacza, że co najmniej jeden HCM jest skonfigurowany przy użyciu tego połączenia hybrydowego i jest w stanie uzyskać dostęp do platformy Azure. Jeśli stan połączenia hybrydowego nie jest **połączony**, połączenie hybrydowe nie zostanie skonfigurowane na żadnym HCM, który ma dostęp do platformy Azure.
+Stan "połączone" oznacza, że co najmniej jeden HCM jest skonfigurowany przy użyciu tego połączenia hybrydowego i jest w stanie uzyskać dostęp do platformy Azure. Jeśli stan połączenia hybrydowego nie jest **połączony**, połączenie hybrydowe nie zostanie skonfigurowane na żadnym HCM, który ma dostęp do platformy Azure. Gdy HCM pokaże **niepołączone** , istnieje kilka rzeczy do sprawdzenia:
 
-Głównym powodem, że klienci nie mogą połączyć się z punktem końcowym, jest fakt, że punkt końcowy został określony przy użyciu adresu IP zamiast nazwy DNS. Jeśli aplikacja nie może nawiązać połączenia z żądanym punktem końcowym i został użyty adres IP, przełącz się do korzystania z nazwy DNS, która jest prawidłowa na hoście, na którym działa HCM. Sprawdź również, czy nazwa DNS jest rozpoznawana poprawnie na hoście, na którym działa HCM. Upewnij się, że nawiązano połączenie z hostem, na którym uruchomiono HCM, do punktu końcowego połączenia hybrydowego.  
+* Czy host ma dostęp wychodzący do platformy Azure na porcie 443? Możesz testować z hosta HCM za pomocą polecenia programu PowerShell *test-NetConnection — port docelowy-P* 
+* Czy Twoje HCM potencjalnie są w złej kondycji? Spróbuj ponownie uruchomić usługę lokalną "Azure Menedżer połączeń hybrydowych Service".
+
+Jeśli Twój stan jest **połączony** , ale aplikacja nie może nawiązać połączenia z punktem końcowym, należy:
+
+* Upewnij się, że używasz nazwy DNS w połączeniu hybrydowym. Jeśli używasz adresu IP, wymagane wyszukiwanie DNS klienta może nie nastąpić. Jeśli klient uruchomiony w aplikacji sieci Web nie wykonuje wyszukiwania DNS, połączenie hybrydowe nie będzie działać
+* Sprawdź, czy nazwa DNS używana w połączeniu hybrydowym może zostać rozwiązana z hosta HCM. Sprawdź rozwiązanie przy użyciu *polecenia nslookup EndpointDNSname* , gdzie EndpointDNSname jest dokładnym dopasowaniem do tego, co jest używane w definicji połączenia hybrydowego.
+* Przetestuj dostęp z hosta HCM do punktu końcowego za pomocą polecenia programu PowerShell *test-NetConnection EndpointDNSname-P*  , jeśli nie można skontaktować się z punktem końcowym z hosta HCM, a następnie sprawdź zapory między tymi dwoma hostami, w tym na hostach docelowych.
 
 W App Service narzędzie wiersza polecenia **tcpping** można wywołać z poziomu konsoli narzędzia zaawansowane (kudu). To narzędzie może powiedzieć, czy masz dostęp do punktu końcowego TCP, ale nie informuje Cię o tym, czy masz dostęp do punktu końcowego połączenia hybrydowego. Gdy korzystasz z narzędzia w konsoli programu względem punktu końcowego połączenia hybrydowego, potwierdzasz, że używa kombinacji hosta: port.  
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 8c740e2868d2cd2033bc896f9b6ca897b38e922f
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 0864db8a653ff1d6f89ed0b1c857e51053ff50ff
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584825"
+ms.locfileid: "99592607"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -157,9 +157,9 @@ Klucze tworzenia można wyświetlić i zresetować z poziomu Azure Portal, w kt�
 
     ![Lista zasobów QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
-2. Przejdź do **klawiszy**:
+2. Przejdź do pozycji **klucze i punkt końcowy**:
 
-    ![Klucz subskrypcji](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+    ![Klucz subskrypcji zarządzany przez QnA Maker (wersja zapoznawcza)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
 
 ### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Znajdowanie kluczy punktu końcowego zapytania w portalu QnA Maker
 

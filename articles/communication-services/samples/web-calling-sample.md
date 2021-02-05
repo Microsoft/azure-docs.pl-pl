@@ -9,42 +9,34 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a00f319c55665695879aac3c8ba711ce13fd5d4e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763045"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592793"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
+
+Przykładem wywoływania sieci Web jest aplikacja sieci Web, która służy jako przewodnik krok po kroku dotyczący różnych możliwości zapewnianych przez bibliotekę klienta wywołującego usługi komunikacyjne w sieci Web. 
+
+Ten przykład został skompilowany dla deweloperów i ułatwia rozpoczęcie pracy z usługami komunikacyjnymi. Interfejs użytkownika jest podzielony na wiele sekcji, z których każdy zawiera przycisk "Pokaż kod", który umożliwia kopiowanie kodu bezpośrednio z przeglądarki do własnej aplikacji usług komunikacyjnych.
+
+## <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Ten przykład jest dostępny w witrynie GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
 
-**Przykład wywołania sieci Web** usługi Azure Communication Services demonstruje, jak można użyć usługi komunikacyjnej wywołującej bibliotekę klienta do tworzenia środowiska wywołującego za pomocą języka JavaScript.
-
-W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład przed uruchomieniem przykładu na komputerze lokalnym. Następnie zainstalujemy przykład na platformie Azure przy użyciu własnych zasobów usług Azure Communications Services.
-
-## <a name="overview"></a>Omówienie
-
-Przykładem wywoływania sieci Web jest aplikacja sieci Web, która służy jako przewodnik krok po kroku dotyczący różnych możliwości zapewnianych przez bibliotekę klienta wywołującego usługi komunikacyjne w sieci Web. 
-
-Ten przykład został skompilowany dla deweloperów i ułatwia rozpoczęcie pracy z usługami komunikacyjnymi. Interfejs użytkownika jest podzielony na wiele sekcji, z których każdy zawiera przycisk "Pokaż kod", który umożliwia kopiowanie kodu bezpośrednio z przeglądarki do własnej aplikacji usług komunikacyjnych.
-
+Postępuj zgodnie z/Project/Readme.MD, aby skonfigurować projekt i uruchomić go lokalnie na komputerze.
 Po uruchomieniu [przykładowego wywoływania sieci Web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) na komputerze zostanie wyświetlona następująca strona docelowa:
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Samouczek dotyczący wywoływania sieci Web 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Samouczek dotyczący wywoływania sieci Web 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-
 ## <a name="user-provisioning-and-sdk-initialization"></a>Inicjowanie obsługi administracyjnej użytkowników i Inicjalizacja zestawu SDK 
-
-Aby rozpocząć korzystanie z demonstracji, wprowadź parametry połączenia z [zasobu usługi komunikacyjnej](../quickstarts/create-communication-resource.md) do `config.json` . Ta nazwa zostanie użyta do udostępnienia [tokenu dostępu użytkownika](../concepts/authentication.md) , aby można było zainicjować WYWOŁYWANY zestaw SDK.
-
-Wprowadź własny identyfikator osobisty w danych wejściowych tożsamości użytkownika. Jeśli nic nie zostanie podane w tym miejscu, zostanie wygenerowana Losowa tożsamość użytkownika. 
 
 Kliknij pozycję "Inicjowanie obsługi użytkownika i inicjowanie zestawu SDK", aby zainicjować zestaw SDK przy użyciu tokenu obsługiwanego przez usługę aprowizacji tokenu wewnętrznej bazy danych. Ta usługa zaplecza znajduje się w `/project/webpack.config.js` .
 

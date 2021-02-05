@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 48c835070329b5cb0892b10760d37708e46bfa1d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: cec97134173cfc7879baf1d914d8f224a0736430
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559137"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593048"
 ---
 # <a name="tutorial-manipulating-models"></a>Samouczek: manipulowanie modelami
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -37,7 +37,7 @@ Granice modelu są definiowane przez pole, które zawiera cały model — podobn
 1. Utwórz nowy skrypt w tym samym katalogu, w którym znajduje się **RemoteRenderedModel** i nadaj mu nazwę **RemoteBounds**.
 1. Zastąp zawartość skryptu następującym kodem:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -51,8 +51,6 @@ Granice modelu są definiowane przez pole, które zawiera cały model — podobn
     {
         //Remote bounds works with a specific remotely rendered model
         private BaseRemoteRenderedModel targetModel = null;
-
-        private BoundsQueryAsync remoteBoundsQuery = null;
 
         private RemoteBoundsState currentBoundsState = RemoteBoundsState.NotReady;
 
@@ -94,14 +92,8 @@ Granice modelu są definiowane przez pole, które zawiera cały model — podobn
             }
         }
 
-        // Create a query using the model entity
-        private void QueryBounds()
-        {
-            //Implement me
-        }
-
-        // Check the result and apply it to the local Unity bounding box if it was successful
-        private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
+        // Create an async query using the model entity
+        async private void QueryBounds()
         {
             //Implement me
         }
@@ -113,31 +105,21 @@ Granice modelu są definiowane przez pole, które zawiera cały model — podobn
 
     Ten skrypt należy dodać do tego samego programu gameobject co skrypt implementujący  **BaseRemoteRenderedModel**. W takim przypadku oznacza to **RemoteRenderedModel**. Podobnie jak w przypadku poprzednich skryptów, ten kod początkowy będzie obsługiwał wszystkie zmiany stanu, zdarzenia i dane związane ze zdalnymi ograniczeniami.
 
-    Istnieją dwie metody do zaimplementowania: **QueryBounds** i **ProcessQueryResult**. **QueryBounds** Pobiera granice, a **ProcessQueryResult** pobiera wynik zapytania i stosuje je do lokalnego **BoxCollider**.
+    Istnieje tylko jedna metoda do zaimplementowania: **QueryBounds**. **QueryBounds** Pobiera granice asynchronicznie, pobiera wyniki zapytania i stosuje je do lokalnego **BoxCollider**.
 
-    Metoda **QueryBounds** jest prosta: wysyła zapytanie do sesji renderowania zdalnego i nasłuchuje `Completed` zdarzenia.
+    Metoda **QueryBounds** jest prosta: wysyła zapytanie do zdalnej sesji renderowania i oczekuje na wynik.
 
 1. Zastąp metodę **QueryBounds** następującą ukończoną metodą:
 
-    ```csharp
+    ```cs
     // Create a query using the model entity
-    private void QueryBounds()
+    async private void QueryBounds()
     {
         remoteBoundsQuery = targetModel.ModelEntity.QueryLocalBoundsAsync();
         CurrentBoundsState = RemoteBoundsState.Updating;
-        remoteBoundsQuery.Completed += ProcessQueryResult;
-    }
-    ```
+        await remoteBounds;
 
-    **ProcessQueryResult** jest również prosta. Sprawdzimy wynik, aby sprawdzić, czy zakończyło się pomyślnie. Jeśli tak, Konwertuj i Zastosuj zwrócone powiązania w formacie, który może akceptować **BoxCollider** .    
-
-1. Zastąp metodę **ProcessQueryResult** następującą ukończoną metodą:
-
-    ```csharp
-    // Check the result and apply it to the local Unity bounding box if it was successful
-    private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
-    {
-        if (remoteBounds.IsRanToCompletion)
+        if (remoteBounds.IsCompleted)
         {
             var newBounds = remoteBounds.Result.toUnity();
             BoundsBoxCollider.center = newBounds.center;
@@ -151,6 +133,8 @@ Granice modelu są definiowane przez pole, które zawiera cały model — podobn
         }
     }
     ```
+
+    Sprawdzimy wynik zapytania, aby sprawdzić, czy zakończyło się pomyślnie. Jeśli tak, Konwertuj i Zastosuj zwrócone powiązania w formacie, który może akceptować **BoxCollider** .
 
 Teraz, gdy skrypt **RemoteBounds** jest dodawany do tego samego obiektu gry co **RemoteRenderedModel**, **BoxCollider** zostanie dodana w razie potrzeby i gdy model osiągnie swój `Loaded` stan, granice zostaną automatycznie zbadane i zastosowane do **BoxCollider**.
 
@@ -198,7 +182,7 @@ Najpierw utwórz otokę statyczną wokół zapytań rzutowania zdalnego ray. Ten
 
 1. Utwórz nowy skrypt o nazwie **RemoteRayCaster** i Zastąp jego zawartość następującym kodem:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -220,7 +204,8 @@ Najpierw utwórz otokę statyczną wokół zapytań rzutowania zdalnego ray. Ten
             if(RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected)
             {
                 var rayCast = new RayCast(origin.toRemotePos(), dir.toRemoteDir(), maxDistance, hitPolicy);
-                return await RemoteRenderingCoordinator.CurrentSession.Actions.RayCastQueryAsync(rayCast).AsTask();
+                var result = await RemoteRenderingCoordinator.CurrentSession.Connection.RayCastQueryAsync(rayCast);
+                return result.Hits;
             }
             else
             {
@@ -243,7 +228,7 @@ Najpierw utwórz otokę statyczną wokół zapytań rzutowania zdalnego ray. Ten
 
 1. Utwórz nowy skrypt o nazwie **RemoteRayCastPointerHandler** i Zastąp kod następującym kodem:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -302,7 +287,7 @@ Najpierw utwórz otokę statyczną wokół zapytań rzutowania zdalnego ray. Ten
     }
     ```
 
-**RemoteRayCastPointerHandler** Metoda RemoteRayCastPointerHandler `OnPointerClicked` jest wywoływana przez MRTK, gdy wskaźnik "klika" na kolizji, jak nasz obiekt koliduje. Następnie `PointerDataToRemoteRayCast` jest wywoływana, aby przekonwertować wynik wskaźnika w punkt i kierunek. Ten punkt i kierunek są następnie używane do rzutowania zdalnego promienia w sesji zdalnej.
+Metoda RemoteRayCastPointerHandler `OnPointerClicked` jest wywoływana przez MRTK, gdy wskaźnik "klika" na kolizji, jak nasz obiekt koliduje. Następnie `PointerDataToRemoteRayCast` jest wywoływana, aby przekonwertować wynik wskaźnika w punkt i kierunek. Ten punkt i kierunek są następnie używane do rzutowania zdalnego promienia w sesji zdalnej.
 
 ![Powiązane aktualizacje](./media/raycast-local-remote.png)
 
@@ -314,7 +299,7 @@ Po pomyślnym zakończeniu rzutowania promienia w **RemoteRayCastPointerHandler*
 
 1. Utwórz nowy skrypt o nazwie **RemoteEntityHelper** i Zastąp jego zawartość następującym:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
     
@@ -359,7 +344,7 @@ Ten sam proces można wykonać programowo, a pierwszy krok polega na zmodyfikowa
 
 1. Zmodyfikuj skrypt **RemoteEntityHelper** , aby zawierał również następującą metodę:
 
-    ```csharp
+    ```cs
     public void MakeSyncedGameObject(Entity entity)
     {
         var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
@@ -368,7 +353,7 @@ Ten sam proces można wykonać programowo, a pierwszy krok polega na zmodyfikowa
     }
     ```
 
-1. Dodaj dodatkowe wywołanie zwrotne do **RemoteRayCastPointerHandler** zdarzenia RemoteRayCastPointerHandler `OnRemoteEntityClicked` , ustawiając je na `MakeSyncedGameObject` .
+1. Dodaj dodatkowe wywołanie zwrotne do  zdarzenia RemoteRayCastPointerHandler `OnRemoteEntityClicked` , ustawiając je na `MakeSyncedGameObject` .
 ![Dodatkowe wywołanie zwrotne](./media/additional-callback.png)
 1. Za pomocą symulacji dłoni MRTK naciśnij i przytrzymaj lewy klawisz Shift.
 1. Przekierowania symulowanej dłoni tak, aby promień dłoni został skierowany do modelu testowego.

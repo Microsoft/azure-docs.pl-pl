@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 39750465008be586c58d9da309ffe435b2030c59
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: e9201f41c9552b6a60f9ccd8eacda60ac46f89eb
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397021"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591638"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Ograniczanie ruchu internetowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -48,8 +48,8 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda 
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Tworzy sieć wirtualną. |
 | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Tworzy podsieć w sieci wirtualnej. |
-| [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest) | Tworzy publiczny adres IP dla bramy aplikacji. |
-| [az network application-gateway create](/cli/azure/network/application-gateway?view=azure-cli-latest) | Tworzy bramę aplikacji. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Tworzy publiczny adres IP dla bramy aplikacji. |
+| [az network application-gateway create](/cli/azure/network/application-gateway) | Tworzy bramę aplikacji. |
 | [az vmss create](/cli/azure/vmss#az-vmss-create) | Tworzy zestaw skalowania maszyn wirtualnych. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Tworzy konto magazynu. |
 | [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | Tworzy konto magazynu. |

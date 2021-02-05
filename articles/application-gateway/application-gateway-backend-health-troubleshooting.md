@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746108"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592759"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemy z kondycją zaplecza w usłudze Application Gateway
 ==================================================
@@ -24,7 +24,7 @@ Domyślnie usługa Azure Application Gateway sonduje serwery zaplecza, aby spraw
 
 ### <a name="how-to-check-backend-health"></a>Sprawdzanie kondycji zaplecza
 
-Aby sprawdzić kondycję puli zaplecza, można użyć strony **kondycja zaplecza** na Azure Portal. Można też użyć [interfejsu API](/rest/api/application-gateway/applicationgateways/backendhealth) [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), interfejsu [wiersza polecenia](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)lub protokołu REST.
+Aby sprawdzić kondycję puli zaplecza, można użyć strony **kondycja zaplecza** na Azure Portal. Można też użyć [interfejsu API](/rest/api/application-gateway/applicationgateways/backendhealth) [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), interfejsu [wiersza polecenia](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health)lub protokołu REST.
 
 Stan pobrany przez dowolną z tych metod może być jednym z następujących:
 
@@ -119,7 +119,7 @@ Aby zwiększyć wartość limitu czasu, wykonaj następujące kroki:
 
 1.  Jeśli używasz domyślnej usługi DNS platformy Azure, skontaktuj się z rejestratorem nazw domen, aby dowiedzieć się, czy zakończono poprawne mapowanie rekordów lub rekordu CNAME.
 
-1.  Jeśli domena jest prywatna lub wewnętrzna, spróbuj ją rozpoznać z poziomu maszyny wirtualnej w tej samej sieci wirtualnej. Jeśli możesz rozwiązać ten problem, ponownie uruchom Application Gateway i sprawdź ponownie. Aby ponownie uruchomić Application Gateway, należy [zatrzymać](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) i [uruchomić](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) program przy użyciu poleceń programu PowerShell opisanych w tych połączonych zasobach.
+1.  Jeśli domena jest prywatna lub wewnętrzna, spróbuj ją rozpoznać z poziomu maszyny wirtualnej w tej samej sieci wirtualnej. Jeśli możesz rozwiązać ten problem, ponownie uruchom Application Gateway i sprawdź ponownie. Aby ponownie uruchomić Application Gateway, należy [zatrzymać](/powershell/module/azurerm.network/stop-azurermapplicationgateway) i [uruchomić](/powershell/module/azurerm.network/start-azurermapplicationgateway) program przy użyciu poleceń programu PowerShell opisanych w tych połączonych zasobach.
 
 #### <a name="tcp-connect-error"></a>Błąd połączenia TCP
 

@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: dbe86313054706af974ccb324a39e942e9b5ca44
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246285"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594133"
 ---
 # <a name="camera"></a>Aparat fotograficzny
 
@@ -57,14 +57,14 @@ Bufory głębokości zwykle zapisują wartości z w zakresie liczb zmiennoprzeci
 Interfejs API renderowania zdalnego platformy Azure musi wiedzieć o konwencji buforu głębokości lokalnego modułu renderowania, aby poprawnie złożyć zdalną głębokość do lokalnego buforu głębokości. Jeśli zakres buforu głębokości wynosi [0; 1], pozostaw tę flagę jako `false` . Jeśli używasz odwróconego buforu głębokości z zakresem [1; 0], ustaw `InverseDepth` flagę na wartość `true` .
 
 > [!NOTE]
-> W przypadku aparatu Unity odpowiednie ustawienie jest już stosowane przez program, `RemoteManager` dlatego nie ma potrzeby interwencji ręcznej.
+> W przypadku aparatu Unity odpowiednie ustawienie jest już stosowane przez program, `RenderingConnection` dlatego nie ma potrzeby interwencji ręcznej.
 
 Zmiana ustawień aparatu można wykonać w następujący sposób:
 
 ```cs
-void ChangeCameraSetting(AzureSession session)
+void ChangeCameraSetting(RenderingSession session)
 {
-    CameraSettings settings = session.Actions.CameraSettings;
+    CameraSettings settings = session.Connection.CameraSettings;
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
@@ -73,9 +73,9 @@ void ChangeCameraSetting(AzureSession session)
 ```
 
 ```cpp
-void ChangeStageSpace(ApiHandle<AzureSession> session)
+void ChangeCameraSetting(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<CameraSettings> settings = session->Actions()->GetCameraSettings();
+    ApiHandle<CameraSettings> settings = session->Connection()->GetCameraSettings();
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);

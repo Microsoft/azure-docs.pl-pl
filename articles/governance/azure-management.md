@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie platformą Azure — omówienie — zarządzanie platformą Azure
 description: Przegląd obszarów zarządzania dla aplikacji i zasobów platformy Azure z linkami do zawartości w narzędziach zarządzania platformy Azure.
-ms.date: 09/09/2020
+ms.date: 02/05/2021
 ms.topic: overview
-ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 754fe496b790a7ee32eb840109a60a04ee66ef97
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949500"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593929"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Co to są obszary zarządzania platformy Azure?
 
@@ -26,14 +26,14 @@ Poniższy diagram przedstawia różne obszary zarządzania wymagane do obsługi 
 
 W poniższych sekcjach krótko opisano różne obszary zarządzania oraz podano linki do szczegółowych informacji o głównych usługach platformy Azure dotyczących tych obszarów.
 
-## <a name="monitor"></a>Monitorowanie
+## <a name="monitor"></a>Monitor
 
 Monitorowanie to czynność zbierania i analizowania danych w celu przeprowadzenia inspekcji wydajności, kondycji i dostępności zasobów. Skuteczna strategia monitorowania pomaga zrozumieć działanie składników i zwiększyć czas pracy przy użyciu powiadomień. Zapoznaj się z omówieniem monitorowania, który obejmuje różne usługi używane do [monitorowania aplikacji i zasobów platformy Azure](../azure-monitor/overview.md).
 
 ## <a name="configure"></a>Konfigurowanie
 
 Konfiguracja dotyczy początkowego wdrożenia i konfiguracji zasobów oraz trwającej konserwacji.
-Automatyzacja tych zadań pozwala wyeliminować nadmiarowość, zminimalizować czas i nakład pracy oraz zwiększyć dokładność i wydajność. [Usługa Azure Automation](../automation/automation-intro.md) dostarcza większość usług do automatyzowania zadań konfiguracji. Chociaż elementy Runbook obsługują automatyzację procesów, konfigurację i zarządzanie aktualizacjami ułatwia zarządzanie konfiguracją.
+Automatyzacja tych zadań pozwala wyeliminować nadmiarowość, zminimalizować czas i nakład pracy oraz zwiększyć dokładność i wydajność. [Usługa Azure Automation](../automation/automation-intro.md) dostarcza większość usług do automatyzowania zadań konfiguracji. Chociaż elementy Runbook obsługują automatyzację procesów, Zarządzanie konfiguracjami i aktualizacjami ułatwia zarządzanie konfiguracją.
 
 ## <a name="govern"></a>Ład
 

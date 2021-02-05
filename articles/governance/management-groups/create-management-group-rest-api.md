@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: Tworzenie grupy zarządzania za pomocą interfejsu API REST'
 description: W tym przewodniku szybki start za pomocą interfejsu API REST utworzysz grupę zarządzania w celu zorganizowania zasobów w hierarchii zasobów.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: b19fddf8215a1b133254c2a31bbea568a315f721
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237324"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592504"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Szybki Start: Tworzenie grupy zarządzania za pomocą interfejsu API REST
 
@@ -20,7 +20,7 @@ Wykonanie pierwszej grupy zarządzania utworzonej w katalogu może potrwać do 1
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-- Jeśli jeszcze tego nie zrobiono, zainstaluj [ARMClient](https://github.com/projectkudu/ARMClient). Jest to narzędzie, które wysyła żądania HTTP do interfejsów API REST opartych na Azure Resource Manager. Alternatywnie możesz użyć funkcji "Wypróbuj ją" w dokumentacji REST lub narzędzi, takich jak [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) lub [post](https://www.postman.com)programu PowerShell.
+- Jeśli jeszcze tego nie zrobiono, zainstaluj [ARMClient](https://github.com/projectkudu/ARMClient). Jest to narzędzie, które wysyła żądania HTTP do interfejsów API REST opartych na Azure Resource Manager. Zamiast tego można użyć funkcji "Wypróbuj ją" w dokumentacji REST lub narzędzi, takich jak wywołanie programu PowerShell [-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) lub [Poster](https://www.postman.com).
 
 - Każdy użytkownik usługi Azure AD w dzierżawie może utworzyć grupę zarządzania bez uprawnienia do zapisu grupy zarządzania przypisanej do tego użytkownika, jeśli [Ochrona hierarchii](./how-to/protect-resource-hierarchy.md#setting---require-authorization) nie jest włączona. Ta nowa grupa zarządzania jest elementem podrzędnym głównej grupy zarządzania lub [domyślną grupą zarządzania](./how-to/protect-resource-hierarchy.md#setting---default-management-group) , a twórca otrzymuje przypisanie roli "właściciel". Usługa Grupa zarządzania umożliwia taką możliwość, aby przypisania ról nie były potrzebne na poziomie głównym. Brak dostępu użytkowników do głównej grupy zarządzania podczas jej tworzenia. Aby uniknąć niestosowania progów wyszukiwania administratorów globalnych usługi Azure AD w celu rozpoczęcia korzystania z grup zarządzania, zezwalamy na tworzenie początkowych grup zarządzania na poziomie głównym.
 
@@ -40,7 +40,7 @@ W przypadku interfejsu API REST Użyj punktu końcowego [grupy zarządzania-Crea
 
 Identyfikator **GroupID** jest tworzonym unikatowym. Ten identyfikator jest używany przez inne polecenia do odwoływania się do tej grupy i nie można go zmienić później.
 
-Jeśli chcesz, aby grupa zarządzania pokazywała inną nazwę w Azure Portal, Dodaj właściwość **właściwości. DisplayName** w treści żądania. Aby na przykład utworzyć grupę zarządzania z identyfikatorem grupy **groupId** _contoso_ i nazwą wyświetlaną _Grupa contoso_, użyj następującego punktu końcowego i treści żądania:
+Jeśli chcesz, aby grupa zarządzania pokazywała inną nazwę w Azure Portal, Dodaj właściwość **właściwości. DisplayName** w treści żądania. Aby na przykład utworzyć grupę zarządzania z identyfikatorem grupy  _contoso_ i nazwą wyświetlaną _Grupa contoso_, użyj następującego punktu końcowego i treści żądania:
 
 - Identyfikator URI interfejsu API REST
 

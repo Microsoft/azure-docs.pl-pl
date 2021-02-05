@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210022"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593133"
 ---
 # <a name="app-service-networking-features"></a>App Service funkcje sieciowe
 
@@ -113,6 +113,9 @@ Funkcja ograniczeń dostępu opartych na protokole IP umożliwia ograniczenie ad
 * Ogranicz dostęp do ruchu przychodzącego przez zewnętrzną usługę równoważenia obciążenia lub inne urządzenia sieciowe ze znanymi adresami IP ruchu wychodzącego. 
 
 Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [Konfigurowanie ograniczeń dostępu][iprestrictions].
+
+> [!NOTE]
+> Reguły ograniczeń dostępu opartego na protokole IP obsługują tylko zakresy adresów sieci wirtualnej, gdy aplikacja znajduje się w App Service Environment. Jeśli Twoja aplikacja znajduje się w usłudze wielodostępnej, musisz użyć [punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md) , aby ograniczyć ruch do wybranych podsieci w sieci wirtualnej.
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>Reguły ograniczeń dostępu oparte na punktach końcowych usługi 
 
@@ -256,7 +259,7 @@ Ten styl wdrożenia nie zapewnia dedykowanego adresu dla ruchu wychodzącego do 
 
 ### <a name="create-multitier-applications"></a>Tworzenie aplikacji wielowarstwowych
 
-Aplikacja wielowarstwowa to aplikacja, w której aplikacje zaplecza API są dostępne tylko z warstwy frontonu. Istnieją dwa sposoby tworzenia aplikacji wielowarstwowej. Oba zaczynają korzystać z integracji sieci wirtualnej, aby połączyć swoją aplikację internetową frontonu z podsiecią w sieci wirtualnej. Dzięki temu aplikacja sieci Web będzie mogła nawiązywać wywołania do sieci wirtualnej. Po połączeniu aplikacji frontonu z siecią wirtualną należy zdecydować, jak zablokować dostęp do aplikacji interfejsu API. Można:
+Aplikacja wielowarstwowa to aplikacja, w której aplikacje zaplecza API są dostępne tylko z warstwy frontonu. Istnieją dwa sposoby tworzenia aplikacji wielowarstwowej. Oba zaczynają korzystać z integracji sieci wirtualnej, aby połączyć swoją aplikację internetową frontonu z podsiecią w sieci wirtualnej. Dzięki temu aplikacja sieci Web będzie mogła nawiązywać wywołania do sieci wirtualnej. Po połączeniu aplikacji frontonu z siecią wirtualną należy zdecydować, jak zablokować dostęp do aplikacji interfejsu API. Oto co możesz zrobić:
 
 * Hostowanie zarówno frontonu, jak i aplikacji interfejsu API w tym samym ILB ASE i udostępnianie aplikacji frontonu w Internecie przy użyciu bramy aplikacji.
 * Zahostaj frontonu w usłudze wielodostępnej i zapleczu w środowisku ILB ASE.

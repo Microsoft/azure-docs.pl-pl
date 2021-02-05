@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: Tworzenie grupy zarządzania przy użyciu języka JavaScript'
 description: W tym przewodniku szybki start utworzysz grupę zarządzania w celu zorganizowania zasobów w hierarchii zasobów przy użyciu języka JavaScript.
-ms.date: 11/18/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 25fd93e51c1b49519bb315aab28cdfc44a2a0c58
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886604"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593980"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Szybki Start: Tworzenie grupy zarządzania przy użyciu języka JavaScript
 

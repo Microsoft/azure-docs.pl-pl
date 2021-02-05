@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: sashan
-ms.author: sashan
-ms.reviewer: sstein, sashan
+author: emlisa
+ms.author: emlisa
+ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095444"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593422"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ Strefa z nadmiarową wersją architektury wysokiej dostępności dla warstwy us�
 ![Konfiguracja nadmiarowa strefy dla ogólnego przeznaczenia](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Aby uzyskać aktualne informacje o regionach, które obsługują nadmiarowe bazy danych strefy, zobacz temat [Obsługa usług według regionów](../../availability-zones/az-region.md). Konfiguracja nadmiarowa strefy jest dostępna tylko wtedy, gdy wybrano sprzęt obliczeniowy 5 rdzeń. Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL.
+> Konfiguracja nadmiarowa strefy jest dostępna tylko wtedy, gdy wybrano sprzęt obliczeniowy 5 rdzeń. Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL. Konfiguracja nadmiarowa strefy dla warstwy ogólnego przeznaczenia jest dostępna tylko w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA 2, Europa Północna, Europa Zachodnia, Azja Południowo-Wschodnia, Australia Wschodnia, Japonia Wschodnia, Południowe Zjednoczone Królestwo i Francja środkowa.
 
 > [!NOTE]
 > Ogólnego przeznaczenia bazy danych o rozmiarze 80 rdzeń wirtualny mogą powodować spadek wydajności dzięki konfiguracji nadmiarowej strefy. Ponadto operacje, takie jak tworzenie kopii zapasowej, przywracanie, Kopiowanie bazy danych i Konfigurowanie relacji Geo-DR mogą mieć mniejszą wydajność dla wszystkich baz danych większych niż 1 TB. 
@@ -129,7 +129,7 @@ Przejście w tryb failover można zainicjować przy użyciu programu PowerShell,
 > [!IMPORTANT]
 > Polecenie przełączenia w tryb failover nie jest dostępne do odczytu pomocniczych replik baz danych.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Azure SQL Database i funkcja wystąpienia zarządzanego usługi Azure SQL to wbudowane rozwiązanie wysokiej dostępności, które jest głęboko zintegrowane z platformą Azure. Jest ona zależna od Service Fabric w przypadku wykrywania awarii i odzyskiwania, w usłudze Azure Blob Storage na potrzeby ochrony danych, a na Strefy dostępności w celu uzyskania większej odporności na uszkodzenia (jak wspomniano wcześniej w dokumencie nie dotyczy jeszcze wystąpienia zarządzanego Azure SQL). Ponadto SQL Database i wystąpienie zarządzane SQL wykorzystują technologię zawsze włączone z wystąpienia SQL Server na potrzeby replikacji i przełączania do trybu failover. Połączenie tych technologii pozwala aplikacjom w pełni wykorzystać zalety modelu magazynu mieszanego i obsługiwać najbardziej wymaganą umowy SLA.
 
