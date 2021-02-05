@@ -9,16 +9,16 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: dcdd19faec5e428ac26917178aa8114245c205b3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486300"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594573"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Co to jest usługa IoT Plug and Play?
 
-Plug and Play IoT umożliwia konstruktorom rozwiązań integrację urządzeń inteligentnych z ich rozwiązaniami bez konieczności ręcznej konfiguracji. Na początku Plug and Play IoT to _model_ urządzenia, którego urządzenie używa do anonsowania swoich możliwości aplikacji z obsługą Plug and Play IoT. Ten model jest strukturalny jako zestaw elementów, które definiują:
+Usługa IoT Plug and Play umożliwia konstruktorom rozwiązań integrację urządzeń inteligentnych z ich rozwiązaniami bez konieczności ręcznej konfiguracji. Na początku Plug and Play IoT to _model_ urządzenia, którego urządzenie używa do anonsowania swoich możliwości aplikacji z obsługą Plug and Play IoT. Ten model jest strukturalny jako zestaw elementów, które definiują:
 
 - _Właściwości_ reprezentujące stan tylko do odczytu lub do zapisu urządzenia lub innej jednostki. Na przykład numer seryjny urządzenia może być właściwością tylko do odczytu, a docelowa temperatura w termostatie może być właściwością umożliwiającą zapis.
 - Dane _telemetryczne_ , które są emitowane przez urządzenie, niezależnie od tego, czy dane są regularnym strumieniem odczytów czujnika, okazjonalnym błędem czy komunikatem informacyjnym.
@@ -45,11 +45,13 @@ Plug and Play IoT jest przydatne dla dwóch typów deweloperów:
 
 ## <a name="use-iot-plug-and-play-devices"></a>Korzystanie z urządzeń Plug and Play IoT
 
-Jako Konstruktor rozwiązań można opracowywać rozwiązanie IoT hostowane w chmurze, które korzysta z urządzeń Plug and Play IoT. Użyj [IoT Hub](../iot-hub/about-iot-hub.md) — zarządzanej usługi w chmurze, która działa jako centrum komunikatów w celu bezpiecznej, dwukierunkowej komunikacji między aplikacją IoT i urządzeniami.
+Jako Konstruktor rozwiązań możesz użyć [IoT Central](../iot-central/core/overview-iot-central.md) lub [IoT Hub](../iot-hub/about-iot-hub.md) do opracowania rozwiązania IoT hostowanego w chmurze, które korzysta z urządzeń Plug and Play IoT.
 
-Po podłączeniu urządzenia Plug and Play IoT do usługi IoT Hub można użyć narzędzia [Azure IoT Explorer](./howto-use-iot-explorer.md) , aby wyświetlić dane telemetryczne, właściwości i polecenia zdefiniowane w interfejsach, które tworzą model.
+Interfejs użytkownika sieci Web w IoT Central umożliwia monitorowanie warunków urządzenia, tworzenie reguł oraz zarządzanie milionami urządzeń i ich danych w całym cyklu życia. Urządzenia Plug and Play IoT łączą się bezpośrednio z aplikacją IoT Central, gdzie można używać dostosowywalnych pulpitów nawigacyjnych do monitorowania i kontrolowania urządzeń. Do tworzenia i edytowania modeli DTDL można także używać szablonów urządzeń w interfejsie użytkownika sieci Web IoT Central.
 
-Jeśli masz istniejące czujniki dołączone do bramy systemu Windows lub Linux, możesz użyć usługi [iot Plug and Play Bridge](./concepts-iot-pnp-bridge.md), aby połączyć te czujniki i utworzyć urządzenia usługi IoT Plug and Play bez konieczności pisania oprogramowania/oprogramowania układowego (dla [obsługiwanych protokołów](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors) ).
+IoT Hub — zarządzana usługa w chmurze — działa jako centrum komunikatów w celu bezpiecznej, dwukierunkowej komunikacji między aplikacją IoT i urządzeniami. Po podłączeniu urządzenia IoT Plug and Play do usługi IoT Hub można użyć narzędzia [Azure IoT Explorer](./howto-use-iot-explorer.md) , aby wyświetlić dane telemetryczne, właściwości i polecenia zdefiniowane w modelu DTDL.
+
+Jeśli masz istniejące czujniki dołączone do bramy systemu Windows lub Linux, możesz użyć usługi [iot Plug and Play Bridge](./concepts-iot-pnp-bridge.md), aby połączyć te czujniki i utworzyć urządzenia usługi IoT Plug and Play bez konieczności pisania oprogramowania/oprogramowania układowego (dla [obsługiwanych protokołów](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)).
 
 ## <a name="develop-an-iot-device-application"></a>Opracowywanie aplikacji urządzenia IoT
 

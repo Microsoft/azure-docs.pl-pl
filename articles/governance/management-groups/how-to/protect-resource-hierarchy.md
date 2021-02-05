@@ -1,14 +1,14 @@
 ---
 title: Jak chronić hierarchię zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak chronić hierarchię zasobów przy użyciu ustawień hierarchii, które obejmują ustawienie domyślnej grupy zarządzania.
-ms.date: 09/02/2020
+ms.date: 02/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: cfaf7a732b3233536006009613cecd5aa1649dee
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 0f0afb5401fc646d26598a211604790af191f156
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951897"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594590"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Jak chronić hierarchię zasobów
 
@@ -23,7 +23,7 @@ Skonfigurowanie dowolnych ustawień hierarchii wymaga dwóch następujących ope
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Te operacje umożliwiają użytkownikowi odczytywanie i aktualizowanie ustawień hierarchii. Operacje nie zapewniają żadnych innych dostępów do hierarchii lub zasobów grupy zarządzania. Obie te operacje są dostępne w **Administratorze ustawień hierarchii**ról wbudowanej platformy Azure.
+Te operacje umożliwiają użytkownikowi odczytywanie i aktualizowanie ustawień hierarchii. Operacje nie zapewniają żadnych innych dostępów do hierarchii lub zasobów grupy zarządzania. Obie te operacje są dostępne w **Administratorze ustawień hierarchii** ról wbudowanej platformy Azure.
 
 ## <a name="setting---default-management-group"></a>Ustawienie — domyślna grupa zarządzania
 
@@ -39,7 +39,7 @@ Aby skonfigurować to ustawienie w Azure Portal, wykonaj następujące kroki:
 
 1. W głównej grupie zarządzania wybierz pozycję **szczegóły** obok nazwy grupy zarządzania.
 
-1. W obszarze **Ustawienia**wybierz pozycję **Ustawienia hierarchii**.
+1. W obszarze **Ustawienia** wybierz pozycję **Ustawienia hierarchii**.
 
 1. Wybierz przycisk **Zmień domyślną grupę zarządzania** .
 
@@ -82,7 +82,7 @@ Aby skonfigurować to ustawienie w Azure Portal, wykonaj następujące kroki:
 
 1. W głównej grupie zarządzania wybierz pozycję **szczegóły** obok nazwy grupy zarządzania.
 
-1. W obszarze **Ustawienia**wybierz pozycję **Ustawienia hierarchii**.
+1. W obszarze **Ustawienia** wybierz pozycję **Ustawienia hierarchii**.
 
 1. Przełącz **uprawnienia wymagane do tworzenia nowych grup zarządzania.** opcja włączona.
 

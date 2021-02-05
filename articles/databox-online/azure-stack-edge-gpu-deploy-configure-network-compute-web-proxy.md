@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: ac64233467166ca6567f1601c3b90f80fdba3dcf
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 07a4c06b840d41455beea9be4ed0343b4946ddb3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954651"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594606"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Samouczek: Konfigurowanie sieci na potrzeby Azure Stack brzeg Pro z procesorem GPU
 
@@ -56,8 +56,6 @@ Wykonaj następujące kroki, aby skonfigurować sieć dla urządzenia.
     
     ![Strona ustawień sieciowych lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
 
-
-   
 3. Aby zmienić ustawienia sieci, wybierz port i w okienku po prawej stronie zmodyfikuj adres IP, podsieć, bramę, podstawową DNS i pomocniczy serwer DNS. 
 
     - W przypadku wybrania portu 1 można zobaczyć, że jest wstępnie skonfigurowany jako statyczny. 
@@ -74,6 +72,7 @@ Wykonaj następujące kroki, aby skonfigurować sieć dla urządzenia.
    * Jeśli usługa DHCP nie jest włączona, w razie konieczności można przypisywać statyczne adresy IP.
    * Interfejs sieciowy można skonfigurować jako adres IPv4.
    * W przypadku interfejsów 25 GB/s można ustawić tryb RDMA (Remote Direct Access Memory) na iWarp lub RoCE (RDMA Over Converged Ethernet). W przypadku, gdy małe opóźnienia są głównym wymaganiem i skalowalność nie jest istotna, należy użyć RoCE. Gdy opóźnienie jest wymaganym kluczem, ale łatwość użycia i skalowalności są również wysokim priorytetem, iWARP jest najlepszym kandydatem.
+   * Tworzenie zespołu kart interfejsu sieciowego (NIC) lub agregacja łączy nie jest obsługiwane w przypadku Azure Stack Edge. 
    * Numer seryjny dowolnego portu odpowiada numerowi seryjnemu węzła.
 
     Po skonfigurowaniu sieci urządzenia aktualizacje są aktualizowane jak pokazano poniżej.
@@ -81,12 +80,11 @@ Wykonaj następujące kroki, aby skonfigurować sieć dla urządzenia.
     ![Lokalny interfejs użytkownika sieci Web "Ustawienia sieci" — Strona 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
 
-     >[!NOTE]
-     >
-     > * Zaleca się, aby nie przełączać lokalnego adresu IP interfejsu sieciowego ze statycznego na protokół DHCP, chyba że dostępny jest inny adres IP, aby połączyć się z urządzeniem. W przypadku korzystania z jednego interfejsu sieciowego i przełączenia na protokół DHCP nie będzie możliwości określenia adresu DHCP. Jeśli chcesz zmienić adres DHCP, zaczekaj, aż po aktywowaniu urządzenia za pomocą usługi, a następnie Zmień. Następnie można wyświetlić adresy IP wszystkich kart we **właściwościach urządzenia** w Azure Portal dla usługi.
+     > [!NOTE]
+     > Zaleca się, aby nie przełączać lokalnego adresu IP interfejsu sieciowego ze statycznego na protokół DHCP, chyba że dostępny jest inny adres IP, aby połączyć się z urządzeniem. W przypadku korzystania z jednego interfejsu sieciowego i przełączenia na protokół DHCP nie będzie możliwości określenia adresu DHCP. Jeśli chcesz zmienić adres DHCP, zaczekaj, aż po aktywowaniu urządzenia za pomocą usługi, a następnie Zmień. Następnie można wyświetlić adresy IP wszystkich kart we **właściwościach urządzenia** w Azure Portal dla usługi.
 
 
-    Po skonfigurowaniu i zastosowaniu ustawień sieci wybierz kolejno pozycje dalej: obliczenia, aby skonfigurować sieć obliczeniową.
+    Po skonfigurowaniu i zastosowaniu ustawień sieci wybierz kolejno pozycje **Dalej: obliczenia** , aby skonfigurować sieć obliczeniową.
 
 ## <a name="enable-compute-network"></a>Włącz sieć obliczeniową
 
