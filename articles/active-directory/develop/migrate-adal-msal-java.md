@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 620f77655f8281919ba0831a7e53af8cd28bc5f2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754979"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583997"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Przewodnik migracji biblioteki ADAL do MSAL dla języka Java
 
@@ -80,7 +80,7 @@ MSAL for Java dodaje [pamięć podręczną tokenów](msal-acquire-cache-tokens.m
 
 W wersji 1.0, jeśli używasz `https://login.microsoftonline.com/common` urzędu, użytkownicy mogą logować się przy użyciu dowolnego konta usługi Azure Active Directory (AAD) (dla dowolnej organizacji).
 
-Jeśli używasz `https://login.microsoftonline.com/common` urzędu w wersji 2.0, użytkownicy mogą logować się przy użyciu dowolnej organizacji usługi AAD, a nawet konta osobistego firmy Microsoft (MSA). W programie MSAL for Java, jeśli chcesz ograniczyć logowanie do dowolnego konta usługi AAD, musisz użyć `https://login.microsoftonline.com/organizations` urzędu (to samo zachowanie jest takie samo jak w przypadku programu ADAL4J). Aby określić urząd, należy ustawić `authority` parametr w metodzie [PublicClientApplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) podczas tworzenia `PublicClientApplication` klasy.
+Jeśli używasz `https://login.microsoftonline.com/common` urzędu w wersji 2.0, użytkownicy mogą logować się przy użyciu dowolnej organizacji usługi AAD, a nawet konta osobistego firmy Microsoft (MSA). W programie MSAL for Java, jeśli chcesz ograniczyć logowanie do dowolnego konta usługi AAD, użyj `https://login.microsoftonline.com/organizations` urzędu (to samo zachowanie jest takie samo jak w przypadku programu ADAL4J). Aby określić urząd, należy ustawić `authority` parametr w metodzie [PublicClientApplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) podczas tworzenia `PublicClientApplication` klasy.
 
 ## <a name="v10-and-v20-tokens"></a>tokeny w wersji 1.0 i 2.0
 

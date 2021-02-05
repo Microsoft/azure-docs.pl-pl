@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 080d7c29a9e6950117fe475445458a84fb092e94
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090208"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584217"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Rozwiązywanie problemów z weryfikacją wydawcy
 Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie podczas [weryfikacji wydawcy](publisher-verification-overview.md), należy zacząć od następującej procedury, Jeśli otrzymujesz błędy lub widzisz nieoczekiwane zachowanie: 
@@ -52,8 +52,8 @@ Poniżej przedstawiono niektóre typowe problemy, które mogą wystąpić w trak
     1. Przejdź do [profilu partnera](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) i sprawdź, czy: 
         - IDENTYFIKATOR MPN jest poprawny. 
         - Nie ma żadnych błędów lub "oczekujących akcji", a stan weryfikacji w obszarze informacje o profilu biznesowym i partnerze są "autoryzowane" lub "powodzenie".
-    1. Przejdź do [strony zarządzania dzierżawcą MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) i upewnij się, że dzierżawa, w której zarejestrowano aplikację, i podpisywanie przy użyciu konta użytkownika znajduje się na liście skojarzonych dzierżawców. Jeśli musisz dodać dodatkową dzierżawę, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](/partner-center/multi-tenant-account). Należy pamiętać, że wszyscy administratorzy globalni dowolnie dodanej dzierżawy otrzymają uprawnienia administratora globalnego na Twoim koncie Centrum partnerskiego.
-    1. Przejdź do [strony zarządzania użytkownikami MPN](https://partner.microsoft.com/pcv/users) i Potwierdź, że zalogowany użytkownik jest administratorem globalnym, administratorem MPN lub administratorem kont. Jeśli musisz dodać użytkownika do roli w centrum partnerskim, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](/partner-center/create-user-accounts-and-set-permissions).
+    1. Przejdź do [strony zarządzania dzierżawcą MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) i upewnij się, że dzierżawa, w której zarejestrowano aplikację, i podpisywanie przy użyciu konta użytkownika znajduje się na liście skojarzonych dzierżawców. Aby dodać dodatkową dzierżawę, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](/partner-center/multi-tenant-account). Należy pamiętać, że wszyscy administratorzy globalni dowolnie dodanej dzierżawy otrzymają uprawnienia administratora globalnego na Twoim koncie Centrum partnerskiego.
+    1. Przejdź do [strony zarządzania użytkownikami MPN](https://partner.microsoft.com/pcv/users) i Potwierdź, że zalogowany użytkownik jest administratorem globalnym, administratorem MPN lub administratorem kont. Aby dodać użytkownika do roli w centrum partnerskim, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](/partner-center/create-user-accounts-and-set-permissions).
 
 - **Po zalogowaniu się do portalu usługi Azure AD nie są wyświetlane żadne aplikacje zarejestrowane. Zalet?** 
     Rejestracje aplikacji mogły zostać utworzone przy użyciu innego konta użytkownika w tej dzierżawie, konta osobistego/konsumenta lub w innej dzierżawie. Upewnij się, że zalogowano się przy użyciu odpowiedniego konta w dzierżawie, w którym zostały utworzone rejestracje aplikacji.

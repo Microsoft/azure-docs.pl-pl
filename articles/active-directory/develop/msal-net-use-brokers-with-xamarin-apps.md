@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063488"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583845"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Używanie Microsoft Authenticator lub Intune — Portal firmy w aplikacjach platformy Xamarin
 
@@ -91,7 +91,7 @@ Ta metoda jest wywoływana za każdym razem, gdy aplikacja jest uruchomiona. Jes
 
 ### <a name="step-4-set-uiviewcontroller"></a>Krok 4. Ustawianie UIViewController ()
 
-Nadal w pliku *AppDelegate.cs* należy ustawić okno obiektu. Zazwyczaj nie trzeba ustawiać okna obiektu dla platformy Xamarin iOS, ale potrzebujesz okna obiektu, aby wysyłać i odbierać odpowiedzi z brokera.
+Nadal w pliku *AppDelegate.cs* Ustaw okno obiektu. Zazwyczaj nie trzeba ustawiać okna obiektu dla platformy Xamarin iOS, ale potrzebujesz okna obiektu, aby wysyłać i odbierać odpowiedzi z brokera.
 
 Aby skonfigurować okno obiektu:
 
@@ -237,7 +237,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>Krok 4. Dodawanie identyfikatora URI przekierowania do rejestracji aplikacji
 
-MSAL używa adresów URL do wywołania brokera, a następnie powrotu do aplikacji. Aby ukończyć tę rundę, należy zarejestrować **Identyfikator URI przekierowania** dla aplikacji przy użyciu [Azure Portal](https://portal.azure.com).
+MSAL używa adresów URL do wywołania brokera, a następnie powrotu do aplikacji. Aby ukończyć tę rundę, zarejestruj **Identyfikator URI przekierowania** dla aplikacji przy użyciu [Azure Portal](https://portal.azure.com).
 
 Format identyfikatora URI przekierowania dla aplikacji zależy od certyfikatu użytego do podpisania APK. Na przykład:
 

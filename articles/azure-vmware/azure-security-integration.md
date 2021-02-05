@@ -2,13 +2,13 @@
 title: Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center
 description: Dowiedz się, jak chronić maszyny wirtualne rozwiązań VMware platformy Azure przy użyciu natywnych narzędzi zabezpieczeń platformy Azure z poziomu jednego pulpitu nawigacyjnego w Azure Security Center.
 ms.topic: how-to
-ms.date: 11/06/2020
-ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/04/2021
+ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061468"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584961"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center
 
@@ -36,7 +36,12 @@ Obszar roboczy Log Analytics można skonfigurować przy użyciu funkcji wskaźni
 
 - Natywnych usług platformy Azure można używać na potrzeby zabezpieczeń środowiska hybrydowego na platformie Azure, rozwiązań VMware platformy Azure i usług lokalnych.
 - Za pomocą obszaru roboczego Log Analytics można zebrać dane lub dzienniki do jednego punktu i przedstawić te same dane w różnych usługach macierzystych platformy Azure.
-- Azure Security Center zapewnia funkcje zabezpieczeń, takie jak monitorowanie integralności plików, wykrywanie ataków bez plików, Ocena poprawek systemu operacyjnego, Ocena niezgodności konfiguracji i Ocena programu Endpoint Protection.
+- Azure Security Center oferuje wiele funkcji, w tym:
+    - Monitorowanie integralności plików
+    - Wykrywanie ataków bezplikowych
+    - Ocena poprawek systemu operacyjnego 
+    - Ocena niezgodności konfiguracji zabezpieczeń
+    - Ocena programu Endpoint Protection
 - System Azure — wskaźnik kontrolny umożliwia:
     - Zbieraj dane w skali chmury między wszystkimi użytkownikami, urządzeniami, aplikacjami i infrastrukturą, zarówno lokalnie, jak i w wielu chmurach.
     - Wykrywaj wcześniej wykryte zagrożenia.
@@ -183,7 +188,7 @@ Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzy
 
 6. Na karcie **Ustawienia zdarzenia** Włącz opcję **Utwórz zdarzenia na podstawie alertów wyzwalanych przez tę regułę analizy** , a następnie wybierz kolejno pozycje **Dalej: automatyczna odpowiedź >**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Zrzut ekranu kreatora reguły analitycznej służący do tworzenia nowej reguły w centrum kontrolnym Azure wskazujący na tworzenie zdarzeń na podstawie alertów wyzwalanych przez tę regułę analizy jako włączone.":::
+    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Zrzut ekranu kreatora reguły analitycznej służący do tworzenia nowej reguły na platformie Azure — wskaźnik. Pokazuje Tworzenie zdarzeń na podstawie alertów wyzwalanych przez tę regułę jako włączone.":::
 
 7. Wybierz kolejno pozycje **Dalej: przegląd >**.
 
@@ -235,6 +240,8 @@ Możesz tworzyć zapytania lub użyć dostępnego wstępnie zdefiniowanego zapyt
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak korzystać z [pulpitu nawigacyjnego usługi Azure Defender](../security-center/azure-defender-dashboard.md).
-- Poznaj pełen zakres ochrony oferowany przez [usługę Azure Defender](../security-center/azure-defender.md).
-- Dowiedz się więcej [na temat zaawansowanego wykrywania ataków potokach wieloetapowych na platformie Azure](../azure-monitor/learn/quick-create-workspace.md).
+Teraz, gdy zawarto ochronę maszyn wirtualnych rozwiązań VMware platformy Azure, warto zapoznać się z tematem:
+
+- Korzystanie z [pulpitu nawigacyjnego usługi Azure Defender](../security-center/azure-defender-dashboard.md).
+- [Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik](../azure-monitor/learn/quick-create-workspace.md).
+- [Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure](lifecycle-management-of-azure-vmware-solution-vms.md).

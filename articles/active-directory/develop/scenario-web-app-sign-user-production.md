@@ -12,27 +12,22 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c7abad31c9936729b8d9c19ed2efcb841ac103ca
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756236"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584301"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplikacja internetowa, która loguje użytkowników: Przenieś do środowiska produkcyjnego
 
-Teraz, gdy wiesz już, jak uzyskać token do wywoływania interfejsów API sieci Web, Dowiedz się, jak przenieść go do środowiska produkcyjnego.
+Teraz, gdy wiesz już, jak uzyskać token do wywoływania interfejsów API sieci Web, poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę podczas przesuwania aplikacji do środowiska produkcyjnego.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-
-> [!NOTE]
-> Gdy użytkownicy logują się do aplikacji sieci Web po raz pierwszy, będą musieli wyrazić zgodę. Jednak w niektórych organizacjach użytkownicy mogą zobaczyć komunikat podobny do następującego:
->
-> *Nazwa użytkownika musi mieć uprawnienia dostępu do zasobów w organizacji, które mogą przyznawać tylko Administratorzy. Poproś administratora o przyznanie uprawnień do tej aplikacji, zanim będzie można jej używać.*
->
-> Wynika to z faktu, że administrator dzierżawy **wyłączył** możliwość wyrażania zgody przez użytkowników. W takim przypadku należy skontaktować się z administratorami dzierżawy, aby umożliwić administratorowi zgodę na zakresy wymagane przez aplikację.
+Gdy użytkownicy logują się do aplikacji sieci Web po raz pierwszy, będą musieli wyrazić zgodę. Jednak w niektórych organizacjach użytkownicy mogą zobaczyć komunikat podobny do następującego: *nazwa_aplikacji potrzebuje uprawnień dostępu do zasobów w organizacji, które może udzielić tylko administrator. Poproś administratora o przyznanie uprawnień do tej aplikacji, zanim będzie można jej używać.*
+Wynika to z faktu, że administrator dzierżawy **wyłączył** możliwość wyrażania zgody przez użytkowników. W takim przypadku należy skontaktować się z administratorami dzierżawy w taki sposób, aby wykonali zgodę administratora o zakresy wymagane przez aplikację.
 
 ## <a name="same-site"></a>Ta sama witryna
 

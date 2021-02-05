@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756461"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584384"
 ---
 # <a name="protected-web-api-app-registration"></a>Chroniony internetowy interfejs API: Rejestracja aplikacji
 
@@ -58,7 +58,7 @@ Inne ustawienia specyficzne dla interfejsów API sieci Web to uwidoczniony inter
 
 Zakresy mają zwykle postać `resourceURI/scopeName` . W przypadku Microsoft Graph zakresy mają skróty. Na przykład, `User.Read` jest skrótem dla `https://graph.microsoft.com/user.read` .
 
-Podczas rejestracji aplikacji należy zdefiniować następujące parametry:
+Podczas rejestracji aplikacji Zdefiniuj następujące parametry:
 
 - Identyfikator URI zasobu
 - Co najmniej jeden zakres
@@ -68,7 +68,7 @@ Domyślnie Portal rejestracji aplikacji zaleca użycie identyfikatora URI zasobu
 
 W przypadku aplikacji klienckich zakresy są wyświetlane jako uprawnienia *delegowane* i role aplikacji są wyświetlane jako *uprawnienia aplikacji* dla internetowego interfejsu API.
 
-Zakresy są również wyświetlane w oknie zgody prezentowanym użytkownikom aplikacji. W związku z tym należy podać odpowiednie ciągi opisujące zakres:
+Zakresy są również wyświetlane w oknie zgody prezentowanym użytkownikom aplikacji. W związku z tym podaj odpowiednie ciągi opisujące zakres:
 
 - Widziane przez użytkownika.
 - Jak widać Administrator dzierżawy, który może udzielić zgody administratora.
@@ -99,7 +99,7 @@ W tej sekcji dowiesz się, jak zarejestrować chroniony internetowy interfejs AP
 
 #### <a name="exposing-application-permissions-app-roles"></a>Udostępnianie uprawnień aplikacji (ról aplikacji)
 
-Aby uwidocznić uprawnienia aplikacji, należy edytować manifest.
+Aby uwidocznić uprawnienia aplikacji, Edytuj manifest.
 
 1. W obszarze Rejestracja aplikacji dla aplikacji wybierz pozycję **manifest**.
 1. Aby edytować manifest, Znajdź `appRoles` ustawienie i Dodaj role aplikacji. Definicje ról są podane w następującym przykładowym bloku JSON.

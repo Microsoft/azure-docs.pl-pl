@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 21bdbecdbba31eae112053bf81411781245cc170
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: d207a5629647ef3582f1e0490ef6ccc407f935f7
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678685"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584842"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Włączanie odzyskiwania po awarii maszyny wirtualnej platformy Azure między strefami dostępności
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure w
 
 >[!NOTE]
 >
->- Obsługa odzyskiwania po awarii strefy do strefy jest obecnie ograniczona do pięciu regionów: Azja Południowo-Wschodnia, Południowe Zjednoczone Królestwo, Japonia Wschodnia, Australia Wschodnia i Europa Zachodnia.  
+>- Obsługa odzyskiwania po awarii strefy do strefy jest obecnie ograniczona do dziewięciu regionów: Azja Południowo-Wschodnia, Japonia Wschodnia, Australia Wschodnia, Południowe Zjednoczone Królestwo, Europa Zachodnia, Europa Północna, środkowe stany USA, Wschodnie stany USA i zachodnie stany USA 2.  
 >- Site Recovery nie przenosi ani nie zapisuje danych klienta poza regionem, w którym jest wdrażany, gdy klient korzysta z strefy do odzyskiwania po awarii strefy. Klienci mogą wybrać magazyn Recovery Services z innego regionu, jeśli tak się wybierzesz. Magazyn Recovery Services zawiera metadane, ale nie dane rzeczywiste klienta.
 
 Usługa Site Recovery przyczynia się do zachowania ciągłości działania i odzyskiwania po awarii, dzięki czemu aplikacje biznesowe są wykonywane w trakcie planowanych i nieplanowanych przestojów. Jest to zalecana opcja odzyskiwania po awarii, aby zapewnić, że aplikacje będą działać w przypadku wystąpienia regionalnego.
@@ -67,7 +67,7 @@ Jak wspomniano powyżej, funkcja odzyskiwania po awarii strefy do strefy zmniejs
 
 Przed wdrożeniem strefy do odzyskiwania po awarii strefy dla maszyn wirtualnych należy upewnić się, że inne funkcje włączone na maszynie wirtualnej współdziałają ze strefą odzyskiwania po awarii strefy.
 
-|Cecha  | Instrukcja obsługi  |
+|Cechy  | Instrukcja obsługi  |
 |---------|---------|
 |Klasyczne maszyny wirtualne   |     Nieobsługiwane    |
 |Maszyny wirtualne ARM    |    Obsługiwane    |

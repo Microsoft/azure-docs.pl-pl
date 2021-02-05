@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a4d29dfb2a57dde2bb21244b2e5335f1a8ea1fcf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e5a131753829edddbb4f385766a2d8697ebd0106
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948048"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584655"
 ---
 > [!IMPORTANT]
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. Zapoznaj się z dokumentacją referencyjną poniżej. 
@@ -81,15 +81,15 @@ Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy kl
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 `FormRecognizerClient` zawiera operacje dla:
 
- * Rozpoznawanie pól formularzy i zawartości przy użyciu modeli niestandardowych przeszkolonych w celu rozpoznawania formularzy niestandardowych. Te wartości są zwracane w kolekcji `RecognizedForm` obiektów.
+ * Rozpoznawanie pól formularzy i zawartości przy użyciu modeli niestandardowych przeszkolonych w celu analizowania formularzy niestandardowych. Te wartości są zwracane w kolekcji `RecognizedForm` obiektów.
  * Rozpoznawanie zawartości formularza, w tym tabel, wierszy i słów, bez konieczności uczenia modelu. Zawartość formularza jest zwracana w kolekcji `FormPage` obiektów.
  * Rozpoznawanie typowych pól z przyjęć przy użyciu wstępnie przeszkolonego modelu paragonów w usłudze aparat rozpoznawania formularzy. Te pola i meta dane są zwracane w kolekcji `RecognizedReceipt` .
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 `FormTrainingClient` zawiera operacje dla:
 
-* Szkolenie modeli niestandardowych w celu rozpoznania wszystkich pól i wartości znalezionych w formularzach niestandardowych. `CustomFormModel`Jest zwracany, wskazując typy formularzy, które będą rozpoznawane przez model, oraz pola, które będą wyodrębniane dla każdego typu formularza. Zapoznaj się z [dokumentacją usługi dotyczącą nieoznaczonego szkolenia modelu](#train-a-model-without-labels) , aby uzyskać bardziej szczegółowy opis tworzenia zestawu danych szkoleniowych.
-* Szkolenie modeli niestandardowych w celu rozpoznawania określonych pól i wartości, które można określić przez etykietowanie formularzy niestandardowych. `CustomFormModel`Zwraca wartość wskazującą pola, które będą wyodrębniane przez model, a także szacowaną dokładność dla każdego pola. Zapoznaj się z [dokumentacją usługi w obszarze zatytułowany model szkoleń](#train-a-model-with-labels) , aby uzyskać bardziej szczegółowy opis stosowania etykiet do zestawu danych szkoleniowych.
+* Szkolenie modeli niestandardowych w celu przeanalizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych. `CustomFormModel`Jest zwracany, wskazując typy formularzy, które będą analizowane przez model, oraz pola, które będą wyodrębniane dla każdego typu formularza. Zapoznaj się z [dokumentacją usługi dotyczącą nieoznaczonego szkolenia modelu](#train-a-model-without-labels) , aby uzyskać bardziej szczegółowy opis tworzenia zestawu danych szkoleniowych.
+* Szkolenie modeli niestandardowych w celu przeanalizowania określonych pól i wartości przez etykietowanie formularzy niestandardowych. `CustomFormModel`Zwraca wartość wskazującą pola, które będą wyodrębniane przez model, a także szacowaną dokładność dla każdego pola. Zapoznaj się z [dokumentacją usługi w obszarze zatytułowany model szkoleń](#train-a-model-with-labels) , aby uzyskać bardziej szczegółowy opis stosowania etykiet do zestawu danych szkoleniowych.
 * Zarządzanie modelami utworzonymi na Twoim koncie.
 * Kopiowanie modelu niestandardowego z jednego do drugiego zasobu aparatu rozpoznawania formularza.
 
@@ -128,7 +128,7 @@ Należy również dodać odwołania do adresów URL dla danych szkoleniowych i t
 
 ## <a name="analyze-layout"></a>Analizowanie układu
 
-Aparat rozpoznawania formularzy służy do rozpoznawania tabel, wierszy i słów w dokumentach, bez konieczności uczenia modelu. Aby rozpoznać zawartość pliku w danym identyfikatorze URI, użyj `beginRecognizeContentFromUrl` metody.
+Aparat rozpoznawania formularzy służy do analizowania tabel, wierszy i słów w dokumentach, bez konieczności uczenia modelu. Więcej informacji o wyodrębnianiu układu znajduje się w [przewodniku koncepcyjnym układu](../../concept-layout.md). Aby przeanalizować zawartość pliku w danym identyfikatorze URI, użyj `beginRecognizeContentFromUrl` metody.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
@@ -152,31 +152,7 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## <a name="analyze-receipts"></a>Analizuj potwierdzenia
 
-W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów.
-
-Aby rozpoznać potwierdzenia z identyfikatora URI, użyj `beginRecognizeReceiptsFromUrl` metody. Poniższy kod przetwarza potwierdzenie dla danego identyfikatora URI i drukuje główne pola i wartości w konsoli.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
-
-> [!TIP]
-> Możesz również rozpoznać lokalne obrazy paragonów. Zobacz metody [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) , takie jak **beginRecognizeReceipts**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
-
-### <a name="output"></a>Dane wyjściowe
-
-```console
-status: notStarted
-status: running
-status: succeeded
-First receipt:
-  Receipt Type: 'Itemized', with confidence of 0.659
-  Merchant Name: 'Contoso Contoso', with confidence of 0.516
-  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
-    Item Name: '8GB RAM (Black)', with confidence of 0.916
-    Item Name: 'SurfacePen', with confidence of 0.858
-  Total: '1203.39', with confidence of 0.774
-```
 
 ## <a name="train-a-custom-model"></a>Trenowanie modelu niestandardowego
 
@@ -187,7 +163,7 @@ W tej sekcji pokazano, jak szkolić model przy użyciu własnych danych. Model p
 
 ### <a name="train-a-model-without-labels"></a>Uczenie modelu bez etykiet
 
-Uczenie modeli niestandardowych w celu rozpoznawania wszystkich pól i wartości znajdujących się w formularzach niestandardowych bez ręcznego etykietowania dokumentów szkoleniowych.
+Uczenie modeli niestandardowych pozwala analizować wszystkie pola i wartości znajdujące się w formularzach niestandardowych bez ręcznego etykietowania dokumentów szkoleniowych.
 
 Poniższa funkcja pociąga za model dla danego zestawu dokumentów i drukuje stan modelu w konsoli programu. 
 
@@ -322,6 +298,32 @@ Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
 ```
 
+## <a name="analyze-receipts"></a>Analizuj potwierdzenia
+
+W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów. Aby uzyskać więcej informacji na temat analizy paragonów, zobacz [Przewodnik po pojęciach dotyczących przyjęć](../../concept-receipts.md).
+
+Aby przeanalizować potwierdzenia z identyfikatora URI, użyj `beginRecognizeReceiptsFromUrl` metody. Poniższy kod przetwarza potwierdzenie dla danego identyfikatora URI i drukuje główne pola i wartości w konsoli.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
+
+> [!TIP]
+> Możesz również analizować obrazy paragonów lokalnych. Zobacz metody [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) , takie jak **beginRecognizeReceipts**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
+
+### <a name="output"></a>Dane wyjściowe
+
+```console
+status: notStarted
+status: running
+status: succeeded
+First receipt:
+  Receipt Type: 'Itemized', with confidence of 0.659
+  Merchant Name: 'Contoso Contoso', with confidence of 0.516
+  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
+    Item Name: '8GB RAM (Black)', with confidence of 0.916
+    Item Name: 'SurfacePen', with confidence of 0.858
+  Total: '1203.39', with confidence of 0.774
+```
+
 ## <a name="manage-your-custom-models"></a>Zarządzanie modelami niestandardowymi
 
 W tej sekcji pokazano, jak zarządzać modelami niestandardowymi przechowywanymi na Twoim koncie. Poniższy kod wykonuje wszystkie zadania zarządzania modelami w pojedynczej funkcji, na przykład. 
@@ -442,7 +444,7 @@ W tym przewodniku szybki start użyto biblioteki klienckiej JavaScript aparatu r
 > [!div class="nextstepaction"]
 > [Tworzenie zestawu danych szkoleniowych](../../build-training-data-set.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](../../overview.md)
 * Przykładowy kod z tego przewodnika można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: b2e42dcaeb72a053f20afa47439d1825445b0ad8
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 9e9c4773b8f50d3d7b47f0eb94c039a42bee1d04
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225837"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584452"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core
 
@@ -62,7 +62,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
-> Ten przykładowy kod w tym przewodniku Szybki Start wymaga **identyfikatora URI przekierowania** dla `https://localhost:44321/` i `https://localhost:44321/signin-oidc` i **adresu URL wylogowania z kanału przedniego** `https://localhost:44321/signout-oidc` . Tokeny identyfikatora żądania będą wystawiane przez punkt końcowy autoryzacji.
+> Aby uzyskać przykładowy kod w tym przewodniku Szybki Start, Dodaj **Identyfikator URI przekierowania** dla `https://localhost:44321/` i `https://localhost:44321/signin-oidc` i **adres URL wylogowania z kanału przedniego** `https://localhost:44321/signout-oidc` . Tokeny identyfikatora żądania będą wystawiane przez punkt końcowy autoryzacji.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź tę zmianę automatycznie]()
 >

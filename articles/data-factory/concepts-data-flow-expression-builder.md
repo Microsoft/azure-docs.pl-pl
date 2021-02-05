@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/04/2021
+ms.openlocfilehash: 753f201fbde5d9e7100b6e257f8dc79e4462d7b6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145716"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584927"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Tworzenie wyrażeń w mapowaniu przepływu danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W mapowaniu przepływu danych wiele właściwości transformacji jest wprowadzanych jako wyrażenia. Te wyrażenia składają się z wartości kolumn, parametrów, funkcji, operatorów i literałów, które są obliczane do typu danych Spark w czasie wykonywania. Mapowanie przepływów danych ma dedykowane środowisko w celu ułatwienia tworzenia tych wyrażeń nazywanych **konstruktorem wyrażeń** . Przy użyciu uzupełniania kodu  [IntelliSense](/visualstudio/ide/using-intellisense) do wyróżniania, sprawdzania składni i automatycznego uzupełniania, Konstruktor wyrażeń służy do łatwego tworzenia przepływów danych. W tym artykule wyjaśniono, jak efektywnie kompilować logikę biznesową za pomocą Konstruktora wyrażeń.
+W mapowaniu przepływu danych wiele właściwości transformacji jest wprowadzanych jako wyrażenia. Te wyrażenia składają się z wartości kolumn, parametrów, funkcji, operatorów i literałów, które są obliczane do typu danych Spark w czasie wykonywania. Mapowanie przepływów danych ma dedykowane środowisko w celu ułatwienia tworzenia tych wyrażeń nazywanych **konstruktorem wyrażeń**. Przy użyciu uzupełniania kodu  [IntelliSense](/visualstudio/ide/using-intellisense) do wyróżniania, sprawdzania składni i automatycznego uzupełniania, Konstruktor wyrażeń służy do łatwego tworzenia przepływów danych. W tym artykule wyjaśniono, jak efektywnie kompilować logikę biznesową za pomocą Konstruktora wyrażeń.
 
 ![Konstruktor wyrażeń](media/data-flow/expresion-builder.png "Konstruktor wyrażeń")
 
@@ -32,7 +32,7 @@ W przypadku niektórych przekształceń, takich jak [Filter](data-flow-filter.md
 
 ![Niebieskie pole wyrażenia](media/data-flow/expressionbox.png "Niebieskie pole wyrażenia")
 
-W przypadku odwoływania się do kolumn w zgodnym lub grupowym warunku wyrażenie może wyodrębnić wartości z kolumn. Aby utworzyć wyrażenie, wybierz **kolumnę obliczaną** .
+W przypadku odwoływania się do kolumn w zgodnym lub grupowym warunku wyrażenie może wyodrębnić wartości z kolumn. Aby utworzyć wyrażenie, wybierz **kolumnę obliczaną**.
 
 ![Opcja kolumny obliczanej](media/data-flow/computedcolumn.png "Opcja kolumny obliczanej")
 
@@ -106,6 +106,9 @@ Przykłady interpolacji ciągów:
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 * ```"{:playerName} is a {:playerRating} player"```
+
+> [!NOTE]
+> W przypadku używania składni interpolacji ciągów w zapytaniach źródła SQL ciąg zapytania musi znajdować się w jednym wierszu, bez "/n".
 
 ## <a name="commenting-expressions"></a>Komentowanie wyrażeń
 

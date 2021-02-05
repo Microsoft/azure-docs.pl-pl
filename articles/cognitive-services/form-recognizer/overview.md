@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Automatyczne przetwarzanie danych, przetwarzanie dokumentów, automatyczne wprowadzanie danych, przetwarzanie formularzy
-ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044768"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584570"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -87,13 +87,13 @@ Aparat rozpoznawania formularzy używa [interfejsu API układu](#layout-api) , a
 Aparat rozpoznawania formularzy zawiera również wstępnie zbudowane modele do automatycznego przetwarzania danych unikatowych typów.
 
 ### <a name="prebuilt-invoice-model"></a>Wstępnie zbudowany model faktury
-Wstępnie skompilowany model faktury wyodrębnia dane z faktur w różnych formatach i zwraca dane strukturalne. Ten model wyodrębnia kluczowe informacje, takie jak identyfikator faktury, szczegóły klienta, szczegóły dostawcy, dostawa do, rachunek do, suma, podatek, suma częściowa i inne. Ponadto prekompilowany model faktury jest szkolony do rozpoznawania i zwracania całego tekstu i tabel na fakturze. Więcej informacji można znaleźć w przewodniku koncepcyjnym dotyczącym [faktur](./concept-invoices.md) .
+Wstępnie skompilowany model faktury wyodrębnia dane z faktur w różnych formatach i zwraca dane strukturalne. Ten model wyodrębnia kluczowe informacje, takie jak identyfikator faktury, szczegóły klienta, szczegóły dostawcy, dostawa do, rachunek do, suma, podatek, suma częściowa i inne. Ponadto prekompilowany model faktur jest szkolony, aby analizować i zwracać cały tekst i tabele na fakturze. Więcej informacji można znaleźć w przewodniku koncepcyjnym dotyczącym [faktur](./concept-invoices.md) .
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="Przykładowa faktura" lightbox="./media/overview-invoices.jpg":::
 
 ### <a name="prebuilt-receipt-model"></a>Wstępnie utworzony model przyjęcia
 
-Wstępnie utworzony model przyjęcia jest używany do odczytywania z angielskiego zakupu sprzedaży z Australii, Kanady, Wielkiej Brytanii, Indii i Stany Zjednoczone &mdash; typu używanego przez Restauracje, stacje gazu, sprzedaż detaliczna i tak dalej. Ten model wyodrębnia kluczowe informacje, takie jak godzina i Data transakcji, informacje o sprzedawcy, kwoty podatków, pozycje wiersza, sumy itd. Ponadto wstępnie utworzony model paragonów jest szkolony do rozpoznawania i zwracania całego tekstu w paragonie. Więcej informacji można znaleźć w przewodniku koncepcyjnym dotyczącym [potwierdzeń](./concept-receipts.md) .
+Wstępnie utworzony model przyjęcia jest używany do odczytywania z angielskiego zakupu sprzedaży z Australii, Kanady, Wielkiej Brytanii, Indii i Stany Zjednoczone &mdash; typu używanego przez Restauracje, stacje gazu, sprzedaż detaliczna i tak dalej. Ten model wyodrębnia kluczowe informacje, takie jak godzina i Data transakcji, informacje o sprzedawcy, kwoty podatków, pozycje wiersza, sumy itd. Ponadto wstępnie utworzony model paragonów jest szkolony, aby analizować i zwracać cały tekst w paragonie. Więcej informacji można znaleźć w przewodniku koncepcyjnym dotyczącym [potwierdzeń](./concept-receipts.md) .
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="Przykładowe potwierdzenie" lightbox="./media/overview-receipt.jpg":::
 
@@ -171,4 +171,4 @@ Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystając
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ukończ [Przewodnik Szybki Start](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji przetwarzania formularzy przy użyciu aparatu rozpoznawania formularzy w wybranym języku.
+Ukończ [Przewodnik Szybki Start](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji przetwarzającej formularze przy użyciu aparatu rozpoznawania formularzy w wybranym języku programistycznym.

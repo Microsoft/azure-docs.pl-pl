@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: a63f910b3a939e33b8c71d8f22d15f6d610a12cc
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: d529e74614a4fd5ee49d7e6161c65f68e8e76fce
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845568"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585062"
 ---
 # <a name="form-recognizer-layout-service"></a>Usługa układu aparatu rozpoznawania formularzy
 
@@ -89,9 +89,9 @@ Układ wyodrębnia także znaczniki wyboru z dokumentów. Wyodrębnione znacznik
 ## <a name="next-steps"></a>Następne kroki
 
 - Wypróbuj własną ekstrakcję układu przy użyciu [przykładowego interfejsu użytkownika aparatu rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
-- Ukończ [Przewodnik Szybki Start dla aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć wyodrębnianie układów w wybranym języku.
+- Ukończ [Przewodnik Szybki Start dla aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć wyodrębnianie układów w wybranym języku programistycznym.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
 * [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)

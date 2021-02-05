@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bbcebfd69789eb6ec03e565b347d05533043781c
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4c4158fe9c976ca214409ef4c0c9833c610ee34c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232339"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584334"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji platforma uniwersalna systemu Windows (platformy UWP)
 
@@ -292,7 +292,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-MSAL.NET używa metod asynchronicznych do pozyskiwania tokenów lub manipulowania kontami. Należy obsługiwać akcje interfejsu użytkownika w wątku interfejsu użytkownika. Jest to powód `Dispatcher.RunAsync` wywołania i środków ostrożności do wywołania `ConfigureAwait(false)` .
+MSAL.NET używa metod asynchronicznych do pozyskiwania tokenów lub manipulowania kontami. W związku z tym obsługują akcje interfejsu użytkownika w wątku interfejsu użytkownika. Jest to powód `Dispatcher.RunAsync` wywołania i środków ostrożności do wywołania `ConfigureAwait(false)` .
 
 #### <a name="more-information-about-signing-out"></a>Więcej informacji na temat wylogowywania<a name="more-information-on-sign-out"></a>
 
@@ -343,7 +343,7 @@ private async Task DisplayMessageAsync(string message)
 
 ## <a name="register-your-application"></a>Rejestrowanie aplikacji
 
-Teraz musisz zarejestrować aplikację:
+Teraz Zarejestruj aplikację:
 
 1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.

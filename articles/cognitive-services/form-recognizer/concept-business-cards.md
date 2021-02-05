@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131133"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585096"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Model wbudowanych kart roboczych aparatu rozpoznawania formularzy 
 
@@ -35,7 +35,7 @@ Prebudowany interfejs API kart służbowych wyodrębnia pola kluczy z kart słu�
 |:-----|:----|:----|:----|
 | Contacters | Tablica obiektów | Nazwa kontaktu wyodrębniona z karty biznesowej | [{"FirstName": "Jan", "LastName": "Nowak"}] |
 | FirstName (Imię) | ciąg | Imię i nazwisko osoby kontaktowej | Zawierają | 
-| LastName (Nazwisko) | ciąg | Nazwisko osoby kontaktowej (rodzina) |   Kowalski | 
+| LastName (Nazwisko) | ciąg | Nazwisko osoby kontaktowej (rodzina) |     Kowalski | 
 | CompanyNames | tablica ciągów | Nazwa firmy wyodrębniona z karty biznesowej | ["Contoso"] | 
 | Działy | tablica ciągów | Dział lub organizacja kontaktu | ["R&D"] | 
 | JobTitles | tablica ciągów | Lista tytułów zadań kontaktu | ["Inżynieria oprogramowania"] | 
@@ -45,7 +45,7 @@ Prebudowany interfejs API kart służbowych wyodrębnia pola kluczy z kart słu�
 | MobilePhones | Tablica numerów telefonów | Numer telefonu komórkowego wyodrębniony z karty biznesowej | ["+ 19876543210"] |
 | Faksów | Tablica numerów telefonów | Numer telefonu faksu wyodrębniony z karty biznesowej | ["+ 19876543211"] |
 | WorkPhones | Tablica numerów telefonów | Numer telefonu służbowego wyodrębniony z karty biznesowej | ["+ 19876543231"] |
-| OtherPhones    | Tablica numerów telefonów | Inny numer telefonu wyodrębniony z karty biznesowej | ["+ 19876543233"] |
+| OtherPhones     | Tablica numerów telefonów | Inny numer telefonu wyodrębniony z karty biznesowej | ["+ 19876543233"] |
 
 
 Interfejs API wizytówek może również zwrócić cały rozpoznany tekst z karty biznesowej. To dane wyjściowe OCR są zawarte w odpowiedzi JSON.  
@@ -395,7 +395,7 @@ Interfejs API kart służbowych zapewnia również [funkcję przetwarzania karty
 
 - Postępuj zgodnie z [przewodnikiem Szybki Start](./quickstarts/client-library.md) , aby rozpocząć rozpoznawanie kart służbowych.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
 * [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)

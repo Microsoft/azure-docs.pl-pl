@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ebc22e3cf300b664aae5842f7cf924769d4d907e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756491"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584435"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Konfigurowanie aplikacji mobilnej, która wywołuje interfejsy API sieci Web
 
@@ -82,7 +82,7 @@ Poniższe sekcje zawierają więcej informacji na temat tworzenia wystąpienia a
 
 ##### <a name="specify-the-parent-ui-window-or-activity"></a>Określ nadrzędny interfejs użytkownika, okno lub działanie
 
-W systemie Android należy przekazać działanie nadrzędne przed uruchomieniem interakcyjnego uwierzytelniania. W przypadku korzystania z brokera w systemie iOS należy przekazać `ViewController` . W ten sam sposób na platformy UWP można chcieć przekazać okno nadrzędne. Przekazujesz go podczas uzyskiwania tokenu. Ale podczas tworzenia aplikacji można także określić wywołanie zwrotne jako delegata, który zwraca wartość `UIParent` .
+W systemie Android należy przekazać działanie nadrzędne przed wykonaniem interakcyjnego uwierzytelniania. W systemie iOS w przypadku korzystania z brokera program zakazujący `ViewController` . W ten sam sposób na platformy UWP można chcieć przekazać okno nadrzędne. Przekazujesz go podczas uzyskiwania tokenu. Ale podczas tworzenia aplikacji można także określić wywołanie zwrotne jako delegata, który zwraca wartość `UIParent` .
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)

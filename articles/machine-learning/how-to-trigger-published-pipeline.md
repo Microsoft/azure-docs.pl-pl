@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 12/16/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 56a3183e259a0b1c661dfe84d5e47c4c221e5d48
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881741"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584870"
 ---
-# <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Wyzwalanie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning dla języka Python
+# <a name="trigger-machine-learning-pipelines"></a>Wyzwalanie potoków uczenia maszynowego
 
-W tym artykule dowiesz się, jak programowo zaplanować uruchamianie potoku na platformie Azure. Można utworzyć harmonogram na podstawie czasu, który upłynął lub zmiany w systemie plików. Harmonogramy oparte na czasie mogą służyć do wykonywania codziennych zadań, takich jak monitorowanie dryfowania danych. Harmonogramy oparte na zmianach mogą służyć do reagowania na zmiany nieregularne lub nieprzewidywalne, takie jak nowe przekazane dane lub stare dane. Po zapoznaniu się ze sposobem tworzenia harmonogramów dowiesz się, jak je pobrać i dezaktywować. Na koniec dowiesz się, jak używać aplikacji logiki platformy Azure, aby umożliwić bardziej złożoną logikę wyzwalającą lub zachowanie.
+W tym artykule dowiesz się, jak programowo zaplanować uruchamianie potoku na platformie Azure. Harmonogram można utworzyć na podstawie czasu, który upłynął lub zmiany w systemie plików. Harmonogramy oparte na czasie mogą służyć do wykonywania codziennych zadań, takich jak monitorowanie dryfowania danych. Harmonogramy oparte na zmianach mogą służyć do reagowania na zmiany nieregularne lub nieprzewidywalne, takie jak nowe przekazane dane lub stare dane. Po zapoznaniu się ze sposobem tworzenia harmonogramów dowiesz się, jak je pobrać i dezaktywować. Na koniec dowiesz się, jak uruchamiać potoki przy użyciu innych usług platformy Azure, aplikacji logiki platformy Azure i Azure Data Factory. Aplikacja logiki platformy Azure umożliwia bardziej skomplikowaną logikę wyzwalającą lub zachowanie. Potoki Azure Data Factory umożliwiają wywoływanie potoku uczenia maszynowego w ramach większego potoku aranżacji danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,7 +29,7 @@ W tym artykule dowiesz się, jak programowo zaplanować uruchamianie potoku na p
 
 * Obszar roboczy Machine Learning z opublikowanym potokiem. Można użyć wbudowanego [tworzenia i uruchamiania potoków uczenia maszynowego z zestawem SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
-## <a name="initialize-the-workspace--get-data"></a>Inicjowanie obszaru roboczego & pobieranie danych
+## <a name="trigger-pipelines-with-azure-machine-learning-sdk-for-python"></a>Wyzwalanie potoków przy użyciu zestawu SDK Azure Machine Learning dla języka Python
 
 Do zaplanowania potoku konieczne będzie odwołanie do obszaru roboczego, identyfikator opublikowanego potoku oraz nazwę eksperymentu, w którym ma zostać utworzony harmonogram. Te wartości można uzyskać przy użyciu następującego kodu:
 
@@ -81,7 +81,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 ### <a name="create-a-change-based-schedule"></a>Tworzenie harmonogramu opartego na zmianach
 
-Potoki wyzwalane przez zmiany plików mogą być bardziej wydajne niż harmonogramy oparte na czasie. Na przykład możesz chcieć wykonać krok przetwarzania wstępnego, gdy plik zostanie zmieniony lub gdy nowy plik zostanie dodany do katalogu danych. Możesz monitorować wszelkie zmiany w magazynie danych lub zmiany w określonym katalogu w magazynie danych. W przypadku monitorowania określonego katalogu zmiany w podkatalogach tego katalogu _nie_ będą powodowały uruchomienia.
+Potoki wyzwalane przez zmiany plików mogą być bardziej wydajne niż harmonogramy oparte na czasie. Jeśli chcesz zrobić coś przed zmianą pliku lub po dodaniu nowego pliku do katalogu danych, możesz wstępnie przetworzyć ten plik. Możesz monitorować wszelkie zmiany w magazynie danych lub zmiany w określonym katalogu w magazynie danych. W przypadku monitorowania określonego katalogu zmiany w podkatalogach tego katalogu _nie_ będą powodowały uruchomienia.
 
 Aby utworzyć plik — reaktywny `Schedule` , należy ustawić `datastore` parametr w wywołaniu metody [Schedule. Create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Aby monitorować folder, należy ustawić `path_on_datastore` argument.
 
@@ -104,7 +104,7 @@ Oprócz argumentów omówionych wcześniej, można ustawić `status` argument na
 
 W przeglądarce sieci Web przejdź do Azure Machine Learning. W sekcji **punkty końcowe** panelu nawigacji wybierz pozycję **punkty końcowe potoku**. Spowoduje to przejście do listy potoków opublikowanych w obszarze roboczym.
 
-![Strona potoki elementu AML](./media/how-to-trigger-published-pipeline/scheduled-pipelines.png)
+:::image type="content" source="./media/how-to-trigger-published-pipeline/scheduled-pipelines.png" alt-text="Strona potoki elementu AML":::
 
 Na tej stronie można wyświetlić informacje podsumowujące dotyczące wszystkich potoków w obszarze roboczym: nazwy, opisy, Stany i tak dalej. Aby przejść do szczegółów, kliknij potok. Na otrzymanej stronie znajduje się więcej szczegółów na temat potoku i można przechodzić do poszczególnych uruchomień.
 
@@ -161,11 +161,11 @@ Po udostępnieniu aplikacji logiki wykonaj następujące kroki, aby skonfigurowa
 
 1. Przejdź do widoku projektanta aplikacji logiki i wybierz szablon pustej aplikacji logiki. 
     > [!div class="mx-imgBorder"]
-    > ![Pusty szablon](media/how-to-trigger-published-pipeline/blank-template.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/blank-template.png" alt-text="Pusty szablon":::
 
 1. W projektancie Wyszukaj **obiekt BLOB**. Wybierz opcję **gdy obiekt BLOB jest dodawany lub modyfikowany (tylko właściwości)** , a następnie Dodaj ten wyzwalacz do aplikacji logiki.
     > [!div class="mx-imgBorder"]
-    > ![Dodawanie wyzwalacza](media/how-to-trigger-published-pipeline/add-trigger.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/add-trigger.png" alt-text="Dodawanie wyzwalacza":::
 
 1. Wprowadź informacje o połączeniu dla konta usługi BLOB Storage, które chcesz monitorować pod kątem dodatków lub modyfikacji obiektów BLOB. Wybierz kontener do monitorowania. 
  
@@ -177,7 +177,7 @@ Po udostępnieniu aplikacji logiki wykonaj następujące kroki, aby skonfigurowa
 1. Dodaj akcję HTTP, która będzie uruchamiana, gdy zostanie wykryty nowy lub zmodyfikowany obiekt BLOB. Wybierz pozycję **+ nowy krok**, a następnie wyszukaj i wybierz akcję http.
 
   > [!div class="mx-imgBorder"]
-  > ![Wyszukaj akcję HTTP](media/how-to-trigger-published-pipeline/search-http.png)
+  > :::image type="content" source="media/how-to-trigger-published-pipeline/search-http.png" alt-text="Wyszukaj akcję HTTP":::
 
   Aby skonfigurować akcję, użyj następujących ustawień:
 
@@ -208,12 +208,18 @@ Po udostępnieniu aplikacji logiki wykonaj następujące kroki, aby skonfigurowa
     Użyj `DataStoreName` dodanych do obszaru roboczego jako [warunek wstępny](#prerequisites).
      
     > [!div class="mx-imgBorder"]
-    > ![Ustawienia protokołu HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/http-settings.png" alt-text="Ustawienia protokołu HTTP":::
 
 1. Wybierz pozycję **Zapisz** , a harmonogram jest teraz gotowy.
 
 > [!IMPORTANT]
 > Jeśli używasz kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby zarządzania dostępem do potoku, [Ustaw uprawnienia dla scenariusza potoku (szkolenie lub ocenianie)](how-to-assign-roles.md#common-scenarios).
+
+## <a name="call-machine-learning-pipelines-from-azure-data-factory-pipelines"></a>Wywoływanie potoków uczenia maszynowego z potoków Azure Data Factory
+
+W potoku Azure Data Factory działanie *Machine Learning wykonywanie potoku* uruchamia potok Azure Machine Learning. To działanie można znaleźć na stronie tworzenia Data Factory w kategorii *Machine Learning* :
+
+:::image type="content" source="media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Zrzut ekranu przedstawiający działanie potoku ML w środowisku tworzenia Azure Data Factory":::
 
 ## <a name="next-steps"></a>Następne kroki
 

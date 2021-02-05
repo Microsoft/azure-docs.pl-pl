@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7e80123f21efded92ab6d59d550965ca72427b1c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 60ce3d32ffa20fc9117890528eac053d1af9fdf2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064661"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583912"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializacja pamięci podręcznej tokenów w MSAL.NET
 Po [uzyskaniu tokenu](msal-acquire-cache-tokens.md)zostanie on zbuforowany przez bibliotekę uwierzytelniania firmy Microsoft (MSAL).  Kod aplikacji powinien próbować uzyskać token z pamięci podręcznej przed uzyskaniem tokenu przez inną metodę.  W tym artykule omówiono domyślną i niestandardową serializację pamięci podręcznej tokenów w MSAL.NET.
@@ -34,7 +34,7 @@ W MSAL.NET jest udostępniana pamięć podręczna tokenów w pamięci. Serializa
 
 ## <a name="custom-serialization-for-windows-desktop-apps-and-web-appsweb-apis"></a>Serializacja niestandardowa dla aplikacji klasycznych systemu Windows i aplikacji sieci Web/interfejsów API sieci Web
 
-Należy pamiętać, że Serializacja niestandardowa nie jest dostępna na platformach mobilnych (platformy UWP, Xamarin. iOS i Xamarin. Android). MSAL już definiuje bezpieczny i wydajny mechanizm serializacji dla tych platform. Aplikacje klasyczne i .NET Core programu .NET mają jednak różne architektury i MSAL nie mogą implementować mechanizmu serializacji ogólnego przeznaczenia. Na przykład witryny sieci Web mogą zawierać tokeny w pamięci podręcznej Redis, a aplikacje pulpitu przechowują tokeny w zaszyfrowanym pliku. Dlatego Serializacja nie jest dostarczana jako wbudowana. Aby mieć trwałą aplikację pamięci podręcznej tokenów w programie .NET Desktop lub .NET Core, należy dostosować serializację.
+Należy pamiętać, że Serializacja niestandardowa nie jest dostępna na platformach mobilnych (platformy UWP, Xamarin. iOS i Xamarin. Android). MSAL już definiuje bezpieczny i wydajny mechanizm serializacji dla tych platform. Aplikacje klasyczne i .NET Core programu .NET mają jednak różne architektury i MSAL nie mogą implementować mechanizmu serializacji ogólnego przeznaczenia. Na przykład witryny sieci Web mogą zawierać tokeny w pamięci podręcznej Redis, a aplikacje pulpitu przechowują tokeny w zaszyfrowanym pliku. Dlatego Serializacja nie jest dostarczana jako wbudowana. Aby uzyskać trwałą aplikację pamięci podręcznej tokenów w programie .NET Desktop lub .NET Core, Dostosuj serializację.
 
 Następujące klasy i interfejsy są używane w serializacji pamięci podręcznej tokenu:
 

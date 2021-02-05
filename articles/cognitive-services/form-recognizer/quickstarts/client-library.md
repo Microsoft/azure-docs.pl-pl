@@ -13,25 +13,25 @@ ms.author: pafarley
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: przetwarzanie formularzy, automatyczne przetwarzanie danych
-ms.openlocfilehash: cc18cc9e54a5a8887ecd3e079285ba5130b88278
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: d468f40d9de7fd7efb4ac7d8021a667e0c6c31f6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218047"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584612"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Szybki Start: korzystanie z biblioteki klienckiej aparatu rozpoznawania formularzy lub interfejsu API REST
 
-Rozpocznij pracę z aparatem rozpoznawania formularzy przy użyciu wybranego języka. Aparat rozpoznawania formularzy platformy Azure to usługa poznawcze, która umożliwia tworzenie automatycznego oprogramowania do przetwarzania danych przy użyciu technologii uczenia maszynowego. Zidentyfikuj i Wyodrębnij tekst, pary klucz/wartość, znaczniki wyboru, dane tabeli i inne z formularza dokumenty &mdash; , które zawierają dane z danymi strukturalnymi, które obejmują relacje w oryginalnym pliku. Aparat rozpoznawania formularzy można używać za pośrednictwem interfejsu API REST lub zestawu SDK. Wykonaj następujące kroki, aby zainstalować pakiet SDK i wypróbować przykładowy kod dla podstawowych zadań. 
+Rozpocznij pracę z aparatem rozpoznawania formularzy przy użyciu wybranego języka programowania. Aparat rozpoznawania formularzy platformy Azure to usługa poznawcze, która umożliwia tworzenie automatycznego oprogramowania do przetwarzania danych przy użyciu technologii uczenia maszynowego. Zidentyfikuj i Wyodrębnij tekst, pary klucz/wartość, znaczniki wyboru, dane tabeli i inne z formularza dokumenty &mdash; , które zawierają dane z danymi strukturalnymi, które obejmują relacje w oryginalnym pliku. Aparat rozpoznawania formularzy można używać za pośrednictwem interfejsu API REST lub zestawu SDK. Wykonaj następujące kroki, aby zainstalować pakiet SDK i wypróbować przykładowy kod dla podstawowych zadań. 
 
 Użyj aparatu rozpoznawania formularzy do:
 
 * [Analizowanie układu](#analyze-layout)
-* [Analizuj potwierdzenia](#analyze-receipts)
-* [Analizowanie kart służbowych](#analyze-business-cards)
 * [Analizuj faktury](#analyze-invoices)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
 * [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
+* [Analizuj potwierdzenia](#analyze-receipts)
+* [Analizowanie kart służbowych](#analyze-business-cards)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
 
 ::: zone pivot="programming-language-csharp"

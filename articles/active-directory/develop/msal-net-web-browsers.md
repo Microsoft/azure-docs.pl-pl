@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165825"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583743"
 ---
 # <a name="using-web-browsers-msalnet"></a>Korzystanie z przeglądarek internetowych (MSAL.NET)
 
@@ -41,9 +41,9 @@ Ważne jest, aby zrozumieć, że w przypadku interakcyjnego pozyskiwania tokenu 
 
 MSAL.NET to biblioteka wieloplatformowa, która ma kod specyficzny dla platformy, który umożliwia hostowanie przeglądarki w kontrolce interfejsu użytkownika (na przykład w przypadku klasycznej platformy .NET używa WinForms, w programie Xamarin używa natywnych kontrolek mobilnych itp.). Ta kontrolka jest nazywana `embedded` interfejsem użytkownika sieci Web. Alternatywnie, MSAL.NET może również uruchamiać przeglądarki systemu operacyjnego.
 
-Ogólnie rzecz biorąc, zaleca się korzystanie z ustawień domyślnych platformy i jest to zwykle przeglądarka systemu. Przeglądarka systemowa jest lepsza do zapamiętywania użytkowników, którzy zalogowali się wcześniej. Jeśli musisz zmienić to zachowanie, użyj `WithUseEmbeddedWebView(bool)`
+Ogólnie rzecz biorąc, zaleca się korzystanie z ustawień domyślnych platformy i jest to zwykle przeglądarka systemu. Przeglądarka systemowa jest lepsza do zapamiętywania użytkowników, którzy zalogowali się wcześniej. Aby zmienić to zachowanie, użyj `WithUseEmbeddedWebView(bool)`
 
-### <a name="at-a-glance"></a>Na pierwszy rzut oka
+### <a name="at-a-glance"></a>W skrócie
 
 | Framework        | Osadzone | System | Domyślne |
 | ------------- |-------------| -----| ----- |
@@ -141,7 +141,7 @@ Możesz również włączyć osadzone widoki WebView w aplikacjach Xamarin. iOS 
 
 Jako programista korzystający z platformy Xamarin, MSAL.NET jako element docelowy, możesz użyć osadzonych widoków WebViews lub przeglądarek systemu. Jest to wybór w zależności od środowiska użytkownika i kwestii związanych z bezpieczeństwem, które chcesz określić jako docelowe.
 
-Obecnie MSAL.NET nie obsługuje jeszcze brokerów systemów Android i iOS. W związku z tym, jeśli musisz udostępnić Logowanie jednokrotne, przeglądarka systemowa może nadal być lepszym rozwiązaniem. Obsługa brokerów z osadzoną przeglądarką sieci Web znajduje się na liście prac MSAL.NET.
+Obecnie MSAL.NET nie obsługuje jeszcze brokerów systemów Android i iOS. Z tego względu, aby zapewnić Logowanie jednokrotne, przeglądarka systemowa może być w dalszym ciągu lepszą opcją. Obsługa brokerów z osadzoną przeglądarką sieci Web znajduje się na liście prac MSAL.NET.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>Różnice między osadzonym widokiem WebView a przeglądarką systemu
 Istnieją pewne różnice wizualne między osadzonym widokiem WebView a przeglądarką systemową w programie MSAL.NET.

@@ -2,20 +2,21 @@
 title: Techniczne funkcje zabezpieczeń na platformie Azure — Microsoft Azure
 description: Wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze.
 services: security
-author: terrylanfear
+author: TerryLanfear
+manager: rkarlin
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 353b1708a1c6014f9108ad2be62f22c1e0b0604c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6e0642a2124d58bb3af483313ac824568b6bbb39
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092772"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585147"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -431,20 +432,6 @@ Usługa Resource Manager zapewnia kilka korzyści:
 > [!Note]
 > Usługa Resource Manager udostępnia nową metodę wdrażania rozwiązań i zarządzania nimi. Jeśli używasz wcześniejszego modelu wdrażania i chcesz dowiedzieć się więcej o zmianach, zobacz [opis Menedżer zasobów wdrożenia i wdrożenia klasycznego](../../azure-resource-manager/management/deployment-models.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-step"></a>Następny krok
 
-Dowiedz się więcej o zabezpieczeniach, odczytując niektóre szczegółowe tematy dotyczące zabezpieczeń:
-
-- [Inspekcja i rejestrowanie](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
-
-- [Cybercrime](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
-
-- [Bezpieczeństwo projektowania i działania](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
-
-- [Szyfrowanie](https://www.microsoft.com/en-us/trustcenter/security/encryption)
-
-- [Zarządzanie tożsamościami i dostępem](https://www.microsoft.com/en-us/trustcenter/security/identity)
-
-- [Bezpieczeństwo sieci](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
-
-- [Zarządzanie zagrożeniami](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
+Program [testów wydajności Azure](../benchmarks/introduction.md) zawiera zbiór zaleceń dotyczących zabezpieczeń, których można użyć, aby zabezpieczyć usługi używane na platformie Azure.

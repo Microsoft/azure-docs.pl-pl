@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064372"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584234"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów dotyczące Azure Active Directory dostępu warunkowego
 
@@ -43,9 +43,9 @@ Założono znajomość [pojedynczych](quickstart-register-app.md) i [wielodostę
 
 ### <a name="app-types-impacted"></a>Typy aplikacji, których dotyczy problem
 
-W większości typowych przypadków dostęp warunkowy nie zmienia zachowania aplikacji ani nie wymaga żadnych zmian od dewelopera. Tylko w niektórych przypadkach, gdy aplikacja pośrednio lub dyskretnie żąda tokenu dla usługi, aplikacja wymaga zmiany kodu w celu obsługi dostępu warunkowego "wyzwania". Może być tak proste, jak wykonywanie interakcyjnego żądania logowania.
+W większości typowych przypadków dostęp warunkowy nie zmienia zachowania aplikacji ani nie wymaga żadnych zmian od dewelopera. Tylko w niektórych przypadkach, gdy aplikacja pośrednio lub dyskretnie żąda tokenu dla usługi, aplikacja wymaga wprowadzenia zmian w kodzie w celu obsługi wyzwań dostępu warunkowego. Może być tak proste, jak wykonywanie interakcyjnego żądania logowania.
 
-W szczególnych przypadkach następujące scenariusze wymagają, aby kod obsługiwał dostęp warunkowy "wyzwania":
+W szczególnych przypadkach następujące scenariusze wymagają kodu do obsługi wyzwań dostępu warunkowego:
 
 * Aplikacje wykonujące przepływ w imieniu użytkownika
 * Aplikacje uzyskujące dostęp do wielu usług/zasobów
@@ -54,7 +54,7 @@ W szczególnych przypadkach następujące scenariusze wymagają, aby kod obsług
 
 Zasady dostępu warunkowego można zastosować do aplikacji, ale można je również zastosować do internetowego interfejsu API, do którego aplikacja uzyskuje dostęp. Aby dowiedzieć się więcej o konfigurowaniu zasad dostępu warunkowego, zobacz [Szybki Start: Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji przy Azure Active Directory dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md).
 
-W zależności od scenariusza Klient korporacyjny może w dowolnym momencie zastosować i usunąć zasady dostępu warunkowego. Aby aplikacja kontynuowała działanie w przypadku zastosowania nowych zasad, należy zaimplementować obsługę "wyzwania". Poniższe przykłady ilustrują obsługę wyzwania.
+W zależności od scenariusza Klient korporacyjny może w dowolnym momencie zastosować i usunąć zasady dostępu warunkowego. Aby aplikacja kontynuowała działanie, gdy zostaną zastosowane nowe zasady, zaimplementuj obsługę wyzwania. Poniższe przykłady ilustrują obsługę wyzwania.
 
 ### <a name="conditional-access-examples"></a>Przykłady dostępu warunkowego
 

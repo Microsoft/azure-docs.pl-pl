@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536770"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584994"
 ---
 # <a name="apply-math-operation"></a>Stosowanie operacji matematycznej
 
@@ -32,7 +32,7 @@ Po zdefiniowaniu operacji i uruchomieniu potoku wartości są dodawane do zestaw
 
 Poszukaj potrzebnych operacji w następujących kategoriach:  
 
-- [Podstawowe](#basic-math-operations)  
+- [Podstawowa](#basic-math-operations)  
   
      Funkcje w kategorii **Basic** mogą służyć do manipulowania pojedynczą wartością lub kolumną wartości. Na przykład możesz uzyskać wartość bezwzględną wszystkich liczb w kolumnie lub obliczyć pierwiastek kwadratowy dla każdej wartości w kolumnie.  
   
@@ -138,9 +138,9 @@ Zwraca liczbę e podniesioną do potęgi wartości z zaznaczonej kolumny. Ta fun
 
 Zwraca wartość typu wykładniczego 2 dla argumentów, co oznacza wartość y = x * 2<sup>t</sup> , gdzie t jest kolumną wartości zawierających wykładniki.  
 
-W obszarze  **zestaw kolumn**wybierz kolumnę zawierającą wartości wykładnika t.
+W obszarze  **zestaw kolumn** wybierz kolumnę zawierającą wartości wykładnika t.
 
-Dla **exp2 —** można określić drugi argument x, który może być stałą lub inną kolumną wartości. W **drugim typie argumentu**wskaż, czy jako stałą ma być udostępniany współczynnik x, czy wartość w kolumnie.  
+Dla **exp2 —** można określić drugi argument x, który może być stałą lub inną kolumną wartości. W **drugim typie argumentu** wskaż, czy jako stałą ma być udostępniany współczynnik x, czy wartość w kolumnie.  
 
 Na przykład w przypadku wybrania kolumny z wartościami {0,1,2,3,4,5} dla mnożnika i wykładnika funkcja zwraca {0, 2, 8, 24, 64 160).  
 
@@ -162,7 +162,7 @@ Zwraca logarytm naturalny dla wartości z zaznaczonej kolumny.
 
 Zwraca logarytm naturalny plus jeden dla wartości w zaznaczonej kolumnie.  
 
-### <a name="log"></a>Log
+### <a name="log"></a>Dziennik
 
 Zwraca dziennik wartości z zaznaczonej kolumny, z uwzględnieniem określonej podstawy.  
 
@@ -181,7 +181,7 @@ Zwraca n-ty z wartości przy użyciu określonej n.
 
 Wybierz kolumny, dla których chcesz obliczyć katalog główny przy użyciu opcji **zestawem kolumn** .  
 
-W **drugim typie argumentu**wybierz inną kolumnę, która zawiera element główny, lub określ stałą, która ma być używana jako element główny.  
+W **drugim typie argumentu** wybierz inną kolumnę, która zawiera element główny, lub określ stałą, która ma być używana jako element główny.  
 
 Jeśli drugi argument jest kolumną, każda wartość w kolumnie jest używana jako wartość n dla odpowiadającego wiersza. Jeśli drugi argument jest stałą, wpisz wartość n w drugim polu tekstowym **argumentu** .
 ### <a name="pow"></a>Pow
@@ -190,7 +190,7 @@ Oblicza wartość X podniesioną do potęgi Y dla każdej wartości w zaznaczone
 
 Najpierw wybierz kolumny zawierające **bazę**, która powinna być zmiennoprzecinkowa, przy użyciu opcji **zestawem kolumn** .  
 
-W **drugim typie argumentu**wybierz kolumnę zawierającą wykładnik lub określ stałą, która ma być używana jako wykładnik.  
+W **drugim typie argumentu** wybierz kolumnę zawierającą wykładnik lub określ stałą, która ma być używana jako wykładnik.  
 
 Jeśli drugi argument jest kolumną, każda wartość w kolumnie jest używana jako wykładnik odpowiadającego wiersza. Jeśli drugi argument jest stałą, wpisz wartość wykładnika w drugim polu tekstowym **argumentu** .  
 
@@ -249,16 +249,19 @@ Zwraca wartość, która jest mniejsza — wartość w **zestawie kolumn** lub w
 
 Obejmuje podstawowe operacje arytmetyczne: Dodawanie i odejmowanie, dzielenie i mnożenie.  Ponieważ większość operacji jest binarnych, co wymaga dwóch liczb, należy najpierw wybrać operację, a następnie wybrać kolumnę lub liczby do użycia w pierwszym i drugim argumentach.
 
-Kolejność, w której wybierasz kolumny do dzielenia i odejmowania, może wydawać się nielogiczna; Aby jednak ułatwić zrozumienie wyników, nagłówek kolumny zawiera nazwę operacji oraz kolejność, w jakiej kolumny były używane.
+Kolejność dzielenia i odejmowania jest następująca: 
+- Odejmij (Arg1_Arg2) = arg1-ARG 2
+- Dzielenie (Arg1_Arg2) = arg1/ARG 2
 
+W poniższej tabeli przedstawiono kilka przykładów
 Operacja|Num1|Num2|Kolumna wyników|Wartość wyniku|
 ----|----|----|----|----
-|Znak dodawania|1|5|Dodaj (Num2_Num1)| 4|
+|Znak dodawania|1|5|Dodaj (Num2_Num1)| 6|
 |Znak mnożenia|1|5|Wiele (Num2_Num1)|5|
-|Odejmowanie|1|5|Odejmij (Num2_Num1)|4|
-|Odejmowanie|0|1|Odejmij (Num2_Num1)|0|
-|Dział|1|5|Podziel (Num2_Num1)|5|
-|Dział|0|1|Podziel (Num2_Num1)|Nieskończoność|
+|Odejmowanie|5|1|Odejmij (Num2_Num1)|4|
+|Odejmowanie|0|1|Odejmij (Num2_Num1)|-1|
+|Dział|5|1|Podziel (Num2_Num1)|5|
+|Dział|1|0|Podziel (Num2_Num1)|Nieskończoność|
 
 ### <a name="add"></a>Dodaj
 
@@ -296,15 +299,15 @@ Zwraca kwadratowy pułap dla wartości w **zestawie kolumn**.
 
 ### <a name="floor"></a>Floor
 
-Zwraca piętro dla wartości w **zestawie kolumn**do określonej precyzji.  
+Zwraca piętro dla wartości w **zestawie kolumn** do określonej precyzji.  
 
 ### <a name="mod"></a>Mod
 
-Zwraca część ułamkową wartości w **zestawie kolumn**do określonej precyzji.  
+Zwraca część ułamkową wartości w **zestawie kolumn** do określonej precyzji.  
 
 ### <a name="quotient"></a>Iloraz
 
-Zwraca część ułamkową wartości w **zestawie kolumn**do określonej precyzji.  
+Zwraca część ułamkową wartości w **zestawie kolumn** do określonej precyzji.  
 
 ### <a name="remainder"></a>Reszta
 
@@ -312,23 +315,23 @@ Zwraca resztę dla wartości w **zestawie kolumn**.
 
 ### <a name="rounddigits"></a>RoundDigits
 
-Zwraca wartości w **zestawie kolumn**zaokrąglone według reguły 4/5 do określonej liczby cyfr.  
+Zwraca wartości w **zestawie kolumn** zaokrąglone według reguły 4/5 do określonej liczby cyfr.  
 
 ### <a name="rounddown"></a>RoundDown
 
-Zwraca wartości w **zestawie kolumn**zaokrąglone w dół do określonej liczby cyfr.  
+Zwraca wartości w **zestawie kolumn** zaokrąglone w dół do określonej liczby cyfr.  
 
 ### <a name="roundup"></a>RoundUp
 
-Zwraca wartości w **zestawie kolumn**zaokrąglone do określonej liczby cyfr.  
+Zwraca wartości w **zestawie kolumn** zaokrąglone do określonej liczby cyfr.  
 
 ### <a name="toeven"></a>ToEven
 
-Zwraca wartości w **zestawie kolumn**zaokrąglone do najbliższej całkowitej liczby parzystej.  
+Zwraca wartości w **zestawie kolumn** zaokrąglone do najbliższej całkowitej liczby parzystej.  
 
 ### <a name="toodd"></a>ToOdd
 
-Zwraca wartości w **zestawie kolumn**zaokrąglone do najbliższej całkowitej, nieparzystej liczby.  
+Zwraca wartości w **zestawie kolumn** zaokrąglone do najbliższej całkowitej, nieparzystej liczby.  
 
 ### <a name="truncate"></a>Truncate
 

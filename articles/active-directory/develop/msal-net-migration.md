@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b437efcfa2b0bb2a725929ae0253f48d97d11552
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2b8577af2c8a6296ae6f4f090e8ff233e51ee6fb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754820"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583929"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrowanie aplikacji do MSAL.NET
 
@@ -145,7 +145,7 @@ MSAL.NET sprawia, że token buforuje klasę zapieczętowana, usuwając możliwo�
 
 W wersji 1.0, jeśli używasz `https://login.microsoftonline.com/common` urzędu, zezwolisz użytkownikom na logowanie się przy użyciu dowolnego konta usługi AAD (dla dowolnej organizacji). Zobacz [weryfikacja urzędu w ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
-Jeśli używasz `https://login.microsoftonline.com/common` urzędu w wersji 2.0, zezwolisz użytkownikom na logowanie się za pomocą dowolnej organizacji usługi AAD lub konta Microsoft Personal (MSA). W MSAL.NET, jeśli chcesz ograniczyć logowanie do dowolnego konta usługi AAD (takie samo zachowanie jak w przypadku usługi ADAL.NET), musisz użyć programu `https://login.microsoftonline.com/organizations` . Aby uzyskać szczegółowe informacje, zobacz `authority` parametr w [publicznej aplikacji klienckiej](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
+Jeśli używasz `https://login.microsoftonline.com/common` urzędu w wersji 2.0, zezwolisz użytkownikom na logowanie się za pomocą dowolnej organizacji usługi AAD lub konta Microsoft Personal (MSA). W MSAL.NET, jeśli chcesz ograniczyć logowanie do dowolnego konta usługi AAD (takie samo zachowanie jak w przypadku usługi ADAL.NET), użyj `https://login.microsoftonline.com/organizations` . Aby uzyskać szczegółowe informacje, zobacz `authority` parametr w [publicznej aplikacji klienckiej](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
 ## <a name="v10-and-v20-tokens"></a>tokeny w wersji 1.0 i 2.0
 
@@ -182,7 +182,7 @@ string[] scopes = { ResourceId + "Directory.Read", ResourceId + "Directory.Write
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Ostrzeżenie: należy mieć jeden lub dwa ukośniki w zakresie odpowiadającym interfejsowi API sieci Web w wersji 1.0
 
-Jeśli chcesz napisać zakres odpowiadający interfejsowi API Azure Resource Manager (, musisz https://management.core.windows.net/) zażądać następującego zakresu (należy zauważyć dwa ukośniki).
+Jeśli chcesz napisać zakres odpowiadający interfejsowi API Azure Resource Manager ( https://management.core.windows.net/) , zażądaj następującego zakresu (należy zauważyć dwa ukośniki).
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};

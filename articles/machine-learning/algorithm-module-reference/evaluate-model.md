@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323797"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584944"
 ---
 # <a name="evaluate-model-module"></a>Oceń moduł modelu
 
@@ -75,7 +75,7 @@ Ponieważ jest to Model klastrowania, wyniki oceny różnią się od tego, czy p
 
 ## <a name="metrics"></a>Metryki
 
-W tej sekcji opisano metryki zwracane dla określonych typów modeli obsługiwanych do użycia z **modelem oszacowania** :
+W tej sekcji opisano metryki zwracane dla określonych typów modeli obsługiwanych do użycia z **modelem oszacowania**:
 
 + [modele klasyfikacji](#metrics-for-classification-models)
 + [modele regresji](#metrics-for-regression-models)
@@ -94,7 +94,7 @@ Podczas oceniania binarnych modeli klasyfikacji są raportowane następujące me
   
 -   **Wynik F1** jest obliczany jako średnia ważona precyzji i wartość odwołania z zakresu od 0 do 1, gdzie idealny wynik jest równy 1.  
   
--   **AUC** mierzy obszar pod krzywą na podstawie prawdziwej liczby dodatniej na osi y i fałszywych wartości dodatnich na osi x. Ta Metryka jest przydatna, ponieważ udostępnia pojedynczą liczbę, która umożliwia porównywanie modeli różnych typów.  
+-   **AUC** mierzy obszar pod krzywą na podstawie prawdziwej liczby dodatniej na osi y i fałszywych wartości dodatnich na osi x. Ta Metryka jest przydatna, ponieważ udostępnia pojedynczą liczbę, która umożliwia porównywanie modeli różnych typów. AUC jest klasyfikacją — wartość progowa-niezmienna. Mierzy jakość prognoz modelu niezależnie od tego, jaki próg klasyfikacji jest wybrany.
 
 
 ### <a name="metrics-for-regression-models"></a>Metryki dla modeli regresji
@@ -113,7 +113,7 @@ Metryki zwracane dla modeli regresji zaprojektowano w celu oszacowania ilości b
   
 
   
-- **Współczynnik wyznaczania** , często określany jako R <sup>2</sup>, reprezentuje siłę predykcyjną modelu jako wartość z przedziału od 0 do 1. Zero oznacza, że model jest losowo (wyjaśnia nic); 1 oznacza, że jest idealnym dopasowaniem. Należy zachować ostrożność w interpretacji wartości R<sup>2</sup> , ponieważ niskie wartości mogą być całkowicie normalne i mogą być podejrzane wysokie wartości.
+- **Współczynnik wyznaczania**, często określany jako R <sup>2</sup>, reprezentuje siłę predykcyjną modelu jako wartość z przedziału od 0 do 1. Zero oznacza, że model jest losowo (wyjaśnia nic); 1 oznacza, że jest idealnym dopasowaniem. Należy zachować ostrożność w interpretacji wartości R<sup>2</sup> , ponieważ niskie wartości mogą być całkowicie normalne i mogą być podejrzane wysokie wartości.
 
 ###  <a name="metrics-for-clustering-models"></a>Metryki dla modeli klastrowania
 
@@ -125,15 +125,15 @@ Ponieważ modele klastrów znacznie różnią się od modeli klasyfikacji i regr
   
 Następujące metryki są zgłaszane do oceny modeli klastrowania.
     
--   Wyniki w kolumnie, **Średnia odległość do innego centrum** , reprezentują jak blisko, średnio, każdy punkt w klastrze to centroids wszystkich innych klastrów.   
+-   Wyniki w kolumnie, **Średnia odległość do innego centrum**, reprezentują jak blisko, średnio, każdy punkt w klastrze to centroids wszystkich innych klastrów.   
 
--   Wyniki w kolumnie, **Średnia odległość do centrum klastra** , reprezentują bliskość wszystkich punktów w klastrze do centroida tego klastra.  
+-   Wyniki w kolumnie, **Średnia odległość do centrum klastra**, reprezentują bliskość wszystkich punktów w klastrze do centroida tego klastra.  
   
 -   Kolumna **liczba punktów** pokazuje, ile punktów danych zostało przypisanych do każdego klastra, oraz łączną całkowitą liczbę punktów danych w dowolnym klastrze.  
   
      Jeśli liczba punktów danych przypisanych do klastrów jest mniejsza niż całkowita liczba dostępnych punktów danych, oznacza to, że nie można przypisać punktów danych do klastra.  
   
--   Wyniki w kolumnie, **maksymalnie odległość do centrum klastra** , reprezentują maksymalną odległość między każdym punktem a centroida klastra tego punktu.  
+-   Wyniki w kolumnie, **maksymalnie odległość do centrum klastra**, reprezentują maksymalną odległość między każdym punktem a centroida klastra tego punktu.  
   
      Jeśli ta liczba jest wysoka, może to oznaczać, że klaster jest szeroko rozpraszany. Należy zapoznać się z tą statystyką wraz z **średnim dystansem do centrum klastra** , aby określić rozmieszczenie klastra.   
 

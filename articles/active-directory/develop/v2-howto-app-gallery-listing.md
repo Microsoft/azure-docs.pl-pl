@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3ce00c5182246513aaf3178118058826528619d2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752862"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584268"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publikowanie aplikacji w galerii aplikacji usługi Azure AD
 
@@ -85,7 +85,7 @@ Możesz skorzystać z bezpłatnego konta testowego ze wszystkimi funkcjami usłu
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Krok 1 — wybór odpowiedniego standardu logowania jednokrotnego dla aplikacji
 
-Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, należy zaimplementować co najmniej jedną z obsługiwanych opcji logowania jednokrotnego. Aby poznać opcje logowania jednokrotnego i sposób konfigurowania ich przez klientów w usłudze Azure AD, zobacz [Opcje logowania jednokrotnego](../manage-apps/sso-options.md).
+Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, zaimplementuj co najmniej jedną z obsługiwanych opcji logowania jednokrotnego. Aby poznać opcje logowania jednokrotnego i sposób konfigurowania ich przez klientów w usłudze Azure AD, zobacz [Opcje logowania jednokrotnego](../manage-apps/sso-options.md).
 
 Poniższa tabela zawiera porównanie głównych standardów: Open Authentication 2,0 (OAuth 2,0) z OpenID Connect Connect (OIDC), SAML (SAML) i federacyjnych usług sieci Web (w usłudze WS-karmione).
 
@@ -186,7 +186,7 @@ Do przetestowania aplikacji potrzebna jest dzierżawa usługi Azure AD. Aby skon
 
 Alternatywnie dzierżawa usługi Azure AD jest dostarczana z każdą subskrypcją Microsoft 365. Aby skonfigurować bezpłatne środowisko deweloperskie Microsoft 365, zobacz [dołączanie do programu Microsoft 365 Developer](/office/developer-program/microsoft-365-developer-program).
 
-Po uzyskaniu dzierżawy należy przetestować Logowanie jednokrotne i [Inicjowanie obsługi administracyjnej](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Po uzyskaniu dzierżawy Przetestuj Logowanie jednokrotne i [Inicjowanie obsługi administracyjnej](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **W przypadku aplikacji OIDC lub Oath** [zarejestruj aplikację](quickstart-register-app.md) jako aplikację wielodostępną. W obszarze obsługiwane typy kont wybierz opcję konta z dowolnego katalogu organizacyjnego i osobiste konta Microsoft.
 

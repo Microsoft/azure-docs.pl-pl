@@ -7,23 +7,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 750c24fd84629f709beb7a92e92fd1ecf581c09a
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 53334dfdcdb917c754c9bc4205b0918c6d207da8
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862227"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584791"
 ---
-# <a name="install-and-run-form-recognizer-containers-preview"></a>Instalowanie i uruchamianie kontenerów aparatów rozpoznawania formularzy (wersja zapoznawcza)
+# <a name="install-and-run-form-recognizer-containers-retiring"></a>Instalowanie i uruchamianie kontenerów aparatów rozpoznawania formularzy (wycofywanie)
 
 [!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Aparat rozpoznawania formularzy platformy Azure stosuje technologię uczenia maszynowego do identyfikowania i wyodrębniania par klucz-wartość oraz tabel z formularzy. Kojarzy wartości i wpisy tabeli z parami klucz-wartość, a następnie wyprowadza dane ze strukturą, które zawierają relacje w oryginalnym pliku. 
 
-Aby zmniejszyć złożoność i łatwo zintegrować niestandardowy model aparatu rozpoznawania formularzy w procesie automatyzacji przepływu pracy lub innej aplikacji, można wywołać model przy użyciu prostego interfejsu API REST. Potrzebne są tylko pięć dokumentów formularzy (lub jednej pustej postaci i dwóch wypełnionych formularzy), dzięki czemu można szybko uzyskać wyniki, dokładnie i dostosować je do określonej zawartości. Nie jest konieczna intensywna interwencja ręczna ani Obszerna wiedza naukowa o danych. Nie wymaga to etykietowania danych ani adnotacji danych.
+Aby zmniejszyć złożoność i łatwo zintegrować niestandardowy model aparatu rozpoznawania formularzy w procesie automatyzacji przepływu pracy lub innej aplikacji, można wywołać model przy użyciu prostego interfejsu API REST. Potrzebne są tylko pięć dokumentów formularzy, dzięki czemu możesz szybko uzyskać wyniki, dokładnie je i dostosować do określonej zawartości. Nie jest konieczna intensywna interwencja ręczna ani Obszerna wiedza naukowa o danych. Nie wymaga to etykietowania danych ani adnotacji danych.
 
 | Funkcja | Funkcje |
 |----------|----------|
@@ -84,37 +84,9 @@ Minimalna i zalecana liczba rdzeni procesora CPU i pamięci do przydzielenia dla
 > [!Note]
 > Wartości minimalne i zalecane są zależne od limitów platformy Docker, a *nie* zasobów maszyn hosta.
 
-## <a name="get-the-container-images-with-the-docker-pull-command"></a>Pobierz obrazy kontenerów za pomocą polecenia docker pull
-
-Obrazy kontenerów dla programu **rozpoznawania formularzy** i ofert **rozpoznawanie tekstu** są dostępne w następującym rejestrze kontenera:
-
-| Kontener | W pełni kwalifikowana nazwa obrazu |
-|-----------|------------|
-| Rozpoznawanie formularzy | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
-| Rozpoznawanie tekstu | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
-
-Wymagane są oba kontenery, należy pamiętać, że kontener **tekstu aparatu rozpoznawania** jest [szczegółowy poza tym artykułem.](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)
+Wymagany jest zarówno aparat rozpoznawania formularzy, jak i kontenery Rozpoznawanie tekstu, należy pamiętać, że kontener **rozpoznawanie tekstu** jest [szczegółowy poza tym artykułem.](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
-
-### <a name="docker-pull-for-the-form-recognizer-container"></a>Wypychanie platformy Docker dla kontenera aparatów rozpoznawania formularzy
-
-#### <a name="form-recognizer"></a>Rozpoznawanie formularzy
-
-Aby uzyskać kontener aparatu rozpoznawania formularzy, użyj następującego polecenia:
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
-```
-### <a name="docker-pull-for-the-recognize-text-container"></a>Wypychanie platformy Docker dla kontenera Rozpoznawanie tekstu
-
-#### <a name="recognize-text"></a>Rozpoznawanie tekstu
-
-Aby uzyskać kontener Rozpoznawanie tekstu, użyj następującego polecenia:
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
 
 ## <a name="how-to-use-the-container"></a>Jak używać kontenera
 

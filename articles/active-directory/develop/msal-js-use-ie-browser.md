@@ -13,12 +13,12 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 428405fc200751d2581ad9ca6e8ec97382594c09
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 73dd7877b399d34a009c9fe479550eb1bf6dc0f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064848"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583980"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Znane problemy dotyczące przeglądarek programu Internet Explorer (MSAL.js)
 
@@ -39,7 +39,7 @@ Wynika to z faktu, że program Internet Explorer nie obsługuje natywnie niesie 
 Wdrażanie aplikacji w środowisku produkcyjnym (na przykład w usłudze Azure Web Apps) zwykle działa prawidłowo, pod warunkiem, że użytkownik końcowy zaakceptował okna podręczne. Przetestowano ją z programem Internet Explorer 11.
 
 ### <a name="running-locally"></a>Uruchamianie lokalne
-Jeśli chcesz uruchomić i debugować lokalnie aplikację działającą w programie Internet Explorer, musisz pamiętać o następujących kwestiach (Załóżmy, że chcesz uruchomić aplikację jako *http://localhost:1234* ):
+Jeśli chcesz uruchomić i debugować lokalnie aplikację działającą w programie Internet Explorer, weź pod uwagę następujące kwestie (Załóżmy, że chcesz uruchomić aplikację jako *http://localhost:1234* ):
 
 - Program Internet Explorer ma mechanizm zabezpieczeń o nazwie "tryb chroniony", który uniemożliwia poprawne działanie MSAL.js. Po zalogowaniu się do strony mogą zostać przekierowane między objawy http://localhost:1234/null .
 

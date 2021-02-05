@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 38115f18d9b35545912fad97767f38fd3827d626
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 8c740e2868d2cd2033bc896f9b6ca897b38e922f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99559993"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584825"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -134,6 +134,94 @@ Pobierz najnowsze aktualizacje środowiska uruchomieniowego, [aktualizując App 
 
 ---
 
+## <a name="keys-in-qna-maker"></a>Klucze w QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
+Usługa QnA Maker obsługuje dwa rodzaje kluczy: **klucze autorstwa** i **klucze punktu końcowego zapytania** używane w środowisku uruchomieniowym hostowanym w usłudze App Service.
+
+Te klucze są używane podczas wykonywania żądań do usługi za pomocą interfejsów API.
+
+![Zarządzanie kluczami](../media/qnamaker-how-to-key-management/key-management.png)
+
+|Nazwa|Lokalizacja|Przeznaczenie|
+|--|--|--|
+|Klucz tworzenia/subskrypcji|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
+|Klucz punktu końcowego zapytania|[Portal usługi QnA Maker](https://www.qnamaker.ai)|Te klucze służą do wysyłania zapytań do opublikowanego punktu końcowego bazy wiedzy w celu uzyskania odpowiedzi na pytanie użytkownika. Ten punkt końcowy zapytania jest zazwyczaj używany w bot rozmowy lub w kodzie aplikacji klienta, który nawiązuje połączenie z usługą QnA Maker. Te klucze są tworzone podczas publikowania bazy wiedzy QnA Maker.<br><br>Te klucze znajdują się na stronie **ustawień usługi** . Znajdź Tę stronę w menu użytkownika w prawym górnym rogu strony z menu rozwijanego.|
+
+### <a name="find-authoring-keys-in-the-azure-portal"></a>Znajdź klucze tworzenia w Azure Portal
+
+Klucze tworzenia można wyświetlić i zresetować z poziomu Azure Portal, w którym został utworzony zasób QnA Maker. Te klucze mogą być określane jako klucze subskrypcji.
+
+1. Przejdź do zasobu QnA Maker w Azure Portal i wybierz zasób, który ma _Cognitive Services_ typ:
+
+    ![Lista zasobów QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
+
+2. Przejdź do **klawiszy**:
+
+    ![Klucz subskrypcji](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+
+### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Znajdowanie kluczy punktu końcowego zapytania w portalu QnA Maker
+
+Punkt końcowy znajduje się w tym samym regionie, w którym znajduje się zasób, ponieważ klucze punktów końcowych są używane do wywołania bazy wiedzy.
+
+Kluczami punktów końcowych można zarządzać z poziomu [portalu QNA Maker](https://qnamaker.ai).
+
+1. Zaloguj się do [portalu QNA Maker](https://qnamaker.ai), przejdź do swojego profilu, a następnie wybierz pozycję **Ustawienia usługi**:
+
+    ![Klucz punktu końcowego](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
+
+2. Wyświetl lub zresetuj klucze:
+
+    > [!div class="mx-imgBorder"]
+    > ![Menedżer kluczy punktu końcowego](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+
+    >[!NOTE]
+    >Odśwież klucze, jeśli uważasz, że zostały naruszone. Może to wymagać odpowiednich zmian w aplikacji klienckiej lub kodzie bot.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+Usługa Managed QnA Maker (wersja zapoznawcza) zajmuje się dwoma rodzajami kluczy: **klucze tworzenia** i **klucze wyszukiwanie poznawcze platformy Azure** używane do uzyskiwania dostępu do usługi w ramach subskrypcji klienta.
+
+Te klucze są używane podczas wykonywania żądań do usługi za pomocą interfejsów API.
+
+![Zarządzanie kluczami — wersja zapoznawcza](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
+
+|Nazwa|Lokalizacja|Przeznaczenie|
+|--|--|--|
+|Klucz tworzenia/subskrypcji|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
+|Klucz administratora usługi Azure Wyszukiwanie poznawcze|[Witryna Azure Portal](../../../search/search-security-api-keys.md)|Te klucze są używane do komunikowania się z usługą wyszukiwania poznawczego platformy Azure wdrożoną w ramach subskrypcji platformy Azure użytkownika. Po skojarzeniu wyszukiwania poznawczego platformy Azure z usługą QnA Maker Managed (wersja zapoznawcza) klucz administratora jest automatycznie przenoszona do usługi QnA Maker. <br><br>Te klucze można znaleźć w zasobie **usługi Azure wyszukiwanie poznawcze** na stronie **klucze** .|
+
+### <a name="find-authoring-keys-in-the-azure-portal"></a>Znajdź klucze tworzenia w Azure Portal
+
+Klucze tworzenia można wyświetlać i resetować z Azure Portal, w którym utworzono zasób QnA Maker Managed (wersja zapoznawcza). Te klucze mogą być określane jako klucze subskrypcji.
+
+1. Przejdź do zasobu Managed QnA Maker (wersja zapoznawcza) w Azure Portal i wybierz zasób, który ma *Cognitive Services* typ:
+
+    ![Lista zasobów z zarządzaną QnA Maker (wersja zapoznawcza)](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
+
+2. Przejdź do pozycji **klucze i punkt końcowy**:
+
+    ![Klucz subskrypcji zarządzany przez QnA Maker (wersja zapoznawcza)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
+
+### <a name="update-the-resources"></a>Aktualizowanie zasobów
+
+Dowiedz się, jak uaktualnić zasoby używane przez bazę wiedzy. QnA Maker zarządzane (wersja zapoznawcza) jest **bezpłatna** w wersji zapoznawczej. 
+
+---
+
+## <a name="management-service-region"></a>Region usługi zarządzania
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
+Usługa zarządzania QnA Maker jest używana tylko dla portalu QnA Maker i do wstępnego przetwarzania danych. Ta usługa jest dostępna tylko w regionie **zachodnie stany USA** . W tym regionie zachodnie stany USA nie są przechowywane żadne dane klienta.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+W programie QnA Maker Managed (wersja zapoznawcza) zarówno zarządzanie, jak i usługi predykcyjne, znajdują się w tym samym regionie. Obecnie QnA Maker zarządzane (wersja zapoznawcza) jest dostępna w **regionach Południowo-środkowe stany USA, Europa Północna i Australia Wschodnia**.
+
+---
+
 ## <a name="resource-naming-considerations"></a>Zagadnienia dotyczące nazewnictwa zasobów
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
@@ -224,31 +312,6 @@ Jeśli utworzysz usługę QnA i jej zależności (takie jak wyszukiwanie) w port
 
 Dowiedz się, [jak skonfigurować](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QNA Maker, aby używać innego zasobu usługi poznawczej niż ten, który został utworzony w ramach procesu tworzenia zasobu QNA Maker.
 
-## <a name="management-service-region"></a>Region usługi zarządzania
-
-Usługa zarządzania QnA Maker jest używana tylko dla portalu QnA Maker i do wstępnego przetwarzania danych. Ta usługa jest dostępna tylko w regionie **zachodnie stany USA** . W tym regionie zachodnie stany USA nie są przechowywane żadne dane klienta.
-
-## <a name="keys-in-qna-maker"></a>Klucze w QnA Maker
-
-Usługa QnA Maker obsługuje dwa rodzaje kluczy: **klucze autorstwa** i **klucze punktu końcowego zapytania** używane w środowisku uruchomieniowym hostowanym w usłudze App Service.
-
-Te klucze są używane podczas wykonywania żądań do usługi za pomocą interfejsów API.
-
-![Zarządzanie kluczami](../media/qnamaker-how-to-key-management/key-management.png)
-
-|Nazwa|Lokalizacja|Przeznaczenie|
-|--|--|--|
-|Klucz tworzenia/subskrypcji|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
-|Klucz punktu końcowego zapytania|[Portal usługi QnA Maker](https://www.qnamaker.ai)|Te klucze służą do wysyłania zapytań do opublikowanego punktu końcowego bazy wiedzy w celu uzyskania odpowiedzi na pytanie użytkownika. Ten punkt końcowy zapytania jest zazwyczaj używany w bot rozmowy lub w kodzie aplikacji klienta, który nawiązuje połączenie z usługą QnA Maker. Te klucze są tworzone podczas publikowania bazy wiedzy QnA Maker.<br><br>Te klucze znajdują się na stronie **ustawień usługi** . Znajdź Tę stronę w menu użytkownika w prawym górnym rogu strony z menu rozwijanego.|
-
-### <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci
-
-* Ochrona zasobów usługi poznawczej przed dostępem publicznym przez [skonfigurowanie sieci wirtualnej](../../cognitive-services-virtual-networks.md?tabs=portal).
-* Ochrona App Service (QnA Runtime) z dostępu publicznego:
-    * Zezwalaj na ruch tylko z adresów IP usługi poznawczej. Są one już zawarte w tagu usługi "CognitiveServicesManagement". Jest to wymagane do tworzenia interfejsów API (Utwórz/zaktualizuj KB), aby odpowiednio wywoływać usługę App Service i zaktualizować usługę Azure Search.
-    * Upewnij się, że można również zezwolić na inne punkty wejścia, takie jak usługa bot, Portal QnA Maker (może to być Corpnet) itp., aby uzyskać dostęp do interfejsu API przewidywania "GenerateAnswer".
-    * Zapoznaj się z [dodatkowymi informacjami na temat tagów usługi.](../../../virtual-network/service-tags-overview.md)
-
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 
 Nazwa zasobu QnA Maker dla zasobu zarządzanego (wersja zapoznawcza), na przykład `qna-westus-f0-b` , jest również używana do nazywania innych zasobów.
@@ -294,27 +357,6 @@ Dzięki programowi QnA Maker Managed (wersja zapoznawcza) masz możliwość skon
 ### <a name="qna-maker-resource"></a>Zasób QnA Maker
 
 Zasób zarządzany QnA Maker (wersja zapoznawcza) zapewnia dostęp do interfejsów API tworzenia i publikowania, hostuje środowisko uruchomieniowe klasyfikacji oraz udostępnia dane telemetryczne.
-
-## <a name="region-support"></a>Obsługa regionów
-
-W programie QnA Maker Managed (wersja zapoznawcza) zarówno zarządzanie, jak i usługi predykcyjne, znajdują się w tym samym regionie. Obecnie QnA Maker zarządzane (wersja zapoznawcza) jest dostępna w **regionach Południowo-środkowe stany USA, Europa Północna i Australia Wschodnia**.
-
-### <a name="keys-in-qna-maker-managed-preview"></a>Klucze w zarządzanym QnA Maker (wersja zapoznawcza)
-
-Usługa Managed QnA Maker (wersja zapoznawcza) zajmuje się dwoma rodzajami kluczy: **klucze tworzenia** i **klucze wyszukiwanie poznawcze platformy Azure** używane do uzyskiwania dostępu do usługi w ramach subskrypcji klienta.
-
-Te klucze są używane podczas wykonywania żądań do usługi za pomocą interfejsów API.
-
-![Zarządzanie kluczami — wersja zapoznawcza](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
-
-|Nazwa|Lokalizacja|Przeznaczenie|
-|--|--|--|
-|Klucz tworzenia/subskrypcji|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
-|Klucz administratora usługi Azure Wyszukiwanie poznawcze|[Witryna Azure Portal](../../../search/search-security-api-keys.md)|Te klucze są używane do komunikowania się z usługą wyszukiwania poznawczego platformy Azure wdrożoną w ramach subskrypcji platformy Azure użytkownika. Po skojarzeniu wyszukiwania poznawczego platformy Azure z usługą QnA Maker Managed (wersja zapoznawcza) klucz administratora jest automatycznie przenoszona do usługi QnA Maker. <br><br>Te klucze można znaleźć w zasobie **usługi Azure wyszukiwanie poznawcze** na stronie **klucze** .|
-
-### <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci 
-
-Ochrona zasobów usługi poznawczej przed dostępem publicznym przez [skonfigurowanie sieci wirtualnej](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ---
 

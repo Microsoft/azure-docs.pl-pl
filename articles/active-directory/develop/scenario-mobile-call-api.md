@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756471"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584401"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Wywoływanie interfejsu API sieci Web z aplikacji mobilnej
 
@@ -117,7 +117,7 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>Wykonaj kilka żądań interfejsu API
 
-Jeśli konieczne jest wywołanie tego samego interfejsu API kilka razy lub jeśli musisz wywołać wiele interfejsów API, weź pod uwagę następujące kwestie podczas kompilowania aplikacji:
+Aby wywołać ten sam interfejs API kilka razy lub wywołać wiele interfejsów API, podczas kompilowania aplikacji należy wziąć pod uwagę następujące zagadnienia:
 
 - **Przyrostowa zgoda**: platforma tożsamości firmy Microsoft umożliwia aplikacjom uzyskanie zgody użytkownika, gdy wymagane są uprawnienia, a nie wszystkie na początku. Za każdym razem, gdy aplikacja jest gotowa do wywołania interfejsu API, powinna zażądać tylko wymaganych zakresów.
 
@@ -125,7 +125,7 @@ Jeśli konieczne jest wywołanie tego samego interfejsu API kilka razy lub jeśl
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Wywoływanie kilku interfejsów API przy użyciu funkcji przyrostowej zgody i dostępu warunkowego
 
-Jeśli konieczne jest wywołanie kilku interfejsów API dla tego samego użytkownika, po uzyskaniu tokenu dla użytkownika można uniknąć wielokrotnego monitowania użytkownika o poświadczenia, wywołując `AcquireTokenSilent` do uzyskania tokenu:
+Aby wywoływać kilka interfejsów API dla tego samego użytkownika, po uzyskaniu tokenu dla użytkownika można uniknąć wielokrotnego monitowania użytkownika o poświadczenia, wywołując `AcquireTokenSilent` do pobrania token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

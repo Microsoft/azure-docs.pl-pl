@@ -13,12 +13,12 @@ ms.date: 11/23/2019
 ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 161bcb2a4276b39765361e97a4516812c26ef580
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d847e38a6114b0e5f8d56f6e994aa47dfbe929e7
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064474"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583709"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Obsługa Active Directory Federation Services w programie MSAL for Python
 
@@ -57,7 +57,7 @@ Po nawiązaniu połączenia z usługą AD FS urząd, który ma być używany do 
 
 MSAL Python obsługuje usługi ADFS 2019.
 
-Nie obsługuje bezpośredniego połączenia z usługami ADFS 2016 i ADFS v2. Jeśli musisz obsługiwać scenariusze wymagające bezpośredniego połączenia z usługami AD FS 2016, użyj najnowszej wersji środowiska Python dla biblioteki ADAL. Po uaktualnieniu systemu lokalnego do usług AD FS 2019 można użyć języka Python MSAL.
+Nie obsługuje bezpośredniego połączenia z usługami ADFS 2016 i ADFS v2. Aby obsługiwać scenariusze wymagające bezpośredniego połączenia z usługami ADFS 2016, użyj najnowszej wersji biblioteki ADAL Python. Po uaktualnieniu systemu lokalnego do usług AD FS 2019 można użyć języka Python MSAL.
 
 ## <a name="next-steps"></a>Następne kroki
 

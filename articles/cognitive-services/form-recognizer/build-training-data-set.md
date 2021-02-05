@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845597"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585113"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego
 
 W przypadku korzystania z niestandardowego modelu aparatu rozpoznawania formularzy należy zapewnić własne dane szkoleniowe do niestandardowej operacji na [modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) , dzięki czemu model będzie mógł nauczyć się na formularzach specyficznych dla branży. Postępuj zgodnie z tym przewodnikiem, aby dowiedzieć się, jak zbierać i przygotowywać dane w celu skutecznego uczenia modelu.
 
-W przypadku szkoleń bez etykiet ręcznych można użyć pięciu wypełnionych formularzy lub pustego formularza (w nazwie pliku musi znajdować się słowo "Empty") oraz dwie wypełnione formularze. Nawet jeśli masz wystarczającą liczbę wypełnionych formularzy, dodanie pustego formularza do zestawu danych szkoleniowych może poprawić dokładność modelu.
+Potrzebujesz co najmniej pięciu wypełnionych formularzy tego samego typu.
 
-Jeśli chcesz używać ręcznie etykietowanych danych szkoleniowych, musisz zacząć od co najmniej pięciu wypełnionych formularzy tego samego typu. Oprócz wymaganego zestawu danych można nadal używać formularzy bez etykiet i pustego formularza.
+Jeśli chcesz używać ręcznie etykietowanych danych szkoleniowych, musisz zacząć od co najmniej pięciu wypełnionych formularzy tego samego typu. Oprócz wymaganego zestawu danych można nadal używać formularzy bez etykiet.
 
 ## <a name="custom-model-input-requirements"></a>Wymagania dotyczące danych wejściowych modelu niestandardowego
 
@@ -75,6 +75,6 @@ Teraz, gdy wiesz już, jak utworzyć zestaw danych szkoleniowych, postępuj zgod
 * [Uczenie modelu i wyodrębnianie danych formularza przy użyciu biblioteki klienta lub interfejsu API REST](./quickstarts/client-library.md)
 * [Uczenie z etykietami przy użyciu narzędzia do etykietowania przykładowego](./quickstarts/label-tool.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)

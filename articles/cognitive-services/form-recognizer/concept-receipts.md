@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792086"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585045"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Model odbioru prekompilowanego aparatu rozpoznawania formularzy
 
@@ -467,9 +467,9 @@ Interfejs API paragonu zapewnia również [funkcję przetwarzania paragonów pro
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Ukończ [Przewodnik Szybki Start dla aparatu rozpoznawania formularzy](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania dokumentów z użyciem aparatu rozpoznawania formularzy w wybranym języku.
+- Ukończ [Przewodnik Szybki Start dla aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania paragonów za pomocą aparatu rozpoznawania formularzy w wybranym języku programistycznym.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
 * [Dokumentacja interfejsu API REST](./index.yml)

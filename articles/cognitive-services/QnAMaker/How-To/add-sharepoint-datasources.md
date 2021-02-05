@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 36724e518f1bae636c2d2602a227b53a11257591
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0832b54e02cabecb0b1f0e7af600b8adc621a8b0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791058"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584774"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Dodawanie bezpiecznego źródła danych programu SharePoint do bazy wiedzy
 
@@ -132,8 +132,8 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 Istnieje obejście, aby dodać najnowszą zawartość programu SharePoint za pośrednictwem interfejsu API za pomocą usługi Azure Blob Storage, poniżej przedstawiono następujące czynności: 
 1.  Pobierz lokalnie pliki programu SharePoint. Użytkownik wywołujący interfejs API musi mieć dostęp do programu SharePoint. 
-1.  Przekaż je do usługi Azure Blob stoarge. Spowoduje to utworzenie bezpiecznego dostępu współdzielonego przy [użyciu tokenu SAS.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
-1. Przekaż adres URL obiektu BLOB wygenerowany przy użyciu tokenu SAS do interfejs API usługi QnA Maker. Aby zezwolić na wyodrębnianie odpowiedzi pytań z plików, należy dodać typ pliku sufiksu jako "&EXT = PDF" lub "&EXT = doc" na końcu adresu URL przed przekazaniem go do interfejs API usługi QnA Maker>  
+1.  Przekaż je do usługi Azure Blob Storage. Spowoduje to utworzenie bezpiecznego dostępu współdzielonego przy [użyciu tokenu SAS.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
+1. Przekaż adres URL obiektu BLOB wygenerowany przy użyciu tokenu SAS do interfejs API usługi QnA Maker. Aby zezwolić na wyodrębnianie odpowiedzi pytań z plików, należy dodać typ pliku sufiksu jako "&EXT = PDF" lub "&EXT = doc" na końcu adresu URL przed przekazaniem go do interfejs API usługi QnA Maker.
 
 
 <!--

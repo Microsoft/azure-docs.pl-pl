@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5bccc39144186b23cc7f9fedf02e5b9d84ea2ee4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d477c419bb677a6b8f24a3aae26c403e47cc96cb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063556"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583946"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Tworzenie wystąpienia poufnej aplikacji klienckiej z opcjami konfiguracji przy użyciu MSAL.NET
 
@@ -60,7 +60,7 @@ Konfiguracja aplikacji ASP.NET Core jest opisana w *appsettings.js* pliku:
 
 Począwszy od MSAL.NET v3. x, możesz skonfigurować poufną aplikację kliencką z pliku konfiguracyjnego.
 
-W klasie, w której chcesz skonfigurować i utworzyć wystąpienie aplikacji, należy zadeklarować `ConfidentialClientApplicationOptions` obiekt.  Powiąż konfigurację odczytaną ze źródła (w tym appconfig.jsw pliku) z wystąpieniem opcji aplikacji przy użyciu `IConfigurationRoot.Bind()` metody z [Microsoft.Extensions.Configwersja. Pakiet NuGet spinacza](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+W klasie, w której chcesz skonfigurować i utworzyć wystąpienie aplikacji, zadeklaruj `ConfidentialClientApplicationOptions` obiekt.  Powiąż konfigurację odczytaną ze źródła (w tym appconfig.jsw pliku) z wystąpieniem opcji aplikacji przy użyciu `IConfigurationRoot.Bind()` metody z [Microsoft.Extensions.Configwersja. Pakiet NuGet spinacza](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;

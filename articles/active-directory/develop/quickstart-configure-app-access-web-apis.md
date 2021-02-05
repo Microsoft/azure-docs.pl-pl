@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 460c96ddb06318cacd4e436190f459e4c060536e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012125"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583692"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Szybki Start: Konfigurowanie aplikacji klienckiej w celu uzyskania dostępu do internetowego interfejsu API
 
@@ -110,7 +110,7 @@ Niektóre uprawnienia, takie jak *pliki Microsoft Graph. Read. All* , wymagają 
 
 ### <a name="configure-client-credentials"></a>Konfigurowanie poświadczeń klienta
 
-Aplikacje korzystające z uprawnień aplikacji są uwierzytelniane jako same przy użyciu własnych poświadczeń, bez konieczności interakcji z użytkownikiem. Zanim aplikacja (lub interfejs API) będzie mogła uzyskać dostęp do Microsoft Graph, własnego interfejsu API sieci Web lub innego interfejsu API za pomocą uprawnień aplikacji, należy skonfigurować te poświadczenia aplikacji klienta.
+Aplikacje korzystające z uprawnień aplikacji są uwierzytelniane jako same przy użyciu własnych poświadczeń, bez konieczności interakcji z użytkownikiem. Zanim aplikacja (lub interfejs API) będzie mogła uzyskać dostęp do Microsoft Graph, własnego interfejsu API sieci Web lub innego interfejsu API za pomocą uprawnień aplikacji, należy skonfigurować poświadczenia tej aplikacji klienta.
 
 Aby uzyskać więcej informacji na temat konfigurowania poświadczeń aplikacji, zobacz sekcję [Dodawanie poświadczeń](quickstart-register-app.md#add-credentials) w [przewodniku szybki start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md).
 

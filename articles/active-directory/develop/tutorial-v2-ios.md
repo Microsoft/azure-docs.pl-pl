@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c9e4997ad08f2dd1d96dd442f80ad4203abf6261
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 5734844d91e95fe7d4081e5986095934ea02b4fd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015890"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584284"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Samouczek: Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -81,7 +81,7 @@ Jeśli chcesz pobrać kompletną wersję aplikacji skompilowanej w ramach tego s
 1. W obszarze **Zarządzanie** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**  >  **iOS/macOS**.
 1. Wprowadź identyfikator pakietu projektu. Jeśli pobrano kod, jest to `com.microsoft.identitysample.MSALiOS` . Jeśli tworzysz własny projekt, wybierz projekt w Xcode i Otwórz kartę **Ogólne** . Identyfikator pakietu zostanie wyświetlony w sekcji **tożsamość** .
 1. Wybierz pozycję **Konfiguruj** i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **Konfiguracja MSAL** , tak aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji. 
-1. Wybierz pozycję **Gotowe**.
+1. Kliknij **Gotowe**.
 
 ## <a name="add-msal"></a>Dodaj MSAL
 
@@ -155,7 +155,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-Jedyną wartością, którą należy zmodyfikować powyżej, jest wartość przypisana do `kClientID` tego [identyfikatora aplikacji](./developer-glossary.md#application-id-client-id). Ta wartość jest częścią danych konfiguracji MSAL, które zostały zapisane w ramach kroku na początku tego samouczka, aby zarejestrować aplikację w Azure Portal.
+Jedyna wartość, którą modyfikujesz, to wartość przypisana do `kClientID` tego [identyfikatora aplikacji](./developer-glossary.md#application-id-client-id). Ta wartość jest częścią danych konfiguracji MSAL, które zostały zapisane w ramach kroku na początku tego samouczka, aby zarejestrować aplikację w Azure Portal.
 
 ## <a name="configure-xcode-project-settings"></a>Konfigurowanie ustawień projektu Xcode
 
