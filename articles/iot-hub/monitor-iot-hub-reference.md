@@ -5,13 +5,14 @@ author: robinsh
 ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
+ms.custom: subject-monitoring
 ms.date: 10/22/2020
-ms.openlocfilehash: 609c44991e7deca183321758fabdef80b71210c5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f198b59f106b7d2a29e35d77b54274328be6fa93
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460852"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581605"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Monitorowanie danych IoT Hub platformy Azure
 
@@ -57,7 +58,7 @@ W przypadku większości metryk wszystkie typy agregacji są prawidłowe; Jednak
 
 ### <a name="cloud-to-device-command-metrics"></a>Metryki poleceń z chmury do urządzenia
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Komunikaty C2D wygasły (wersja zapoznawcza)|C2DMessagesExpired|Liczba|Łącznie|Liczba wygasłych komunikatów z chmury do urządzenia|Brak|
 |Zakończono dostarczanie komunikatów C2D|C2D. Commands. wyjście. Complete. Success|Liczba|Łącznie|Liczba dostaw komunikatów z chmury do urządzenia ukończonych pomyślnie przez urządzenie|Brak|
@@ -68,18 +69,18 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 ### <a name="cloud-to-device-direct-methods-metrics"></a>Metryki metod bezpośrednich z chmury do urządzenia
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Nieudane wywołania metody bezpośredniej|C2D. Methods. Failure|Liczba|Łącznie|Liczba wszystkich wywołań metod bezpośrednich zakończonych niepowodzeniem.|Brak|
 |Rozmiar żądania wywołań metody bezpośredniej|C2D. Methods. requestSize|Bajty|Średnia|Liczba wszystkich pomyślnych żądań metody bezpośredniej.|Brak|
 |Rozmiar odpowiedzi wywołań metody bezpośredniej|C2D. Methods. responseSize|Bajty|Średnia|Liczba wszystkich pomyślnych odpowiedzi metody bezpośredniej.|Brak|
 |Pomyślne wywołania metody bezpośredniej|C2D. Methods. Success|Liczba|Łącznie|Liczba wszystkich pomyślnych wywołań metody bezpośredniej.|Brak|
 
-W przypadku metryk z wartością **jednostkową** agregacji Total (suma) jest prawidłowa. **Count** Agregacje minimalna, maksymalna i średnia zawsze zwracają wartość 1. Aby uzyskać więcej informacji, zobacz [obsługiwane agregacje](#supported-aggregations).
+W przypadku metryk z wartością **jednostkową** agregacji Total (suma) jest prawidłowa.  Agregacje minimalna, maksymalna i średnia zawsze zwracają wartość 1. Aby uzyskać więcej informacji, zobacz [obsługiwane agregacje](#supported-aggregations).
 
 ### <a name="cloud-to-device-twin-operations-metrics"></a>Metryki operacji w chmurze do urządzenia
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Nieudane odczyty sznurów z zaplecza|C2D. splot. Read. Failure|Liczba|Łącznie|Liczba wszystkich zakończonych niepowodzeniem odczytów dwuosiowych zainicjowanych z powrotem.|Brak|
 |Niepowodzenie aktualizacji bliźniaczych z zaplecza|C2D. splot. Update. Failure|Liczba|Łącznie|Liczba wszystkich niezakończonych niepowodzeniem aktualizacji typu bliźniaczych zainicjowanych z powrotem.|Brak|
@@ -92,7 +93,7 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 ### <a name="configurations-metrics"></a>Metryki konfiguracji
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Metryki konfiguracji|komputerów|Liczba|Łącznie|Łączna liczba operacji CRUD wykonanych na potrzeby konfigurowania urządzeń i wdrażania IoT Edge na zestawie urządzeń docelowych. Obejmuje to również liczbę operacji modyfikujących sznurki lub sznurki urządzenia ze względu na te konfiguracje.|Brak|
 
@@ -100,7 +101,7 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 ### <a name="daily-quota-metrics"></a>Metryki dziennego limitu przydziału
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Całkowite użycie danych urządzenia|deviceDataUsage|Bajty|Łącznie|Bajty przesłane do i z dowolnych urządzeń podłączonych do usługi IotHub|Brak|
 |Całkowite użycie danych urządzenia (wersja zapoznawcza)|deviceDataUsageV2|Bajty|Łącznie|Bajty przesłane do i z dowolnych urządzeń podłączonych do usługi IotHub|Brak|
@@ -110,7 +111,7 @@ W przypadku *całkowitej liczby użytych komunikatów* obsługiwane są tylko ag
 
 ### <a name="device-metrics"></a>Metryki urządzeń
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Łączna liczba urządzeń (przestarzałe)|Devices. totalDevices|Liczba|Łącznie|Liczba urządzeń zarejestrowanych w usłudze IoT Hub|Brak|
 |Podłączone urządzenia (przestarzałe) |Devices. connectedDevices. allProtocol|Liczba|Łącznie|Liczba urządzeń podłączonych do centrum IoT Hub|Brak|
@@ -125,7 +126,7 @@ W przypadku *łącznej liczby urządzeń (wersja zapoznawcza)* i *podłączonych
 
 ### <a name="device-telemetry-metrics"></a>Metryki telemetrii urządzenia
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Liczba błędów ograniczania|D2C. telemetrię. sendThrottle|Liczba|Łącznie|Liczba błędów ograniczania z powodu ograniczeń przepływności urządzenia|Brak|
 |Próby wysłania komunikatów telemetrycznych|D2C. telemetrię. allProtocol|Liczba|Łącznie|Liczba komunikatów telemetrycznych z urządzenia do chmury, które próbowano wysłać do centrum IoT Hub|Brak|
@@ -135,7 +136,7 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 ### <a name="device-to-cloud-twin-operations-metrics"></a>Metryki dotyczące urządzeń z przędzą w chmurze
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Nieudane odczyty sznurów z urządzeń|D2C. splot. Read. Failure|Liczba|Łącznie|Liczba wszystkich nieudanych operacji zainicjowanych przez urządzenie.|Brak|
 |Niepowodzenie aktualizacji bliźniaczych z urządzeń|D2C. splot. Update. Failure|Liczba|Łącznie|Liczba wszystkich niezakończonych niepowodzeniem aktualizacji dwuosiowych zainicjowanych przez urządzenie.|Brak|
@@ -148,7 +149,7 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 ### <a name="event-grid-metrics"></a>Metryki dotyczące siatki zdarzeń
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Dostawy Event Grid (wersja zapoznawcza)|EventGridDeliveries|Liczba|Łącznie|Liczba zdarzeń IoT Hub opublikowanych do Event Grid. Użyj wymiaru wynik dla liczby żądań zakończonych powodzeniem i niepowodzeniem. Wymiar EventType przedstawia typ zdarzenia ( https://aka.ms/ioteventgrid) .|Wynik:<br/>Typ zdarzenia<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)*.|
 |Opóźnienie Event Grid (wersja zapoznawcza)|EventGridLatency|)|Średnia|Średnie opóźnienie (w milisekundach) od momentu wygenerowania zdarzenia usługi IoT Hub po opublikowaniu zdarzenia w Event Grid. Ta liczba jest średnia między wszystkimi typami zdarzeń. Użyj wymiaru EventType, aby zobaczyć opóźnienie określonego typu zdarzenia.|Typ zdarzenia<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)*.|
@@ -157,7 +158,7 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 ### <a name="jobs-metrics"></a>Metryki zadań
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Ukończone zadania|zadania. ukończone|Liczba|Łącznie|Liczba wszystkich ukończonych zadań.|Brak|
 |Wywołania zakończone niepowodzeniem do listy zadań|Jobs. listJobs. Failure|Liczba|Łącznie|Liczba wszystkich wywołań zakończonych niepowodzeniem w celu wyświetlenia listy zadań.|Brak|
@@ -176,7 +177,7 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 ### <a name="routing-metrics"></a>Metryki routingu
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 | Próby dostarczania routingu (wersja zapoznawcza) |RoutingDeliveries | Liczba | Łącznie |Jest to metryka dostarczania routingu. Wymiary służą do identyfikowania stanu dostawy dla określonego punktu końcowego lub dla określonego źródła routingu.| Wynik:<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)*. |
 | Rozmiar danych dostarczania routingu (w bajtach) (wersja zapoznawcza)|RoutingDataSizeInBytesDelivered| Bajty | Łącznie |Całkowita liczba bajtów kierowanych przez IoT Hub do niestandardowego punktu końcowego i wbudowanego punktu końcowego. Wymiary umożliwiają identyfikowanie rozmiaru danych kierowanych do określonego punktu końcowego lub dla określonego źródła routingu.| RoutingSource,<br>Punkt końcowy<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)*.|
@@ -203,7 +204,7 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 ### <a name="twin-query-metrics"></a>Metryki zapytań bliźniaczych
 
-|Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
+|Nazwa wyświetlana metryki|Metric|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Niepowodzenie zapytań bliźniaczych|twinQueries. Failure|Liczba|Łącznie|Liczba wszystkich zakończonych niepowodzeniem zapytań bliźniaczych.|Brak|
 |Pomyślne zapytania bliźniaczy|twinQueries. Success|Liczba|Łącznie|Liczba wszystkich udanych zapytań bliźniaczych.|Brak|

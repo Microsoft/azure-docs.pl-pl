@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a1ec8c31681ab6c0ac40ba33e94f33057ee948e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754808"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580850"
 ---
 # <a name="differences-between-msaljs-and-adaljs"></a>Różnice między MSAL.js i ADAL.js
 
@@ -48,7 +48,7 @@ Jednak nadal musisz używać ADAL.js, jeśli aplikacja musi zalogować się uży
 
 W wersji 1.0 korzystanie z `https://login.microsoftonline.com/common` urzędu umożliwi użytkownikom logowanie się przy użyciu dowolnego konta usługi Azure AD (dla dowolnej organizacji).
 
-W wersji 2.0 przy użyciu `https://login.microsoftonline.com/common` urzędu użytkownicy będą mogli zalogować się przy użyciu dowolnego konta organizacji usługi Azure AD lub konta osobistego firmy Microsoft (MSA). Aby ograniczyć logowanie tylko do kont usługi Azure AD (takie samo zachowanie jak w przypadku ADAL.js), musisz użyć programu `https://login.microsoftonline.com/organizations` . Aby uzyskać szczegółowe informacje, zobacz `authority` Opcje konfiguracji w sekcji [Inicjowanie przy użyciu MSAL.js](msal-js-initializing-client-applications.md).
+W wersji 2.0 przy użyciu `https://login.microsoftonline.com/common` urzędu użytkownicy będą mogli zalogować się przy użyciu dowolnego konta organizacji usługi Azure AD lub konta osobistego firmy Microsoft (MSA). Aby ograniczyć logowanie tylko do kont usługi Azure AD (takie samo zachowanie jak w przypadku ADAL.js), użyj programu `https://login.microsoftonline.com/organizations` . Aby uzyskać szczegółowe informacje, zobacz `authority` Opcje konfiguracji w sekcji [Inicjowanie przy użyciu MSAL.js](msal-js-initializing-client-applications.md).
 
 ### <a name="scopes-for-acquiring-tokens"></a>Zakresy do pozyskiwania tokenów
 * Zakres zamiast parametru zasobu w żądaniach uwierzytelnienia w celu uzyskania tokenów

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 1/29/2021
-ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 2/05/2021
+ms.openlocfilehash: abd47a17392e53770802b61e4ee6561252cc4c1e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063083"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581571"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -79,6 +79,9 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
 
 1. Zapisz wersję roboczą przed kontynuowaniem.
 1. Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji. W prawym górnym rogu wybierz pozycję **Przejrzyj i Opublikuj**. Przejrzyj szczegóły oferty, a następnie wybierz pozycję **Publikuj**.
+
+> [!NOTE]
+> Nie musisz już kontaktować się z nami, aby wyznaczyć swoją ofertę na potrzeby współsprzedaży. Po wykonaniu wszystkich wymaganych pól na stronie współsprzedaży ze stroną firmy Microsoft i ponownym opublikowaniu oferty będziemy przeglądać ofertę, aby określić, czy spełnia ona wymagania dotyczące stanu współsprzedaży.
 
 ## <a name="see-your-offers-co-sell-status"></a>Zobacz stan współsprzedaży oferty
 

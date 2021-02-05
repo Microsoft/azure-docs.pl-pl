@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761375"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580942"
 ---
 # <a name="application-configuration-options"></a>Opcje konfiguracji aplikacji
 
@@ -73,7 +73,7 @@ Jeśli nie określisz wystąpienia, aplikacja będzie ukierunkowana na wystąpie
 
 Odbiorcy logowania zależą od potrzeb firmy dla Twojej aplikacji:
 
-- Jeśli jesteś deweloperem biznesowym (LOB), prawdopodobnie utworzysz aplikację z jedną dzierżawą, która będzie używana tylko w organizacji. W takim przypadku należy określić organizację jako identyfikator dzierżawy (identyfikator wystąpienia usługi Azure AD) lub nazwę domeny skojarzoną z wystąpieniem usługi Azure AD.
+- Jeśli jesteś deweloperem biznesowym (LOB), prawdopodobnie utworzysz aplikację z jedną dzierżawą, która będzie używana tylko w organizacji. W takim przypadku należy określić organizację według identyfikatora dzierżawy (identyfikatora wystąpienia usługi Azure AD) lub nazwy domeny skojarzonej z wystąpieniem usługi Azure AD.
 - Jeśli jesteś dostawcą niezależnego dostawcy oprogramowania, możesz chcieć zalogować użytkowników przy użyciu kont służbowych w dowolnej organizacji lub w niektórych organizacjach (aplikacji wielodostępnej). Może jednak być również konieczne zalogowanie się przy użyciu osobistych kont Microsoft.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Jak określić odbiorców w kodzie/konfiguracji
@@ -122,9 +122,9 @@ Jeśli jesteś publicznym deweloperem aplikacji klienta korzystającym z usługi
   | Platforma UWP | wartość `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Umożliwia to Logowanie jednokrotne w przeglądarce przez ustawienie wartości na wynik WebAuthenticationBroker. GetCurrentApplicationCallbackUri (), który należy zarejestrować. |
   | .NET Core | `https://localhost`. Umożliwia to użytkownikowi korzystanie z przeglądarki systemu na potrzeby uwierzytelniania interaktywnego, ponieważ program .NET Core nie ma obecnie interfejsu użytkownika dla osadzonego widoku sieci Web. |
 
-- Nie musisz dodawać identyfikatora URI przekierowania, jeśli tworzysz aplikację platformy Xamarin dla systemu Android i iOS, która nie obsługuje brokera (identyfikator URI przekierowania jest automatycznie ustawiany na `msal{ClientId}://auth` dla platformy Xamarin Android i iOS
+- Nie musisz dodawać identyfikatora URI przekierowania, jeśli tworzysz aplikację platformy Xamarin Android i iOS, która nie obsługuje identyfikatora URI przekierowania brokera. Zostanie ona automatycznie ustawiona na `msal{ClientId}://auth` potrzeby platformy Xamarin Android i iOS.
 
-- Należy skonfigurować identyfikator URI przekierowania w [rejestracje aplikacji](https://aka.ms/appregistrations):
+- Skonfiguruj identyfikator URI przekierowania w [rejestracje aplikacji](https://aka.ms/appregistrations):
 
    ![Identyfikator URI przekierowania w Rejestracje aplikacji](media/msal-client-application-configuration/redirect-uri.png)
 

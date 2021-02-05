@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 92d0dad86b3f048eb96dd7b17ed09f6e20d7cde2
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 812bf7bd68362667fcd1b636d0d28fdbb21c1409
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063301"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582353"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Scenariusze wymiany tokenów platformy tożsamości firmy Microsoft z użyciem protokołu SAML i OIDC/OAuth
 
 Protokoły SAML i OpenID Connect Connect (OIDC)/OAuth są popularnymi protokołami używanymi do implementowania jednego Sign-On (SSO). Niektóre aplikacje mogą implementować tylko protokół SAML, a inne mogą implementować tylko OIDC/OAuth. Oba protokoły używają tokenów do przekazywania kluczy tajnych. Aby dowiedzieć się więcej na temat protokołu SAML, zobacz [Single Sign-On SAML Protocol](single-sign-on-saml-protocol.md). Aby dowiedzieć się więcej na temat OIDC/OAuth, zobacz [protokoły uwierzytelniania oauth 2,0 i OpenID Connect na platformie tożsamości firmy Microsoft](active-directory-v2-protocols.md).
 
-W tym artykule opisano typowy scenariusz, w którym aplikacja implementuje protokół SAML, ale należy wywołać interfejs API programu Graph, który używa OIDC/OAuth. Dla osób pracujących nad tym scenariuszem są udostępniane podstawowe wskazówki.
+W tym artykule opisano typowy scenariusz, w którym aplikacja implementuje język SAML, ale wywołuje interfejs API programu Graph, która używa OIDC/OAuth. Dla osób pracujących nad tym scenariuszem są udostępniane podstawowe wskazówki.
 
 ## <a name="scenario-you-have-a-saml-token-and-want-to-call-the-graph-api"></a>Scenariusz: masz token SAML i chcesz wywołać interfejs API programu Graph
 Wiele aplikacji jest implementowanych przy użyciu protokołu SAML. Jednak interfejs API programu Graph używa protokołów OIDC/OAuth. Aby dodać funkcje OIDC/OAuth do aplikacji SAML, istnieje możliwość, że nie jest prosta. Gdy w aplikacji jest dostępna funkcja OAuth, interfejs API programu Graph może być używana.

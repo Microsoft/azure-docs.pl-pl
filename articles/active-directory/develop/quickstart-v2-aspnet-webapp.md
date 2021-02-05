@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 420415cc3bc2228a104ccf054098543bf04847b0
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 6e8aad3e9dc91b2d9b014c0e3c8602bd0576e82e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225769"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583607"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Szybki Start: Dodawanie logowania do platformy tożsamości firmy Microsoft do aplikacji sieci Web ASP.NET
 
@@ -59,7 +59,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
-> Ten przykładowy kod w tym przewodniku Szybki Start wymaga **identyfikatora URI przekierowania** o wartości `https://localhost:44368/` .
+> Aby uzyskać przykładowy kod w tym przewodniku szybki start do pracy, Dodaj **Identyfikator URI przekierowania** `https://localhost:44368/` .
 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź tę zmianę automatycznie]()
@@ -179,7 +179,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Ustawienie to `ValidateIssuer = false` uproszczenie dla tego przewodnika Szybki Start. W rzeczywistych aplikacjach należy sprawdzić poprawność wystawcy.
+> Ustawienie to `ValidateIssuer = false` uproszczenie dla tego przewodnika Szybki Start. W rzeczywistych aplikacjach Sprawdź poprawność wystawcy.
 > Zapoznaj się z przykładami, aby dowiedzieć się, jak to zrobić.
 
 ### <a name="initiate-an-authentication-challenge"></a>Inicjowanie żądania uwierzytelnienia

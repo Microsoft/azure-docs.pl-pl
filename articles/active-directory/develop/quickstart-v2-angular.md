@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 0de3c46eba0b9364e38c4a952a320ac1c3de512f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225803"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583573"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w jednostronicowej aplikacji pojedynczej
 
@@ -53,7 +53,7 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który demon
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w Azure Portal
-> Aby przykład kodu dla tego przewodnika szybkiego startu działał, należy dodać identyfikator URI przekierowania **http://localhost:4200/** i włączyć * * * * niejawne przyznanie * *.
+> Aby przykład kodu w tym przewodniku szybki start działał, należy dodać identyfikator URI przekierowania **http://localhost:4200/** i włączyć **niejawny** przydział.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź zmiany automatycznie]()
 >

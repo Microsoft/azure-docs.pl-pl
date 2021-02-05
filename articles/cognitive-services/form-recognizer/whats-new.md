@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: f6d610db01b465306cdaaafa9b1308dba63ff9ca
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a8eecabe71cb439949f7e0638c7339eb31b08500
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936156"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581265"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -209,8 +209,8 @@ Odpowiedzi JSON dla wszystkich wywołań interfejsu API mają nowe formaty. Niek
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ukończ [Przewodnik Szybki Start](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji przetwarzania formularzy przy użyciu aparatu rozpoznawania formularzy w wybranym języku.
+Ukończ [Przewodnik Szybki Start](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji przetwarzającej formularze przy użyciu aparatu rozpoznawania formularzy w wybranym języku programistycznym.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)

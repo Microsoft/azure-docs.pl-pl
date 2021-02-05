@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95752794"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582812"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Ograniczenia i ograniczenia URI przekierowania (adres URL odpowiedzi)
 
@@ -45,7 +45,7 @@ Dla każdego identyfikatora URI przekierowania, który można dodać do rejestra
 
 Model aplikacji Azure Active Directory (Azure AD) obsługuje obecnie zarówno schematy HTTP, jak i HTTPS dla aplikacji, które logują się w ramach konta służbowego w ramach dzierżawy usługi Azure AD w organizacji. Te typy kont są określane przez `AzureADMyOrg` wartości i `AzureADMultipleOrgs` w `signInAudience` polu manifestu aplikacji. W przypadku aplikacji, które logują się do osobistych kont Microsoft (MSA) *i* kont służbowych (czyli `signInAudience` ustawionych jako `AzureADandPersonalMicrosoftAccount` ), dozwolony jest tylko schemat https.
 
-Aby dodać identyfikatory URI przekierowania ze schematem HTTP do rejestracji aplikacji, które logują się do konta służbowego, należy użyć edytora manifestu aplikacji w [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) w Azure Portal. Jednak chociaż można ustawić identyfikator URI przekierowania oparty na protokole HTTP przy użyciu edytora manifestu, *zdecydowanie* zalecamy użycie schematu HTTPS dla identyfikatorów URI przekierowania.
+Aby dodać identyfikatory URI przekierowania ze schematem HTTP do rejestracji aplikacji, które logują się do kont służbowych, użyj edytora manifestu aplikacji w [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) w Azure Portal. Jednak chociaż można ustawić identyfikator URI przekierowania oparty na protokole HTTP przy użyciu edytora manifestu, *zdecydowanie* zalecamy użycie schematu HTTPS dla identyfikatorów URI przekierowania.
 
 ## <a name="localhost-exceptions"></a>Wyjątki localhost
 
@@ -65,7 +65,7 @@ Z punktu widzenia projektowania oznacza to kilka rzeczy:
 * Nie należy rejestrować wielu identyfikatorów URI przekierowania, gdy tylko port jest różny. Serwer logowania wybiera arbitralnie i użyje zachowania skojarzonego z tym identyfikatorem URI przekierowania (na przykład, czy jest to `web` -, `native` -lub `spa` przekierowania).
 
     Jest to szczególnie ważne, gdy chcesz użyć różnych przepływów uwierzytelniania w tej samej rejestracji aplikacji, na przykład w przypadku przydzielenia kodu autoryzacji i niejawnego przepływu. Aby skojarzyć poprawne zachowanie odpowiedzi z każdym identyfikatorem URI przekierowania, serwer logowania musi być w stanie rozróżnić identyfikatory URI przekierowania i nie może tego zrobić, gdy tylko port jest różny.
-* Jeśli zachodzi potrzeba zarejestrowania wielu identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI. Na przykład `http://localhost/MyWebApp` nie są zgodne `http://localhost/MyNativeApp` .
+* Aby zarejestrować wiele identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI. Na przykład `http://localhost/MyWebApp` nie są zgodne `http://localhost/MyNativeApp` .
 * Adres sprzężenia zwrotnego IPv6 ( `[::1]` ) nie jest obecnie obsługiwany.
 
 #### <a name="prefer-127001-over-localhost"></a>Preferuj adres 127.0.0.1 przez localhost
@@ -84,7 +84,7 @@ Identyfikatory URI z symbolami wieloznacznymi `https://*.contoso.com` mogą pozo
 
 Symbole wieloznaczne nie są obecnie obsługiwane w rejestracjach aplikacji skonfigurowanych do logowania osobistych kont Microsoft i kont służbowych. Symbole wieloznaczne są dozwolone, jednak w przypadku aplikacji skonfigurowanych do logowania tylko kont służbowych w dzierżawie usługi Azure AD w organizacji.
 
-Aby dodać identyfikatory URI przekierowania z symbolami wieloznacznymi do rejestracji aplikacji, które logują się do konta służbowego, należy użyć edytora manifestu aplikacji w [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) w Azure Portal. Chociaż istnieje możliwość ustawienia identyfikatora URI przekierowania z symbolem wieloznacznym przy użyciu edytora manifestu, *zdecydowanie* zalecamy przestrzeganie [sekcji 3.1.2 RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) i użycie tylko bezwzględnych identyfikatorów URI.
+Aby dodać identyfikatory URI przekierowania z symbolami wieloznacznymi do rejestracji aplikacji, które logują się na kontach służbowych, użyj edytora manifestu aplikacji w [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) w Azure Portal. Chociaż istnieje możliwość ustawienia identyfikatora URI przekierowania z symbolem wieloznacznym przy użyciu edytora manifestu, *zdecydowanie* zalecamy przestrzeganie [sekcji 3.1.2 RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) i użycie tylko bezwzględnych identyfikatorów URI.
 
 Jeśli scenariusz wymaga więcej identyfikatorów URI przekierowania niż maksymalny dozwolony limit, rozważ użycie następującego [parametru stanu](#use-a-state-parameter) zamiast dodawania wieloznacznego identyfikatora URI przekierowania.
 

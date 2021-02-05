@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 4f87c3fd0cfda2db535b2c8f7f7330a273e6b767
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 825a7d8c53552120a861657c7f3df7ae8f488c18
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755335"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581724"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Instrukcje: Logowanie się dowolnego użytkownika usługi Azure Active Directory za pomocą wzorca aplikacji wielodostępnych
 
@@ -125,7 +125,7 @@ Uprawnienia dotyczące tylko aplikacji zawsze wymagają zgody administratora dzi
 
 Niektóre uprawnienia delegowane wymagają również zgody administratora dzierżawy. Na przykład możliwość zapisu zwrotnego w usłudze Azure AD jako zalogowany użytkownik wymaga zgody administratora dzierżawy. Podobnie jak uprawnienia tylko do aplikacji, jeśli zwykły użytkownik próbuje zalogować się do aplikacji, która żąda delegowanego uprawnienia, które wymaga zgody administratora, aplikacja otrzymuje błąd. Niezależnie od tego, czy uprawnienie wymaga zgody administratora, jest określane przez dewelopera, który opublikował zasób, i można je znaleźć w dokumentacji dotyczącej zasobu. Dokumentacja dotycząca uprawnień dla [interfejsu API Microsoft Graph][MSFT-Graph-permission-scopes] wskazuje, które uprawnienia wymagają zgody administratora.
 
-Jeśli aplikacja korzysta z uprawnień, które wymagają zgody administratora, należy mieć gest, taki jak przycisk lub link, w którym administrator może zainicjować akcję. Żądanie wysyłane przez aplikację dla tej akcji to zwykłe żądanie autoryzacji OAuth2/OpenID Connect połączenia, które zawiera również `prompt=admin_consent` parametr ciągu zapytania. Gdy administrator wyraził zgodę, a jednostka usługi zostanie utworzona w dzierżawie klienta, kolejne żądania logowania nie potrzebują `prompt=admin_consent` parametru. Ze względu na to, że administrator zdecydował się, że żądane uprawnienia są akceptowalne, żaden inny użytkownik w dzierżawie nie zostanie poproszony o zgodę od tego momentu.
+Jeśli aplikacja korzysta z uprawnień, które wymagają zgody administratora, powinien mieć gest, taki jak przycisk lub link, w którym administrator może zainicjować akcję. Żądanie wysyłane przez aplikację dla tej akcji to zwykłe żądanie autoryzacji OAuth2/OpenID Connect połączenia, które zawiera również `prompt=admin_consent` parametr ciągu zapytania. Gdy administrator wyraził zgodę, a jednostka usługi zostanie utworzona w dzierżawie klienta, kolejne żądania logowania nie potrzebują `prompt=admin_consent` parametru. Ze względu na to, że administrator zdecydował się, że żądane uprawnienia są akceptowalne, żaden inny użytkownik w dzierżawie nie zostanie poproszony o zgodę od tego momentu.
 
 Administrator dzierżawy może wyłączyć możliwość wyrażania zgody na aplikacje przez zwykłych użytkowników. Jeśli ta funkcja jest wyłączona, zgoda administratora jest zawsze wymagana do używania aplikacji w dzierżawie. Jeśli chcesz przetestować aplikację z wyłączoną zgodą użytkownika końcowego, możesz znaleźć przełącznik konfiguracji w [Azure Portal][AZURE-portal] w sekcji **[Ustawienia użytkownika](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** w obszarze **aplikacje dla przedsiębiorstw**.
 

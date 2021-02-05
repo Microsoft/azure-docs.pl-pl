@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: bf9b3a154e19fab08c46f9838f555e223f10e8a0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672291"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581044"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Przewodnik migracji biblioteki ADAL do MSAL dla systemu Android
 
@@ -71,7 +71,7 @@ W przypadku rejestracji aplikacji w portalu zostanie wyświetlona karta **uprawn
 Przy użyciu biblioteki ADAL i punktu końcowego usługi Azure AD w wersji 1 użytkownik wyraża zgodę na posiadane zasoby. Dzięki MSAL i platformie tożsamości firmy Microsoft można zażądać ich przyrostowo. Poprawna zgoda jest przydatna w przypadku uprawnień, które użytkownik może rozważyć wysoki poziom uprawnień, lub w przeciwnym razie, jeśli nie podano z oczywistym wyjaśnieniem przyczyny tego uprawnienia. W bibliotece ADAL te uprawnienia mogły spowodować, że użytkownik porzucają logowanie do aplikacji.
 
 > [!TIP]
-> Zalecamy użycie przyrostowej zgody w scenariuszach, w których należy zapewnić użytkownikowi dodatkowy kontekst dotyczący tego, Dlaczego aplikacja wymaga uprawnień.
+> Użyj funkcji przyrostowej zgody, aby zapewnić użytkownikom dodatkowy kontekst dotyczący tego, Dlaczego aplikacja wymaga uprawnień.
 
 ### <a name="admin-consent"></a>zgoda administratora
 

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cdd32185d1ffddb4c6bc3d62b91690f68dec17ca
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 902348063a24b50d1de0a821d9d6e67931cc53cd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014726"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582540"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Rejestrowanie aplikacji mobilnych, które wywołują interfejsy API sieci Web
 
@@ -79,9 +79,9 @@ Jeśli wolisz ręcznie skonfigurować identyfikator URI przekierowania, możesz 
 
 ### <a name="username-password-authentication"></a>Nazwa użytkownika — uwierzytelnianie hasła
 
-Jeśli Twoja aplikacja używa tylko uwierzytelniania przy użyciu hasła użytkownika, nie musisz rejestrować identyfikatora URI przekierowania dla aplikacji. Ten przepływ wykonuje rundy do punktu końcowego Microsoft Identity platform w wersji 2,0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI.
+Jeśli Twoja aplikacja używa tylko uwierzytelniania przy użyciu hasła użytkownika, nie musisz rejestrować identyfikatora URI przekierowania dla aplikacji. Ten przepływ wykonuje rundy do platformy tożsamości firmy Microsoft. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI.
 
-Należy jednak zidentyfikować aplikację jako publiczną aplikację kliencką. W tym celu:
+Jednak Zidentyfikuj aplikację jako publiczną aplikację kliencką. W tym celu:
 
 1. W <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Azure Portal</a>wybierz aplikację w **rejestracje aplikacji**, a następnie wybierz pozycję **uwierzytelnianie**.
 1. W obszarze **Zaawansowane ustawienia**  >  **Zezwalaj na przepływy klientów publicznych**  >  **Włącz następujące przepływy mobilne i klasyczne:** wybierz pozycję **tak**.

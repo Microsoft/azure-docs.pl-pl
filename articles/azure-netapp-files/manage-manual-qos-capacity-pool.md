@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 02/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 5e44c2cfc81256a8715c7c625648b6ec25bcd319
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 566cc3b1192d632bbffb8f9ef091f291b4bcc6e6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929221"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581157"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>Zarządzanie ręczną pulą pojemności usługi QoS
 
@@ -59,7 +59,8 @@ Aby utworzyć nową pulę pojemności przy użyciu typu ręcznej jakości usług
 Można zmienić pulę pojemności, która aktualnie używa typu autoqos, aby użyć typu ręcznego QoS.  
 
 > [!IMPORTANT]
-> Ustawienie typu pojemności na ręczną QoS jest trwałą zmianą. Nie można skonwertować ręcznego narzędzia pojemności typu QoS na pulę wydajności autoqos. 
+> Ustawienie typu pojemności na ręczną QoS jest trwałą zmianą. Nie można skonwertować ręcznego narzędzia pojemności typu QoS na pulę wydajności autoqos.  
+> W czasie konwersji poziomy przepływności mogą być ograniczone, aby były zgodne z limitami przepływności dla woluminów typu ręcznej jakości usług. Zobacz [limity zasobów dla Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 
 1. W bloku Zarządzanie dla konta usługi NetApp kliknij pozycję **Pule pojemności** , aby wyświetlić istniejące pule pojemności.   
  
@@ -89,7 +90,7 @@ Jeśli wolumin jest zawarty w ręcznej puli pojemności usługi QoS, można zmod
 * [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)
 * [Metryki dla usługi Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Kwestie dotyczące wydajności dla usługi Azure NetApp Files](azure-netapp-files-performance-considerations.md)
-* [Rozwiązywanie problemów z pulą pojemności](troubleshoot-capacity-pools.md)
+* [Rozwiązywanie problemów z pulami pojemności](troubleshoot-capacity-pools.md)
 * [Hierarchia magazynu usługi Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Poziomy usług dla usługi Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Model kosztów usługi Azure NetApp Files](azure-netapp-files-cost-model.md)

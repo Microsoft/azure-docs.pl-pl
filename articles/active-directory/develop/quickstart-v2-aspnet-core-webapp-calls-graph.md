@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 675a5526bfd741876de16fe41c969c09a4ed0ad7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bbd7ca198d04769f7e08a9407a0f73744c7cae01
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938226"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583641"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Szybki Start: ASP.NET Core aplikacji sieci Web, która umożliwia logowanie użytkowników i wywoływanie Microsoft Graph w ich imieniu
 
@@ -64,7 +64,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
-> Ten przykładowy kod w tym przewodniku Szybki Start wymaga **identyfikatora URI przekierowania** `https://localhost:44321/signin-oidc` i **adresu URL wylogowania z kanału przedniego** dla `https://localhost:44321/signout-oidc` rejestracji aplikacji.
+> Aby zapoznać się z przykładem kodu w tym przewodniku Szybki Start, Dodaj **Identyfikator URI przekierowania** `https://localhost:44321/signin-oidc` i **adres URL wylogowywania z kanału przedniego** dla `https://localhost:44321/signout-oidc` rejestracji aplikacji.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź tę zmianę automatycznie]()
 >

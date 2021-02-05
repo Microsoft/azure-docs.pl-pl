@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014947"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581758"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -115,7 +115,7 @@ W następnej sekcji pokazano, jak uzyskać wartości, które są konieczne podcz
 
 ## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Pobieranie wartości identyfikatora dzierżawy i aplikacji na potrzeby logowania
 
-Podczas programowego logowania należy przekazać identyfikator dzierżawy przy użyciu żądania uwierzytelniania i identyfikatora aplikacji.  Wymagany jest również certyfikat lub klucz uwierzytelniania (opisany w następnej sekcji). Aby uzyskać te wartości, wykonaj następujące kroki:
+Podczas programowego logowania należy przekazać identyfikator dzierżawy do żądania uwierzytelnienia i identyfikatora aplikacji.  Wymagany jest również certyfikat lub klucz uwierzytelniania (opisany w następnej sekcji). Aby uzyskać te wartości, wykonaj następujące kroki:
 
 1. Wybierz pozycję **Azure Active Directory**.
 1. W obszarze **rejestracje aplikacji** w usłudze Azure AD wybierz aplikację.
@@ -162,7 +162,7 @@ Aby przekazać certyfikat:
 
 1. Wybierz pozycję **Dodaj**.
 
-Po zarejestrowaniu certyfikatu w aplikacji w portalu rejestracji aplikacji należy włączyć użycie tego certyfikatu w kodzie aplikacji klienta.
+Po zarejestrowaniu certyfikatu w aplikacji w portalu rejestracji aplikacji, należy włączyć kod aplikacji klienta, aby użyć certyfikatu.
 
 ### <a name="option-2-create-a-new-application-secret"></a>Opcja 2: Tworzenie nowego klucza tajnego aplikacji
 

@@ -12,12 +12,12 @@ ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5dec4958c3a1d955d8f8c1dce90e27696fbebfe5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d39f378171443f028ef6b549b120b22f2a3405c4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063352"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582945"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Jak zmienić wartości domyślne okresu istnienia tokenu dla aplikacji opracowanej niestandardowo
 
@@ -27,7 +27,7 @@ W tym artykule pokazano, jak ustawić zasady czasu istnienia tokenu dostępu prz
 > Po 2020 maja dzierżawcy nie będą już mogły konfigurować okresów istnienia tokenów odświeżania i tokenu sesji.  Azure Active Directory przestanie przestrzegać istniejących konfiguracji odświeżania i tokenu sesji w zasadach po 30 stycznia 2021. Nadal można skonfigurować okresy istnienia tokenu dostępu po zakończeniu działania. Aby uzyskać więcej informacji, Przeczytaj [konfigurowalne okresy istnienia tokenu w usłudze Azure AD](./active-directory-configurable-token-lifetimes.md).
 > Zaimplementowano [funkcje zarządzania sesjami uwierzytelniania](../conditional-access/howto-conditional-access-session-lifetime.md)   w dostępie warunkowym usługi Azure AD. Ta nowa funkcja służy do konfigurowania okresów istnienia tokenu odświeżania przez ustawienie częstotliwości logowania.  
 
-Aby ustawić zasady okresu istnienia tokenu dostępu, należy pobrać [moduł Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+Aby ustawić zasady okresu istnienia tokenu dostępu, Pobierz [moduł Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 Uruchom polecenie **Connect-AzureAD-Confirm** .
 
 Poniżej przedstawiono przykładowe zasady, które wymagają, aby użytkownicy uwierzytelniali się częściej w aplikacji sieci Web. Te zasady określają okres istnienia dostępu do nazwy głównej usługi aplikacji sieci Web. Utwórz zasady i przypisz je do nazwy głównej usługi. Należy również uzyskać identyfikator ObjectId nazwy głównej usługi.

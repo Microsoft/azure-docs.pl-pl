@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 10b61dd4b6cc3a99b8eecf86cb5ba7e718d64743
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 076054b7240712fec57d0908615ce7abbfb62013
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015117"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582234"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -30,7 +30,7 @@ Korzystając z Azure Active Directory (Azure AD), można dostosować typ wystąp
 
 ## <a name="when-to-use-this-feature"></a>Kiedy używać tej funkcji
 
-Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odpowiedzi SAML, należy użyć tej funkcji. Można utworzyć dowolną liczbę ról, które mają być przesyłane z powrotem z usługi Azure AD do aplikacji.
+Użyj tej funkcji, jeśli aplikacja oczekuje ról niestandardowych w odpowiedzi SAML zwracanych przez usługę Azure AD. Można utworzyć dowolną liczbę ról.
 
 ## <a name="create-roles-for-an-application"></a>Tworzenie ról dla aplikacji
 
@@ -139,7 +139,7 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
     ![Okienko "Edytuj przypisanie" i okienko "Wybieranie roli"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     
-    Aby wyświetlić nowe role, należy odświeżyć sesję w Azure Portal.
+    Odśwież sesję w Azure Portal, aby wyświetlić nowe role.
 
 1. Zaktualizuj tabelę **atrybutów** , aby zdefiniować niestandardowe mapowanie tego żądania roli.
 

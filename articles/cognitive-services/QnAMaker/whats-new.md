@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: c3dc2f91fcd09807a7eaaaaa638e78ba3717faec
-ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
+ms.openlocfilehash: 85a5493e1d1c06a68aa9f4b64cd0f3d55c4f5f63
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98061773"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580891"
 ---
 # <a name="whats-new-in-qna-maker"></a>Co nowego w QnA Maker
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą wydawania informacji, wideo, wpisów w blogu i innych typów. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 Dowiedz się, co nowego w QnA Maker.
 
@@ -36,7 +36,7 @@ Dowiedz się, co nowego w QnA Maker.
 ### <a name="july-2020"></a>Lipiec 2020 r.
 
 * [Metadane: `OR` koniunkcja logiczna wielu par metadanych](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
-* [Kroki](how-to/set-up-qnamaker-service-azure.md#configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet) konfigurowania wyszukiwanie poznawczeych punktów końcowych jako prywatnych, ale nadal dostępne dla QNA Maker.
+* [Kroki](how-to/set-up-qnamaker-service-azure.md#recommended-settings-for-network-isolation) konfigurowania wyszukiwanie poznawczeych punktów końcowych jako prywatnych, ale nadal dostępne dla QNA Maker.
 * Bezpłatny Wyszukiwanie poznawcze zasoby zostaną usunięte po [90 dniach braku aktywności](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
 
 ### <a name="june-2020"></a>Czerwiec 2020 r.
@@ -45,7 +45,7 @@ Dowiedz się, co nowego w QnA Maker.
 
 ### <a name="may-2020"></a>Maj 2020 r.
 
-* [Kontrola dostępu oparta na rolach (Azure RBAC)](concepts/role-based-access-control.md)
+* [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](concepts/role-based-access-control.md)
 * [Edytowanie tekstu sformatowanego](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) na potrzeby odpowiedzi
 
 ### <a name="march-2020"></a>Marzec 2020 r.
@@ -62,11 +62,11 @@ Dowiedz się, co nowego w QnA Maker.
 * Funkcja [wielostopniowego wyłączania](./how-to/multiturn-conversation.md)
 * [Chit — obsługa rozmowy](./how-to/chit-chat-knowledge-base.md#language-support) jest dostępna w językach warstwy 1
 
-### <a name="october-2019"></a>Październik 2019 r.
+### <a name="october-2019"></a>Październik 2019 r.
 
 * [Jawne ustawienie języka](./index.yml) dla wszystkich baz wiedzy w usłudze QNA Maker.
 
-### <a name="september-2019"></a>Wrzesień 2019
+### <a name="september-2019"></a>Wrzesień 2019 r.
 
 * Importowanie i eksportowanie w [formacie pliku xls](./index.yml)
 
@@ -79,7 +79,7 @@ Dowiedz się, co nowego w QnA Maker.
 * Obsługa wyodrębniania zawartości witryny sieci Web
 * Obsługa [dokumentu programu SharePoint](how-to/add-sharepoint-datasources.md) na podstawie dostępu uwierzytelnionego
 
-### <a name="march-2019"></a>Marzec 2019
+### <a name="march-2019"></a>Marzec 2019 r.
 
 * [Usługa Active Learning](how-to/improve-knowledge-base.md) zawiera sugestie dotyczące nowych alternatyw związanych z pytaniami w oparciu o prawdziwe pytania użytkowników
 * Udoskonalony model [rangi](concepts/query-knowledge-base.md#ranker-process) przetwarzania języka naturalnego (NLP) dla języka angielskiego

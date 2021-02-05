@@ -13,12 +13,12 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795623"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582030"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft
 
@@ -101,12 +101,12 @@ W usłudze Azure App Registration dla aplikacji klienckiej:
 
 ### <a name="updating-the-application-manifest"></a>Aktualizowanie manifestu aplikacji
 
-Mając certyfikat, należy obliczyć:
+Po uzyskaniu certyfikatu Oblicz następujące wartości:
 
 - `$base64Thumbprint` — Zakodowana algorytmem Base64 wartość skrótu certyfikatu
 - `$base64Value` — Zakodowana algorytmem Base64 wartość danych pierwotnych certyfikatu
 
-Należy również podać identyfikator GUID, aby zidentyfikować klucz w manifeście aplikacji ( `$keyId` ).
+Podaj identyfikator GUID, aby zidentyfikować klucz w manifeście aplikacji ( `$keyId` ).
 
 W usłudze Azure App Registration dla aplikacji klienckiej:
 1. Wybierz pozycję **manifest** , aby otworzyć manifest aplikacji.

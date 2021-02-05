@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901542"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582013"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Prywatne linki na platformie Azure — często zadawane pytania
 
-## <a name="private-link"></a>Link prywatny
+## <a name="private-link"></a>Private Link
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Co to jest prywatny punkt końcowy platformy Azure i usługa łącza prywatnego platformy Azure?
 
@@ -26,7 +26,7 @@ ms.locfileid: "97901542"
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Jak jest wysyłany ruch w przypadku korzystania z prywatnego linku?
 Ruch jest wysyłany prywatnie przy użyciu sieci szkieletowej firmy Microsoft. Nie przechodzi ona przez Internet. Łącze prywatne platformy Azure nie przechowuje danych klienta.
  
-### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Jaka jest różnica między punktami końcowymi usługi i prywatnymi punktami końcowymi?
+### <a name="what-is-the-difference-between-service-endpoints-and-private-endpoints"></a>Jaka jest różnica między punktami końcowymi usługi i prywatnymi punktami końcowymi?
 - Prywatne punkty końcowe zapewniają dostęp sieciowy do określonych zasobów za daną usługę zapewniającą szczegółowe segmentacji. Ruch może nawiązać połączenie z zasobem usługi lokalnie bez używania publicznych punktów końcowych.
 - Punkt końcowy usługi pozostaje publicznie w adresie IP.  Prywatny punkt końcowy to prywatny adres IP w przestrzeni adresowej sieci wirtualnej, w której jest skonfigurowany prywatny punkt końcowy.
 
@@ -34,6 +34,9 @@ Ruch jest wysyłany prywatnie przy użyciu sieci szkieletowej firmy Microsoft. N
 Wiele typów zasobów połączenia prywatnego obsługuje dostęp za pośrednictwem prywatnego punktu końcowego. Zasoby obejmują usługi Azure PaaS Services i własną usługę łącza prywatnego. Jest to relacja jeden do wielu. 
 
 Usługa linków prywatnych odbiera połączenia z wielu prywatnych punktów końcowych. Prywatny punkt końcowy nawiązuje połączenie z jedną usługą linku prywatnego.    
+
+### <a name="do-i-need-to-disable-network-policies-for-private-link"></a>Czy jest konieczne wyłączenie zasad sieciowych dla prywatnego linku
+Tak. Aby zapewnić prawidłowe działanie zasad sieciowych, zarówno prywatny punkt końcowy, jak i usługa łącza prywatnego muszą wyłączyć zasady sieciowe. Oba mają właściwości niezależne od siebie.
 
 ## <a name="private-endpoint"></a>Prywatny punkt końcowy 
  

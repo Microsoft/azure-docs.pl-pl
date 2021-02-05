@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 32f8ab3f7e222108bec4ec81b14c113705370096
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: db55a29e53c53e26fbb04d96ddf1864946bafbfd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913066"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581282"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -54,9 +54,6 @@ Te interfejsy API REST obiektów BLOB nie są obsługiwane:
 * [Pobierz zakresy stron](/rest/api/storageservices/get-page-ranges)
 * [Obiekt BLOB kopiowania przyrostowego](/rest/api/storageservices/incremental-copy-blob)
 * [Umieść stronę na podstawie adresu URL](/rest/api/storageservices/put-page-from-url)
-* [Dołącz blok](/rest/api/storageservices/append-block)
-* [Dołącz blok z adresu URL](/rest/api/storageservices/append-block-from-url)
-
 
 Niezarządzane dyski maszyny wirtualnej nie są obsługiwane na kontach z hierarchiczną przestrzenią nazw. Jeśli chcesz włączyć hierarchiczną przestrzeń nazw na koncie magazynu, umieść niezarządzane dyski maszyn wirtualnych na koncie magazynu, w którym nie jest włączona funkcja hierarchicznej przestrzeni nazw.
 

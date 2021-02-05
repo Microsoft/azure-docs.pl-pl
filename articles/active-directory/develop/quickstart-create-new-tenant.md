@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 869b37aea823cf91dc59211b23fcaccd7646afb9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 41d70b20708f0f355fab5b5a06790c1c0c6530c6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012023"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583556"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Szybki start: Konfigurowanie dzierżawy
 
@@ -53,7 +53,7 @@ Wielu deweloperów uzyskało już dzierżawy za pośrednictwem usług lub subskr
    * Jeśli Twoje konto jest skojarzone z wieloma dzierżawami, możesz wybrać nazwę swojego konta, aby otworzyć menu, w którym można przełączać się między dzierżawami. Każda dzierżawa ma własny identyfikator dzierżawy.
 
 > [!TIP]
-> Aby znaleźć identyfikator dzierżawy, możesz wykonać następujące czynności:
+> Aby znaleźć identyfikator dzierżawy, możesz:
 > * Umieść wskaźnik myszy nad nazwą konta, aby uzyskać identyfikator katalogu/dzierżawy. Ewentualnie:
 > * Wyszukaj i wybierz **Azure Active Directory właściwości > > identyfikator dzierżawy** w Azure Portal
 

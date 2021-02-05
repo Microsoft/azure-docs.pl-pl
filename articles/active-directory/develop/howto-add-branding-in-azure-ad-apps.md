@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706204"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581996"
 ---
 # <a name="branding-guidelines-for-applications"></a>Wytyczne dotyczące oznaczania aplikacji marką
 
@@ -27,7 +27,7 @@ Podczas tworzenia aplikacji za pomocą platformy tożsamości firmy Microsoft na
 W tym artykule opisano następujące czynności:
 
 - Poznasz dwa rodzaje kont użytkowników zarządzanych przez firmę Microsoft i dowiesz się, jak odwoływać się do konta usługi Azure AD w aplikacji.
-- Dowiedz się, co należy zrobić, aby dodać logo firmy Microsoft do użycia w aplikacji
+- Poznaj wymagania dotyczące używania logo firmy Microsoft w aplikacji
 - Pobierzesz oficjalne obrazy **Zaloguj się** lub **Zaloguj się przy użyciu konta Microsoft** do wykorzystania w aplikacji.
 - Poznasz zalecenia oraz zakazy dotyczące znakowania i nawigacji.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 91aa6c96c714bff26ea7e0df5b2b6971c68edec0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 601b725e5f1fe06c12416ad8ab36ac657f0412f2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178572"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583420"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft
 
@@ -68,7 +68,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
 >
-> Aby użyć przykładu kodu w tym przewodniku Szybki Start, należy wykonać następujące:
+> Aby użyć przykładu kodu w tym przewodniku szybki start:
 >
 > 1. Dodaj adresy URL odpowiedzi `https://localhost:8443/msal4jsample/secure/aad` i `https://localhost:8443/msal4jsample/graph/me` .
 > 1. Utwórz klucz tajny klienta.
@@ -161,7 +161,7 @@ Aby uruchomić aplikację sieci Web z poziomu środowiska IDE, wybierz pozycję 
 
 ##### <a name="running-the-project-from-tomcat"></a>Uruchamianie projektu z Tomcat
 
-Jeśli chcesz wdrożyć próbkę sieci Web w Tomcat, musisz wprowadzić kilka zmian w kodzie źródłowym.
+Jeśli chcesz wdrożyć próbkę sieci Web w programie Tomcat, wprowadź kilka zmian w kodzie źródłowym.
 
 1. Otwórz *MS-Identity-Java-webapp/pom.xml*.
     - W obszarze `<name>msal-web-sample</name>` , Dodaj `<packaging>war</packaging>` .

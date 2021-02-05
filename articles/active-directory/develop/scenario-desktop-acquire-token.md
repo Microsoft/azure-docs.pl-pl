@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785129"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582659"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu
 
@@ -445,7 +445,7 @@ Aby uzyskać więcej informacji na temat zgody, zobacz [uprawnienia i zgoda doty
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-W MSAL.NET należy użyć:
+W MSAL.NET, użyj:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -922,7 +922,7 @@ Ten przepływ nie jest obsługiwany w MSAL dla macOS.
 
 ### <a name="device-code-flow"></a>Przepływ kodu urządzenia
 
-Jeśli piszesz narzędzie wiersza polecenia, które nie ma formantów sieci Web, a nie możesz lub nie chcesz używać powyższych przepływów, musisz użyć przepływu kodu urządzenia.
+Jeśli piszesz narzędzie wiersza polecenia, które nie ma formantów sieci Web, a nie możesz lub nie chcesz używać powyższych przepływów, użyj przepływu kodu urządzenia.
 
 Interaktywne uwierzytelnianie w usłudze Azure AD wymaga przeglądarki sieci Web. Aby uzyskać więcej informacji, zobacz [użycie przeglądarek sieci Web](https://aka.ms/msal-net-uses-web-browser). W celu uwierzytelniania użytkowników na urządzeniach lub w systemach operacyjnych, które nie zapewniają przeglądarki sieci Web, przepływ kodu urządzenia umożliwia użytkownikowi korzystanie z innego urządzenia, takiego jak komputer lub telefon komórkowy, aby zalogować się interaktywnie. Za pomocą przepływu kodu urządzenia aplikacja uzyskuje tokeny w ramach dwuetapowego procesu, który jest przeznaczony dla tych urządzeń lub systemów operacyjnych. Przykładami takich aplikacji są aplikacje uruchamiane w ramach iOT lub narzędzi wiersza polecenia (CLI). Pomysł polega na tym, że:
 

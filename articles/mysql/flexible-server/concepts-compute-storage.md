@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052350"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581452"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opcje obliczeń i magazynowania w Azure Database for MySQL-elastycznym serwerze (wersja zapoznawcza)
 
@@ -102,15 +102,14 @@ Zalecamy, aby <!--turn on storage auto-grow or to--> Skonfiguruj alert, aby powi
 Funkcja autozwiększania magazynu nie jest jeszcze dostępna dla Azure Database for MySQL elastyczny serwer.
 
 ## <a name="iops"></a>Liczba operacji we/wy na sekundę
-Minimalna liczba operacji we/wy na sekundę jest 100 dla wszystkich rozmiarów obliczeń, a maksymalna liczba operacji we/wy zależy od obu następujących atrybutów: 
-- Obliczenia: Maksymalna liczba operacji we/wy może być ograniczona przez maksymalną liczbę operacji we/wy wybranego rozmiaru obliczeniowego.
-- Magazyn: we wszystkich warstwach obliczeniowych skalowanie IOPS z zainicjowanym rozmiarem magazynu w stosunku 3:1.
 
-Efektywne operacje we/wy można skalować przez zwiększenie ilości miejsca do magazynowania lub przechodzenie do większego rozmiaru obliczeniowego (Jeśli liczby operacji we/wy są ograniczone przez obliczenia). W wersji zapoznawczej Maksymalna liczba obsługiwanych operacji wejścia/wyjścia to 20 000 operacji we/wy.
+Azure Database for MySQL — elastyczny serwer obsługuje Inicjowanie obsługi dodatkowych IOPS. Ta funkcja umożliwia udostępnianie dodatkowych operacji we/wy na wyższy limit liczby operacji we/wy na sekundę. Korzystając z tej funkcji, można zwiększyć lub zmniejszyć liczbę operacji we/wy, która została zainicjowana na podstawie wymagań dotyczących obciążenia w dowolnym momencie. 
 
-Aby dowiedzieć się więcej o maksymalnym efektywnym liczbie operacji we/wy na rozmiar obliczeń przy użyciu kombinacji obliczeń i magazynu, przedstawiono poniżej: 
+Minimalna liczba operacji we/wy jest 100 dla wszystkich rozmiarów obliczeń, a maksymalna wartość IOPS zależy od wybranego rozmiaru obliczenia. W wersji zapoznawczej Maksymalna obsługiwana liczba IOPS to 20 000 operacji we/wy na sekundę.
 
-| Rozmiar obliczeń         | Maksymalna liczba operacji we/wy na sekundę  | 
+Aby dowiedzieć się więcej na temat maksymalnej liczby operacji we/wy na rozmiar obliczeń, poniżej pokazano poniżej: 
+
+| Rozmiar obliczeń         | Maksymalna liczba IOPS        | 
 |----------------------|---------------------|
 | **Z możliwością przenoszenia**        |                     |
 | Standard_B1s         | 320                 |
@@ -133,11 +132,14 @@ Aby dowiedzieć się więcej o maksymalnym efektywnym liczbie operacji we/wy na 
 | Standard_E48ds_v4    | 20000               | 
 | Standard_E64ds_v4    | 20000               |  
 
-Maksymalna liczba operacji we/wy na sekundę jest zależna od maksymalnej liczby operacji we/wy na rozmiar obliczeniowy. Zapoznaj się z formułą poniżej i zapoznaj się z kolumną *Maksymalna przepływność dysku niebuforowanego: IOPS/MB/s* w dokumentacji serii [B](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)i [Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
+Maksymalna liczba operacji we/wy zależy od maksymalnej liczby operacji we/wy na rozmiar obliczeniowy. Zapoznaj się z kolumną *Maksymalna przepływność dysku w pamięci podręcznej: IOPS/MB/s* w dokumentacji serii [B](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)i [Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
 
-**Maksymalna liczba** operacji we/wy na sekundę (*"Maksymalna przepływność dysku niebuforowanego: IOPS/MB/s"* rozmiaru obliczeń, magazyn w GIB * 3)
+> [!Important]
+> Liczby **bezpłatnych** operacji we/wy są równe minimum ("Maksymalna przepływność dysku niebuforowanego: IOPS/MB/s" rozmiaru obliczeń, magazyn udostępniony w GIB * 3)<br>
+> **Minimalna liczba IOPS** jest 100 dla wszystkich rozmiarów obliczeń<br>
+> **Maksymalna liczba operacji we/wy** zależy od wybranego rozmiaru obliczenia. W wersji zapoznawczej Maksymalna obsługiwana liczba IOPS to 20 000 operacji we/wy na sekundę.
 
-Możesz monitorować użycie we/wy w Azure Portal (z Azure Monitor) przy użyciu metryki [procentowej wejścia](./concepts-monitoring.md) /wyjścia. Jeśli potrzebujesz większej liczby operacji we/wy na sekundę, musisz zrozumieć, czy są one ograniczone przez rozmiar obliczeń lub zainicjowany magazyn. Skalowanie zasobów obliczeniowych lub magazynu serwera odpowiednio do potrzeb.
+Możesz monitorować użycie we/wy w Azure Portal (z Azure Monitor) przy użyciu metryki [procentowej wejścia](./concepts-monitoring.md) /wyjścia. Jeśli potrzebujesz większej liczby operacji we/wy, Maksymalna liczba IOPS na podstawie obliczeń jest wymagana do skalowania obliczeniowego serwera.
 
 ## <a name="backup"></a>Backup
 

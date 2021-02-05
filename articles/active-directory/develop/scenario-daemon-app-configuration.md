@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c858f48a67cd434a620fb610046833d29b7475f7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756594"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582894"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — konfiguracja kodu
 
@@ -111,7 +111,7 @@ Podczas tworzenia poufnego klienta z certyfikatami [parameters.js](https://githu
 
 ### <a name="instantiate-the-msal-application"></a>Tworzenie wystąpienia aplikacji MSAL
 
-Aby utworzyć wystąpienie aplikacji MSAL, należy dodać, odwołać lub zaimportować pakiet MSAL (w zależności od języka).
+Aby utworzyć wystąpienie aplikacji MSAL, dodać, odwołać lub zaimportować pakiet MSAL (w zależności od języka).
 
 Konstrukcja różni się w zależności od tego, czy są używane klucze tajne klienta czy certyfikaty (lub, jako zaawansowany scenariusz, podpisane potwierdzenia).
 
@@ -289,7 +289,7 @@ MSAL.NET ma dwie metody, aby zapewnić podpisane potwierdzenia do poufnej aplika
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-W przypadku korzystania z programu należy `WithClientAssertion` podać podpisany token JWT. Ten zaawansowany scenariusz jest szczegółowy w przypadku [potwierdzeń klientów](msal-net-client-assertions.md).
+W przypadku korzystania z `WithClientAssertion` programu Podaj podpisany token JWT. Ten zaawansowany scenariusz jest szczegółowy w przypadku [potwierdzeń klientów](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();

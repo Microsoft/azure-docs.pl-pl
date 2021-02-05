@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: bcbff131706854c079a5af2f38cad98f97018167
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753315"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582326"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -44,7 +44,7 @@ Wybierz kartę dla interesującej platformy:
 
 ## <a name="client-secrets-or-client-certificates"></a>Klucze tajne klienta lub certyfikaty klienta
 
-Ponieważ aplikacja sieci Web wywołuje teraz podrzędny interfejs API sieci Web, należy podać klucz tajny klienta lub certyfikat klienta w *appsettings.js* pliku. Możesz również dodać sekcję, która określa:
+Ponieważ aplikacja sieci Web wywołuje teraz podrzędny interfejs API sieci Web, Podaj klucz tajny klienta lub certyfikat klienta w *appsettings.js* pliku. Możesz również dodać sekcję, która określa:
 
 - Adres URL podrzędnego interfejsu API sieci Web
 - Zakresy wymagane do wywoływania interfejsu API
@@ -184,7 +184,7 @@ Na poniższej ilustracji przedstawiono różne możliwości *Microsoft. Identity
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagram blokowy przedstawiający opcje konfiguracji usługi w kropce startowej C S na potrzeby wywoływania internetowego interfejsu API i określania implementacji pamięci podręcznej token":::
 
 > [!NOTE]
-> Aby w pełni zrozumieć przykłady kodu, należy zapoznać się z tematami [ASP.NET Core Fundamentals](/aspnet/core/fundamentals), a zwłaszcza z [iniekcją](/aspnet/core/fundamentals/dependency-injection) i [opcjami](/aspnet/core/fundamentals/configuration/options)zależności.
+> Aby w pełni zrozumieć przykłady kodu, należy zapoznać się z tematami [ASP.NET Core Fundamentals](/aspnet/core/fundamentals), w szczególności z [iniekcją](/aspnet/core/fundamentals/dependency-injection) i [opcjami](/aspnet/core/fundamentals/configuration/options)zależności.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

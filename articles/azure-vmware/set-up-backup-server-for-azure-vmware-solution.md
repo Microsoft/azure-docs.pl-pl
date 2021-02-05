@@ -2,13 +2,13 @@
 title: Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby tworzyć kopie zapasowe maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
-ms.date: 10/23/2020
-ms.openlocfilehash: 7885c0bc73bd5f7cd802e76ed9db470f77eda30d
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.date: 02/04/2021
+ms.openlocfilehash: e9204b9f86c7e9ef67d2e3d6b45ccf4248d00b32
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703406"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581486"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 
@@ -389,7 +389,7 @@ Azure Backup Server v3 akceptuje tylko woluminy magazynu. Po dodaniu woluminu Pr
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak skonfigurować tworzenie kopii zapasowych maszyn wirtualnych programu VMware działających w ramach rozwiązania Azure VMware przy użyciu Azure Backup Server.
+Po zapoznaniu się z informacjami na temat sposobu konfigurowania Azure Backup Server na potrzeby rozwiązania VMware firmy Azure warto poznać następujące informacje:
 
-> [!div class="nextstepaction"]
-> [Konfigurowanie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure](backup-azure-vmware-solution-virtual-machines.md)
+- [Konfigurowanie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure](backup-azure-vmware-solution-virtual-machines.md).
+- [Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu integracji Azure Security Center](azure-security-integration.md).

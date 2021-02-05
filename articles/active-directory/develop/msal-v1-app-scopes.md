@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b35b39d7072b22d9cc3f7b4f4ef8886431b06f69
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7e2fcf2dc0dc53038b82bbf182cb12f580d88357
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754662"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583590"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Zakresy dla internetowego interfejsu API akceptujące tokeny v 1.0
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Aby odczytywać i zapisywać dane z usługi MSAL.NET Azure AD przy użyciu interfejsu API Microsoft Graph (https: \/ /Graph.Microsoft.com/), należy utworzyć listę zakresów, jak pokazano w następujących przykładach:
+Aby odczytywać i zapisywać dane za pomocą usługi MSAL.NET Azure AD za pomocą interfejsu API Microsoft Graph (https: \/ /Graph.Microsoft.com/), Utwórz listę zakresów, jak pokazano w następujących przykładach:
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Aby napisać zakres odpowiadający interfejsowi API Azure Resource Manager (https: \/ /Management.Core.Windows.NET/), musisz zażądać następującego zakresu (należy zauważyć dwa ukośniki):
+Aby napisać zakres odpowiadający interfejsowi API Azure Resource Manager (https: \/ /Management.Core.Windows.NET/), zażądaj następującego zakresu (należy zauważyć dwa ukośniki):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -59,7 +59,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> Należy użyć dwóch ukośników, ponieważ Azure Resource Manager interfejs API oczekuje ukośnika w swoim zasobie (AUD), a następnie jest ukośnik, aby oddzielić nazwę interfejsu API od zakresu.
+> Użyj dwóch ukośników, ponieważ Azure Resource Manager interfejs API oczekuje ukośnika w swoim zasobie (AUD), a następnie istnieje ukośnik, aby oddzielić nazwę interfejsu API od zakresu.
 
 Logika używana przez usługę Azure AD jest następująca:
 

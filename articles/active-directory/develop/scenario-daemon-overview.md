@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 00a70b585ddf522a25e81703fe5bdf55efbcb7e1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753827"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582778"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenariusz: aplikacja demona, która wywołuje interfejsy API sieci Web
 
@@ -52,7 +52,7 @@ Aplikacje, które uzyskują token dla własnych tożsamości:
 Dla deweloperów kompleksowe środowisko dla tego scenariusza ma następujące aspekty:
 
 - Aplikacje demonów mogą funkcjonować tylko w dzierżawach usługi Azure AD. Nie ma sensu Tworzenie aplikacji demona próbującej manipulować kontami osobistymi firmy Microsoft. Jeśli jesteś deweloperem aplikacji biznesowych (LOB), utworzysz aplikację demona w dzierżawie. Jeśli jesteś niezależnym dostawcą oprogramowania, możesz chcieć utworzyć aplikację demona wielodostępna. Każdy administrator dzierżawy będzie musiał wyrazić zgodę.
-- Podczas [rejestracji aplikacji](./scenario-daemon-app-registration.md)identyfikator URI odpowiedzi nie jest wymagany. Musisz udostępnić wpisy tajne lub certyfikaty lub potwierdzenia z usługą Azure AD. Musisz również zażądać uprawnień aplikacji i udzielić zgody administratorowi na korzystanie z tych uprawnień aplikacji.
+- Podczas [rejestracji aplikacji](./scenario-daemon-app-registration.md)identyfikator URI odpowiedzi nie jest wymagany. Udostępnianie wpisów tajnych lub certyfikatów lub zatwierdzeń z usługą Azure AD. Musisz również zażądać uprawnień aplikacji i udzielić zgody administratorowi na korzystanie z tych uprawnień aplikacji.
 - [Konfiguracja aplikacji](./scenario-daemon-app-configuration.md) wymaga podania poświadczeń klienta jako współużytkowanych z usługą Azure AD podczas rejestracji aplikacji.
 - [Zakres](scenario-daemon-acquire-token.md#scopes-to-request) używany do uzyskiwania tokenu z przepływem poświadczeń klienta musi być zakresem statycznym.
 

@@ -2,13 +2,13 @@
 title: Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMware
 description: W tym artykule wyjaśniono, jak używać funkcji publicznego adresu IP w wirtualnej sieci WAN platformy Azure.
 ms.topic: how-to
-ms.date: 10/28/2020
-ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.date: 02/04/2021
+ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517907"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581384"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMware
 
@@ -21,7 +21,7 @@ Publiczny dostęp do Internetu można włączyć na dwa sposoby.
 
 W ramach wdrożenia chmury prywatnej na platformie Azure, po włączeniu funkcji publicznego adresu IP, wymagane składniki z automatyzacją i są włączone:
 
--  Virtual WAN
+-  Wirtualna sieć WAN
 
 -  Wirtualne Centrum sieci WAN z łącznością ExpressRoute
 
@@ -118,9 +118,9 @@ Po wdrożeniu wszystkich składników można je wyświetlić w dodanej grupie za
 
 1. Na karcie **podstawy** podaj wymagane szczegóły i wybierz pozycję **Dalej: ustawienia DNS**. 
 
-1. Na karcie **DNS** wybierz pozycję **Disable (Wyłącz** ), a następnie wybierz pozycję Next ( **Dalej): Rules**.
+1. Na karcie **DNS** wybierz pozycję **Disable (Wyłącz**), a następnie wybierz pozycję Next ( **Dalej): Rules**.
 
-1. Wybierz pozycję **Dodaj kolekcję reguł** , podaj poniżej szczegóły, a następnie wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Dalej: analiza zagrożeń**.
+1. Wybierz pozycję **Dodaj kolekcję reguł**, podaj poniżej szczegóły, a następnie wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Dalej: analiza zagrożeń**.
 
    -  Nazwa
    -  Typ kolekcji reguł — DNAT
@@ -128,8 +128,8 @@ Po wdrożeniu wszystkich składników można je wyświetlić w dodanej grupie za
    -  Akcja zbierania reguł — Zezwalaj
    -  Nazwa reguły
    -  Typ źródła — **adres IP**
-   -  Źródło-* *\** _
-   -  Protokół — _ *TCP**
+   -  Zewnętrz **\***
+   -  Protokół — **TCP**
    -  Port docelowy — **80**
    -  Typ docelowy — **adres IP**
    -  Miejsce docelowe — **publiczny adres IP**
@@ -156,5 +156,7 @@ Możesz mieć 100 publicznych adresów IP na SDDCs.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o korzystaniu z publicznych adresów IP przy użyciu [wirtualnej sieci WAN platformy Azure](../virtual-wan/virtual-wan-about.md).
+Teraz, w jaki sposób można korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMware, warto zapoznać się z tematem:
 
+- Używanie publicznych adresów IP z [wirtualną siecią WAN platformy Azure](../virtual-wan/virtual-wan-about.md).
+- [Tworzenie tunelu IPSec w rozwiązaniu VMware platformy Azure](create-ipsec-tunnel.md).

@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: e171e642440b7c6c99353169e426a722885f1bcf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1ebb89ae318e57f1d4e0708a08019515ca43158d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725941"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581333"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planowanie i zarządzanie kosztami API Management
 
@@ -89,10 +89,10 @@ Możesz również [wyeksportować dane kosztu](../cost-management-billing/costs/
 
 ### <a name="choose-tier"></a>Wybierz warstwę
 
-Zapoznaj się z [porównaniem warstw API Management platformy Azure](api-management-features.md) , aby ułatwić podjęcie decyzji, która warstwa usług może być odpowiednia dla Twoich scenariuszy. Różne warstwy usług obsługują kombinację funkcji i możliwości, które są przeznaczone do różnych przypadków użycia z różnymi kosztami. [Uaktualnij](upgrade-and-scale.md) do innej warstwy usług w dowolnym momencie.
+Zapoznaj się z [porównaniem warstw API Management platformy Azure](api-management-features.md) , aby ułatwić podjęcie decyzji, która warstwa usług może być odpowiednia dla Twoich scenariuszy. Różne warstwy usług obsługują kombinację funkcji i możliwości, które są przeznaczone do różnych przypadków użycia z różnymi kosztami. 
 
 * Warstwa usługi **zużycie** zapewnia uproszczoną, bezserwerową opcję, która nie wiąże się ze stałymi kosztami. Opłaty są naliczane na podstawie liczby wywołań interfejsu API do usługi powyżej pewnej wartości progowej. Pojemność jest również skalowana automatycznie na podstawie obciążenia usługi.
-* Inne API Management warstwy ponoszą miesięczne koszty i zapewniają większą przepływność i bogatsze zestawy funkcji dla obciążeń testowych i produkcyjnych.
+* Warstwy dla **deweloperów**, **Basic**, **Standard** i API Management **Premium** są obciążane kosztami miesięcznymi i zapewniają większą przepływność i bogatsze zestawy funkcji dla obciążeń testowych i produkcyjnych. [Uaktualnij](upgrade-and-scale.md) do innej warstwy usług w dowolnym momencie.
 
 ### <a name="scale-using-capacity-units"></a>Skalowanie przy użyciu jednostek wydajności
 

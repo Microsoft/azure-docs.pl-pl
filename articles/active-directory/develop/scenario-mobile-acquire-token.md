@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 6e6eda3d711710ea7450165ab02d7a260067bfcb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753623"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582557"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Uzyskaj token dla aplikacji mobilnej, która wywołuje interfejsy API sieci Web
 
@@ -26,7 +26,7 @@ Aby aplikacja mogła wywoływać chronione interfejsy API sieci Web, musi mieć 
 
 ## <a name="define-a-scope"></a>Zdefiniuj zakres
 
-Podczas żądania tokenu należy zdefiniować zakres. Zakres określa, jakie dane może uzyskać dostęp do aplikacji.
+Podczas żądania tokenu Zdefiniuj zakres. Zakres określa, jakie dane może uzyskać dostęp do aplikacji.
 
 Najprostszym sposobem zdefiniowania zakresu jest połączenie żądanych interfejsów API sieci Web `App ID URI` z zakresem `.default` . Ta definicja informuje platformę tożsamości firmy Microsoft, że aplikacja wymaga wszystkich zakresów ustawionych w portalu.
 
@@ -236,7 +236,7 @@ Klasa definiuje następujące stałe:
     Ta opcja może być przydatna w przypadku niepowodzenia pozyskiwania tokenu i poinformowania użytkownika o konieczności ponownego zalogowania. W takim przypadku MSAL wysyła `prompt=login` do dostawcy tożsamości. Warto użyć tej opcji w aplikacjach ukierunkowanych na zabezpieczenia, w których administrator organizacji wymaga, aby użytkownik mógł się zalogować przy każdej próbie dostępu do określonych części aplikacji.
 - `Never` dotyczy tylko programu .NET 4,5 i środowisko wykonawcze systemu Windows (WinRT). Ta stała nie monituje użytkownika, ale podejmie próbę użycia pliku cookie przechowywanego w ukrytym osadzonym widoku sieci Web. Aby uzyskać więcej informacji, zobacz [Korzystanie z przeglądarek sieci Web w programie MSAL.NET](./msal-net-web-browsers.md).
 
-    Jeśli ta opcja zakończy się niepowodzeniem, program `AcquireTokenInteractive` zgłosi wyjątek, aby powiadomić o konieczności interakcji z interfejsem użytkownika. Następnie należy użyć innego `Prompt` parametru.
+    Jeśli ta opcja zakończy się niepowodzeniem, program `AcquireTokenInteractive` zgłosi wyjątek, aby powiadomić o konieczności interakcji z interfejsem użytkownika. Następnie użyj innego `Prompt` parametru.
 - `NoPrompt` nie wysyła monitu do dostawcy tożsamości.
 
     Ta opcja jest przydatna tylko w przypadku zasad edytowanie profilu w programie Azure Active Directory B2C. Aby uzyskać więcej informacji, zobacz [szczegóły dotyczące B2C](https://aka.ms/msal-net-b2c-specificities).

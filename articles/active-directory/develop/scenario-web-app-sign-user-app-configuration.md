@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 54caea62feed6ae7c082a979901999a5dcb3bd71
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753275"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582251"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplikacja internetowa, która loguje użytkowników: Konfiguracja kodu
 
@@ -64,13 +64,13 @@ Warto zapoznać się z tym przykładem, aby uzyskać szczegółowe informacje do
 
 ## <a name="configuration-files"></a>Pliki konfiguracji
 
-Aplikacje sieci Web, które logują użytkowników przy użyciu platformy tożsamości firmy Microsoft, są konfigurowane za pomocą plików konfiguracji. Ustawienia, które należy wypełnić:
+Aplikacje sieci Web, które logują użytkowników przy użyciu platformy tożsamości firmy Microsoft, są konfigurowane za pomocą plików konfiguracji. Są to wartości, które są wymagane do określenia w konfiguracji:
 
 - Wystąpienie w chmurze ( `Instance` ), jeśli chcesz, aby aplikacja działała w chmurach narodowych, na przykład
 - Odbiorcy w IDENTYFIKATORze dzierżawy ( `TenantId` )
 - Identyfikator klienta ( `ClientId` ) dla aplikacji, jak skopiowano z Azure Portal
 
-Czasami aplikacje mogą być parametryczne przez `Authority` , co jest połączeniem z `Instance` i `TenantId` .
+Mogą również pojawić się odwołania do `Authority` . `Authority`Wartość jest połączeniem `Instance` i `TenantId` wartości.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -133,7 +133,7 @@ W ASP.NET Core inny plik ([properties\launchSettings.json](https://github.com/Az
 }
 ```
 
-W Azure Portal identyfikatory URI odpowiedzi, które należy zarejestrować na stronie **uwierzytelniania** dla aplikacji, muszą być zgodne z tymi adresami URL. W przypadku dwóch wcześniejszych plików konfiguracji mogą one być `https://localhost:44321/signin-oidc` . Przyczyną jest `applicationUrl` `http://localhost:3110` , ale `sslPort` określono (44321). `CallbackPath` jest `/signin-oidc` , zgodnie z definicją w `appsettings.json` .
+W Azure Portal identyfikatory URI przekierowania zarejestrowane na stronie **uwierzytelniania** dla aplikacji muszą być zgodne z tymi adresami URL. W przypadku dwóch wcześniejszych plików konfiguracji mogą one być `https://localhost:44321/signin-oidc` . Przyczyną jest `applicationUrl` `http://localhost:3110` , ale `sslPort` określono (44321). `CallbackPath` jest `/signin-oidc` , zgodnie z definicją w `appsettings.json` .
 
 W ten sam sposób identyfikator URI wylogowania zostanie ustawiony na `https://localhost:44321/signout-oidc` .
 
@@ -161,7 +161,7 @@ W programie ASP.NET aplikacja jest konfigurowana za pomocą pliku [Web.config](h
   </appSettings>
 ```
 
-W Azure Portal identyfikatory URI odpowiedzi, które należy zarejestrować na stronie **uwierzytelniania** dla aplikacji, muszą być zgodne z tymi adresami URL. Oznacza to, że powinny być `https://localhost:44326/` .
+W Azure Portal identyfikatory URI odpowiedzi, które można zarejestrować na stronie **uwierzytelniania** dla aplikacji, muszą być zgodne z tymi adresami URL. Oznacza to, że powinny być `https://localhost:44326/` .
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -175,7 +175,7 @@ aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
 aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-W Azure Portal identyfikatory URI odpowiedzi, które należy zarejestrować na stronie **uwierzytelniania** dla aplikacji, muszą być zgodne z `redirectUri` wystąpieniami zdefiniowanymi przez aplikację. Oznacza to, że powinny być `http://localhost:8080/msal4jsample/secure/aad` i `http://localhost:8080/msal4jsample/graph/me` .
+W Azure Portal identyfikatory URI odpowiedzi, które można zarejestrować na stronie **uwierzytelniania** dla aplikacji, muszą być zgodne z `redirectUri` wystąpieniami zdefiniowanymi przez aplikację. Oznacza to, że powinny być `http://localhost:8080/msal4jsample/secure/aad` i `http://localhost:8080/msal4jsample/graph/me` .
 
 # <a name="python"></a>[Python](#tab/python)
 

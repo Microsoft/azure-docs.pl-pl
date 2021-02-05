@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 3c3eaddf1767a3fa4a2ba73ae7a27f1f7df13990
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 0a99ff32f3f1fbcf4af64188640d2edd7f3f5470
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178209"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583132"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python
 
@@ -65,7 +65,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > 1. Wpisz opis klucza (dla przykładowego wpisu tajnego aplikacji), Pozostaw domyślne wygaśnięcie, a następnie wybierz pozycję **Dodaj**.
 > 1. Zwróć uwagę na **wartość** **klucza tajnego klienta** do późniejszego użycia.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**.
->1.  Upewnij się, że wybrano kartę **interfejsy API firmy Microsoft** .
+> 1. Upewnij się, że wybrano kartę **interfejsy API firmy Microsoft** .
 > 1. W sekcji *najczęściej używane interfejsy API firmy Microsoft* wybierz pozycję **Microsoft Graph**.
 > 1. W sekcji **uprawnienia delegowane** upewnij się, że są zaznaczone odpowiednie uprawnienia: **User. ReadBasic. All**. W razie potrzeby użyj pola wyszukiwania.
 > 1. Wybierz przycisk **Dodaj uprawnienia** .
@@ -74,7 +74,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
 >
-> Aby uzyskać przykładowy kod dla tego przewodnika Szybki Start, należy wykonać następujące czynności:
+> Aby uzyskać przykładowy kod w tym przewodniku szybki start:
 >
 > 1. Dodaj adres URL odpowiedzi jako `http://localhost:5000/getAToken` .
 > 1. Utwórz klucz tajny klienta.
