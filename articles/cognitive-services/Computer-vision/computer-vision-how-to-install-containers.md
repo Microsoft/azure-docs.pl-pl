@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokalna, OCR, Docker, kontener
-ms.openlocfilehash: a9eae2e547b347c88f8e745742ed34194c37a3b2
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 2298c7b931a5bb51d5067a9f789135ecf86ef3e5
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862471"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576824"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 
 
@@ -32,17 +32,17 @@ Kontener OCR do *odczytu* umożliwia wyodrębnienie tekstu napisanego i odręczn
 > [!NOTE]
 > Kontener Read 3,0-Preview został uznany za przestarzały. 
 
-Kontener Read 3,2-Preview zawiera następujące informacje:
+Kontener OCR Read 3,2-Preview umożliwia:
 * Nowe modele na potrzeby ulepszonej dokładności.
-* Obsługa wielu języków w tym samym dokumencie
-* Obsługa: holenderski, angielski, francuski, niemiecki, włoski, portugalski i hiszpański.
+* Obsługa wielu języków w tym samym dokumencie.
+* Obsługa łącznie 73 języków. Zapoznaj się z pełną listą [języków obsługiwanych przez aparat OCR](./language-support.md#optical-character-recognition-ocr).
 * Pojedyncza operacja dla dokumentów i obrazów.
 * Obsługa większych dokumentów i obrazów.
-* Wyniki zaufania z przedziału od 0 do 1.
-* Obsługa dokumentów z tekstem drukowanym i odręcznym
-* Obsługa języka chińskiego uproszczonego i japońskiego.
-* wyniki i etykiety dotyczące ufności dla wydrukowanych i odręcznych tekstu. 
+* Wyniki pewności.
+* Obsługa dokumentów z drukowanym i odręcznym tekstem.
 * Możliwość wyodrębnienia tekstu z tylko wybranych stron w dokumencie.
+* Wybierz pozycję wiersz tekstu kolejność wyprowadzania z domyślnej do bardziej naturalnej kolejności odczytywania.
+* Klasyfikacja wiersza tekstu jako styl pisma ręcznego lub nie tylko w przypadku języków łacińskich.
 
 Jeśli obecnie używasz kontenerów z Przeczytajm 2,0, zapoznaj się z [przewodnikiem migracji](read-container-migration-guide.md) , aby dowiedzieć się więcej o zmianach w nowych wersjach.
 
@@ -207,7 +207,7 @@ Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę S
 Możesz użyć `POST /vision/v3.2/read/analyze` `GET /vision/v3.2/read/operations/{operationId}` operacji i w drodze do asynchronicznego odczytywania obrazu, podobnie jak usługa przetwarzanie obrazów używa tych odpowiednich operacji Rest. Asynchroniczna Metoda POST zwróci wartość `operationId` , która jest używana jako identyfikator do żądania HTTP GET.
 
 
-W interfejsie użytkownika programu Swagger wybierz pozycję, `asyncBatchAnalyze` Aby rozwinąć ją w przeglądarce. Następnie wybierz opcję **Wypróbuj**  >  **plik**. W tym przykładzie użyjemy poniższej ilustracji:
+W interfejsie użytkownika programu Swagger wybierz pozycję, `Analyze` Aby rozwinąć ją w przeglądarce. Następnie wybierz opcję **Wypróbuj**  >  **plik**. W tym przykładzie użyjemy poniższej ilustracji:
 
 ![karty vs Spaces](media/tabs-vs-spaces.png)
 
@@ -225,51 +225,99 @@ Po pomyślnym uruchomieniu asynchronicznego wpisu zwraca kod stanu **HTTP 202** 
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2020-09-02T10:30:14Z",
-  "lastUpdatedDateTime": "2020-09-02T10:30:15Z",
+  "createdDateTime": "2021-02-04T06:32:08.2752706+00:00",
+  "lastUpdatedDateTime": "2021-02-04T06:32:08.7706172+00:00",
   "analyzeResult": {
     "version": "3.2.0",
     "readResults": [
       {
         "page": 1,
-        "angle": 2.12,
+        "angle": 2.1243,
         "width": 502,
         "height": 252,
         "unit": "pixel",
-        "language": "",
         "lines": [
           {
-            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
+            "boundingBox": [
+              58,
+              42,
+              314,
+              59,
+              311,
+              123,
+              56,
+              121
+            ],
             "text": "Tabs vs",
             "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.999
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.96
+              }
             },
             "words": [
               {
-                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
+                "boundingBox": [
+                  68,
+                  44,
+                  225,
+                  59,
+                  224,
+                  122,
+                  66,
+                  123
+                ],
                 "text": "Tabs",
-                "confidence": 0.981
+                "confidence": 0.933
               },
               {
-                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
+                "boundingBox": [
+                  241,
+                  61,
+                  314,
+                  72,
+                  314,
+                  123,
+                  239,
+                  122
+                ],
                 "text": "vs",
-                "confidence": 0.958
+                "confidence": 0.977
               }
             ]
           },
           {
-            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
+            "boundingBox": [
+              286,
+              171,
+              415,
+              165,
+              417,
+              197,
+              287,
+              201
+            ],
             "text": "paces",
             "appearance": {
-              "style": "print",
-              "styleConfidence": 0.603
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.746
+              }
             },
             "words": [
               {
-                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
+                "boundingBox": [
+                  286,
+                  179,
+                  404,
+                  166,
+                  405,
+                  198,
+                  290,
+                  201
+                ],
                 "text": "paces",
-                "confidence": 0.918
+                "confidence": 0.938
               }
             ]
           }

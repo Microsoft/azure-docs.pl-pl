@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511284"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576620"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
@@ -140,7 +140,7 @@ W przypadku [testowania rozmytego](https://cloudblogs.microsoft.com/microsoftsec
 
 Przeglądanie obszaru ataków po uzupełnianiu kodu pomaga upewnić się, że wszystkie zmiany projektu lub implementacji zostały uwzględnione w aplikacji lub systemie. Pomaga zapewnić, że wszystkie nowe wektory ataków, które zostały utworzone w wyniku zmian, w tym modele zagrożeń, zostały sprawdzone i skorygowane.
 
-Możesz utworzyć zdjęcie obszaru ataków, skanując aplikację. Firma Microsoft oferuje narzędzie do analizy podatnej na ataki o nazwie [Analizator obszaru ataków](https://www.microsoft.com/download/details.aspx?id=24487). Możesz wybrać spośród wielu komercyjnych testów dynamicznych i narzędzi do skanowania, w tym [OWASP Zed, serwer proxy ataku](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/)i [w3af](http://w3af.sourceforge.net/). Te narzędzia do skanowania przeszukują aplikację i mapują elementy aplikacji, które są dostępne w sieci Web. Możesz również wyszukać podobne [Narzędzia deweloperskie](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1)w witrynie Azure Marketplace.
+Możesz utworzyć zdjęcie obszaru ataków, skanując aplikację. Firma Microsoft oferuje narzędzie do analizy podatnej na ataki o nazwie [Analizator obszaru ataków](https://www.microsoft.com/download/details.aspx?id=58105). Możesz wybrać spośród wielu komercyjnych testów dynamicznych i narzędzi do skanowania, w tym [OWASP Zed, serwer proxy ataku](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/)i [w3af](http://w3af.sourceforge.net/). Te narzędzia do skanowania przeszukują aplikację i mapują elementy aplikacji, które są dostępne w sieci Web. Możesz również wyszukać podobne [Narzędzia deweloperskie](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1)w witrynie Azure Marketplace.
 
 ### <a name="perform-security-penetration-testing"></a>Przeprowadź testowanie penetracji zabezpieczeń
 

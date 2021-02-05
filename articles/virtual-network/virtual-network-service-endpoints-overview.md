@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 5e97a35a272684a99e1ca21cbec9c8f3edef253c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097426"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576671"
 ---
 # <a name="virtual-network-service-endpoints"></a>Punkty końcowe usługi dla sieci wirtualnej
 
@@ -126,7 +126,7 @@ Punkty końcowe usługi można konfigurować w sieciach wirtualnych niezależnie
 
 Aby uzyskać więcej informacji na temat ról wbudowanych, zobacz [role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby uzyskać więcej informacji o przypisywaniu określonych uprawnień do ról niestandardowych, zobacz [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Sieci wirtualne i zasoby usług platformy Azure mogą należeć do tej samej lub różnych subskrypcji. Jeśli zasoby sieci wirtualnej i usługi platformy Azure należą do różnych subskrypcji, zasoby muszą znajdować się w tej samej dzierżawie usługi Active Directory (AD). 
+Sieci wirtualne i zasoby usług platformy Azure mogą należeć do tej samej lub różnych subskrypcji. Niektóre usługi platformy Azure (nie wszystkie), takie jak usługa Azure Storage i Azure Key Vault obsługują również punkty końcowe usługi w różnych dzierżawach Active Directory (AD), a zasoby sieci wirtualnej i usługi platformy Azure mogą znajdować się w różnych dzierżawach Active Directory (AD). Więcej informacji można znaleźć w dokumentacji usługi.  
 
 ## <a name="pricing-and-limits"></a>Ceny i limity
 

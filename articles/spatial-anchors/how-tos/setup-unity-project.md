@@ -8,29 +8,29 @@ ms.author: parkerra
 ms.date: 2/3/2021
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e058186d8848256bf97d99ee1b8b1ddae7d78383
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 56532c17c91e6c703a6acd7990bbae47cd248165
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550627"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576569"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Konfigurowanie kotwic przestrzennych platformy Azure w projekcie środowiska Unity
 
 W tym przewodniku pokazano, jak rozpocząć pracę z zestawem SDK kotwic przestrzennych platformy Azure w projekcie aparatu Unity.
 
-## <a name="requirements"></a>Wymagania
+## <a name="project-requirements"></a>Wymagania dotyczące projektu
 
-Kotwice przestrzenne platformy Azure obecnie obsługują technologię Unity 2019,4 (LTS) z następującymi konfiguracjami.
-
-* Środowisko Unity 2019,4 z AR Foundation 3,1 jest obsługiwane przez kotwice przestrzenne platformy Azure 2.4.0 +.
+[!INCLUDE [Unity Project Requirements](../../../includes/spatial-anchors-unity-project-requirements.md)]
 
 ## <a name="configuring-a-project"></a>Konfigurowanie projektu
 
-### <a name="download-packages"></a>Pobierz pakiety
+Przed uwzględnieniem zestawu Azure przestrzenny zakotwiczenia w projekcie środowiska Unity należy zainstalować [wymagane](#project-requirements) pakiety za pomocą Menedżera pakietów aparatu Unity.
+
+### <a name="download-asa-packages"></a>Pobierz pakiety ASA
 [!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-### <a name="import-packages"></a>Importowanie pakietów
+### <a name="import-asa-packages"></a>Importuj pakiety ASA
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
 ### <a name="android-only-configure-the-maintemplategradle-file"></a>Tylko system Android: Konfigurowanie pliku mainTemplate. Gradle

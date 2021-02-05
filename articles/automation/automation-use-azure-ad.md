@@ -4,12 +4,12 @@ description: W tym artykule opisano, jak używać usługi Azure AD w ramach Azur
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41eaab7be66d446109e1052948a29ad4723b191c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 336c0387ac9febcc517c2ce358d0b04c80d10678
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894664"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576807"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Uwierzytelnianie na platformie Azure za pomocą usługi Azure AD
 
@@ -50,7 +50,7 @@ Przed zainstalowaniem modułów usługi Azure AD na komputerze:
 
 1. Upewnij się, że na komputerze jest włączona funkcja Microsoft .NET Framework 3.5. x. Jest możliwe, że na komputerze jest zainstalowana nowsza wersja, ale zgodność z poprzednimi wersjami .NET Framework może być włączona lub wyłączona. 
 
-2. Zainstaluj 64-bitową wersję [Asystenta logowania w witrynie Microsoft Online Services](https://www.microsoft.com/download/details.aspx?id=41950).
+2. Zainstaluj 64-bitową wersję [Asystenta logowania w witrynie Microsoft Online Services](https://www.microsoft.com/Download/details.aspx?id=28177).
 
 3. Uruchom program Windows PowerShell jako administrator, aby utworzyć wiersz polecenia programu Windows PowerShell z podwyższonym poziomem uprawnień.
 

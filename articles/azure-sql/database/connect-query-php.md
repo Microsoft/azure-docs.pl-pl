@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
-ms.custom: sqldbrb=2 
-ms.openlocfilehash: e8b9f12c57b2e4bf943e5fc9a9ebc2bbadef9ee9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: sqldbrb=2
+ms.openlocfilehash: e0ad8e9e71a0ee2c23412d535fe79955edb39ba8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86504976"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576654"
 ---
 # <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>Szybki Start: używanie języka PHP do wykonywania zapytań w bazie danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są n
 
   - W systemie **Linux** zainstaluj oprogramowanie PHP i sterownik ODBC, a następnie zainstaluj sterownik języka PHP dla programu SQL Server. Zobacz [kroki 1, 2 i 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-  - W systemie **Windows** zainstaluj język PHP dla usług IIS Express i oprogramowanie Chocolatey, a następnie zainstaluj sterownik ODBC i program SQLCMD. Zobacz [kroki 1.2 i 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
+  - **Windows**, zainstaluj sterowniki PHP i php, a następnie zainstaluj sterownik ODBC i narzędzie sqlcmd. Zobacz [kroki 1.2 i 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
 ## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
 

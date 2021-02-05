@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/04/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3035e0036e5d35729637e35ad8cb1412a0da959f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: dac50d8e35080a083e42891732512e012fae8fbd
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091036"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576451"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Tworzenie lub usuwanie kontenera w usłudze Azure Storage przy użyciu platformy .NET
 
@@ -38,10 +38,10 @@ Aby utworzyć kontener, należy wywołać jedną z następujących metod:
 
 # <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
-- [Utwórz](/dotnet/api/azure.storage.blobs.blobcontainerclient.create)
-- [Metoda async](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync)
-- [Metodę createifnotexists](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexists)
-- [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync)
+- [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer)
+- [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync)
+
+Te metody zgłaszają wyjątek, jeśli kontener o tej samej nazwie już istnieje.
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
@@ -49,11 +49,12 @@ Aby utworzyć kontener, należy wywołać jedną z następujących metod:
 - [Metoda async](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [Metodę createifnotexists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
----
 
 Metody **Create** i **xmlasync** zgłaszają wyjątek, jeśli kontener o tej samej nazwie już istnieje.
 
 Metody **metodę createifnotexists** i **CreateIfNotExistsAsync** zwracają wartość logiczną wskazującą, czy kontener został utworzony. Jeśli kontener o tej samej nazwie już istnieje, te metody zwracają **wartość false** , aby wskazać, że nowy kontener nie został utworzony.
+
+---
 
 Kontenery są tworzone bezpośrednio pod kontem magazynu. Nie można zagnieżdżać jednego kontenera poniżej innego.
 
@@ -229,7 +230,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Operacja tworzenia kontenera](/rest/api/storageservices/create-container)
 - [Operacja usuwania kontenera](/rest/api/storageservices/delete-container)

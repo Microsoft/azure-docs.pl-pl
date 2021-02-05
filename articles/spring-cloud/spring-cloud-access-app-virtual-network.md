@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b6e523fc4a3dcd0eb8c8ed7a44b3d7d9fcdd7d34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887217"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576535"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Uzyskiwanie dostępu do aplikacji w sieci prywatnej
 
 W tym dokumencie wyjaśniono, jak uzyskać dostęp do punktu końcowego aplikacji w sieci prywatnej.  Aby uzyskać dostęp, musisz utworzyć **strefę usługi Azure prywatna strefa DNS** w ramach subskrypcji, aby przetłumaczyć/rozwiązać prywatną w pełni kwalifikowaną nazwę domeny (FQDN) na adres IP.
 
-Po wdrożeniu **punktu końcowego** dla aplikacji w usłudze Azure wiosennej usługi w chmurze w sieci wirtualnej jest on używany jako prywatna nazwa FQDN. Domena jest dostępna tylko w sieci prywatnej. Aplikacje i usługi korzystają z punktu końcowego aplikacji. Obejmują one **punkt końcowy testu** opisany w temacie [Weryfikowanie wdrożenia przemieszczania](spring-cloud-howto-staging-environment.md#verify-the-staging-deployment). Funkcja **przesyłania strumieniowego dzienników** opisana w artykule [przesyłanie strumieniowe dzienników aplikacji w chmurze Azure sprężyny w czasie rzeczywistym](spring-cloud-howto-log-streaming.md)działa również tylko w ramach sieci prywatnej.
+Po wdrożeniu **punktu końcowego** dla aplikacji w usłudze Azure wiosennej usługi w chmurze w sieci wirtualnej jest on używany jako prywatna nazwa FQDN. Domena jest dostępna tylko w sieci prywatnej. Aplikacje i usługi korzystają z punktu końcowego aplikacji. Obejmują one **punkt końcowy testu** opisany w temacie [wyświetlanie aplikacji i wdrożeń](spring-cloud-howto-staging-environment.md#view-apps-and-deployments). Funkcja **przesyłania strumieniowego dzienników** opisana w artykule [przesyłanie strumieniowe dzienników aplikacji w chmurze Azure sprężyny w czasie rzeczywistym](spring-cloud-howto-log-streaming.md)działa również tylko w ramach sieci prywatnej.
 
 ## <a name="create-a-private-dns-zone"></a>Tworzenie prywatnej strefy DNS
 
@@ -121,7 +121,7 @@ Po przypisaniu możesz uzyskać dostęp do prywatnej nazwy FQDN aplikacji w siec
 
 - [Uwidacznianie aplikacji do korzystania z Internetu Application Gateway i zapory platformy Azure](spring-cloud-expose-apps-gateway-azure-firewall.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Rozwiązywanie problemów z chmurą wiosenną platformy Azure w sieci wirtualnej](spring-cloud-troubleshooting-vnet.md)
 - [Obowiązki klientów do uruchamiania chmury Azure wiosny w sieci wirtualnej](spring-cloud-vnet-customer-responsibilities.md)

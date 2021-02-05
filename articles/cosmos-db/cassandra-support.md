@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3b2d1bbe2de0ae72087fdf3debeaf42f8745fed9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134232"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576485"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -43,14 +43,14 @@ Następujące wersje sterowników Cassandra są obsługiwane przez interfejs API
 
 Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy danych języka CQL:
 
-|Polecenie  |Obsługiwane |
+|Typ  |Obsługiwane |
 |---------|---------|
 | ascii  | Tak |
 | bigint  | Tak |
 | blob  | Tak |
 | boolean  | Tak |
 | counter  | Tak |
-| date  | Tak |
+| data  | Tak |
 | decimal  | Tak |
 | double  | Tak |
 | float  | Tak |
@@ -82,13 +82,14 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące funkcje
 |Polecenie  |Obsługiwane |
 |---------|---------|
 | Klucza | Tak |
-| czas wygaśnięcia | Tak |
-| writetime | Tak |
+| czas wygaśnięcia * * * | Tak |
+| writetime *** | Tak |
 | Rzutowanie * * | Tak |
 
 > [!NOTE] 
 > \* Interfejs API Cassandra obsługuje token jako projekcję/selektor i zezwala tylko na token (PK) po lewej stronie klauzuli WHERE. Na przykład `WHERE token(pk) > 1024` jest obsługiwany, ale `WHERE token(pk) > token(100)` **nie** jest obsługiwany.  
-> \*\*`cast()`Funkcja nie jest zagnieżdżona w interfejs API Cassandra. Na przykład `SELECT cast(count as double) FROM myTable` jest obsługiwany, ale `SELECT avg(cast(count as double)) FROM myTable` **nie** jest obsługiwany.
+> \*\*`cast()`Funkcja nie jest zagnieżdżona w interfejs API Cassandra. Na przykład `SELECT cast(count as double) FROM myTable` jest obsługiwany, ale `SELECT avg(cast(count as double)) FROM myTable` **nie** jest obsługiwany.    
+> \*\*\* Niestandardowe sygnatury czasowe i czas wygaśnięcia określone za pomocą `USING` opcji są stosowane na poziomie wiersza (i nie na komórce).
 
 
 
@@ -159,7 +160,6 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 | UTWÓRZ ROLĘ | Nie |
 | Utwórz użytkownika (przestarzałe w natywnym programie Apache Cassandra) | Nie |
 | DELETE | Tak |
-| Usuń (lekkie transakcje z WARUNKIem IF)| Tak |
 | DISTINCT | Nie |
 | UPUŚĆ WARTOŚĆ ZAGREGOWANĄ | Nie |
 | DROP FUNCTION | Nie |
@@ -173,17 +173,25 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 | UPUŚĆ użytkownika (przestarzałe w natywnym programie Apache Cassandra) | Nie |
 | GRANT | Nie |
 | INSERT | Tak |
-| Wstaw (lekkie transakcje z WARUNKIem IF)| Tak |
 | WYŚWIETL UPRAWNIENIA | Nie |
 | ROLE LIST | Nie |
 | Lista użytkowników (przestarzałe w natywnym programie Apache Cassandra) | Nie |
 | REVOKE | Nie |
 | SELECT | Tak |
-| SELECT (lekkie transakcje z WARUNKIem IF)| Nie |
 | UPDATE | Tak |
-| Aktualizuj (uproszczone transakcje z WARUNKIem IF)| Nie |
 | OBCIĄĆ | Nie |
 | USE | Tak |
+
+## <a name="lightweight-transactions-lwt"></a>Transakcje lekkie (LWT)
+
+| Składnik  |Obsługiwane |
+|---------|---------|
+| USUŃ, JEŚLI ISTNIEJE | Tak |
+| Usuń warunki | Nie |
+| WSTAW, JEŚLI NIE ISTNIEJE | Tak |
+| AKTUALIZUJ, JEŚLI ISTNIEJE | Tak |
+| AKTUALIZACJA, JEŚLI NIE ISTNIEJE | Tak |
+| Warunki aktualizacji | Nie |
 
 ## <a name="cql-shell-commands"></a>Polecenia powłoki CQL
 
@@ -193,14 +201,14 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 |---------|---------|
 | PRZECHWYTYWANIA | Tak |
 | Wyczyść | Tak |
-| ZACHOWANIA | Brak |
+| ZACHOWANIA | Nie dotyczy |
 | KOPIOWANE | Nie |
 | WALUT | Tak |
 | cqlshExpand | Nie |
 | Opuść | Tak |
 | IDENTYFIKATORÓW | Nie dotyczy (funkcja CQL `USER` jest nieobsługiwana, dlatego `LOGIN` jest nadmiarowa) |
 | STRONICOWANIA | Tak |
-| SPÓJNOŚĆ SZEREGOWA * | Brak |
+| SPÓJNOŚĆ SZEREGOWA * | Nie dotyczy |
 | WSKAZUJĄ | Tak |
 | ŹRÓDŁO | Tak |
 | POCHODZENIA | Nie dotyczy (interfejs API Cassandra jest obsługiwane przez Azure Cosmos DB — używanie [rejestrowania diagnostycznego](cosmosdb-monitor-resource-logs.md) w celu rozwiązywania problemów) |
@@ -222,7 +230,7 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 
 Interfejs API Cassandra usługi Azure Cosmos DB nie ma żadnych ograniczeń dotyczących rozmiaru danych przechowywanych w tabeli. Można przechowywać setki terabajtów lub petabajtów danych przy zapewnieniu uznania limitów klucza partycji. Podobnie każdy odpowiednik jednostki lub wiersza nie ma żadnych limitów liczby kolumn. Jednak łączny rozmiar jednostki nie powinien przekraczać 2 MB. Dane na klucz partycji nie mogą przekroczyć 20 GB, tak jak w przypadku wszystkich innych interfejsów API.
 
-## <a name="tools"></a>narzędzia 
+## <a name="tools"></a>Narzędzia 
 
 Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanych. Nie wymaga żadnego narzutu związanego z zarządzaniem ani narzędzi, takich jak moduł odzyskiwania pamięci, wirtualna maszyna Java (JVM) i narzędzie nodetool do zarządzania klastrem. Obsługuje narzędzia, takie jak cqlsh, korzystające ze zgodności binarnej z językiem CQL w wersji 4. 
 

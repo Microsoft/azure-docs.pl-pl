@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 37a989082b63dc101bb519fea1cc4ef16c76ae49
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 17a7ad29596c5ab5ed65868fde0e814bc83e8c37
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621539"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576746"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -36,15 +36,16 @@ Wywołanie **odczytu** pobiera obrazy i dokumenty jako dane wejściowe. Mają on
 * Rozmiar pliku musi być mniejszy niż 50 MB (4 MB dla warstwy Bezpłatna) i wymiary co najmniej 50 x 50 pikseli i maksymalnie 10000 x 10000 pikseli. 
 * Wymiary PDF muszą mieć co najwyżej 17 x 17 cali, odpowiadające rozmiarowi papieru legalnego lub A3 i mniejszym.
 
-### <a name="read-32-preview-allows-selecting-pages"></a>Wersja zapoznawcza 3,2 umożliwia wybieranie stron
-Za pomocą [interfejsu API programu Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005)dla dużych dokumentów wielostronicowych można podać określone numery stron lub zakresy stron jako parametr wejściowy, aby wyodrębnić tekst z tylko tych stron. Jest to nowy parametr wejściowy oprócz opcjonalnego parametru języka.
-
 > [!NOTE]
 > **Dane wejściowe języka** 
 >
-> [Wywołanie odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) ma opcjonalny parametr żądania dla języka. Jest to kod języka BCP-47 tekstu w dokumencie. Odczyt obsługuje funkcję autoidentification języka i dokumenty wielojęzyczne, więc podaj tylko kod języka, jeśli chcesz wymusić przetwarzanie dokumentu jako tego konkretnego języka.
+> [Wywołanie odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) ma opcjonalny parametr żądania dla języka. Odczyt obsługuje funkcję autoidentification języka i dokumenty wielojęzyczne, więc podaj tylko kod języka, jeśli chcesz wymusić przetwarzanie dokumentu jako tego konkretnego języka.
 
-## <a name="the-read-call"></a>Wywołanie odczytu
+## <a name="ocr-demo-examples"></a>Demonstracja OCR (przykłady)
+
+![Demonstracje OCR](./Images/ocr-demo.gif)
+
+## <a name="step-1-the-read-operation"></a>Krok 1. operacja odczytu
 
 [Wywołanie odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) interfejsu API odczytu pobiera obraz lub dokument PDF jako dane wejściowe i asynchronicznie wyodrębnia tekst. Wywołanie zwraca z polem nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator operacji, która ma zostać użyta w następnym kroku.
 
@@ -57,7 +58,7 @@ Za pomocą [interfejsu API programu Read 3,2 Preview](https://westus.dev.cogniti
 >
 > Strona [cennika przetwarzanie obrazów](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) obejmuje warstwę cenową do odczytu. Każdy przeanalizowany obraz lub strona to jedna transakcja. Jeśli wywołasz operację z dokumentem PDF lub TIFF zawierającym 100 stron, operacja odczytu będzie liczyć ją z 100 transakcji. opłaty będą naliczane za 100 transakcji. Jeśli wykonano 50 wywołań operacji i każde wywołanie przesłało dokument z 100 strony, opłaty będą naliczane za 50 X 100 = 5000 transakcji.
 
-## <a name="the-get-read-results-call"></a>Wywołanie metody get Read Results
+## <a name="step-2-the-get-read-results-operation"></a>Krok 2. operacja pobrania wyników operacji odczytu
 
 Drugim krokiem jest wywołanie operacji [Get Results wyniki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) . Ta operacja przyjmuje jako dane wejściowe Identyfikator operacji, który został utworzony przez operację odczytu. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 1 do 2 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
 
@@ -74,7 +75,7 @@ Drugim krokiem jest wywołanie operacji [Get Results wyniki](https://westcentral
 Gdy wartość w polu **stan** zostanie **zakończona pomyślnie** , odpowiedź JSON zawiera wyodrębnioną zawartość tekstową z obrazu lub dokumentu. Odpowiedź JSON zachowuje pierwotną grupę wierszy rozpoznanych wyrazów. Zawiera wyodrębnione wiersze tekstu i ich współrzędne pola ograniczenia. Każdy wiersz tekstu zawiera wszystkie wyodrębnione wyrazy ze swoimi współrzędnymi i wynikami pewności.
 
 > [!NOTE]
-> Dane przesłane do `Read` operacji są tymczasowo szyfrowane i przechowywane w spoczynku i usuwane w ciągu 48 godzin. Dzięki temu aplikacje mogą pobierać wyodrębniony tekst w ramach odpowiedzi usługi.
+> Dane przesłane do `Read` operacji są tymczasowo szyfrowane i przechowywane w spoczynku przez krótki czas, a następnie usuwane. Dzięki temu aplikacje mogą pobierać wyodrębniony tekst w ramach odpowiedzi usługi.
 
 ## <a name="sample-json-output"></a>Przykładowe dane wyjściowe JSON
 
@@ -130,67 +131,33 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
   }
 }
 ```
-### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Odczyt 3,2 w wersji zapoznawczej dodaje styl linii tekstu (tylko języki łacińskie)
-[Interfejs API odczytu 3,2 w wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) wyświetla obiekt **wyglądu** klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu jest stylem drukowania, czy też z wynikiem ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
 
-Rozpocznij pracę z [interfejsem API REST przetwarzanie obrazów lub z biblioteką klienta — szybki](./quickstarts-sdk/client-library.md) Start, aby rozpocząć integrację funkcji OCR z aplikacjami.
+## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Wybieranie stron lub zakresów stron do wyodrębniania tekstu
+Za pomocą [interfejsu API odczytu 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)w przypadku dużych dokumentów wielostronicowych Użyj `pages` parametru zapytania, aby określić numery stron lub zakresy stron w celu wyodrębnienia tekstu z tylko tych stron. Na przykład poniższy przykład pokazuje dokument zawierający 10 stron dla obu przypadków — wszystkie strony (1-10) i wybrane strony (3-6).
 
-## <a name="supported-languages-for-print-text"></a>Obsługiwane języki na potrzeby drukowania tekstu
-[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim.
+:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Wybrane strony wyjściowe":::
 
-Pełną listę języków obsługiwanych przez OCR można znaleźć w [obsługiwanych językach](./language-support.md#optical-character-recognition-ocr) .
+## <a name="specify-text-line-order-in-the-output"></a>Określ kolejność wierszy tekstu w danych wyjściowych
+Za pomocą [interfejsu API odczytu 3,2 w wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)Określ kolejność, w której wiersze tekstowe są wyprowadzane za pomocą `read order` parametru zapytania. Wybierz opcję między `basic` wartością domyślną kolejność wierszy w lewo i w dół lub `natural` dla bardziej zrozumiałej dla ludzi kolejności wierszy. W poniższym przykładzie pokazano dwa zestawy numerów porządkowych wierszy dla tego samego dwukolumnowego dokumentu. Zauważ, że obraz po prawej stronie zawiera sekwencyjne numery wierszy w każdej kolumnie, aby reprezentować kolejność odczytywania.
 
-### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Read 3,2 Preview dodaje uproszczony chiński i japoński
-W [publicznej wersji zapoznawczej interfejsu API Read 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) dodano obsługę języka chińskiego uproszczonego i japońskiego. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz sekcję dotyczącą [interfejsu API OCR](#ocr-api) . 
+:::image border type="content" source="./Images/ocr-read-order.png" alt-text="Przykład kolejności odczytywania OCR":::
 
-## <a name="supported-languages-for-handwritten-text"></a>Obsługiwane języki dla tekstu odręcznego
-Operacja odczytu obsługuje obecnie Wyodrębnianie tekstu odręcznego wyłącznie w języku angielskim.
+## <a name="handwritten-classification-for-text-lines-latin-only"></a>Klasyfikacja odręczna dla linii tekstowych (tylko łaciński)
+Odpowiedź w [interfejsie API Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) obejmuje klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu ma styl pisma ręcznego, czy nie, oraz ocenę ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich. Poniższy przykład pokazuje klasyfikację odręczne dla tekstu w obrazie.
 
-## <a name="use-the-rest-api-and-sdk"></a>Korzystanie z interfejsu API REST i zestawu SDK
-[Interfejs API REST do odczytu 3. x](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) jest preferowaną opcją dla większości klientów ze względu na łatwość integracji i szybką produktywność z usługi Box. Platforma Azure i usługa przetwarzanie obrazów obsługują skalowanie, wydajność, bezpieczeństwo danych i wymagania dotyczące zgodności podczas skoncentrowania się na potrzebach klientów.
+:::image border type="content" source="./Images/handwritten-text-line.png" alt-text="Przykład klasyfikacji pisma ręcznego OCR":::
 
-## <a name="deploy-on-premise-with-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
-[Odczytaj kontener platformy Docker (wersja zapoznawcza)](./computer-vision-how-to-install-containers.md) umożliwia wdrożenie nowych funkcji OCR w środowisku lokalnym. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
+## <a name="supported-languages"></a>Obsługiwane języki
+Interfejsy API odczytu obsługują łącznie 73 języków na potrzeby tekstu w stylu drukowania. Zapoznaj się z pełną listą [języków obsługiwanych przez aparat OCR](./language-support.md#optical-character-recognition-ocr). OCR w stylu odręcznym jest obsługiwany wyłącznie w języku angielskim.
 
-## <a name="example-outputs"></a>Przykładowe dane wyjściowe
+## <a name="use-the-cloud-api-or-deploy-on-premise"></a>Korzystanie z interfejsu API chmury lub Wdrażanie lokalne
+Interfejs API chmury odczytywania 3. x jest preferowaną opcją dla większości klientów ze względu na łatwość integracji i szybką produktywność z usługi Box. Platforma Azure i usługa przetwarzanie obrazów obsługują skalowanie, wydajność, bezpieczeństwo danych i wymagania dotyczące zgodności podczas skoncentrowania się na potrzebach klientów.
 
-### <a name="text-from-images"></a>Tekst z obrazów
-
-Następujące dane wyjściowe interfejsu API odczytu pokazują wyodrębniony tekst z obrazu z różnymi kątami, kolorami i czcionkami tekstu.
-
-![Obraz kilku wyrazów o różnych kolorach i kątami z wyodrębnionym tekstem wymienionym na liście](./Images/text-from-images-example.png)
-
-### <a name="text-from-documents"></a>Tekst z dokumentów
-
-Interfejs API odczytu może również przyjmować dokumenty PDF jako dane wejściowe.
-
-![Dokument faktury, z wyodrębnionym tekstem wymienionym na liście](./Images/text-from-pdf-example.png)
-
-### <a name="handwritten-text"></a>Tekst odręczny
-
-Operacja odczytu wyodrębnia Tekst odręczny z obrazów (obecnie tylko w języku angielskim).
-
-![Obraz notatki napisanej ręcznie z wyodrębnionym tekstem wymienionym na liście](./Images/handwritten-example.png)
-
-### <a name="printed-text"></a>Tekst drukowany
-
-Operacja odczytu może wyodrębnić drukowany tekst w kilku różnych językach.
-
-![Obraz hiszpańskiej Textbook z wyodrębnionym tekstem wymienionym na liście](./Images/supported-languages-example.png)
-
-### <a name="mixed-language-documents"></a>Dokumenty języka mieszanego
-
-Interfejs API odczytu obsługuje obrazy i dokumenty zawierające wiele różnych języków, często znane jako dokumenty w języku mieszanym. Działa przez klasyfikowanie każdego wiersza tekstu w dokumencie do wykrytego języka przed wyodrębnieniem jego zawartości tekstowej.
-
-![Obraz wyrażeń w kilku językach z wyodrębnionym tekstem wymienionym na liście](./Images/mixed-language-example.png)
+W przypadku wdrożenia lokalnego [odczytywanie kontenera Docker (wersja zapoznawcza)](./computer-vision-how-to-install-containers.md) umożliwia wdrażanie nowych funkcji rozpoznawania w środowisku lokalnym. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
 
 ## <a name="ocr-api"></a>INTERFEJS API OCR
 
 [Interfejs API OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) używa starszego modelu rozpoznawania, obsługuje tylko obrazy i wykonuje synchronicznie, zwracając natychmiast z wykrytym tekstem. Zobacz [obsługiwane języki OCR](./language-support.md#optical-character-recognition-ocr) , a następnie przeczytaj interfejs API.
-
-## <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
-
-Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystający z usług odczytu/OCR powinni mieć świadomość zasad firmy Microsoft dotyczących danych klientów. Aby dowiedzieć się więcej, zobacz stronę Cognitive Services w [Centrum zaufania firmy Microsoft](https://www.microsoft.com/trust-center/product-overview) .
 
 > [!NOTE]
 > 2,0 komputer, na którym są RecognizeText operacje, są w trakcie wycofywania na korzyść nowego interfejsu API odczytu omówionego w tym artykule. Istniejący klienci powinni [przejść do korzystania z operacji odczytu](upgrade-api-versions.md).
@@ -198,5 +165,5 @@ Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystając
 ## <a name="next-steps"></a>Następne kroki
 
 - Rozpocznij pracę z [interfejsem API REST przetwarzanie obrazów lub z przewodnikiem Szybki Start dla biblioteki klienta](./quickstarts-sdk/client-library.md).
-- Dowiedz się więcej na temat [interfejsu API REST odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Dowiedz się więcej o [interfejsie API REST usługi Read 3,2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) z dodaną obsługą języka chińskiego uproszczonego i japońskiego.
+- Dowiedz się więcej o [interfejsie API REST do odczytu 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Dowiedz się więcej o [interfejsie API REST usługi Read 3,2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) z obsługą łącznej liczby języków 73.
