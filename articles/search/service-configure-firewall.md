@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932801"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573249"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Konfigurowanie zapory IP dla usługi Azure Wyszukiwanie poznawcze
 
@@ -31,7 +31,7 @@ Aby ustawić zasady kontroli dostępu IP w Azure Portal, przejdź do strony usł
 Azure Portal zapewnia możliwość określania adresów IP i zakresów adresów IP w formacie CIDR. Przykładem notacji CIDR jest 8.8.8.0/24, która reprezentuje adresy IP z zakresu od 8.8.8.0 do 8.8.8.255.
 
 > [!NOTE]
-> Po włączeniu zasad kontroli dostępu IP dla usługi Azure Wyszukiwanie poznawcze wszystkie żądania do płaszczyzny danych z maszyn spoza listy dozwolonych zakresów adresów IP zostaną odrzucone. Po skonfigurowaniu reguł IP niektóre funkcje Azure Portal są wyłączone. Będziesz mieć możliwość wyświetlania informacji o poziomie usług i zarządzania nimi, ale dostęp portalu do danych indeksu i różne składniki usługi, takie jak indeks, indeksator i definicje zestawu umiejętności, są ograniczone ze względów bezpieczeństwa.
+> Po włączeniu zasad kontroli dostępu IP dla usługi Azure Wyszukiwanie poznawcze wszystkie żądania do płaszczyzny danych z maszyn spoza listy dozwolonych zakresów adresów IP zostaną odrzucone. Po skonfigurowaniu reguł IP niektóre funkcje Azure Portal są wyłączone. Będziesz mieć możliwość wyświetlania informacji o poziomie usług i zarządzania nimi, ale dostęp portalu do danych indeksu i różne składniki usługi, takie jak indeks, indeksator i definicje zestawu umiejętności, są ograniczone ze względów bezpieczeństwa. Jako alternatywę dla portalu można użyć [rozszerzenia vs Code](https://aka.ms/vscode-search) , aby korzystać z różnych składników usługi.
 
 ### <a name="requests-from-your-current-ip"></a>Żądania z bieżącego adresu IP
 
@@ -39,7 +39,7 @@ Aby uprościć programowanie, Azure Portal ułatwia identyfikowanie i Dodawanie 
 
 Portal automatycznie wykrywa adres IP klienta. Może to być adres IP klienta komputera lub bramy sieci. Pamiętaj o usunięciu tego adresu IP przed rozpoczęciem pracy w środowisku produkcyjnym.
 
-Aby dodać bieżący adres IP do listy adresów IP, zaznacz pole wyboru **Dodaj swój klient**. Następnie wybierz przycisk **Zapisz**.
+Aby dodać bieżący adres IP do listy adresów IP, zaznacz pole wyboru **Dodaj swój klient**. Następnie wybierz pozycję **Zapisz**.
 
 ![Zrzut ekranu przedstawiający sposób konfigurowania ustawień zapory IP w celu zezwolenia na bieżący adres IP](./media/service-configure-firewall/enable-current-ip.png)
 

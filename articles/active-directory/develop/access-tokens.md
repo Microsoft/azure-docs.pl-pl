@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: e1dcd52660ff43a93c6a170912fea5a5847fe9d3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232390"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575758"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokeny dostępu platformy tożsamości firmy Microsoft
 
@@ -241,7 +241,7 @@ W ramach logiki biznesowej aplikacji zostanie wyznaczony ten krok, niektóre typ
 * Sprawdź poprawność stanu uwierzytelniania klienta wywołującego, `appidacr` ale nie powinna być równa 0, jeśli klienci publiczni nie mogą wywoływać interfejsu API.
 * Sprawdź listę wcześniejszych `nonce` oświadczeń, aby sprawdzić, czy token nie jest odtwarzany.
 * Sprawdź, czy jest `tid` zgodny z dzierżawcą, który może wywołać interfejs API.
-* Użyj tego `acr` żądania, aby sprawdzić, czy użytkownik wykonał uwierzytelnianie wieloskładnikowe. Należy to wymusić przy użyciu [dostępu warunkowego](../conditional-access/overview.md).
+* Użyj tego `amr` żądania, aby sprawdzić, czy użytkownik wykonał uwierzytelnianie wieloskładnikowe. Należy to wymusić przy użyciu [dostępu warunkowego](../conditional-access/overview.md).
 * Jeśli zażądano `roles` oświadczeń lub `groups` oświadczenia w tokenie dostępu, należy sprawdzić, czy użytkownik znajduje się w grupie, która może wykonać tę akcję.
   * W przypadku tokenów pobranych przy użyciu niejawnego przepływu prawdopodobnie trzeba będzie wykonać zapytanie dotyczące [Microsoft Graph](https://developer.microsoft.com/graph/) dla tych danych, ponieważ jest ono często zbyt duże, aby zmieścić je w tokenie.
 

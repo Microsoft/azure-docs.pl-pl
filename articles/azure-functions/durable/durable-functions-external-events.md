@@ -4,12 +4,12 @@ description: Dowiedz się, jak obsługiwać zdarzenia zewnętrzne w rozszerzeniu
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 3cd04c93d508bd06c4ddd2e05074084202b9fc60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c08306edcea02a9207ab5a15eb62b7fffc2ecb44
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87014943"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576333"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Obsługa zdarzeń zewnętrznych w Durable Functions (Azure Functions)
 
@@ -20,7 +20,7 @@ Funkcje programu Orchestrator mają możliwość oczekiwania i nasłuchiwania zd
 
 ## <a name="wait-for-events"></a>Zaczekaj na zdarzenia
 
-Metody [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET), `waitForExternalEvent` (JavaScript) i `wait_for_external_event` (Python) [powiązania wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger) pozwalają funkcji programu Orchestrator na asynchroniczne oczekiwanie i nasłuchiwanie zewnętrznego zdarzenia. Funkcja programu Orchestrator nasłuchiwanie deklaruje *nazwę* zdarzenia i *kształt danych* , które oczekuje na odebranie.
+Metody [WaitForExternalEvent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy) (.NET), `waitForExternalEvent` (JavaScript) i `wait_for_external_event` (Python) [powiązania wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger) pozwalają funkcji programu Orchestrator na asynchroniczne oczekiwanie i nasłuchiwanie zewnętrznego zdarzenia. Funkcja programu Orchestrator nasłuchiwanie deklaruje *nazwę* zdarzenia i *kształt danych* , które oczekuje na odebranie.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -230,9 +230,9 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ## <a name="send-events"></a>Wysyłanie zdarzeń
 
-Możesz użyć metod [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) lub `raiseEventAsync` (JavaScript) do wysyłania zdarzenia zewnętrznego do aranżacji. Te metody są udostępniane przez powiązanie [klienta aranżacji](durable-functions-bindings.md#orchestration-client) . Możesz również użyć wbudowanego [interfejsu API protokołu HTTP zdarzenia](durable-functions-http-api.md#raise-event) do wysyłania zdarzenia zewnętrznego do aranżacji.
+Możesz użyć metod [RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy) (.NET) lub `raiseEventAsync` (JavaScript) do wysyłania zdarzenia zewnętrznego do aranżacji. Te metody są udostępniane przez powiązanie [klienta aranżacji](durable-functions-bindings.md#orchestration-client) . Możesz również użyć wbudowanego [interfejsu API protokołu HTTP zdarzenia](durable-functions-http-api.md#raise-event) do wysyłania zdarzenia zewnętrznego do aranżacji.
 
-Zdarzenie wywoływane zawiera *Identyfikator wystąpienia*, *EventName*i *eventData* jako parametry. Funkcje programu Orchestrator obsługują te zdarzenia przy użyciu `WaitForExternalEvent` interfejsów API (.NET) lub `waitForExternalEvent` (JavaScript). Nazwa *zdarzenia* musi być zgodna zarówno po stronie wysyłającej, jak i odbiorczej, aby można było przetworzyć zdarzenie. Dane zdarzenia muszą być również serializowane w formacie JSON.
+Zdarzenie wywoływane zawiera *Identyfikator wystąpienia*, *EventName* i *eventData* jako parametry. Funkcje programu Orchestrator obsługują te zdarzenia przy użyciu `WaitForExternalEvent` interfejsów API (.NET) lub `waitForExternalEvent` (JavaScript). Nazwa *zdarzenia* musi być zgodna zarówno po stronie wysyłającej, jak i odbiorczej, aby można było przetworzyć zdarzenie. Dane zdarzenia muszą być również serializowane w formacie JSON.
 
 Wewnętrznie, mechanizmy "zgłoś zdarzenie" w kolejce komunikatu, który jest pobierany przez oczekującą funkcję programu Orchestrator. Jeśli wystąpienie nie oczekuje na określoną *nazwę zdarzenia,* komunikat o zdarzeniu zostanie dodany do kolejki w pamięci. Jeśli wystąpienie aranżacji rozpocznie nasłuchiwanie dla tej *nazwy zdarzenia,* sprawdza kolejkę komunikatów o zdarzeniach.
 

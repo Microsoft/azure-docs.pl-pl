@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e987f96402f4c922bdaca8ecf32348bc99c34199
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 01cd79afe3e718a32663544a76a2a43353bc082e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798450"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575385"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Linia bazowa zabezpieczeń Azure dla pulpitu wirtualnego systemu Windows
 
@@ -64,7 +64,7 @@ Używaj komunikacji równorzędnej sieci wirtualnej, aby połączyć dwie lub wi
 
 - [Omówienie usługi Azure VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) 
 
-- [Komunikacja równorzędna sieci wirtualnych](/azure/virtual-network/virtual-network-peering-overvie)
+- [Komunikacja równorzędna sieci wirtualnych](/azure/virtual-network/virtual-network-peering-overview)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -96,7 +96,7 @@ Jeśli masz przepisy prawne lub inne wymagania dotyczące wykrywania intruzów l
 
 - [Portal Azure Marketplace obejmuje możliwości identyfikatorów innych firm](https://azuremarketplace.microsoft.com/marketplace?search=IDS) 
 
-- [Funkcja Microsoft Defender ATP EDR](/windows/security/threat-protection/microsoft-defender-atp/overviewendpoint-detection-response)
+- [Funkcja Microsoft Defender ATP EDR](/bs-cyrl-ba/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -310,7 +310,7 @@ Należy upewnić się, że poświadczenia (takie jak hasło, certyfikat lub kart
 
 Użyj Azure Active Directory (Azure AD), usługi Microsoft Defender Advanced Threat Protection (ATP) lub Microsoft Intune do wdrożenia bezpiecznej i zarządzanej stacji roboczej użytkownika na potrzeby zadań administracyjnych. Zabezpieczona stacja robocza może być centralnie zarządzana, aby wymusić bezpieczną konfigurację, w tym silne uwierzytelnianie, oprogramowanie i sprzętowe linie bazowe, ograniczony dostęp logiczny i sieciowy.
 
-- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](/azure/active-directory/devices/concept-azure-managed-workstation) 
+- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](/azure/active-directory/devices/howto-azure-managed-workstation)
 
@@ -488,7 +488,7 @@ Zaleca się, aby klient utworzył proces przechwytywania atrybutów i zmian konf
 
 ## <a name="logging-and-threat-detection"></a>Rejestrowanie i wykrywanie zagrożeń
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Włączanie wykrywania zagrożeń dla zasobów platformy Azure
 
@@ -684,7 +684,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 ## <a name="posture-and-vulnerability-management"></a>Stan zabezpieczeń i zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: stan zabezpieczeń i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: stan zabezpieczeń i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>WA-3: Ustanów bezpieczne konfiguracje dla zasobów obliczeniowych
 
@@ -765,9 +765,9 @@ Użyj Update Management Azure Automation lub rozwiązania innej firmy, aby upewn
 
 Użyj rozwiązania do zarządzania poprawkami innych firm dla oprogramowania innej firmy lub System Center Updates Publisher dla Configuration Manager.
 
-- [Jak skonfigurować Update Management dla maszyn wirtualnych na platformie Azure](/azure/automation/automation-update-management) 
+- [Jak skonfigurować Update Management dla maszyn wirtualnych na platformie Azure](/azure/automation/update-management/overview) 
 
-- [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](/azure/automation/automation-tutorial-update-management)
+- [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](/azure/automation/update-management/manage-updates-for-vm)
 
 - [Konfigurowanie usługi Microsoft Endpoint Configuration Manager dla pulpitu wirtualnego systemu Windows](configure-automatic-updates.md)
 
@@ -928,9 +928,9 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 - [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie elementami zawartości](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie elementami zawartości](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Test porównawczy zabezpieczeń platformy Azure — ochrona danych](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Test porównawczy zabezpieczeń platformy Azure — ochrona danych](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -958,7 +958,7 @@ Upewnij się, że strategia segmentacji jest zaimplementowana spójnie dla róż
 
 **Wskazówka**: Nieustannie mierz i ograniczaj ryzyko dla poszczególnych elementów zawartości i środowiska, w którym są hostowane. Ustalaj priorytety elementów zawartości o wysokiej wartości i wysoce narażonych na ataki obszarów, takich jak opublikowane aplikacje, punkty danych przychodzących i wychodzących sieci, punkty końcowe użytkowników i administratorów itp.
 
-- [Test porównawczy zabezpieczeń platformy Azure — stan i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Test porównawczy zabezpieczeń platformy Azure — stan i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -999,7 +999,7 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Test porównawczy zabezpieczeń platformy Azure — zabezpieczenia sieci](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Test porównawczy zabezpieczeń platformy Azure — zabezpieczenia sieci](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Omówienie zabezpieczeń sieci platformy Azure](../security/fundamentals/network-overview.md)
 
@@ -1027,9 +1027,9 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
-- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie tożsamością](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie tożsamością](/azure/automation/update-management/overview)
 
-- [Test porównawczy zabezpieczeń platformy Azure — dostęp uprzywilejowany](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Test porównawczy zabezpieczeń platformy Azure — dostęp uprzywilejowany](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -1061,9 +1061,9 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
-- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Test porównawczy zabezpieczeń platformy Azure — reagowanie na zdarzenia](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Test porównawczy zabezpieczeń platformy Azure — reagowanie na zdarzenia](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 4 — proces. Aktualizowanie procesów reagowania na zdarzenia dla chmury](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

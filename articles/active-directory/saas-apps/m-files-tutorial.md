@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0df9e4722136dafe94d1bfc84a7767e1e0144d69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 552e5c2411889ee7f07265eb1cc35d98aed4d7c1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997226"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Samouczek: integracja Azure Active Directory z plikami M
 
@@ -129,7 +129,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji M-Files, w
     >[!NOTE]
     >Wykonaj poniższe czynności, aby zapewnić skonfigurowanie logowania jednokrotnego w swojej aplikacji klasycznej M-File. Jeśli chcesz skonfigurować logowanie jednokrotne tylko dla wersji internetowej aplikacji M-Files, nie są wymagane żadne dodatkowe czynności.  
 
-1. Wykonaj poniższe czynności, aby skonfigurować w aplikacji klasycznej M-Files logowanie jednokrotne za pomocą usługi Azure AD. Aby pobrać aplikację M-Files, przejdź do strony [pobierania aplikacji M-Files](https://www.m-files.com/en/download-latest-version).
+1. Wykonaj poniższe czynności, aby skonfigurować w aplikacji klasycznej M-Files logowanie jednokrotne za pomocą usługi Azure AD. Aby pobrać aplikację M-Files, przejdź do strony [pobierania aplikacji M-Files](https://www.m-files.com/customers/product-downloads/download-update-links/).
 
 1. Otwórz okno **M-Files Desktop Settings** (Ustawienia pulpitu M-Files). Następnie kliknij przycisk **Add** (Dodaj).
    

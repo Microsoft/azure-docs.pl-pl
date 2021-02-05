@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: cc4f961c399e9ac5e853085106924584eb3935d0
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 222257f5045984a71c2aee9de83b5fa420306728
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223393"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573419"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Połącz usługi ServiceNow z łącznik zarządzania usługami IT
 
@@ -123,7 +123,7 @@ Aby utworzyć połączenie usługi ServiceNow, należy wykonać poniższą proce
    | --- | --- |
    | **Nazwa połączenia**   | Wprowadź nazwę wystąpienia usługi ServiceNow, które chcesz połączyć z ITSMC. Tej nazwy można użyć później w Log Analytics podczas konfigurowania elementów roboczych narzędzia ITSM i wyświetlania szczegółowej analizy. |
    | **Typ partnera**   | Wybierz pozycję **usługi ServiceNow**. |
-   | **Adres URL serwera**   | Wprowadź adres URL wystąpienia usługi ServiceNow, które chcesz połączyć z ITSMC. Adres URL powinien wskazywać obsługiwaną wersję SaaS z sufiksem *. ServiceNow.com* (na przykład https://XXXXX.service-now.com/) .|
+   | **Adres URL serwera**   | Wprowadź adres URL wystąpienia usługi ServiceNow, które chcesz połączyć z ITSMC. Adres URL powinien wskazywać obsługiwaną wersję SaaS z sufiksem *. ServiceNow.com* (na przykład `https://XXXXX.service-now.com/` ).|
    | **Nazwa użytkownika**   | Wprowadź nazwę użytkownika integracji utworzoną w aplikacji usługi ServiceNow, aby umożliwić obsługę połączenia z usługą ITSMC.|
    | **Password** (Hasło)   | Wprowadź hasło skojarzone z tą nazwą użytkownika. **Uwaga**: Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania. Nie są one przechowywane w żadnym miejscu w ramach usługi ITSMC.  |
    | **Identyfikator klienta**   | Wprowadź identyfikator klienta, który ma być używany na potrzeby uwierzytelniania OAuth2 wygenerowanego wcześniej. Aby uzyskać więcej informacji na temat generowania identyfikatora klienta i wpisu tajnego, zobacz [Konfigurowanie protokołu OAuth](https://old.wiki/index.php/OAuth_Setup). |

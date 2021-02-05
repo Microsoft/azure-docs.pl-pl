@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 02/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 8901877ab3055c02dfc8c129fb35864418cd19d8
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549139"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576316"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sprawdź, czy występują błędy puli i węzłów
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób wykrywania i unikania niepowodzeń w operacjach w
 
 ### <a name="resize-timeout-or-failure"></a>Zmień limit czasu lub niepowodzenie
 
-Podczas tworzenia nowej puli lub zmiany rozmiarów istniejącej puli należy określić docelową liczbę węzłów. Operacja tworzenia lub zmiany rozmiaru zostanie zakończona natychmiast, ale rzeczywista alokacja nowych węzłów lub usunięcie istniejących węzłów może potrwać kilka minut. W interfejsie API [tworzenia](/rest/api/batchservice/pool/add) lub [zmiany](/rest/api/batchservice/pool/resize) rozmiaru należy określić wartość Zmień limit czasu. Jeśli w usłudze Batch nie można uzyskać docelowej liczby węzłów w okresie limitu czasu, Pula przechodzi w stan stały i raporty błędów zmieniania rozmiaru.
+Podczas tworzenia nowej puli lub zmiany rozmiarów istniejącej puli należy określić docelową liczbę węzłów. Operacja tworzenia lub zmiany rozmiaru zostanie zakończona natychmiast, ale rzeczywista alokacja nowych węzłów lub usunięcie istniejących węzłów może potrwać kilka minut. Limit czasu można określić w interfejsie API [tworzenia](/rest/api/batchservice/pool/add) lub [zmiany rozmiaru](/rest/api/batchservice/pool/resize) . Jeśli w usłudze Batch nie można uzyskać docelowej liczby węzłów w okresie limitu czasu, Pula przechodzi w stan stały i raporty błędów zmieniania rozmiaru.
 
 Właściwość [ResizeError](/rest/api/batchservice/pool/get#resizeerror) dla najnowszej oceny zawiera listę błędów, które wystąpiły.
 

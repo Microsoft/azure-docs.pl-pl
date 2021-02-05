@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: acdb635dec5abd73341cc1dda4991b58b82a18c0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901202"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574520"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview
 
@@ -38,11 +38,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 
 jobs:
   build_and_deploy_job:
@@ -87,16 +87,16 @@ jobs:
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 ```
 
 Za pomocą ustawień skojarzonych z `on` właściwością można zdefiniować gałęzie wyzwalające zadanie i ustawić wyzwalacze do uruchamiania dla różnych stanów żądań ściągnięcia.
 
-W tym przykładzie przepływ pracy jest uruchamiany w miarę zmiany gałęzi _głównej_ . Zmiany rozpoczynające przepływ pracy obejmują wypychanie zatwierdzeń i otwieranie żądań ściągnięcia względem wybranej gałęzi.
+W tym przykładzie przepływ pracy jest uruchamiany z chwilą zmiany gałęzi _głównej_ . Zmiany rozpoczynające przepływ pracy obejmują wypychanie zatwierdzeń i otwieranie żądań ściągnięcia względem wybranej gałęzi.
 
 ## <a name="jobs"></a>Stanowiska
 
@@ -139,7 +139,7 @@ with:
 | Właściwość | Opis | Wymagane |
 |---|---|---|
 | `app_location` | Lokalizacja kodu aplikacji.<br><br>Na przykład wprowadź, `/` czy kod źródłowy aplikacji znajduje się w katalogu głównym repozytorium, czy `/app` kod aplikacji znajduje się w katalogu o nazwie `app` . | Tak |
-| `api_location` | Lokalizacja kodu Azure Functions.<br><br>Na przykład wprowadź, `/api` czy kod aplikacji znajduje się w folderze o nazwie `api` . Jeśli w folderze nie zostanie wykryta żadna aplikacja Azure Functions, kompilacja nie powiedzie się, a przepływ pracy zakłada, że nie potrzebujesz interfejsu API. | Nie |
+| `api_location` | Lokalizacja kodu Azure Functions.<br><br>Na przykład wprowadź, `/api` czy kod aplikacji znajduje się w folderze o nazwie `api` . Jeśli w folderze nie zostanie wykryta żadna aplikacja Azure Functions, kompilacja nie powiedzie się, a przepływ pracy założono, że nie potrzebujesz interfejsu API. | Nie |
 | `output_location` | Lokalizacja katalogu wyjściowego kompilacji względem `app_location` .<br><br>Na przykład, jeśli kod źródłowy aplikacji znajduje się w lokalizacji `/app` i skrypt kompilacji wyprowadza pliki do `/app/build` folderu, a następnie ustawi `build` jako `output_location` wartość. | Nie |
 
 `repo_token`Wartości, `action` , i `azure_static_web_apps_api_token` są ustawiane przez statyczne Web Apps platformy Azure, nie powinny być ręcznie zmieniane.
@@ -194,6 +194,53 @@ jobs:
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0
 ```
+
+## <a name="monorepo-support"></a>Obsługa wielorepozytorium
+
+Transrepozytorium zawiera kod dla więcej niż jednej aplikacji. Domyślnie statyczny plik przepływu pracy Web Apps śledzi wszystkie pliki w repozytorium, ale można dostosować ją do docelowej pojedynczej aplikacji. W związku z tym, w przypadku repozytoriów, każda lokacja statyczna ma własny plik konfiguracji, który działa obok siebie w folderze *git* repozytorium.
+
+```files
+├── .git
+│   ├── azure-static-web-apps-purple-pond.yml
+│   └── azure-static-web-apps-yellow-shoe.yml
+│
+├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+└── readme.md
+```
+
+Aby wskazać plik przepływu pracy w pojedynczej aplikacji, należy określić ścieżki w `push` `pull_request` sekcjach i.
+
+Poniższy przykład pokazuje, jak dodać `paths` węzeł do `push` `pull_request` sekcji i pliku o nazwie _Azure-static-Web-Apps-Purple-Pond. yml_.
+
+```yml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+```
+
+W tym przypadku tylko zmiany wprowadzone w plikach następujących plików wyzwalają nową kompilację:
+
+- Wszystkie pliki w folderze *APP1*
+- Wszystkie pliki w folderze *API1*
+- Zmiany pliku przepływu pracy *Azure-static-Web-Apps-Purple-Pond. yml* aplikacji
 
 ## <a name="next-steps"></a>Następne kroki
 

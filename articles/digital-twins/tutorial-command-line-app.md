@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050242"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576248"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -133,7 +133,7 @@ Content-Length: 223
 Content-Type: application/json; charset=utf-8
 ```
 
-### <a name="create-digital-twins"></a>Utwórz cyfrowy bliźniaczych reprezentacji
+### <a name="create-digital-twins"></a>Tworzenie cyfrowych reprezentacji bliźniaczych
 
 Teraz, gdy niektóre modele zostały przekazane do wystąpienia usługi Azure Digital bliźniaczych reprezentacji, można utworzyć [**cyfrowy bliźniaczych reprezentacji**](concepts-twins-graph.md) na podstawie definicji modelu. Bliźniaczych reprezentacji Digital reprezentuje jednostki w środowisku biznesowym — takie jak czujniki w farmie, pokoje w budynku lub lampy w kabinie. 
 
@@ -274,12 +274,15 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Projekt w tym samouczku stanowi podstawę dla następnego samouczka, [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane zasoby, aby nadal korzystać z tego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i skonfigurowanej przykładowej aplikacji.
-* W takim przypadku można użyć przykładowej aplikacji `DeleteAllTwins` i `DeleteAllModels` poleceń, aby wyczyścić odpowiednio bliźniaczych reprezentacji i modele w wystąpieniu. Spowoduje to wyczyszczenie do następnego samouczka.
+Po ukończeniu tego samouczka możesz wybrać zasoby, które chcesz usunąć, w zależności od tego, co chcesz zrobić dalej.
+
+* **Jeśli planujesz przejść do następnego samouczka**, możesz zachować tutaj skonfigurowane zasoby, aby nadal korzystać z tego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i skonfigurowanej przykładowej aplikacji do następnego samouczka
+
+* **Jeśli chcesz kontynuować korzystanie z wystąpienia usługi Azure Digital bliźniaczych reprezentacji, ale wyczyścisz wszystkie modele, bliźniaczych reprezentacji i relacje**, możesz użyć przykładowej aplikacji `DeleteAllTwins` i `DeleteAllModels` poleceń, aby wyczyścić odpowiednio bliźniaczych reprezentacji i modele w wystąpieniu. Spowoduje to wyczyszczenie do następnego samouczka.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Na koniec Usuń folder przykładowego projektu pobrany na komputer lokalny.
+Możesz również usunąć folder projektu z komputera lokalnego.
 
 ## <a name="next-steps"></a>Następne kroki 
 

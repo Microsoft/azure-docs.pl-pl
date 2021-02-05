@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f7746f079e740493348731376d0a5a7b1a9e954
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317852"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576028"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Samouczek: konwertowanie eksperymentów ML do kodu w języku Python produkcji
 
@@ -22,7 +22,7 @@ W tym samouczku dowiesz się, jak konwertować notesy Juptyer na skrypty języka
 
 Projekt uczenia maszynowego wymaga eksperymentu, w którym są testowane z użyciem narzędzi agile, takich jak Jupyter Notebook przy użyciu rzeczywistych zestawów danych. Gdy model jest gotowy do produkcji, kod modelu powinien być umieszczony w repozytorium kodu produkcyjnego. W niektórych przypadkach kod modelu musi być konwertowany do skryptów języka Python, które mają zostać umieszczone w repozytorium kodu produkcyjnego. Ten samouczek obejmuje zalecane podejście do eksportowania kodu eksperymentu do skryptów języka Python.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Czysty nieistotny kod
@@ -353,7 +353,7 @@ Po trzecie, powiązane funkcje muszą zostać scalone z plikami języka Python, 
 Przekonwertuj Notes na skrypt wykonywalny, uruchamiając następującą instrukcję w wierszu polecenia, który używa `nbconvert` pakietu i ścieżki `experimentation/Diabetes Ridge Regression Training.ipynb` :
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
+jupyter nbconvert "Diabetes Ridge Regression Training.ipynb" --to script --output train
 ```
 
 Po przekonwertowaniu notesu na `train.py` program Usuń niechciane Komentarze. Zastąp wywołanie `main()` na końcu pliku z wywołaniem warunkowym, takim jak poniższy kod:
@@ -441,7 +441,7 @@ Funkcje z `train.py` mogą również być wywoływane z innych plików.
 Przekonwertować Notes do skryptu wykonywalnego, uruchamiając następującą instrukcję w wierszu polecenia, który używa `nbconvert` pakietu i ścieżki `experimentation/Diabetes Ridge Regression Scoring.ipynb` :
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
+jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score
 ```
 
 Po przekonwertowaniu notesu na `score.py` program Usuń niechciane Komentarze. `score.py`Plik powinien wyglądać podobnie do następującego kodu:

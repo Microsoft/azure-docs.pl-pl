@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: Obsługa komputerów, aplikacje komputerowe, usługa komputerowa
-ms.openlocfilehash: 62d82388d975f36c422f7eb1e9feff8ce2725d54
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033293"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575944"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
@@ -32,7 +32,7 @@ Możesz tworzyć przetwarzanie obrazów aplikacje za pomocą [zestawu SDK biblio
 
 ## <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
-Przetwarzanie obrazów obejmuje możliwości [optycznego rozpoznawania znaków (OCR)](concept-recognizing-text.md) . Możesz użyć nowego interfejsu API odczytu do wyodrębnienia wydrukowanych i odręcznych tekstu z obrazów i dokumentów. Korzysta ona z najnowszych modeli i współpracuje z tekstem na różnych powierzchniach i w tle. Obejmują one potwierdzenia, plakaty, karty biznesowe, litery i tablice. Dwa interfejsy API OCR obsługują wyodrębnianie drukowanego tekstu w [kilku językach](./language-support.md). Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](./quickstarts-sdk/client-library.md) .
+Przetwarzanie obrazów obejmuje możliwości [optycznego rozpoznawania znaków (OCR)](concept-recognizing-text.md) . Możesz użyć nowego interfejsu API odczytu do wyodrębnienia wydrukowanych i odręcznych tekstu z obrazów i dokumentów. Używa on modeli opartych na uczeniu głębokiego i współpracuje z tekstem na różnych powierzchniach i w tle. Obejmują one dokumenty biznesowe, faktury, potwierdzenia, plakaty, wizytówki, litery i tablice. Interfejsy API OCR obsługują wyodrębnianie drukowanego tekstu w [kilku językach](./language-support.md). Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](./quickstarts-sdk/client-library.md) .
 
 ## <a name="computer-vision-for-digital-asset-management"></a>przetwarzanie obrazów do zarządzania cyfrowymi zasobami
 

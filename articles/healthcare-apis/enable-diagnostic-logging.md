@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
-ms.date: 11/01/2019
-ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/03/2021
+ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905178"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575447"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Włączanie rejestrowania diagnostycznego w interfejsie API platformy Azure dla usługi FHIR
 
@@ -35,9 +35,9 @@ W tym artykule dowiesz się, jak włączyć rejestrowanie diagnostyczne w interf
     2. **Przesyłaj strumieniowo do centrum zdarzeń** w celu pozyskiwania przez usługę innej firmy lub niestandardowe rozwiązanie analityczne. Aby można było skonfigurować ten krok, należy utworzyć przestrzeń nazw centrum zdarzeń i zasady centrum zdarzeń.
     3. **Przesyłaj strumieniowo do** obszaru roboczego Log Analytics w Azure monitor. Aby można było wybrać tę opcję, musisz utworzyć obszar roboczy usługi Dzienniki analizy.
 
-6. Wybierz pozycję **AuditLogs** i wszystkie metryki, które chcesz przechwycić. Jeśli używasz łącznika usługi Azure IoT dla programu FHIR, upewnij się, że wybrano **błędy, ruch i czas oczekiwania** dla metryk. 
+6. Wybierz pozycję **AuditLogs** i/lub **AllMetrics**. Metryki obejmują nazwę usługi, dostępność, rozmiar danych, łączny czas oczekiwania, całkowitą liczbę żądań, łączne błędy i sygnaturę czasową.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Ustawienia diagnostyczne usługi Azure FHIR. Wybierz pozycję AuditLogs i/lub AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. Wybierz pozycję **Zapisz**
 
@@ -97,7 +97,7 @@ MicrosoftHealthcareApisAuditLogs
 | where ResultType == "Failed" 
 ```
 
-## <a name="conclusion"></a>Wniosek 
+## <a name="conclusion"></a>Podsumowanie 
 Posiadanie dostępu do dzienników diagnostycznych jest niezbędne do monitorowania usługi i zapewniania raportów zgodności. Interfejs API platformy Azure dla usługi FHIR umożliwia wykonywanie tych działań za pomocą dzienników diagnostycznych. 
  
 FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.

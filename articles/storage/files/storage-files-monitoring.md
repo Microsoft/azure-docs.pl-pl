@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d71f3fa27dda9edc4c88ad9ed563e5c3a95ffa4b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875148"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574537"
 ---
 # <a name="monitoring-azure-files"></a>Azure Files monitorowania
 
@@ -589,13 +589,13 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 
 3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu plik** , a następnie kliknij przycisk **gotowe**. 
 
-4. Kliknij pozycję **Wybierz warunek** i podaj następujące informacje dotyczące alertu: 
+4. Kliknij pozycję **Dodaj warunek** i podaj następujące informacje dotyczące alertu: 
 
     - **Metryka**
     - **Nazwa wymiaru**
     - **Logika alertu**
 
-5. Kliknij pozycję **Wybierz grupę akcji** i Dodaj grupę akcji (wiadomości e-mail, wiadomości SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+5. Kliknij pozycję **Dodaj grupy akcji** i Dodaj grupę akcji (wiadomości e-mail, wiadomości SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 
 6. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 
@@ -609,16 +609,31 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
 2. W sekcji **monitorowanie** kliknij pozycję **alerty**, a następnie kliknij pozycję **+ Nowa reguła alertów**.
 3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to `contoso` , wybierz `contoso/file` zasób.
-4. Kliknij pozycję **Wybierz warunek** , aby dodać warunek.
+4. Kliknij przycisk **Dodaj warunek** , aby dodać warunek.
 5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **transakcji** .
 6. W bloku **Konfigurowanie logiki sygnału** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **Typ odpowiedzi**.
-7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz pozycję **SuccessWithThrottling** (dla protokołu SMB) lub **ClientThrottlingError** (dla opcji REST).
+7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz odpowiednie typy odpowiedzi dla danego udziału plików.
+
+    W przypadku standardowych udziałów plików wybierz następujące typy odpowiedzi:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    W przypadku udziałów plików w warstwie Premium wybierz następujące typy odpowiedzi:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Jeśli wartość wymiaru SuccessWithThrottling lub ClientThrottlingError nie znajduje się na liście, oznacza to, że zasób nie został ograniczony. Aby dodać wartość wymiaru, kliknij pozycję **Dodaj wartość niestandardową** obok listy rozwijanej **wartości wymiaru** , wpisz **SuccessWithThrottling** lub **ClientThrottlingError**, kliknij przycisk **OK** , a następnie powtórz krok #7.
+   > Jeśli typy odpowiedzi nie są wyświetlane na liście rozwijanej **wartości wymiaru** , oznacza to, że zasób nie został ograniczony. Aby dodać wartości wymiaru, obok listy rozwijanej **wartości wymiaru** wybierz pozycję **Dodaj wartość niestandardową**, wprowadź typ respone (na przykład **SuccessWithThrottling**), wybierz pozycję **OK**, a następnie powtórz te kroki, aby dodać wszystkie odpowiednie typy odpowiedzi dla udziału plików.
 
 8. Kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
 9. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
+
 
    > [!NOTE]
    > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
@@ -628,8 +643,8 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
     > [!TIP]
     > Jeśli jest używany próg statyczny, wykres metryk może pomóc w ustaleniu rozsądnej wartości progowej, jeśli udział plików jest obecnie ograniczany. Jeśli używasz progu dynamicznego, wykres metryki wyświetli obliczone progi na podstawie ostatnich danych.
 
-11. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
-12. Wypełnij **szczegóły alertu** , takie jak **Nazwa reguły alertu**, * * opis i **ważność**.
+11. Kliknij pozycję **Dodaj grupy akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+12. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 13. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Jak utworzyć alert, jeśli rozmiar udziału plików platformy Azure wynosi 80% pojemności
@@ -637,7 +652,7 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
 2. W sekcji **monitorowanie** kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
 3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to `contoso` , wybierz `contoso/file` zasób.
-4. Kliknij pozycję **Wybierz warunek** , aby dodać warunek.
+4. Kliknij przycisk **Dodaj warunek** , aby dodać warunek.
 5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **pojemności pliku** .
 6. W bloku **Konfigurowanie logiki sygnału** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
 7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
@@ -647,8 +662,8 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 
 8. Wprowadź **wartość progową** w bajtach. Jeśli na przykład rozmiar udziału plików to 100 TiB i chcesz otrzymywać alert, gdy rozmiar udziału plików wynosi 80% pojemności, wartość progowa w bajtach to 87960930222080.
 9. Zdefiniuj pozostałe **Parametry alertu** (stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij przycisk **gotowe**.
-10. Kliknij pozycję Wybierz grupę akcji, aby dodać do alertu grupę akcji (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
-11. Wypełnij **szczegóły alertu** , takie jak **Nazwa reguły alertu**, * * opis i **ważność**.
+10. Kliknij pozycję **Dodaj grupy akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+11. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 12. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Jak utworzyć alert, jeśli udział plików platformy Azure przekroczył 500 GiB w ciągu dnia
@@ -656,7 +671,7 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
 2. W sekcji monitorowanie kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
 3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/File.
-4. Kliknij pozycję **Wybierz warunek** , aby dodać warunek.
+4. Kliknij przycisk **Dodaj warunek** , aby dodać warunek.
 5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **ruchu** wychodzącego.
 6. W bloku **Konfigurowanie logiki sygnału** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
 7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
@@ -667,8 +682,8 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 8. Wprowadź **536870912000** bajtów dla wartości progowej. 
 9. Kliknij listę rozwijaną **stopień szczegółowości agregacji** i wybierz pozycję **24 godziny**.
 10. Wybierz **częstotliwość oceny** i **kliknij przycisk Gotowe**.
-11. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
-12. Wypełnij **szczegóły alertu** , takie jak **Nazwa reguły alertu**, * * opis i **ważność**.
+11. Kliknij pozycję **Dodaj grupy akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+12. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 13. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
 
 ## <a name="next-steps"></a>Następne kroki

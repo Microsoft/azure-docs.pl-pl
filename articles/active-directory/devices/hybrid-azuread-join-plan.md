@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f13dfa4221f8f09c24cce3a451f3180d15ee3b99
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 0c4ed5dfee80c33009874361ae6b4d23ec00bc26
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435761"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573334"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory
 
@@ -82,6 +82,8 @@ Jako pierwszy krok planowania należy przejrzeć środowisko i określić, czy n
 
 - Podstawowe systemy operacyjne serwera nie obsługują żadnego typu rejestracji urządzeń.
 
+- Narzędzie do migracji stanu użytkowników (USMT) nie działa z rejestracją urządzenia.  
+
 ### <a name="os-imaging-considerations"></a>Zagadnienia dotyczące tworzenia obrazu systemu operacyjnego
 - Jeśli korzystasz z narzędzia przygotowywania systemu (Sysprep) i używasz obrazu **sprzed systemu Windows 10 1809** do instalacji, upewnij się, że obraz nie pochodzi z urządzenia, które jest już zarejestrowane w usłudze Azure AD jako sprzężenie hybrydowe usługi Azure AD.
 
@@ -140,7 +142,7 @@ Te scenariusze nie wymagają konfigurowania serwera federacyjnego na potrzeby uw
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **Usługi ADFS/Services/Trust/2005/windowstransport** lub **ADFS/Services/Trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i nie mogą być udostępniane jako punkty końcowe dla ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej o tym, jak wyłączyć WS-Trust punkty końcowe systemu Windows, zobacz temat [wyłączanie WS-Trust punktów końcowych systemu Windows na serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe można sprawdzić za pomocą konsoli zarządzania AD FS w obszarze **Service**  >  **punkty końcowe** usługi.
+> **Usługi ADFS/Services/Trust/2005/windowstransport** lub **ADFS/Services/Trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i nie mogą być udostępniane jako punkty końcowe dla ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej o tym, jak wyłączyć WS-Trust punkty końcowe systemu Windows, zobacz temat [wyłączanie WS-Trust punktów końcowych systemu Windows na serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe można sprawdzić za pomocą konsoli zarządzania AD FS w obszarze   >  **punkty końcowe** usługi.
 
 > [!NOTE]
 > Usługa Azure AD nie obsługuje kart inteligentnych ani certyfikatów w domenach zarządzanych.
@@ -168,8 +170,8 @@ Poniższa tabela zawiera szczegółowe informacje na temat pomocy technicznej do
 | ----- | ----- | ----- | ----- |
 | Wzajemn | Federacyjni | Od wersji 1703 | Ogólnie dostępne |
 | Bez obsługi routingu | Federacyjni | Od wersji 1803 | Ogólnie dostępne |
-| Wzajemn | Zarządzany | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
-| Bez obsługi routingu | Zarządzany | Nieobsługiwane | |
+| Wzajemn | Zarządzanie | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
+| Bez obsługi routingu | Zarządzanie | Nieobsługiwane | |
 
 ## <a name="next-steps"></a>Następne kroki
 

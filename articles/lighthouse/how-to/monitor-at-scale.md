@@ -1,14 +1,14 @@
 ---
 title: Monitorowanie delegowanych zasobów na dużą skalę
 description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
-ms.date: 02/01/2021
+ms.date: 02/02/2021
 ms.topic: how-to
-ms.openlocfilehash: b214f63fba9a5d13aac0f4bf86ce0810f16f0c9c
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509473"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575910"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę
 
@@ -49,9 +49,9 @@ Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych Log Analytics
 
 [Alerty](../../azure-monitor/platform/alerts-overview.md) dla delegowanych subskrypcji można wyświetlać w dzierżawach klientów zarządzanych przez użytkownika.
 
-Aby automatycznie odświeżać alerty w wielu klientach, należy użyć zapytania [grafu zasobów platformy Azure](../../governance/resource-graph/overview.md) do filtrowania alertów. Możesz przypiąć zapytanie do pulpitu nawigacyjnego i wybrać wszystkich odpowiednich klientów i subskrypcje.
+Z poziomu dzierżawy zarządzającej możesz [tworzyć i wyświetlać alerty dzienników aktywności oraz zarządzać nimi](../../azure-monitor/platform/alerts-activity-log.md) w Azure Portal lub za pośrednictwem interfejsów API i narzędzi do zarządzania.
 
-Następujące przykładowe zapytanie będzie wyświetlać alerty o ważności 0 i 1, odświeżanie co 60 minut.
+Aby automatycznie odświeżać alerty w wielu klientach, należy użyć zapytania [grafu zasobów platformy Azure](../../governance/resource-graph/overview.md) do filtrowania alertów. Możesz przypiąć zapytanie do pulpitu nawigacyjnego i wybrać wszystkich odpowiednich klientów i subskrypcje. Na przykład poniższe zapytanie będzie wyświetlać alerty o ważności 0 i 1, odświeżanie co 60 minut.
 
 ```kusto
 alertsmanagementresources

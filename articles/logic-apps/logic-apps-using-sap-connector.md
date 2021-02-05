@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252614"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575487"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -504,7 +504,7 @@ Jeśli nie możesz wysyłać pakietów IDoc z oprogramowania SAP do wyzwalacza a
   * Aby zwolnić te segmenty przez SAP, należy skontaktować się z inżynierem ABAP w systemie SAP.
 ### <a name="asynchronous-request-reply-for-triggers"></a>Asynchroniczne żądanie-odpowiedź dla wyzwalaczy
 
-Łącznik SAP obsługuje [wzorzec odpowiedzi na żądanie asynchroniczne](/azure/architecture/patterns/async-request-reply.md) platformy Azure dla wyzwalaczy Logic Apps. Możesz użyć tego wzorca, aby utworzyć pomyślne żądania, które mogłyby się nie powieść, z domyślnym wzorcem żądania synchronicznego. 
+Łącznik SAP obsługuje [wzorzec odpowiedzi na żądanie asynchroniczne](/azure/architecture/patterns/async-request-reply) platformy Azure dla wyzwalaczy Logic Apps. Możesz użyć tego wzorca, aby utworzyć pomyślne żądania, które mogłyby się nie powieść, z domyślnym wzorcem żądania synchronicznego. 
 
 > [!TIP]
 > W aplikacjach logiki z wieloma akcjami odpowiedzi wszystkie akcje odpowiedzi muszą używać tego samego wzorca żądanie-odpowiedź. Na przykład jeśli aplikacja logiki używa kontrolki przełącznika z wieloma możliwymi akcjami odpowiedzi, należy skonfigurować wszystkie akcje odpowiedzi, aby używać tego samego wzorca żądania-odpowiedzi, synchronicznego lub asynchronicznego. 

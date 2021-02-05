@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 01/15/2021
+ms.date: 02/01/2021
 ms.custom: generated
-ms.openlocfilehash: 72735dad6a52fffd6e6e94ad4fb0fb7a9558b4c4
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 768a327421a941a39b6f66be411712a565097f66
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430083"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557323"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -197,9 +197,17 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Marketplace/privateStores/Delete | Usuwa PrivateStore. |
 > | Microsoft. Marketplace/privateStores/oferty/akcja | Oferta aktualizacji w programie PrivateStore. |
 > | Microsoft. Marketplace/privateStores/odczyt | Odczytuje PrivateStores. |
+> | Microsoft. Marketplace/privateStores/Notifications/Read | Odczytuje powiadomienia ze sklepu prywatnego |
 > | Microsoft. Marketplace/privateStores/oferty/zapis | Tworzy ofertę w PrivateStore. |
 > | Microsoft. Marketplace/privateStores/oferty/usuwanie | Usuwa ofertę z PrivateStore. |
 > | Microsoft. Marketplace/privateStores/oferty/odczyt | Odczytuje oferty PrivateStore. |
+> | Microsoft. Marketplace/privateStores/offers/requestApprovals/Action | Zatwierdzeń żądań aktualizacji |
+> | Microsoft. Marketplace/privateStores/oferty/powiadomienia/akcja | Powiadomienie o aktualizacji |
+> | Microsoft. Marketplace/privateStores/offers/adminRequestApprovals/Action | Administrator zaktualizował żądanie w ramach decyzji o żądaniu |
+> | Microsoft. Marketplace/privateStores/offers/adminRequestApprovals/Read | Odczytaj wszystkie szczegóły zatwierdzeń żądań, tylko administratorów |
+> | Microsoft. Marketplace/privateStores/offers/requestApprovals/Read | Zatwierdzeń żądania odczytu |
+> | Microsoft. Marketplace/privateStores/offers/requestApprovals/Write | Tworzenie zatwierdzenia żądania |
+> | Microsoft. Marketplace/privateStores/offers/requestApprovals/Delete | Usuń zatwierdzenie żądania |
 
 ### <a name="microsoftmarketplaceapps"></a>Microsoft. MarketplaceApps
 
@@ -273,7 +281,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Obliczenia
+## <a name="compute"></a>Compute
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -500,6 +508,9 @@ Usługa platformy Azure: [Virtual Machines](../virtual-machines/index.yml), [Vir
 > | Microsoft. COMPUTE/restorePointCollections/restorePoints/Write | Tworzy nowy punkt przywracania |
 > | Microsoft. COMPUTE/restorePointCollections/restorePoints/Delete | Usuwa punkt przywracania |
 > | Microsoft. COMPUTE/restorePointCollections/restorePoints/retrieveSasUris/Action | Pobierz właściwości punktu przywracania wraz z identyfikatorami URI SAS obiektów BLOB |
+> | Microsoft. COMPUTE/restorePointCollections/restorePoints/diskRestorePoints/Read | Pobierz właściwości przyrostowej DiskRestorePoint |
+> | Microsoft. COMPUTE/restorePointCollections/restorePoints/diskRestorePoints/beginGetAccess/Action | Pobierz identyfikator URI sygnatury dostępu współdzielonego DiskRestorePoint |
+> | Microsoft. COMPUTE/restorePointCollections/restorePoints/diskRestorePoints/endGetAccess/Action | Odwołaj identyfikator URI sygnatury dostępu współdzielonego DiskRestorePoint |
 > | Microsoft. COMPUTE/sharedVMExtensions/Read | Pobiera właściwości udostępnionego rozszerzenia maszyny wirtualnej |
 > | Microsoft. COMPUTE/sharedVMExtensions/Write | Tworzy nowe rozszerzenie udostępnionej maszyny wirtualnej lub aktualizuje istniejące |
 > | Microsoft. COMPUTE/sharedVMExtensions/Delete | Usuwa rozszerzenie udostępnionej maszyny wirtualnej |
@@ -647,7 +658,7 @@ Usługa platformy Azure: [Service Fabric](../service-fabric/index.yml)
 > | Microsoft. servicefabric/Locations/Operations/Read | Odczytaj wszystkie operacje według lokalizacji |
 > | Microsoft. servicefabric/Operations/Read | Odczytaj wszystkie dostępne operacje |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="microsoftcdn"></a>Microsoft. CDN
 
@@ -833,6 +844,8 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/applicationGateways/Start/akcja | Uruchamia bramę aplikacji |
 > | Microsoft. Network/applicationGateways/Stop/akcja | Kończy działanie bramy aplikacji |
 > | Microsoft. Network/applicationGateways/restart/akcja | Uruchamia ponownie bramę aplikacji |
+> | Microsoft. Network/applicationGateways/migrateV1ToV2/akcja | Migrowanie Application Gateway z jednostki SKU V1 do wersji 2 SKU |
+> | Microsoft. Network/applicationGateways/getMigrationStatus/akcja | Pobierz stan migracji Application Gateway z jednostki SKU V1 do wersji 2 SKU |
 > | Microsoft. Network/applicationGateways/backendAddressPools/Join/Action | Sprzęga pulę adresów zaplecza bramy aplikacji. Brak alertów. |
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/odczyt | Pobiera Application Gateway połączeń PrivateEndpoint |
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/Write | Aktualizacje Application Gateway połączenia PrivateEndpoint |
@@ -881,6 +894,7 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/Connections/startpacketcapture/Action | Uruchamia przechwycenie pakietu połączenia bramy Virtual Network. |
 > | Microsoft. Network/Connections/stoppacketcapture/Action | Powoduje zatrzymanie przechwytywania pakietu połączenia bramy Virtual Network. |
 > | Microsoft. Network/Connections/getikesas/Action | Wyświetla skojarzenia zabezpieczeń IKE dla połączenia |
+> | Microsoft. Network/Connections/resetconnection/Action | Resetuje połączenie dla VNG |
 > | Microsoft. Network/Connections/sharedKey/Read | Pobiera VirtualNetworkGatewayConnection SharedKey |
 > | Microsoft. Network/Connections/sharedKey/Write | Tworzy lub aktualizuje istniejące VirtualNetworkGatewayConnection SharedKey |
 > | Microsoft. Network/customIpPrefixes/odczyt | Pobiera niestandardową definicję prefiksu adresu IP |
@@ -1295,6 +1309,9 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/virtualnetworkgateways/startpacketcapture/akcja | Uruchamia przechwytywanie pakietów bramy Virtual Network. |
 > | Microsoft. Network/virtualnetworkgateways/stoppacketcapture/akcja | Powoduje zatrzymanie przechwytywania pakietu Virtual Network Gateway. |
 > | Microsoft. Network/virtualnetworkgateways/Connections/Read | Pobierz VirtualNetworkGatewayConnection |
+> | Microsoft. Network/virtualNetworkGateways/natRules/odczyt | Pobiera zasób reguły NAT |
+> | Microsoft. Network/virtualNetworkGateways/natRules/Write | Umieszcza zasób reguły NAT |
+> | Microsoft. Network/virtualNetworkGateways/natRules/Delete | Usuwa zasób reguły NAT |
 > | Microsoft. Network/virtualNetworks/odczyt | Pobierz definicję sieci wirtualnej |
 > | Microsoft. Network/virtualNetworks/Write | Tworzy sieć wirtualną lub aktualizuje istniejącą sieć wirtualną |
 > | Microsoft. Network/virtualNetworks/Delete | Usuwa sieć wirtualną |
@@ -1361,6 +1378,7 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/vpnGateways/vpnConnections/startpacketcapture/Action | Rozpocznij przechwytywanie pakietów dla wybranych połączeń sieci VPN |
 > | Microsoft. Network/vpnGateways/vpnConnections/stoppacketcapture/Action | Zatrzymaj przechwytywanie pakietów dla wybranych połączeń sieci VPN |
 > | Microsoft. Network/vpnGateways/vpnConnections/vpnLinkConnections/getikesas/Action | Wyświetla skojarzenia zabezpieczeń protokołu IKE połączenia sieci VPN |
+> | Microsoft. Network/vpnGateways/vpnConnections/vpnLinkConnections/resetconnection/Action | Resetuje połączenie dla vWAN |
 > | Microsoft. Network/vpnGateways/vpnConnections/vpnLinkConnections/Read | Pobiera połączenie sieci VPN |
 > | Microsoft. Network/vpnServerConfigurations/odczyt | Pobierz VpnServerConfiguration |
 > | Microsoft. Network/vpnServerConfigurations/Write | Utwórz lub zaktualizuj VpnServerConfiguration |
@@ -3451,6 +3469,7 @@ Usługa platformy Azure: [Azure Database for MariaDB](../mariadb/index.yml)
 > | Microsoft. DBforMariaDB/serwery/klucze/zapis | Tworzy klucz z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego klucza serwera. |
 > | Microsoft. DBforMariaDB/serwery/klucze/usuwanie | Usuwa istniejący klucz serwera. |
 > | Microsoft. DBforMariaDB/serwery/logFiles/odczyt | Zwróć listę plików dziennika MariaDB. |
+> | Microsoft. DBforMariaDB/serwery/performanceTiers/odczyt | Zwraca listę dostępnych warstw wydajności. |
 > | Microsoft. DBforMariaDB/Servers/privateEndpointConnectionProxies/Validate/Action | Sprawdza poprawność wywołania połączenia z prywatnym punktem końcowym po stronie NRP |
 > | Microsoft. DBforMariaDB/serwery/privateEndpointConnectionProxies/odczyt | Zwraca listę proxy połączeń prywatnych punktów końcowych lub pobiera właściwości dla określonego serwera proxy połączenia prywatnego punktu końcowego. |
 > | Microsoft. DBforMariaDB/serwery/privateEndpointConnectionProxies/zapis | Tworzy prywatny serwer proxy połączenia z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego serwera proxy połączenia prywatnego punktu końcowego. |
@@ -3545,6 +3564,7 @@ Usługa platformy Azure: [Azure Database for MySQL](../mysql/index.yml)
 > | Microsoft. DBforMySQL/serwery/klucze/zapis | Tworzy klucz z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego klucza serwera. |
 > | Microsoft. DBforMySQL/serwery/klucze/usuwanie | Usuwa istniejący klucz serwera. |
 > | Microsoft. DBforMySQL/serwery/logFiles/odczyt | Zwróć listę plików dziennika programu MySQL. |
+> | Microsoft. DBforMySQL/serwery/performanceTiers/odczyt | Zwraca listę dostępnych warstw wydajności. |
 > | Microsoft. DBforMySQL/Servers/privateEndpointConnectionProxies/Validate/Action | Sprawdza poprawność wywołania połączenia z prywatnym punktem końcowym po stronie NRP |
 > | Microsoft. DBforMySQL/serwery/privateEndpointConnectionProxies/odczyt | Zwraca listę proxy połączeń prywatnych punktów końcowych lub pobiera właściwości dla określonego serwera proxy połączenia prywatnego punktu końcowego. |
 > | Microsoft. DBforMySQL/serwery/privateEndpointConnectionProxies/zapis | Tworzy prywatny serwer proxy połączenia z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego serwera proxy połączenia prywatnego punktu końcowego. |
@@ -3629,6 +3649,7 @@ Usługa platformy Azure: [Azure Database for PostgreSQL](../postgresql/index.yml
 > | Microsoft. DBforPostgreSQL/serwery/klucze/zapis | Tworzy klucz z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego klucza serwera. |
 > | Microsoft. DBforPostgreSQL/serwery/klucze/usuwanie | Usuwa istniejący klucz serwera. |
 > | Microsoft. DBforPostgreSQL/serwery/logFiles/odczyt | Zwróć listę plików dziennika PostgreSQL. |
+> | Microsoft. DBforPostgreSQL/serwery/performanceTiers/odczyt | Zwraca listę dostępnych warstw wydajności. |
 > | Microsoft. DBforPostgreSQL/Servers/privateEndpointConnectionProxies/Validate/Action | Sprawdza poprawność wywołania połączenia z prywatnym punktem końcowym po stronie NRP |
 > | Microsoft. DBforPostgreSQL/serwery/privateEndpointConnectionProxies/odczyt | Zwraca listę proxy połączeń prywatnych punktów końcowych lub pobiera właściwości dla określonego serwera proxy połączenia prywatnego punktu końcowego. |
 > | Microsoft. DBforPostgreSQL/serwery/privateEndpointConnectionProxies/zapis | Tworzy prywatny serwer proxy połączenia z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego serwera proxy połączenia prywatnego punktu końcowego. |
@@ -3951,8 +3972,11 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/Locations/instancePoolOperationResults/Read | Pobiera wynik operacji puli wystąpień |
 > | Microsoft. SQL/Locations/jobAgentAzureAsyncOperation/Read | Pobiera stan operacji agenta zadań. |
 > | Microsoft. SQL/Locations/jobAgentOperationResults/Read | Pobiera wynik operacji agenta zadań. |
+> | Microsoft. SQL/Locations/longTermRetentionBackupAzureAsyncOperation/Read | Pobieranie stanu długotrwałej operacji tworzenia kopii zapasowej przechowywania |
+> | Microsoft. SQL/Locations/longTermRetentionBackupOperationResults/Read | Pobieranie stanu długotrwałej operacji tworzenia kopii zapasowej przechowywania |
 > | Microsoft. SQL/Locations/longTermRetentionBackups/Read | Wyświetla długoterminowe kopie zapasowe przechowywania dla każdej bazy danych na każdym serwerze w lokalizacji |
-> | Microsoft. SQL/Locations/longTermRetentionManagedInstanceBackupOperationResults/Read | Pobierz stan operacji tworzenia kopii zapasowej przechowywania długoterminowego wystąpienia zarządzanego |
+> | Microsoft. SQL/Locations/longTermRetentionManagedInstanceBackupAzureAsyncOperation/Read | Pobierz stan operacji wykonywania kopii zapasowej długotrwałego przechowywania wystąpienia zarządzanego |
+> | Microsoft. SQL/Locations/longTermRetentionManagedInstanceBackupOperationResults/Read | Pobierz stan operacji wykonywania kopii zapasowej długotrwałego przechowywania wystąpienia zarządzanego |
 > | Microsoft. SQL/Locations/longTermRetentionManagedInstanceBackups/Read | Zwraca listę kopii zapasowych wystąpienia zarządzanego LTR dla określonej lokalizacji  |
 > | Microsoft. SQL/Locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/Read | Zwraca listę kopii zapasowych odnoszących się do bazy danych wystąpienia zarządzanego |
 > | Microsoft. SQL/Locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/Delete | Usuwa kopię zapasową LTR dla bazy danych wystąpienia zarządzanego |
@@ -4091,6 +4115,7 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/managedInstances/vulnerabilityAssessments/Delete | Usuń ocenę luk w zabezpieczeniach dla danego wystąpienia zarządzanego |
 > | Microsoft. SQL/managedInstances/vulnerabilityAssessments/odczyt | Pobieranie zasad oceny luk w zabezpieczeniach w danym wystąpieniu zarządzanym |
 > | Microsoft. SQL/Operations/Read | Pobiera dostępne operacje REST |
+> | Microsoft. SQL/restorableDroppedManagedInstances/odczyt | Zwraca listę dostępnych porzuconych wystąpień zarządzanych. |
 > | Microsoft. SQL/serwery/tdeCertificates/akcja | Utwórz/zaktualizuj certyfikat TDE |
 > | Microsoft. SQL/serwery/import/akcja | Importuj nowe Azure SQL Database |
 > | Microsoft. SQL/serwery/odczyt | Zwróć listę serwerów lub pobiera właściwości dla określonego serwera. |
@@ -5478,6 +5503,24 @@ Usługa platformy Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/accounts/NewsSearch/categorysearch/Action | Zwraca wiadomości dla podanej kategorii. |
 > | Microsoft. CognitiveServices/accounts/NewsSearch/Search/Action | Uzyskaj artykuły z wiadomościami istotnymi dla danego zapytania. |
 > | Microsoft. CognitiveServices/accounts/NewsSearch/Trendingtopics/Action | Poznaj tematy trendów identyfikowane przez usługę Bing. Są to te same tematy widoczne na transparencie u dołu strony głównej usługi Bing. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/ranga/akcja | Żądanie rangi personalizacji. |
+> | Microsoft. CognitiveServices/accounts/Personalizuj/oceny/akcja | Prześlij nową ocenę. |
+> | Microsoft. CognitiveServices/accounts/Personalizacja/konfiguracje/klient/akcja | Pobierz konfigurację klienta. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/konfiguracje/Policy/Delete | Usuń bieżące zasady. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/konfiguracje/Policy/odczyt | Pobierz konfigurację zasad. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/konfiguracje/Policy/Write | Zaktualizuj konfigurację zasad. |
+> | Microsoft. CognitiveServices/accounts/Personalizacja/konfiguracje/usługa/odczyt | Pobierz konfigurację usługi. |
+> | Microsoft. CognitiveServices/accounts/Personalizacja/konfiguracje/usługa/zapis | Zaktualizuj konfigurację usługi. |
+> | Microsoft. CognitiveServices/accounts/Personalizacja/oceny/usuwanie | Usuń ocenę skojarzoną z IDENTYFIKATORem. |
+> | Microsoft. CognitiveServices/accounts/Personalizacja/oceny/odczyt | Pobierz ocenę skojarzoną z IDENTYFIKATORem. Wyświetl listę wszystkich przesłanych ocen. * |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/Events/nagradzanie/akcja | Zgłoś wynagrodzenie, aby przydzielić do najwyższej funkcjonalnej akcji dla określonego zdarzenia. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/Events/Activate/Action | Zgłoś, że określone zdarzenie jest w rzeczywistości wyświetlane dla użytkownika, a wynagrodzenie powinno być oczekiwane. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/Logs/Delete | Usuwa wszystkie dzienniki. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/Logs/Properties/Read | Pobiera właściwości dzienników. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/Model/Odczyt | Pobierz bieżący model. |
+> | Microsoft. CognitiveServices/accounts/Personalizacja/model/usuwanie | Resetuje model. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/model/właściwości/odczyt | Pobierz właściwości modelu. |
+> | Microsoft. CognitiveServices/accounts/Personalizujer/status/Read | Pobiera stan operacji. |
 > | Microsoft. CognitiveServices/accounts/QnAMaker/root/Action | QnA Maker |
 > | Microsoft. CognitiveServices/accounts/QnAMaker. v2/root/Action | QnA Maker |
 > | Microsoft. CognitiveServices/accounts/QnAMaker. v2/Alters/Read | Pobierz zmiany z środowiska uruchomieniowego. |
@@ -5586,6 +5629,12 @@ Usługa platformy Azure: [usługa Machine Learning](../machine-learning/index.ym
 > | Microsoft. MachineLearningServices/Workspaces/batchEndpoints/Deployments/Write | Tworzy lub aktualizuje wdrożenia w punkcie końcowym wnioskowania partii w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/Workspaces/batchEndpoints/Deployments/Delete | Usuwa wdrożenia w punkcie końcowym wnioskowania partii w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/Workspaces/batchEndpoints/Deployments/checkNameAvailability/Read | Sprawdza nazwę wdrożenia w punkcie końcowym wnioskowania usługi Batch w Machine Learning Services obszarach roboczych |
+> | Microsoft. MachineLearningServices/Workspaces/batchEndpoints/Deployments/Jobs/Read | Odczytuje zadanie w wdrożeniu wnioskowania partii w Machine Learning Services obszarach roboczych |
+> | Microsoft. MachineLearningServices/Workspaces/batchEndpoints/Deployments/Jobs/Write | Tworzy lub aktualizuje zadanie w ramach wdrożenia wnioskowania wsadowego w Machine Learning Services obszarach roboczych |
+> | Microsoft. MachineLearningServices/Workspaces/batchEndpoints/Deployments/Jobs/Delete | Usuwa zadanie w ramach wdrożenia wsadowego wnioskowania w Machine Learning Services obszarach roboczych |
+> | Microsoft. MachineLearningServices/Workspaces/batchEndpoints/Jobs/Read | Odczytuje zadanie w punkcie końcowym wnioskowania partii w Machine Learning Services obszarach roboczych |
+> | Microsoft. MachineLearningServices/Workspaces/batchEndpoints/Jobs/Write | Tworzy lub aktualizuje zadanie w punkcie końcowym wnioskowania partii w Machine Learning Services obszarach roboczych |
+> | Microsoft. MachineLearningServices/Workspaces/batchEndpoints/Jobs/Delete | Usuwa zadanie w punkcie końcowym wnioskowania partii w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt | Pobiera zasoby obliczeniowe w Machine Learning Services obszarach roboczych |
 > | Microsoft.MachineLearningServices/workspaces/computes/write | Tworzy lub aktualizuje zasoby obliczeniowe w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/obliczenia/usuwanie | Usuwa zasoby obliczeniowe w Machine Learning Services obszarach roboczych |
@@ -6101,6 +6150,9 @@ Usługa platformy Azure: [API Management](../api-management/index.yml)
 > | Microsoft. ApiManagement/Service/Gateways/API/Read | Wyświetla kolekcję interfejsów API skojarzonych z bramą. |
 > | Microsoft. ApiManagement/Service/Gateways/API/Write | Dodaje interfejs API do określonej bramy. |
 > | Microsoft. ApiManagement/Service/Gateways/API/Delete | Usuwa określony interfejs API z określonej bramy. |
+> | Microsoft. ApiManagement/Service/Gateways/certificateAuthorities/Read | Pobierz listę urzędów certyfikacji bramy. lub uzyskać szczegółowe informacje o przypisanym urzędzie certyfikacji. |
+> | Microsoft. ApiManagement/Service/Gateways/certificateAuthorities/Write | Dodaje interfejs API do określonej bramy. |
+> | Microsoft. ApiManagement/Service/Gateways/certificateAuthorities/Delete | Cofnij przypisanie urzędu certyfikacji z bramy. |
 > | Microsoft. ApiManagement/Service/Gateways/hostnameConfigurations/Read | Wyświetla listę konfiguracji nazwy hosta dla określonej bramy. |
 > | Microsoft. ApiManagement/Service/Groups/Read | Wyświetla kolekcję grup zdefiniowanych w ramach wystąpienia usługi. lub pobiera szczegóły grupy określonej przez jego identyfikator. |
 > | Microsoft. ApiManagement/Service/Groups/Write | Tworzy lub aktualizuje grupę. lub aktualizuje Szczegóły grupy określonej przez jego identyfikator. |
@@ -6143,9 +6195,12 @@ Usługa platformy Azure: [API Management](../api-management/index.yml)
 > | Microsoft. ApiManagement/Service/Policy/Delete | Usuń konfigurację zasad na poziomie dzierżawy |
 > | Microsoft. ApiManagement/Service/policyDescriptions/Read | Wyświetla listę wszystkich opisów zasad. |
 > | Microsoft. ApiManagement/Service/policySnippets/Read | Wyświetla wszystkie fragmenty kodu zasad. |
+> | Microsoft. ApiManagement/Service/portalRevisions/Read | Wyświetla kolekcję poprawek portalu deweloperów. lub pobiera poprawkę portalu deweloperów określoną przez jego identyfikator. |
+> | Microsoft. ApiManagement/Service/portalRevisions/Write | Tworzy nową wersję portalu dla deweloperów. lub aktualizuje opis określonej poprawki portalu lub ustawia ją jako bieżącą. |
 > | Microsoft. ApiManagement/Service/portalSettings/Read | Wyświetla kolekcję ustawień portalu. lub uzyskaj ustawienia logowania dla portalu lub uzyskaj ustawienia rejestracji w portalu lub uzyskaj ustawienia delegowania dla portalu. |
 > | Microsoft. ApiManagement/Service/portalSettings/Write | Aktualizowanie ustawień Sign-In. lub Utwórz lub zaktualizuj ustawienia Sign-In. lub zaktualizuj ustawienia rejestracji lub zaktualizuj ustawienia rejestracji lub zaktualizuj ustawienia delegowania. lub Utwórz lub zaktualizuj ustawienia delegowania. |
 > | Microsoft. ApiManagement/Service/portalSettings/listSecrets/Action | Pobiera klucz weryfikacji ustawień delegowania portalu. lub Pobierz identyfikator URI kontenera obiektów BLOB zawartości multimedialnej. |
+> | Microsoft. ApiManagement/Service/privateLinkResources/Read | Pobierz zasoby grupy linków prywatnych |
 > | Microsoft. ApiManagement/Service/Products/Read | Wyświetla kolekcję produktów w określonym wystąpieniu usługi. lub pobiera szczegóły produktu określonego przez jego identyfikator. |
 > | Microsoft. ApiManagement/Service/Products/Write | Tworzy lub aktualizuje produkt. lub zaktualizuj istniejące informacje o produkcie. |
 > | Microsoft. ApiManagement/Service/Products/Delete | Usuń produkt. |
@@ -8042,6 +8097,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/ExtendedDiagnosticSettings/Write | Utwórz lub zaktualizuj ustawienie diagnostyczne dziennika przepływu sieci |
 > | Microsoft. Insights/ExtendedDiagnosticSettings/Delete | Usuń ustawienie diagnostyczne dziennika przepływu sieci |
 > | Microsoft. Insights/ExtendedDiagnosticSettings/Read | Odczytaj ustawienie diagnostyczne dziennika przepływu sieci |
+> | Microsoft. Insights/generateLiveToken/Read | Token pobierania metryk na żywo |
 > | Microsoft. Insights/ListMigrationDate/Read | Pobierz datę migracji subskrypcji |
 > | Microsoft. Insights/LogDefinitions/Read | Odczytaj definicje dzienników |
 > | Microsoft. Insights/LogProfiles/Write | Utwórz lub zaktualizuj profil dziennika aktywności |
@@ -8379,6 +8435,8 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/ScheduledQueryRules/Read | Odczytywanie reguły zaplanowanego zapytania |
 > | Microsoft. Insights/ScheduledQueryRules/Delete | Usuwanie reguły zaplanowanego zapytania |
 > | Microsoft. Insights/dzierżawcy/rejestr/akcja | Inicjuje dostawcę usługi Microsoft Insights |
+> | Microsoft. Insights/Topology/Odczytaj | Odczytaj topologię |
+> | Microsoft. Insights/Transactions/Read | Odczytaj transakcje |
 > | Microsoft. Insights/webtests/Write | Zapisywanie w konfiguracji WebTest |
 > | Microsoft. Insights/webtests/Delete | Usuwanie konfiguracji WebTest |
 > | Microsoft. Insights/webtests/Read | Odczytywanie konfiguracji WebTest |
@@ -8500,6 +8558,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/AmlComputeClusterNodeEvent/Read | Odczytaj dane z tabeli AmlComputeClusterNodeEvent |
 > | Microsoft. OperationalInsights/Workspaces/Query/AmlComputeCpuGpuUtilization/Read | Odczytaj dane z tabeli AmlComputeCpuGpuUtilization |
 > | Microsoft. OperationalInsights/Workspaces/Query/AmlComputeJobEvent/Read | Odczytaj dane z tabeli AmlComputeJobEvent |
+> | Microsoft. OperationalInsights/Workspaces/Query/AmlOnlineEndpointConsoleLog/Read | Odczytaj dane z tabeli AmlOnlineEndpointConsoleLog |
 > | Microsoft. OperationalInsights/Workspaces/Query/AmlRunStatusChangedEvent/Read | Odczytaj dane z tabeli AmlRunStatusChangedEvent |
 > | Microsoft. OperationalInsights/obszary robocze/zapytania/anomalie/odczyt | Odczytaj dane z tabeli anomalii |
 > | Microsoft. OperationalInsights/Workspaces/Query/ApiManagementGatewayLogs/Read | Odczytaj dane z tabeli ApiManagementGatewayLogs |
@@ -8552,6 +8611,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/ContainerImageInventory/Read | Odczytaj dane z tabeli ContainerImageInventory |
 > | Microsoft. OperationalInsights/Workspaces/Query/ContainerInventory/Read | Odczytaj dane z tabeli ContainerInventory |
 > | Microsoft. OperationalInsights/Workspaces/Query/ContainerLog/Read | Odczytaj dane z tabeli ContainerLog |
+> | Microsoft. OperationalInsights/Workspaces/Query/ContainerLogV2/Read | Odczytaj dane z tabeli ContainerLogV2 |
 > | Microsoft. OperationalInsights/Workspaces/Query/ContainerNodeInventory/Read | Odczytaj dane z tabeli ContainerNodeInventory |
 > | Microsoft. OperationalInsights/Workspaces/Query/ContainerRegistryLoginEvents/Read | Odczytaj dane z tabeli ContainerRegistryLoginEvents |
 > | Microsoft. OperationalInsights/Workspaces/Query/ContainerRegistryRepositoryEvents/Read | Odczytaj dane z tabeli ContainerRegistryRepositoryEvents |
@@ -8722,6 +8782,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/MicrosoftDynamicsTelemetrySystemMetricsLogs/Read | Odczytaj dane z tabeli MicrosoftDynamicsTelemetrySystemMetricsLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/MicrosoftHealthcareApisAuditLogs/Read | Odczytaj dane z tabeli MicrosoftHealthcareApisAuditLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/NetworkMonitoring/Read | Odczytaj dane z tabeli NetworkMonitoring |
+> | Microsoft. OperationalInsights/Workspaces/Query/NetworkSessions/Read | Odczytaj dane z tabeli NetworkSessions |
 > | Microsoft. OperationalInsights/Workspaces/Query/NWConnectionMonitorDestinationListenerResult/Read | Odczytaj dane z tabeli NWConnectionMonitorDestinationListenerResult |
 > | Microsoft. OperationalInsights/Workspaces/Query/NWConnectionMonitorDNSResult/Read | Odczytaj dane z tabeli NWConnectionMonitorDNSResult |
 > | Microsoft. OperationalInsights/Workspaces/Query/NWConnectionMonitorPathResult/Read | Odczytaj dane z tabeli NWConnectionMonitorPathResult |
@@ -8730,7 +8791,9 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/obszary robocze/zapytania/operacja/odczyt | Odczytaj dane z tabeli operacji |
 > | Microsoft. OperationalInsights/Workspaces/Query/OutboundConnection/Read | Odczytaj dane z tabeli OutboundConnection |
 > | Microsoft. OperationalInsights/Workspaces/Query/perf/Read | Odczytaj dane z tabeli wydajności |
+> | Microsoft. OperationalInsights/Workspaces/Query/PowerBIDatasetsTenant/Read | Odczytaj dane z tabeli PowerBIDatasetsTenant |
 > | Microsoft. OperationalInsights/Workspaces/Query/PowerBIDatasetsTenantPreview/Read | Odczytaj dane z tabeli PowerBIDatasetsTenantPreview |
+> | Microsoft. OperationalInsights/Workspaces/Query/PowerBIDatasetsWorkspace/Read | Odczytaj dane z tabeli PowerBIDatasetsWorkspace |
 > | Microsoft. OperationalInsights/Workspaces/Query/PowerBIDatasetsWorkspacePreview/Read | Odczytaj dane z tabeli PowerBIDatasetsWorkspacePreview |
 > | Microsoft. OperationalInsights/Workspaces/Query/ProtectionStatus/Read | Odczytaj dane z tabeli ProtectionStatus |
 > | Microsoft. OperationalInsights/obszary robocze/zapytania/żądania/odczyt | Odczytaj dane z tabeli Requests |
@@ -8748,6 +8811,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/SecurityNestedRecommendation/Read | Odczytaj dane z tabeli SecurityNestedRecommendation |
 > | Microsoft. OperationalInsights/Workspaces/Query/SecurityRecommendation/Read | Odczytaj dane z tabeli SecurityRecommendation |
 > | Microsoft. OperationalInsights/Workspaces/Query/SecurityRegulatoryCompliance/Read | Odczytaj dane z tabeli SecurityRegulatoryCompliance |
+> | Microsoft. OperationalInsights/Workspaces/Query/SentinelHealth/Read | Odczytaj dane z tabeli SentinelHealth |
 > | Microsoft. OperationalInsights/Workspaces/Query/ServiceFabricOperationalEvent/Read | Odczytaj dane z tabeli ServiceFabricOperationalEvent |
 > | Microsoft. OperationalInsights/Workspaces/Query/ServiceFabricReliableActorEvent/Read | Odczytaj dane z tabeli ServiceFabricReliableActorEvent |
 > | Microsoft. OperationalInsights/Workspaces/Query/ServiceFabricReliableServiceEvent/Read | Odczytaj dane z tabeli ServiceFabricReliableServiceEvent |
@@ -8771,8 +8835,11 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/SynapseBuiltinSqlPoolRequestsEnded/Read | Odczytaj dane z tabeli SynapseBuiltinSqlPoolRequestsEnded |
 > | Microsoft. OperationalInsights/Workspaces/Query/SynapseGatewayApiRequests/Read | Odczytaj dane z tabeli SynapseGatewayApiRequests |
 > | Microsoft. OperationalInsights/Workspaces/Query/SynapseGatewayEvents/Read | Odczytaj dane z tabeli SynapseGatewayEvents |
+> | Microsoft. OperationalInsights/Workspaces/Query/SynapseIntegrationActivityRuns/Read | Odczytaj dane z tabeli SynapseIntegrationActivityRuns |
 > | Microsoft. OperationalInsights/Workspaces/Query/SynapseIntegrationActivityRunsEnded/Read | Odczytaj dane z tabeli SynapseIntegrationActivityRunsEnded |
+> | Microsoft. OperationalInsights/Workspaces/Query/SynapseIntegrationPipelineRuns/Read | Odczytaj dane z tabeli SynapseIntegrationPipelineRuns |
 > | Microsoft. OperationalInsights/Workspaces/Query/SynapseIntegrationPipelineRunsEnded/Read | Odczytaj dane z tabeli SynapseIntegrationPipelineRunsEnded |
+> | Microsoft. OperationalInsights/Workspaces/Query/SynapseIntegrationTriggerRuns/Read | Odczytaj dane z tabeli SynapseIntegrationTriggerRuns |
 > | Microsoft. OperationalInsights/Workspaces/Query/SynapseIntegrationTriggerRunsEnded/Read | Odczytaj dane z tabeli SynapseIntegrationTriggerRunsEnded |
 > | Microsoft. OperationalInsights/Workspaces/Query/SynapseRBACEvents/Read | Odczytaj dane z tabeli SynapseRBACEvents |
 > | Microsoft. OperationalInsights/Workspaces/Query/SynapseRbacOperations/Read | Odczytaj dane z tabeli SynapseRbacOperations |
@@ -9194,6 +9261,7 @@ Usługa platformy Azure: [Cost Management i rozliczanie](../cost-management-bill
 > | Microsoft. rozliczenia/billingProperty/zapis |  |
 > | Microsoft. rozliczenia/działy/odczyt |  |
 > | Microsoft. rozliczenia/faktury/pobieranie/akcja | Pobierz fakturę przy użyciu linku pobierania z listy |
+> | Microsoft. rozliczenia/faktury/odczyt |  |
 > | Microsoft. rozliczenia/operacje/odczyt |  |
 
 ### <a name="microsoftblueprint"></a>Microsoft. plan
@@ -9236,6 +9304,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Pojemność/Wyrejestrowanie/akcja | Wyrejestrowywanie dzierżawy |
 > | Microsoft. Pojemność/calculateexchange/akcja | Oblicza kwotę i cenę wymiany nowych zakupów i zwraca błędy zasad. |
 > | Microsoft. Pojemność/wymiana/akcja | Wymiana dowolnej rezerwacji |
+> | Microsoft. Pojemność/listSkus/akcja | Wyświetla listę jednostek SKU z filtrami i bez ograniczeń |
 > | Microsoft. Pojemność/appliedreservations/odczyt | Odczytuj wszystkie rezerwacje |
 > | Microsoft. Pojemność/wykazy/odczyt | Odczytaj wykaz rezerwacji |
 > | Microsoft. Pojemność/commercialreservationorders/odczyt | Pobieranie zamówień rezerwacji utworzonych w dowolnej dzierżawie |
@@ -9260,6 +9329,9 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Pojemność/reservationorders/rezerwacje/dearchiwizacja/akcja | Anulowano archiwizowanie rezerwacji, która została wcześniej zarchiwizowana |
 > | Microsoft. Pojemność/reservationorders/rezerwacje/poprawki/odczyt | Odczytuj wszystkie rezerwacje |
 > | Microsoft. Pojemność/reservationorders/splitoperationresults/odczyt | Sondowanie operacji podziału |
+> | Microsoft. Pojemność/resourceProviders/lokalizacje/przekroczenia/odczyt | Pobieranie bieżącego limitu usługi lub przydziału określonego zasobu i lokalizacji |
+> | Microsoft. Pojemność/resourceProviders/lokalizacje/przekroczenia/zapis | Utwórz limit usług lub przydział dla określonego zasobu i lokalizacji |
+> | Microsoft. Pojemność/resourceProviders/lokalizacje/serviceLimitsRequests/odczyt | Uzyskaj wszelkie żądania limitu usług dla określonego zasobu i lokalizacji |
 > | Microsoft. Pojemność/dzierżawcy/rejestr/akcja | Rejestracja dowolnej dzierżawy |
 
 ### <a name="microsoftcommerce"></a>Microsoft. Commerce
@@ -9417,10 +9489,15 @@ Usługa platformy Azure: [Azure ARC z włączonym Kubernetes](../azure-arc/kuber
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
 > | --- | --- |
+> | Microsoft. Kubernetes/Register/Action | Rejestruje subskrypcję za pomocą dostawcy zasobów Microsoft. Kubernetes |
+> | Microsoft. Kubernetes/Unregister/Action | Un-Registers subskrypcję z dostawcą zasobów Microsoft. Kubernetes |
 > | Microsoft. Kubernetes/connectedClusters/odczyt | Odczytaj connectedClusters |
 > | Microsoft. Kubernetes/connectedClusters/Write | Zapisuje connectedClusters |
 > | Microsoft. Kubernetes/connectedClusters/Delete | Usuwa connectedClusters |
 > | Microsoft. Kubernetes/connectedClusters/listClusterUserCredentials/akcja | Wyświetl listę poświadczeń clusterUser |
+> | Microsoft. Kubernetes/Locations/operationstatuses/Read | Odczytaj Stany operacji |
+> | Microsoft. Kubernetes/Locations/operationstatuses/Write | Stany operacji zapisu |
+> | Microsoft. Kubernetes/Operations/Read | Wyświetla listę operacji dostępnych w dostawcy zasobów Microsoft. Kubernetes |
 > | Microsoft. Kubernetes/RegisteredSubscriptions/odczyt | Odczytuje zarejestrowane subskrypcje |
 > | **Akcja dataaction** | **Opis** |
 > | Microsoft. Kubernetes/connectedClusters/admissionregistration. k8s. IO/initializerconfigurations/Read | Odczytuje initializerconfigurations |

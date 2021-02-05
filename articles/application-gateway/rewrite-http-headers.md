@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7c5b4f0d5d4b153684683963c56b7506e76d963e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397155"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575657"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP przy użyciu Application Gateway
 
@@ -49,14 +49,14 @@ Można użyć warunku, aby oszacować, czy określona zmienna jest obecna, czy o
 Aby określić nagłówki żądania i odpowiedzi, które mają zostać ponownie zapisane, i nową wartość dla nagłówków, należy użyć akcji ponownego zapisywania. Można utworzyć nowy nagłówek, zmodyfikować wartość istniejącego nagłówka lub usunąć istniejący nagłówek. Wartość nowego nagłówka lub istniejącego nagłówka można ustawić na następujące typy wartości:
 
 - Tekst.
-- Nagłówek żądania. Aby określić nagłówek żądania, należy użyć składni {http_req_ *headerName* }.
-- Nagłówek odpowiedzi. Aby określić nagłówek odpowiedzi, należy użyć składni {http_resp_ *headerName* }.
-- Zmienna serwera. Aby określić zmienną serwera, należy użyć składni {var_ *ServerVariables* }.
+- Nagłówek żądania. Aby określić nagłówek żądania, należy użyć składni {http_req_ *headerName*}.
+- Nagłówek odpowiedzi. Aby określić nagłówek odpowiedzi, należy użyć składni {http_resp_ *headerName*}.
+- Zmienna serwera. Aby określić zmienną serwera, należy użyć składni {var_ *ServerVariables*}.
 - Kombinacja tekstu, nagłówka żądania, nagłówka odpowiedzi i zmiennej serwerowej.
 
 ## <a name="server-variables"></a>Zmienne serwera
 
-Application Gateway używa zmiennych serwera do przechowywania użytecznych informacji o serwerze, połączeniu z klientem i bieżącym żądaniu połączenia. Przykłady przechowywanych informacji obejmują adres IP klienta i typ przeglądarki sieci Web. Zmienne serwera zmieniają się dynamicznie, na przykład po załadowaniu nowej strony lub po opublikowaniu formularza. Możesz użyć tych zmiennych do oszacowania warunków ponownego zapisu i ponownego zapisywania nagłówków. Aby można było użyć wartości zmiennych serwera do ponownego zapisania nagłówków, należy określić te zmienne w składni {var_ *ServerVariables* }
+Application Gateway używa zmiennych serwera do przechowywania użytecznych informacji o serwerze, połączeniu z klientem i bieżącym żądaniu połączenia. Przykłady przechowywanych informacji obejmują adres IP klienta i typ przeglądarki sieci Web. Zmienne serwera zmieniają się dynamicznie, na przykład po załadowaniu nowej strony lub po opublikowaniu formularza. Możesz użyć tych zmiennych do oszacowania warunków ponownego zapisu i ponownego zapisywania nagłówków. Aby można było użyć wartości zmiennych serwera do ponownego zapisania nagłówków, należy określić te zmienne w składni {var_ *ServerVariables*}
 
 Brama aplikacji obsługuje te zmienne serwera:
 
@@ -69,21 +69,21 @@ Brama aplikacji obsługuje te zmienne serwera:
 | client_port                | Port klienta.                                                  |
 | client_tcp_rtt             | Informacje o połączeniu TCP klienta. Dostępne w systemach obsługujących opcję TCP_INFO gniazda. |
 | client_user                | Gdy używane jest uwierzytelnianie przy użyciu protokołu HTTP, nazwa użytkownika podana na potrzeby uwierzytelniania. |
-| host                       | W tej kolejności pierwszeństwa: Nazwa hosta w wierszu żądania, nazwa hosta z pola nagłówka żądania hosta lub nazwa serwera zgodna z żądaniem. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* wartość hosta będzie *contoso.com* |
+| host                       | W tej kolejności pierwszeństwa: Nazwa hosta w wierszu żądania, nazwa hosta z pola nagłówka żądania hosta lub nazwa serwera zgodna z żądaniem. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` wartość hosta będzie *contoso.com* |
 | *nazwa* cookie_              | *Nazwa* pliku cookie.                                            |
 | http_method                | Metoda używana do żądania adresu URL. Na przykład Pobierz lub Opublikuj. |
 | http_status                | Stan sesji. Na przykład 200, 400 lub 403.                       |
 | http_version               | Protokół żądania. Zazwyczaj HTTP/1.0, HTTP/1.1 lub HTTP/2.0. |
-| query_string               | Lista par zmienna/wartość, które następuje po "?" w żądanym adresie URL. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* QUERY_STRING wartość będzie równa *ID = 123&title = Fabrikam* |
+| query_string               | Lista par zmienna/wartość, które następuje po "?" w żądanym adresie URL. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` QUERY_STRING wartość będzie równa *ID = 123&title = Fabrikam* |
 | received_bytes             | Długość żądania (w tym wiersza żądania, nagłówka i treści żądania). |
 | request_query              | Argumenty w wierszu żądania.                                |
 | request_scheme             | Schemat żądania: http lub https.                            |
-| request_uri                | Pełny identyfikator URI żądania (z argumentami). Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* REQUEST_URI wartość będzie */article.aspx? id = 123&title = Fabrikam*   |
+| request_uri                | Pełny identyfikator URI żądania (z argumentami). Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` REQUEST_URI wartość będzie */article.aspx? id = 123&title = Fabrikam*   |
 | sent_bytes                 | Liczba bajtów wysłanych do klienta.                             |
 | server_port                | Port serwera, który zaakceptował żądanie.                 |
 | ssl_connection_protocol    | Protokół ustanowionego połączenia TLS.        |
 | ssl_enabled                | "Włączone", jeśli połączenie działa w trybie TLS. W przeciwnym razie pusty ciąg. |
-| uri_path                   | Identyfikuje określony zasób na hoście, do którego klient sieci Web chce uzyskać dostęp. Jest to część identyfikatora URI żądania bez argumentów. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path wartość zostanie */article.aspx*  |
+| uri_path                   | Identyfikuje określony zasób na hoście, do którego klient sieci Web chce uzyskać dostęp. Jest to część identyfikatora URI żądania bez argumentów. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path wartość zostanie */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Zapisz ponownie konfigurację
 
@@ -91,19 +91,19 @@ Aby skonfigurować ponowne zapisywanie nagłówka HTTP, należy wykonać te krok
 
 1. Utwórz obiekty wymagane do ponownego zapisania nagłówka HTTP:
 
-   - **Akcja ponownego zapisu** : służy do określania pól żądania i nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości nagłówków. Możliwe jest skojarzenie jednego lub więcej warunków ponownego zapisu z akcją ponownego zapisu.
+   - **Akcja ponownego zapisu**: służy do określania pól żądania i nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości nagłówków. Możliwe jest skojarzenie jednego lub więcej warunków ponownego zapisu z akcją ponownego zapisu.
 
-   - **Warunek ponownego zapisu** : opcjonalna konfiguracja. Warunki ponownego zapisu sprawdzają zawartość żądań i odpowiedzi HTTP (S). Akcja ponownego zapisu zostanie wykonana, jeśli żądanie HTTP (S) lub odpowiedź pasuje do warunku ponownego zapisu.
+   - **Warunek ponownego zapisu**: opcjonalna konfiguracja. Warunki ponownego zapisu sprawdzają zawartość żądań i odpowiedzi HTTP (S). Akcja ponownego zapisu zostanie wykonana, jeśli żądanie HTTP (S) lub odpowiedź pasuje do warunku ponownego zapisu.
 
      Jeśli powiążesz więcej niż jeden warunek z akcją, Akcja występuje tylko wtedy, gdy wszystkie warunki są spełnione. Innymi słowy, operacja jest operacją logiczną i.
 
-   - **Reguła ponownego zapisywania** : zawiera kilka kombinacji warunku akcji ponownego zapisu/ponownego zapisywania.
+   - **Reguła ponownego zapisywania**: zawiera kilka kombinacji warunku akcji ponownego zapisu/ponownego zapisywania.
 
-   - **Sekwencja reguł** : pomaga określić kolejność wykonywania reguł ponownego zapisywania. Ta konfiguracja jest przydatna, jeśli masz wiele reguł ponownego zapisywania w zestawie do wielokrotnego zapisu. Reguła ponownego zapisu, która ma niższą wartość sekwencji reguł, jest uruchamiana jako pierwsza. Jeśli ta sama sekwencja reguł zostanie przypisana do dwóch reguł ponownego zapisywania, kolejność wykonywania nie jest deterministyczna.
+   - **Sekwencja reguł**: pomaga określić kolejność wykonywania reguł ponownego zapisywania. Ta konfiguracja jest przydatna, jeśli masz wiele reguł ponownego zapisywania w zestawie do wielokrotnego zapisu. Reguła ponownego zapisu, która ma niższą wartość sekwencji reguł, jest uruchamiana jako pierwsza. Jeśli ta sama sekwencja reguł zostanie przypisana do dwóch reguł ponownego zapisywania, kolejność wykonywania nie jest deterministyczna.
 
-   - **Zestaw do ponownego zapisu** : zawiera wiele reguł ponownego zapisywania, które zostaną skojarzone z regułą routingu żądania.
+   - **Zestaw do ponownego zapisu**: zawiera wiele reguł ponownego zapisywania, które zostaną skojarzone z regułą routingu żądania.
 
-2. Dołącz zestaw do ponownego zapisu ( *rewriteRuleSet* ) do reguły routingu. Konfiguracja ponownego zapisywania jest dołączona do odbiornika źródłowego za pośrednictwem reguły routingu. W przypadku korzystania z podstawowej reguły routingu, konfiguracja ponownego zapisywania nagłówka jest skojarzona z odbiornikiem źródłowym i jest ponownym zapisem nagłówka globalnego. W przypadku korzystania z reguły routingu opartej na ścieżce, konfiguracja ponownego zapisywania nagłówka jest definiowana na mapie ścieżki URL. W takim przypadku ma zastosowanie tylko do obszaru określonej ścieżki w lokacji.
+2. Dołącz zestaw do ponownego zapisu (*rewriteRuleSet*) do reguły routingu. Konfiguracja ponownego zapisywania jest dołączona do odbiornika źródłowego za pośrednictwem reguły routingu. W przypadku korzystania z podstawowej reguły routingu, konfiguracja ponownego zapisywania nagłówka jest skojarzona z odbiornikiem źródłowym i jest ponownym zapisem nagłówka globalnego. W przypadku korzystania z reguły routingu opartej na ścieżce, konfiguracja ponownego zapisywania nagłówka jest definiowana na mapie ścieżki URL. W takim przypadku ma zastosowanie tylko do obszaru określonej ścieżki w lokacji.
    > [!NOTE]
    > Ponowne zapisywanie adresów URL zmiana nagłówków; nie powoduje zmiany adresu URL ścieżki.
 

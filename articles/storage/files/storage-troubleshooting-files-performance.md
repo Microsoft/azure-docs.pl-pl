@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c3dbd76e76ad6e7bed0808278d4516992bc328f0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632499"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574435"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Rozwiązywanie problemów z wydajnością udziałów plików platformy Azure
 
@@ -34,14 +34,28 @@ Aby potwierdzić, że Twój udział jest ograniczany, możesz uzyskać dostęp d
 
 1. Wybierz **transakcje** jako metrykę.
 
-1. Dodaj filtr dla **typu odpowiedzi**, a następnie sprawdź, czy jakieś żądania mają jeden z następujących kodów odpowiedzi:
-   * **SuccessWithThrottling**: dla bloku komunikatów serwera (SMB)
-   * **ClientThrottlingError**: dla REST
+1. Dodaj filtr dla **typu odpowiedzi**, a następnie sprawdź, czy jakieś żądania zostały ograniczone. 
 
-   ![Zrzut ekranu przedstawiający opcje metryk dla udziałów plików w warstwie Premium, z uwzględnieniem filtru właściwości "typ odpowiedzi".](media/storage-troubleshooting-premium-fileshares/metrics.png)
+    W przypadku standardowych udziałów plików następujące typy odpowiedzi są rejestrowane, jeśli żądanie jest ograniczone:
 
-   > [!NOTE]
-   > Aby odebrać alert, zobacz sekcję ["jak utworzyć alert, jeśli udział plików jest ograniczany"](#how-to-create-an-alert-if-a-file-share-is-throttled) w dalszej części tego artykułu.
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    W przypadku udziałów plików w warstwie Premium następujące typy odpowiedzi są rejestrowane, jeśli żądanie jest ograniczone:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
+
+    Aby dowiedzieć się więcej na temat każdego typu odpowiedzi, zobacz [Dimension Metrics](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+
+    ![Zrzut ekranu przedstawiający opcje metryk dla udziałów plików w warstwie Premium, z uwzględnieniem filtru właściwości "typ odpowiedzi".](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+    > [!NOTE]
+    > Aby odebrać alert, zobacz sekcję ["jak utworzyć alert, jeśli udział plików jest ograniczany"](#how-to-create-an-alert-if-a-file-share-is-throttled) w dalszej części tego artykułu.
 
 ### <a name="solution"></a>Rozwiązanie
 
@@ -219,48 +233,63 @@ Aby potwierdzić, możesz użyć metryk platformy Azure w portalu —
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Jak utworzyć alert, jeśli udział plików jest ograniczany
 
-1. W Azure Portal przejdź do konta magazynu.
-1. W sekcji **monitorowanie** wybierz pozycję **alerty**, a następnie wybierz pozycję **Nowa reguła alertu**.
-1. Wybierz pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie wybierz pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to *contoso*, wybierz zasób contoso/File.
-1. Wybierz pozycję **Wybierz warunek** , aby dodać warunek.
-1. Na liście sygnałów, które są obsługiwane dla konta magazynu, wybierz metrykę **transakcji** .
-1. W okienku **Konfigurowanie logiki sygnału** na liście rozwijanej **Nazwa wymiaru** wybierz pozycję **Typ odpowiedzi**.
-1. Z listy rozwijanej **wartości wymiaru** wybierz pozycję **SuccessWithThrottling** (dla protokołu SMB) lub **ClientThrottlingError** (dla opcji REST).
+1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
+2. W sekcji **monitorowanie** kliknij pozycję **alerty**, a następnie kliknij pozycję **+ Nowa reguła alertów**.
+3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to `contoso` , wybierz `contoso/file` zasób.
+4. Kliknij przycisk **Dodaj warunek** , aby dodać warunek.
+5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **transakcji** .
+6. W bloku **Konfigurowanie logiki sygnału** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **Typ odpowiedzi**.
+7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz odpowiednie typy odpowiedzi dla danego udziału plików.
+
+    W przypadku standardowych udziałów plików wybierz następujące typy odpowiedzi:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    W przypadku udziałów plików w warstwie Premium wybierz następujące typy odpowiedzi:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Jeśli nie zostanie wyświetlona wartość **SuccessWithThrottling** ani **ClientThrottlingError** wartości wymiaru, oznacza to, że zasób nie został ograniczony. Aby dodać wartość wymiaru, obok listy rozwijanej **wartości wymiaru** wybierz pozycję **Dodaj wartość niestandardową**, wprowadź **SuccessWithThrottling** lub **ClientThrottlingError**, wybierz pozycję **OK**, a następnie powtórz krok 7.
+   > Jeśli typy odpowiedzi nie są wyświetlane na liście rozwijanej **wartości wymiaru** , oznacza to, że zasób nie został ograniczony. Aby dodać wartości wymiaru, obok listy rozwijanej **wartości wymiaru** wybierz pozycję **Dodaj wartość niestandardową**, wprowadź typ respone (na przykład **SuccessWithThrottling**), wybierz pozycję **OK**, a następnie powtórz te kroki, aby dodać wszystkie odpowiednie typy odpowiedzi dla udziału plików.
 
-1. Z listy rozwijanej **Nazwa wymiaru** wybierz pozycję **udział plików**.
-1. Z listy rozwijanej **wartości wymiaru** wybierz udział plików lub udziały, w których chcesz utworzyć alert.
+8. Kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
+9. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
+
 
    > [!NOTE]
-   > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie ma listy udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików są wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie wskazuje, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecamy użycie jednego udziału plików na konto magazynu.
+   > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
 
-1. Zdefiniuj parametry alertu przez wprowadzenie **wartości progowej**, **operatora**, **stopnia szczegółowości agregacji** i **częstotliwości oceny**, a następnie wybierz pozycję **gotowe**.
+10. Zdefiniuj **Parametry alertu** (wartość progowa, operator, stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij pozycję **gotowe**.
 
     > [!TIP]
-    > Jeśli używasz progu statycznego, wykres metryk może pomóc w określeniu rozsądnej wartości progowej, jeśli udział plików jest obecnie ograniczany. Jeśli jest używany próg dynamiczny, wykres metryki wyświetla obliczone progi na podstawie ostatnich danych.
+    > Jeśli jest używany próg statyczny, wykres metryk może pomóc w ustaleniu rozsądnej wartości progowej, jeśli udział plików jest obecnie ograniczany. Jeśli używasz progu dynamicznego, wykres metryki wyświetli obliczone progi na podstawie ostatnich danych.
 
-1. Wybierz pozycję **Wybierz grupę akcji**, a następnie Dodaj grupę akcji (na przykład wiadomości E-mail lub SMS) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
-1. Wprowadź szczegóły alertu, takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
-1. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
+11. Kliknij pozycję **Dodaj grupy akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+12. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
+13. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
 
 Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Tworzenie alertów, jeśli udział plików w warstwie Premium jest trendem w kierunku ograniczenia przepustowości
 
 1. W Azure Portal przejdź do konta magazynu.
-1. W sekcji **monitorowanie** wybierz pozycję **alerty**, a następnie wybierz pozycję **Nowa reguła alertu**.
-1. Wybierz pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie wybierz pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to *contoso*, wybierz zasób contoso/File.
-1. Wybierz pozycję **Wybierz warunek** , aby dodać warunek.
-1. Na liście sygnałów, które są obsługiwane dla konta magazynu, wybierz metrykę **ruchu** wychodzącego.
+2. W sekcji **monitorowanie** wybierz pozycję **alerty**, a następnie wybierz pozycję **Nowa reguła alertu**.
+3. Wybierz pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie wybierz pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to *contoso*, wybierz zasób contoso/File.
+4. Wybierz pozycję **Wybierz warunek** , aby dodać warunek.
+5. Na liście sygnałów, które są obsługiwane dla konta magazynu, wybierz metrykę **ruchu** wychodzącego.
 
    > [!NOTE]
    > Należy utworzyć trzy osobne alerty, aby otrzymywać alerty, gdy wartości przychodzące, wychodzące lub transakcje przekroczą ustawione progi. Wynika to z faktu, że alert jest wyzwalany tylko wtedy, gdy wszystkie warunki są spełnione. Jeśli na przykład umieścisz wszystkie warunki w jednym alercie, będziesz otrzymywać alerty tylko wtedy, gdy ruch przychodzący, wychodzący i transakcje przekraczają ich wartości progowe.
 
-1. Przewiń w dół. Z listy rozwijanej **Nazwa wymiaru** wybierz pozycję **udział plików**.
-1. Z listy rozwijanej **wartości wymiaru** wybierz udział plików lub udziały, w których chcesz utworzyć alert.
-1. Zdefiniuj parametry alertu, wybierając wartości w **operatorze**, **wartość progowa**, **stopień szczegółowości agregacji** **, a następnie** wybierz pozycję **gotowe**.
+6. Przewiń w dół. Z listy rozwijanej **Nazwa wymiaru** wybierz pozycję **udział plików**.
+7. Z listy rozwijanej **wartości wymiaru** wybierz udział plików lub udziały, w których chcesz utworzyć alert.
+8. Zdefiniuj parametry alertu, wybierając wartości w **operatorze**, **wartość progowa**, **stopień szczegółowości agregacji** **, a następnie** wybierz pozycję **gotowe**.
 
    Metryki ruch wychodzący, ruch przychodzący i transakcje są wyrażane na minutę, chociaż są obsługiwane ruch wychodzący, ruch przychodzący i operacje we/wy na sekundę. W związku z tym na przykład, jeśli przychodzący ruch wychodzący jest 90 &nbsp; mebibytes na sekundę (MIB/s) i chcesz, aby próg miał wartość 80 &nbsp; procent zainicjowanych danych wychodzących, wybierz następujące parametry alertu: 
    - Dla **wartości progowej**: *75497472* 
@@ -271,9 +300,9 @@ Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [
    - W celu uzyskania **stopnia szczegółowości agregacji**: *1 godzina*
    - Aby uzyskać **częstotliwość oceny**: *1 godzina*
 
-1. Wybierz pozycję **Wybierz grupę akcji**, a następnie Dodaj grupę akcji (na przykład wiadomości E-mail lub SMS) do alertu przez wybranie istniejącej grupy akcji lub utworzenie nowej.
-1. Wprowadź szczegóły alertu, takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
-1. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
+9. Wybierz pozycję **Dodaj grupy akcji**, a następnie Dodaj grupę akcji (na przykład wiadomości E-mail lub SMS) do alertu przez wybranie istniejącej grupy akcji lub utworzenie nowej.
+10. Wprowadź szczegóły alertu, takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
+11. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
 
     > [!NOTE]
     > - Aby otrzymywać powiadomienia o tym, że udział plików w warstwie Premium jest bliski ograniczenia *ze względu na zainicjowanie obsługi* ruchu przychodzącego, postępuj zgodnie z powyższymi instrukcjami, ale z następującymi zmianami:

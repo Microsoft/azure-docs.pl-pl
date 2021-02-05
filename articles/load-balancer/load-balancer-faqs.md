@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3752a36d22f879b95b02bd49436be78212fe56a2
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051876"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576045"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer często zadawane pytania
 
@@ -52,9 +52,11 @@ Nie, nie jest to możliwe.
 ## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Jaka jest maksymalna przepływność danych, którą można osiągnąć za pośrednictwem Azure Load Balancer?
 Ponieważ usługa Azure LB jest modułem równoważenia obciążenia sieci przekazującym, ograniczenia przepływności są podyktowane przez typ maszyny wirtualnej używanej w puli zaplecza. Aby dowiedzieć się więcej na temat innych informacji dotyczących przepływności sieci, odnoszą się do [przepływności sieci maszyn wirtualnych](../virtual-network/virtual-machine-network-throughput.md).
 
-
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Jak działają połączenia z usługą Azure Storage w tym samym regionie?
 Połączenia wychodzące za pośrednictwem powyższych scenariuszy nie są wymagane do nawiązania połączenia z magazynem w tym samym regionie, w którym znajduje się maszyna wirtualna. Jeśli nie chcesz tego robić, użyj sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń), jak wyjaśniono powyżej. Łączność wychodząca jest wymagana w przypadku łączności z magazynem w innych regionach. Podczas nawiązywania połączenia z magazynem z maszyny wirtualnej w tym samym regionie źródłowy adres IP w dziennikach diagnostycznych magazynu będzie adresem wewnętrznym dostawcy, a nie publicznym adresem IP maszyny wirtualnej. Jeśli chcesz ograniczyć dostęp do konta magazynu do maszyn wirtualnych w co najmniej jednej podsieci Virtual Network w tym samym regionie, użyj [Virtual Network punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md) , a nie publicznego adresu IP podczas konfigurowania zapory konta magazynu. Po skonfigurowaniu punktów końcowych usługi zobaczysz Virtual Network prywatny adres IP w dziennikach diagnostycznych magazynu, a nie na wewnętrznym adresie dostawcy.
+
+## <a name="does-azure-load-balancer-support-tlsssl-termination"></a>Czy Azure Load Balancer obsługuje zakończenie protokołu TLS/SSL?
+Nie, Azure Load Balancer nie obsługuje obecnie zakończenia, ponieważ jest to przejście przez moduł równoważenia obciążenia sieci. Jeśli aplikacja wymaga tego, Application Gateway może być potencjalnym rozwiązaniem.
 
 ## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>Jakie są najlepsze praktyki w odniesieniu do łączności wychodzącej?
 Usługa Load Balancer w warstwie Standardowa i Standard publiczny adres IP wprowadzają możliwości i różne zachowania łączności wychodzącej. Nie są one takie same jak podstawowe jednostki SKU. Jeśli chcesz mieć łączność wychodzącą podczas pracy z standardowymi jednostkami SKU, musisz jawnie zdefiniować ją przy użyciu standardowych publicznych adresów IP lub standardowych Load Balancer publicznych. Obejmuje to tworzenie łączności wychodzącej przy użyciu wewnętrznego usługa Load Balancer w warstwie Standardowa. Zalecamy, aby zawsze używać reguł ruchu wychodzącego dla standardowej Load Balancer publicznej. Oznacza to, że w przypadku użycia wewnętrznego usługa Load Balancer w warstwie Standardowa należy wykonać kroki w celu utworzenia łączności wychodzącej dla maszyn wirtualnych w puli zaplecza, jeśli jest wymagana łączność wychodząca. W kontekście łączności wychodzącej, pojedynczej autonomicznej maszyny wirtualnej, wszystkie maszyny wirtualne w zestawie dostępności, wszystkie wystąpienia w VMSS działają jako Grupa. Oznacza to, że jeśli jedna maszyna wirtualna w zestawie dostępności jest skojarzona ze standardową jednostką SKU, wszystkie wystąpienia maszyn wirtualnych w tym zestawie dostępności są teraz zgodne z tymi samymi regułami, tak jakby były one skojarzone ze standardową jednostką SKU, nawet jeśli pojedyncze wystąpienie nie jest bezpośrednio skojarzone z nim. To zachowanie jest również zaobserwowane w przypadku autonomicznej maszyny wirtualnej z wieloma kartami interfejsu sieciowego podłączonymi do modułu równoważenia obciążenia. Jeśli jedna karta sieciowa zostanie dodana jako autonomiczna, będzie miała takie samo zachowanie. Uważnie przejrzyj ten cały dokument, aby poznać ogólne koncepcje, przejrzyj [Usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md) pod kątem różnic między jednostkami SKU i przejrzyj [reguły ruchu wychodzącego](load-balancer-outbound-connections.md#outboundrules).

@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: fd74872bc1c46f3dddda1b6d15f14f26dc2187cb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ba7d6d8deb2034f8b2a853cf74635687561c41ea
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499377"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573606"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Użyj Azure Portal, aby włączyć szyfrowanie kompleksowe przy użyciu szyfrowania na hoście
 
@@ -37,7 +37,7 @@ Po włączeniu szyfrowania na hoście dane przechowywane na hoście maszyny wirt
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail na adres encryptionAtHost@microsoft. com z identyfikatorami subskrypcji w celu włączenia funkcji dla subskrypcji.
+Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail na adres encryptionAtHost@microsoft.com z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji.
 
 Zaloguj się do Azure Portal przy użyciu [podanego linku](https://aka.ms/diskencryptionupdates).
 

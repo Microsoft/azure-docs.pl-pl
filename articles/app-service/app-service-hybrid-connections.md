@@ -4,15 +4,15 @@ description: Dowiedz się, jak tworzyć i używać połączeń hybrydowych w pro
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/04/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 20bdeef0a45bb02fab8841c0dd8ec7755143c693
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825983"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575995"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Połączenia hybrydowe usługi Azure App Service
 
@@ -42,7 +42,7 @@ Istnieje szereg korzyści dla Połączenia hybrydowe możliwości, w tym:
 - Zwykle nie wymaga to otworów zapory. Połączenia są wychodzące przez standardowe porty sieci Web.
 - Ponieważ ta funkcja jest poziomem sieci, jest niezależny od do języka używanego przez aplikację i technologii używanej przez punkt końcowy.
 - Może służyć do zapewnienia dostępu w wielu sieciach z pojedynczej aplikacji. 
-- Jest ona obsługiwana w odniesieniu do aplikacji natywnych systemu Windows i jest w wersji zapoznawczej dla aplikacji z systemem Linux. Nie jest obsługiwana w przypadku aplikacji kontenera systemu Windows.
+- Jest ona obsługiwana w odniesieniu do aplikacji systemu Windows i aplikacji Linux. Nie jest obsługiwana w przypadku aplikacji kontenera systemu Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Elementy, których nie można wykonać za pomocą Połączenia hybrydowe ###
 
@@ -94,8 +94,8 @@ App Service Połączenia hybrydowe są dostępne tylko w jednostkach SKU w warst
 
 | Plan cenowy | Liczba Połączenia hybrydowe użytecznych w planie |
 |----|----|
-| Podstawowe | 5 na plan |
-| Standard | 25 na plan |
+| Podstawowa | 5 na plan |
+| Standardowa | 25 na plan |
 | PremiumV2 | 200 na aplikację |
 | Izolowana | 200 na aplikację |
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: ca8584d6cce3f5487d84f6647c42274879d610dd
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 647564a9b9ca909d2f45ae66673d8beac168a4aa
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198071"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575978"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Dołączanie dysku danych do maszyny wirtualnej z systemem Linux przy użyciu portalu 
 W tym artykule opisano sposób dołączania nowych i istniejących dysków do maszyny wirtualnej z systemem Linux za pomocą Azure Portal. Możesz również [dołączyć dysk danych do maszyny wirtualnej z systemem Windows w Azure Portal](../windows/attach-managed-disk-portal.md). 
@@ -225,4 +225,7 @@ Istnieją dwa sposoby włączania obsługi przycinania na maszynie wirtualnej z 
     ```
 
 ## <a name="next-steps"></a>Następne kroki
+
+Aby uzyskać więcej informacji i pomóc w rozwiązywaniu problemów z dyskiem, zobacz temat [Rozwiązywanie problemów z nazwami urządzeń maszyny wirtualnej z systemem Linux](../troubleshooting/troubleshoot-device-names-problems.md).
+
 [Dysk danych](add-disk.md) można również dołączyć przy użyciu interfejsu wiersza polecenia platformy Azure.

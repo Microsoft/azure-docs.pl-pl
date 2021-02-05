@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 720cd46ac37a82f56aa37c0041ca8d92db177071
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881165"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575775"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zasad ochrony aplikacji oraz zatwierdzonej aplikacji klienckiej do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
@@ -34,7 +34,7 @@ W przypadku dostępu warunkowego te aplikacje klienckie są nazywane ochroną za
 > Nie wszystkie aplikacje są obsługiwane jako zatwierdzone aplikacje lub obsługują zasady ochrony aplikacji. Aby uzyskać listę kwalifikujących się aplikacji klienckich, zobacz [wymagania dotyczące zasad ochrony aplikacji](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
-> "Wymagaj jednej z wybranych kontrolek" w obszarze kontrolki dotacji jest taka sama jak klauzula OR. Ta wartość jest używana w ramach zasad, aby umożliwić użytkownikom korzystanie z aplikacji, które obsługują kontrolki **Wymagaj ochrony aplikacji** lub **wymagają zatwierdzonej aplikacji klienckiej** . **Wymagania zasad ochrony aplikacji** są wymuszane, jeśli aplikacja jest obsługiwana w ramach obu zasad. Aby uzyskać więcej informacji o tym, które aplikacje obsługują kontrolę przydzielenia **zasad ochrony aplikacji** , zobacz [wymagania dotyczące zasad ochrony aplikacji](concept-conditional-access-grant.md#require-app-protection-policy).
+> "Wymagaj jednej z wybranych kontrolek" w obszarze kontrolki dotacji jest taka sama jak klauzula OR. Ta wartość jest używana w ramach zasad, aby umożliwić użytkownikom korzystanie z aplikacji, które obsługują kontrolki **Wymagaj ochrony aplikacji** lub **wymagają zatwierdzonej aplikacji klienckiej** . **Ustawienie Wymagaj zasad ochrony aplikacji** jest wymuszane, gdy aplikacja obsługuje tę kontrolę. Aby uzyskać więcej informacji o tym, które aplikacje obsługują kontrolę przydzielenia **zasad ochrony aplikacji** , zobacz [wymagania dotyczące zasad ochrony aplikacji](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenariusz 1: aplikacje Microsoft 365 wymagają zatwierdzonych aplikacji przy użyciu zasad ochrony aplikacji
 
@@ -50,7 +50,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365**.
 1. W obszarze **warunki** wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -74,7 +74,7 @@ W przypadku zasad dostępu warunkowego w tym kroku skonfiguruj następujące sk�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365 Exchange Online**.
 1. W obszarze **warunki** wybierz pozycję **aplikacje klienckie**:
    1. Ustaw **wartość** **tak**.
@@ -101,7 +101,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365**.
 1. W obszarze **warunki** wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -134,7 +134,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365 Exchange Online** i **Office 365 SharePoint Online**.
 1. W obszarze **warunki** wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -156,7 +156,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365 Exchange Online**.
 1. W obszarze **warunki** wybierz pozycję **aplikacje klienckie**:
    1. Ustaw **wartość** **tak**.

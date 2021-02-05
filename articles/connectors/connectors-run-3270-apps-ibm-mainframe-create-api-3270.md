@@ -7,19 +7,16 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: estfan, valthom
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 02/03/2021
 tags: connectors
-ms.openlocfilehash: ae99e3fa287cc9012e317142cc1e6aef36ce90d6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7873076618125241d9bdf4f225c194572553d060
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095003"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573436"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrowanie 3270 aplikacji opartych na ekranach na komputery z systemem Azure przy użyciu łącznika Azure Logic Apps i IBM 3270
-
-> [!NOTE]
-> Ten łącznik jest w [*publicznej wersji zapoznawczej*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Korzystając z usługi Azure Logic Apps i łącznika IBM 3270, możesz uzyskiwać dostęp do aplikacji mainframe IBM i uruchamiać je, przechodząc do ekranów emulatora 3270. Dzięki temu możesz zintegrować aplikacje mainframe IBM z platformą Azure, firmą Microsoft i innymi aplikacjami, usługami i systemami, tworząc zautomatyzowane przepływy pracy za pomocą usługi Azure Logic Apps. Łącznik komunikuje się z komputerami mainframe firmy IBM przy użyciu protokołu TN3270 i jest dostępny we wszystkich regionach usługi Azure Logic Apps z wyjątkiem regionów Azure Government i Azure (Chiny) — 21Vianet. Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
@@ -55,13 +52,13 @@ Po wygenerowaniu pliku metadanych przy użyciu narzędzia do projektowania nale�
   Jeśli używasz ISE, wybierz tę ISEę jako lokalizację aplikacji logiki.
 
 * [Pobierz i zainstaluj narzędzie do projektowania 3270](https://aka.ms/3270-design-tool-download).
-Jedynym wymaganiem wstępnym jest [Microsoft .NET Framework 4.6.1](https://aka.ms/net-framework-download).
+Jedynym wymaganiem wstępnym jest [Microsoft .NET Framework 4,8](https://aka.ms/net-framework-download).
 
   To narzędzie ułatwia rejestrowanie ekranów, ścieżek nawigacyjnych, metod i parametrów zadań w aplikacji, które są dodawane i uruchamiane jako akcje łącznika 3270. Narzędzie generuje plik XML programu Host Integration Designer (HIDX), który dostarcza niezbędne metadane dla łącznika do obsługi aplikacji mainframe.
   
   Po pobraniu i zainstalowaniu tego narzędzia wykonaj następujące kroki, aby nawiązać połączenie z hostem:
 
-  1. Otwórz narzędzie projektowania 3270. Z menu **sesji** wybierz pozycję **sesje hosta** .
+  1. Otwórz narzędzie projektowania 3270. Z menu **sesji** wybierz pozycję **sesje hosta**.
   
   1. Podaj informacje o serwerze hosta protokołu TN3270.
 
@@ -77,20 +74,19 @@ Jedynym wymaganiem wstępnym jest [Microsoft .NET Framework 4.6.1](https://aka.m
 
 W aplikacji opartej na ekranach 3270 ekrany i pola danych są unikatowe dla Twoich scenariuszy, więc łącznik 3270 potrzebuje tych informacji na temat aplikacji, którą można podać jako metadane. W tych metadanych opisano informacje pomagające aplikacji logiki identyfikować i rozpoznawać ekrany, opisuje sposób nawigowania między ekranami, gdzie można wprowadzać dane i gdzie oczekiwać wyników. Aby określić i wygenerować te metadane, należy użyć narzędzia do projektowania 3270, które przeprowadzi Cię przez te konkretne *tryby* lub etapy, zgodnie z opisem w dalszej części szczegółów:
 
-* **Przechwytywanie** : w tym trybie rejestruje się ekrany wymagane do wykonania określonego zadania z aplikacją mainframe, na przykład w celu uzyskania salda banku.
+* **Przechwytywanie**: w tym trybie rejestruje się ekrany wymagane do wykonania określonego zadania z aplikacją mainframe, na przykład w celu uzyskania salda banku.
 
-* **Nawigacja** : w tym trybie należy określić plan lub ścieżkę służącą do nawigowania po ekranach aplikacji mainframe dla określonego zadania.
+* **Nawigacja**: w tym trybie należy określić plan lub ścieżkę służącą do nawigowania po ekranach aplikacji mainframe dla określonego zadania.
 
-* **Metody** : w tym trybie należy zdefiniować metodę, na przykład, `GetBalance` która opisuje ścieżkę nawigacji ekranu. Należy również wybrać pola na każdym ekranie, które staną się parametrami wejściowymi i wyjściowymi metody.
+* **Metody**: w tym trybie należy zdefiniować metodę, na przykład, `GetBalance` która opisuje ścieżkę nawigacji ekranu. Należy również zaznaczyć pola na każdym ekranie, które staną się parametrami wejściowymi i wyjściowymi metody.
 
 ### <a name="unsupported-elements"></a>Nieobsługiwane elementy
 
 Narzędzie projektowe nie obsługuje następujących elementów:
 
 * Mapy częściowej obsługi podstawowych mapowań firmy IBM (MS): w przypadku zaimportowania mapy MS narzędzie do projektowania ignoruje definicje ekranu częściowego.
-* Parametry wejściowe/out: nie można definiować parametrów in/out.
-* Przetwarzanie menu: nieobsługiwane w wersji zapoznawczej
-* Przetwarzanie tablicy: nieobsługiwane w wersji zapoznawczej
+
+* Przetwarzanie menu
 
 <a name="capture-screens"></a>
 
@@ -100,23 +96,23 @@ W tym trybie oznaczasz element na każdym ekranie 3270, który jednoznacznie ide
 
 1. Jeśli jeszcze tego nie zrobiono, Otwórz narzędzie projektowania 3270. Na pasku narzędzi wybierz pozycję **Przechwyć** , aby wprowadzić tryb przechwytywania.
 
-1. Aby rozpocząć nagrywanie, naciśnij klawisz F5 lub z menu **nagrywanie** wybierz pozycję **Rozpocznij nagrywanie** . 
+1. Z menu **sesji** wybierz pozycję **Połącz**.
 
-1. Z menu **sesji** wybierz pozycję **Połącz** .
+1. Aby rozpocząć nagrywanie, w menu **nagrywanie** wybierz pozycję **Rozpocznij nagrywanie**. (Klawiatura: Ctrl + E)
 
 1. W okienku **przechwytywanie** , rozpoczynając od pierwszego ekranu w aplikacji, przejdź do aplikacji w poszukiwaniu konkretnego zadania, które jest rejestrowane.
 
 1. Po zakończeniu zadania Wyloguj się z aplikacji w zwykły sposób.
 
-1. Z menu **sesji** wybierz pozycję **Rozłącz** .
+1. Z menu **sesji** wybierz pozycję **Rozłącz**.
 
-1. Aby zatrzymać nagrywanie, naciśnij klawisze Shift + F5 lub z menu **nagrywanie** wybierz polecenie **Zatrzymaj nagrywanie** .
+1. Aby zatrzymać nagrywanie, w menu **nagrywanie** wybierz polecenie **Zatrzymaj nagrywanie**. (Klawiatura: Ctrl + Shift + E)
 
    Po przechwyceniu ekranów dla zadania narzędzie Projektant pokazuje miniatury reprezentujące te ekrany. Niektóre uwagi dotyczące tych miniatur:
 
    * Dołączenie do przechwyconych ekranów zawiera ekran o nazwie "Empty".
 
-     Po pierwszym nawiązaniu połączenia z usługą [CICS](https://www.ibm.com/it-infrastructure/z/cics)należy wysłać klucz "Clear", aby można było wprowadzić nazwę transakcji, która ma zostać uruchomiona. Ekran, na którym wysyłasz klucz "Clear", nie ma żadnych *atrybutów rozpoznawania* , takich jak tytuł ekranu, który można dodać przy użyciu edytora rozpoznawania ekranu. Aby przedstawić ten ekran, miniatury obejmują ekran o nazwie "Empty". Możesz później użyć tego ekranu do reprezentowania ekranu, w którym wprowadzasz nazwę transakcji.
+     Po pierwszym nawiązaniu połączenia z usługą [CICS](https://www.ibm.com/it-infrastructure/z/cics)należy wysłać klucz "Clear", aby można było wprowadzić nazwę transakcji, która ma zostać uruchomiona. Ekran, na którym wysyłasz klucz "Clear", nie ma żadnych *atrybutów rozpoznawania*, takich jak tytuł ekranu, który można dodać przy użyciu edytora rozpoznawania ekranu. Aby przedstawić ten ekran, miniatury obejmują ekran o nazwie "Empty". Możesz później użyć tego ekranu do reprezentowania ekranu, w którym wprowadzasz nazwę transakcji.
 
    * Domyślnie nazwa przechwyconego ekranu używa pierwszego wyrazu na ekranie. Jeśli ta nazwa już istnieje, narzędzie projektowania dołącza nazwę z podkreśleniem i cyfrą, na przykład "WBGB" i "WBGB_1".
 
@@ -138,7 +134,7 @@ Po wybraniu pól rozpoznawania przejdź do następnego trybu.
 
 Aby łącznik mógł nawigować i rozróżnić między ekranami, zazwyczaj można znaleźć unikatowy tekst na ekranie, którego można użyć jako identyfikatora na przechwyconych ekranach. W przypadku powtarzających się ekranów mogą być potrzebne dodatkowe metody identyfikacji. Załóżmy na przykład, że istnieją dwa ekrany, które wyglądają tak samo, oprócz jednego ekranu zwraca prawidłową wartość, podczas gdy drugi ekran zwraca komunikat o błędzie.
 
-W narzędziu projektowym można dodać *atrybuty rozpoznawania* , na przykład tytuł ekranu, taki jak "Pobierz saldo konta" przy użyciu edytora rozpoznawania ekranu. Jeśli masz ścieżkę rozwidlenia, a obie gałęzie zwracają ten sam ekran, ale z różnymi wynikami, potrzebne są inne atrybuty rozpoznawania. W czasie wykonywania łącznik używa tych atrybutów do określenia bieżącej gałęzi i rozwidlenia. Poniżej przedstawiono warunki, których można użyć:
+W narzędziu projektowym można dodać *atrybuty rozpoznawania*, na przykład tytuł ekranu, taki jak "Pobierz saldo konta" przy użyciu edytora rozpoznawania ekranu. Jeśli masz ścieżkę rozwidlenia, a obie gałęzie zwracają ten sam ekran, ale z różnymi wynikami, potrzebne są inne atrybuty rozpoznawania. W czasie wykonywania łącznik używa tych atrybutów do określenia bieżącej gałęzi i rozwidlenia. Poniżej przedstawiono warunki, których można użyć:
 
 * Określona wartość: Ta wartość jest zgodna z określonym ciągiem w określonej lokalizacji.
 * NIE określona wartość: Ta wartość jest niezgodna z określonym ciągiem w określonej lokalizacji.
@@ -178,7 +174,7 @@ W tym trybie należy zdefiniować przepływ lub etapy nawigowania po ekranach ap
 
 1. Na pasku narzędzi Narzędzia do projektowania 3270 wybierz opcję **Nawigacja** , aby przejść do trybu nawigacji.
 
-1. Aby rozpocząć plan, w okienku **nawigacji** wybierz pozycję **nowy plan** .
+1. Aby rozpocząć plan, w okienku **nawigacji** wybierz pozycję **nowy plan**.
 
 1. W obszarze **Wybierz nową nazwę planu** wprowadź nazwę planu. Z listy **Typ** wybierz typ planu:
 
@@ -195,7 +191,7 @@ W tym trybie należy zdefiniować przepływ lub etapy nawigowania po ekranach ap
 
 1. Rozmieść ekrany w kolejności opisującej definiowane zadanie.
 
-1. Aby zdefiniować ścieżkę przepływu między ekranami, w tym rozwidleniami i sprzężeniami, na pasku narzędzi narzędzia projektowania wybierz pozycję **przepływ** .
+1. Aby zdefiniować ścieżkę przepływu między ekranami, w tym rozwidleniami i sprzężeniami, na pasku narzędzi Narzędzia do projektowania wybierz pozycję **przepływ**.
 
 1. Wybierz pierwszy ekran w przepływie. Przeciągnij i narysuj połączenie z następnym ekranem w przepływie.
 
@@ -260,7 +256,7 @@ Narzędzie projektowania pozwala dodawać atrybuty rozpoznawania, na przykład t
 
 W tym trybie należy zdefiniować metodę, która jest skojarzona z planem nawigacji. Dla każdego parametru metody należy określić typ danych, na przykład ciąg, liczbę całkowitą, datę lub godzinę itd. Gdy skończysz, możesz przetestować metodę na hoście aktywnym i upewnić się, że metoda działa zgodnie z oczekiwaniami. Następnie można wygenerować plik metadanych lub plik XML programu Integration Designer (HIDX), który ma teraz definicje metod do użycia podczas tworzenia i uruchamiania akcji dla łącznika IBM 3270.
 
-1. Na pasku narzędzi Narzędzia do projektowania 3270 wybierz **metody** , aby wprowadzić tryb metod. 
+1. Na pasku narzędzi Narzędzia do projektowania 3270 wybierz pozycję **metody** , aby wprowadzić tryb metod. 
 
 1. W okienku **nawigacji** wybierz ekran z polami wejściowymi, które chcesz.
 
@@ -269,9 +265,9 @@ W tym trybie należy zdefiniować metodę, która jest skojarzona z planem nawig
    1. W okienku **przechwytywanie** na ekranie emulatora 3270 wybierz całe pole, a nie tylko tekst wewnątrz pola, które chcesz utworzyć jako pierwsze dane wejściowe.
 
       > [!TIP]
-      > Aby wyświetlić wszystkie pola i upewnić się, że wybrano pole kompletne, w menu **Widok** wybierz pozycję **wszystkie pola** .
+      > Aby wyświetlić wszystkie pola i upewnić się, że wybrano pole kompletne, w menu **Widok** wybierz pozycję **wszystkie pola**.
 
-   1. Na pasku narzędzi narzędzia projektowania wybierz **pole dane wejściowe** . 
+   1. Na pasku narzędzi narzędzia projektowania wybierz pozycję **pole wejściowe**. 
 
    Aby dodać więcej parametrów wejściowych, powtórz poprzednie kroki dla każdego parametru.
 
@@ -280,9 +276,9 @@ W tym trybie należy zdefiniować metodę, która jest skojarzona z planem nawig
    1. W okienku **przechwytywanie** na ekranie emulatora 3270 wybierz całe pole, a nie tylko tekst wewnątrz pola, które ma zostać wybrane jako pierwsze wyjście.
 
       > [!TIP]
-      > Aby wyświetlić wszystkie pola i upewnić się, że wybrano pole kompletne, w menu **Widok** wybierz pozycję **wszystkie pola** .
+      > Aby wyświetlić wszystkie pola i upewnić się, że wybrano pole kompletne, w menu **Widok** wybierz pozycję **wszystkie pola**.
 
-   1. Na pasku narzędzi narzędzia projektowania wybierz **pole dane wyjściowe** .
+   1. Na pasku narzędzi narzędzia projektowania wybierz pozycję **pole wyjściowe**.
 
    Aby dodać więcej parametrów wyjściowych, powtórz poprzednie kroki dla każdego parametru.
 
@@ -291,8 +287,8 @@ W tym trybie należy zdefiniować metodę, która jest skojarzona z planem nawig
    | Nazwa właściwości | Możliwe wartości | 
    |---------------|-----------------|
    | **Typ danych** | Bajt, Data i godzina, liczba dziesiętna, int, Long, Short, String |
-   | **Technika wypełnienia pola** | Parametry obsługują te typy wypełniania, wypełniając wartości puste, w razie potrzeby: <p><p>- **Typ** : Wprowadź znaki sekwencyjnie do pola. <p>- **Wypełnienie** : Zastąp zawartość pola znakami, wypełniając wartości puste, jeśli jest to konieczne. <p>- **EraseEofType** : Wyczyść pole, a następnie wprowadź znaki sekwencyjnie do pola. |
-   | **Ciąg formatu** | Niektóre typy danych parametrów używają ciągu formatu, który informuje łącznik 3270 o sposobie konwersji tekstu z ekranu na typ danych .NET: <p><p>- **DateTime** : ciąg formatu daty i godziny jest zgodny z [niestandardowymi ciągami formatu data i godzina platformy .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). Na przykład Data `06/30/2019` używa ciągu formatu `MM/dd/yyyy` . <p>- **Decimal** : ciąg formatu dziesiętnego używa [klauzuli COBOL Picture](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_73/rzasb/picture.htm). Na przykład liczba `100.35` używa ciągu formatu `999V99` . |
+   | **Technika wypełnienia pola** | Parametry obsługują te typy wypełniania, wypełniając wartości puste, w razie potrzeby: <p><p>- **Typ**: Wprowadź znaki sekwencyjnie do pola. <p>- **Wypełnienie**: Zastąp zawartość pola znakami, wypełniając wartości puste, jeśli jest to konieczne. <p>- **EraseEofType**: Wyczyść pole, a następnie wprowadź znaki sekwencyjnie do pola. |
+   | **Ciąg formatu** | Niektóre typy danych parametrów używają ciągu formatu, który informuje łącznik 3270 o sposobie konwersji tekstu z ekranu na typ danych .NET: <p><p>- **DateTime**: ciąg formatu daty i godziny jest zgodny z [niestandardowymi ciągami formatu data i godzina platformy .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). Na przykład Data `06/30/2019` używa ciągu formatu `MM/dd/yyyy` . <p>- **Decimal**: ciąg formatu dziesiętnego używa [klauzuli COBOL Picture](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_73/rzasb/picture.htm). Na przykład liczba `100.35` używa ciągu formatu `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Zapisz i Wyświetl metadane
@@ -310,16 +306,16 @@ Jednak w przypadku próby zapisania zmian w pliku przykładowego RAP lub wygener
 
 ## <a name="test-your-method"></a>Testowanie metody
 
-1. Aby uruchomić metodę względem hosta na żywo, podczas gdy nadal w trybie metody, naciśnij klawisz F5 lub na pasku narzędzi narzędzia projektowania wybierz polecenie **Uruchom** .
+1. Aby uruchomić metodę względem hosta na żywo, podczas gdy nadal w trybie metody, naciśnij klawisz F5 lub na pasku narzędzi narzędzia projektowania wybierz pozycję **test**.
 
    > [!TIP]
-   > Tryby można zmienić w dowolnym momencie. W menu **plik** wybierz **tryb** , a następnie wybierz żądany tryb.
+   > Tryby można zmienić w dowolnym momencie. W menu **plik** wybierz **tryb**, a następnie wybierz żądany tryb.
 
-1. Wprowadź wartości parametrów i wybierz **przycisk OK** .
+1. Wprowadź wartości parametrów i wybierz **przycisk OK**.
 
-1. Aby przejść do następnego ekranu, wybierz pozycję **dalej** .
+1. Aby przejść do następnego ekranu, wybierz pozycję **dalej**.
 
-1. Gdy skończysz, wybierz pozycję **gotowe** , aby wyświetlić wartości parametrów wyjściowych.
+1. Gdy skończysz, wybierz pozycję **gotowe**, aby wyświetlić wartości parametrów wyjściowych.
 
 <a name="add-metadata-integration-account"></a>
 
@@ -327,13 +323,13 @@ Jednak w przypadku próby zapisania zmian w pliku przykładowego RAP lub wygener
 
 Gdy wszystko będzie gotowe, wygeneruj plik HIDX, aby umożliwić przekazanie go do konta integracji. Narzędzie projektowania 3270 tworzy plik HIDX w nowym podfolderze, w którym zapisano plik RAP.
 
-1. Na pasku narzędzi Narzędzia do projektowania 3270 wybierz polecenie **Generuj kod** .
+1. W narzędziu projektowanie 3270 z menu **Narzędzia** wybierz polecenie **Generuj definicje**. (Klawiatura: F6)
 
 1. Przejdź do folderu, który zawiera plik RAP, i Otwórz podfolder utworzony przez narzędzie po wygenerowaniu pliku HIDX. Upewnij się, że narzędzie utworzyło plik HIDX.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com)i Znajdź konto integracji.
 
-1. Dodaj plik HIDX jako mapę do konta integracji, wykonując [następujące podobne kroki w celu dodania map](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), ale po wybraniu typu mapy wybierz pozycję **hidx** .
+1. Dodaj plik HIDX jako mapę do konta integracji, wykonując [następujące podobne kroki w celu dodania map](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), ale po wybraniu typu mapy wybierz pozycję **hidx**.
 
 W dalszej części tego tematu, gdy dodasz akcję IBM 3270 do aplikacji logiki po raz pierwszy, zostanie wyświetlony monit o utworzenie połączenia między aplikacją logiki a serwerem hosta, dostarczając informacje o połączeniu, takie jak nazwy konta integracji i serwera hosta. Po utworzeniu połączenia możesz wybrać wcześniej dodany plik HIDX, metodę do uruchomienia i parametry, które mają być używane.
 
@@ -347,22 +343,21 @@ Po zakończeniu wszystkich tych kroków możesz użyć akcji utworzonej w aplika
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com)i Otwórz aplikację logiki w Projektancie aplikacji logiki, jeśli nie jest jeszcze otwarta.
 
-1. W ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok** , a następnie wybierz pozycję **Dodaj akcję** . 
+1. W ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok** **>** **Dodaj akcję**. 
 
-1. W polu wyszukiwania wybierz pozycję **Enterprise** . W polu wyszukiwania wprowadź "3270" jako filtr. Z listy Akcje wybierz pozycję Ta akcja: **uruchamia program mainframe w ramach połączenia protokołu TN3270**
+1. W polu wyszukiwania wybierz pozycję **Enterprise**. W polu wyszukiwania wprowadź `3270` jako filtr. Z listy Akcje wybierz akcję o nazwie **Uruchom program mainframe w ramach połączenia protokołu TN3270**
 
    ![Wybierz akcję 3270](./media/connectors-create-api-3270/select-3270-action.png)
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. 
-   Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję** .
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
-1. Jeśli połączenie nie istnieje jeszcze, podaj niezbędne informacje dotyczące połączenia i wybierz pozycję **Utwórz** .
+1. Jeśli połączenie nie istnieje jeszcze, podaj niezbędne informacje dotyczące połączenia, a następnie wybierz pozycję **Utwórz**.
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
    | **Nazwa połączenia** | Tak | <*Nazwa połączenia*> | Nazwa połączenia |
    | **Identyfikator konta integracji** | Tak | <*Integracja — nazwa konta*> | Nazwa konta integracji |
-   | **Adres URL sygnatury dostępu współdzielonego konta integracji** | Tak | <*Integration-Account-SAS-URL*> | Adres URL sygnatury dostępu współdzielonego (SAS) konta integracji, który można wygenerować na podstawie ustawień konta integracji w Azure Portal. <p>1. w menu konto integracji w obszarze **Ustawienia** wybierz pozycję **adres URL wywołania zwrotnego** . <br>2. w okienku po prawej stronie Skopiuj **wygenerowaną wartość adresu URL wywołania zwrotnego** . |
+   | **Adres URL sygnatury dostępu współdzielonego konta integracji** | Tak | <*Integration-Account-SAS-URL*> | Adres URL sygnatury dostępu współdzielonego (SAS) konta integracji, który można wygenerować na podstawie ustawień konta integracji w Azure Portal. <p>1. w menu konto integracji w obszarze **Ustawienia** wybierz pozycję **adres URL wywołania zwrotnego**. <br>2. w okienku po prawej stronie Skopiuj **wygenerowaną wartość adresu URL wywołania zwrotnego** . |
    | **Server** (Serwer) | Tak | <*PROTOKOŁU TN3270-Server-Name*> | Nazwa serwera dla usługi protokołu TN3270 |
    | **Port** | Nie | <*PROTOKOŁU TN3270-serwer-port*> | Port używany przez serwer protokołu TN3270. Jeśli pole pozostanie puste, łącznik używa `23` jako wartości domyślnej. |
    | **Typ urządzenia** | Nie | <*IBM-Terminal-model*> | Nazwa lub numer modelu terminalu IBM do emulowania. Jeśli pole pozostanie puste, łącznik użyje wartości domyślnych. |
@@ -372,7 +367,7 @@ Po zakończeniu wszystkich tych kroków możesz użyć akcji utworzonej w aplika
    | **Czy zweryfikować certyfikat SSL hosta?** | Nie | Włączone lub wyłączone | Włącz lub wyłącz weryfikację dla certyfikatu serwera. |
    ||||
 
-   Przykład:
+   Na przykład:
 
    ![Connection properties (Właściwości połączenia)](./media/connectors-create-api-3270/connection-properties.png)
 
@@ -384,7 +379,7 @@ Po zakończeniu wszystkich tych kroków możesz użyć akcji utworzonej w aplika
    | **Nazwa metody** | Tak | <*Nazwa metody*> | Wybierz metodę w pliku HIDX, który ma być używany. Po wybraniu metody zostanie wyświetlona lista **Dodaj nowy parametr** , aby można było wybrać parametry do użycia z tą metodą. |
    ||||
 
-   Przykład:
+   Na przykład:
 
    **Wybierz plik HIDX**
 
@@ -405,7 +400,7 @@ Po zakończeniu wszystkich tych kroków możesz użyć akcji utworzonej w aplika
 
 1. Aby przejrzeć dane wejściowe i wyjściowe dla każdego kroku, rozwiń ten krok.
 
-1. Aby przejrzeć dane wyjściowe, wybierz pozycję **Zobacz nieprzetworzone wyjścia** .
+1. Aby przejrzeć dane wyjściowe, wybierz pozycję **Zobacz nieprzetworzone wyjścia**.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 

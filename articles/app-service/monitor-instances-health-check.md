@@ -6,18 +6,18 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 60a210c6c336c1b820015304e8ab53bc894c17bf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8892723ec1a53c59e3e6183b5d53c2e61db4e5d0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792506"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575232"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorowanie wystąpień App Service przy użyciu kontroli kondycji
 
 ![Niepowodzenie sprawdzania kondycji][2]
 
-W tym artykule zastosowano kontrolę kondycji w Azure Portal do monitorowania wystąpień App Service. Kontrola kondycji zwiększa dostępność aplikacji, usuwając wystąpienia w złej kondycji. [Plan App Service](/overview-hosting-plans) powinien zostać przeskalowany do co najmniej dwóch wystąpień, aby można było użyć kontroli kondycji. Ścieżka sprawdzania kondycji powinna sprawdzać krytyczne składniki aplikacji. Na przykład jeśli aplikacja zależy od bazy danych i systemu obsługi komunikatów, punkt końcowy sprawdzania kondycji powinien łączyć się z tymi składnikami. Jeśli aplikacja nie może połączyć się ze składnikiem krytycznym, ścieżka powinna zwrócić kod odpowiedzi 500 na poziomie, aby wskazać, że aplikacja jest w złej kondycji.
+W tym artykule zastosowano kontrolę kondycji w Azure Portal do monitorowania wystąpień App Service. Kontrola kondycji zwiększa dostępność aplikacji, usuwając wystąpienia w złej kondycji. [Plan App Service](/azure/app-service/overview-hosting-plans) powinien zostać przeskalowany do co najmniej dwóch wystąpień, aby można było użyć kontroli kondycji. Ścieżka sprawdzania kondycji powinna sprawdzać krytyczne składniki aplikacji. Na przykład jeśli aplikacja zależy od bazy danych i systemu obsługi komunikatów, punkt końcowy sprawdzania kondycji powinien łączyć się z tymi składnikami. Jeśli aplikacja nie może połączyć się ze składnikiem krytycznym, ścieżka powinna zwrócić kod odpowiedzi 500 na poziomie, aby wskazać, że aplikacja jest w złej kondycji.
 
 ## <a name="what-app-service-does-with-health-checks"></a>Co App Service sprawdza kondycję
 

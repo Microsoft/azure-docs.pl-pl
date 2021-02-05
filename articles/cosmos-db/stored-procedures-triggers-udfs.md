@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ad9e6b99b396465c2cff95bd6ab340ef9d668085
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340706"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575961"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Usługa Azure Cosmos DB zapewnia zintegrowane z językiem, transakcyjne wykonywanie kodu języka JavaScript. W przypadku korzystania z interfejsu API SQL w Azure Cosmos DB można napisać **procedury składowane** , **wyzwalacze** i **funkcje zdefiniowane przez użytkownika (UDF)** w języku JavaScript. Logikę można napisać w języku JavaScript i wykonać ją w aparacie bazy danych. Można tworzyć i wykonywać wyzwalacze, procedury składowane i UDF przy użyciu [Azure Portal](https://portal.azure.com/), [zintegrowanego interfejsu API języka JavaScript w Azure Cosmos DB](javascript-query-api.md) lub [Cosmos DB zestaw SDK klienta interfejsu API SQL](how-to-use-stored-procedures-triggers-udfs.md).
+Usługa Azure Cosmos DB zapewnia zintegrowane z językiem, transakcyjne wykonywanie kodu języka JavaScript. W przypadku korzystania z interfejsu API SQL w Azure Cosmos DB można napisać **procedury składowane**, **wyzwalacze** i **funkcje zdefiniowane przez użytkownika (UDF)** w języku JavaScript. Logikę można napisać w języku JavaScript i wykonać ją w aparacie bazy danych. Można tworzyć i wykonywać wyzwalacze, procedury składowane i UDF przy użyciu [Azure Portal](https://portal.azure.com/), [zintegrowanego interfejsu API języka JavaScript w Azure Cosmos DB](javascript-query-api.md) lub [Cosmos DB zestaw SDK klienta interfejsu API SQL](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Zalety korzystania z programowania po stronie serwera
 
@@ -43,7 +43,7 @@ Pisanie procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytk
 
 ## <a name="transactions"></a>Transakcje
 
-Transakcja w typowej bazie danych może być zdefiniowana jako sekwencja operacji wykonywanych jako pojedyncza jednostka logiczna. Każda transakcja zapewnia **gwarancje własności kwasowej**. KWAS jest dobrze znanym akronimem, który **oznacza: tomicity** , **C** onsistency, **i** solation i **D** urability. 
+Transakcja w typowej bazie danych może być zdefiniowana jako sekwencja operacji wykonywanych jako pojedyncza jednostka logiczna. Każda transakcja zapewnia **gwarancje własności kwasowej**. KWAS jest dobrze znanym akronimem, który **oznacza: tomicity**, **C** onsistency, **i** solation i **D** urability. 
 
 * Niepodzielność gwarantuje, że wszystkie operacje wykonywane w ramach transakcji są traktowane jako jedna jednostka, a wszystkie z nich są zatwierdzone lub żadna z nich nie jest. 
 
@@ -72,7 +72,7 @@ Procedury składowane i wyzwalacze są zawsze wykonywane dla repliki podstawowej
 
 ## <a name="bounded-execution"></a>Powiązane wykonywanie
 
-Wszystkie operacje Azure Cosmos DB muszą zakończyć się w określonym limicie czasu. To ograniczenie ma zastosowanie do funkcji języka JavaScript — procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika. Jeśli operacja nie zostanie zakończona w tym limicie czasu, transakcja zostanie wycofana.
+Wszystkie operacje Azure Cosmos DB muszą zakończyć się w określonym limicie czasu. Procedury składowane mają limit czasu wynoszący 5 sekund. To ograniczenie ma zastosowanie do funkcji języka JavaScript — procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika. Jeśli operacja nie zostanie zakończona w tym limicie czasu, transakcja zostanie wycofana.
 
 Można upewnić się, że funkcje języka JavaScript kończą się w określonym czasie, lub zaimplementować model oparty na kontynuacji, aby wykonać zadanie wsadowe/wznowienia. Aby uprościć opracowywanie procedur składowanych i wyzwalaczy w celu obsługi limitów czasu, wszystkie funkcje w ramach kontenera Azure Cosmos (na przykład tworzenie, odczytywanie, aktualizowanie i usuwanie elementów) zwracają wartość logiczną, która reprezentuje, czy ta operacja zostanie ukończona. Jeśli ta wartość jest fałszywa, oznacza to, że procedura musi zajmować wykonywanie, ponieważ skrypt zużywa więcej czasu lub zainicjowaną przepływność od skonfigurowanej wartości. Operacje znajdujące się w kolejce przed pierwszą zaakceptowaną operacją magazynu są gwarantowane, gdy procedura składowana zostanie ukończona i nie będzie kolejkować kolejnych żądań. W ten sposób operacje powinny być umieszczane w kolejce pojedynczo przy użyciu konwencji wywołania zwrotnego języka JavaScript do zarządzania przepływem sterowania skryptu. Ponieważ skrypty są wykonywane w środowisku po stronie serwera, są one ściśle regulowane. Skrypty, które wielokrotnie naruszają granice wykonywania, mogą być oznaczone jako nieaktywne i nie mogą być wykonywane i powinny być tworzone ponownie w celu uwzględnienia granic wykonania.
 

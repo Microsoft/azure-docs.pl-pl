@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: reference
 ms.date: 03/03/2020
-ms.openlocfilehash: 1a8ae7fd03a0182256970b9eb9eb18b7c77894ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 258874ffdbc471305b76f7d52406d2f45e708829
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962981"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575741"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Usługi i narzędzia dostępne dla scenariuszy migracji danych
 
@@ -47,7 +47,7 @@ W poniższych tabelach zidentyfikowano usługi i narzędzia, których można uż
 | PostgreSQL | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [Kalkulator TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | PostgreSQL RDS | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer |  |  | [Kalkulator TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | DB2 | Baza danych Azure SQL, MI, maszyna wirtualna | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
-| Dostęp | Baza danych Azure SQL, MI, maszyna wirtualna | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
+| Access | Baza danych Azure SQL, MI, maszyna wirtualna | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase — SAP ASE | Baza danych Azure SQL, MI, maszyna wirtualna | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP IQ | Baza danych Azure SQL, MI, maszyna wirtualna |  |  |  |
 | | | | | |
@@ -72,7 +72,7 @@ W poniższych tabelach zidentyfikowano usługi i narzędzia, których można uż
 | PostgreSQL | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer |  |  |  |
 | PostgreSQL RDS | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer |  |  |  |
 | DB2 | Baza danych Azure SQL, MI, maszyna wirtualna | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)  /  [Asystencie migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
-| Dostęp | Baza danych Azure SQL, MI, maszyna wirtualna |  | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
+| Access | Baza danych Azure SQL, MI, maszyna wirtualna |  | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase — SAP ASE | Baza danych Azure SQL, MI, maszyna wirtualna | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)  /  [Asystencie migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP IQ | Baza danych Azure SQL, MI, maszyna wirtualna |  | |  |
 | | | | | |
@@ -89,15 +89,15 @@ W poniższych tabelach zidentyfikowano usługi i narzędzia, których można uż
 | Oracle | Baza danych Azure SQL, MI, maszyna wirtualna | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Oracle | Azure Synapse Analytics | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Oracle | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer | [Ispirer*](https://www.ispirer.com/solutions) | [Ispirer*](https://www.ispirer.com/solutions) | [DMS](https://azure.microsoft.com/services/database-migration/) |
-| MongoDB | Cosmos DB | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://www.imanisdata.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://www.imanisdata.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://www.imanisdata.com/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| Cassandra | Cosmos DB | [Dane Imanis *](https://www.imanisdata.com/) | [Dane Imanis *](https://www.imanisdata.com/) | [Dane Imanis *](https://www.imanisdata.com/) |
+| MongoDB | Cosmos DB | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/talena-inc.talena-solution-template?tab=Overview) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/talena-inc.talena-solution-template?tab=Overview) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/talena-inc.talena-solution-template?tab=Overview)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| Cassandra | Cosmos DB | [Dane Imanis *](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/talena-inc.talena-solution-template?tab=Overview) | [Dane Imanis *](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/talena-inc.talena-solution-template?tab=Overview) | [Dane Imanis *](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/talena-inc.talena-solution-template?tab=Overview) |
 | MySQL | Baza danych Azure SQL, MI, maszyna wirtualna | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | MySQL | Azure DB dla MySQL | [Zrzut MySQL *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | RDS MySQL | Azure DB dla MySQL | [Zrzut MySQL *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | PostgreSQL | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer | [Zrzut PG *](https://www.postgresql.org/docs/11/static/app-pgdump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | PostgreSQL RDS | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer | [Zrzut PG *](https://www.postgresql.org/docs/11/static/app-pgdump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | DB2 | Baza danych Azure SQL, MI, maszyna wirtualna | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| Dostęp | Baza danych Azure SQL, MI, maszyna wirtualna | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
+| Access | Baza danych Azure SQL, MI, maszyna wirtualna | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
 | Sybase — SAP ASE | Baza danych Azure SQL, MI, maszyna wirtualna | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [ASYSTENCIE migracji](/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Sybase-SAP IQ | Baza danych Azure SQL, MI, maszyna wirtualna | [Ispirer*](https://www.ispirer.com/solutions) | [Ispirer*](https://www.ispirer.com/solutions) | |
 | | | | | |
@@ -122,7 +122,7 @@ W poniższych tabelach zidentyfikowano usługi i narzędzia, których można uż
 | PostgreSQL | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer |  |
 | PostgreSQL RDS | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer |  |
 | DB2 | Baza danych Azure SQL, MI, maszyna wirtualna |  |
-| Dostęp | Baza danych Azure SQL, MI, maszyna wirtualna |  |
+| Access | Baza danych Azure SQL, MI, maszyna wirtualna |  |
 | Sybase — SAP ASE | Baza danych Azure SQL, MI, maszyna wirtualna |  |
 | Sybase-SAP IQ | Baza danych Azure SQL, MI, maszyna wirtualna |  |
 | | | |

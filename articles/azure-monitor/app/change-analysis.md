@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195878"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576417"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
 
@@ -28,6 +28,17 @@ Analiza zmian wykrywa różne typy zmian z warstwy infrastruktury we wszystkich 
 Na poniższym diagramie przedstawiono architekturę analizy zmian:
 
 ![Diagram architektury sposobu, w jaki Analiza zmian pobiera zmiany danych i udostępnia je narzędziom klienckim](./media/change-analysis/overview.png)
+
+## <a name="supported-resource-types"></a>Obsługiwane typy zasobów
+
+Usługa analizy zmian aplikacji obsługuje zmiany poziomu właściwości zasobów we wszystkich typach zasobów platformy Azure, w tym w przypadku typowych zasobów, takich jak:
+- Maszyna wirtualna
+- Zestaw skalowania maszyn wirtualnych
+- App Service
+- Usługa Azure Kubernetes
+- Funkcja platformy Azure
+- Zasoby sieciowe: czyli sieciowa Grupa zabezpieczeń, Virtual Network, Application Gateway itd.
+- Usługi danych: Magazyn, SQL, Redis Cache, Cosmos DB itd.
 
 ## <a name="data-sources"></a>Źródła danych
 
@@ -49,17 +60,27 @@ Analiza zmian przechwytuje stan wdrożenia i konfiguracji aplikacji co 4 godziny
 
 ### <a name="dependency-changes"></a>Zmiany zależności
 
-Zmiany zależności zasobów mogą również powodować problemy w aplikacji sieci Web. Na przykład jeśli aplikacja sieci Web wywołuje w pamięci podręcznej Redis, jednostka SKU pamięci podręcznej Redis może mieć wpływ na wydajność aplikacji sieci Web. Aby wykryć zmiany w zależnościach, Analiza zmian sprawdza rekord DNS aplikacji sieci Web. W ten sposób identyfikuje zmiany we wszystkich składnikach aplikacji, które mogą powodować problemy.
-Obecnie obsługiwane są następujące zależności:
+Zmiany zależności zasobów mogą również powodować problemy w zasobie. Na przykład jeśli aplikacja sieci Web wywołuje w pamięci podręcznej Redis, jednostka SKU pamięci podręcznej Redis może mieć wpływ na wydajność aplikacji sieci Web. Innym przykładem jest to, że port 22 został zamknięty w sieciowej grupie zabezpieczeń maszyny wirtualnej, spowoduje błędy łączności. 
+
+#### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>Aplikacja sieci Web diagnozowanie i rozwiązywanie problemów Nawigator (wersja zapoznawcza)
+Aby wykryć zmiany w zależnościach, Analiza zmian sprawdza rekord DNS aplikacji sieci Web. W ten sposób identyfikuje zmiany we wszystkich składnikach aplikacji, które mogą powodować problemy.
+W aplikacji sieci Web są obecnie obsługiwane następujące zależności: **diagnozowanie i rozwiązywanie problemów | Nawigator (wersja zapoznawcza)**:
 - Web Apps
 - Azure Storage
 - Azure SQL
 
-## <a name="application-change-analysis-service"></a>Usługa analizy zmian aplikacji
+#### <a name="related-resources"></a>Powiązane zasoby
+Analiza zmian aplikacji wykrywa powiązane zasoby. Typowe przykłady to sieciowe grupy zabezpieczeń, Virtual Network, Application Gateway i Load Balancer związane z maszyną wirtualną. Zasoby sieciowe są zwykle automatycznie inicjowane w tej samej grupie zasobów co używane zasoby, więc filtrowanie zmian według grupy zasobów będzie zawierać wszystkie zmiany dotyczące maszyny wirtualnej i powiązanych zasobów sieciowych.
+
+![Zrzut ekranu przedstawiający zmiany w sieci](./media/change-analysis/network-changes.png)
+
+## <a name="application-change-analysis-service-enablement"></a>Włączenie usługi analizy zmian aplikacji
 
 Usługa analizy zmian aplikacji oblicza i agreguje dane ze źródeł danych wymienionych powyżej. Zawiera zestaw analiz dla użytkowników, którzy mogą łatwo przechodzić przez wszystkie zmiany zasobów i identyfikować, które zmiany są istotne w kontekście rozwiązywania problemów lub monitorowania.
-Dostawca zasobów "Microsoft. ChangeAnalysis" musi być zarejestrowany w ramach subskrypcji dla Azure Resource Manager śledzonych właściwości i ustawień serwera proxy Zmień dane na dostępne. Po wprowadzeniu narzędzia do diagnozowania i rozwiązywania problemów aplikacji sieci Web ten dostawca zasobów jest automatycznie rejestrowany. Nie ma żadnych implementacji wydajności ani kosztów dla Twojej subskrypcji. Włączenie zmiany analizy dla aplikacji sieci Web (lub włączenie narzędzia diagnozowanie i rozwiązywanie problemów) będzie miało niewielki wpływ na wydajność aplikacji sieci Web i nie ma kosztu rozliczeń.
-W przypadku zmian w aplikacji sieci Web w gościu do skanowania plików kodu w ramach aplikacji sieci Web jest wymagane oddzielne Włączanie. Aby uzyskać więcej informacji, zobacz sekcję [zmiana analizy w sekcji diagnozowanie i rozwiązywanie problemów](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) w dalszej części tego artykułu, aby uzyskać więcej informacji.
+Dostawca zasobów "Microsoft. ChangeAnalysis" musi być zarejestrowany w ramach subskrypcji dla Azure Resource Manager śledzonych właściwości i ustawień serwera proxy Zmień dane na dostępne. Po wprowadzeniu narzędzia do diagnozowania i rozwiązywania problemów aplikacji sieci Web ten dostawca zasobów jest automatycznie rejestrowany. W przypadku zmian w aplikacji sieci Web w gościu do skanowania plików kodu w ramach aplikacji sieci Web jest wymagane oddzielne Włączanie. Aby uzyskać więcej informacji, zobacz sekcję [zmiana analizy w sekcji diagnozowanie i rozwiązywanie problemów](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) w dalszej części tego artykułu, aby uzyskać więcej informacji.
+
+## <a name="cost"></a>Koszt
+Analiza zmian aplikacji to bezpłatna usługa — nie wiąże się z tym kosztem rozliczeniowym w przypadku subskrypcji z włączonym systemem. Usługa nie ma również wpływu na wydajność skanowania zmian właściwości zasobów platformy Azure. Po włączeniu zmiany analizy dla aplikacji sieci Web w trybie gościnnym (lub włączeniu narzędzia do diagnozowania i rozwiązywania problemów) będzie mieć niewielki wpływ na wydajność aplikacji sieci Web i nie ma kosztu rozliczeń.
 
 ## <a name="visualizations-for-application-change-analysis"></a>Wizualizacje do analizy zmian aplikacji
 
@@ -82,6 +103,11 @@ Kliknij zasób, aby wyświetlić wszystkie jego zmiany. W razie potrzeby przecho
 Aby dowolna opinia, użyj przycisku Wyślij opinię w bloku lub wiadomości e-mail changeanalysisteam@microsoft.com .
 
 ![Zrzut ekranu przycisku opinii w bloku Analiza zmian](./media/change-analysis/change-analysis-feedback.png)
+
+#### <a name="multiple-subscription-support"></a>Obsługa wielu subskrypcji
+Interfejs użytkownika obsługuje Wybieranie wielu subskrypcji w celu wyświetlenia zmian zasobów. Użyj filtru subskrypcji:
+
+![Zrzut ekranu filtru subskrypcji, który obsługuje Wybieranie wielu subskrypcji](./media/change-analysis/multiple-subscriptions-support.png)
 
 ### <a name="web-app-diagnose-and-solve-problems"></a>Aplikacja sieci Web diagnozowanie i rozwiązywanie problemów
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1abb857c9f03be502db02099383c6fe0b5110461
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2e0cd424b71ff828ed0d8ad4c16d3333cf8a1c45
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736822"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575876"
 ---
 # <a name="language-support-for-computer-vision"></a>Obsługa języka dla przetwarzanie obrazów
 
@@ -25,34 +25,89 @@ Niektóre funkcje przetwarzanie obrazów obsługują wiele języków; wszystkie 
 
 Interfejsy API rozpoznawania przetwarzanie obrazów obsługują kilka języków. Nie wymagają określenia kodu języka. Aby uzyskać więcej informacji, zobacz [optyczne rozpoznawanie znaków (OCR)](concept-recognizing-text.md) .
 
-|Język| Kod języka | INTERFEJS API OCR | Przeczytaj 3,0 i 3,1 | Przeczytaj v 3.2 — wersja zapoznawcza 1 |
+|Język| Kod języka | INTERFEJS API OCR | Przeczytaj 3.0/3.1 | Przeczytaj wersję zapoznawczą v 3.2 |
 |:-----|:----:|:-----:|:---:|:---:|
+|Afrikaans|`af`| | |✔ |
+|Albański |`sq`| | |✔ |
 |Arabski | `ar`|✔ | | |
+|Asturyjski |`ast`| | |✔ |
+|Baskijski  |`eu`| | |✔ |
+|Bislama   |`bi`| | |✔ |
+|Bretoński    |`br`| | |✔ |
+|Kataloński    |`ca`| | |✔ |
+|Cebuano    |`ceb`| | |✔ |
+|Chamorro  |`ch`| | |✔ |
 |Chiński (uproszczony) | `zh-Hans`|✔ | |✔ |
-|Chiński (tradycyjny) | `zh-Hant`|✔ | | |
-|Czeski | `cs` |✔ | | |
-|Duński | `da` |✔ | | |
+|Chiński (tradycyjny) | `zh-Hant`|✔ | |✔ |
+|Kornijski     |`kw`| | |✔ |
+|Korsykański      |`co`| | |✔ |
+|Crimean tatarski (łaciński)  |`crh`| | |✔ |
+|Czeski | `cs` |✔ | |✔ |
+|Duński | `da` |✔ | |✔ |
 |Niderlandzki | `nl` |✔ |✔ |✔ |
 |Angielski | `en` |✔ |✔ |✔ |
-|Fiński | `fi` |✔ | | |
+|Estoński  |`crh`| | |✔ |
+|Fijian |`fj`| | |✔ |
+|Filipino  |`fil`| | |✔ |
+|Fiński | `fi` |✔ | |✔ |
 |Francuski | `fr` |✔ |✔ |✔ |
+|Friulski  | `fur` | | |✔ |
+|Galicyjski   | `gl` | | |✔ |
 |Niemiecki | `de` |✔ |✔ |✔ |
+|Gilbertese    | `gil` | | |✔ |
 |Grecki | `el` |✔ | | |
-|Węgierski | `hu` |✔ | | |
+|Grenlandii   | `kl` | | |✔ |
+|Haitański  | `ht` | | |✔ |
+|Hani  | `hni` | | |✔ |
+|Hmong Kowalski (łaciński) | `mww` | | |✔ |
+|Węgierski | `hu` |✔ | | ✔ |
+|Indonezyjski   | `id` | | |✔ |
+|Interlingua  | `ia` | | |✔ |
+|Inuktitut (łaciński)  | `iu` | | |✔ |
+|Irlandzki    | `ga` | | |✔ |
 |Włoski | `it` |✔ |✔ |✔ |
 |japoński | `ja` |✔ | |✔ |
-|Koreański | `ko` |✔ | | |
+|Jawajski | `jv` | | |✔ |
+|Kabuverdianu | `kea` | | |✔ |
+|Kachin (łaciński) | `kac` | | |✔ |
+|Kara-Kalpak | `kaa` | | |✔ |
+|Kashubian | `csb` | | |✔ |
+|Khasi  | `kha` | | |✔ |
+|Koreański | `ko` |✔ | |✔ |
+|Kicze  | `quc` | | |✔ |
+|Kurdyjski (łaciński) | `kur` | | |✔ |
+|Luksemburski  | `lb` | | |✔ |
+|Malajski (łaciński)  | `ms` | | |✔ |
+|Manx  | `gv` | | |✔ |
+|Neapolitan   | `nap` | | |✔ |
 |Norweski | `nb` |✔ | | |
-|Polski | `pl` |✔ | | |
+|Norweski | `no` | | |✔ |
+|Okcytański | `oc` | | |✔ |
+|Polski | `pl` |✔ | |✔ |
 |Portugalski | `pt` |✔ |✔ |✔ |
 |Rumuński | `ro` |✔ | | |
+|Romansz  | `rm` | | |✔ |
 |Rosyjski | `ru` |✔ | | |
+|Scots  | `sco` | | |✔ |
+|Szkocki gaelicki  | `gd` | | |✔ |
 |Serbski (cyrylica) | `sr-Cyrl` |✔ | | |
 |Serbski (łaciński) | `sr-Latn` |✔ | | |
 |Słowacki | `sk` |✔ | | |
+|Słoweński  | `slv` | | |✔ |
 |Hiszpański | `es` |✔ |✔ |✔ |
-|Szwedzki | `sw` |✔ | | |
-|Turecki | `tr` |✔ | | |
+|Suahili (łaciński)  | `sw` | | |✔ |
+|Szwedzki | `sv` |✔ | |✔ |
+|Tatarski (łaciński)  | `tat` | | |✔ |
+|Tetum    | `tet` | | |✔ |
+|Turecki | `tr` |✔ | |✔ |
+|Wielkie litery  | `hsb` | | |✔ |
+|Uzbecki (łaciński)     | `uz` | | |✔ |
+|Volapük   | `vo` | | |✔ |
+|Walser    | `wae` | | |✔ |
+|Fryzyjski zachodni | `fy` | | |✔ |
+|Yucatec Maya | `yua` | | |✔ |
+|Czuang | `za` | | |✔ |
+|Zulu  | `zu` | | |✔ |
 
 ## <a name="image-analysis"></a>Analiza obrazu
 
@@ -65,10 +120,3 @@ Niektóre akcje interfejsu API [analizy obrazu](https://westcentralus.dev.cognit
 |japoński | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Portugalski | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Hiszpański | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-
-## <a name="next-steps"></a>Następne kroki
-
-Zacznij korzystać z funkcji przetwarzanie obrazów wymienionych w tym przewodniku.
-
-* [Analizowanie obrazu lokalnego (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
-* [Wyodrębnij drukowany tekst (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736225"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573368"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planowanie i zarządzanie kosztami Azure App Service
 
@@ -125,7 +125,7 @@ Jeśli planujesz używać znanej minimalnej liczby wystąpień obliczeniowych pr
 
 Cennik wystąpienia zarezerwowanego ma zastosowanie do odpowiednich wystąpień w ramach subskrypcji, do liczby zarezerwowanych wystąpień. Wystąpienia zarezerwowane są rozliczeniami i nie są powiązane z określonymi wystąpieniami obliczeniowymi. Jeśli uruchomisz mniejszą liczbę wystąpień niż zarezerwujesz w dowolnym momencie okresu rezerwacji, nadal płacisz za wystąpienia zarezerwowane. Jeśli w dowolnym momencie w trakcie okresu rezerwacji uruchomisz więcej wystąpień niż zarezerwujesz, naliczanie standardowego kosztu naliczonego dla dodatkowych wystąpień jest płatne.
 
-**Izolowana** warstwa (środowisko App Service) obsługuje również roczną i 3-letnią rezerwację w obniżonych cenach. Aby uzyskać więcej informacji, zobacz [jak rabaty rezerwacji mają zastosowanie do Azure App Service wyizolowanych sygnatur](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md).
+**Izolowana** warstwa (środowisko App Service) obsługuje również roczną i 3-letnią rezerwację w obniżonych cenach. Aby uzyskać więcej informacji, zobacz [jak rabaty rezerwacji mają zastosowanie do Azure App Service](../cost-management-billing/reservations/reservation-discount-app-service.md).
 
 ## <a name="monitor-costs"></a>Monitorowanie kosztów
 

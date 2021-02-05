@@ -63,7 +63,7 @@
             - name: Jak jest stosowany rabat dla rezerwacji na platformie Azure
               href: reservations/reservation-discount-application.md?toc=/azure/cost-management-billing/toc.json
             - name: App Service
-              href: reservations/reservation-discount-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/toc.json
+              href: reservations/reservation-discount-app-service.md?toc=/azure/cost-management-billing/toc.json
             - name: Azure Cache for Redis
               href: reservations/understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
             - name: Cosmos DB
@@ -303,7 +303,7 @@
             - name: Kupowanie rezerwacji platformy Azure
               href: reservations/prepare-buy-reservation.md?toc=/azure/cost-management-billing/toc.json
             - name: App Service
-              href: reservations/prepay-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/toc.json
+              href: reservations/prepay-app-service.md?toc=/azure/cost-management-billing/toc.json
             - name: Rezerwacja usługi Azure Cache for Redis
               href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
             - name: Cosmos DB

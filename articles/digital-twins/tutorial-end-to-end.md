@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8933dd6655223db092597aedf839fd800119864a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684009"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575809"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -401,18 +401,15 @@ Oto przegląd scenariusza, który został utworzony w tym samouczku.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
+Po ukończeniu tego samouczka możesz wybrać zasoby, które chcesz usunąć, w zależności od tego, co chcesz zrobić dalej.
 
-Za pomocą [Azure Cloud Shell](https://shell.azure.com)można usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) . Spowoduje to usunięcie grupy zasobów. wystąpienie usługi Azure Digital bliźniaczych reprezentacji; Centrum IoT i Rejestracja urządzenia Hub; temat dotyczący siatki zdarzeń i skojarzonych subskrypcji; i aplikacja Azure Functions, w tym funkcje i powiązane zasoby, takie jak magazyn.
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-> [!IMPORTANT]
-> Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
+* **Jeśli chcesz kontynuować korzystanie z wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które zostało skonfigurowane w tym artykule, ale wyczyść niektóre lub wszystkie modele, bliźniaczych reprezentacji i relacje**, możesz użyć polecenia [AZ DT](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI w oknie [Azure Cloud Shell](https://shell.azure.com) , aby usunąć elementy, które chcesz usunąć.
 
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+    Ta opcja nie spowoduje usunięcia żadnych innych zasobów platformy Azure utworzonych w tym samouczku (IoT Hub, Azure Functions aplikacji itp.). Można je usunąć pojedynczo za pomocą [poleceń DT](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) odpowiednich dla każdego typu zasobu.
 
-Na koniec Usuń folder przykładowego projektu pobrany na komputer lokalny.
+Możesz również usunąć folder projektu z komputera lokalnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

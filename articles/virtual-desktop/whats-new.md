@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 1deec49cfeca65628485ed105e0919f2c2b18b17
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258799"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575317"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -56,7 +56,7 @@ W Azure Resource Manager zagnieżdżonym szablonie zmieniono wartość domyśln�
 
 Firma Microsoft udostępniła FSLogix w wersji 2009 HF_01 (2.9.7654.46150) w celu rozwiązywania problemów z poprzednią wersją (2.9.7621.30127). Zalecamy zaprzestanie korzystania z poprzedniej wersji i aktualizowanie FSLogix najszybciej, jak to możliwe.
 
-Aby uzyskać więcej informacji, zobacz informacje o wersji w artykule [co nowego w programie FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+Aby uzyskać więcej informacji, zobacz informacje o wersji w artykule [co nowego w programie FSLogix](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150).
 
 ### <a name="azure-portal-experience-improvements"></a>Ulepszenia środowiska Azure Portal
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 95cc13a79f39888a5be10e423bda4c7cd7c84cb3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054791"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576366"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Samouczek: Automatyzowanie zadań do przetwarzania wiadomości e-mail przy użyciu Azure Logic Apps, Azure Functions i usługi Azure Storage
 
@@ -88,7 +88,7 @@ Możesz zapisywać przychodzące wiadomości e-mail i załączniki jako obiekty 
 
       ![Kopiowanie i zapisywanie nazwy i klucza konta magazynu](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Aby uzyskać klucz dostępu do konta magazynu, możesz również użyć [programu Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) lub [wiersza polecenia platformy Azure](/cli/azure/storage/account/keys.md#az-storage-account-keys-list).
+   Aby uzyskać klucz dostępu do konta magazynu, możesz również użyć [programu Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) lub [wiersza polecenia platformy Azure](/cli/azure/storage/account/keys).
 
 1. Utwórz kontener magazynu obiektów blob na potrzeby załączników do wiadomości e-mail.
 

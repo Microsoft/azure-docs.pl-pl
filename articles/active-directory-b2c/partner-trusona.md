@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99368da8b4018e93ad537e4722ffefd476e61291
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489473"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573691"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrowanie Trusona z Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Aby rozpocząć, musisz:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * [Dzierżawa Azure AD B2C](tutorial-create-tenant.md) , która jest połączona z subskrypcją platformy Azure.
-* [Konto próbne](https://www.trusona.com/aadb2c) o godzinie Trusona
+* [Konto próbne](https://www.trusona.com/) o godzinie Trusona
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -53,7 +53,7 @@ W tym scenariuszu Trusona działa jako dostawca tożsamości dla Azure AD B2C w 
 
 ## <a name="onboard-with-trusona"></a>Dołączanie do Trusona
 
-1. Wypełnij [formularz](https://www.trusona.com/aadb2c) , aby utworzyć konto Trusona i rozpocząć pracę.
+1. Wypełnij [formularz](https://www.trusona.com/) , aby utworzyć konto Trusona i rozpocząć pracę.
 
 2. Pobierz aplikację mobilną Trusona ze sklepu App Store. Zainstaluj aplikację i Zarejestruj swój adres e-mail.
 
@@ -107,7 +107,7 @@ W tym scenariuszu Trusona działa jako dostawca tożsamości dla Azure AD B2C w 
    | Typ odpowiedzi | Id_token |
    | Tryb odpowiedzi  | Form_post |
 
-3. Kliknij przycisk **OK**.  
+3. Wybierz przycisk **OK**.  
 
 4. Wybierz pozycję **Mapuj oświadczenia tego dostawcy tożsamości**.  
 
@@ -127,7 +127,7 @@ W tym scenariuszu Trusona działa jako dostawca tożsamości dla Azure AD B2C w 
 
 Teraz powinien być widoczny Trusona jako **Nowy dostawca tożsamości programu OpenID Connect Connect** wymieniony w ramach dostawców tożsamości B2C.
 
-1. W dzierżawie Azure AD B2C w obszarze **zasady**wybierz pozycję **przepływy użytkownika**.
+1. W dzierżawie Azure AD B2C w obszarze **zasady** wybierz pozycję **przepływy użytkownika**.
 
 1. Wybierz pozycję **Nowy przepływ użytkownika**.
 
@@ -142,9 +142,9 @@ Teraz powinien być widoczny Trusona jako **Nowy dostawca tożsamości programu 
 
 1. Wybierz przycisk **Utwórz**.
 
-1. W obszarze **atrybuty użytkownika i oświadczenia**wybierz pozycję **Pokaż więcej**. W formularzu wybierz co najmniej jeden atrybut, który został określony podczas instalacji dostawcy tożsamości w poprzedniej sekcji.
+1. W obszarze **atrybuty użytkownika i oświadczenia** wybierz pozycję **Pokaż więcej**. W formularzu wybierz co najmniej jeden atrybut, który został określony podczas instalacji dostawcy tożsamości w poprzedniej sekcji.
 
-1. Kliknij przycisk **OK**.  
+1. Wybierz przycisk **OK**.  
 
 ### <a name="test-the-policy"></a>Testowanie zasad
 

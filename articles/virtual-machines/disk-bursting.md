@@ -8,21 +8,19 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a8d1a69070628248fb710a614369ff9311252c05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dcdbf94e547581cb9ff885ac5896467abdf316ae
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103035"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576197"
 ---
 # <a name="managed-disk-bursting"></a>Zarządzanie dyskami zarządzanymi
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 
 ## <a name="virtual-machine-level-bursting"></a>Rozerwanie na poziomie maszyny wirtualnej
-Obsługa serii na poziomie maszyny wirtualnej jest włączona we wszystkich regionach w chmurze publicznej w przypadku następujących obsługiwanych rozmiarów: 
+Rozbicie na poziomie maszyny wirtualnej jest włączone w następującej serii maszyn wirtualnych we wszystkich regionach, w których są obsługiwane:
 - [Seria Lsv2](lsv2-series.md)
-
-W regionie zachodnie stany USA dostępne są również maszyny wirtualne o następujących rozmiarach:
 - [Seria Dsv3](dv3-dsv3-series.md)
 - [Seria Esv3](ev3-esv3-series.md)
 

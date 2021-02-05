@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6f7311613057c445ae714b8b11240d0d5be14b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972656"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569594"
 ---
 ### <a name="standard-and-neural-voices"></a>Głosy standardowe i neuronowych
 
@@ -18,7 +18,7 @@ Użyj tej tabeli, aby określić dostępność standardowych i neuronowych głos
 | Region (Region) | Punkt końcowy | Głosy standardowe | Głosy neuronowych |
 |--------|----------|-----------------|---------------|
 | Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
+| Brazylia Południowa | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
 | Kanada Środkowa | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
 | Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
 | Azja Wschodnia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
@@ -26,7 +26,7 @@ Użyj tej tabeli, aby określić dostępność standardowych i neuronowych głos
 | Wschodnie stany USA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
 | Francja Środkowa | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
 | Indie Środkowe | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
+| Japonia Wschodnia | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
 | Japonia Zachodnia | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
 | Korea Środkowa | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
 | Północno-środkowe stany USA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
@@ -48,7 +48,7 @@ Jeśli utworzono niestandardową czcionkę głosową, użyj utworzonego przez si
 | Region (Region) | Punkt końcowy |
 |--------|----------|
 | Australia Wschodnia | `https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Brazil South | `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Brazylia Południowa | `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Kanada Środkowa | `https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Central US | `https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Azja Wschodnia | `https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
@@ -67,3 +67,14 @@ Jeśli utworzono niestandardową czcionkę głosową, użyj utworzonego przez si
 | West Europe | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Zachodnie stany USA | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Zachodnie stany USA 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
+### <a name="custom-neural-voice"></a>Niestandardowy głos neuronowych
+
+W poniższej tabeli przedstawiono obsługę regionalną niestandardowych funkcji głosu neuronowych.
+
+| Cechy | Obsługiwane regiony |
+|---|---|
+| Hosting modelu głosowego | Wschodnie stany USA, zachodnie stany USA 2, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Południowe Zjednoczone Królestwo, Europa Zachodnia, Australia Wschodnia |
+| Znaki w czasie rzeczywistym | Wschodnie stany USA, zachodnie stany USA 2, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Południowe Zjednoczone Królestwo, Europa Zachodnia, Australia Wschodnia |
+| Długie znaki audio | Wschodnie stany USA, Europa Zachodnia, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Indie Środkowe |
+| Niestandardowe szkolenie neuronowych | Wschodnie stany USA, Południowe Zjednoczone Królestwo |

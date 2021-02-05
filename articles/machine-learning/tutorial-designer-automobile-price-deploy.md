@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246472"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576061"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant
 
 
-Można wdrożyć model predykcyjny opracowany w pierwszej części [samouczka](tutorial-designer-automobile-price-train-score.md) , aby dać innym osobom szansę korzystania z niego. W części pierwszej został przeszkolony model. Teraz można generować nowe prognozy na podstawie danych wejściowych użytkownika. W tej części samouczka zostaną wykonane następujące czynności:
+Można wdrożyć model predykcyjny opracowany w pierwszej części [samouczka](tutorial-designer-automobile-price-train-score.md) , aby dać innym osobom szansę korzystania z niego. W części pierwszej został przeszkolony model. Teraz czas na generowanie prognoz na podstawie danych wejściowych użytkownika. W tej części samouczka zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz potok wnioskowania w czasie rzeczywistym.
@@ -122,17 +122,19 @@ Po zakończeniu aprowizacji usługi AKS Wróć do potoku inferencing w czasie rz
 > Możesz również wdrożyć w usłudze **Azure Container instance** (ACI), jeśli wybierzesz pozycję **Azure Container instance** dla **typu obliczenia** w polu ustawienie punktu końcowego w czasie rzeczywistym.
 > Usługa Azure Container instance służy do testowania i programowania. Użyj ACI dla obciążeń opartych na PROCESORAch o niskiej skali, które wymagają mniej niż 48 GB pamięci RAM.
 
-## <a name="view-the-real-time-endpoint"></a>Wyświetlanie punktu końcowego w czasie rzeczywistym
+## <a name="test-the-real-time-endpoint"></a>Testowanie punktu końcowego w czasie rzeczywistym
 
 Po zakończeniu wdrażania można wyświetlić punkt końcowy w czasie rzeczywistym, przechodząc do strony **punkty końcowe** .
 
 1. Na stronie **punkty końcowe** Wybierz wdrożony punkt końcowy.
 
-1. Na karcie **szczegóły** można zobaczyć więcej informacji, takich jak identyfikator URI REST, stan i Tagi.
+    Na karcie **szczegóły** można zobaczyć więcej informacji, takich jak identyfikator URI REST, Definicja struktury Swagger, stan i Tagi.
 
-1. Na karcie **Korzystanie** można znaleźć klucze zabezpieczeń i ustawić metody uwierzytelniania.
+    Na karcie **Korzystanie** można znaleźć przykładowy kod zużycia, klucze zabezpieczeń i ustawić metody uwierzytelniania.
 
-1. Na karcie **dzienniki wdrażania** można znaleźć szczegółowe dzienniki wdrożenia w punkcie końcowym w czasie rzeczywistym. 
+    Na karcie **dzienniki wdrażania** można znaleźć szczegółowe dzienniki wdrożenia w punkcie końcowym w czasie rzeczywistym.
+
+1. Aby przetestować punkt końcowy, przejdź do karty **test** . W tym miejscu możesz wprowadzić dane testowe i wybrać pozycję **Testuj** Sprawdź dane wyjściowe punktu końcowego.
 
 Aby uzyskać więcej informacji na temat konsumowania usługi sieci Web, zobacz [Korzystanie z modelu wdrożonego jako usługa WebService](how-to-consume-web-service.md)
 

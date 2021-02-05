@@ -3,12 +3,12 @@ title: Wykrywaj ruch, nagrywaj wideo do Azure Media Services
 description: W tym przewodniku szybki start pokazano, jak używać analizy wideo na żywo na IoT Edge w celu wykrywania ruchu w strumieniu wideo na żywo i rejestrowania klipów wideo do Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 15a9def78c7dddda7e63db66d2b21794506f6a92
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 135e68e2630d74dace6c3a6b70bb3666f77aad89
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632728"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575538"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Szybki Start: wykrywanie ruchu, nagrywanie wideo do Media Services
 
@@ -540,10 +540,15 @@ Utworzony wykres multimedialny używa węzła procesora wykrywania ruchu w celu 
 
 1. Otwórz okienko Eksploratora w Visual Studio Code i Znajdź IoT Hub platformy Azure w lewym dolnym rogu.
 1. Rozwiń węzeł urządzenia
-1. Right-klinkieru na LVA-Sample-Device i wybierz opcję "Rozpocznij monitorowanie wbudowanego monitorowania zdarzeń"
+1. Kliknij prawym przyciskiem myszy pozycję LVA-Sample-Device i wybierz opcję "Rozpocznij monitorowanie wbudowanego monitorowania zdarzeń"
 
     ![Rozpocznij monitorowanie wbudowanego monitorowania zdarzeń](./media/quickstarts/start-monitoring-iothub-events.png)
     
+    > [!NOTE]
+    > Może zostać wyświetlony monit o podanie wbudowanych informacji o punkcie końcowym dla IoT Hub. Aby uzyskać te informacje, w Azure Portal przejdź do IoT Hub i poszukaj opcji **wbudowane punkty końcowe** w lewym okienku nawigacji. Kliknij tam i Wyszukaj **punkt końcowy zgodny z centrum zdarzeń** w sekcji **punkt końcowy zgodny z centrum zdarzeń** . Skopiuj i Użyj tekstu w polu. Punkt końcowy będzie wyglądać następująco:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     W ciągu kilku sekund w oknie danych wyjściowych zostaną wyświetlone następujące komunikaty:
 
 ```

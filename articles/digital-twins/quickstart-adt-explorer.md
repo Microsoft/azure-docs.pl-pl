@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050531"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575694"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -171,7 +171,7 @@ Wykonaj następujące kroki, aby zaimportować wykres.
 
    :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="W polu widok wykresu zostanie wyróżniona ikona. Pokazuje strzałkę wskazującą chmurę." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-2. W polu Selektor plików przejdź do folderu **Azure_Digital_Twins__ADT__explorer/Client/examples** i wybierz **buildingScenario.xlsx** plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Wybierz pozycję **OK**.
+2. W polu Selektor plików przejdź do folderu **Azure_Digital_Twins__ADT__explorer/Client/examples** i wybierz **buildingScenario.xlsx** plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Wybierz przycisk **OK**.
 
    Po kilku sekundach Eksplorator ADT otwiera widok **importu** , który pokazuje podgląd grafu do załadowania.
 
@@ -306,11 +306,15 @@ W tym przewodniku Szybki Start Aktualizacja temperatury została wprowadzona rę
 
 Aby zagnieździć prace dla tego przewodnika Szybki Start, należy najpierw zakończyć uruchomioną aplikację konsolową. Ta akcja powoduje wyłączenie połączenia z aplikacją ADT Explorer w przeglądarce. Nie będzie już można wyświetlać danych na żywo w przeglądarce. Możesz zamknąć kartę przeglądarka.
 
-Jeśli planujesz kontynuować korzystanie z samouczków Digital bliźniaczych reprezentacji platformy Azure, możesz ponownie użyć tego wystąpienia w tym przewodniku szybki start dla tych artykułów i nie musisz go usunąć.
+Następnie możesz wybrać zasoby, które chcesz usunąć, w zależności od tego, co chcesz zrobić dalej.
+
+* **Jeśli planujesz kontynuować korzystanie z samouczków Digital bliźniaczych reprezentacji platformy Azure**, możesz ponownie użyć tego wystąpienia w tym przewodniku szybki start dla tych artykułów i nie musisz go usunąć.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Na koniec Usuń przykładowy folder projektu, **Azure_Digital_Twins__ADT__explorer** pobrany na komputer lokalny. Może być konieczne usunięcie zarówno wersji spakowanej, jak i rozpakowanej.
+Możesz również usunąć folder projektu z komputera lokalnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

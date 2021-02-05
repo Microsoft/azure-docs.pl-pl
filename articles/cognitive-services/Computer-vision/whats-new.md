@@ -10,16 +10,31 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: ec340e3371b0fe337354006b1284a21420a11f3a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99490881"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573640"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji, klipami wideo, wpisami w blogu i innymi rodzajami informacji. Oznacz Tę stronę zakładką, aby zachować aktualność za pomocą usługi.
+
+## <a name="february-2021"></a>Luty 2021
+
+### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Przeczytaj publiczną wersję zapoznawczą interfejsu API v 3.2 z obsługą OCR dla języków 73
+Wersja zapoznawcza interfejsu API w programie przetwarzanie obrazów v 3.2 obejmuje następujące możliwości:
+* Program OCR dla łącznej liczby [języków 73](./language-support.md#optical-character-recognition-ocr) , w tym uproszczonych i tradycyjnych języków chińskich, japońskich, koreańskich i głównych.
+* Wybierz, czy wiersze tekstu mają być wyprowadzane w kolejności od lewej do prawej i u góry (ustawienie domyślne), czy bardziej naturalnej kolejności odczytywania.
+* Dla każdego elementu danych wyjściowych w wierszu tekstu wskaż, czy jego styl pisma odręcznego, czy też nie ma oceny pewności (tylko języki łacińskie).
+* Dla dokumentu wielostronicowego Wyodrębnij tekst tylko dla wybranych stron lub zakresu stron.
+
+Zobacz [Omówienie interfejsu API odczytu](concept-recognizing-text.md) , aby dowiedzieć się więcej.
+
+> [!div class="nextstepaction"]
+> [Korzystanie z publicznej wersji zapoznawczej interfejsu API Read v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 

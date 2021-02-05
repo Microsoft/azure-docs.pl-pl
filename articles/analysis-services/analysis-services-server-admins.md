@@ -4,21 +4,23 @@ description: W tym artykule opisano sposób zarządzania administratorami serwer
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 2/4/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 62acb526a247362b17c4dfd4e26c52760deecd71
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351728"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573504"
 ---
 # <a name="manage-server-administrators"></a>Zarządzanie administratorami serwerów
 
 Administratorzy serwera muszą być prawidłowymi użytkownikami, jednostkami usługi lub grupami zabezpieczeń w Azure Active Directory (Azure AD) dla dzierżawy, w której znajduje się serwer. Do zarządzania administratorami serwera można używać administratorów **Analysis Services** serwera w Azure Portal, właściwości serwera w programie SSMS, PowerShell lub interfejsie API REST. 
 
 Podczas dodawania **grupy zabezpieczeń** Użyj `obj:groupid@tenantid` . Nazwy główne usług nie są obsługiwane w grupach zabezpieczeń dodanych do roli administratora serwera.
+
+Aby dowiedzieć się więcej na temat dodawania nazwy głównej usługi do roli administratora serwera, zobacz [Dodawanie jednostki usługi do roli administratora serwera](analysis-services-addservprinc-admins.md).
 
 Jeśli Zapora serwera jest włączona, adresy IP komputera klienckiego administratora serwera muszą być zawarte w regule zapory. Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapory serwera](analysis-services-qs-firewall.md).
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4851d06ffedaacb441d28cae24d7d32bfe1c611c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602125"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576265"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -253,12 +253,16 @@ W tym punkcie samouczka masz kompletną aplikację kliencką, która może wykon
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
- 
-Wystąpienie używane w tym samouczku można ponownie wykorzystać w następnym samouczku, [*samouczku: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane wystąpienie usługi Azure Digital bliźniaczych reprezentacji.
+
+Po ukończeniu tego samouczka możesz wybrać zasoby, które chcesz usunąć, w zależności od tego, co chcesz zrobić dalej.
+
+* **Jeśli planujesz przejść do następnego samouczka**, wystąpienie użyte w tym samouczku może zostać ponownie użyte w następnym. Zasoby usługi Azure Digital bliźniaczych reprezentacji można przechowywać tutaj i pominąć pozostałe części tej sekcji.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Na koniec Usuń folder projektu utworzony na komputerze lokalnym.
+Możesz również usunąć folder projektu z komputera lokalnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

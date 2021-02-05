@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
-ms.date: 01/08/2020
-ms.openlocfilehash: 4f3b201d35781d6d33eead0b0a21d38fbb897097
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 02/03/2021
+ms.openlocfilehash: 1ba6a45062f4018c59f5b41ab616f7a04f87140a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966823"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575575"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Samouczek: Migrowanie MongoDB Azure Cosmos DB do interfejsu API usługi MongoDB w trybie offline za pomocą usługi DMS
 
@@ -53,6 +53,18 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * Upewnij się, że reguły grupy zabezpieczeń sieci wirtualnej (sieciowej grupy zabezpieczeń) nie blokują następujących portów komunikacji: 53, 443, 445, 9354 i 10000-20000. Aby uzyskać więcej szczegółów na temat filtrowania ruchu sieciowej grupy zabezpieczeń w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Otwórz Zaporę systemu Windows, aby umożliwić Azure Database Migration Service dostęp do źródłowego serwera MongoDB, który domyślnie jest portem TCP 27017.
 * W przypadku korzystania z urządzenia zapory przed źródłowymi bazami danych może zajść potrzeba dodania reguł zapory, aby umożliwić Azure Database Migration Service dostęp do źródłowych baz danych na potrzeby migracji.
+
+## <a name="configure-azure-cosmos-db-server-side-retries-for-efficient-migration"></a>Skonfiguruj ponowną próbę po stronie serwera Azure Cosmos DB na potrzeby wydajnej migracji
+
+Klienci migrowani z MongoDB Azure Cosmos DB mogą korzystać z funkcji zarządzania zasobami, co gwarantuje, że możliwość pełnego wykorzystania zainicjowanej usługi RU/s przepływności. Azure Cosmos DB może ograniczać dane żądania usługi migracji danych w trakcie migracji, jeśli to żądanie przekroczy zarezerwowany kontener RU/s; Następnie należy ponowić próbę żądania. Usługa migracji danych jest w stanie wykonać ponowne próby, ale czas rundy dotyczący przeskoku sieci między usługą migracji danych i Azure Cosmos DB ma wpływ na ogólny czas odpowiedzi tego żądania. Skrócenie czasu odpowiedzi dla żądań ograniczających może skrócić łączny czas wymagany do migracji. Funkcja *ponawiania po stronie serwera* Azure Cosmos DB umożliwia usłudze przechwycenie kodów błędów ograniczania przepustowości i ponawianie próby w przypadku znacznie mniejszego czasu rundy, znacznie poprawiając czas odpowiedzi na żądania.
+
+Funkcję ponawiania po stronie serwera można znaleźć w bloku *funkcje* portalu Azure Cosmos DB
+
+![Funkcja SSR MongoDB](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
+
+A jeśli jest *wyłączona*, zalecamy włączenie tego, jak pokazano poniżej
+
+![MongoDB — Włącz](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.DataMigration
 
@@ -220,7 +232,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
 Po przeprowadzeniu migracji danych przechowywanych w bazie danych MongoDB Azure Cosmos DB do interfejsu API programu MongoDB, można nawiązać połączenie z Azure Cosmos DB i zarządzać danymi. Można również wykonać inne czynności optymalizacji po migracji, takie jak optymalizacja zasad indeksowania, aktualizowanie domyślnego poziomu spójności lub Konfigurowanie dystrybucji globalnej dla konta Azure Cosmos DB. Aby uzyskać więcej informacji, zobacz artykuł [Optymalizacja po migracji](../cosmos-db/mongodb-post-migration.md) .
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Informacje o usłudze Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
