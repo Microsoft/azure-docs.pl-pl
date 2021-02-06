@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424766"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626664"
 ---
-# <a name="scenario-route-traffic-through-an-nva"></a>Scenariusz: kierowanie ruchu przez urządzenie WUS
+# <a name="scenario-route-traffic-through-an-nva"></a>Scenariusz: kierowanie ruchem za pośrednictwem urządzenia NVA
 
 Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W tym scenariuszu urządzenie WUS celem jest kierowanie ruchu przez urządzenie WUS (sieciowe urządzenie wirtualne) dla gałęzi do sieci wirtualnej i sieci wirtualnej do gałęzi. Aby uzyskać informacje na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
@@ -71,8 +71,8 @@ Dzięki temu trasy statyczne, które są potrzebne w tabeli domyślnej do wysył
 
 | Opis | Tabela tras | Trasa statyczna              |
 | ----------- | ----------- | ------------------------- |
-| Sieć wirtualna 2       | Domyślny     | 10.2.0.0/16 — > eastusconn |
-| Sieć wirtualna 4       | Domyślny     | 10.4.0.0/16 — > weconn     |
+| Sieć wirtualna 2       | Domyślne     | 10.2.0.0/16 — > eastusconn |
+| Sieć wirtualna 4       | Domyślne     | 10.4.0.0/16 — > weconn     |
 
 Teraz wirtualna sieć WAN wie, z którym połączeniem należy wysyłać pakiety, ale połączenie musi wiedzieć, co należy zrobić podczas otrzymywania tych pakietów: jest to miejsce, w którym są używane tabele tras połączeń. W tym miejscu będziemy używać krótszych prefiksów (/24 zamiast dłużej/16), aby upewnić się, że te trasy mają preferencję dotyczącą tras importowanych z urządzenie WUS sieci wirtualnych (Sieć wirtualna 2 i Sieć wirtualna 4):
 
@@ -87,7 +87,7 @@ Teraz urządzenie WUS sieci wirtualnych, inne niż urządzenie WUS sieci wirtual
 
 ## <a name="architecture"></a><a name="architecture"></a>Architektura
 
-Na **rysunku 2**znajdują się dwa centra: **Hub1** i **Hub2**.
+Na **rysunku 2** znajdują się dwa centra: **Hub1** i **Hub2**.
 
 * **Hub1** i **Hub2** są połączone bezpośrednio z urządzenie WUS sieci wirtualnych **VNET 2** i sieci **VNET 4**.
 
@@ -99,13 +99,13 @@ Na **rysunku 2**znajdują się dwa centra: **Hub1** i **Hub2**.
 
 **Rysunek 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Rysunek 1" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Rysunek 2" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Przepływ pracy scenariusza
 
 Aby skonfigurować Routing za pośrednictwem urządzenie WUS, poniżej przedstawiono kroki, które należy wziąć pod uwagę:
 
-1. Zidentyfikuj połączenie sieci wirtualnej urządzenie WUS szprychy. Na **rysunku 2**są to **połączenia sieci VNET 2 (Eastusconn)** i **Sieć VNET 4 (weconn)**.
+1. Zidentyfikuj połączenie sieci wirtualnej urządzenie WUS szprychy. Na **rysunku 2** są to **połączenia sieci VNET 2 (Eastusconn)** i **Sieć VNET 4 (weconn)**.
 
    Upewnij się, że skonfigurowano UDR:
    * Z sieci VNet 5 i sieci VNet 6 do sieci VNet 2 urządzenie WUS IP
@@ -117,7 +117,7 @@ Wirtualna sieć WAN nie obsługuje scenariusza, w którym sieci wirtualnych 5, 6
 
 2. Dodaj zagregowany wpis trasy statycznej dla sieci wirtualnych 2, 5, 6 do domyślnej tabeli tras centrum 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Rysunek 1":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Przykład":::
 
 3. Skonfiguruj trasę statyczną dla sieci wirtualnych 5, 6 w połączeniu z siecią wirtualną sieci wirtualnej 2. Aby skonfigurować konfigurację routingu dla połączenia sieci wirtualnej, zobacz [Routing koncentratora wirtualnego](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -125,11 +125,11 @@ Wirtualna sieć WAN nie obsługuje scenariusza, w którym sieci wirtualnych 5, 6
 
 5. Powtórz kroki 2, 3 i 4 dla domyślnej tabeli tras centrum 2.
 
-Spowoduje to zmianę konfiguracji routingu, jak pokazano na **rysunku 3**poniżej.
+Spowoduje to zmianę konfiguracji routingu, jak pokazano na **rysunku 3** poniżej.
 
 **Rysunek 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Rysunek 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Rysunek 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

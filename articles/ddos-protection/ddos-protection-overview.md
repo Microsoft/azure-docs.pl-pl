@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 114c723b127a17ffdd9c7ed91c6e777838d68e8e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 71eada0dcd7f7684e6c6be935bcb44405eb95322
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223350"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626210"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Omówienie usługi Azure DDoS Protection w warstwie Standardowa
 
@@ -51,6 +51,10 @@ Plany ochrony DDoS mają stałą miesięczną opłatą równą $2 944 miesięczn
 W ramach dzierżawy może być używany jeden plan ochrony DDoS w wielu subskrypcjach, więc nie ma potrzeby tworzenia więcej niż jednego planu ochrony DDoS.
 
 Aby dowiedzieć się więcej na temat Azure DDoS Protection standardowych cen, zobacz [Azure DDoS Protection standardowych cen](https://azure.microsoft.com/pricing/details/ddos-protection/).
+
+## <a name="reference-architectures"></a>Architektury referencyjne
+
+Standard DDoS Protection jest przeznaczony dla [usług, które są wdrażane w sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services). W przypadku innych usług stosowana jest domyślna usługa DDoS Protection podstawowa. Aby dowiedzieć się więcej o obsługiwanych architekturach, zobacz [DDoS Protection architektur referencyjnych](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures). 
 
 ## <a name="next-steps"></a>Następne kroki
 

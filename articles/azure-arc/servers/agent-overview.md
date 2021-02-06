@@ -3,12 +3,12 @@ title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
 ms.date: 02/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5f12ea90a4398b63eaa19a1fc5a375c15bdfa8c5
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526368"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626312"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -55,6 +55,7 @@ Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsług
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
+- Oracle Linux 7
 
 > [!WARNING]
 > Nazwa hosta lub komputer z systemem Linux nie może użyć słowa zastrzeżonego lub znaków towarowych w nazwie. w przeciwnym razie próba zarejestrowania podłączonej maszyny na platformie Azure zakończy się niepowodzeniem. Zobacz [Rozwiązywanie błędów zarezerwowanych nazw zasobów](../../azure-resource-manager/templates/error-reserved-resource-name.md) , aby uzyskać listę wyrazów zarezerwowanych.

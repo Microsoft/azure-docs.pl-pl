@@ -3,16 +3,21 @@ title: Przykładowe typy klas w Azure Lab Services | Microsoft Docs
 description: Zawiera typy klas, dla których można skonfigurować laboratoria przy użyciu Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ebc89c040be732c230f0c3f54f68fb91466eb68
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5a90fb128f5954f3eb713714ff22ff40a3beab36
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436406"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627437"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Przegląd typów klas — Azure Lab Services
 
 Azure Lab Services umożliwia szybkie Konfigurowanie środowisk laboratoryjnych w chmurze. Artykuły w tej sekcji zawierają wskazówki dotyczące konfigurowania kilku typów laboratoriów przy użyciu Azure Lab Services.
+
+## <a name="arcgis"></a>ArcGIS
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) to typ geograficznego systemu informacji (GIS).  Można skonfigurować laboratorium, które używa różnych aplikacji ArcGIS Desktop, takich jak [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) , aby tworzyć, edytować i analizować mapy 2D.
+
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie programu Lab for ArcMap\ArcGIS Desktop](class-type-arcgis.md).
 
 ## <a name="big-data-analytics"></a>Analiza danych big data
 Można skonfigurować laboratorium procesora GPU do uczenia klasy analizy danych Big Data. Z tego typu klasy studenci mogą dowiedzieć się, jak obsługiwać duże ilości danych, i stosować algorytmy uczenia maszynowego i statystycznego w celu uzyskania szczegółowych informacji. Najważniejszym celem dla studentów jest Nauka korzystania z narzędzi analitycznych danych, takich jak pakiet oprogramowania typu open source Apache Hadoop, który oferuje narzędzia do przechowywania i przetwarzania danych Big Data oraz zarządzania nimi. 
@@ -41,6 +46,11 @@ Program [MATLAB](https://www.mathworks.com/products/matlab.html), który jest pr
 
 Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia programu MATLAB](class-type-matlab.md).
 
+## <a name="networking-with-gns3"></a>Sieć z GNS3
+Można skonfigurować laboratorium dla klasy, która koncentruje się na umożliwieniu uczniów do emulowania, konfigurowania, testowania i rozwiązywania problemów z sieciami wirtualnymi i rzeczywistymi przy użyciu oprogramowania [GNS3](https://www.gns3.com/) . 
+
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia klasy sieci](class-type-networking-gns3.md).
+
 ## <a name="project-lead-the-way-pltw"></a>Projekt potencjalnym liderem (PLTW)
 [Potencjalni klienci projektu w ten sposób (PLTW)](https://www.pltw.org/) to organizacja non profit, która zapewnia PreK-12 dla Stany Zjednoczone w nauce technologicznej, inżynieryjnej i biomedycznej.  W każdej klasie PLTW studenci korzystają z różnych aplikacji w ramach praktycznego doświadczenia.
 
@@ -61,7 +71,12 @@ Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu 
 ## <a name="solidworks-computer-aided-design-cad"></a>Oprogramowanie SolidWorks do projektowania wspomaganego komputerem (CAD)
 Można skonfigurować laboratorium procesora GPU, które daje studentom inżynierów dostęp do [SolidWorks](https://www.solidworks.com/).  SolidWorks udostępnia środowisko CAD 3D do modelowania obiektów stałych.  Dzięki SolidWorks inżynierowie mogą łatwo tworzyć, wizualizować, symulować i dokumentować projekty.
 
-Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium dla klas inżynierii przy użyciu SolidWorks](class-type-solidworks.md)
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium dla klas inżynierii przy użyciu SolidWorks](class-type-solidworks.md).
+
+## <a name="sql-database-and-management"></a>Baza danych SQL i zarządzanie
+Structured Query Language (SQL) to standardowy język zarządzania relacyjnymi bazami danych, w tym dodawanie, uzyskiwanie dostępu do zawartości i zarządzanie nią w bazie danych.  Można skonfigurować laboratorium do uczenia koncepcji baz danych przy użyciu serwera bazy danych [MySQL](https://www.mysql.com/) i serwera [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) .
+
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia zarządzania bazami danych dla relacyjnych baz danych](class-type-database-management.md).
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:

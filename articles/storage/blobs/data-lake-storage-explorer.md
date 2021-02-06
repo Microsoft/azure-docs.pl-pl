@@ -5,26 +5,27 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a63c309c8e728e3f76ad904d479557b368388954
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5ccef241a37e63467b681d5fd12c65072cb92e58
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624779"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626479"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Zarządzanie katalogami, plikami i listami ACL w usłudze Azure Data Lake Storage Gen2 za pomocą Eksploratora usługi Azure Storage
 
-W tym artykule przedstawiono sposób użycia [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) do tworzenia katalogów, plików i uprawnień w ramach kont magazynu, które mają włączoną hierarchiczną przestrzeń nazw (SNS), oraz zarządzania nimi.
+W tym artykule pokazano, jak używać [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) do tworzenia katalogów, plików i list kontroli dostępu (ACL) oraz zarządzania nimi na kontach magazynu, które mają włączoną hierarchiczną przestrzeń nazw (SNS).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-> [!div class="checklist"]
-> * Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Konto magazynu z włączoną hierarchiczną przestrzenią nazw (SNS). Postępuj zgodnie z [tymi](../common/storage-account-create.md) instrukcjami, aby je utworzyć.
-> * Eksplorator usługi Azure Storage zainstalowany na komputerze lokalnym. Aby zainstalować Eksplorator usługi Azure Storage dla systemu Windows, Macintosh lub Linux, zobacz [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
+- Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+- Konto magazynu z włączoną hierarchiczną przestrzenią nazw (SNS). Postępuj zgodnie z [tymi](../common/storage-account-create.md) instrukcjami, aby je utworzyć.
+
+- Eksplorator usługi Azure Storage zainstalowany na komputerze lokalnym. Aby zainstalować Eksplorator usługi Azure Storage dla systemu Windows, Macintosh lub Linux, zobacz [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-storage-explorer"></a>Zaloguj się do Eksplorator usługi Storage
 
@@ -46,7 +47,7 @@ Po nawiązaniu połączenia Eksplorator usługi Azure Storage zostanie załadowa
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Kontener zawiera katalogi i pliki. Aby go utworzyć, rozwiń konto magazynu utworzone w kroku dalszej pracy. Wybierz pozycję **Kontenery obiektów blob**, rozwiń ją, a następnie wybierz pozycję **Utwórz kontener obiektów blob**. Wprowadź nazwę kontenera. Zapoznaj się z sekcją [Tworzenie kontenera](storage-quickstart-blobs-dotnet.md#create-a-container) , aby zapoznać się z listą reguł i ograniczeń dotyczących nazewnictwa kontenerów. Po zakończeniu naciśnij klawisz **Enter** , aby utworzyć kontener. Po pomyślnym utworzeniu kontenera zostanie on wyświetlony w folderze **kontenery obiektów BLOB** dla wybranego konta magazynu.
+Kontener zawiera katalogi i pliki. Aby go utworzyć, rozwiń konto magazynu utworzone w kroku dalszej pracy. Wybierz pozycję **kontenery obiektów BLOB**, kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Utwórz kontener obiektów BLOB**. Wprowadź nazwę kontenera. Zapoznaj się z sekcją [Tworzenie kontenera](storage-quickstart-blobs-dotnet.md#create-a-container) , aby zapoznać się z listą reguł i ograniczeń dotyczących nazewnictwa kontenerów. Po zakończeniu naciśnij klawisz **Enter** , aby utworzyć kontener. Po pomyślnym utworzeniu kontenera zostanie on wyświetlony w folderze **kontenery obiektów BLOB** dla wybranego konta magazynu.
 
 ![Eksplorator usługi Microsoft Azure Storage — Tworzenie kontenera](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -76,39 +77,37 @@ W aplikacji **Eksplorator usługi Azure Storage** wybierz katalog w ramach konta
 
 Aby pobrać pliki przy użyciu **Eksplorator usługi Azure Storage**, po wybraniu pliku wybierz pozycję **Pobierz** na Wstążce. Zostanie wyświetlone okno dialogowe, w którym możliwe jest wprowadzenie nazwy pliku. Wybierz pozycję **Zapisz** , aby rozpocząć pobieranie pliku do lokalizacji lokalnej.
 
-## <a name="managing-access"></a>Zarządzanie dostępem
+<a id="managing-access"></a>
 
-Możesz ustawić uprawnienia w katalogu głównym kontenera. Aby to zrobić, należy zalogować się do Eksplorator usługi Azure Storage przy użyciu indywidualnego konta z uprawnieniami do tego celu (w przeciwieństwie do parametrów połączenia). Kliknij prawym przyciskiem myszy kontener i wybierz pozycję **Zarządzaj uprawnieniami**, a następnie okno dialogowe **Zarządzanie uprawnieniami** .
+## <a name="manage-acls"></a>Zarządzanie listami ACL
 
-![Eksplorator usługi Microsoft Azure Storage — zarządzanie dostępem do katalogów](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
+Kliknij prawym przyciskiem myszy kontener, katalog lub plik, a następnie kliknij polecenie **Zarządzaj listami Access Control**.  Poniższy zrzut ekranu przedstawia menu, które pojawia się po kliknięciu prawym przyciskiem myszy katalogu.
 
-Okno dialogowe **Zarządzanie uprawnieniami** służy do zarządzania uprawnieniami właściciela i grupy właściciela. Umożliwia również dodawanie do listy kontroli dostępu nowych użytkowników i grup, dla których można następnie zarządzać uprawnieniami.
+> [!div class="mx-imgBorder"]
+> ![Kliknij prawym przyciskiem myszy katalog w Eksplorator usługi Azure Storage](./media/data-lake-storage-explorer/manage-access-control-list-option.png)
 
-Aby dodać do listy kontroli dostępu nowego użytkownika lub nową grupę, wybierz pole **Dodaj użytkownika lub grupę**.
+Okno dialogowe **Zarządzanie dostępem** umożliwia zarządzanie uprawnieniami właściciela i grupy Właściciele. Umożliwia również dodawanie do listy kontroli dostępu nowych użytkowników i grup, dla których można następnie zarządzać uprawnieniami.
 
-Wprowadź odpowiedni wpis usługi Azure Active Directory (AAD), który chcesz dodać do listy, a następnie wybierz pozycję **Dodaj**.
+> [!div class="mx-imgBorder"]
+> ![Okno dialogowe Zarządzanie dostępem](./media/data-lake-storage-explorer/manage-access-dialog-box.png)
 
-Użytkownika lub grupę będzie teraz widać w polu **Użytkownicy i grupy:**, co umożliwi rozpoczęcie zarządzania ich uprawnieniami.
+Aby dodać nowego użytkownika lub grupę do listy kontroli dostępu, wybierz przycisk **Dodaj** . Następnie wprowadź odpowiedni wpis Azure Active Directory (AAD), który chcesz dodać do listy, a następnie wybierz pozycję **Dodaj**.  Użytkownika lub grupę będzie teraz widać w polu **Użytkownicy i grupy:**, co umożliwi rozpoczęcie zarządzania ich uprawnieniami.
 
 > [!NOTE]
-> Najlepsze rozwiązanie i zalecenie jest takie, aby utworzyć grupę zabezpieczeń w usłudze AAD i obsługiwać uprawnienia dla grupy, a nie dla poszczególnych użytkowników. Szczegółowe informacje na temat tego zalecenia oraz inne najlepsze rozwiązania można znaleźć w [najlepszych rozwiązaniach dotyczących usługi Data Lake Storage Gen2](data-lake-storage-best-practices.md).
+> Najlepsze rozwiązanie i zalecenie jest takie, aby utworzyć grupę zabezpieczeń w usłudze AAD i obsługiwać uprawnienia dla grupy, a nie dla poszczególnych użytkowników. Aby uzyskać szczegółowe informacje na temat tego zalecenia, a także inne najlepsze rozwiązania, zobacz [model kontroli dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
-Istnieją dwie kategorie uprawnień, które można przypisać: listy ACL dostępu i domyślne listy ACL.
+Użyj kontrolek pola wyboru, aby ustawić dostęp i domyślne listy ACL. Aby dowiedzieć się więcej na temat różnic między tymi typami list kontroli dostępu, zobacz [typy list ACL](data-lake-storage-access-control.md#types-of-acls).
 
-* **Dostęp**: listy ACL dostępu kontrolują dostęp do obiektu. Pliki i katalogi mają osobne listy ACL dostępu.
+<a id="apply-acls-recursively"></a>
 
-* **Domyślnie**: szablon list ACL skojarzonych z katalogiem, który określa listy ACL dostępu dla wszelkich elementów podrzędnych, które są tworzone w tym katalogu. Pliki nie mają domyślnych list ACL.
+## <a name="apply-acls-recursively"></a>Stosuj rekursywnie listy ACL
 
-W ramach obu tych kategorii istnieją trzy uprawnienia, które można następnie przypisać do plików lub katalogów: **Odczyt**, **zapis** i **wykonywanie**.
+Wpisy listy ACL można zastosować cyklicznie na istniejących elementach podrzędnych katalogu nadrzędnego bez konieczności wprowadzania tych zmian indywidualnie dla każdego elementu podrzędnego.
 
->[!NOTE]
-> Dokonanie wyboru w tym miejscu nie spowoduje ustawienie uprawnień dla wszystkich elementów znajdujących się obecnie w katalogu. Jeśli dany plik już istnieje, należy przejść do poszczególnych elementów i ustawić uprawnienia ręcznie.
+Aby zastosować elementy listy ACL cyklicznie, kliknij prawym przyciskiem myszy kontener lub katalog, a następnie kliknij pozycję **propaguj Access Control List**.  Poniższy zrzut ekranu przedstawia menu, które pojawia się po kliknięciu prawym przyciskiem myszy katalogu.
 
-Można zarządzać uprawnieniami dla poszczególnych katalogów, a także dla pojedynczych plików, co umożliwia szczegółową kontrolę dostępu. Proces zarządzania uprawnieniami dla plików i katalogów jest taki sam, jak opisano powyżej. Kliknij prawym przyciskiem myszy plik lub katalog, dla którego chcesz zarządzać uprawnieniami, i wykonaj ten sam proces.
-
-## <a name="private-endpoints-in-azure-data-lake-storage-gen2"></a>Prywatne punkty końcowe w Azure Data Lake Storage Gen2
-
-Eksplorator usługi Storage korzysta z [punktów końcowych](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) & Data Lake Storage Gen2 (DFS) w czasie pracy z Azure Data Lake Storage Gen2. Jeśli dostęp do Azure Data Lake Storage Gen2 jest skonfigurowany za pomocą prywatnych punktów końcowych, upewnij się, że dla konta magazynu utworzono dwa prywatne punkty końcowe: jeden z docelowym podzasobem, `blob` a drugi z docelowym zasobem podrzędnym `dfs` .
+> [!div class="mx-imgBorder"]
+> ![Kliknij prawym przyciskiem myszy katalog i wybierz ustawienie Propaguj kontrolę dostępu](./media/data-lake-storage-explorer/propagate-access-control-list-option.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

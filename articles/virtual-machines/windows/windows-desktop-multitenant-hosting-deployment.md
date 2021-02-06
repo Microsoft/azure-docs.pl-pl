@@ -1,30 +1,48 @@
 ---
 title: Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu
 description: Dowiedz się, jak zmaksymalizować korzyści z pakietu Software Assurance systemu Windows, aby zapewnić lokalne licencje na platformę Azure z wielodostępnymi prawami hostingu.
-author: xujing
+author: mimckitt
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 1/24/2018
+ms.date: 2/2/2021
 ms.author: mimckitt
-ms.openlocfilehash: 8268e305946a19f4f74ff790e680d6bd3faa2b29
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.custom: rybaker, chmimckitt
+ms.openlocfilehash: 744f265251e9f58ce91085f0e5dd5d1ad13eec69
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881439"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625115"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu 
-W przypadku klientów z systemem Windows 10 Enterprise E3/E5 na użytkownika lub dostęp do pulpitu wirtualnego systemu Windows dla użytkownika (licencje subskrypcyjne użytkownika lub licencje subskrypcyjne użytkownika), wielodostępne prawa hostingu dla systemu Windows 10 umożliwiają przenoszenie licencji systemu Windows 10 do chmury i uruchamianie systemu Windows 10 Virtual Machines na platformie Azure bez płacenia za inną licencję. Aby uzyskać więcej informacji, zobacz [Obsługa wielu dzierżawców dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+W przypadku klientów z systemem Windows 10 Enterprise E3/E5 na użytkownika lub dostęp do pulpitu wirtualnego systemu Windows dla użytkownika (licencje subskrypcyjne użytkownika lub licencje subskrypcyjne użytkownika), wielodostępne prawa hostingu dla systemu Windows 10 umożliwiają przenoszenie licencji systemu Windows 10 do chmury i uruchamianie systemu Windows 10 Virtual Machines na platformie Azure bez płacenia za inną licencję. Prawa hostingu wielodostępnego są dostępne tylko dla systemu Windows 10 (wersja 1703 lub nowsza).
+
+Aby uzyskać więcej informacji, zobacz [Obsługa wielu dzierżawców dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> W tym artykule pokazano, jak zaimplementować zalety licencjonowania dla obrazów komputerów stacjonarnych z systemem Windows 10 Pro w witrynie Azure Marketplace.
-> - W przypadku obrazów systemu Windows 7, 8,1, 10 Enterprise (x64) w witrynie Azure Marketplace dla subskrypcji MSDN zapoznaj się z [klientem systemu Windows na platformie Azure na potrzeby scenariuszy tworzenia i testowania](client-images.md)
+> - Aby korzystać z obrazów systemu Windows 7, 8,1 i 10 na potrzeby programowania lub testowania, zobacz [Klient systemu Windows na platformie Azure na potrzeby scenariuszy tworzenia i testowania](client-images.md)
 > - W przypadku korzyści z licencjonowania systemu Windows Server zapoznaj się z artykułem [korzyści z używania hybrydowej platformy Azure dla obrazów systemu Windows Server](hybrid-use-benefit-licensing.md).
->
+
+## <a name="subscription-licenses-that-qualify-for-multitenant-hosting-rights"></a>Licencje subskrypcyjne kwalifikujące się do wielodostępnych praw hostingu
+
+Za pomocą [Centrum administracyjnego firmy Microsoft](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true)można potwierdzić, czy użytkownikowi przypisano licencję obsługiwaną dla systemu Windows 10.
+
+> [!IMPORTANT]
+> Aby można było korzystać z obrazów systemu Windows 10 na platformie Azure, użytkownicy muszą mieć jedną z poniższych licencji subskrypcyjnych. Jeśli nie masz żadnej z tych licencji subskrypcyjnych, można je zakupić przez [partnera usługi w chmurze](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) lub bezpośrednio przez [firmę Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
+
+**Kwalifikujące się licencje subskrypcyjne:**
+
+-   Microsoft 365 E3/E5 
+-   Microsoft 365 F3 
+-   Microsoft 365 a3/A5 
+-   Windows 10 Enterprise E3/E5
+-   Windows 10 Education, A3/A5 
+-   System Windows VDA E3/E5
+
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Wdrażanie obrazu systemu Windows 10 z witryny Azure Marketplace 
-W przypadku wdrożeń dla programu PowerShell, interfejsu wiersza polecenia i szablonów Azure Resource Manager obrazy systemu Windows 10 można znaleźć za pomocą `PublisherName: MicrosoftWindowsDesktop` i `Offer: Windows-10` .
+W przypadku wdrożeń dla programu PowerShell, interfejsu wiersza polecenia i szablonów Azure Resource Manager obrazy systemu Windows 10 można znaleźć za pomocą `PublisherName: MicrosoftWindowsDesktop` i `Offer: Windows-10` . Aktualizacja systemu Windows 10 w wersji dla twórców (1809) lub nowsza jest obsługiwana dla wielodostępnych praw hostingu. 
 
 ```powershell
 Get-AzVmImageSku -Location '$location' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-10'
@@ -40,17 +58,6 @@ rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus
 ```
 
 Aby uzyskać więcej informacji o dostępnych obrazach [, zobacz Znajdowanie i używanie obrazów maszyn wirtualnych w portalu Azure Marketplace przy użyciu Azure PowerShell](./cli-ps-findimage.md)
-
-## <a name="qualify-for-multi-tenant-hosting-rights"></a>Zakwalifikuj się do praw hostingu z wieloma dzierżawcami 
-Aby zakwalifikować się do korzystania z wielodostępnych praw hostingu oraz do uruchamiania obrazów systemu Windows 10 w usłudze Użytkownicy platformy Azure, musi mieć jedną z następujących subskrypcji: 
-
--   Microsoft 365 E3/E5 
--   Microsoft 365 F3 
--   Microsoft 365 a3/A5 
--   Windows 10 Enterprise E3/E5
--   Windows 10 Education, A3/A5 
--   System Windows VDA E3/E5
-
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Przekazywanie wirtualnego dysku twardego z systemem Windows 10 na platformę Azure
 Jeśli przekazujesz uogólniony wirtualny dysk twardy z systemem Windows 10, Uwaga dla systemu Windows 10 nie włączono domyślnie wbudowanego konta administratora. Aby włączyć wbudowane konto administratora, należy uwzględnić następujące polecenie jako część niestandardowego rozszerzenia skryptu.
@@ -119,10 +126,7 @@ LicenseType              :
 ```
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Dodatkowe informacje na temat dołączania do usługi Azure AD
->[!NOTE]
->Platforma Azure obsługuje wszystkie maszyny wirtualne z systemem Windows przy użyciu wbudowanego konta administratora, które nie może zostać użyte do przyłączenia do usługi AAD. Na przykład *ustawienia > konta > dostęp do pracy lub szkoły > + Connect* nie będą działały. Aby ręcznie dołączyć do usługi Azure AD, należy utworzyć i zalogować się jako drugie konto administratora. Usługę Azure AD można także skonfigurować przy użyciu pakietu aprowizacji. Aby dowiedzieć się więcej, Skorzystaj z linku w sekcji *następne kroki* .
->
->
+Platforma Azure obsługuje wszystkie maszyny wirtualne z systemem Windows przy użyciu wbudowanego konta administratora, które nie może zostać użyte do przyłączenia do usługi AAD. Na przykład *ustawienia > konta > dostęp do pracy lub szkoły > + Connect* nie będą działały. Aby ręcznie dołączyć do usługi Azure AD, należy utworzyć i zalogować się jako drugie konto administratora. Usługę Azure AD można także skonfigurować przy użyciu pakietu aprowizacji. Aby dowiedzieć się więcej, Skorzystaj z linku w sekcji *następne kroki* .
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [konfigurowaniu VDA dla systemu Windows 10](/windows/deployment/vda-subscription-activation)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98a16e0a60ddf149e8f0e1a092051f3e98ea8225
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002572"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627066"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Rozwiązywanie problemów z wdrażaniem maszyny wirtualnej z systemem Windows na platformie Azure
 
@@ -62,7 +62,7 @@ Jeśli masz odpowiednią subskrypcję programu Visual Studio (dawniej MSDN), mo�
 
 Istnieje kilka różnych sposobów wdrażania maszyn wirtualnych z systemem Windows przy użyciu korzyści z używania hybrydowej platformy Azure.
 
-Subskrypcja Umowa Enterprise:
+Subskrypcja Enterprise Agreement:
 
 • Wdróż maszyny wirtualne z określonych obrazów w portalu Marketplace, które są wstępnie skonfigurowane przy użyciu korzyści z używania hybrydowej platformy Azure.
 
@@ -84,7 +84,7 @@ Więcej informacji można znaleźć w następujących zasobach:
 
 Aby aktywować miesięczne środki, zobacz ten [artykuł](https://azure.microsoft.com/offers/ms-azr-0064p/).
 
-## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>Jak dodać Enterprise — tworzenie i testowanie do Umowa Enterprise (EA) w celu uzyskania dostępu do obrazów klientów systemu Windows?
+## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>Jak dodać Enterprise — tworzenie i testowanie do Enterprise Agreement (EA) w celu uzyskania dostępu do obrazów klientów systemu Windows?
 
 Możliwość tworzenia subskrypcji na podstawie oferty Enterprise — tworzenie i testowanie jest ograniczona do właścicieli kont, którzy uzyskali odpowiednie uprawnienia przez administratora przedsiębiorstwa. Właściciel konta tworzy subskrypcje za pośrednictwem portalu konta platformy Azure, a następnie powinien dodawać aktywnych subskrybentów programu Visual Studio jako współadministratorów. Dzięki temu użytkownicy mogą zarządzać zasobami wymaganymi do projektowania i testowania oraz korzystać z nich. Aby uzyskać więcej informacji, zobacz [Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
@@ -104,7 +104,7 @@ Dostępność można sprawdzić w obszarze [produkty dostępne według regionów
 
 Możesz użyć systemu Windows 7, Windows 8 lub Windows 10 na platformie Azure na potrzeby scenariuszy tworzenia i testowania, pod warunkiem że masz odpowiednią subskrypcję programu Visual Studio (dawniej MSDN). 
 
-- Obrazy systemu Windows 10 są dostępne w galerii platformy Azure w ramach [kwalifikujących się ofert tworzenia i testowania](../windows/client-images.md#eligible-offers). 
+- Obrazy systemu Windows 10 są dostępne w galerii platformy Azure w ramach [kwalifikujących się ofert tworzenia i testowania](../windows/client-images.md). 
 - Subskrybenci programu Visual Studio w ramach dowolnego typu oferty mogą również [odpowiednio przygotować i utworzyć](../windows/prepare-for-upload-vhd-image.md) 64-bitową wersję obrazu systemu Windows 7, Windows 8 lub Windows 10, a następnie [przekazać do platformy Azure](../windows/upload-generalized-managed.md). Użycie pozostaje ograniczone do tworzenia i testowania przez aktywnych subskrybentów programu Visual Studio.
 
 W tym [artykule](../windows/client-images.md) przedstawiono wymagania dotyczące uprawnień do uruchamiania klienta systemu Windows na platformie Azure i korzystania z obrazów galerii platformy Azure.

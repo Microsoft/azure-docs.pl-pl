@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 589e881eb48daf7da9cd2a934b14acfcc76dc5f9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499836"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625419"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Samouczek: wdrażanie aplikacji w usłudze Service Fabric Mesh przy użyciu szablonu
+
+> [!IMPORTANT]
+> Wersja zapoznawcza siatki Service Fabric platformy Azure została wycofana. Nowe wdrożenia nie będą już dozwolone za pomocą interfejsu API Service Fabric siatki. Obsługa istniejących wdrożeń będzie kontynuowana do 28 kwietnia 2021.
+> 
+> Aby uzyskać szczegółowe informacje, zobacz wycofywanie w [wersji zapoznawczej usługi Azure Service Fabric siatki](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Niniejszy samouczek jest pierwszą częścią serii. Dowiesz się, jak wdrożyć aplikację usługi Azure Service Fabric Mesh przy użyciu szablonu.  Aplikacja składa się z usługi internetowej frontonu platformy ASP.NET i usługi zaplecza internetowego interfejsu API platformy ASP.NET Core, które znajdują się w usłudze Docker Hub.  Ściągniesz te dwa obrazy kontenerów z usługi Docker Hub, a następnie wypchniesz je do swojego własnego, prywatnego rejestru. Następnie utworzysz szablon usługi Azure RM dla aplikacji i wdrożysz aplikację ze swojego rejestru kontenerów do usługi Service Fabric Mesh. Gdy skończysz, będziesz mieć prostą aplikację listy zadań do wykonania działającą w usłudze Service Fabric Mesh.
 

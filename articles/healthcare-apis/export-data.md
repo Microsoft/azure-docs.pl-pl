@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 8ad5ee78a525b3798bbf613168ff74a9e21fe99b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 3437c8bcf8ff508149abae2549d7c34521700840
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920261"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627267"
 ---
 # <a name="how-to-export-fhir-data"></a>Jak wyeksportować dane FHIR
 
@@ -30,12 +30,15 @@ Interfejs API platformy Azure dla usługi FHIR obsługuje $export na następują
 * [Pacjent](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET https://<<FHIR service base URL>>/Patient/$export>>`
 * [Grupa pacjentów *](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) — interfejs API platformy Azure dla FHIR eksportuje wszystkie powiązane zasoby, ale nie eksportuje cech grupy: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
+Podczas eksportowania danych jest tworzony oddzielny plik dla każdego typu zasobu. Aby upewnić się, że eksportowane pliki nie staną się zbyt duże, utworzymy nowy plik po rozmiar pojedynczego wyeksportowanego pliku, który będzie większy niż 64 MB. W efekcie można uzyskać wiele plików dla każdego typu zasobu, który zostanie wyliczony (tj. pacjenta-1. ndjson, pacjent-2. ndjson). 
 
 
 > [!Note] 
 > `Patient/$export` i `Group/[ID]/$export` mogą eksportować duplikaty zasobów, jeśli zasób znajduje się w przedziale więcej niż jednego zasobu lub znajduje się w wielu grupach.
 
 Ponadto sprawdzanie stanu eksportu za pośrednictwem adresu URL zwróconego przez nagłówek lokalizacji podczas kolejkowania jest obsługiwane wraz z anulowaniem rzeczywistego zadania eksportu.
+
+
 
 ## <a name="settings-and-parameters"></a>Ustawienia i parametry
 

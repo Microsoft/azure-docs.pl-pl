@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7f25d4156c3d2671e1a15a1253ed7ba22265af0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 650755cf2692b613b2998e8ef7b706e09022b178
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354874"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626913"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Wprowadzenie do modelu zasobów usługi Service Fabric
+
+> [!IMPORTANT]
+> Wersja zapoznawcza siatki Service Fabric platformy Azure została wycofana. Nowe wdrożenia nie będą już dozwolone za pomocą interfejsu API Service Fabric siatki. Obsługa istniejących wdrożeń będzie kontynuowana do 28 kwietnia 2021.
+> 
+> Aby uzyskać szczegółowe informacje, zobacz wycofywanie w [wersji zapoznawczej usługi Azure Service Fabric siatki](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Model zasobów Service Fabric opisuje proste podejście do definiowania zasobów, które składają się na aplikację Service Fabric siatką. Poszczególne zasoby można wdrożyć w dowolnym środowisku Service Fabric.  Model zasobów Service Fabric jest również zgodny z modelem Azure Resource Manager. Następujące typy zasobów są obecnie obsługiwane w tym modelu:
 

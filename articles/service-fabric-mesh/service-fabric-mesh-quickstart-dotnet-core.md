@@ -6,14 +6,19 @@ ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 15e0c3bcbc19eae344ca3965b2b866ca9a15f28d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 665988f37d0afdb91bb074d8653cc3c24155966e
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840323"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627015"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Szybki start: Tworzenie i wdrażanie aplikacji internetowych w usłudze Azure Service Fabric Mesh
+
+> [!IMPORTANT]
+> Wersja zapoznawcza siatki Service Fabric platformy Azure została wycofana. Nowe wdrożenia nie będą już dozwolone za pomocą interfejsu API Service Fabric siatki. Obsługa istniejących wdrożeń będzie kontynuowana do 28 kwietnia 2021.
+> 
+> Aby uzyskać szczegółowe informacje, zobacz wycofywanie w [wersji zapoznawczej usługi Azure Service Fabric siatki](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Usługa Azure Service Fabric Mesh to w pełni zarządzana usługa, która pozwala deweloperom na wdrażanie aplikacji mikrousług bez zarządzania maszynami wirtualnymi, magazynem i siecią.
 
@@ -67,11 +72,11 @@ Zostanie wyświetlone okno dialogowe **Publikowanie aplikacji usługi Service Fa
 
 Wybierz konto i subskrypcję platformy Azure. Wybierz **lokalizację**. W tym artykule jest używany region **Wschodnie stany USA**.
 
-W obszarze **Grupa zasobów**wybierz pozycję **\<Create New Resource Group...>** . Zostanie wyświetlone okno dialogowe **Tworzenie grupy zasobów**. Ustaw opcje **Nazwa grupy zasobów** i **Lokalizacja**.  W tym przewodniku Szybki start jest używana lokalizacja **Wschodnie stany USA** i nazwa grupy **sfmeshTutorial1RG** (jeśli w Twojej organizacji wiele osób korzysta z tej samej subskrypcji, wybierz unikatową nazwę grupy zasobów).  Naciśnij pozycję **Utwórz**, aby utworzyć grupę zasobów i wrócić do okna dialogowego publikowania.
+W obszarze **Grupa zasobów** wybierz pozycję **\<Create New Resource Group...>** . Zostanie wyświetlone okno dialogowe **Tworzenie grupy zasobów**. Ustaw opcje **Nazwa grupy zasobów** i **Lokalizacja**.  W tym przewodniku Szybki start jest używana lokalizacja **Wschodnie stany USA** i nazwa grupy **sfmeshTutorial1RG** (jeśli w Twojej organizacji wiele osób korzysta z tej samej subskrypcji, wybierz unikatową nazwę grupy zasobów).  Naciśnij pozycję **Utwórz**, aby utworzyć grupę zasobów i wrócić do okna dialogowego publikowania.
 
 ![Zrzut ekranu pokazujący sposób tworzenia nowej grupy zasobów.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-Wróć do okna dialogowego **publikowanie aplikacji Service Fabric** w obszarze **Azure Container Registry**wybierz pozycję **\<Create New Container Registry...>** . W oknie dialogowym **Tworzenie rejestru kontenerów** użyj unikatowej nazwy w polu **Nazwa rejestru kontenerów**. Podaj **lokalizację** (w tym przewodniku Szybki start jest używany region **Wschodnie stany USA**). Z listy rozwijanej wybierz **grupę zasobów** utworzoną w poprzednim kroku, na przykład **sfmeshTutorial1RG**. Ustaw **jednostkę SKU** na **Podstawowa**, a następnie naciśnij przycisk **Utwórz**, aby wrócić do okna dialogowego publikowania.
+Wróć do okna dialogowego **publikowanie aplikacji Service Fabric** w obszarze **Azure Container Registry** wybierz pozycję **\<Create New Container Registry...>** . W oknie dialogowym **Tworzenie rejestru kontenerów** użyj unikatowej nazwy w polu **Nazwa rejestru kontenerów**. Podaj **lokalizację** (w tym przewodniku Szybki start jest używany region **Wschodnie stany USA**). Z listy rozwijanej wybierz **grupę zasobów** utworzoną w poprzednim kroku, na przykład **sfmeshTutorial1RG**. Ustaw **jednostkę SKU** na **Podstawowa**, a następnie naciśnij przycisk **Utwórz**, aby wrócić do okna dialogowego publikowania.
 
 ![Okno dialogowe nowej grupy zasobów usługi Service Fabric Mesh w programie Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 

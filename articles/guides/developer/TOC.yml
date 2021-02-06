@@ -148,8 +148,6 @@
       items:
         - name: Aplikacje internetowe i mobilne
           href: ../../app-service/troubleshoot-diagnostic-logs.md
-        - name: Maszyna wirtualna z systemem Linux
-          href: ../../virtual-machines/linux/tutorial-monitor.md
         - name: Maszyna wirtualna z systemem Windows
           href: ../../virtual-machines/windows/tutorial-monitor.md
         - name: Mikrousługi

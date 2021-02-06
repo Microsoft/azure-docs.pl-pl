@@ -4,14 +4,19 @@ description: Zapoznaj się z często zadawanymi pytaniami i odpowiedziami dotycz
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e53ab0ae4cc463bea8a6a8cb6d339f94fdcac6d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260126"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626040"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Często zadawane pytania dotyczące Service Fabric siatki
+
+> [!IMPORTANT]
+> Wersja zapoznawcza siatki Service Fabric platformy Azure została wycofana. Nowe wdrożenia nie będą już dozwolone za pomocą interfejsu API Service Fabric siatki. Obsługa istniejących wdrożeń będzie kontynuowana do 28 kwietnia 2021.
+> 
+> Aby uzyskać szczegółowe informacje, zobacz wycofywanie w [wersji zapoznawczej usługi Azure Service Fabric siatki](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Usługa Azure Service Fabric Mesh to w pełni zarządzana usługa, która pozwala deweloperom na wdrażanie aplikacji mikrousług bez zarządzania maszynami wirtualnymi, magazynem i siecią. W tym artykule znajdują się odpowiedzi na często zadawane pytania.
 
@@ -123,7 +128,7 @@ Siatka Azure nie obsługuje obecnie rozpoznawania nazw DNS między aplikacjami.
 
 Inne znane problemy z usługą DNS dotyczące uruchamiania Service Fabric klastra projektowego w systemie Windows 10 można znaleźć w temacie: [debugowanie kontenerów systemu Windows](../service-fabric/service-fabric-how-to-debug-windows-containers.md) i [znanych problemów z usługą DNS](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
 Translator adresów sieciowych usługi servicefabric może zniknąć podczas korzystania z aplikacji na komputerze lokalnym. Aby zdiagnozować, czy ten wystąpił, uruchom następujące polecenie w wierszu polecenia:
 

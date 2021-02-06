@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: beadd250ec4472b894f0f474b1057ad44cf474ed
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 526ef0af08833954aef4136716930cec0df40eea
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133518"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625251"
 ---
-# <a name="how-azure-netapp-files-snapshots-work"></a>Jak działają migawki Azure NetApp Files
+# <a name="how-azure-netapp-files-snapshots-work"></a>Jak działają migawki usługi Azure NetApp Files
 
 W tym artykule opisano sposób działania migawek Azure NetApp Files. Azure NetApp Files technologia migawek zapewnia stabilność, skalowalność i szybszą możliwość odzyskiwania bez wpływu na wydajność. Technologia Azure NetApp Files Snapshot stanowi podstawę rozwiązań do ochrony danych, w tym przywracania pojedynczych plików, przywracania i klonowania woluminów oraz replikacji między regionami. 
 
@@ -49,26 +49,26 @@ W tym czasie bloki danych, które są wskazywane na podstawie migawki, pozostaj�
 
 Ponieważ migawka woluminu rejestruje tylko zmiany bloków od najnowszej migawki, zapewnia następujące korzyści:
 
-* Migawki to ***wydajność magazynu***.   
-    Migawki zużywają minimalne miejsce do magazynowania, ponieważ nie kopiuje bloków danych całego woluminu. Dwie migawki wykonywane w sekwencji różnią się tylko blokami dodanymi lub zmianami w przedziale czasu między nimi. Ten blok — zachowanie przyrostowe ogranicza skojarzone użycie pojemności magazynu. Wiele alternatywnych implementacji migawek zużywa woluminy magazynu równe aktywnemu systemowi plików, co zwiększa zapotrzebowanie na pojemność magazynu. W zależności od dziennych stawek za aplikacje na poziomie _block *, Azure NetApp Files migawki zużywają więcej lub mniej mocy, ale tylko w przypadku zmienionych danych. Średnie użycie migawek dziennych z tylko 1-5% pojemności zużywanej objętości dla wielu woluminów aplikacji lub do 20-30% dla woluminów, takich jak SAP HANA woluminów bazy danych. Pamiętaj, aby [monitorować wolumin i użycie migawek](azure-netapp-files-metrics.md#volumes) na potrzeby wykorzystania pojemności migawek względem liczby utworzonych i konserwowanych migawek.   
+* Migawki są ***wydajne dla magazynu***.   
+    Migawki zużywają minimalne miejsce do magazynowania, ponieważ nie kopiuje bloków danych całego woluminu. Dwie migawki wykonywane w sekwencji różnią się tylko blokami dodanymi lub zmianami w przedziale czasu między nimi. Ten blok — zachowanie przyrostowe ogranicza skojarzone użycie pojemności magazynu. Wiele alternatywnych implementacji migawek zużywa woluminy magazynu równe aktywnemu systemowi plików, co zwiększa zapotrzebowanie na pojemność magazynu. W zależności od dziennych stawek za aplikację na *poziomie bloku* , Azure NetApp Files migawki zużywają więcej lub mniej mocy, ale tylko w przypadku zmienionych danych. Średnie użycie migawek dziennych z tylko 1-5% pojemności zużywanej objętości dla wielu woluminów aplikacji lub do 20-30% dla woluminów, takich jak SAP HANA woluminów bazy danych. Pamiętaj, aby [monitorować wolumin i użycie migawek](azure-netapp-files-metrics.md#volumes) na potrzeby wykorzystania pojemności migawek względem liczby utworzonych i konserwowanych migawek.   
 
-* Migawki to ***Szybka metoda tworzenia, replikowania, przywracania lub klonowania** _.   
+* Migawki są ***szybkie do tworzenia, replikowania, przywracania i klonowania***.   
     Tworzenie, replikowanie, przywracanie lub klonowanie migawek trwa zaledwie kilka sekund, niezależnie od rozmiaru woluminu i poziomu działań. Migawkę woluminu można utworzyć [na żądanie](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume). Można również użyć [zasad migawek](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) , aby określić, kiedy Azure NetApp Files ma automatycznie tworzyć migawkę i ile migawek ma zachować dla woluminu.  Spójność aplikacji można osiągnąć przez organizowanie migawek z warstwą aplikacji, na przykład za pomocą [Narzędzia AzAcSnap](azacsnap-introduction.md) na potrzeby SAP HANA.
 
-Migawki nie mają wpływu na **wydajność * wydajności** _.   
+* Migawki nie mają wpływu na ***wydajność*** woluminu.   
     Ze względu na "Przekierowanie przy zapisie", przechowywanie lub zachowywanie migawek Azure NetApp Files nie ma wpływu na wydajność, nawet z dużym obciążeniem danych. Usuwanie migawki również ma niewielki wpływ na wydajność w większości przypadków. 
 
-Migawki zawierają ***skalowalność** _, ponieważ mogą być tworzone często i można zachować wiele.   
+* Migawki zapewniają ***skalowalność*** , ponieważ mogą być tworzone często i można zachować wiele.   
     Woluminy Azure NetApp Files obsługują do 255 migawek. Możliwość przechowywania dużej liczby niewielkich wpływów, często tworzonych migawek, zwiększa prawdopodobieństwo pomyślnego przywrócenia odpowiedniej wersji danych.
 
-A migawki zapewniają ***widoczność użytkownika** _ i _*_odzyskiwanie plików_*_.   
+* Migawki zapewniają ***widoczność użytkownika** _ i _ *_odzyskiwanie plików_* *.   
 Wysoka wydajność, skalowalność i stabilność technologii migawek Azure NetApp Files, co oznacza, że zapewnia doskonałe kopie zapasowe online dla odzyskiwania opartego na użytkownikach. Migawki mogą być udostępniane dla plików, katalogów lub operacji przywracania woluminu. Dodatkowe rozwiązania umożliwiają kopiowanie kopii zapasowych do magazynu w trybie offline lub [replikowanie wielu regionów](cross-region-replication-introduction.md) w celu przechowywania lub odzyskiwania po awarii.
 
 ## <a name="ways-to-create-snapshots"></a>Sposoby tworzenia migawek   
 
 Do tworzenia i konserwowania migawek można używać kilku metod:
 
-_ Ręcznie (na żądanie), przy użyciu:   
+* Ręcznie (na żądanie), przy użyciu:   
     * [Azure Portal](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [interfejs API REST](/rest/api/netapp/snapshots), [Azure CLI](/cli/azure/netappfiles/snapshot)lub narzędzia [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot)
     * Skrypty (zobacz [przykłady](azure-netapp-files-solution-architectures.md#sap-tech-community-and-blog-posts))
 
@@ -161,7 +161,7 @@ Zobacz [usuwanie migawek](azure-netapp-files-manage-snapshots.md#delete-snapshot
 * [Rozwiązywanie problemów z zasadami migawek](troubleshoot-snapshot-policies.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Film Azure NetApp Files migawek 101](https://www.youtube.com/watch?v=uxbTXhtXCkw)
-* [Migawka NetApp — Biblioteka wideo NetApp](https://tv.netapp.com/detail/video/2579133646001/snapshot)
+* [Przegląd Azure NetApp Files migawek](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
 
 
 

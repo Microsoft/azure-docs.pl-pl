@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682075"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626998"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitorowanie i diagnostyka
+
+> [!IMPORTANT]
+> Wersja zapoznawcza siatki Service Fabric platformy Azure została wycofana. Nowe wdrożenia nie będą już dozwolone za pomocą interfejsu API Service Fabric siatki. Obsługa istniejących wdrożeń będzie kontynuowana do 28 kwietnia 2021.
+> 
+> Aby uzyskać szczegółowe informacje, zobacz wycofywanie w [wersji zapoznawczej usługi Azure Service Fabric siatki](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Usługa Azure Service Fabric Mesh to w pełni zarządzana usługa, która pozwala deweloperom na wdrażanie aplikacji mikrousług bez zarządzania maszynami wirtualnymi, magazynem i siecią. Monitorowanie i Diagnostyka dla Service Fabric siatki jest podzielone na trzy główne typy danych diagnostycznych:
 
 - Dzienniki aplikacji — są one definiowane jako dzienniki z aplikacji w kontenerze, w zależności od tego, jak dysponujesz Instrumentacją aplikacji (np. dzienniki platformy Docker)
@@ -43,7 +49,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 Środowisko siatki przedstawia kilku metryki wskazujące, jak działają kontenery. Następujące metryki są dostępne za pośrednictwem interfejsu wiersza polecenia Azure Portal i Azure Monitor:
 
-| Metryka | Opis | Lekcji|
+| Metric | Opis | Lekcji|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu jako wartość procentowa | % |
 | MemoryUtilization | ActualMem/AllocatedMem jako wartość procentowa | % |
@@ -58,7 +64,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 | RestartCount | Liczba ponownych uruchomień kontenera | Nie dotyczy |
 
 > [!NOTE]
-> Wartości servicestatus i ServiceReplicaStatus są takie same jak dla [atrybutu HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) w Service Fabric. 
+> Wartości servicestatus i ServiceReplicaStatus są takie same jak dla [atrybutu HealthState](/dotnet/api/system.fabric.health.healthstate) w Service Fabric.
 
 Każda Metryka jest dostępna w różnych wymiarach, dzięki czemu można zobaczyć zagregowane na różnych poziomach. Bieżąca lista wymiarów jest następująca:
 

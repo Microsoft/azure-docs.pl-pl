@@ -36,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Korzystanie z usług Lab Services na potrzeby maratonu programistycznego
           href: hackathon-labs.md
-        - name: laboratoria — typy klas
+        - name: Typy klas laboratorium
           items:
             - name: Omówienie typów klas
               href: class-types.md
@@ -46,9 +46,11 @@
               href: class-type-shell-scripting-linux.md
             - name: Etyczne działania hakerskie
               href: class-type-ethical-hacking.md
+            - name: Sieć z GNS3
+              href: class-type-networking-gns3.md
             - name: Zarządzanie bazami danych
               href: class-type-database-management.md
-            - name: Zarządzanie usługą Azure SQL Database i jej rozwijanie
+            - name: Zarządzanie i programowanie w usłudze SQL Database
               href: class-type-sql-server.md
             - name: Język Python i notesy Jupyter Notebook
               href: class-type-jupyter-notebook.md
@@ -58,8 +60,8 @@
               href: class-type-matlab.md
             - name: Oprogramowanie SolidWorks do projektowania wspomaganego komputerem (CAD)
               href: class-type-solidworks.md
-            - name: Sieć z GNS3
-              href: class-type-networking-gns3.md
+            - name: ArcGIS
+              href: class-type-arcgis.md
             - name: Projekt „Lead the Way”
               href: class-type-pltw.md
         - name: Używanie usługi Azure Lab Services w usłudze Teams

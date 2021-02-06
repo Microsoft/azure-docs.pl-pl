@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f80990854fd0c584d8e6582fdf35108e67d9202b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741902"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625132"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Ochrona hasłem w usłudze Azure AD — często zadawane pytania
 
@@ -150,6 +150,146 @@ Tryb inspekcji jest obsługiwany tylko w środowisku lokalnym Active Directory. 
 **P: w przypadku odrzucenia hasła przez ochronę hasłem usługi Azure AD użytkownicy widzą tradycyjny komunikat o błędzie systemu Windows. Czy można dostosować ten komunikat o błędzie, aby użytkownicy wiedzieli, co naprawdę się stało?**
 
 Nie. Komunikat o błędzie wyświetlany przez użytkowników w przypadku odrzucenia hasła przez kontroler domeny jest kontrolowany przez komputer kliencki, a nie przez kontroler domeny. To zachowanie występuje niezależnie od tego, czy hasło jest odrzucane przez domyślne zasady haseł Active Directory, czy przez rozwiązanie oparte na filtrze hasła, takie jak ochrona hasłem usługi Azure AD.
+
+## <a name="password-testing-procedures"></a>Procedury testowania hasła
+
+Aby sprawdzić poprawność działania oprogramowania i lepiej zrozumieć [algorytm oceny haseł](concept-password-ban-bad.md#how-are-passwords-evaluated), można wykonać podstawowe testy różnych haseł. W tej sekcji przedstawiono metodę testowania, która została zaprojektowana w celu wygenerowania powtarzalnych wyników.
+
+Dlaczego należy wykonać te kroki? Istnieje kilka czynników, które utrudniają kontrolowane, powtarzalne testowanie haseł w środowisku lokalnym Active Directory:
+
+* Zasady haseł są konfigurowane i utrwalane na platformie Azure, a kopie tych zasad są synchronizowane okresowo przez agentów lokalnego kontrolera domeny przy użyciu mechanizmu sondowania. Opóźnienie związane z tym cyklem sondowania może spowodować pomyłkę. Na przykład, jeśli skonfigurujesz zasady na platformie Azure, ale zapomnisz zsynchronizować ją z agentem DC, testy mogą nie dać oczekiwanych wyników. Interwał sondowania jest obecnie stałe raz na godzinę, ale oczekiwanie na godzinę między zmianami zasad jest nieidealny dla scenariusza testów interaktywnych.
+* Po zsynchronizowaniu nowych zasad haseł z kontrolerem domeny, podczas replikowania danych do innych kontrolerów domeny nastąpi więcej opóźnień. Te opóźnienia mogą spowodować nieoczekiwane wyniki w przypadku przetestowania zmiany hasła na kontrolerze domeny, który nie otrzymał jeszcze najnowszej wersji zasad.
+* Testowanie zmian haseł za pośrednictwem interfejsu użytkownika utrudnia ich wyniki. Na przykład można łatwo nieprawidłowo wprowadzić nieprawidłowe hasło do interfejsu użytkownika, szczególnie w przypadku większości interfejsów użytkownika haseł Ukryj dane wejściowe użytkownika (na przykład, takie jak Windows Ctrl-Alt-Delete-> Change Password UI).
+* Nie jest możliwe ścisłe sterowanie kontrolerem domeny używanym do testowania zmian haseł z klientów przyłączonych do domeny. System operacyjny klienta systemu Windows wybiera kontroler domeny w oparciu o takie czynniki jak Active Directory przypisania lokacji i podsieci, konfiguracja sieci specyficzną dla środowiska itp.
+
+Aby uniknąć tych problemów, poniższe kroki są oparte na teście wiersza polecenia resetowania hasła podczas logowania do kontrolera domeny.
+
+> [!WARNING]
+> Te procedury powinny być używane tylko w środowisku testowym, ponieważ wszystkie zmiany i resetowanie hasła przychodzącego zostaną zaakceptowane bez sprawdzania poprawności, gdy usługa agenta kontrolera domeny zostanie zatrzymana, a także w celu uniknięcia zwiększonego ryzyka związanego z logowaniem się do kontrolera domeny.
+
+W poniższych krokach przyjęto założenie, że na co najmniej jednym kontrolerze domeny zainstalowano agenta DC, zainstalowano co najmniej jeden serwer proxy i zarejestrowano zarówno serwer proxy, jak i Las.
+
+1. Zaloguj się do kontrolera domeny przy użyciu poświadczeń administratora domeny (lub innych poświadczeń, które mają wystarczające uprawnienia do tworzenia kont użytkowników testowych i resetowania haseł), które mają zainstalowane oprogramowanie agenta kontrolera domeny i zostały uruchomione ponownie.
+1. Otwórz Podgląd zdarzeń i przejdź do [dziennika zdarzeń administratora agenta kontrolera domeny](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log).
+1. Otwórz okno wiersza polecenia z podwyższonym poziomem uprawnień.
+1. Tworzenie konta testowego na potrzeby testowania hasła
+
+   Istnieje wiele sposobów tworzenia konta użytkownika, ale w tym miejscu jest oferowana opcja wiersza polecenia w celu ułatwienia podczas powtarzania cykli testowania:
+
+   ```text
+   net.exe user <testuseraccountname> /add <password>
+   ```
+
+   W celach dyskusji poniżej założono, że utworzono konto testowe o nazwie "ContosoUser", na przykład:
+
+   ```text
+   net.exe user ContosoUser /add <password>
+   ```
+
+1. Otwórz przeglądarkę sieci Web (może być konieczne użycie oddzielnego urządzenia zamiast kontrolera domeny), zalogować się do [Azure Portal](https://portal.azure.com)i przejdź do Azure Active Directory > zabezpieczenia > metod uwierzytelniania > ochrony hasłem.
+1. Zmodyfikuj zasady ochrony haseł usługi Azure AD zgodnie z potrzebami w testowaniu, które chcesz wykonać.  Można na przykład skonfigurować tryb wymuszony lub inspekcji lub zmodyfikować listę zabronionych terminów na liście niestandardowo zakazanych haseł.
+1. Zsynchronizuj nowe zasady, zatrzymując i uruchamiając ponownie usługę agenta kontrolera domeny.
+
+   Ten krok można wykonać na różne sposoby. Jednym ze sposobów jest użycie konsoli administracyjnej zarządzania usługami przez kliknięcie prawym przyciskiem myszy usługi agenta DC ochrony hasłem w usłudze Azure AD i wybranie opcji "Uruchom ponownie". Innym sposobem może być wykonanie z okna wiersza polecenia, takiego jak:
+
+   ```text
+   net stop AzureADPasswordProtectionDCAgent && net start AzureADPasswordProtectionDCAgent
+   ```
+    
+1. Sprawdź Podgląd zdarzeń, aby sprawdzić, czy zostały pobrane nowe zasady.
+
+   Za każdym razem, gdy usługa agenta kontrolera domeny jest zatrzymana i uruchomiona, powinny być widoczne zdarzenia 2 30006, które wydano w zamknięciu. Pierwsze zdarzenie 30006 będzie odzwierciedlać zasady, które były przechowywane w pamięci podręcznej na dysku w udziale Sysvol. Drugie zdarzenie 30006 (jeśli istnieje) powinno mieć zaktualizowaną datę zasad dzierżawy, a jeśli tak, będzie odzwierciedlało zasady pobrane z platformy Azure. Wartość daty zasad dzierżawy jest obecnie zakodowana, aby wyświetlać przybliżoną sygnaturę czasową, którą zasady zostały pobrane z platformy Azure.
+   
+   Jeśli drugie zdarzenie 30006 nie zostanie wyświetlone, należy rozwiązać problem przed kontynuowaniem.
+   
+   Zdarzenia 30006 będą wyglądać podobnie do tego przykładu:
+ 
+   ```text
+   The service is now enforcing the following Azure password policy.
+
+   Enabled: 1
+   AuditOnly: 0
+   Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+   Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+   Enforce tenant policy: 1
+   ```
+
+   Na przykład zmiana między wymuszaniem a trybem inspekcji spowoduje zmodyfikowanie flagi AuditOnly (powyższe zasady z AuditOnly = 0 są w trybie wymuszonym); zmiany na liście niestandardowych haseł zabronionych nie są bezpośrednio odzwierciedlone w powyższym zdarzeniu 30006 (i nie są rejestrowane w innym miejscu ze względów bezpieczeństwa). Pomyślnie powiodło się pobranie zasad z platformy Azure po takiej zmianie spowoduje to również zmodyfikowaną niestandardową listę wykluczonych haseł.
+
+1. Uruchom test, próbując zresetować nowe hasło na koncie użytkownika testowego.
+
+   Ten krok można wykonać za pomocą okna wiersza polecenia, takiego jak:
+
+   ```text
+   net.exe user ContosoUser <password>
+   ```
+
+   Po uruchomieniu polecenia możesz uzyskać więcej informacji na temat wyniku polecenia, przeglądając Podgląd zdarzeń. Zdarzenia dotyczące wyniku weryfikacji hasła są udokumentowane w temacie dotyczącym [dziennika zdarzeń administratora agenta kontrolera domeny](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log) ; te zdarzenia będą używane do walidacji wyniku testu, a nie danych wyjściowych z poleceń net.exe.
+
+   Wypróbujmy przykład: podjęto próbę ustawienia hasła, które jest zabronione przez globalną listę firmy Microsoft (należy zauważyć, że lista [nie jest udokumentowana](concept-password-ban-bad.md#global-banned-password-list) , ale możemy przetestować ją w tym miejscu pod znanym niedozwolonym terminem). W tym przykładzie przyjęto założenie, że zasady zostały skonfigurowane tak, aby były w trybie wymuszonym i dodały zerowe warunki do listy niestandardowo zakazanych haseł.
+
+   ```text
+   net.exe user ContosoUser PassWord
+   The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.
+
+   More help is available by typing NET HELPMSG 2245.
+   ```
+
+   Zgodnie z dokumentacją, ponieważ nasze testy były operacją resetowania hasła, należy zobaczyć zdarzenie 10017 i 30005 dla użytkownika ContosoUser.
+
+   Zdarzenie 10017 powinno wyglądać podobnie do tego przykładu:
+
+   ```text
+   The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Zdarzenie 30005 powinno wyglądać podobnie do tego przykładu:
+
+   ```text
+   The reset password for the specified user was rejected because it matched at least one of the tokens present in the Microsoft global banned password list of the current Azure password policy.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   To było zabawne, spróbujmy użyć innego przykładu. Tym razem Podejmiemy próbę ustawienia hasła, które jest zabronione przez niestandardową listę zabronionych, gdy zasady są w trybie inspekcji. W tym przykładzie przyjęto założenie, że wykonano następujące czynności: skonfigurowano zasady w trybie inspekcji, dodano termin "lachrymose" do listy niestandardowych zakazanych haseł i zsynchronizowano wynikowe nowe zasady z kontrolerem domeny przez wypełnianie usługi agenta DC zgodnie z powyższym opisem.
+
+   OK, ustaw odmianę zabronionego hasła:
+
+   ```text
+   net.exe user ContosoUser LaChRymoSE!1
+   The command completed successfully.
+   ```
+
+   Należy pamiętać, że ta godzina zakończyła się pomyślnie, ponieważ zasady są w trybie inspekcji. Powinno zostać wyświetlone zdarzenie 10025 i 30007 dla użytkownika ContosoUser.
+
+   Zdarzenie 10025 powinno wyglądać podobnie do tego przykładu:
+   
+   ```text
+   The reset password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Zdarzenie 30007 powinno wyglądać podobnie do tego przykładu:
+
+   ```text
+   The reset password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+1. Kontynuuj testowanie różnych wybranych haseł i sprawdzaj wyniki w Podglądzie zdarzeń, korzystając z procedur opisanych w poprzednich krokach. Jeśli musisz zmienić zasady w Azure Portal, nie zapomnij zsynchronizować nowych zasad z agentem DC zgodnie z wcześniejszym opisem.
+
+Uwzględniono procedury umożliwiające sterowanie zachowaniem weryfikacji hasła w usłudze Azure AD Password Protection. Resetowanie haseł użytkowników z wiersza polecenia bezpośrednio na kontrolerze domeny może wydawać się nietypowymi sposobami wykonywania takich testów, ale zgodnie z wcześniejszym opisem można generować powtarzalne wyniki. Podczas testowania różnych haseł należy zachować [algorytm oceny haseł](concept-password-ban-bad.md#how-are-passwords-evaluated) , ponieważ może to pomóc w wyjaśnieniu nieoczekiwanych wyników.
+
+> [!WARNING]
+> Gdy wszystkie testy zostaną zakończone, nie zapomnij usunąć wszystkich kont użytkowników utworzonych na potrzeby testowania.
 
 ## <a name="additional-content"></a>Dodatkowa zawartość
 

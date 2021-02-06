@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 2d74841e1873e5bd84d839122e0e662ef65ccd11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1020613eb43177ba159601f253848f8d03f385a8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842006"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625436"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Samouczek: informacje na temat uaktualniania aplikacji Service Fabric przy użyciu programu Visual Studio
+
+> [!IMPORTANT]
+> Wersja zapoznawcza siatki Service Fabric platformy Azure została wycofana. Nowe wdrożenia nie będą już dozwolone za pomocą interfejsu API Service Fabric siatki. Obsługa istniejących wdrożeń będzie kontynuowana do 28 kwietnia 2021.
+> 
+> Aby uzyskać szczegółowe informacje, zobacz wycofywanie w [wersji zapoznawczej usługi Azure Service Fabric siatki](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Ten samouczek jest czwartą częścią serii i pokazuje, jak uaktualnić aplikację sieci Web usługi Azure Service Fabric, bezpośrednio z programu Visual Studio. Uaktualnienie obejmie zarówno aktualizację kodu, jak i konfigurację aktualizacji. Zobaczysz, że kroki uaktualniania i publikowania w programie Visual Studio są takie same.
 
@@ -47,15 +52,15 @@ Podczas tworzenia aplikacji siatki Service Fabric, program Visual Studio dodaje 
 
 Zaktualizujemy parametr, `WebFrontEnd_cpu` Aby zaktualizować zasoby procesora CPU do `1.5` programu w oczekiwany sposób, że usługa **webfrontonu** będzie bardziej intensywnie używana.
 
-1. W projekcie **todolistapp** w obszarze **środowiska**w  >  **chmurze**Otwórz plik **Parameters. YAML** . Zmodyfikuj `WebFrontEnd_cpu` wartość na `1.5` . Nazwa parametru jest poprzedzona nazwą usługi `WebFrontEnd_` jako najlepszym rozwiązaniem w odróżnieniu od parametrów o tej samej nazwie, która ma zastosowanie do różnych usług.
+1. W projekcie **todolistapp** w obszarze **środowiska** w  >  **chmurze** Otwórz plik **Parameters. YAML** . Zmodyfikuj `WebFrontEnd_cpu` wartość na `1.5` . Nazwa parametru jest poprzedzona nazwą usługi `WebFrontEnd_` jako najlepszym rozwiązaniem w odróżnieniu od parametrów o tej samej nazwie, która ma zastosowanie do różnych usług.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Otwórz plik **YAML usługi** **webfrontonu** w obszarze zasoby usługi **webfrontonu**  >  **Service Resources**.
+2. Otwórz plik **YAML usługi** **webfrontonu** w obszarze zasoby usługi **webfrontonu**  >  .
 
-    Należy zauważyć, że `resources:` sekcja w `cpu:` jest ustawiona na `"[parameters('WebFrontEnd_cpu')]"` . Jeśli projekt jest kompilowany dla chmury, wartość `'WebFrontEnd_cpu` zostanie pobrana ze **środowisk**  >  **Cloud**  >  pliku**Parameters. YAML** w chmurze `1.5` . Jeśli projekt jest kompilowany do uruchamiania lokalnego, wartość zostanie pobrana ze **środowisk**  >  **Local**  >  **Parameters. 0,5 YAML** .
+    Należy zauważyć, że `resources:` sekcja w `cpu:` jest ustawiona na `"[parameters('WebFrontEnd_cpu')]"` . Jeśli projekt jest kompilowany dla chmury, wartość `'WebFrontEnd_cpu` zostanie pobrana ze **środowisk**  >    >  pliku **Parameters. YAML** w chmurze `1.5` . Jeśli projekt jest kompilowany do uruchamiania lokalnego, wartość zostanie pobrana ze **środowisk**  >  **Local**  >  **Parameters. 0,5 YAML** .
 
 > [!Tip]
 > Domyślnie plik parametrów, który jest elementem równorzędnym pliku profile. YAML, będzie używany do dostarczania wartości dla tego pliku profile. YAML.

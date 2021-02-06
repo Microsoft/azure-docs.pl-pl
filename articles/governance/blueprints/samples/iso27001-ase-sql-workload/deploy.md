@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania planu obciążeń ISO 27001 ASE/SQL
 description: Wdróż kroki przykładowego planu obciążeń ISO 27001 App Service Environment/SQL Database, w tym szczegóły parametru artefaktu.
-ms.date: 11/02/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 2b05015c05799625bf720096e70551eae7ff4d01
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 60867c117c9f1fda6f8ba33333c19a7bd764d219
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420397"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627486"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Wdróż przykład planu obciążenia ISO 27001 App Service Environment/SQL Database
 
@@ -42,7 +42,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
    - **Nazwa** planu: Podaj nazwę kopii przykładowego planu obciążeń ISO 27001 ASE/SQL.
-   - **Lokalizacja definicji** : Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
+   - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
 
@@ -50,7 +50,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 ## <a name="publish-the-sample-copy"></a>Publikowanie kopii przykładu
 
-Twoja kopia przykładu strategii została utworzona w środowisku. Została ona utworzona w trybie **wersji roboczej** i musi zostać **opublikowana** , zanim będzie można ją przypisać i wdrożyć. Kopię przykładowej strategii można dostosować do środowiska i potrzeb, ale modyfikacja może ją przenieść z normy ISO 27001.
+Twoja kopia przykładu strategii została utworzona w środowisku. Została ona utworzona w trybie **wersji roboczej** i musi zostać **opublikowana**, zanim będzie można ją przypisać i wdrożyć. Kopię przykładowej strategii można dostosować do środowiska i potrzeb, ale modyfikacja może ją przenieść z normy ISO 27001.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -72,10 +72,10 @@ Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypis
 
    - Podstawy
 
-     - **Subskrypcje** : Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji dla każdej z nich zostanie utworzone przypisanie przy użyciu wprowadzonych parametrów.
-     - **Nazwa przypisania** : nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
+     - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji dla każdej z nich zostanie utworzone przypisanie przy użyciu wprowadzonych parametrów.
+     - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
        Jeśli chcesz, możesz ją zmienić lub pozostawić.
-     - **Lokalizacja** : Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Wersja definicji** planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
 
    - Przypisanie blokady
@@ -90,11 +90,11 @@ Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypis
 
      Parametry zdefiniowane w tej sekcji są używane przez wiele artefaktów w definicji strategii w celu zapewnienia spójności.
 
-     - **Nazwa organizacji** : Podaj krótką nazwę organizacji. Ta właściwość jest używana głównie do określania nazw zasobów.
-     - **Identyfikator subskrypcji usługi udostępnionej** : Identyfikator subskrypcji, do której przypisano przykład strategii [usług udostępnionych ISO 27001](../iso27001-shared/index.md) .
-     - **Domyślny prefiks adresu podsieci** : notacja CIDR dla domyślnej podsieci sieci wirtualnej.
+     - **Nazwa organizacji**: Podaj krótką nazwę organizacji. Ta właściwość jest używana głównie do określania nazw zasobów.
+     - **Identyfikator subskrypcji usługi udostępnionej**: Identyfikator subskrypcji, do której przypisano przykład strategii [usług udostępnionych ISO 27001](../iso27001-shared/index.md) .
+     - **Domyślny prefiks adresu podsieci**: notacja CIDR dla domyślnej podsieci sieci wirtualnej.
        Wartość domyślna to _10.1.0.0/16_.
-     - **Lokalizacja obciążenia** : określa lokalizację, w której są wdrażane artefakty. Nie wszystkie usługi są dostępne we wszystkich lokalizacjach. Artefakty wdrażające takie usługi zapewniają opcję parametru dla lokalizacji, w której ma zostać wdrożony artefakt.
+     - **Lokalizacja obciążenia**: określa lokalizację, w której są wdrażane artefakty. Nie wszystkie usługi są dostępne we wszystkich lokalizacjach. Artefakty wdrażające takie usługi zapewniają opcję parametru dla lokalizacji, w której ma zostać wdrożony artefakt.
 
    - Parametry artefaktu
 
@@ -113,7 +113,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |-|-|-|-|
 |Grupa zasobów Log Analytics|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-workload-log-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów Log Analytics|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
-|Szablon Log Analytics|Szablon usługi Resource Manager|Warstwa usługi|Ustawia warstwę obszaru roboczego Log Analytics. Wartość domyślna to _PerNode_.|
+|Szablon Log Analytics|Szablon usługi Resource Manager|Warstwa usług|Ustawia warstwę obszaru roboczego Log Analytics. Wartość domyślna to _PerNode_.|
 |Szablon Log Analytics|Szablon usługi Resource Manager|Przechowywanie dzienników w dniach|Przechowywanie danych w dniach. Wartość domyślna to _365_.|
 |Szablon Log Analytics|Szablon usługi Resource Manager|Lokalizacja|Region używany do tworzenia obszaru roboczego Log Analytics. Wartość domyślna to _zachodnie stany USA 2_.|
 |Grupa zasobów sieciowych|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-workload-net-rg` Aby uczynić grupę zasobów unikatową.|

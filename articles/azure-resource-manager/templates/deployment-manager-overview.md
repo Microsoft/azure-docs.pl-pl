@@ -4,12 +4,12 @@ description: Dowiedz się, jak wdrożyć usługę w wielu regionach za pomocą u
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: baed44e04a0beca02cc959d302a4a29906b4a78e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 63553b0bbca031faa44e0d88480fcc08950a3e2c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539522"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627503"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Włączanie bezpiecznych praktyk wdrażania przy użyciu usługi Azure Deployment Manager (publiczna wersja zapoznawcza)
 
@@ -21,10 +21,10 @@ Usługa Azure Deployment Manager jest w wersji zapoznawczej. Pomóż nam ulepszy
 
 Aby użyć Deployment Manager, należy utworzyć cztery pliki:
 
-* Szablon topologii
-* Wdrażanie szablonu
-* Plik parametrów dla topologii
-* Plik parametrów do wdrożenia
+* Szablon topologii.
+* Wdrażanie szablonu.
+* Plik parametrów dla topologii.
+* Plik parametrów do wdrożenia.
 
 Szablon topologii jest wdrażany przed wdrożeniem szablonu wdrożenia.
 

@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 3e098e64eacf8b126d6a6d72b1f242443e88d55c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: aeeb810174ff5c21a81bcec8aa9265ff100edf91
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881099"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626329"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrowanie maszyn jako serwerów fizycznych na platformę Azure
 
@@ -30,7 +30,7 @@ Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i mi
 > [!div class="checklist"]
 > * Przygotowanie do korzystania z platformy Azure z Azure Migrate: Migracja serwera.
 > * Sprawdź wymagania dotyczące maszyn, które mają zostać poddane migracji, i przygotuj maszynę do Azure Migrate urządzenia do replikacji, które służy do odnajdywania i migrowania maszyn na platformę Azure.
-> * Dodaj narzędzie do migracji Azure Migrate Server w centrum Azure Migrate.
+> * Dodaj Azure Migrate: Narzędzia migracji serwera w centrum Azure Migrate.
 > * Skonfiguruj urządzenie do replikacji.
 > * Zainstaluj usługę mobilności na maszynach, które chcesz zmigrować.
 > * Włącz replikację.
@@ -51,7 +51,7 @@ Przed rozpoczęciem tego samouczka należy:
 
 ## <a name="prepare-azure"></a>Przygotowywanie platformy Azure
 
-Przygotuj platformę Azure do migracji przy użyciu migracji serwera.
+Przygotuj platformę Azure do migracji za pomocą Azure Migrate: Migracja serwera.
 
 **Zadanie** | **Szczegóły**
 --- | ---
@@ -116,7 +116,7 @@ Przygotuj się do wdrożenia urządzenia w następujący sposób:
 
 ## <a name="set-up-the-replication-appliance"></a>Konfigurowanie urządzenia do replikacji
 
-Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby skonfigurować urządzenie do migracji serwera fizycznego, należy pobrać plik Instalatora dla urządzenia, a następnie uruchomić go na [przygotowanej maszynie](#prepare-a-machine-for-the-replication-appliance). Po zainstalowaniu urządzenia należy zarejestrować je na Azure Migrate migracji serwera.
+Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby skonfigurować urządzenie do migracji serwera fizycznego, należy pobrać plik Instalatora dla urządzenia, a następnie uruchomić go na [przygotowanej maszynie](#prepare-a-machine-for-the-replication-appliance). Po zainstalowaniu urządzenia należy zarejestrować je w Azure Migrate: Migracja serwera.
 
 
 ### <a name="download-the-replication-appliance-installer"></a>Pobierz Instalatora urządzenia replikacji
@@ -129,7 +129,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
 4. W **obszarze region docelowy** wybierz region świadczenia usługi Azure, do którego chcesz przeprowadzić migrację maszyn.
 5. Wybierz pozycję **Potwierdź, że docelowy region migracji to nazwa regionu**.
 6. Kliknij pozycję **Utwórz zasoby**. Spowoduje to utworzenie magazynu Azure Site Recovery w tle.
-    - Jeśli już skonfigurowano migrację z Azure Migrate migracji do serwera, nie można skonfigurować opcji docelowej, ponieważ zasoby zostały wcześniej skonfigurowane.    
+    - Jeśli już skonfigurowano migrację z Azure Migrate: Migracja serwera, nie można skonfigurować opcji docelowej, ponieważ zasoby zostały wcześniej skonfigurowane.    
     - Po kliknięciu tego przycisku nie można zmienić regionu docelowego dla tego projektu.
     - Wszystkie kolejne migracje znajdują się w tym regionie.
 
@@ -145,7 +145,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
 
     ![Finalizowanie rejestracji](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-Po zakończeniu rejestracji może upłynąć trochę czasu, dopóki odnalezione maszyny nie pojawią się w ramach migracji na serwer Azure Migrate. Jako że maszyny wirtualne są odnajdywane, wzrasta liczba **odnalezionych serwerów** .
+Po zakończeniu rejestracji może upłynąć trochę czasu, dopóki odnalezione maszyny nie pojawią się w Azure Migrate: Migracja serwera. Jako że maszyny wirtualne są odnajdywane, wzrasta liczba **odnalezionych serwerów** .
 
 ![Odnalezione serwery](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 

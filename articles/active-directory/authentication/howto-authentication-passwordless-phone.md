@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35eff46a0470d429c8ec6f364ffa836501c65f47
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743602"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626159"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Włącz logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)
 
@@ -57,10 +57,13 @@ Usługa Azure AD umożliwia wybranie metod uwierzytelniania, które mogą być u
 Aby włączyć metodę uwierzytelniania dla logowania za pomocą telefonu bezhasłem, wykonaj następujące czynności:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta *administratora globalnego* .
-1. Wyszukaj i wybierz *Azure Active Directory*, a następnie przejdź do **Security**  >  **metody uwierzytelniania** zabezpieczeń  >  **zasady metody uwierzytelniania (wersja zapoznawcza)**
-1. W obszarze **Logowanie za pomocą telefonu bezhasło** wybierz następujące opcje:
+1. Wyszukaj i wybierz pozycję *Azure Active Directory*, a następnie przejdź do  >  **zasad metod uwierzytelniania** zabezpieczeń  >  .
+1. W obszarze **Microsoft Authenticator (wersja zapoznawcza)** wybierz następujące opcje:
    1. **Włącz** — tak lub nie
    1. **Cel** — wszyscy użytkownicy lub wybrani użytkownicy
+1. Każda dodana grupa lub użytkownik jest domyślnie włączony do korzystania z Microsoft Authenticator zarówno w trybie powiadomień wypychanych, jak i na wypchnięciu ("dowolny"). Aby to zmienić, dla każdego wiersza:
+   1. Przejdź do **...**  >  **Skonfiguruj**.
+   1. W przypadku **trybu uwierzytelniania** -dowolnego hasła lub wypychania
 1. Aby zastosować nowe zasady, wybierz pozycję **Zapisz**.
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Rejestracja użytkownika i zarządzanie Microsoft Authenticator

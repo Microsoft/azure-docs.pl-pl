@@ -7,25 +7,25 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 4ed881b74f240946d98d9868344c898d3e9a9dad
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341369"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627352"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Model zasobów usługi Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB to w pełni zarządzana platforma jako usługa (PaaS). Aby rozpocząć korzystanie z Azure Cosmos DB, należy najpierw utworzyć konto usługi Azure Cosmos w ramach subskrypcji i baz danych platformy Azure, kontenerów, elementów w tym obszarze. W tym artykule opisano model zasobów Azure Cosmos DB i różne jednostki w hierarchii modeli zasobów.
 
-Konto usługi Azure Cosmos jest podstawową jednostką dystrybucji globalnej i wysokiej dostępności. Twoje konto usługi Azure Cosmos zawiera unikatową nazwę DNS, a konto można zarządzać przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub przy użyciu różnych zestawów SDK specyficznych dla języka. Aby uzyskać więcej informacji, zobacz [jak zarządzać kontem usługi Azure Cosmos](how-to-manage-database-account.md). Aby globalnie rozpowszechnić dane i przepływność w wielu regionach platformy Azure, możesz w dowolnym momencie dodawać i usuwać regiony platformy Azure. Konto można skonfigurować tak, aby miało pojedynczy region lub wiele regionów zapisu. Aby uzyskać więcej informacji, zobacz [jak dodawać i usuwać regiony platformy Azure na koncie](how-to-manage-database-account.md). Można skonfigurować domyślny poziom [spójności](consistency-levels.md) na koncie.
+Konto usługi Azure Cosmos jest podstawową jednostką dystrybucji globalnej i wysokiej dostępności. Twoje konto usługi Azure Cosmos zawiera unikatową nazwę DNS, a konto można zarządzać przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure lub przy użyciu różnych zestawów SDK specyficznych dla języka. Aby uzyskać więcej informacji, zobacz [jak zarządzać kontem usługi Azure Cosmos](how-to-manage-database-account.md). Aby globalnie rozpowszechnić dane i przepływność w wielu regionach platformy Azure, możesz w dowolnym momencie dodawać i usuwać regiony platformy Azure. Konto można skonfigurować tak, aby miało pojedynczy region lub wiele regionów zapisu. Aby uzyskać więcej informacji, zobacz [jak dodawać i usuwać regiony platformy Azure na koncie](how-to-manage-database-account.md). Można skonfigurować domyślny poziom [spójności](consistency-levels.md) na koncie.
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementy na koncie usługi Azure Cosmos
 
-Usługa Azure Cosmos Container jest podstawową jednostką skalowalności. Można praktycznie mieć nieograniczoną przepływność (RU/s) i magazyn w kontenerze. Azure Cosmos DB przezroczyste partycjonowanie kontenera przy użyciu klucza partycji logicznej, który można określić w celu elastycznego skalowania zainicjowanej przepływności i magazynu.
+Kontener usługi Azure Cosmos jest podstawową jednostką skalowalności. Można praktycznie mieć nieograniczoną przepływność (RU/s) i magazyn w kontenerze. Azure Cosmos DB przezroczyste partycjonowanie kontenera przy użyciu klucza partycji logicznej, który można określić w celu elastycznego skalowania zainicjowanej przepływności i magazynu.
 
-Obecnie można utworzyć maksymalnie 50 kont usługi Azure Cosmos w ramach subskrypcji platformy Azure (jest to limit elastyczny, który można zwiększyć za pośrednictwem żądania pomocy technicznej). Pojedyncze konto usługi Azure Cosmos może praktycznie zarządzać nieograniczoną ilością danych i elastyczną przepływność. Aby zarządzać danymi i elastyczną przepływność, można utworzyć co najmniej jedną bazę danych usługi Azure Cosmos na Twoim koncie i w ramach tej bazy danych. można utworzyć jeden lub więcej kontenerów. Na poniższej ilustracji przedstawiono hierarchię elementów na koncie usługi Azure Cosmos:
+Obecnie można utworzyć maksymalnie 50 kont usługi Azure Cosmos w ramach subskrypcji platformy Azure (jest to limit elastyczny, który można zwiększyć za pośrednictwem żądania pomocy technicznej). Pojedyncze konto usługi Azure Cosmos może praktycznie zarządzać nieograniczoną ilością danych i zainicjowaną przepływność. Aby zarządzać danymi i elastyczną przepływność, można utworzyć co najmniej jedną bazę danych usługi Azure Cosmos na Twoim koncie i w ramach tej bazy danych. można utworzyć jeden lub więcej kontenerów. Na poniższej ilustracji przedstawiono hierarchię elementów na koncie usługi Azure Cosmos:
 
 :::image type="content" source="./media/account-databases-containers-items/hierarchy.png" alt-text="Hierarchia konta usługi Azure Cosmos" border="false":::
 
@@ -41,7 +41,7 @@ Na koncie można utworzyć jedną lub wiele baz danych usługi Azure Cosmos. Baz
 
 | Jednostka usługi Azure Cosmos | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- |
-|Baza danych Cosmos Azure | baza danych | Przestrzeń kluczy | baza danych | baza danych | Nie dotyczy |
+|Baza danych Cosmos Azure | baza danych | Przestrzeń kluczy | baza danych | baza danych | NA |
 
 > [!NOTE]
 > Przy tworzeniu pierwszej tabeli przy użyciu kont interfejs API tabel domyślna baza danych zostanie automatycznie utworzona na koncie usługi Azure Cosmos.
@@ -52,10 +52,10 @@ Możesz korzystać z usługi Azure Cosmos Database za pomocą interfejsów API u
 
 | Operacja | Interfejs wiersza polecenia platformy Azure | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- | --- |
-|Wylicz wszystkie bazy danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
-|Odczytaj bazę danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
-|Utwórz nową bazę danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
-|Aktualizowanie bazy danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
+|Wylicz wszystkie bazy danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | NA |
+|Odczytaj bazę danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | NA |
+|Utwórz nową bazę danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | NA |
+|Aktualizowanie bazy danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | NA |
 
 ## <a name="azure-cosmos-containers"></a>Kontenery usługi Azure Cosmos
 
@@ -63,9 +63,9 @@ Kontener usługi Azure Cosmos jest jednostką skalowalności dla zainicjowanej p
 
 Podczas tworzenia kontenera można skonfigurować przepływność w jednym z następujących trybów:
 
-* **Dedykowany Tryb przepływności** : przepustowość zainicjowana w kontenerze jest zarezerwowana wyłącznie dla tego kontenera i jest obsługiwana przez umowy SLA. Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność na kontenerze](how-to-provision-container-throughput.md).
+* **Dedykowany Tryb przepływności**: przepustowość zainicjowana w kontenerze jest zarezerwowana wyłącznie dla tego kontenera i jest obsługiwana przez umowy SLA. Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność na kontenerze](how-to-provision-container-throughput.md).
 
-* **Udostępniony Tryb przepływności** : te kontenery udostępniają przepływność administracyjną z innymi kontenerami w tej samej bazie danych (z wyjątkiem kontenerów, które zostały skonfigurowane z dedykowaną elastyczną przepustowością). Innymi słowy, zainicjowana przepływność w bazie danych jest współużytkowana przez wszystkie kontenery "udostępnione przepływność". Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność w bazie danych](how-to-provision-database-throughput.md).
+* **Udostępniony Tryb przepływności**: te kontenery udostępniają przepływność administracyjną z innymi kontenerami w tej samej bazie danych (z wyjątkiem kontenerów, które zostały skonfigurowane z dedykowaną elastyczną przepustowością). Innymi słowy, zainicjowana przepływność w bazie danych jest współużytkowana przez wszystkie kontenery "udostępnione przepływność". Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność w bazie danych](how-to-provision-database-throughput.md).
 
 > [!NOTE]
 > Można skonfigurować udostępnioną i dedykowaną przepływność tylko podczas tworzenia bazy danych i kontenera. Aby przełączyć się z trybu dedykowanej przepływności do trybu udostępnionej przepływności (i na odwrót) po utworzeniu kontenera, należy utworzyć nowy kontener i zmigrować dane do nowego kontenera. Dane można migrować za pomocą funkcji Azure Cosmos DB ze źródłem zmian.
@@ -113,11 +113,11 @@ Kontener usługi Azure Cosmos obsługuje następujące operacje, gdy używasz do
 
 | Operacja | Interfejs wiersza polecenia platformy Azure | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- | --- |
-| Wyliczanie kontenerów w bazie danych | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
-| Odczytywanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
-| Utwórz nowy kontener | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
-| Aktualizowanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
-| Usuwanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
+| Wyliczanie kontenerów w bazie danych | Tak | Tak | Tak | Tak | Nie dotyczy | NA |
+| Odczytywanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | NA |
+| Utwórz nowy kontener | Tak | Tak | Tak | Tak | Nie dotyczy | NA |
+| Aktualizowanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | NA |
+| Usuwanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | NA |
 
 ## <a name="azure-cosmos-items"></a>Elementy usługi Azure Cosmos
 

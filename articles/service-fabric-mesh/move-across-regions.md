@@ -6,14 +6,19 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260156"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626091"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Przenoszenie aplikacji siatki Service Fabric do innego regionu platformy Azure
+
+> [!IMPORTANT]
+> Wersja zapoznawcza siatki Service Fabric platformy Azure została wycofana. Nowe wdrożenia nie będą już dozwolone za pomocą interfejsu API Service Fabric siatki. Obsługa istniejących wdrożeń będzie kontynuowana do 28 kwietnia 2021.
+> 
+> Aby uzyskać szczegółowe informacje, zobacz wycofywanie w [wersji zapoznawczej usługi Azure Service Fabric siatki](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 W tym artykule opisano sposób przenoszenia aplikacji siatki Service Fabric i jej zasobów do innego regionu platformy Azure. Możesz przenieść zasoby do innego regionu z kilku powodów. Na przykład w odpowiedzi na awarię, aby uzyskać funkcje lub usługi dostępne tylko w określonych regionach, spełniać wewnętrzne wymagania dotyczące zasad i zarządzania lub w odpowiedzi na wymagania dotyczące planowania pojemności.
 
@@ -44,7 +49,7 @@ W tym artykule opisano sposób przenoszenia aplikacji siatki Service Fabric i je
 
 1. Po zakończeniu wdrożenia Przetestuj punkty końcowe aplikacji, aby zweryfikować funkcjonalność aplikacji.
 
-2. Możesz również sprawdzić stan aplikacji, sprawdzając stan aplikacji ([AZ siatk aplikacji show](/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) i przeglądając Dzienniki aplikacji oraz ([AZ siatking-Package-log](/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) polecenia przy użyciu [interfejsu wiersza poleceń usługi Azure Service Fabric siatka](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
+2. Możesz również sprawdzić stan aplikacji, sprawdzając stan aplikacji ([AZ siatk aplikacji show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show)) i przeglądając Dzienniki aplikacji oraz ([AZ siatking-Package-log](/cli/azure/ext/mesh/mesh/code-package-log)) polecenia przy użyciu [interfejsu wiersza poleceń usługi Azure Service Fabric siatka](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Zatwierdzenie
 

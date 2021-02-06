@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797311"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624764"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Ciągła integracja i dostarczanie dla obszaru roboczego usługi Azure Synapse
 
@@ -101,7 +101,7 @@ Użyj rozszerzenia [wdrożenia obszaru roboczego Synapse](https://marketplace.vi
 
      ![Instalowanie rozszerzenia](media/install-extension.png)
 
-1. Upewnij się, że z zasadą usługi potoku usługi Azure DevOps udzielono uprawnienia do subskrypcji, a także przypisano ją jako administratora obszaru roboczego. 
+1. Upewnij się, że jednostka usługi potoku platformy Azure DevOps otrzymała uprawnienia do subskrypcji, a także została przypisana jako administrator obszaru roboczego dla docelowego miejsca pracy. 
 
 1. Utwórz nowe zadanie. Wyszukaj **wdrożenie obszaru roboczego Synapse**, a następnie wybierz pozycję **Dodaj**.
 
@@ -139,8 +139,8 @@ Jeśli korzystasz z integracji narzędzia Git z obszarem roboczym usługi Synaps
 
 ### <a name="use-the-synapse-workspace-deployment-task"></a>Korzystanie z zadania wdrażania obszaru roboczego Synapse
 
-W Synapse wszystkie rodzaje artefaktów nie są zasobami ARM, które różnią się funkcją ADF. Nie można użyć zadania wdrażania szablonu ARM do wdrożenia artefaktów Synapse
+W programie Synapse istnieje wiele artefaktów, które nie są zasobami ARM. Różni się to od Azure Data Factory. Zadanie wdrażania szablonu ARM nie będzie działało prawidłowo w celu wdrożenia artefaktów Synapse
  
 ### <a name="unexpected-token-error-in-release"></a>Nieoczekiwany błąd tokenu w wydaniu
 
-Gdy plik parametrów zawiera wartości parametrów, które nie są wyprowadzane, potok wydania nie może przeanalizować pliku z powodu błędu nieoczekiwanego tokenu. Sugerujemy przesłonięcie parametrów lub magazynu kluczy w celu uzyskania parametrów. Możesz również podwójnie wyucieczkć rozwiązanie jako obejście problemu.
+Gdy plik parametrów zawiera wartości parametrów, które nie są wyprowadzane, potok wersji nie będzie mógł przeanalizować pliku i wygeneruje błąd "Nieoczekiwany token". Sugerujemy przesłonięcie parametrów lub użycie usługi Azure kluczy do pobrania wartości parametrów. Można również użyć podwójnego znaku ucieczki jako obejścia.

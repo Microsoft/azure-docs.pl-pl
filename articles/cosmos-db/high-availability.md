@@ -4,15 +4,15 @@ description: W tym artykule opisano, jak Azure Cosmos DB zapewnia wysoką dostę
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600564"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627386"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Jak Azure Cosmos DB zapewniać wysoką dostępność
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ W rzadkich przypadkach regionalnych awarii Azure Cosmos DB gwarantuje, że baza 
 
 * Podczas awarii regionu odczytu konta usługi Azure Cosmos korzystające z dowolnego poziomu spójności lub silnej spójności z co najmniej trzema regionami odczytu pozostaną wysoce dostępne do odczytu i zapisu.
 
-* Konta usługi Azure Cosmos z silną spójnością w przypadku dwóch lub mniej regionów odczytu (w tym regionu zapisu & odczytu) utracą dostępność zapisu podczas awarii regionu odczytu.
+* Konta usługi Azure Cosmos z silną spójnością z trzema lub mniejszą liczbą regionów (jeden zapis, dwa odczyt) utracą dostępność zapisu podczas awarii regionu odczytu. Jednak klienci z co najmniej czterema regionami mogą skorzystać z funkcji dynamicznego odczytu kworum przez przesłanie biletu pomocy technicznej. Konta, które utrzymują co najmniej dwa regiony odczytu w tej konfiguracji, zachowają dostępność zapisu.
 
 * Region, którego dotyczy problem, jest automatycznie rozłączany i zostanie oznaczony jako w trybie offline. [Zestawy sdk Azure Cosmos DB](sql-api-sdk-dotnet.md) będą przekierowywać wywołania odczytu do następnego dostępnego regionu na liście preferowanych regionów.
 
@@ -112,15 +112,15 @@ Poniższa tabela zawiera podsumowanie możliwości wysokiej dostępności różn
 |Awarie stref — dostępność | Utrata dostępności | Brak utraty dostępności | Brak utraty dostępności | Brak utraty dostępności |
 |Awaria regionalna — utrata danych | Utrata danych |  Utrata danych | Zależne od poziomu spójności. Aby uzyskać więcej informacji [, zobacz kompromisy dotyczące spójności, dostępności i wydajności](consistency-levels-tradeoffs.md) . | Zależne od poziomu spójności. Aby uzyskać więcej informacji [, zobacz kompromisy dotyczące spójności, dostępności i wydajności](consistency-levels-tradeoffs.md) .
 |Awaria regionalna — dostępność | Utrata dostępności | Utrata dostępności | Brak utraty dostępności dla niepowodzenia odczytu regionu, tymczasowego dla niepowodzenia w regionie zapisu | Brak utraty dostępności |
-|Cena (**_1_* _) | Nie dotyczy | Liczba zainicjowanych jednostek RU/s x 1,25 | Liczba zainicjowanych jednostek RU/s x 1,25 (_*_2_*_) | Wieloregionowa stawka zapisu |
+|Cena (***1** _) | Nie dotyczy | Liczba zainicjowanych jednostek RU/s x 1,25 | Liczba zainicjowanych jednostek RU/s x 1,25 (_ *_2_* *) | Wieloregionowa stawka zapisu |
 
-_*_1_*_ w przypadku jednostek żądań bezserwerowych (ru) są mnożone przez współczynnik 1,25.
+***1*** w przypadku jednostek żądań bezserwerowych (ru) są mnożone przez współczynnik 1,25.
 
-_*_2_*_ 1,25 stawka stosowana tylko do tych regionów, w których jest włączona funkcja AZ.
+***2*** 1,25 stawka stosowana tylko do tych regionów, w których jest włączona funkcja AZ.
 
 Strefy dostępności można włączyć za pośrednictwem:
 
-_ [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 

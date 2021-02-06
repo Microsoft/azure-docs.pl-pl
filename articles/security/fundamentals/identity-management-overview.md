@@ -4,8 +4,7 @@ description: Dowiedz się więcej na temat podstawowych funkcji zabezpieczeń pl
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 02/05/2021
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d931d3923ff49dde2bea234278c995e79670429f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843693"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627637"
 ---
-# <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń usługi Azure Identity Management
+# <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń zarządzania tożsamościami platformy Azure
 
  Zarządzanie tożsamościami to proces uwierzytelniania i autoryzacji [podmiotów zabezpieczeń](/windows/security/identity-protection/access-control/security-principals). Obejmuje również kontrolowanie informacji o tych podmiotach zabezpieczeń (tożsamości). Podmioty zabezpieczeń (tożsamości) mogą obejmować usługi, aplikacje, użytkowników, grupy itp. Rozwiązania do zarządzania tożsamościami i dostępem firmy Microsoft pomagają chronić dostęp do aplikacji i zasobów w centrum danych firmy oraz w chmurze. Taka ochrona umożliwia stosowanie dodatkowych poziomów walidacji, takich jak Multi-Factor Authentication i zasady dostępu warunkowego. Monitorowanie podejrzanych działań poprzez zaawansowane raportowanie zabezpieczeń, inspekcje i alerty pomaga ograniczyć potencjalne problemy z zabezpieczeniami. [Azure Active Directory — wersja Premium](../../active-directory/fundamentals/active-directory-whatis.md) zapewnia Logowanie jednokrotne (SSO) do tysięcy aplikacji w chmurze jako usługi (SaaS) oraz dostęp do aplikacji sieci Web uruchamianych lokalnie.
  
@@ -46,7 +45,7 @@ Artykuł koncentruje się na następujących podstawowych możliwościach usług
 * Zarządzanie tożsamościami i dostępem klientów
 * Rejestracja urządzenia
 * Privileged Identity Management
-* Ochrona tożsamości
+* Identity Protection
 * Hybrydowe zarządzanie tożsamościami/Azure AD Connect
 * Przeglądy dostępu w usłudze Azure AD
 
@@ -62,8 +61,8 @@ Nie tylko użytkownicy, którzy nie muszą zarządzać wieloma zestawami nazw u�
 
 Więcej informacji:
 
-* [Przegląd rejestracji jednokrotnej](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Omówienie logowania jednokrotnego](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Wideo na temat podstawowych uwierzytelnień](https://www.youtube.com/watch?v=fbSVgC8nGz4&feature=emb_title)
 * [Seria szybkiego startu w zarządzaniu aplikacjami](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>Zwrotny serwer proxy
@@ -85,7 +84,7 @@ Więcej informacji:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [Co to jest usługa Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Jak działa Multi-Factor Authentication usługi Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Jak działa usługa uwierzytelniania wieloskładnikowego w usłudze Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Kontrola dostępu na podstawie ról platformy Azure
 
@@ -99,7 +98,7 @@ Azure RBAC to system autoryzacji oparty na Azure Resource Manager, który zapewn
 Więcej informacji:
 
 * [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
-* [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)
+* [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Monitorowanie zabezpieczeń, alerty i raporty oparte na uczeniu maszynowym
 
@@ -163,7 +162,7 @@ Więcej informacji:
 * [Co to jest usługa Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Przypisywanie ról w katalogu usługi Azure AD w usłudze PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Ochrona tożsamości
+## <a name="identity-protection"></a>Identity Protection
 
 Azure AD Identity Protection to usługa zabezpieczeń, która zapewnia skonsolidowany wgląd w wykrywanie ryzyka i potencjalne luki w zabezpieczeniach, które mają wpływ na tożsamości w organizacji. Funkcja ochrony tożsamości korzysta z istniejących funkcji wykrywania anomalii usługi Azure AD, które są dostępne za pomocą raportów anomalii związanych z usługą Azure AD. W ramach programu Identity Protection wprowadzono również nowe typy wykrywania ryzyka, które mogą wykrywać anomalie w czasie rzeczywistym.
 

@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aa3ac9d8835cd17387346bb29b3e7c30f286cd1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bba03c35568c013e383c08f0a13f765c1cc8bd
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839728"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625858"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Konfigurowanie zasobu bramy do przesyłania żądań
+
+> [!IMPORTANT]
+> Wersja zapoznawcza siatki Service Fabric platformy Azure została wycofana. Nowe wdrożenia nie będą już dozwolone za pomocą interfejsu API Service Fabric siatki. Obsługa istniejących wdrożeń będzie kontynuowana do 28 kwietnia 2021.
+> 
+> Aby uzyskać szczegółowe informacje, zobacz wycofywanie w [wersji zapoznawczej usługi Azure Service Fabric siatki](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Zasób bramy służy do kierowania ruchem przychodzącym do sieci, w której znajduje się Twoja aplikacja. Skonfiguruj, aby określić reguły, za pomocą których żądania są kierowane do określonych usług lub punktów końcowych w oparciu o strukturę żądania. Aby uzyskać więcej informacji o sieciach i bramach w sieci, zobacz [wprowadzenie do sieci w Service Fabric siatki](service-fabric-mesh-networks-and-gateways.md) . 
 

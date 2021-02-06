@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 02/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 57bc53c28866b3f16e742c27b6a1600bfe6f44ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e2f7f754ae9a1547d6543dba65c69511ab7ceb1
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418827"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624916"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Skonfiguruj OpenVPN dla usługi Azure Point-to-site VPN Gateway
 
@@ -29,7 +29,7 @@ Jeśli nie masz jeszcze działającego środowiska punkt-lokacja, postępuj zgod
 
 ## <a name="2-enable-openvpn-on-the-gateway"></a><a name="enable"></a>2. Włącz OpenVPN na bramie
 
-Włącz OpenVPN na bramie. Przed uruchomieniem następujących poleceń upewnij się, że brama jest już skonfigurowana dla połączeń punkt-lokacja (IKEv2 lub SSTP):
+Włącz OpenVPN na bramie.
 
 ```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name

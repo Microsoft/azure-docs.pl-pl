@@ -51,6 +51,8 @@
   items:
     - name: Tworzenie usługi zaufanego uwierzytelniania przy użyciu rozwiązania Azure Functions
       href: tutorials/trusted-service-tutorial.md
+    - name: 'Podpisywanie żądania HTTP za pomocą sygnatury HMAC przy użyciu języka C #'
+      href: tutorials/hmac-header-tutorial.md
     - name: Przygotowywanie aplikacji sieci Web dla usług komunikacyjnych (Node.js)
       href: tutorials/building-app-start.md
 - name: Pojęcia
@@ -110,6 +112,8 @@
       href: concepts/metrics.md
     - name: Rozwiązywanie problemów
       href: concepts/troubleshooting-info.md
+    - name: Znane problemy
+      href: concepts/known-issues.md
 - name: Samples
   items:
     - name: Połączenia grupowe — przykład dużego obrazu

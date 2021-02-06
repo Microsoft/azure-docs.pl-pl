@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: fa15432072f6478100a378fdbdb697556fdf1dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0bdb3c09aead812e1c16f4d0d17aae58e141809
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842550"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626796"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Samouczek: tworzenie, debugowanie, wdrażanie i aktualizowanie aplikacji usługi Service Fabric Mesh dla wielu usług
+
+> [!IMPORTANT]
+> Wersja zapoznawcza siatki Service Fabric platformy Azure została wycofana. Nowe wdrożenia nie będą już dozwolone za pomocą interfejsu API Service Fabric siatki. Obsługa istniejących wdrożeń będzie kontynuowana do 28 kwietnia 2021.
+> 
+> Aby uzyskać szczegółowe informacje, zobacz wycofywanie w [wersji zapoznawczej usługi Azure Service Fabric siatki](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Niniejszy samouczek jest pierwszą częścią serii. Dowiesz się, jak za pomocą programu Visual Studio można utworzyć aplikację usługi Azure Service Fabric Mesh z frontonem internetowym platformy ASP.NET i usługą zaplecza internetowego interfejsu API platformy ASP.NET Core. Następnie przeprowadzisz debugowanie aplikacji w lokalnym klastrze projektowym. Opublikujesz aplikację na platformie Azure, a następnie dokonasz zmian w konfiguracji i kodzie i uaktualnisz aplikację. Na koniec wyczyścisz nieużywane zasoby platformy Azure, aby zapobiec naliczaniu opłat za nie.
 
@@ -268,7 +273,7 @@ W tym samouczku skupiono się na komunikacji z inną usługą — operacje dodaw
 Po zaimplementowaniu usługi zaplecza należy opracować kod witryny internetowej, w której będą wyświetlane udostępnione elementy do wykonania. Projekt **WebFrontEnd** obejmuje następujące kroki.
 
 Strona internetowa służąca do wyświetlania elementów do wykonania wymaga dostępu do klasy **ToDoItem** i listy.
-W **Eksplorator rozwiązań**Dodaj odwołanie do projektu modelu przez kliknięcie prawym przyciskiem myszy elementu **webfronton** i wybranie pozycji **Dodaj**  >  **odwołanie...** Zostanie wyświetlone okno dialogowe **Menedżer odwołań** .
+W **Eksplorator rozwiązań** Dodaj odwołanie do projektu modelu przez kliknięcie prawym przyciskiem myszy elementu **webfronton** i wybranie pozycji **Dodaj**  >  **odwołanie...** Zostanie wyświetlone okno dialogowe **Menedżer odwołań** .
 
 W oknie dialogowym **Menadżer odwołań** kliknij pole wyboru obok pozycji **Model** i kliknij przycisk **OK**.
 
@@ -346,7 +351,7 @@ Adres URL składa się z nazwy usługi i portu. Wszystkie te informacje można z
 
 > [!IMPORTANT]
 > W poniższych krokach zostaną zmodyfikowane pliki YAML.
-> Do uzyskania efektu wcięcia zmiennych w pliku service.yaml należy użyć spacji, a nie znaków tabulacji. W przeciwnym razie plik nie zostanie skompilowany. Program Visual Studio może wstawiać znaki tabulacji podczas tworzenia zmiennych środowiskowych. Wszystkie znaki tabulacji należy zastąpić spacjami. Mimo że dane wyjściowe debugowania **kompilacji** będą zawierać błędy, aplikacja zostanie uruchomiona, lecz nie będzie działać poprawnie do momentu przekonwertowania tabulatorów na spacje i ponownego skompilowania. Aby upewnić się, że żadne karty nie znajdują się w pliku Service. YAML, można w edytorze programu Visual Studio wyświetlić odstępy, korzystając z **edycji**   >  **zaawansowanego**   >  **wyświetlania białych**znaków.
+> Do uzyskania efektu wcięcia zmiennych w pliku service.yaml należy użyć spacji, a nie znaków tabulacji. W przeciwnym razie plik nie zostanie skompilowany. Program Visual Studio może wstawiać znaki tabulacji podczas tworzenia zmiennych środowiskowych. Wszystkie znaki tabulacji należy zastąpić spacjami. Mimo że dane wyjściowe debugowania **kompilacji** będą zawierać błędy, aplikacja zostanie uruchomiona, lecz nie będzie działać poprawnie do momentu przekonwertowania tabulatorów na spacje i ponownego skompilowania. Aby upewnić się, że żadne karty nie znajdują się w pliku Service. YAML, można w edytorze programu Visual Studio wyświetlić odstępy, korzystając z **edycji**   >  **zaawansowanego**   >  **wyświetlania białych** znaków.
 > Należy pamiętać, że pliki service.yaml są przetwarzane przy użyciu ustawień regionalnych języka angielskiego. Na przykład dla separatora dziesiętnego należy zastosować kropkę, a nie przecinek.
 
 W **Eksploratorze rozwiązań** przejdź do projektu **ToDoService**, a następnie otwórz plik **Zasoby usługi** > **service.yaml**.

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4cafe9af1eb5a765ab86bafb63cc9ab7d0889dc8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353548"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627603"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Pojęcia powiązań i wyzwalaczy usługi Azure Functions
 
@@ -39,16 +39,19 @@ Te przykłady nie są wyczerpujące, ale są dostarczane w celu zilustrowania, j
 
 ###  <a name="trigger-and-binding-definitions"></a>Definicje wyzwalacza i powiązania
 
-Wyzwalacze i powiązania są zdefiniowane inaczej w zależności od podejścia do programowania.
+Wyzwalacze i powiązania są zdefiniowane w różny sposób w zależności od języka programowania.
 
-| Platforma | Wyzwalacze i powiązania są konfigurowane przez... |
+| Język | Wyzwalacze i powiązania są konfigurowane przez... |
 |-------------|--------------------------------------------|
 | Biblioteka klas języka C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dekorowania nazwy metod i parametrów przy użyciu atrybutów języka C# |
-| Wszystkie inne (w tym Azure Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aktualizowanie [function.jsna](./functions-reference.md) ([schemat](http://json.schemastore.org/function)) |
+| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dekorowania nazwy metod i parametrów za pomocą adnotacji języka Java  | 
+| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aktualizowanie [function.jsna](./functions-reference.md) ([schemat](http://json.schemastore.org/function)) |
 
-Portal udostępnia interfejs użytkownika dla tej konfiguracji, ale można edytować plik bezpośrednio, otwierając **Edytor zaawansowany** dostępny za pośrednictwem karty **integracja** funkcji.
+W przypadku języków, które są zależne od function.json, Portal udostępnia interfejs użytkownika do dodawania powiązań na karcie **integracja** . Możesz również edytować plik bezpośrednio w portalu na karcie **Code + test** w funkcji. Visual Studio Code umożliwia łatwe [dodanie powiązania do function.jsw pliku](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) przez dogodny zestaw postanowień. 
 
-W programie .NET typ parametru definiuje typ danych danych wejściowych. Na przykład, użyj, `string` Aby powiązać z tekstem wyzwalacza kolejki, tablicę bajtową do odczytu jako Binary i typ niestandardowy do deserializacji do obiektu.
+W .NET i Java, typ parametru definiuje typ danych danych wejściowych. Na przykład, użyj, `string` Aby powiązać z tekstem wyzwalacza kolejki, tablicę bajtową do odczytu jako Binary i niestandardowy typ do deserializacji do obiektu. Ponieważ funkcje biblioteki klas .NET i funkcje języka Java nie polegają na *function.jsna* potrzeby definicji powiązań, nie można ich tworzyć i edytować w portalu. Edytowanie w portalu c# opiera się na skrypcie języka C#, który używa *function.js* zamiast atrybutów.
+
+Aby dowiedzieć się więcej na temat dodawania powiązań do istniejących funkcji, zobacz [łączenie funkcji z usługami platformy Azure przy użyciu powiązań](add-bindings-existing-function.md).
 
 W przypadku języków, które są dynamicznie wpisywane, takich jak JavaScript, użyj `dataType` właściwości w *function.js* pliku. Na przykład, aby odczytać zawartość żądania HTTP w formacie binarnym, ustaw opcję `dataType` na `binary` :
 
