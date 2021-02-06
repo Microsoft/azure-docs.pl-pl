@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488718"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627783"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -111,7 +111,7 @@ Obecnie program Terraform nie obsługuje kontenerów magazynu analitycznego. Aby
 
 ### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>Czy wartość czasu wygaśnięcia dla danych analitycznych jest obsługiwana na poziomie kontenera i elementu?
 
-W tej chwili czas TTl dla danych analitycznych można skonfigurować tylko na poziomie kontenera i nie ma obsługi ustawiania analitycznego czasu wygaśnięcia na poziomie elementu.
+Obecnie wartość TTL dla danych analitycznych można skonfigurować tylko na poziomie kontenera i ustawianie analitycznego czasu wygaśnięcia na poziomie elementu nie jest obsługiwane.
 
 ### <a name="after-setting-the-container-level--analytical-ttl-on-an-azure-cosmos-db-container-can-i-change-to-a-different-value-later"></a>Czy po ustawieniu wartości czasu wygaśnięcia analitycznego na poziomie kontenera Azure Cosmos DB można zmienić inną wartość później?
 

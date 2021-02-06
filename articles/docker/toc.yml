@@ -1,10 +1,10 @@
 - name: Dokumentacja platformy Docker
   href: index.yml
 - name: Szybki start
-  expanded: true
   items:
     - name: Wdrażanie maszyny wirtualnej z systemem Ubuntu przy użyciu platformy Docker
       href: 'https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/'
+  expanded: true
 - name: Samouczki
   items:
     - name: Aplikacja internetowa w języku Python z platformami Docker i PostgreSQL
@@ -15,8 +15,6 @@
   items:
     - name: Rozszerzenie maszyny wirtualnej Docker
       href: 'https://github.com/Azure/azure-docker-extension/blob/master/README.md'
-    - name: Docker Machine
-      href: ../virtual-machines/linux/docker-machine.md
     - name: Rejestr kontenerów platformy Docker
       href: ../container-registry/container-registry-get-started-portal.md
 - name: Zasoby

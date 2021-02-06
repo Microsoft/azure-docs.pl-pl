@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 02/04/2021
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f3458c3b12b3151fd20531282f56ed2f1fd29b6b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359531"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627720"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -55,7 +55,7 @@ Centrum to sieć wirtualna, która może zawierać bramy do funkcji lokacja-loka
 
 ## <a name="create-a-site"></a><a name="site"></a>Tworzenie witryny
 
-Teraz można przystąpić do tworzenia lokacji odpowiadających Twoim lokalizacji fizycznej. Możesz utworzyć dowolną liczbę lokacji, tak aby odpowiadała liczbie lokalizacji fizycznych. Jeśli na przykład masz oddziały w Nowym Jorku, Londynie i Los Angeles, należy utworzyć trzy oddzielne lokacje. W tych lokacjach znajdują się punkty końcowe lokalnych urządzeń sieci VPN. W wirtualnej sieci WAN można utworzyć maksymalnie 1000 witryn na koncentratorze wirtualnym. Jeśli masz wiele centrów, możesz utworzyć 1000 dla każdego z tych centrów. Jeśli masz urządzenie z wirtualnym partnerem WAN (link INSERT), skontaktuj się z nimi, aby dowiedzieć się więcej o automatyzacji na platformie Azure. Zwykle Automatyzacja oznacza proste środowisko klikania, które umożliwia eksportowanie informacji o gałęziach o dużej skali na platformę Azure oraz Konfigurowanie łączności z CPE do bramy sieci VPN Azure Virtual WAN. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące automatyzacji od platformy Azure do partnerów CPE](virtual-wan-configure-automation-providers.md).
+W tej sekcji utworzysz lokację. Lokacje odpowiadają lokalizacji fizycznej. Utwórz tyle witryn, ile potrzebujesz. Jeśli na przykład masz oddziały w Nowym Jorku, Londynie i Los Angeles, należy utworzyć trzy oddzielne lokacje. W tych lokacjach znajdują się punkty końcowe lokalnych urządzeń sieci VPN. W wirtualnej sieci WAN można utworzyć maksymalnie 1000 witryn na koncentratorze wirtualnym. Jeśli masz wiele centrów, możesz utworzyć 1000 dla każdego z tych centrów. Jeśli masz urządzenie z wirtualnym partnerem WAN CPE, skontaktuj się z nimi, aby dowiedzieć się więcej o automatyzacji na platformie Azure. Zazwyczaj Automatyzacja oznacza proste środowisko klikania do eksportowania informacji o gałęziach o dużej skali na platformę Azure oraz konfigurowania łączności od CPE do bramy sieci VPN Azure Virtual WAN. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące automatyzacji od platformy Azure do partnerów CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -78,19 +78,19 @@ Skorzystaj z konfiguracji urządzenia sieci VPN, aby skonfigurować swoje lokaln
 3. Po zakończeniu tworzenia pliku możesz kliknąć link, aby go pobrać.
 4. Zastosuj konfigurację do lokalnego urządzenia sieci VPN.
 
-### <a name="understanding-the-vpn-device-configuration-file"></a>Opis pliku konfiguracji urządzenia sieci VPN
+### <a name="about-the-vpn-device-configuration-file"></a>Informacje o pliku konfiguracji urządzenia sieci VPN
 
 Plik konfiguracji urządzenia zawiera ustawienia używane podczas konfigurowania lokalnego urządzenia sieci VPN. Podczas przeglądania tego pliku należy zwrócić uwagę na następujące informacje:
 
 * **vpnSiteConfiguration —** ta sekcja zawiera szczegółowe informacje o urządzeniu skonfigurowanym jako lokacja połączona z wirtualną sieci WAN. Zawiera nazwę i publiczny adres IP urządzenia w oddziale.
 * **vpnSiteConnections —** Ta sekcja zawiera informacje o następujących ustawieniach:
 
-    * **Przestrzeń adresowa** sieci wirtualnej koncentratora<br>Przykład:
+    * **Przestrzeń adresowa** wirtualnej koncentratora (s).<br>Przykład:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Przestrzeń adresowa** sieci wirtualnych, które są połączone z koncentratorem<br>Przykład:
+    * **Przestrzeń adresowa** sieci wirtualnych, która jest połączona z centrum.<br>Przykład:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -236,7 +236,7 @@ Na stronie **edytowanie VPN Gateway** można wyświetlić następujące ustawien
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Wyświetl konfigurację" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Zastąp wartość „myResourceGroup” nazwą grupy zasobów, a następnie uruchom następujące polecenie programu PowerShell:
 

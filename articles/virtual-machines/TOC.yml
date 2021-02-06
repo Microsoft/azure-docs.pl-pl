@@ -107,26 +107,15 @@
       href: ./workloads/mainframe-rehosting/overview.md
     - name: Bazy danych
       items:
-        - name: Baza danych MySQL w systemie SUSE
-          href: ./linux/mysql-on-opensuse.md
         - name: MongoDB
           items:
-            - name: Linux
-              href: ./linux/install-mongodb.md
             - name: Windows
               href: ./windows/install-mongodb.md
-        - name: PostgreSQL
-          href: ./linux/postgresql-install.md
         - name: Baza danych MS SQL w systemie Linux
           href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: Obliczenia o wysokiej wydajności (HPC)
       href: /azure/architecture/topics/high-performance-computing/
     - name: Kontenery
-      items:
-        - name: Korzystanie z narzędzia Docker Machine
-          href: ./linux/docker-machine.md
-        - name: Korzystanie z narzędzia Docker Compose
-          href: ./linux/docker-compose-quickstart.md
     - name: Visual Studio
       href: ./windows/using-visual-studio-vm.md
 - name: Wystąpienia
@@ -979,10 +968,18 @@
       href: disks-scalability-targets.md
     - name: Tworzenie kopii zapasowych i ochrona danych
       items:
-        - name: Kopia zapasowa i odzyskiwanie po awarii dla dysków
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Włącz migawki przyrostowe
           href: disks-incremental-snapshots.md
+        - name: Kopia zapasowa dysku na platformie Azure
+          items:
+            - name: Omówienie
+              href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
+            - name: Konfigurowanie kopii zapasowej na dysku platformy Azure
+              href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
+            - name: Przywracanie dysków za pomocą usługi Kopia zapasowa Azure Disk
+              href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
+        - name: Kopia zapasowa i odzyskiwanie po awarii dla dysków
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Tworzenie migawek dysku — interfejs wiersza polecenia
           href: ./linux/snapshot-copy-managed-disk.md
         - name: Tworzenie migawek dysku — PowerShell
@@ -1281,8 +1278,6 @@
       href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
     - name: Monitorowanie maszyn wirtualnych
       items:
-        - name: Linux
-          href: ./linux/tutorial-monitor.md
         - name: Windows
           href: ./windows/tutorial-monitor.md
     - name: Agenci

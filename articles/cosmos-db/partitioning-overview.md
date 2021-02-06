@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a70cfc7ab01dabd3d740d878acb453b4d1e76b5f
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507422"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627778"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partycjonowanie i skalowanie w poziomie w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -42,7 +42,7 @@ Liczba partycji fizycznych w kontenerze zależy od następujących elementów:
 * Łączny magazyn danych (poszczególne partycje fizyczne mogą przechowywać do 50 GB danych).
 
 > [!NOTE]
-> Partycje fizyczne są wewnętrzną implementacją systemu i są w całości zarządzane przez Azure Cosmos DB. Podczas opracowywania rozwiązań nie należy skoncentrować się na partycjach fizycznych, ponieważ nie można ich kontrolować zamiast kluczy partycji. W przypadku wybrania klucza partycji, który równomiernie dystrybuuje zużycie przepływności między partycjami logicznymi, należy zapewnić zrównoważenie zużycia przepływności w ramach partycji fizycznych.
+> Partycje fizyczne są wewnętrzną implementacją systemu i są w całości zarządzane przez Azure Cosmos DB. Podczas opracowywania rozwiązań nie należy skoncentrować się na partycjach fizycznych, ponieważ nie można ich kontrolować. Zamiast tego należy skoncentrować się na kluczach partycji. W przypadku wybrania klucza partycji, który równomiernie dystrybuuje zużycie przepływności między partycjami logicznymi, należy zapewnić zrównoważenie zużycia przepływności w ramach partycji fizycznych.
 
 Brak limitu całkowitej liczby partycji fizycznych w kontenerze. W miarę zwiększania się przepustowości lub rozmiaru danych Azure Cosmos DB automatycznie utworzy nowe partycje fizyczne, dzieląc istniejące. Podział partycji fizycznych nie ma wpływu na dostępność aplikacji. Po podziale partycji fizycznej wszystkie dane w jednej partycji logicznej nadal będą przechowywane na tej samej partycji fizycznej. Podział partycji fizycznej po prostu tworzy nowe mapowanie partycji logicznych na partycje fizyczne.
 
