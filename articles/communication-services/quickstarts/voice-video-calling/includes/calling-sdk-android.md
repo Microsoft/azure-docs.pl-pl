@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 5d81e37ab547d12e33cfacb9725d9bdb22666142
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 26e39b8f0429995bfa336c4971c76f90d903ff55
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97628727"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628895"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -111,7 +111,9 @@ call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Umieszczenie 1: n połączenia z użytkownikami i PSTN
 > [!WARNING]
-> Obecnie wywoływanie PSTN nie jest dostępne, aby nawiązać połączenie 1: n z użytkownikiem i numerem sieci PSTN, aby określić numer telefonu wywoływany.
+> Obecnie wywoływanie PSTN jest niedostępne
+
+Aby umieścić 1: n wywołanie dla użytkownika i numer sieci PSTN, musisz określić numer telefonu wywoływany.
 Zasób usług komunikacyjnych musi być skonfigurowany tak, aby zezwalał na nawiązywanie połączeń PSTN:
 ```java
 CommunicationUser acsUser1 = new CommunicationUser(<USER_ID>);
@@ -629,7 +631,7 @@ DeviceManager deviceManager = callClient.getDeviceManager().get();
 
 ### <a name="enumerate-local-devices"></a>Wyliczanie urządzeń lokalnych
 
-Aby uzyskać dostęp do urządzeń lokalnych, można użyć metod wyliczania na Menedżer urządzeń. Wyliczenie jest akcją synchroniczną.
+Aby uzyskać dostęp do urządzeń lokalnych, można użyć metod wyliczania na Device Manager. Wyliczenie jest akcją synchroniczną.
 
 ```java
 //  Get a list of available video devices for use.

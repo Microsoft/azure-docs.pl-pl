@@ -5,20 +5,16 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 48a7912b1a6375111b6f9af1496cbbd41966202c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9ba0e7173c41e26a698596fa18bf1fc1453f3fb3
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183929"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628926"
 ---
-### <a name="which-regions-are-available"></a><a name="regions"></a>Które regiony są dostępne?
-
-[!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
-
 ### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>Czy do nawiązania połączenia za pośrednictwem usługi Azure bastionu potrzebny jest publiczny adres IP na mojej maszynie wirtualnej?
 
 Nie. Po nawiązaniu połączenia z maszyną wirtualną za pomocą usługi Azure bastionu nie potrzebujesz publicznego adresu IP na maszynie wirtualnej platformy Azure, z którą nawiązujesz połączenie. Usługa bastionu otworzy sesję/połączenie RDP/SSH z maszyną wirtualną za pośrednictwem prywatnego adresu IP maszyny wirtualnej w sieci wirtualnej.
