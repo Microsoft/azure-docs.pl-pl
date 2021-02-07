@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784799"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807567"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identyfikowanie zaawansowanych zagrożeń przy użyciu funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik
 
 > [!IMPORTANT]
 >
-> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** w programie **_All_* _ lokalizacje geograficzne i regiony.
+> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** we **_wszystkich_** obszarach i regionach platformy Azure.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Co to jest Analiza zachowań użytkowników i jednostek (UEBA)?
 
@@ -35,7 +35,7 @@ Identyfikowanie zagrożeń w organizacji i ich potencjalny wpływ — czy zagro�
 
 Funkcja UEBA na platformie Azure wskaźnikowa eliminuje drudgery z obciążeń analityków oraz niepewność z ich wysiłków i zapewnia wysoką wierność, z możliwością podejmowania działań, dzięki czemu mogą skupić się na badaniu i korygowaniu.
 
-Ponieważ wskaźnik na platformie Azure zbiera dzienniki i alerty ze wszystkich połączonych źródeł danych, analizuje je i tworzy podstawowe profile zachowań organizacji (użytkowników, hostów, adresów IP, aplikacji itp.) w zakresie grup czasu i elementów równorzędnych. Korzystając z różnych technik i możliwości uczenia maszynowego, wskaźnik kontrolny może następnie identyfikować nietypowe działanie i pomóc w ustaleniu, czy zasób został naruszony. Nie tylko jest to możliwe, ale może również ustalić względną czułość poszczególnych zasobów, zidentyfikować grupy elementów równorzędnych i oszacować potencjalny wpływ danego środka trwałego (jego "serwer"). Dzięki tym informacjom można skutecznie określić priorytety badania i obsługi zdarzeń. 
+Ponieważ wskaźnik platformy Azure zbiera dzienniki i alerty ze wszystkich połączonych źródeł danych, analizuje je i tworzy podstawowe profile zachowań organizacji (takich jak użytkownicy, hosty, adresy IP i aplikacje) w zakresie grup czasu i elementów równorzędnych. Korzystając z różnych technik i funkcji uczenia maszynowego, wskaźnik na platformie Azure może następnie identyfikować nietypowe działanie i pomóc w ustaleniu, czy zasób został naruszony. Nie tylko jest to możliwe, ale może również ustalić względną czułość poszczególnych zasobów, zidentyfikować grupy elementów równorzędnych i oszacować potencjalny wpływ danego środka trwałego (jego "serwer"). Dzięki tym informacjom można skutecznie określić priorytety badania i obsługi zdarzeń. 
 
 ### <a name="architecture-overview"></a>Omówienie architektury
 
@@ -45,7 +45,7 @@ Ponieważ wskaźnik na platformie Azure zbiera dzienniki i alerty ze wszystkich 
 
 Inspirowany modelem firmy Gartner dla rozwiązań UEBA, wskaźnik na platformie Azure zawiera podejście "zewnętrzne", w oparciu o trzy ramki odniesienia:
 
-- _ *Przypadki użycia:** przez wyznaczanie priorytetów dla odpowiednich wektorów ataków i scenariuszy opartych na badaniach bezpieczeństwa, które są wyrównane z MITRE ATT&taktykę, technikami i technikami podrzędnymi, które umieszczają różne jednostki jako ofiary, sprawcy lub punkty obrotu w łańcuchu kasowania; Platforma Azure wskaźnikowego koncentruje się w szczególności na najbardziej cennych dziennikach, które mogą być obsługiwane przez źródło danych.
+- **Przypadki użycia:** Dzięki wykorzystaniu priorytetów dla odpowiednich wektorów ataków i scenariuszy opartych na badaniach bezpieczeństwa, które są wyrównane z MITRE ATT&taktykę, technikami i technikami podrzędnymi, które umieszczają różne jednostki jako ofiary, samodziałania lub punkty obrotu w łańcuchu kasowania; Platforma Azure wskaźnikowego koncentruje się w szczególności na najbardziej cennych dziennikach, które mogą być obsługiwane przez źródło danych.
 
 - **Źródła danych:** Podczas pierwszej i najwyższego poziomu obsługi źródeł danych platformy Azure wskaźnik Thoughtfully na platformie Azure wybiera źródła danych innych firm, aby zapewnić dane zgodne z naszymi scenariuszami zagrożeń.
 
@@ -68,7 +68,7 @@ Każde działanie jest oceniane z uwzględnieniem "oceny priorytetu badania", kt
 
 Zapoznaj się z tematem jak działa Analiza zachowań w [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) .
 
-## <a name="entities-in-azure-sentinel"></a>Jednostki na platformie Azure — wskaźnik
+## <a name="entities-in-azure-sentinel"></a>Jednostki w usłudze Azure Sentinel
 
 ### <a name="entity-identifiers"></a>Identyfikatory jednostek
 

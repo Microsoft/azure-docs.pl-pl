@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: dfd8f94dc7ab4e428647b8f44a86a2cd06634e2a
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757123"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807245"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy
 
@@ -127,7 +127,7 @@ Możliwości polowania między obszarami roboczymi umożliwiają administratorom
 
 Aby skonfigurować wiele obszarów roboczych usługi Azure wskaźnikowych i zarządzać nimi, należy zautomatyzować korzystanie z interfejsu API zarządzania wskaźnikami platformy Azure. Aby uzyskać więcej informacji na temat automatyzowania wdrożenia zasobów usługi Azure wskaźnikowego, w tym reguł alertów, zapytań łowieckich, skoroszytów i elementy PlayBook, zobacz [rozszerzanie wskaźnikowego platformy Azure: interfejsy API, integracja i Automatyzacja zarządzania](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
-Zobacz również [wdrażanie platformy Azure i zarządzanie nią jako kodu](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) oraz [łączenie Lighthouse platformy Azure z możliwościami DevOpsi kontrolki](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) do skonsolidowanej, współtworzonej przez społeczność metodologii do zarządzania wskaźnikiem na platformie Azure jako kodu oraz do wdrażania i konfigurowania zasobów z prywatnego repozytorium GitHub. 
+Zobacz też [wdrażanie i zarządzanie wskaźnikiem na platformie Azure jako kod](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) i [łączenie usługi Azure Lighthouse z możliwościami DevOpsą](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) platformy Azure, w ramach skonsolidowanej, współtworzonej przez społeczność metodologii do zarządzania systemem Azure wskaźnikowego jako kodu oraz do wdrażania i konfigurowania zasobów z prywatnego repozytorium GitHub. 
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Zarządzanie obszarami roboczymi w dzierżawach przy użyciu usługi Azure Lighthouse
 

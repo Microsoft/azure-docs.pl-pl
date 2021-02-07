@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433023"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807228"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alerty zabezpieczeń w Centrum zabezpieczeń Azure
 
@@ -23,7 +23,7 @@ W Security Center istnieje wiele alertów dla wielu różnych typów zasobów. S
 
 Alerty zabezpieczeń są wyzwalane przez zaawansowane wykrywania i są dostępne tylko w usłudze Azure Defender. Dostępna jest bezpłatna wersja próbna. Uaktualnienie można przeprowadzić na stronie **ustawień & cenowych** . Dowiedz się więcej o [cenach Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="respond-to-todays-threats"></a>Reagowanie na bieżące zagrożenia <a name="respond-threats"> </a>
+## <a name="respond-to-todays-threats"></a>Reagowanie na bieżące zagrożenia <a name="respond-threats"></a>
 
 W ciągu ostatnich 20 lat miały miejsce istotne zmiany dotyczące charakteru występujących zagrożeń. W przeszłości firmy zwykle musiały martwić się o rozpiętie witryny sieci Web przez pojedynczych osób atakujących, którzy głównie chcą zobaczyć "co można zrobić". Obecnie osoby atakujące są znacznie bardziej zaawansowane i zorganizowane. Często mają określone cele finansowe i strategiczne. Posiadają również więcej zasobów dostępnych dla nich, ponieważ mogą one być finansowane według państw lub zorganizowanej przestępczości.
 
@@ -91,7 +91,7 @@ Masz szereg opcji wyświetlania alertów poza Security Center, w tym:
 
 - **Pobierz raport CSV** na pulpicie nawigacyjnym alertów umożliwia jednorazowe Eksportowanie do pliku CSV.
 - **Eksport ciągły** z ustawień & cenowych umożliwia skonfigurowanie strumieni alertów zabezpieczeń i zaleceń dotyczących log Analytics obszarów roboczych i Event Hubs. [Dowiedz się więcej na temat eksportu ciągłego](continuous-export.md)
-- **Łącznik wskaźnikowy platformy Azure** przesyła strumieniowo alerty zabezpieczeń z Azure Security Center do platformy Azure. [Dowiedz się więcej na temat łączenia Azure Security Center ze wskaźnikiem kontrolnym](../sentinel/connect-azure-security-center.md)
+- **Łącznik wskaźnikowy platformy Azure** przesyła strumieniowo alerty zabezpieczeń z Azure Security Center do platformy Azure. [Dowiedz się więcej na temat łączenia Azure Security Center z platformą Azure — wskaźnikiem](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33af92c1987d9cd0c88e689dd7bafccadd60cb06
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613568"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805533"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Rozwiązywanie problemów z synchronizacją w chmurze
 
@@ -164,7 +164,7 @@ Usługa Cloud Sync monitoruje kondycję konfiguracji i umieszcza w stanie kwaran
 
 Po wybraniu stanu można wyświetlić dodatkowe informacje o kwarantannie. Możesz również uzyskać kod błędu i komunikat.
 
-![Informacje o stanie kwarantanny](media/how-to-troubleshoot/quarantine-2.png)
+![Zrzut ekranu, na którym są wyświetlane dodatkowe informacje o kwarantannie.](media/how-to-troubleshoot/quarantine-2.png)
 
 Kliknięcie prawym przyciskiem myszy stanu spowoduje wyświetlenie dodatkowych opcji:
     
@@ -172,7 +172,7 @@ Kliknięcie prawym przyciskiem myszy stanu spowoduje wyświetlenie dodatkowych o
    - Wyświetl agenta
    - Wyczyść kwarantannę
 
-![Informacje o stanie kwarantanny](media/how-to-troubleshoot/quarantine-4.png)
+![Zrzut ekranu, na którym są wyświetlane opcje menu dostępnego po kliknięciu prawym przyciskiem myszy.](media/how-to-troubleshoot/quarantine-4.png)
 
 
 ### <a name="resolve-a-quarantine"></a>Rozwiązywanie kwarantanny
@@ -186,7 +186,7 @@ Aby wyczyścić znak wodny i uruchomić synchronizację Delta w zadaniu aprowiza
 
 Powinna zostać wyświetlona informacja, że Kwarantanna jest czyszczona.
 
-![Informacje o stanie kwarantanny](media/how-to-troubleshoot/quarantine-5.png)
+![Zrzut ekranu przedstawiający informację o tym, że Kwarantanna jest czyszczona.](media/how-to-troubleshoot/quarantine-5.png)
 
 Następnie stan agenta powinien być widoczny w dobrej kondycji.
 

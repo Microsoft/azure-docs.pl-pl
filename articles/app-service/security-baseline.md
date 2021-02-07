@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 648e7991784212e4fe781efd5d9f01cb571c5012
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736092"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807856"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Podstawa zabezpieczeń platformy Azure dla App Service
 
@@ -1111,7 +1111,7 @@ Ponadto wyraźnie oznaczaj subskrypcje (na przykład produkcyjne, nieprodukcyjne
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: Uwzględnij alerty zabezpieczeń w systemie odpowiedzi na zdarzenia
 
-**Wskazówki**: eksportowanie alertów i zaleceń dotyczących Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Użyj łącznika danych Security Center do przesyłania strumieniowego z alertów jako dla potrzeb firmy.
+**Wskazówki**: eksportowanie alertów i zaleceń dotyczących Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Użyj łącznika danych Security Center, aby przesyłać strumieniowo alerty do platformy Azure, zgodnie z potrzebami biznesowymi.
 
 - [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md)
 

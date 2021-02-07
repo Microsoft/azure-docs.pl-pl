@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych dziennika systemowego z platformą Azure Microsoft Docs
-description: Połącz wszystkie maszyny lub urządzenia, które obsługują dziennik systemowy na platformie Azure, przy użyciu agenta na komputerze z systemem Linux między urządzeniem a wskaźnikiem kontrolnym.
+description: Połącz wszystkie maszyny lub urządzenia, które obsługują dziennik systemowy na platformie Azure, przy użyciu agenta na komputerze z systemem Linux między urządzeniem a platformą Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 8c3cf4c3c135b3f275542af4f531d1071e180ebe
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 35c8c2aa31887feb294b04b8a88bbe5478659e5e
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747194"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807907"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Zbieranie danych z źródeł opartych na systemie Linux przy użyciu dziennika systemowego
 

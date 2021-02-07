@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: eb1752ea66f2cbebf6a653705b5a760e8e268240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd97aef5d8c959aeb2e0314e051790fd0421585
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937605"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806939"
 ---
 # <a name="azure-sentinel-data-normalization-schema-reference"></a>Dokumentacja schematu normalizacji danych wskaźnikowych platformy Azure
 
 ## <a name="terminology"></a>Terminologia
 
-W schematach kontrolki jest używana następująca terminologia:
+W schematach wskaźnikowych platformy Azure jest używana następująca terminologia:
 
 | Okres | Definicja |
 | ---- | ---------- |
@@ -61,33 +61,33 @@ Poniżej znajduje się schemat tabeli sesji sieciowych, w wersji 1.0.0
 
 | Nazwa pola | Typ wartości | Przykład | Opis | Skojarzone jednostki OSSEM |
 |-|-|-|-|-|
-| Typ zdarzenia | Ciąg | Ruch | Typ zbieranych zdarzeń | Wydarzenie |
-| EventSubType | Ciąg | Uwierzytelnianie | Dodatkowy opis typu, jeśli dotyczy | Wydarzenie |
-| EventCount | Liczba całkowita  | 10 | Liczba zagregowanych zdarzeń, jeśli ma zastosowanie. | Wydarzenie |
-| EventEndTime | Data/godzina | Zobacz "typy danych" | Czas zakończenia zdarzenia | Wydarzenie |
-| EventMessage | ciąg |  Odmowa dostępu | Ogólny komunikat lub opis zawarty w lub wygenerowany z rekordu | Wydarzenie |
+| Typ zdarzenia | Ciąg | Ruch | Typ zbieranych zdarzeń | Zdarzenie |
+| EventSubType | Ciąg | Authentication | Dodatkowy opis typu, jeśli dotyczy | Zdarzenie |
+| EventCount | Liczba całkowita  | 10 | Liczba zagregowanych zdarzeń, jeśli ma zastosowanie. | Zdarzenie |
+| EventEndTime | Data/godzina | Zobacz "typy danych" | Czas zakończenia zdarzenia | Zdarzenie |
+| EventMessage | ciąg |  Odmowa dostępu | Ogólny komunikat lub opis zawarty w lub wygenerowany z rekordu | Zdarzenie |
 | DvcIpAddr | Adres IP |  23.21.23.34 | Adres IP urządzenia generującego rekord | Pliku<br>Adres IP |
 | DvcMacAddr | Ciąg | 06:9F: EB: 8F: 14 | Adres MAC interfejsu sieciowego urządzenia raportowania, z którego wysłano zdarzenie. | Pliku<br>Mac |
 | DvcHostname | Nazwa urządzenia (ciąg) | syslogserver1.contoso.com | Nazwa urządzenia urządzenia generującego komunikat. | Urządzenie |
-| EventProduct | Ciąg | OfficeSharepoint | Produkt generujący zdarzenie. | Wydarzenie |
-| EventProductVersion | ciąg | 9.0 |  Wersja produktu generującego zdarzenie. | Wydarzenie |
-| EventResourceId | Identyfikator urządzenia (ciąg) | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | Identyfikator zasobu urządzenia generującego komunikat. | Wydarzenie |
-| EventReportUrl | Ciąg | https://192.168.1.1/repoerts/ae3-56.htm | Link do pełnego raportu utworzonego przez urządzenie raportujące | Wydarzenie |
-| EventVendor | Ciąg | Microsoft | Dostawca produktu generującego zdarzenie. | Wydarzenie |
-| EventResult | Z wieloma wartościami: sukces, częściowy, Niepowodzenie, [pusty] (ciąg) | Powodzenie | Wynik raportowany dla działania. Wartość pusta, gdy nie ma zastosowania. | Wydarzenie |
-| EventResultDetails | Ciąg | Nieprawidłowe hasło | Przyczyna lub szczegóły wyniku zgłoszonego w EventResult | Wydarzenie |
-| EventSchemaVersion | Rzeczywiste | 0,1 | Wersja schematu wskaźnikowego platformy Azure. Obecnie 0,1. | Wydarzenie |
-| EventSeverity | Ciąg | Niski | Jeśli zgłoszone działanie ma wpływ na bezpieczeństwo, oznacza to, że ważność tego wpływu jest istotna. | Wydarzenie |
-| EventOriginalUid | Ciąg | af6ae8fe-ff43-4a4c-b537-8635976a2b51 | Identyfikator rekordu na urządzeniu sprawozdawczym. | Wydarzenie |
-| EventStartTime | Data/godzina | Zobacz "typy danych" | Czas, w którym podano zdarzenie | Wydarzenie |
+| EventProduct | Ciąg | OfficeSharepoint | Produkt generujący zdarzenie. | Zdarzenie |
+| EventProductVersion | ciąg | 9.0 |  Wersja produktu generującego zdarzenie. | Zdarzenie |
+| EventResourceId | Identyfikator urządzenia (ciąg) | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | Identyfikator zasobu urządzenia generującego komunikat. | Zdarzenie |
+| EventReportUrl | Ciąg | https://192.168.1.1/repoerts/ae3-56.htm | Link do pełnego raportu utworzonego przez urządzenie raportujące | Zdarzenie |
+| EventVendor | Ciąg | Microsoft | Dostawca produktu generującego zdarzenie. | Zdarzenie |
+| EventResult | Z wieloma wartościami: sukces, częściowy, Niepowodzenie, [pusty] (ciąg) | Powodzenie | Wynik raportowany dla działania. Wartość pusta, gdy nie ma zastosowania. | Zdarzenie |
+| EventResultDetails | Ciąg | Nieprawidłowe hasło | Przyczyna lub szczegóły wyniku zgłoszonego w EventResult | Zdarzenie |
+| EventSchemaVersion | Rzeczywiste | 0.1 | Wersja schematu wskaźnikowego platformy Azure. Obecnie 0,1. | Zdarzenie |
+| EventSeverity | Ciąg | Niski | Jeśli zgłoszone działanie ma wpływ na bezpieczeństwo, oznacza to, że ważność tego wpływu jest istotna. | Zdarzenie |
+| EventOriginalUid | Ciąg | af6ae8fe-ff43-4a4c-b537-8635976a2b51 | Identyfikator rekordu na urządzeniu sprawozdawczym. | Zdarzenie |
+| EventStartTime | Data/godzina | Zobacz "typy danych" | Czas, w którym podano zdarzenie | Zdarzenie |
 | TimeGenerated | Data/godzina | Zobacz "typy danych" | Czas wystąpienia zdarzenia (zgłoszone przez źródło raportu). | Pole niestandardowe |
-| EventTimeIngested | Data/godzina | Zobacz "typy danych" | Czas pozyskania zdarzenia na platformie Azure. Zostanie dodany przez wskaźnik na platformie Azure. | Wydarzenie |
-| EventUid | Identyfikator GUID (ciąg) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Unikatowy identyfikator używany przez wskaźnik kontrolny do oznaczania wiersza. | Wydarzenie |
+| EventTimeIngested | Data/godzina | Zobacz "typy danych" | Czas pozyskania zdarzenia na platformie Azure. Zostanie dodany przez wskaźnik na platformie Azure. | Zdarzenie |
+| EventUid | Identyfikator GUID (ciąg) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Unikatowy identyfikator używany przez wskaźnik platformy Azure do oznaczania wiersza. | Zdarzenie |
 | NetworkApplicationProtocol | Ciąg | HTTPS | Protokół warstwy aplikacji używany przez połączenie lub sesję. | Sieć |
 | DstBytes | int | 32455 | Liczba bajtów wysłanych z lokalizacji docelowej do źródła dla połączenia lub sesji. | Element docelowy |
 | SrcBytes | int | 46536 | Liczba bajtów wysłanych ze źródła do miejsca docelowego dla połączenia lub sesji. | Element źródłowy |
 | NetworkBytes | int | 78991 | Liczba bajtów wysłanych w obu kierunkach. Jeśli istnieją zarówno BytesReceived, jak i BytesSent, BytesTotal powinny być równe ich sumie. | Sieć |
-| NetworkDirection | Wiele wartości: przychodzące, wychodzące (ciąg) | Inbound | Kierunek połączenia lub sesji, do lub z organizacji. | Sieć |
+| NetworkDirection | Wiele wartości: przychodzące, wychodzące (ciąg) | Przychodzący | Kierunek połączenia lub sesji, do lub z organizacji. | Sieć |
 | DstGeoCity | Ciąg | Burlington | Miasto skojarzone z docelowym adresem IP | Punktu<br>Obszar geograficzny |
 | DstGeoCountry | Country (ciąg) | USA | Kraj skojarzony ze źródłowym adresem IP | Punktu<br>Obszar geograficzny |
 | DstDvcHostname | Nazwa urządzenia (ciąg) |  victim_pc | Nazwa urządzenia docelowego | Element docelowy<br>Urządzenie |
@@ -135,7 +135,7 @@ Poniżej znajduje się schemat tabeli sesji sieciowych, w wersji 1.0.0
 | SrcDvcOs | Ciąg | iOS | System operacyjny urządzenia źródłowego | Zewnętrz<br>Urządzenie |
 | SrcDvcModelName | Ciąg | Notatka Samsung Galaxy | Nazwa modelu urządzenia źródłowego | Zewnętrz<br>Urządzenie |
 | SrcDvcModelNumber | Ciąg | 10,0 | Numer modelu urządzenia źródłowego | Zewnętrz<br>Urządzenie |
-| SrcDvcType | Ciąg | Komórkowy | Typ urządzenia źródłowego | Zewnętrz<br> Urządzenie |
+| SrcDvcType | Ciąg | Aplikacje mobilne | Typ urządzenia źródłowego | Zewnętrz<br> Urządzenie |
 | SrcIntefaceName | Ciąg | eth01 | Interfejs sieciowy używany dla połączenia lub sesji przez urządzenie źródłowe. | Element źródłowy |
 | SrcInterfaceGuid | Ciąg | 46ad544b-eaf0-47ef-827c-266030f545a6 | Identyfikator GUID używanego interfejsu sieciowego | Element źródłowy |
 | SrcIpAddr | Adres IP | 77.138.103.108 | Adres IP, z którego pochodzi połączenie lub sesja. | Zewnętrz<br>Adres IP |
@@ -169,7 +169,7 @@ Poniżej znajduje się schemat tabeli sesji sieciowych, w wersji 1.0.0
 | FileExtension |  Ciąg | exe | Typ pliku przesyłanego za pośrednictwem połączeń sieciowych dla protokołów takich jak FTP i HTTP. | Plik
 | FileMimeType | Ciąg | Aplikacja/MSWord | Typ MIME pliku przesyłanego za pośrednictwem połączeń sieciowych dla protokołów takich jak FTP i HTTP | Plik |
 | Rozmiar pliku | Liczba całkowita | 23500 | Rozmiar pliku (w bajtach) przesyłanego przez połączenia sieciowe dla protokołów. | Plik |
-| HttpVersion | Ciąg | 2,0 | Wersja żądania HTTP dla połączeń sieciowych HTTP/HTTPS. | HTTP |
+| HttpVersion | Ciąg | 2.0 | Wersja żądania HTTP dla połączeń sieciowych HTTP/HTTPS. | HTTP |
 | HttpRequestMethod | Ciąg | GET | Metoda HTTP dla sesji sieci HTTP/HTTPS. | HTTP |
 | HttpStatusCode | Ciąg | 404 | Kod stanu HTTP dla sesji sieci HTTP/HTTPS. | HTTP |
 | HttpContentType | Ciąg | wieloczęściowe/formularz-dane; granica = coś | Nagłówek typu zawartości odpowiedzi HTTP dla sesji sieci HTTP/HTTPS. | HTTP |

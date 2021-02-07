@@ -1,5 +1,5 @@
 ---
-title: Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption
+title: Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption na maszynie wirtualnej z systemem Windows
 description: Ten artykuł zawiera instrukcje dotyczące tworzenia i konfigurowania magazynu kluczy do użycia z Azure Disk Encryption na maszynie wirtualnej z systemem Windows.
 ms.service: virtual-machines
 ms.subservice: security
@@ -8,14 +8,14 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 41d1161c7fc6fc76c4b7a5cf0af10c42576b99da
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c1fcd639eb55f61c215742d0eec7821e282010a2
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736705"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807518"
 ---
-# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption
+# <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption
 
 Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania dysków i wpisów tajnych oraz zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz Wprowadzenie do [Azure Key Vault](../../key-vault/general/overview.md) i [Zabezpieczanie magazynu kluczy](../../key-vault/general/secure-your-key-vault.md). 
 

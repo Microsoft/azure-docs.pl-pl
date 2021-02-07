@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: d9b77def3ccefe3c866ccef78684d38da0b8a268
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ea62b5df7159440a7538c7db0711b7d8f63ec220
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915151"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806294"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Wyświetlanie i konfigurowanie alertów ochrony przed atakami DDoS
 
@@ -41,13 +41,13 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 Za pomocą tych szablonów można skonfigurować alerty dla wszystkich publicznych adresów IP, na których włączono logowanie diagnostyczne. W związku z tym aby można było używać tych szablonów alertów, najpierw musisz mieć Log Analytics obszar roboczy z włączonymi ustawieniami diagnostycznymi. Zobacz [Wyświetlanie i Konfigurowanie rejestrowania diagnostycznego DDoS](diagnostic-logging.md).
 
 ### <a name="azure-monitor-alert-rule"></a>Reguła alertu Azure Monitor
-Ta [reguła alertu Azure monitor](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) uruchomi proste zapytanie w celu wykrycia, kiedy występuje ograniczenie aktywnego DDoS. Oznacza to potencjalny atak. Grupy akcji mogą służyć do wywoływania akcji w wyniku alertu.
+Ta [reguła alertu Azure monitor](https://aka.ms/ddosmitigationstatus) uruchomi proste zapytanie w celu wykrycia, kiedy występuje ograniczenie aktywnego DDoS. Oznacza to potencjalny atak. Grupy akcji mogą służyć do wywoływania akcji w wyniku alertu.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 
 ### <a name="azure-monitor-alert-rule-with-logic-app"></a>Reguła alertu Azure Monitor z aplikacją logiki
 
-Ten [szablon](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/DDoS%20Mitigation%20Alert%20Enrichment) służy do wdrażania niezbędnych składników wzbogaconego alertu ograniczenia DDoS: Azure monitor regułę alertu, grupę akcji i aplikację logiki. Wynikiem tego procesu jest alert e-mail ze szczegółowymi informacjami o adresie IP w obszarze ataki, w tym informacje o zasobie skojarzonym z adresem IP. Właściciel zasobu zostanie dodany jako odbiorca wiadomości e-mail wraz z zespołem ds. zabezpieczeń. Zostanie również wykonany podstawowy test dostępności aplikacji, a wyniki zostaną uwzględnione w alercie e-mail.
+Ten [szablon](https://aka.ms/ddosalert) służy do wdrażania niezbędnych składników wzbogaconego alertu ograniczenia DDoS: Azure monitor regułę alertu, grupę akcji i aplikację logiki. Wynikiem tego procesu jest alert e-mail ze szczegółowymi informacjami o adresie IP w obszarze ataki, w tym informacje o zasobie skojarzonym z adresem IP. Właściciel zasobu zostanie dodany jako odbiorca wiadomości e-mail wraz z zespołem ds. zabezpieczeń. Zostanie również wykonany podstawowy test dostępności aplikacji, a wyniki zostaną uwzględnione w alercie e-mail.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FDDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 
@@ -62,8 +62,8 @@ Można wybrać dowolną z dostępnych metryk ochrony DDoS, aby poinformować uż
 
     |Ustawienie                  |Wartość                                                                                               |
     |---------                |---------                                                                                           |
-    | Zakres                   | Wybierz pozycję **Wybierz zasób**. </br> Wybierz **subskrypcję** zawierającą publiczny adres IP, który chcesz zalogować, wybierz pozycję **publiczny adres IP** dla opcji **Typ zasobu**, a następnie wybierz konkretny publiczny adres IP, dla którego chcesz rejestrować metryki. </br> Wybierz pozycję **Gotowe**. | 
-    | Warunek | Wybierz pozycję **Wybierz warunek**. </br> W obszarze Nazwa sygnału zaznacz opcję **w obszarze atak DDoS**. </br> W obszarze **operator** wybierz opcję **większe niż lub równe**. </br> W obszarze **typ agregacji** wybierz wartość **Maksymalna**. </br> W obszarze **wartość progowa** wpisz *1*. W przypadku **ataku typu DDoS lub bez** metryki **wartość 0** oznacza, że nie jesteś w trakcie ataku o wartości **1** oznacza to, że jesteś w trakcie ataku. </br> Wybierz pozycję **Gotowe**. | 
+    | Zakres                   | Wybierz pozycję **Wybierz zasób**. </br> Wybierz **subskrypcję** zawierającą publiczny adres IP, który chcesz zalogować, wybierz pozycję **publiczny adres IP** dla opcji **Typ zasobu**, a następnie wybierz konkretny publiczny adres IP, dla którego chcesz rejestrować metryki. </br> Kliknij **Gotowe**. | 
+    | Warunek | Wybierz pozycję **Wybierz warunek**. </br> W obszarze Nazwa sygnału zaznacz opcję **w obszarze atak DDoS**. </br> W obszarze **operator** wybierz opcję **większe niż lub równe**. </br> W obszarze **typ agregacji** wybierz wartość **Maksymalna**. </br> W obszarze **wartość progowa** wpisz *1*. W przypadku **ataku typu DDoS lub bez** metryki **wartość 0** oznacza, że nie jesteś w trakcie ataku o wartości **1** oznacza to, że jesteś w trakcie ataku. </br> Kliknij **Gotowe**. | 
     | Akcje | Wybierz pozycję **Dodaj grupy akcji**. </br> Wybierz pozycję **Utwórz grupę akcji**. </br> W obszarze **powiadomienia** w obszarze **Typ powiadomienia** wybierz pozycję **Poczta E-mail/wiadomość SMS/wypychanie/głos**. </br> W polu **Nazwa** wprowadź _MyUnderAttackEmailAlert_. </br> Kliknij przycisk Edytuj, a następnie wybierz opcję **poczta e-mail** i dowolną spośród następujących opcji, a następnie wybierz przycisk **OK**. </br> Wybierz pozycję **Przejrzyj i utwórz**. | 
     | Szczegóły reguły alertu | W obszarze **Nazwa reguły alertu** wprowadź _MyDdosAlert_. |
 

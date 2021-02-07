@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874910"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807550"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Rejestrowanie i skanowanie dzierżawy Power BI (wersja zapoznawcza)
 
@@ -84,7 +84,7 @@ Najpierw Dodaj specjalną flagę funkcji do adresu URL kontrolą
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Obraz przedstawiający listę źródeł danych dostępnych do wyboru":::
 
-1. Nadaj wystąpieniu Power BI przyjazną nazwę.
+3. Nadaj wystąpieniu Power BI przyjazną nazwę.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Obraz przedstawiający Power BI przyjazną nazwę źródła danych":::
 
@@ -94,17 +94,21 @@ Najpierw Dodaj specjalną flagę funkcji do adresu URL kontrolą
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Zarejestrowano źródło danych Power BI":::
 
-1. Nadaj nazwę skanowaniu. Należy zauważyć, że jedyną obsługiwaną metodą uwierzytelniania jest **tożsamość zarządzana**.
+    > [!Note]
+    > W przypadku Power BI Rejestracja i skanowanie źródła danych jest dozwolone tylko dla jednego wystąpienia.
+
+
+4. Nadaj nazwę skanowaniu. Należy zauważyć, że jedyną obsługiwaną metodą uwierzytelniania jest **tożsamość zarządzana**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Obraz przedstawiający konfigurację skanowania Power BI":::
 
     Nazwa skanowania musi mieć długość od 3-63 znaków i może zawierać tylko litery, cyfry, podkreślenia i łączniki.  Spacje są niedozwolone.
 
-1. Konfigurowanie wyzwalacza skanowania. Opcje są **jednokrotne**, **co 7 dni** i **co 30 dni**.
+5. Konfigurowanie wyzwalacza skanowania. Opcje są **jednokrotne**, **co 7 dni** i **co 30 dni**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Obraz wyzwalacza skanowania":::
 
-1. Na **przejrzeć nowe skanowanie** wybierz pozycję **Zapisz i uruchom** , aby uruchomić skanowanie.
+6. Na **przejrzeć nowe skanowanie** wybierz pozycję **Zapisz i uruchom** , aby uruchomić skanowanie.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Zapisz i uruchom Power BI obraz ekranu":::
 

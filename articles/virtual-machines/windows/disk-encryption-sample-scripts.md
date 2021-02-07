@@ -1,5 +1,5 @@
 ---
-title: Przykładowe skrypty usługi Azure Disk Encryption
+title: Azure Disk Encryption przykładowe skrypty dla maszyn wirtualnych z systemem Windows
 description: Ten artykuł zawiera dodatek do Microsoft Azure szyfrowania dysków dla maszyn wirtualnych z systemem Windows.
 author: msmbaldwin
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 255e284cf8d54a9be59f09f5613cb2728417d234
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f113a1e559798328a2ef81336e8afff02732bb90
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912042"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99804958"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Przykładowe skrypty usługi Azure Disk Encryption 
 
@@ -81,7 +81,7 @@ W poniższej tabeli przedstawiono parametry, których można użyć w skrypcie p
 Poniższe sekcje są niezbędne do przygotowania wstępnie zaszyfrowanego wirtualnego dysku twardego systemu Windows na potrzeby wdrożenia jako zaszyfrowanego wirtualnego dysku twardego w usłudze Azure IaaS. Korzystając z tych informacji, przygotuj i uruchom nową maszynę wirtualną systemu Windows (VHD) na Azure Site Recovery lub na platformie Azure. Aby uzyskać więcej informacji na temat przygotowywania i przekazywania dysku VHD, zobacz [przekazywanie uogólnionego wirtualnego dysku twardego i używanie go do tworzenia nowych maszyn wirtualnych na platformie Azure](upload-generalized-managed.md).
 
 ### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>Aktualizowanie zasad grupy, aby umożliwić ochronę systemu operacyjnego bez modułu TPM
-Skonfiguruj ustawienia zasady grupy funkcji BitLocker **szyfrowanie dysków funkcją BitLocker** , które znajdują się w obszarze Konfiguracja komputera **zasad komputera lokalnego**  >  **Computer Configuration**  >  **Szablony administracyjne**  >  **składniki systemu Windows** . Zmień to ustawienie na **dyski systemu operacyjnego**  >  **Wymagaj dodatkowego uwierzytelniania przy uruchamianiu**  >  **Zezwalaj na używanie funkcji BitLocker bez zgodnego modułu TPM** , jak pokazano na poniższej ilustracji:
+Skonfiguruj ustawienia zasady grupy funkcji BitLocker **szyfrowanie dysków funkcją BitLocker**, które znajdują się w obszarze Konfiguracja komputera **zasad komputera lokalnego**  >    >  **Szablony administracyjne**  >  **składniki systemu Windows**. Zmień to ustawienie na **dyski systemu operacyjnego**  >  **Wymagaj dodatkowego uwierzytelniania przy uruchamianiu**  >  **Zezwalaj na używanie funkcji BitLocker bez zgodnego modułu TPM**, jak pokazano na poniższej ilustracji:
 
 ![Ochrona przed złośliwym kodem zapewniana przez Microsoft na platformie Azure](../media/disk-encryption/disk-encryption-fig8.png)
 

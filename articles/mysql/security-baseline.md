@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7d01e033b6349861d5d89493aa5132368a53ca09
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 0ccba15e210f1737deae00448d63053907e90aeb
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201403"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807805"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Podstawa zabezpieczeń platformy Azure dla Azure Database for MySQL
 
@@ -522,7 +522,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Database for MyS
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
-**Wskazówki**: Azure Database for MySQL obsługuje łączenie serwera MySQL z aplikacjami klienckimi przy użyciu SSL (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją. W Azure Portal upewnij się, że "Wymuszaj połączenie SSL" jest domyślnie włączone dla wszystkich wystąpień Azure Database for MySQL.
+**Wskazówki**: Azure Database for MySQL obsługuje łączenie serwera MySQL z aplikacjami klienckimi przy użyciu Secure SOCKETS Layer (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją. W Azure Portal upewnij się, że "Wymuszaj połączenie SSL" jest domyślnie włączone dla wszystkich wystąpień Azure Database for MySQL.
 
 Obecnie wersja protokołu TLS obsługiwana przez Azure Database for MySQL to TLS 1,0, TLS 1,1, TLS 1,2.
 
@@ -1068,7 +1068,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: Uwzględnij alerty zabezpieczeń w systemie odpowiedzi na zdarzenia
 
-**Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center, aby przesłać strumieniowo wskaźnik do alertów.
+**Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center do przesyłania strumieniowego alertów do usługi Azure wskaźnikowej.
 
 - [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md)
 

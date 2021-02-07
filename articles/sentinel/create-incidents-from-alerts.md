@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fabf847b672f4dbf3e680a21bc7015655c612552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c7c3d69bb26773171e9e0afc9f79ff25909a12a
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906313"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807296"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Automatycznie twórz zdarzenia z alertów zabezpieczeń firmy Microsoft
 
-Alerty wyzwalane w rozwiązaniach zabezpieczeń firmy Microsoft, które są połączone z wskaźnikiem na platformie Azure, takie jak Microsoft Cloud App Security i Microsoft Defender for Identity (dawniej Azure ATP), nie umożliwiają automatycznego tworzenia zdarzeń na platformie Azure. Domyślnie po podłączeniu rozwiązania firmy Microsoft do funkcji wskaźnikowej platformy Azure wszystkie alerty wygenerowane w ramach tej usługi będą przechowywane jako dane pierwotne na platformie Azure, w tabeli alertów zabezpieczeń w obszarze roboczym wskaźnikowego platformy Azure. Następnie możesz użyć tych danych, takich jak wszystkie inne nieprzetworzone dane, które można połączyć w wskaźnik.
+Alerty wyzwalane w rozwiązaniach zabezpieczeń firmy Microsoft, które są połączone z wskaźnikiem na platformie Azure, takie jak Microsoft Cloud App Security i Microsoft Defender for Identity (dawniej Azure ATP), nie umożliwiają automatycznego tworzenia zdarzeń na platformie Azure. Domyślnie po podłączeniu rozwiązania firmy Microsoft do funkcji wskaźnikowej platformy Azure wszystkie alerty wygenerowane w ramach tej usługi będą przechowywane jako dane pierwotne na platformie Azure, w tabeli alertów zabezpieczeń w obszarze roboczym wskaźnikowego platformy Azure. Następnie możesz użyć tych danych, takich jak wszystkie inne nieprzetworzone dane, które nawiązują połączenie z platformą Azure — wskaźnikiem.
 
 Za każdym razem, gdy alert jest wyzwalany w połączonym rozwiązaniu zabezpieczeń firmy Microsoft, można łatwo skonfigurować wskaźnik na platformie Azure do automatycznego tworzenia zdarzeń, postępując zgodnie z instrukcjami w tym artykule.
 

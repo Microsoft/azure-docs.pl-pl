@@ -1,6 +1,6 @@
 ---
 title: Łączenie AWS CloudTrail z platformą Azure — wskaźnikiem Microsoft Docs
-description: Za pomocą łącznika AWS Przekaż dostęp do dzienników zasobów platformy Azure, tworząc relacje zaufania między CloudTrail AWS i wskaźnikiem kontrolnym.
+description: Za pomocą łącznika AWS Przekaż dostęp do dzienników zasobów platformy Azure, tworząc relacje zaufania między CloudTrail AWS i platformą Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: a7405824d2477d2d39c45a56ae545e58a090c321
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3d24fa1ea046a860feb40d09a6d0a57c79371450
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436610"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807601"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Połącz wskaźnik platformy Azure z usługą AWS CloudTrail
 
 Za pomocą łącznika AWS można przesyłać strumieniowo zdarzenia zarządzania AWS CloudTrail do platformy Azure. Ten proces połączenia deleguje dostęp do dzienników zasobów usługi Azure AWS, tworząc relacje zaufania między AWS CloudTrail i platformą Azure. Jest to realizowane w witrynie AWS, tworząc rolę, która przyznaje uprawnienia do uzyskiwania dostępu do dzienników AWS na platformie Azure.
 
 > [!NOTE]
-> AWS CloudTrail ma [wbudowane ograniczenia](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) w interfejsie API LookupEvents. Umożliwia ona nie więcej niż dwie transakcje na sekundę (TPS) na konto, a każde zapytanie może zwrócić maksymalnie 50 rekordów. W związku z tym, jeśli pojedynczy dzierżawca ciągle generuje więcej niż 100 rekordów na sekundę w jednym regionie, to zaległości i opóźnienia w pozyskiwaniu danych.
+> AWS CloudTrail ma [wbudowane ograniczenia](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) w interfejsie API LookupEvents. Umożliwia ona nie więcej niż dwie transakcje na sekundę (TPS) na konto, a każde zapytanie może zwrócić maksymalnie 50 rekordów. Dlatego jeśli jedna dzierżawa regularnie generuje ponad 100 rekordów na sekundę w jednym regionie, powstaną opóźnienia w pozyskiwaniu danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

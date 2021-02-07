@@ -1,5 +1,5 @@
 ---
-title: Tworzenie obrazu na podstawie maszyny wirtualnej
+title: Tworzenie obrazu na podstawie maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się, jak utworzyć obraz w galerii obrazów udostępnionych z poziomu maszyny wirtualnej na platformie Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8aa2623722b5e75480e68324d76e4a1493501df
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ca354ee662ebad0cd514d4822794b056ee6f9850
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685144"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805381"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Tworzenie wersji obrazu z maszyny wirtualnej na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 

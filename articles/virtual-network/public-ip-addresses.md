@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9a80242422631995f6d5c24ba2118ee98a9b8d32
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576180"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806968"
 ---
 # <a name="public-ip-addresses"></a>Publiczne adresy IP
 
@@ -64,7 +64,7 @@ Publiczne adresy IP jednostki SKU:
 > W przypadku korzystania z [usługi metadanych wystąpienia IMDS](../virtual-machines/windows/instance-metadata-service.md)są dostępne tylko publiczne adresy IP z podstawową jednostką SKU. Standardowa jednostka SKU nie jest obsługiwana.
 
 > [!NOTE]
-> Ustawienia diagnostyczne nie są wyświetlane w bloku zasobów w przypadku używania publicznego adresu IP jednostki SKU. Aby włączyć rejestrowanie zasobów publicznego adresu IP Stanrd, przejdź do ustawień diagnostycznych w bloku Azure Monitor i wybierz zasób adres IP.
+> Ustawienia diagnostyczne nie są wyświetlane w bloku zasobów w przypadku używania publicznego adresu IP jednostki SKU. Aby włączyć rejestrowanie zasobów standardowego publicznego adresu IP, przejdź do pozycji Ustawienia diagnostyczne w bloku Azure Monitor i wybierz zasób adres IP.
 
 ### <a name="basic"></a>Podstawowa
 

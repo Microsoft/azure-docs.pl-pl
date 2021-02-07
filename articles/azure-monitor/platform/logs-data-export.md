@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2020
-ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.date: 02/07/2021
+ms.openlocfilehash: 03061f71ee0cceaa39c7ab9b258f9d3a0a84f1be
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895972"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807890"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -28,8 +28,7 @@ Wszystkie dane z dołączonych tabel są eksportowane bez filtra. Na przykład p
 ## <a name="other-export-options"></a>Inne opcje eksportu
 Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Analytics obszaru roboczego. Inne opcje eksportu danych dla konkretnych scenariuszy obejmują następujące elementy:
 
-- Zaplanowano eksport z zapytania dziennika przy użyciu aplikacji logiki. Jest to podobne do funkcji eksportu danych, ale umożliwia wysyłanie filtrowanych lub zagregowanych danych do usługi Azure Storage. Ta metoda jest niezależna od [limitów zapytania log](../service-limits.md#log-analytics-workspaces)  zobacz [dane archiwalne z obszaru roboczego log Analytics do usługi Azure Storage przy użyciu aplikacji logiki](logs-export-logic-app.md).
-- Eksport jednorazowy przy użyciu aplikacji logiki. Zobacz [Azure monitor Logs łącznik Logic Apps i automatyzacji](logicapp-flow-connector.md).
+- Zaplanowano eksport z zapytania dziennika przy użyciu aplikacji logiki. Jest to podobne do funkcji eksportu danych, ale umożliwia wysyłanie filtrowanych lub zagregowanych danych do usługi Azure Storage. Ta metoda jest uzależniona od [limitów zapytania dziennika](../service-limits.md#log-analytics-workspaces), zobacz temat [archiwizowanie danych z obszaru roboczego log Analytics w usłudze Azure Storage przy użyciu aplikacji logiki](logs-export-logic-app.md).
 - Jednorazowe Eksportowanie do komputera lokalnego przy użyciu skryptu programu PowerShell. Zobacz [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
@@ -47,16 +46,7 @@ Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Ana
 - Można utworzyć dwie reguły eksportowania w obszarze roboczym — w programie może istnieć jedna reguła do centrum zdarzeń i jedna reguła do konta magazynu.
 - Docelowe konto magazynu lub centrum zdarzeń musi znajdować się w tym samym regionie co obszar roboczy Log Analytics.
 - Nazwy tabel, które mają zostać wyeksportowane, nie mogą być dłuższe niż 60 znaków dla konta magazynu i nie więcej niż 47 znaków do centrum zdarzeń. Tabele o dłuższych nazwach nie zostaną wyeksportowane.
-
-> [!NOTE]
-> Log Analytics eksportu danych zapisuje dane jako Dołącz obiekt BLOB, który jest obecnie w wersji zapoznawczej dla Azure Data Lake Storage Gen2. Musisz otworzyć żądanie obsługi przed skonfigurowaniem eksportu do tego magazynu. Poniżej przedstawiono szczegóły dotyczące tego żądania.
-> - Typ wydania: Techniczne
-> - Subskrypcja: Twoja subskrypcja
-> - Usługa: Data Lake Storage Gen2
-> - Zasób: nazwa zasobu
-> - Podsumowanie: żądanie rejestracji subskrypcji w celu zaakceptowania danych z eksportu danych Log Analytics.
-> - Typ problemu: łączność
-> - Podtyp problemu: problem z łącznością
+- Obsługa dołączania obiektów BLOB dla Azure Data Lake Storage jest teraz w [ograniczonej publicznej wersji zapoznawczej](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/)
 
 ## <a name="data-completeness"></a>Kompletność danych
 Eksport danych będzie nadal ponawiać próbę wysłania danych przez maksymalnie 30 minut w przypadku, gdy miejsce docelowe jest niedostępne. Jeśli nadal nie jest dostępna po 30 minutach, dane zostaną odrzucone do momentu udostępnienia lokalizacji docelowej.
@@ -76,6 +66,9 @@ Format danych konta magazynu to [wiersze JSON](./resource-logs-blob-format.md). 
 [![Dane przykładowe magazynu](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 Log Analytics eksportu danych może pisać Dodawanie obiektów BLOB do niezmiennych kont magazynu, gdy zasady przechowywania oparte na czasie mają włączone ustawienie *allowProtectedAppendWrites* . Pozwala to na zapisywanie nowych bloków do dołączanego obiektu BLOB przy zachowaniu ochrony i zgodności niezmienności. Zobacz [Zezwalanie na chronione operacje Dołącz obiekty blob](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+> [!NOTE]
+> Obsługa dołączania obiektów BLOB dla Azure Data Lake Storage jest teraz dostępna w wersji zapoznawczej we wszystkich regionach świadczenia usługi Azure. [Zarejestruj się w ograniczonej publicznej wersji zapoznawczej](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) przed utworzeniem reguły eksportowania w celu Azure Data Lake magazynu. Eksport nie będzie działać bez rejestracji.
 
 ### <a name="event-hub"></a>Centrum zdarzeń
 Dane są wysyłane do centrum zdarzeń niemal w czasie rzeczywistym, gdy osiągnie Azure Monitor. Centrum zdarzeń jest tworzone dla każdego typu danych, który jest eksportowany *z nazwą i nazwą tabeli* . Na przykład tabela *SecurityEvent* będzie wysyłana do centrum zdarzeń o nazwie *am-SecurityEvent*. Jeśli chcesz, aby wyeksportowane dane miały dostęp do określonego centrum zdarzeń, lub jeśli masz tabelę o nazwie przekraczającej limit znaków 47, możesz podać własną nazwę centrum zdarzeń i wyeksportować wszystkie dane do określonych tabel.

@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: dołączanie na platformie Azure — wskaźnik'
-description: W tym przewodniku szybki start dowiesz się, jak przejść na platformę Azure, a następnie, a następnie połączyć źródła danych.
+description: W tym przewodniku szybki start dowiesz się, jak dodać wskaźnik do platformy Azure, a następnie włączyć go, a następnie połączyć źródła danych.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 107806b6372360e501fe9cc0a21d25cff5cc35f9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7cb8cb4d99ca8a63195eba21d82814fcd7820f5c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95248649"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807771"
 ---
-# <a name="quickstart-on-board-azure-sentinel"></a>Szybki start: wdrażanie usługi Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Szybki Start: tablica wskaźnikowa platformy Azure
 
 W tym przewodniku szybki start dowiesz się, jak dołączyć wskaźnik do platformy Azure. 
 
@@ -41,7 +41,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 
 ### <a name="geographical-availability-and-data-residency"></a>Dostępność geograficzna i dane miejsca do zamieszkania
 
-- Wskaźnik "Azure" może działać w obszarach roboczych w większości [regionów log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). Czasami nowe regiony Log Analytics mogą chwilę potrwać, aby dołączyć do usługi wskaźnikowej. 
+- Wskaźnik "Azure" może działać w obszarach roboczych w większości [regionów log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). Czasami nowe regiony Log Analytics mogą zająć trochę czasu, aby dołączyć usługę Azure wskaźnikowej. 
 
 - Dane generowane przez wskaźnik na platformie Azure, takie jak zdarzenia, zakładki i reguły analityczne, mogą zawierać niektóre dane klienta pochodzące z Log Analytics obszarów roboczych klienta. Te dane generowane przez wskaźnik na platformie Azure są zapisywane w lokalizacji geograficznej wymienionej w poniższej tabeli, zgodnie z lokalizacją geograficzną, w której znajduje się obszar roboczy:
 
@@ -57,7 +57,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 
 ## <a name="enable-azure-sentinel"></a>Włącz platformę Azure — wskaźnik <a name="enable"></a>
 
-1. Zaloguj się w witrynie Azure Portal. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
+1. Zaloguj się do witryny Azure Portal. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
 
 1. Wyszukaj i wybierz pozycję **wskaźnik na platformie Azure**.
 
@@ -67,7 +67,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 
 1. Wybierz obszar roboczy, którego chcesz użyć, lub Utwórz nowy. Możesz uruchomić wskaźnik platformy Azure na więcej niż jednym obszarze roboczym, ale dane są izolowane do jednego obszaru roboczego.
 
-   ![Wybierz obszar roboczy](./media/quickstart-onboard/choose-workspace.png)
+   ![Wybierz nazwę obszaru roboczego](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Domyślne obszary robocze utworzone przez Azure Security Center nie będą wyświetlane na liście; nie można zainstalować na nich wskaźnikiem na platformie Azure.

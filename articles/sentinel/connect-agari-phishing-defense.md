@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: ba37b2280ba4d7138f4ed652b7b330bcaf7b9935
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3684b5a8069a6b683ae562c527af89814362a7f9
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566878"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806990"
 ---
 # <a name="connect-your-agari-phishing-defense-and-brand-protection-solutions-to-azure-sentinel"></a>Połącz swoje rozwiązania chroniące przed wyłudzaniem informacji Agari i ochrony marki z platformą Azure — wskaźnikiem
 
@@ -58,7 +58,7 @@ Rozwiązania Agari umożliwiają integrację i eksportowanie dzienników bezpoś
 
 1. **Obowiązkowe Włącz interfejs API programu Graph zabezpieczeń:** 
 
-    Agari aplikacja funkcji umożliwia udostępnianie analizy zagrożeń za pośrednictwem interfejs API programu Graph zabezpieczeń. Aby użyć tej funkcji, należy włączyć [Łącznik platformy analizy zagrożeń wskaźnikiem](connect-threat-intelligence.md) , a także [zarejestrować aplikację](/graph/auth-register-app-v2) w Azure Active Directory.
+    Agari aplikacja funkcji umożliwia udostępnianie analizy zagrożeń za pomocą funkcji wskaźnikowej platformy Azure za pośrednictwem interfejs API programu Graph zabezpieczeń. Aby użyć tej funkcji, należy włączyć [Łącznik platformy analizy zagrożeń wskaźnikiem](connect-threat-intelligence.md) , a także [zarejestrować aplikację](/graph/auth-register-app-v2) w Azure Active Directory.
 
     Ten proces zapewnia trzy informacje do użycia podczas wdrażania aplikacja funkcji poniżej: **Identyfikator dzierżawy grafu**, **Identyfikator klienta grafu** i **klucz tajny klienta grafu**.
 

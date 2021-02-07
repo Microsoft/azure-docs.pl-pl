@@ -1,25 +1,25 @@
 ---
-title: Uwierzytelnianie usługi Azure AD dla StorSimple 8000 w Menedżer urządzeń
+title: Uwierzytelnianie usługi Azure AD dla StorSimple 8000 w Device Manager
 description: Wyjaśnia, jak używać uwierzytelniania opartego na usłudze AAD dla usługi, generować nowy klucz rejestracji i przeprowadzać ręczną rejestrację urządzeń.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 0e071a20051f047efbd040dfc01a30e3c1381367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b09d68e7859a787c05a2fc62294f081c4345ae08
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631328"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805044"
 ---
-# <a name="use-azuer-active-directory-ad-authentication-for-your-storsimple"></a>Użyj uwierzytelniania Azuer Active Directory (AD) dla StorSimple
+# <a name="use-azure-active-directory-ad-authentication-for-your-storsimple"></a>Użyj uwierzytelniania Azure Active Directory (AD) dla StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Omówienie
 
-Usługa StorSimple Menedżer urządzeń działa w Microsoft Azure i łączy się z wieloma urządzeniami StorSimple. Do tej pory Usługa StorSimple Menedżer urządzeń używała usługi Access Control Service (ACS) do uwierzytelniania usługi na urządzeniu StorSimple. Mechanizm ACS zostanie wkrótce uznany za przestarzały i zastąpiony przez uwierzytelnianie Azure Active Directory (AAD). Aby uzyskać więcej informacji, przejdź do poniższych powiadomień dotyczących zaniechania usługi ACS i używania uwierzytelniania usługi AAD.
+Usługa StorSimple Device Manager działa w Microsoft Azure i łączy się z wieloma urządzeniami StorSimple. Do tej pory Usługa StorSimple Device Manager używała usługi Access Control Service (ACS) do uwierzytelniania usługi na urządzeniu StorSimple. Mechanizm ACS zostanie wkrótce uznany za przestarzały i zastąpiony przez uwierzytelnianie Azure Active Directory (AAD). Aby uzyskać więcej informacji, przejdź do poniższych powiadomień dotyczących zaniechania usługi ACS i używania uwierzytelniania usługi AAD.
 
 - [Przyszłość usługi Azure ACS jest Azure Active Directory](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/)
 - [Nadchodzące zmiany w Access Control Service firmy Microsoft](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/)
@@ -62,7 +62,7 @@ Jeśli korzystasz z urządzenia z serii StorSimple 8000, Skorzystaj z poniższej
 
 ## <a name="aad-based-registration-keys"></a>Klucze rejestracji oparte na usłudze AAD
 
-Począwszy od aktualizacji Update 5 dla urządzeń z serii StorSimple 8000, używane są nowe klucze rejestracji oparte na usłudze AAD. Klucze rejestracji są używane do rejestrowania usługi StorSimple Menedżer urządzeń z urządzeniem.
+Począwszy od aktualizacji Update 5 dla urządzeń z serii StorSimple 8000, używane są nowe klucze rejestracji oparte na usłudze AAD. Klucze rejestracji są używane do rejestrowania usługi StorSimple Device Manager z urządzeniem.
 
 Nie można użyć nowych kluczy rejestracji usługi AAD, jeśli używasz urządzenia z serii StorSimple 8000 z aktualizacją Update 4 lub starszej wersji (obejmuje to starsze urządzenie, które jest teraz uaktywniane).
 W tym scenariuszu należy ponownie wygenerować klucz rejestracji usługi. Po ponownym wygenerowaniu klucza nowy klucz jest używany do rejestrowania wszystkich kolejnych urządzeń. Stary klucz nie jest już prawidłowy.
@@ -75,7 +75,7 @@ Wykonaj poniższe kroki, aby wygenerować klucz rejestracji usługi AAD.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>Aby wygenerować klucz rejestracji usługi AAD
 
-1. W **StorSimple Menedżer urządzeń**przejdź do pozycji **klucze** ** &gt; zarządzania** . Możesz również użyć paska wyszukiwania, aby wyszukać _klucze_.
+1. W **StorSimple Device Manager** przejdź do pozycji **klucze** **&gt; zarządzania** . Możesz również użyć paska wyszukiwania, aby wyszukać _klucze_.
     
 2. Kliknij przycisk **Wygeneruj klucz**.
 

@@ -10,46 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/26/2021
+ms.date: 2/5/2021
 ms.author: yohaddad
-ms.openlocfilehash: d7873a1b9fa8a404285f39736a4e6ba758fbf22b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d5892d0b2ae2004f8604333294411e849dc8394b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089211"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805888"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
 
 ## <a name="january-2021-guest-os"></a>System operacyjny gościa w styczniu 2021
->[!NOTE]
->System operacyjny gościa w styczniu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w styczniu uwzględniono następujące poprawki. Ta lista może ulec zmianie ".
 
 | Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 21-01 |  [4598230]  |  Najnowsza aktualizacja zbiorcza (LCU) | 6,27 | 12 stycznia 2021 |
-|  Rel 21-01 |  [4580325]  |  Aktualizacja Flash | 3,93, 4,86, 5,51, 6,27 | 13 października 2020 |
-|  Rel 21-01 |  [4586768]  |  Aktualizacje zbiorcze programu IE | 2,106, 3,93, 4,86 | Lis 10, 2020 |
-|  Rel 21-01 |  [4598243]  |  Najnowsza aktualizacja zbiorcza (LCU) | 5,51 | 12 stycznia 2021 |
-|  Rel 21-01 |  [4578952]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 2,106 | 12 stycznia 2021 |
-|  Rel 21-01 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,106 | 12 stycznia 2021 |
-|  Rel 21-01 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 4,86 | 12 stycznia 2021 |
-|  Rel 21-01 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 4,86 | 12 stycznia 2021 |
-|  Rel 21-01 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,93 | 12 stycznia 2021 |
-|  Rel 21-01 |  [4578954]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 3,93 | 12 stycznia 2021 |
-|  Rel 21-01 |  [4578966]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | 6,27 | 13 października 2020 |
-|  Rel 21-01 |  [4598279]  |  Zestawienie miesięczne | 2,106 | 12 stycznia 2020 |
-|  Rel 21-01 |  [4598278]  |  Zestawienie miesięczne | 3,93 | 12 stycznia 2020 |
-|  Rel 21-01 |  [4598285]  |  Zestawienie miesięczne | 4,86 | 12 stycznia 2020 |
-|  Rel 21-01 |  [4566426]  |  Obsługa aktualizacji stosu | 3,93 | 14 lipca 2020 |
-|  Rel 21-01 |  [4566425]  |  Obsługa aktualizacji stosu | 4,86 | 14 lipca 2020 |
-|  Rel 21-01 OOB |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | 4,86 | 19 sierpnia 2020 |
-|  Rel 21-01 |  [4576750]  |  Obsługa aktualizacji stosu | 5,51 | 8 SEP, 2020 |
-|  Rel 21-01 |  [4592510]  |  Obsługa aktualizacji stosu | 2,106 | 8 grudnia 2020 |
-|  Rel 21-01 |  [4598480]  |  Obsługa aktualizacji stosu | 6,27 | 12 stycznia 2021 |
-|  Rel 21-01 |  [4494175]  |  Włączenia mikrokodu | 5,51 | 1, 2020 |
-|  Rel 21-01 |  [4494174]  |  Włączenia mikrokodu | 6,27 | 3, 2020 |
+|  Rel 21-01 |  [4598230]  |  Najnowsza aktualizacja zbiorcza (LCU) | [6,27] | 12 stycznia 2021 |
+|  Rel 21-01 |  [4580325]  |  Aktualizacja Flash | [3,93], [4,86], [5,51], [6,27] | 13 października 2020 |
+|  Rel 21-01 |  [4586768]  |  Aktualizacje zbiorcze programu IE | [2,106], [3,93], [4,86] | Lis 10, 2020 |
+|  Rel 21-01 |  [4598243]  |  Najnowsza aktualizacja zbiorcza (LCU) | [5,51] | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578952]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [2,106] | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [2,106] | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [4,86] | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [4,86] | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [3,93] | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578954]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [3,93] | 12 stycznia 2021 |
+|  Rel 21-01 |  [4578966]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | [6,27] | 13 października 2020 |
+|  Rel 21-01 |  [4598279]  |  Zestawienie miesięczne | [2,106] | 12 stycznia 2020 |
+|  Rel 21-01 |  [4598278]  |  Zestawienie miesięczne | [3,93] | 12 stycznia 2020 |
+|  Rel 21-01 |  [4598285]  |  Zestawienie miesięczne | [4,86] | 12 stycznia 2020 |
+|  Rel 21-01 |  [4566426]  |  Obsługa aktualizacji stosu | [3,93] | 14 lipca 2020 |
+|  Rel 21-01 |  [4566425]  |  Obsługa aktualizacji stosu | [4,86] | 14 lipca 2020 |
+|  Rel 21-01 OOB |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | [4,86] | 19 sierpnia 2020 |
+|  Rel 21-01 |  [4576750]  |  Obsługa aktualizacji stosu | [5,51] | 8 SEP, 2020 |
+|  Rel 21-01 |  [4592510]  |  Obsługa aktualizacji stosu | [2,106] | 8 grudnia 2020 |
+|  Rel 21-01 |  [4598480]  |  Obsługa aktualizacji stosu | [6,27] | 12 stycznia 2021 |
+|  Rel 21-01 |  [4494175]  |  Włączenia mikrokodu | [5,51] | 1, 2020 |
+|  Rel 21-01 |  [4494174]  |  Włączenia mikrokodu | [6,27] | 3, 2020 |
 
 [4598230]: https://support.microsoft.com/kb/4598230
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -73,7 +71,11 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [4598480]: https://support.microsoft.com/kb/4598480
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2,106]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,93]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,86]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,51]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,27]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="december-2020-guest-os"></a>System operacyjny gościa z grudnia 2020
 

@@ -1044,6 +1044,8 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: Włączanie dla istniejącego klastra AKS
               href: insights/container-insights-enable-existing-clusters.md
+            - name: Włącz dla AKS z Azure Policy
+              href: containers/container-insights-enable-aks-policy.md
             - name: Włączanie dla klastra z obsługą usługi Arc
               href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Włączanie dla klastra hybrydowego

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 9117474c3cbf5087a5b63512fcc17c4771bf7aa6
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b63db3d02b471a577586ecd54f56caa59af504d6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343879"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805516"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika rejestracji (wersja zapoznawcza)
 
@@ -36,7 +36,7 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 6. Podaj **adres URL punktu końcowego** dla wywołania interfejsu API.
 7. Podaj informacje o uwierzytelnianiu dla interfejsu API.
 
-   - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź **nazwę użytkownika** "fikcyjnej" i **hasło** , które może ignorować interfejs API. Do użycia z funkcją platformy Azure z kluczem interfejsu API można uwzględnić kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład https []() ://contoso.azurewebsites.NET/API/Endpoint <b>? Code = 0123456789</b>).
+   - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź **nazwę użytkownika** "fikcyjnej" i **hasło** , które może ignorować interfejs API. Aby korzystać z funkcji platformy Azure z kluczem interfejsu API, można dołączyć kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
 
    ![Konfigurowanie nowego łącznika interfejsu API](./media/add-api-connector/api-connector-config.png)
 8. Wybierz pozycję **Zapisz**.
@@ -103,7 +103,7 @@ Wykonaj następujące kroki, aby dodać łącznik interfejsu API do przepływu u
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Po zalogowaniu się za pomocą dostawcy tożsamości
 
-Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (np. Google, Facebook, & usługi Azure AD). Ten krok poprzedza *_stronę kolekcji atrybutów_** _, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. Ten krok nie jest wywoływany, jeśli użytkownik jest rejestrowany przy użyciu konta lokalnego.
+Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (np. Google, Facebook, & usługi Azure AD). Ten krok poprzedza ***stronę kolekcji atrybutów***, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. Ten krok nie jest wywoływany, jeśli użytkownik jest rejestrowany przy użyciu konta lokalnego.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Przykładowe żądanie wysłane do interfejsu API w tym kroku
 ```http
@@ -241,7 +241,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Wersja                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
 | akcja                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrane jako a * wyrażenie aplikacji * *.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrano jako rolę **wniosku**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Nie musi zawierać tego żądania `_<extensions-app-id>_` . Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrano jako rolę **wniosku**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Przykład odpowiedzi blokującej

@@ -63,6 +63,8 @@
       href: azure-netapp-files-faqs.md
     - name: Co to jest narzędzie platformy Azure do tworzenia migawek spójnych na poziomie aplikacji
       href: azacsnap-introduction.md
+    - name: Znaczenie zmiany limitu przydziału twardego na woluminie
+      href: volume-hard-quota-guidelines.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Rejestrowanie w usłudze Azure NetApp Files

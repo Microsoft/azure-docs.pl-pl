@@ -1,6 +1,6 @@
 ---
 title: Dołączanie maszyn wirtualnych Azure Stack Hub do centrów danych platformy Azure | Microsoft Docs
-description: W tym artykule opisano sposób aprowizacji rozszerzenia maszyny wirtualnej Azure Monitor, aktualizacji i zarządzania konfiguracją na maszynach wirtualnych Azure Stack Hub i uruchamiania monitorowania ich przy użyciu centrów kontrolnych.
+description: W tym artykule opisano sposób aprowizacji rozszerzenia maszyny wirtualnej Azure Monitor, aktualizacji i zarządzania konfiguracją na maszynach wirtualnych Azure Stack Hub oraz monitorowania ich przy użyciu centrów na platformie Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 068296a02af0abd2fb18d284fdaf01b7c1b198fa
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 120f160e3c7bc7a9a0e81586ea4b97ee827dd33e
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631146"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807432"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Łączenie maszyn wirtualnych Azure Stack Hub z platformą Azure — wskaźnikiem
 

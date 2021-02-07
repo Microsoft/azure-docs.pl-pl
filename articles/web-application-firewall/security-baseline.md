@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878125"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807873"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Podstawowa usługa Azure Security dla zapory aplikacji sieci Web platformy Azure
 
@@ -135,7 +135,7 @@ Wybierz Azure PowerShell lub interfejs wiersza polecenia platformy Azure, aby wy
 
 **Wskazówki**: Skonfiguruj Dzienniki zapory aplikacji sieci Web platformy Azure (WAF), które mają być wysyłane do centralnego rozwiązania do zarządzania dziennikami zabezpieczeń, takiego jak Azure — wskaźnikiem, lub Siem innej firmy. Te dzienniki obejmują dzienniki aktywności, diagnostyki i WAF w czasie rzeczywistym. te dzienniki można następnie wyświetlić w różnych narzędziach, takich jak Azure Monitor, Excel i Power BI. Dzienniki zapory aplikacji internetowych platformy Azure zapewniają wgląd w dane, które usługa Azure WAF ocenia, dopasowuje i blokuje.
 
-Wskaźnik platformy Azure ma wbudowany skoroszyt usługi Azure WAF, który zawiera omówienie zdarzeń zabezpieczeń w usłudze Azure WAF. Ten skoroszyt zawiera zdarzenia, dopasowane i zablokowane reguły oraz wszystkie inne, które są rejestrowane w dziennikach zapory. Te dane telemetryczne mogą służyć do uruchamiania usługi element PlayBook Automation do powiadamiania lub podejmowania akcji korygowania na podstawie zdarzeń WAF zebranych przez wskaźnik kontrolny.
+Wskaźnik platformy Azure ma wbudowany skoroszyt usługi Azure WAF, który zawiera omówienie zdarzeń zabezpieczeń w usłudze Azure WAF. Ten skoroszyt zawiera zdarzenia, dopasowane i zablokowane reguły oraz wszystkie inne, które są rejestrowane w dziennikach zapory. Te dane telemetryczne mogą służyć do uruchamiania usługi element PlayBook Automation do powiadamiania lub podejmowania akcji korygowania na podstawie zdarzeń WAF zbieranych przez wskaźnik platformy Azure.
 
 - [Wyświetlanie dzienników aktywności](../azure-resource-manager/management/view-activity-logs.md)
 

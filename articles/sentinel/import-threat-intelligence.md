@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660784"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807143"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importowanie analizy zagrożeń do usługi Azure Sentinel
 
@@ -36,7 +36,7 @@ Analiza zagrożeń (TI) można zintegrować z wskaźnikiem na platformie Azure z
 - Wbudowane szablony reguł **analizy** umożliwiają generowanie alertów zabezpieczeń i zdarzeń przy użyciu zaimportowanej analizy zagrożeń.
 - Wizualizuj najważniejsze informacje o analizie zagrożeń na platformie Azure — za pomocą **skoroszytu analizy zagrożeń**.
 
-Analiza zagrożeń zapewnia również przydatny kontekst w innych środowiskach usługi Azure wskaźnikowych, takich jak **łowiectwo** i **notesy**, a chociaż nie zostały omówione w tym artykule, te środowiska są rozwiązywane w [tym wspaniałym wpisie w blogu przez Ian Hellen w notesach Jupyter w wskaźniku](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), który obejmuje korzystanie z CTI w notesach.
+Analiza zagrożeń zapewnia również przydatny kontekst w innych środowiskach usługi Azure wskaźnikowych, takich jak **łowiectwo** i **notesy**, a chociaż nie zostały omówione w tym artykule, te środowiska są rozwiązywane w [tym doskonałym wpisie w blogu przez Ian Hellen w notesach Jupyter na platformie Azure](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), co obejmuje korzystanie z funkcji CTI w notesach.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Łączniki danych wskaźnikowych platformy Azure na potrzeby analizy zagrożeń
 
@@ -326,7 +326,7 @@ Przyjrzyjmy się dwóm z najczęstszych zadań, tworząc nowe wskaźniki zagroż
 
 1. Wybierz typ wskaźnika, a następnie Wypełnij wymagane pola oznaczone czerwoną gwiazdką (*) w panelu **Nowy wskaźnik** .
 
-1. Wybierz pozycję **Zastosuj**. Wskaźnik zostanie dodany do siatki wskaźników i jest również wysyłany do tabeli ThreatIntelligenceIndicator w **dziennikach**.
+1. Wybierz przycisk **Zastosuj**. Wskaźnik zostanie dodany do siatki wskaźników i jest również wysyłany do tabeli ThreatIntelligenceIndicator w **dziennikach**.
 
 Tagowanie wskaźników zagrożeń jest łatwym sposobem grupowania ich ze sobą, aby ułatwić ich znalezienie. Zazwyczaj można zastosować tag do wskaźników związanych z konkretnym zdarzeniem lub do wskaźników reprezentujących zagrożenia od konkretnego znanego aktora lub dobrze znanej kampanii atakującej. Możesz oznakować wskaźniki zagrożeń indywidualnie lub wskaźniki wielokrotnego wyboru i oznaczyć je wszystkie jednocześnie. Pokazano poniżej przykład tagowania wielu wskaźników z IDENTYFIKATORem zdarzenia. Ze względu na to, że znakowanie jest bezpłatne, zaleca się utworzenie standardowych konwencji nazewnictwa dla tagów wskaźnika zagrożeń. Do każdego wskaźnika można zastosować wiele tagów.
 

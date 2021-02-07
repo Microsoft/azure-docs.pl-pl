@@ -3,12 +3,12 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5180b2c28bc1157cb785c04f794cc5c9636764c8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576688"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805178"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -143,7 +143,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 
 - Zarządzanie zasobami wskaźnikowymi platformy Azure [w dzierżawach klientów](../../sentinel/multiple-tenants-service-providers.md)
 - [Śledź ataki i wyświetlaj alerty zabezpieczeń dla wielu dzierżawców](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Wyświetlanie zdarzeń](../../sentinel/multiple-workspace-view.md) w wielu obszarach roboczych wskaźnikowych rozprzestrzenia się między dzierżawcami
+- [Wyświetlanie zdarzeń](../../sentinel/multiple-workspace-view.md) w wielu obszarach roboczych usługi Azure wskaźnikowych, które są rozmieszczone między dzierżawcami
 
 [Azure Service Health](../../service-health/index.yml):
 

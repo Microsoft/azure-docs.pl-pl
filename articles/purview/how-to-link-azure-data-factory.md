@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954190"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807652"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Jak połączyć Azure Data Factory i usługę Azure kontrolą
 
@@ -107,29 +107,29 @@ Integracja między Data Factory i kontrolą obsługuje tylko podzestaw systemów
 
 ### <a name="data-factory-copy-data-support"></a>Obsługa Kopiowanie danych Data Factory
 
-| System magazynowania danych | Obsługiwane jako źródło | Obsługiwane jako ujścia |
-| ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Tak | Tak (tylko kopiowanie niebinarne) |
-| ADLS Gen2 | Tak | Tak |
-| Obiekt bob Azure | Tak | Tak |
-| Azure Cosmos DB (interfejs API SQL) | Tak | Tak |
-| Azure Cosmos DB (interfejs API Mongo) | Tak | Tak |
-| Azure Cognitive Search | Tak | Tak |
-| Azure Data Explorer | Tak | Tak |
-| Baza danych platformy Azure dla programu Maria \* | Tak | Tak |
-| Usługa Azure Database for MYSQL \* | Tak | Tak |
-| Azure Database for PostgreSQL \* | Tak | Tak |
-| Azure File Storage | Tak | Tak |
-| Azure Table Storage | Tak | Tak |
-| Azure SQL Database \* | Tak | Tak |
-| Usługa Azure SQL MI \* | Tak | Tak |
-| Azure Synapse Analytics (dawniej SQL DW) \* | Tak | Tak |
-| SQL Server Premium (SHIR required) \* | Tak | Tak |
-| Amazon S3 | Tak | Tak |
-| Teradata | Tak | Tak |
-| SAP S4 Hana | Tak | Tak |
-| SAP ECC | Tak | Tak |
-| Hive | Tak | Tak |
+| System magazynowania danych | Obsługiwane jako źródło | 
+| ------------------- | ------------------- | 
+| ADLS Gen1 | Tak | 
+| ADLS Gen2 | Tak | 
+| Obiekt bob Azure | Tak |
+| Azure Cosmos DB (interfejs API SQL) | Tak | 
+| Azure Cosmos DB (interfejs API Mongo) | Tak |
+| Azure Cognitive Search | Tak | 
+| Azure Data Explorer | Tak | 
+| Baza danych platformy Azure dla programu Maria \* | Tak | 
+| Usługa Azure Database for MYSQL \* | Tak | 
+| Azure Database for PostgreSQL \* | Tak |
+| Azure File Storage | Tak | 
+| Azure Table Storage | Tak |
+| Azure SQL Database \* | Tak | 
+| Usługa Azure SQL MI \* | Tak | 
+| Azure Synapse Analytics (dawniej SQL DW) \* | Tak | 
+| SQL Server Premium  \* | Tak | 
+| Amazon S3 | Tak | 
+| Teradata | Tak | 
+| Łącznik tabeli SAP | Tak |
+| SAP ECC | Tak | 
+| Hive | Tak | 
 
 > [!Note]
 > Funkcja współdziałania ma pewne narzuty wydajności w Data Factory działania kopiowania. W przypadku użytkowników, którzy konfigurują połączenia usługi Data Factory w programie kontrolą, mogą wystąpić pewne zadania kopiowania trwające dłużej. Przede wszystkim wpływanie nie ma znaczenia na znikomą. Skontaktuj się z pomocą techniczną, aby uzyskać porównanie czasu, jeśli zadania kopiowania trwają znacznie dłużej niż zwykle.
@@ -137,7 +137,7 @@ Integracja między Data Factory i kontrolą obsługuje tylko podzestaw systemów
 ### <a name="data-factory-data-flow-support"></a>Obsługa przepływu danych Data Factory
 
 | System magazynowania danych | Obsługiwane |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- | 
 | ADLS Gen1 | Tak |
 | ADLS Gen2 | Tak |
 | Obiekt bob Azure | Tak |
@@ -147,7 +147,7 @@ Integracja między Data Factory i kontrolą obsługuje tylko podzestaw systemów
 ### <a name="data-factory-execute-ssis-package-support"></a>Data Factory wykonywania obsługi pakietów SSIS
 
 | System magazynowania danych | Obsługiwane |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- |
 | Obiekt bob Azure | Tak |
 | ADLS Gen1 | Tak |
 | ADLS Gen2 | Tak |

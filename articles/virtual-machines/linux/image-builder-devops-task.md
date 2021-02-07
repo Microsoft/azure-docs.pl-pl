@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: df97ecd1668dcc0e21408b7d39b0973e8f0d8fbf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934278"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807618"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Zadanie DevOps usługi Azure Image Builder
 
@@ -156,10 +156,10 @@ W poniższym przykładzie wyjaśniono, jak to działa:
 
    Można odwoływać się do wielu skryptów lub dodać więcej poleceń, na przykład:
 
-       ```PowerShell
-       & 'c:\buildArtifacts\webapp\webconfig.ps1'
-       & 'c:\buildArtifacts\webapp\installAgent.ps1'
-       ```
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Komputery z systemem Linux — w systemie Linux artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu zostanie usunięta zawartość katalogu/tmp. Jeśli chcesz, aby artefakty istniały w obrazie, należy utworzyć inny katalog i skopiować je.  Na przykład:
 
     ```bash

@@ -8,20 +8,20 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: yelevin
-ms.openlocfilehash: df132c35ebb04596d91720431f5b08cb88e2abd9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98104206"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807737"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Łączenie dzienników diagnostyki i inspekcji usługi Azure SQL Database
 
 Azure SQL to w pełni zarządzany aparat bazy danych platformy jako usługi (PaaS), który obsługuje większość funkcji zarządzania bazami danych, takich jak uaktualnianie, stosowanie poprawek, tworzenie kopii zapasowych i monitorowanie, bez zaangażowania użytkowników. 
 
-Łącznik usługi Azure SQL Database umożliwia strumieniowe przesyłanie dzienników inspekcji i diagnostyki baz danych do oprogramowania do produkcji wskaźnikowej, co pozwala na stałe monitorowanie aktywności we wszystkich wystąpieniach.
+Łącznik usługi Azure SQL Database umożliwia strumieniowe przesyłanie dzienników inspekcji i diagnostyki baz danych do usługi Azure wskaźnikowej, co pozwala na stałe monitorowanie aktywności we wszystkich wystąpieniach.
 
-- Połączenie dzienników diagnostycznych umożliwia wysyłanie dzienników diagnostyki bazy danych o różnych typach danych do obszaru roboczego wskaźnikowego.
+- Połączenie dzienników diagnostycznych umożliwia wysyłanie dzienników diagnostyki bazy danych o różnych typach danych do obszaru roboczego wskaźnikowego platformy Azure.
 
 - Połączenie dzienników inspekcji umożliwia strumieniowe przesyłanie dzienników inspekcji zabezpieczeń ze wszystkich baz danych SQL Azure na poziomie serwera.
 
@@ -50,7 +50,7 @@ Dowiedz się więcej na temat [monitorowania baz danych Azure SQL](../azure-sql/
 1. **(Opcjonalnie)** Aby łatwo znaleźć zasób bazy danych, wybierz pozycję **Dodaj filtr** na pasku filtry u góry.
     1. Z listy rozwijanej **Filtr** wybierz **Typ zasobu**.
     1. Z listy rozwijanej **wartość** Usuń zaznaczenie opcji **Zaznacz wszystko**, a następnie wybierz pozycję **SQL Database**.
-    1. Kliknij przycisk **Zastosuj**.
+    1. Kliknij pozycję **Zastosuj**.
     
 1. Wybierz zasób bazy danych, którego dzienniki diagnostyczne chcesz wysłać do badania wskaźnikowego platformy Azure.
 

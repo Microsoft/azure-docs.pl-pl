@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657027"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805094"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalizacja na platformie Azure — wskaźnik
 
@@ -105,11 +105,11 @@ Po zapisaniu funkcji zapytania może być konieczne zamknięcie Eksploratora zap
 
 #### <a name="using-the-parsers"></a>Korzystanie z analizatorów
 
-Po włączeniu można użyć meta-parser do zapytania ujednoliconego widoku na wszystkich aktualnie włączonych analizatorów. W tym celu przejdź na stronę dzienników wskaźnikowych i wykonaj zapytanie dotyczące meta-parsera:
+Po włączeniu można użyć meta-parser do zapytania ujednoliconego widoku na wszystkich aktualnie włączonych analizatorów. Aby to zrobić, przejdź na stronę dzienników wskaźnikowych platformy Azure i wykonaj zapytanie dotyczące meta-parsera:
 
 :::image type="content" source="./media/normalization/query-parser.png" alt-text="Zbadaj parser":::
  
-Możesz również uzyskać dostęp do meta-parsera lub poszczególnych analizatorów przy użyciu Eksploratora zapytań na stronie dzienników wskaźnikowych, klikając pozycję "Eksplorator zapytań":
+Możesz również uzyskać dostęp do meta-parsera lub poszczególnych analizatorów przy użyciu Eksploratora zapytań na stronie dzienniki, klikając pozycję "Eksplorator zapytań":
 
 :::image type="content" source="./media/normalization/query-explorer.png" alt-text="Eksplorator zapytań":::
 
