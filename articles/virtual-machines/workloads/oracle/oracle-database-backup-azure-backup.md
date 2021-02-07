@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072408"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806413"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 19c na maszynie wirtualnej z systemem Linux przy użyciu systemu Azure Backup
 
@@ -697,7 +697,7 @@ Aby przywrócić całą maszynę wirtualną, wykonaj następujące kroki:
 
    1. W Azure Portal wybierz pozycję **+ Utwórz zasób** , a następnie wyszukaj i wybierz pozycję **konto magazynu**.
     
-      ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/storage-1.png)
+      ![Zrzut ekranu pokazujący lokalizację, w której ma zostać utworzony zasób.](./media/oracle-backup-recovery/storage-1.png)
     
     
    1. Na stronie Tworzenie konta magazynu wybierz istniejącą grupę zasobów **RG-Oracle**, nadaj nazwę swojemu kontu magazynu **oracrestore** i wybierz pozycję **Storage v2 (GeneralPurpose v2)** dla rodzaju konta. Zmień replikację na **Magazyn lokalnie nadmiarowy (LRS)** i ustaw wydajność na **Standard**. Upewnij się, że lokalizacja jest ustawiona na ten sam region, co w przypadku wszystkich innych zasobów w grupie zasobów. 
@@ -877,7 +877,7 @@ Po przywróceniu maszyny wirtualnej należy ponownie przypisać oryginalny adres
 
 5.  Teraz musisz odłączyć kartę sieciową, która została utworzona przy użyciu operacji przywracania maszyny wirtualnej, ponieważ jest ona skonfigurowana jako interfejs podstawowy. Kliknij przycisk **Odłącz interfejs sieciowy** i wybierz nową kartę sieciową podobną do **vmoracle19c-nic-xxxxxxxxxxxx**, a następnie kliknij przycisk **OK** .
 
-    ![Wartość adresu IP](./media/oracle-backup-recovery/create-ip-05.png)
+    ![Zrzut ekranu pokazujący, gdzie wybrać opcję Odłącz interfejs sieciowy.](./media/oracle-backup-recovery/create-ip-05.png)
     
     Utworzona przez siebie maszyna wirtualna będzie miała teraz oryginalną kartę sieciową, która jest skojarzona z oryginalnymi regułami adresów IP i sieciowych grup zabezpieczeń
     

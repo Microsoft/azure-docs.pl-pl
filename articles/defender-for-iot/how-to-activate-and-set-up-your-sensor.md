@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7d045ad104f8e2055ae85b74f4aae8f4d3fd61a4
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5d2d923fc448beeff8fa165226890d88d97d01ad
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509523"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805669"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Aktywowanie i konfigurowanie czujnika
 
@@ -204,7 +204,7 @@ Dostęp do narzędzi konsoli programu można uzyskać z menu po stronie.
 | Okno | Ikona | Opis |
 |---|---|---|
 | Użytkownicy | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Zdefiniuj użytkowników i role z różnymi poziomami dostępu. |
-| Przekazywanie danych | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Przekazuj informacje o alertach do partnerów, a wewnętrzne źródła (na przykład Wskaźnikowanie) integrujące się z usługą Defender for IoT, z adresami e-mail, serwerami elementów webhook i innymi. <br /> Szczegóły można znaleźć w temacie [przekazywanie informacji o alercie](how-to-forward-alert-information-to-partners.md) . |
+| Przekazywanie danych | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Przekazuj informacje o alertach do partnerów i źródeł wewnętrznych (na przykład platformy Azure — wskaźnikiem), które umożliwiają integrację z usługą Defender for IoT, z adresami e-mail, serwerami elementów webhook i innymi. <br /> Szczegóły można znaleźć w temacie [przekazywanie informacji o alercie](how-to-forward-alert-information-to-partners.md) . |
 | Ustawienia systemowe | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Skonfiguruj ustawienia systemowe. Na przykład Zdefiniuj ustawienia DHCP, podaj szczegóły serwera poczty lub Utwórz aliasy portów. |
 | Ustawienia importu | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Wyświetl okno **Importowanie ustawień** . Można ręcznie zmieniać informacje o urządzeniu.<br /> Aby uzyskać szczegółowe informacje, zobacz [Importowanie informacji o urządzeniu](how-to-import-device-information.md) . |
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f8d795dcf64230140e1dd07e3f30ca3aa6825ab4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660580"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807007"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Przenieś własne Machine Learning (ML) na platformę Azure — wskaźnik
 
@@ -82,7 +82,7 @@ Pakiet BYOD ML zawiera najlepsze rozwiązania i badania firmy Microsoft na front
 | Nazwa pliku | Opis |
 | --------- | ----------- |
 | azure_sentinel_utilities. WHL | Zawiera narzędzia do odczytywania obiektów blob z platformy Azure i zapisywania do Log Analytics. |
-| AnomalousRASampleData | W notesie przedstawiono użycie modelu nietypowego dostępu do zasobów w wskaźniku z wygenerowanym szkoleniem i testowaniem danych przykładowych. |
+| AnomalousRASampleData | W notesie przedstawiono użycie modelu nietypowego dostępu do zasobów w wskaźniku platformy Azure z wygenerowanym szkoleniem i testowaniem przykładowych danych. |
 | AnomalousRATraining. ipynb | Notes do uczenia algorytmu, tworzenia i zapisywania modeli. |
 | AnomalousRAScoring. ipynb | Notes, aby zaplanować uruchomienie modelu, wizualizować wynik i pisać wynik z powrotem do platformy Azure. |
 |
@@ -99,7 +99,7 @@ Jeśli jeszcze tego nie zrobiono, należy skonfigurować własne środowisko dan
 
 ### <a name="auto-export-instruction"></a>Instrukcja Autoexport
 
-Aby utworzyć niestandardowe modele ML na podstawie własnych danych w wskaźniku kontrolnym, należy wyeksportować dane z Log Analytics do magazynu obiektów blob lub zasobu centrum zdarzeń, dzięki czemu model ML będzie mógł uzyskać do niego dostęp z kostek danych. Dowiedz się, jak pozyskiwanie [danych do usługi Azure wskaźnikowej](connect-data-sources.md).
+Aby utworzyć niestandardowe modele ML na podstawie własnych danych na platformie Azure, musisz wyeksportować dane z Log Analytics do magazynu obiektów blob lub zasobu centrum zdarzeń, aby model ML mógł uzyskać do niego dostęp z poziomu kostek. Dowiedz się, jak pozyskiwanie [danych do usługi Azure wskaźnikowej](connect-data-sources.md).
 
 Na potrzeby tego przykładu należy mieć dane szkoleniowe dotyczące dziennika dostępu do udziału plików w usłudze Azure Blob Storage. Format danych jest udokumentowany w notesie i w bibliotekach.
 
@@ -141,7 +141,7 @@ W przypadku danych niestandardowych, które nie są obsługiwane przez Log Analy
 
 ### <a name="correlate-with-data-outside-of-azure-sentinel"></a>Skorelowanie z danymi poza wskaźnikiem kontrolnym platformy Azure
 
-Możesz również przenieść dane spoza centrów danych platformy Azure do magazynu obiektów blob lub centrum zdarzeń, a następnie skorelować je z danymi wskaźnikowymi, aby utworzyć modele ML. 
+Dane spoza centrów danych platformy Azure można również przenieść do magazynu obiektów blob lub centrum zdarzeń, a następnie skorelować z danymi wskaźnikowymi platformy Azure w celu utworzenia modeli sieci. 
  
 ### <a name="copy-and-install-the-related-packages"></a>Skopiuj i zainstaluj powiązane pakiety
 

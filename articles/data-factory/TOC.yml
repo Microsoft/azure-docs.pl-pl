@@ -760,6 +760,10 @@
           href: solution-template-databricks-notebook.md
     - name: Omówienie cennika
       items:
+        - name: Informacje o zarezerwowanej pojemności przepływu danych
+          href: data-flow-reserved-capacity-overview.md
+        - name: Przepływ danych — informacje o opłatach rezerwacji
+          href: data-flow-understand-reservation-charges.md
         - name: Planowanie kosztów i zarządzanie nimi
           href: plan-manage-costs.md
         - name: Przykłady cen

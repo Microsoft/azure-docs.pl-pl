@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995866"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807754"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Rozwiązanie do zarządzania pakietem Office 365 na platformie Azure (wersja zapoznawcza)
 
@@ -95,8 +95,8 @@ ms.locfileid: "95995866"
 > - [Wykrywaj zagrożenia wbudowane](../../sentinel/tutorial-detect-threats-built-in.md)
 > - [Tworzenie niestandardowych reguł analitycznych do wykrywania podejrzanych zagrożeń](../../sentinel/tutorial-detect-threats-custom.md)
 > - [Monitorowanie danych](../../sentinel/tutorial-monitor-your-data.md)
-> - [Zbadaj zdarzenia za pomocą platformy Azure — wskaźnik](../../sentinel/tutorial-investigate-cases.md)
-> - [Konfigurowanie zautomatyzowanych odpowiedzi na zagrożenia na platformie Azure — wskaźnik](../../sentinel/tutorial-respond-threats-playbook.md)
+> - [Badanie zdarzeń za pomocą usługi Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+> - [Konfigurowanie automatycznych reakcji na zagrożenia w usłudze Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Społeczność usługi GitHub na platformie Azure](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>P: czy wskaźnik "platformy Azure" udostępnia dodatkowe łączniki jako część rozwiązania?
@@ -109,7 +109,7 @@ ms.locfileid: "95995866"
 > - Jeśli Twoje rozwiązanie nie zostanie odłączania ręcznie do 31 października, dane zostaną rozłączone automatycznie, a tabela **pakietu Office** zostanie usunięta. Nawet w dalszym ciągu będzie można przywrócić tabelę po włączeniu łącznika pakietu Office 365 na platformie Azure wskaźnikowej, jak wyjaśniono poniżej.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: czy dane zostaną przesłane do nowego rozwiązania?
-> Tak. Po usunięciu rozwiązania **pakietu Office 365** z obszaru roboczego jego dane staną się tymczasowo niedostępne, ponieważ schemat został usunięty. Po włączeniu nowego łącznika **pakietu Office 365** w kontrolce wskaźnikowej schemat zostanie przywrócony do obszaru roboczego, a wszystkie zebrane dane staną się dostępne. 
+> Tak. Po usunięciu rozwiązania **pakietu Office 365** z obszaru roboczego jego dane staną się tymczasowo niedostępne, ponieważ schemat został usunięty. Po włączeniu nowego łącznika **pakietu Office 365** w wskaźniku kontrolnym platformy Azure schemat zostanie przywrócony do obszaru roboczego, a wszystkie zebrane dane staną się dostępne. 
  
 
 Rozwiązanie do zarządzania pakietem Office 365 umożliwia monitorowanie środowiska pakietu Office 365 w Azure Monitor.
@@ -121,7 +121,7 @@ Rozwiązanie do zarządzania pakietem Office 365 umożliwia monitorowanie środo
 - Rozwiązywanie problemów operacyjnych przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) w oparciu o dane działania pakietu Office 365 w organizacji.
 
 
-## <a name="uninstall"></a>Dezinstalacja
+## <a name="uninstall"></a>Odinstalowanie
 
 Rozwiązanie do zarządzania pakietem Office 365 można usunąć, korzystając z procesu w temacie [usuwanie rozwiązania do zarządzania](solutions.md#remove-a-monitoring-solution). Nie spowoduje to zatrzymania zbierania danych z pakietu Office 365 do Azure Monitor. Wykonaj poniższą procedurę, aby anulować subskrypcję pakietu Office 365 i zatrzymać zbieranie danych.
 
@@ -272,7 +272,7 @@ Następujące właściwości są wspólne dla wszystkich rekordów pakietu Offic
 | ResultStatus | Wskazuje, czy akcja (określona we właściwości Operation) zakończyła się powodzeniem. Możliwe wartości to sukces, PartiallySucceeded lub niepowodzenie. W przypadku działania administracyjnego programu Exchange wartością jest true lub false. |
 | UserId | Nazwa UPN użytkownika, który wykonał akcję, która spowodowała zarejestrowanie rekordu; na przykład my_name@my_domain_name . Należy pamiętać, że rekordy dla działania wykonywanego przez konta systemu (takie jak SHAREPOINT\system lub systemowe NTAUTHORITY\SYSTEM) również są uwzględnione. | 
 | UserKey | Alternatywny identyfikator użytkownika zidentyfikowany we właściwości UserId.  Na przykład ta właściwość jest wypełniana unikatowym IDENTYFIKATORem (PUID) usługi Passport dla zdarzeń wykonywanych przez użytkowników w usługach SharePoint, OneDrive dla firm i Exchange. Ta właściwość może również określać taką samą wartość jak Właściwość UserID dla zdarzeń występujących w innych usługach i zdarzeń wykonywanych przez konta systemowe|
-| UserType | Typ użytkownika, który wykonał operację.<br><br>Administracja<br>Aplikacja<br>DcAdmin<br>Zwykły<br>Zarezerwowany<br>ServicePrincipal<br>System |
+| UserType | Typ użytkownika, który wykonał operację.<br><br>Administrator<br>Aplikacja<br>DcAdmin<br>Zwykły<br>Zarezerwowany<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Baza Azure Active Directory

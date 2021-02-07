@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b0d7eeeb840a3efc560c20310b38bee93a038795
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ecc6580148dfba92077336a26ff9160fbe88eb2c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056024"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806159"
 ---
 # <a name="import-passwords-into-the-microsoft-authenticator-app"></a>Importowanie haseł do aplikacji Microsoft Authenticator
 
@@ -39,21 +39,21 @@ Użytkownicy usługi Google Chrome na telefony z systemami Android i Apple mogą
 
 1. Naciśnij ![ menu wielokropka Google Chrome ](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) w prawym górnym rogu dla telefonów z systemem Android lub w prawym dolnym rogu dla urządzeń z systemem iOS, a następnie naciśnij pozycję **Ustawienia.**
 
-   &nbsp; | &nbsp;
+   Platforma | Link
    ---------- | --------
    Android | ![Lokalizacja menu ustawień Google Chrome](./media/user-help-authenticator-app-import-passwords/android-settings-menu.png)
    iOS | ![Ikona menu ustawień Google Chrome](./media/user-help-authenticator-app-import-passwords/apple-settings-menu.png)
 
 1. W obszarze **Ustawienia** Otwórz pozycję **hasła**.
 
-   &nbsp; | &nbsp;
+   Platforma | Link
    ---------- | --------
    Android | ![Lokalizacja polecenia andoid Chrome hasła](./media/user-help-authenticator-app-import-passwords/android-passwords-location.png)
    iOS | ![Lokalizacja polecenia haseł Apple Chrome](./media/user-help-authenticator-app-import-passwords/apple-passwords-location.png)
 
 1. Na urządzeniach z systemem Android naciśnij ![ menu wielokropka Google Chrome ](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) w prawym górnym rogu dla telefonów z systemem Android lub w prawym dolnym rogu dla urządzeń z systemem iOS, a następnie naciśnij pozycję **Eksportuj hasła**.
 
-   &nbsp; | &nbsp;
+   Platforma | Link
    ---------- | --------
    Android | ![Lokalizacja lokalizacji eksportu programu Android Chrome](./media/user-help-authenticator-app-import-passwords/android-export-passwords-location.png)
    iOS | ![Lokalizacja innych haseł eksportowania programu Apple Chrome](./media/user-help-authenticator-app-import-passwords/apple-export-passwords-location.png)
@@ -62,7 +62,7 @@ Użytkownicy usługi Google Chrome na telefony z systemami Android i Apple mogą
 
 1. Po wyeksportowaniu haseł program Chrome wyświetli monit o wybranie aplikacji, do której importujesz. Wybierz pozycję **wystawca uwierzytelnienia** , aby rozpocząć importowanie haseł. Gdy wszystko będzie gotowe, otrzymasz informację o stanie importu.
 
-   &nbsp; | &nbsp;
+   Platforma | Link
    ---------- | --------
    Android | ![Lokalizacja importowania haseł dla programu Android Chrome](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
    iOS | ![Lokalizacja importowania haseł w programie Apple Chrome](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -105,7 +105,7 @@ Firefox zezwala tylko na Eksportowanie haseł z przeglądarki pulpitu, więc prz
 
       1. Przenieś wyeksportowany plik CSV na telefon z systemem Android lub iOS przy użyciu preferowanego i bezpiecznego sposobu, a następnie pobierz go. Następnie należy udostępnić plik CSV z aplikacją Authenticator, aby rozpocząć importowanie.
 
-         &nbsp; | &nbsp;
+         Platforma | Link
          ---------- | --------
          Android | ![Lokalizacja importowania haseł dla programu Android Chrome](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Lokalizacja importowania haseł w programie Apple Chrome](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -134,7 +134,7 @@ LastPass obsługuje eksport haseł tylko z przeglądarki komputerowej, dlatego p
 
       1. Przenieś wyeksportowany plik CSV na telefon smartphone przy użyciu preferowanego i bezpiecznego sposobu, a następnie pobierz go. Następnie należy udostępnić plik CSV z aplikacją Authenticator, aby rozpocząć importowanie.
 
-         &nbsp; | &nbsp;
+         Platforma | Link
          ---------- | --------
          Android | ![Lokalizacja importowania haseł LastPass systemu Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Lokalizacja importowania haseł w programie Apple LastPass](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -153,7 +153,7 @@ Bitwarden obsługuje eksport haseł tylko z przeglądarki komputerowej, dlatego 
 
       1. Przenieś wyeksportowany plik CSV na telefon smartphone przy użyciu preferowanego i bezpiecznego sposobu, a następnie pobierz go. Następnie należy udostępnić plik CSV z aplikacją Authenticator, aby rozpocząć importowanie.
 
-         &nbsp; | &nbsp;
+         Platforma | Link
          ---------- | --------
          Android | ![Lokalizacja importowania haseł Bitwarden systemu Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Lokalizacja importowania haseł w programie Apple Bitwarden](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -186,7 +186,7 @@ RoboForm umożliwia eksportowanie haseł tylko z aplikacji klasycznej, dlatego p
 
       1. Przenieś wyeksportowany plik CSV na telefon smartphone przy użyciu preferowanego i bezpiecznego sposobu, a następnie pobierz go. Następnie należy udostępnić plik CSV z aplikacją Authenticator, aby rozpocząć importowanie.
 
-         &nbsp; | &nbsp;
+         Platforma | Link
          ---------- | --------
          Android | ![Lokalizacja importowania haseł RoboForm systemu Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Lokalizacja importowania haseł w programie Apple RoboForm](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -209,7 +209,7 @@ Jeśli nie wymieniono w tym artykule kroków dotyczących importowania haseł z 
 
       1. Przenieś wyeksportowany plik CSV na telefon smartphone przy użyciu preferowanego i bezpiecznego sposobu, a następnie pobierz go. Następnie należy udostępnić plik CSV z aplikacją Authenticator, aby rozpocząć importowanie.
 
-         &nbsp; | &nbsp;
+         Platforma | Link
          ---------- | --------
          Android | ![Lokalizacja importowania plików CSV systemu Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Lokalizacja plików importu Apple CSV](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)

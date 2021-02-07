@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 08ab78171376f702aecb1f49571dda583eae5d82
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: df53062c7c897493a47d88ea2873f9710b9825bf
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813874"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806260"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Zarządzanie planami DDoS Protection: uprawnienia i ograniczenia
 
@@ -43,7 +43,7 @@ Aby włączyć ochronę DDoS dla sieci wirtualnej, konto musi również mieć pr
 
 Tworzenie więcej niż jednego planu nie jest wymagane w przypadku większości organizacji. Nie można przenieść planu między subskrypcjami. Jeśli chcesz zmienić subskrypcję, a plan znajduje się w, musisz usunąć istniejący plan i utworzyć nowy.
 
-W przypadku klientów, którzy mają różne subskrypcje i którzy chcą zapewnić, że jeden plan jest wdrażany w ramach swojej dzierżawy w celu kontroli kosztów, można użyć Azure Policy, aby [ograniczyć tworzenie Azure DDoS Protection planów standardowych](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). Te zasady będą blokować tworzenie wszelkich planów DDoS, chyba że subskrypcja została wcześniej oznaczona jako wyjątek. W tych zasadach zostanie również wyświetlona lista wszystkich subskrypcji, które mają wdrożony plan DDoS, ale nie powinny być oznaczane jako niezgodne.
+W przypadku klientów, którzy mają różne subskrypcje i którzy chcą zapewnić, że jeden plan jest wdrażany w ramach swojej dzierżawy w celu kontroli kosztów, można użyć Azure Policy, aby [ograniczyć tworzenie Azure DDoS Protection planów standardowych](https://aka.ms/ddosrestrictplan). Te zasady będą blokować tworzenie wszelkich planów DDoS, chyba że subskrypcja została wcześniej oznaczona jako wyjątek. W tych zasadach zostanie również wyświetlona lista wszystkich subskrypcji, które mają wdrożony plan DDoS, ale nie powinny być oznaczane jako niezgodne.
 
 
 ## <a name="next-steps"></a>Następne kroki

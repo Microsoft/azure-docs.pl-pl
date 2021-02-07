@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 695f151e6d6cc0a677942f60c751567da0cfca7c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064041"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806277"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 19c na maszynie wirtualnej z systemem Linux systemu Azure przy użyciu usługi Azure Storage
 
@@ -31,19 +31,19 @@ W tym artykule pokazano, jak używać usługi Azure Storage jako nośnika do two
    ssh azureuser@<publicIpAddress>
    ```
    
-2. Przełącz do użytkownika **_root_* _:
+2. Przełącz do ***głównego*** użytkownika:
  
    ```bash
    sudo su -
    ```
     
-3. Dodaj użytkownika Oracle do _*_ pliku/etc/sudoers_ * _:
+3. Dodaj użytkownika Oracle do pliku ***/etc/sudoers*** :
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-4. W tym kroku przyjęto założenie, że masz wystąpienie Oracle (test), które działa na maszynie wirtualnej o nazwie _vmoracle19c *.
+4. W tym kroku przyjęto założenie, że masz wystąpienie Oracle (test), które działa na maszynie wirtualnej o nazwie *vmoracle19c*.
 
    Przełącz użytkownika na użytkownika *Oracle* :
 
@@ -182,31 +182,31 @@ Najpierw skonfiguruj konto magazynu.
 
 1. Konfigurowanie File Storage w Azure Portal
 
-    W Azure Portal wybierz pozycję ***+ Utwórz zasób** _ i Wyszukaj i wybierz pozycję _*_konto magazynu_*_
+    W Azure Portal wybierz pozycję ***+ Utwórz zasób** _ i Wyszukaj i wybierz pozycję _ *_konto magazynu_* .*
     
-    ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/storage-1.png)
+    ![Zrzut ekranu pokazujący miejsce utworzenia zasobu i wybierz pozycję konto magazynu.](./media/oracle-backup-recovery/storage-1.png)
     
-2. Na stronie Tworzenie konta magazynu wybierz istniejącą grupę zasobów _*_RG-Oracle_*_, nadaj nazwę swojemu kontu magazynu _*_oracbkup1_*_ i wybierz pozycję _*_Storage v2 (GeneralPurpose v2)_*_ dla rodzaju konta. Zmień replikację na _*_Magazyn lokalnie nadmiarowy (LRS)_*_ i ustaw wydajność na _*_Standard_*_. Upewnij się, że lokalizacja jest ustawiona na ten sam region, co w przypadku wszystkich innych zasobów w grupie zasobów. 
+2. Na stronie Tworzenie konta magazynu wybierz istniejącą grupę zasobów ***RG-Oracle** _, nadaj nazwę swojemu kontu magazynu _*_oracbkup1_*_ i wybierz pozycję _*_Storage v2 (GeneralPurpose v2)_*_ dla rodzaju konta. Zmień replikację na _*_Magazyn lokalnie nadmiarowy (LRS)_*_ i ustaw wydajność na _ *_Standard_* *. Upewnij się, że lokalizacja jest ustawiona na ten sam region, co w przypadku wszystkich innych zasobów w grupie zasobów. 
     
-    ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/file-storage-1.png)
+    ![Zrzut ekranu pokazujący, gdzie wybrać istniejącą grupę zasobów.](./media/oracle-backup-recovery/file-storage-1.png)
    
    
-3. Kliknij kartę _*_Zaawansowane_*_ i w obszarze Azure Files Ustaw _*_duże udziały plików_*_ do _*_włączenia_*_. Kliknij przycisk przegląd + Utwórz, a następnie kliknij przycisk Utwórz.
+3. Kliknij kartę ***Advanced** _ i w obszarze Azure Files Ustaw _*_duże udziały plików_*_ na _ *_włączone_* *. Kliknij przycisk przegląd + Utwórz, a następnie kliknij przycisk Utwórz.
     
-    ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/file-storage-2.png)
-    
-    
-4. Po utworzeniu konta magazynu przejdź do zasobu i wybierz pozycję _*_udziały plików_ .*_
-    
-    ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/file-storage-3.png)
-    
-5. Kliknij pozycję _*_ + plik share_ *_ i w polu _*_Nowy udział plików_*_ Nazwij nazwę udziału plików _*_orabkup1_*_. Wartość Set _*_przydziału_*_ do _*_10240_*_ GIB i check _*_transakcji jest zoptymalizowana_*jako warstwa. Przydział odzwierciedla górną granicę, do której może się zwiększać udział plików. Ponieważ korzystamy z magazynu w warstwie Standardowa, zasoby są w postaci PAYG i nie są obsługiwane, więc jego ustawienie na wartość 10 TiB nie spowoduje naliczania kosztów poza to, czego używasz. Jeśli strategia tworzenia kopii zapasowych wymaga więcej miejsca w magazynie, należy ustawić limit przydziału na odpowiedni poziom, aby pomieścić wszystkie kopie zapasowe.   Po zakończeniu nowego bloku udostępniania plików kliknij _*_Utwórz_* _.
-    
-    ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/file-storage-4.png)
+    ![Zrzut ekranu pokazujący, gdzie należy ustawić duże udziały plików do włączenia.](./media/oracle-backup-recovery/file-storage-2.png)
     
     
-6. Po utworzeniu kliknij pozycję _*_orabkup1_*_ na stronie Ustawienia udziału plików. 
-    Kliknij kartę _*_połączenie_*_ , aby otworzyć blok Połącz, a następnie kliknij kartę _*_Linux_*_ . Skopiuj podane polecenia, aby zainstalować udział plików przy użyciu protokołu SMB. 
+4. Po utworzeniu konta magazynu przejdź do zasobu i wybierz pozycję ***udziały plików*** .
+    
+    ![Zrzut ekranu pokazujący, gdzie wybierać udziały plików.](./media/oracle-backup-recovery/file-storage-3.png)
+    
+5. Kliknij pozycję ***+ udział plików** _ i w _*_nowym bloku udziału plików_*_ Nadaj plikowi udział plików _*_orabkup1_*_. Ustaw _*_limit przydziału_*_ na _*_10240_*_ GIB i sprawdź, czy _*_transakcja została zoptymalizowana_*_ jako warstwa. Przydział odzwierciedla górną granicę, do której może się zwiększać udział plików. Ponieważ korzystamy z magazynu w warstwie Standardowa, zasoby są w postaci PAYG i nie są obsługiwane, więc jego ustawienie na wartość 10 TiB nie spowoduje naliczania kosztów poza to, czego używasz. Jeśli strategia tworzenia kopii zapasowych wymaga więcej miejsca w magazynie, należy ustawić limit przydziału na odpowiedni poziom, aby pomieścić wszystkie kopie zapasowe.   Po zakończeniu nowego bloku udostępniania plików kliknij _ *_Utwórz_* *.
+    
+    ![Zrzut ekranu pokazujący, gdzie dodać nowy udział plików.](./media/oracle-backup-recovery/file-storage-4.png)
+    
+    
+6. Po utworzeniu kliknij pozycję ***orabkup1*** na stronie Ustawienia udziału plików. 
+    Kliknij kartę ***Connect** _, aby otworzyć blok Połącz, a następnie kliknij kartę _ *_Linux_**. Skopiuj podane polecenia, aby zainstalować udział plików przy użyciu protokołu SMB. 
     
     ![Strona dodawania konta magazynu](./media/oracle-backup-recovery/file-storage-5.png)
 
@@ -371,7 +371,7 @@ W przypadku korzystania z RMAN i usługi Azure File Storage do tworzenia kopii z
 
     ```bash
     cd /u02/oradata/TEST
-    rm -f _.dbf
+    rm -f *.dbf
     ```
 
 3. Następujące polecenia używają RMAN do przywrócenia brakującej datafiles i odzyskania bazy danych:

@@ -3,12 +3,12 @@ title: Włącz Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób włączania i konfigurowania Azure Monitor kontenerów, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f598b42f1a8d9fcb42f09d17e40850cf3a1282be
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 56f60b58cff351aa37e98cdba933c929aaaedab6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943818"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806013"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Włącz Azure Monitor dla kontenerów
 
@@ -35,6 +35,12 @@ Można włączyć Azure Monitor dla kontenerów dla nowego wdrożenia lub dla je
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagania:
+
+> [!IMPORTANT]
+> Log Analytics kontener z systemem Linux (REPLICASET pod) powoduje wywołania interfejsu API do wszystkich węzłów systemu Windows na Kubelet Secure port (10250) w klastrze w celu zebrania metryk związanych z wydajnością węzłów i kontenerów. Bezpieczny port Kubelet (: 10250) powinien zostać otwarty w sieci wirtualnej klastra dla ruchu przychodzącego i wychodzącego dla kolekcji metryk związanych z działami i kontenerami systemu Windows.
+>
+> Jeśli istnieje klaster Kubernetes z węzłami systemu Windows, należy przejrzeć i skonfigurować sieciową grupę zabezpieczeń i zasady sieciowe, aby upewnić się, że bezpieczny port Kubelet (: 10250) jest otwarty zarówno dla ruchu przychodzącego, jak i wychodzącego w sieci wirtualnej klastra.
+
 
 - Masz obszar roboczy Log Analytics.
 

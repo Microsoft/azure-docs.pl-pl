@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2e1536d4f2ea7d71691c611e9127109c154f3266
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009776"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807347"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Przegląd: Automatyzowanie wdrażania Azure Logic Apps przy użyciu szablonów Azure Resource Manager
 
@@ -86,7 +86,7 @@ Szablon aplikacji logiki ma wiele `parameters` obiektów, które znajdują się 
 * Połączenia używane przez logikę do uzyskiwania dostępu do innych usług i systemów za pomocą [łączników zarządzanych](../connectors/apis-list.md)
 * Inne zasoby wymagane przez aplikację logiki do wdrożenia
 
-  Na przykład jeśli aplikacja logiki używa [konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) dla scenariuszy biznes-to-Business (B2B), obiekt najwyższego poziomu szablonu `parameters` deklaruje parametr, który akceptuje identyfikator zasobu dla tego konta integracji.
+  Na przykład jeśli aplikacja logiki korzysta z [konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) dla scenariuszy Business-to-Business (B2B), obiekt najwyższego poziomu szablonu `parameters` deklaruje parametr, który akceptuje identyfikator zasobu dla tego konta integracji.
 
 Poniżej przedstawiono ogólną strukturę i składnię definicji parametru, która jest w pełni opisana przez [Parametry-Menedżer zasobów strukturę i składnię szablonu](../azure-resource-manager/templates/template-syntax.md#parameters):
 
@@ -627,7 +627,7 @@ Gdy aplikacja logiki tworzy i używa połączeń z innymi usługami i systemem p
 }
 ```
 
-Definicje zasobów połączenia odwołują się do parametrów najwyższego poziomu szablonu dla ich wartości, co oznacza, że można podać te wartości podczas wdrażania przy użyciu pliku parametrów. Upewnij się, że połączenia używają tej samej grupy zasobów platformy Azure i lokalizacji jako aplikacji logiki.
+Definicje zasobów połączenia odwołują się do parametrów najwyższego poziomu szablonu dla ich wartości, dzięki czemu można podać te wartości podczas wdrażania przy użyciu pliku parametrów. Upewnij się, że połączenia używają tej samej grupy zasobów platformy Azure i lokalizacji jako aplikacji logiki.
 
 Poniżej przedstawiono przykładową definicję zasobu dla połączenia z pakietem Office 365 Outlook oraz odpowiednie parametry szablonu:
 
@@ -746,12 +746,12 @@ W tym przykładzie przedstawiono interakcje między definicją zasobu aplikacji 
                      }
                   }
                }
-            },
-            <other-logic-app-resource-information>,
-            "dependsOn": [
-               "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
-            ]
-         }
+            }
+         },
+         <other-logic-app-resource-information>,
+         "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
+         ]
          // End logic app resource definition
       },
       // Office 365 Outlook API connection resource definition

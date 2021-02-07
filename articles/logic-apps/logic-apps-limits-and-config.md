@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
-ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/05/2021
+ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054758"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805938"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -427,6 +427,12 @@ Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azu
 
 > [!TIP]
 > Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicAppsManagement** zamiast określania przychodzących prefiksów adresów IP Logic Apps dla każdego regionu. Opcjonalnie można również użyć znacznika usługi **AzureConnectors** dla łączników zarządzanych, które umożliwiają wywołanie zwrotne przychodzącego elementu webhook do usługi Logic Apps, zamiast określać prefiksy adresów IP łączników zarządzanych w poszczególnych regionach. Tagi te działają w regionach, w których usługa Logic Apps jest dostępna.
+>
+> Następujące łączniki przychodzące wywołania zwrotne elementu webhook do usługi Logic Apps:
+>
+> Adobe Creative Cloud, znak Adobe Sign, demonstracja Adobe Sign, wersja zapoznawcza Adobe Sign i Adobe Signing Stage, Azure fin, Business Central, Calendly, Common Data Service, DocuSign, DocuSign demonstracyjny, Dynamics 365 for fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, parser, SAP *, Shift for Microsoft Teams, zespołowej Projects, Typeform
+>
+> \***SAP**: zwracany obiekt wywołujący zależy od tego, czy środowisko wdrożenia ma wielodostępny system Azure czy ISE. W środowisku z wieloma dzierżawcami lokalna Brama danych wykonuje wywołanie z powrotem do usługi Logic Apps. W ISE łącznik SAP wykonuje wywołanie z powrotem do usługi Logic Apps.
 
 <a name="multi-tenant-inbound"></a>
 

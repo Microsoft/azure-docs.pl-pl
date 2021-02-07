@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6726bb5c60dceab0a58632da99c04361183246
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932694"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807024"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -38,7 +38,7 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 6. Podaj **adres URL punktu końcowego** dla wywołania interfejsu API.
 7. Podaj informacje o uwierzytelnianiu dla interfejsu API.
 
-   - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź fikcyjną **nazwę użytkownika** i **hasło** , które mogą być ignorowane przez interfejs API. Do użycia z funkcją platformy Azure z kluczem interfejsu API można uwzględnić kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład https []() ://contoso.azurewebsites.NET/API/Endpoint <b>? Code = 0123456789</b>).
+   - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź fikcyjną **nazwę użytkownika** i **hasło** , które mogą być ignorowane przez interfejs API. Aby korzystać z funkcji platformy Azure z kluczem interfejsu API, można dołączyć kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
 
    ![Konfigurowanie nowego łącznika interfejsu API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Wybierz pozycję **Zapisz**.
@@ -109,7 +109,7 @@ Wykonaj następujące kroki, aby dodać łącznik interfejsu API do samoobsługo
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Po zalogowaniu się za pomocą dostawcy tożsamości
 
-Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (Google, Facebook, Azure AD). Ten krok poprzedza *_stronę kolekcji atrybutów_** _, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. 
+Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (Google, Facebook, Azure AD). Ten krok poprzedza ***stronę kolekcji atrybutów***, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -249,9 +249,9 @@ Content-type: application/json
 
 | Parametr                                          | Typ              | Wymagane | Opis                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Wersja                                            | Ciąg            | Yes      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
-| akcja                                             | Ciąg            | Yes      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli wybrano jako rolę _,*Aby otrzymać** w konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
+| Wersja                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
+| akcja                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli zostały wybrane jako takie, **które mają zostać odebrane** w ramach konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie musi zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
 
 ### <a name="example-of-a-blocking-response"></a>Przykład odpowiedzi blokującej
@@ -271,9 +271,9 @@ Content-type: application/json
 
 | Parametr   | Typ   | Wymagane | Opis                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| Wersja     | Ciąg | Yes      | Wersja interfejsu API.                                                    |
-| akcja      | Ciąg | Yes      | Wartość musi być równa `ShowBlockPage`                                              |
-| userMessage | Ciąg | Yes      | Komunikat wyświetlany użytkownikowi.                                            |
+| Wersja     | Ciąg | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | Ciąg | Tak      | Wartość musi być równa `ShowBlockPage`                                              |
+| userMessage | Ciąg | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 | kod        | Ciąg | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
 **Środowisko użytkownika końcowego z odpowiedzią blokującą**
@@ -297,10 +297,10 @@ Content-type: application/json
 
 | Parametr   | Typ    | Wymagane | Opis                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| Wersja     | Ciąg  | Yes      | Wersja interfejsu API.                                                    |
-| akcja      | Ciąg  | Yes      | Wartość musi być `ValidationError` .                                           |
-| status      | Liczba całkowita | Yes      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
-| userMessage | Ciąg  | Yes      | Komunikat wyświetlany użytkownikowi.                                            |
+| Wersja     | Ciąg  | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | Ciąg  | Tak      | Wartość musi być `ValidationError` .                                           |
+| status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
+| userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 | kod        | Ciąg  | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
 **Środowisko użytkownika końcowego z odpowiedzią na błędy weryfikacji**

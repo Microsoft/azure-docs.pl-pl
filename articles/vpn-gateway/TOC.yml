@@ -167,7 +167,7 @@
               href: vpn-profile-intune.md
         - name: OpenVPN
           items:
-            - name: Konfigurowanie w oprogramowaniu OpenVPN połączeń punkt-lokacja
+            - name: Konfigurowanie typu tunelu OpenVPN
               href: vpn-gateway-howto-openvpn.md
             - name: Konfigurowanie klientów OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
