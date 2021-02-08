@@ -5,6 +5,7 @@
     - name: Tworzenie rozwiązań dla opieki zdrowotnej za pomocą usługi Azure IoT Central
       href: overview-iot-central-healthcare.md
 - name: Samouczki
+  expanded: true
   items:
     - name: Tworzenie aplikacji ciągłego monitorowania pacjenta
       href: tutorial-continuous-patient-monitoring.md

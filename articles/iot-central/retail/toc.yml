@@ -5,6 +5,7 @@
     - name: Tworzenie rozwiązań dla handlu detalicznego za pomocą usługi Azure IoT Central
       href: overview-iot-central-retail.md
 - name: Samouczki
+  expanded: true
   items:
     - name: Analiza w sklepie — finalizacja zakupu
       items:

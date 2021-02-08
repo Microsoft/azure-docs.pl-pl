@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: ff7b98908296714a59aa9a24767e80e212e00e68
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 25b15a30ed6d537a8c9ac7a0306dbd46484233ec
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516657"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820742"
 ---
-# <a name="build-energy-solutions-with-iot-central"></a>Tworzenie rozwiązań dla branży energetycznej za pomocą usługi IoT Central 
+# <a name="build-energy-solutions-with-iot-central"></a>Tworzenie rozwiązań dla branży energetycznej za pomocą usługi IoT Central
 
 Inteligentne liczniki i panele słoneczne odgrywają ważną rolę w transformację branży energetycznej. Inteligentne liczniki zapewniają większą kontrolę i szczegółowe informacje o zużyciu energii, a rozwój paneli słonecznych prowadzi do przełomowej generacji energii. Aplikacje monitorujące inteligentne Mierniki i panel słoneczny są przykładowymi szablonami pokazującymi różne możliwości. Partnerzy mogą wykorzystać te szablony do kompilowania rozwiązań energetycznych w IoT Central do ich konkretnych potrzeb. Nie są wymagane żadne nowe kodowanie i nie ma dodatkowych kosztów, aby wdrażać te aplikacje i korzystać z nich. Dowiedz się więcej o szablonach aplikacji energetycznej i ich możliwościach.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: d7e901e440a6df5ae1d11a150e09a36b565904d9
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 3054981bbbff45666297399033663d1830ad9e4e
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809069"
+ms.locfileid: "99820436"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Szybki Start: moduł zabezpieczeń dla usługi Azure RTO (wersja zapoznawcza)
 
@@ -43,8 +43,11 @@ Następny etap rozpoczynania pracy polega na przygotowaniu zasobów platformy Az
 Aby rozpocząć, musisz mieć połączenie IoT Hub. 
 
 1. Otwórz **IoT Hub** w Azure Portal.
+
 1. Przejdź do **urządzeń IoT**.
+
 1. Wybierz przycisk **Utwórz**.
+
 1. Skopiuj parametry połączenia IoT do [pliku konfiguracji](how-to-azure-rtos-security-module.md).
 
 Poświadczenia połączeń są pobierane z konfiguracji aplikacji użytkownika **HOST_NAME**, **DEVICE_ID** i **DEVICE_SYMMETRIC_KEY**.

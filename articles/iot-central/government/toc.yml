@@ -5,6 +5,7 @@
     - name: Tworzenie rozwiązań dla instytucji rządowych za pomocą usługi Azure IoT Central
       href: overview-iot-central-government.md
 - name: Samouczki
+  expanded: true
   items:
     - name: Tworzenie aplikacji połączonego zarządzania odpadami
       href: tutorial-connected-waste-management.md

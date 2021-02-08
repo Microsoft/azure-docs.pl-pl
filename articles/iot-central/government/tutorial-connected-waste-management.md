@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: Tworzenie połączonej aplikacji zarządzania odpadami przy użyciu usługi Azure IoT Central'
-description: Informacje na temat tworzenia połączonej aplikacji do zarządzania odpadami przy użyciu szablonów aplikacji IoT Central platformy Azure.
+description: 'Samouczek: uczenie się tworzenia połączonej aplikacji zarządzania odpadami przy użyciu szablonów aplikacji IoT Central platformy Azure'
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8085409c3dc38d17b6fe0d3cb15857b2396e23b6
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65245b3c4b7e18670682f7e9e890453e32337644
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881348"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820083"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Samouczek: Tworzenie połączonej aplikacji zarządzania odpadami
 
@@ -20,13 +20,13 @@ W tym samouczku pokazano, jak za pomocą usługi Azure IoT Central utworzyć prz
 
 W tym celu dowiesz się, jak: 
 
-* Aby utworzyć aplikację, użyj szablonu *zarządzania odpadami* w usłudze Azure IoT Central.
-* Eksploruj i dostosowuj pulpit nawigacyjny operatora. 
-* Zapoznaj się z szablonem urządzenia z dołączonymi odpadami.
-* Eksploruj symulowane urządzenia.
-* Eksplorowanie i konfigurowanie reguł.
-* Konfigurowanie zadań.
-* Dostosuj znakowanie aplikacji.
+> [!div class="checklist"]
+> Aby utworzyć aplikację, użyj szablonu *zarządzania odpadami* w usłudze Azure IoT Central.
+> Eksploruj i dostosowuj pulpit nawigacyjny operatora. Zapoznaj się z szablonem urządzenia z dołączonymi odpadami.
+> Eksploruj symulowane urządzenia.
+> Eksplorowanie i konfigurowanie reguł.
+> Konfigurowanie zadań.
+> Dostosuj znakowanie aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

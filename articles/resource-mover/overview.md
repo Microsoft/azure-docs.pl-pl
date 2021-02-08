@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 621c5e7b0061ccd76fd0109552107915b943511f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 06d6352f018238318c3bb4625ae86a2974f14569
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89653594"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820167"
 ---
 # <a name="what-is-azure-resource-mover"></a>Co to jest usługa Azure Resource przenosząca?
 
@@ -29,8 +29,6 @@ Możesz przenosić zasoby do różnych regionów świadczenia usługi Azure, aby
 - **Odpowiadanie na wymagania dotyczące wdrażania**: Przenieś zasoby, które zostały wdrożone w ramach błędu, lub przejdź w odpowiedzi na potrzeby pojemności.
 - **Odpowiedz na likwidowanie**: Przenieś zasoby, ponieważ region został zlikwidowany.
 
-> [!IMPORTANT]
-> Usługa Azure Resource przeprowadzki jest obecnie dostępna w publicznej wersji zapoznawczej.
 
 ## <a name="why-use-resource-mover"></a>Dlaczego warto używać przenoszenia zasobów?
 
@@ -62,6 +60,7 @@ Zasoby można przenosić między regionami w ramach centrum przenoszenia zasobó
 Korzystając z funkcji przenoszenia zasobów, można obecnie przenosić następujące zasoby między regionami:
 
 - Maszyny wirtualne platformy Azure i skojarzone dyski
+- Zaszyfrowane maszyny wirtualne platformy Azure i skojarzone z nią dyski. Obejmuje to maszyny wirtualne z włączoną funkcją Azure Disk Encryption oraz maszyny wirtualne platformy Azure korzystające z domyślnego szyfrowania po stronie serwera (zarówno z kluczami zarządzanymi przez platformę, jak i kluczami zarządzanymi przez klienta)
 - Karty interfejsów sieciowych
 - Zestawy dostępności 
 - Sieci wirtualne platformy Azure 

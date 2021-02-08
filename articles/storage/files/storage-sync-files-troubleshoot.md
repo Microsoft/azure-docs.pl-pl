@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 65a1f8ef82ba9ec35e01a61d9682ebed0b9ba04c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 534f9e76cfca4037634cfca089f1131984456636
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428338"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820708"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -210,10 +210,10 @@ Na serwerze, który jest wyświetlany jako "pojawia się w trybie offline" w por
         - Aby użyć poleceń cmdlet protokołu TLS, zobacz [Konfigurowanie kolejności szyfrowania TLS przy użyciu poleceń cmdlet programu PowerShell protokołu TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         Azure File Sync obecnie obsługuje następujące mechanizmy szyfrowania dla protokołu TLS 1,2:  
-        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256  
-        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256  
-        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256  
-        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256  
 
 - Jeśli **GetNextJob zakończyła się stanem:-2134347764** jest rejestrowane, serwer nie może komunikować się z usługą Azure File Sync ze względu na certyfikat wygasły lub usunięty.  
     - Uruchom następujące polecenie programu PowerShell na serwerze, aby zresetować certyfikat używany do uwierzytelniania:

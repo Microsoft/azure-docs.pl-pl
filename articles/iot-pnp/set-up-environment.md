@@ -1,20 +1,20 @@
 ---
-title: Skonfiguruj zasoby IoT potrzebne do Plug and Play IoT | Microsoft Docs
-description: Utwórz IoT Hub i wystąpienie usługi Device Provisioning Service do użycia w przewodnikach Szybki Start i samouczków IoT Plug and Play.
+title: Szybki Start — Konfigurowanie zasobów IoT potrzebnych dla usługi IoT Plug and Play | Microsoft Docs
+description: Szybki Start — Tworzenie wystąpienia IoT Hub i usługi Device Provisioning Service do użycia z przewodnikami Szybki Start i samouczkami IoT Plug and Play.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/11/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 10ec761313ce39beb4b24b838d156478704f943e
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96004266"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820034"
 ---
-# <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Skonfiguruj swoje środowisko dla przewodników Szybki Start i samouczków Plug and Play IoT
+# <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Szybki Start — Konfigurowanie środowiska dla przewodników Szybki Start i samouczków Plug and Play IoT
 
 Przed ukończeniem dowolnych przewodników Szybki Start i samouczków Plug and Play IoT należy skonfigurować Centrum IoT i usługę Device Provisioning Service (DPS) w ramach subskrypcji platformy Azure. Potrzebne będą również lokalne kopie plików modelu używanych przez przykładowe aplikacje i narzędzie Azure IoT Explorer.
 

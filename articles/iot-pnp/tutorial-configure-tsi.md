@@ -1,20 +1,20 @@
 ---
-title: Używanie Azure Time Series Insights do przechowywania i analizowania danych telemetrycznych dotyczących urządzeń usługi Azure IoT Plug and Play
-description: Skonfiguruj środowisko Time Series Insights i Połącz Centrum IoT Hub, aby wyświetlić i przeanalizować dane telemetryczne z urządzeń Plug and Play IoT.
+title: Samouczek — używanie Azure Time Series Insights do przechowywania i analizowania danych telemetrycznych dotyczących urządzeń usługi Azure IoT Plug and Play
+description: Samouczek — Konfigurowanie środowiska Time Series Insights i łączenie Centrum IoT Hub w celu wyświetlania i analizowania danych telemetrycznych z urządzeń Plug and Play IoT.
 author: lyrana
 ms.author: lyhughes
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5491df61a1198e8eee4ba4701ccfc56154ec75eb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 299730bcdab3ae7e558f39cc7f7d5076ffc58ea9
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905093"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820183"
 ---
-# <a name="preview-tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Samouczek w wersji zapoznawczej: Tworzenie i Konfigurowanie środowiska Time Series Insights Gen2
+# <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Samouczek: Tworzenie i Konfigurowanie środowiska Time Series Insights Gen2
 
 W ramach tego samouczka dowiesz się, jak utworzyć i skonfigurować środowisko [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) w celu integracji z rozwiązaniem Plug and Play IoT. Za pomocą Time Series Insights Zbieraj, Przetwarzaj, przechowuj, badaj i Wizualizuj dane szeregów czasowych w skali Internet rzeczy (IoT).
 

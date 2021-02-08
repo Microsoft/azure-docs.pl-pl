@@ -11,29 +11,29 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2021
+ms.date: 02/08/2021
 ms.author: shhazam
-ms.openlocfilehash: a8f4b96b27eb09443c2644fd63a8783faaa610e4
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: f15c4ed6bb7da5cd33eca96c171bfada68092b35
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809511"
+ms.locfileid: "99820674"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Co nowego w usłudze Azure Defender for IoT?
 
 W tym artykule wymieniono nowe funkcje i ulepszenia funkcji usługi Defender for IoT.
 
 Notowane funkcje są w wersji zapoznawczej. [Postanowienia uzupełniające dotyczące platformy Azure w wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zawierają dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, wersji zapoznawczej lub w inny sposób nie zostały jeszcze udostępnione.
-## <a name="february-2021"></a>Luty 2021
+## <a name="february-2021"></a>Luty 2021 r.
 
-### <a name="enhanced-custom-alert-rules"></a>Ulepszone niestandardowe reguły alertów
+### <a name="sensor---enhanced-custom-alert-rules"></a>Niestandardowe reguły alertów z rozszerzonym czujnikiem
 
 Teraz można tworzyć niestandardowe reguły alertów w oparciu o dzień, grupę dni i aktywność sieciową okresu.  Praca z warunkami reguł daty i godziny jest przydatna, na przykład w przypadkach, w których ważność alertu jest określana przez czas trwania zdarzenia alertu. Na przykład utwórz regułę niestandardową, która wyzwala alert o wysokiej ważności w przypadku wykrycia aktywności sieciowej w weekendie lub wieczorie.
 
 Ta funkcja jest dostępna na czujniku w wersji 10,1.
 
-### <a name="export-alerts-from-on-premises-management-console"></a>Eksportowanie alertów z lokalnej konsoli zarządzania
+### <a name="on-premises-management-console---export-alerts"></a>Lokalna Konsola zarządzania — eksportowanie alertów
 
 Informacje o alertach można teraz wyeksportować do pliku CSV z lokalnej konsoli zarządzania. Możesz wyeksportować informacje o wszystkich alertach wykrytych lub wyeksportować informacje na podstawie filtrowanego widoku.
 
@@ -48,7 +48,7 @@ Dostępny jest nowy moduł konstruktora urządzeń. Moduł, zwany jako mikroagen
 - **Security stan Management** — proaktywne monitorowanie stan zabezpieczeń urządzeń IoT.
 - **Ciągły, wykrycie IoT/spoza w czasie rzeczywistym** — wykrywanie zagrożeń, takich jak botnetami, próby odłożenia, wyszukiwarek używa tego kryptograficzne i podejrzana aktywność sieci
 
-Przestarzała dokumentacja modułu zabezpieczeń zostanie przeniesiona do folderu klasycznego.
+Przestarzała dokumentacja modułu zabezpieczeń zostanie przeniesiona do *rozwiązania opartego na agencie dla konstruktorów urządzeń>folderze klasycznym* .
 
 Ten zestaw funkcji jest dostępny w bieżącej publicznej wersji zapoznawczej w chmurze.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: feca2e83646264b28e42125b3fdebf41266c06bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 489c6be7bf977d01207fee4d1bd1fda13dc12025
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422726"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820521"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Wersje interfejsu API na platformie Azure Wyszukiwanie poznawcze
 
@@ -87,7 +87,7 @@ Poniższa tabela zawiera linki do nowszych wersji zestawu SDK.
 
 | Wersja zestawu SDK | Stan | Opis |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Stable | Nowa Biblioteka kliencka z zestawu Azure .NET SDK wydana w lipcu 2020. Jest przeznaczony dla interfejsu API REST wyszukiwania-Version = 2020-06-30 REST API, ale nie obsługuje jeszcze filtrów geograficznych. |
+| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Stable | Nowa Biblioteka kliencka z zestawu Azure .NET SDK wydana w lipcu 2020. Jest przeznaczony dla interfejsu API REST wyszukiwania-Version = 2020-06-30 REST API, ale jeszcze nie zapewnia natywnej obsługi filtrów geograficznych. Zalecamy korzystanie z pakietu [Microsoft. przestrzenny](https://www.nuget.org/packages/Microsoft.Spatial/) na potrzeby operacji geograficznych. Przykłady są dostępne dla [System.Text.Js](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) i [Newtonsoft.Jsna](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md). |
 | [Microsoft. Azure. Search 10](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Wydanie może 2019. Jest przeznaczony dla interfejsu API REST wyszukiwania — Version = 2019-05-06.|
 | [Microsoft. Azure. Management. Search 4.0.0](/dotnet/api/overview/azure/search/management) | Stable | Przeznaczony dla interfejsu API REST zarządzania — wersja = 2020-08-01.  |
 | Microsoft. Azure. Management. Search 3.0.0 | Stable | Jest przeznaczony dla interfejsu API REST zarządzania — Version = 2015-08-19.  |

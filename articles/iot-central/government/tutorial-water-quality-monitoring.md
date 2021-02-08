@@ -8,16 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 6e8f9b8b33d391c4e13c6076a8589d336455d8c0
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a928b1223b91faae6d4aca68b81cc16c827933b3
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590226"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820069"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do monitorowania jakości wody na platformie Azure IoT Central
-
-
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji do monitorowania jakości wody na platformie Azure IoT Central. Aplikację można utworzyć przy użyciu szablonu aplikacji do **monitorowania jakości wody** w systemie Azure IoT Central.
 
@@ -245,7 +243,7 @@ Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko u�
 
 1. Użyj przycisku **Wybierz obraz** , aby wybrać obraz do przekazania jako obraz aplikacji.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z aplikacji, Usuń aplikację, wykonując następujące czynności:
 

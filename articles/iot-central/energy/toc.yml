@@ -5,6 +5,7 @@
     - name: Tworzenie rozwiązań dla branży energetycznej za pomocą usługi Azure IoT Central
       href: overview-iot-central-energy.md
 - name: Samouczki
+  expanded: true
   items:
     - name: Tworzenie aplikacji do monitorowania inteligentnych liczników
       href: tutorial-smart-meter-app.md

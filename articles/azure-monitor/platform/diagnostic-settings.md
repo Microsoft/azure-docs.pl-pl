@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c25c53159fd0504956eed2cf7f968c573e9fc289
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a6f8e681f68fb53d7cf88582b4bf4416efc11c86
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927729"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820555"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania metryk i dzienników platformy do różnych miejsc docelowych
 [Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dziennik aktywności platformy Azure i dzienniki zasobów, zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. [Metryki platformy](data-platform-metrics.md) są zbierane domyślnie i zazwyczaj przechowywane w bazie danych metryk Azure monitor. Ten artykuł zawiera szczegółowe informacje na temat tworzenia i konfigurowania ustawień diagnostycznych w celu wysyłania metryk platformy i dzienników platformy do różnych miejsc docelowych.
@@ -175,6 +175,24 @@ Zobacz [Ustawienia diagnostyczne](/rest/api/monitor/diagnosticsettings) , aby ut
 
 ## <a name="create-using-azure-policy"></a>Utwórz za pomocą Azure Policy
 Ponieważ dla każdego zasobu platformy Azure należy utworzyć ustawienie diagnostyczne, Azure Policy może służyć do automatycznego tworzenia ustawień diagnostycznych podczas tworzenia poszczególnych zasobów. Aby uzyskać szczegółowe informacje, zobacz [wdrażanie Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md) .
+
+## <a name="metric-category-is-not-supported-error"></a>Kategoria metryki nie jest obsługiwana
+Podczas wdrażania ustawienia diagnostycznego pojawia się następujący komunikat o błędzie:
+
+   "Kategoria Metryka *xxxx*" nie jest obsługiwana "
+
+Na przykład: 
+
+   "Kategoria metryk" ActionsFailed "nie jest obsługiwana"
+
+poprzednio Twoje wdrożenie zakończyło się pomyślnie. 
+
+Problem występuje w przypadku używania szablonu Menedżer zasobów, interfejsu API REST ustawień diagnostycznych lub Azure PowerShell. Dla ustawień diagnostycznych utworzonych za pośrednictwem Azure Portal nie ma żadnych zmian, ponieważ są wyświetlane tylko obsługiwane nazwy kategorii.
+
+Problem jest spowodowany przez ostatnią zmianę w źródłowym interfejsie API. Kategorie metryk inne niż "AllMetrics" nie są obsługiwane i nigdy nie znajdowały się poza określonymi scenariuszami listy dozwolonych adresów IP. W przeszłości inne nazwy kategorii zostały zignorowane podczas wdrażania ustawienia diagnostycznego. Zaplecze Azure Monitor po prostu przekierować te kategorie do "AllMetrics".  Począwszy od lutego 2021, zaplecze zostało zaktualizowane w celu potwierdzenia, że podana Kategoria metryki jest dokładna. Ta zmiana spowodowała niepowodzenie niektórych wdrożeń.
+
+Jeśli zostanie wyświetlony ten błąd, zaktualizuj wdrożenia, aby zastąpić wszystkie nazwy kategorii metryk z "AllMetrics", aby rozwiązać problem. Jeśli wcześniej dodano wiele kategorii, należy zachować tylko jeden z odwołaniem "AllMetrics". Jeśli problem będzie nadal występować, skontaktuj się z pomocą techniczną platformy Azure za pomocą Azure Portal. 
+
 
 
 ## <a name="next-steps"></a>Następne kroki

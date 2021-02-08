@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: b6087140380fab00e2f24ea7f3b94334c4b79a71
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 734fad7d3f4fb7a2a816d9ad10fb6b15e2faf9e2
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583166"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820413"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji konsolowej języka Python przy użyciu tożsamości aplikacji
 
 W tym przewodniku szybki start pobrano i uruchomiono przykład kodu, który pokazuje, jak aplikacja Python może uzyskać token dostępu przy użyciu tożsamości aplikacji w celu wywołania interfejsu API Microsoft Graph i wyświetlenia [listy użytkowników](/graph/api/user-list) w katalogu. Przykład kodu demonstruje, jak zadanie nienadzorowane lub usługa systemu Windows mogą być uruchamiane przy użyciu tożsamości aplikacji, a nie tożsamości użytkownika. 
 
 > [!div renderon="docs"]
-> ![Pokazuje sposób działania przykładowej aplikacji wygenerowanej przez ten przewodnik Szybki Start](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+> ![Pokazuje sposób działania przykładowej aplikacji wygenerowanej przez ten przewodnik Szybki Start](media/quickstart-v2-python-daemon/python-console-daemon.svg)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,7 +42,7 @@ Do uruchomienia tego przykładu potrzebne są:
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opcja 1. Zarejestrowanie i automatyczne skonfigurowanie aplikacji, a następnie pobranie przykładowego kodu
 >
-> 1. Przejdź do środowiska szybkiego startu w <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">Azure Portal rejestracje aplikacji <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+> 1. Przejdź do środowiska szybkiego startu w <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">Azure Portal rejestracje aplikacji</a> .
 > 1. Wprowadź nazwę aplikacji i wybierz pozycję **Zarejestruj**.
 > 1. Postępuj zgodnie z instrukcjami, aby pobrać i automatycznie skonfigurować nową aplikację za pomocą tylko jednego kliknięcia.
 >
@@ -52,7 +52,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 > Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
 >
-> 1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+> 1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 > 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 > 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
@@ -65,7 +65,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > 1. W obszarze węzeł **użytkownika** wybierz pozycję **użytkownik. odczyt. wszystkie**, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>Pobieranie i konfigurowanie aplikacji Szybki Start
+> ### <a name="download-and-configure-the-quickstart-app"></a>Pobieranie i Konfigurowanie aplikacji szybkiego startu
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
 > Aby uzyskać przykładowy kod w tym przewodniku Szybki Start, Utwórz klucz tajny klienta i Dodaj **użytkownika interfejs API programu Graph. uprawnienie Odczyt. wszystkie** aplikacje.
@@ -75,7 +75,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Już skonfigurowano](media/quickstart-v2-netcore-daemon/green-check.png) Twoja aplikacja została skonfigurowana za pomocą tych atrybutów.
 
-#### <a name="step-2-download-your-python-project"></a>Krok 2. Pobieranie projektu języka Python
+#### <a name="step-2-download-the-python-project"></a>Krok 2. Pobieranie projektu języka Python
 
 > [!div renderon="docs"]
 > [Pobierz projekt demona języka Python](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
@@ -89,10 +89,10 @@ Do uruchomienia tego przykładu potrzebne są:
 
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-python-project"></a>Krok 3. Konfigurowanie projektu języka Python
+> #### <a name="step-3-configure-the-python-project"></a>Krok 3. Konfigurowanie projektu języka Python
 >
 > 1. Wyodrębnij plik zip do folderu lokalnego blisko folderu głównego dysku, na przykład **C:\Azure-Samples**.
-> 1. Przejdź do podfolderu **1-Call-MsGraph-WithSecret "**.
+> 1. Przejdź do podfolderu **1-Call-MsGraph-WithSecret**.
 > 1. Edytuj **parameters.jsna** i Zastąp wartości pól `authority` `client_id` oraz `secret` następującym fragmentem kodu:
 >
 >    ```json
@@ -119,10 +119,10 @@ Jeśli spróbujesz uruchomić aplikację w tym momencie, otrzymasz komunikat o b
 ##### <a name="global-tenant-administrator"></a>Administrator globalny dzierżawy
 
 > [!div renderon="docs"]
-> Jeśli jesteś administratorem globalnym dzierżawy, przejdź do strony **Uprawnienia interfejsu API** w obszarze rejestracji aplikacji (w wersji zapoznawczej) witryny Azure Portal i wybierz pozycję **Wyraź zgodę administratora dla katalogu {nazwa dzierżawy}** ({nazwa dzierżawy} jest nazwą katalogu).
+> Jeśli jesteś administratorem globalnym dzierżawy, przejdź do strony **uprawnienia interfejsu API** w **rejestracje aplikacji** w Azure Portal i wybierz pozycję **Udziel zgody administratora dla {Nazwa dzierżawy}** (gdzie {nazwa dzierżawy} to nazwa katalogu).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Jeśli jesteś administratorem globalnym, przejdź do strony **Uprawnienia interfejsu API** i wybierz pozycję **Wyraź zgodę administratora dla katalogu wpisz_tutaj_nazwę_dzierżawy**
+> Jeśli jesteś administratorem globalnym, przejdź do strony **uprawnienia interfejsu API** wybierz pozycję **Przyznaj administratorowi zgodę na Enter_the_Tenant_Name_Here**.
 > > [!div id="apipermissionspage"]
 > > [Przejdź do strony Uprawnienia interfejsu API]()
 
@@ -145,7 +145,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>Krok 5. Uruchomienie aplikacji
 
-Musisz zainstalować zależności tego przykładu raz
+Musisz zainstalować zależności tego przykładu raz.
 
 ```console
 pip install -r requirements.txt
@@ -160,7 +160,7 @@ python confidential_client_secret_sample.py parameters.json
 Powinno zostać wyświetlone dane wyjściowe konsoli część fragmentu kodu JSON reprezentująca listę użytkowników w katalogu usługi Azure AD.
 
 > [!IMPORTANT]
-> Aplikacja w tym przewodniku Szybki start używa klucza tajnego klienta do identyfikowania się jako klienta poufnego. Ponieważ klucz tajny klienta jest dodawany jako zwykły tekst w plikach projektu, ze względów bezpieczeństwa zaleca się używanie certyfikatu zamiast klucza tajnego klienta, zanim będzie można uznać aplikację za produkcyjną. Aby uzyskać więcej informacji na temat korzystania z certyfikatu, zobacz [te instrukcje](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) w tym samym repozytorium GitHub dla tego przykładu, ale w drugim folderze **2-Call-MsGraph-WithCertificate**
+> Aplikacja w tym przewodniku Szybki start używa klucza tajnego klienta do identyfikowania się jako klienta poufnego. Ponieważ klucz tajny klienta jest dodawany jako zwykły tekst w plikach projektu, ze względów bezpieczeństwa zaleca się używanie certyfikatu zamiast klucza tajnego klienta, zanim będzie można uznać aplikację za produkcyjną. Aby uzyskać więcej informacji na temat korzystania z certyfikatu, zobacz [te instrukcje](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) w tym samym repozytorium GitHub dla tego przykładu, ale w drugim folderze **2-Call-MsGraph-WithCertificate**.
 
 ## <a name="more-information"></a>Więcej informacji
 
@@ -196,7 +196,7 @@ app = msal.ConfidentialClientApplication(
 > | `config["client_id"]` | Jest **identyfikatorem aplikacji (klienta)** dla aplikacji zarejestrowanej w witrynie Azure Portal. Tę wartość można znaleźć na stronie **Przegląd** aplikacji w witrynie Azure Portal. |
 > | `config["authority"]`    | Punkt końcowy usługi STS na potrzeby uwierzytelnienia użytkownika. W chmurze publicznej jest to zwykle `https://login.microsoftonline.com/{tenant}`, gdzie {tenant} jest nazwą dzierżawy lub identyfikatorem dzierżawy.|
 
-Więcej informacji można znaleźć w [dokumentacji dotyczącej metody `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
+Więcej informacji można znaleźć w [dokumentacji referencyjnej dotyczącej `ConfidentialClientApplication` programu ](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication).
 
 ### <a name="requesting-tokens"></a>Przesyłanie żądań tokenów
 
@@ -213,15 +213,15 @@ if not result:
 
 > |Gdzie:| Opis |
 > |---------|---------|
-> | `config["scope"]` | Zawiera żądane zakresy. W przypadku klientów poufnych format powinien być podobny do `{Application ID URI}/.default`, aby wskazać, że żądane zakresy są zdefiniowane statycznie w obiekcie aplikacji ustawionym w witrynie Azure Portal (w przypadku programu Microsoft Graph element `{Application ID URI}` wskazuje na adres `https://graph.microsoft.com`). W przypadku niestandardowych interfejsów API sieci Web `{Application ID URI}` jest zdefiniowany w sekcji **UWIDACZNIANIE interfejsu API** w rejestracji aplikacji w witrynie Azure Portal (wersja zapoznawcza). |
+> | `config["scope"]` | Zawiera żądane zakresy. W przypadku klientów poufnych należy użyć formatu podobnego do, `{Application ID URI}/.default` Aby wskazać, że żądane zakresy są statycznie zdefiniowane w obiekcie aplikacji ustawionym w Azure Portal (dla Microsoft Graph, `{Application ID URI}` wskazuje na `https://graph.microsoft.com` ). Niestandardowe interfejsy API sieci Web `{Application ID URI}` są zdefiniowane w sekcji **UWIDACZNIANIE interfejsu api** w **rejestracje aplikacji** w witrynie Azure Portal.|
 
-Więcej informacji można znaleźć w [dokumentacji dotyczącej metody `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)
+Więcej informacji można znaleźć w [dokumentacji referencyjnej dotyczącej `AcquireTokenForClient` programu ](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat aplikacji demonów, zobacz stronę docelową scenariusza
+Aby dowiedzieć się więcej na temat aplikacji demonów, zobacz stronę docelową scenariusza.
 
 > [!div class="nextstepaction"]
 > [Aplikacja demona, która wywołuje interfejsy API sieci Web](scenario-daemon-overview.md)

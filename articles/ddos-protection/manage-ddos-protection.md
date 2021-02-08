@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: fd154ec40ed4d1650e44a67fd5d362a2bc0c519d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: f4ce830c889feaeda05745eeb02b72f55ad9314a
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813942"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819847"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Szybki Start: Tworzenie i Konfigurowanie Azure DDoS Protection Standard
 
@@ -77,7 +77,7 @@ Nie można przenieść sieci wirtualnej do innej grupy zasobów lub subskrypcji,
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Włącz ochronę DDoS dla wszystkich sieci wirtualnych
 
-Te [zasady](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Policy%20-%20Virtual%20Networks%20should%20be%20associated%20with%20an%20Azure%20DDoS%20Protection%20Standard%20plan) wykryją sieci wirtualne w zdefiniowanym zakresie, w którym nie włączono standardu DDoS Protection, a następnie opcjonalnie utworzysz zadanie korygowania, które utworzy skojarzenie służące do ochrony sieci wirtualnej. Szczegółowe instrukcje krok po kroku dotyczące wdrażania tych zasad znajdują się w temacie https://aka.ms/ddosvnetpolicy-techcommunity .
+Te [zasady](https://aka.ms/ddosvnetpolicy) wykryją sieci wirtualne w zdefiniowanym zakresie, w którym nie włączono standardu DDoS Protection, a następnie opcjonalnie utworzysz zadanie korygowania, które utworzy skojarzenie służące do ochrony sieci wirtualnej. Szczegółowe instrukcje krok po kroku dotyczące wdrażania tych zasad znajdują się w temacie https://aka.ms/ddosvnetpolicy-techcommunity .
 
 ## <a name="validate-and-test"></a>Weryfikuj i Testuj
 

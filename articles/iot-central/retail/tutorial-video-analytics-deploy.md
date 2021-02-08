@@ -1,21 +1,21 @@
 ---
-title: Jak wdrożyć szablon aplikacji IoT Central analiza filmów wideo — obiekt i ruch
-description: Ten przewodnik zawiera podsumowanie kroków związanych z wdrażaniem aplikacji IoT Central platformy Azure przy użyciu szablonu wideo Analiza obiektów i funkcji wykrywania ruchu.
+title: 'Samouczek: Wdrażanie szablonu aplikacji IoT Central analiza filmów wideo — obiekt i ruch'
+description: Samouczek — ten przewodnik zawiera podsumowanie kroków związanych z wdrażaniem aplikacji IoT Central platformy Azure przy użyciu szablonu wideo Analiza obiektów i funkcji wykrywania ruchu.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: how-to
+ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: decfa7020be7778e8ca64a9fb0cb4aac1657da27
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: abeae674cef8f13a092b53bde6040ad853bd0cca
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873340"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820368"
 ---
-# <a name="how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Jak wdrożyć aplikację IoT Central przy użyciu szablonu wideo Analiza obiektów i wykrywania ruchu
+# <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Samouczek: wdrażanie aplikacji IoT Central przy użyciu szablonu wideo Analiza obiektów i aplikacji wykrywanie ruchu
 
 Aby zapoznać się z omówieniem składników aplikacji Key *Analytics — obiekty i wykrywanie ruchu* , zobacz [Architektura aplikacji Analiza wideo dotycząca obiektów i ruchu](architecture-video-analytics.md).
 
@@ -45,4 +45,10 @@ Wykonaj następujące kroki, aby wdrożyć aplikację IoT Central przy użyciu s
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz możesz zapoznać się z instrukcjami wdrażania i używania szablonu aplikacji do analizy wideo, zobacz [Tworzenie aplikacji do analizy wideo na platformie azure IoT Central (Yolo v3)](tutorial-video-analytics-create-app-yolo-v3.md) lub [Tworzenie analiz wideo na platformie Azure IoT Central (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md) , aby rozpocząć pracę.
+Teraz można zapoznać się z instrukcjami wdrażania szablonu aplikacji wideo Analytics i korzystania z niego.
+
+> [!div class="nextstepaction"]
+> [Tworzenie aplikacji do analizy wideo na platformie Azure IoT Central (Yolo v3)](tutorial-video-analytics-create-app-yolo-v3.md) lub
+
+> [!div class="nextstepaction"]
+> [Utwórz analizę wideo na platformie Azure IoT Central (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md) , aby rozpocząć pracę.

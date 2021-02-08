@@ -4,12 +4,12 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 9db91a15c0ee5c982f73f36a36f12b38b969a125
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746479"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820200"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące usługi Azure Site Recovery
 
@@ -188,7 +188,7 @@ Tak, [ExpressRoute może służyć](concepts-expressroute-with-site-recovery.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Jeśli replika na platformę Azure, jakiego typu konto magazynu lub dysk zarządzany jest potrzebny?
 
-Potrzebujesz magazynu LRS lub GRS. Zalecamy użycie konta GRS, dzięki czemu dane będą odporne w przypadku regionalnej awarii lub sytuacji, w której nie można odzyskać regionu podstawowego. Konto musi znajdować się w tym samym regionie co magazyn Usług odzyskiwania. Usługa Premium Storage jest obsługiwana w przypadku maszyn wirtualnych VMware, maszyn wirtualnych funkcji Hyper-V i replikacji serwera fizycznego, podczas wdrażania Site Recovery w Azure Portal. Dyski zarządzane obsługują tylko LRS.
+Korzystanie z kont magazynu jako magazynu docelowego nie jest obsługiwane przez Azure Site Recovery. Zalecane jest raczej używanie dysków zarządzanych jako magazynu docelowego dla maszyn. Dyski zarządzane obsługują tylko typ LRS dla odporności danych.
 
 ### <a name="how-often-can-i-replicate-data"></a>Jak często mogę replikować dane?
 * **Funkcja Hyper-V:** Maszyny wirtualne funkcji Hyper-V mogą być replikowane co 30 sekund (z wyjątkiem magazynu Premium Storage), pięć minut lub 15 minut.

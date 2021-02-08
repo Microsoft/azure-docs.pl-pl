@@ -8,16 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 2aee5c56b267f9243b69a48dfd0f5f64196c5f23
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c46ce28801c74d0dcc37d23f9d384a69f022ecc4
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "77021494"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820351"
 ---
-# <a name="building-healthcare-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla opieki zdrowotnej za pomocą usługi Azure IoT Central 
-
-
+# <a name="building-healthcare-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla opieki zdrowotnej za pomocą usługi Azure IoT Central
 
 Dowiedz się, jak tworzyć rozwiązania do ochrony zdrowia za pomocą usługi Azure IoT Central przy użyciu szablonów aplikacji.
 

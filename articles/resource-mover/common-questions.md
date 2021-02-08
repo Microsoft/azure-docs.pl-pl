@@ -5,25 +5,18 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: ab4b8f5a691bc8e4091e9f3f01b709391deeddb0
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: c586832386f3bf6419d8af94ad23662c6801b1ae
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550712"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820878"
 ---
 # <a name="common-questions"></a>Często zadawane pytania
 
 W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące [przenoszenia zasobów platformy Azure](overview.md).
-
-## <a name="general"></a>Ogólne
-
-### <a name="is-resource-mover-generally-available"></a>Czy przeniesienie zasobów jest ogólnie dostępne?
-
-Przeniesienie zasobów jest obecnie dostępne w publicznej wersji zapoznawczej. Obciążenia produkcyjne są obsługiwane.
-
 
 
 ## <a name="moving-across-regions"></a>Przechodzenie między regionami
@@ -45,6 +38,9 @@ Korzystając z funkcji przenoszenia zasobów, można obecnie przenosić następu
 - Wewnętrzne i publiczne usługi równoważenia obciążenia 
 - Bazy danych SQL Azure i pule elastyczne
 
+### <a name="can-i-move-disks-across-regions"></a>Czy mogę przenieść dyski między regionami?
+
+Dysków nie można wybrać jako zasobów przenoszonych między regionami. Dyski są jednak przenoszone w ramach przenoszenia maszyny wirtualnej.
 
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Czy mogę przenosić zasoby między subskrypcjami, gdy przechodzą je między regionami?
 
@@ -97,6 +93,12 @@ Subskrypcja została przeniesiona do innej dzierżawy. | Wyłącz, a następnie 
 ### <a name="how-can-i-do-multiple-moves-together"></a>Jak można przenieść wiele jednocześnie?
 
 Zmień kombinacje źródłowe/docelowe stosownie do potrzeb, używając opcji Zmień w portalu.
+
+### <a name="what-happens-when-i-remove-a-resource-from-a-list-of-move-resources"></a>Co się stanie, gdy usuniesz zasób z listy Przenieś zasoby?
+
+Możesz usunąć zasoby, które zostały dodane do listy Przenieś. Zachowanie po usunięciu zasobu z listy zależy od stanu zasobu. [Dowiedz się więcej](remove-move-resources.md#vm-resource-state-after-removing).
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,15 +5,15 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d208a4a86896c81982aa2b10ca7ce5e7a6773c05
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520445"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820216"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Samouczek: przenoszenie maszyn wirtualnych platformy Azure między regionami
 
@@ -238,12 +238,16 @@ Jeśli chcesz zakończyć proces przenoszenia, Zatwierdź przeniesienie.
 - Usługa mobilności nie została automatycznie odinstalowana z maszyn wirtualnych. Odinstaluj je ręcznie lub pozostaw to pole, jeśli planujesz ponownie przenieść serwer.
 - Modyfikuj reguły kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure po przeniesieniu.
 
+
 ## <a name="delete-source-resources-after-commit"></a>Usuń zasoby źródłowe po zatwierdzeniu
 
 Po przeniesieniu można opcjonalnie usunąć zasoby w regionie źródłowym. 
 
-1. W **różnych regionach** kliknij nazwę każdego zasobu źródłowego, który chcesz usunąć.
-2. Na stronie właściwości dla każdego zasobu wybierz pozycję **Usuń**.
+> [!NOTE]
+> Nie można usunąć z portalu kilku zasobów, takich jak magazyny kluczy i serwery SQL Server, i należy je usunąć ze strony właściwości zasobu.
+
+1. W **różnych regionach** kliknij nazwę zasobu źródłowego, który chcesz usunąć.
+2. Wybierz pozycję **Usuń źródło**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Usuń dodatkowe zasoby utworzone do przeniesienia
 

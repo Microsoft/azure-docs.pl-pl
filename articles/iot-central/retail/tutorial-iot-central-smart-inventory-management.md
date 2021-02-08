@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2b26b4390cb19b832349b49d4e95a5355caed594
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463258"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820300"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji do zarządzania magazynem inteligentnym
 
-
-
 W tym samouczku pokazano, jak rozpocząć pracę, wdrażając szablon IoT Central aplikacji do **zarządzania magazynem inteligentnym** . Dowiesz się, jak wdrożyć szablon, co jest dołączone do pola i co warto zrobić dalej.
 
-W ramach tego samouczka nauczysz się, jak, 
-* Tworzenie aplikacji do zarządzania magazynem inteligentnym 
-* Przechodzenie przez aplikację 
+W ramach tego samouczka nauczysz się, jak,
+
+> [!div class="checklist"]
+> Tworzenie aplikacji do zarządzania magazynem inteligentnym za pomocą aplikacji 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -104,7 +103,7 @@ Wybierz kartę zadania, aby zobaczyć pięć różnych zadań, które istnieją 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odwiedzając **Administration**  >  **Ustawienia aplikacji** Administracja, a następnie kliknij przycisk **Usuń**.
+Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odwiedzając   >  **Ustawienia aplikacji** Administracja, a następnie kliknij przycisk **Usuń**.
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający sposób usuwania aplikacji po jej zakończeniu](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)

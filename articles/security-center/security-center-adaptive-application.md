@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2020
+ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: cc35f9ee25511faec5723b49763cbdae8963e88b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916137"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820759"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -44,7 +44,7 @@ Przez Definiowanie list znanych bezpiecznych aplikacji oraz generowanie alertów
 - Zapobiegaj określonemu oprogramowaniu, które jest zabronione przez organizację
 - Zwiększenie nadzoru nad aplikacjami, które uzyskują dostęp do poufnych danych
 
-
+Nie są dostępne żadne opcje wymuszania, a żadne nie są planowane. Adaptacyjne kontrole aplikacji mają na celu zapewnienie alertów zabezpieczeń w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne.
 
 ## <a name="availability"></a>Dostępność
 
@@ -235,7 +235,12 @@ Niektóre funkcje, które są dostępne w interfejsie API REST:
    > Przed użyciem kodu JSON w żądaniu Put należy usunąć następujące właściwości: recommendationStatus, configurationStatus, Issues, Location i sourceSystem.
 
 
+## <a name="faq---adaptive-application-controls"></a>Często zadawane pytania — adaptacyjne kontrolki aplikacji
 
+### <a name="are-there-any-options-to-enforce-the-application-controls"></a>Czy istnieją jakieś opcje wymuszania kontrolek aplikacji?
+Nie są dostępne żadne opcje wymuszania, a żadne nie są planowane. Adaptacyjne kontrole aplikacji mają na celu zapewnienie **alertów zabezpieczeń** w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne. Mają różne korzyści ([jakie są zalety adaptacyjnych kontroli aplikacji?](#what-are-the-benefits-of-adaptive-application-controls)) i są niezwykle dostosowywalne, jak pokazano na tej stronie.
+
+ 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób korzystania z adaptacyjnej kontroli aplikacji w Azure Security Center, aby zdefiniować listę dozwolonych aplikacji uruchomionych na maszynach na platformie Azure i poza platformą Azure. Aby dowiedzieć się więcej na temat innych funkcji ochrony obciążeń w chmurze Security Center, zobacz:

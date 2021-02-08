@@ -1,6 +1,7 @@
 - name: Dokumentacja usługi Azure Database dla MySQL
   href: index.yml
 - name: Omówienie
+  expanded: true
   items:
     - name: Co to jest Azure DB dla MySQL?
       href: overview.md
@@ -12,7 +13,6 @@
       href: concepts-version-policy.md
       displayName: version policy
 - name: Pojedynczy serwer
-  expanded: true
   items:
     - name: Dokumentacja pojedynczego serwera
       href: single-server/index.yml
@@ -151,7 +151,7 @@
           items:
             - name: Funkcja GitHub Actions
               href: quickstart-mysql-github-actions.md
-    - name: Networking
+    - name: Sieć
       items:
         - name: Punkty końcowe usługi dla sieci wirtualnej
           items:
@@ -482,7 +482,7 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Uruchom ponownie serwer przy użyciu Azure Portal
           href: flexible-server/how-to-restart-server-portal.md
-    - name: Networking
+    - name: Sieć
       items:
         - name: Pojęcia
           href: flexible-server/concepts-networking.md

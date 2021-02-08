@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127638"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820266"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,9 @@ Obsługa systemu Windows Server dla puli węzłów obejmuje pewne ograniczenia, 
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Czy AKS oferuje umowę dotyczącą poziomu usług?
 
-AKS zapewnia gwarancje SLA jako opcjonalną funkcję dodatku z umową [SLA][uptime-sla]dotyczącą czasu pracy.
+AKS zapewnia gwarancje SLA jako opcjonalną funkcję dodatku z umową [SLA][uptime-sla]dotyczącą czasu pracy. 
+
+Bezpłatna umowa SLA oferowana domyślnie nie gwarantuje punktu końcowego serwera interfejsu API o wysokiej dostępności (cel poziomu usługi to 99,5%). Może się tak zdarzyć, że problemy z łącznością są obserwowane w przypadku uaktualnień, węzłów underlay w złej kondycji, konserwacji platformy itp... Jeśli obciążenie nie jest tolerowane w APIServer ponownych uruchomień, zalecamy użycie umowy SLA dotyczącej czasu pracy.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Czy mogę zastosować rabaty rezerwacji platformy Azure do węzłów agenta AKS?
 

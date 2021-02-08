@@ -3,12 +3,12 @@ title: Badanie bazy wiedzy — QnA Maker
 description: Baza wiedzy musi być opublikowana. Po opublikowaniu baza wiedzy jest wysyłana w punkcie końcowym przewidywania środowiska uruchomieniowego przy użyciu interfejsu API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346209"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820385"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Zapytanie dotyczące odpowiedzi z bazy wiedzy
 
@@ -31,7 +31,7 @@ Ten proces został wyjaśniony w poniższej tabeli.
 |1|Aplikacja kliencka wysyła zapytanie użytkownika do [interfejsu API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker wstępnie przetworzy zapytanie użytkownika przy użyciu wykrywania języka, modułu sprawdzania pisowni i wyłączników słów.|
 |3|Przetwarzanie wstępne jest podejmowane w celu zmiany zapytania użytkownika w celu uzyskania najlepszych wyników wyszukiwania.|
-|4|To zmienione zapytanie jest wysyłane do indeksu Wyszukiwanie poznawcze platformy Azure, który otrzymuje `top` liczbę wyników. Jeśli prawidłowa odpowiedź nie jest w tych wynikach, zwiększ wartość `top` nieco. Ogólnie rzecz biorąc, wartość 10 dla `top` robót budowlanych w 90% zapytań.|
+|4|To zmienione zapytanie jest wysyłane do indeksu Wyszukiwanie poznawcze platformy Azure, który otrzymuje `top` liczbę wyników. Jeśli prawidłowa odpowiedź nie jest w tych wynikach, zwiększ wartość `top` nieco. Ogólnie rzecz biorąc, wartość 10 dla `top` robót budowlanych w 90% zapytań. Filtry usługi Azure Search [zatrzymują słowa](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) w tym kroku.|
 |5|QnA Maker używa składni i semantyki opartej na cechowania w celu określenia podobieństwa między zapytania użytkownika i pobieranymi wynikami QnA.|
 |6|Model rankingu o określonej maszynie używa różnych funkcji, od kroku 5, do określenia wyników pewności i nowej kolejności klasyfikacji.|
 |7|Nowe wyniki są zwracane do aplikacji klienckiej w kolejności uporządkowanej.|
@@ -54,7 +54,7 @@ Ten proces został wyjaśniony w poniższej tabeli.
 |1|Aplikacja kliencka wysyła zapytanie użytkownika do [interfejsu API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker wstępnie przetworzy zapytanie użytkownika przy użyciu wykrywania języka, modułu sprawdzania pisowni i wyłączników słów.|
 |3|Przetwarzanie wstępne jest podejmowane w celu zmiany zapytania użytkownika w celu uzyskania najlepszych wyników wyszukiwania.|
-|4|To zmienione zapytanie jest wysyłane do indeksu Wyszukiwanie poznawcze platformy Azure, który otrzymuje `top` liczbę wyników. Jeśli prawidłowa odpowiedź nie jest w tych wynikach, zwiększ wartość `top` nieco. Ogólnie rzecz biorąc, wartość 10 dla `top` robót budowlanych w 90% zapytań.|
+|4|To zmienione zapytanie jest wysyłane do indeksu Wyszukiwanie poznawcze platformy Azure, który otrzymuje `top` liczbę wyników. Jeśli prawidłowa odpowiedź nie jest w tych wynikach, zwiększ wartość `top` nieco. Ogólnie rzecz biorąc, wartość 10 dla `top` robót budowlanych w 90% zapytań. Filtry usługi Azure Search [zatrzymują słowa](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) w tym kroku.|
 |5|QnA Maker korzysta z modelu opartego na funkcji przekształcania grafiki, aby określić podobieństwo między zapytania użytkownika a wynikami sugestii QnA pobranych z usługi Azure Wyszukiwanie poznawcze. Model oparty na przekształcaniu to model wielojęzykowy uczenia głębokiego, który działa w poziomie dla wszystkich języków, aby określić wyniki zaufania i nową kolejność klasyfikacyjną.|
 |6|Nowe wyniki są zwracane do aplikacji klienckiej w kolejności uporządkowanej.|
 |||
@@ -125,4 +125,4 @@ Odpowiedź HTTP to odpowiedź pobierana z bazy wiedzy, na podstawie najlepszego 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Współczynnik ufności](./confidence-score.md)
+> [Wynik pewności](./confidence-score.md)
