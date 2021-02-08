@@ -1,24 +1,24 @@
 ---
-title: 'Szybki Start: Konfigurowanie rozwiązania'
+title: Dodawanie zasobów platformy Azure do rozwiązania IoT
 description: W tym przewodniku szybki start dowiesz się, jak skonfigurować kompleksowe rozwiązanie IoT przy użyciu usługi Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: Shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
-ms.openlocfilehash: f949d52d4ba461da94153cbbd17ca5fb3eb214d7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 01/25/2021
+ms.author: shhazam
+ms.openlocfilehash: 8912e8d66ae0cc1b5dba80ee9aabb0fbd288e3c6
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092090"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809036"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Szybki Start: Konfigurowanie rozwiązania Azure Defender for IoT
 
@@ -36,16 +36,19 @@ Oprócz automatycznego wykrywania relacji można także wybierać i wybierać in
 
 Wybrane opcje umożliwiają dodawanie całych subskrypcji, grup zasobów lub pojedynczych zasobów.
 
-Po zdefiniowaniu wszystkich relacji zasobów usługa Defender for IoT korzysta z usługi Defender, aby zapewnić odpowiednie zalecenia dotyczące zabezpieczeń i alerty dotyczące tych zasobów.
+Po zdefiniowaniu wszystkich relacji zasobów usługa Defender for IoT używa usługi Defender do udostępniania zaleceń i alertów dotyczących zabezpieczeń dla tych zasobów.
 
 ## <a name="add-azure-resources-to-your-iot-solution"></a>Dodawanie zasobów platformy Azure do rozwiązania IoT
 
-Aby dodać nowy zasób do rozwiązania IoT, wykonaj następujące czynności:
+Aby dodać nowy zasób do rozwiązania IoT:
 
 1. Otwórz **IoT Hub** w Azure Portal.
+
 1. W obszarze **zabezpieczenia** wybierz pozycję **Przegląd** , a następnie pozycję **Ustawienia**, a następnie wybierz opcję **monitorowane zasoby**.
+
 1. Wybierz pozycję **Edytuj** i wybierz monitorowane zasoby należące do rozwiązania IoT.
-1. Kliknij pozycję **Dodaj**.
+
+1. Wybierz pozycję **Dodaj**.
 
 Gratulacje! Dodano nową grupę zasobów do rozwiązania IoT.
 

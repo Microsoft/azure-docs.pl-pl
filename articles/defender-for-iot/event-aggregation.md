@@ -1,30 +1,30 @@
 ---
-title: Agregacja zdarzeń
+title: Klasyczny agregacja zdarzeń modułu zabezpieczeń
 description: Dowiedz się więcej o agregacji zdarzeń usługi Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
-ms.author: mlottner
-ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 1/20/2021
+ms.author: shhazam
+ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832373"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809222"
 ---
-# <a name="defender-for-iot-event-aggregation"></a>Agregacja zdarzeń usługi Defender for IoT
+# <a name="security-module-classic-event-aggregation"></a>Klasyczny agregacja zdarzeń modułu zabezpieczeń
 
-Agent zabezpieczeń usługi Defender dla IoT zbiera dane i zdarzenia systemowe z urządzenia lokalnego i wysyła je do chmury platformy Azure w celu przetworzenia i analizy. Agent zabezpieczeń zbiera wiele typów zdarzeń urządzeń, w tym nowy proces i nowe zdarzenia połączenia. Zarówno nowy proces, jak i nowe zdarzenia połączeń mogą być często wykonywane na urządzeniu w ciągu sekundy, a chociaż ważne dla niezawodnego i kompleksowego zabezpieczenia, liczba agentów zabezpieczeń komunikatów jest zmuszona do przesłania lub przekroczenia limitu przydziału IoT Hub i kosztów. Zdarzenia te zawierają jednak wysoce cenne informacje zabezpieczające, które są kluczowe dla ochrony urządzenia.
+Usługa Defender Security Agents zbiera dane i zdarzenia systemowe z urządzenia lokalnego i wysyła je do chmury platformy Azure w celu przetworzenia i analizy. Agent zabezpieczeń zbiera wiele typów zdarzeń urządzeń, w tym nowy proces i nowe zdarzenia połączenia. Zarówno nowy proces, jak i nowe zdarzenia połączeń mogą być często wykonywane na urządzeniu w ciągu sekundy, a chociaż ważne dla niezawodnego i kompleksowego zabezpieczenia, liczba agentów zabezpieczeń komunikatów jest zmuszona do przesłania lub przekroczenia limitu przydziału IoT Hub i kosztów. Zdarzenia te zawierają jednak wysoce cenne informacje zabezpieczające, które są kluczowe dla ochrony urządzenia.
 
-Aby zmniejszyć dodatkowe przydziały i koszty podczas ochrony urządzeń, agenci usługi Defender dla usługi IoT mogą agregować te typy zdarzeń.
+Aby zmniejszyć dodatkowy limit przydziału i koszty związane z ochroną urządzeń, agenci usługi Defender dla usługi IoT agregują te typy zdarzeń.
 
 Agregacja zdarzeń jest domyślnie **włączona** i chociaż nie jest zalecana, można ją **wyłączyć** ręcznie w dowolnym momencie.
 
@@ -45,7 +45,7 @@ Aby zmniejszyć wykorzystanie pamięci przez agenta, za każdym razem, gdy Agent
 Zdarzenia są uważane za identyczne tylko wtedy, gdy są spełnione następujące warunki:
 
 * Zdarzenia ProcessCreate — gdy są identyczne elementy **CommandLine**, **Executable**, **username** i **UserID**
-* Zdarzenia ConnectionCreate — gdy **wiersz polecenia**, **userId, nazwa użytkownika**, **kierunek**, **adres lokalny**, **adres zdalny**, * * protokół i **port docelowy** są identyczne
+* Zdarzenia ConnectionCreate — w **przypadku wiersza polecenia**, **identyfikatora użytkownika**, **kierunku**, **adresu lokalnego**, **adresu zdalnego**, **protokołu** i **portu docelowego** są identyczne.
 * Zdarzenia ProcessTerminate — gdy **plik wykonywalny** i **stan zakończenia** są identyczne
 
 ### <a name="working-with-aggregated-events"></a>Praca z zagregowanymi zdarzeniami
@@ -70,9 +70,9 @@ Wprowadź zmiany w konfiguracji agregacji zdarzeń usługi Defender for IoT w [o
 | Nazwa konfiguracji | Możliwe wartości | Szczegóły | Uwagi |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Włącz/Wyłącz agregację zdarzeń dla zdarzeń tworzenia procesu |
-| aggregationIntervalProcessCreate | Ciąg TimeSpan ISO8601 | Interwał agregacji dla zdarzeń tworzenia procesu |
+| aggregationIntervalProcessCreate | Ciąg TimeSpan ISO8601 | Interwał agregacji dla zdarzeń tworzonych przez proces |
 | aggregationEnabledConnectionCreate | boolean| Włącz/Wyłącz agregację zdarzeń dla zdarzeń tworzenia połączenia |
-| aggregationIntervalConnectionCreate | Ciąg TimeSpan ISO8601 | Interwał agregacji dla zdarzeń tworzenia połączenia |
+| aggregationIntervalConnectionCreate | Ciąg TimeSpan ISO8601 | Interwał agregacji dla połączeń tworzy zdarzenia |
 | aggregationEnabledProcessTerminate | boolean | Włącz/Wyłącz agregację zdarzeń dla zdarzeń zakończenia procesu | Tylko Windows|
 | aggregationIntervalProcessTerminate | Ciąg TimeSpan ISO8601 | Interwał agregacji dla zdarzeń zakończenia procesu | Tylko Windows|
 |

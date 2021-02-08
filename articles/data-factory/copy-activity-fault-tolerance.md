@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 0fb6beb776f5a553e85f690d49e3433f93b9ee16
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593652"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809545"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -37,7 +37,7 @@ ADF obsługuje następujące scenariusze odporności na uszkodzenia podczas kopi
 2. Niektóre konkretne foldery lub pliki nie zezwalają na dostęp do usługi ADF, ponieważ listy ACL tych plików lub folderów wymagają wyższego poziomu uprawnień niż informacje o połączeniu skonfigurowane w podajniku ADF.
 3. Co najmniej jeden plik nie jest weryfikowany pod kątem spójności między magazynem źródłowym i docelowym w przypadku włączenia ustawienia weryfikacji spójności danych w ADF.
 
-### <a name="configuration"></a>Konfiguracja 
+### <a name="configuration"></a>Konfigurowanie 
 Podczas kopiowania plików binarnych między magazynami magazynów można włączyć odporność na uszkodzenia w następujący sposób: 
 
 ```json
@@ -58,7 +58,8 @@ Podczas kopiowania plików binarnych między magazynami magazynów można włąc
     "skipErrorFile": { 
         "fileMissing": true, 
         "fileForbidden": true, 
-        "dataInconsistency": true 
+        "dataInconsistency": true,
+        "invalidFileName": true     
     }, 
     "validateDataConsistency": true, 
     "logSettings": {
@@ -83,6 +84,7 @@ skipErrorFile | Grupa właściwości, aby określić typy błędów, które maj�
 fileMissing | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć pliki, które są usuwane przez inne aplikacje, gdy w tym czasie jest kopiowany ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki usuwane przez inne aplikacje. <br/> -False: chcesz przerwać działanie kopiowania po usunięciu plików ze sklepu źródłowego w trakcie przenoszenia danych. <br/>Należy pamiętać, że właściwość jest ustawiona na wartość true jako domyślną. | True (domyślnie) <br/>Fałsz | Nie
 fileForbidden | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć określone pliki, gdy listy kontroli dostępu do tych plików lub folderów wymagają wyższego poziomu uprawnień niż połączenie skonfigurowane w podajniku ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki. <br/> -False: chcesz przerwać działanie kopiowania po pobraniu problemu z uprawnieniami do folderów lub plików. | Prawda <br/>False (domyślnie) | Nie
 dataInconsistency | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne dane między magazynem źródłowym i docelowym. <br/> -True: chcesz skopiować resztę, pomijając niespójne dane. <br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnych danych. <br/>Należy pamiętać, że właściwość jest prawidłowa tylko po ustawieniu validateDataConsistency jako true. | Prawda <br/>False (domyślnie) | Nie
+invalidFileName | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć określone pliki, gdy nazwy plików są nieprawidłowe dla magazynu docelowego. <br/> -True: chcesz skopiować resztę, pomijając pliki z nieprawidłowymi nazwami plików. <br/> -False: chcesz przerwać działanie kopiowania, gdy wszystkie pliki mają nieprawidłową nazwę pliku. <br/>Należy pamiętać, że ta właściwość działa podczas kopiowania plików binarnych z dowolnego magazynu magazynu do ADLS Gen2 lub kopiowania plików binarnych z AWS S3 do dowolnego magazynu magazynu. | Prawda <br/>False (domyślnie) | Nie
 logSettings  | Grupa właściwości, które można określić, gdy mają być rejestrowane pominięte nazwy obiektów. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania plików dziennika sesji. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonej usługi lub typu, która odnosi się do wystąpienia używanego do przechowywania pliku dziennika. | Nie
 path | Ścieżka do plików dziennika. | Określ ścieżkę, która ma być używana do przechowywania plików dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
@@ -133,7 +135,7 @@ Pliki dziennika muszą być plikami CSV. Schemat pliku dziennika jest następuj�
 
 Kolumna | Opis 
 -------- | -----------  
-Timestamp | Sygnatura czasowa w przypadku pomijania pliku przez funkcję ADF.
+Znacznik czasu | Sygnatura czasowa w przypadku pomijania pliku przez funkcję ADF.
 Poziom | Poziom dziennika tego elementu. Będzie on wyświetlany na poziomie "ostrzeżenie" dla elementu pokazującego pomijanie plików.
 OperationName | Zachowanie działania kopiowania APD dla każdego pliku. Będzie to "FileSkip", aby określić plik do pominięcia.
 OperationItem | Nazwy plików, które mają zostać pominięte.
@@ -166,11 +168,11 @@ Działanie Copy obsługuje trzy scenariusze wykrywania, pomijania i rejestrowani
     Na przykład: kopiowanie danych z programu SQL Server do bazy danych SQL. Klucz podstawowy jest zdefiniowany w usłudze SQL Database ujścia, ale nie jest on zdefiniowany w źródłowym programie SQL Server. Zduplikowane wiersze istniejące w źródle nie mogą zostać skopiowane do ujścia. Działanie Copy kopiuje tylko pierwszy wiersz danych źródłowych do ujścia. Kolejne wiersze źródłowe, które zawierają zduplikowaną wartość klucza podstawowego, są wykrywane jako niezgodne i pomijane.
 
 >[!NOTE]
->- Aby załadować dane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pomocą bazy danych Base, skonfiguruj natywne ustawienia odporności na uszkodzenia na podstawie, określając odrzucanie zasad za pośrednictwem elementu "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" w działaniu kopiowania. Nadal można włączyć przekierowywanie niezgodnych wierszy podrzędnych do obiektu BLOB lub ADLS, jak pokazano poniżej.
+>- Aby załadować dane do usługi Azure Synapse Analytics przy użyciu bazy danych, należy skonfigurować natywne ustawienia odporności na uszkodzenia na podstawie, określając odrzucanie zasad za pośrednictwem elementu "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" w działaniu kopiowania. Nadal można włączyć przekierowywanie niezgodnych wierszy podrzędnych do obiektu BLOB lub ADLS, jak pokazano poniżej.
 >- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania usługi [Amazon RedShift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania [procedury składowanej z ujścia bazy danych SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
 
 ```json
@@ -229,7 +231,7 @@ Pliki dziennika będą plikami CSV. Schemat pliku dziennika jest następujący:
 
 Kolumna | Opis 
 -------- | -----------  
-Timestamp | Sygnatura czasowa, gdy funkcja ADF pomija niezgodne wiersze
+Znacznik czasu | Sygnatura czasowa, gdy funkcja ADF pomija niezgodne wiersze
 Poziom | Poziom dziennika tego elementu. Jeśli ten element wyświetli pominięte wiersze, będzie działać na poziomie "ostrzeżenie"
 OperationName | Zachowanie działania kopiowania APD dla każdego wiersza. Będzie to "TabularRowSkip", aby określić, że konkretny niezgodny wiersz został pominięty
 OperationItem | Pominięte wiersze z magazynu danych źródłowych.
@@ -251,7 +253,7 @@ Z przykładowego pliku dziennika można zobaczyć jeden wiersz "dane1, Dane2, DA
 
 Poniżej znajduje się starszy sposób włączania odporności na uszkodzenia tylko do kopiowania danych tabelarycznych. W przypadku tworzenia nowego potoku lub działania zaleca się rozpoczęcie od tego [miejsca](#copying-tabular-data) .
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
 
 ```json

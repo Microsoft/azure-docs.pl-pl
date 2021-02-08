@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: tworzenie alertów niestandardowych'
-description: Informacje o tworzeniu i przypisywaniu niestandardowych alertów urządzeń dla usługi Azure Defender for IoT Security.
+title: 'Create custom alerts (Szybki start: tworzenie alertów niestandardowych)'
+description: Poznaj, twórz i przypisuj niestandardowe alerty urządzeń dla usługi Azure Defender for IoT Security.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 48682e465374c1a0e1fb74fc6627016696ff6d2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e59bcca9561c33610170f4bc3674eef307cf0de9
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947801"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809050"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Szybki Start: tworzenie alertów niestandardowych
+# <a name="create-custom-alerts"></a>Create custom alerts (Szybki start: tworzenie alertów niestandardowych)
 
 Korzystanie z niestandardowych grup zabezpieczeń i alertów pozwala w pełni wykorzystać kompleksowe informacje o zabezpieczeniach i kategoriie urządzenia, aby zapewnić lepsze zabezpieczenia rozwiązań IoT.
 
@@ -65,17 +65,23 @@ Używanie grup zabezpieczeń do grupowania urządzeń w kategorie logiczne. Po u
 
 ## <a name="customize-an-alert"></a>Dostosowywanie alertu
 
-1. Otwórz IoT Hub a następnie wybierz pozycję **Ustawienia** w menu **zabezpieczenia** . 
-1. Kliknij pozycję **alerty niestandardowe**.
+1. Otwórz IoT Hub a następnie wybierz pozycję **Ustawienia** w menu **zabezpieczenia** .
+
+1. Wybierz pozycję **alerty niestandardowe**.
+
 1. Wybierz grupę zabezpieczeń, do której chcesz zastosować dostosowanie.
-1. Kliknij przycisk **Dodaj alert niestandardowy**.
+
+1. Wybierz pozycję **Dodaj alert niestandardowy**.
+
 1. Wybierz niestandardowy alert z listy rozwijanej.
-1. Edytuj wymagane właściwości, a następnie kliknij przycisk **OK**.
-1. Pamiętaj, aby kliknąć przycisk **Zapisz**. Bez zapisywania nowego alertu alert zostanie usunięty przy następnym zamknięciu IoT Hub.
+
+1. Edytuj wymagane właściwości, a następnie wybierz **przycisk OK**.
+
+1. Upewnij się, że wybrano pozycję **Zapisz**. Bez zapisywania nowego alertu alert zostanie usunięty przy następnym zamknięciu IoT Hub.
 
 ## <a name="alerts-available-for-customization"></a>Alerty dostępne do dostosowania
 
-Usługa Defender for IoT oferuje dużą liczbę alertów, które można dostosować zgodnie z konkretnymi potrzebami. Zapoznaj się z [dostosowywalną tabelą alertów](concept-customizable-security-alerts.md) w celu uzyskania ważności alertu, źródła danych, opisu i naszych sugerowanych czynności zaradczych w przypadku odebrania każdego alertu.
+Usługa Defender for IoT oferuje dużą liczbę alertów, które można dostosować zgodnie z konkretnymi potrzebami. Zapoznaj się z [dostosowywalną tabelą alertów](concept-customizable-security-alerts.md) w celu uzyskania ważności alertu, źródła danych, opisu i sugerowanych czynności zaradczych, jeśli i po odebraniu każdego alertu.
 
 ## <a name="next-steps"></a>Następne kroki
 

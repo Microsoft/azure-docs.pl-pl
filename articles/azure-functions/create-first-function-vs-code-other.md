@@ -3,12 +3,12 @@ title: Tworzenie funkcji w programie go lub Rust przy użyciu Visual Studio Code
 description: Dowiedz się, jak utworzyć funkcję go jako niestandardową procedurę obsługi Azure Functions, a następnie opublikować projekt lokalny na potrzeby hostingu bezserwerowego w Azure Functions przy użyciu rozszerzenia Azure Functions w Visual Studio Code.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 4f2e0b30c4bf5e6c4629fc63f3125e5ddda70ad2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a3ef7bdd19badf7a7deaa8376440016e39e0d14b
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493666"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809580"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji go lub Rust na platformie Azure przy użyciu Visual Studio Code
 
@@ -262,7 +262,7 @@ Ta sekcja umożliwia opublikowanie projektu na platformie Azure w aplikacji funk
     ```cmd
     set GOOS=linux
     set GOARCH=amd64
-    go build hello.go
+    go build handler.go
     ```
 
     Zmień wartość `defaultExecutablePath` w *host.jsna* od `handler.exe` do `handler` . Powoduje to, że aplikacja funkcji ma uruchamiać plik binarny systemu Linux.

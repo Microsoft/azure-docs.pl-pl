@@ -1,6 +1,6 @@
 ---
-title: Omówienie agenta zabezpieczeń
-description: Rozpocznij pracę z zrozumieniem, konfigurowaniem, wdrażaniem i używaniem agentów usługi Azure Defender for IoT Security Service na urządzeniach IoT.
+title: Agenci zabezpieczeń
+description: Zacznij od ustalenia, konfigurowania, wdrażania i używania usługi Azure Defender dla agentów usługi zabezpieczeń IoT na urządzeniach IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -11,33 +11,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/27/2019
+ms.date: 1/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 2b1cd131e578b1d16fabee99b8de536e4a48ece0
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: fcc2c7c3e724fccd005c8b6c8d1b01982f407c65
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247305"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809033"
 ---
-# <a name="get-started-with-azure-defender-for-iot-device-security-agents"></a>Wprowadzenie do usługi Azure Defender dla agentów zabezpieczeń urządzeń IoT
+# <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Rozpoczynanie pracy z usługą Azure Defender dla urządzeń IoT Micro Agents
 
-Usługa Defender Security Agents oferuje ulepszone funkcje zabezpieczeń, takie jak monitorowanie połączeń zdalnych, aktywne aplikacje, zdarzenia logowania i najlepsze rozwiązania w zakresie konfiguracji systemu operacyjnego. Przejmij kontrolę nad ochroną pola urządzenia przed zagrożeniami i stan zabezpieczeń w ramach jednej usługi.
+Usługa Defender Security Agents oferuje ulepszone funkcje zabezpieczeń, takie jak monitorowanie najlepszych rozwiązań w zakresie konfiguracji systemu operacyjnego. Przejmij kontrolę nad ochroną pola urządzenia przed zagrożeniami i stan zabezpieczeń w ramach jednej usługi.
 
-Dostępna jest architektura referencyjna dla agentów zabezpieczeń systemu Linux i Windows, zarówno w języku C#, jak i C.
-
-Agenci zabezpieczeń usługi Defender for IoT obsługują nieprzetworzoną kolekcję zdarzeń z systemu operacyjnego urządzenia, agregację zdarzeń w celu zmniejszenia kosztów i konfiguracji za pośrednictwem sznurka modułu urządzenia. Komunikaty zabezpieczeń są wysyłane przez IoT Hub do usługi Defender dla usług IoT Analytics.
+Obrony przed agentami zabezpieczeń IoT obsługują nieprzetworzoną kolekcję zdarzeń z systemu operacyjnego urządzenia, agregacji zdarzeń w celu zmniejszenia kosztów i konfiguracji za pośrednictwem sznurka modułowego urządzenia. Komunikaty zabezpieczeń są wysyłane przez IoT Hub do usługi Defender dla usług IoT Analytics.
 
 Użyj następującego przepływu pracy do wdrożenia i przetestowania usługi Defender dla agentów zabezpieczeń IoT:
 
-1. [Włącz usługę Defender for IoT na IoT Hub](quickstart-onboard-iot-hub.md)
+1. [Włącz usługę Defender for IoT na IoT Hub](quickstart-onboard-iot-hub.md).
+
 1. Jeśli IoT Hub nie ma zarejestrowanych urządzeń, [Zarejestruj nowe urządzenie](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
-1. [Utwórz moduł zabezpieczeń azureiotsecurity](quickstart-create-security-twin.md) dla urządzeń.
+
+1. [Utwórz sznurek modułu DefenderIotMicroAgent](quickstart-create-micro-agent-module-twin.md) dla urządzeń.
+
 1. Aby zainstalować agenta na symulowanym urządzeniu platformy Azure zamiast instalować go na rzeczywistym urządzeniu, uruchom [nową maszynę wirtualną platformy Azure](../virtual-machines/linux/quick-create-portal.md) w dostępnej strefie.
+
 1. [Wdróż usługę Defender for IoT Security Agent](how-to-deploy-linux-cs.md) na urządzeniu IoT lub nową maszynę wirtualną.
-1. Postępuj zgodnie z instrukcjami [trigger_events](https://aka.ms/iot-security-github-trigger-events) , aby uruchomić niegroźną symulację ataku.
-1. Sprawdź alerty usługi Defender for IoT w odpowiedzi na atak symulowany w poprzednim kroku. Rozpocznij weryfikację po pięciu minutach od uruchomienia skryptu.
-1. Poznaj [alerty](concept-security-alerts.md), [zalecenia](concept-recommendations.md)i [głębokie szczegółowe przy użyciu log Analytics](how-to-security-data-access.md) przy użyciu IoT Hub.
+
+1. Postępuj zgodnie z instrukcjami [trigger_events](https://aka.ms/iot-security-github-trigger-events) , aby uruchomić wydarzenie bazowe systemu operacyjnego.
+
+1. Sprawdź zalecenia usługi Defender for IoT w odpowiedzi na niepowodzenie sprawdzania symulowanej linii bazowej systemu operacyjnego w poprzednim kroku. Rozpocznij weryfikację po 30 minutach od uruchomienia skryptu.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 086ebf71e2da19a96433f32cfb1bae133e875400
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518080"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808528"
 ---
 ![Wykres przedstawiający specyfikacje D s v 3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -137,6 +137,7 @@ Mamy metryki na platformie Azure, które zapewniają wgląd w sposób działania
 - **Operacje zapisu na dysku/s**: liczba operacji wyjściowych, które są zapisywane w drugim ze wszystkich dysków dołączonych do maszyny wirtualnej.
 
 ## <a name="storage-io-utilization-metrics"></a>Metryki wykorzystania operacji we/wy magazynu
+Następujące metryki pomagają zdiagnozować wąskie gardło w maszynie wirtualnej i w kombinacji dysków. Te metryki są dostępne tylko w przypadku korzystania z maszyny wirtualnej z włączoną obsługą Premium. Te metryki są dostępne dla wszystkich typów dysków z wyjątkiem Ultra. 
 
 Metryki pomagające zdiagnozować limitów operacji we/wy dysku:
 
@@ -147,10 +148,10 @@ Metryki pomagające zdiagnozować limitów operacji we/wy dysku:
 
 Metryki pomagające zdiagnozować limitów operacji we/wy maszyny wirtualnej:
 
-- **Procent zużytych operacji we/wy w pamięci podręcznej maszyny**wirtualnej: procent obliczony przez łączną liczbę IOPS zakończonych przez maksymalną liczbę IOPS w pamięci podręcznej Jeśli ta kwota wynosi od 100%, aplikacja jest uruchomiona we/wy ograniczonego limitu operacji wejścia/wyjścia pamięci maszyny wirtualnej.
+- **Procent zużytych operacji we/wy w pamięci podręcznej maszyny** wirtualnej: procent obliczony przez łączną liczbę IOPS zakończonych przez maksymalną liczbę IOPS w pamięci podręcznej Jeśli ta kwota wynosi od 100%, aplikacja jest uruchomiona we/wy ograniczonego limitu operacji wejścia/wyjścia pamięci maszyny wirtualnej.
 - **Procent zajętej pamięci podręcznej maszyny wirtualnej**: procent obliczony przez łączną przepływność dysku ukończoną przez maksymalną przepływność maszyny wirtualnej w pamięci podręcznej. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona we/wy ograniczonego limitu przepustowości w pamięci podręcznej maszyny wirtualnej.
-- **Procent zużytych operacji we/wy pamięci podręcznej maszyny**wirtualnej: procent obliczony przez łączną liczbę operacji we/wy na maszynach wirtualnych zakończonych maksymalną liczbą IOPS niebuforowanej maszyny wirtualnej. Jeśli ta kwota wynosi od 100%, aplikacja jest uruchomiona w ramach operacji we/wy z limitu liczby IOPS niebuforowanej maszyny wirtualnej.
-- **Procent wykorzystania przepustowości niebuforowanej przez maszynę**wirtualną: procent obliczony przez łączną przepływność dysku maszyny wirtualnej, która została zakończona przez maksymalną zainicjowaną przepływność maszyny wirtualnej. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona w ramach operacji we/wy ograniczonej do limitu przepustowości niebuforowanej maszyny wirtualnej.
+- **Procent zużytych operacji we/wy pamięci podręcznej maszyny** wirtualnej: procent obliczony przez łączną liczbę operacji we/wy na maszynach wirtualnych zakończonych maksymalną liczbą IOPS niebuforowanej maszyny wirtualnej. Jeśli ta kwota wynosi od 100%, aplikacja jest uruchomiona w ramach operacji we/wy z limitu liczby IOPS niebuforowanej maszyny wirtualnej.
+- **Procent wykorzystania przepustowości niebuforowanej przez maszynę** wirtualną: procent obliczony przez łączną przepływność dysku maszyny wirtualnej, która została zakończona przez maksymalną zainicjowaną przepływność maszyny wirtualnej. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona w ramach operacji we/wy ograniczonej do limitu przepustowości niebuforowanej maszyny wirtualnej.
 
 ## <a name="storage-io-utilization-metrics-example"></a>Przykład metryk użycia operacji we/wy magazynu
 

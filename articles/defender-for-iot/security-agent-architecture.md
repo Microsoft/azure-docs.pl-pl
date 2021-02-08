@@ -1,24 +1,24 @@
 ---
-title: Architektura agenta zabezpieczeń
+title: Omówienie agentów zabezpieczeń
 description: Informacje o architekturze agentów zabezpieczeń agentów używanych w usłudze Azure Defender dla usługi IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 5773f7af3bb065976e8f05d7b54c58b90da2d3d2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 01/24/2021
+ms.author: shhazam
+ms.openlocfilehash: 929b8de8a6b70519bb44e41ba5cfede9ec12f110
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835129"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99808865"
 ---
 # <a name="security-agent-reference-architecture"></a>Architektura referencyjna agenta zabezpieczeń
 
@@ -28,11 +28,11 @@ Agenci zabezpieczeń są zaprojektowani do pracy w ograniczonym środowisku IoT 
 
 Agenci zabezpieczeń obsługują następujące funkcje:
 
+- Uwierzytelnianie przy użyciu istniejącej tożsamości urządzenia lub dedykowanej tożsamości modułu. Aby dowiedzieć się więcej, zobacz [metody uwierzytelniania agenta zabezpieczeń](concept-security-agent-authentication-methods.md).
+
 - Zbieraj surowe zdarzenia zabezpieczeń z bazowego systemu operacyjnego (Linux, Windows). Aby dowiedzieć się więcej na temat dostępnych modułów zbierających dane zabezpieczeń, zobacz [Konfiguracja agenta usługi Defender for IoT](how-to-agent-configuration.md).
 
 - Agregowanie nieprzetworzonych zdarzeń zabezpieczeń do komunikatów wysyłanych za poorednictwem IoT Hub.
-
-- Uwierzytelnianie przy użyciu istniejącej tożsamości urządzenia lub dedykowanej tożsamości modułu. Zobacz [metody uwierzytelniania agentów zabezpieczeń](concept-security-agent-authentication-methods.md) , aby dowiedzieć się więcej.
 
 - Skonfiguruj zdalnie za pomocą sznurka modułu **azureiotsecurity** . Aby dowiedzieć się więcej, zobacz [Konfigurowanie usługi Defender for IoT Agent](how-to-agent-configuration.md).
 
@@ -43,17 +43,17 @@ Usługi Defender Security Agents są opracowywane jako projekty open source i do
 
 ## <a name="agent-supported-platforms"></a>Platformy obsługiwane przez agenta
 
-Usługa Defender for IoT oferuje różnych agentów Instalatora dla systemu Windows w wersji 32-bitowej i 64-bitowych, a w przypadku wersji 32-bitowej i 64-bitowej. Upewnij się, że dysponujesz odpowiednim instalatorem agenta dla każdego urządzenia, zgodnie z poniższą tabelą:
+Usługa Defender for IoT oferuje różnych agentów Instalatora dla 32 bitowych i 64-bitowych systemu Windows, które są takie same dla 32 bit i 64-bit Linux. Upewnij się, że dysponujesz odpowiednim instalatorem agenta dla każdego urządzenia, zgodnie z poniższą tabelą:
 
 | Architektura | Linux | Windows | Szczegóły |
 |--|--|--|--|
-| bitowe | C | C# |  |
-| - | C# lub C | C# | Zalecamy używanie agenta C dla urządzeń z bardziej ograniczonymi lub minimalnymi zasobami urządzeń. |
+| 32 bit | C | C# |  |
+| 64-bitowa | C# lub C | C# | Zalecamy używanie agenta C dla urządzeń z bardziej ograniczonymi lub minimalnymi zasobami urządzeń. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł zawiera informacje o architekturze usługi Defender Security Agent i dostępnych instalatorach.
+W tym artykule poznasz ogólne omówienie architektury usługi Defender dla usługi IoT Security i dostępnych instalatorów.
 
 Aby kontynuować wprowadzenie do usługi Defender for IoT, użyj następujących artykułów:
 

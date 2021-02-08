@@ -4,30 +4,30 @@ description: Dowiedz się więcej na temat modułu zabezpieczeń na potrzeby obs
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2020
-ms.author: mlottner
-ms.openlocfilehash: 9950f3727aac365205e979d9590edacebd32f1fc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 01/14/2021
+ms.author: shhazam
+ms.openlocfilehash: 47b2b49a21a82be13c987b95c7c775f5014a532e
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832747"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809086"
 ---
 # <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>Przegląd: usługa Defender for IoT Security module dla usługi Azure RTO (wersja zapoznawcza)
 
-Moduł Azure Defender for IoT Security obejmuje kompleksowe rozwiązanie w zakresie zabezpieczeń dla urządzeń korzystających z usługi Azure RTO. Zapewnia to pokrycie typowych zagrożeń i potencjalnie złośliwych działań na urządzeniach z systemem operacyjnym (RTO) w czasie rzeczywistym. Usługa Azure RTO jest teraz dostarczana z modułem zabezpieczeń usługi Azure IoT wbudowanym w systemie.
+Usługa Azure Defender for IoT Micro oferuje kompleksowe rozwiązanie w zakresie zabezpieczeń dla urządzeń korzystających z usługi Azure RTO. Zapewnia to pokrycie typowych zagrożeń i potencjalnie złośliwych działań na urządzeniach z systemem operacyjnym (RTO) w czasie rzeczywistym. Usługa Azure RTO jest teraz dostarczana z modułem zabezpieczeń usługi Azure IoT wbudowanym w systemie.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Wizualizacja usługi Defender for IoT Azure RTO.":::
 
 
-Moduł zabezpieczeń usługi Azure RTO oferuje następujące funkcje:
+Micro module dla usługi Azure RTO oferuje następujące funkcje:
 
 - Wykrycie złośliwego działania sieci
 - Niestandardowe zachowanie urządzenia oparte na alertach określania poziomu odniesienia

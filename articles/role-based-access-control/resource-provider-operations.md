@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/01/2021
 ms.custom: generated
-ms.openlocfilehash: 768a327421a941a39b6f66be411712a565097f66
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 72a8f2eb93a9c12510b093e29c7b8fc6867cb2eb
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557323"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809390"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -160,7 +160,9 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft.Intune](#microsoftintune) |
 | **Inne** |
 | [Microsoft. BingMaps](#microsoftbingmaps) |
+| [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization) |
 | [Microsoft. DigitalTwins](#microsoftdigitaltwins) |
+| [Microsoft. ServicesHub](#microsoftserviceshub) |
 
 
 ## <a name="general"></a>Ogólne
@@ -10268,6 +10270,51 @@ Usługa platformy Azure: [mapy Bing](/BingMaps/)
 > | Microsoft. BingMaps/mapApis/listUsageMetrics/akcja | Utwórz listę metryk dla Microsoft. BingMaps/mapApis |
 > | Microsoft. BingMaps/Operations/Read | Wyświetlanie listy operacji dla Microsoft. BingMaps |
 
+### <a name="microsoftdesktopvirtualization"></a>Microsoft. DesktopVirtualization
+
+Usługa platformy Azure: [pulpit wirtualny systemu Windows](../virtual-desktop/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Akcja | Opis |
+> | --- | --- |
+> | Microsoft. DesktopVirtualization/Register/Action | Zarejestruj subskrypcję |
+> | Microsoft. DesktopVirtualization/applicationgroups/odczyt | Odczytaj applicationgroups |
+> | Microsoft. DesktopVirtualization/applicationgroups/Write | Applicationgroups zapisu |
+> | Microsoft. DesktopVirtualization/applicationgroups/Delete | Usuń applicationgroups |
+> | Microsoft. DesktopVirtualization/applicationgroups/Applications/Read | Odczytaj applicationgroups/aplikacje |
+> | Microsoft. DesktopVirtualization/applicationgroups/Applications/Write | Zapisuj applicationgroups/aplikacje |
+> | Microsoft. DesktopVirtualization/applicationgroups/Applications/Delete | Usuń applicationgroups/aplikacje |
+> | Microsoft. DesktopVirtualization/applicationgroups/Desktops/Read | Odczytaj applicationgroups/komputery stacjonarne |
+> | Microsoft. DesktopVirtualization/applicationgroups/Desktops/Write | Pisanie applicationgroups/komputerów stacjonarnych |
+> | Microsoft. DesktopVirtualization/applicationgroups/Desktops/Delete | Usuń applicationgroups/komputery stacjonarne |
+> | Microsoft. DesktopVirtualization/applicationgroups/externaluserassignments/Read |  |
+> | Microsoft. DesktopVirtualization/applicationgroups/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne |
+> | Microsoft. DesktopVirtualization/applicationgroups/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne |
+> | Microsoft. DesktopVirtualization/applicationgroups/Providers/Microsoft. Insights/logDefinitions/Read | Pobiera dostępne dzienniki |
+> | Microsoft. DesktopVirtualization/applicationgroups/startmenuitems/Read | Odczytaj elementy menu Start |
+> | Microsoft. DesktopVirtualization/hostpools/odczyt | Odczytaj hostpools |
+> | Microsoft. DesktopVirtualization/hostpools/Write | Hostpools zapisu |
+> | Microsoft. DesktopVirtualization/hostpools/Delete | Usuń hostpools |
+> | Microsoft. DesktopVirtualization/hostpools/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne |
+> | Microsoft. DesktopVirtualization/hostpools/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne |
+> | Microsoft. DesktopVirtualization/hostpools/Providers/Microsoft. Insights/logDefinitions/Read | Pobiera dostępne dzienniki |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/Read | Odczytaj hostpools/sessionhosts |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/Write | Zapis hostpools/sessionhosts |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/Delete | Usuń hostpools/sessionhosts |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/Read | Odczytaj hostpools/sessionhosts/usersessions |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/Write | Zapis hostpools/sessionhosts/usersessions |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/Delete | Usuń hostpools/sessionhosts/usersessions |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/Disconnect/akcja | Rozłącza hosta sesji użytkownika. |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/Action | Wyślij wiadomość do sesji użytkownika |
+> | Microsoft. DesktopVirtualization/obszary robocze/odczyt | Odczytuj obszary robocze |
+> | Microsoft. DesktopVirtualization/obszary robocze/zapis | Zapisuj obszary robocze |
+> | Microsoft. DesktopVirtualization/obszary robocze/usuwanie | Usuń obszary robocze |
+> | Microsoft. DesktopVirtualization/Workspaces/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne |
+> | Microsoft. DesktopVirtualization/Workspaces/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne |
+> | Microsoft. DesktopVirtualization/Workspaces/Providers/Microsoft. Insights/logDefinitions/Read | Pobiera dostępne dzienniki |
+> | **Akcja dataaction** | **Opis** |
+> | Microsoft. DesktopVirtualization/applicationgroups/useapplications/akcja | Korzystanie z aplikacji |
+
 ### <a name="microsoftdigitaltwins"></a>Microsoft. DigitalTwins
 
 Usługa platformy Azure: [Azure Digital bliźniaczych reprezentacji](../digital-twins/index.yml)
@@ -10316,6 +10363,20 @@ Usługa platformy Azure: [Azure Digital bliźniaczych reprezentacji](../digital-
 > | Microsoft. DigitalTwins/modele/odczyt | Odczytaj dowolny model |
 > | Microsoft. DigitalTwins/modele/zapis | Utwórz lub zaktualizuj dowolny model |
 > | Microsoft. DigitalTwins/modele/usuwanie | Usuń dowolny model |
+
+### <a name="microsoftserviceshub"></a>Microsoft. ServicesHub
+
+Usługa platformy Azure: [centrum usług](/services-hub/)
+
+> [!div class="mx-tableFixed"]
+> | Akcja | Opis |
+> | --- | --- |
+> | Microsoft. ServicesHub/łączniki/zapis | Utwórz lub zaktualizuj łącznik centrum usług |
+> | Microsoft. ServicesHub/łączniki/odczyt | Wyświetlanie łączników centrum usług |
+> | Microsoft. ServicesHub/łączniki/usuwanie | Usuń łączniki centrum usług |
+> | Microsoft. ServicesHub/łączniki/checkAssessmentEntitlement/akcja | Wyświetla listę uprawnień do oceny dla danego obszaru roboczego centrum usług |
+> | Microsoft. ServicesHub/supportOfferingEntitlement/odczyt | Wyświetlanie uprawnień pomocy technicznej dla danego obszaru roboczego centrum usług |
+> | Microsoft. ServicesHub/obszary robocze/odczyt | Wyświetl listę obszarów roboczych centrum usług dla danego użytkownika |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c696bea902a25571c173d04e0eaa7304ed657151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebeca5ec1e3a478fdf1a62e2478cad9754c6ccd2
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85610449"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808537"
 ---
 1. Upewnij się, że zainstalowano najnowszą [wersję programu Azure PowerShell](/powershell/azure/install-az-ps)i zalogowano się na koncie platformy Azure w programie z dodatkiem Connect-AzAccount
 
@@ -29,7 +29,7 @@ ms.locfileid: "85610449"
     $keyDestination="Software"
     $diskEncryptionSetName="yourDiskEncryptionSetName"
 
-    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnableSoftDelete -EnablePurgeProtection
+    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnablePurgeProtection
 
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```

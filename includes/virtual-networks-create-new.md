@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
-ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e1d4d29f8edca87ec1cca0ffced7b3e1bca90717
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012082"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808529"
 ---
-## <a name="create-the-virtual-network"></a>Tworzenie sieci wirtualnej
+## <a name="create-the-virtual-network-and-subnet"></a>Tworzenie sieci wirtualnej i podsieci
 
 W tej sekcji utworzysz sieć wirtualną i podsieć.
 
@@ -53,4 +53,4 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
