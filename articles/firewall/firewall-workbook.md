@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: victorh
-ms.openlocfilehash: dabe154535d2bd3ae5550d4bbbafa75adc5ae2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e63336b0e84d303b51eda56f90ca6fb453d8ae0d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347381"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831845"
 ---
 # <a name="monitor-logs-using-azure-firewall-workbook"></a>Monitorowanie dzienników przy użyciu skoroszytu zapory platformy Azure
 
@@ -26,9 +26,9 @@ Przed rozpoczęciem należy [włączyć rejestrowanie diagnostyczne](firewall-di
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Aby wdrożyć skoroszyt, przejdź do [Azure monitor skoroszycie dla zapory platformy Azure](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Azure%20Monitor%20Workbook) i postępując zgodnie z instrukcjami na stronie. Skoroszyt zapory platformy Azure jest przeznaczony do pracy w wielu dzierżawcach, wielu subskrypcjach i można go filtrować na wiele zapór.
+Aby wdrożyć skoroszyt, przejdź do [Azure monitor skoroszycie dla zapory platformy Azure](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook) i postępując zgodnie z instrukcjami na stronie. Skoroszyt zapory platformy Azure jest przeznaczony do pracy w wielu dzierżawcach, wielu subskrypcjach i można go filtrować na wiele zapór.
 
-## <a name="overview-page"></a>Strona przeglądu
+## <a name="overview-page"></a>Strona omówienia
 
 Strona przegląd umożliwia filtrowanie między obszarami roboczymi, czasem i zaporami. Przedstawia zdarzenia według czasu dla zapór i typów dzienników (aplikacji, sieci, zagrożeń Intel, serwera proxy DNS).
 
@@ -38,23 +38,23 @@ Strona przegląd umożliwia filtrowanie między obszarami roboczymi, czasem i za
 
 Ta strona zawiera unikatowe źródła adresów IP w czasie, użycie liczby reguł aplikacji, odmowa/dozwoloną nazwę FQDN w czasie i filtrowane dane. Dane można filtrować na podstawie adresu IP.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Omówienie skoroszytu zapory platformy Azure":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Dziennik reguł aplikacji w skoroszycie zapory platformy Azure":::
 
 ## <a name="network-rule-log-statistics"></a>Statystyka dziennika reguły sieci
 
 Ta strona zawiera akcję Wyświetl według reguły — Zezwalaj/Odmów, port docelowy według adresu IP i DNAT w czasie. Można również filtrować według akcji, portu i typu miejsca docelowego.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Omówienie skoroszytu zapory platformy Azure":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Dziennik reguł sieci w skoroszycie zapory platformy Azure":::
 
 Możesz również filtrować dzienniki na podstawie przedziału czasu:
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Omówienie skoroszytu zapory platformy Azure":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Okno czasu dziennika reguły sieci w skoroszycie zapory platformy Azure":::
 
 ## <a name="investigations"></a>Przegląd
 
 Możesz przeglądać dzienniki i dowiedzieć się więcej o zasobach na podstawie źródłowego adresu IP. Możesz uzyskać informacje takie jak nazwa maszyny wirtualnej i nazwa interfejsu sieciowego. Można go łatwo odfiltrować do zasobu z dzienników.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Omówienie skoroszytu zapory platformy Azure":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Badanie skoroszytu zapory platformy Azure":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 64cdb41540d9750be8664dc60c2b6ceda6c324ca
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427993"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831930"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (Intel NUC)
 
@@ -27,7 +27,7 @@ W IoT Edge te usługi działają bezpośrednio na międzyplatformowych urządzen
 
 W tym samouczku pokazano, jak zainstalować i skonfigurować środowisko uruchomieniowe IoT Edge na urządzeniu Intel NUC.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Aktualizowanie i Konfigurowanie IoT Edge
 > * Skonfiguruj bramę IoT Edge
@@ -117,7 +117,7 @@ Skonfiguruj IoT Edge, aby zarejestrować aplikację IoT Central i nawiązać z n
 
 1. Zamień na `{scope_id}` **zakres identyfikatorów** , które zostały zanotowane w pliku *scratchpad.txt* w poprzednim samouczku.
 
-1. Zastąp `{registration_id}` *ciąg opcją Gateway-001* , czyli urządzeniem utworzonym w poprzednim samouczku.
+1. Zastąp `{registration_id}` *ciąg opcją Gateway-001*, czyli urządzeniem utworzonym w poprzednim samouczku.
 
 1. Zamień na `{symmetric_key}` **klucz podstawowy** urządzenia **brama-001** zanotowano w pliku *scratchpad.txt* w poprzednim samouczku.
 
@@ -148,6 +148,14 @@ Zidentyfikuj adresy URL strumieni RTSP dla kamer podłączonych do urządzenia I
 
 > [!TIP]
 > Spróbuj wyświetlić strumień aparatu na komputerze IoT Edge przy użyciu odtwarzacza multimedialnego, takiego jak VLC.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Jeśli zakończysz pracę z aplikacją, możesz usunąć wszystkie utworzone zasoby w następujący sposób:
+
+1. W aplikacji IoT Central przejdź do strony **aplikacji** w sekcji **Administracja** . Następnie wybierz pozycję **Usuń**.
+1. W Azure Portal Usuń grupę zasobów **LVA-RG** .
+1. Na maszynie lokalnej Zatrzymaj kontener platformy Docker **przeglądarki amp** .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 9ea1db982a6944bd12b458624545b3888881508f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 509e31919dd974da253cd0478a70f889cc060fae
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881923"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831794"
 ---
 # <a name="tutorial-create-and-explore-the-solar-panel-monitoring-app-template"></a>Samouczek: Tworzenie i eksplorowanie szablonu aplikacji monitorującej panel słoneczny 
 
@@ -105,5 +105,4 @@ Jeśli zdecydujesz się nie korzystać z tej aplikacji, Usuń aplikację, wykonu
  
 > [!div class="nextstepaction"]
 > [Azure IoT Central — architektura aplikacji w panelu słonecznym](./concept-iot-central-solar-panel-app.md)
-* [Bezpłatnie Twórz szablony aplikacji panelu słonecznego](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* [Omówienie usługi Azure IoT Central](../index.yml)
+

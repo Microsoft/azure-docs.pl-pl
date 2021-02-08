@@ -7,16 +7,18 @@ ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 10ec761313ce39beb4b24b838d156478704f943e
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: b2b17cffb8abd748315c437f46000995c4cb598a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820034"
+ms.locfileid: "99831913"
 ---
 # <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Szybki Start — Konfigurowanie środowiska dla przewodników Szybki Start i samouczków Plug and Play IoT
 
 Przed ukończeniem dowolnych przewodników Szybki Start i samouczków Plug and Play IoT należy skonfigurować Centrum IoT i usługę Device Provisioning Service (DPS) w ramach subskrypcji platformy Azure. Potrzebne będą również lokalne kopie plików modelu używanych przez przykładowe aplikacje i narzędzie Azure IoT Explorer.
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -130,7 +132,7 @@ Skonfiguruj narzędzie tak, aby korzystało z pobranych wcześniej plików model
 
 Aby dowiedzieć się więcej, zobacz [Instalowanie i korzystanie z programu Azure IoT Explorer](howto-use-iot-explorer.md).
 
-## <a name="remove-the-resources"></a>Usuwanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz użyć wystąpienia usługi IoT Hub i usługi DPS dla wszystkich przewodników Szybki Start i samouczków usługi IoT Plug and Play, więc wystarczy wykonać kroki opisane w tym artykule tylko raz. Gdy skończysz, możesz je usunąć z subskrypcji za pomocą następującego polecenia:
 
