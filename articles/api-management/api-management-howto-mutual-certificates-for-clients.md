@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 553b4527796db3e5d0f430afd6c5e614626187e5
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099350"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988894"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Jak zabezpieczać interfejsy API przy użyciu uwierzytelniania za pomocą certyfikatów klienta w usłudze API Management
 
@@ -94,6 +94,18 @@ Poniższy przykład pokazuje, jak sprawdzić odcisk palca certyfikatu klienta wz
 > [!TIP]
 > Problem zakleszczenia certyfikatu klienta opisany w tym [artykule](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) może być manifestem na kilka sposobów, np. żądania zawieszania, żądania powodują powstanie `403 Forbidden` kodu stanu po upływie limitu czasu `context.Request.Certificate` `null` . Ten problem ma zwykle wpływ na `POST` `PUT` żądania z zawartością o długości około 60KB lub większą.
 > Aby zapobiec wystąpieniu tego problemu, Włącz ustawienie "Negocjuj certyfikat klienta" dla żądanych nazw hostów w bloku "domeny niestandardowe", jak pokazano na pierwszym obrazie tego dokumentu. Ta funkcja nie jest dostępna w warstwie zużycia.
+
+## <a name="certificate-validation-in-self-hosted-gateway"></a>Sprawdzanie poprawności certyfikatu w samoobsługowej bramie
+
+Domyślny API Management obraz [bramy samoobsługowej](self-hosted-gateway-overview.md) nie obsługuje weryfikacji certyfikatów serwera i klienta przy użyciu [certyfikatów głównych urzędu certyfikacji](api-management-howto-ca-certificates.md) przekazanych do wystąpienia API Management. Klienci przedstawiający niestandardowy certyfikat do bramy samoobsługowej mogą korzystać z wolnych odpowiedzi, ponieważ sprawdzanie poprawności listy odwołania certyfikatów (CRL) może trwać długo na bramie. 
+
+Aby obejść ten problem podczas uruchamiania bramy, można skonfigurować adres IP infrastruktury PKI w taki sposób, aby wskazywał adres localhost (127.0.0.1), a nie wystąpienie API Management. Powoduje to, że Walidacja listy CRL kończy się niepowodzeniem, gdy Brama próbuje zweryfikować certyfikat klienta. Aby skonfigurować bramę, należy dodać wpis DNS dla wystąpienia API Management w celu rozpoznania hosta localhost w `/etc/hosts` pliku w kontenerze. Ten wpis można dodać podczas wdrażania bramy:
+ 
+* W przypadku wdrożenia platformy Docker — Dodaj `--add-host <hostname>:127.0.0.1` parametr do `docker run` polecenia. Aby uzyskać więcej informacji, zobacz [Dodawanie wpisów do pliku hosts Containers](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host)
+ 
+* W przypadku wdrożenia Kubernetes — Dodaj `hostAliases` specyfikację do `myGateway.yaml` pliku konfiguracji. Aby uzyskać więcej informacji, zobacz [Dodawanie wpisów do/etc/hosts pod z aliasami hosta](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
+
+
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -5,12 +5,12 @@ description: W tym artykule opisano dwie warstwy szyfrowania dostępne dla danyc
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927321"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988617"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Podwójne szyfrowanie usługi Azure HDInsight dla danych magazynowanych
 
@@ -116,7 +116,7 @@ Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn 
 
 Teraz możesz utworzyć nowy klaster usługi HDInsight. Klucze zarządzane przez klienta mogą być stosowane tylko do nowych klastrów podczas tworzenia klastra. Nie można usunąć szyfrowania z klastrów kluczy zarządzanych przez klienta, a klucze zarządzane przez klienta nie mogą być dodawane do istniejących klastrów.
 
-Począwszy od [wersji 2020 listopada](hdinsight-release-notes.md#release-date-11182020)Usługa HDInsight obsługuje tworzenie klastrów przy użyciu identyfikatorów URI kluczy z wersjami i bez znaku. Jeśli utworzysz klaster z identyfikatorem URI klucza bez wersji, klaster usługi HDInsight podejmie próbę przeprowadzenia kluczowego skalowania, gdy klucz zostanie zaktualizowany w Azure Key Vault. W przypadku utworzenia klastra z identyfikatorem URI klucza z podsystemem należy wykonać ręczną rotację kluczy, jak opisano w [obracaniu klucza szyfrowania](#rotating-the-encryption-key).
+Począwszy od wersji 2020 listopada Usługa HDInsight obsługuje tworzenie klastrów przy użyciu identyfikatorów URI kluczy z wersjami i bez znaku. Jeśli utworzysz klaster z identyfikatorem URI klucza bez wersji, klaster usługi HDInsight podejmie próbę przeprowadzenia kluczowego skalowania, gdy klucz zostanie zaktualizowany w Azure Key Vault. W przypadku utworzenia klastra z identyfikatorem URI klucza z podsystemem należy wykonać ręczną rotację kluczy, jak opisano w [obracaniu klucza szyfrowania](#rotating-the-encryption-key).
 
 W przypadku klastrów utworzonych przed wydaniem listopad 2020 konieczne będzie ręczne przeprowadzenie rotacji przy użyciu identyfikatora URI klucza z wersją.
 

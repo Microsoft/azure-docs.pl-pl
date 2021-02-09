@@ -8,19 +8,19 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91516c9815cfd71ffb59c399ea6580c6e28d8fce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4d76bdcb385ed2fe4b8a697f24187b8e3d5addbc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576468"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988754"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Używanie grafu podzielonego na partycje w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Jedną z najważniejszych funkcji interfejsu API Gremlin w Azure Cosmos DB jest możliwość obsługi wykresów o dużej skali za pomocą skalowania w poziomie. Kontenery mogą być skalowane niezależnie pod względem magazynu i przepływności. Możesz tworzyć kontenery w Azure Cosmos DB, które mogą być automatycznie skalowane w celu przechowywania danych grafu. Dane są automatycznie równoważone w oparciu o określony **klucz partycji**.
 
-Partycjonowanie jest wykonywane wewnętrznie, jeśli oczekuje się, że rozmiar kontenera przekracza 20 GB lub jeśli chcesz przydzielić więcej niż 10 000 jednostek żądań na sekundę (jednostek ru). Dane są automatycznie partycjonowane na podstawie określonego klucza partycji. Klucz partycji jest wymagany w przypadku tworzenia kontenerów grafu na podstawie Azure Portal lub 3. x lub wyższych wersji sterowników Gremlin. Klucz partycji nie jest wymagany w przypadku używania 2. x lub niższych wersji sterowników Gremlin. 
+Partycjonowanie jest wykonywane wewnętrznie, jeśli oczekuje się, że rozmiar kontenera przekracza 20 GB lub jeśli chcesz przydzielić więcej niż 10 000 jednostek żądań na sekundę (jednostek ru). Dane są automatycznie partycjonowane na podstawie określonego klucza partycji. Klucz partycji jest wymagany w przypadku tworzenia kontenerów grafu na podstawie Azure Portal lub 3. x lub wyższych wersji sterowników Gremlin. Klucz partycji nie jest wymagany w przypadku używania 2. x lub niższych wersji sterowników Gremlin.
 
 Te same ogólne zasady dotyczące [mechanizmu partycjonowania Azure Cosmos DB](partitioning-overview.md) stosują się z kilkoma optymalizacjami specyficznymi dla wykresu opisanymi poniżej.
 

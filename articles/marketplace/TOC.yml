@@ -299,6 +299,8 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Pulpit nawigacyjny Oceny i recenzje
       href: partner-center-portal/ratings-reviews.md
+    - name: Wykrywanie anomalii dla rozliczeń naliczanych
+      href: anomaly-detection.md
     - name: Często zadawane pytania dotyczące analizy
       href: analytics-faq.md
 - name: Zasady i postanowienia

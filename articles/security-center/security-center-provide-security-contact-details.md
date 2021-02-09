@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2020
+ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 72ded01b141aafb7fd3e4d761882a10eaf0c4b33
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920413"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988561"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń 
 
@@ -26,8 +26,8 @@ Alerty zabezpieczeń muszą dotrzeć do odpowiednich osób w organizacji. Domyś
 
 Aby zdefiniować własne preferencje dla wiadomości e-mail z powiadomieniami, na stronie ustawień **powiadomień e-mail** Azure Security Center można wybrać następujące opcje:
 
-- **_kto_ powinien otrzymywać powiadomienia** — wiadomości e-mail mogą być wysyłane do wybranych osób lub do każdej osoby, która ma określoną rolę platformy Azure dla subskrypcji. 
-- **_co_ należy powiadomić o** zmianach poziomów ważności, dla których Security Center powinny wysyłać powiadomienia.
+- ***kto* powinien otrzymywać powiadomienia** — wiadomości e-mail mogą być wysyłane do wybranych osób lub do każdej osoby, która ma określoną rolę platformy Azure dla subskrypcji. 
+- ***co* należy powiadomić o** zmianach poziomów ważności, dla których Security Center powinny wysyłać powiadomienia.
 
 Aby uniknąć zmęczenia alertów, Security Center ogranicza ilość wychodzących wiadomości e-mail. Dla każdej subskrypcji Security Center wysyła:
 
@@ -48,8 +48,7 @@ Aby uniknąć zmęczenia alertów, Security Center ogranicza ilość wychodzący
 |||
 
 
-## <a name="customize-the-security-alerts-email-notifications"></a>Dostosuj powiadomienia e-mail dotyczące alertów zabezpieczeń<a name="email"></a>
-
+## <a name="customize-the-security-alerts-email-notifications-via-the-portal"></a>Dostosuj powiadomienia e-mail dotyczące alertów zabezpieczeń za pośrednictwem portalu<a name="email"></a>
 Powiadomienia e-mail mogą być wysyłane do osób indywidualnych lub wszystkich użytkowników z określonymi rolami platformy Azure.
 
 1. W obszarze **ustawienia & cennika** Security Center wybierz odpowiednią subskrypcję, a następnie wybierz pozycję **powiadomienia e-mail**.
@@ -61,8 +60,30 @@ Powiadomienia e-mail mogą być wysyłane do osób indywidualnych lub wszystkich
 
 1. Aby zastosować informacje o kontakcie zabezpieczeń do subskrypcji, wybierz pozycję **Zapisz**.
 
+## <a name="customize-the-alerts-email-notifications-through-the-api"></a>Dostosuj powiadomienia e-mail dotyczące alertów za pośrednictwem interfejsu API
+Powiadomienia e-mail można także zarządzać za pomocą podanego interfejsu API REST. Aby uzyskać pełne szczegóły, zobacz [dokumentację interfejsu API SecurityContacts](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts).
 
-## <a name="see-also"></a>Zobacz także
+Jest to Przykładowa treść żądania dla żądania PUT podczas tworzenia konfiguracji kontaktu z zabezpieczeniami:
+
+```json
+{
+    "properties": {
+        "emails": admin@contoso.com;admin2@contoso.com,
+        "notificationsByRole": {
+            "state": "On",
+            "roles": ["AccountAdmin", "Owner"]
+        },
+        "alertNotifications": {
+            "state": "On",
+            "minimalSeverity": "High"
+        },
+        "phone": ""
+    }
+}
+```
+
+
+## <a name="see-also"></a>Zobacz też
 Aby dowiedzieć się więcej na temat alertów zabezpieczeń, zobacz następujące strony:
 
 - [Alerty zabezpieczeń — Przewodnik referencyjny](alerts-reference.md)— informacje na temat alertów zabezpieczeń, które mogą zostać wyświetlone w module ochrony przed zagrożeniami w Azure Security Center

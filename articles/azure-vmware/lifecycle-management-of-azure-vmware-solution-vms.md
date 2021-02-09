@@ -2,13 +2,13 @@
 title: Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure
 description: Dowiedz się, jak zarządzać wszystkimi aspektami cyklu życia maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu narzędzi Microsoft Azure natywnych.
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.openlocfilehash: 5bba9cbbc8783cc285ff09f790ee1b35b20ba358
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/08/2021
+ms.openlocfilehash: d8224a37e46b336ebf889fe1c075930f34f10ca4
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062900"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988539"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -110,3 +110,11 @@ Azure Monitor to kompleksowe rozwiązanie do zbierania i analizowania danych tel
     - [Twórz i wyświetlaj alerty dzienników oraz zarządzaj nimi przy użyciu Azure monitor](../azure-monitor/platform/alerts-log.md).
     - [Reguły akcji](../azure-monitor/platform/alerts-action-rules.md) do ustawiania zautomatyzowanych akcji i powiadomień.
     - [Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu Łącznik zarządzania usługami IT](../azure-monitor/platform/itsmc-overview.md).
+    
+ ## <a name="next-steps"></a>Następne kroki
+
+Teraz, gdy korzystasz z natywnych narzędzi platformy Azure do zarządzania maszynami wirtualnymi rozwiązań VMware platformy Azure w całym cyklu życia, warto dowiedzieć się więcej na temat:
+
+- [Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure za pomocą Azure Security Center](azure-security-integration.md).
+- [Konfigurowanie Azure Backup Server rozwiązania VMware dla platformy Azure](set-up-backup-server-for-azure-vmware-solution.md).
+- [Integrowanie rozwiązania VMware z platformą Azure w architekturze gwiazdy i szprych](concepts-hub-and-spoke.md).

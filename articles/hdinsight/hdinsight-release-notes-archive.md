@@ -4,19 +4,47 @@ description: Zarchiwizowane informacje o wersji usługi Azure HDInsight. Uzyskaj
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 10/07/2020
-ms.openlocfilehash: 8e6f27c378a6cea8fffbdcda58c4fc3bb865e51e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/08/2021
+ms.openlocfilehash: 902b13c947cb005189e23dee943867100809564e
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932161"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988549"
 ---
 # <a name="archived-release-notes"></a>Zarchiwizowane informacje o wersji
 
 ## <a name="summary"></a>Podsumowanie
 
 Azure HDInsight jest jedną z najpopularniejszych usług używanych przez klientów korporacyjnych na potrzeby analizy w narzędziach typu open source Apache Hadoop i Apache Spark na platformie Azure.
+
+## <a name="release-date-11182020"></a>Data wydania: 11/18/2020
+
+Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i usługi HDInsight 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
+
+### <a name="new-features"></a>Nowe funkcje
+#### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>Funkcja autorotacji kluczy zarządzanych przez klienta w czasie spoczynku
+Począwszy od tej wersji, klienci mogą korzystać z adresów URL kluczy szyfrowania bez systemu Azure KeyValut na potrzeby szyfrowania kluczy zarządzanych przez klienta. Usługa HDInsight automatycznie przeniesie klucze w miarę ich wygaśnięcia lub zastąpione nowymi wersjami. Więcej informacji znajdziesz [tutaj](./disk-encryption.md).
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Możliwość wybierania różnych dozorcy rozmiary maszyn wirtualnych dla usług Spark, Hadoop i ML
+Usługa HDInsight wcześniej nie obsługiwała dostosowywania rozmiaru węzła dozorcy dla typów klastrów usługi Spark, Hadoop i ML. Domyślnie A2_v2/a2 rozmiary maszyn wirtualnych, które są dostępne bezpłatnie. W tej wersji można wybrać dozorcy rozmiar maszyny wirtualnej, który jest najbardziej odpowiedni dla danego scenariusza. Dozorcy węzły z maszyną wirtualną o rozmiarze innym niż A2_v2/a2 będą obciążane opłatami. Maszyny wirtualne A2_v2 i a2 są nadal udostępniane bezpłatnie.
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Przechodzenie do zestawów skalowania maszyn wirtualnych platformy Azure
+Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji klastra. Począwszy od tej wersji, usługa stopniowo przeprowadzi migrację do [zestawów skalowania maszyn wirtualnych platformy Azure](../virtual-machine-scale-sets/overview.md). Cały proces może potrwać miesiące. Po przeprowadzeniu migracji regionów i subskrypcji nowo utworzone klastry usługi HDInsight będą uruchamiane w zestawach skalowania maszyn wirtualnych bez akcji klienta. Nie oczekiwano zmiany krytycznej.
+
+### <a name="deprecation"></a>Przestarzałe
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Wycofanie klastra usług HDInsight 3,6 ML
+Typ klastra usług HDInsight 3,6 ML ma koniec wsparcia z grudnia 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML po 31 2020 grudnia. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md#available-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
+
+#### <a name="disabled-vm-sizes"></a>Wyłączone rozmiary maszyn wirtualnych
+Począwszy od listopada 16 2020, Usługa HDInsight będzie blokować nowym klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 maszyn wirtualnych. Nie ma to wpływu na istniejących klientów, którzy korzystali z tych rozmiarów maszyn wirtualnych w ciągu ostatnich trzech miesięcy. Począwszy od stycznia 9 2021, Usługa HDInsight będzie blokować wszystkim klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 rozmiary maszyn wirtualnych. Istniejące klastry będą działać w postaci, w jakiej jest. Rozważ przeniesienie do usługi HDInsight 4,0, aby uniknąć potencjalnych przerw w działaniu systemu/obsługi.
+
+### <a name="behavior-changes"></a>Zmiany zachowania
+#### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Dodaj sprawdzanie reguły sieciowej grupy zabezpieczeń przed operacją skalowania
+Usługa HDInsight dodała sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i trasy zdefiniowane przez użytkownika (UDR) przy użyciu operacji skalowania. Takie samo sprawdzanie poprawności jest wykonywane na potrzeby skalowania klastra Poza tworzeniem klastra. Ta weryfikacja pomaga zapobiegać nieprzewidywalnym błędom. Jeśli walidacja nie zostanie przekazana, skalowanie kończy się niepowodzeniem. Dowiedz się więcej o tym, jak poprawnie skonfigurować sieciowych grup zabezpieczeń i UDR, zapoznaj się z tematem [adresy IP zarządzania usługą HDInsight](./hdinsight-management-ip-addresses.md).
+
+### <a name="component-version-change"></a>Zmiana wersji składnika
+Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](./hdinsight-component-versioning.md).
 
 ## <a name="release-date-11092020"></a>Data wydania: 11/09/2020
 
@@ -595,11 +623,11 @@ Nowe aktualizacje i możliwości są dostępne w następujących kategoriach:
 
     b.  [**Nowe funkcje w Apache Kafka 1,0**](https://kafka.apache.org/downloads#1.0.0)
 
-*  ***Aktualizacja R Server 9,1 do Machine Learning Services 9,3** _ — w tej wersji oferujemy analityków danych i inżynierów z najlepszymi rozwiązaniami typu "open source" i łatwość operacjonalizacji, które są dostępne w preferowanym języku z szybkością Apache Spark. Ta wersja rozszerza możliwości oferowane w R Server z dodaniem obsługi języka Python, co prowadzi do zmiany nazwy klastra z R Server do usługi ML. 
+*  ***Aktualizacja R Server 9,1 do Machine Learning Services 9,3*** — w tej wersji oferujemy analityków danych i inżynierów z najlepszymi rozwiązaniami typu open source z ulepszonymi innowacje i łatwość operacjonalizacji, które są dostępne w preferowanym języku dzięki szybkości Apache Spark. Ta wersja rozszerza możliwości oferowane w R Server z dodaniem obsługi języka Python, co prowadzi do zmiany nazwy klastra z R Server do usługi ML. 
 
-_ ***Obsługa Azure Data Lake Storage Gen2** _ — Usługa HDInsight będzie obsługiwać wersję zapoznawczą Azure Data Lake Storage Gen2. W dostępnych regionach klienci będą mogli wybrać konto ADLS Gen2 jako podstawowy lub pomocniczy magazyn dla swoich klastrów usługi HDInsight.
+*  ***Obsługa Azure Data Lake Storage Gen2*** — Usługa HDInsight będzie obsługiwać wersję zapoznawczą Azure Data Lake Storage Gen2. W dostępnych regionach klienci będą mogli wybrać konto ADLS Gen2 jako podstawowy lub pomocniczy magazyn dla swoich klastrów usługi HDInsight.
 
-_ * Usługa **HDInsight pakiet Enterprise Security aktualizacje (wersja** zapoznawcza) _ – (wersja zapoznawcza) [Virtual Network obsługa punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md) dla platformy Azure Blob Storage, ADLS Gen1, Cosmos DB i Azure DB.
+*  Usługi ***HDInsight pakiet Enterprise Security Updates (wersja*** zapoznawcza) — (wersja zapoznawcza) obsługa [Virtual Network punktów końcowych usług](../virtual-network/virtual-network-service-endpoints-overview.md) dla platformy Azure Blob Storage, ADLS Gen1, Cosmos DB i Azure DB.
 
 ### <a name="component-versions"></a>Wersje składników
 
@@ -797,7 +825,7 @@ Ta wersja zawiera HBase 1.1.2 i następujące poprawki Apache.
 
 W tej wersji udostępniono również następujące poprawki programu Hive 1.2.1 i Hive 2.1.0:
 
-_ *Poprawka dla programu Apache 1.2.1:**
+**Poprawki programu Apache 1.2.1:**
 
 -   [*Hive-10697*](https://issues.apache.org/jira/browse/HIVE-10697): ObjectInspectorConvertors \# UnionConvertor wykonuje błędną konwersję.
 

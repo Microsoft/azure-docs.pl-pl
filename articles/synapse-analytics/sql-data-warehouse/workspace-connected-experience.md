@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5efb1df378df323585bc0ca1094451cdb095fe4e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d477693667c8d78687d27b291d2b3c15612a0f30
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499785"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989048"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Włączanie funkcji obszaru roboczego Synapse w istniejącej dedykowanej puli SQL (dawniej SQL DW)
 
@@ -32,7 +32,7 @@ Poniższe informacje będą stosowane w przypadku korzystania z dedykowanego mag
 - **Możliwości SQL** Wszystkie funkcje SQL będą pozostawać w logicznym programie SQL Server po włączeniu funkcji obszaru roboczego Synapse. Dostęp do serwera za pośrednictwem dostawcy zasobów SQL będzie nadal możliwy po włączeniu obszaru roboczego. Wszystkie funkcje zarządzania mogą być inicjowane za pośrednictwem obszaru roboczego, a operacja zostanie wykonana na SQL Server logicznym hostującym pule SQL. Żadna istniejąca Automatyzacja, narzędzia lub połączenia nie będą przerywane ani przerywane, gdy obszar roboczy jest włączony.  
 - **Przenoszenie zasobów**  Zainicjowanie przenoszenia zasobu na serwerze z włączoną funkcją obszaru roboczego Synapse spowoduje przerwanie połączenia między serwerem i obszarem roboczym i uniemożliwi dostęp do istniejącej dedykowanej puli SQL (dawniej usługi SQL DW) z obszaru roboczego. Aby upewnić się, że połączenie jest zachowane, zaleca się, aby oba zasoby pozostawały w ramach tej samej subskrypcji i grupy zasobów. 
 - **Monitorowanie** Żądania SQL przesłane za pośrednictwem programu Synapse Studio w ramach dedykowanej puli SQL z włączonym obszarem roboczym (dawniej SQL DW) można wyświetlić w centrum monitora. W przypadku wszystkich innych działań monitorowania można przejść do Azure Portal dedykowanej puli SQL (dawniej programu SQL DW). 
-- Kontrola **zabezpieczeń** i **dostępu** , jak wspomniano powyżej, wszystkie funkcje zarządzania dla programu SQL Server i dedykowane pule SQL (dawniej SQL DW) będą nadal znajdować się na logicznym serwerze SQL Server. Te funkcje obejmują zarządzanie regułami zapory, Ustawianie administratora usługi Azure AD na serwerze i wszelką kontrolę dostępu dla danych w dedykowanej puli SQL (dawniej SQL DW). Należy wykonać następujące kroki, aby upewnić się, że dedykowana Pula SQL (wcześniej SQL DW) jest dostępna i może być używana za pośrednictwem obszaru roboczego Synapse. Członkostwa ról obszaru roboczego nie dają użytkownikom uprawnień do danych w dedykowanej puli SQL (dawniej: DW). Postępuj zgodnie z normalnymi zasadami [uwierzytelniania SQL](sql-data-warehouse-authentication.md) , aby zapewnić użytkownikom dostęp do dedykowanych wystąpień puli SQL (dawniej SQL DW) na serwerze logicznym. 
+- Kontrola **zabezpieczeń** i **dostępu** , jak wspomniano powyżej, wszystkie funkcje zarządzania dla programu SQL Server i dedykowane pule SQL (dawniej SQL DW) będą nadal znajdować się na logicznym serwerze SQL Server. Te funkcje obejmują zarządzanie regułami zapory, Ustawianie administratora usługi Azure AD na serwerze i wszelką kontrolę dostępu dla danych w dedykowanej puli SQL (dawniej SQL DW). Należy wykonać następujące kroki, aby upewnić się, że dedykowana Pula SQL (wcześniej SQL DW) jest dostępna i może być używana za pośrednictwem obszaru roboczego Synapse. Członkostwa ról obszaru roboczego nie dają użytkownikom uprawnień do danych w dedykowanej puli SQL (dawniej: DW). Postępuj zgodnie z normalnymi zasadami [uwierzytelniania SQL](sql-data-warehouse-authentication.md) , aby zapewnić użytkownikom dostęp do dedykowanych wystąpień puli SQL (dawniej SQL DW) na serwerze logicznym. Jeśli dedykowana Pula SQL (dawniej SQL DW) ma już przypisaną tożsamość zarządzaną, nazwa tej tożsamości zarządzanej będzie taka sama jak tożsamość zarządzana w obszarze roboczym, która jest automatycznie tworzona do obsługi usług partnerskich obszaru roboczego (np. potoków ADF).  W połączonym scenariuszu mogą istnieć dwie zarządzane tożsamości o tej samej nazwie. Tożsamość zarządzana może być rozróżniana przez identyfikatory obiektów usługi Azure AD, dzięki czemu funkcja tworzenia użytkowników SQL korzystających z identyfikatorów obiektów jest dostępna wkrótce.
 
     ```sql
     CREATE USER [<workspace managed identity] FROM EXTERNAL PROVIDER 

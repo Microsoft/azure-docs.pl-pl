@@ -206,6 +206,8 @@
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: 'Wdrażanie aplikacji bezstanowej, korzystając z metodyki GitOps'
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+                - name: Wdróż kontroler danych usługi Azure Arc
+                  href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Konfigurowanie usługi Azure Resource Manager (wersja zapoznawcza)
           items:
             - name: Łączenie za pośrednictwem usługi Azure PowerShell

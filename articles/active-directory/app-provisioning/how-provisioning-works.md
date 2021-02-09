@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1f4466dea35fe3d52f86386f0bf0cc0c3b6a658f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256343"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988969"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -43,7 +43,7 @@ Aby zażądać automatycznego łącznika aprowizacji usługi Azure AD dla aplika
 
 ## <a name="authorization"></a>Autoryzacja
 
-Poświadczenia są wymagane do nawiązania połączenia z interfejsem API zarządzania użytkownikami aplikacji za pomocą usługi Azure AD. Podczas konfigurowania automatycznej aprowizacji użytkowników dla aplikacji należy wprowadzić prawidłowe poświadczenia. W przypadku aplikacji galerii można znaleźć typy poświadczeń i wymagania dotyczące aplikacji, odwołując się do samouczka dotyczącego aplikacji. W przypadku aplikacji innych niż Galeria można zapoznać się z dokumentacją [Standard scim](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) , aby poznać typy poświadczeń i wymagania. W Azure Portal będziesz mieć możliwość przetestowania poświadczeń, ponieważ usługa Azure AD podejmie próbę nawiązania połączenia z aplikacją aprowizacji aplikacji przy użyciu podanych poświadczeń.
+Poświadczenia są wymagane do nawiązania połączenia z interfejsem API zarządzania użytkownikami aplikacji za pomocą usługi Azure AD. Podczas konfigurowania automatycznej aprowizacji użytkowników dla aplikacji należy wprowadzić prawidłowe poświadczenia. W przypadku aplikacji galerii można znaleźć typy poświadczeń i wymagania dotyczące aplikacji, odwołując się do samouczka dotyczącego aplikacji. W przypadku aplikacji innych niż Galeria można zapoznać się z dokumentacją [Standard scim](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) , aby poznać typy poświadczeń i wymagania. W Azure Portal będziesz mieć możliwość przetestowania poświadczeń, ponieważ usługa Azure AD podejmie próbę nawiązania połączenia z aplikacją aprowizacji aplikacji przy użyciu podanych poświadczeń.
 
 ## <a name="mapping-attributes"></a>Mapowanie atrybutów
 

@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
-ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232976"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989092"
 ---
 # <a name="self-hosted-gateway-overview"></a>Omówienie własnej bramy
 
@@ -43,13 +43,13 @@ Wdrażanie bram samoobsługowych w tych samych środowiskach, w których obsług
 
 ## <a name="packaging-and-features"></a>Pakowanie i funkcje
 
-Brama samoobsługowa jest kontenerem, a funkcjonalnie równoważną wersją zarządzanej bramy wdrożoną na platformie Azure jako część każdej usługi API Management. Brama samoobsługowa jest dostępna jako [kontener](https://aka.ms/apim/sputnik/dhub) platformy Docker oparty na systemie Linux z Container Registry firmy Microsoft. Można ją wdrożyć na platformie Docker, Kubernetes lub innych rozwiązań aranżacji kontenerów uruchomionych w klastrze serwerów w środowisku lokalnym, infrastrukturze chmurowej lub na potrzeby oceny i programowania na komputerze osobistym.
+Brama samoobsługowa to kontener, czyli funkcjonalnie równoważna wersja bramy zarządzanej wdrożonej na platformie Azure w ramach każdej usługi API Management. Brama samoobsługowa jest dostępna jako [kontener](https://aka.ms/apim/sputnik/dhub) platformy Docker oparty na systemie Linux z Container Registry firmy Microsoft. Można ją wdrożyć na platformie Docker, Kubernetes lub innych rozwiązań aranżacji kontenerów uruchomionych w klastrze serwerów w środowisku lokalnym, infrastrukturze chmurowej lub na potrzeby oceny i programowania na komputerze osobistym.
 
 Następujące funkcje dostępne w bramach zarządzanych są **niedostępne** w bramach samoobsługowych:
 
 - Dzienniki usługi Azure Monitor
 - Nadrzędna (wewnętrzna strona zaplecza) wersja protokołu TLS i zarządzanie szyfrowaniem
-- Sprawdzanie poprawności certyfikatów serwera i klienta przy użyciu [certyfikatów głównych urzędu certyfikacji](api-management-howto-ca-certificates.md) przekazanych do usługi API Management. Aby dodać obsługę niestandardowego urzędu certyfikacji, należy dodać warstwę do obrazu kontenera samoobsługowego bramy, który instaluje certyfikat główny urzędu certyfikacji.
+- Sprawdzanie poprawności certyfikatów serwera i klienta przy użyciu [certyfikatów głównych urzędu certyfikacji](api-management-howto-ca-certificates.md) przekazanych do usługi API Management. Aby uzyskać więcej informacji, zobacz [weryfikowanie certyfikatów w bramie samohostowanej](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
 - Integracja z [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - Wznawianie sesji protokołu TLS
 - Ponowne negocjowanie certyfikatu klienta. Oznacza to, że w przypadku uwierzytelniania za pomocą [certyfikatu klienta](api-management-howto-mutual-certificates-for-clients.md) dla użytkowników interfejsu API należy przedstawić swoje certyfikaty jako część początkowego UZGADNIANIA protokołu TLS. Aby upewnić się, że należy włączyć ustawienie Negocjuj certyfikat klienta podczas konfigurowania niestandardowej nazwy hosta bramy samohostowanej.

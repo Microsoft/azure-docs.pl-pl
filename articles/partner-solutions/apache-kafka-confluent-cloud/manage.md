@@ -3,15 +3,15 @@ title: Zarządzanie usługą współpracy w chmurze — rozwiązania partnerskie
 description: W tym artykule opisano zarządzanie chmurą dodaną na Azure Portal. Jak skonfigurować Logowanie jednokrotne, usunąć organizację i uzyskać pomoc techniczną.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/08/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 2d13c183f0b3891fa92b5e2a6534acbf8102e032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f8a54096ecda4729f7070120a02be3055f933cea
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253501"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989106"
 ---
 # <a name="manage-the-confluent-cloud-resource"></a>Zarządzanie zasobem chmury
 
@@ -66,13 +66,23 @@ Aby przesłać żądanie pomocy technicznej, skontaktuj się z [pomocą technicz
 > [!NOTE]
 > Po raz pierwszy użytkownicy zresetuj hasło przed zalogowaniem się do portalu pomocy technicznej. Jeśli nie masz konta z chmurą, Wyślij wiadomość e-mail na adres, aby `cloud-support@confluent.io` uzyskać dalszą pomoc.
 
+W portalu możesz przesłać żądanie za pośrednictwem pomocy i pomocy technicznej platformy Azure lub bezpośrednio z wystąpienia Apache Kafka w celu uzyskania chmury na platformie Azure.
+
+Aby przesłać żądanie za pomocą pomocy i pomocy technicznej platformy Azure:
+
+1. Wybierz pozycję **Pomoc i obsługa techniczna**.
+1. Wybierz pozycję **Utwórz żądanie obsługi**.
+1. W formularzu wybierz pozycję **techniczne** dla opcji **typ problemu**. Wybierz subskrypcję. Na liście usług wybierz pozycję **na platformie Azure**.
+
+    :::image type="content" source="media/support-request-help.png" alt-text="Utwórz żądanie pomocy technicznej, aby uzyskać pomoc.":::
+
 Aby przesłać żądanie z zasobu, wykonaj następujące kroki:
 
 1. W Azure Portal wybierz organizację, w której znajduje się Twoja organizacja.
 1. Z menu po lewej stronie ekranu wybierz pozycję **nowe żądanie obsługi**.
 1. Aby utworzyć żądanie pomocy technicznej, wybierz link do **portalu** z systemem.
 
-    :::image type="content" source="media/support-request.png" alt-text="Utwórz żądanie obsługi.":::
+    :::image type="content" source="media/support-request.png" alt-text="Utwórz żądanie obsługi z wystąpienia.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

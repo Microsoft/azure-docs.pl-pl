@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940043"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989071"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurowanie sieci wirtualnych usług Azure Cognitive Services
 
@@ -59,7 +59,7 @@ Sieci wirtualne (sieci wirtualnych) są obsługiwane w [regionach, w których s�
 
 
 > [!NOTE]
-> Jeśli używasz LUIS, tag **CognitiveServicesManagement** umożliwia tylko Korzystanie z usługi przy użyciu zestawu SDK lub interfejsu API REST. Aby uzyskać dostęp do portalu LUIS z sieci wirtualnej i korzystać z niego, musisz użyć następujących tagów:  
+> Jeśli używasz usługi LUIS lub mowy, tag **CognitiveServicesManagement** umożliwia tylko Korzystanie z usługi przy użyciu zestawu SDK lub interfejsu API REST. Aby uzyskać dostęp do portalu LUIS i/lub mowy programu Speech Studio z sieci wirtualnej, należy użyć następujących tagów:  
 > * **Usługi azureactivedirectory**
 > * **AzureFrontDoor. frontonu**
 > * **AzureResourceManager** 
@@ -157,7 +157,7 @@ Można zarządzać domyślnymi regułami dostępu do sieci dla zasobów Cognitiv
         --default-action Allow
     ```
 
-**_
+***
 
 ## <a name="grant-access-from-a-virtual-network"></a>Udzielanie dostępu z sieci wirtualnej
 
@@ -169,7 +169,7 @@ Każdy zasób Cognitive Services obsługuje do 100 reguł sieci wirtualnej, któ
 
 ### <a name="required-permissions"></a>Wymagane uprawnienia
 
-Aby zastosować regułę sieci wirtualnej do zasobu Cognitive Services, użytkownik musi mieć odpowiednie uprawnienia do dodawanych podsieci. Wymagane uprawnienie jest domyślną rolą _Contributor * lub *Cognitive Services rolą współautor* . Wymagane uprawnienia można także dodać do niestandardowych definicji ról.
+Aby zastosować regułę sieci wirtualnej do zasobu Cognitive Services, użytkownik musi mieć odpowiednie uprawnienia do dodawanych podsieci. Wymagane uprawnienie jest domyślną rolą *współautor* lub *Cognitive Services rolą współautor* . Wymagane uprawnienia można także dodać do niestandardowych definicji ról.
 
 Zasób Cognitive Services i sieci wirtualne z udzielonym dostępem mogą znajdować się w różnych subskrypcjach, w tym w przypadku subskrypcji należących do innej dzierżawy usługi Azure AD.
 
@@ -325,10 +325,10 @@ Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za
         --subnet $subnetid
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) _ * Odmów * * lub reguły sieciowe nie mają żadnego efektu.
+> Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie**, lub reguły sieciowe nie mają żadnego efektu.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Udzielanie dostępu z zakresu internetowych adresów IP
 
@@ -472,10 +472,10 @@ Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą
         --ip-address "16.17.18.0/24"
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) _ * Odmów * * lub reguły sieciowe nie mają żadnego efektu.
+> Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie**, lub reguły sieciowe nie mają żadnego efektu.
 
 ## <a name="use-private-endpoints"></a>Używanie prywatnych punktów końcowych
 

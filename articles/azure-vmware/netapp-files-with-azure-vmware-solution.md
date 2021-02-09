@@ -2,13 +2,13 @@
 title: Azure NetApp Files z rozwiązaniem VMware platformy Azure
 description: Używaj Azure NetApp Files z maszynami wirtualnymi rozwiązań VMware platformy Azure do migrowania i synchronizowania danych między serwerami lokalnymi, maszynami wirtualnymi rozwiązań VMware platformy Azure i infrastrukturami chmury.
 ms.topic: how-to
-ms.date: 02/01/2021
-ms.openlocfilehash: 8c101b652ffcefe05e9b6c11f166c1da3df2ede1
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 02/08/2021
+ms.openlocfilehash: 69d4e3a99de28d55b2fd95b1fc05c04c2ae0a37b
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539370"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988645"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure NetApp Files z rozwiązaniem VMware platformy Azure
 
@@ -16,7 +16,7 @@ W tym artykule omówiono kroki integrowania Azure NetApp Files z obciążeniami 
 
 ## <a name="azure-netapp-files-overview"></a>Przegląd Azure NetApp Files
 
-[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) to usługa pierwszej platformy Azure do migracji i uruchamiania najbardziej wymagających obciążeń plików przedsiębiorstwa w chmurze, w tym baz danych, SAP i wysoko wydajnych aplikacji obliczeniowych, bez zmian w kodzie.
+[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) to usługa platformy Azure do migracji i uruchamiania najbardziej wymagających obciążeń plików przedsiębiorstwa w chmurze. Dotyczy to baz danych, SAP i wysoko wydajnych aplikacji obliczeniowych bez zmian w kodzie.
 
 ### <a name="features"></a>Funkcje
 (Usługi, w których Azure NetApp Files są używane).
@@ -31,7 +31,7 @@ Azure NetApp Files jest dostępna w wielu regionach świadczenia usługi Azure i
 
 ## <a name="reference-architecture"></a>Architektura referencyjna
 
-Na poniższym diagramie przedstawiono połączenie za pośrednictwem platformy Azure ExpressRoute z chmurą prywatną rozwiązania Azure VMware. Przedstawia on użycie udziału Azure NetApp Files, zainstalowanego na maszynach wirtualnych rozwiązań VMware platformy Azure, do którego uzyskuje się dostęp za pośrednictwem środowiska rozwiązań VMware platformy Azure.
+Na poniższym diagramie przedstawiono połączenie za pośrednictwem platformy Azure ExpressRoute z chmurą prywatną rozwiązania Azure VMware. Środowisko rozwiązań VMware platformy Azure uzyskuje dostęp do udziału Azure NetApp Files, który jest instalowany na maszynach wirtualnych rozwiązań VMware platformy Azure.
 
 ![Diagram przedstawiający pliki NetApp architektury rozwiązań VMware platformy Azure.](media/net-app-files/net-app-files-topology.png)
 
@@ -83,11 +83,11 @@ Poniższe kroki obejmują weryfikację wstępnie skonfigurowanego Azure NetApp F
 
     :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="Zrzut ekranu przedstawiający szczegóły konfiguracji woluminu.":::
 
-    Można zobaczyć, że wolumin anfvolume o rozmiarze 200 GiB, został utworzony w puli pojemności anfpool1 i wyeksportowany jako udział plików NFS za pośrednictwem 10.22.3.4:/ANFVOLUME. Jeden prywatny adres IP z usługi Azure Virtual Network (VNet) został utworzony dla Azure NetApp Files i ścieżki systemu plików NFS do zainstalowania na maszynie wirtualnej. Aby uzyskać informacje na temat Azure NetApp Files wydajności woluminu względem rozmiaru ("przydział"), zobacz [zagadnienia dotyczące wydajności w przypadku Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
+    Można zobaczyć, że wolumin anfvolume ma rozmiar 200 GiB i jest w puli pojemności anfpool1.  Jest eksportowany jako udział plików NFS za pośrednictwem 10.22.3.4:/ANFVOLUME. Jeden prywatny adres IP z usługi Azure Virtual Network (VNet) został utworzony dla Azure NetApp Files i ścieżki systemu plików NFS do zainstalowania na maszynie wirtualnej. Aby dowiedzieć się więcej o wydajności woluminu Azure NetApp Files według rozmiaru lub "przydziału", zobacz [zagadnienia dotyczące wydajności dla Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
 
 ## <a name="verify-pre-configured-azure-vmware-solution-vm-share-mapping"></a>Sprawdź wstępnie skonfigurowane mapowanie udziału maszyny wirtualnej rozwiązania Azure VMware
 
-Przed zaprezentowanie dostępności Azure NetApp Files udziału w maszynie wirtualnej rozwiązania VMware platformy Azure należy zrozumieć mapowanie udziałów SMB i NFS. Tylko po skonfigurowaniu woluminów SMB lub NFS, można je zainstalować zgodnie z opisem w tym miejscu.
+Aby udostępnić udział Azure NetApp Files dla maszyny wirtualnej rozwiązania Azure VMware, ważne jest, aby zrozumieć mapowanie udziałów SMB i NFS. Tylko po skonfigurowaniu woluminów SMB lub NFS, można je zainstalować zgodnie z opisem w tym miejscu.
 
 - Udział SMB: Utwórz połączenie Active Directory przed wdrożeniem woluminu SMB. Określone kontrolery domeny muszą być dostępne przez delegowaną podsieć Azure NetApp Files w celu pomyślnego nawiązania połączenia. Po skonfigurowaniu Active Directory w ramach konta Azure NetApp Files będzie on wyświetlany jako element do wyboru podczas tworzenia woluminów SMB.
 
@@ -103,7 +103,7 @@ Poniżej przedstawiono zaledwie kilka atrakcyjnych Azure NetApp Files przypadkó
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zintegrowaniu Azure NetApp Files z obciążeniami rozwiązań VMware platformy Azure można dowiedzieć się więcej na temat:
+Teraz, gdy pouczysz się zintegrować Azure NetApp Files z obciążeniami rozwiązań VMware platformy Azure, możesz uzyskać informacje na temat:
 
 - [Limity zasobów dla Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
 - [Wskazówki dotyczące planowania Azure NetApp Files sieci](../azure-netapp-files/azure-netapp-files-network-topologies.md).

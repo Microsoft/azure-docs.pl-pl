@@ -2,13 +2,13 @@
 title: Korzystanie z usługi Azure Application Gateway do ochrony aplikacji sieci Web w rozwiązaniu VMware platformy Azure
 description: Skonfiguruj Application Gateway platformy Azure, aby bezpiecznie uwidaczniać aplikacje sieci Web działające w rozwiązaniu VMware platformy Azure.
 ms.topic: how-to
-ms.date: 11/13/2020
-ms.openlocfilehash: 02e439989c985354dbe06fa3e231d5daf7099d70
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 02/08/2021
+ms.openlocfilehash: fdef37bd76b08a8778db8401a1e8a0406c2ed652
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629051"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988627"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Korzystanie z usługi Azure Application Gateway do ochrony aplikacji sieci Web w rozwiązaniu VMware platformy Azure
 
@@ -101,7 +101,7 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
     Add-Content -Path C:\inetpub\wwwroot\Default.htm -Value $($env:computername)
     ```
 
-2. W istniejącym wystąpieniu bramy aplikacji wybierz pozycję **Pule zaplecza** z menu po lewej stronie, wybierz pozycję  **Dodaj** , a następnie wprowadź szczegóły nowej puli. Wybierz pozycję **Dodaj** w okienku po prawej stronie.
+2. W istniejącym wystąpieniu bramy aplikacji wybierz pozycję **Pule zaplecza** z menu po lewej stronie, wybierz pozycję  **Dodaj**, a następnie wprowadź szczegóły nowej puli. Wybierz pozycję **Dodaj** w okienku po prawej stronie.
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png" alt-text="Zrzut ekranu przedstawiający stronę pule zaplecza służącą do dodawania pul zaplecza." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png":::
 
@@ -155,10 +155,10 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
 2. Dodaj trzy nowe pule zaplecza w istniejącym wystąpieniu bramy aplikacji. 
 
    1. Wybierz pozycję **Pule zaplecza** w menu po lewej stronie. 
-   1. Wybierz pozycję **Dodaj** i wprowadź szczegóły pierwszej puli ( **contoso-Web** ). 
+   1. Wybierz pozycję **Dodaj** i wprowadź szczegóły pierwszej puli ( **contoso-Web**). 
    1. Dodaj jedną maszynę wirtualną jako element docelowy. 
    1. Wybierz pozycję **Dodaj**. 
-   1. Powtórz ten proces dla **obrazów contoso** i **wideo firmy Contoso** , dodając jako element docelowy jedną unikatową maszynę wirtualną. 
+   1. Powtórz ten proces dla **obrazów contoso** i **wideo firmy Contoso**, dodając jako element docelowy jedną unikatową maszynę wirtualną. 
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-02.png" alt-text="Zrzut ekranu przedstawiający stronę pule zaplecza z dodaniem trzech nowych pul zaplecza." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-02.png":::
 
@@ -188,4 +188,8 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [dokumentacją Application Gateway platformy Azure](../application-gateway/index.yml) , aby uzyskać więcej przykładów konfiguracyjnych.
+Teraz, gdy korzystasz z usługi Application Gateway do ochrony aplikacji sieci Web działającej na platformie Azure VMware, możesz zapoznać się z tematem:
+
+- [Konfigurowanie Application Gateway platformy Azure dla różnych scenariuszy](../application-gateway/configuration-overview.md).
+- [Wdrażanie Traffic Manager w celu zrównoważenia obciążeń rozwiązań VMware platformy Azure](deploy-traffic-manager-balance-workloads.md).
+- [Integracja Azure NetApp Files z obciążeniami opartymi na rozwiązaniach VMware platformy Azure](netapp-files-with-azure-vmware-solution.md).
