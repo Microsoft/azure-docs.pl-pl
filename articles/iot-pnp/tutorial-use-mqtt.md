@@ -7,12 +7,12 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 429400bb6cb41ede89597dc739a612d1bf9893f2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421383"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831267"
 ---
 # <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Samouczek — korzystanie z programu MQTT do opracowania klienta urządzenia Plug and Play IoT
 
@@ -27,7 +27,7 @@ Przykład w tym samouczku używa biblioteki [Mosquitto](http://mosquitto.org/) M
 Aby ukończyć ten samouczek w systemie Windows, Zainstaluj następujące oprogramowanie w lokalnym środowisku systemu Windows:
 
 * [Visual Studio (Community, Professional lub Enterprise)](https://visualstudio.microsoft.com/downloads/) — upewnij się, że podczas [instalowania](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) programu Visual Studio dołączysz **programowanie klasyczne przy użyciu języka C++**
-* [Narzędzia](https://git-scm.com/download/)
+* [Usługa Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 
 Za pomocą narzędzia *Azure IoT Explorer* Dodaj nowe urządzenie do IoT Hub. Po zakończeniu [konfigurowania środowiska dla przewodników Szybki Start i samouczków Plug and Play IoT](set-up-environment.md)została skonfigurowana usługa IoT Hub i narzędzie Azure IoT Explorer:
@@ -37,8 +37,8 @@ Za pomocą narzędzia *Azure IoT Explorer* Dodaj nowe urządzenie do IoT Hub. Po
 1. Na stronie **urządzenia** wybierz pozycję **+ Nowy**.
 1. Utwórz urządzenie o nazwie *My-MQTT-Device* , które używa automatycznie generowanego klucza symetrycznego.
 1. Na stronie **tożsamość urządzenia** rozwiń węzeł **Parametry połączenia z tokenem SAS**.
-1. Wybierz **klucz podstawowy** , który ma być używany jako **klucz symetryczny** , ustaw czas wygaśnięcia na 60 minut, a następnie wybierz pozycję **Generuj**.
-1. Skopiuj wygenerowane **Parametry połączenia tokenu sygnatury dostępu współdzielonego** , Użyj tej wartości w dalszej części tego samouczka.
+1. Wybierz **klucz podstawowy** , który ma być używany jako **klucz symetryczny**, ustaw czas wygaśnięcia na 60 minut, a następnie wybierz pozycję **Generuj**.
+1. Skopiuj wygenerowane **Parametry połączenia tokenu sygnatury dostępu współdzielonego**, Użyj tej wartości w dalszej części tego samouczka.
 
 ## <a name="clone-sample-repo"></a>Klonowanie przykładowego repozytorium
 
@@ -137,15 +137,14 @@ Poniższe definicje dotyczą tematów MQTT, których urządzenie używa do wysy�
 * `DEVICE_TELEMETRY_MESSAGE`Definiuje temat używany przez urządzenie do wysyłania telemetrii do centrum IoT Hub.
 
 Aby uzyskać więcej informacji na temat MQTT, odwiedź [przykłady MQTT w repozytorium GitHub usługi Azure IoT](https://github.com/Azure-Samples/IoTMQTTSample/) .
-  
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób modyfikowania klienta urządzenia MQTT w celu przestrzegania Konwencji Plug and Play IoT. Aby dowiedzieć się więcej na temat Plug and Play IoT, zobacz:
-
-> [!div class="nextstepaction"]
-> [Architektura](concepts-architecture.md)
-
-Aby dowiedzieć się więcej o obsłudze IoT Hub dla protokołu MQTT, zobacz:
+W tym samouczku przedstawiono sposób modyfikowania klienta urządzenia MQTT w celu przestrzegania Konwencji Plug and Play IoT. Aby dowiedzieć się więcej o obsłudze IoT Hub dla protokołu MQTT, zobacz:
 
 > [!div class="nextstepaction"]
 > [Komunikacja z Centrum IoT Hub przy użyciu protokołu MQTT](../iot-hub/iot-hub-mqtt-support.md)

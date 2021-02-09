@@ -1,5 +1,5 @@
 ---
-title: Tworzenie rozwiązań detalicznych za pomocą usługi Azure IoT Central | Microsoft Docs
+title: Co to są rozwiązania detaliczne platformy Azure IoT Central | Microsoft Docs
 description: Dowiedz się więcej o korzystaniu z szablonów aplikacji IoT Central platformy Azure do tworzenia połączonej logistyki, cyfrowego centrum dystrybucji, analizy w sklepie, monitorowania warunków, wypełniania, zarządzania magazynem i rozwiązań detalicznych.
 author: avneet723
 ms.author: avneets
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 56198cf661001bcfcec45d483d0f691234851894
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124966"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832287"
 ---
-# <a name="building-retail-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla handlu detalicznego za pomocą usługi Azure IoT Central
+# <a name="what-are-the-iot-central-retail-solutions"></a>Jakie są IoT Central rozwiązania detaliczne?
 
 Azure IoT Central to platforma aplikacji IoT, która zmniejsza obciążenie i koszty związane z opracowywaniem i konserwowaniem rozwiązań IoT klasy korporacyjnej oraz zarządzania nimi. Wybranie opcji kompilowania za pomocą usługi Azure IoT Central umożliwia skoncentrowanie się na czasie, pieniędzy i energii związanej z transformą działalności w firmie za pomocą danych IoT, a nie tylko utrzymaniem i aktualizacją złożonej i ciągle rosnącej infrastruktury IoT.
 
@@ -41,9 +41,9 @@ Zalety połączonego rozwiązania logistycznego obejmują:
 
 Poniższe zrzuty ekranu przedstawiają wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Omówienie usługi Azure IoT detalicznego":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Zrzut ekranu pokazujący najwyższą połowę połączonego pulpitu nawigacyjnego operacji logistycznych.":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Omówienie usługi Azure IoT detalicznego":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Zrzut ekranu pokazujący dolną połowę połączonego pulpitu nawigacyjnego operacji logistycznych.":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [wdrażanie i przechodzenie przez połączony szablon aplikacji logistycznej](./tutorial-iot-central-connected-logistics.md) .
 
@@ -64,7 +64,7 @@ Zalety centrum dystrybucji cyfrowej obejmują:
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań: 
 
-:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Omówienie usługi Azure IoT detalicznego":::
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Pulpit nawigacyjny centrum dystrybucji cyfrowej":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [wdrażanie i przechodzenie przez centrum dystrybucji aplikacji w formie elektronicznej](./tutorial-iot-central-digital-distribution-center.md) .
 
@@ -86,7 +86,7 @@ Szablon aplikacji zawiera zestaw szablonów urządzeń i używa zestawu symulowa
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań: 
 
-:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Omówienie usługi Azure IoT detalicznego":::
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Monitorowanie warunków analizy w sklepie":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [Tworzenie aplikacji analizy w sklepie w usłudze Azure IoT Central](./tutorial-in-store-analytics-create-app.md) .
 
@@ -108,7 +108,7 @@ Szablon aplikacji zawiera zestaw szablonów urządzeń i używa zestawu symulowa
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań: 
 
-:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Omówienie usługi Azure IoT detalicznego":::
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Wyewidencjonowywanie analiz w sklepie":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [Tworzenie aplikacji analizy w sklepie w usłudze Azure IoT Central](./tutorial-in-store-analytics-create-app.md) .
 
@@ -128,7 +128,7 @@ Ten szablon aplikacji koncentruje się na łączności urządzeń oraz konfigura
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań:
 
-:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Omówienie usługi Azure IoT detalicznego":::
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Pulpit nawigacyjny zarządzania magazynem inteligentnym":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [wdrażanie i przechodzenie przez szablon aplikacji do zarządzania magazynem inteligentnym](./tutorial-iot-central-smart-inventory-management.md) .
 
@@ -148,7 +148,7 @@ Szablon aplikacji umożliwia wykonywanie:
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań:
 
-:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Omówienie usługi Azure IoT detalicznego":::
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Centrum mikrorealizacji":::
 
 Aby dowiedzieć się więcej, zapoznaj się z samouczkiem [wdrażanie i przechodzenie do szablonu aplikacji Centrum programu Micro-zrealizować](./tutorial-micro-fulfillment-center.md) .
 
@@ -165,7 +165,7 @@ Szablon aplikacji zawiera cztery pulpity nawigacyjne aplikacji:
 * **(Przykład) rzeczywiste zarządzanie kamerą** używa symulowanych kamer, aby pokazać, jak można zarządzać kamerami z aplikacji.
 * **(Przykład) monitor Real Camera** używa symulowanych kamer, aby pokazać, jak można monitorować kamery z aplikacji.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Omówienie usługi Azure IoT detalicznego":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Analiza wideo — wykrywanie obiektów i ruchu":::
 
 Aby dowiedzieć się więcej o architekturze rozwiązania, zobacz [Architektura aplikacji wideo Analytics](architecture-video-analytics.md).
 
@@ -180,9 +180,5 @@ Usługa [Analiza filmów wideo na żywo](https://github.com/Azure/live-video-ana
 Aby rozpocząć tworzenie rozwiązania do sprzedaży detalicznej:
 
 * Rozpocznij pracę z samouczkiem [Tworzenie aplikacji do analizy w Sklepie Azure IoT Central, w](./tutorial-in-store-analytics-create-app.md) której przedstawiono sposób tworzenia rozwiązania przy użyciu jednego z szablonów aplikacji do analizy w sklepie.
-* [Wdrażanie i przechodzenie przez połączony szablon aplikacji logistycznej](./tutorial-iot-central-connected-logistics.md).
-* [Wdróż i przeprowadź procedurę za pomocą szablonu aplikacji Digital Distribution Center](./tutorial-iot-central-digital-distribution-center.md).
-* [Wdróż i przeprowadź procedurę przy użyciu szablonu aplikacji do zarządzania magazynem inteligentnym](./tutorial-iot-central-smart-inventory-management.md).
-* [Wdróż i zapoznaj się z szablonem aplikacji Centrum programu Micro-zrealizować](./tutorial-micro-fulfillment-center.md).
 * [Wdróż i zapoznaj się z szablonem aplikacji Analiza wideo](./tutorial-video-analytics-deploy.md).
-* Dowiedz się więcej o IoT Central w [IoT Central przegląd](../core/overview-iot-central.md).
+* [Wdrażanie i przechodzenie przez połączony szablon aplikacji logistycznej](./tutorial-iot-central-connected-logistics.md).

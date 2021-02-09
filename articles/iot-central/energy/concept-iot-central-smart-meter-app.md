@@ -4,16 +4,16 @@ description: W tym artykule przedstawiono najważniejsze pojęcia związane z ar
 author: op-ravi
 ms.author: omravi
 ms.date: 12/11/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: f9167df3ce56116e02addec411d5f720ea366ea0
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 48dd95acf725e57d63f85c54c97b641935b049b9
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516669"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832372"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central — architektura aplikacji licznika inteligentnego
 

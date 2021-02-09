@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 2757d696f5922263abf87399d6491e46b5e5513c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 8f1b5eabe235d107b48dc7b2db5b6d4b1188a3fa
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033872"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833970"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central
 
@@ -24,7 +24,7 @@ ms.locfileid: "97033872"
 
 W tym samouczku pokazano, jak programista urządzeń ma połączyć aplikację kliencką z aplikacją IoT Central platformy Azure. Aplikacja symuluje zachowanie urządzenia z termostatem. Gdy aplikacja nawiązuje połączenie z IoT Central, wysyła identyfikator modelu urządzenia termostatu. IoT Central korzysta z identyfikatora modelu, aby pobrać model urządzenia i utworzyć dla Ciebie szablon urządzenia. Dodano dostosowania i widoki do szablonu urządzenia, aby umożliwić operatorowi współpracujące z urządzeniem.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz i uruchom kod urządzenia i sprawdź, czy jest on połączony z aplikacją IoT Central.
@@ -71,6 +71,10 @@ Jako deweloper urządzenia możesz użyć widoku **nieprzetworzone dane** , aby 
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="Widok danych nieprzetworzonych":::
 
 W tym widoku można wybrać kolumny do wyświetlenia i ustawić zakres czasu do wyświetlenia. W kolumnie **dane niemodelowane** są wyświetlane dane z urządzenia, które nie są zgodne z żadną definicją właściwości lub telemetrii w szablonie urządzenia.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

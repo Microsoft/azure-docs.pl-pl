@@ -7,18 +7,23 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 299730bcdab3ae7e558f39cc7f7d5076ffc58ea9
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 08ae21c2cd0859b7c361756a4f0380d3ab322a28
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820183"
+ms.locfileid: "99834361"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Samouczek: Tworzenie i Konfigurowanie środowiska Time Series Insights Gen2
 
 W ramach tego samouczka dowiesz się, jak utworzyć i skonfigurować środowisko [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) w celu integracji z rozwiązaniem Plug and Play IoT. Za pomocą Time Series Insights Zbieraj, Przetwarzaj, przechowuj, badaj i Wizualizuj dane szeregów czasowych w skali Internet rzeczy (IoT).
 
-Najpierw należy udostępnić środowisko Time Series Insights i połączyć centrum IoT Hub jako źródło zdarzeń przesyłania strumieniowego. Następnie Pracujesz przez synchronizację modeli, aby utworzyć swój [model szeregów czasowych](../time-series-insights/concepts-model-overview.md). Używasz przykładowych plików modelu [Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) , które są używane dla kontrolerów temperatury i termostatów.
+W tym samouczku zostały wykonane następujące czynności:
+
+> [!div class="checklist"]
+> * Zainicjuj obsługę środowiska Time Series Insights i Połącz Centrum IoT Hub ze źródłem zdarzeń przesyłania strumieniowego.
+> * Pracuj za poorednictwem synchronizacji modelu, aby utworzyć swój [model szeregów czasowych](../time-series-insights/concepts-model-overview.md).
+> * Użyj przykładowych plików modelu [Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) , które są używane przez kontroler temperatury i urządzenia termostatu.
 
 > [!NOTE]
 > Ta integracja między Time Series Insights i IoT Plug and Play jest w wersji zapoznawczej. Sposób, w jaki modele urządzeń DTDL mapowanie na Time Series Insights model szeregów czasowych może ulec zmianie. 
@@ -222,10 +227,11 @@ Wróć do okienka wykresy i rozwiń pozycję **flota urządzeń** > urządzeniu.
 
 ![Zrzut ekranu przedstawiający sposób zmiany typu wystąpienia dla thermostat2.](./media/tutorial-configure-tsi/charting-values.png)
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat różnych opcji wykresów, w tym określania wielkości interwału i kontrolek osi y, zobacz [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).
-
-* Aby uzyskać szczegółowe omówienie modelu szeregów czasowych w środowisku, zobacz [model szeregów czasowych w Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
-
-* Aby szczegółowe do interfejsów API zapytań i składni wyrażeń szeregów czasowych, zobacz [Azure Time Series Insights Gen2 zapytań API](/rest/api/time-series-insights/reference-query-apis).
+> [!div class="nextstepaction"]
+> Aby dowiedzieć się więcej na temat różnych opcji wykresów, w tym określania wielkości interwału i kontrolek osi y, zobacz [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).

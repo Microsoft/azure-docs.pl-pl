@@ -6,17 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 1bb2b7ca22896ed279c8aac215109b7f7bc7854c
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2856366fc8383f7aaec9d96c29acb7621ea801ae
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394275"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832916"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor rozwiązanie na platformie Azure
 
 ![Symbol Network Performance Monitor](./media/network-performance-monitor/npm-symbol.png)
 
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Network Performance Monitor to rozwiązanie hybrydowego monitorowania sieci opartego na chmurze, które ułatwia monitorowanie wydajności sieci między różnymi punktami infrastruktury sieciowej. Ułatwia ono również monitorowanie łączności sieciowej z punktami końcowymi usług i aplikacji oraz monitorowanie wydajności usługi Azure ExpressRoute. 
 
@@ -37,7 +39,7 @@ Więcej informacji na temat różnych możliwości obsługiwanych przez [Network
 ## <a name="supported-regions"></a>Obsługiwane regiony
 NPM może monitorować łączność między sieciami i aplikacjami w dowolnej części świata, z obszaru roboczego, który jest hostowany w jednym z następujących regionów:
 * Europa Północna
-* Europa Zachodnia
+* West Europe
 * Szwajcaria Północna
 * Francja Środkowa
 * Północna Republika Południowej Afryki
@@ -78,19 +80,19 @@ Użyj podstawowych procesów, aby zainstalować agentów na [komputerach z syste
 
 ### <a name="where-to-install-the-agents"></a>Gdzie zainstalować agentów 
 
-* **Monitor wydajności** : Zainstaluj log Analytics agentów na co najmniej jednym węźle połączonym z każdą podsiecią, z której chcesz monitorować łączność sieciową z innymi podsieciami.
+* **Monitor wydajności**: Zainstaluj log Analytics agentów na co najmniej jednym węźle połączonym z każdą podsiecią, z której chcesz monitorować łączność sieciową z innymi podsieciami.
 
     Aby monitorować łącze sieciowe, zainstaluj agentów na obu punktach końcowych tego łącza. Jeśli nie masz pewności co do topologii sieci, zainstaluj agentów na serwerach z krytycznymi obciążeniami, między którymi chcesz monitorować wydajność sieci. Na przykład jeśli chcesz monitorować połączenie sieciowe między serwerem sieci Web a serwerem z uruchomionym programem SQL, Zainstaluj agenta na obu serwerach. Agenci monitorują łączność sieciową (linki) między hostami, a nie samymi hostami. 
 
-* **Monitor łączności usługi** : zainstaluj agenta log Analytics w każdym węźle, z którego chcesz monitorować łączność sieciową do punktu końcowego usługi. Przykładem jest to, że chcesz monitorować łączność sieciową w celu Microsoft 365 z witryn biur oznaczonych jako O1, O2 i O3. Zainstaluj agenta Log Analytics na co najmniej jednym węźle, każdy w O1, O2 i O3. 
+* **Monitor łączności usługi**: zainstaluj agenta log Analytics w każdym węźle, z którego chcesz monitorować łączność sieciową do punktu końcowego usługi. Przykładem jest to, że chcesz monitorować łączność sieciową w celu Microsoft 365 z witryn biur oznaczonych jako O1, O2 i O3. Zainstaluj agenta Log Analytics na co najmniej jednym węźle, każdy w O1, O2 i O3. 
 
-* **Monitor ExpressRoute** : Zainstaluj co najmniej jednego agenta log Analytics w sieci wirtualnej platformy Azure. Zainstaluj także co najmniej jednego agenta w podsieci lokalnej, który jest połączony za pomocą prywatnej komunikacji równorzędnej ExpressRoute.  
+* **Monitor ExpressRoute**: Zainstaluj co najmniej jednego agenta log Analytics w sieci wirtualnej platformy Azure. Zainstaluj także co najmniej jednego agenta w podsieci lokalnej, który jest połączony za pomocą prywatnej komunikacji równorzędnej ExpressRoute.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Skonfiguruj Log Analytics agentów do monitorowania 
 
 Network Performance Monitor używa transakcji syntetycznych do monitorowania wydajności sieci między agentami źródłowymi i docelowymi. Można wybrać między portami TCP i ICMP jako protokół do monitorowania w ramach funkcji monitorowania wydajności i monitora łączności usług. Tylko protokół TCP jest dostępny jako protokół monitorowania dla monitora ExpressRoute. Upewnij się, że zapora zezwala na komunikację między agentami Log Analytics używanymi do monitorowania w wybranym protokole. 
 
-* **Protokół TCP** : w przypadku wybrania na potrzeby monitorowania protokołu TCP jako protokołu należy otworzyć port zapory na agentach używanych do Network Performance Monitor i monitor ExpressRoute, aby upewnić się, że agenci mogą się ze sobą łączyć. Aby otworzyć port dla maszyn z systemem Windows, uruchom skrypt programu PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) bez żadnych parametrów w oknie programu PowerShell z uprawnieniami administracyjnymi.
+* **Protokół TCP**: w przypadku wybrania na potrzeby monitorowania protokołu TCP jako protokołu należy otworzyć port zapory na agentach używanych do Network Performance Monitor i monitor ExpressRoute, aby upewnić się, że agenci mogą się ze sobą łączyć. Aby otworzyć port dla maszyn z systemem Windows, uruchom skrypt programu PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) bez żadnych parametrów w oknie programu PowerShell z uprawnieniami administracyjnymi.
 W przypadku maszyn z systemem Linux należy ręcznie zmienić portNumbers. 
 * Przejdź do ścieżki:/var/opt/Microsoft/omsagent/npm_state. 
 * Otwórz plik: npmdregistry
@@ -108,7 +110,7 @@ Skrypt tworzy klucze rejestru wymagane przez rozwiązanie. Tworzy także reguły
 
     
 
-* **Protokół ICMP** : w przypadku wybrania na potrzeby monitorowania protokołu ICMP należy włączyć następujące reguły zapory, aby niezawodne korzystanie z protokołu ICMP:
+* **Protokół ICMP**: w przypadku wybrania na potrzeby monitorowania protokołu ICMP należy włączyć następujące reguły zapory, aby niezawodne korzystanie z protokołu ICMP:
     
    ```
    netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -130,15 +132,15 @@ Skrypt tworzy klucze rejestru wymagane przez rozwiązanie. Tworzy także reguły
 
 4. Na stronie **Instalator** zobaczysz opcję zainstalowania agentów log Analytics i skonfigurowania agentów do monitorowania w widoku **wspólnych ustawień** . Zgodnie z opisem wcześniej, jeśli zainstalowano i skonfigurowano Log Analytics agentów, wybierz widok **instalacji** , aby skonfigurować możliwości, których chcesz użyć. 
 
-   **Monitor wydajności** : Wybierz protokół, który ma być używany dla transakcji syntetycznych w **domyślnej** regule monitora wydajności, a następnie wybierz pozycję **Zapisz & Kontynuuj**. Ten wybór protokołu jest przechowywany tylko dla reguły domyślnej wygenerowanej przez system. Należy wybrać protokół za każdym razem, gdy tworzysz regułę monitora wydajności jawnie. Zawsze możesz przejść do **domyślnych** ustawień reguły na karcie **Monitor wydajności** (pojawia się po zakończeniu konfiguracji dnia 0) i zmienić protokół później. Jeśli nie potrzebujesz możliwości monitora wydajności, możesz wyłączyć regułę domyślną z ustawień reguły **domyślnej** na karcie **Monitor wydajności** .
+   **Monitor wydajności**: Wybierz protokół, który ma być używany dla transakcji syntetycznych w **domyślnej** regule monitora wydajności, a następnie wybierz pozycję **Zapisz & Kontynuuj**. Ten wybór protokołu jest przechowywany tylko dla reguły domyślnej wygenerowanej przez system. Należy wybrać protokół za każdym razem, gdy tworzysz regułę monitora wydajności jawnie. Zawsze możesz przejść do **domyślnych** ustawień reguły na karcie **Monitor wydajności** (pojawia się po zakończeniu konfiguracji dnia 0) i zmienić protokół później. Jeśli nie potrzebujesz możliwości monitora wydajności, możesz wyłączyć regułę domyślną z ustawień reguły **domyślnej** na karcie **Monitor wydajności** .
 
    ![Widok monitora wydajności](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Monitor łączności usługi** : funkcja udostępnia wbudowane wstępnie skonfigurowane testy do monitorowania łączności sieciowej z Microsoft 365 i Dynamics 365 od agentów. Wybierz usługi Microsoft 365 i Dynamics 365, które chcesz monitorować, zaznaczając obok siebie pola wyboru. Aby wybrać agentów, z których chcesz monitorować, wybierz pozycję **Dodaj agentów**. Jeśli nie chcesz używać tej funkcji lub chcesz ją skonfigurować później, nie wybieraj niczego i wybierz pozycję **zapisz & Kontynuuj**.
+   **Monitor łączności usługi**: funkcja udostępnia wbudowane wstępnie skonfigurowane testy do monitorowania łączności sieciowej z Microsoft 365 i Dynamics 365 od agentów. Wybierz usługi Microsoft 365 i Dynamics 365, które chcesz monitorować, zaznaczając obok siebie pola wyboru. Aby wybrać agentów, z których chcesz monitorować, wybierz pozycję **Dodaj agentów**. Jeśli nie chcesz używać tej funkcji lub chcesz ją skonfigurować później, nie wybieraj niczego i wybierz pozycję **zapisz & Kontynuuj**.
 
    ![Widok monitora łączności usług](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **Monitor ExpressRoute** : wybierz pozycję **Odkryj teraz** , aby odnaleźć wszystkie prywatne połączenia równorzędne ExpressRoute połączone z sieciami wirtualnymi w ramach subskrypcji platformy Azure połączonej z tym obszarem roboczym log Analytics. 
+   **Monitor ExpressRoute**: wybierz pozycję **Odkryj teraz** , aby odnaleźć wszystkie prywatne połączenia równorzędne ExpressRoute połączone z sieciami wirtualnymi w ramach subskrypcji platformy Azure połączonej z tym obszarem roboczym log Analytics. 
 
    ![Widok monitora ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
@@ -206,15 +208,15 @@ Po włączeniu rozwiązania Network Performance Monitor kafelek rozwiązania na 
 
 ### <a name="network-performance-monitor-dashboard"></a>Pulpit nawigacyjny Network Performance Monitor 
 
-* **Najważniejsze zdarzenia dotyczące kondycji sieci** : Ta strona zawiera listę najnowszych zdarzeń i alertów dotyczących kondycji w systemie oraz czas aktywności zdarzeń. Zdarzenie kondycji lub alert jest generowany za każdym razem, gdy wartość wybranej metryki (utrata, opóźnienie, czas odpowiedzi lub wykorzystanie przepustowości) dla reguły monitorowania przekroczy wartość progową. 
+* **Najważniejsze zdarzenia dotyczące kondycji sieci**: Ta strona zawiera listę najnowszych zdarzeń i alertów dotyczących kondycji w systemie oraz czas aktywności zdarzeń. Zdarzenie kondycji lub alert jest generowany za każdym razem, gdy wartość wybranej metryki (utrata, opóźnienie, czas odpowiedzi lub wykorzystanie przepustowości) dla reguły monitorowania przekroczy wartość progową. 
 
-* **Monitor ExpressRoute** : Ta strona zawiera podsumowania kondycji różnych połączeń komunikacji równorzędnej ExpressRoute monitorowanych przez rozwiązanie. Kafelek **topologia** przedstawia liczbę ścieżek sieciowych za pomocą obwodów usługi ExpressRoute monitorowanych w sieci. Wybierz ten kafelek, aby przejść do widoku **topologii** .
+* **Monitor ExpressRoute**: Ta strona zawiera podsumowania kondycji różnych połączeń komunikacji równorzędnej ExpressRoute monitorowanych przez rozwiązanie. Kafelek **topologia** przedstawia liczbę ścieżek sieciowych za pomocą obwodów usługi ExpressRoute monitorowanych w sieci. Wybierz ten kafelek, aby przejść do widoku **topologii** .
 
-* **Monitor łączności usługi** : Ta strona zawiera podsumowania kondycji dla różnych utworzonych testów. Kafelek **topologia** pokazuje liczbę monitorowanych punktów końcowych. Wybierz ten kafelek, aby przejść do widoku **topologii** .
+* **Monitor łączności usługi**: Ta strona zawiera podsumowania kondycji dla różnych utworzonych testów. Kafelek **topologia** pokazuje liczbę monitorowanych punktów końcowych. Wybierz ten kafelek, aby przejść do widoku **topologii** .
 
-* **Monitor wydajności** : Ta strona zawiera podsumowania kondycji dla linków **sieciowych** i linków **podsieci** monitorowanych przez rozwiązanie. Kafelek **topologia** przedstawia liczbę ścieżek sieciowych monitorowanych w sieci. Wybierz ten kafelek, aby przejść do widoku **topologii** . 
+* **Monitor wydajności**: Ta strona zawiera podsumowania kondycji dla linków **sieciowych** i linków **podsieci** monitorowanych przez rozwiązanie. Kafelek **topologia** przedstawia liczbę ścieżek sieciowych monitorowanych w sieci. Wybierz ten kafelek, aby przejść do widoku **topologii** . 
 
-* **Typowe zapytania** : Ta strona zawiera zestaw zapytań wyszukiwania, które bezpośrednio pobierają dane monitorowania sieci RAW. Tych zapytań można użyć jako punktu wyjścia do tworzenia własnych zapytań na potrzeby niestandardowego raportowania. 
+* **Typowe zapytania**: Ta strona zawiera zestaw zapytań wyszukiwania, które bezpośrednio pobierają dane monitorowania sieci RAW. Tych zapytań można użyć jako punktu wyjścia do tworzenia własnych zapytań na potrzeby niestandardowego raportowania. 
 
    ![Pulpit nawigacyjny Network Performance Monitor](media/network-performance-monitor/npm-dashboard.png)
 
@@ -292,7 +294,7 @@ Opłaty za powiadomienia są naliczone osobno zgodnie z [cennikiem za powiadomie
 
 Informacje o cenach są dostępne w [trybie online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Przekazywanie opinii 
+## <a name="provide-feedback"></a>Wyraź opinię 
 
 * **UserVoice:** Możesz publikować swoje pomysły dotyczące Network Performance Monitor funkcji, nad którymi chcesz, nad którymi pracujemy. Odwiedź [stronę usługi UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
@@ -300,4 +302,3 @@ Informacje o cenach są dostępne w [trybie online](network-performance-monitor-
 
 ## <a name="next-steps"></a>Następne kroki 
 Dowiedz się więcej na temat [monitora wydajności](network-performance-monitor-performance-monitor.md), [monitora łączności usług](network-performance-monitor-performance-monitor.md)i [monitora ExpressRoute](network-performance-monitor-expressroute.md). 
-

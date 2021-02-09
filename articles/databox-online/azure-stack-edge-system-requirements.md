@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 4deeec1b6c9db80c15b001efb7b40bdb4bb9d515
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c87c8cfd40903f6296f0a36f5c83c0b5c5cb7818
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452653"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831591"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>Azure Stack Edge wymagania systemowe
 
 W tym artykule opisano ważne wymagania systemowe dotyczące rozwiązania Microsoft Azure Stack EDGE Pro oraz klientów łączących się z usługą Azure Stack EDGE Pro. Zalecamy dokładne zapoznanie się z informacjami przed wdrożeniem Azure Stack EDGE Pro. W razie potrzeby można odwoływać się do tych informacji podczas wdrażania i kolejnej operacji.
 
-Wymagania systemowe dotyczące Azure Stack Edge w wersji Pro obejmują:
+Wymagania systemowe dotyczące Azure Stack Edge w wersji Pro obejmują: 
 
 - **Wymagania dotyczące oprogramowania dla hostów** — zawiera opis obsługiwanych platform, przeglądarek dla lokalnego interfejsu użytkownika konfiguracji, klientów SMB i wszelkich dodatkowych wymagań dla klientów, którzy uzyskują dostęp do urządzenia.
 - **Wymagania dotyczące sieci dla urządzenia** — zawiera informacje o wymaganiach sieciowych dla działania urządzenia fizycznego.

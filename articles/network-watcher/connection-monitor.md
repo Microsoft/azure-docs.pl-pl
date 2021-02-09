@@ -15,19 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896366"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834089"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Samouczek: monitorowanie komunikacji sieciowej między dwiema maszynami wirtualnymi przy użyciu witryny Azure Portal
 
 > [!NOTE]
 > Ten samouczek obejmuje monitor połączeń (klasyczny). Wypróbuj nowy i udoskonalony [monitor połączeń](connection-monitor-overview.md) , aby uzyskać ulepszone Monitorowanie łączności
 
-Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak inna maszyna wirtualna, może być krytyczna dla działania organizacji. Czasami są wprowadzane zmiany konfiguracji, co może powodować przerwy w komunikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych monitorów połączeń w monitorze połączeń (klasycznym), ale można nadal korzystać z istniejących monitorów połączeń utworzonych przed 1 lipca 2021. Aby zminimalizować przerwy w działaniu usługi z bieżącymi obciążeniami, należy [przeprowadzić migrację z monitora połączeń (klasycznego) do nowego monitora połączeń](migrate-to-connection-monitor-from-connection-monitor-classic.md) na platformie Azure Network Watcher przed 29 lutego 2024.
+
+Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak inna maszyna wirtualna, może być krytyczna dla działania organizacji. Czasami są wprowadzane zmiany konfiguracji, co może powodować przerwy w komunikacji. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch maszyn wirtualnych

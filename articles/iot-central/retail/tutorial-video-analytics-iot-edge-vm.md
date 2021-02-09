@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: f798e65b1517430bc67af793ebb517c586d5d58f
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 10ddbf3dde62380eb79af685ad41b22e4552cea1
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763880"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832627"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (maszyna wirtualna z systemem Linux)
 
@@ -27,7 +27,7 @@ W IoT Edge te usługi działają bezpośrednio na międzyplatformowych urządzen
 
 W tym samouczku pokazano, jak przygotować urządzenie IoT Edge na maszynie wirtualnej platformy Azure. W wystąpieniu IoT Edge są uruchamiane moduły analizy wideo na żywo, które są używane przez szablon aplikacji Azure IoT Central Video Analytics — obiekt i ruch.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej platformy Azure z zainstalowanym środowiskiem uruchomieniowym Azure IoT Edge
 > * Przygotuj instalację IoT Edge, aby hostować moduł analizy wideo na żywo i połączyć się z IoT Central
@@ -60,11 +60,11 @@ Skorzystaj z informacji podanych w poniższej tabeli, aby ukończyć formularz *
 | Host aplikacji IoT Central | **Adres URL aplikacji** zanotowany w pliku *scratchpad.txt* w poprzednim samouczku. Na przykład *Traders.azureiotcentral.com*. |
 | Token interfejsu API aplikacji IoT Central | **Token interfejsu API operatora** zanotowano w pliku *scratchpad.txt* w poprzednim samouczku. |
 | Klucz aprowizacji urządzenia IoT Central | **Klucz podstawowy dla grupy SAS-IoT-Devices** został zanotowany w pliku *scratchpad.txt* w poprzednim samouczku. |
-| Rozmiar maszyny wirtualnej | *Standardowa_DS1_v2* |
+| Rozmiar maszyny wirtualnej | *Standard_DS1_v2* |
 | Ubuntu wersja systemu operacyjnego | *18,04 – LTS* |
 | Lokalizacja | *[resourceing (). Location]* |
 
-Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Ukończenie wdrożenia zazwyczaj trwa około trzy minuty. Po zakończeniu wdrażania przejdź do grupy zasobów **LVA-RG** w Azure Portal.
+Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Ukończenie wdrożenia zazwyczaj trwa około trzy minuty. Po zakończeniu wdrażania przejdź do grupy zasobów **LVA-RG** w Azure Portal.
 
 ## <a name="ensure-the-iot-edge-runtime-loads-the-modules"></a>Upewnij się, że środowisko uruchomieniowe IoT Edge ładuje moduły
 
@@ -118,6 +118,14 @@ sudo docker ps
 ```
 
 Lista zawiera kontener o nazwie **live555**.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Jeśli zakończysz pracę z aplikacją, możesz usunąć wszystkie utworzone zasoby w następujący sposób:
+
+1. W aplikacji IoT Central przejdź do strony **aplikacji** w sekcji **Administracja** . Następnie wybierz pozycję **Usuń**.
+1. W Azure Portal Usuń grupę zasobów **LVA-RG** .
+1. Na maszynie lokalnej Zatrzymaj kontener platformy Docker **przeglądarki amp** .
 
 ## <a name="next-steps"></a>Następne kroki
 

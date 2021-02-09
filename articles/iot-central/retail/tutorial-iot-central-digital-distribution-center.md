@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 2b8ed417de966f8731542e8f5ca12a6a05e2dc8a
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820283"
+ms.locfileid: "99831301"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji centrum dystrybucji cyfrowej
 
@@ -109,8 +109,8 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odw
 > ![Zrzut ekranu przedstawiający sposób usuwania aplikacji po jej zakończeniu](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o architekturze rozwiązania centrum dystrybucji cyfrowej 
+
+Dowiedz się więcej o architekturze rozwiązania centrum dystrybucji cyfrowej:
+
 > [!div class="nextstepaction"]
 > [koncepcja centrum dystrybucji cyfrowej](./architecture-digital-distribution-center.md)
-* Dowiedz się więcej na temat innych [szablonów detalicznych IoT Central](./overview-iot-central-retail.md)
-* Dowiedz się więcej o IoT Central zapoznaj się z [omówieniem IoT Central](../core/overview-iot-central.md)

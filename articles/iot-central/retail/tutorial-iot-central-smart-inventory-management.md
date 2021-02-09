@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 2b26b4390cb19b832349b49d4e95a5355caed594
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820300"
+ms.locfileid: "99832185"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji do zarządzania magazynem inteligentnym
 
@@ -109,8 +109,8 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odw
 > ![Zrzut ekranu przedstawiający sposób usuwania aplikacji po jej zakończeniu](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej na temat zarządzania magazynem Smart 
+
+Dowiedz się więcej o zarządzaniu magazynem inteligentnym:
+
 > [!div class="nextstepaction"]
 > [Koncepcja zarządzania magazynem inteligentnego](./architecture-smart-inventory-management.md)
-* Dowiedz się więcej na temat innych [szablonów detalicznych IoT Central](./overview-iot-central-retail.md)
-* Dowiedz się więcej o IoT Central zapoznaj się z [omówieniem IoT Central](../core/overview-iot-central.md)

@@ -3,18 +3,18 @@ title: Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .
 description: Korzystaj z funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm, aby identyfikować, diagnozować i rozwiązywać problemy Azure Cosmos DB podczas korzystania z zestawu .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 09/12/2020
+ms.date: 02/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683110"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831250"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ Zapoznaj się z [sekcją problemów usługi GitHub](https://github.com/Azure/azu
 Sprawdzanie [metryk portalu](./monitor-cosmos-db.md) pomoże określić, czy jest to problem po stronie klienta, czy też występuje problem z usługą. Na przykład, jeśli metryki zawierają wysoką częstotliwość żądań (kod stanu HTTP 429), co oznacza, że żądanie jest ograniczone, sprawdź [częstotliwość żądań za dużą](troubleshoot-request-rate-too-large.md) sekcję. 
 
 ## <a name="retry-logic"></a>Logika ponawiania <a id="retry-logics"></a>
-Zestaw Cosmos DB SDK na dowolnym błędzie we/wy podejmie próbę ponowienia operacji zakończonej niepowodzeniem, jeśli jest możliwe jej ponowienie. Ponowienie próby w przypadku jakiegokolwiek błędu jest dobrym sposobem, ale w przypadku niepowodzenia przetwarzania/ponawiania próby zapisu jest to konieczne. Zalecane jest korzystanie z najnowszego zestawu SDK, ponieważ logika ponowień jest ciągle ulepszana.
+Zestaw Cosmos DB SDK w przypadku dowolnego błędy we/wy podejmie próbę ponowienia operacji zakończonej niepowodzeniem, jeśli jest możliwe jej ponowienie. Ponowienie próby w przypadku jakiegokolwiek błędu jest dobrym sposobem, ale w przypadku niepowodzenia przetwarzania/ponawiania próby zapisu jest to konieczne. Zalecane jest korzystanie z najnowszego zestawu SDK, ponieważ logika ponowień jest ciągle ulepszana.
 
 1. Błędy we/wy odczytu i zapytania zostaną ponowione przez zestaw SDK bez obsłużynia ich użytkownikowi końcowemu.
 2. Operacje zapisu (Create, Upsert, Replace, Delete) nie są idempotentne, a tym samym zestaw SDK nie zawsze może niemniej ponowić próbę wykonania nieudanych operacji zapisywania. Wymagane jest, aby logika aplikacji użytkownika mogła obsłużyć błąd, i ponowić próbę.
@@ -67,6 +67,7 @@ Zestaw Cosmos DB SDK na dowolnym błędzie we/wy podejmie próbę ponowienia ope
 |----------|-------------|
 | 400 | Złe żądanie (zależy od komunikatu o błędzie)| 
 | 401 | [Brak autoryzacji](troubleshoot-unauthorized.md) | 
+| 403 | [Zabronione](troubleshoot-forbidden.md) |
 | 404 | [Nie znaleziono zasobu](troubleshoot-not-found.md) |
 | 408 | [Przekroczono limit czasu żądania](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Błąd konfliktu polega na tym, że identyfikator podany dla zasobu w operacji zapisu został podjęty przez istniejący zasób. Użyj innego identyfikatora dla zasobu, aby rozwiązać ten problem, ponieważ identyfikator musi być unikatowy w obrębie wszystkich dokumentów z tą samą wartością klucza partycji. |

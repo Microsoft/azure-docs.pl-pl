@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 33eaa1ea928cc0650c91948c70d46daf499f3b4b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500275"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831218"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Samouczek: łączenie modułu IoT Plug and Play (C#)
 
@@ -20,7 +20,12 @@ W tym samouczku przedstawiono sposób łączenia ogólnego [modułu](../iot-hub/
 
 Urządzenie jest urządzeniem Plug and Play IoT, jeśli publikuje jego identyfikator modelu podczas nawiązywania połączenia z usługą IoT Hub i implementuje właściwości i metody opisane w modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) identyfikowane przez identyfikator modelu. Aby dowiedzieć się więcej o tym, jak urządzenia używają DTDL i identyfikatora modelu, zobacz [przewodnik dewelopera IoT Plug and Play](./concepts-developer-guide-device.md). Moduły używają identyfikatorów modelu i modeli DTDL w taki sam sposób.
 
-Aby zademonstrować sposób implementacji modułu IoT Plug and Play, w tym samouczku pokazano, jak skonwertować próbkę urządzenia w języku C# z termostatu do modułu ogólnego.
+Aby zademonstrować sposób implementacji modułu IoT Plug and Play, w tym samouczku pokazano, jak:
+
+> [!div class="checklist"]
+> * Dodaj urządzenie z modułem do centrum IoT Hub.
+> * Konwertowanie przykładowego urządzenia z termostatem na język C# do modułu ogólnego.
+> * Użyj zestawu SDK usługi, aby móc korzystać z modułu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -232,6 +237,10 @@ Za pomocą narzędzia Azure IoT Explorer można zobaczyć:
 * Dane telemetryczne z urządzenia IoT Edge.
 * Aktualizacje właściwości sznurka IoT Edge module wyzwalające powiadomienia Plug and Play IoT.
 * Moduł IoT Edge reaguje na polecenia Plug and Play IoT.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

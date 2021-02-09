@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d7c7068c4a8669cdff782267030d38ac0f73584
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761043"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832933"
 ---
 # <a name="service-connectivity-monitor"></a>Monitorowanie łączności usług
+
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Możesz użyć możliwości monitora łączności usług w [Network Performance Monitor](network-performance-monitor.md) , aby monitorować łączność sieciową z dowolnym punktem końcowym, który ma otwarty port TCP. Takie punkty końcowe obejmują witryny sieci Web, aplikacje SaaS, aplikacje PaaS i bazy danych SQL. 
 
@@ -29,7 +32,7 @@ Za pomocą monitora łączności usług można wykonywać następujące funkcje:
 ![Monitorowanie łączności usług](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
-## <a name="configuration"></a>Konfiguracja 
+## <a name="configuration"></a>Konfigurowanie 
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md) i wybierz pozycję **Konfiguruj**.
 
 ![Konfigurowanie rozwiązania Network Performance Monitor](media/network-performance-monitor-service-endpoint/npm-configure-button.png)
@@ -59,9 +62,9 @@ Rozpocznij tworzenie testów do monitorowania łączności sieciowej z punktami 
     * Wybierz opcję **Sieć** , aby monitorować łączność z usługą, która odpowiada na żądania TCP, ale nie odpowiada na żądania HTTP/S, takie jak serwer SQL Server, serwer FTP lub port SSH. 
     * Na przykład: Aby utworzyć test sieci Web na koncie usługi BLOB Storage, wybierz pozycję **Sieć Web** i wprowadź element docelowy jako *yourstorageaccount*. blob.Core.Windows.NET. Podobnie można utworzyć testy dla innych magazynów tabel, magazynu kolejek i Azure Files przy użyciu [tego linku.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
 4. Jeśli nie chcesz wykonywać pomiarów sieci, takich jak opóźnienie sieci, utrata pakietów i odnajdywanie topologii, wyczyść pole wyboru **Wykonaj pomiary sieci** . Kontynuuj, aby uzyskać maksymalną korzyść z możliwości. 
-5. W polu **docelowy**wprowadź adres URL/nazwę FQDN/adres IP, do którego chcesz monitorować łączność sieciową.
-6. W polu **numer portu**wprowadź numer portu usługi docelowej. 
-7. W polu **częstotliwość testu**wprowadź wartość dla częstotliwości wykonywania testu. 
+5. W polu **docelowy** wprowadź adres URL/nazwę FQDN/adres IP, do którego chcesz monitorować łączność sieciową.
+6. W polu **numer portu** wprowadź numer portu usługi docelowej. 
+7. W polu **częstotliwość testu** wprowadź wartość dla częstotliwości wykonywania testu. 
 8. Wybierz węzły, z których chcesz monitorować łączność sieciową do usługi. Upewnij się, że liczba agentów dodanych na test jest mniejsza niż 150. Każdy agent może testować maksymalnie 150 punktów końcowych/agentów.
 
     >[!NOTE]
@@ -134,4 +137,3 @@ W przypadku regionu Wirginia dla instytucji rządowych Stanów Zjednoczonych tyl
 
 ## <a name="next-steps"></a>Następne kroki
 [Wyszukaj dzienniki](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe rekordy danych wydajności sieci.
-

@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6be49ec3777b4bcaa033a60546e95711090662a4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b0b5aafd85fe6d992afa9d879f73ef0ec43e00d3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065290"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834378"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Samouczek: Tworzenie reguły i konfigurowanie powiadomień w aplikacji usługi Azure IoT Central
 
@@ -24,7 +24,7 @@ Urządzenia używają telemetrii do wysyłania danych liczbowych z urządzenia. 
 
 W tym samouczku utworzysz regułę do wysyłania wiadomości e-mail, gdy temperatura w symulowanym urządzeniu czujnika przekracza 70 &deg; F.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -107,6 +107,10 @@ Wybierz regułę, którą chcesz włączyć lub wyłączyć. Przełącz przycisk
 ## <a name="enable-or-disable-a-rule-for-specific-devices"></a>Włączanie lub wyłączanie reguły dla określonych urządzeń
 
 Wybierz regułę, którą chcesz dostosować. Aby zawęzić zakres reguły do urządzeń, które mają być monitorowane, należy użyć co najmniej jednego filtru w sekcji **urządzenia docelowe** .
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

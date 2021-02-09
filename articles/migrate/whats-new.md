@@ -7,21 +7,19 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: fbafed60019005fe2d81c96fb9557e3c307669ac
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cc207522048e3f0491e3aa54f2ae21d2e7e63bc2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233767"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834039"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) ułatwia odnajdywanie, ocenianie i migrowanie lokalnych serwerów, aplikacji i danych do chmury Microsoft Azure. W tym artykule zestawiono nowe wersje i funkcje programu Azure Migrate.
 
 ## <a name="update-january-2021"></a>Aktualizacja (styczeń 2021)
--  Migracja maszyn wirtualnych programu VMware na maszyny wirtualne platformy Azure z szyfrowanym szyfrowaniem przy użyciu funkcji podwójnego szyfrowania za pomocą kluczy zarządzanych przez platformę i zarządzane przez klienta (CMK) przy użyciu migracji serwera Azure Migrate (replikacja bez agenta) jest teraz dostępna za pośrednictwem Azure Portal.
-- Migracja maszyn wirtualnych programu VMware do usługi Azure Virtual Machines z dyskami szyfrowanymi przy użyciu funkcji szyfrowania po stronie serwera (SSE) z kluczami zarządzanymi przez klienta (CMK) i szyfrowaniem podwójnym za pomocą kluczy zarządzanych przez platformę i zarządzane przez klienta, przy użyciu migracji serwera Azure Migrate (replikacja oparta na agentach) jest teraz dostępna za pośrednictwem Azure Portal.
-- Migracja serwerów fizycznych i maszyn wirtualnych z innych chmur, takich jak AWS i GCP, do maszyn wirtualnych platformy Azure z dyskami szyfrowanymi przy użyciu funkcji szyfrowania po stronie serwera (SSE) z kluczami zarządzanymi przez klienta (CMK) i szyfrowaniem podwójnym za pomocą kluczy zarządzanych przez platformę i zarządzane Azure Portal przez klienta za pomocą programu Azure Migrate
+-  Azure Migrate: Narzędzie do migracji serwera umożliwia teraz Migrowanie maszyn wirtualnych VMware, serwerów fizycznych i maszyn wirtualnych z innych chmur do maszyn wirtualnych platformy Azure z dyskami szyfrowanymi przy użyciu szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta (CMK).
 
 ## <a name="update-december-2020"></a>Aktualizacja (grudzień 2020)
 - Azure Migrate teraz automatycznie instaluje agenta maszyny wirtualnej platformy Azure na maszynach wirtualnych VMware podczas migrowania ich do platformy Azure przy użyciu metody bez agenta migracji VMware.

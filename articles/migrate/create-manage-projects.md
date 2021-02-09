@@ -6,16 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 750cf0a938fffd4e5bfe25811bb276f7cb1b5583
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 0d4ccc1a60f9ac3c2183023d3d3772da6a1e307b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757563"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830757"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Tworzenie projektów usługi Azure Migrate i zarządzanie nimi
 
-W tym artykule opisano sposób tworzenia i usuwania [Azure Migrate](migrate-services-overview.md) projektów oraz zarządzania nimi. Jeśli używasz klasycznych projektów Azure Migrate, usuń te projekty i postępuj zgodnie z instrukcjami, aby utworzyć nowy projekt Azure Migrate. Do Azure Migrate nie można uaktualnić klasycznych projektów Azure Migrate ani składników. Wyświetlanie [często zadawanych pytań](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) przed rozpoczęciem procesu tworzenia.
+W tym artykule opisano sposób tworzenia i usuwania [Azure Migrate](migrate-services-overview.md) projektów oraz zarządzania nimi. 
+
+Azure Migratee klasyczne jest wycofywane w lutym 2024. Po lutym 2024 wersja klasyczna Azure Migrate nie będzie już obsługiwana i metadane spisu w projekcie klasycznym zostaną usunięte. Jeśli używasz klasycznych projektów Azure Migrate, usuń te projekty i postępuj zgodnie z instrukcjami, aby utworzyć nowy projekt Azure Migrate. Do Azure Migrate nie można uaktualnić klasycznych projektów Azure Migrate ani składników. Wyświetlanie [często zadawanych pytań](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) przed rozpoczęciem procesu tworzenia.
 
 Projekt Azure Migrate jest używany do przechowywania metadanych odnajdywania, oceny i migracji zebranych ze środowiska, które oceniasz lub migrujesz. W projekcie można śledzić odnalezione zasoby, tworzyć oceny i organizować migracje na platformie Azure.  
 

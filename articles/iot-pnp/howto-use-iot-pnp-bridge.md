@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bf730dbc28d15c3d036e9ebeedbe035db087c5d8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 9bcf256b6144702254bbff4a57e5ff402abaa962
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673034"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834106"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Jak podłączyć przykład IoT Plug and Play Bridge działającego w systemie Linux lub Windows do IoT Hub
 
@@ -44,7 +44,7 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 
 ## <a name="download-and-run-the-bridge"></a>Pobieranie i uruchamianie mostka
 
-W tym artykule dostępne są dwie opcje uruchomienia mostka. Można:
+W tym artykule dostępne są dwie opcje uruchomienia mostka. Oto co możesz zrobić:
 
 - Pobierz wstępnie utworzony plik wykonywalny i uruchom go zgodnie z opisem w tej sekcji.
 - Pobierz kod źródłowy, a następnie [Skompiluj i uruchom mostek](#build-and-run-the-bridge) zgodnie z opisem w poniższej sekcji.
@@ -279,6 +279,8 @@ Aby pobrać modele dla programu Azure IoT Explorer:
 Po uruchomieniu mostka Użyj narzędzia Azure IoT Explorer, aby sprawdzić, czy działa. Można wyświetlić dane telemetryczne, właściwości i polecenia zdefiniowane w `dtmi:com:example:PnpBridgeEnvironmentalSensor;1` modelu.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 

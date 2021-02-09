@@ -8,18 +8,22 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 1/25/2021
+ms.date: 02/08/2021
 ms.author: kenwith
-ms.openlocfilehash: 89b40ac68143c2af0d94434ddedec489a2208839
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 03eacf4405217ee883689a088499d86d6f2262b5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256411"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830706"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Samouczek — Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
 Microsoft Azure AD zapewnia pomoc techniczną dla aprowizacji użytkowników do aplikacji SaaS innych firm, takich jak Salesforce, G Suite i innych. W przypadku włączenia aprowizacji użytkowników dla aplikacji SaaS innej firmy Azure Portal kontroluje wartości atrybutów za pomocą mapowań atrybutów.
+
+Przed rozpoczęciem upewnij się, że znasz już kwestie dotyczące zarządzania aplikacjami i **pojedynczych Sign-On (SSO)** , zapoznaj się z następującymi linkami:
+- [Przewodnik Szybki Start dotyczący zarządzania aplikacjami w usłudze Azure AD](../manage-apps/view-applications-portal.md)
+- [Co to jest pojedynczy Sign-On (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
 Istnieje wstępnie skonfigurowany zestaw atrybutów i mapowań atrybutów między obiektami użytkowników usługi Azure AD i obiektami użytkowników aplikacji SaaS. Niektóre aplikacje zarządzają innymi typami obiektów razem z użytkownikami, takimi jak grupy.
 

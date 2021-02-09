@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 2695b34745ff02d55f18cebbe87a468f807ca77a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346371"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831692"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Samouczek: eksportowanie danych z platformy Azure IoT Central i wizualizacja szczegółowych informacji w programie Power BI
 
@@ -46,7 +46,7 @@ Przed utworzeniem centrum zdarzeń i aplikacji logiki należy utworzyć grupę z
 1. W polu **subskrypcja** wybierz nazwę subskrypcji platformy Azure, która została użyta do utworzenia aplikacji IoT Central.
 1. W polu Nazwa **grupy zasobów** wprowadź wartość _Retail-Store-Analysis_*.
 1. Dla **regionu** wybierz ten sam region, który został wybrany dla aplikacji IoT Central.
-1. Wybierz pozycję **Recenzja + Utwórz**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Na stronie **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**.
 
 Teraz masz grupę zasobów o nazwie **Retail-Store-Analysis** w Twojej subskrypcji.
@@ -64,7 +64,7 @@ Aby można było skonfigurować aplikację do monitorowania handlu detalicznego 
     * Wybierz tę samą **subskrypcję** , która została użyta do utworzenia aplikacji IoT Central.
     * Wybierz grupę zasobów **analizy handlu detalicznego** .
     * Wybierz tę samą lokalizację, która była używana dla aplikacji IoT Central.
-    * Wybierz pozycję **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
+    * Wybierz przycisk **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
 1. W portalu przejdź do grupy zasobów **analizy handlu detalicznego** . Zaczekaj na zakończenie wdrażania. Może być konieczne wybranie opcji **Odśwież** , aby zaktualizować stan wdrożenia. Możesz również sprawdzić stan tworzenia przestrzeni nazw centrum zdarzeń w **powiadomieniach**.
 1. W grupie zasobów **analizy sprzedaży detalicznej** wybierz **Event Hubs przestrzeni nazw**. Zostanie wyświetlona strona główna **obszaru nazw Event Hubs** w portalu.
 
@@ -109,7 +109,7 @@ Pulpit nawigacyjny Power BI będzie wyświetlał dane z aplikacji do monitorowan
 
     | Nazwa wartości  | Typ wartości |
     | ----------- | ---------- |
-    | Timestamp   | DateTime   |
+    | Znacznik czasu   | DateTime   |
     | Wilgotność    | Liczba     |
     | Temperatura | Liczba     |
 
@@ -132,7 +132,7 @@ Wymagany jest również zestaw danych przesyłania strumieniowego dla telemetrii
 
     | Nazwa wartości     | Typ wartości |
     | -------------- | ---------- |
-    | Timestamp      | DateTime   |
+    | Znacznik czasu      | DateTime   |
     | Długość kolejki 1 | Liczba     |
     | Długość kolejki 2 | Liczba     |
     | Czas mieszkania 1   | Liczba     |
@@ -167,7 +167,7 @@ Poniższe kroki pokazują, jak utworzyć aplikację logiki w Azure Portal:
     * Wybierz tę samą **subskrypcję** , która została użyta do utworzenia aplikacji IoT Central.
     * Wybierz grupę zasobów **analizy handlu detalicznego** .
     * Wybierz tę samą lokalizację, która była używana dla aplikacji IoT Central.
-    * Wybierz pozycję **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
+    * Wybierz przycisk **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
 1. W Azure Portal przejdź do nowej aplikacji logiki.
 1. Na stronie **projektanta Logic Apps** przewiń w dół i wybierz pozycję **pusta aplikacja logiki**.
 1. W obszarze **Wyszukaj łączniki i wyzwalacze** wpisz _Event Hubs_.
@@ -441,7 +441,7 @@ Dodaj cztery kafelki wykresu liniowego, aby pokazać temperaturę i wilgotność
 | ------- | -------- | -------- | -------- | -------- |
 | Zestaw danych | Czujnik Strefa 1 | Czujnik Strefa 1 | Czujnik Strefa 2 | Czujnik Strefa 2 |
 | Typ wizualizacji | Wykres liniowy | Wykres liniowy | Wykres liniowy | Wykres liniowy |
-| Oś | Timestamp | Timestamp | Timestamp | Timestamp |
+| Oś | Znacznik czasu | Znacznik czasu | Znacznik czasu | Znacznik czasu |
 | Wartości | Temperatura | Wilgotność | Temperatura | Wilgotność |
 | Przedział czasu | 60 minut | 60 minut | 60 minut | 60 minut |
 | Tytuł | Temperatura (1 godzina) | Wilgotność (1 godzina) | Temperatura (1 godzina) | Wilgotność (1 godzina) |
@@ -475,7 +475,7 @@ Dodaj cztery kafelki kart, aby wyświetlić długość kolejki i czas mieszkania
 | ------- | ------- | ------- | ------- | ------- |
 | Zestaw danych | Czujnik zajętości | Czujnik zajętości | Czujnik zajętości | Czujnik zajętości |
 | Typ wizualizacji | Wykres kolumnowy grupowany | Wykres kolumnowy grupowany | Miernik | Miernik |
-| Oś    | Timestamp | Timestamp | NIE DOTYCZY | NIE DOTYCZY |
+| Oś    | Znacznik czasu | Znacznik czasu | NIE DOTYCZY | NIE DOTYCZY |
 | Wartość | Czas mieszkania 1 | Czas mieszkania 2 | Długość kolejki 1 | Długość kolejki 2 |
 | Przedział czasu | 60 minut | 60 minut |  NIE DOTYCZY | NIE DOTYCZY |
 | Tytuł | Czas mieszkania | Czas mieszkania | Długość kolejki | Długość kolejki |
@@ -504,6 +504,4 @@ Możesz usunąć Power BI zestawy danych i pulpit nawigacyjny, usuwając obszar 
 Te trzy samouczki pokazują kompleksowe rozwiązanie, które korzysta z szablonu aplikacji **do analizy w sklepie — wyewidencjonowywanie** IoT Central. Urządzenia zostały podłączone do aplikacji, używane IoT Central do monitorowania urządzeń i używane Power BI do tworzenia pulpitu nawigacyjnego w celu wyświetlenia szczegółowych informacji na podstawie danych telemetrycznych urządzenia. Zalecanym następnym krokiem jest zapoznanie się z jednym z innych IoT Central szablonów aplikacji:
 
 > [!div class="nextstepaction"]
-> * [Tworzenie rozwiązań dla branży energetycznej za pomocą usługi IoT Central](../energy/overview-iot-central-energy.md)
-> * [Tworzenie rozwiązań dla instytucji rządowych za pomocą usługi IoT Central](../government/overview-iot-central-government.md)
-> * [Tworzenie rozwiązań dla opieki zdrowotnej za pomocą usługi IoT Central](../healthcare/overview-iot-central-healthcare.md)
+> [Tworzenie rozwiązań dla branży energetycznej za pomocą usługi IoT Central](../energy/overview-iot-central-energy.md)

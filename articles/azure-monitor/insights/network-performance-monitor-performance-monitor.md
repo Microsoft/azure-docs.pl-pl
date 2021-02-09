@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 2c20f668c57e8c2e74c320ca535aea18e633daf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6502d4259aa383c1466967d01282cecfbb8d1ded
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326124"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832967"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Rozwiązanie Network Performance Monitor: monitorowanie wydajności
+
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Funkcja monitora wydajności w [Network Performance Monitor](network-performance-monitor.md) ułatwia monitorowanie łączności sieciowej w różnych punktach w sieci. Możesz monitorować wdrożenia w chmurze i lokalne lokalizacje, wiele centrów danych i oddziałów oraz wielowarstwowe aplikacje lub mikrousługi. Korzystając z monitora wydajności, można wykrywać problemy z siecią przed zaskargą użytkowników. Kluczowe zalety: 
 
@@ -26,7 +29,7 @@ Funkcja monitora wydajności w [Network Performance Monitor](network-performance
 
 ![Monitor wydajności sieci](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md)i wybierz pozycję **Konfiguruj**.
 
 ![Konfigurowanie rozwiązania Network Performance Monitor](media/network-performance-monitor-performance-monitor/npm-configure-button.png)
@@ -94,7 +97,7 @@ Przed wybraniem protokołu należy wziąć pod uwagę następujące informacje:
 
 Jeśli podczas wdrażania wybrano opcję użycia protokołu ICMP, można w dowolnym momencie przełączyć się do protokołu TCP, edytując domyślną regułę monitorowania.
 
-1. Przejdź kolejno do pozycji Monitor **wydajności sieci**   >  **Monitor**   >  **Konfiguracja**   >  **monitora**. Następnie wybierz pozycję **domyślna reguła**. 
+1. Przejdź kolejno do pozycji Monitor **wydajności sieci**   >  ****   >  **Konfiguracja**   >  **monitora**. Następnie wybierz pozycję **domyślna reguła**. 
 2. Przewiń do sekcji **Protokół** i wybierz protokół, który ma być używany. 
 3. Wybierz pozycję **Zapisz** , aby zastosować ustawienie. 
 
@@ -129,4 +132,3 @@ Na poniższej ilustracji główne przyczyny problemów z obszarami problemu w da
 
 ## <a name="next-steps"></a>Następne kroki
 [Wyszukaj dzienniki](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe rekordy danych wydajności sieci.
-

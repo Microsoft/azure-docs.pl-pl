@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 9343bc424a0a38da173a56701528c4fd7549aabd
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 908254fec0d9e92b0e30c2e4968c3c505bbbdbf8
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734661"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833834"
 ---
 # <a name="configure-virtual-network-support-for-a-premium-tier-azure-cache-for-redis-instance"></a>Konfigurowanie obsługi sieci wirtualnej dla usługi Azure cache w warstwie Premium dla wystąpienia Redis
 
@@ -178,7 +178,7 @@ Istnieją wymagania dotyczące łączności sieciowej dla usługi Azure cache fo
 * Wychodząca łączność sieciowa z punktami końcowymi usługi Azure Storage w świecie. Punkty końcowe znajdujące się w tym samym regionie co pamięć podręczna platformy Azure dla wystąpienia Redis i punkty końcowe magazynu znajdujące się w *innych* regionach platformy Azure są uwzględniane. Punkty końcowe usługi Azure Storage są rozwiązywane w następujących domenach DNS: *Table.Core.Windows.NET*, *BLOB.Core.Windows.NET*, *Queue.Core.Windows.NET* i *File.Core.Windows.NET*.
 * Wychodząca łączność sieciowa z *OCSP.DigiCert.com*, *crl4.DigiCert.com*, *OCSP.msocsp.com*, *mscrl.Microsoft.com*, *crl3.DigiCert.com*, *cacerts.DigiCert.com*, *oneocsp.Microsoft.com* i *CRL.Microsoft.com*. Ta łączność jest wymagana do obsługi funkcji TLS/SSL.
 * Konfiguracja systemu DNS dla sieci wirtualnej musi być w stanie rozwiązać wszystkie punkty końcowe i domeny wymienione w poprzednich punktach. Te wymagania dotyczące usługi DNS można spełnić, upewniając się, że dla sieci wirtualnej jest skonfigurowana i utrzymywana prawidłowa infrastruktura DNS.
-* Wychodząca łączność sieciowa z następującymi Azure Monitor punktami końcowymi, które są rozpoznawane w następujących domenach DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.NET*, *North-prod2.prod2.Metrics.nsatc.NET*, *azglobal-Black.azglobal.Metrics.nsatc.NET*, *shoebox2-Red.shoebox2.Metrics.nsatc.NET*, *East-prod2.prod2.Metrics.nsatc.NET* i *azglobal-Red.azglobal.Metrics.nsatc.NET*.
+* Wychodząca łączność sieciowa z następującymi Azure Monitor punktami końcowymi, które są rozpoznawane w następujących domenach DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.NET*, *North-prod2.prod2.Metrics.nsatc.NET*, *azglobal-Black.azglobal.Metrics.nsatc.NET*, *shoebox2-Red.shoebox2.Metrics.nsatc.NET*, *East-prod2.prod2.Metrics.nsatc.NET*, *azglobal-Red.azglobal.Metrics.nsatc.NET*, *shoebox3.prod.microsoftmetrics.com*, *shoebox3-Red.prod.microsoftmetrics.com* i *shoebox3-Black.prod.microsoftmetrics.com*.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-virtual-network"></a>Jak sprawdzić, czy moja pamięć podręczna działa w sieci wirtualnej?
 

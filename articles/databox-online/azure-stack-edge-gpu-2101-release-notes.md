@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/27/2021
+ms.date: 02/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 6fff5b9d41c960ebe37098695c694725de0226e0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: eb01ae5e9c7e134e33460674eb2c44b710671a4a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954618"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833358"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Azure Stack Edge 2101 — informacje o wersji
 
@@ -40,15 +40,15 @@ Poniższe nowe funkcje są dostępne w wersji Azure Stack Edge 2101.
 
 Poniższa tabela zawiera podsumowanie znanych problemów w wersji 2101.
 
-| Nie. | Cechy | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 |**1.**|Funkcje w wersji zapoznawczej |W tej wersji w wersji zapoznawczej są dostępne następujące funkcje: lokalne Azure Resource Manager, maszyny wirtualne, zarządzanie chmurą maszyn wirtualnych, usługa Azure ARC z obsługą Kubernetes, Sieć VPN dla Azure Stack EDGE Pro R i Azure Stack Edge mini R, wiele procesów (MPS) dla Azure Stack EDGE Pro GPU  |Te funkcje będą ogólnie dostępne w nowszych wersjach. |
 |**2.**|Pulpit nawigacyjny Kubernetes | Punkt końcowy *https* dla pulpitu nawigacyjnego Kubernetes z certyfikatem SSL nie jest obsługiwany. | |
 |**3.**|Kubernetes |Rejestr kontenerów krawędzi nie działa, gdy jest włączony serwer proxy sieci Web.|Ta funkcja będzie dostępna w przyszłych wydaniach. |
 |**4.**|Kubernetes |Rejestr kontenerów krawędzi nie działa z modułami IoT Edge.| |
 |**5000.**|Kubernetes |Kubernetes nie obsługuje ":" w nazwach zmiennych środowiskowych, które są używane przez aplikacje platformy .NET. Jest to również wymagane w przypadku, gdy moduł IoT Edge Event Grid może działać na Azure Stack urządzeniu brzegowym i innych aplikacjach. Aby uzyskać więcej informacji, zobacz [dokumentację ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Zamień ciąg ":" przez podwójne podkreślenie. Aby uzyskać więcej informacji, zobacz [Kubernetes Issue](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**ust.** |Azure Arc + klaster Kubernetes |Domyślnie po `yamls` usunięciu zasobu z repozytorium git odpowiednie zasoby nie są usuwane z klastra Kubernetes.  |Należy ustawić `--sync-garbage-collection`  w łuku OperatorParams, aby zezwolić na usunięcie zasobów po usunięciu z repozytorium git. Aby uzyskać więcej informacji, zobacz [Usuwanie konfiguracji](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
-|**7.**|NFS |Aplikacje korzystające z instalacji udziałów NFS na urządzeniu do zapisywania danych powinny używać zapisu wyłącznego. Dzięki temu zapis jest zapisywany na dysku.| |
+|**ust.** |Azure Arc + klaster Kubernetes |Domyślnie po `yamls` usunięciu zasobu z repozytorium git odpowiednie zasoby nie są usuwane z klastra Kubernetes.  |Aby zezwolić na usunięcie zasobów po ich usunięciu z repozytorium git, ustaw wartość `--sync-garbage-collection` w polu łuk OperatorParams. Aby uzyskać więcej informacji, zobacz [Usuwanie konfiguracji](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**7.**|NFS |Aplikacje korzystające z instalacji udziałów NFS na urządzeniu do zapisywania danych powinny używać zapisu wyłącznego. Dzięki temu zapisy są zapisywane na dysku.| |
 |**0,8.**|Konfiguracja obliczeń |Konfiguracja obliczeń kończy się niepowodzeniem w konfiguracjach sieci, w których bramy lub przełączniki lub routery odpowiadają na żądania protokołu ARP (Address Resolution Protocol) dla systemów, które nie istnieją w sieci.| |
 |**9.**|Obliczenia i Kubernetes |Jeśli Kubernetes jest najpierw skonfigurowany na urządzeniu, przejmuje wszystkie dostępne procesory GPU. W związku z tym nie jest możliwe tworzenie Azure Resource Manager maszyn wirtualnych przy użyciu procesorów GPU po skonfigurowaniu Kubernetes. |Jeśli urządzenie ma 2 procesory GPU, można utworzyć 1 maszynę wirtualną, która używa procesora GPU, a następnie skonfigurować Kubernetes. W takim przypadku Kubernetes będzie używać pozostałego dostępnego 1 procesora GPU. |
 
@@ -57,7 +57,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów w wersji 2101.
 
 Poniższa tabela zawiera podsumowanie znanych problemów przeprowadzonych w porównaniu z poprzednimi wersjami.
 
-| Nie. | Cechy | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 | **1.** |Azure Stack EDGE Pro + Azure SQL | Tworzenie bazy danych SQL wymaga dostępu administratora.   |Wykonaj następujące czynności zamiast kroków 1-2 w temacie [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database) . <ul><li>W lokalnym interfejsie użytkownika urządzenia Włącz interfejs obliczeniowy. Wybierz pozycję **obliczenia > port # > Włącz dla obliczeń > Zastosuj.**</li><li>Pobierz `sqlcmd` na komputerze klienckim z https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Nawiąż połączenie z adresem IP interfejsu obliczeniowego (włączonym portem), dodając znak ", 1401" na końcu adresu.</li><li>Końcowe polecenie będzie wyglądać następująco: sqlcmd-S {Interface IP}, 1401-U SA-P "Strong! Passw0rd".</li>Po wykonaniu tej czynności kroki 3-4 z bieżącej dokumentacji powinny być identyczne. </li></ul> |
 | **2.** |Odśwież| Przyrostowe zmiany w obiektach Blob przywrócone za pośrednictwem **odświeżania** nie są obsługiwane |W przypadku punktów końcowych obiektów BLOB częściowe aktualizacje obiektów BLOB po odświeżeniu mogą spowodować, że aktualizacje nie są przekazywane do chmury. Na przykład sekwencja akcji, takich jak:<ul><li>Utwórz obiekt BLOB w chmurze. Lub Usuń wcześniej przekazany obiekt BLOB z urządzenia.</li><li>Odśwież obiekt BLOB z chmury do urządzenia, korzystając z funkcji odświeżania.</li><li>Zaktualizuj tylko część obiektu BLOB przy użyciu interfejsów API REST usługi Azure SDK.</li></ul>Te akcje mogą spowodować, że zaktualizowane sekcje obiektu BLOB nie zostaną zaktualizowane w chmurze. <br>**Obejście**: Użyj narzędzi, takich jak Robocopy, lub zwykłych kopii plików w Eksploratorze lub wierszu polecenia, aby zastąpić całe obiekty blob.|
@@ -78,6 +78,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów przeprowadzonych w por�
 |**7.**|IoT Edge |Moduły wdrożone za pomocą IoT Edge nie mogą używać sieci hosta. | |
 |**postanowienia.**|Obliczenia i Kubernetes |Obliczenia/Kubernetes nie obsługują serwera proxy sieci Web NTLM. ||
 |**19.**|Kubernetes + Update |Starsze wersje oprogramowania, takie jak wersje 2008, mają problem z aktualizacją stanu wyścigu, który powoduje, że aktualizacja kończy się niepowodzeniem z ClusterConnectionException. |Korzystanie z nowszych kompilacji powinno pomóc uniknąć tego problemu. Jeśli nadal widzisz ten problem, obejście tego problemu polega na ponownym uaktualnieniu i zapewnieniu poprawnego działania.|
+|**20C**|Internet Explorer|Jeśli udoskonalone funkcje zabezpieczeń są włączone, dostęp do lokalnych stron interfejsu użytkownika sieci Web może być niemożliwy. | Wyłącz ulepszone zabezpieczenia i uruchom ponownie przeglądarkę.|
 
 
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->

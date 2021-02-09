@@ -7,18 +7,18 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 398441123d5ad309d9c2d506a75b80b58a6d56d0
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 7c6c50b6fd8200726aa11f120d9748cc1b40aa22
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346218"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831624"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Samouczek: wdrażanie i przechodzenie przez połączony szablon aplikacji logistycznej
 
 W tym samouczku pokazano, jak rozpocząć pracę z szablonem IoT Central *połączonej aplikacji logistycznej* . Dowiesz się, jak wdrożyć szablon i korzystać z niego.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie połączonej aplikacji logistycznej.
@@ -43,7 +43,7 @@ Utwórz aplikację, wykonując następujące czynności:
 
 1. Wybierz pozycję **Utwórz aplikację** w obszarze **podłączona aplikacja logistyczna**.
 
-1. **Utwórz aplikację** otwiera formularz **nowej aplikacji** . Wprowadź następujące wartości:
+1. **Utwórz aplikację** otwiera formularz **nowej aplikacji** . Wprowadź następujące informacje:
 
 
     * **Nazwa aplikacji**: możesz użyć domyślnej sugerowanej nazwy lub wprowadzić przyjazną nazwę aplikacji.
@@ -130,8 +130,8 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odw
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Czyszczenie szablonu":::
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o 
+
+Dowiedz się więcej na temat:
+
 > [!div class="nextstepaction"]
-> [Połączona koncepcja logistyczna](./architecture-connected-logistics.md)
-* Dowiedz się więcej na temat innych [szablonów detalicznych IoT Central](./overview-iot-central-retail.md)
-* Dowiedz się więcej o [IoT Central przegląd](../core/overview-iot-central.md)
+> [Połączone koncepcje logistyczne](./architecture-connected-logistics.md)

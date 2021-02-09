@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 2ff97dd30d9b993385f52ea531653a89197f8756
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734627"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831777"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Jak skonfigurować usługę Azure cache for Redis
 W tym temacie opisano konfiguracje dostępne dla usługi Azure cache dla wystąpień Redis. W tym temacie opisano również domyślną konfigurację serwera Redis dla usługi Azure cache dla wystąpień Redis.
@@ -33,7 +33,7 @@ Poniższe ustawienia można wyświetlać i konfigurować za pomocą **menu zasó
 * [Omówienie](#overview)
 * [Dziennik aktywności](#activity-log)
 * [Kontrola dostępu (IAM)](#access-control-iam)
-* [Tabliczk](#tags)
+* [Tagi](#tags)
 * [Diagnozowanie i rozwiązywanie problemów](#diagnose-and-solve-problems)
 * [Ustawienia](#settings)
     * [Klawisze dostępu](#access-keys)
@@ -236,10 +236,7 @@ Blok **harmonogram aktualizacji** umożliwia wyznaczenie okna obsługi dla aktua
 
 Aby określić okno obsługi, sprawdź wymagane dni i określ czas rozpoczęcia okna obsługi dla każdego dnia, a następnie kliknij przycisk **OK**. Czas okna obsługi jest w formacie UTC.
 
-> [!IMPORTANT]
-> Funkcja **Schedule Updates** jest dostępna tylko w przypadku pamięci podręcznych w warstwie Premium. Aby uzyskać więcej informacji i instrukcje, zobacz temat [usługa Azure cache for Redis Administration — Zaplanuj aktualizacje](cache-administration.md#schedule-updates).
->
->
+Aby uzyskać więcej informacji i instrukcje, zobacz [usługa Azure cache for Redis Administration — Planowanie aktualizacji](cache-administration.md#schedule-updates)
 
 ### <a name="geo-replication"></a>Replikacja geograficzna
 

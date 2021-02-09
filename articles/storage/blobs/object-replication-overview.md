@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 391c33e72f45e7c0c0b56128b32a8e73399e417a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762880"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834327"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replikacja obiektów dla blokowych obiektów BLOB
 
@@ -42,6 +42,8 @@ Replikacja obiektów wymaga również włączenia następujących funkcji usług
 - [Wersja obiektów BLOB](versioning-overview.md): musi być włączona zarówno na koncie źródłowym, jak i docelowym. Aby dowiedzieć się, jak włączyć obsługę wersji, zobacz Włączanie obsługi wersji [obiektów blob i zarządzanie nimi](versioning-enable.md).
 
 Włączenie kanału informacyjnego zmiany i przechowywanie wersji obiektów BLOB może pociągnąć za sobą dodatkowe koszty. Więcej informacji można znaleźć na [stronie cennika usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+
+Replikacja obiektów jest obsługiwana tylko dla kont magazynu ogólnego przeznaczenia w wersji 2. Zarówno konto źródłowe, jak i docelowe muszą być ogólnego przeznaczenia w wersji 2. 
 
 ## <a name="how-object-replication-works"></a>Jak działa replikacja obiektów
 

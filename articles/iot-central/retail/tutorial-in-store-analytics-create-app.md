@@ -11,16 +11,14 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: fc8928c9f64e323aafb29c9b1e717cc5c2ab6691
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 112039b9227d5ff34e68b6dc6643597f335fbdb5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346711"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832236"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do analizy w sklepie na platformie Azure IoT Central
-
-
 
 W tym samouczku przedstawiono kompilacje rozwiązań, w jaki sposób można utworzyć aplikację analityczną usługi Azure IoT Central w sklepie. Przykładowa aplikacja dotyczy sklepu detalicznego. Jest to rozwiązanie dla typowych potrzeb firmy, które należy monitorować i dostosowywać do warunków użytkowania i środowiska.
 
@@ -34,7 +32,7 @@ Rozwiązanie do tworzenia i monitorowania stanu jest opracowywane w trzech czę�
 * Dostosuj pulpit nawigacyjny, aby umożliwić operatorom monitorowanie urządzeń i zarządzanie nimi
 * Konfigurowanie eksportu danych w celu umożliwienia menedżerom sklepu uruchamiania analiz i wizualizacji szczegółowych informacji
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie aplikacji dla sklepu detalicznego za pomocą szablonu usługi Azure IoT Central **in-Store Analytics — wyewidencjonowywanie**
 > * Dostosowywanie ustawień aplikacji
@@ -77,7 +75,7 @@ Aby utworzyć nową aplikację do wyewidencjonowania analizy w sklepie:
 
     Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zapoznaj się z [przewodnikiem Szybki start dotyczącym tworzenia aplikacji](../core/quick-deploy-iot-central.md).
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     ![Strona Tworzenie aplikacji usługi Azure IoT Central](./media/tutorial-in-store-analytics-create-app/preview-application-template.png)
 
@@ -150,7 +148,7 @@ Aby dodać szablon urządzenia RuuviTag do aplikacji:
 
     ![Zrzut ekranu, który podświetla przycisk Dalej: Dostosuj.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
-1. Wybierz pozycję **Utwórz**. Aplikacja dodaje szablon urządzenia RuuviTag.
+1. Wybierz przycisk **Utwórz**. Aplikacja dodaje szablon urządzenia RuuviTag.
 
 1. W okienku po lewej stronie wybierz pozycję **Szablony urządzeń** . Na stronie zostaną wyświetlone wszystkie szablony urządzeń znajdujące się w szablonie aplikacji oraz właśnie dodany szablon urządzenia RuuviTag.
 
@@ -213,7 +211,7 @@ Określ następujące wartości, aby utworzyć niestandardową właściwość do
 
     ![Dostosowywanie szablonu urządzenia usługi Azure IoT Central RuuviTag](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-cloud-property.png)
 
-1. Kliknij opcję **Opublikuj**. 
+1. Kliknij pozycję **Opublikuj**. 
 
     Opublikowanie szablonu urządzenia sprawia, że jest on widoczny dla operatorów aplikacji. Po opublikowaniu szablonu należy go użyć do wygenerowania symulowanych urządzeń do testowania lub połączenia rzeczywistych urządzeń z aplikacją. Jeśli masz już urządzenia podłączone do aplikacji, opublikowanie niestandardowego szablonu powoduje wypchnięcie zmian na urządzeniach.
 
@@ -276,7 +274,12 @@ Aby dodać akcję do reguły:
 
     W ciągu kilku minut określone konto e-mail powinno zacząć otrzymywać wiadomości e-mail. Aplikacja wysyła wiadomość e-mail za każdym razem, gdy czujnik wskazuje, że poziom wilgotności przekroczy wartość w warunku.
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Następne kroki
+
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 * Tworzenie aplikacji dla sklepu detalicznego za pomocą szablonu usługi Azure IoT Central **in-Store Analytics — wyewidencjonowywanie**

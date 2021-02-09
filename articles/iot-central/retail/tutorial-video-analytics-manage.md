@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874802"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832610"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Samouczek: monitorowanie i zarządzanie analizą wideo — aplikacja do wykrywania obiektów i ruchu
 
@@ -55,13 +55,13 @@ Wybierz pozycję **Uruchom** , aby dodać urządzenie aparatu:
 
 ## <a name="add-a-motion-detection-camera-optional"></a>Dodaj aparat wykrywania ruchu (opcjonalnie)
 
-Jeśli masz dwie aparaty podłączone do urządzenia bramy IoT Edge, powtórz poprzednie kroki, aby dodać aparat wykrywania ruchu do aplikacji. Użyj różnych wartości dla **identyfikatora aparatu**, **nazwy aparatu**i parametrów **adresu URL protokołu RTSP** .
+Jeśli masz dwie aparaty podłączone do urządzenia bramy IoT Edge, powtórz poprzednie kroki, aby dodać aparat wykrywania ruchu do aplikacji. Użyj różnych wartości dla **identyfikatora aparatu**, **nazwy aparatu** i parametrów **adresu URL protokołu RTSP** .
 
 ## <a name="view-the-downstream-devices"></a>Wyświetlanie urządzeń podrzędnych
 
 Wybierz kartę **urządzenia podrzędne** dla usługi **LVA Gateway 001** urządzenie, aby zobaczyć właśnie dodane urządzenia do aparatu:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Dodaj kamerę":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Skontrol":::
 
 Urządzenia kamer są również wyświetlane na liście na stronie **urządzenia** w aplikacji.
 
@@ -98,7 +98,7 @@ Wybierz pozycję **Zapisz**.
 
 Po kilku sekundach zobaczysz **zaakceptowany** komunikat z potwierdzeniem dla każdego ustawienia:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Dodaj kamerę":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Wykrywanie obiektów":::
 
 ## <a name="start-lva-processing"></a>Rozpocznij przetwarzanie LVA
 
@@ -108,13 +108,13 @@ Uruchom polecenie **uruchamiania przetwarzania LVA** .
 
 Po zakończeniu wykonywania polecenia przejrzyj historię poleceń, aby upewnić się, że nie ma żadnych błędów:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Dodaj kamerę":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Uruchom LVA przetwarzania polecenia":::
 
 ## <a name="monitor-the-cameras"></a>Monitoruj aparaty
 
 Przejdź do urządzenia **Camera-003** i wybierz kartę **pulpit nawigacyjny** :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Dodaj kamerę":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Pulpit nawigacyjny aparatu":::
 
 Kafelek **Liczba wykryć** pokazuje średnią liczbę wykryć dla każdego z wybranych klas wykrywania w trakcie jednego interwału wykrywania.
 
@@ -157,14 +157,14 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Przejdź do urządzenia **Camera-003** i wybierz kartę **pulpit nawigacyjny** . Następnie kliknij jeden z przechwyconych wykrytych obiektów hiperlinków na kafelku **wideo zdarzenia wnioskowania** . Film wideo pojawia się na stronie wyświetlanej przez lokalny odtwarzacz wideo:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Dodaj kamerę":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Fragment filmu wideo":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Zmienianie symulowanych urządzeń na pulpitach nawigacyjnych aplikacji
 
 Pulpity nawigacyjne aplikacji są wypełniane jako dane telemetryczne i właściwości wygenerowane z symulowanych urządzeń IoT Central. Aby skonfigurować kafelki do telemetrii z prawdziwych kamer lub symulatora Live555, wykonaj następujące kroki:
 
 1. Przejdź do pulpitu nawigacyjnego **monitorowania aplikacji (przykład)** .
-1. Kliknij pozycję **Edytuj**.
+1. Wybierz pozycję **Edytuj**.
 1. Wybierz kafelek **notatki** i usuń go.
 1. Zmień tytuł pulpitu nawigacyjnego na *monitor Real Camera*.
 1. Na kafelku **zliczanie wnioskowania** wybierz ikonę Konfiguruj.
@@ -176,13 +176,13 @@ Pulpity nawigacyjne aplikacji są wypełniane jako dane telemetryczne i właści
     1. Wykres kołowy **wykrywania** używa `AI Inference Interface/Inference/entity/tag/value` typu telemetrii.
     1. **Wnioskowanie** używa `AI Inference Interface/Inference/entity/tag/value` ostatniej znanej wartości.
     1. Stopień **pewności%** używa `AI Inference Interface/Inference/entity/tag/confidence` ostatniej znanej wartości.
-    1. **Snapshot** Funkcja Snapshot `AI Inference Interface/Inference Image` jest wyświetlana jako obraz.
+    1.  Funkcja Snapshot `AI Inference Interface/Inference Image` jest wyświetlana jako obraz.
     1. Użycie **wideo o zdarzeniu wnioskowania** `AI Inference Interface/Inference Event Video` jest wyświetlane jako link.
 1. Wybierz pozycję **Zapisz**.
 
 Pulpit nawigacyjny **monitora rzeczywistej kamery** przedstawia teraz wartości z rzeczywistego urządzenia z kamerą:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Dodaj kamerę":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Pulpit nawigacyjny aplikacji dla kamer rzeczywistych":::
 
 ## <a name="pause-processing"></a>Wstrzymaj przetwarzanie
 
@@ -195,7 +195,7 @@ W aplikacji można wstrzymywać przetwarzanie analizy wideo na żywo:
     * Kliknij zasób **punkt końcowy przesyłania strumieniowego** .
     * Na stronie **Szczegóły punktu końcowego przesyłania strumieniowego** wybierz pozycję **Zatrzymaj**.
 
-## <a name="tidy-up"></a>Uporządkowanego
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zakończysz pracę z aplikacją, możesz usunąć wszystkie utworzone zasoby w następujący sposób:
 

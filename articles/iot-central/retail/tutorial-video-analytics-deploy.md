@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: abeae674cef8f13a092b53bde6040ad853bd0cca
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f7f1952ab8c98553a447c3ed1955fb556ba48124
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820368"
+ms.locfileid: "99831947"
 ---
 # <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Samouczek: wdrażanie aplikacji IoT Central przy użyciu szablonu wideo Analiza obiektów i aplikacji wykrywanie ruchu
 
@@ -22,6 +22,10 @@ Aby zapoznać się z omówieniem składników aplikacji Key *Analytics — obiek
 Poniższy film wideo zawiera Przewodnik dotyczący sposobu używania _szablonu aplikacji do analizy wideo i wykrywania ruchu_ w celu wdrożenia rozwiązania IoT Central:
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Zalecana jest subskrypcja platformy Azure. Alternatywnie możesz użyć bezpłatnej 7-dniowej wersji próbnej. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć na [stronie rejestracji na platformie Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="deploy-the-application"></a>Wdrażanie aplikacji
 
@@ -42,6 +46,14 @@ Wykonaj następujące kroki, aby wdrożyć aplikację IoT Central przy użyciu s
     - Zainstaluj lokalny odtwarzacz multimedialny, aby wyświetlić przechwycone wideo w AMS.
     - Wyświetl przechwycone wideo pokazujące wykryte obiekty.
     - Uporządkowanego.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Po zakończeniu pracy z aplikacją można usunąć wszystkie utworzone zasoby w następujący sposób:
+
+1. W aplikacji IoT Central przejdź do strony **aplikacji** w sekcji **Administracja** . Następnie wybierz pozycję **Usuń**.
+1. W Azure Portal Usuń grupę zasobów **LVA-RG** .
+1. Na maszynie lokalnej Zatrzymaj kontener platformy Docker **przeglądarki amp** .
 
 ## <a name="next-steps"></a>Następne kroki
 

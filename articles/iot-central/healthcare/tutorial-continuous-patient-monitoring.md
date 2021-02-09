@@ -8,22 +8,26 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98482a43516683499e83bebafe4eeadc5b7a8b7
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531274"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832508"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Samouczek: wdrażanie i Instruktaż szablonu aplikacji do monitorowania ciągłego pacjenta
 
 W tym samouczku pokazano, jak uzyskać Konstruktor rozwiązań, jak rozpocząć pracę, wdrażając szablon aplikacji do monitorowania ciągłego pacjenta IoT Central. Dowiesz się, jak wdrożyć szablon i korzystać z niego.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie szablonu aplikacji
 > * Przechodzenie przez szablon aplikacji
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Zalecana jest subskrypcja platformy Azure. Alternatywnie możesz użyć bezpłatnej 7-dniowej wersji próbnej. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć na [stronie rejestracji na platformie Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application-template"></a>Tworzenie szablonu aplikacji
 
@@ -61,11 +65,11 @@ Po wdrożeniu szablonu aplikacji należy najpierw **obstawić pulpit nawigacyjny
 
 * Zmień **stan pacjenta** urządzenia, aby wskazać, czy urządzenie jest używane dla pacjenta lub zdalnego scenariusza.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="Szablon aplikacji Healthcre":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Stan w pacjentów":::
 
 Możesz również wybrać pozycję **Przejdź do pulpitu nawigacyjnego zdalnego pacjenta** , aby wyświetlić pulpit nawigacyjny operatora Burkville szpital. Ten pulpit nawigacyjny zawiera podobny zestaw akcji, telemetrii i informacji. Można także zobaczyć wiele urządzeń w użyciu i wybrać **aktualizację oprogramowania układowego** na każdym z nich.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Szablon aplikacji Healthcre":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Pulpit nawigacyjny operatora zdalnego":::
 
 ### <a name="device-templates"></a>Szablony urządzeń
 
@@ -75,7 +79,7 @@ Jeśli wybierzesz pozycję **Szablony urządzeń**, zobaczysz dwa typy urządze�
 
 * **Inteligentne nawiasy klamrowe**: to urządzenie reprezentuje nawiasy klamrowe używane podczas odzyskiwania z chirurgu do zastępowania kolan. Jeśli wybierzesz ten szablon, zobaczysz możliwości, takie jak dane urządzenia, zakres ruchu i przyspieszenie.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Szablon aplikacji Healthcre":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Szablon poprawki inteligentnej":::
 
 ### <a name="device-groups"></a>Grupy urządzeń
 
@@ -93,7 +97,7 @@ Jeśli wybierzesz pozycję **reguły**, zobaczysz trzy reguły w szablonie:
 
 * **Niski poziom baterii poprawek**: Ta reguła jest wyzwalana, gdy poziom baterii urządzenia spadnie poniżej 10%. Użyj tej reguły, aby wyzwolić powiadomienie dla pacjenta o naliczeniu urządzenia.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Szablon aplikacji Healthcre":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Reguły":::
 
 ### <a name="jobs"></a>Stanowiska
 
@@ -103,7 +107,7 @@ Zadania umożliwiają uruchamianie operacji zbiorczych na zestawie urządzeń pr
 
 * **Ponowne Inicjowanie obsługi administracyjnej urządzeń**: masz zestaw urządzeń, które zostały ostatnio zwrócone do szpitala. To zadanie umożliwia odnalezienie urządzeń w **grupie urządzeń** i uruchomienie polecenia, aby ponownie zainicjować obsługę administracyjną dla następnego zestawu pacjentów.
 
-### <a name="devices"></a>Devices
+### <a name="devices"></a>Urządzenia
 
 Wybierz kartę **urządzenia** , a następnie wybierz wystąpienie **inteligentnego nawiasu kolanowego**. Istnieją trzy widoki umożliwiające Eksplorowanie informacji o konkretnym wybranym urządzeniu. Te widoki są tworzone i publikowane podczas kompilowania szablonu urządzenia dla urządzenia. w związku z tym te widoki są spójne na wszystkich urządzeniach, które są połączone lub symulowane.
 
@@ -113,9 +117,9 @@ Karta **Właściwości** umożliwia edytowanie właściwości chmury i właściw
 
 Karta **polecenia** umożliwia uruchamianie poleceń na urządzeniu.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Szablon aplikacji Healthcre":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Pulpit nawigacyjny kolana":::
 
-### <a name="data-export"></a>Eksportowanie danych
+### <a name="data-export"></a>Eksport danych
 
 Eksport danych umożliwia ciągłe eksportowanie danych urządzenia do innych usług platformy Azure, w tym [interfejsu API platformy Azure dla usługi FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
@@ -123,7 +127,7 @@ Eksport danych umożliwia ciągłe eksportowanie danych urządzenia do innych us
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń aplikację, odwiedzając pozycję **administracja > ustawienia aplikacji** , a następnie kliknij przycisk **Usuń**.
 
-:::image type="content" source="media/admin-delete.png" alt-text="Szablon aplikacji Healthcre":::
+:::image type="content" source="media/admin-delete.png" alt-text="Zasoby uporządkowanego":::
 
 ## <a name="next-steps"></a>Następne kroki
 

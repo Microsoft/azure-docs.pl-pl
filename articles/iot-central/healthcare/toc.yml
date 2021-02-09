@@ -1,4 +1,4 @@
-- name: Dokumentacja usługi Azure IoT Central dla opieki zdrowotnej
+- name: Dokumentacja usługi Azure IoT Central na potrzeby ochrony zdrowia
   href: index.yml
 - name: Omówienie
   items:
@@ -9,6 +9,8 @@
   items:
     - name: Tworzenie aplikacji ciągłego monitorowania pacjenta
       href: tutorial-continuous-patient-monitoring.md
+    - name: Tworzenie pulpitu nawigacyjnego klasyfikacji danych medycznych
+      href: howto-health-data-triage.md
 - name: Pojęcia
   items:
     - name: Architektura ciągłego monitorowania pacjenta
@@ -19,8 +21,6 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: Przewodniki z instrukcjami
   items:
-    - name: Tworzenie pulpitu nawigacyjnego klasyfikacji danych medycznych
-      href: howto-health-data-triage.md
     - name: Łączenie i tworzenie urządzeń
       items:
         - name: Przygotowywanie i łączenie urządzenia Rigado Cascade 500

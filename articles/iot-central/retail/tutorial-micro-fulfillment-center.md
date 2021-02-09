@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125973"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832134"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji Centrum programu Micro-zrealizować
 
@@ -49,7 +49,7 @@ Aby utworzyć nową aplikację centrum o wysokiej realizacji, która korzysta z 
 
     Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zobacz [Tworzenie aplikacji](../core/quick-deploy-iot-central.md) — Szybki Start.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     ![Zrzut ekranu strony nowej aplikacji IoT Central platformy Azure](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
@@ -92,8 +92,7 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji. Prz
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o
+Dowiedz się więcej na następujące tematy:
+
 > [!div class="nextstepaction"]
 > [Architektura rozwiązania Centrum rozwiązań](./architecture-micro-fulfillment-center.md)
-* Dowiedz się więcej na temat [szablonów detalicznych usługi Azure IoT Central](./overview-iot-central-retail.md)
-* Dowiedz się więcej o [usłudze Azure IoT Central](../core/overview-iot-central.md)

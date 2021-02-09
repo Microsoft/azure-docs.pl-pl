@@ -4,12 +4,12 @@ description: Dostępność zasobów obliczeniowych i pamięci dla usługi Azure 
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661378"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831284"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Dostępność zasobów dla Azure Container Instances w regionach świadczenia usługi Azure
 
@@ -34,7 +34,7 @@ Poniższe regiony i maksymalne zasoby są dostępne dla grup kontenerów z konte
 | Australia Wschodnia | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | Brazylia Południowa | 4 | 16 | 2 | 8 | 50 | Nie dotyczy |
 | Kanada Środkowa | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
-| Indie Środkowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | V100 |
+| Indie Środkowe | 4 | 16 | 4 | 4 | 50 | V100 |
 | Central US | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | Azja Wschodnia | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |

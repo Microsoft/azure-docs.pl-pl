@@ -1,5 +1,5 @@
 ---
-title: Tworzenie rozwiązań dla instytucji rządowych za pomocą usługi Azure IoT Central
+title: Co to są rozwiązania dla instytucji rządowych platformy Azure IoT Central
 description: Dowiedz się, jak tworzyć inteligentne rozwiązania przy użyciu szablonów aplikacji platformy Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
@@ -7,14 +7,14 @@ ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a903622f698107f7f1a593946f083fca1573d53e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590821"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834344"
 ---
-# <a name="building-government-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla instytucji rządowych za pomocą usługi Azure IoT Central
+# <a name="what-are-the-iot-central-government-solutions"></a>Jakie są IoT Central rozwiązania dla instytucji rządowych?
 
 Rozpocznij pracę z tworzeniem rozwiązań w postaci przyjaznego miasta przy użyciu szablonów aplikacji IoT Central platformy Azure. Zacznij teraz od **monitorowania jakości wody**, **monitorowania zużycia wody** i **zarządzania odpadami**.
 
@@ -71,8 +71,6 @@ Rozpocznij pracę z [samouczkiem dotyczącym aplikacji do zarządzania odpadami]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Wypróbuj wszystkie szablony aplikacji dla instytucji rządowych w IoT Central do bezpłatnego [tworzenia aplikacji](https://apps.azureiotcentral.com/build/government)
 * Informacje o [pojęciach dotyczących monitorowania jakości wody](./concepts-waterqualitymonitoring-architecture.md)
 * Informacje o [pojęciach dotyczących monitorowania zużycia wody](./concepts-waterconsumptionmonitoring-architecture.md)
 * Informacje o [pojęciach związanych z zarządzaniem odpadami](./concepts-connectedwastemanagement-architecture.md)  
-* Więcej informacji na temat IoT Central, zobacz [omówienie IoT Central](../core/overview-iot-central.md)

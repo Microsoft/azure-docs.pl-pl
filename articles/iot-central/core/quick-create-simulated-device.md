@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f8d366554634444db16eb3292f100540f3808e8a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 488de7114d80e6a88cc619ba3b42f867c985ea11
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992872"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833919"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Szybki Start: Dodawanie symulowanego urządzenia do aplikacji IoT Central
 
@@ -76,7 +76,7 @@ Szablon urządzenia może zawierać właściwości chmury. Właściwości chmury
 
     | Nazwa wyświetlana      | Typ semantyczny | Schemat |
     | ----------------- | ------------- | ------ |
-    | Data ostatniego serwisowania | Brak          | Date   |
+    | Data ostatniego serwisowania | Brak          | Date (Data)   |
     | Nazwa klienta     | Brak          | Ciąg |
 
 1. Wybierz pozycję **Zapisz** , aby zapisać zmiany:
@@ -165,6 +165,10 @@ Po utworzeniu nowego symulowanego urządzenia, Konstruktor może używać tego u
 1. Na liście Wybierz swoje symulowane urządzenie. Następnie wybierz przycisk **Zastosuj**. Teraz można zobaczyć to samo symulowane urządzenie w widokach szablonów urządzeń. Ten widok jest przydatny w przypadku wykresów i innych wizualizacji.
 
     :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Zrzut ekranu przedstawiający skonfigurowane urządzenie podglądu":::
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

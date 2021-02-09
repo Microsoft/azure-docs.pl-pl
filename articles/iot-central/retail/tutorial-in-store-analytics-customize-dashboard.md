@@ -11,19 +11,19 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 5165f7d6e16e0d136dbf8d4507090c78372185cb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 74ce36652b1a00ac6813c62a17d44e2a5486645f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348054"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831727"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Samouczek: Dostosowywanie pulpitu nawigacyjnego operatora i zarządzanie urządzeniami w usłudze Azure IoT Central
 
 
 W tym samouczku, jako Konstruktor, dowiesz się, jak dostosować pulpit nawigacyjny operatora w aplikacji do analizy w Sklepie Azure IoT Central. Operatorzy aplikacji mogą korzystać z dostosowanego pulpitu nawigacyjnego, aby uruchamiać aplikację i zarządzać dołączonymi urządzeniami.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Zmień nazwę pulpitu nawigacyjnego
 > * Dostosowywanie kafelków obrazów na pulpicie nawigacyjnym
@@ -127,7 +127,7 @@ Po usunięciu nieużywanych kafelków Rozmieść pozostałe kafelki w celu utwor
 
 Aby zmienić rozmieszczenie pozostałych kafelków:
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 
 1. Wybierz kafelek **oprogramowanie układowe zajętości** i przeciągnij go na prawo od kafelka baterii **zajętość** .
 
@@ -146,7 +146,7 @@ W tej sekcji dodasz dwa więcej kafelków telemetrycznych, aby pokazać dane tel
 
 Aby dodać kafelki do wyświetlania danych o środowisku z czujników RuuviTag:
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 
 1. Wybierz pozycję `RuuviTag` z listy **szablon urządzenia** . 
 
@@ -178,7 +178,7 @@ Aby dodać kafelki do wyświetlania danych o środowisku z czujników RuuviTag:
 
 Aby edytować kafelek **ruch** dotyczący osób, aby wyświetlić dane telemetryczne tylko dla dwóch stref wyewidencjonowania:
 
-1. Wybierz pozycję **Edit** (Edytuj). 
+1. Wybierz pozycję **Edytuj**. 
 
 1. Wybierz pozycję **Konfiguruj** na kafelku **ruch osób** .
 
@@ -201,7 +201,7 @@ Operatorzy aplikacji używają pulpitu nawigacyjnego do zarządzania urządzenia
 
 Aby dodać kafelek właściwości dla każdego RuuviTagu:
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 
 1. Wybierz pozycję `RuuviTag` z listy **szablon urządzenia** . 
 
@@ -230,7 +230,7 @@ Operatory aplikacji również używają pulpitu nawigacyjnego do zarządzania ur
 
 Aby dodać kafelek poleceń w celu ponownego uruchomienia bramy:
 
-1. Wybierz pozycję **Edit** (Edytuj). 
+1. Wybierz pozycję **Edytuj**. 
 
 1. Wybierz pozycję `C500` z listy **szablon urządzenia** . Jest to szablon bramy usługi Rigado C500. 
 
@@ -246,7 +246,12 @@ Aby dodać kafelek poleceń w celu ponownego uruchomienia bramy:
 
 1. Opcjonalnie wybierz kafelek **ponownego** uruchamiania, aby uruchomić polecenie ponownego uruchamiania na bramie.
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Następne kroki
+
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 * Zmień nazwę pulpitu nawigacyjnego

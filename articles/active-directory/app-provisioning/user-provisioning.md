@@ -8,19 +8,21 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/11/2021
+ms.date: 02/08/2021
 ms.author: kenwith
-ms.reviewer: arvinh, celested
-ms.openlocfilehash: cb2c168786ee4cb14f93544d4cd9632b86ba5156
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.reviewer: arvinh
+ms.openlocfilehash: f899c4d67321482dab62729632fe031bb23f71ea
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255529"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830672"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Co to jest zautomatyzowana obsługa użytkowników aplikacji SaaS w usłudze Azure AD?
 
 W Azure Active Directory (Azure AD) termin **aprowizacji aplikacji** dotyczy automatycznego tworzenia tożsamości i ról użytkowników w aplikacjach w chmurze ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)), do których użytkownicy potrzebują dostępu. Oprócz tworzenia tożsamości użytkowników automatyczne Inicjowanie obsługi obejmuje konserwację i usuwanie tożsamości użytkowników jako zmiany stanu lub ról. Typowe scenariusze obejmują Inicjowanie obsługi użytkownika usługi Azure AD w aplikacjach takich jak [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [usługi ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)i inne.
+
+Dopiero zaczynasz pracę z zarządzaniem aplikacjami i logowaniem jednokrotnym w usłudze Azure AD? Zapoznaj się z [seriami szybkiego startu](../manage-apps/view-applications-portal.md).
 
 Aby dowiedzieć się więcej na temat Standard scim i dołączania do konwersacji społeczności technicznej, zobacz [Inicjowanie obsługi administracyjnej ze społecznością Tech Standard scim](https://aka.ms/scimoverview).
 

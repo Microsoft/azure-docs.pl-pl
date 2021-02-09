@@ -10,6 +10,8 @@
       href: overview-iot-central-developer.md
     - name: Najnowsze aktualizacje
       items:
+        - name: Styczeń 2021. nowe i zaktualizowane funkcje
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
         - name: "Nowe i zaktualizowane funkcje — listopad 2020\_r."
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
         - name: "Nowe i zaktualizowane funkcje — październik 2020\_r."

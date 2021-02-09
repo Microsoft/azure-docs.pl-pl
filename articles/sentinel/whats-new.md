@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 0eb3b8feda09d931654d1781ea37737d68a1b377
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.date: 02/04/2021
+ms.openlocfilehash: 37a9294b156bd41b72e777696f10a1c4ac2bb354
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526640"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832763"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nowości w platformie Azure — Wskaźnikowanie
 
@@ -32,6 +32,7 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
+- [Kreator reguł analizy: Ulepszone środowisko edytowania zapytań (publiczna wersja zapoznawcza)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [AZ. SecurityInsights PowerShell — moduł (publiczna wersja zapoznawcza)](#azsecurityinsights-powershell-module-public-preview)
 - [Łącznik bazy danych SQL](#sql-database-connector)
 - [Ulepszone komentarze dotyczące zdarzeń](#improved-incident-comments)
@@ -40,6 +41,16 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 - [Ulepszone dostrajanie reguł przy użyciu wykresów z podglądem reguł analizy](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
+## <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Kreator reguł analizy: Ulepszone środowisko edytowania zapytań (publiczna wersja zapoznawcza)
+
+Kreator zaplanowanej reguły analizy wskaźnikowej platformy Azure obejmuje teraz następujące udoskonalenia dotyczące pisania i edytowania zapytań:
+
+-   Rozwijane okno edycji, które zapewnia więcej miejsca na ekranie, aby wyświetlić zapytanie.
+-   Wyróżnianie kluczowych wyrazów w kodzie zapytania.
+-   Rozszerzona obsługa autouzupełniania.
+-   Walidacje zapytań w czasie rzeczywistym. Błędy w zapytaniu są teraz wyświetlane jako czerwony blok na pasku przewijania i jako czerwona kropka w nazwie karty **logiki zestawu reguł** . Ponadto nie można zapisać zapytania z błędami.
+
+Aby uzyskać więcej informacji, zobacz [Samouczek: wykrywanie zagrożeń jako](tutorial-detect-threats-built-in.md)wbudowanych.
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>AZ. SecurityInsights PowerShell — moduł (publiczna wersja zapoznawcza)
 
 Usługa Azure SecurityInsights obsługuje teraz nowy moduł [AZ.](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell.
@@ -113,7 +124,7 @@ Ta aktualizacja dla systemu Azure wskaźnikowego obejmuje nowe zapytania polowaj
 - **Kolekcja**
 - **Polecenie i kontrola**
 - **Dostęp do poświadczeń**
-- **Odnajdowa**
+- **Odnajdywanie**
 - **Działania**
 - **Eksfiltracji**
 - **Wpływ**
