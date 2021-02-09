@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: cc35f9ee25511faec5723b49763cbdae8963e88b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820759"
+ms.locfileid: "99834395"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -44,7 +44,7 @@ Przez Definiowanie list znanych bezpiecznych aplikacji oraz generowanie alertów
 - Zapobiegaj określonemu oprogramowaniu, które jest zabronione przez organizację
 - Zwiększenie nadzoru nad aplikacjami, które uzyskują dostęp do poufnych danych
 
-Nie są dostępne żadne opcje wymuszania, a żadne nie są planowane. Adaptacyjne kontrole aplikacji mają na celu zapewnienie alertów zabezpieczeń w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne.
+Obecnie nie są dostępne żadne opcje wymuszania. Adaptacyjne kontrole aplikacji mają na celu zapewnienie alertów zabezpieczeń w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne.
 
 ## <a name="availability"></a>Dostępność
 
@@ -238,7 +238,7 @@ Niektóre funkcje, które są dostępne w interfejsie API REST:
 ## <a name="faq---adaptive-application-controls"></a>Często zadawane pytania — adaptacyjne kontrolki aplikacji
 
 ### <a name="are-there-any-options-to-enforce-the-application-controls"></a>Czy istnieją jakieś opcje wymuszania kontrolek aplikacji?
-Nie są dostępne żadne opcje wymuszania, a żadne nie są planowane. Adaptacyjne kontrole aplikacji mają na celu zapewnienie **alertów zabezpieczeń** w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne. Mają różne korzyści ([jakie są zalety adaptacyjnych kontroli aplikacji?](#what-are-the-benefits-of-adaptive-application-controls)) i są niezwykle dostosowywalne, jak pokazano na tej stronie.
+Obecnie nie są dostępne żadne opcje wymuszania. Adaptacyjne kontrole aplikacji mają na celu zapewnienie **alertów zabezpieczeń** w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne. Mają różne korzyści ([jakie są zalety adaptacyjnych kontroli aplikacji?](#what-are-the-benefits-of-adaptive-application-controls)) i są niezwykle dostosowywalne, jak pokazano na tej stronie.
 
  
 

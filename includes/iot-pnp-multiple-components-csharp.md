@@ -4,14 +4,22 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: ff1041c941a994784c68d779bd96dec9070ce89a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 6d507d31680b25932980bdede2c1252348d84803
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95510531"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834206"
 ---
 W tym samouczku przedstawiono sposób tworzenia przykładowej aplikacji urządzenia IoT Plug and Play ze składnikami, łączenia jej z usługą IoT Hub i używania narzędzia Azure IoT Explorer do wyświetlania informacji wysyłanych do centrum. Przykładowa aplikacja jest zapisywana w języku C# i jest zawarta w zestawie SDK urządzeń Azure IoT dla języka C#. Konstruktor rozwiązań może używać narzędzia Azure IoT Explorer do poznania możliwości urządzenia Plug and Play IoT bez konieczności wyświetlania kodu urządzenia.
+
+W tym samouczku zostały wykonane następujące czynności:
+
+> [!div class="checklist"]
+> * Pobierz przykładowy kod.
+> * Kompiluj przykładowy kod.
+> * Uruchom przykładową aplikację urządzenia i sprawdź, czy nawiązuje połączenie z Centrum IoT Hub.
+> * Przejrzyj kod źródłowy.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

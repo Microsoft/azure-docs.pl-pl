@@ -4,14 +4,14 @@ description: Dowiedz się, jak utworzyć klaster AKS z węzłami poufnymi i wdro
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/11/2020
+ms.date: 2/5/2020
 ms.author: amgowda
-ms.openlocfilehash: 92b4cd58b496602b479a24bab81a1d9322e732b0
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: b6fe8f4fe34799a71d59b7487d96217b4ac6a429
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760643"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833207"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli-preview"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) z węzłami poufnymi (DCsv2) przy użyciu interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
 
@@ -75,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 ### <a name="azure-confidential-computing-feature-registration-on-azure-optional-but-recommended"></a>Rejestracja funkcji w ramach usługi Azure CONFIDENTIAL na platformie Azure (opcjonalna, ale zalecana)
-Rejestrowanie AKS-ConfidentialComputinAddon w ramach subskrypcji platformy Azure. Ta funkcja spowoduje dodanie dwóch daemonsets, jak to opisano [tutaj](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon):
+Rejestrowanie AKS-ConfidentialComputingAddon w ramach subskrypcji platformy Azure. Ta funkcja spowoduje dodanie dwóch daemonsets, jak to opisano [tutaj](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon):
 1. Wtyczka sterownika urządzenia SGX
 2. Pomocnik oferty zaświadczania SGX
 
@@ -85,7 +85,7 @@ az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.
 Wyświetlenie stanu jako zarejestrowanego może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia "AZ Feature list". Ta rejestracja funkcji odbywa się tylko raz na subskrypcję. Jeśli został on zarejestrowany wcześniej, możesz pominąć powyższy krok:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
 ```
 Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację dostawcy zasobów Microsoft. ContainerService za pomocą polecenia "AZ Provider Register":
 
@@ -143,12 +143,12 @@ W tej sekcji założono, że klaster AKS działa już, który spełnia kryteria 
 Po pierwsze, umożliwia dodanie funkcji do subskrypcji platformy Azure
 
 ```azurecli-interactive
-az feature register --name AKS-ConfidentialComputinAddon --namespace Microsoft.ContainerService
+az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
 ```
 Wyświetlenie stanu jako zarejestrowanego może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia "AZ Feature list". Ta rejestracja funkcji odbywa się tylko raz na subskrypcję. Jeśli został on zarejestrowany wcześniej, możesz pominąć powyższy krok:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
 ```
 Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację dostawcy zasobów Microsoft. ContainerService za pomocą polecenia "AZ Provider Register":
 

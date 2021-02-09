@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91bb303fca4517f84ad8b430f26543e9f116fddc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326158"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833086"
 ---
 # <a name="expressroute-monitor"></a>Monitor ExpressRoute
+
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Korzystając z możliwości usługi Azure ExpressRoute monitor w [Network Performance Monitor](network-performance-monitor.md) , można monitorować kompleksową łączność i wydajność między oddziałami i platformą Azure za pośrednictwem usługi Azure ExpressRoute. Najważniejsze zalety: 
 
@@ -23,7 +26,7 @@ Korzystając z możliwości usługi Azure ExpressRoute monitor w [Network Perfor
 
 ![Monitor ExpressRoute](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
-## <a name="configuration"></a>Konfiguracja 
+## <a name="configuration"></a>Konfigurowanie 
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md) i wybierz pozycję **Konfiguruj**.
 
 ### <a name="configure-network-security-group-rules"></a>Skonfiguruj reguły sieciowej grupy zabezpieczeń 
@@ -81,7 +84,7 @@ Aby wyświetlić listę wszystkich monitorowanych obwodów usługi ExpressRoute,
 
 ### <a name="trends-of-loss-latency-and-throughput"></a>Trendy utraty, opóźnień i przepływności 
 
-Wykresy o wykorzystaniu przepustowości, opóźnieniu i utracie są interaktywne. Możesz powiększyć do dowolnej sekcji tych wykresów za pomocą kontrolek myszy. Można także zobaczyć przepustowość, opóźnienie i dane utraty dla innych interwałów. W lewym górnym rogu przycisku **Akcje** wybierz pozycję **Data/godzina**. 
+Wykresy o wykorzystaniu przepustowości, opóźnieniu i utracie są interaktywne. Możesz powiększyć do dowolnej sekcji tych wykresów za pomocą kontrolek myszy. Można także zobaczyć przepustowość, opóźnienie i dane utraty dla innych interwałów. W lewym górnym rogu przycisku **Akcje** wybierz pozycję  **Data/godzina**. 
 
 ![Opóźnienie ExpressRoute](media/network-performance-monitor-expressroute/expressroute-latency.png) 
 
@@ -141,4 +144,3 @@ Można wyświetlić kody powiadomień i ustawić dla nich alerty za pośrednictw
 
 ## <a name="next-steps"></a>Następne kroki
 [Wyszukaj dzienniki](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe rekordy danych wydajności sieci.
-

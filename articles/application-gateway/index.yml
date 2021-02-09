@@ -3,19 +3,19 @@ title: Dokumentacja usługi Azure Application Gateway
 summary: Dowiedz się, jak tworzyć bramy aplikacji. Ta dokumentacja ułatwia planowanie, wdrażanie i zarządzanie w przypadku ruchu internetowego do zasobów platformy Azure.
 metadata:
   title: Dokumentacja usługi Azure Application Gateway
-  description: Dowiedz się, jak wdrożyć usługę Azure Firewall — opartą na chmurze usługę zabezpieczeń sieci.
+  description: Dowiedz się więcej o usłudze Azure Application Gateway — modułu równoważenia obciążenia sieci Web, który umożliwia zarządzanie ruchem do aplikacji sieci Web.
   services: application-gateway
   ms.service: application-gateway
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 03/24/2020
-  ms.openlocfilehash: df125820d56aa5c2edda29306c69cef00e012a12
-  ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-  ms.translationtype: HT
+  ms.date: 02/08/2021
+  ms.openlocfilehash: 7493683355ea3be24bf086dab1a968f9f03b1e05
+  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 01/10/2021
-  ms.locfileid: "98059538"
+  ms.lasthandoff: 02/08/2021
+  ms.locfileid: "99833256"
 landingContent:
 - title: Dowiedz się więcej o usłudze Application Gateway
   linkLists:
