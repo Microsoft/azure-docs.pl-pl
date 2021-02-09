@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060014"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980579"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -137,6 +137,15 @@ Poniższy diagram sieciowy przedstawia zabezpieczony obszar roboczy Azure Machin
 ### <a name="limitations"></a>Ograniczenia
 - Klastry AKS muszą należeć do tej samej sieci wirtualnej, co obszar roboczy i skojarzone z nią zasoby. 
 
+## <a name="optional-enable-public-access"></a>Opcjonalne: Włącz dostęp publiczny
+
+Możesz zabezpieczyć obszar roboczy za siecią wirtualną przy użyciu prywatnego punktu końcowego i nadal zezwalać na dostęp za pośrednictwem publicznego Internetu. Początkowa konfiguracja jest taka sama jak w przypadku [zabezpieczania obszaru roboczego i skojarzonych zasobów](#secure-the-workspace-and-associated-resources). 
+
+Po zabezpieczeniu obszaru roboczego za pomocą linku prywatnego należy [włączyć dostęp publiczny](how-to-configure-private-link.md#enable-public-access). Następnie można uzyskać dostęp do obszaru roboczego zarówno z publicznego Internetu, jak i z sieci wirtualnej.
+
+### <a name="limitations"></a>Ograniczenia
+
+- W przypadku korzystania z programu Azure Machine Learning Studio za pośrednictwem publicznej sieci Internet niektóre funkcje, takie jak projektant, mogą nie mieć dostępu do danych. Ten problem występuje, gdy dane są przechowywane w usłudze, która jest zabezpieczona za siecią wirtualną. Na przykład konto usługi Azure Storage.
 ## <a name="optional-enable-studio-functionality"></a>Opcjonalne: Włącz funkcje programu Studio
 
 [Zabezpieczanie obszaru roboczego](#secure-the-workspace-and-associated-resources)  >  [Zabezpiecz środowisko](#secure-the-training-environment)  >  szkoleniowe [Zabezpiecz środowisko inferencing](#secure-the-inferencing-environment)  >  **Włącz funkcje**  >  programu Studio [Konfigurowanie ustawień zapory](#configure-firewall-settings)

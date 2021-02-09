@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 3b7f8f5a0f48bf0cdca7f72e5fb364ea0a5d1315
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576603"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980613"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostycznego dla aplikacji w Azure App Service
 ## <a name="overview"></a>Omówienie
@@ -191,10 +191,11 @@ W poniższej tabeli przedstawiono obsługiwane typy i opisy dzienników:
 | AppServiceHTTPLogs | Tak | Tak | Tak | Tak | Dzienniki serwera sieci Web |
 | AppServiceEnvironmentPlatformLogs | Tak | Nie dotyczy | Tak | Tak | App Service Environment: skalowanie, zmiany konfiguracji i dzienniki stanu|
 | AppServiceAuditLogs | Tak | Tak | Tak | Tak | Działanie logowania za pośrednictwem protokołu FTP i kudu |
-| AppServiceFileAuditLogs | Tak | Tak | TBA | TBA | Zmiany plików wprowadzone do zawartości witryny; dostępne tylko dla warstwy Premium i wyższych |
+| AppServiceFileAuditLogs | Tak | Tak | TBA | TBA | Zmiany plików wprowadzone do zawartości witryny; **dostępne tylko dla warstwy Premium i wyższych** |
 | AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat zalecany obrazy <sup>1</sup> | Java SE & Tomcat zalecany obrazy <sup>1</sup> | Dzienniki aplikacji |
 | AppServiceIPSecAuditLogs  | Tak | Tak | Tak | Tak | Żądania z reguł adresów IP |
 | AppServicePlatformLogs  | TBA | Tak | Tak | Tak | Dzienniki operacji kontenera |
+| AppServiceAntivirusScanAuditLogs | Tak | Tak | Tak | Tak | [Dzienniki skanowania antywirusowego](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) przy użyciu usługi Microsoft Defender; **dostępne tylko dla warstwy Premium** | 
 
 <sup>1</sup> w przypadku aplikacji Java SE Dodaj do ustawień aplikacji pozycję "$Website _AZMON_PREVIEW_ENABLED" i ustaw ją na wartość 1 lub na true.
 

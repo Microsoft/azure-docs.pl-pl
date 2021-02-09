@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 71e74789654d2df91d9a087eaaf8d8f2a2664f7b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 86d0c75d8b4c7c331e3e7ad90271e3fb42ff1964
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664116"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980732"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Signal Service
 
@@ -69,7 +69,7 @@ Najpierw przejdź do przeglądarki, w której jest otwarta Azure Portal i wykona
 
 Następnie uruchom program Visual Studio (lub inny wybrany edytor kodu) i Otwórz rozwiązanie Code w folderze *Digital-bliźniaczych reprezentacji-Samples-master > ADTSampleApp* . Następnie wykonaj następujące kroki, aby utworzyć funkcje:
 
-1. Utwórz nową klasę Sharp języka C# o nazwie **SignalRFunctions.cs** w projekcie *SampleFunctionsApp* .
+1. W projekcie *SampleFunctionsApp* Utwórz nową klasę języka C# o nazwie **SignalRFunctions.cs**.
 
 1. Zastąp zawartość pliku klasy następującym kodem:
     
@@ -82,7 +82,9 @@ Następnie uruchom program Visual Studio (lub inny wybrany edytor kodu) i Otwór
 
     Powinno to rozwiązać wszelkie problemy zależności w klasie.
 
-Następnie opublikuj funkcję na platformie Azure, korzystając z procedury opisanej w [sekcji *publikowanie aplikacji*](tutorial-end-to-end.md#publish-the-app) w samouczku *łączenie kompleksowego rozwiązania* . Możesz opublikować ją w tej samej aplikacji usługi App Service/Function, która została użyta w kompleksowym samouczku Ignoruj lub utworzyć nową, ale możesz użyć tego samego, aby zminimalizować duplikowanie. Ponadto Ukończ publikowanie aplikacji, wykonując następujące czynności:
+Następnie opublikuj funkcję na platformie Azure, korzystając z procedury opisanej w [sekcji *publikowanie aplikacji*](tutorial-end-to-end.md#publish-the-app) w samouczku *łączenie kompleksowego rozwiązania* . Można go opublikować w tej samej aplikacji usługi App Service/Function, która została użyta w ramach [wymagania wstępnego](#prerequisites)samouczka "kompleksowe" lub utworzyć nowy, ale można użyć tego samego, aby zminimalizować duplikowanie. 
+
+Następnie ukończ publikowanie aplikacji, wykonując następujące czynności:
 1. Zbierz **adres URL punktu końcowego protokołu HTTP** funkcji *Negotiate* . W tym celu przejdź do strony [aplikacji funkcji](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) Azure Portal i wybierz z listy aplikację funkcji. W menu aplikacji wybierz pozycję *funkcje* i wybierz funkcję *Negocjuj* .
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Widok Azure Portal aplikacji funkcji z wyróżnioną funkcją &quot;Functions&quot; w menu. Lista funkcji jest wyświetlana na stronie, a funkcja &quot;Negocjuj&quot; jest również wyróżniona.":::
@@ -124,23 +126,11 @@ Wróć na stronę *Tworzenie subskrypcji zdarzeń* , kliknij przycisk **Utwórz*
 
 ## <a name="configure-and-run-the-web-app"></a>Konfigurowanie i uruchamianie aplikacji sieci Web
 
-W tej sekcji zobaczysz wynik działania. Najpierw utworzysz **przykładową aplikację symulowanego urządzenia** , która wysyła dane telemetryczne za pomocą wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Następnie skonfigurujesz **przykładową aplikację internetową klienta** w celu nawiązania połączenia z ustawionym przepływem usługi Azure Signal. Następnie powinno być możliwe wyświetlenie danych aktualizujących przykładową aplikację internetową w czasie rzeczywistym.
-
-### <a name="run-the-device-simulator"></a>Uruchamianie symulatora urządzeń
-
-W ramach kompleksowego wymagania wstępnego samouczka [skonfigurowano symulator urządzenia](tutorial-end-to-end.md#configure-and-run-the-simulation) do wysyłania danych za pomocą IoT Hub i do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
-
-Teraz wystarczy uruchomić projekt symulatora znajdujący się w formacie *Digital-bliźniaczych reprezentacji-Samples-master > DeviceSimulator > DeviceSimulator. sln*. Jeśli używasz programu Visual Studio, możesz otworzyć projekt, a następnie uruchomić go za pomocą tego przycisku na pasku narzędzi:
-
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Przycisk Start programu Visual Studio (projekt DeviceSimulator)":::
-
-Zostanie otwarte okno konsoli zawierające symulowane komunikaty telemetryczne dotyczące temperatury. Są one wysyłane za pomocą wystąpienia usługi Azure Digital bliźniaczych reprezentacji, w którym są następnie wybierane przez usługę Azure Functions i sygnalizujący.
-
-Nie musisz wykonywać żadnych innych czynności w tej konsoli, ale pozostaw to działanie w trakcie wykonywania następnych kroków.
+W tej sekcji zobaczysz wynik działania. Najpierw skonfiguruj **przykładową aplikację sieci Web klienta** , aby połączyć się z przepływem usługi Azure sygnalizującego, który został skonfigurowany. Następnie utworzysz **przykładową aplikację symulowanego urządzenia** , która wysyła dane telemetryczne za pomocą wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Następnie zobaczysz przykładową aplikację internetową, aby zobaczyć symulowane dane urządzenia z aktualizacją przykładowej aplikacji sieci Web w czasie rzeczywistym.
 
 ### <a name="configure-the-sample-client-web-app"></a>Konfigurowanie przykładowej aplikacji internetowej klienta
 
-Następnie skonfiguruj **przykład aplikacji sieci Web do integracji sygnalizującej** , wykonując następujące kroki:
+Skonfiguruj **przykład aplikacji sieci Web do integracji sygnalizującej** , wykonując następujące kroki:
 1. Korzystając z programu Visual Studio lub dowolnego dowolnego edytora kodu, Otwórz niespakowany folder _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ pobrany w sekcji [*Pobieranie przykładowych aplikacji*](#download-the-sample-applications) .
 
 1. Otwórz plik *src/App.js* i Zastąp adres URL przy `HubConnectionBuilder` użyciu adresu URL punktu końcowego protokołu HTTP,  który został zapisany wcześniej:
@@ -161,6 +151,18 @@ Następnie ustaw uprawnienia w aplikacji funkcji w Azure Portal:
 1. Przewiń w dół w menu wystąpienie i wybierz pozycję *CORS*. Na stronie CORS Dodaj `http://localhost:3000` jako dozwolony punkt początkowy, wprowadzając go w pustym polu. Zaznacz pole wyboru *Włącz dostęp-kontrola-Zezwalaj-poświadczenia* i naciśnij przycisk *Zapisz*.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Ustawienie mechanizmu CORS w usłudze Azure Function":::
+
+### <a name="run-the-device-simulator"></a>Uruchamianie symulatora urządzeń
+
+W ramach kompleksowego wymagania wstępnego samouczka [skonfigurowano symulator urządzenia](tutorial-end-to-end.md#configure-and-run-the-simulation) do wysyłania danych za pomocą IoT Hub i do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+
+Teraz wystarczy uruchomić projekt symulatora znajdujący się w formacie *Digital-bliźniaczych reprezentacji-Samples-master > DeviceSimulator > DeviceSimulator. sln*. Jeśli używasz programu Visual Studio, możesz otworzyć projekt, a następnie uruchomić go za pomocą tego przycisku na pasku narzędzi:
+
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Przycisk Start programu Visual Studio (projekt DeviceSimulator)":::
+
+Zostanie otwarte okno konsoli zawierające symulowane komunikaty telemetryczne dotyczące temperatury. Są one wysyłane za pomocą wystąpienia usługi Azure Digital bliźniaczych reprezentacji, w którym są następnie wybierane przez usługę Azure Functions i sygnalizujący.
+
+Nie musisz wykonywać żadnych innych czynności w tej konsoli, ale pozostawić ją uruchomiona, gdy wykonasz następny krok.
 
 ### <a name="see-the-results"></a>Zobacz wyniki
 

@@ -8,12 +8,16 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 06b03ac1cfe37307a5839be0d5ca3b1003db35af
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+adobe-target: true
+adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
+adobe-target-experience: Experience B
+adobe-target-content: connect-mongodb-account-experimental.md
+ms.openlocfilehash: d3e619559f1fb2500904aa7349aa131fd9b5fc00
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072426"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980800"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Łączenie aplikacji bazy danych MongoDB z usługą Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -34,8 +38,8 @@ Ten samouczek opisuje dwa sposoby pobierania informacji o parametrach połączen
 
 1. W przeglądarce internetowej Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. W bloku **Azure Cosmos DB** wybierz interfejs API.
-3. W lewym okienku bloku konta kliknij pozycję **Szybki Start** .
-4. Wybierz platformę ( **.NET** , **Node.js** , **MongoDB Shell** , **Java** , **Python** ). Jeśli nie widzisz sterownika lub narzędzia na liście, nie martw się — ciągle dokumentuje więcej fragmentów kodu połączenia. Dodaj komentarz poniżej na temat tego, co chcesz zobaczyć. Aby dowiedzieć się, jak połączyć własne połączenie, przeczytaj temat [pobieranie informacji o parametrach połączenia konta](#get-the-mongodb-connection-string-to-customize).
+3. W lewym okienku bloku konta kliknij pozycję **Szybki Start**.
+4. Wybierz platformę (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). Jeśli nie widzisz sterownika lub narzędzia na liście, nie martw się — ciągle dokumentuje więcej fragmentów kodu połączenia. Dodaj komentarz poniżej na temat tego, co chcesz zobaczyć. Aby dowiedzieć się, jak połączyć własne połączenie, przeczytaj temat [pobieranie informacji o parametrach połączenia konta](#get-the-mongodb-connection-string-to-customize).
 5. Skopiuj i wklej fragment kodu do aplikacji MongoDB.
 
     :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="Blok Szybki Start":::
@@ -44,15 +48,15 @@ Ten samouczek opisuje dwa sposoby pobierania informacji o parametrach połączen
 
 1. W przeglądarce internetowej Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. W bloku **Azure Cosmos DB** wybierz interfejs API.
-3. W lewym okienku bloku konta kliknij pozycję **Parametry połączenia** .
+3. W lewym okienku bloku konta kliknij pozycję **Parametry połączenia**.
 4. Zostanie otwarty blok **parametrów połączenia** . Ma ona wszystkie informacje niezbędne do nawiązania połączenia z kontem przy użyciu sterownika dla MongoDB, łącznie z prebudowanymi parametrami połączenia.
 
-   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Blok Szybki Start" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Blok Parametry połączenia" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## <a name="connection-string-requirements"></a>Wymagania dotyczące parametrów połączenia
 
 > [!Important]
-> usługa Azure Cosmos DB ma ścisłe wymagania i standardy dotyczące bezpieczeństwa. Konta Azure Cosmos DB wymagają uwierzytelniania i bezpiecznej komunikacji za pośrednictwem *protokołu TLS* .
+> usługa Azure Cosmos DB ma ścisłe wymagania i standardy dotyczące bezpieczeństwa. Konta Azure Cosmos DB wymagają uwierzytelniania i bezpiecznej komunikacji za pośrednictwem *protokołu TLS*.
 
 Azure Cosmos DB obsługuje format standardowego identyfikatora URI parametrów połączenia MongoDB z kilkoma określonymi wymaganiami: konta Azure Cosmos DB wymagają uwierzytelniania i bezpiecznej komunikacji za pośrednictwem protokołu TLS. W związku z tym format parametrów połączenia to:
 

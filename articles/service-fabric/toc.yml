@@ -713,8 +713,6 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Łączenie się zdalne z maszyną wirtualną węzła klastra
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-                - name: Uaktualnianie węzłów klastra w celu używania dysków zarządzanych
-                  href: upgrade-managed-disks.md
         - name: Klastry autonomiczne
           items:
             - name: Utwórz

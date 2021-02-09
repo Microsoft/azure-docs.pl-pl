@@ -3,17 +3,17 @@ title: Źródło zmian w usłudze Azure Blob Storage | Microsoft Docs
 description: Dowiedz się więcej o dziennikach źródeł zmian na platformie Azure Blob Storage i sposobach ich użycia.
 author: normesta
 ms.author: normesta
-ms.date: 09/08/2020
+ms.date: 02/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997107"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979230"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage
 
@@ -21,9 +21,15 @@ Celem źródła zmian jest dostarczenie dzienników transakcji wszystkich zmian,
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## <a name="how-the-change-feed-works"></a>Jak działa Źródło zmian
+
 Źródło zmian jest przechowywane jako [obiekty blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) w specjalnym kontenerze na koncie magazynu przy użyciu standardowego kosztu [cennika obiektów BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) . Możesz kontrolować okres przechowywania tych plików zgodnie z wymaganiami (zobacz [warunki](#conditions) bieżącej wersji). Zdarzenia zmiany są dołączane do źródła zmian jako rekordy w specyfikacji formatu [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : kompaktowy, szybki i binarny format, który zapewnia rozbudowane struktury danych z wbudowanym schematem. Ten format jest szeroko używany w ekosystemie Hadoop, Stream Analytics i Azure Data Factory.
 
 Można przetwarzać te dzienniki asynchronicznie, przyrostowo lub w całości. Dowolna liczba aplikacji klienckich może niezależnie odczytywać Źródło zmian, równolegle i we własnym tempie. Aplikacje analityczne, takie jak [Apache drążenie](https://drill.apache.org/docs/querying-avro-files/) lub [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) , mogą zużywać dzienniki bezpośrednio jako pliki Avro, dzięki czemu można przetwarzać je przy niskich kosztach, z wysoką przepustowością i bez konieczności pisania niestandardowej aplikacji.
+
+Na poniższym diagramie pokazano, jak rekordy są dodawane do źródła zmian:
+
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagram przedstawiający sposób działania kanału informacyjnego zmiany w celu dostarczenia uporządkowanego dziennika zmian obiektów BLOB":::
 
 Obsługa kanałów informacyjnych zmian jest odpowiednia dla scenariuszy, które przetwarzają dane na podstawie obiektów, które uległy zmianie. Na przykład aplikacje mogą:
 

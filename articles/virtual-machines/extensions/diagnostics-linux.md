@@ -1,6 +1,6 @@
 ---
-title: Azure COMPUTE — rozszerzenie diagnostyczne systemu Linux
-description: Jak skonfigurować rozszerzenie diagnostyczne systemu Linux (LAD) do zbierania metryk i zdarzeń dzienników z maszyn wirtualnych systemu Linux działających na platformie Azure.
+title: Azure COMPUTE — rozszerzenie diagnostyczne systemu Linux 4,0
+description: Jak skonfigurować rozszerzenie diagnostyczne systemu Linux (LAD) 4,0 do zbierania metryk i zdarzeń rejestrowania z maszyn wirtualnych systemu Linux działających na platformie Azure.
 services: virtual-machines-linux
 author: axayjo
 manager: gwallace
@@ -8,21 +8,21 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: 2e831b3c091b18a5c739275e4c932094ce088ba4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ebc4867f0ce16657c550b3d33d76fccdb41cef54
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202610"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980647"
 ---
-# <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników
+# <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Monitorowanie metryk i dzienników przy użyciu rozszerzenia diagnostycznego systemu Linux 4,0
 
-W tym dokumencie opisano wersję 3,0 i nowszą rozszerzenia diagnostycznego systemu Linux.
+W tym dokumencie opisano wersję 4,0 i nowszą rozszerzenia diagnostycznego systemu Linux.
 
 > [!IMPORTANT]
-> Aby uzyskać informacje o wersji 2,3 i starszej, zobacz [ten dokument](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Aby uzyskać informacje na temat wersji 3. *, zobacz  [ten dokument](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). Aby uzyskać informacje o wersji 2,3 i starszej, zobacz [ten dokument](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -44,10 +44,11 @@ To rozszerzenie można włączyć za pomocą poleceń cmdlet Azure PowerShell, s
 >[!NOTE]
 >Niektóre składniki rozszerzenia maszyny wirtualnej diagnostyki są również dostarczane przy użyciu [rozszerzenia maszyny wirtualnej log Analytics](./oms-linux.md). Ze względu na tę architekturę mogą wystąpić konflikty w przypadku wystąpienia obu rozszerzeń w tym samym szablonie usługi ARM. Aby uniknąć tych konfliktów w czasie instalacji, należy użyć [ `dependsOn` dyrektywy](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) , aby upewnić się, że rozszerzenia są zainstalowane sekwencyjnie. Rozszerzenia można zainstalować w dowolnej kolejności.
 
-Te instrukcje dotyczące instalacji i [pobieranie przykładowej konfiguracji](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) konfigurowania lad 3,0 do:
+Te instrukcje dotyczące instalacji i [pobieranie przykładowej konfiguracji](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) konfigurowania lad 4,0 do:
 
-* Przechwyć i Zapisz te same metryki, które zostały dostarczone przez LAD 2,3;
-* Przechwyć przydatny zestaw metryk systemu plików, nowy do LAD 3,0;
+* Przechwyć i Zapisz te same metryki, które zostały dostarczone przez LAD 2,3, 3 *;
+* Wysyłaj metryki do Azure Monitor ujścia wraz z zwykłym ujściam do usługi Azure Storage, nowość w lad 4,0
+* Przechwyć przydatny zestaw metryk systemu plików, które zostały dostarczone przez LAD 3,0;
 * Przechwyć domyślną kolekcję dziennika systemowego włączoną przez LAD 2,3;
 * Włącz Azure Portal środowisko dla wykresów i alertów dotyczących metryk maszyny wirtualnej.
 
@@ -106,6 +107,9 @@ Plik wykonywalny python2 musi mieć alias do języka *Python*. Oto jedna z metod
 
 Przykładowa konfiguracja pobrana w tych przykładach zbiera zestaw danych standardowych i wysyła je do magazynu tabel. Adres URL dla przykładowej konfiguracji i jej zawartości może ulec zmianie. W większości przypadków należy pobrać kopię pliku JSON ustawień portalu i dostosować ją do własnych potrzeb, a następnie utworzyć wszystkie szablony i Automatyzacja, korzystając z własnej wersji pliku konfiguracji, zamiast pobierać ten adres URL za każdym razem.
 
+> [!NOTE]
+> Do włączenia nowego ujścia Azure Monitor maszyny wirtualne muszą mieć włączoną tożsamość przypisaną przez system na potrzeby generowania tokenu uwierzytelniania MSI. Można to zrobić podczas tworzenia maszyny wirtualnej lub po utworzeniu maszyny wirtualnej. Kroki umożliwiające włączenie tożsamości przypisanej do systemu za poorednictwem portalu, interfejsu wiersza polecenia, programu PowerShell i usługi Resource Manager.  są [tutaj](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)wymienione szczegółowo. 
+
 #### <a name="azure-cli-sample"></a>Przykład interfejsu wiersza polecenia platformy Azure
 
 ```azurecli
@@ -120,6 +124,9 @@ az login
 # Select the subscription containing the storage account
 az account set --subscription <your_azure_subscription_id>
 
+# Enable System Assigned Identity to the existing VM
+az vm identity assign -g $my_resource_group -n $my_linux_vm
+
 # Download the sample Public settings. (You could also use curl or any web browser)
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
@@ -132,10 +139,10 @@ sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
 my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
 my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
-# Finallly tell Azure to install and enable the extension
-az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
+# Finally tell Azure to install and enable the extension
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-#### <a name="azure-cli-sample-for-installing-lad-30-extension-on-the-vmss-instance"></a>Przykład interfejsu wiersza polecenia platformy Azure służący do instalowania rozszerzenia LAD 3,0 w wystąpieniu VMSS
+#### <a name="azure-cli-sample-for-installing-lad-40-extension-on-the-virtual-machine-scale-set-instance"></a>Przykład interfejsu wiersza polecenia platformy Azure służący do instalowania rozszerzenia LAD 4,0 w wystąpieniu zestawu skalowania maszyn wirtualnych
 
 ```azurecli
 #Set your Azure VMSS diagnostic variables correctly below
@@ -148,6 +155,9 @@ az login
 
 # Select the subscription containing the storage account
 az account set --subscription <your_azure_subscription_id>
+
+# Enable System Assigned Identity to the existing VMSS
+az vmss identity assign -g $my_resource_group -n $my_linux_vmss
 
 # Download the sample Public settings. (You could also use curl or any web browser)
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
@@ -162,7 +172,7 @@ $my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --acco
 $my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
 # Finally tell Azure to install and enable the extension
-az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
+az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
 #### <a name="powershell-sample"></a>Przykładowy skrypt programu PowerShell
@@ -175,6 +185,9 @@ $VMresourceGroup = "yourVMResourceGroupName"
 
 # Get the VM object
 $vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
+
+# Enable System Assigned Identity on an existing VM
+Update-AzVM -ResourceGroupName $VMresourceGroup -VM $vm -IdentityType SystemAssigned
 
 # Get the public settings template from GitHub and update the templated values for storage account and resource ID
 $publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
@@ -190,7 +203,7 @@ $sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Servi
 $protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
 
 # Finally install the extension with the settings built above
-Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0 
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0 
 ```
 
 ### <a name="updating-the-extension-settings"></a>Aktualizowanie ustawień rozszerzenia
@@ -199,21 +212,17 @@ Po zmianie ustawień chronionych lub publicznych należy wdrożyć je na maszyni
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migracja z poprzednich wersji rozszerzenia
 
-Najnowsza wersja rozszerzenia to **3,0**. **Wszystkie stare wersje (2. x) są przestarzałe i mogą być cofnięte w dniu 31 lipca 2018**.
+Najnowsza wersja rozszerzenia to **4,0, które jest obecnie dostępne w publicznej wersji zapoznawczej**. **Starsze wersje programu 3. x nadal są obsługiwane, a wersja 2. x jest przestarzała od 31 lipca 2018**.
 
 > [!IMPORTANT]
-> To rozszerzenie wprowadza istotne zmiany w konfiguracji rozszerzenia. Wprowadzono taką zmianę w celu poprawy bezpieczeństwa rozszerzenia; w związku z tym nie można utrzymywać zgodności z poprzednimi wersjami z 2. x. Ponadto Wydawca rozszerzenia dla tego rozszerzenia różni się od wydawcy dla wersji 2. x.
->
-> Aby przeprowadzić migrację z 2. x do tej nowej wersji rozszerzenia, należy odinstalować stare rozszerzenie (pod nazwą starego wydawcy), a następnie zainstalować wersję 3 rozszerzenia.
+> Aby przeprowadzić migrację z 3. x do tej nowej wersji rozszerzenia, należy odinstalować stare rozszerzenie, a następnie zainstalować wersję 4 rozszerzenia (ze zaktualizowaną konfiguracją tożsamości przypisanej do systemu i ujściami do wysyłania metryk do Azure Monitor ujścia).
 
 Zalecenia:
 
 * Zainstaluj rozszerzenie z włączoną funkcją automatycznego uaktualniania wersji pomocniczej.
-  * W przypadku maszyn wirtualnych z klasycznym modelem wdrażania należy określić wartość "3. *" jako wersję, jeśli rozszerzenie jest instalowane za pośrednictwem interfejsu wiersza polecenia platformy Azure XPLAT lub programu PowerShell.
+  * W przypadku maszyn wirtualnych z klasycznym modelem wdrażania należy określić wartość "4. *" jako wersję, jeśli rozszerzenie jest instalowane za pośrednictwem interfejsu wiersza polecenia platformy Azure XPLAT lub programu PowerShell.
   * Na maszynach wirtualnych z modelem wdrażania Azure Resource Manager należy uwzględnić w szablonie wdrożenia maszyny wirtualnej "" włączoną flagą autoupgrademinorversion ": true".
-* Użyj nowego/innego konta magazynu dla LAD 3,0. Istnieje kilka małych niezgodności między LAD 2,3 i LAD 3,0, które udostępniają konto problematycznych:
-  * LAD 3,0 przechowuje zdarzenia dziennika systemowego w tabeli o innej nazwie.
-  * CounterSpecifier ciągi dla `builtin` metryk różnią się w LAD 3,0.
+* Można użyć tego samego konta magazynu dla LAD 4,0, co LAD 3. *. 
 
 ## <a name="protected-settings"></a>Ustawienia chronione
 
@@ -246,7 +255,7 @@ Możesz łatwo skonstruować wymagany token sygnatury dostępu współdzielonego
 1. Wprowadź odpowiednie sekcje zgodnie z opisem wcześniej
 1. Kliknij przycisk Generuj sygnaturę dostępu współdzielonego.
 
-![Zrzut ekranu przedstawia stronę sygnatura dostępu współdzielonego z opcją Generuj S A S.](./media/diagnostics-linux/make_sas.png)
+:::image type="content" source="./media/diagnostics-linux/make_sas.png" alt-text="Zrzut ekranu przedstawia stronę sygnatura dostępu współdzielonego z opcją Generuj S A S.":::
 
 Skopiuj wygenerowany sygnaturę dostępu współdzielonego do pola storageAccountSasToken; Usuń wiodący znak zapytania ("?").
 
@@ -272,7 +281,7 @@ Element | Wartość
 name | Ciąg używany do odwoływania się do tego ujścia w innym miejscu konfiguracji rozszerzenia.
 typ | Typ zdefiniowanego ujścia. Określa pozostałe wartości (jeśli istnieją) w wystąpieniach tego typu.
 
-Wersja 3,0 rozszerzenia diagnostycznego systemu Linux obsługuje dwa typy ujścia: EventHub i JsonBlob.
+Wersja 4,0 rozszerzenia diagnostycznego systemu Linux obsługuje dwa typy ujścia: EventHub i JsonBlob.
 
 #### <a name="the-eventhub-sink"></a>Ujścia EventHub
 
@@ -317,14 +326,14 @@ Dane kierowane do ujścia JsonBlob są przechowywane w obiektach Blob w usłudze
 
 ## <a name="public-settings"></a>Ustawienia publiczne
 
-Ta struktura zawiera różne bloki ustawień kontrolujących informacje zbierane przez rozszerzenie. Każde ustawienie jest opcjonalne. Jeśli określisz `ladCfg` , należy również określić `StorageAccount` .
+Ta struktura zawiera różne bloki ustawień kontrolujących informacje zbierane przez rozszerzenie. Każde ustawienie (z wyjątkiem ladCfg) jest opcjonalne. W przypadku określenia metryki lub kolekcji dziennika `ladCfg` systemowego w programie należy również określić `StorageAccount` . element sinksConfig musi być określony, aby można było włączyć funkcję ujścia Azure Monitor dla metryk z LAD 4,0
 
 ```json
 {
     "ladCfg":  { ... },
-    "perfCfg": { ... },
     "fileLogs": { ... },
     "StorageAccount": "the storage account to receive data",
+    "sinksConfig": { ... },
     "mdsdHttpProxy" : ""
 }
 ```
@@ -350,7 +359,15 @@ Pozostałe elementy są szczegółowo opisane w poniższych sekcjach.
 }
 ```
 
-Ta opcjonalna struktura kontroluje zbieranie metryk i dzienników na potrzeby dostarczania do usługi Azure Metrics oraz do innych obiektów ujścia danych. Należy określić jedną `performanceCounters` lub `syslogEvents` obie. Należy określić `metrics` strukturę.
+Ta struktura kontroluje zbieranie metryk i dzienników na potrzeby dostarczania do usługi Azure Metrics oraz do innych obiektów ujścia danych. Należy określić jedną `performanceCounters` lub `syslogEvents` obie. Należy określić `metrics` strukturę.
+
+Jeśli nie chcesz włączać dziennika systemowego lub zbierania metryk, możesz po prostu określić pustą strukturę dla elementu ladCfg, jak pokazano poniżej — 
+
+```json
+"ladCfg": {
+    "diagnosticMonitorConfiguration": {}
+    }
+```
 
 Element | Wartość
 ------- | -----
@@ -468,31 +485,25 @@ Po określeniu `syslogEvents` lad zawsze zapisuje dane w tabeli w usłudze Azure
 
 Przykłady obejmują `LinuxSyslog20170410` i `LinuxSyslog20170609` .
 
-### <a name="perfcfg"></a>perfCfg
+### <a name="sinksconfig"></a>sinksConfig
 
-Ta opcjonalna sekcja kontroluje wykonywanie dowolnych zapytań [OMI](https://github.com/Microsoft/omi) .
+Ta opcjonalna sekcja kontroluje włączenie wysyłania metryk do Azure Monitor ujścia oprócz konta magazynu i domyślnego bloku metryk gościa.
+
+> [!NOTE]
+> Wymaga to włączenia tożsamości przypisanej do systemu na maszynach wirtualnych/VMSS. Można to zrobić za poorednictwem portalu, interfejsu wiersza polecenia, programu PowerShell i Menedżera zasobów. Kroki są wymienione [tutaj](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)szczegółowo. Kroki umożliwiające włączenie tego elementu są również wymienione w przykładach instalacji dla polecenia AZ CLI, PowerShell itd. powyżej. 
 
 ```json
-"perfCfg": [
-    {
-        "namespace": "root/scx",
-        "query": "SELECT PercentAvailableMemory, PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
-        "table": "LinuxOldMemory",
-        "frequency": 300,
-        "sinks": ""
-    }
-]
+  "sinksConfig": {
+    "sink": [
+      {
+        "name": "AzMonSink",
+        "type": "AzMonSink",
+        "AzureMonitor": {}
+      }
+    ]
+  },
 ```
 
-Element | Wartość
-------- | -----
-namespace | obowiązkowe Przestrzeń nazw OMI, w której należy wykonać zapytanie. Jeśli nie zostanie określony, wartością domyślną jest "root/SCX" wdrożoną przez [dostawców międzyplatformowych programu System Center](https://github.com/Microsoft/SCXcore).
-query | Zapytanie OMI, które ma zostać wykonane.
-tabela | obowiązkowe Tabela usługi Azure Storage na wyznaczynym koncie magazynu (zobacz [Ustawienia chronione](#protected-settings)).
-frequency | obowiązkowe Liczba sekund między wykonaniem zapytania. Wartość domyślna to 300 (5 minut); wartość minimalna to 15 sekund.
-ujścia | obowiązkowe Rozdzielana przecinkami lista nazw dodatkowych obiektów ujścia, do których należy opublikować nieprzetworzone przykładowe wyniki metryki. Żadne agregacje tych nieprzetworzonych próbek nie są obliczane przez rozszerzenie ani za pomocą metryk platformy Azure.
-
-Należy określić "Table" lub "ujścia" albo oba te elementy.
 
 ### <a name="filelogs"></a>fileLogs
 
@@ -521,6 +532,9 @@ Należy określić "Table" lub "ujścia" albo oba te elementy.
 
 ## <a name="metrics-supported-by-the-builtin-provider"></a>Metryki obsługiwane przez wbudowanego dostawcę
 
+> [!NOTE]
+> Metryki domyślne obsługiwane przez LAD są agregowane dla wszystkich systemów plików/dysków/nazw. W przypadku metryk niezagregowanych należy odnieść się do nowszej obsługi metryk Azure Monitor ujścia.
+
 Dostawca metryk wbudowanej jest źródłem metryk najbardziej interesujących dla szerokiego zbioru użytkowników. Te metryki należą do pięciu szerokich klas:
 
 * Procesor
@@ -545,8 +559,6 @@ PercentPrivilegedTime | Czas braku bezczynności (%) w trybie uprzywilejowanym (
 
 Pierwsze cztery liczniki powinny mieć sumę do 100%. Ostatnie trzy liczniki również są sumowane do 100%; dzielą sumę PercentProcessorTime, PercentIOWaitTime i PercentInterruptTime.
 
-Aby uzyskać pojedynczą metrykę agregowaną we wszystkich procesorach, ustaw wartość `"condition": "IsAggregate=TRUE"` . Aby uzyskać metrykę dla określonego procesora, na przykład drugi procesor logiczny dla maszyny wirtualnej z czterema vCPU, ustaw polecenie `"condition": "Name=\\"1\\""` . Liczby procesorów logicznych znajdują się w zakresie `[0..n-1]` .
-
 ### <a name="builtin-metrics-for-the-memory-class"></a>metryki wbudowane dla klasy pamięci
 
 Klasa Memory metryk zawiera informacje o wykorzystaniu pamięci, stronicowaniu i zamianie.
@@ -569,7 +581,7 @@ Ta klasa metryk ma tylko jedno wystąpienie. Atrybut "Condition" nie ma użytecz
 
 ### <a name="builtin-metrics-for-the-network-class"></a>metryki wbudowane dla klasy sieci
 
-Klasa sieci metryk zawiera informacje o aktywności sieciowej w poszczególnych interfejsach sieciowych od rozruchu. LAD nie ujawnia metryk przepustowości, które można pobrać z metryk hosta.
+Klasa sieci metryk zawiera informacje dotyczące aktywności sieciowej w interfejsie sieciowym od momentu rozruchu. LAD nie ujawnia metryk przepustowości, które można pobrać z metryk hosta.
 
 counter | Znaczenie
 ------- | -------
@@ -581,8 +593,6 @@ PacketsReceived | Całkowita liczba odebranych pakietów od rozruchu
 TotalRxErrors | Liczba błędów odbierania od rozruchu
 TotalTxErrors | Liczba błędów przesyłania od rozruchu
 TotalCollisions | Liczba kolizji zgłoszonych przez porty sieciowe od rozruchu
-
- Chociaż ta klasa jest wystąpieniem, LAD nie obsługuje przechwytywania metryk sieci zagregowanych ze wszystkich urządzeń sieciowych. Aby uzyskać metryki dla określonego interfejsu, takiego jak eth0, Set `"condition": "InstanceID=\\"eth0\\""` .
 
 ### <a name="builtin-metrics-for-the-filesystem-class"></a>metryki wbudowane dla klasy FileSystem
 
@@ -603,10 +613,6 @@ ReadsPerSecond | Operacje odczytu na sekundę
 WritesPerSecond | Operacje zapisu na sekundę
 TransfersPerSecond | Operacje odczytu lub zapisu na sekundę
 
-Zagregowane wartości we wszystkich systemach plików można uzyskać przez ustawienie `"condition": "IsAggregate=True"` . Wartości dla określonego zainstalowanego systemu plików, na przykład "/mnt", można uzyskać przez ustawienie `"condition": 'Name="/mnt"'` . 
-
-**Uwaga**: w przypadku korzystania z witryny Azure Portal zamiast JSON, prawidłowy warunek jest w postaci nazwa = "/mnt"
-
 ### <a name="builtin-metrics-for-the-disk-class"></a>metryki wbudowane dla klasy Disk
 
 Klasa dysku metryk zawiera informacje o użyciu urządzenia dyskowego. Te statystyki dotyczą całego dysku. Jeśli na urządzeniu istnieje wiele systemów plików, liczniki dla tego urządzenia są efektywnie agregowane we wszystkich z nich.
@@ -624,16 +630,14 @@ ReadBytesPerSecond | Liczba odczytanych bajtów na sekundę
 WriteBytesPerSecond | Liczba bajtów zapisanych na sekundę
 BytesPerSecond | Liczba bajtów odczytanych lub zapisywana na sekundę
 
-Zagregowane wartości na wszystkich dyskach można uzyskać przez ustawienie `"condition": "IsAggregate=True"` . Aby uzyskać informacje dotyczące określonego urządzenia (na przykład/dev/sdf1), ustaw wartość `"condition": "Name=\\"/dev/sdf1\\""` .
-
-## <a name="installing-and-configuring-lad-30"></a>Instalowanie i Konfigurowanie LAD 3,0
+## <a name="installing-and-configuring-lad-40"></a>Instalowanie i Konfigurowanie LAD 4,0
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 Przy założeniu, że chronione ustawienia znajdują się w pliku ProtectedSettings.jsna, a Twoje informacje o konfiguracji publicznej są PublicSettings.jsna, uruchom następujące polecenie:
 
 ```azurecli
-az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
 W poleceniu przyjęto założenie, że używasz trybu zarządzania zasobami platformy Azure dla interfejsu wiersza polecenia platformy Azure. Aby skonfigurować LAD dla maszyn wirtualnych z modelem wdrożenia klasycznego (ASM), przełącz się do trybu "ASM" ( `azure config mode asm` ) i Pomiń nazwę grupy zasobów w poleceniu. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu wiersza polecenia dla wielu platform](/cli/azure/authenticate-azure-cli).
@@ -643,12 +647,12 @@ W poleceniu przyjęto założenie, że używasz trybu zarządzania zasobami plat
 Przy założeniu, że chronione ustawienia znajdują się w `$protectedSettings` zmiennej, a informacje o konfiguracji publicznej są w `$publicSettings` zmiennej, uruchom następujące polecenie:
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
 ```
 
-## <a name="an-example-lad-30-configuration"></a>Przykładowa konfiguracja LAD 3,0
+## <a name="an-example-lad-40-configuration"></a>Przykładowa konfiguracja LAD 4,0
 
-W oparciu o powyższe definicje przedstawiono przykładową konfigurację rozszerzenia LAD 3,0 z objaśnieniem. Aby zastosować ten przykład do przypadku, należy użyć własnej nazwy konta magazynu, tokenu SAS konta i tokenów SAS EventHubs.
+W oparciu o powyższe definicje przedstawiono przykładową konfigurację rozszerzenia LAD 4,0 z objaśnieniem. Aby zastosować ten przykład do przypadku, należy użyć własnej nazwy konta magazynu, tokenu SAS konta i tokenów SAS EventHubs.
 
 > [!NOTE]
 > W zależności od tego, czy używasz interfejsu wiersza polecenia platformy Azure lub programu PowerShell, aby zainstalować LAD, metoda udostępniania ustawień publicznych i chronionych różni się. Jeśli używasz interfejsu wiersza polecenia platformy Azure, Zapisz następujące ustawienia, aby ProtectedSettings.jsi PublicSettings.jsdo użycia z przykładowym powyższym poleceniem. Jeśli używasz programu PowerShell, Zapisz ustawienia w `$protectedSettings` i `$publicSettings` uruchamiając polecenie `$protectedSettings = '{ ... }'` .
@@ -709,7 +713,6 @@ Te ustawienia publiczne powodują LAD:
 
 * Przekaż metryki czasu procesora (%) i zużyte miejsca na dysku do `WADMetrics*` tabeli
 * Przekazywanie komunikatów z funkcji dziennika systemowego "User" i ważności "info" do `LinuxSyslog*` tabeli
-* Przekaż nieprzetworzone wyniki zapytania OMI (PercentProcessorTime i PercentIdleTime) do nazwanej `LinuxCPU` tabeli
 * Przekaż dołączone wiersze `/var/log/myladtestlog` do `MyLadTestLog` tabeli
 
 W każdym przypadku dane są również przekazywane do:
@@ -776,14 +779,15 @@ W każdym przypadku dane są również przekazywane do:
       }
     }
   },
-  "perfCfg": [
-    {
-      "query": "SELECT PercentProcessorTime, PercentIdleTime FROM SCX_ProcessorStatisticalInformation WHERE Name='_TOTAL'",
-      "table": "LinuxCpu",
-      "frequency": 60,
-      "sinks": "LinuxCpuJsonBlob,LinuxCpuEventHub"
-    }
-  ],
+  "sinksConfig": {
+    "sink": [
+      {
+        "name": "AzMonSink",
+        "type": "AzMonSink",
+        "AzureMonitor": {}
+      }
+    ]
+  },
   "fileLogs": [
     {
       "file": "/var/log/myladtestlog",
@@ -804,7 +808,7 @@ W każdym przypadku dane są również przekazywane do:
 
 Użyj Azure Portal, aby wyświetlić dane wydajności lub ustawić alerty:
 
-![Zrzut ekranu przedstawia Azure Portal z wybraną metryką ilość miejsca na dysku i wykresem wyjściowym.](./media/diagnostics-linux/graph_metrics.png)
+:::image type="content" source="./media/diagnostics-linux/graph_metrics.png" alt-text="Zrzut ekranu przedstawia Azure Portal z wybraną metryką ilość miejsca na dysku i wykresem wyjściowym.":::
 
 `performanceCounters`Dane są zawsze przechowywane w tabeli usługi Azure Storage. Interfejsy API usługi Azure Storage są dostępne dla wielu języków i platform.
 
@@ -815,9 +819,9 @@ Ponadto można używać tych narzędzi interfejsu użytkownika do uzyskiwania do
 * Program Visual Studio Eksplorator serwera.
 * [Zrzut ekranu przedstawia kontenery i tabele w Eksplorator usługi Azure Storage.](https://azurestorageexplorer.codeplex.com/ "Eksplorator usługi Azure Storage").
 
-Ta migawka sesji Eksplorator usługi Microsoft Azure Storage zawiera wygenerowane tabele i kontenery usługi Azure Storage ze prawidłowej konfiguracji rozszerzenia LAD 3,0 na testowej maszynie wirtualnej. Obraz nie jest dokładnie zgodny z [konfiguracją przykładu LAD 3,0](#an-example-lad-30-configuration).
+Ta migawka sesji Eksplorator usługi Microsoft Azure Storage zawiera wygenerowane tabele i kontenery usługi Azure Storage ze prawidłowej konfiguracji rozszerzenia LAD 3,0 na testowej maszynie wirtualnej. Obraz nie jest dokładnie zgodny z [konfiguracją przykładu LAD 3,0](#an-example-lad-40-configuration).
 
-![image (obraz)](./media/diagnostics-linux/stg_explorer.png)
+:::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="Zrzut ekranu przedstawia Eksplorator usługi Azure Storage.":::
 
 Zapoznaj się z odpowiednią [dokumentacją EventHubs](../../event-hubs/event-hubs-about.md) , aby dowiedzieć się, jak korzystać z komunikatów opublikowanych w punkcie końcowym EventHubs.
 

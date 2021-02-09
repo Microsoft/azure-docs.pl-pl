@@ -12,19 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 46d569eae768178815a933d9a857e19bacdaaeb9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 46bdaf932d4224bf97b46e7713d49d815ca1bcdd
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013230"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833001"
 ---
 # <a name="create-a-connection-monitor-using-the-arm-template"></a>Tworzenie monitora połączeń przy użyciu szablonu ARM
+
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Nie będzie również można dodawać nowych monitorów połączeń w monitorze połączeń (klasyczny). Można nadal korzystać z testów i monitorów połączeń utworzonych przed 1 lipca 2021. Aby zminimalizować przerwy w działaniu usługi z bieżącymi obciążeniami, należy [migrować testy z Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) lub  [przeprowadzić migrację z monitora połączeń (klasycznego)](migrate-to-connection-monitor-from-connection-monitor-classic.md) do nowego monitora połączeń na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Dowiedz się, jak utworzyć monitor połączeń do monitorowania komunikacji między zasobami przy użyciu ARMClient. Obsługuje wdrożenia w chmurze hybrydowej i platformy Azure.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
 W monitorach połączeń utworzonych w monitorze połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
 

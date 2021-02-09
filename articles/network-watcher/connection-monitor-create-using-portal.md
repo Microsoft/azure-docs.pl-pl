@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: a6ba9c02b384c1b30977d962659983d600c7b2ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545724"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833171"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Tworzenie monitora w monitorze połączeń przy użyciu Azure Portal
+
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Nie będzie również można dodawać nowych monitorów połączeń w monitorze połączeń (klasyczny). Można nadal korzystać z testów i monitorów połączeń utworzonych przed 1 lipca 2021. Aby zminimalizować przerwy w działaniu usługi z bieżącymi obciążeniami, należy [migrować testy z Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) lub  [przeprowadzić migrację z monitora połączeń (klasycznego)](migrate-to-connection-monitor-from-connection-monitor-classic.md) do nowego monitora połączeń na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Dowiedz się, jak używać monitora połączeń do monitorowania komunikacji między zasobami. W tym artykule opisano sposób tworzenia monitora przy użyciu Azure Portal. Monitor połączeń obsługuje wdrożenia hybrydowe i w chmurze platformy Azure.
 

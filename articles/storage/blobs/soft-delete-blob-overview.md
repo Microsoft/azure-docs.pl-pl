@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127485"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979309"
 ---
 # <a name="soft-delete-for-blobs"></a>Usuwanie nietrwałe dla obiektów blob
 
@@ -27,6 +27,10 @@ Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane l
 ## <a name="about-soft-delete-for-blobs"></a>Informacje o nietrwałej usunięciu dla obiektów BLOB
 
 Po włączeniu usuwania nietrwałego dla obiektów BLOB na koncie magazynu można odzyskiwać obiekty po ich usunięciu w określonym okresie przechowywania danych. Ta ochrona rozciąga się na wszystkie obiekty blob (blokowe obiekty blob, Dołącz obiekty blob lub stronicowe obiekty blob), które są wymazywane jako wynik zastępowania.
+
+Na poniższym diagramie przedstawiono sposób przywracania usuniętego obiektu BLOB po włączeniu usuwania nietrwałego obiektu BLOB:
+
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagram przedstawiający sposób przywracania nietrwałego obiektu BLOB":::
 
 Jeśli dane w istniejącym obiekcie blob lub migawce zostaną usunięte podczas włączania usuwania nietrwałego obiektów blob, ale funkcja obsługi wersji obiektów BLOB nie jest włączona, zostanie wygenerowana nietrwała migawka w celu zapisania stanu nadpisanych danych. Po upływie określonego okresu przechowywania obiekt zostanie trwale usunięty.
 

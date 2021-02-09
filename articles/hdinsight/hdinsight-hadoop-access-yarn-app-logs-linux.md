@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 0eb7dec2fd4ee327905acdea7a07456221bcbd46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 882384b5e57db27cff981f80e790dfd41b624c93
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946001"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980698"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Dostęp do Apache Hadoop dzienników aplikacji PRZĘDZy w usłudze HDInsight opartej na systemie Linux
 
@@ -37,7 +37,7 @@ Serwer osi czasu PRZĘDZy obejmuje następujący typ danych:
 
 ## <a name="yarn-applications-and-logs"></a>Aplikacje i dzienniki PRZĘDZy
 
-Dzienniki aplikacji (i skojarzone z nimi dzienniki kontenerów) są krytyczne w debugowaniu problemów z aplikacjami usługi Hadoop. PRZĘDZa to świetna platforma służąca do gromadzenia, agregowania i przechowywania dzienników aplikacji z [agregacją dzienników](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+Dzienniki aplikacji (i skojarzone z nimi dzienniki kontenerów) są krytyczne w debugowaniu problemów z aplikacjami usługi Hadoop. PRZĘDZa to świetna platforma służąca do gromadzenia, agregowania i przechowywania dzienników aplikacji z agregacją dzienników.
 
 Funkcja agregacji dzienników ułatwia uzyskiwanie dostępu do dzienników aplikacji. Agreguje dzienniki we wszystkich kontenerach w węźle procesu roboczego i zapisuje je jako jeden zagregowany plik dziennika na węzeł procesu roboczego. Dziennik jest przechowywany w domyślnym systemie plików po zakończeniu aplikacji. Twoja aplikacja może korzystać z setek lub tysięcy kontenerów, ale dzienniki dla wszystkich kontenerów uruchomionych w jednym węźle procesu roboczego są zawsze agregowane do pojedynczego pliku. W związku z tym w aplikacji jest używany tylko 1 dziennik na węzeł procesu roboczego. Agregacja dzienników jest domyślnie włączona w klastrach usługi HDInsight w wersji 3,0 i nowszych. Zagregowane dzienniki znajdują się w domyślnym magazynie klastra. Następująca ścieżka jest ścieżką systemu plików HDFS do dzienników:
 

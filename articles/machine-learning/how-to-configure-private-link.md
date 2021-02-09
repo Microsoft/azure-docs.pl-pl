@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842706"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979185"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning
 
@@ -35,7 +35,8 @@ Jeśli planujesz używanie obszaru roboczego z włączoną obsługą linku prywa
 
 ## <a name="limitations"></a>Ograniczenia
 
-Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach Azure Government ani w regionach 21Vianet platformy Azure w Chinach.
+* Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach Azure Government ani w regionach 21Vianet platformy Azure w Chinach.
+* Jeśli włączysz publiczny dostęp dla obszaru roboczego zabezpieczonego za pomocą linku prywatnego i używasz programu Azure Machine Learning Studio za pośrednictwem publicznej sieci Internet, niektóre funkcje, takie jak projektant, mogą nie mieć dostępu do danych. Ten problem występuje, gdy dane są przechowywane w usłudze, która jest zabezpieczona za siecią wirtualną. Na przykład konto usługi Azure Storage.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Tworzenie obszaru roboczego korzystającego z prywatnego punktu końcowego
 
@@ -158,6 +159,31 @@ Ponieważ komunikacja z obszarem roboczym jest dozwolona tylko w sieci wirtualne
 > Aby uniknąć tymczasowego zakłócenia łączności, firma Microsoft zaleca opróżnianie pamięci podręcznej DNS na komputerach łączących się z obszarem roboczym po włączeniu linku prywatnego. 
 
 Aby uzyskać informacje na temat usługi Azure Virtual Machines, zobacz [dokumentację Virtual Machines](../virtual-machines/index.yml).
+
+## <a name="enable-public-access"></a>Włącz dostęp publiczny
+
+Po skonfigurowaniu obszaru roboczego za pomocą prywatnego punktu końcowego można opcjonalnie włączyć publiczny dostęp do obszaru roboczego. Nie spowoduje to usunięcia prywatnego punktu końcowego. Umożliwia ona dostęp publiczny oprócz dostępu prywatnego. Aby włączyć publiczny dostęp do prywatnego obszaru roboczego z obsługą linków, wykonaj następujące czynności:
+
+# <a name="python"></a>[Python](#tab/python)
+
+Użyj [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) , aby usunąć prywatny punkt końcowy.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+ws.update(allow_public_access_when_behind_vnet=True)
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+[Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md) udostępnia polecenie [AZ ml Workspace Update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) . Aby włączyć publiczny dostęp do obszaru roboczego, Dodaj parametr `--allow-public-access true` .
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Obecnie nie ma możliwości włączenia tej funkcji przy użyciu portalu.
+
+---
 
 
 ## <a name="next-steps"></a>Następne kroki

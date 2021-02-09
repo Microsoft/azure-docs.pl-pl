@@ -12,19 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 99bcef2ba702235279c1327a2a5e51a8c6ab806d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7f175d82b650871437a506ea4513f0ae28360f68
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018483"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833035"
 ---
 # <a name="create-a-connection-monitor-by-using-powershell"></a>Tworzenie monitora połączeń przy użyciu programu PowerShell
+
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Nie będzie również można dodawać nowych monitorów połączeń w monitorze połączeń (klasyczny). Można nadal korzystać z testów i monitorów połączeń utworzonych przed 1 lipca 2021. Aby zminimalizować przerwy w działaniu usługi z bieżącymi obciążeniami, należy [migrować testy z Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) lub  [przeprowadzić migrację z monitora połączeń (klasycznego)](migrate-to-connection-monitor-from-connection-monitor-classic.md) do nowego monitora połączeń na platformie Azure Network Watcher przed 29 lutego 2024.
+
 
 Dowiedz się, jak monitorować komunikację między zasobami przy użyciu funkcji Monitor połączeń w usłudze Azure Network Watcher.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W monitorach połączeń utworzonych za pomocą monitora połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
 

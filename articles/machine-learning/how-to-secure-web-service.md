@@ -10,24 +10,26 @@ author: aashishb
 ms.date: 01/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8399cfb4ceed9f50a5c9de0d3d16912a718bbfaa
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 68163f7ca8cc1b37bda4e1224330f966265554c2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070120"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980477"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS
 
 
 W tym artykule opisano sposób zabezpieczania usługi sieci Web, która jest wdrażana za pomocą Azure Machine Learning.
 
-Używasz [protokołu HTTPS](https://en.wikipedia.org/wiki/HTTPS) , aby ograniczyć dostęp do usług sieci Web i zabezpieczyć dane przesyłane przez klientów. Protokół HTTPS pomaga w zabezpieczeniu komunikacji między klientem a usługą sieci Web przez szyfrowanie komunikacji między nimi. Szyfrowanie używa [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Protokół TLS jest czasami nazywany *SSL* (SSL), który był POPRZEDNIKIEM protokołu TLS.
+Używasz [protokołu HTTPS](https://en.wikipedia.org/wiki/HTTPS) , aby ograniczyć dostęp do usług sieci Web i zabezpieczyć dane przesyłane przez klientów. Protokół HTTPS pomaga w zabezpieczeniu komunikacji między klientem a usługą sieci Web przez szyfrowanie komunikacji między nimi. Szyfrowanie używa [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Protokół TLS jest czasami nazywany *Secure Sockets Layer* (SSL), który był POPRZEDNIKIEM protokołu TLS.
 
 > [!TIP]
 > Zestaw Azure Machine Learning SDK używa terminu "SSL" dla właściwości, które są związane z bezpieczną komunikacją. Nie oznacza to, że usługa sieci Web nie korzysta z *protokołu TLS*. Protokół SSL jest zaledwie częściej uznawany za okres.
 >
 > Usługi sieci Web wdrożone za pomocą Azure Machine Learning obsługują protokół TLS w wersji 1,2 dla AKS i ACI. W przypadku wdrożeń ACI, jeśli używasz starszej wersji protokołu TLS, zalecamy ponowne wdrożenie w celu uzyskania najnowszej wersji protokołu TLS.
+>
+> Protokół TLS w wersji 1,3 dla Azure Machine Learning AKS nie jest obsługiwany.
 
 Protokoły TLS i SSL są zależne od *certyfikatów cyfrowych*, które pomagają w szyfrowaniu i weryfikacji tożsamości. Aby uzyskać więcej informacji na temat sposobu działania certyfikatów cyfrowych, zobacz temat [infrastruktura kluczy publicznych](https://en.wikipedia.org/wiki/Public_key_infrastructure)tematu witryny Wikipedia.
 

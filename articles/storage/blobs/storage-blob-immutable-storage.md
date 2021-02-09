@@ -5,18 +5,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9654ff6eab53acfe3e656afdcacd758c548232ba
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010065"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979145"
 ---
-# <a name="store-business-critical-blob-data-with-immutable-storage"></a>Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem
+# <a name="store-business-critical-blob-data-with-immutable-storage"></a>Przechowywanie danych obiektów blob kluczowych dla działalności za pomocą magazynu niezmiennego
 
 Niezmienny magazyn usługi Azure Blob Storage umożliwia użytkownikom przechowywanie obiektów danych o kluczowym znaczeniu dla firmy w ROBAKu (zapis jeden raz, odczyt wielu). Ten stan sprawia, że dane nie są wymazywane i nie są modyfikowane dla interwału określonego przez użytkownika. W czasie trwania interwału przechowywania obiekty blob mogą być tworzone i odczytywane, ale nie można ich modyfikować ani usuwać. Niezmienny magazyn jest dostępny dla kont ogólnego przeznaczenia w wersji 1, w wersji 2, BlobStorage i BlockBlobStorage we wszystkich regionach świadczenia usługi Azure.
 
@@ -42,7 +42,7 @@ Niezmienny magazyn obsługuje następujące funkcje:
 
 - **[Pomoc techniczna dotycząca zasad wstrzymania](#legal-holds)**: Jeśli Interwał przechowywania nie jest znany, użytkownicy mogą ustawić blokady prawne na przechowywanie niemodyfikowalnych danych do momentu wyczyszczenia blokady prawnej.  W przypadku ustawienia zasad wstrzymania, obiekty blob można tworzyć i odczytywać, ale nie modyfikować ani usuwać. Każde wstrzymanie prawne jest skojarzone ze zdefiniowanym przez użytkownika tagiem alfanumerycznym (np. IDENTYFIKATORem przypadku, nazwą zdarzenia itp.), który jest używany jako ciąg identyfikatora. 
 
-- **Obsługa wszystkich warstw obiektów BLOB**: zasady dla robaków są niezależne od warstwy magazynu obiektów blob platformy Azure i są stosowane do wszystkich warstw: gorąca, chłodna i archiwalna. Użytkownicy mogą przesyłać dane do warstwy najbardziej zoptymalizowanej pod kątem ich obciążeń, jednocześnie gwarantując ich niezmienność.
+- **Obsługa wszystkich warstw magazynowania obiektów blob**: Zasady WORM są niezależne od warstwy magazynowania w usłudze Azure Blob Storage i są stosowane do wszystkich warstw: gorącej, chłodnej i archiwum. Użytkownicy mogą przesyłać dane do warstwy najbardziej zoptymalizowanej pod kątem ich obciążeń, jednocześnie gwarantując ich niezmienność.
 
 - **Konfiguracja na poziomie kontenera**: użytkownicy mogą konfigurować zasady przechowywania oparte na czasie i znaczniki prawne na poziomie kontenera. Dzięki korzystaniu z prostych ustawień na poziomie kontenera użytkownicy mogą tworzyć i blokować zasady przechowywania na podstawie czasu, wydłużać okresy przechowywania, ustawiać i usuwać stan archiwizacji ze względów prawnych itp. Te zasady są stosowane do wszystkich obiektów blob w kontenerze — zarówno istniejących, jak i nowych.
 
@@ -53,6 +53,10 @@ Niezmienny magazyn obsługuje następujące funkcje:
 Funkcja magazynu niezmiennego w usłudze Azure Blob Storage obsługuje dwa rodzaje zasad WORM (nazywanych też zasadami magazynu niezmiennego): zasady przechowywania na podstawie czasu i zasady archiwizacji ze względów prawnych. Gdy zasady przechowywania oparte na czasie lub wstrzymanie prawne są stosowane w kontenerze, wszystkie istniejące obiekty blob są przenoszone do niezmiennego stanu ROBAKa w mniej niż 30 sekund. Wszystkie nowe obiekty blob przekazane do tego kontenera chronionego przez zasady również będą przenoszone do niezmiennego stanu. Gdy wszystkie obiekty blob są w niezmiennym stanie, niezmienne zasady są potwierdzane i wszelkie operacje zastępowania lub usuwania w niezmiennym kontenerze są niedozwolone.
 
 Usunięcie kontenera i konta magazynu nie jest dozwolone, jeśli istnieją obiekty blob w kontenerze, które są chronione przez blokadę prawną lub zablokowanych zasad czasu. Zasady wstrzymania ochrony są chronione przed usunięciem obiektów blob, kontenerów i kont magazynu. Zarówno odblokowane, jak i zablokowane zasady oparte na czasie będą chronić przed usunięciem obiektów BLOB przez określony czas. Zarówno odblokowane, jak i zablokowane zasady oparte na czasie będą chronić przed usunięciem kontenera tylko wtedy, gdy istnieje co najmniej jeden obiekt BLOB w kontenerze. Tylko kontener z *zablokowanymi* zasadami opartymi na czasie będzie chronić przed usuwaniem kont magazynu; Kontenery z odblokowanymi zasadami dotyczącymi czasu nie oferują ochrony usuwania kont magazynu ani zgodności.
+
+Na poniższym diagramie przedstawiono sposób, w jaki zasady przechowywania oparte na czasie i informacje prawne uniemożliwiają wykonywanie operacji zapisu i usuwania, gdy są one obowiązujące.
+
+:::image type="content" source="media/storage-blob-immutable-storage/worm-diagram.png" alt-text="Diagram przedstawiający sposób, w jaki zasady przechowywania i blokady prawne uniemożliwiają operacje zapisu i usuwania":::
 
 Aby uzyskać więcej informacji na temat sposobu ustawiania i blokowania zasad przechowywania opartych na czasie, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](storage-blob-immutability-policies-manage.md).
 

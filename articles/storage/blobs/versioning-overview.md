@@ -10,12 +10,12 @@ ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e5f8264221ada261ccae1b347c47cdf27967d5d8
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537166"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980282"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
@@ -37,6 +37,10 @@ Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [W�
 Wersja przechwytuje stan obiektu BLOB w danym momencie. Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu usługa Azure Storage automatycznie tworzy nową wersję obiektu BLOB za każdym razem, gdy obiekt BLOB jest modyfikowany lub usuwany.
 
 Podczas tworzenia obiektu BLOB z włączoną obsługą wersji, nowy obiekt BLOB jest bieżącą wersją obiektu BLOB (lub podstawowy obiekt BLOB). Jeśli następnie zmodyfikujesz ten obiekt BLOB, usługa Azure Storage utworzy wersję, która przechwytuje stan obiektu BLOB przed jego modyfikacją. Zmodyfikowany obiekt BLOB zostanie nowym bieżącą wersją. Nowa wersja jest tworzona za każdym razem, gdy modyfikujesz obiekt BLOB.
+
+Na poniższym diagramie przedstawiono, jak wersje są tworzone przy użyciu operacji zapisu i usuwania oraz jak poprzednia wersja może zostać podwyższona do bieżącej wersji:
+
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram przedstawiający sposób działania wersji obiektów BLOB":::
 
 Duża liczba wersji na obiekt BLOB może zwiększyć opóźnienie operacji tworzenia listy obiektów BLOB. Firma Microsoft zaleca obsługę mniej niż 1000 wersji na obiekt BLOB. Za pomocą zarządzania cyklem życia można automatycznie usuwać stare wersje. Aby uzyskać więcej informacji na temat zarządzania cyklem życia, zobacz [Optymalizowanie kosztów dzięki automatyzowaniu warstw dostępu BLOB Storage platformy Azure](storage-lifecycle-management-concepts.md).
 

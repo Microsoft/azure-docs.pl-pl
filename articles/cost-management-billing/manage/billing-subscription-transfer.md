@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601539"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979437"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto
 
@@ -80,7 +80,7 @@ Tylko jedno żądanie przeniesienia jest aktywne w danym momencie. Żądanie prz
 Aby anulować żądanie przeniesienia:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Przejdź do pozycji **Subskrypcje**, wybierz subskrypcję, w ramach której wysłano żądanie przeniesienia i wybierz pozycję **Przenieś własność rozliczeń**.
+1. Przejdź do **subskrypcji** > wybierz subskrypcję, dla której wysłano żądanie transferu, a następnie wybierz pozycję **Przenieś własność rozliczeń**.
 1. W dolnej części strony wybierz pozycję **Anuluj żądanie przeniesienia**.
 
 :::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Przykład z oknem przeniesienia własności rozliczeń z opcją anulowania żądania przeniesienia" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
@@ -88,6 +88,20 @@ Aby anulować żądanie przeniesienia:
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Jeśli masz problemy związane z transferem subskrypcji, skorzystaj z poniższych informacji dotyczących rozwiązywania problemów.
+
+### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>Oryginalny właściciel rozliczeń subskrypcji platformy Azure opuści organizację
+
+Istnieje możliwość, że oryginalny właściciel rozliczeń, który utworzył konto platformy Azure i subskrypcję platformy Azure, opuści Twoją organizację. Jeśli taka sytuacja się zdarzy, jego tożsamość użytkownika nie jest już w Azure Active Directory organizacji. Następnie subskrypcja platformy Azure nie ma właściciela rozliczenia. Ta sytuacja uniemożliwia wszystkim użytkownikom wykonywanie operacji rozliczeniowych na koncie, w tym wyświetlanie i płacenie rachunków. Subskrypcja może przejść w stan przeszłości. Ostatecznie subskrypcja może zostać wyłączona z powodu braku płatności. Ostatecznie subskrypcja może zostać usunięta i będzie mieć wpływ na każdą usługę uruchomioną w ramach subskrypcji.
+
+Jeśli subskrypcja nie ma już prawidłowego właściciela rozliczeń, platforma Azure wysyła wiadomość e-mail do innych właścicieli rozliczeń, administratorów usługi, współadministratorów i właścicieli subskrypcji, którzy informują o sytuacji i udostępniają im link umożliwiający akceptację własności rozliczeń subskrypcji. Jeden z użytkowników może wybrać łącze, aby zaakceptować własność rozliczeń. Aby uzyskać więcej informacji na temat ról rozliczeń, zobacz [role rozliczeń](understand-mca-roles.md) i role [klasyczne oraz role RBAC platformy Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+Oto przykład wiadomości e-mail.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-email.png" alt-text="Zrzut ekranu przedstawiający przykładową wiadomość e-mail w celu zaakceptowania własności rozliczeń." lightbox="./media/billing-subscription-transfer/orphaned-subscription-email.png" :::
+
+Ponadto platforma Azure wyświetla transparent w oknie Szczegóły subskrypcji w Azure Portal do właścicieli rozliczeń, administratorów usług, współadministratorów i właścicieli subskrypcji. Wybierz link na banerze, aby zaakceptować własność rozliczeń.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-example.png" alt-text="Zrzut ekranu przedstawiający przykład subskrypcji bez prawidłowego właściciela rozliczania." lightbox="./media/billing-subscription-transfer/orphaned-subscription-example.png" :::
 
 ### <a name="the-transfer-subscription-option-is-unavailable"></a>Opcja „Przenieś subskrypcję” jest niedostępna
 

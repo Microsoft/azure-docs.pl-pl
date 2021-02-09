@@ -1,6 +1,6 @@
 ---
 title: Automatyczne skalowanie usługi w chmurze (klasycznej) w portalu | Microsoft Docs
-description: Dowiedz się, jak za pomocą portalu skonfigurować reguły automatycznego skalowania dla roli sieci Web lub roli procesu roboczego usługi w chmurze na platformie Azure.
+description: Dowiedz się, jak za pomocą portalu skonfigurować reguły automatycznego skalowania dla ról usługi w chmurze (klasycznych) na platformie Azure.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743359"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980834"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Jak skonfigurować automatyczne skalowanie dla usługi w chmurze (klasycznej) w portalu
 
@@ -23,7 +23,7 @@ ms.locfileid: "98743359"
 Warunki można ustawić dla roli proces roboczy usługi w chmurze, która wyzwala operację skalowania w poziomie lub out. Warunki roli mogą opierać się na PROCESORAch, dyskach lub obciążeniach sieciowych roli. Możesz również ustawić warunek na podstawie kolejki komunikatów lub metryki innego zasobu platformy Azure skojarzonego z subskrypcją.
 
 > [!NOTE]
-> Ten artykuł koncentruje się na rolach sieci Web i procesu roboczego usługi w chmurze. Gdy tworzysz maszynę wirtualną (klasyczną) bezpośrednio, jest ona hostowana w usłudze w chmurze. Można skalować standardową maszynę wirtualną, kojarząc ją z [zestawem dostępności](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) i ręcznie ją włączać lub wyłączać.
+> Ten artykuł koncentruje się na usłudze w chmurze (klasycznej). Gdy tworzysz maszynę wirtualną (klasyczną) bezpośrednio, jest ona hostowana w usłudze w chmurze. Można skalować standardową maszynę wirtualną, kojarząc ją z [zestawem dostępności](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) i ręcznie ją włączać lub wyłączać.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 Przed skonfigurowaniem skalowania aplikacji należy wziąć pod uwagę następujące informacje:

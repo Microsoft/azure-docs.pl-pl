@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: e894caddd037738645a37ccb43265a24d56e8afe
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 083bd56b2b211d11206a277bf31eea797b37cdb9
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493807"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979933"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ASP.NET Core
 
@@ -191,7 +191,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     ```
     ---
     > [!Tip]
-    > Aby dowiedzieć się więcej na temat wzorca opcji podczas odczytywania wartości konfiguracyjnych, zobacz [Opcje wzorców w ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > Aby dowiedzieć się więcej na temat wzorca opcji podczas odczytywania wartości konfiguracyjnych, zobacz [Opcje wzorców w ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
 4. Zaktualizuj `Configure` metodę, dodając `UseAzureAppConfiguration` oprogramowanie pośredniczące, aby umożliwić aktualizowanie ustawień konfiguracji na potrzeby odświeżania, gdy aplikacja sieci Web ASP.NET Core nadal otrzymuje żądania.
 

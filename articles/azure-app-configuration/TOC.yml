@@ -40,7 +40,7 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Samouczki
   items:
-    - name: Włączanie dynamicznej konfiguracji
+    - name: Włącz konfigurację dynamiczną przy użyciu modelu sondowania
       items:
         - name: ASP.NET Core
           href: enable-dynamic-configuration-aspnet-core.md
@@ -52,6 +52,10 @@
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
           href: enable-dynamic-configuration-java-spring-app.md
+    - name: Włącz konfigurację dynamiczną przy użyciu modelu wypychania
+      items:
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core-push-refresh.md
     - name: Używanie flag funkcji
       items:
         - name: ASP.NET Core

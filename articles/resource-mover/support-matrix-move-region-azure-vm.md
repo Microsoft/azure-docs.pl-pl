@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222802"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980494"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Obsługa przemieszczania maszyn wirtualnych platformy Azure między regionami platformy Azure
 
@@ -116,7 +116,7 @@ Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są kopiowane do maszyny wirtu
 Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dysku danych i dysku tymczasowego. Należy przestrzegać limitów dysku maszyny wirtualnej i elementów docelowych dla [dysków zarządzanych](../virtual-machines/disks-scalability-targets.md) , aby uniknąć problemów z wydajnością.
 
 > [!NOTE]
-> Docelowy rozmiar maszyny wirtualnej powinien być równy lub większy niż źródłowa maszyna wirtualna. Parametry używane do walidacji: liczba dysków danych, liczba kart sieciowych, dostępne procesory CPU, pamięć w GB. Jeśli nie, zostanie wystawiony błąd.
+> Docelowy rozmiar maszyny wirtualnej powinien być równy lub większy niż źródłowa maszyna wirtualna. Parametry używane do walidacji: liczba dysków danych, liczba kart sieciowych, dostępne procesory CPU, pamięć w GB. Jeśli sn't, zostanie wystawiony błąd.
 
 
 **Składnik** | **Pomoc techniczna** | **Szczegóły**
@@ -134,6 +134,8 @@ Dysk zarządzany (Premium) | Obsługiwane |
 Dysk SSD w warstwie Standardowa | Obsługiwane |
 Generacja 2 (rozruch UEFI) | Obsługiwane
 Konto magazynu diagnostyki rozruchu | Nieobsługiwane | Włącz je ponownie po przeniesieniu maszyny wirtualnej do regionu docelowego.
+Maszyny wirtualne z włączonym szyfrowaniem dysków Azure | Obsługiwane | [Dowiedz się więcej](tutorial-move-region-encrypted-virtual-machines.md)
+Maszyny wirtualne korzystające z szyfrowania po stronie serwera z kluczem zarządzanym przez klienta | Obsługiwane | [Dowiedz się więcej](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### <a name="limits-and-data-change-rates"></a>Limity i szybkości zmian danych
 

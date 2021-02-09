@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e6ced30e8c8c5eb60eea3806d9c8080df7c2a12d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072802"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979593"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Jak używać tożsamości zarządzanych do konfiguracji aplikacji platformy Azure
 
@@ -99,7 +99,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia tożsamości przypisan
 
 ## <a name="removing-an-identity"></a>Usuwanie tożsamości
 
-Tożsamość przypisana przez system można usunąć, wyłączając funkcję za pomocą polecenia [AZ AppConfig Identity Remove](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) w interfejsie wiersza polecenia platformy Azure. Tożsamości przypisane do użytkownika można usuwać pojedynczo. Usunięcie tożsamości przypisanej do systemu w ten sposób spowoduje również usunięcie jej z usługi AAD. Tożsamości przypisane do systemu są również automatycznie usuwane z usługi AAD po usunięciu zasobu aplikacji.
+Tożsamość przypisana przez system można usunąć, wyłączając funkcję za pomocą polecenia [AZ AppConfig Identity Remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) w interfejsie wiersza polecenia platformy Azure. Tożsamości przypisane do użytkownika można usuwać pojedynczo. Usunięcie tożsamości przypisanej do systemu w ten sposób spowoduje również usunięcie jej z usługi AAD. Tożsamości przypisane do systemu są również automatycznie usuwane z usługi AAD po usunięciu zasobu aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

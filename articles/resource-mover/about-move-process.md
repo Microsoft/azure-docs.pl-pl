@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: facbb30201aa6bde2044ca647383cc32ecd9ba26
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522953"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980562"
 ---
 # <a name="about-the-move-process"></a>Informacje o procesie przenoszenia
 
@@ -46,7 +46,7 @@ Każdy przenoszony zasób przechodzi przez Podsumowanie kroków.
 **Krok 4. inicjowanie przenoszenia** | Rozpocznij proces przenoszenia. Metoda Move zależy od typu zasobu:<br/><br/> - **Bezstanowe**: zazwyczaj w przypadku bezstanowych zasobów proces przenoszenia wdraża zaimportowany szablon w regionie docelowym. Szablon jest oparty na ustawieniach zasobów źródłowych oraz wszelkich ręcznych zmianach wprowadzonych w ustawieniach docelowych.<br/><br/> - **Stanowa**: w przypadku zasobów stanowych proces przenoszenia może polegać na utworzeniu zasobu lub włączeniu kopii w regionie docelowym.<br/><br/>  W przypadku tylko zasobów stanowych inicjowanie przenoszenia może spowodować przestoje zasobów źródłowych. Na przykład maszyny wirtualne i SQL. | Rozpoczęcie przenoszenia powoduje przeniesienie stanu, aby *zainicjować przenoszenie w toku*.<br/><br/> Pomyślne zainicjowanie przenoszenia powoduje przeniesienie stanu zasobu do *oczekujących przejść*, bez problemów. <br/><br/> Proces przenoszenia zakończony niepowodzeniem powoduje przeniesienie stanu, aby *zainicjować przenoszenie nie powiodło się*.
 **Krok 5 — opcja 1: odrzuć przeniesienie** | Po początkowym przeniesieniu możesz zdecydować, czy chcesz kontynuować pracę z pełnym przenoszeniem. Jeśli nie, możesz odrzucić przeniesienie, a obiekt przenoszenia zasobów usuwa zasoby utworzone w celu. Proces replikacji dla zasobów stanowych jest kontynuowany po procesie odrzucenia. Ta opcja jest przydatna do testowania. | Odrzucanie zasobów przenosi stan *w toku*.<br/><br/> Pomyślnie Odrzuć stan przeniesienia, aby *zainicjować oczekujące przeniesienie*, bez problemów.<br/><br/> Nie można odrzucić stanu przenoszenia do *odrzucenia przeniesienia*. 
 **Krok 5 opcja 2: Zatwierdź przeniesienie** | Po początkowym przeniesieniu, jeśli chcesz przejść do trybu pełnego przenoszenia, sprawdzasz zasoby w regionie docelowym, a gdy wszystko będzie gotowe, zatwierdzisz przeniesienie.<br/><br/> W przypadku zasobów stanowych zatwierdzenie może spowodować, że zasoby źródłowe, takie jak maszyny wirtualne lub SQL stają się niedostępne. | Jeśli zatwierdzisz przeniesienie, stan zasobu zostanie przeniesiony do * zatwierdzanie przenoszenia w toku * *.<br/><br/> Po pomyślnym zatwierdzeniu stan zasobu pokazuje, że *przeniesienie zostało zakończone*, bez problemów.<br/><br/> Nie *można przenieść* stanu przeniesienia do zatwierdzenia.
-**Krok 6. Usuwanie źródła** | Po zatwierdzeniu przenoszenia i sprawdzeniu zasobów w regionie docelowym można usunąć zasób źródłowy. | Po zatwierdzeniu przenoszenia stan zasobu jest przenoszony do *oczekującego usunięcia źródła*.
+**Krok 6. Usuwanie źródła** | Po zatwierdzeniu przenoszenia i sprawdzeniu zasobów w regionie docelowym można usunąć zasób źródłowy. | Po zatwierdzeniu stan zasobu jest przenoszony do *oczekującego usunięcia źródła*. Następnie możesz wybrać zasób źródłowy i usunąć go.<br/><br/> Tylko zasoby w stanie *oczekiwania na usunięcie źródła* mogą zostać usunięte. | Usuwanie grupy zasobów lub SQL Server w portalu przenoszenia zasobów nie jest obsługiwane. Te zasoby można usunąć tylko ze strony właściwości zasobów.
 
 
 ## <a name="move-region-states"></a>Stany regionu przenoszenia

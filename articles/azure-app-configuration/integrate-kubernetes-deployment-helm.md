@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4e38366ddcee07f38ca390acf9d580b8764c1c00
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426718"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979831"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integracja z wdrażaniem Kubernetes przy użyciu usługi Helm
 
@@ -33,7 +33,7 @@ W tym samouczku założono podstawowe informacje dotyczące zarządzania Kuberne
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (wersja 2.4.0 lub nowsza)
+- Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (wersja 2.4.0 lub nowsza)
 - Zainstaluj [Helm](https://helm.sh/docs/intro/install/) (wersja 2.14.0 lub nowsza)
 - Klaster Kubernetes.
 
@@ -59,7 +59,7 @@ W tym samouczku założono podstawowe informacje dotyczące zarządzania Kuberne
 4. Wybierz pozycję **+ Utwórz**  >  **odwołanie do magazynu kluczy**, a następnie określ następujące wartości:
     - **Klucz**: wybierz pozycję Secret **. Password**.
     - **Etykieta**: pozostaw tę wartość pustą.
-    - **Subskrypcja**, **Grupa zasobów**i **Magazyn kluczy**: wprowadź wartości odpowiadające tym w magazynie kluczy utworzonym w poprzednim kroku.
+    - **Subskrypcja**, **Grupa zasobów** i **Magazyn kluczy**: wprowadź wartości odpowiadające tym w magazynie kluczy utworzonym w poprzednim kroku.
     - **Wpis tajny**: Wybierz **hasło** o nazwie Secret utworzone w poprzedniej sekcji.
 
 ## <a name="create-helm-chart"></a>Utwórz wykres Helm ##
@@ -185,7 +185,7 @@ settings:
 Najpierw Pobierz konfigurację z konfiguracji aplikacji do pliku *YAML.* Użyj filtru kluczy, aby pobrać tylko te klucze, które zaczynają się od **ustawień.**. Jeśli w Twoim przypadku filtr klucza nie wystarcza do wykluczenia kluczy odwołań Key Vault, możesz użyć tego argumentu **--Skip-** Key, aby je wykluczyć. 
 
 > [!TIP]
-> Dowiedz się więcej o [poleceniu eksportu](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+> Dowiedz się więcej o [poleceniu eksportu](/cli/azure/appconfig/kv#az-appconfig-kv-export). 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -242,4 +242,4 @@ Jeden wpis tajny, **hasło**, sklepy jako odwołanie Key Vault w konfiguracji ap
 W tym samouczku wyeksportowano dane konfiguracji aplikacji platformy Azure, które będą używane we wdrożeniu Kubernetes z Helm. Aby dowiedzieć się więcej na temat korzystania z konfiguracji aplikacji, przejdź do przykładów interfejsu wiersza polecenia platformy Azure.
 
 > [!div class="nextstepaction"]
-> [Interfejs wiersza polecenia platformy Azure](/cli/azure/appconfig?view=azure-cli-latest)
+> [Interfejs wiersza polecenia platformy Azure](/cli/azure/appconfig)

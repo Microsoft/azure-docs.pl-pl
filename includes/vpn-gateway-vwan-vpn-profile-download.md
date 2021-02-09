@@ -1,41 +1,34 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 07/31/2020
+ms.date: 02/08/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fc2393cfe87e2639ce40e66e6053d4d430518719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3eb2d9469ab3a3d2c1d09e4adc3ee2cb1f86e6e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87515319"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979077"
 ---
-## <a name="1-download-the-file"></a>1. Pobierz plik
-
-Uruchom następujące polecenia. Skopiuj adres URL wyniku do przeglądarki, aby pobrać plik zip profilu.
-
-```azurepowershell-interactive
-$profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
-   
-$PROFILE.VpnProfileSASUrl
-```
-
-## <a name="2-extract-the-zip-file"></a>2. Wyodrębnij plik zip
+## <a name="extract-the-zip-file"></a>Wyodrębnij plik zip
 
 Wyodrębnij plik ZIP. Plik zawiera następujące foldery:
 
 * AzureVPN
 * Ogólny
-* OpenVPN (Jeśli włączono ustawienia OpenVPN przy użyciu **certyfikatu platformy Azure** lub ustawień **uwierzytelniania usługi RADIUS** na bramie). Aby uzyskać VPN Gateway, zobacz [Tworzenie dzierżawy](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). W przypadku wirtualnej sieci WAN zobacz [Tworzenie dzierżawy — VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+* OpenVPN (Jeśli włączono ustawienia OpenVPN przy użyciu **certyfikatu platformy Azure** lub ustawień **uwierzytelniania usługi RADIUS** na bramie). Wybierz odpowiedni artykuł, który odnosi się do konfiguracji w celu utworzenia dzierżawy.
 
-## <a name="3-retrieve-information"></a>3. Pobieranie informacji
+  * [VPN Gateway — Utwórz dzierżawę](../articles/vpn-gateway/openvpn-azure-ad-tenant.md).
+  * [Wirtualna sieć WAN — tworzenie dzierżawy](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
-W folderze **AzureVPN** przejdź do pliku ***azurevpnconfig.xml*** i otwórz go w Notatniku. Zanotuj tekst między następującymi tagami.
+## <a name="retrieve-information"></a>Pobierz informacje
+
+W folderze **AzureVPN** przejdź do pliku **_azurevpnconfig.xml_** i otwórz go w Notatniku. Zanotuj tekst między następującymi tagami.
 
 ```
 <audience>          </audience>
@@ -49,11 +42,11 @@ W folderze **AzureVPN** przejdź do pliku ***azurevpnconfig.xml*** i otwórz go 
 
 Po dodaniu połączenia użyj informacji zebranych w poprzednim kroku dla strony Szczegóły profilu. Pola odnoszą się do następujących informacji:
 
-   * **Odbiorcy:** Identyfikuje zasób odbiorcy, dla którego jest przeznaczony token
-   * **Wystawca:** Identyfikuje usługę tokenu zabezpieczającego (STS), która emituje token, a także dzierżawę usługi Azure AD
-   * **Dzierżawca:** Zawiera niezmienny, unikatowy identyfikator dzierżawy katalogu, który wystawił token
-   * **Nazwa FQDN:** W pełni kwalifikowana nazwa domeny (FQDN) w bramie sieci VPN platformy Azure
-   * **ServerSecret:** Klucz wstępny bramy sieci VPN
+* **Odbiorcy:** Identyfikuje zasób odbiorcy, dla którego jest przeznaczony token.
+* **Wystawca:** Identyfikuje usługę tokenu zabezpieczającego (STS), która emituje token, a także dzierżawę usługi Azure AD.
+* **Dzierżawca:** Zawiera niezmienny, unikatowy identyfikator dzierżawy katalogu, który wystawił token.
+* **Nazwa FQDN:** W pełni kwalifikowana nazwa domeny (FQDN) w bramie sieci VPN platformy Azure.
+* **ServerSecret:** Klucz wstępny bramy sieci VPN.
 
 ## <a name="folder-contents"></a>Zawartość folderu
 

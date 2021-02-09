@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkemper
-ms.openlocfilehash: fd3f7dbfd824360dcba9f8a166c579e3b55527ba
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932119"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979610"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Ustawienia wypychania do konfiguracji aplikacji z Azure Pipelines
 
@@ -56,7 +56,7 @@ Przypisz odpowiednie przypisania roli konfiguracji aplikacji do poświadczeń u�
 
 W tej sekcji zawarto informacje dotyczące korzystania z zadania wypychania konfiguracji aplikacji platformy Azure w potoku kompilacji usługi Azure DevOps.
 
-1. Przejdź do strony potoku kompilacji, klikając **pozycję potoki potoki**  >  . Dokumentację potoków kompilacji można znaleźć [tutaj](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
+1. Przejdź do strony potoku kompilacji, klikając **pozycję potoki potoki**  >  . Dokumentację potoków kompilacji można znaleźć [tutaj](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - Jeśli tworzysz nowy potok kompilacji, wybierz pozycję **Pokaż asystenta** po prawej stronie potoku, a następnie wyszukaj zadanie **wypychania konfiguracji aplikacji platformy Azure** .
       - Jeśli używasz istniejącego potoku kompilacji, przejdź do karty **zadania** podczas edytowania potoku, a następnie wyszukaj zadanie **wypychania konfiguracji aplikacji platformy Azure** .
 2. Skonfiguruj parametry niezbędne do wykonania zadania w celu wypchnięcia wartości klucza z pliku konfiguracji do magazynu konfiguracji aplikacji. Parametr **ścieżki pliku konfiguracji** rozpoczyna się w katalogu głównym repozytorium plików.
@@ -66,10 +66,10 @@ W tej sekcji zawarto informacje dotyczące korzystania z zadania wypychania konf
 
 W tej sekcji zawarto informacje dotyczące korzystania z zadania wypychania konfiguracji aplikacji platformy Azure w potokach wydań usługi Azure DevOps.
 
-1. Przejdź do strony potoku wydania, wybierając pozycję wersje **potoków**  >  . Dokumentację potoków wydań można znaleźć [tutaj](/azure/devops/pipelines/release?view=azure-devops).
+1. Przejdź do strony potoku wydania, wybierając pozycję wersje **potoków**  >  . Dokumentację potoków wydań można znaleźć [tutaj](/azure/devops/pipelines/release).
 1. Wybierz istniejący potok wersji. Jeśli go nie masz, wybierz pozycję **+ Nowy** , aby utworzyć nowy.
 1. Wybierz przycisk **Edytuj** w prawym górnym rogu, aby edytować potoku wydania.
-1. Wybierz **etap** , aby dodać zadanie. Więcej informacji na temat etapów można znaleźć [tutaj](/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Wybierz **etap** , aby dodać zadanie. Więcej informacji na temat etapów można znaleźć [tutaj](/azure/devops/pipelines/release/environments).
 1. Wybierz **+** dla tego zadania, a następnie Dodaj zadanie **wypychania konfiguracji aplikacji platformy Azure** na karcie **wdrażanie** .
 1. Skonfiguruj niezbędne parametry w ramach zadania, aby wypchnąć kluczowe wartości z pliku konfiguracji do magazynu konfiguracji aplikacji. Wyjaśnienia parametrów są dostępne w poniższej sekcji **Parametry** i w etykietach narzędzi obok każdego parametru.
 1. Zapisz i wydawanie kolejki. W dzienniku zlecenia zostaną wyświetlone wszystkie błędy, które wystąpiły podczas wykonywania zadania.

@@ -6,16 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625169"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833018"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Rozwiązanie Network Performance Monitor — często zadawane pytania
 
 ![Symbol Network Performance Monitor](media/network-performance-monitor-faq/npm-symbol.png)
+
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) na platformie Azure Network Watcher przed 29 lutego 2024.
 
 W tym artykule zapoznaj się z często zadawanymi pytaniami dotyczącymi Network Performance Monitor (NPM) na platformie Azure
 
@@ -34,7 +37,7 @@ Poniżej wymieniono wymagania dotyczące platformy dla różnych możliwości NP
 - NPM ExpressRoute monitor obsługuje tylko system operacyjny Windows Server (2008 z dodatkiem SP1 lub nowszym).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Czy można używać maszyn z systemem Linux jako węzłów monitorowania w NPM?
-Możliwość monitorowania sieci przy użyciu węzłów opartych na systemie Linux jest teraz ogólnie dostępna. Dostępu agenta [tutaj](../../virtual-machines/extensions/oms-linux.md). 
+Możliwość monitorowania sieci przy użyciu węzłów opartych na systemie Linux jest teraz ogólnie dostępna. Uzyskaj dostęp do agenta [tutaj](../../virtual-machines/extensions/oms-linux.md). 
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Jakie są wymagania dotyczące rozmiaru węzłów, które mają być używane do monitorowania przez NPM?
 Aby można było uruchomić rozwiązanie NPM na maszynach wirtualnych węzła do monitorowania sieci, węzły powinny mieć co najmniej 500 MB pamięci i jeden rdzeń. Nie musisz używać oddzielnych węzłów do uruchamiania NPM. Rozwiązanie można uruchomić na węzłach, które mają uruchomione inne obciążenia. Rozwiązanie ma możliwość zatrzymania procesu monitorowania, jeśli używa więcej niż 5% procesora CPU.
@@ -255,10 +258,10 @@ Może się tak zdarzyć, jeśli:
 * Węzły lokalne i platformy Azure wybrane do monitorowania obwodu usługi ExpressRoute w konfiguracji monitorowania nie mają łączności ze sobą za pośrednictwem zamierzonego obwodu usługi ExpressRoute. Upewnij się, że wybrano poprawne węzły, które mają łączność ze sobą za pośrednictwem obwodu usługi ExpressRoute, który ma być monitorowany.
 
 ### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Dlaczego monitor ExpressRoute zgłasza mój obwód/komunikację równorzędną w złej kondycji, gdy jest dostępny i przekazuje dane.
-Monitor ExpressRoute porównuje wartości wydajności sieci (utrata, opóźnienie i wykorzystanie przepustowości) zgłoszone przez agentów/usługę z progami ustawionymi podczas konfiguracji. W przypadku obwodu, jeśli zgłoszone wykorzystanie przepustowości jest większe niż próg ustawiony w konfiguracji, obwód zostanie oznaczony jako w złej kondycji. W przypadku komunikacji równorzędnej w przypadku, gdy zgłoszono, że utrata, opóźnienie lub wykorzystanie przepustowości jest większe niż próg ustawiony w konfiguracji, Komunikacja równorzędna jest oznaczana jako zła. NPM nie wykorzystuje metryk ani żadnej innej formy danych, aby deicde stan kondycji.
+Monitor ExpressRoute porównuje wartości wydajności sieci (utrata, opóźnienie i wykorzystanie przepustowości) zgłoszone przez agentów/usługę z progami ustawionymi podczas konfiguracji. W przypadku obwodu, jeśli zgłoszone wykorzystanie przepustowości jest większe niż próg ustawiony w konfiguracji, obwód zostanie oznaczony jako w złej kondycji. W przypadku komunikacji równorzędnej w przypadku, gdy zgłaszane utrata, opóźnienie lub wykorzystanie przepustowości jest większe niż próg ustawiony w konfiguracji, Komunikacja równorzędna jest oznaczona jako zła. NPM nie używa metryk ani żadnej innej formy danych w celu określenia stanu kondycji.
 
-### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Dlaczego ExpressRoute Wykorzystaj Monitor'bandwidth, zgłoś wartość innej z bitów metryk w/out
-W przypadku monitora ExpressRoute przepustowość utiliation to średnia przepustowość przychodząca i wychodząca w ciągu ostatnich 20 minut, wyrażona w bitach na sekundę. W przypadku metryk usługi Express Route bit in/out jest na minutę punktów danych. Wewnętrznie zestaw danych używany dla obu tych obiektów jest taki sam, ale agregacja valies między metrykami NPM i ER. Aby zapoznać się z szczegółowym, minutowym monitorowaniem i szybkimi alertami, zalecamy ustawienie alertów bezpośrednio w metrykach usługi ER
+### <a name="why-does-expressroute-monitorbandwidth-utilization-report-a-value-different-from-metrics-bits-inout"></a>Dlaczego użycie usługi ExpressRoute Monitor'bandwidth zgłasza wartość różną od bitów metryk w/out
+W przypadku monitora ExpressRoute wykorzystanie przepustowości to średnia przepustowość przychodząca i wychodząca w ciągu ostatnich 20 minut, wyrażona w bitach na sekundę. W przypadku metryk usługi Express Route bit in/out jest na minutę punktów danych. Wewnętrznie zestaw danych, który jest używany dla obu, jest taki sam, ale agregacja różni się od metryk NPM i ER. Aby zapoznać się z szczegółowym, minutowym monitorowaniem i szybkimi alertami, zalecamy ustawienie alertów bezpośrednio w metrykach usługi ER
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Podczas konfigurowania monitorowania obwodu usługi ExpressRoute nie są wykrywane węzły platformy Azure.
 Taka sytuacja może wystąpić, jeśli węzły platformy Azure są połączone za pomocą Operations Manager. Funkcja monitor ExpressRoute obsługuje tylko te węzły platformy Azure, które są połączone jako agenci bezpośrednio.
@@ -300,4 +303,3 @@ NPM zaokrągla liczbę opóźnień w interfejsie użytkownika i w milisekundach.
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat Network Performance Monitor, odwołując się do [Network Performance Monitor rozwiązania na platformie Azure](./network-performance-monitor.md).
-

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 0864db8a653ff1d6f89ed0b1c857e51053ff50ff
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: f46a0938ebb8d9fe7e032162120056dca96b9567
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592607"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979766"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -244,74 +244,6 @@ Po utworzeniu zasobów mają one taką samą nazwę, z wyjątkiem opcjonalnego z
 > [!TIP]
 > Użyj konwencji nazewnictwa, aby wskazać warstwy cenowe w ramach nazwy zasobu lub grupy zasobów. Po otrzymaniu błędów z tworzenia nowej bazy wiedzy lub dodaniu nowych dokumentów Wyszukiwanie poznawcze limitu warstwy cenowej jest często spotykany problem.
 
-### <a name="resource-purposes"></a>Cele zasobów
-
-Każdy zasób platformy Azure utworzony przy użyciu QnA Maker ma określony cel:
-
-* Zasób QnA Maker
-* Zasób Wyszukiwanie poznawcze
-* App Service
-* Usługa planu aplikacji
-* Usługa Application Insights
-
-
-### <a name="cognitive-search-resource"></a>Zasób Wyszukiwanie poznawcze
-
-Zasób [Wyszukiwanie poznawcze](../../../search/index.yml) jest używany do:
-
-* Przechowywanie par QnA
-* Podaj początkową klasyfikację (#1 rangi) par QnA w czasie wykonywania
-
-#### <a name="index-usage"></a>Użycie indeksu
-
-Zasób zachowuje jeden indeks do działania jako indeks testu, a pozostałe indeksy są skorelowane do jednej opublikowanej bazy wiedzy.
-
-Zasób cenowy do przechowywania 15 indeksów będzie zawierał 14 opublikowanych baz wiedzy, a jeden indeks jest używany do testowania wszystkich baz wiedzy. Ten indeks testu jest partycjonowany przez bazę wiedzy, dzięki czemu zapytanie korzystające z interaktywnego okienka testów użyje indeksu testu, ale zwróci tylko wyniki z konkretnej partycji skojarzonej z określoną bazą wiedzy.
-
-#### <a name="language-usage"></a>Użycie języka
-
-Pierwsza baza wiedzy utworzona w zasobie QnA Maker służy do określenia _jednego_ zestawu języka dla zasobu wyszukiwanie poznawcze i wszystkich jego indeksów. Dla usługi QnA Maker można _ustawić tylko jeden język_ .
-
-### <a name="qna-maker-resource"></a>Zasób QnA Maker
-
-Zasób QnA Maker zapewnia dostęp do interfejsów API tworzenia i publikowania, a także na podstawie drugiej warstwy klasyfikacyjnej (NLP) (ranga #2) par QnA w czasie wykonywania.
-
-Druga klasyfikacja stosuje inteligentne filtry, które mogą zawierać metadane i monity monitujące.
-
-#### <a name="qna-maker-resource-configuration-settings"></a>Ustawienia konfiguracji zasobów QnA Maker
-
-Podczas tworzenia nowej bazy wiedzy w [portalu QNA Maker](https://qnamaker.ai)ustawienie **języka** jest jedynym ustawieniem stosowanym na poziomie zasobu. Język jest wybierany podczas tworzenia pierwszej bazy wiedzy dla zasobu.
-
-### <a name="app-service-and-app-service-plan"></a>Usługa App Service i plan usługi App Service
-
-[Usługa App Service](../../../app-service/index.yml) jest używana przez aplikację kliencką do uzyskiwania dostępu do opublikowanych baz wiedzy za pośrednictwem punktu końcowego środowiska uruchomieniowego.
-
-Aby wysłać zapytanie do opublikowanej bazy wiedzy, wszystkie opublikowane bazy wiedzy używają tego samego punktu końcowego adresu URL, ale Określ **Identyfikator bazy wiedzy** w ramach trasy.
-
-`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
-
-### <a name="application-insights"></a>Application Insights
-
-[Application Insights](../../../azure-monitor/app/app-insights-overview.md) służy do zbierania dzienników rozmowy i telemetrii. Przejrzyj typowe [zapytania Kusto](../how-to/get-analytics-knowledge-base.md) , aby uzyskać informacje o usłudze.
-
-## <a name="share-services-with-qna-maker"></a>Udostępnianie usług za pomocą QnA Maker
-
-QnA Maker tworzy kilka zasobów platformy Azure. Aby ograniczyć zarządzanie i korzystać z zalet udostępniania kosztów, Skorzystaj z poniższej tabeli, aby zrozumieć, co można i czego nie można udostępnić:
-
-|Usługa|Udostępnij|Przyczyna|
-|--|--|--|
-|Cognitive Services|X|Niemożliwa przez projekt|
-|Plan usługi App Service|✔|Stałe miejsce na dysku przydzielono dla planu App Service. Jeśli inne aplikacje, które współużytkują ten sam plan App Service, użyją znacznego miejsca na dysku, wystąpienie App Service QnAMaker napotka problemy.|
-|App Service|X|Niemożliwa przez projekt|
-|Application Insights|✔|Mogą być udostępniane|
-|Search Service|✔|1. `testkb` jest zarezerwowaną nazwą usługi QnAMaker. nie może być używana przez inne osoby.<br>2. Mapa synonimów o nazwie `synonym-map` jest zarezerwowana dla usługi QnAMaker.<br>3. liczba opublikowanych baz wiedzy jest ograniczona przez warstwę usługi wyszukiwania. Jeśli dostępne są wolne indeksy, można z nich korzystać inne usługi.|
-
-### <a name="using-a-single-cognitive-search-service"></a>Korzystanie z pojedynczej usługi Wyszukiwanie poznawcze
-
-Jeśli utworzysz usługę QnA i jej zależności (takie jak wyszukiwanie) w portalu, zostanie utworzona usługa wyszukiwania i zostanie ona połączona z usługą QnA Maker. Po utworzeniu tych zasobów można zaktualizować ustawienie App Service tak, aby korzystało już z istniejącej usługi wyszukiwania, i usunąć właśnie utworzoną.
-
-Dowiedz się, [jak skonfigurować](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QNA Maker, aby używać innego zasobu usługi poznawczej niż ten, który został utworzony w ramach procesu tworzenia zasobu QNA Maker.
-
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 
 Nazwa zasobu QnA Maker dla zasobu zarządzanego (wersja zapoznawcza), na przykład `qna-westus-f0-b` , jest również używana do nazywania innych zasobów.
@@ -330,12 +262,87 @@ Okno Azure Portal Create umożliwia utworzenie zasobu zarządzanego QnA Maker (w
 > [!TIP]
 > Użyj konwencji nazewnictwa, aby wskazać warstwy cenowe w ramach nazwy zasobu lub grupy zasobów. Po otrzymaniu błędów z tworzenia nowej bazy wiedzy lub dodaniu nowych dokumentów Wyszukiwanie poznawcze limitu warstwy cenowej jest często spotykany problem.
 
-### <a name="resource-purposes"></a>Cele zasobów
+---
+
+## <a name="resource-purposes"></a>Cele zasobów
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
+Każdy zasób platformy Azure utworzony przy użyciu QnA Maker ma określony cel:
+
+* Zasób QnA Maker
+* Zasób Wyszukiwanie poznawcze
+* App Service
+* Usługa planu aplikacji
+* Usługa Application Insights
+
+### <a name="qna-maker-resource"></a>Zasób QnA Maker
+
+Zasób QnA Maker zapewnia dostęp do interfejsów API tworzenia i publikowania, a także na podstawie drugiej warstwy klasyfikacyjnej (NLP) (ranga #2) par QnA w czasie wykonywania.
+
+Druga klasyfikacja stosuje inteligentne filtry, które mogą zawierać metadane i monity monitujące.
+
+#### <a name="qna-maker-resource-configuration-settings"></a>Ustawienia konfiguracji zasobów QnA Maker
+
+Podczas tworzenia nowej bazy wiedzy w [portalu QNA Maker](https://qnamaker.ai)ustawienie **języka** jest jedynym ustawieniem stosowanym na poziomie zasobu. Język jest wybierany podczas tworzenia pierwszej bazy wiedzy dla zasobu.
+
+### <a name="cognitive-search-resource"></a>Zasób Wyszukiwanie poznawcze
+
+Zasób [Wyszukiwanie poznawcze](../../../search/index.yml) jest używany do:
+
+* Przechowywanie par QnA
+* Podaj początkową klasyfikację (#1 rangi) par QnA w czasie wykonywania
+
+#### <a name="index-usage"></a>Użycie indeksu
+
+Zasób zachowuje jeden indeks do działania jako indeks testu, a pozostałe indeksy są skorelowane do jednej opublikowanej bazy wiedzy.
+
+Zasób cenowy do przechowywania 15 indeksów będzie zawierał 14 opublikowanych baz wiedzy, a jeden indeks jest używany do testowania wszystkich baz wiedzy. Ten indeks testu jest partycjonowany przez bazę wiedzy, dzięki czemu zapytanie korzystające z interaktywnego okienka testów użyje indeksu testu, ale zwróci tylko wyniki z konkretnej partycji skojarzonej z określoną bazą wiedzy.
+
+#### <a name="language-usage"></a>Użycie języka
+
+Pierwsza baza wiedzy utworzona w zasobie QnA Maker służy do określenia _jednego_ zestawu języka dla zasobu wyszukiwanie poznawcze i wszystkich jego indeksów. Dla usługi QnA Maker można _ustawić tylko jeden język_ .
+
+#### <a name="using-a-single-cognitive-search-service"></a>Korzystanie z pojedynczej usługi Wyszukiwanie poznawcze
+
+Jeśli utworzysz usługę QnA i jej zależności (takie jak wyszukiwanie) w portalu, zostanie utworzona usługa wyszukiwania i zostanie ona połączona z usługą QnA Maker. Po utworzeniu tych zasobów można zaktualizować ustawienie App Service tak, aby korzystało już z istniejącej usługi wyszukiwania, i usunąć właśnie utworzoną.
+
+Dowiedz się, [jak skonfigurować](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QNA Maker, aby używać innego zasobu usługi poznawczej niż ten, który został utworzony w ramach procesu tworzenia zasobu QNA Maker.
+
+### <a name="app-service-and-app-service-plan"></a>Usługa App Service i plan usługi App Service
+
+[Usługa App Service](../../../app-service/index.yml) jest używana przez aplikację kliencką do uzyskiwania dostępu do opublikowanych baz wiedzy za pośrednictwem punktu końcowego środowiska uruchomieniowego.
+
+Aby wysłać zapytanie do opublikowanej bazy wiedzy, wszystkie opublikowane bazy wiedzy używają tego samego punktu końcowego adresu URL, ale Określ **Identyfikator bazy wiedzy** w ramach trasy.
+
+`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
+
+### <a name="application-insights"></a>Application Insights
+
+[Application Insights](../../../azure-monitor/app/app-insights-overview.md) służy do zbierania dzienników rozmowy i telemetrii. Przejrzyj typowe [zapytania Kusto](../how-to/get-analytics-knowledge-base.md) , aby uzyskać informacje o usłudze.
+
+### <a name="share-services-with-qna-maker"></a>Udostępnianie usług za pomocą QnA Maker
+
+QnA Maker tworzy kilka zasobów platformy Azure. Aby ograniczyć zarządzanie i korzystać z zalet udostępniania kosztów, Skorzystaj z poniższej tabeli, aby zrozumieć, co można i czego nie można udostępnić:
+
+|Usługa|Udostępnij|Przyczyna|
+|--|--|--|
+|Cognitive Services|X|Niemożliwa przez projekt|
+|Plan usługi App Service|✔|Stałe miejsce na dysku przydzielono dla planu App Service. Jeśli inne aplikacje, które współużytkują ten sam plan App Service, użyją znacznego miejsca na dysku, wystąpienie App Service QnAMaker napotka problemy.|
+|App Service|X|Niemożliwa przez projekt|
+|Application Insights|✔|Mogą być udostępniane|
+|Search Service|✔|1. `testkb` jest zarezerwowaną nazwą usługi QnAMaker. nie może być używana przez inne osoby.<br>2. Mapa synonimów o nazwie `synonym-map` jest zarezerwowana dla usługi QnAMaker.<br>3. liczba opublikowanych baz wiedzy jest ograniczona przez warstwę usługi wyszukiwania. Jeśli dostępne są wolne indeksy, można z nich korzystać inne usługi.|
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 
 Każdy zasób platformy Azure utworzony przy użyciu QnA Maker zarządzane (wersja zapoznawcza) ma określony cel:
 
 * Zasób QnA Maker
 * Zasób Wyszukiwanie poznawcze
+
+### <a name="qna-maker-resource"></a>Zasób QnA Maker
+
+Zasób zarządzany QnA Maker (wersja zapoznawcza) zapewnia dostęp do interfejsów API tworzenia i publikowania, hostuje środowisko uruchomieniowe klasyfikacji oraz udostępnia dane telemetryczne.
 
 ### <a name="azure-cognitive-search-resource"></a>Zasób Wyszukiwanie poznawcze platformy Azure
 
@@ -353,10 +360,6 @@ Na przykład jeśli warstwa ma 15 dozwolonych indeksów, można opublikować 14 
 #### <a name="language-usage"></a>Użycie języka
 
 Dzięki programowi QnA Maker Managed (wersja zapoznawcza) masz możliwość skonfigurowania usługi QnA Maker dla baz wiedzy w jednym języku lub w wielu językach. Wybór ten należy wykonać podczas tworzenia pierwszej bazy wiedzy w usłudze QnA Maker. Zobacz [tutaj](#pricing-tier-considerations) , jak włączyć ustawienie języka dla bazy wiedzy.
-
-### <a name="qna-maker-resource"></a>Zasób QnA Maker
-
-Zasób zarządzany QnA Maker (wersja zapoznawcza) zapewnia dostęp do interfejsów API tworzenia i publikowania, hostuje środowisko uruchomieniowe klasyfikacji oraz udostępnia dane telemetryczne.
 
 ---
 

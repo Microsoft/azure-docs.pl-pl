@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803871"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980522"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB
 
@@ -32,6 +32,10 @@ Aby włączyć przywracanie do określonego momentu, należy utworzyć zasady za
 Aby zainicjować przywracanie do określonego momentu, wywołaj operację [Przywróć zakresy obiektów BLOB](/rest/api/storagerp/storageaccounts/restoreblobranges) i określ punkt przywracania w czasie UTC. Można określić zakresy lexicographical nazw kontenerów i obiektów BLOB do przywrócenia lub pominąć zakres, aby przywrócić wszystkie kontenery na koncie magazynu. Dla operacji przywracania obsługiwane są maksymalnie 10 zakresów lexicographical.
 
 Usługa Azure Storage analizuje wszystkie zmiany wprowadzone w określonych obiektach Blob między żądanym punktem przywracania, określonym w polu czas UTC, a obecnym chwilą. Operacja przywracania jest niepodzielna, dlatego w całości przywraca wszystkie zmiany lub nie powiedzie się. Jeśli istnieją jakiekolwiek obiekty blob, których nie można przywrócić, operacja kończy się niepowodzeniem, a operacje odczytu i zapisu w kontenerach, których dotyczy problem, są wznawiane.
+
+Na poniższym diagramie przedstawiono sposób, w jaki działa przywracanie do punktu w czasie. Co najmniej jeden kontener lub zakresy obiektów BLOB są przywracane do stanu *n* dni temu, gdzie *n* jest mniejsze niż lub równe okresowi przechowywania zdefiniowanym dla przywracania do określonego momentu. Efektem jest przywrócenie operacji zapisu i usuwania, które wystąpiły w okresie przechowywania.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="Diagram pokazujący, jak punkt w czasie przywraca kontenery do poprzedniego stanu":::
 
 Jednocześnie można uruchomić tylko jedną operację przywracania na koncie magazynu. Nie można anulować operacji przywracania, gdy jest w toku, ale w celu cofnięcia pierwszej operacji można wykonać drugą operację przywracania.
 

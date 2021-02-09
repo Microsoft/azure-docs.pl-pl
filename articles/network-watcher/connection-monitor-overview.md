@@ -15,14 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898015"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833103"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorowanie łączności sieciowej z monitorem połączeń
+
+> [!IMPORTANT]
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Nie będzie również można dodawać nowych monitorów połączeń w monitorze połączeń (klasyczny). Można nadal korzystać z testów i monitorów połączeń utworzonych przed 1 lipca 2021. Aby zminimalizować przerwy w działaniu usługi z bieżącymi obciążeniami, należy [migrować testy z Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) lub  [przeprowadzić migrację z monitora połączeń (klasycznego)](migrate-to-connection-monitor-from-connection-monitor-classic.md) do nowego monitora połączeń na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Monitor połączeń zapewnia ujednolicone kompleksowe monitorowanie połączeń w usłudze Azure Network Watcher. Funkcja monitor połączeń obsługuje wdrożenia hybrydowe i w chmurze platformy Azure. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania i wyświetlania metryk związanych z łącznością dla wdrożeń platformy Azure.
 
@@ -111,7 +114,7 @@ Monitor połączeń obejmuje następujące jednostki:
 
  ![Diagram przedstawiający monitor połączeń, który definiuje relację między grupami testów i testami](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Monitor połączeń można utworzyć przy użyciu [Azure Portal](./connection-monitor-create-using-portal.md) lub [ARMClient](./connection-monitor-create-using-template.md)
+Monitor połączeń można utworzyć przy użyciu [Azure Portal](./connection-monitor-create-using-portal.md), [ARMClient](./connection-monitor-create-using-template.md) lub [PowerShell](connection-monitor-create-using-powershell.md) .
 
 Wszystkie źródła, miejsca docelowe i konfiguracje testów dodawane do grupy testowej są podzielone na poszczególne testy. Oto przykład sposobu, w jaki źródła i miejsca docelowe są podzielone:
 
@@ -271,12 +274,13 @@ W monitorach połączeń utworzonych przed rozpoczęciem korzystania z monitora 
 
 Korzystając z metryk, ustaw typ zasobu jako Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metryka | Nazwa wyświetlana | Jednostka | Typ agregacji | Opis | Wymiary |
+| Metric | Nazwa wyświetlana | Jednostka | Typ agregacji | Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % Sond nie powiodło się | Procent | Średnia | Procent sond monitorowania łączności nie powiódł się. | Brak wymiarów |
-| AverageRoundtripMs | Średni czas błądzenia (MS) | ) | Średnia | Średni czas RTT sieci dla sond monitorowania łączności przesyłanych między źródłem a miejscem docelowym. |             Brak wymiarów |
-| ChecksFailedPercent (wersja zapoznawcza) | % Sprawdzenia nie powiodło się (wersja zapoznawcza) | Procent | Średnia | Procent testów zakończonych niepowodzeniem dla testu. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region (Region) |
-| RoundTripTimeMs (wersja zapoznawcza) | Czas błądzenia (MS) (wersja zapoznawcza) | ) | Średnia | Czas RTT dla czeków wysyłanych między źródłem a miejscem docelowym. Ta wartość nie jest średnia. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region (Region) |
+| ProbesFailedPercent (klasyczny) | % Sond nie powiodło się (klasyczne) | Procent | Średnia | Procent sond monitorowania łączności nie powiódł się. | Brak wymiarów |
+| AverageRoundtripMs (klasyczny) | Średni czas błądzenia (MS) (klasyczny) | ) | Średnia | Średni czas RTT sieci dla sond monitorowania łączności przesyłanych między źródłem a miejscem docelowym. |             Brak wymiarów |
+| ChecksFailedPercent | % Testów zakończonych niepowodzeniem | Procent | Średnia | Procent testów zakończonych niepowodzeniem dla testu. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region (Region) |
+| RoundTripTimeMs | Czas błądzenia (MS) | ) | Średnia | Czas RTT dla czeków wysyłanych między źródłem a miejscem docelowym. Ta wartość nie jest średnia. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region (Region) |
+| TestResult | Wynik testu | Liczba | Średnia | Wynik testu monitora połączeń | SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alerty na podstawie metryk dla monitora połączeń
 

@@ -8,19 +8,17 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d208a4a86896c81982aa2b10ca7ce5e7a6773c05
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820216"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979746"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Samouczek: przenoszenie maszyn wirtualnych platformy Azure między regionami
 
 W tym artykule dowiesz się, jak przenieść maszyny wirtualne platformy Azure oraz powiązane zasoby sieci/magazynu do innego regionu platformy Azure przy użyciu funkcji [przenoszenia zasobów platformy Azure](overview.md).
-
-> [!NOTE]
-> Usługa Azure Resource przeprowadzki jest obecnie dostępna w publicznej wersji zapoznawczej.
+.
 
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
@@ -40,26 +38,21 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/). Następnie zaloguj się do [Azure Portal](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-
--  Sprawdź, czy masz dostęp *właściciela* do subskrypcji zawierającej zasoby, które chcesz przenieść.
-    - Przy pierwszym dodawaniu zasobu dla określonej pary źródłowej i docelowej w ramach subskrypcji platformy Azure usługa zarządzania zasobami tworzy [tożsamość zarządzaną przypisaną przez system](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (znaną wcześniej jako identyfikator usługi zarządzanej (msi), która jest zaufana przez subskrypcję.
-    - Aby utworzyć tożsamość i przypisać do niej wymaganą rolę (współautor lub administratora dostępu użytkownika w subskrypcji źródłowej), konto używane do dodawania zasobów wymaga uprawnień *właściciela* do subskrypcji. [Dowiedz się więcej](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) na temat ról platformy Azure.
-- Subskrypcja wymaga wystarczającego limitu przydziału, aby utworzyć zasoby, które są przenoszone w regionie docelowym. Jeśli nie ma limitu przydziału, [Zażądaj dodatkowych limitów](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Sprawdź ceny i opłaty związane z regionem docelowym, do którego przenosisz maszyny wirtualne. Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/) , aby uzyskać pomoc.
+**Wymaganie** | **Opis**
+--- | ---
+**Uprawnienia subskrypcji** | Sprawdź, czy masz dostęp *właściciela* do subskrypcji zawierającej zasoby, które chcesz przenieść<br/><br/> **Dlaczego mam dostęp do właściciela?** Przy pierwszym dodawaniu zasobu dla określonej pary źródłowej i docelowej w ramach subskrypcji platformy Azure usługa zarządzania zasobami tworzy [tożsamość zarządzaną przypisaną przez system](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (znaną wcześniej jako identyfikator usługi zarządzanej (msi), która jest zaufana przez subskrypcję. Aby utworzyć tożsamość i przypisać do niej wymaganą rolę (współautor lub administratora dostępu użytkownika w subskrypcji źródłowej), konto używane do dodawania zasobów wymaga uprawnień *właściciela* do subskrypcji. [Dowiedz się więcej](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) na temat ról platformy Azure.
+**Obsługa maszyn wirtualnych** |  Sprawdź, czy maszyny wirtualne, które chcesz przenieść, są obsługiwane.<br/><br/> - [Sprawdź](support-matrix-move-region-azure-vm.md#windows-vm-support) obsługiwane maszyny wirtualne z systemem Windows.<br/><br/> - [Sprawdź](support-matrix-move-region-azure-vm.md#linux-vm-support) obsługiwane maszyny wirtualne i wersje jądra systemu Linux.<br/><br/> -Sprawdź obsługiwane ustawienia [obliczeń](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [magazynu](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings)i [sieci](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) .
+**Subskrypcja docelowa** | Subskrypcja w regionie docelowym wymaga wystarczającego limitu przydziału, aby można było utworzyć zasoby, które są przenoszone w regionie docelowym. Jeśli nie ma limitu przydziału, [Zażądaj dodatkowych limitów](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**Opłaty w regionie docelowym** | Sprawdź ceny i opłaty związane z regionem docelowym, do którego przenosisz maszyny wirtualne. Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/) , aby uzyskać pomoc.
     
 
-## <a name="check-vm-requirements"></a>Sprawdź wymagania dotyczące maszyny wirtualnej
+## <a name="prepare-vms"></a>Przygotowywanie maszyn wirtualnych
 
-1. Sprawdź, czy maszyny wirtualne, które chcesz przenieść, są obsługiwane.
-
-    - [Sprawdź](support-matrix-move-region-azure-vm.md#windows-vm-support) obsługiwane maszyny wirtualne z systemem Windows.
-    - [Sprawdź](support-matrix-move-region-azure-vm.md#linux-vm-support) obsługiwane maszyny wirtualne i wersje jądra systemu Linux.
-    - Sprawdź obsługiwane ustawienia [obliczeń](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [magazynu](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings)i [sieci](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) .
-2. Sprawdź, czy maszyny wirtualne, które chcesz przenieść, są włączone.
-3. Upewnij się, że maszyny wirtualne mają najnowsze zaufane certyfikaty główne oraz zaktualizowaną listę odwołania certyfikatów (CRL). W tym celu:
+1. Po sprawdzeniu, czy maszyny wirtualne spełniają wymagania, upewnij się, że maszyny wirtualne, które chcesz przenieść, są włączone. Wszystkie dyski maszyn wirtualnych, które mają być dostępne w regionie docelowym, muszą być dołączane i inicjowane na maszynie wirtualnej.
+1. Upewnij się, że maszyny wirtualne mają najnowsze zaufane certyfikaty główne oraz zaktualizowaną listę odwołania certyfikatów (CRL). W tym celu:
     - Na maszynach wirtualnych z systemem Windows zainstaluj najnowsze aktualizacje systemu Windows.
     - Na maszynach wirtualnych z systemem Linux postępuj zgodnie ze wskazówkami dystrybutora, aby komputery miały najnowsze certyfikaty i listę CRL. 
-4. Zezwalaj na połączenia wychodzące z maszyn wirtualnych:
+1. Zezwalaj na połączenia wychodzące z maszyn wirtualnych:
     - Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Zezwól na dostęp do tych [adresów URL](support-matrix-move-region-azure-vm.md#url-access)
     - Jeśli używasz reguł sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) w celu kontrolowania łączności wychodzącej, Utwórz te [reguły tagów usług](support-matrix-move-region-azure-vm.md#nsg-rules).
 
@@ -85,12 +78,12 @@ Wybierz zasoby, które chcesz przenieść.
     ![Strona umożliwiająca wybranie regionu źródłowego i docelowego](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. W obszarze **zasoby do przeniesienia** kliknij pozycję **Wybierz zasoby**.
-7. W obszarze **Wybierz zasoby** wybierz maszynę wirtualną. Można dodawać tylko [zasoby obsługiwane do przenoszenia](#check-vm-requirements). Następnie kliknij przycisk **gotowe**.
+7. W obszarze **Wybierz zasoby** wybierz maszynę wirtualną. Można dodawać tylko [zasoby obsługiwane do przenoszenia](#prepare-vms). Następnie kliknij przycisk **gotowe**.
 
     ![Strona umożliwiająca wybranie maszyn wirtualnych do przeniesienia](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  W obszarze **zasoby do przeniesienia** kliknij przycisk **dalej**.
-9. W obszarze **Recenzja + Dodawanie** Sprawdź ustawienia źródłowe i docelowe. 
+9. W obszarze **Przegląd** Sprawdź ustawienia źródłowe i docelowe. 
 
     ![Strona umożliwiająca przejrzenie ustawień i przejście do przenoszenia](./media/tutorial-move-region-virtual-machines/review.png)
 10. Kliknij przycisk " **Zastosuj**", aby rozpocząć dodawanie zasobów.
@@ -99,25 +92,27 @@ Wybierz zasoby, które chcesz przenieść.
 
 > [!NOTE]
 > - Dodane zasoby są w stanie *oczekiwania na przygotowanie* .
+> - Grupa zasobów dla maszyn wirtualnych jest dodawana automatycznie.
 > - Jeśli chcesz usunąć zasób z kolekcji Move, metoda dla operacji, która zależy od tego, gdzie jesteś w procesie przenoszenia. [Dowiedz się więcej](remove-move-resources.md).
 
 ## <a name="resolve-dependencies"></a>Rozwiązywanie zależności
 
 1. Jeśli w kolumnie **problemy** zostanie wyświetlony komunikat *Weryfikuj zależności* , kliknij przycisk **Weryfikuj zależności** . Rozpocznie się proces walidacji.
 2. Jeśli znajdują się zależności, kliknij przycisk **Dodaj zależności**. 
-3. W obszarze **Dodaj zależności** Wybierz zasoby zależne > **Dodaj zależności**. Monitoruj postęp w powiadomieniach.
+3. W obszarze **Dodawanie zależności** Pozostaw domyślną opcję **Pokaż wszystkie zależności** .
+
+    - Pokaż wszystkie zależności iteracji przez wszystkie zależności bezpośrednie i pośrednie dla zasobu. Na przykład dla maszyny wirtualnej jest wyświetlana karta sieciowa, Sieć wirtualna, sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) itp.
+    - Pokaż zależności pierwszego poziomu wyświetla tylko zależności bezpośrednie. Na przykład dla maszyny wirtualnej jest wyświetlana karta sieciowa, ale nie Sieć wirtualna.
+
+
+4. Wybierz zasoby zależne, które chcesz dodać > **Dodaj zależności**. Monitoruj postęp w powiadomieniach.
 
     ![Dodaj zależności](./media/tutorial-move-region-virtual-machines/add-dependencies.png)
 
-4. W razie konieczności Dodaj dodatkowe zależności i ponownie sprawdź zależności. 
+4. Ponownie Zweryfikuj zależności. 
     ![Strona umożliwiająca dodanie dodatkowych zależności](./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png)
 
-4. Na stronie **między regionami** Sprawdź, czy zasoby są teraz w stanie *gotowości do przygotowania* , bez problemów.
 
-    ![Strona wyświetlająca zasoby w stanie oczekiwanie na przygotowanie](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
-
-> [!NOTE]
-> Jeśli chcesz edytować ustawienia docelowe przed rozpoczęciem przenoszenia, wybierz link w kolumnie **Konfiguracja docelowa** dla zasobu i Edytuj ustawienia. Jeśli edytujesz ustawienia docelowej maszyny wirtualnej, docelowy rozmiar maszyny wirtualnej nie powinien być mniejszy niż rozmiar źródłowej maszyny wirtualnej.  
 
 ## <a name="move-the-source-resource-group"></a>Przenoszenie źródłowej grupy zasobów 
 
@@ -158,9 +153,17 @@ Aby zatwierdzić i zakończyć proces przenoszenia:
 
 ## <a name="prepare-resources-to-move"></a>Przygotowanie zasobów do przeniesienia
 
+Po przeniesieniu źródłowej grupy zasobów można przystąpić do przenoszenia innych zasobów w stanie oczekiwania na *przygotowanie* .
+
+1. W **różnych regionach** Sprawdź, czy zasoby są teraz w stanie *gotowości do przygotowania* , bez problemów. Jeśli tak nie jest, ponownie sprawdź poprawność i rozwiąż wszelkie pozostałe problemy.
+
+    ![Strona wyświetlająca zasoby w stanie oczekiwanie na przygotowanie](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
+
+2. Jeśli chcesz edytować ustawienia docelowe przed rozpoczęciem przenoszenia, wybierz link w kolumnie **Konfiguracja docelowa** dla zasobu i Edytuj ustawienia. Jeśli edytujesz ustawienia docelowej maszyny wirtualnej, docelowy rozmiar maszyny wirtualnej nie powinien być mniejszy niż rozmiar źródłowej maszyny wirtualnej.  
+
 Po przeniesieniu źródłowej grupy zasobów można przystąpić do przenoszenia innych zasobów.
 
-1. W obszarze **między regionami** Wybierz zasoby, które chcesz przygotować. 
+3. Wybierz zasoby, które chcesz przygotować. 
 
     ![Strona do wybrania przygotowania do innych zasobów](./media/tutorial-move-region-virtual-machines/prepare-other.png)
 

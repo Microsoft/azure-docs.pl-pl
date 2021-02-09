@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 17a7ad29596c5ab5ed65868fde0e814bc83e8c37
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1d633b1a9f5fee0a5cceb48f2b37aaec2092069f
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576746"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979539"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -132,20 +132,20 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
 }
 ```
 
-## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Wybieranie stron lub zakresów stron do wyodrębniania tekstu
-Za pomocą [interfejsu API odczytu 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)w przypadku dużych dokumentów wielostronicowych Użyj `pages` parametru zapytania, aby określić numery stron lub zakresy stron w celu wyodrębnienia tekstu z tylko tych stron. Na przykład poniższy przykład pokazuje dokument zawierający 10 stron dla obu przypadków — wszystkie strony (1-10) i wybrane strony (3-6).
+## <a name="natural-reading-order-output"></a>Dane wyjściowe z porządkiem naturalnym odczytywania
+Za pomocą [interfejsu API odczytu 3,2 w wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)Określ kolejność, w której wiersze tekstowe są wyprowadzane za pomocą `readingOrder` parametru zapytania. Użyj, `natural` Aby uzyskać bardziej przyjazny dla człowieka wynik z kolejnością odczytywania, jak pokazano w poniższym przykładzie.
 
-:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Wybrane strony wyjściowe":::
-
-## <a name="specify-text-line-order-in-the-output"></a>Określ kolejność wierszy tekstu w danych wyjściowych
-Za pomocą [interfejsu API odczytu 3,2 w wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)Określ kolejność, w której wiersze tekstowe są wyprowadzane za pomocą `read order` parametru zapytania. Wybierz opcję między `basic` wartością domyślną kolejność wierszy w lewo i w dół lub `natural` dla bardziej zrozumiałej dla ludzi kolejności wierszy. W poniższym przykładzie pokazano dwa zestawy numerów porządkowych wierszy dla tego samego dwukolumnowego dokumentu. Zauważ, że obraz po prawej stronie zawiera sekwencyjne numery wierszy w każdej kolumnie, aby reprezentować kolejność odczytywania.
-
-:::image border type="content" source="./Images/ocr-read-order.png" alt-text="Przykład kolejności odczytywania OCR":::
+:::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="Przykład kolejności odczytywania OCR":::
 
 ## <a name="handwritten-classification-for-text-lines-latin-only"></a>Klasyfikacja odręczna dla linii tekstowych (tylko łaciński)
 Odpowiedź w [interfejsie API Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) obejmuje klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu ma styl pisma ręcznego, czy nie, oraz ocenę ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich. Poniższy przykład pokazuje klasyfikację odręczne dla tekstu w obrazie.
 
-:::image border type="content" source="./Images/handwritten-text-line.png" alt-text="Przykład klasyfikacji pisma ręcznego OCR":::
+:::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="Przykład klasyfikacji pisma ręcznego OCR":::
+
+## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Wybieranie stron lub zakresów stron do wyodrębniania tekstu
+Za pomocą [interfejsu API odczytu 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)w przypadku dużych dokumentów wielostronicowych Użyj `pages` parametru zapytania, aby określić numery stron lub zakresy stron w celu wyodrębnienia tekstu z tylko tych stron. Poniższy przykład pokazuje dokument zawierający 10 stron z tekstem wyodrębnionym dla obu przypadków — wszystkie strony (1-10) i wybrane strony (3-6).
+
+:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Wybrane strony wyjściowe":::
 
 ## <a name="supported-languages"></a>Obsługiwane języki
 Interfejsy API odczytu obsługują łącznie 73 języków na potrzeby tekstu w stylu drukowania. Zapoznaj się z pełną listą [języków obsługiwanych przez aparat OCR](./language-support.md#optical-character-recognition-ocr). OCR w stylu odręcznym jest obsługiwany wyłącznie w języku angielskim.

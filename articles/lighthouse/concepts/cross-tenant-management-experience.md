@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 02/02/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805178"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981089"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -165,6 +165,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 Żądania obsługi:
 
 - [Otwórz żądania pomocy technicznej z **pomocy i obsługi technicznej**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) w Azure Portal dla delegowanych zasobów (Wybierz plan pomocy technicznej dostępny dla delegowanego zakresu)
+- Użyj [interfejsu API przydziału platformy Azure](/rest/api/reserved-vm-instances/quotaapi) , aby wyświetlić przydziały usługi platformy Azure i zarządzać nimi dla delegowanych zasobów klienta
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
