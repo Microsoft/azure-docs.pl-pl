@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695218"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987791"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -79,7 +79,7 @@ W podobny sposób można tworzyć [reguły zabezpieczeń wychodzące sieciowej g
 
 ### <a name="azure-firewall-tags"></a>Tagi zapory platformy Azure
 
-Jeśli używasz zapory platformy Azure, Utwórz regułę aplikacji przy użyciu *AzureBackup* [znacznika FQDN zapory AzureBackup platformy Azure](../firewall/fqdn-tags.md). Umożliwia to wychodzący dostęp do Azure Backup.
+Jeśli używasz zapory platformy Azure, Utwórz regułę aplikacji przy użyciu  [znacznika FQDN zapory AzureBackup platformy Azure](../firewall/fqdn-tags.md). Umożliwia to wychodzący dostęp do Azure Backup.
 
 ### <a name="allow-access-to-service-ip-ranges"></a>Zezwalaj na dostęp do zakresów adresów IP usługi
 
@@ -98,6 +98,46 @@ Można również użyć następujących nazw FQDN, aby zezwolić na dostęp do w
 ### <a name="use-an-http-proxy-server-to-route-traffic"></a>Kierowanie ruchu przy użyciu serwera proxy HTTP
 
 Podczas tworzenia kopii zapasowej bazy danych SAP HANA działającej na maszynie wirtualnej platformy Azure, rozszerzenie kopii zapasowej na maszynie wirtualnej używa interfejsów API HTTPS do wysyłania poleceń zarządzania do Azure Backup i danych do usługi Azure Storage. Rozszerzenie kopii zapasowej używa także usługi Azure AD do uwierzytelniania. Ruch rozszerzenia kopii zapasowej dla tych trzech usług należy kierować za pośrednictwem serwera proxy HTTP. Użyj listy adresów IP i nazw FQDN wymienionych powyżej, aby umożliwić dostęp do wymaganych usług. Uwierzytelnione serwery proxy nie są obsługiwane.
+
+## <a name="understanding-backup-and-restore-throughput-performance"></a>Informacje o wydajności operacji tworzenia kopii zapasowej i przywracania
+
+Kopie zapasowe (Dziennik i niedziennik) w SAP HANA maszynach wirtualnych platformy Azure dostarczanych za pośrednictwem BACKINT są strumieniami do magazynów usługi Azure Recovery Services i dlatego ważne jest zrozumienie tej metodologii przesyłania strumieniowego.
+
+Składnik BACKINT platformy HANA udostępnia "potoki" (potok do odczytu i potok do zapisu), połączony z dyskami źródłowymi, w których znajdują się pliki bazy danych, które są następnie odczytywane przez usługę Azure Backup i transportowane do magazynu usługi Azure Recovery Services. Usługa Azure Backup wykonuje również sumę kontrolną, aby sprawdzić poprawność strumieni, oprócz natywnych testów weryfikacyjnych BACKINT. Te walidacji będą mieć pewność, że dane znajdujące się w magazynie usługi Azure Recovery Services są rzeczywiście niezawodne i odzyskiwalne.
+
+Ponieważ strumienie polegają głównie na dyskach, należy zrozumieć wydajność dysku, aby zmierzyć wydajność tworzenia kopii zapasowych i przywracania. Zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/virtual-machines/disks-performance) , aby uzyskać szczegółowe informacje na temat przepływności i wydajności dysków na maszynach wirtualnych platformy Azure. Dotyczą one również wydajności tworzenia kopii zapasowych i przywracania.
+
+**Usługa Azure Backup próbuje uzyskać maksymalnie 420 MB/s dla kopii zapasowych bez dziennika (takich jak pełna, różnicowa i przyrostowa) i do 100 MB/s dla kopii zapasowych dzienników dla platformy Hana**. Jak wspomniano powyżej, nie są one gwarantowane szybkości i są zależne od następujących czynników:
+
+* Maksymalna przepływność dysku w pamięci podręcznej dla maszyny wirtualnej
+* Typ dysku podstawowego i jego przepływność
+* Liczba procesów, które próbują odczytać i zapisać na tym samym dysku w tym samym czasie.
+
+> [!IMPORTANT]
+> W mniejszych maszynach wirtualnych, w których przepływność dysku w pamięci podręcznej jest bardzo bliska lub mniejsza niż 400 MB/s, może być konieczne, aby całe operacje we/wy dysku były zużywane przez usługę kopii zapasowych, co może mieć wpływ na działania SAP HANA związane z odczytem/zapisem dysków. W takim przypadku, jeśli chcemy ograniczyć użycie usługi kopii zapasowej do maksymalnego limitu, można odwołać się do następnej sekcji.
+
+### <a name="limiting-backup-throughput-performance"></a>Ograniczanie wydajności tworzenia kopii zapasowych
+
+Jeśli chcesz ograniczyć użycie liczby operacji we/wy dysku usługi kopii zapasowej do wartości maksymalnej, wykonaj następujące czynności.
+
+1. Przejdź do folderu "opt/msawb/bin"
+2. Utwórz nowy plik JSON o nazwie "ExtensionSettingOverrides.JSON"
+3. Dodaj parę klucz-wartość do pliku JSON w następujący sposób:
+
+    ```json
+    {
+    "MaxUsableVMThroughputInMBPS": 200
+    }
+    ```
+
+4. Zmień uprawnienia i własność pliku w następujący sposób:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. Nie jest wymagane ponowne uruchomienie żadnej usługi. Usługa Azure Backup podejmie próbę ograniczenia wydajności przepływności opisanej w tym pliku.
 
 ## <a name="what-the-pre-registration-script-does"></a>Co robi skrypt przed rejestracją
 
@@ -158,7 +198,7 @@ Aby utworzyć magazyn Usług odzyskiwania:
    Aby wyświetlić listę dostępnych grup zasobów w ramach subskrypcji, wybierz pozycję **Użyj istniejącej**, a następnie wybierz zasób z listy rozwijanej. Aby utworzyć nową grupę zasobów, wybierz pozycję **Utwórz nową** i wprowadź nazwę. Aby uzyskać pełne informacje na temat grup zasobów, zobacz [Azure Resource Manager przegląd](../azure-resource-manager/management/overview.md).
    * **Lokalizacja**: Wybierz region geograficzny dla magazynu. Magazyn musi znajdować się w tym samym regionie co maszyna wirtualna, na której działa SAP HANA. Użyto **Wschodnie stany USA 2**.
 
-5. Wybierz pozycję **Recenzja + Utwórz**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 
    ![Wybierz pozycję Przeglądaj & Utwórz](./media/tutorial-backup-sap-hana-db/review-create.png)
 

@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/1/2020
-ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 2/5/2021
+ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693466"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988378"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Klasyfikacje niestandardowe w usłudze Azure kontrolą 
 
@@ -39,7 +39,7 @@ Aby utworzyć klasyfikację niestandardową, wykonaj następujące czynności:
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="Nowa Klasyfikacja" border="true":::
 
 Zostanie otwarte okienko **Dodaj nową klasyfikację** , w którym można nadać klasyfikacji nazwę i opis. Dobrym sposobem jest użycie konwencji odstępów nazw, takich jak `your company name.classification name` .
-Klasyfikacje systemu Microsoft są pogrupowane pod zarezerwowaną `MS.` przestrzenią nazw. Przykładem jest **MS. Zarządowi. Prześlij. \_ \_ numer ubezpieczenia społecznego**.
+Klasyfikacje systemu Microsoft są pogrupowane pod zarezerwowaną `MICROSOFT.` przestrzenią nazw. Przykładem jest **firma Microsoft. Zarządowi. Prześlij. \_ \_ numer ubezpieczenia społecznego**.
 
 Nazwa klasyfikacji musi rozpoczynać się od litery, po której następuje Sekwencja liter, cyfr i znaków kropki (.) lub podkreślenia.
 Spacje nie są dozwolone. Podczas wpisywania środowisko użytkownika automatycznie generuje przyjazną nazwę. Ta przyjazna nazwa jest widoczna dla użytkowników, gdy zostanie ona zastosowana do zasobu w wykazie.

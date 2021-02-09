@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 1fe1ad14dc1cc8f5ff5171ef517d23363969be4d
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: c59529db0981a1071b76714c48aacaf675e4b17a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387789"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987906"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
 
@@ -212,4 +212,4 @@ Jeśli nie chcesz kontynuować korzystania z następnego przewodnika Szybki Star
 Więcej informacji:
 
 * [Format promocji w odpowiedziach](../reference-markdown-format.md)
-* QnA Maker [źródła danych](../index.yml).
+* QnA Maker [źródła danych](../Concepts/data-sources-and-content.md).

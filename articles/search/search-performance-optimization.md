@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6ca489dc0c5c7ba8ba67f3456d04be953544a8fb
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420601"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987812"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Skalowanie pod kątem wydajności na platformie Azure Wyszukiwanie poznawcze
 
@@ -86,6 +86,27 @@ Repliki nie tylko skracają opóźnienia zapytań, ale mogą również zapewnić
 Aby uzyskać więcej informacji na ten temat, odwiedź [Umowa dotycząca poziomu usług wyszukiwanie poznawcze platformy Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 Ponieważ repliki są kopiami danych, dzięki czemu wiele replik umożliwia platformie Azure Wyszukiwanie poznawcze wykonywanie ponownych uruchomień maszyn i ich konserwacji w odniesieniu do jednej repliki, podczas gdy wykonanie zapytania jest kontynuowane w przypadku innych replik. Z drugiej strony, Jeśli przełączysz repliki, nastąpi pogorszenie wydajności zapytania, przy założeniu, że te repliki były zasobami wykorzystywanymi.
+
+### <a name="availability-zones"></a>Strefy dostępności
+
+[Strefy dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview) podzielić centra danych regionu na odrębne grupy lokalizacji fizycznych, aby zapewnić wysoką dostępność, w regionie. Usługa wyszukiwania jest uruchamiana w jednym regionie; repliki są uruchamiane w różnych strefach.
+
+Możesz użyć Strefy dostępności z Wyszukiwanie poznawcze platformy Azure, dodając co najmniej dwie repliki do usługi wyszukiwania. Każda replika zostanie umieszczona w innej strefie dostępności w regionie. Jeśli masz więcej replik niż Strefy dostępności, repliki będą dystrybuowane między Strefy dostępności tak jak to możliwe.
+
+Usługa Azure Wyszukiwanie poznawcze obecnie obsługuje Strefy dostępności dla warstwy Standardowa lub wyższych usług wyszukiwania, które zostały utworzone w jednym z następujących regionów:
++ Australia Wschodnia (Data utworzenia: 30 stycznia 2021 lub nowszej)
++ Kanada Środkowa (Data i 30 stycznia 2021 lub nowsza)
++ Środkowe stany USA (utworzono 4 grudnia 2020 lub nowsze)
++ Wschodnie stany USA 2 (utworzono 30 stycznia 2021 lub nowsze)
++ Francja Środkowa (Data 23 października 2020 lub nowsza)
++ Japonia Wschodnia (Data i 30 stycznia 2021 lub nowsza)
++ Europa Północna (Data i 28 stycznia 2021 lub nowsza)
++ Azja Wschodnia Południowy (wersja 31 stycznia 2021 lub nowsza)
++ Południowe Zjednoczone Królestwo (utworzono 30 stycznia 2021 lub nowsze)
++ Europa Zachodnia (Data 29 stycznia 2021 lub nowsza)
++ Zachodnie stany USA 2 (utworzono 30 stycznia 2021 lub nowsze)
+
+Strefy dostępności nie wpływają na [Umowa dotycząca poziomu usług wyszukiwanie poznawcze platformy Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="scale-for-geo-distributed-workloads-and-geo-redundancy"></a>Skalowanie obciążeń rozproszonych geograficznie i nadmiarowości geograficznej
 

@@ -4,14 +4,14 @@ description: Wypychanie i ściąganie artefaktów Open Container Initiative (OCI
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485007"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988226"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Wypychanie i ściąganie artefaktu OCI przy użyciu usługi Azure Container Registry
 
@@ -46,7 +46,7 @@ Aby odczytać hasło z stdin, użyj `--password-stdin` .
 
 [Zaloguj](/cli/azure/authenticate-azure-cli) się do interfejsu wiersza polecenia platformy Azure przy użyciu swojej tożsamości, aby wypchnąć i ściągnąć artefakty z rejestru kontenerów.
 
-Następnie do uzyskiwania dostępu do rejestru służy polecenie [ACR](/cli/azure/acr?view=azure-cli-latest#az-acr-login) interfejsu wiersza polecenia platformy Azure. Na przykład w celu uwierzytelnienia w rejestrze o nazwie Moje *Rejestr*:
+Następnie do uzyskiwania dostępu do rejestru służy polecenie [ACR](/cli/azure/acr#az-acr-login) interfejsu wiersza polecenia platformy Azure. Na przykład w celu uwierzytelnienia w rejestrze o nazwie Moje *Rejestr*:
 
 ```azurecli
 az login
@@ -61,12 +61,12 @@ az acr login --name myregistry
 Utwórz plik tekstowy w lokalnym roboczym katalogu roboczym z niektórym przykładowym tekstem. Na przykład w bash Shell:
 
 ```bash
-echo "Here is an artifact!" > artifact.txt
+echo "Here is an artifact" > artifact.txt
 ```
 
 Użyj `oras push` polecenia, aby wypchnąć ten plik tekstowy do rejestru. Poniższy przykład wypychanie przykładowego pliku tekstowego do `samples/artifact` repozytorium. Rejestr jest identyfikowany za pomocą w pełni kwalifikowanej nazwy rejestru *myregistry.azurecr.IO* (wszystkie małe litery). Artefakt jest otagowany `1.0` . Artefakt ma niezdefiniowany typ, domyślnie identyfikowany przez ciąg *typu nośnika* po nazwie pliku `artifact.txt` . Zobacz [artefakty OCI](https://github.com/opencontainers/artifacts) dla dodatkowych typów. 
 
-**Linux**
+**Linux lub macOS**
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
@@ -137,7 +137,7 @@ Sprawdź, czy ściąganie zakończyło się pomyślnie:
 
 ```bash
 $ cat artifact.txt
-Here is an artifact!
+Here is an artifact
 ```
 
 ## <a name="remove-the-artifact-optional"></a>Usuń artefakt (opcjonalnie)
@@ -157,7 +157,7 @@ Kod źródłowy i pliki binarne do kompilowania obrazu kontenera mogą być prze
 Na przykład utwórz jednowierszową pliku dockerfile:
 
 ```bash
-echo "FROM hello-world" > hello-world.dockerfile
+echo "FROM mcr.microsoft.com/hello-world" > hello-world.dockerfile
 ```
 
 Zaloguj się do rejestru kontenerów docelowych.
@@ -170,14 +170,15 @@ az acr login --name myregistry
 Utwórz i wypchnij nowy artefakt OCI do rejestru docelowego za pomocą `oras push` polecenia. Ten przykład ustawia domyślny typ nośnika dla artefaktu.
 
 ```bash
-oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
 Uruchom polecenie [AZ ACR Build](/cli/azure/acr#az-acr-build) , aby skompilować obraz Hello-World przy użyciu nowego artefaktu jako kontekstu kompilacji:
 
 ```azurecli
-az acr build --registry myregistry --file hello-world.dockerfile \
-  oci://myregistry.azurecr.io/hello-world:1.0
+az acr build --registry myregistry --image builds/hello-world:v1 \
+  --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/dockerfile:1.0
 ```
 
 ## <a name="next-steps"></a>Następne kroki

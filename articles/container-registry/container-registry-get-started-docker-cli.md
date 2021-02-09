@@ -1,21 +1,21 @@
 ---
-title: Wypychanie & ściągania obrazu platformy Docker
-description: Wypychanie i ściąganie obrazów platformy Docker do prywatnego rejestru kontenerów na platformie Azure za pomocą interfejsu wiersza polecenia platformy Docker
+title: Wypychanie obrazu kontenera ściągania &
+description: Wypychanie i ściąganie obrazów platformy Docker do prywatnego rejestru kontenerów na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Docker
 ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: d04a5fcbc4d6294a216ddfc9a8e6ea1ef98825a3
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 83ef385313b035f5e5d7d993e7948725906c75a7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071633"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987774"
 ---
-# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Wypchnij swój pierwszy obraz do prywatnego rejestru kontenerów platformy Docker za pomocą interfejsu wiersza polecenia platformy Docker
+# <a name="push-your-first-image-to-your-azure-container-registry-using-the-docker-cli"></a>Wypchnij swój pierwszy obraz do usługi Azure Container Registry przy użyciu interfejsu wiersza polecenia platformy Docker
 
-Rejestr kontenera platformy Azure przechowuje prywatne obrazy kontenerów platformy [Docker](https://hub.docker.com) i zarządza nimi podobnie, jak [koncentrator platformy Docker](https://hub.docker.com/) przechowuje publiczne obrazy platformy Docker. Do [logowania](https://docs.docker.com/engine/reference/commandline/login/), [wypychania](https://docs.docker.com/engine/reference/commandline/push/), [ściągania](https://docs.docker.com/engine/reference/commandline/pull/)i innych operacji w rejestrze kontenerów można użyć [interfejsu wiersza polecenia platformy Docker](https://docs.docker.com/engine/reference/commandline/cli/) (CLI).
+Usługa Azure Container Registry przechowuje i zarządza prywatnymi obrazami kontenerów oraz innymi artefaktami podobnymi do sposobu, w jaki usługa [Docker Hub](https://hub.docker.com/) przechowuje publiczne obrazy kontenerów platformy Docker. Za pomocą [interfejsu wiersza polecenia platformy](https://docs.docker.com/engine/reference/commandline/cli/) Docker (CLI) można używać operacji [logowania](https://docs.docker.com/engine/reference/commandline/login/), [wypychania](https://docs.docker.com/engine/reference/commandline/push/), [ściągania](https://docs.docker.com/engine/reference/commandline/pull/)i innych obrazów kontenera w rejestrze kontenerów.
 
-W poniższych krokach pobierasz oficjalny [obraz Nginx](https://store.docker.com/images/nginx) z publicznego rejestru centrum Docker, oznacz go jako prywatny rejestr kontenerów platformy Azure, wypchnij do rejestru, a następnie pobierz go z rejestru.
+W poniższych krokach pobierasz publiczny [obraz Nginx](https://store.docker.com/images/nginx), oznacz go jako prywatny rejestr kontenerów platformy Azure, wypchnij go do rejestru, a następnie ściągnąć z rejestru.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -24,9 +24,10 @@ W poniższych krokach pobierasz oficjalny [obraz Nginx](https://store.docker.com
 
 ## <a name="log-in-to-a-registry"></a>Zaloguj się do rejestru
 
-Istnieje [kilka sposobów uwierzytelniania](container-registry-authentication.md) do prywatnego rejestru kontenerów. Zalecaną metodą podczas pracy z wierszem polecenia jest polecenie [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Na przykład, aby zalogować się do rejestru o nazwie Moje *Rejestr*:
+Istnieje [kilka sposobów uwierzytelniania](container-registry-authentication.md) do prywatnego rejestru kontenerów. Zalecaną metodą podczas pracy z wierszem polecenia jest polecenie [AZ ACR login](/cli/azure/acr#az-acr-login). Na przykład, aby zalogować się do rejestru o nazwie Moje *Rejestr*, zaloguj się do interfejsu wiersza polecenia platformy Azure, a następnie Uwierzytelnij się w rejestrze:
 
 ```azurecli
+az login
 az acr login --name myregistry
 ```
 
@@ -43,20 +44,20 @@ Oba polecenia są zwracane `Login Succeeded` po zakończeniu.
 > [!TIP]
 > Zawsze określaj w pełni kwalifikowaną nazwę rejestru (wszystkie małe litery) podczas korzystania z programu `docker login` i podczas oznaczania obrazów do wypchnięcia do rejestru. W przykładach w tym artykule, w pełni kwalifikowana nazwa to *myregistry.azurecr.IO*.
 
-## <a name="pull-the-official-nginx-image"></a>Ściąganie oficjalnego obrazu Nginx
+## <a name="pull-a-public-nginx-image"></a>Ściąganie publicznego obrazu Nginx
 
-Najpierw Pobierz publiczny obraz Nginx do komputera lokalnego.
+Najpierw Pobierz publiczny obraz Nginx do komputera lokalnego. Ten przykład pobiera obraz z programu Microsoft Container Registry.
 
 ```
-docker pull nginx
+docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 ## <a name="run-the-container-locally"></a>Uruchamianie kontenera w środowisku lokalnym
 
-Wykonaj następujące polecenie [Docker Run](https://docs.docker.com/engine/reference/run/) , aby uruchomić lokalnie wystąpienie kontenera Nginx ( `-it` ) w porcie 8080. `--rm`Argument określa, że kontener powinien zostać usunięty po jego zatrzymaniu.
+Wykonaj następujące polecenie [Docker Run](https://docs.docker.com/engine/reference/run/) , aby uruchomić lokalne wystąpienie kontenera Nginx w sposób interaktywny ( `-it` ) na porcie 8080. `--rm`Argument określa, że kontener powinien zostać usunięty po jego zatrzymaniu.
 
 ```
-docker run -it --rm -p 8080:80 nginx
+docker run -it --rm -p 8080:80 mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 Przejdź do `http://localhost:8080` strony, aby wyświetlić domyślną stronę sieci Web, która jest obsługiwana przez Nginx w działającym kontenerze. Powinna zostać wyświetlona strona podobna do następującej:
@@ -72,7 +73,7 @@ Aby zatrzymać i usunąć kontener, naciśnij klawisz `Control` + `C` .
 Użyj [tagu Docker](https://docs.docker.com/engine/reference/commandline/tag/) , aby utworzyć alias obrazu z w pełni kwalifikowaną ścieżką do rejestru. W tym przykładzie jest określana przestrzeń nazw `samples`, aby uniknąć zaśmiecania katalogu głównego rejestru.
 
 ```
-docker tag nginx myregistry.azurecr.io/samples/nginx
+docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx
 ```
 
 Aby uzyskać więcej informacji o znakowaniu z przestrzeniami nazw, zobacz sekcję [przestrzenie nazw repozytoriów](container-registry-best-practices.md#repository-namespaces) z [najlepszymi rozwiązaniami dotyczącymi Azure Container Registry](container-registry-best-practices.md).

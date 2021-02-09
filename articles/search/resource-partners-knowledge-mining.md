@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 68c50cf72c5592b7593c9f87445679b08116dd43
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 393270018cd5706b9cbcfa544a6e6a54d5ab9cc6
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980114"
+ms.locfileid: "99988208"
 ---
-# <a name="partner-solutions"></a>Rozwiązania partnerskie
+# <a name="partner-spotlight"></a>Centrum uwagi dla partnerów
 
 Uzyskaj specjalistyczną pomoc od partnerów firmy Microsoft, którzy tworzą kompleksowe rozwiązania zawierające Wyszukiwanie poznawcze platformy Azure. Następujący partnerzy mają głębokie środowisko wykorzystujące wyszukiwanie pełnotekstowe i wzbogacanie AI w różnych scenariuszach firmy i technicznych.
 

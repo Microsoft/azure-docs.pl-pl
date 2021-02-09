@@ -6,17 +6,23 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 11/20/2020
-ms.openlocfilehash: 7458b027add8be86d9491c674c2f1a0bc9fbc68c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 2/5/2021
+ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554236"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988305"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Obsługiwane klasyfikacje w usłudze Azure kontrolą
 
 W tym artykule wymieniono obsługiwane i zdefiniowane klasyfikacje systemu w usłudze Azure kontrolą (wersja zapoznawcza).
+
+
+- **Próg DISTINCT dopasowania**: całkowita liczba unikatowych wartości danych, które należy znaleźć w kolumnie przed uruchomieniem przez skaner wzorca danych. Nasze reguły klasyfikacji systemu wymagają, aby w każdej kolumnie znajdować się co najmniej 8 odrębnych wartości, które podlegają klasyfikacji. System wymaga tej wartości, aby upewnić się, że kolumna zawiera wystarczającą ilość danych dla skanera, aby precyzyjnie sklasyfikować go. Na przykład kolumna zawierająca wiele wierszy zawierających wartość 1 nie zostanie sklasyfikowana. Kolumny zawierające jeden wiersz z wartością i resztą wierszy mają wartości null, które również nie są klasyfikowane. Jeśli określisz wiele wzorców, ta wartość ma zastosowanie do każdego z nich.
+
+- **Minimalny próg dopasowania**: jest to minimalny procent wartości danych w kolumnie, która musi zostać znaleziona przez skaner dla klasyfikacji, która ma zostać zastosowana. Wartość klasyfikacji systemu jest ustawiona na 60%.
+
 
 ## <a name="defined-system-classifications"></a>Zdefiniowane klasyfikacje systemu
 
@@ -274,7 +280,7 @@ Driver's License#
 Driver's Licenses#
 ```
 
-## <a name="australia-medical-account-number"></a>Numer konta medycznego Australii
+## <a name="australian-medicare-number"></a>Australijski numer Medicare
 
 ### <a name="format"></a>Format
 
@@ -291,7 +297,7 @@ Driver's Licenses#
 
 ### <a name="keywords"></a>Słowa kluczowe
 
-#### <a name="keyword_australia_medical_account_number"></a>Keyword_Australia_Medical_Account_Number
+#### <a name="keyword_australia_medicare_number"></a>Keyword_Australia_Medicare_Number
 
 ```
 bank account details

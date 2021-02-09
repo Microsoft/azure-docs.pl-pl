@@ -2,17 +2,17 @@
 title: Uprawnienia do repozytoriów w Azure Container Registry
 description: Utwórz token z uprawnieniami objętymi zakresem określonych repozytoriów w rejestrze Premium w celu ściągania lub wypychania obrazów lub wykonywania innych akcji
 ms.topic: article
-ms.date: 05/27/2020
-ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.date: 02/04/2021
+ms.openlocfilehash: ceec69d746f77ea7a23bc70d029c8b3736e7f292
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381239"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988263"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Tworzenie tokenu z uprawnieniami do zakresu repozytorium
 
-W tym artykule opisano sposób tworzenia mapowań tokenów i zakresów w celu zarządzania uprawnieniami w zakresie repozytorium w rejestrze kontenerów. Tworząc tokeny, właściciel rejestru może zapewnić użytkownikom lub usługom zakres, ograniczony czasowo dostęp do repozytoriów w celu ściągania lub wypychania obrazów lub wykonywania innych akcji. Token zapewnia bardziej szczegółowe uprawnienia niż inne [Opcje uwierzytelniania](container-registry-authentication.md)rejestru, które mają zakres uprawnień do całego rejestru. 
+W tym artykule opisano sposób tworzenia mapowań tokenów i zakresu w celu zarządzania dostępem do określonych repozytoriów w rejestrze kontenerów. Tworząc tokeny, właściciel rejestru może zapewnić użytkownikom lub usługom zakres, ograniczony czasowo dostęp do repozytoriów w celu ściągania lub wypychania obrazów lub wykonywania innych akcji. Token zapewnia bardziej szczegółowe uprawnienia niż inne [Opcje uwierzytelniania](container-registry-authentication.md)rejestru, które mają zakres uprawnień do całego rejestru. 
 
 Scenariusze tworzenia tokenu obejmują:
 
@@ -61,7 +61,7 @@ Na poniższej ilustracji przedstawiono relacje między tokenami i mapami zakres�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Interfejs wiersza polecenia platformy** Azure do tworzenia tokenów i zarządzania nimi są dostępne w interfejsie wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+* **Interfejs wiersza polecenia platformy** Azure — przykłady poleceń interfejsu CLI platformy Azure w tym artykule wymagają platformy Azure w wersji 2.17.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * **Docker** — w celu uwierzytelnienia w rejestrze w celu ściągania lub wypychania obrazów konieczna jest lokalna instalacja platformy Docker. Platforma Docker dostarcza instrukcje na temat instalacji w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 * **Rejestr kontenerów** — jeśli go nie masz, Utwórz rejestr kontenerów w warstwie Premium w ramach subskrypcji platformy Azure lub Uaktualnij istniejący rejestr. Na przykład użyj [Azure Portal](container-registry-get-started-portal.md) lub [interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md). 
 
@@ -79,7 +79,7 @@ az acr token create --name MyToken --registry myregistry \
   content/write content/read
 ```
 
-Dane wyjściowe zawierają szczegółowe informacje o tokenie. Domyślnie są generowane dwa hasła. Zaleca się zapisanie haseł w bezpiecznym miejscu do użycia w celu późniejszego uwierzytelniania. Hasła nie mogą zostać pobrane ponownie, ale można generować nowe.
+Dane wyjściowe zawierają szczegółowe informacje o tokenie. Domyślnie są generowane dwa hasła, które nie wygasną, ale opcjonalnie można ustawić datę wygaśnięcia. Zaleca się zapisanie haseł w bezpiecznym miejscu do użycia w celu późniejszego uwierzytelniania. Hasła nie mogą zostać pobrane ponownie, ale można generować nowe.
 
 ```console
 {
@@ -113,7 +113,7 @@ Dane wyjściowe zawierają szczegółowe informacje o tokenie. Domyślnie są ge
 ```
 
 > [!NOTE]
-> Jeśli chcesz ponownie wygenerować hasła tokenu i ustawić okresy ważności hasła, zobacz Ponowne [generowanie haseł tokenu](#regenerate-token-passwords) w dalszej części tego artykułu.
+> Aby ponownie wygenerować hasła tokenu i okresy ważności, zobacz Ponowne [generowanie haseł tokenu](#regenerate-token-passwords) w dalszej części tego artykułu.
 
 Dane wyjściowe zawierają szczegóły dotyczące zakresu mapowania utworzonego polecenia. Można użyć mapy zakresu, tutaj o nazwie `MyToken-scope-map` , aby zastosować te same akcje repozytorium do innych tokenów. Można też zaktualizować mapowanie zakresu później, aby zmienić uprawnienia skojarzonych tokenów.
 
@@ -141,7 +141,7 @@ az acr token create --name MyToken \
 Dane wyjściowe zawierają szczegółowe informacje o tokenie. Domyślnie są generowane dwa hasła. Zaleca się zapisanie haseł w bezpiecznym miejscu do użycia w celu późniejszego uwierzytelniania. Hasła nie mogą zostać pobrane ponownie, ale można generować nowe.
 
 > [!NOTE]
-> Jeśli chcesz ponownie wygenerować hasła tokenu i ustawić okresy ważności hasła, zobacz Ponowne [generowanie haseł tokenu](#regenerate-token-passwords) w dalszej części tego artykułu.
+> Aby ponownie wygenerować hasła tokenu i okresy ważności, zobacz Ponowne [generowanie haseł tokenu](#regenerate-token-passwords) w dalszej części tego artykułu.
 
 ## <a name="create-token---portal"></a>Tworzenie tokenu — Portal
 
@@ -171,8 +171,8 @@ Po sprawdzeniu poprawności i utworzeniu tokenu na ekranie **tokeny** pojawią s
 Aby użyć tokenu utworzonego w portalu, należy wygenerować hasło. Można wygenerować jedno lub dwa hasła i ustawić datę wygaśnięcia dla każdej z nich. 
 
 1. W portalu przejdź do rejestru kontenerów.
-1. W obszarze **uprawnienia repozytorium** wybierz pozycję **tokeny (wersja zapoznawcza)** , a następnie wybierz token.
-1. W obszarze Szczegóły tokenu wybierz pozycję **password1** lub **password2** , a następnie wybierz ikonę Generuj.
+1. W obszarze **uprawnienia repozytorium** wybierz pozycję **tokeny (wersja zapoznawcza)**, a następnie wybierz token.
+1. W obszarze Szczegóły tokenu wybierz pozycję **password1** lub **password2**, a następnie wybierz ikonę Generuj.
 1. Na ekranie hasła opcjonalnie Ustaw datę wygaśnięcia hasła i wybierz pozycję **Generuj**. Zalecane jest ustawienie daty wygaśnięcia.
 1. Po wygenerowaniu hasła skopiuj je i Zapisz w bezpiecznej lokalizacji. Nie można pobrać wygenerowanego hasła po zamknięciu ekranu, ale można wygenerować nowy.
 
@@ -198,13 +198,13 @@ W poniższych przykładach użyto tokenu utworzonego wcześniej w tym artykule, 
 
 ### <a name="pull-and-tag-test-images"></a>Obrazy testów ściągania i tagów
 
-W poniższych przykładach można ściągnąć `hello-world` i pobrać `alpine` obrazy z usługi Docker Hub i oznaczyć je jako rejestr i repozytorium.
+W poniższych przykładach można ściągnąć publiczne `hello-world` i `nginx` obrazy z firmy Microsoft Container Registry i oznaczyć je jako rejestr i repozytorium.
 
 ```bash
-docker pull hello-world
-docker pull alpine
-docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag alpine myregistry.azurecr.io/samples/alpine:v1
+docker pull mcr.microsoft.com/hello-world
+docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+docker tag mcr.microsoft.com/hello-world myregistry.azurecr.io/samples/hello-world:v1
+docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### <a name="authenticate-using-token"></a>Uwierzytelnianie przy użyciu tokenu
@@ -234,17 +234,17 @@ Po pomyślnym zalogowaniu się spróbuj wypchnąć otagowane obrazy do rejestru.
 docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-Token nie ma uprawnień do `samples/alpine` repozytorium, więc następująca próba wypychania kończy się niepowodzeniem z powodu błędu podobnego do `requested access to the resource is denied` :
+Token nie ma uprawnień do `samples/nginx` repozytorium, więc następująca próba wypychania kończy się niepowodzeniem z powodu błędu podobnego do `requested access to the resource is denied` :
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### <a name="update-token-permissions"></a>Aktualizowanie uprawnień tokenu
 
 Aby zaktualizować uprawnienia tokenu, zaktualizuj uprawnienia w skojarzonej mapie zakresów. Zaktualizowana Mapa zakresu jest stosowana natychmiast do wszystkich skojarzonych tokenów. 
 
-Na przykład zaktualizuj program `MyToken-scope-map` `content/write` i `content/read` Akcje w `samples/alpine` repozytorium i Usuń `content/write` akcję z `samples/hello-world` repozytorium.  
+Na przykład zaktualizuj program `MyToken-scope-map` `content/write` i `content/read` Akcje w `samples/ngnx` repozytorium i Usuń `content/write` akcję z `samples/hello-world` repozytorium.  
 
 Aby użyć interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR Scope-map Update][az-acr-scope-map-update] w celu zaktualizowania mapowania zakresu:
 
@@ -252,21 +252,21 @@ Aby użyć interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ A
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/write content/read \
-  --remove samples/hello-world content/write 
+  --add-repository samples/nginx content/write content/read \
+  --remove-repository samples/hello-world content/write 
 ```
 
 W witrynie Azure Portal:
 
 1. Przejdź do rejestru kontenerów.
-1. W obszarze **uprawnienia repozytorium** wybierz pozycję **mapy zakresu (wersja zapoznawcza)** , a następnie wybierz mapę zakresu do zaktualizowania.
-1. W obszarze **repozytoria** wprowadź i `samples/alpine` w obszarze **uprawnienia** wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.
+1. W obszarze **uprawnienia repozytorium** wybierz pozycję **mapy zakresu (wersja zapoznawcza)**, a następnie wybierz mapę zakresu do zaktualizowania.
+1. W obszarze **repozytoria** wprowadź i `samples/nginx` w obszarze **uprawnienia** wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.
 1. W obszarze **repozytoria** wybierz pozycję `samples/hello-world` i w obszarze **uprawnienia** Usuń zaznaczenie `content/write` . Następnie wybierz pozycję **Zapisz**.
 
 Po zaktualizowaniu mapy zakresu następujące wypychanie zakończy się pomyślnie:
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 Ponieważ Mapa zakresu ma uprawnienia tylko do `content/read` `samples/hello-world` repozytorium, próba wypychania do `samples/hello-world` repozytorium kończy się niepowodzeniem:
@@ -278,12 +278,12 @@ docker push myregistry.azurecr.io/samples/hello-world:v1
 Ściąganie obrazów z obu repozytoriów powiedzie się, ponieważ Mapa zakresu zapewnia `content/read` uprawnienia zarówno dla repozytoriów:
 
 ```bash
-docker pull myregistry.azurecr.io/samples/alpine:v1
+docker pull myregistry.azurecr.io/samples/nginx:v1
 docker pull myregistry.azurecr.io/samples/hello-world:v1
 ```
 ### <a name="delete-images"></a>Usuwanie obrazów
 
-Zaktualizuj mapę zakresu przez dodanie `content/delete` akcji do `alpine` repozytorium. Ta akcja umożliwia usunięcie obrazów w repozytorium lub usunięcie całego repozytorium.
+Zaktualizuj mapę zakresu przez dodanie `content/delete` akcji do `nginx` repozytorium. Ta akcja umożliwia usunięcie obrazów w repozytorium lub usunięcie całego repozytorium.
 
 Dla zwięzłości wyświetlamy tylko polecenie [AZ ACR Scope-map Update][az-acr-scope-map-update] w celu zaktualizowania mapy zakresu:
 
@@ -291,16 +291,16 @@ Dla zwięzłości wyświetlamy tylko polecenie [AZ ACR Scope-map Update][az-acr-
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/delete
+  --add-repository samples/nginx content/delete
 ``` 
 
 Aby zaktualizować mapę zakresu przy użyciu portalu, zobacz [poprzednią sekcję](#update-token-permissions).
 
-Aby usunąć repozytorium, użyj następującego polecenia [AZ ACR Repository Delete][az-acr-repository-delete] `samples/alpine` . Aby usunąć obrazy lub repozytoria, przekaż nazwę i hasło tokenu do polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
+Aby usunąć repozytorium, użyj następującego polecenia [AZ ACR Repository Delete][az-acr-repository-delete] `samples/nginx` . Aby usunąć obrazy lub repozytoria, przekaż nazwę i hasło tokenu do polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
 
 ```azurecli
 az acr repository delete \
-  --name myregistry --repository samples/alpine \
+  --name myregistry --repository samples/nginx \
   --username $TOKEN_NAME --password $TOKEN_PWD
 ```
 
@@ -314,7 +314,7 @@ Dla zwięzłości wyświetlamy tylko polecenie [AZ ACR Scope-map Update][az-acr-
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/hello-world metadata/read 
+  --add-repository samples/hello-world metadata/read 
 ```  
 
 Aby zaktualizować mapę zakresu przy użyciu portalu, zobacz [poprzednią sekcję](#update-token-permissions).
@@ -382,7 +382,7 @@ Poniższy przykład generuje nową wartość dla *password1 tokena tokena* z okr
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
-  --name MyToken --registry myregistry --days 30 \
+  --name MyToken --registry myregistry --expiration-in-days 30 \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 

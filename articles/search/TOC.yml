@@ -530,6 +530,8 @@
   items:
     - name: Pomoc techniczna w społeczności platformy Azure
       href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Centrum uwagi dla partnerów
+      href: resource-partners-knowledge-mining.md
     - name: Aktualizacje platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Forum z opiniami (UserVoice)
@@ -554,8 +556,6 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Kurs dla deweloperów (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
-    - name: Rozwiązania partnerskie
-      href: resource-partners-knowledge-mining.md
     - name: Często zadawane pytania
       href: search-faq-frequently-asked-questions.md
     - name: Cennik

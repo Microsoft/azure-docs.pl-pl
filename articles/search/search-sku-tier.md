@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693455"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987891"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
@@ -53,14 +53,15 @@ Więcej informacji o różnych warstwach można znaleźć na [stronie cennika](h
 
 Większość funkcji jest dostępnych na wszystkich warstwach, w tym w warstwie Bezpłatna. W kilku przypadkach wybrana warstwa będzie miała wpływ na możliwość implementowania funkcji. W poniższej tabeli opisano ograniczenia funkcji, które są związane z warstwą usług.
 
-| Cechy | Ograniczenia |
+| Cecha | Ograniczenia |
 |---------|-------------|
 | [indeksatorów](search-indexer-overview.md) | Indeksatory nie są dostępne w systemie S3 HD.  |
 | [Wzbogacanie sztucznej inteligencji](search-security-manage-encryption-keys.md) | Działa w warstwie Bezpłatna, ale nie jest zalecana. |
 | [Zarządzane lub zaufane tożsamości dla dostępu wychodzącego (indeksatora)](search-howto-managed-identities-data-sources.md) | Niedostępne w warstwie Bezpłatna.|
 | [Klucze szyfrowania zarządzane przez klienta](search-security-manage-encryption-keys.md) | Niedostępne w warstwie Bezpłatna. |
 | [Dostęp do zapory IP](service-configure-firewall.md) | Niedostępne w warstwie Bezpłatna. |
-| [Prywatny punkt końcowy (Integracja z prywatnym łączem platformy Azure)](service-create-private-endpoint.md) | W przypadku połączeń przychodzących z usługą Search nie jest dostępna w warstwie Bezpłatna. W przypadku połączeń wychodzących przez indeksatory do innych zasobów platformy Azure, niedostępne w przypadku systemu HD lub S3. W przypadku indeksatorów korzystających z programu umiejętności, niedostępne w przypadku platformy Free, Basic, S1 lub S3 HD.|
+| [Prywatny punkt końcowy (Integracja z prywatnym łączem platformy Azure)](service-create-private-endpoint.md) | W przypadku połączeń przychodzących z usługą Search nie jest dostępna w warstwie Bezpłatna. W przypadku połączeń wychodzących przez indeksatory do innych zasobów platformy Azure, niedostępne w przypadku systemu HD lub S3. W przypadku indeksatorów korzystających z programu umiejętności, niedostępne w przypadku platformy Free, Basic, S1 lub S3 HD.| 
+| [Strefy dostępności](search-performance-optimization.md) | Niedostępne w warstwie Bezpłatna i podstawowa. |
 
 Funkcje intensywnie korzystające z zasobów mogą nie być dobrze, chyba że zapewnisz wystarczającą pojemność. Na przykład [wzbogacanie systemu AI](cognitive-search-concept-intro.md) ma długotrwałe umiejętności, które przekraczają limit czasu dla bezpłatnej usługi, chyba że zestaw danych jest mały.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222869"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987992"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planowanie aplikacji QnA Maker
 
@@ -124,17 +124,17 @@ Należy zaprojektować przepływ konwersacji przy użyciu pętli, aby użytkowni
 
 Współpracownicy mogą być innymi programistami, którzy korzystają z pełnego stosu deweloperów aplikacji bazy wiedzy lub mogą być ograniczeni do samego tworzenia bazy wiedzy.
 
-Tworzenie bazy wiedzy obsługuje kilka [uprawnień dostępu opartych na rolach](../reference-role-based-access-control.md) , które są stosowane w Azure Portal, aby ograniczyć zakres możliwości współpracowników.
+Tworzenie bazy wiedzy obsługuje kilka uprawnień dostępu opartych na rolach, które są stosowane w Azure Portal, aby ograniczyć zakres możliwości współpracowników.
 
 ## <a name="integration-with-client-applications"></a>Integracja z aplikacjami klienckimi
 
-Integrację z [aplikacjami klienckimi](../index.yml) można przeprowadzić, wysyłając zapytanie do punktu końcowego przewidywania środowiska uruchomieniowego. Zapytanie jest wysyłane do konkretnej bazy wiedzy z zestawem SDK lub żądaniem opartym na protokole REST do punktu końcowego aplikacji sieci Web QnA Maker.
+Integrację z aplikacjami klienckimi można przeprowadzić, wysyłając zapytanie do punktu końcowego przewidywania środowiska uruchomieniowego. Zapytanie jest wysyłane do konkretnej bazy wiedzy z zestawem SDK lub żądaniem opartym na protokole REST do punktu końcowego aplikacji sieci Web QnA Maker.
 
 Aby poprawnie uwierzytelnić żądanie klienta, aplikacja kliencka musi wysłać poprawne poświadczenia i identyfikator bazy wiedzy. Jeśli używasz Azure Bot Service, skonfiguruj te ustawienia jako część konfiguracji bot w Azure Portal.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Przepływ konwersacji w aplikacji klienckiej
 
-Przepływ konwersacji w [aplikacji klienckiej](../index.yml), na przykład na platformie Azure bot, może wymagać funkcjonalności przed i po współdziałaniu z bazą wiedzy.
+Przepływ konwersacji w aplikacji klienckiej, na przykład na platformie Azure bot, może wymagać funkcjonalności przed i po współdziałaniu z bazą wiedzy.
 
 Czy aplikacja kliencka obsługuje przepływ konwersacji, dostarczając alternatywny sposób obsługi monitów uzupełniających lub takich jak Chit-Chit? Jeśli tak, Zaprojektuj te wczesne i upewnij się, że zapytanie aplikacji klienta jest prawidłowo obsługiwane przez inną usługę lub w przypadku wysłania do bazy wiedzy.
 
@@ -148,7 +148,7 @@ W takim scenariuszu [udostępnionej architektury](../choose-natural-language-pro
 
 ### <a name="active-learning-from-a-client-application"></a>Aktywna nauka z aplikacji klienckiej
 
-QnA Maker używa _aktywnego uczenia_ do ulepszania bazy wiedzy, sugerując pytania alternatywne do odpowiedzi. Aplikacja kliencka jest odpowiedzialna za część tej [aktywnej nauki](active-learning-suggestions.md). Dzięki zapytaniami konwersacji aplikacja kliencka może określić, że baza wiedzy zwróciła odpowiedź, która nie jest przydatna dla użytkownika i może określić lepszą odpowiedź. Aplikacja kliencka musi [wysłać te informacje z powrotem do bazy wiedzy](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) , aby zwiększyć jakość przewidywania.
+QnA Maker używa _aktywnego uczenia_ do ulepszania bazy wiedzy, sugerując pytania alternatywne do odpowiedzi. Aplikacja kliencka jest odpowiedzialna za część tej [aktywnej nauki](../How-To/use-active-learning.md). Dzięki zapytaniami konwersacji aplikacja kliencka może określić, że baza wiedzy zwróciła odpowiedź, która nie jest przydatna dla użytkownika i może określić lepszą odpowiedź. Aplikacja kliencka musi wysłać te informacje z powrotem do bazy wiedzy, aby zwiększyć jakość przewidywania.
 
 ### <a name="providing-a-default-answer"></a>Dostarczanie odpowiedzi domyślnej
 
@@ -208,16 +208,16 @@ W zarządzanym wdrożeniu dane telemetryczne są oferowane w ramach [usługi Azu
 
 ### <a name="knowledge-base-development-of-qna-maker-pairs"></a>Opracowywanie QnA Maker par na podstawie bazy wiedzy
 
-[Pary QNA](question-answer-set.md) powinny być projektowane i tworzone w oparciu o użycie aplikacji klienckiej.
+Pary QnA powinny być projektowane i tworzone w oparciu o użycie aplikacji klienckiej.
 
 Każda para może zawierać:
 * Filtrowanie metadanych w przypadku wykonywania zapytań w celu umożliwienia znakowania par QnA z dodatkowymi informacjami o źródle, zawartości, formacie i przeznaczeniu danych.
 * Monity uzupełniające — pomaga określić ścieżkę w bazie wiedzy, aby użytkownik dotarł do odpowiedniej odpowiedzi.
-* Pytania alternatywne — ważne, aby zezwolić na dopasowanie wyszukiwania do odpowiedzi z różnych form pytań. [Aktywne sugestie dotyczące uczenia](active-learning-suggestions.md) załączają się do innych pytań.
+* Pytania alternatywne — ważne, aby zezwolić na dopasowanie wyszukiwania do odpowiedzi z różnych form pytań. [Aktywne sugestie dotyczące uczenia](../How-To/use-active-learning.md) załączają się do innych pytań.
 
 ### <a name="devops-development"></a>Programowanie DevOps
 
-Opracowywanie bazy wiedzy do wstawienia do potoku DevOps wymaga odizolowania bazy wiedzy podczas [testowania wsadowego](../index.yml).
+Opracowywanie bazy wiedzy do wstawienia do potoku DevOps wymaga odizolowania bazy wiedzy podczas testowania wsadowego.
 
 Baza wiedzy udostępnia indeks Wyszukiwanie poznawcze ze wszystkimi innymi bazami wiedzy w ramach zasobu QnA Maker. Baza wiedzy jest izolowana przez partycję, więc udostępnianie indeksu może spowodować różnice w wyniku porównywania z opublikowanym bazą wiedzy.
 

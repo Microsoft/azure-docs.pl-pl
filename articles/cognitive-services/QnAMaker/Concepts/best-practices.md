@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: ee8d838ba315c2e261a61699948b71a710341165
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8a6189a613c9a6768428a13e35e0e009894b8b3f
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346362"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988035"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Najlepsze rozwiązania dotyczące QnA Maker bazy wiedzy
 
@@ -141,7 +141,7 @@ Na przykład możesz mieć dwa osobne bazami z następującymi pytaniami:
 Ponieważ te dwa bazami są oznaczane podobnymi wyrazami, taka podobieństwo może spowodować bardzo podobne wyniki dla wielu zapytań użytkowników, których frazy są podobne do  *"gdzie jest `<x>` lokalizacją"*. Zamiast tego spróbuj wyraźnie odróżnić się od zapytań, takich jak  *"gdzie jest to parkingi"* i *"gdzie jest ATM"*, unikając słów takich jak "lokalizacja", które mogą mieć wiele pytań w KB.
 
 ## <a name="collaborate"></a>Współpraca
-QnA Maker umożliwia użytkownikom [współpracę](../index.yml) w bazie wiedzy. Aby uzyskać dostęp do baz wiedzy, użytkownicy muszą mieć dostęp do grupy zasobów usługi Azure QnA Maker. Niektóre organizacje mogą chcieć uzyskać informacje o edycji i obsłudze bazy wiedzy oraz nadal mieć możliwość ochrony dostępu do zasobów platformy Azure. Ten model zatwierdzania przez Edytor jest wykonywany przez skonfigurowanie dwóch identycznych [usług QNA Maker](../How-to/set-up-qnamaker-service-azure.md) w różnych subskrypcjach i wybranie jednej z nich dla cyklu edycji. Po zakończeniu testowania zawartość bazy wiedzy zostanie przetransferowana z procesem [importu eksportu](../Tutorials/migrate-knowledge-base.md) do usługi QNA Maker osoby zatwierdzającej, która ostatecznie opublikuje bazę wiedzy i zaktualizuje punkt końcowy.
+QnA Maker umożliwia użytkownikom współpracę w bazie wiedzy. Aby uzyskać dostęp do baz wiedzy, użytkownicy muszą mieć dostęp do grupy zasobów usługi Azure QnA Maker. Niektóre organizacje mogą chcieć uzyskać informacje o edycji i obsłudze bazy wiedzy oraz nadal mieć możliwość ochrony dostępu do zasobów platformy Azure. Ten model zatwierdzania przez Edytor jest wykonywany przez skonfigurowanie dwóch identycznych [usług QNA Maker](../How-to/set-up-qnamaker-service-azure.md) w różnych subskrypcjach i wybranie jednej z nich dla cyklu edycji. Po zakończeniu testowania zawartość bazy wiedzy zostanie przetransferowana z procesem [importu eksportu](../Tutorials/migrate-knowledge-base.md) do usługi QNA Maker osoby zatwierdzającej, która ostatecznie opublikuje bazę wiedzy i zaktualizuje punkt końcowy.
 
 
 
