@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f761d86bd7dbe54b687e8db75ecb3df2dbba3384
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 4b5a073459fad734a11d3a75718240d0ebbb486a
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932714"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981395"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Uwierzytelnianie HMAC — dokumentacja interfejsu API REST
 
@@ -22,7 +22,7 @@ ms.locfileid: "96932714"
 - **Poświadczeń** - \<Access Key ID\>
 - Wartość klucza dostępu dekodowanego przez **klucz tajny** Base64. ``base64_decode(<Access Key Value>)``
 
-Wartości poświadczeń (nazywanych również `id` ) i tajnych (nazywanych również `value` ) muszą zostać pobrane z wystąpienia konfiguracji aplikacji platformy Azure. Można to zrobić za pomocą [Azure Portal](https://portal.azure.com) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest).
+Wartości poświadczeń (nazywanych również `id` ) i tajnych (nazywanych również `value` ) muszą zostać pobrane z wystąpienia konfiguracji aplikacji platformy Azure. Można to zrobić za pomocą [Azure Portal](https://portal.azure.com) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/).
 
 Podaj każde żądanie ze wszystkimi nagłówkami HTTP, które są wymagane do uwierzytelniania. Wymagane są następujące wymagania:
 
@@ -549,7 +549,7 @@ Invoke-RestMethod -Uri $uri -Method $method -Headers $headers -Body $body
 | ------------ | ------- | --------------- |
 | [Bash](https://www.gnu.org/software/bash/) | bash | 3.5.27, 4.4.23 |
 | [coreutils](https://www.gnu.org/software/coreutils/) | zdawczy | 8,28 |
-| [odsłon](https://curl.haxx.se/) | curl | 7.55.1, 7.58.0 |
+| [curl](https://curl.haxx.se/) | curl | 7.55.1, 7.58.0 |
 | [OpenSSL](https://www.openssl.org/) | openssl | 1.1.0 g, 1.1.1 a |
 | [util — linux](https://github.com/karelzak/util-linux/) | hexdump | 2.14.1, 2.31.1 |
 

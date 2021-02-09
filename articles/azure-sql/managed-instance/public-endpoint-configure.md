@@ -9,13 +9,13 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
-ms.date: 05/07/2019
-ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/08/2021
+ms.openlocfilehash: 7d5f40be895aea26a234d9ae622aa5bf22528231
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788285"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981446"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Skonfiguruj publiczny punkt końcowy w wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Uzyskiwanie parametrów połączenia publicznego punktu końcowego wystąpienia zarządzanego
 
 1. Przejdź do strony konfiguracji wystąpienia zarządzanego, która została włączona dla publicznego punktu końcowego. Wybierz kartę **Parametry połączenia** w obszarze Konfiguracja **ustawień** .
-1. Należy pamiętać, że nazwa hosta publicznego punktu końcowego jest w formacie <mi_name>. **Public** . <dns_zone>. Database.Windows.NET i że port używany do połączenia to 3342.
+1. Należy pamiętać, że nazwa hosta publicznego punktu końcowego jest w formacie <mi_name>. **Public**. <dns_zone>. Database.Windows.NET i że port używany do połączenia to 3342. Oto przykład wartości serwera parametrów połączenia wskazującej publiczny Port punktu końcowego, który może być używany w połączeniach SQL Server Management Studio lub Azure Data Studio: `<mi_name>.public.<dns_zone>.database.windows.net,3342`
 
     ![Zrzut ekranu przedstawia parametry połączenia dla publicznych i prywatnych punktów końcowych.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

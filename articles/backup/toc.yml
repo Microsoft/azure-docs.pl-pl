@@ -472,7 +472,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
     - name: PowerShell — agent usługi Azure Backup
-      href: /powershell/module/msonlinebackup
+      href: /powershell/module/msonlinebackup/msonlinebackup
     - name: REST — kopia zapasowa
       href: /rest/api/backup/
     - name: REST — magazyn usługi Recovery Services

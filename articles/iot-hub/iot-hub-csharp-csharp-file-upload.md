@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 8d45ad630d09a4909cf00b830df139057cc0fcaf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 43cafb8c5efe0581fe7c4136aa41980b3d817be2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142289"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981412"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Przekazywanie plików z urządzenia do chmury przy użyciu IoT Hub (.NET)
 
@@ -79,16 +79,15 @@ W tej sekcji zmodyfikujesz aplikację urządzenia utworzoną w temacie [wysyłan
 1. Dodaj następującą metodę do klasy **program** :
 
     ```csharp
-    private static async void SendToBlobAsync()
+    private static async Task SendToBlobAsync(string fileName)
     {
-        string fileName = "image.jpg";
         Console.WriteLine("Uploading file: {0}", fileName);
         var watch = System.Diagnostics.Stopwatch.StartNew();
 
-        using (var sourceData = new FileStream(@"image.jpg", FileMode.Open))
-        {
-            await deviceClient.UploadToBlobAsync(fileName, sourceData);
-        }
+        await deviceClient.GetFileUploadSasUriAsync(new FileUploadSasUriRequest { BlobName = fileName });
+        var blob = new CloudBlockBlob(sas.GetBlobUri());
+        await blob.UploadFromFileAsync(fileName);
+        await deviceClient.CompleteFileUploadAsync(new FileUploadCompletionNotification { CorrelationId = sas.CorrelationId, IsSuccess = true });
 
         watch.Stop();
         Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
@@ -100,7 +99,7 @@ W tej sekcji zmodyfikujesz aplikację urządzenia utworzoną w temacie [wysyłan
 1. Dodaj następujący wiersz w metodzie **Main** , bezpośrednio przed `Console.ReadLine()` :
 
     ```csharp
-    SendToBlobAsync();
+    await SendToBlobAsync("image.jpg");
     ```
 
 > [!NOTE]
@@ -116,15 +115,15 @@ W tym artykule opisano tworzenie usługi zaplecza w celu odbierania komunikatów
 
 W tej sekcji utworzysz aplikację konsolową .NET, która odbiera komunikaty powiadomień o przekazaniu plików z IoT Hub.
 
-1. W bieżącym rozwiązaniu programu Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
+1. W bieżącym rozwiązaniu programu Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
-1. Nazwij projekt *ReadFileUploadNotification*. W obszarze **rozwiązanie**wybierz pozycję **Dodaj do rozwiązania**. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
+1. Nazwij projekt *ReadFileUploadNotification*. W obszarze **rozwiązanie** wybierz pozycję **Dodaj do rozwiązania**. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
 
     ![Konfigurowanie projektu ReadFileUploadNotification w programie Visual Studio](./media/iot-hub-csharp-csharp-file-upload/read-file-upload-project-configure.png)
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **ReadFileUploadNotification** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
 
-1. W **Menedżerze pakietów NuGet**wybierz pozycję **Przeglądaj**. Wyszukaj i wybierz pozycję **Microsoft. Azure. Devices**, a następnie wybierz pozycję **Zainstaluj**.
+1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj**. Wyszukaj i wybierz pozycję **Microsoft. Azure. Devices**, a następnie wybierz pozycję **Zainstaluj**.
 
     Ten krok spowoduje pobranie, zainstalowanie i dodanie odwołania do [pakietu NuGet zestawu SDK usługi Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) w projekcie **ReadFileUploadNotification** .
 
@@ -182,7 +181,7 @@ Teraz wszystko jest gotowe do uruchomienia aplikacji.
 
 1. W Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie wybierz pozycję **Ustaw projekty startowe**.
 
-1. W polu **Common Properties**  >  **projekt startowy**właściwości wspólne wybierz opcję **wiele projektów startowych**, a następnie wybierz akcję **Rozpocznij** dla **ReadFileUploadNotification** i **SimulatedDevice**. Wybierz przycisk **OK**, aby zapisać zmiany.
+1. W polu   >  **projekt startowy** właściwości wspólne wybierz opcję **wiele projektów startowych**, a następnie wybierz akcję **Rozpocznij** dla **ReadFileUploadNotification** i **SimulatedDevice**. Wybierz przycisk **OK**, aby zapisać zmiany.
 
 1. Naciśnij klawisz **F5**. Należy uruchomić obie aplikacje. Powinno zostać wyświetlone zakończono przekazywanie w jednej aplikacji konsolowej, a komunikat powiadomienia o przekazaniu odebrany przez inną aplikację konsolową. Możesz użyć [Azure Portal](https://portal.azure.com/) lub Eksplorator serwera programu Visual Studio, aby sprawdzić obecność przekazanego pliku na koncie usługi Azure Storage.
 

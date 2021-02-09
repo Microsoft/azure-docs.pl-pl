@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: af220106c415165a0dbe7cda64a31a6068f53164
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226062"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981786"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
@@ -965,7 +965,7 @@ Aby uzyskać najlepszą wydajność i wykorzystanie procesorów GPU, można wdro
   ```
 | Nazwa | Typ| Opis|
 |---------|---------|---------|
-| `batch_size` | int | Wskazuje liczbę kamer, które będą używane w operacji. |
+| `batch_size` | int | Jeśli wszystkie kamery mają takie samo rozwiązanie, ustaw `batch_size` liczbę kamer, które będą używane w tej operacji, w przeciwnym razie ustaw wartość `batch_size` 1 lub pozostaw ją jako domyślną (1), co oznacza, że żadna partia nie jest obsługiwana. |
 
 ## <a name="next-steps"></a>Następne kroki
 

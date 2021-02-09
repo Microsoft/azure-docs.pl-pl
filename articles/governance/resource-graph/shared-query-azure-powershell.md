@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start wykonaj kroki tworzenia zapytania ud
 ms.date: 01/11/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d7efc02cad3aaa67c639a319f1a7bb455d6e04b0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 2b771253b1dea4bd1d2913bf7c48062112019a19
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98128094"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981548"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>Szybki Start: Tworzenie zapytania udostępnionego grafu zasobów przy użyciu Azure PowerShell
 
@@ -36,7 +36,7 @@ W tym artykule opisano sposób tworzenia zapytania udostępnionego grafu zasobó
 
 ## <a name="create-a-resource-graph-shared-query"></a>Tworzenie zapytania udostępnionego wykresu zasobów
 
-Po `Az.ResourceGraph` dodaniu modułu PowerShell do wybranego środowiska należy utworzyć zapytanie udostępnione grafu zasobów. Udostępnione zapytanie jest obiektem Azure Resource Manager, w którym można udzielić uprawnienia lub uruchomić je w Eksploratorze Azure Resource Graph. Zapytanie podsumowuje liczbę wszystkich zasobów pogrupowanych według _lokalizacji_.
+Za pomocą polecenia **AZ. ResourceGraph** PowerShell dodanego do wybranego środowiska można utworzyć zapytanie udostępnione grafu zasobów. Udostępnione zapytanie jest obiektem Azure Resource Manager, w którym można udzielić uprawnienia lub uruchomić je w Eksploratorze Azure Resource Graph. Zapytanie podsumowuje liczbę wszystkich zasobów pogrupowanych według _lokalizacji_.
 
 1. Utwórz grupę zasobów przy użyciu usługi [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) , aby zachować udostępnione zapytanie grafu zasobów platformy Azure. Ta grupa zasobów ma nazwę `resource-graph-queries` , a lokalizacja to `westus2` .
 
@@ -47,7 +47,7 @@ Po `Az.ResourceGraph` dodaniu modułu PowerShell do wybranego środowiska należ
    New-AzResourceGroup -Name resource-graph-queries -Location westus2
    ```
 
-1. Utwórz zapytanie udostępnione grafu zasobów platformy Azure przy użyciu `Az.ResourceGraph` modułu programu PowerShell i polecenia cmdlet [New-AzResourceGraphQuery](/powershell/module/az.resourcegraph/new-azresourcegraphquery) :
+1. Utwórz zapytanie udostępnione grafu zasobów platformy Azure za pomocą polecenia **AZ. ResourceGraph** PowerShell i polecenie cmdlet [New-AzResourceGraphQuery](/powershell/module/az.resourcegraph/new-azresourcegraphquery) :
 
    ```azurepowershell-interactive
    # Create the Azure Resource Graph shared query
@@ -80,7 +80,7 @@ Po `Az.ResourceGraph` dodaniu modułu PowerShell do wybranego środowiska należ
 Jeśli chcesz usunąć zapytanie udostępnione i grupę zasobów wykresu zasobów ze środowiska platformy Azure, możesz to zrobić za pomocą następujących poleceń:
 
 - [Remove-AzResourceGraphQuery](/powershell/module/az.resourcegraph/remove-azresourcegraphquery)
-- [Remove-AzResourceGroup](/cli/azure/group#az_group_delete)
+- [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)
 
 ```azurepowershell-interactive
 # Delete the Azure Resource Graph shared query

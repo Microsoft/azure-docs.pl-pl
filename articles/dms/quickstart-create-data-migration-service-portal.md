@@ -11,25 +11,23 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 07/21/2020
-ms.openlocfilehash: ff9fc2baaf1563d4a02364db00344ffc0bc46a6a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.date: 01/29/2021
+ms.openlocfilehash: 6232c842514c10a5440e574621ca74e2f4867d86
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060269"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981675"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Szybki start: tworzenie wystąpienia usługi Azure Database Migration Service przy użyciu witryny Azure Portal
 
-W tym przewodniku szybki start utworzysz wystąpienie Azure Database Migration Service za pomocą Azure Portal.  Po utworzeniu wystąpienia można użyć go do migracji danych z SQL Server do Azure SQL Database.
+W tym przewodniku szybki start utworzysz wystąpienie Azure Database Migration Service za pomocą Azure Portal. Po utworzeniu wystąpienia można użyć go do migracji danych z wielu źródeł baz danych do platformy danych platformy Azure, takich jak z SQL Server do Azure SQL Database lub z SQL Server do wystąpienia zarządzanego Azure SQL.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Otwórz przeglądarkę internetową, przejdź do witryny [Microsoft Azure Portal](https://portal.azure.com/), a następnie wprowadź swoje poświadczenia, aby zalogować się w portalu.
-
-Widok domyślny to pulpit nawigacyjny usług.
+Otwórz przeglądarkę internetową, przejdź do witryny [Microsoft Azure Portal](https://portal.azure.com/), a następnie wprowadź swoje poświadczenia, aby zalogować się w portalu. Widok domyślny to pulpit nawigacyjny usług.
 
 > [!NOTE]
 > Można utworzyć maksymalnie 10 wystąpień usługi DMS na subskrypcję na region. Jeśli potrzebujesz większej liczby wystąpień, Utwórz bilet pomocy technicznej.
@@ -38,47 +36,60 @@ Widok domyślny to pulpit nawigacyjny usług.
 
 Przed utworzeniem pierwszego wystąpienia usługi Database Migration Service zarejestruj dostawcę zasobów Microsoft.DataMigration.
 
-1. W witrynie Azure Portal wybierz pozycję **Wszystkie usługi**, a następnie wybierz pozycję **Subskrypcje**.
+1. W Azure Portal Wyszukaj i wybierz pozycję **subskrypcje**.
+
+   ![Wyświetlanie subskrypcji w portalu](media/quickstart-create-data-migration-service-portal/portal-select-subscription.png)
 
 2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie Azure Database Migration Service, a następnie wybierz pozycję **dostawcy zasobów**.
 
-3. Wyszukaj pozycję migracja, a następnie po prawej stronie **programu Microsoft. datamigration** wybierz pozycję **zarejestruj**.
+    ![Wyświetlanie dostawców zasobów](media/quickstart-create-data-migration-service-portal/portal-select-resource-provider.png)
+
+3. Wyszukaj pozycję migracja, a następnie wybierz pozycję **zarejestruj** dla elementu **Microsoft. datamigration**.
 
     ![Rejestrowanie dostawcy zasobów](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Tworzenie wystąpienia usługi
 
-1. Wybierz pozycję +**Utwórz zasób** , aby utworzyć wystąpienie Azure Database Migration Service.
+1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**. Wyszukaj i wybierz **Azure Database Migration Service**.
 
-2. Wyszukaj w witrynie Marketplace hasło „migration”, wybierz pozycję **Azure Database Migration Service**, a następnie na ekranie **Azure Database Migration Service** wybierz pozycję **Utwórz**.
+    ![Azure Marketplace](media/quickstart-create-data-migration-service-portal/portal-marketplace.png)
 
-3. Na ekranie **Tworzenie usługi migracji**:
+2. Na ekranie **Azure Database Migration Service** wybierz polecenie **Utwórz**.
 
-    - Wybierz **nazwę usługi** , która jest dopamiętana i unikatowa, aby zidentyfikować wystąpienie Azure Database Migration Service.
-    - Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć wystąpienie.
-    - Wybierz istniejącą **grupę zasobów** lub Utwórz nową.
-    - Wybierz pozycję **Lokalizacja** położoną najbliżej Twojego serwera źródłowego lub docelowego.
-    - Wybierz istniejącą **sieć wirtualną** lub utwórz ją.
+    ![Tworzenie wystąpienia usługi Azure Database Migration Service](media/quickstart-create-data-migration-service-portal/dms-create.png)
 
-        Sieć wirtualna zapewnia Azure Database Migration Service z dostępem do źródłowej bazy danych i środowiska docelowego.
+3. Na ekranie **Tworzenie podstawy usługi migracji** :
 
-        Aby uzyskać więcej informacji na temat sposobu tworzenia sieci wirtualnej w Azure Portal, zobacz artykuł [Tworzenie sieci wirtualnej przy użyciu Azure Portal](../virtual-network/quick-create-portal.md).
+     - Wybierz subskrypcję.
+     - Utwórz nową grupę zasobów lub wybierz istniejącą.
+     - Określ nazwę wystąpienia Azure Database Migration Service.
+     - Wybierz lokalizację, w której chcesz utworzyć wystąpienie Azure Database Migration Service.
+     - Wybierz **platformę Azure** jako tryb usługi.
+     - Wybierz warstwę cenową. Aby uzyskać więcej informacji na temat kosztów i warstw cenowych, zobacz [stronę z cennikiem](https://aka.ms/dms-pricing).
+     
+    ![Skonfiguruj ustawienia podstawowe dla Azure Database Migration Service wystąpienia](media/quickstart-create-data-migration-service-portal/dms-create-basics.png)
 
-    - Wybierz opcję Podstawowa: 1 rdzeń wirtualny dla pozycji **Warstwa cenowa**.
+     - Wybierz pozycję Dalej: Sieć.
 
-        ![Tworzenie usługi migracji](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
+4. Na ekranie **Tworzenie sieci usługi migracji** :
 
-4. Wybierz pozycję **Utwórz**.
+    - Wybierz istniejącą sieć wirtualną lub Utwórz nową. Sieć wirtualna zapewnia Azure Database Migration Service z dostępem do źródłowej bazy danych i środowiska docelowego. Aby uzyskać więcej informacji na temat sposobu tworzenia sieci wirtualnej w Azure Portal, zobacz artykuł [Tworzenie sieci wirtualnej przy użyciu Azure Portal](../virtual-network/quick-create-portal.md).
 
-    Po kilku chwilach wystąpienie usługi Azure Database Migration Service jest tworzone i gotowe do użycia. Azure Database Migration Service wyświetlane jak pokazano na poniższej ilustracji:
+    ![Konfigurowanie ustawień sieciowych wystąpienia Azure Database Migration Service](media/quickstart-create-data-migration-service-portal/dms-network-settings.png)
+
+    - Wybierz pozycję **Przegląd + Utwórz** , aby utworzyć usługę. 
+    
+    - Po kilku chwilach wystąpienie usługi Azure Database Migration Service jest tworzone i gotowe do użycia:
 
     ![Utworzono usługę migracji](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Możesz wyczyścić zasoby utworzone w tym przewodniku Szybki start, usuwając [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md). Aby usunąć grupę zasobów, przejdź do utworzonego wystąpienia usługi Azure Database Migration Service. Wybierz nazwę w obszarze **Grupa zasobów**, a następnie wybierz pozycję **Usuń grupę zasobów**. Ta akcja spowoduje usunięcie wszystkich zasobów w grupie zasobów, a także usunięcie samej grupy.
+Możesz wyczyścić zasoby utworzone w tym przewodniku Szybki Start, usuwając [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md). Aby usunąć grupę zasobów, przejdź do utworzonego wystąpienia usługi Azure Database Migration Service. Wybierz nazwę w obszarze **Grupa zasobów**, a następnie wybierz pozycję **Usuń grupę zasobów**. Ta akcja spowoduje usunięcie wszystkich zasobów w grupie zasobów, a także usunięcie samej grupy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Migrowanie z programu SQL Server do usługi Azure SQL Database](tutorial-sql-server-to-azure-sql.md)
+* [Migracja z programu SQL Server do usługi Azure SQL Database w trybie offline](tutorial-sql-server-to-azure-sql.md)
+* [Migracja z programu SQL Server do usługi Azure SQL Database w trybie online](tutorial-sql-server-azure-sql-online.md)
+* [Migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie offline](tutorial-sql-server-to-managed-instance.md)
+* [Migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie online](tutorial-sql-server-managed-instance-online.md)

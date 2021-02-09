@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 1b9c576ce03d808fe6a4d0cac5196dfcd1b73eab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fc8ddba2ec9b7bc9f1c2db8673ab805810afe17e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545484"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981293"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Szybki Start: wdrażanie IoT Hub platformy Azure i konta magazynu przy użyciu szablonu ARM
 
@@ -21,9 +21,9 @@ W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
-[![Wdrażanie na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
+[![Wdróż na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,7 +49,7 @@ Ta sekcja zawiera instrukcje wdrażania szablonu, tworzenia urządzenia wirtualn
     > [!TIP]
     > Wybierz poniższy przycisk, aby rozpocząć wdrażanie szablonu. Gdy jest uruchomiona, skonfiguruj aplikację ARM-Read-Write do uruchomienia.
 
-    [![Wdrażanie na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
+    [![Wdróż na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
 1. Pobierz i rozpakuj [przykłady dla środowiska IoT C#](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
@@ -61,7 +61,7 @@ Ta sekcja zawiera instrukcje wdrażania szablonu, tworzenia urządzenia wirtualn
 
    ![Wyświetlanie zasobów w grupie zasobów](./media/horizontal-arm-route-messages/02-view-resources-in-group.png)
 
-1. Potrzebna jest **nazwa centrum** . Wybierz centrum na liście zasobów. Skopiuj nazwę centrum z górnej części sekcji IoT Hub do Schowka systemu Windows.
+1. Potrzebna jest **nazwa centrum**. Wybierz centrum na liście zasobów. Skopiuj nazwę centrum z górnej części sekcji IoT Hub do Schowka systemu Windows.
 
    ![Kopiuj nazwę centrum](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
 
@@ -83,15 +83,15 @@ Ta sekcja zawiera instrukcje wdrażania szablonu, tworzenia urządzenia wirtualn
 
 1. Po prawej stronie ekranu wybierz pozycję **+ Nowy** , aby dodać nowe urządzenie.
 
-   Wprowadź nową nazwę urządzenia. Ten przewodnik Szybki Start używa nazwy rozpoczynającej się od **firmy Contoso-test-Device** . Zapisz urządzenie, a następnie ponownie otwórz ten ekran, aby pobrać klucz urządzenia. (Klucz jest generowany podczas zamykania okienka). Wybierz klucz podstawowy lub pomocniczy i skopiuj go do Schowka systemu Windows. W oknie polecenia Ustaw polecenie, które ma zostać wykonane, a następnie naciśnij klawisz **Enter** . Polecenie powinno wyglądać podobnie do tego, ale przy użyciu klucza urządzenia wklejonego w:
+   Wprowadź nową nazwę urządzenia. Ten przewodnik Szybki Start używa nazwy rozpoczynającej się od **firmy Contoso-test-Device**. Zapisz urządzenie, a następnie ponownie otwórz ten ekran, aby pobrać klucz urządzenia. (Klucz jest generowany podczas zamykania okienka). Wybierz klucz podstawowy lub pomocniczy i skopiuj go do Schowka systemu Windows. W oknie polecenia Ustaw polecenie, które ma zostać wykonane, a następnie naciśnij klawisz **Enter**. Polecenie powinno wyglądać podobnie do tego, ale przy użyciu klucza urządzenia wklejonego w:
 
    ```cmd
    SET IOT_DEVICE_KEY=<device-key-goes-here>
    ```
 
-1. Ostatnia zmienna środowiskowa to **Identyfikator urządzenia** . W oknie wiersza polecenia Skonfiguruj polecenie i wykonaj je.
+1. Ostatnia zmienna środowiskowa to **Identyfikator urządzenia**. W oknie wiersza polecenia Skonfiguruj polecenie i wykonaj je.
 
-   ```cms
+   ```cmd
    SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 
@@ -101,13 +101,13 @@ Ta sekcja zawiera instrukcje wdrażania szablonu, tworzenia urządzenia wirtualn
    SET IOT_DEVICE_ID=Contoso-Test-Device
    ```
 
-1. Aby wyświetlić zdefiniowane zmienne środowiskowe, wpisz SET w wierszu polecenia i naciśnij klawisz **Enter** , a następnie wyszukaj te, zaczynając od **IoT** .
+1. Aby wyświetlić zdefiniowane zmienne środowiskowe, wpisz SET w wierszu polecenia i naciśnij klawisz **Enter**, a następnie wyszukaj te, zaczynając od **IoT**.
 
    ![Zobacz zmienne środowiskowe](./media/horizontal-arm-route-messages/06-environment-variables.png)
 
     Teraz zmienne środowiskowe są ustawione, uruchom aplikację z tego samego okna poleceń. Ponieważ korzystasz z tego samego okna, zmienne będą dostępne w pamięci podczas uruchamiania aplikacji.
 
-1. Aby uruchomić aplikację, wpisz następujące polecenie w oknie wiersza polecenia i naciśnij klawisz **Enter** .
+1. Aby uruchomić aplikację, wpisz następujące polecenie w oknie wiersza polecenia i naciśnij klawisz **Enter**.
 
     `dotnet run arm-read-write`
 
@@ -134,7 +134,7 @@ Wdrożono szablon ARM w celu utworzenia IoT Hub i konta magazynu oraz uruchamian
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby usunąć zasoby dodane w ramach tego przewodnika Szybki Start, zaloguj się do [Azure Portal](https://portal.azure.com). Wybierz pozycję **grupy zasobów** , a następnie Znajdź grupę zasobów, która została użyta w tym przewodniku Szybki Start. Wybierz grupę zasobów, a następnie wybierz pozycję *Usuń* . Spowoduje to usunięcie wszystkich zasobów w grupie.
+Aby usunąć zasoby dodane w ramach tego przewodnika Szybki Start, zaloguj się do [Azure Portal](https://portal.azure.com). Wybierz pozycję **grupy zasobów**, a następnie Znajdź grupę zasobów, która została użyta w tym przewodniku Szybki Start. Wybierz grupę zasobów, a następnie wybierz pozycję *Usuń*. Spowoduje to usunięcie wszystkich zasobów w grupie.
 
 ## <a name="next-steps"></a>Następne kroki
 

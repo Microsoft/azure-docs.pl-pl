@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: b7eaf374e72997013f09b1c94ce16c67d115a818
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987375"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981514"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Tworzenie i eksplorowanie zestawu danych Azure Machine Learning przy użyciu etykiet
 
@@ -39,6 +39,9 @@ Po zakończeniu projektu etykietowania danych można wyeksportować dane etykiet
 ### <a name="coco"></a>COCO 
 
  Plik COCO jest tworzony w domyślnym magazynie obiektów BLOB obszaru roboczego Azure Machine Learning w folderze w obszarze *Export/Coco*. 
+ 
+>[!NOTE]
+>W projektach wykrywania obiektów wyeksportowany wartości "bbox": [x, y, Width, Height] "w pliku COCO są znormalizowane. Są one skalowane do 1. Przykład: pole ograniczające w lokalizacji (10, 10) o szerokości 30 pikseli, 60 pikseli wysokości, w obrazie w pikselach 640x480 zostanie adnotacja jako (0,015625. 0,02083, 0,046875, 0,125). Ponieważ coordintes są znormalizowane, będzie wyświetlana jako "0,0" jako "width" i "Height" dla wszystkich obrazów. Rzeczywistą szerokość i wysokość można uzyskać przy użyciu biblioteki języka Python, takiej jak OpenCV lub Pillow (PIL).
 
 ### <a name="azure-machine-learning-dataset"></a>Zestaw danych Azure Machine Learning
 

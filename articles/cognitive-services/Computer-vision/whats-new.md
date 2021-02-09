@@ -10,27 +10,27 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: ec340e3371b0fe337354006b1284a21420a11f3a
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1128504ee5f8c086d6a3c30a9fdd021550394f3f
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573640"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981769"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji, klipami wideo, wpisami w blogu i innymi rodzajami informacji. Oznacz Tę stronę zakładką, aby zachować aktualność za pomocą usługi.
 
-## <a name="february-2021"></a>Luty 2021
+## <a name="february-2021"></a>Luty 2021 r.
 
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Przeczytaj publiczną wersję zapoznawczą interfejsu API v 3.2 z obsługą OCR dla języków 73
 Wersja zapoznawcza interfejsu API w programie przetwarzanie obrazów v 3.2 obejmuje następujące możliwości:
-* Program OCR dla łącznej liczby [języków 73](./language-support.md#optical-character-recognition-ocr) , w tym uproszczonych i tradycyjnych języków chińskich, japońskich, koreańskich i głównych.
-* Wybierz, czy wiersze tekstu mają być wyprowadzane w kolejności od lewej do prawej i u góry (ustawienie domyślne), czy bardziej naturalnej kolejności odczytywania.
-* Dla każdego elementu danych wyjściowych w wierszu tekstu wskaż, czy jego styl pisma odręcznego, czy też nie ma oceny pewności (tylko języki łacińskie).
+* Program [OCR dla języków 73, w](./language-support.md#optical-character-recognition-ocr) tym uproszczony i tradycyjny język chiński, japoński, koreański i łaciński.
+* Wyprowadza wiersze tekstu w naturalnej kolejności odczytywania.
+* Klasyfikuj wiersze tekstu jako styl pisma ręcznego lub nie wraz z oceną pewności (tylko języki łacińskie).
 * Dla dokumentu wielostronicowego Wyodrębnij tekst tylko dla wybranych stron lub zakresu stron.
 
-Zobacz [Omówienie interfejsu API odczytu](concept-recognizing-text.md) , aby dowiedzieć się więcej.
+Aby uzyskać więcej informacji, zobacz sekcję [Read Preview Features](concept-recognizing-text.md#natural-reading-order-output) .
 
 > [!div class="nextstepaction"]
 > [Korzystanie z publicznej wersji zapoznawczej interfejsu API Read v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)

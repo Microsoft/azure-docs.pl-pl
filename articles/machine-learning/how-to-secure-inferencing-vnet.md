@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 4dfe2130d8274e2b3463c0fb42587b50fef77f18
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953737"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981310"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska Azure Machine Learning inferencing z sieciami wirtualnymi
 
@@ -257,7 +257,7 @@ Azure Container Instances są tworzone dynamicznie podczas wdrażania modelu. Ab
 > * W tej samej grupie zasobów co obszar roboczy Azure Machine Learning.
 > * Jeśli obszar roboczy ma __prywatny punkt końcowy__, Sieć wirtualna używana na potrzeby Azure Container Instances musi być taka sama jak używana przez prywatny punkt końcowy obszaru roboczego.
 >
-> W przypadku korzystania z Azure Container Instances wewnątrz sieci wirtualnej Azure Container Registry (ACR) dla obszaru roboczego nie może być również w sieci wirtualnej.
+> W przypadku korzystania z Azure Container Instances wewnątrz sieci wirtualnej Azure Container Registry (ACR) obszaru roboczego nie może znajdować się w sieci wirtualnej.
 
 Aby użyć ACI w sieci wirtualnej z obszarem roboczym, wykonaj następujące czynności:
 

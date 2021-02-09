@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 02/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709447"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981344"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Azure Stack Edge — instrukcje bezpieczeństwa w programie R.
 
@@ -37,7 +37,7 @@ Następujące ikony zagrożeń są przestrzegane podczas konfigurowania i urucha
 | Ikona | Opis |
 |:--- |:--- |
 | ![Najpierw przeczytaj wszystkie instrukcje](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Najpierw przeczytaj wszystkie instrukcje |
-| ![Symbol zagrożenia](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Symbol zagrożenia |
+| ![Powiadomienie o ikonie powiadomienia ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **:** | Wskazuje informacje uznawane za ważne, ale nie związane z zagrożeniami. || ![Symbol zagrożenia](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Symbol zagrożenia |
 | ![Ikona zagrożenia Porada](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Niebezpieczeństwo Porada|
 | ![Ikona dużej wagi](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Duże zagrożenie wagi|
 | ![Ikona porażenia energii elektrycznej](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Zagrożenie elektryczne |
@@ -88,6 +88,7 @@ Następujące ikony zagrożeń są przestrzegane podczas konfigurowania i urucha
   * Zapewnianie wystarczającej ilości miejsca do uzyskania dostępu do przewodów zasilacza, ponieważ służą one jako główne rozłączenie z zasilaniem produktu.
 * Kable Ethernet nie są dostarczane z produktem. Aby zmniejszyć liczbę zakłóceń elektromagnetycznych, zaleca się użycie okablowania "skrętka" z osłoną.
 * Skonfiguruj urządzenia w obszarze roboczym, co pozwala na odpowiedni obieg powietrza wokół sprzętu; Upewnij się, że okładki frontonu i tyłu są całkowicie usuwane, gdy urządzenie jest uruchomione.
+* Kable Ethernet nie są dostarczane z produktem. Aby zmniejszyć liczbę zakłóceń elektromagnetycznych, zaleca się użycie okablowania z osłoną (STP) Cat 6.
 * Instalowanie sprzętu w obszarze kontrolowanym przez temperaturę, bez zanieczyszczeń, i Zezwalanie na odpowiedni obieg powietrza wokół sprzętu.
 * Zachowaj sprzęt z źródeł płynnych i nadmiernie humidych środowisk.
 * Nie Zezwalaj na wprowadzanie systemu żadnych płynów ani jakichkolwiek obiektów obcych. Nie należy umieszczać napojów ani żadnych innych kontenerów płynów w systemie ani w ich sąsiedztwie.
@@ -207,7 +208,7 @@ A device that has a UPS installed is designed to operate in the following enviro
 > Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. --> 
 
 
-> ![Powiadomienie o ikonie powiadomienia ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **:** &nbsp; zmiany lub modyfikacje sprzętu, które nie zostały wyraźnie zatwierdzone przez firmę Microsoft, mogą unieważnić urząd użytkownika w celu obsługi sprzętu.
+> ![Ikona powiadomienia — 2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **Uwaga:** &nbsp; zmiany lub modyfikacje sprzętu, które nie zostały wyraźnie zatwierdzone przez firmę Microsoft, mogą unieważnić urząd użytkownika w celu obsługi sprzętu.
 
 Kanada i Stany Zjednoczone:
 
