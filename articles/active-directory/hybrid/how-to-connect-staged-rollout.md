@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762973"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090602"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
@@ -83,10 +83,6 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
     - Grupy dynamiczne *nie są obsługiwane* w przypadku wdrażania etapowego.
     - Obiekty Contact wewnątrz grupy blokują Dodawanie grupy.
 
-- Nadal musisz wprowadzić ostateczną uruchomienie produkcyjne z Federacji do uwierzytelniania w chmurze przy użyciu Azure AD Connect lub programu PowerShell. Wdrażanie etapowe nie przełącza domen z federacyjnego na zarządzane.  Aby uzyskać więcej informacji na temat uruchomienie produkcyjne domeny, zobacz [Migrowanie z Federacji do synchronizacji skrótów haseł](plan-migrate-adfs-password-hash-sync.md) i [Migrowanie z Federacji do uwierzytelniania przekazywanego](plan-migrate-adfs-pass-through-authentication.md)
-
-
-
 - Przy pierwszym dodawaniu grupy zabezpieczeń do wdrożenia przemieszczanego można ograniczyć do 200 użytkowników, aby uniknąć przekroczenia limitu czasu środowiska. Po dodaniu grupy można do niej dodać kilku użytkowników bezpośrednio, zgodnie z potrzebami.
 
 - Podczas wdrażania etapowego, gdy EnforceCloudPasswordPolicyForPasswordSyncedUsers jest włączona, zasady wygasania haseł są ustawiane na 90 dni bez opcji dostosowywania. 
@@ -95,7 +91,9 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 
 - Dołączanie hybrydowe systemu Windows 10 lub usługa Azure AD Join — pozyskiwanie podstawowego tokenu odświeżania dla wszystkich wersji, gdy lokalna nazwa UPN użytkownika nie obsługuje routingu. Ten scenariusz powróci do WS-Trust punktu końcowego w trybie wdrażania etapowego, ale przestanie działać, gdy migracja etapowa zostanie zakończona, a Logowanie użytkownika nie będzie już polegać na serwerze federacyjnym.
 
-
+  >[!NOTE]
+  >Nadal musisz wprowadzić ostateczną uruchomienie produkcyjne z Federacji do uwierzytelniania w chmurze przy użyciu Azure AD Connect lub programu PowerShell. Wdrażanie etapowe nie przełącza domen z federacyjnego na zarządzane.  Aby uzyskać więcej informacji na temat uruchomienie produkcyjne domeny, zobacz [Migrowanie z Federacji do synchronizacji skrótów haseł](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) i [Migrowanie z Federacji do uwierzytelniania przekazywanego](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  
 ## <a name="get-started-with-staged-rollout"></a>Wprowadzenie do wdrożenia przemieszczanego
 
 Aby przetestować logowanie do *synchronizacji skrótów haseł* przy użyciu wdrożenia etapowego, postępuj zgodnie z instrukcjami w następnej sekcji.
@@ -257,3 +255,5 @@ Odp. Tak. Aby dowiedzieć się, jak używać programu PowerShell do wdrażania e
 
 ## <a name="next-steps"></a>Następne kroki
 - [Azure AD 2,0 — wersja zapoznawcza](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Zmień metodę logowania na synchronizację skrótów haseł](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Zmień metodę logowania na uwierzytelnianie przekazywane](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: b183abf8d42e6f4b1c43db2d87b2650721e0c2a9
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: eec88bf85f1b7a2ec8db2bf23c43629d84cc5106
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567954"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090449"
 ---
 # <a name="connect-your-squid-proxy-to-azure-sentinel"></a>Połącz serwer proxy Squid z platformą Azure — wskaźnikiem
 
 > [!IMPORTANT]
 > Łącznik serwera proxy Squid jest obecnie w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 
-W tym artykule wyjaśniono, jak połączyć urządzenie proxy Squid z platformą Azure — wskaźnikiem. Łącznik danych serwera proxy Squid umożliwia łatwe łączenie dzienników squid z platformą Azure, dzięki czemu można wyświetlać dane ze skoroszytów, używać ich do tworzenia niestandardowych alertów i uwzględniania ich w celu usprawnienia badania. Integracja między squid serwerem proxy i platformą Azure
+W tym artykule wyjaśniono, jak połączyć urządzenie proxy Squid z platformą Azure — wskaźnikiem. Łącznik danych serwera proxy Squid umożliwia łatwe łączenie dzienników squid z platformą Azure, dzięki czemu można wyświetlać dane ze skoroszytów, używać ich do tworzenia niestandardowych alertów i uwzględniania ich w celu usprawnienia badania. Integracja między squid serwerem proxy i platformą Azure wskaźnikiem umożliwia korzystanie z lokalnego przetwarzania plików przez agenta Log Analytics.
 
 > [!NOTE]
 > Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
@@ -35,9 +35,9 @@ W tym artykule wyjaśniono, jak połączyć urządzenie proxy Squid z platformą
 
 - Musisz mieć uprawnienia do odczytu i zapisu w obszarze roboczym wskaźnik platformy Azure.
 
-## <a name="forward-squid-proxy-logs-to-the-syslog-agent"></a>Przekazuj dzienniki proxy Squid do agenta dziennika systemu  
+## <a name="forward-squid-proxy-logs-to-the-log-analytics-agent"></a>Przekazywanie dzienników serwera proxy Squid do agenta Log Analytics  
 
-Skonfiguruj serwer proxy Squid do przesyłania komunikatów dziennika systemowego do obszaru roboczego platformy Azure za pośrednictwem agenta dziennika systemowego.
+Skonfiguruj serwer proxy Squid do wysyłania plików dziennika do obszaru roboczego platformy Azure za pośrednictwem agenta Log Analytics.
 
 1. W menu nawigacji wskaźnikowej platformy Azure wybierz pozycję **Łączniki danych**.
 

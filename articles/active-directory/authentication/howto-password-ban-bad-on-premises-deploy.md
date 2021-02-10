@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220290"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091044"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
 
@@ -85,7 +85,8 @@ Obowiązują następujące podstawowe wymagania:
 * Wszystkie maszyny, w tym kontrolery domeny z zainstalowanymi składnikami ochrony haseł usługi Azure AD, muszą mieć zainstalowane środowisko uruchomieniowe języka uniwersalnego C.
     * Środowisko uruchomieniowe można uzyskać, upewniając się, że masz wszystkie aktualizacje Windows Update. Lub można ją pobrać w pakiecie aktualizacji specyficznym dla systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [Aktualizacja dla środowiska uruchomieniowego uniwersalnego języka C w systemie Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Do zarejestrowania lasu Active Directory systemu Windows Server w usłudze Azure AD potrzebujesz konta z uprawnieniami administratora domeny Active Directory w domenie głównej lasu.
-* Usługa dystrybucji kluczy musi być włączona na wszystkich kontrolerach domeny w domenie z systemem Windows Server 2012. Domyślnie ta usługa jest włączona za pośrednictwem uruchomienia wyzwalacza ręcznego.
+* Usługa dystrybucji kluczy musi być włączona na wszystkich kontrolerach domeny w domenie z systemem Windows Server 2012 lub nowszym. Domyślnie ta usługa jest włączona za pośrednictwem uruchomienia wyzwalacza ręcznego.
+
 * Połączenie sieciowe musi istnieć między co najmniej jednym kontrolerem domeny w każdej domenie i co najmniej jednym serwerem, który obsługuje usługę proxy dla ochrony hasłem usługi Azure AD. Ta łączność musi zezwalać kontrolerowi domeny na dostęp do portu mapowania punktów końcowych wywołań RPC 135 i portu serwera RPC w usłudze serwera proxy.
     * Domyślnie port serwera RPC to dynamiczny port RPC, ale można go skonfigurować do [korzystania z portu statycznego](#static).
 * Wszystkie maszyny, na których zostanie zainstalowana usługa serwera proxy ochrony haseł usługi Azure AD, muszą mieć dostęp sieciowy do następujących punktów końcowych:

@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e85ac58c80e1fd695938bf09b6435dba1f4ee083
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074243"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091350"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Jak włączyć wirtualizację zagnieżdżoną na maszynie wirtualnej platformy Azure
 
@@ -24,7 +24,7 @@ W tym artykule opisano Włączanie funkcji Hyper-V na maszynie wirtualnej platfo
 
 Utwórz nową maszynę wirtualną platformy Azure z systemem Windows Server 2016. Aby uzyskać pełną listę rozmiarów maszyn wirtualnych obsługujących zagnieżdżanie, zapoznaj się z [artykułem dotyczącym jednostek obliczeniowych platformy Azure](../acu.md).
 
-Należy pamiętać, aby wybrać rozmiar maszyny wirtualnej wystarczająco duży, aby obsługiwał wymagania maszyny wirtualnej gościa. W tym przykładzie używamy maszyny wirtualnej platformy Azure o rozmiarze D3_v3. 
+Należy pamiętać, aby wybrać rozmiar maszyny wirtualnej wystarczająco duży, aby obsługiwał wymagania maszyny wirtualnej gościa. W tym przykładzie używamy maszyny wirtualnej platformy Azure o rozmiarze D4_v3. 
 
 W [tym miejscu](https://azure.microsoft.com/regions/services/)możesz zobaczyć dostępność maszyn wirtualnych z serii Dv3 lub EV3.
 

@@ -143,6 +143,8 @@
                   href: resilience-client-app.md
                 - name: Aplikacje demona
                   href: resilience-daemon-app.md
+            - name: Monitoruj kondycję aplikacji pod kątem odporności
+              href: monitor-sign-in-health-for-resilience.md
         - name: Urzędy certyfikacji używane na platformie Azure
           href: certificate-authorities.md
     - name: Podręcznik wdrażania
