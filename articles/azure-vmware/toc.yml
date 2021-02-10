@@ -107,7 +107,7 @@
         - name: Otwieranie wniosku o pomoc techniczną dla niepowodzeń wdrażania
           href: fix-deployment-provisioning-failures.md
     - name: Często zadawane pytania
-      href: faq.md
+      href: faq.yml
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

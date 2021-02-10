@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8192d7104daf1474a2123331183edf05e6fa1ada
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968608"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007418"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Usługa Azure monitor dla dostawców rozwiązań SAP (wersja zapoznawcza)
 
@@ -41,7 +41,7 @@ Jeśli klienci nie skonfigurują żadnych dostawców w czasie wdrażania zasobu 
 
 Klienci mogą skonfigurować jednego lub więcej dostawców typu dostawcy *SAP HANA* , aby umożliwić zbieranie danych z bazy danych SAP HANA Database. Dostawca SAP HANA nawiązuje połączenie z bazą danych SAP HANA za pośrednictwem portu SQL, pobiera dane telemetryczne z bazy danych i wypycha je do obszaru roboczego Log Analytics w ramach subskrypcji klienta. Dostawca SAP HANA zbiera dane co 1 minutę z bazy danych SAP HANA.  
 
-W publicznej wersji zapoznawczej klienci mogą oczekiwać, że następujące dane są dostępne dla SAP HANA dostawcy: podstawowego wykorzystania infrastruktury, SAP HANA stanu hosta, SAP HANA replikacji systemu i SAP HANA kopii zapasowych danych telemetrycznych. Aby skonfigurować dostawcę SAP HANA, adres IP hosta, numer portu SQL HANA i SYSTEMDB nazwę użytkownika i hasło są wymagane. Klienci są zalecani do konfigurowania dostawcy SAP HANA w SYSTEMDB, ale można skonfigurować dodatkowych dostawców dla innych dzierżawców bazy danych.
+W publicznej wersji zapoznawczej klienci mogą oczekiwać, że następujące dane są dostępne dla SAP HANA dostawcy: podstawowego wykorzystania infrastruktury, SAP HANA stanu hosta, SAP HANA replikacji systemu i SAP HANA kopii zapasowych danych telemetrycznych. Aby skonfigurować dostawcę SAP HANA, adres IP hosta, numer portu SQL HANA i SYSTEMDB nazwę użytkownika i hasło są wymagane. Klienci są zalecani do konfigurowania dostawcy SAP HANA w SYSTEMDB, ale więcej dostawców można skonfigurować dla innych dzierżawców bazy danych.
 
 ![Azure Monitor dla dostawców rozwiązań SAP — SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
@@ -68,10 +68,38 @@ Aby skonfigurować dostawcę klastrów o wysokiej dostępności, należy wykona�
    Aby skonfigurować dostawcę klastrów o wysokiej dostępności, wymagane są następujące informacje:
    
    - **Nazwa**. Nazwa tego dostawcy. Dla tego Azure Monitor dla wystąpienia rozwiązań SAP powinna być unikatowa.
-   - **Prometheus punkt końcowy**. Zwykle http \: // \<servername or ip address\> : 9664/Metrics.
+   - **Prometheus punkt końcowy**. http \: // \<servername or ip address\> : 9664/Metrics.
    - **Identyfikator SID**. W przypadku systemów SAP Użyj identyfikatora SID SAP. W przypadku innych systemów (na przykład klastrów NFS) Użyj nazwy klastra o trzech znakach. Identyfikator SID musi być różny od innych monitorowanych klastrów.   
    - **Nazwa klastra**. Nazwa klastra użyta podczas tworzenia klastra. Nazwę klastra można znaleźć we właściwości klastra `cluster-name` .
    - **Nazwa hosta**. Nazwa hosta maszyny wirtualnej z systemem Linux.  
+
+
+## <a name="provider-type-os-linux"></a>Typ dostawcy systemu operacyjnego (Linux)
+Klienci mogą skonfigurować co najmniej jednego dostawcę typu system operacyjny (Linux), aby umożliwić zbieranie danych z węzła BareMetal lub VM. Dostawca systemu operacyjnego (Linux) łączy się z BareMetal lub węzłami maszyny [](https://github.com/prometheus/node_exporter)wirtualnej za pomocą   punktu końcowego Node_Exporter, ściąga dane telemetryczne z węzłów i wypycha je do log Analytics obszaru roboczego w ramach subskrypcji klienta. Dostawca systemu operacyjnego (Linux) zbiera dane co 60 sekund dla większości metryk z węzłów. 
+
+W publicznej wersji zapoznawczej klienci mogą oczekiwać, że następujące dane są dostępne w ramach dostawcy systemu operacyjnego (Linux): 
+   - Użycie procesora CPU, użycie procesora CPU według procesu 
+   - Użycie dysku, odczyt operacji we/wy & zapis 
+   - Dystrybucja pamięci, użycie pamięci, użycie pamięci do wymiany 
+   - Użycie sieci, ruch przychodzący w sieci & dane wychodzące. 
+
+Aby skonfigurować dostawcę systemu operacyjnego (Linux), są wykorzystywane dwa podstawowe kroki:
+1. Zainstaluj [Node_Exporter](https://github.com/prometheus/node_exporter)   na wszystkich węzłach BareMetal lub maszynach wirtualnych.
+   Dostępne są dwie opcje instalacji [Node_exporter](https://github.com/prometheus/node_exporter): 
+      - W przypadku instalacji automatyzacji za pomocą rozwiązania ansible Użyj [Node_Exporter](https://github.com/prometheus/node_exporter) na każdym BareMetal lub węźle maszyny wirtualnej w celu zainstalowania dostawcy systemu operacyjnego (Linux).  
+      - Wykonaj [instalację ręczną](https://prometheus.io/docs/guides/node-exporter/).
+
+2. Skonfiguruj dostawcę systemu operacyjnego (Linux) dla każdego wystąpienia BareMetal lub węzła maszyny wirtualnej w danym środowisku. 
+   Aby skonfigurować dostawcę systemu operacyjnego (Linux), wymagane są następujące informacje: 
+      - Nazwa. Nazwa tego dostawcy. Dla tego Azure Monitor dla wystąpienia rozwiązań SAP powinna być unikatowa. 
+      - Punkt końcowy eksportera węzła. Zazwyczaj http:// <servername or ip address> : 9100/Metrics 
+
+> [!NOTE]
+> 9100 to port narażony na Node_Exporter punkt końcowy.
+
+> [!Warning]
+> Upewnij się, że eksporter węzłów działa po ponownym uruchomieniu węzła. 
+
 
 ## <a name="provider-type-microsoft-sql-server"></a>Typ dostawcy programu Microsoft SQL Server
 
@@ -79,7 +107,7 @@ Klienci mogą skonfigurować jednego lub więcej dostawców typu dostawcy *Micro
 
 W publicznej wersji zapoznawczej klienci mogą oczekiwać, że następujące dane są dostępne w ramach dostawcy SQL Server: bazowego wykorzystania infrastruktury, najważniejszych instrukcji SQL, najwyższej największej tabeli, problemów zarejestrowanych w dziennikach błędów SQL Server, blokowania procesów i innych.  
 
-Aby skonfigurować dostawcę Microsoft SQL Server, wymagany jest identyfikator systemu SAP, adres IP hosta, SQL Server numer portu, a także SQL Server nazwę logowania i hasło.
+Aby można było skonfigurować dostawcę Microsoft SQL Server, wymagany jest identyfikator systemu SAP, adres IP hosta, numer portu SQL Server i SQL Server Nazwa logowania i hasło.
 
 ![Azure Monitor dla dostawców rozwiązań SAP — SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
 

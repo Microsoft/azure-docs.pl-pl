@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: ea66bb5bcdd6132809804632919a120f5c93353f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: eb70a31d0fa5f231bd0db8ca27517ce43fe1db28
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132721"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007821"
 ---
 # <a name="container-security-in-security-center"></a>Zabezpieczenia kontenerów w usłudze Security Center
 
@@ -70,11 +70,25 @@ Aby monitorować niezarządzane kontenery hostowane na maszynach wirtualnych z s
 ### <a name="continuous-monitoring-of-your-kubernetes-clusters"></a>Ciągłe monitorowanie klastrów Kubernetes
 Security Center współpracuje z usługą Azure Kubernetes Service (AKS), zarządzaną usługą aranżacji kontenerów firmy Microsoft na potrzeby opracowywania i wdrażania aplikacji kontenerowych oraz zarządzania nimi.
 
-AKS zapewnia kontrolę zabezpieczeń i wgląd w zabezpieczenia stan klastrów. Security Center używa tych funkcji, aby:
-* Stale monitoruj konfigurację klastrów AKS
-* Generuj zalecenia dotyczące zabezpieczeń dostosowane do standardów branżowych
+AKS zapewnia kontrolę zabezpieczeń i wgląd w zabezpieczenia stan klastrów. Security Center używa tych funkcji, aby stale monitorować konfigurację klastrów AKS i generować zalecenia dotyczące zabezpieczeń dostosowane do standardów branżowych.
+
+Jest to diagram wysokiego poziomu interakcji między Azure Security Center, usługą Azure Kubernetes i Azure Policy:
+
+:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Architektura wysokiego poziomu interakcji między Azure Security Center, usługą Azure Kubernetes i Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
+
+Można zobaczyć, że elementy otrzymane i przeanalizowane przez Security Center obejmują:
+
+- Inspekcja dzienników z serwera interfejsu API
+- nieprzetworzone zdarzenia zabezpieczeń z agenta Log Analytics
+
+    > [!NOTE]
+    > Obecnie nie obsługujemy instalacji agenta Log Analytics w klastrach usługi Azure Kubernetes, które działają w ramach zestawów skalowania maszyn wirtualnych.
+
+- Informacje o konfiguracji klastra z klastra AKS
+- Konfiguracja obciążenia z Azure Policy (za pośrednictwem **Azure Policy dodatku dla Kubernetes**)
 
 Aby uzyskać szczegółowe informacje dotyczące odpowiednich Security Center zaleceń, które mogą pojawić się w przypadku tej funkcji, zobacz [sekcję obliczenia](recommendations-reference.md#recs-compute) w tabeli referencyjnej rekomendacji.
+
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Najlepsze rozwiązania w zakresie ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control
 

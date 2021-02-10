@@ -3,26 +3,26 @@ title: Azure Defender for Kubernetes — korzyści i funkcje
 description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender for Kubernetes.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 02/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a19e90a15991cdc03999bf43d5bece63325aab05
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 1f013f22b482c1e1d093f106bd786be870103f3d
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916578"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008506"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Wprowadzenie do usługi Azure Defender dla Kubernetes
 
 Usługa Azure Kubernetes Service (AKS) to usługa zarządzana przez firmę Microsoft służąca do opracowywania i wdrażania aplikacji kontenerowych oraz zarządzania nimi.
 
-Azure Security Center i AKS tworzą najlepszą natywną ofertę bezpieczeństwa Kubernetes w chmurze, a razem zapewniają ochronę środowiska, ochronę obciążeń i ochrony w czasie wykonywania, jak opisano poniżej.
+Azure Security Center i AKS tworzą natywną i niezależną od chmury ofertę zabezpieczeń Kubernetes z ograniczeniami środowiska, ochroną obciążeń i ochroną w czasie wykonywania, jak opisano w temacie [zabezpieczenia kontenerów w Security Center](container-security.md).
 
 W celu wykrywania zagrożeń dla klastrów Kubernetes Włącz **usługę Azure Defender dla Kubernetes**.
 
-Wykrywanie zagrożeń na poziomie hosta dla węzłów AKS systemu Linux jest dostępne po włączeniu [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md).
+Wykrywanie zagrożeń na poziomie hosta dla węzłów AKS systemu Linux jest dostępne po włączeniu [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md) i agenta log Analytics. Jeśli jednak klaster AKS został wdrożony w zestawie skalowania maszyn wirtualnych, Agent Log Analytics nie jest obecnie obsługiwany.
 
 ## <a name="availability"></a>Dostępność
 
@@ -36,45 +36,17 @@ Wykrywanie zagrożeń na poziomie hosta dla węzłów AKS systemu Linux jest dos
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Jakie korzyści zapewnia usługa Azure Defender for Kubernetes?
 
-### <a name="run-time-protection"></a>Ochrona w czasie wykonywania
+Usługa Azure Defender for Kubernetes zapewnia **ochronę przed zagrożeniami na poziomie klastra** przez monitorowanie usług zarządzanych przez program AKS za pomocą dzienników pobranych przez usługę Azure Kubernetes Service (AKS).
 
-Dzięki ciągłej analizie następujących źródeł AKS Security Center zapewnia ochronę przed zagrożeniami w czasie rzeczywistym dla środowisk kontenera i generuje alerty dotyczące zagrożeń i złośliwych działań wykrytych na poziomie klastra hosta *i* AKS. Te informacje pozwalają na szybkie rozwiązywanie problemów dotyczących zabezpieczeń i poprawę bezpieczeństwa kontenerów.
-
-Security Center zapewnia ochronę przed zagrożeniami na różnych poziomach: 
-
-- **Poziom hosta (dostarczany przez usługę Azure Defender dla serwerów)** — za pomocą tego samego agenta log Analytics, który Security Center używany na innych maszynach wirtualnych, usługa Azure Defender monitoruje węzły AKS systemu Linux pod kątem podejrzanych działań, takich jak wykrywanie powłoki sieci Web i połączenie z znanymi podejrzanymi adresami IP. Agent monitoruje również dla analiz specyficznych dla kontenera, takich jak tworzenie kontenera uprzywilejowanego, podejrzany dostęp do serwerów interfejsu API i serwery Secure Shell (SSH) działające wewnątrz kontenera Docker.
-
-    Listę alertów na poziomie hosta AKS można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-containerhost).
-
-    >[!IMPORTANT]
-    > Jeśli zdecydujesz się nie instalować agentów na hostach, będziesz otrzymywać tylko podzbiór korzyści z ochrony przed zagrożeniami i alerty zabezpieczeń. Nadal będziesz otrzymywać alerty dotyczące analizy sieci i komunikacji ze złośliwymi serwerami.
-
-- **Poziom klastra AKS (udostępniony przez usługę Azure Defender dla Kubernetes)** — na poziomie klastra ochrona przed zagrożeniami jest oparta na analizie dzienników inspekcji Kubernetes. Aby włączyć monitorowanie **bez agenta** , Włącz usługę Azure Defender. Aby generować alerty na tym poziomie, Security Center monitoruje usługi zarządzane przez AKS przy użyciu dzienników pobranych przez AKS. Przykłady zdarzeń na tym poziomie obejmują uwidocznione pulpity nawigacyjne Kubernetes, tworzenie uprzywilejowanych ról i tworzenie poufnych instalacji.
-
-    Listę alertów na poziomie klastra AKS można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-akscluster).
-
-    >[!NOTE]
-    > Security Center generuje alerty zabezpieczeń dotyczące akcji i wdrożeń usługi Azure Kubernetes w przypadku włączenia opcji Kubernetes w ustawieniach subskrypcji. 
-
-Ponadto nasz globalny zespół badaczy ds. zabezpieczeń stale monitoruje zagrożenie w poziomie. Po ich odnalezieniu są dodawane alerty i luki specyficzne dla kontenera.
+Przykłady zdarzeń zabezpieczeń, które usługa Azure Defender dla monitorów Kubernetes obejmują uwidocznione pulpity nawigacyjne Kubernetes, tworzenie ról o wysokim poziomie uprawnień i Tworzenie instalacji poufnych. Pełną listę alertów na poziomie klastra AKS można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-akscluster).
 
 > [!TIP]
 > Alerty kontenera można symulować, postępując zgodnie z instrukcjami zawartymi w [tym wpisie w blogu](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
 
+Ponadto nasz globalny zespół badaczy ds. zabezpieczeń stale monitoruje zagrożenie w poziomie. Po ich odnalezieniu są dodawane alerty i luki specyficzne dla kontenera.
 
-
-## <a name="how-does-security-centers-kubernetes-protection-work"></a>Jak działa Security Center Ochrona Kubernetes?
-
-Poniżej znajduje się Diagram wysokiego poziomu interakcji między Azure Security Center, usługą Azure Kubernetes i Azure Policy.
-
-Można zobaczyć, że elementy otrzymane i przeanalizowane przez Security Center obejmują:
-
-- Inspekcja dzienników z serwera interfejsu API
-- nieprzetworzone zdarzenia zabezpieczeń z agenta Log Analytics
-- Informacje o konfiguracji klastra z klastra AKS
-- Konfiguracja obciążenia z Azure Policy (za pośrednictwem **Azure Policy dodatku dla Kubernetes**). [Dowiedz się więcej o najlepszych rozwiązaniach dotyczących ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
-
-:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Architektura wysokiego poziomu interakcji między Azure Security Center, usługą Azure Kubernetes i Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
+>[!NOTE]
+> Security Center generuje alerty zabezpieczeń dotyczące akcji i wdrożeń usługi Azure Kubernetes, które są wykonywane **po** włączeniu usługi Azure Defender dla Kubernetes.
 
 
 
@@ -83,23 +55,18 @@ Można zobaczyć, że elementy otrzymane i przeanalizowane przez Security Center
 
 ### <a name="can-i-still-get-aks-protections-without-the-log-analytics-agent"></a>Czy nadal mogę uzyskać ochronę AKSą bez agenta Log Analytics?
 
-Jak wspomniano powyżej, opcjonalny plan **usługi Azure Defender for Kubernetes** zapewnia ochronę na poziomie klastra, a agent log Analytics **usługi Azure Defender dla serwerów** chroni Twoje węzły. 
+**Usługa Azure Defender for Kubernetes** plan zapewnia ochronę na poziomie klastra. Jeśli wdrożono również agenta Log Analytics **usługi Azure Defender dla serwerów**, uzyskasz ochronę przed zagrożeniami dla węzłów, które są dostępne w ramach tego planu. Dowiedz się więcej w temacie [wprowadzenie do usługi Azure Defender dla serwerów](defender-for-servers-introduction.md).
 
 Zalecamy wdrożenie obu tych metod w celu zapewnienia najwyższej możliwej ochrony.
 
 Jeśli nie zdecydujesz się na zainstalowanie agenta na hostach, otrzymasz tylko podzestaw korzyści z ochrony przed zagrożeniami i alertów zabezpieczeń. Nadal będziesz otrzymywać alerty dotyczące analizy sieci i komunikacji ze złośliwymi serwerami.
 
-
 ### <a name="does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes"></a>Czy AKS można instalować niestandardowe rozszerzenia maszyny wirtualnej w węzłach AKS?
-
 Do monitorowania węzłów AKS w usłudze Azure Defender musi być uruchomiony agent Log Analytics. 
 
 AKS jest usługą zarządzaną, a ponieważ agent usługi log Analytics jest rozszerzeniem zarządzanym przez firmę Microsoft, jest również obsługiwany w klastrach AKS.
 
-
-
 ### <a name="if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too"></a>Czy w klastrze Azure Monitor dla agenta kontenerów jest już potrzebny Agent Log Analytics?
-
 Do monitorowania węzłów AKS w usłudze Azure Defender musi być uruchomiony agent Log Analytics.
 
 Jeśli w klastrach jest już uruchomiony Azure Monitor dla agenta kontenerów, można zainstalować agenta Log Analytics, a dwa agenci mogą działać równolegle ze sobą bez jakichkolwiek problemów.
@@ -111,8 +78,10 @@ Jeśli w klastrach jest już uruchomiony Azure Monitor dla agenta kontenerów, m
 
 W tym artykule przedstawiono informacje na temat Security Center ochrony Kubernetes, w tym usługi Azure Defender dla Kubernetes. 
 
+> [!div class="nextstepaction"]
+> [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)
+
 W przypadku pokrewnego materiału zapoznaj się z następującymi artykułami: 
 
-- [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)
 - [Przesyłanie strumieniowe alertów do rozwiązania SIEM, o lub zarządzania usługami IT](export-to-siem.md)
 - [Tabela referencyjna alertów](alerts-reference.md)

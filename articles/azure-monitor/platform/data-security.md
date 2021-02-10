@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: a618a5d94513f7d648d118ae3bebdb34e4f5b1c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1e0dbd23fa14c1bd79275d3f9ff6a164293ac19
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728863"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007350"
 ---
 # <a name="log-analytics-data-security"></a>Zabezpieczenia danych Log Analytics
 Ten dokument ma na celu dostarczenie informacji specyficznych dla Log Analytics, które są funkcją Azure Monitor, aby uzupełnić informacje o [Centrum zaufania Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -173,6 +173,8 @@ Jak opisano powyżej, dane z serwera zarządzania lub agentów połączonych bez
 Usługa Log Analytics zapewnia, że dane przychodzące pochodzą z zaufanego źródła, sprawdzając certyfikaty i integralność danych przy użyciu uwierzytelniania platformy Azure. Nieprzetworzone dane pierwotne są następnie przechowywane w centrum zdarzeń platformy Azure w regionie, w którym dane będą ostatecznie przechowywane w spoczynku. Typ przechowywanych danych zależy od typów rozwiązań, które zostały zaimportowane i używane do zbierania danych. Następnie usługa Log Analytics przetwarza pierwotne dane i pozyskuje ją w bazie danych.
 
 Okres przechowywania zebranych danych przechowywanych w bazie danych zależy od wybranego planu cenowego. W przypadku warstwy *bezpłatna* zebrane dane są dostępne przez siedem dni. W przypadku warstwy *Płatne* zebrane dane są domyślnie dostępne przez 31 dni, ale można je przedłużyć do 730 dni. Dane są przechowywane w postaci zaszyfrowanej w usłudze Azure Storage, aby zapewnić poufność danych, a dane są replikowane w regionie lokalnym przy użyciu magazynu lokalnie nadmiarowego (LRS). Ostatnie dwa tygodnie danych również są przechowywane w pamięci podręcznej opartej na dyskach SSD, a ta pamięć podręczna jest zaszyfrowana.
+
+Nie można zmienić danych w magazynie bazy danych, ale można je usunąć za pośrednictwem [ścieżki interfejsu API *przeczyszczania*](personal-data-mgmt.md#delete). Chociaż nie można zmienić danych, niektóre certyfikaty wymagają, aby dane były niemodyfikowalne i nie można ich zmienić ani usunąć w magazynie. Niezmienności danych można osiągnąć przy użyciu [eksportu danych](logs-data-export.md) do konta magazynu skonfigurowanego jako [niezmienny magazyn](../../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Użyj Log Analytics, aby uzyskać dostęp do danych
 Aby uzyskać dostęp do obszaru roboczego Log Analytics, zaloguj się do Azure Portal przy użyciu konta organizacyjnego lub konto Microsoft utworzonego wcześniej. Cały ruch między portalem a usługą Log Analytics jest przesyłany za pośrednictwem bezpiecznego kanału HTTPS. W przypadku korzystania z portalu identyfikator sesji jest generowany przez klienta użytkownika (przeglądarki sieci Web), a dane są przechowywane w lokalnej pamięci podręcznej, dopóki sesja nie zostanie zakończona. Po zakończeniu pamięć podręczna zostanie usunięta. Pliki cookie po stronie klienta, które nie zawierają informacji umożliwiających identyfikację użytkownika, nie są automatycznie usuwane. Pliki cookie sesji są oznaczone jako HTTPOnly i są zabezpieczone. Po upływie wstępnie ustalonego okresu bezczynności sesja Azure Portal zostanie zakończona.

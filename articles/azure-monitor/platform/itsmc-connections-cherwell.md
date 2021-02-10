@@ -6,19 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 73fc13cf2a49d7cacd7540d06c6d0afd9cea68e5
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: a24ece3c0b75d0d0d22e13c6e5367c27fbaeab66
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729749"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006789"
 ---
 # <a name="connect-cherwell-with-it-service-management-connector"></a>Połącz Cherwell z łącznik zarządzania usługami IT
 
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między wystąpieniem usługi Cherwell a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi.
 
 > [!NOTE]
-> Firma Microsoft proponuje naszym klientom Cherwell i Provance użycie [akcji elementu webhook](./action-groups.md#webhook) w Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
+> Od 1 do 2020 Cherwell narzędzia ITSM integracja z usługą Azure alert nie będzie już dostępna dla nowych klientów. Nowe połączenia narzędzia ITSM nie będą obsługiwane.
+> Istniejące połączenia narzędzia ITSM będą obsługiwane.
 
 Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączenia produktu Cherwell z ITSMC na platformie Azure.
 
@@ -80,6 +81,6 @@ Aby wygenerować identyfikator klienta/klucz dla Cherwell, należy wykonać poni
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przegląd łącznik ITSM](itsmc-overview.md)
+* [Omówienie łącznika ITSM](itsmc-overview.md)
 * [Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
 * [Rozwiązywanie problemów w łączniku ITSM](./itsmc-resync-servicenow.md)

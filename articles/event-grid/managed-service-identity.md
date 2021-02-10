@@ -3,12 +3,12 @@ title: Dostarczanie zdarzeń, tożsamość usługi zarządzanej i link prywatny
 description: W tym artykule opisano sposób włączania tożsamości usługi zarządzanej w temacie Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: ca154c252976911627184a63386cba1544ed21e0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054421"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007775"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
 W tym artykule opisano sposób włączania [tożsamości usługi zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla niestandardowych tematów lub domen w usłudze Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
@@ -237,7 +237,7 @@ az eventgrid event-subscription create
 ```
 
 ### <a name="use-the-azure-cli---azure-storage-queue"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure — Kolejka usługi Azure Storage 
-W tej sekcji dowiesz się, jak używać interfejsu wiersza polecenia platformy Azure, aby umożliwić korzystanie z tożsamości przypisanej do systemu w celu dostarczania zdarzeń do kolejki usługi Azure Storage. Tożsamość musi być członkiem roli **współautor danych obiektów blob magazynu** na koncie magazynu.
+W tej sekcji dowiesz się, jak używać interfejsu wiersza polecenia platformy Azure, aby umożliwić korzystanie z tożsamości przypisanej do systemu w celu dostarczania zdarzeń do kolejki usługi Azure Storage. Tożsamość musi być członkiem roli **nadawca komunikatu danych kolejki magazynu** na koncie magazynu. Musi być również członkiem roli **współautor danych obiektów blob magazynu** na koncie magazynu, które jest używane do utraconych wiadomości.
 
 #### <a name="define-variables"></a>Definiowanie zmiennych  
 

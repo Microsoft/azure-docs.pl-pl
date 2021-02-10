@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: c586832386f3bf6419d8af94ad23662c6801b1ae
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a75cd3c5dbf205f49aa606bfe96623a61bce39db
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820878"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007060"
 ---
 # <a name="common-questions"></a>Często zadawane pytania
 
@@ -42,6 +42,10 @@ Korzystając z funkcji przenoszenia zasobów, można obecnie przenosić następu
 
 Dysków nie można wybrać jako zasobów przenoszonych między regionami. Dyski są jednak przenoszone w ramach przenoszenia maszyny wirtualnej.
 
+### <a name="what-does-it-mean-to-move-a-resource-group"></a>Co oznacza przeniesienie grupy zasobów?
+
+Po wybraniu zasobu do przeniesienia odpowiednia grupa zasobów jest automatycznie dodawana do przenoszenia. Jest to konieczne, ponieważ należy umieścić zasób docelowy w grupie zasobów, tak jak w celu. Po dodaniu do przenoszenia można wybrać opcję dostosowania i udostępnienia grupy zasobów istniejącego. Należy pamiętać, że przeniesienie grupy zasobów **nie** oznacza, że wszystkie zasoby w źródłowej grupie zasobów zostaną przeniesione.
+
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Czy mogę przenosić zasoby między subskrypcjami, gdy przechodzą je między regionami?
 
 Możesz zmienić subskrypcję po przeniesieniu zasobów do regionu docelowego. [Dowiedz się więcej](../azure-resource-manager/management/move-resource-group-and-subscription.md) o przenoszeniu zasobów do innej subskrypcji. 
@@ -69,7 +73,7 @@ Tak, zarówno podczas przesyłania, jak i w spoczynku.
 - W przypadku przenoszenia zasobów między regionami w portalu ten proces odbywa się automatycznie.
 - W przypadku przenoszenia zasobów przy użyciu programu PowerShell należy uruchomić polecenia cmdlet, aby przypisać do kolekcji tożsamość przypisaną do systemu, a następnie przypisać rolę z prawidłowymi uprawnieniami subskrypcji do podmiotu zabezpieczeń tożsamości. 
 
-### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Jakie uprawnienia tożsamości zarządzanej są potrzebne do przenoszenia zasobów?
+### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Jakie uprawnienia tożsamości zarządzanej są potrzebne do przenoszenia zasobów? 
 
 Tożsamość zarządzana usługi Azure Resource Mover wymaga co najmniej następujących uprawnień: 
 

@@ -3,12 +3,12 @@ title: Obsługiwane formaty zawartości
 description: Dowiedz się więcej na temat formatów zawartości obsługiwanych przez Azure Container Registry, w tym obrazów kontenerów zgodnych z platformą Docker, wykresów Helm, obrazów OCI i artefaktów OCI.
 ms.topic: article
 ms.date: 08/30/2019
-ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a54c65d149a27ed9eae85c3308d657ed3471a3
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84695270"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008336"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formaty zawartości obsługiwane w Azure Container Registry
 
@@ -20,11 +20,11 @@ Obsługiwane są następujące formaty obrazów kontenerów platformy Docker:
 
 * [Manifest obrazu platformy Docker v2, schemat 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Manifest obrazu platformy Docker v2, schemat 2](https://docs.docker.com/registry/spec/manifest-v2-2/) — zawiera listę manifestów umożliwiającą rejestrom przechowywanie obrazów wieloplatformowych w ramach jednego odwołania "Image: tag"
+* [Manifest obrazu platformy Docker v2, schemat 2](https://docs.docker.com/registry/spec/manifest-v2-2/) — zawiera listy manifestów, które umożliwiają rejestrom przechowywanie [obrazów wieloarchitekturowych](push-multi-architecture-images.md) w ramach jednego `image:tag` odwołania
 
 ## <a name="oci-images"></a>Obrazy OCI
 
-Azure Container Registry obsługuje obrazy zgodne ze [specyfikacją formatu obrazu Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Formaty pakietów obejmują [Format obrazu Singularity (sif)](https://github.com/sylabs/sif).
+Azure Container Registry obsługuje obrazy zgodne ze [specyfikacją formatu obrazu Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md), łącznie z opcjonalną specyfikacją [indeksu obrazu](https://github.com/opencontainers/image-spec/blob/master/image-index.md) . Formaty pakietów obejmują [Format obrazu Singularity (sif)](https://github.com/sylabs/sif).
 
 ## <a name="oci-artifacts"></a>Artefakty OCI
 

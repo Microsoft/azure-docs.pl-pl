@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 4e487a3eab70e7d561468a8fac2103e177d2abc5
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: eff51c8568ce82c9d8d21bff7a2ba079c291679c
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524979"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007299"
 ---
 # <a name="get-started-with-custom-voice"></a>Wprowadzenie do usługi Custom Voice
 
@@ -60,12 +60,24 @@ Po utworzeniu konta platformy Azure i subskrypcji usługi mowy należy zalogowa�
 
 ## <a name="how-to-create-a-project"></a>Jak utworzyć projekt
 
-Zawartość, taka jak dane, modele, testy i punkty końcowe, są zorganizowane w **projekty** w portalu niestandardowym. Każdy projekt jest specyficzny dla kraju/języka i płci głosu, który chcesz utworzyć. Na przykład możesz utworzyć projekt dla żeńskiego głosu dla rozmowy telefonicznej botów, która używa języka angielskiego w Stany Zjednoczone (EN-US).
+Zawartość, taka jak dane, modele, testy i punkty końcowe, są zorganizowane w **projekty** w portalu niestandardowym. Każdy projekt jest specyficzny dla kraju/języka i płci głosu, który chcesz utworzyć. Na przykład możesz utworzyć projekt dla głosu żeńskiego dla rozmowy telefonicznej botów, która używa języka angielskiego w Stany Zjednoczone ("pl-US").
 
 Aby utworzyć swój pierwszy projekt, wybierz kartę **Zamiana tekstu na mowę/niestandardową** , a następnie kliknij pozycję **Nowy projekt**. Postępuj zgodnie z instrukcjami wyświetlanymi przez kreatora, aby utworzyć projekt. Po utworzeniu projektu zobaczysz cztery karty: **dane**, **szkolenia**, **testowanie** i **wdrażanie**. Skorzystaj z linków w [sekcji Następne kroki](#next-steps) , aby dowiedzieć się, jak korzystać z każdej karty.
 
 > [!IMPORTANT]
 > [Niestandardowy Portal głosu](https://aka.ms/custom-voice) został niedawno zaktualizowany! Jeśli utworzono poprzednie dane, modele, testy i opublikowane punkty końcowe w portalu CRIS.ai lub za pomocą interfejsów API, należy utworzyć nowy projekt w nowym portalu, aby połączyć się ze starymi jednostkami.
+
+## <a name="how-to-migrate-to-custom-neural-voice"></a>Jak przeprowadzić migrację do niestandardowego głosu neuronowych
+
+Jeśli używasz niestandardowego głosu nieneuronowychego (lub standardowego), rozważ przeprowadzenie migracji do niestandardowego neuronowych głosu bezpośrednio po poniższych krokach. Przechodzenie do niestandardowego głosu neuronowych pomoże Ci w tworzeniu bardziej realistycznych głosów dla jeszcze bardziej naturalnych interfejsów konwersacji oraz umożliwienie klientom i użytkownikom końcowym skorzystania z najnowszej technologii zamiany tekstu na mowę w odpowiedzialny sposób. 
+
+1. Dowiedz się więcej [na temat zasad dotyczących limitu dostępu](https://aka.ms/gating-overview) i [Zastosuj tutaj](https://aka.ms/customneural). Należy zauważyć, że dostęp do usługi Custom neuronowych Voice jest uzależniony od uznania firmy Microsoft na podstawie kryteriów kwalifikujących. Klienci mogą uzyskać dostęp do technologii dopiero po przejrzeniu ich aplikacji i zapewnieniu jej używania z naszymi [właściwymi zasadami AI](https://microsoft.com/ai/responsible-ai) i [kodeksem postępowania](https://aka.ms/custom-neural-code-of-conduct). 
+2. Po zatwierdzeniu aplikacji uzyskasz dostęp do funkcji szkolenia "neuronowych". Upewnij się, że logujesz się do [niestandardowego portalu głosowego](https://speech.microsoft.com/customvoice) , korzystając z tej samej subskrypcji platformy Azure, którą podano w aplikacji. 
+    > [!IMPORTANT]
+    > Aby chronić talentę głosu i zapobiegać szkoleniu modeli głosowych z nieautoryzowanym nagrywaniem lub bez potwierdzenia z Talenti głosu, firma Microsoft wymaga od klientów przekazania zarejestrowanej instrukcji głosowej talent, która udzieliła swojej zgody. Podczas przygotowywania skryptu nagrywania upewnij się, że zawarto to zdanie. "I [stan imię i nazwisko] wie, że nagrania mojego głosu będą używane przez użytkownika [Nadaj nazwę firmie] do tworzenia i używania syntetycznej wersji mojego głosu".
+    > To zdanie należy przekazać do karty **talent głosu** jako plik z wyrazami zgody. Zostanie ona użyta do sprawdzenia, czy nagrania w Twoich zestawach danych są wykonywane przez tę samą osobę, która wyraża zgodę.
+3. Po utworzeniu niestandardowego modelu głosu neuronowych należy wdrożyć model głosowy w nowym punkcie końcowym. Aby utworzyć nowy niestandardowy punkt końcowy głosu z modelem głosu neuronowych, przejdź do pozycji **Zamiana tekstu na mowę > niestandardowego > wdrożenia głosu**. Wybierz pozycję **Wdróż model** i wprowadź **nazwę** i **Opis** niestandardowego punktu końcowego. Następnie wybierz niestandardowy model głosu neuronowych, który chcesz skojarzyć z tym punktem końcowym, i Potwierdź wdrożenie.  
+4. Zaktualizuj swój kod w swoich aplikacjach, jeśli nowy punkt końcowy został utworzony z nowym modelem. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,18 +3,18 @@ title: Omówienie Start/Stop VMs during off-hours Azure Automation
 description: W tym artykule opisano funkcję Start/Stop VMs during off-hours, która uruchamia lub wstrzymuje maszyny wirtualne zgodnie z harmonogramem i aktywnie monitoruje je z dzienników Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 89566bdfb56ca662813b586b2203eec7e7e5566b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055385"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007010"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
-Funkcja Start/Stop VMs during off-hours uruchamiania lub zatrzymywania włączonych maszyn wirtualnych platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/platform/action-groups.md). Tę funkcję można włączyć na Azure Resource Manager i klasycznych maszynach wirtualnych w większości scenariuszy. 
+Funkcja Start/Stop VMs during off-hours uruchamiania lub zatrzymywania włączonych maszyn wirtualnych platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/platform/action-groups.md). Tę funkcję można włączyć na Azure Resource Manager i klasycznych maszynach wirtualnych w większości scenariuszy.
 
 Ta funkcja używa polecenia cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzVM](/powershell/module/az.compute/stop-azvm) .
 
@@ -39,9 +39,9 @@ Poniżej przedstawiono ograniczenia związane z bieżącą funkcją:
 
 - Funkcja elementów Runbook dla maszyn wirtualnych uruchamiania/zatrzymywania w trakcie godzin pracy działa z [kontem Uruchom jako platformy Azure](./automation-security-overview.md#run-as-accounts). Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa uwierzytelniania certyfikatu zamiast hasła, które może wygasnąć lub zmienić.
 
-- Połączone konto usługi Automation i obszar roboczy Log Analytics muszą znajdować się w tej samej grupie zasobów.
+- [Azure Monitor Log Analytics obszar roboczy](../azure-monitor/platform/design-logs-deployment.md) , w którym są przechowywane dzienniki zadań elementu Runbook i wyniki strumienia zadań w obszarze roboczym w celu zbadania i przeanalizowania. Konto usługi Automation może być połączone z nowym lub istniejącym obszarem roboczym Log Analytics, a oba zasoby muszą znajdować się w tej samej grupie zasobów.
 
-- Zalecamy używanie oddzielnego konta usługi Automation do pracy z maszynami wirtualnymi z włączoną funkcją Start/Stop VMs during off-hours. Wersje modułów platformy Azure są często uaktualniane i ich parametry mogą ulec zmianie. Funkcja nie została uaktualniona na tym samym erze i może nie współpracować z nowszymi wersjami poleceń cmdlet, których używa. Zalecane jest przetestowanie aktualizacji modułu na koncie automatyzacji testów przed zaimportowaniem ich do kont automatyzacji produkcji.
+Zalecamy używanie oddzielnego konta usługi Automation do pracy z maszynami wirtualnymi z włączoną funkcją Start/Stop VMs during off-hours. Wersje modułów platformy Azure są często uaktualniane i ich parametry mogą ulec zmianie. Funkcja nie została uaktualniona na tym samym erze i może nie współpracować z nowszymi wersjami poleceń cmdlet, których używa. Przed zaimportowaniem zaktualizowanych modułów do kont automatyzacji produkcji zalecamy zaimportowanie ich do konta automatyzacji testów w celu sprawdzenia, czy nie występują żadne problemy ze zgodnością.
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -148,7 +148,7 @@ Poniższa tabela zawiera listę zmiennych utworzonych na koncie usługi Automati
 |Internal_ResourceGroupName | Nazwa grupy zasobów konta usługi Automation.|
 
 >[!NOTE]
->Dla zmiennej `External_WaitTimeForVMRetryInSeconds` wartość domyślna została zaktualizowana z 600 do 2100. 
+>Dla zmiennej `External_WaitTimeForVMRetryInSeconds` wartość domyślna została zaktualizowana z 600 do 2100.
 
 We wszystkich scenariuszach zmienne `External_Start_ResourceGroupNames` ,  `External_Stop_ResourceGroupNames` i `External_ExcludeVMNames` są niezbędne do określania docelowych maszyn wirtualnych, z wyjątkiem list maszyn wirtualnych rozdzielonych przecinkami dla elementów runbook **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent** i **ScheduledStartStop_Parent** . Oznacza to, że maszyny wirtualne muszą należeć do docelowych grup zasobów, aby akcje uruchamiania i zatrzymywania zostały wykonane. Logika działa podobnie jak Azure Policy, w którym można kierować do subskrypcji lub grupy zasobów, a akcje są dziedziczone przez nowo utworzone maszyny wirtualne. Takie podejście pozwala uniknąć konieczności utrzymania oddzielnego harmonogramu dla każdej maszyny wirtualnej i zarządzanie rozpoczęciem i zatrzymaniem w skali.
 
@@ -174,18 +174,14 @@ Do korzystania z funkcji z klasycznymi maszynami wirtualnymi wymagane jest klasy
 
 Jeśli masz więcej niż 20 maszyn wirtualnych na usługę w chmurze, poniżej przedstawiono niektóre zalecenia:
 
-* Tworzenie wielu harmonogramów z nadrzędnym elementem Runbook **ScheduledStartStop_Parent** i określanie 20 maszyn wirtualnych na harmonogram. 
-* We właściwościach harmonogramu Użyj parametru, `VMList` Aby określić nazwy maszyn wirtualnych jako listę rozdzieloną przecinkami (bez odstępów). 
+* Tworzenie wielu harmonogramów z nadrzędnym elementem Runbook **ScheduledStartStop_Parent** i określanie 20 maszyn wirtualnych na harmonogram.
+* We właściwościach harmonogramu Użyj parametru, `VMList` Aby określić nazwy maszyn wirtualnych jako listę rozdzieloną przecinkami (bez odstępów).
 
 W przeciwnym razie, jeśli zadanie automatyzacji dla tej funkcji działa dłużej niż trzy godziny, jest tymczasowo zwolnione lub zatrzymane według ograniczonego limitu [udostępniania](automation-runbook-execution.md#fair-share) .
 
 Subskrypcje dostawcy CSP platformy Azure obsługują tylko model Azure Resource Manager. Usługi inne niż Azure Resource Manager nie są dostępne w programie. Po uruchomieniu funkcji Start/Stop VMs during off-hours mogą wystąpić błędy, ponieważ zawiera polecenia cmdlet służące do zarządzania klasycznymi zasobami. Aby dowiedzieć się więcej na temat dostawcy usług kryptograficznych, zobacz [dostępne usługi w subskrypcjach programu CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). W przypadku korzystania z subskrypcji dostawcy CSP należy ustawić dla zmiennej [External_EnableClassicVMs](#variables) wartość false po wdrożeniu.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="enable-the-feature"></a>Włącz funkcję
-
-Aby rozpocząć korzystanie z funkcji, wykonaj kroki opisane w temacie [włączanie Start/Stop VMS during off-hours](automation-solution-vm-management-enable.md).
 
 ## <a name="view-the-feature"></a>Wyświetl funkcję
 
@@ -195,7 +191,7 @@ Aby uzyskać dostęp do włączonej funkcji, użyj jednego z następujących mec
 
 * Przejdź do obszaru roboczego Log Analytics połączonego z kontem usługi Automation. Po wybraniu obszaru roboczego wybierz pozycję **rozwiązania** z okienka po lewej stronie. Na stronie rozwiązania wybierz z listy pozycję **Start-Stop-VM [obszar roboczy]** .  
 
-Po wybraniu funkcji zostanie wyświetlona strona Start-Stop-VM [obszar roboczy]. W tym miejscu możesz przejrzeć ważne szczegóły, takie jak informacje na kafelku **StartStopVM** . Tak jak w obszarze roboczym Log Analytics, ten kafelek przedstawia liczbę i graficzną reprezentację zadań elementu Runbook dla funkcji, która została uruchomiona i zakończyła się pomyślnie.
+Po wybraniu funkcji zostanie wyświetlona strona **Start-Stop-VM [obszar roboczy]** . W tym miejscu możesz przejrzeć ważne szczegóły, takie jak informacje na kafelku **StartStopVM** . Tak jak w obszarze roboczym Log Analytics, ten kafelek przedstawia liczbę i graficzną reprezentację zadań elementu Runbook dla funkcji, która została uruchomiona i zakończyła się pomyślnie.
 
 ![Strona Update Management automatyzacji](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -203,37 +199,7 @@ Możesz przeprowadzić dalsze analizy rekordów zadań, klikając kafelek pierś
 
 ## <a name="update-the-feature"></a>Aktualizowanie funkcji
 
-Jeśli wdrożono poprzednią wersję Start/Stop VMs during off-hours, usuń ją z konta przed wdrożeniem zaktualizowanej wersji. Postępuj zgodnie z instrukcjami, aby [usunąć tę funkcję](#remove-the-feature) , a następnie postępuj zgodnie z instrukcjami, aby [je włączyć](automation-solution-vm-management-enable.md).
-
-## <a name="remove-the-feature"></a>Usuń funkcję
-
-Jeśli nie musisz już korzystać z tej funkcji, możesz usunąć ją z konta usługi Automation. Usunięcie funkcji powoduje jedynie usunięcie skojarzonych elementów Runbook. Nie powoduje to usunięcia harmonogramów ani zmiennych, które zostały utworzone podczas dodawania funkcji. 
-
-Aby usunąć Start/Stop VMs during off-hours:
-
-1. Na koncie usługi Automation wybierz opcję **połączony obszar roboczy** w obszarze **powiązane zasoby**.
-
-2. Wybierz pozycję **Przejdź do obszaru roboczego**.
-
-3. W obszarze **Ogólne** kliknij pozycję **rozwiązania** . 
-
-4. Na stronie rozwiązania wybierz pozycję **Start-Stop-VM [obszar roboczy]**. 
-
-5. Na stronie VMManagementSolution [obszar roboczy] wybierz pozycję **Usuń** z menu.<br><br> ![Usuwanie funkcji zarządzania maszyną wirtualną](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-6. W oknie Usuń rozwiązanie Potwierdź, że chcesz usunąć tę funkcję.
-
-7. Gdy informacje są weryfikowane i usunięto funkcję, można śledzić postęp w obszarze **powiadomienia**, z menu. Po zakończeniu procesu usuwania nastąpi powrót do strony rozwiązania.
-
-8. Konto usługi Automation i obszar roboczy Log Analytics nie są usuwane w ramach tego procesu. Jeśli nie chcesz przechowywać obszaru roboczego Log Analytics, musisz ręcznie usunąć go z Azure Portal:
-
-    1. Wyszukaj i wybierz **obszary robocze log Analytics**.
-
-    2. Na stronie obszar roboczy Log Analytics wybierz obszar roboczy.
-
-    3. Z menu wybierz pozycję **Usuń** .
-
-    4. Jeśli nie chcesz zachować [składników funkcji](#components)konta Azure Automation, możesz usunąć je ręcznie.
+Jeśli wdrożono poprzednią wersję Start/Stop VMs during off-hours, usuń ją z konta przed wdrożeniem zaktualizowanej wersji. Postępuj zgodnie z instrukcjami, aby [usunąć tę funkcję](automation-solution-vm-management-remove.md#delete-the-feature) , a następnie postępuj zgodnie z instrukcjami, aby [je włączyć](automation-solution-vm-management-enable.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

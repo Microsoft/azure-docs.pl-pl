@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 1128504ee5f8c086d6a3c30a9fdd021550394f3f
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981769"
+ms.locfileid: "100007401"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
@@ -24,13 +24,14 @@ Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji
 ## <a name="february-2021"></a>Luty 2021 r.
 
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Przeczytaj publiczną wersję zapoznawczą interfejsu API v 3.2 z obsługą OCR dla języków 73
-Wersja zapoznawcza interfejsu API w programie przetwarzanie obrazów v 3.2 obejmuje następujące możliwości:
+Informacje o wersji zapoznawczej interfejsu API v 3.2 przetwarzanie obrazów dostępne jako usługa w chmurze i kontener Docker obejmują następujące aktualizacje:
 * Program [OCR dla języków 73, w](./language-support.md#optical-character-recognition-ocr) tym uproszczony i tradycyjny język chiński, japoński, koreański i łaciński.
-* Wyprowadza wiersze tekstu w naturalnej kolejności odczytywania.
-* Klasyfikuj wiersze tekstu jako styl pisma ręcznego lub nie wraz z oceną pewności (tylko języki łacińskie).
-* Dla dokumentu wielostronicowego Wyodrębnij tekst tylko dla wybranych stron lub zakresu stron.
+* Naturalna kolejność odczytywania danych wyjściowych wiersza tekstu.
+* Klasyfikacja stylu pisma ręcznego dla linii tekstowych wraz z oceną pewności (tylko języki łacińskie).
+* Wyodrębnij tekst tylko dla wybranych stron dla dokumentu wielostronicowego.
+* Dostępne jako [kontener Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) dla wdrożenia lokalnego.
 
-Aby uzyskać więcej informacji, zobacz sekcję [Read Preview Features](concept-recognizing-text.md#natural-reading-order-output) .
+[Dowiedz się więcej](concept-recognizing-text.md) o interfejsie API odczytu.
 
 > [!div class="nextstepaction"]
 > [Korzystanie z publicznej wersji zapoznawczej interfejsu API Read v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ff7de678e40a02b364451e7c88d661d2e38ed9d4
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918927"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007044"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -374,8 +374,8 @@ Aby zapewnić obsługę wielu stref dostępności, należy włączyć Service Fa
 * Pierwsza wartość to **multipleAvailabilityZones** , która powinna być ustawiona na wartość true dla NodeType.
 * Druga wartość to **sfZonalUpgradeMode** i jest opcjonalna. Nie można zmodyfikować tej właściwości, jeśli element NodeType o wielu elementach AZ jest już obecny w klastrze.
       Właściwość kontroluje logiczne grupowanie maszyn wirtualnych w domenach uaktualnienia.
-          Jeśli wartość jest równa false (tryb płaski): maszyny wirtualne w obszarze Typ węzła zostaną zgrupowane w UD ignorowanie informacji o strefie w 5.
-          W przypadku pominięcia lub ustawienia wartości true (tryb hierarchiczny): maszyny wirtualne zostaną pogrupowane w celu odzwierciedlenia rozkładu strefowego do 15. Każda z 3 stref będzie miała 5.
+          Jeśli wartość jest ustawiona na "Parallel": maszyny wirtualne znajdujące się w NodeType zostaną pogrupowane w celu zignorowania informacji o strefie w 5.
+          Jeśli wartość zostanie pominięta lub ustawiona na "hierarchiczny": maszyny wirtualne zostaną pogrupowane w celu odzwierciedlenia rozkładu strefowego do 15. Każda z 3 stref będzie miała 5.
           Ta właściwość definiuje tylko zachowanie uaktualnienia dla aplikacji servicefabric i uaktualnień kodu. Uaktualnienia podstawowego zestawu skalowania maszyn wirtualnych będą nadal równoległe we wszystkich AZ.
       Ta właściwość nie ma żadnego wpływu na dystrybucję UD dla typów węzłów, dla których nie włączono wielu stref.
 * Trzecia wartość to **vmssZonalUpgradeMode = Parallel**. Jest to właściwość *obowiązkowa* , która ma zostać skonfigurowana w klastrze, jeśli zostanie dodany NodeType z wieloma AZs. Ta właściwość definiuje tryb uaktualniania dla aktualizacji zestawu skalowania maszyn wirtualnych, które będą wykonywane równolegle we wszystkich AZ jednocześnie.

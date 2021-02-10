@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ecef7e13c107a07b6dac52a467315d2a5f1f9090
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: b6f9987c21ecdcf0e1b5358486312dceb26c8b82
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539879"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008557"
 ---
 # <a name="azure-communication-services-ui-framework"></a>Struktura interfejsu użytkownika usług Azure Communication Services
 
@@ -47,7 +47,7 @@ Zrozumienie tych wymagań ułatwi wybranie odpowiedniej biblioteki klienta:
 
 Szczegółowe informacje o dostępności funkcji w różnych zestawach [SDK interfejsu użytkownika są dostępne w tym miejscu](ui-sdk-features.md), ale poniżej przedstawiono podsumowanie najważniejszych zalet.
 
-|Biblioteka/zestaw SDK klienta|Złożoność implementacji|    Możliwość dostosowywania|  Rozmów| Czat| [Współdziałanie zespołów](./../voice-video-calling/teams-interop.md)
+|Biblioteka/zestaw SDK klienta|Złożoność implementacji|    Możliwość dostosowywania|  Rozmów| Czat| [Współdziałanie zespołów](./../teams-interop.md)
 |---|---|---|---|---|---|---|
 |Składniki złożone|Niski|Niski|✔|✔|✕
 |Składniki podstawowe|Średnia|Średnia|✔|✔|✕

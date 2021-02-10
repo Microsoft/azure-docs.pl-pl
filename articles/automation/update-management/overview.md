@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 718e812a8193797ad350fa61444bb05fe5a4b724
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6e312d354a25113a764bca5e9492909d22af9873
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896905"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007741"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -74,7 +74,7 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen 
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter/standard)<br>Windows Server 2016 (Datacenter/Datacenter/standard)<br>Windows Server 2012 R2 (Datacenter/standard)<br>Windows Server 2012 |
+|Windows Server 2019 (Datacenter/Standard, w tym Server Core)<br><br>Windows Server 2016 (Datacenter/Standard z wyłączeniem Server Core)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (wersja RTM i SP1 standard)| Update Management obsługuje oceny i poprawki dla tego systemu operacyjnego. [Hybrydowy proces roboczy elementu Runbook](../automation-windows-hrw-install.md) jest obsługiwany w przypadku systemu Windows Server 2008 R2. |
 |CentOS 6 i 7 (x64)      | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji wymaga `yum` zwrócenia danych zabezpieczeń, które nie są dostępne w wersjach RTM CentOS. Aby uzyskać więcej informacji na temat stosowania poprawek opartych na klasyfikacji na CentOS, zobacz [Aktualizacja klasyfikacji w systemie Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 i 7 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
@@ -207,7 +207,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.

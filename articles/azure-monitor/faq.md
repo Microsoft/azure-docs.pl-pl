@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a8d3ded1d11a350ff53ffda71348b2cc707760b8
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878939"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008421"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -81,10 +81,12 @@ Azure Data Explorer to szybka i wysoce skalowalna usługa eksploracji danych na 
 
 ### <a name="how-do-i-retrieve-log-data"></a>Jak mogę pobrać danych dziennika?
 Wszystkie dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dziennika, które zapisano przy użyciu języka zapytań Kusto (KQL). Możesz pisać własne zapytania lub używać rozwiązań i szczegółowych informacji, które obejmują zapytania dzienników dla określonej aplikacji lub usługi. Zobacz [Omówienie zapytań dzienników w Azure monitor](log-query/log-query-overview.md).
-p
+
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Czy mogę usunąć dane z obszaru roboczego Log Analytics?
 Dane zostaną usunięte z obszaru roboczego zgodnie z jego [okresem przechowywania](platform/manage-cost-storage.md#change-the-data-retention-period). Można usunąć określone dane ze względu na prywatność lub zgodność. Aby uzyskać więcej informacji [, zobacz Jak eksportować i usuwać dane prywatne](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) .
 
+### <a name="is-log-analytics-storage-immutable"></a>Czy Log Analytics magazyn jest niezmienny?
+Nie można zmienić danych w magazynie bazy danych, ale można je usunąć za pomocą [ *przeczyszczania* ścieżki interfejsu API do usuwania prywatnych danych](platform/personal-data-mgmt.md#delete). Chociaż nie można zmienić danych, niektóre certyfikaty wymagają, aby dane były niemodyfikowalne i nie można ich zmienić ani usunąć w magazynie. Niezmienności danych można osiągnąć przy użyciu [eksportu danych](platform/logs-data-export.md) do konta magazynu skonfigurowanego jako [niezmienny magazyn](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Co to jest obszar roboczy usługi Log Analytics?
 Wszystkie dane dzienników zbierane przez Azure Monitor są przechowywane w Log Analytics obszarze roboczym. Obszar roboczy jest zasadniczo kontenerem, w którym dane dzienników są zbierane z różnych źródeł. Może istnieć pojedynczy obszar roboczy Log Analytics dla wszystkich danych monitorowania lub może mieć wymagania dotyczące wielu obszarów roboczych. Zobacz [projektowanie wdrożenia dzienników Azure monitor](platform/design-logs-deployment.md).

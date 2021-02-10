@@ -10,12 +10,12 @@ ms.custom: how-to, automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: fe0b2abb7fa2ca986a896a75e5f6d4c238d70109
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 709c85bed4a028c6c168c79cd9fffd6b7b40cb68
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807262"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008047"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretowanie: omówienie modelu w zautomatyzowanym uczeniu maszynowym (wersja zapoznawcza)
 
@@ -51,7 +51,7 @@ Pobierz wyjaśnienie z programu, w tym `best_run` wyjaśnienia dotyczące zarów
 > * Średnia sezonowa 
 > * Algorytm Bayesa sezonowe
 
-### <a name="download-engineered-feature-importance-from-artifact-store"></a>Pobierz wagę funkcji z magazynu artefaktów
+### <a name="download-the-engineered-feature-importances-from-the-best-run"></a>Pobieranie zaprojektowanych znaczenia funkcji z najlepszego przebiegu
 
 Za pomocą `ExplanationClient` programu można pobrać z magazynu artefaktów `best_run` . 
 
@@ -61,6 +61,18 @@ from azureml.interpret import ExplanationClient
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
 print(engineered_explanations.get_feature_importance_dict())
+```
+
+### <a name="download-the-raw-feature-importances-from-the-best-run"></a>Pobierz surowe znaczenia funkcji z najlepszego przebiegu
+
+Za pomocą `ExplanationClient` programu można pobrać nieprzetworzone wyjaśnienia funkcji z magazynu artefaktów `best_run` .
+
+```python
+from azureml.interpret import ExplanationClient
+
+client = ExplanationClient.from_run(best_run)
+raw_explanations = client.download_model_explanation(raw=True)
+print(raw_explanations.get_feature_importance_dict())
 ```
 
 ## <a name="interpretability-during-training-for-any-model"></a>Interpretowanie w ramach szkolenia dla dowolnego modelu 
@@ -75,7 +87,7 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### <a name="set-up-the-model-explanations"></a>Konfigurowanie wyjaśnień modelu
 
-Służy `automl_setup_model_explanations` do uzyskiwania zaprojektowanych wyjaśnień. `fitted_model`Może generować następujące elementy:
+Służy `automl_setup_model_explanations` do uzyskiwania przetworzonych i nieprzetworzonych wyjaśnień. `fitted_model`Może generować następujące elementy:
 
 - Polecane dane z próbek przeszkolonych lub testowych
 - Zaprojektowane listy nazw funkcji
@@ -114,13 +126,25 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
                          explainer_kwargs=automl_explainer_setup_obj.surrogate_model_params)
 ```
 
-### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>Korzystanie z MimicExplainer na potrzeby przetwarzania i wizualizacji wagi funkcji
+### <a name="use-mimic-explainer-for-computing-and-visualizing-engineered-feature-importance"></a>Korzystaj z objaśnień śladowych dla obliczeń i wizualizacji wagi funkcji
 
-Możesz wywołać `explain()` metodę w MimicWrapper z przekształconymi próbkami testowymi, aby uzyskać ważność funkcji dla wygenerowanych funkcji. Można również użyć, `ExplanationDashboard` Aby wyświetlić wizualizację pulpitu nawigacyjnego wartości znaczenia funkcji dla wygenerowanych funkcji przez AutoML featurizers.
+Możesz wywołać `explain()` metodę w MimicWrapper z przekształconymi próbkami testowymi, aby uzyskać ważność funkcji dla wygenerowanych funkcji. Możesz również zalogować się do [Azure Machine Learning Studio](https://ml.azure.com/) , aby wyświetlić wizualizację pulpitu nawigacyjnego wartości znaczenia funkcji dla wygenerowanych funkcji przez AutoML featurizers.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
+```
+
+### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>Korzystanie z objaśnień do obliczania i wizualizacji ważności nieprzetworzonej funkcji
+
+Możesz wywołać `explain()` metodę w MimicWrapper z przekształconymi próbkami testowymi, aby uzyskać ważność funkcji dla nieprzetworzonych funkcji. W [Machine Learning Studio](https://ml.azure.com/)można wyświetlić wizualizację pulpitu nawigacyjnego wartości znaczenia funkcji nieprzetworzonych funkcji.
+
+```python
+raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
+                                     raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
+                                     eval_dataset=automl_explainer_setup_obj.X_test_transform,
+                                     raw_eval_dataset=automl_explainer_setup_obj.X_test_raw)
+print(raw_explanations.get_feature_importance_dict())
 ```
 
 ## <a name="interpretability-during-inference"></a>Interpretowanie podczas wnioskowania
@@ -174,6 +198,48 @@ with open("myenv.yml","r") as f:
 
 ```
 
+### <a name="create-the-scoring-script"></a>Utwórz skrypt oceniania
+
+Napisz skrypt ładujący model i generuje prognozy i wyjaśnienia na podstawie nowej partii danych.
+
+```python
+%%writefile score.py
+import joblib
+import pandas as pd
+from azureml.core.model import Model
+from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
+
+
+def init():
+    global automl_model
+    global scoring_explainer
+
+    # Retrieve the path to the model file using the model name
+    # Assume original model is named automl_model
+    automl_model_path = Model.get_model_path('automl_model')
+    scoring_explainer_path = Model.get_model_path('scoring_explainer')
+
+    automl_model = joblib.load(automl_model_path)
+    scoring_explainer = joblib.load(scoring_explainer_path)
+
+
+def run(raw_data):
+    data = pd.read_json(raw_data, orient='records')
+    # Make prediction
+    predictions = automl_model.predict(data)
+    # Setup for inferencing explanations
+    automl_explainer_setup_obj = automl_setup_model_explanations(automl_model,
+                                                                 X_test=data, task='classification')
+    # Retrieve model explanations for engineered explanations
+    engineered_local_importance_values = scoring_explainer.explain(automl_explainer_setup_obj.X_test_transform)
+    # Retrieve model explanations for raw explanations
+    raw_local_importance_values = scoring_explainer.explain(automl_explainer_setup_obj.X_test_transform, get_raw=True)
+    # You can return any data type as long as it is JSON-serializable
+    return {'predictions': predictions.tolist(),
+            'engineered_local_importance_values': engineered_local_importance_values,
+            'raw_local_importance_values': raw_local_importance_values}
+```
+
 ### <a name="deploy-the-service"></a>Wdrażanie usługi
 
 Wdróż usługę przy użyciu pliku Conda i pliku oceniania z poprzednich kroków.
@@ -216,11 +282,13 @@ if service.state == 'Healthy':
     print(output['predictions'])
     # Print the engineered feature importances for the predicted value
     print(output['engineered_local_importance_values'])
+    # Print the raw feature importances for the predicted value
+    print('raw_local_importance_values:\n{}\n'.format(output['raw_local_importance_values']))
 ```
 
 ### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Wizualizowanie w celu odnajdywania wzorców danych i wyjaśnień w czasie uczenia
 
-Możesz wizualizować wykres ważności funkcji w obszarze roboczym w programie [Azure Machine Learning Studio](https://ml.azure.com). Po zakończeniu działania programu AutoML wybierz pozycję **Wyświetl szczegóły modelu** , aby wyświetlić konkretny przebieg. Wybierz kartę **wyjaśnienia** , aby wyświetlić pulpit nawigacyjny wizualizacji z wyjaśnieniem.
+Możesz wizualizować wykres ważności funkcji w obszarze roboczym w [Machine Learning Studio](https://ml.azure.com). Po zakończeniu działania programu AutoML wybierz pozycję **Wyświetl szczegóły modelu** , aby wyświetlić konkretny przebieg. Wybierz kartę **wyjaśnienia** , aby wyświetlić pulpit nawigacyjny wizualizacji z wyjaśnieniem.
 
 [![Architektura Machine Learningj interpretacji](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 

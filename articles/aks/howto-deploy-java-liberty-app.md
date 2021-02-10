@@ -7,16 +7,23 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: Java, jakartaee, JavaEE, mikroprofil, Open-wolność, WebSphere-wolność, AKS, Kubernetes
-ms.openlocfilehash: 2e025c706512b6ab3945118da996b11a5a8a9585
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: d0e6f2fea6894378da736ba83a90ee28402ec7f9
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526894"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007140"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>Wdróż aplikację Java z otwartą wolnością lub WebSphere wolnością w klastrze usługi Azure Kubernetes Service (AKS)
 
-W tym przewodniku przedstawiono sposób uruchamiania aplikacji Java, Java EE, [Dżakarta EE](https://jakarta.ee/)lub [mikroprofilu](https://microprofile.io/) w środowisku uruchomieniowym Open wolności lub WebSphere, a następnie wdrażania aplikacji kontenera w klastrze AKS przy użyciu operatora Open wolności. Operator "Open wolności" upraszcza wdrażanie aplikacji i zarządzanie nimi w ramach otwartych klastrów Kubernetes. Można również wykonywać bardziej zaawansowane operacje, takie jak zbieranie śladów i zrzutów przy użyciu operatora. Ten artykuł przeprowadzi Cię przez proces przygotowywania aplikacji wolności, tworzenia obrazu platformy Docker i uruchamiania aplikacji kontenera w klastrze AKS.  Aby uzyskać więcej informacji na temat otwartej wolności, zobacz [stronę Otwórz projekt wolności](https://openliberty.io/). Aby uzyskać więcej informacji na temat usługi IBM WebSphere wolności, zobacz [stronę z wolnością WebSphere](https://www.ibm.com/cloud/websphere-liberty).
+W tym artykule pokazano, jak:  
+* Uruchamiaj aplikacje Java, Java EE, Dżakarta EE lub mikroprofilowanie w środowisku uruchomieniowym Open wolności lub WebSphere.
+* Kompilowanie obrazu platformy Docker przy użyciu obrazów kontenera Open wolności.
+* Wdróż aplikację z kontenerem w klastrze AKS przy użyciu operatora Open wolności.   
+
+Operator Open wolności upraszcza wdrażanie aplikacji działających w klastrach Kubernetes i zarządzanie nimi. Za pomocą operatora Open wolności można także wykonywać bardziej zaawansowane operacje, takie jak gromadzenie śladów i zrzutów. 
+
+Aby uzyskać więcej informacji na temat otwartej wolności, zobacz [stronę Otwórz projekt wolności](https://openliberty.io/). Aby uzyskać więcej informacji na temat usługi IBM WebSphere wolności, zobacz [stronę z wolnością WebSphere](https://www.ibm.com/cloud/websphere-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,17 +31,20 @@ W tym przewodniku przedstawiono sposób uruchamiania aplikacji Java, Java EE, [D
 
 * W tym artykule jest wymagana Najnowsza wersja interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 * Jeśli polecenia w tym przewodniku są uruchamiane lokalnie (zamiast Azure Cloud Shell):
-  * Przygotuj maszynę lokalną z zainstalowanym systemem operacyjnym UNIX (na przykład Ubuntu, macOS).
+  * Przygotuj maszynę lokalną z zainstalowanym systemem operacyjnym UNIX (na przykład Ubuntu, macOS, podsystem Windows dla systemu Linux).
   * Instalowanie implementacji języka Java SE (na przykład [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Zainstaluj program [Maven](https://maven.apache.org/download.cgi) 3.5.0 lub nowszy.
   * Zainstaluj [platformę Docker](https://docs.docker.com/get-docker/) dla systemu operacyjnego.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów, *środowisko Java-wolność-Project* przy użyciu polecenia [AZ Group Create](/cli/azure/group#az_group_create) w lokalizacji *Wschodnie* . Zostanie ona użyta do utworzenia wystąpienia Azure Container Registry (ACR) i klastra AKS w późniejszym czasie. 
+Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi.  
+
+Utwórz grupę zasobów o nazwie *Java-wolności-Project* przy użyciu polecenia [AZ Group Create](/cli/azure/group#az_group_create) w lokalizacji *Wschodnie* . Ta grupa zasobów zostanie później użyta do utworzenia wystąpienia Azure Container Registry (ACR) i klastra AKS. 
 
 ```azurecli-interactive
-az group create --name java-liberty-project --location eastus
+RESOURCE_GROUP_NAME=java-liberty-project
+az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
 ## <a name="create-an-acr-instance"></a>Tworzenie wystąpienia ACR
@@ -42,7 +52,8 @@ az group create --name java-liberty-project --location eastus
 Użyj polecenia [AZ ACR Create](/cli/azure/acr#az_acr_create) , aby utworzyć wystąpienie ACR. Poniższy przykład tworzy wystąpienie ACR o nazwie *youruniqueacrname*. Upewnij się, że *youruniqueacrname* jest unikatowy na platformie Azure.
 
 ```azurecli-interactive
-az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
+REGISTRY_NAME=youruniqueacrname
+az acr create --resource-group $RESOURCE_GROUP_NAME --name $REGISTRY_NAME --sku Basic --admin-enabled
 ```
 
 Po krótkim czasie powinny zostać wyświetlone dane wyjściowe JSON zawierające:
@@ -55,10 +66,9 @@ Po krótkim czasie powinny zostać wyświetlone dane wyjściowe JSON zawierając
 
 ### <a name="connect-to-the-acr-instance"></a>Nawiązywanie połączenia z wystąpieniem ACR
 
-Aby wypchnąć obraz do wystąpienia ACR, należy najpierw zalogować się do niego. Uruchom następujące polecenia, aby zweryfikować połączenie:
+Przed wypchnięciem do niego obrazu należy zalogować się do wystąpienia ACR. Uruchom następujące polecenia, aby zweryfikować połączenie:
 
 ```azurecli-interactive
-REGISTRY_NAME=youruniqueacrname
 LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
 USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query 'username' -o tsv)
 PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value' -o tsv)
@@ -73,7 +83,8 @@ Po `Login Succeeded` pomyślnym zalogowaniu się do wystąpienia ACR powinna zos
 Utwórz klaster AKS za pomocą polecenia [az aks create](/cli/azure/aks#az_aks_create). W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Wykonanie tej czynności potrwa kilka minut.
 
 ```azurecli-interactive
-az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-managed-identity
+CLUSTER_NAME=myAKSCluster
+az aks create --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity
 ```
 
 Po kilku minutach polecenie zostanie wykonane i zwróci informacje w formacie JSON o klastrze, w tym następujące:
@@ -96,7 +107,7 @@ az aks install-cli
 Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group java-liberty-project --name myAKSCluster --overwrite-existing
+az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing
 ```
 
 > [!NOTE]
@@ -144,6 +155,7 @@ Aby wdrożyć i uruchomić aplikację z wolnością w klastrze AKS, konteneryzow
 1. Sklonuj przykładowy kod dla tego przewodnika. Przykład znajduje się w serwisie [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
 1. Zmień katalog na `javaee-app-simple-cluster` lokalny klon.
 1. Uruchom `mvn clean package` , aby spakować aplikację.
+1. Uruchom, `mvn liberty:dev` Aby przetestować aplikację. `The defaultServer server is ready to run a smarter planet.`Jeśli to się powiedzie, powinny być widoczne w danych wyjściowych polecenia. Użyj `CTRL-C` , aby zatrzymać aplikację.
 1. Uruchom jedno z następujących poleceń, aby skompilować obraz aplikacji i wypchnąć go do wystąpienia ACR.
    * Kompiluj przy użyciu podstawowego obrazu podstawy, jeśli wolisz używać Open wolności jako uproszczonego środowiska uruchomieniowego Java™ Open Source:
 
@@ -206,12 +218,12 @@ Aby monitorować postęp, użyj polecenia [kubectl get-service](https://kubernet
 kubectl get service javaee-app-simple-cluster --watch
 
 NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   9080:31732/TCP   68s
+javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
 ```
 
-Poczekaj, aż *zewnętrzny adres IP* zmieni się z *oczekującej* na rzeczywisty publiczny adres IP, użyj, `CTRL-C` Aby zatrzymać `kubectl` proces czujki.
+Gdy *zewnętrzny adres IP* zmieni się z *oczekujące* na rzeczywisty publiczny adres IP, użyj, `CTRL-C` Aby zatrzymać `kubectl` proces obserwacji.
 
-Otwórz przeglądarkę internetową na zewnętrznym adresie IP i porcie usługi ( `52.152.189.57:9080` na potrzeby powyższego przykładu), aby wyświetlić stronę główną aplikacji. W lewym górnym rogu strony powinna zostać wyświetlona nazwa pod nazwą replik aplikacji. Zaczekaj kilka minut i Odśwież stronę, prawdopodobnie zobaczysz inną nazwę pod nazwą wyświetlaną z powodu równoważenia obciążenia zapewnionego przez klaster AKS.
+Otwórz przeglądarkę internetową na zewnętrzny adres IP usługi ( `52.152.189.57` w przypadku powyższego przykładu), aby wyświetlić stronę główną aplikacji. W lewym górnym rogu strony powinna zostać wyświetlona nazwa pod nazwą replik aplikacji. Poczekaj kilka minut i Odśwież stronę, aby zobaczyć inną nazwę pod z powodu równoważenia obciążenia udostępnianego przez klaster AKS.
 
 :::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Aplikacja wolności Java została pomyślnie wdrożona na AKS":::
 
@@ -220,10 +232,10 @@ Otwórz przeglądarkę internetową na zewnętrznym adresie IP i porcie usługi 
 
 ## <a name="clean-up-the-resources"></a>Oczyszczanie zasobów
 
-Aby uniknąć naliczania opłat za platformę Azure, należy wyczyścić zasoby niepotrzebne.  Gdy klaster nie jest już wymagany, użyj polecenia [AZ Group Delete](/cli/azure/group#az_group_delete) , aby usunąć grupę zasobów, usługę kontenera, rejestr kontenerów i wszystkie powiązane zasoby.
+Aby uniknąć opłat za platformę Azure, należy oczyścić niepotrzebne zasoby.  Gdy klaster nie jest już wymagany, użyj polecenia [AZ Group Delete](/cli/azure/group#az_group_delete) , aby usunąć grupę zasobów, usługę kontenera, rejestr kontenerów i wszystkie powiązane zasoby.
 
 ```azurecli-interactive
-az group delete --name java-liberty-project --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>Następne kroki

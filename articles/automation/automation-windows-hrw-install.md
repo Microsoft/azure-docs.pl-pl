@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e77a90617d79dab8c71cdf0c7a6a4fb21e052fbd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 09c86e23379cf9ccecf77d88a99ad6b3a7019a87
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182788"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006993"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 
@@ -38,8 +38,8 @@ Rola hybrydowego procesu roboczego elementu Runbook wymaga [agenta log Analytics
 
 Funkcja hybrydowego procesu roboczego elementu Runbook obsługuje następujące systemy operacyjne:
 
-* Windows Server 2019
-* Windows Server 2016, wersja 1709 i 1803
+* Windows Server 2019 (w tym Server Core)
+* Windows Server 2016, wersja 1709 i 1803 (z wyłączeniem Server Core)
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 z dodatkiem SP2 (x64), 2008 R2
 * Windows 10 Enterprise (w tym wiele sesji) i Pro

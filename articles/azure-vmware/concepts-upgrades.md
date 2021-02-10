@@ -3,12 +3,12 @@ title: Koncepcje — aktualizacje i uaktualnienia w chmurze prywatnej
 description: Dowiedz się więcej na temat podstawowych procesów uaktualniania i funkcji w rozwiązaniu VMware platformy Azure.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 2d5f789304cc264f07aad1865b0bcb2ed4182d4b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536988"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006706"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Aktualizacje i uaktualnienia chmury prywatnej rozwiązania VMware platformy Azure
 
@@ -53,7 +53,7 @@ Oprócz dokonywania aktualizacji rozwiązanie VMware firmy Azure pobiera kopię 
 
 W razie awarii rozwiązanie VMware firmy Azure może przywrócić te z kopii zapasowej konfiguracji. 
 
-Aby uzyskać więcej informacji na temat wersji oprogramowania VMware, zapoznaj się z [artykułem dotyczącym chmur prywatnych i klastrów](concepts-private-clouds-clusters.md) oraz [często zadawanych pytań](faq.md).
+Aby uzyskać więcej informacji na temat wersji oprogramowania VMware, zapoznaj się z [artykułem dotyczącym chmur prywatnych i klastrów](concepts-private-clouds-clusters.md) oraz [często zadawanych pytań](faq.yml).
 
 ## <a name="next-steps"></a>Następne kroki
 

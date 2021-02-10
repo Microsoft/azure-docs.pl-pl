@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f2ea7af0ec9c740c07cd3a5e4ebd88a9ad1a031d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c2faf8e8b6a814989fa9e1693fddeedb525df13a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542647"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006857"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Sterowniki MySQL i narzędzia do zarządzania zgodne z Azure Database for MySQL
 W tym artykule opisano sterowniki i narzędzia do zarządzania, które są zgodne z programem Azure Database for MySQL.
@@ -26,7 +26,7 @@ Azure Database for MySQL korzysta z najbardziej popularnej wersji Community Data
 | .NET | Łącznik MySQL/NET | https://github.com/mysql/mysql-connector-net | 6.6.3, 7,0, 8,0 |  | Usterka kodowania może spowodować niepowodzenie połączeń w niektórych systemach Windows bez kodowania UTF8. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Pakiet instalacyjny z NPM:<br> Uruchom `npm install mysql` z npm | 2.15 | 2.14.1 i przed | |
 | Node.js | Node-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4 + | | |
-| Przejdź | Przejdź do sterownika MySQL | https://github.com/go-sql-driver/mysql/releases | 1,3, 1,4 | 1,2 i przed | Użyj `allowNativePasswords=true` w parametrach połączenia dla wersji 1,3. Wersja 1,4 zawiera poprawkę i `allowNativePasswords=true` nie jest już wymagana. |
+| Go | Przejdź do sterownika MySQL | https://github.com/go-sql-driver/mysql/releases | 1,3, 1,4 | 1,2 i przed | Użyj `allowNativePasswords=true` w parametrach połączenia dla wersji 1,3. Wersja 1,4 zawiera poprawkę i `allowNativePasswords=true` nie jest już wymagana. |
 | Python | Łącznik MySQL/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2,0, 2,1, 2,2, używaj 8.0.16 + z MySQL 8,0  | 1.2.2 i przed | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (regresja w web2py) | |
 | Java | Łącznik MariaDB/J | https://downloads.mariadb.org/connector-java/ | 2,1, 2,0, 1,6 | 1.5.5 i przed | | 
@@ -43,16 +43,16 @@ Azure Database for MySQL korzysta z najbardziej popularnej wersji Community Data
 ## <a name="management-tools"></a>Narzędzia do zarządzania
 Zalety zgodności rozszerzają się również do narzędzi do zarządzania bazami danych. Istniejące narzędzia powinny nadal działać z Azure Database for MySQL, o ile manipulowanie bazami danych działa w ramach ograniczonych uprawnień użytkownika. Trzy popularne narzędzia do zarządzania bazami danych, które zostały przetestowane i zostały uznane za zgodne z Azure Database for MySQL 5,6 i 5,7, zostały wymienione w poniższej tabeli:
 
-|                                     | **MySQL Workbench 6. x i w górę** | **Navicat 12** | **PHPMyAdmin 4. x i w górę** |
-| :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| **Tworzenie, aktualizowanie, Odczyt, zapis, usuwanie** | X | X | X |
-| **Połączenie SSL** | X | X | X |
-| **Autouzupełnianie zapytań SQL** | X | X |  |
-| **Importowanie i eksportowanie danych** | X | X | X |
-| **Eksportuj do wielu formatów** | X | X | X |
-| **Tworzenie kopii zapasowej i przywracanie** |  | X |  |
-| **Wyświetl parametry serwera** | X | X | X |
-| **Wyświetlanie połączeń klientów** | X | X | X |
+|                                     | **MySQL Workbench 6. x i w górę** | **Navicat 12** | **PHPMyAdmin 4. x i w górę** | **Baza danych dbfałszerstw Studio dla programu MySQL 9,0** |
+| :---------------------------------- | :----------------------------- | :------------- | :-------------------------| :------------------------------- |
+| **Tworzenie, aktualizowanie, Odczyt, zapis, usuwanie** | X | X | X | X |
+| **Połączenie SSL** | X | X | X | X |
+| **Autouzupełnianie zapytań SQL** | X | X |  | X |
+| **Importowanie i eksportowanie danych** | X | X | X | X |
+| **Eksportuj do wielu formatów** | X | X | X | X |
+| **Wykonywanie kopii zapasowych i przywracanie** |  | X |  | X |
+| **Wyświetl parametry serwera** | X | X | X | X |
+| **Wyświetlanie połączeń klientów** | X | X | X | X |
 
 ## <a name="next-steps"></a>Następne kroki
 

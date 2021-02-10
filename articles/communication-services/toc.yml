@@ -58,6 +58,8 @@
 - name: Pojęcia
   expanded: false
   items:
+    - name: Współdziałanie usługi Teams
+      href: concepts/teams-interop.md
     - name: Czat
       items:
         - name: Omówienie biblioteki klienta czatu
@@ -78,8 +80,6 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Pojęcia dotyczące głosu i wideo
           href: concepts/voice-video-calling/about-call-types.md
-        - name: Współdziałanie usługi Teams
-          href: concepts/voice-video-calling/teams-interop.md
     - name: Struktura interfejsu użytkownika
       items:
         - name: Przegląd struktury interfejsu użytkownika

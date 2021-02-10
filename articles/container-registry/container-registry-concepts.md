@@ -3,12 +3,12 @@ title: Informacje o repozytoriach & obrazów
 description: Wprowadzenie do kluczowych pojęć związanych z rejestrami kontenerów platformy Azure, repozytoriami i obrazami kontenerów.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0cc7df22236c60bd473385d92c8db563be68f688
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335898"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008523"
 ---
 # <a name="about-registries-repositories-and-images"></a>Rejestry, repozytoria i obrazy — informacje
 
@@ -26,7 +26,7 @@ Adres artefaktu w rejestrze kontenerów platformy Azure obejmuje następujące e
 
 `[loginUrl]/[repository:][tag]`
 
-* **LoginUrl** — w pełni kwalifikowana nazwa hosta rejestru. Host rejestru w usłudze Azure Container Registry *ma format azurecr.IO* (wszystkie małe litery). Należy określić loginUrl podczas korzystania z platformy Docker lub innych narzędzi klienckich do ściągania i wypychania artefaktów do usługi Azure Container Registry. 
+* **LoginUrl** — w pełni kwalifikowana nazwa hosta rejestru. Host rejestru w usłudze Azure Container Registry *ma format azurecr.IO*(wszystkie małe litery). Należy określić loginUrl podczas korzystania z platformy Docker lub innych narzędzi klienckich do ściągania i wypychania artefaktów do usługi Azure Container Registry. 
 * **repozytorium** — nazwa logicznej grupy składającej się z co najmniej jednego powiązanego obrazu lub artefaktów — na przykład obrazy aplikacji lub podstawowego systemu operacyjnego. Może zawierać ścieżkę *przestrzeni nazw* . 
 * **tag** -identyfikator określonej wersji obrazu lub artefaktu przechowywanego w repozytorium.
 
@@ -73,7 +73,7 @@ Aby zapoznać się z regułami nazewnictwa tagów, zobacz [dokumentację platfor
 
 ### <a name="layer"></a>Warstwa
 
-Obrazy kontenerów składają się z jednej lub kilku *warstw* , z których każdy odpowiada wierszowi w pliku dockerfile, który definiuje obraz. Obrazy w rejestrze udostępniają typowe warstwy, zwiększając wydajność magazynu. Na przykład kilka obrazów w różnych repozytoriach może współużytkować tę samą warstwę bazową Alpine Linux, ale w rejestrze jest przechowywana tylko jedna kopia tej warstwy.
+Obrazy kontenerów składają się z jednej lub kilku *warstw*, z których każdy odpowiada wierszowi w pliku dockerfile, który definiuje obraz. Obrazy w rejestrze udostępniają typowe warstwy, zwiększając wydajność magazynu. Na przykład kilka obrazów w różnych repozytoriach może współużytkować tę samą warstwę bazową Alpine Linux, ale w rejestrze jest przechowywana tylko jedna kopia tej warstwy.
 
 Udostępnianie warstwy optymalizuje także dystrybucję warstw do węzłów z wieloma obrazami udostępniającymi wspólne warstwy. Na przykład jeśli obraz już znajdujący się w węźle zawiera warstwę Alpine Linux jako podstawową, kolejna ściąganie innego obrazu odwołującego się do tej samej warstwy nie przenosi warstwy do węzła. Zamiast tego odwołuje się do warstwy już istniejącej w węźle.
 
@@ -81,7 +81,30 @@ Aby zapewnić bezpieczną izolację i ochronę przed potencjalną manipulacją w
 
 ### <a name="manifest"></a>Manifest
 
-Każdy obraz kontenera lub artefakt wypychany do rejestru kontenerów jest skojarzony z *manifestem*. Manifest generowany przez rejestr podczas wypychania obrazu, jednoznacznie identyfikuje obraz i określa jego warstwy. Można wyświetlić listę manifestów dla repozytorium za pomocą poleceń interfejsu wiersza polecenia platformy Azure [AZ ACR Repository show-Manifests][az-acr-repository-show-manifests]:
+Każdy obraz kontenera lub artefakt wypychany do rejestru kontenerów jest skojarzony z *manifestem*. Manifest generowany przez rejestr podczas wypychania obrazu, jednoznacznie identyfikuje obraz i określa jego warstwy. 
+
+Podstawowy manifest obrazu systemu Linux `hello-world` wygląda podobnie do poniższego:
+
+  ```json
+  {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "config": {
+        "mediaType": "application/vnd.docker.container.image.v1+json",
+        "size": 1510,
+        "digest": "sha256:fbf289e99eb9bca977dae136fbe2a82b6b7d4c372474c9235adc1741675f587e"
+      },
+    "layers": [
+        {
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 977,
+          "digest": "sha256:2c930d010525941c1d56ec53b97bd057a67ae1865eebf042686d2a2d18271ced"
+        }
+      ]
+  }
+  ```
+
+Można wyświetlić listę manifestów dla repozytorium za pomocą poleceń interfejsu wiersza polecenia platformy Azure [AZ ACR Repository show-Manifests][az-acr-repository-show-manifests]:
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>

@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2be66904898ecdf2006952f5e80c17dc78b81c06
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825814"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008540"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -48,6 +48,10 @@ Nie. Tożsamości zarządzane i rejestracje aplikacja usługi Azure AD nie są t
 Rejestracje aplikacji mają dwa składniki: obiekt aplikacji + obiekt główny usługi. Zarządzane tożsamości dla zasobów platformy Azure mają tylko jeden z tych składników: obiekt główny usługi. 
 
 Tożsamości zarządzane nie mają obiektu aplikacji w katalogu, który jest często używany do przyznawania uprawnień aplikacji dla programu MS Graph. Zamiast tego należy przydzielić uprawnienia programu MS Graph do zarządzanych tożsamości bezpośrednio do jednostki usługi.  
+
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>Czy można używać tej samej tożsamości zarządzanej w wielu regionach?
+
+W krótkim przypadku można użyć tożsamości zarządzanych przez użytkownika w więcej niż jednym regionie świadczenia usługi Azure. Dłuższa odpowiedź polega na tym, że podczas tworzenia tożsamości zarządzanych przez użytkownika jako zasobów regionalnych skojarzona jednostka [usługi](../develop/app-objects-and-service-principals.md#service-principal-object) (SPN) utworzona w usłudze Azure AD jest dostępna globalnie. Nazwy głównej usługi można użyć z dowolnego regionu platformy Azure, a jej dostępność zależy od dostępności usługi Azure AD. Jeśli na przykład została utworzona tożsamość zarządzana przypisana przez użytkownika w regionie South-Central i ten region stał się niedostępny, problem ma wpływ tylko na działania [płaszczyzny kontroli](../../azure-resource-manager/management/control-plane-and-data-plane.md) w samej tożsamości zarządzanej.  Nie wpłynie to na działania wykonywane przez wszystkie zasoby, które zostały już skonfigurowane do korzystania z zarządzanych tożsamości.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Czy zarządzane tożsamości dla zasobów platformy Azure współpracują z usługą Azure Cloud Services?
 

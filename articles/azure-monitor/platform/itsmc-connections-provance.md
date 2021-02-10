@@ -6,19 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 19d2ef1d4d711738d60938aac502dfd490e021a1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 0cdbcf0a895a2fc9b81df464f364e04aa79abf99
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729673"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006772"
 ---
 # <a name="connect-provance-with-it-service-management-connector"></a>Połącz Provance z łącznik zarządzania usługami IT
 
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między wystąpieniem usługi Provance a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi.
 
 > [!NOTE]
-> Firma Microsoft proponuje naszym klientom Cherwell i Provance użycie [akcji elementu webhook](./action-groups.md#webhook) w Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
+> Od 1 do 2020 Provance narzędzia ITSM integracja z usługą Azure alert nie będzie już dostępna dla nowych klientów. Nowe połączenia narzędzia ITSM nie będą obsługiwane.
+> Istniejące połączenia narzędzia ITSM będą obsługiwane.
 
 Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączenia produktu Provance z ITSMC na platformie Azure.
 
@@ -69,6 +70,6 @@ Aby utworzyć połączenie Provance, wykonaj czynności opisane w poniższej pro
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przegląd łącznik ITSM](itsmc-overview.md)
+* [Omówienie łącznika ITSM](itsmc-overview.md)
 * [Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
 * [Rozwiązywanie problemów w łączniku ITSM](./itsmc-resync-servicenow.md)

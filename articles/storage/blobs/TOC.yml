@@ -147,14 +147,10 @@
                   href: encryption-customer-provided-keys.md
                 - name: Zakresy szyfrowania
                   href: encryption-scope-overview.md
-            - name: Niezmienne obiekty blob
-              href: storage-blob-immutable-storage.md
             - name: Używanie prywatnych punktów końcowych platformy Azure
               href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Konfigurowanie preferencji routingu sieciowego
               href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Nadmiarowość danych
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Ochrona danych
           items:
             - name: Obsługa wersji
@@ -169,6 +165,14 @@
               href: storage-blob-change-feed.md
             - name: Przywracanie do określonego momentu
               href: point-in-time-restore-overview.md
+            - name: Niezmienne obiekty blob
+              href: storage-blob-immutable-storage.md
+        - name: Nadmiarowość i odzyskiwanie po awarii
+          items:
+            - name: Nadmiarowość danych
+              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Tryb failover zarządzany przez klienta w celu odzyskiwania po awarii
+              href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Replikacja obiektów
           href: object-replication-overview.md
         - name: Warstwy dostępu i wydajności
@@ -181,8 +185,6 @@
               href: storage-blob-performance-tiers.md
             - name: Automatyzowanie cyklu życia warstw dostępu
               href: storage-lifecycle-management-concepts.md
-        - name: Odzyskiwanie po awarii i tryb failover
-          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Wydajność, skalowanie i optymalizacja kosztów'
           items:
             - name: Lista kontrolna wydajności i skalowalności
@@ -391,15 +393,7 @@
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Konfigurowanie usługi Azure Defender na potrzeby ochrony przed zagrożeniami
               href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Ustawianie zasad niezmienności i zarządzanie nimi
-              href: storage-blob-immutability-policies-manage.md
-        - name: Zarządzanie nadmiarowością danych
-          items:
-            - name: Zmienianie konfiguracji nadmiarowości
-              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Projektowanie aplikacji o wysokiej dostępności
-              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Ochrona danych
+        - name: Ochrona danych obiektów BLOB
           items:
             - name: Włączanie obsługi wersji obiektów blob
               href: versioning-enable.md
@@ -413,14 +407,20 @@
               href: storage-blob-change-feed-how-to.md
             - name: Włączanie przywracania do punktu w czasie
               href: point-in-time-restore-manage.md
-        - name: Konfigurowanie replikacji obiektów
-          href: object-replication-configure.md
-        - name: Zarządzanie odzyskiwaniem po awarii
+            - name: Ustawianie zasad niezmienności i zarządzanie nimi
+              href: storage-blob-immutability-policies-manage.md
+        - name: Zarządzanie nadmiarowością i trybem failover
           items:
+            - name: Zmienianie konfiguracji nadmiarowości
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Projektowanie aplikacji o wysokiej dostępności
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Sprawdzanie właściwości czasu ostatniej synchronizacji
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Inicjowanie trybu failover konta
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Konfigurowanie replikacji obiektów
+          href: object-replication-configure.md
         - name: Zarządzanie współbieżnością
           href: concurrency-manage.md
         - name: Korzystanie z emulatora magazynu

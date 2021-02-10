@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896515"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008166"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem funkcji
 
@@ -148,7 +148,7 @@ Usuń zasoby dla następujących funkcji z obszaru roboczego, jeśli są używan
 Po usunięciu zasobów funkcji można odłączyć obszar roboczy. Ważne jest, aby wyczyścić wszystkie istniejące artefakty z tych funkcji z obszaru roboczego i konta usługi Automation:
 
 * W przypadku Update Management Usuń **wdrożenia aktualizacji (harmonogramy)** z konta usługi Automation.
-* W przypadku Start/Stop VMS during off-hours Usuń wszystkie blokady składników funkcji na koncie usługi Automation w obszarze **Ustawienia**  >  **blokady**. Aby uzyskać więcej informacji, zobacz [usuwanie funkcji](../automation-solution-vm-management.md#remove-the-feature).
+* W przypadku Start/Stop VMS during off-hours Usuń wszystkie blokady składników funkcji na koncie usługi Automation w obszarze **Ustawienia**  >  **blokady**. Aby uzyskać więcej informacji, zobacz [usuwanie funkcji](../automation-solution-vm-management-remove.md).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics błędów rozszerzenia systemu Windows
 

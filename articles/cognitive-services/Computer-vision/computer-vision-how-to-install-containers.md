@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokalna, OCR, Docker, kontener
-ms.openlocfilehash: 2298c7b931a5bb51d5067a9f789135ecf86ef3e5
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576824"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008591"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 
 
@@ -92,7 +92,7 @@ Dostępne są obrazy kontenerów do odczytu.
 | Kontener | Container Registry/repozytorium/nazwa obrazu |
 |-----------|------------|
 | Przeczytaj 2,0 — wersja zapoznawcza | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Przeczytaj 3,2 — wersja zapoznawcza | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1` |
+| Przeczytaj 3,2 — wersja zapoznawcza | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2` |
 
 Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) polecenia, aby pobrać obraz kontenera.
 
@@ -101,7 +101,7 @@ Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/
 # <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2
 ```
 
 # <a name="version-20-preview"></a>[Wersja 2,0-Preview](#tab/version-2)
@@ -131,7 +131,7 @@ Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandlin
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

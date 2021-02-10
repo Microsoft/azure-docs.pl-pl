@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: bcba2b48fdecda311ce349f90ba43023b906bd44
-  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-  ms.translationtype: HT
+  ms.openlocfilehash: 29f3b0bf0a00c9e4e238e8bb514f80e7451d30a6
+  ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/26/2020
-  ms.locfileid: "96186409"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "100007758"
 landingContent:
 - title: Informacje o usłudze Azure Digital Twins
   linkLists:
@@ -23,6 +23,14 @@ landingContent:
     links:
     - text: Co to jest usługa Azure Digital Twins?
       url: overview.md
+  - linkListType: concept
+    links:
+    - text: Modele niestandardowe
+      url: concepts-models.md
+    - text: Bliźniacze reprezentacje cyfrowe i graf bliźniaczych reprezentacji
+      url: concepts-twins-graph.md
+    - text: Język zapytań
+      url: concepts-query-language.md
 - title: Zacznij od przewodnika Szybki start
   linkLists:
   - linkListType: quickstart
@@ -43,20 +51,6 @@ landingContent:
     links:
     - text: Łączenie kompleksowego rozwiązania
       url: tutorial-end-to-end.md
-- title: Informacje
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Modele niestandardowe
-      url: concepts-models.md
-  - linkListType: concept
-    links:
-    - text: Bliźniacze reprezentacje cyfrowe i graf bliźniaczych reprezentacji
-      url: concepts-twins-graph.md
-  - linkListType: concept
-    links:
-    - text: Język zapytań
-      url: concepts-query-language.md
 - title: Programowanie
   linkLists:
   - linkListType: how-to-guide
@@ -115,3 +109,19 @@ landingContent:
     links:
     - text: Niestandardowe struktury Swagger dla łącznika usługi Logic Apps
       url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+- title: Nauka oparta na scenariuszu dzięki Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 'Ścieżka szkoleniowa: Programowanie za pomocą usługi Azure Digital bliźniaczych reprezentacji'
+      url: /learn/paths/develop-azure-digital-twins/
+  - linkListType: learn
+    links:
+    - text: 'Uczenie modułu: wprowadzenie do usługi Azure Digital bliźniaczych reprezentacji'
+      url: /learn/modules/develop-with-azure-digital-twins/introduction-to-azure-digital-twins/
+    - text: 'Uczenie modułu: budowanie wykresu usługi Azure Digital bliźniaczych reprezentacji dla linii produkcyjnej fabryki czekolady'
+      url: /learn/modules/develop-with-azure-digital-twins/build-azure-digital-twins-graph-for-chocolate-factory/
+    - text: 'Uczenie modułu: pozyskiwanie danych do usługi Azure Digital bliźniaczych reprezentacji'
+      url: /learn/modules/develop-with-azure-digital-twins/ingest-data-into-azure-digital-twins/
+    - text: 'Uczenie modułu: dane wyjściowe z usługi Azure Digital bliźniaczych reprezentacji do usług podrzędnych'
+      url: /learn/modules/develop-with-azure-digital-twins/route-output-from-azure-digital-twins-to-downstream-services/
