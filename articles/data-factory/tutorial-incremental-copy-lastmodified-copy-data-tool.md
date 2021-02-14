@@ -1,23 +1,18 @@
 ---
 title: Narzędzie danych do przyrostowego kopiowania nowych i zaktualizowanych plików
 description: Utwórz fabrykę danych platformy Azure, a następnie użyj narzędzia Kopiowanie danych, aby przyrostowo ładować nowe pliki na podstawie LastModifiedDate.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: f94975b91a332e480a1b570c29f02040a1047f75
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555417"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361149"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Przyrostowe kopiowanie nowych i zmienionych plików na podstawie LastModifiedDate przy użyciu narzędzia Kopiowanie danych
 
@@ -39,8 +34,8 @@ W tym samouczku wykonasz następujące zadania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure** : jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-* **Konto usługi Azure Storage** : Użyj usługi BLOB Storage dla magazynów danych źródłowych i ujścia. Jeśli nie masz konta usługi Azure Storage, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
+* **Subskrypcja platformy Azure**: jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* **Konto usługi Azure Storage**: Użyj usługi BLOB Storage dla magazynów danych źródłowych i ujścia. Jeśli nie masz konta usługi Azure Storage, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 
 ## <a name="create-two-containers-in-blob-storage"></a>Tworzenie dwóch kontenerów w usłudze BLOB Storage
 
@@ -52,7 +47,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**. Wybierz **Integration**  >  **Data Factory** integracji:
+1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**. Wybierz   >  **Data Factory** integracji:
 
    ![Wybierz Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -96,7 +91,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     d. W obszarze **cykl** wprowadź **15 minut**.
 
-    e. Wybierz pozycję **Dalej**.
+    e. Wybierz opcję **Dalej**.
 
     Data Factory tworzy potok o określonej nazwie zadania.
 
@@ -106,13 +101,13 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     a. Wybierz pozycję  **Utwórz nowe połączenie** , aby dodać połączenie.
 
-    b. Wybierz pozycję **Azure Blob Storage** z galerii, a następnie wybierz pozycję **Kontynuuj** :
+    b. Wybierz pozycję **Azure Blob Storage** z galerii, a następnie wybierz pozycję **Kontynuuj**:
 
     ![Wybieranie magazynu blogów platformy Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
     c. Na stronie **Nowa połączona usługa (Azure Blob Storage)** wybierz konto magazynu z listy **nazwa konta magazynu** . Przetestuj połączenie, a następnie wybierz pozycję **Utwórz**.
 
-    d. Wybierz nową połączoną usługę, a następnie wybierz pozycję **dalej** :
+    d. Wybierz nową połączoną usługę, a następnie wybierz pozycję **dalej**:
 
    ![Wybierz nową połączoną usługę](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
@@ -124,7 +119,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     b. W obszarze **zachowanie ładowania pliku** wybierz pozycję **obciążenie przyrostowe: LastModifiedDate**.
 
-    c. Wybierz pozycję **kopia binarna** , a następnie wybierz pozycję **dalej** :
+    c. Wybierz pozycję **kopia binarna** , a następnie wybierz pozycję **dalej**:
 
      ![Wybieranie pliku lub folderu wejściowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
@@ -132,11 +127,11 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
 6. Na stronie **Wybieranie pliku lub folderu wyjściowego** wykonaj następujące czynności:
 
-    a. Wyszukaj i wybierz folder **docelowy** , a następnie wybierz pozycję **Wybierz** :
+    a. Wyszukaj i wybierz folder **docelowy** , a następnie wybierz pozycję **Wybierz**:
 
     ![Wybieranie pliku lub folderu wyjściowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 
-    b. Wybierz pozycję **Dalej**.
+    b. Wybierz opcję **Dalej**.
 
 7. Na stronie **Ustawienia** wybierz przycisk **Dalej**.
 
@@ -144,11 +139,11 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     ![Strona podsumowania](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
 
-9. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie** , aby monitorować potok (zadanie).
+9. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie**, aby monitorować potok (zadanie).
 
     ![Strona Wdrażanie](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
 
-10. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Aplikacja przełączy się na kartę **monitorowanie** . Zobaczysz stan potoku. Wybierz pozycję **Odśwież** , aby odświeżyć listę. Wybierz link pod **nazwą potoku** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok.
+10. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Aplikacja przełączy się na kartę **monitorowanie** . Zobaczysz stan potoku. Wybierz pozycję **Odśwież**, aby odświeżyć listę. Wybierz link pod **nazwą potoku** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok.
 
     ![Odśwież listę i Wyświetl szczegóły uruchomienia działania](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 

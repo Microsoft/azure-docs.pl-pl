@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f207509baba2499adf5d5d00df0ccd0503a25491
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 918dd929244c7177790a77bfff32589847073c70
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98665195"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104789"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Partnerzy integracji danych usługi Azure Synapse Analytics
 
@@ -52,7 +52,8 @@ Aby utworzyć rozwiązanie magazynu danych za pomocą dedykowanej puli SQL w us�
 | ![TimeXtender](./media/sql-data-warehouse-partner-data-integration/timextender-logo.png) |**TimeXtender**<br>Koncentrator odnajdywania TimeXtender pomaga firmom w tworzeniu nowoczesnej postaci danych przez zapewnienie zintegrowanej platformy do zarządzania danymi, która przyspiesza czas do wglądu w dane przez maksymalnie 10 razy. Przekroczenie codziennych ETL i ELT zapewnia możliwości dostępu do danych, modelowania danych i zgodności na jednej platformie. Koncentrator odnajdywania zapewnia spójną sieć szkieletową danych na potrzeby analizy w skali chmury. Umożliwia ona łączenie i integrowanie różnych silosów danych, wykazu, modelu, przenoszenia i danych dokumentów dla analiz i AI. | [Strona produktu](https://www.timextender.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
 | ![Trifacta](./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png) |**Trifacta Wrangler**<br> Trifacta ułatwiają osobom i organizacjom Eksplorowanie oraz łączenie różnorodnych danych do analizy. Trifacta Wrangler jest przeznaczony do obsługi obciążeń przetwarzanie danych, które muszą obsługiwać dane w dużej skali i dużą liczbę użytkowników końcowych.|[Strona produktu](https://www.trifacta.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifactainc1587522950142.trifactaazure?tab=Overview) |
 | ![WhereScape](./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png) |**CZERWONY Wherescape**<br> WhereScape RED to środowisko IDE, które udostępnia zespoły z narzędziami automatyzacji, które usprawniają przepływy pracy ETL. Środowisko IDE zapewnia najlepsze rozwiązanie, zoptymalizowany kod natywny dla popularnych obiektów docelowych danych. Użyj WhereScape RED, aby skrócić czas projektowania, wdrażania i obsługiwania infrastruktury danych.|[Strona produktu](https://www.wherescape.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview) |
-| ![Xplenty](./media/sql-data-warehouse-partner-data-integration/xplenty-logo.png) |**Xplenty**<br> Platforma Xplenty ELT umożliwia szybkie i łatwe przygotowywanie danych do analiz i przypadków użycia w środowisku produkcyjnym przy użyciu prostej usługi w chmurze. Xplenty punkt & kliknij, przeciągnij & Porzuć interfejs umożliwia integrację danych, przetwarzanie i przygotowanie bez instalowania, wdrażania lub konserwowania oprogramowania. Połącz i Zintegruj z szerokim zestawem repozytoriów danych i aplikacji SaaS, takich jak Azure Synapse, Azure Blob Storage i SQL Server. Xplenty obsługuje także wszystkie usługi sieci Web, które są dostępne za pośrednictwem interfejsu API REST.|[Strona produktu](https://www.xplenty.com/integrations/azure-synapse-analytics/ )<br> |
+| ![Xpert BI](./media/sql-data-warehouse-partner-data-integration/xpertbi-logo.png) |**Xpert BI**<br> Usługa Xpert BI ułatwia organizacjom tworzenie i konserwowanie niezawodnej i skalowalnej platformy danych na platformie Azure za pośrednictwem automatyzacji opartego na metadanych. Rozszerza to platformę Azure Synapse z najlepszymi rozwiązaniami i DataOps, na potrzeby tworzenia danych Agile przy użyciu wbudowanych funkcji zarządzania danymi. Korzystaj z usługi Xpert BI, aby szybko testować i przełączać między różnymi rozwiązaniami platformy Azure, takimi jak Azure Synapse, Azure Data Lake Storage i Azure SQL Database, ponieważ Twoja firma i analiza wymagają zmian i rozrastania.|[Strona produktu](https://www.bi-builders.com/adding-automation-and-governance-to-azure-analytics/)<br> |
+| ![Xplenty](./media/sql-data-warehouse-partner-data-integration/xplenty-logo.png) |**Xplenty**<br> Platforma Xplenty ELT umożliwia szybkie i łatwe przygotowywanie danych do analiz i przypadków użycia w środowisku produkcyjnym przy użyciu prostej usługi w chmurze. Punkt Xplenty & zaznaczania, przeciągania & Drop Interface umożliwia integrację danych, przetwarzanie i przygotowanie bez instalowania, wdrażania lub konserwowania oprogramowania. Połącz i Zintegruj z szerokim zestawem repozytoriów danych i aplikacji SaaS, takich jak Azure Synapse, Azure Blob Storage i SQL Server. Xplenty obsługuje także wszystkie usługi sieci Web, które są dostępne za pośrednictwem interfejsu API REST.|[Strona produktu](https://www.xplenty.com/integrations/azure-synapse-analytics/ )<br> |
 
 
 ## <a name="next-steps"></a>Następne kroki

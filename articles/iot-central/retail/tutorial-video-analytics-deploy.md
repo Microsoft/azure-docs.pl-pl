@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: f7f1952ab8c98553a447c3ed1955fb556ba48124
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e524905aaeed54de6501eb6f024bf28dbab9c594
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831947"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362169"
 ---
 # <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Samouczek: wdrażanie aplikacji IoT Central przy użyciu szablonu wideo Analiza obiektów i aplikacji wykrywanie ruchu
 
@@ -22,6 +22,13 @@ Aby zapoznać się z omówieniem składników aplikacji Key *Analytics — obiek
 Poniższy film wideo zawiera Przewodnik dotyczący sposobu używania _szablonu aplikacji do analizy wideo i wykrywania ruchu_ w celu wdrożenia rozwiązania IoT Central:
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
+
+W tym zestawie samouczków dowiesz się, jak:
+
+> [!div class="checklist"]
+> * Wdrażanie aplikacji
+> * Wdróż wystąpienie IoT Edge, które nawiązuje połączenie z aplikacją
+> * Monitorowanie aplikacji i zarządzanie nią
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

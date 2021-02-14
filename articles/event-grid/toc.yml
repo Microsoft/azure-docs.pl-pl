@@ -54,8 +54,12 @@
       href: ensure-tags-exists-on-new-virtual-machines.md
     - name: Wysyłanie wiadomości e-mail po rozłączeniu urządzenia usługi IoT Hub
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Odpowiadanie na zdarzenia usługi Service Bus
-      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Obsługa zdarzeń usługi Service Bus za pośrednictwem usługi Event Grid
+      items:
+        - name: Azure Logic Apps
+          href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        - name: Azure Functions
+          href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Przesyłanie strumieniowe danych z usługi Event Hubs
       href: event-grid-event-hubs-integration.md
     - name: Kierowanie zdarzeń usługi Media Services
@@ -262,14 +266,18 @@
       items:
         - name: Bezpieczne publikowanie zdarzeń za pośrednictwem łącza prywatnego
           href: configure-private-endpoints.md
+        - name: Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
+          href: managed-service-identity.md
+        - name: Bezpieczne dostarczanie zdarzeń za pośrednictwem prywatnego linku
+          href: consume-private-endpoints.md
         - name: Konfigurowanie zapory IP
           href: configure-firewall.md
         - name: Zabezpieczanie elementu webhook przy użyciu usługi Azure Active Directory
           href: secure-webhook-delivery.md
-        - name: 'Dostarczanie zdarzeń, tożsamość zarządzana i łącze prywatne'
-          href: managed-service-identity.md
     - name: Rozwiązywanie problemów
       items:
+        - name: Rozwiązywanie problemów dotyczących Event Grid
+          href: troubleshoot-issues.md
         - name: Włączanie dzienników diagnostycznych
           href: enable-diagnostic-logs-topic.md
         - name: Rozwiązywanie problemów

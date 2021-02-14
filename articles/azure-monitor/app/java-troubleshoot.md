@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: df1f58418452ecafacddd013ab815ebca5cb8a35
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133246"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097555"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Rozwiązywanie problemów i narzędzia pytań i odpowiedzi dla Application Insights for Java SDK
 
@@ -170,7 +170,7 @@ Przy założeniu, że [aplikacja zostanie skonfigurowana do Application Insights
 
 Tak, pod warunkiem, że serwer może wysyłać dane telemetryczne do portalu Application Insights za pomocą publicznego Internetu.
 
-W zaporze może być konieczne otwarcie portów TCP 80 i 443 dla ruchu wychodzącego do dc.services.visualstudio.com i f5.services.visualstudio.com.
+Może być konieczne [otwarcie niektórych portów wychodzących w zaporze serwera](./ip-addresses.md#outgoing-ports) , aby umożliwić zestawowi SDK wysyłanie danych do portalu.
 
 ## <a name="data-retention"></a>Przechowywanie danych
 **Jak długo dane są przechowywane w portalu? Czy jest zabezpieczony?**

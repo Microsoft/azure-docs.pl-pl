@@ -1,18 +1,17 @@
 ---
 title: Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime w Azure Data Factory
 description: Dowiedz się, jak rozwiązywać problemy z nieobsługiwanym środowiskiem Integration Runtime w Azure Data Factory.
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376466"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym środowiskiem Integration Runtime
 
@@ -83,8 +82,8 @@ Przykładowy scenariusz: wartość maksymalna liczba współbieżnych zadań jes
 Limit liczby współbieżnych zadań zależy od rdzenia i pamięci logicznej komputera. Spróbuj dopasować wartość w dół do wartości takiej jak 24, a następnie wyświetlić wynik.
 
 > [!TIP] 
-> - Aby dowiedzieć się więcej o liczbie rdzeni logiki i określić liczbę rdzeni logiki komputera, zobacz [cztery sposoby znajdowania liczby rdzeni w procesorze CPU w systemie Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> - Aby dowiedzieć się, jak obliczyć Math. log, przejdź do [kalkulatora logarytmu](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> -    Aby dowiedzieć się więcej o liczbie rdzeni logiki i określić liczbę rdzeni logiki komputera, zobacz [cztery sposoby znajdowania liczby rdzeni w procesorze CPU w systemie Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    Aby dowiedzieć się, jak obliczyć Math. log, przejdź do [kalkulatora logarytmu](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
 ### <a name="self-hosted-ir-high-availability-ha-ssl-certificate-issue"></a>Samoobsługowy problem z certyfikatem SSL wysokiej dostępności (HA) dla środowiska IR

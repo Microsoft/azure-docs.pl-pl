@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa klienta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210124"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104811"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -142,11 +142,15 @@ Podczas przypisywania definicji zaczynających się od _konfiguracji_ należy r�
 
 Definicje zasad inspekcji dostępne dla konfiguracji gościa obejmują typ zasobu **Microsoft. HybridCompute/Machines** . Wszystkie maszyny dołączone do [usługi Azure ARC dla serwerów](../../../azure-arc/servers/overview.md) , które znajdują się w zakresie przypisania zasad, są automatycznie dołączane.
 
+## <a name="troubleshooting-guest-configuration"></a>Rozwiązywanie problemów z konfiguracją gościa
+
+Aby uzyskać więcej informacji na temat rozwiązywania problemów z konfiguracją gościa, zobacz [Azure Policy Rozwiązywanie problemów](../troubleshoot/general.md).
+
 ### <a name="multiple-assignments"></a>Wiele przypisań
 
 Definicje zasad konfiguracji gościa obecnie obsługują tylko jednokrotne przypisanie tego samego przypisania gościa na każdym komputerze, nawet jeśli przypisanie zasad używa różnych parametrów.
 
-## <a name="client-log-files"></a>Pliki dziennika klienta
+### <a name="client-log-files"></a>Pliki dziennika klienta
 
 Rozszerzenie konfiguracji gościa zapisuje pliki dzienników w następujących lokalizacjach:
 
@@ -180,6 +184,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### <a name="client-files"></a>Pliki klienta
+
+Klient konfiguracji gościa pobiera pakiety zawartości na maszynę i wyodrębnia zawartość.
+Aby sprawdzić, jaka zawartość została pobrana i zapisana, Wyświetl lokalizacje folderów podane poniżej.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
 
 ## <a name="guest-configuration-samples"></a>Przykłady konfiguracji gościa
 

@@ -3,16 +3,15 @@ title: Format Delta w Azure Data Factory
 description: Przekształcanie i przenoszenie danych z programu Delta Lake przy użyciu formatu Delta
 author: djpmsft
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 794c9a0768a7b649ce4fb123c85f6cc0120764c8
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: bb5360a678751b37cf36677fca611b39746621f4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854975"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386496"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Format Delta w Azure Data Factory
 
@@ -33,8 +32,8 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło r�
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format musi być `delta` | tak | `delta` | format |
-| System plików | Kontener/system plików delty Lake | tak | String | Wymagany |
-| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String | folderPath |
+| System plików | Kontener/system plików delty Lake | tak | Ciąg | Wymagany |
+| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | Ciąg | folderPath |
 | Typ kompresji | Typ kompresji tabeli różnicowej | nie | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
 | Poziom kompresji | Zdecyduj, czy kompresja kończy się tak szybko, jak to możliwe, czy plik powinien być optymalnie kompresowany. | wymagane, jeśli `compressedType` jest określony. | `Optimal` lub `Fastest` | compressionLevel |
 | Czas podróży | Zdecyduj, czy chcesz utworzyć zapytanie do starszej migawki tabeli różnicowej | nie | Zapytanie według sygnatury czasowej: sygnatura czasowa <br> Zapytanie według wersji: liczba całkowita | timestampAsOf <br> versionAsOf |
@@ -70,8 +69,8 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia ró�
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format musi być `delta` | tak | `delta` | format |
-| System plików | Kontener/system plików delty Lake | tak | String | Wymagany |
-| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String | folderPath |
+| System plików | Kontener/system plików delty Lake | tak | Ciąg | Wymagany |
+| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | Ciąg | folderPath |
 | Typ kompresji | Typ kompresji tabeli różnicowej | nie | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
 | Poziom kompresji | Zdecyduj, czy kompresja kończy się tak szybko, jak to możliwe, czy plik powinien być optymalnie kompresowany. | wymagane, jeśli `compressedType` jest określony. | `Optimal` lub `Fastest` | compressionLevel |
 | Vacuum | Określ próg przechowywania w godzinach dla starszych wersji tabeli. Wartość 0 lub mniej wartością domyślną jest 30 dni | tak | Liczba całkowita | ciśnienie |

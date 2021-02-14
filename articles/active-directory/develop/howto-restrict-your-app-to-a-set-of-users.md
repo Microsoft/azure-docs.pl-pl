@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f3eff6f5660089472ef431bad9a4f05be1fffe24
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178742"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104149"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Instrukcje: ograniczanie aplikacji usługi Azure AD do zestawu użytkowników w dzierżawie usługi Azure AD
 
@@ -47,7 +47,7 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplikacje dla przedsiębiorstw (wymaga roli administratora globalnego)
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Azure Portal</a> jako **administrator globalny**.
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> jako **administrator globalny**.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
@@ -57,15 +57,15 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 1. Znajdź **wymagane przypisanie użytkownika?** i ustaw wartość **tak**. Jeśli ta opcja jest ustawiona na **tak**, użytkownicy w dzierżawie muszą najpierw zostać przypisani do tej aplikacji lub nie będą mogli zalogować się do tej aplikacji.
 1. Wybierz pozycję **Zapisz**.
 
-### <a name="app-registration"></a>Rejestracja aplikacji
+### <a name="app-registration"></a>Rejestrowanie aplikacji
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Utwórz lub wybierz aplikację, którą chcesz zarządzać. Musisz być **właścicielem** tej aplikacji.
 1. Na stronie **Przegląd** aplikacji wybierz pozycję **zarządzana aplikacja w katalogu lokalnym** w sekcji **podstawowe** informacje.
-1. W obszarze **Zarządzaj** wybierz pozycję **Właściwości**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Właściwości**.
 1. Znajdź **wymagane przypisanie użytkownika?** i ustaw wartość **tak**. Jeśli ta opcja jest ustawiona na **tak**, użytkownicy w dzierżawie muszą najpierw zostać przypisani do tej aplikacji lub nie będą mogli zalogować się do tej aplikacji.
 1. Wybierz pozycję **Zapisz**.
 

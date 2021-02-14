@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 02/09/2021
 ms.author: chmutali
-ms.openlocfilehash: f260bca196839a091ae7d12be6d5f85912bf92db
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2b1a43ee6b13d32c0eaed92538cf9c25405e061b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255988"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104335"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Jak Azure Active Directory aprowizacji integruje się z dniem roboczym
 
@@ -448,6 +448,21 @@ Załóżmy, że chcesz pobrać Certyfikaty skojarzone z użytkownikiem. Te infor
 Załóżmy, że chcesz pobrać *grupy aprowizacji* przypisane do procesu roboczego. Te informacje są dostępne w ramach zestawu *danych aprowizacji konta* . Aby uzyskać ten zestaw danych jako część odpowiedzi *Get_Workers* , użyj następującego wyrażenia XPath: 
 
 `wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text()`
+
+## <a name="handling-different-hr-scenarios"></a>Obsługa różnych scenariuszy kadr
+
+### <a name="retrieving-international-job-assignments-and-secondary-job-details"></a>Pobieranie międzynarodowych przydziałów zadań i szczegółów zadania podrzędnego
+
+Domyślnie łącznik Workday Pobiera atrybuty skojarzone z zadaniem podstawowym procesu roboczego. Łącznik obsługuje również pobieranie *dodatkowych danych zadania* skojarzonych z przypisaniami zadań międzynarodowych lub zadaniami pomocniczymi. 
+
+Wykonaj poniższe kroki, aby pobrać atrybuty skojarzone z międzynarodowymi przypisaniami zadań: 
+
+1. Ustaw adres URL połączenia Workday używa interfejsu API usługi sieci Web Workday w wersji 30,0 lub nowszej. Odpowiednio ustaw [poprawne wartości XPath](workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30) w aplikacji do aprowizacji w programie Workday. 
+1. Użyj selektora `@wd:Primary_Job=0` w `Worker_Job_Data` węźle, aby pobrać poprawny atrybut. 
+   * **Przykład 1:** Aby uzyskać `SecondaryBusinessTitle` użycie wyrażenia XPath `wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=0]/wd:Position_Data/wd:Business_Title/text()`
+   * **Przykład 2:** Aby uzyskać `SecondaryBusinessLocation` użycie wyrażenia XPath `wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=0]/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Location_Reference/@wd:Descriptor`
+
+ 
 
 ## <a name="next-steps"></a>Następne kroki
 

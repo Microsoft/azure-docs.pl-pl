@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 59ef34f9d6d42277d8e83bf4e0ebb8ee29096f52
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6a1a2a2a7dac961e49e6ced38803649ebf5ad523
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566868"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096858"
 ---
 # <a name="connect-your-apache-http-server-to-azure-sentinel"></a>Połącz serwer Apache HTTP z platformą Azure — wskaźnikiem
 
@@ -37,7 +37,7 @@ W tym artykule wyjaśniono, jak połączyć serwer Apache HTTP z platformą Azur
 
 ## <a name="configure-and-integrate-apache-http-server-logs-via-log-analytics-agent"></a>Konfigurowanie i integrowanie dzienników serwera HTTP Apache za pośrednictwem agenta Log Analytics
 
-Skonfiguruj lokalizację plików dziennika serwera Apache HTTP na potrzeby przekazywania danych do obszaru roboczego platformy Azure za pośrednictwem agenta Log Analytics.
+Skonfiguruj serwer Apache HTTP do wysyłania plików dziennika do obszaru roboczego platformy Azure za pośrednictwem agenta Log Analytics.
 Skonfiguruj agenta Log Analytics do odczytywania plików dziennika serwera Apache HTTP.
 
 1. Postępuj zgodnie z instrukcjami w temacie https://httpd.apache.org/docs/2.4/logs.html , aby skonfigurować lokalizację plików dziennika w programie Apache HTTP Server.

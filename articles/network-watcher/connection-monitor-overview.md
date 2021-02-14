@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ccc2b6baba0e97320a5352013dbecfc121188457
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833103"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361030"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorowanie łączności sieciowej z monitorem połączeń
 
@@ -74,11 +74,24 @@ Reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) lub zapory
 
 ### <a name="agents-for-on-premises-machines"></a>Agenci dla maszyn lokalnych
 
-Aby monitor połączeń mógł rozpoznać maszyny lokalne jako źródła monitorowania, Zainstaluj agenta Log Analytics na komputerach. Następnie Włącz Network Performance Monitor rozwiązanie. Ci agenci są połączeni z obszarami roboczymi Log Analytics, więc musisz skonfigurować identyfikator obszaru roboczego i klucz podstawowy, aby umożliwić agentom rozpoczęcie monitorowania.
+Aby monitor połączeń mógł rozpoznać maszyny lokalne jako źródła monitorowania, Zainstaluj agenta Log Analytics na komputerach.  Następnie Włącz Network Performance Monitor rozwiązanie. Ci agenci są połączeni z obszarami roboczymi Log Analytics, więc musisz skonfigurować identyfikator obszaru roboczego i klucz podstawowy, aby umożliwić agentom rozpoczęcie monitorowania.
 
 Aby zainstalować agenta Log Analytics dla maszyn z systemem Windows, zobacz [Azure monitor rozszerzenie maszyny wirtualnej dla systemu Windows](../virtual-machines/extensions/oms-windows.md).
 
 Jeśli ścieżka zawiera zapory lub wirtualne urządzenia sieciowe (urządzeń WUS), upewnij się, że lokalizacja docelowa jest osiągalna.
+
+Aby otworzyć port dla maszyn z systemem Windows, uruchom skrypt programu PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) bez żadnych parametrów w oknie programu PowerShell z uprawnieniami administracyjnymi.
+
+W przypadku maszyn z systemem Linux należy ręcznie zmienić portNumbers. 
+* Przejdź do ścieżki:/var/opt/Microsoft/omsagent/npm_state. 
+* Otwórz plik: npmdregistry
+* Zmień wartość numeru portu ```“PortNumber:<port of your choice>”```
+
+ Należy pamiętać, że używane numery portów powinny być takie same dla wszystkich agentów używanych w obszarze roboczym. 
+
+Skrypt tworzy klucze rejestru wymagane przez rozwiązanie. Tworzy także reguły zapory systemu Windows, aby umożliwić agentom tworzenie połączeń TCP ze sobą. Klucze rejestru utworzone przez skrypt określają, czy Dzienniki debugowania i ścieżka pliku dzienników mają być rejestrowane. Skrypt definiuje również port TCP agenta używany do komunikacji. Wartości tych kluczy są automatycznie ustawiane przez skrypt. Nie zmieniaj ręcznie tych kluczy. Port otwarty domyślnie to 8084. Możesz użyć portu niestandardowego, dostarczając parametr numer_portu do skryptu. Użyj tego samego portu na wszystkich komputerach, na których jest uruchomiony skrypt. [Przeczytaj więcej](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements) na temat wymagań sieci dla agentów log Analytics
+
+Skrypt konfiguruje tylko zaporę systemu Windows lokalnie. Jeśli masz zaporę sieciową, upewnij się, że zezwala ona na ruch przeznaczony dla portu TCP używanego przez Network Performance Monitor.
 
 ## <a name="enable-network-watcher-on-your-subscription"></a>Włącz Network Watcher w ramach subskrypcji
 
