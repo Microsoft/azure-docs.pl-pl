@@ -2,21 +2,21 @@
 title: Konfigurowanie serwera usługi GitHub Enterprise w chmurze prywatnej rozwiązania Azure VMware
 description: Dowiedz się, jak skonfigurować serwer usługi GitHub Enterprise w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 2b05e352fd8a81d6d180d4c60e67ab48465b284f
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.date: 02/11/2021
+ms.openlocfilehash: 59a76c3976f6fcda88423b7b78344f2abed1ea84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549106"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382025"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Konfigurowanie serwera usługi GitHub Enterprise w chmurze prywatnej rozwiązania Azure VMware
 
-W tym artykule omówiono procedurę konfigurowania programu GitHub Enterprise Server, czyli "lokalnego" w wersji [GitHub.com](https://github.com/), w chmurze prywatnej rozwiązania Azure VMware. Scenariusz opisany w tym przewodniku dotyczy wystąpienia serwera z systemem GitHub Enterprise, które może obsłużyć do 3 000 deweloperów z maksymalnie 25 zadaniami na minutę w ramach akcji usługi GitHub. Obejmuje on konfigurację (w czasie pisania) funkcji w *wersji zapoznawczej* , na przykład akcji usługi GitHub. Aby dostosować konfigurację do konkretnych potrzeb, należy zapoznać się z wymaganiami wymienionymi w temacie [Instalowanie serwera GitHub Enterprise Server w oprogramowaniu VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
+W tym artykule omówiono procedurę konfigurowania programu GitHub Enterprise Server, czyli "lokalnego" w wersji [GitHub.com](https://github.com/), w chmurze prywatnej rozwiązania Azure VMware. Scenariusz, który zajmiemy, to wystąpienie serwera usługi GitHub Enterprise, które może obsłużyć do 3 000 deweloperów, którzy uruchamiają do 25 zadań na minutę w ramach akcji usługi GitHub. Obejmuje on konfigurację (w czasie pisania) funkcji w *wersji zapoznawczej* , na przykład akcji usługi GitHub. Aby dostosować konfigurację do konkretnych potrzeb, należy zapoznać się z wymaganiami wymienionymi w temacie [Instalowanie serwera GitHub Enterprise Server w oprogramowaniu VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Serwer usługi GitHub Enterprise wymaga ważnego klucza licencji. Możesz zarejestrować się w celu uzyskania [licencji na wersję próbną](https://enterprise.github.com/trial). Jeśli chcesz zwiększyć możliwości programu GitHub Enterprise Server za pośrednictwem integracji, możesz zakwalifikować się do korzystania z bezpłatnej licencji na pięć miejsc. Zastosuj tę licencję w [programie partnerskim usługi GitHub](https://partner.github.com/).
+Serwer usługi GitHub Enterprise wymaga ważnego klucza licencji. Możesz zarejestrować się w celu uzyskania [licencji na wersję próbną](https://enterprise.github.com/trial). Jeśli zamierzasz rozszerzać możliwości programu GitHub Enterprise Server za pośrednictwem integracji, możesz zakwalifikować się do korzystania z bezpłatnej licencji na pięć miejsc. Zastosuj tę licencję w [programie partnerskim usługi GitHub](https://partner.github.com/).
 
 ## <a name="installing-github-enterprise-server-on-vmware"></a>Instalowanie programu GitHub Enterprise Server w oprogramowaniu VMware
 
@@ -30,7 +30,7 @@ Podaj rozpoznawalną nazwę nowej maszyny wirtualnej, taką jak GitHubEnterprise
 
 Po zaimportowaniu należy [dostosować konfigurację sprzętu](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) odpowiednio do potrzeb. W naszym przykładowym scenariuszu będziemy potrzebować poniższej konfiguracji.
 
-| Zasób | Konfiguracja standardowa | Instalacja standardowa + "funkcje beta" (akcje) |
+| Zasób | Konfiguracja standardowa | Standardowa konfiguracja + "funkcje beta" (akcje) |
 | --- | --- | --- |
 | Procesory wirtualne | 4 | 8 |
 | Pamięć | 32 GB | 61 GB |
@@ -59,7 +59,7 @@ Zastosuj ustawienia.  Po ponownym uruchomieniu wystąpienia można przejść do 
 
 :::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Utwórz konto administratora.":::
 
-Po ponownym uruchomieniu wystąpienia Utwórz nowe konto administratora w wystąpieniu. Pamiętaj, aby również zanotować hasło tego użytkownika.
+Po ponownym uruchomieniu wystąpienia można utworzyć nowe konto administratora w wystąpieniu. Pamiętaj, aby również zanotować hasło tego użytkownika.
 
 ### <a name="other-configuration-steps"></a>Inne kroki konfiguracji
 
@@ -178,7 +178,7 @@ Aby udostępnić ten moduł uruchamiający organizacjom w przedsiębiorstwie, Ed
 
 :::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Edytuj dostęp do modułu uruchamiającego.":::
 
-W tym miejscu udostępnimy ją wszystkim organizacjom, ale możesz również ograniczyć dostęp do podzbioru organizacji, a nawet do określonych repozytoriów.
+W tym miejscu udostępnimy ją wszystkim organizacjom, ale możesz ograniczyć dostęp do podzbioru organizacji, a nawet do określonych repozytoriów.
 
 ## <a name="optional-configuring-github-connect"></a>Obowiązkowe Konfigurowanie połączenia GitHub
 
@@ -227,7 +227,7 @@ W tym artykule skonfigurujemy nowe wystąpienie programu GitHub Enterprise Serve
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak skonfigurować serwer usługi GitHub Enterprise w chmurze prywatnej rozwiązania Azure VMware, możesz chcieć poznać następujące informacje: 
+Teraz, po skonfigurowaniu programu GitHub Enterprise Server w chmurze prywatnej rozwiązania Azure VMware, możesz zapoznać się z: 
 
 - [Wprowadzenie do akcji usługi GitHub](https://docs.github.com/en/actions).
 - [Przyłączanie do programu w wersji beta](https://resources.github.com/beta-signup/).

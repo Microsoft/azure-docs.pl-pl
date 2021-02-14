@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 17cff66d3f8c816099bcc61322a1d331bfe58872
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 03ffea7688207b56a683d3afcbe49bf95ea00708
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226308"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103128"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Samouczek: Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
 
@@ -361,7 +361,7 @@ Aby zarejestrować aplikację i dodać do rozwiązania informacje o rejestracji 
 
 Aby szybko zarejestrować aplikację, wykonaj następujące kroki:
 
-1. Przejdź do środowiska szybkiego startu w <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure Portal rejestracje aplikacji <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .  
+1. Przejdź do środowiska szybkiego startu w <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure Portal rejestracje aplikacji</a> .  
 1. Wprowadź nazwę aplikacji i wybierz pozycję **Zarejestruj**.
 1. Postępuj zgodnie z instrukcjami, aby pobrać i automatycznie skonfigurować nową aplikację przy użyciu jednego kliknięcia.
 
@@ -375,7 +375,7 @@ Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji 
    1. Kliknij prawym przyciskiem myszy projekt w programie Visual Studio, wybierz polecenie **Właściwości**, a następnie wybierz kartę **Sieć Web** . W sekcji **serwery** Zmień ustawienie **adres URL projektu** na **adres URL protokołu SSL**.
    1. Skopiuj adres URL protokołu SSL. Ten adres URL zostanie dodany do listy identyfikatorów URI przekierowania na liście identyfikatorów URI przekierowania w portalu rejestracji w następnym kroku.<br/><br/>![Właściwości projektu](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
    
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.

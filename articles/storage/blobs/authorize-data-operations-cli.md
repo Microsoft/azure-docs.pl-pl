@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 060bfb6c88bbed8ba12c5b5ebfd2e9617f5abfb2
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 06b37e8b25d932115384124a45156c801fb9708f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637474"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361676"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Wybieranie metody autoryzacji dostępu do danych obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -33,6 +33,9 @@ Polecenie interfejsu wiersza polecenia platformy Azure służące do odczytywani
 - Ustaw `--auth-mode` parametr na starszą `key` wartość, aby próbować pobrać klucz dostępu konta do użycia na potrzeby autoryzacji. Jeśli pominięto `--auth-mode` parametr, interfejs wiersza polecenia platformy Azure podejmie również próbę pobrania klucza dostępu.
 
 Aby użyć `--auth-mode` parametru, upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.46 lub nowszej. Uruchom `az --version` , aby sprawdzić zainstalowaną wersję.
+
+> [!NOTE]
+> [W przypadku](/rest/api/storagerp/storageaccounts/listkeys) zablokowania konta magazynu z Azure Resource Manager blokadą **tylko do odczytu** nie jest dozwolone dla tego konta magazynu. **Klucze list** są operacją post, a wszystkie operacje post są blokowane, gdy dla konta skonfigurowano blokadę **tylko do odczytu** . Z tego powodu, gdy konto jest zablokowane w przypadku blokady **tylko do odczytu** , użytkownicy, którzy nie posiadają jeszcze kluczy konta, muszą używać poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów BLOB.
 
 > [!IMPORTANT]
 > Jeśli pominięto `--auth-mode` parametr lub ustawisz go na `key` , interfejs wiersza polecenia platformy Azure próbuje użyć klucza dostępu do konta w celu autoryzacji. W tym przypadku firma Microsoft zaleca, aby podać klucz dostępu przy użyciu polecenia lub zmiennej środowiskowej **AZURE_STORAGE_KEY** . Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zapoznaj się z sekcją [Ustawianie zmiennych środowiskowych dla parametrów autoryzacji](#set-environment-variables-for-authorization-parameters).
@@ -82,6 +85,9 @@ az storage container create \
     --account-key <key>
     --auth-mode key
 ```
+
+> [!IMPORTANT]
+> [W przypadku](/rest/api/storagerp/storageaccounts/listkeys) zablokowania konta magazynu z Azure Resource Manager blokadą **tylko do odczytu** nie jest dozwolone dla tego konta magazynu. **Klucze list** są operacją post, a wszystkie operacje post są blokowane, gdy dla konta skonfigurowano blokadę **tylko do odczytu** . Z tego powodu po zablokowaniu konta z blokadą **tylko do odczytu** użytkownicy muszą uzyskać dostęp do danych przy użyciu poświadczeń usługi Azure AD.
 
 ## <a name="authorize-with-a-sas-token"></a>Autoryzuj przy użyciu tokenu SAS
 

@@ -1,23 +1,18 @@
 ---
 title: Przenoszenie danych do/z tabeli platformy Azure
 description: Dowiedz się, jak przenosić dane do/z usługi Azure Table Storage przy użyciu Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1d7802a3fe4fb904aad7fd9257edbf8b10efe127
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cc8e0272dc690ed541883ae943c118cbbe2f1854
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637432"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392123"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Przenoszenie danych do i z tabeli platformy Azure przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -36,9 +31,9 @@ Dane można kopiować z dowolnego obsługiwanego źródłowego magazynu danych n
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok za pomocą działania kopiowania, które przenosi dane do/z Table Storage platformy Azure przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania** . Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
+Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio** , **Azure PowerShell** , **szablon Azure Resource Manager** , interfejs API **platformy .NET** i **interfejs API REST** . Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET** i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia: 
 
@@ -155,7 +150,7 @@ Przykład kopiuje dane należące do domyślnej partycji w tabeli platformy Azur
   }
 }
 ```
-Azure Data Factory obsługuje dwa typy połączonych usług Azure Storage: **AzureStorage** i **AzureStorageSas** . W pierwszej kolejności należy określić parametry połączenia, które zawierają klucz konta i dla późniejszej, należy określić identyfikator URI sygnatury dostępu współdzielonego (SAS). Szczegóły można znaleźć w sekcji [połączone usługi](#linked-service-properties) .  
+Azure Data Factory obsługuje dwa typy połączonych usług Azure Storage: **AzureStorage** i **AzureStorageSas**. W pierwszej kolejności należy określić parametry połączenia, które zawierają klucz konta i dla późniejszej, należy określić identyfikator URI sygnatury dostępu współdzielonego (SAS). Szczegóły można znaleźć w sekcji [połączone usługi](#linked-service-properties) .  
 
 **Zestaw danych wejściowych tabeli platformy Azure:**
 
@@ -250,7 +245,7 @@ Dane są zapisywane w nowym obiekcie blob co godzinę (częstotliwość: godzina
 
 **Działanie Copy w potoku z AzureTableSource i wartość blobsink:**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **AzureTableSource** , a typ **ujścia** to **wartość blobsink** . Zapytanie SQL określone za pomocą właściwości **AzureTableSourceQuery** wybiera dane z partycji domyślnej co godzinę do skopiowania.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **AzureTableSource** , a typ **ujścia** to **wartość blobsink**. Zapytanie SQL określone za pomocą właściwości **AzureTableSourceQuery** wybiera dane z partycji domyślnej co godzinę do skopiowania.
 
 ```JSON
 {
@@ -323,7 +318,7 @@ Przykład kopiuje dane szeregów czasowych z obiektu blob platformy Azure do tab
 }
 ```
 
-Azure Data Factory obsługuje dwa typy połączonych usług Azure Storage: **AzureStorage** i **AzureStorageSas** . W pierwszej kolejności należy określić parametry połączenia, które zawierają klucz konta i dla późniejszej, należy określić identyfikator URI sygnatury dostępu współdzielonego (SAS). Szczegóły można znaleźć w sekcji [połączone usługi](#linked-service-properties) .
+Azure Data Factory obsługuje dwa typy połączonych usług Azure Storage: **AzureStorage** i **AzureStorageSas**. W pierwszej kolejności należy określić parametry połączenia, które zawierają klucz konta i dla późniejszej, należy określić identyfikator URI sygnatury dostępu współdzielonego (SAS). Szczegóły można znaleźć w sekcji [połączone usługi](#linked-service-properties) .
 
 **Zestaw danych wejściowych obiektów blob platformy Azure:**
 
@@ -417,7 +412,7 @@ Przykład kopiuje dane do tabeli o nazwie "MyTable" w tabeli platformy Azure. Ut
 
 **Działanie Copy w potoku z BlobSource i AzureTableSink:**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **AzureTableSink** .
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **AzureTableSink**.
 
 ```JSON
 {
@@ -483,7 +478,7 @@ Podczas przeniesienia danych do & z tabeli platformy Azure następujące [mapowa
 | EDM. GUID |Guid (identyfikator GUID) |128-bitowy unikatowy identyfikator globalny. |
 | Edm.Int32 |Int32 |32-bitowa liczba całkowita. |
 | Edm.Int64 |Int64 |64-bitowa liczba całkowita. |
-| Edm.String |String |Wartość zakodowana w formacie UTF-16. Wartości ciągu mogą należeć do 64 KB. |
+| Edm.String |Ciąg |Wartość zakodowana w formacie UTF-16. Wartości ciągu mogą należeć do 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Przykład konwersji typu
 Poniższy przykład służy do kopiowania danych z obiektu blob platformy Azure do tabeli platformy Azure z konwersjemi typów.

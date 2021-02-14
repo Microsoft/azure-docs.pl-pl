@@ -1,22 +1,17 @@
 ---
 title: Szyfruj poświadczenia w Azure Data Factory
 description: Dowiedz się, jak szyfrować i przechowywać poświadczenia dla lokalnych magazynów danych na komputerze przy użyciu własnego środowiska Integration Runtime.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: cd775c5a3bf367600a4537a9409a9bb8f902f588
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59d177aa3baf25f185201f1b6c4738cfce9c25a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82628984"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392650"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Szyfruj poświadczenia dla lokalnych magazynów danych w Azure Data Factory
 
@@ -50,7 +45,7 @@ Utwórz plik JSON o nazwie **SqlServerLinkedService.js** w pliku w folderze o na
 ```
 
 ## <a name="encrypt-credentials"></a>Szyfrowanie poświadczeń
-Aby zaszyfrować poufne dane z ładunku JSON w lokalnym środowisku Integration Runtime, uruchom polecenie **New-AzDataFactoryV2LinkedServiceEncryptedCredential**i przekaż ładunek JSON. To polecenie cmdlet zapewnia szyfrowanie poświadczeń przy użyciu funkcji DPAPI i przechowywanie ich lokalnie na własnym węźle środowiska Integration Runtime. Ładunek wyjściowy zawierający zaszyfrowane odwołanie do poświadczenia może zostać przekierowany do innego pliku JSON (w tym przypadku "encryptedLinkedService.json").
+Aby zaszyfrować poufne dane z ładunku JSON w lokalnym środowisku Integration Runtime, uruchom polecenie **New-AzDataFactoryV2LinkedServiceEncryptedCredential** i przekaż ładunek JSON. To polecenie cmdlet zapewnia szyfrowanie poświadczeń przy użyciu funkcji DPAPI i przechowywanie ich lokalnie na własnym węźle środowiska Integration Runtime. Ładunek wyjściowy zawierający zaszyfrowane odwołanie do poświadczenia może zostać przekierowany do innego pliku JSON (w tym przypadku "encryptedLinkedService.json").
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

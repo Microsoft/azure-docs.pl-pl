@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: bec931309cbd6bc8bfa96ba3e054d06336c031e1
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f0fafa5c0cc2e0b1bf0f4e11db3265824feb5296
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459547"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374709"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>Samouczek: Integrowanie JFrog Artifactory z Azure Active Directory
 
@@ -81,20 +81,25 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `<servername>.jfrog.io`
 
-    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
+    
+    - Dla Artifactory 6. x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
+    - Dla Artifactory 7. x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<servername>.jfrog.io/<servername>/webapp/`
+    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
+    - Dla Artifactory 6. x: `https://<servername>.jfrog.io/<servername>/webapp/`
+    - Dla Artifactory 7. x: `https://<servername>.jfrog.io/ui/login`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta JFrog Artifactory](https://support.jfrog.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Aplikacja JFrog Artifactory oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
+1. Aplikacja JFrog Artifactory oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe atrybuty użytkownika.
 
     ![Zrzut ekranu przedstawia atrybuty użytkownika z kontrolką edycji o nazwie.](common/edit-attribute.png)
 
-1. Oprócz powyższych, aplikacja JFrog Artifactory oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy (wersja zapoznawcza)** wykonaj następujące czynności:
+1. Oprócz powyższych JFrog Artifactory oczekuje szeregu dodatkowych atrybutów do przekazania z powrotem w odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy (wersja zapoznawcza)** wykonaj następujące czynności:
 
     a. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
 
@@ -106,17 +111,20 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     c. Kliknij pozycję **Zapisz**.
 
-4. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź pozycję **certyfikat (RAW)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+4. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Zlokalizuj **certyfikat (base64)** , a następnie wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
-    ![Link do pobierania certyfikatu](common/certificateraw.png)
+    ![Link do pobierania certyfikatu](./media/jfrog-artifactory-tutorial/certificate-base.png)
 
-6. W sekcji **Konfigurowanie JFrog Artifactory** skopiuj odpowiednie adresy URL na podstawie wymagań.
+6. Skonfiguruj Artifactory (nazwę dostawcy usług SAML) przy użyciu pola "Identyfikator" (zobacz krok 4). W sekcji **Konfigurowanie programu JFrog Artifactory** skopiuj odpowiednie adresy URL na podstawie wymagań.
+
+   - Dla Artifactory 6. x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
+   - Dla Artifactory 7. x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
 ### <a name="configure-jfrog-artifactory-sso"></a>Konfigurowanie logowania jednokrotnego w usłudze JFrog Artifactory
 
-Aby skonfigurować Logowanie jednokrotne na stronie **JFrog Artifactory** , musisz wysłać pobrany **certyfikat (RAW)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej JFrog Artifactory](https://support.jfrog.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Wszystko, co musisz zrobić, aby skonfigurować Logowanie jednokrotne na stronie **JFrog Artifactory** , można skonfigurować administratora Artifactory na ekranie SAML configugration.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 

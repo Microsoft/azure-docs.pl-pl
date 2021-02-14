@@ -4,12 +4,12 @@ description: Informacje o zarządzaniu certyfikatami w klastrze Service Fabric z
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: a8a7e8954f3c9d5b54c2e1ed9caa330ef92d4512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901270"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099510"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Zarządzanie certyfikatami w klastrach Service Fabric
 
@@ -427,6 +427,7 @@ Rozszerzenie KVVM, jako agent aprowizacji, działa w sposób ciągły zgodnie z 
 Być może zauważono flagę "linkOnRenewal" rozszerzenia KVVM i oznacza to, że jest ona ustawiona na wartość false. W tym miejscu rozmieszczono tutaj szczegółowe omówienie zachowania kontrolowanego przez tę flagę i jego wpływ na działanie klastra. Należy zauważyć, że to zachowanie jest specyficzne dla systemu Windows.
 
 Zgodnie z jego [definicją](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
@@ -456,7 +457,7 @@ Zgodnie z powyższymi fragmentami kodu JSON w celu zagwarantowania powodzenia ko
 
 Aby usunąć tożsamość zarządzaną lub przypisać ją do innego zasobu, operator wdrożenia musi mieć wymaganą rolę (ManagedIdentityOperator) w ramach subskrypcji lub grupy zasobów, a także do ról wymaganych do zarządzania innymi zasobami, do których odwołuje się ten szablon. 
 
-Z punktu widzenia zabezpieczeń należy wycofać, że maszyna wirtualna (zestaw skalowania) jest uznawana za granicę zabezpieczeń w odniesieniu do swojej tożsamości platformy Azure. Oznacza to, że każda aplikacja hostowana na maszynie wirtualnej może w zasadzie uzyskać token dostępu reprezentujący tokeny dostępu do tożsamości zarządzane przez maszynę wirtualną są uzyskiwane z nieuwierzytelnionego punktu końcowego IMDS. Jeśli zauważasz, że maszyna wirtualna jest w środowisku udostępnionym lub wieloma dzierżawcami, prawdopodobnie ta metoda pobierania certyfikatów klastra nie jest wskazana. Jest jednak jedynym mechanizmem aprowizacji przystosowanym do przerzucania certyfikatów.
+Z punktu widzenia zabezpieczeń należy odwołać się, że maszyna wirtualna (zestaw skalowania) jest uznawana za granicę zabezpieczeń w odniesieniu do jej tożsamości na platformie Azure. Oznacza to, że każda aplikacja hostowana na maszynie wirtualnej może w zasadzie uzyskać token dostępu reprezentujący tokeny dostępu do tożsamości zarządzane przez maszynę wirtualną są uzyskiwane z nieuwierzytelnionego punktu końcowego IMDS. Jeśli zauważasz, że maszyna wirtualna jest w środowisku udostępnionym lub wieloma dzierżawcami, prawdopodobnie ta metoda pobierania certyfikatów klastra nie jest wskazana. Jest jednak jedynym mechanizmem aprowizacji przystosowanym do przerzucania certyfikatów.
 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>Rozwiązywanie problemów i często zadawane pytania
 

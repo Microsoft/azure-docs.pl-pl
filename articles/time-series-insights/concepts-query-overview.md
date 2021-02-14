@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: bf743bf1997a339664a6da2e5c02f1bcc1deea26
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1b055fa7f083bd8bccda16498e2894d5d67eace
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736755"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374137"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Wykonywanie zapytań dotyczących danych z usługi Azure Time Series Insights Gen2
 
@@ -54,13 +54,12 @@ Większość z tych interfejsów API obsługuje operację wykonywania wsadowego,
 
 ## <a name="time-series-query-tsq-apis"></a>Interfejsy API zapytań szeregów czasowych (TSQ)
 
-Te interfejsy API są dostępne w ramach rozwiązania magazynu wielowarstwowego (grzane i zimne). Parametry adresu URL zapytania służą do określania [typu magazynu](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) , na którym ma zostać wykonane zapytanie:
+Te interfejsy API są dostępne w ramach rozwiązania magazynu wielowarstwowego (grzane i zimne). 
 
 * [Interfejs API pobierania zdarzeń](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents): umożliwia wykonywanie zapytań i pobieranie zdarzeń nieprzetworzonych i skojarzonych sygnatur czasowych zdarzeń, które są rejestrowane w Azure Time Series Insights Gen2 od dostawcy źródłowego. Ten interfejs API umożliwia pobieranie nieprzetworzonych zdarzeń dla danego identyfikatora szeregów czasowych i zakresu wyszukiwania. Ten interfejs API obsługuje stronicowanie w celu pobrania kompletnego zestawu danych odpowiedzi dla wybranych danych wejściowych.
 
   > [!IMPORTANT]
-
-  > * W ramach [nadchodzących zmian zasad spłaszczania i ucieczki JSON](./ingestion-rules-update.md)tablice będą przechowywane jako typ **dynamiczny** . Właściwości ładunku przechowywane jako ten typ są **dostępne tylko za pomocą interfejsu API pobierania zdarzeń**.
+  > W ramach [nadchodzących zmian zasad spłaszczania i ucieczki JSON](./ingestion-rules-update.md)tablice będą przechowywane jako typ **dynamiczny** . Właściwości ładunku przechowywane jako ten typ są **dostępne tylko za pomocą interfejsu API pobierania zdarzeń**.
 
 * [Pobierz interfejs API serii](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries): umożliwia wykonywanie zapytań i pobieranie wartości obliczanych oraz skojarzonych sygnatur czasowych zdarzeń przez stosowanie obliczeń zdefiniowanych przez zmienne w zdarzeniach nieprzetworzonych. Te zmienne można definiować w modelu szeregów czasowych lub w zapytaniu. Ten interfejs API obsługuje stronicowanie w celu pobrania kompletnego zestawu danych odpowiedzi dla wybranych danych wejściowych.
 
@@ -69,6 +68,16 @@ Te interfejsy API są dostępne w ramach rozwiązania magazynu wielowarstwowego 
   Dla określonego przedziału wyszukiwania i interwału ten interfejs API zwraca zagregowaną odpowiedź na interwał dla każdej zmiennej dla identyfikatora szeregów czasowych. Liczba interwałów w zestawie danych odpowiedzi jest obliczana przez liczenie taktów epoki (liczbę milisekund, które upłynęły od systemu UNIX epoki 1 stycznia 1st, 1970) i dzielenie taktów przez rozmiar zakresu interwału określonego w zapytaniu.
 
   Sygnatury czasowe zwracane w zestawie odpowiedzi mają granice interwału po lewej stronie, a nie zdarzenia próbkowane z interwału.
+
+
+### <a name="selecting-store-type"></a>Wybieranie typu magazynu
+
+Powyższe interfejsy API można wykonać tylko dla jednego z dwóch typów magazynu (zimne lub ciepłe) w pojedynczym wywołaniu. Parametry adresu URL zapytania służą do określania [typu magazynu](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) , na którym ma zostać wykonane zapytanie. 
+
+Jeśli żaden parametr nie zostanie określony, zapytanie zostanie wykonane w chłodnym magazynie, domyślnie. Jeśli zapytanie obejmuje zakres czasu nakładający się zarówno na chłodną, jak i ciepłą, zaleca się kierowanie zapytania do chłodnego magazynu w celu zapewnienia najlepszego działania, ponieważ magazyn ciepły będzie zawierać tylko częściowe dane. 
+
+[Eksplorator Azure Time Series Insights](./concepts-ux-panels.md) i [Łącznik Power BI](./how-to-connect-power-bi.md) umożliwiają wywoływanie powyższych interfejsów API i automatycznie wybierają prawidłowy parametr StoreType, jeśli ma to zastosowanie. 
+
 
 ## <a name="next-steps"></a>Następne kroki
 

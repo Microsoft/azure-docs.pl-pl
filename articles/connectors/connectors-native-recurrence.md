@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 9565ad1efc5ae3dc03b94c78ce8ce52e8dd48c65
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3749a7080bf17c020b48ae3ebc3cff3aa998eeef
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019197"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382297"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Twórz, Zaplanuj i uruchamiaj zadania cykliczne i przepływy pracy z wyzwalaczem cyklu w Azure Logic Apps
 
@@ -59,12 +59,12 @@ W przypadku różnic między tym wyzwalaczem a oknem przesuwania lub aby uzyska�
    ||||||
 
    > [!IMPORTANT]
-   > Gdy cykle nie określają zaawansowanych opcji planowania, przyszłe cykle bazują na ostatnim czasie wykonywania.
-   > Czasy rozpoczęcia tych cyklów mogą być dryfem ze względu na takie czynniki jak opóźnienie podczas wywołań magazynu. Aby upewnić się, że aplikacja logiki nie trafił cyklu, zwłaszcza gdy częstotliwość jest w dniach lub dłużej, użyj jednej z następujących opcji:
+   > Jeśli cykl nie określi konkretnej [daty i godziny rozpoczęcia](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time), Pierwszy cykl jest uruchamiany natychmiast po zapisaniu lub wdrożeniu aplikacji logiki, pomimo konfiguracji cyklu wyzwalacza. Aby uniknąć tego zachowania, podaj datę i godzinę rozpoczęcia pierwszego cyklu do uruchomienia.
+   >
+   > Jeśli cykl nie określi żadnych innych zaawansowanych opcji planowania, takich jak określone czasy uruchamiania przyszłych cykli, te cykle są oparte na czasie ostatniego uruchomienia. W związku z tym czasy rozpoczęcia tych cyklów mogą być naliczone ze względu na takie czynniki jak opóźnienie podczas wywołań magazynu. 
+   > Aby upewnić się, że aplikacja logiki nie trafił cyklu, szczególnie wtedy, gdy częstotliwość jest w dniach lub dłużej, wypróbuj następujące opcje:
    > 
-   > * Podaj godzinę rozpoczęcia cyklu.
-   > 
-   > * Określ godziny i minuty czasu uruchomienia cyklu przy użyciu właściwości o nazwie **w tych godzinach** i **w tych minutach**.
+   > * Podaj datę i godzinę rozpoczęcia cyklu oraz określone czasy wykonywania kolejnych cykli przy użyciu właściwości o nazwach **w tych godzinach** i **w tych minutach**, które są dostępne tylko dla częstotliwości **dzień** i **tydzień** .
    > 
    > * Użyj [wyzwalacza okna przesuwanego](../connectors/connectors-native-sliding-window.md), a nie wyzwalacza cyklicznego.
 

@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 38403eed56dc718afdfce13375dd2662beb13eb6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879565"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374171"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Wizualizuj dane z Azure Time Series Insights w Power BI
 
@@ -37,9 +37,7 @@ Sprawdź [zasady dostępu do środowiska](./concepts-access-policies.md) i upewn
 > [!IMPORTANT]
 > * Pobierz i zainstaluj najnowszą wersję programu [Power BI Desktop](https://powerbi.microsoft.com/downloads/). Aby wykonać kroki opisane w tym artykule, upewnij się, że masz zainstalowaną wersję Power BI Desktop z grudnia 2020 (2.88.321.0). 
 
-## <a name="connect-data-from-azure-time-series-insights-to-power-bi"></a>Połącz dane z Azure Time Series Insights Power BI
-
-### <a name="1-export-data-into-power-bi-desktop"></a>1. Eksportowanie danych do Power BI Desktop
+## <a name="export-data-from-azure-time-series-insights-into-power-bi-desktop"></a>Eksportowanie danych z Azure Time Series Insights do Power BI Desktop
 
 Aby rozpocząć:
 
@@ -53,37 +51,36 @@ Aby rozpocząć:
    * **Format danych**: Wybierz, czy chcesz wyeksportować **dane zagregowane** lub **nieprzetworzone zdarzenia** do Power BI. 
 
        > [!NOTE]
-       > * W przypadku eksportowania zdarzeń pierwotnych można agregować te dane później w Power BI. Jednak w przypadku eksportowania zagregowanych danych nie można przywrócić danych pierwotnych w Power BI. 
-       > * Istnieje limit liczby zdarzeń 250 000 dla danych na poziomie nieprzetworzonych zdarzeń.
+       > W przypadku eksportowania zdarzeń pierwotnych można agregować te dane później w Power BI. Jednak w przypadku eksportowania zagregowanych danych nie można przywrócić danych pierwotnych w Power BI. Istnieje limit liczby zdarzeń 250 000 dla danych na poziomie nieprzetworzonych zdarzeń.
 
    * **Zakres czasu**: Wybierz, czy chcesz zobaczyć **stały** zakres czasu, czy też **najnowsze** dane w Power BI. Wybranie ustalonego zakresu czasu oznacza, że dane z przedziału wyszukiwania zostaną wyeksportowane do Power BI. Wybranie najnowszego zakresu czasu oznacza, że Power BI będą obejmować najnowsze dane dla wybranej ilości wyszukiwania (np. w przypadku grafu 1 godziny danych i wybrania ustawienia "Najnowsze" łącznik Power BI będzie zawsze wykonywać zapytania dla najnowszej ilości danych).
   
-   * **Typ magazynu**: Wybierz, czy chcesz uruchomić wybrane zapytanie w **sklepie ciepłym** czy w **chłodnym magazynie**. 
+   * **Typ magazynu**: Wybierz, czy chcesz uruchomić wybrane zapytanie w **sklepie ciepłym** czy w **chłodnym magazynie**. Jeśli wybrano zakres, który rozciąga się zarówno na chłodną, jak i ciepłą, zapytanie zostanie domyślnie rozesłane do magazynu zimnego, ponieważ sklep ciepły będzie zawierać tylko najnowsze dane. Ręczne zmienianie parametru StoreType jest dozwolone, ale nie jest to zalecane w przypadku najlepszego środowiska. 
 
-    > [!TIP]
-    > * Program Azure Time Series Insights Explorer automatycznie wybierze zalecane parametry w zależności od wybranych danych do wyeksportowania. 
+    > [!TIP] 
+    > Program Azure Time Series Insights Explorer automatycznie wybierze zalecane parametry w zależności od zakresu wyszukiwania i widoku danych wybranych do wyeksportowania. 
 
 1. Po skonfigurowaniu ustawień wybierz pozycję **Kopiuj zapytanie do schowka**.
 
     [![Modalne eksportowanie Azure Time Series Insights Explorer](media/how-to-connect-power-bi/choose-explorer-parameters.jpg)](media/how-to-connect-power-bi/choose-explorer-parameters.jpg#lightbox)
 
-2. Uruchom program Power BI Desktop.
+1. Uruchom program Power BI Desktop.
    
-3. W Power BI Desktop na karcie **Narzędzia główne** wybierz pozycję **Pobierz dane** w lewym górnym rogu, a następnie kliknij pozycję **więcej**.
+1. W Power BI Desktop na karcie **Narzędzia główne** wybierz pozycję **Pobierz dane** w lewym górnym rogu, a następnie kliknij pozycję **więcej**.
 
     [![Pobieranie danych w usłudze Power BI](media/how-to-connect-power-bi/get-data-power-bi.jpg)](media/how-to-connect-power-bi/get-data-power-bi.jpg#lightbox)
 
-4. Wyszukaj **Azure Time Series Insights**, wybierz pozycję **Azure Time Series Insights (beta)**, a następnie **Połącz**.
+1. Wyszukaj **Azure Time Series Insights**, wybierz pozycję **Azure Time Series Insights (beta)**, a następnie **Połącz**.
 
     [![Połącz Power BI z Azure Time Series Insights](media/how-to-connect-power-bi/select-tsi-connector.jpg)](media/how-to-connect-power-bi/select-tsi-connector.jpg#lightbox)
 
     Alternatywnie przejdź do karty **Azure** , wybierz pozycję **Azure Time Series Insights (beta)**, a następnie **Połącz się**.
 
-5. Wklej zapytanie skopiowane z programu Azure Time Series Insights Explorer do **niestandardowego pola zapytania** , a następnie naciśnij przycisk **OK**.
+1. Wklej zapytanie skopiowane z programu Azure Time Series Insights Explorer do **niestandardowego pola zapytania** , a następnie naciśnij przycisk **OK**.
 
     [![Wklej w zapytaniu niestandardowym i wybierz pozycję OK.](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
 
-6.  Tabela danych zostanie teraz załadowana. Naciśnij pozycję **Załaduj** , aby załadować do Power BI. Jeśli chcesz wykonać przekształcenia danych, możesz to zrobić teraz przez kliknięcie przycisku **Przekształć dane**. Możesz również przekształcić dane po ich załadowaniu.
+1.  Tabela danych zostanie teraz załadowana. Naciśnij pozycję **Załaduj** , aby załadować do Power BI. Jeśli chcesz wykonać przekształcenia danych, możesz to zrobić teraz przez kliknięcie przycisku **Przekształć dane**. Możesz również przekształcić dane po ich załadowaniu.
 
     [![Przejrzyj dane w tabeli i wybierz pozycję Załaduj.](media/how-to-connect-power-bi/review-the-loaded-data-table.png)](media/how-to-connect-power-bi/review-the-loaded-data-table.png#lightbox)  
 

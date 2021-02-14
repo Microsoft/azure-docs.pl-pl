@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 02/11/2021
 tags: connectors
-ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355124"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382359"
 ---
 # <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Tworzenie rekordów i zarządzanie nimi w Common Data Service (Microsoft datavers) za pomocą Azure Logic Apps
 
 > [!NOTE]
 > W listopadzie 2020 zmieniono nazwę Common Data Service na Microsoft datavers.
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Common Data Service](/connectors/commondataservice/)można tworzyć zautomatyzowane przepływy pracy, które zarządzają rekordami w [Common Data Service, teraz baza danych Microsoft datavers](/powerapps/maker/common-data-service/data-platform-intro) . Te przepływy pracy umożliwiają tworzenie rekordów, aktualizowanie rekordów i wykonywanie innych operacji. Możesz również uzyskać informacje z bazy danych Common Data Service i udostępnić dane wyjściowe dla innych akcji do użycia w aplikacji logiki. Na przykład, gdy rekord zostanie zaktualizowany w bazie danych Common Data Service, możesz wysłać wiadomość e-mail przy użyciu łącznika programu Office 365 Outlook.
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Common Data Service](/connectors/commondataservice/)można tworzyć zautomatyzowane przepływy pracy, które zarządzają rekordami w [Common Data Service, teraz baza danych Microsoft datavers](/powerapps/maker/common-data-service/data-platform-intro) . Te przepływy pracy umożliwiają tworzenie rekordów, aktualizowanie rekordów i wykonywanie innych operacji. Możesz również uzyskać informacje z bazy danych dataverse i udostępnić dane wyjściowe dla innych akcji do użycia w aplikacji logiki. Na przykład, gdy rekord zostanie zaktualizowany w bazie danych dataversa, możesz wysłać wiadomość e-mail przy użyciu łącznika Office 365 Outlook Connector.
 
 W tym artykule pokazano, jak utworzyć aplikację logiki, która tworzy rekord zadania za każdym razem, gdy zostanie utworzony nowy rekord potencjalnego klienta.
 
@@ -32,7 +32,7 @@ W tym artykule pokazano, jak utworzyć aplikację logiki, która tworzy rekord z
   * [Dowiedz się: Rozpoczynanie pracy z usługą Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
   * [Platforma energetyczna — Omówienie środowisk](/power-platform/admin/environments-overview)
 
-* Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) i aplikacji logiki z lokalizacji, w której chcesz uzyskać dostęp do rekordów w bazie danych Common Data Service. Aby uruchomić aplikację logiki z wyzwalaczem Common Data Service, musisz mieć pustą aplikację logiki. Jeśli dopiero zaczynasz Azure Logic Apps, zobacz [Szybki Start: Tworzenie pierwszego przepływu pracy przy użyciu Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) i aplikacji logiki z lokalizacji, w której chcesz uzyskać dostęp do rekordów w bazie danych dataverse. Aby uruchomić aplikację logiki z wyzwalaczem Common Data Service, musisz mieć pustą aplikację logiki. Jeśli dopiero zaczynasz Azure Logic Apps, zobacz [Szybki Start: Tworzenie pierwszego przepływu pracy przy użyciu Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-common-data-service-trigger"></a>Dodaj wyzwalacz Common Data Service
 
@@ -170,6 +170,62 @@ Ten przykład pokazuje, jak Akcja **Utwórz nowy rekord** powoduje utworzenie no
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
 Informacje techniczne na podstawie opisu struktury Swagger łącznika, takie jak wyzwalacze, akcje, limity i inne szczegóły, znajdują się na [stronie odniesienia łącznika](/connectors/commondataservice/).
+
+## <a name="troubleshooting-problems"></a>Rozwiązywanie problemów
+
+### <a name="calls-from-multiple-environments"></a>Wywołania z wielu środowisk
+
+Oba łączniki, Common Data Service i Common Data Service (bieżące środowisko), przechowują informacje o przepływach pracy aplikacji logiki, które są potrzebne, i otrzymują powiadomienia o zmianach jednostek przy użyciu `callbackregistrations` jednostki w DataMicrosoft datavers. Jeśli skopiujesz organizację datavers, wszystkie elementy webhook zostaną skopiowane. Jeśli skopiujesz organizację przed wyłączeniem przepływów pracy, które są mapowane do organizacji, wszystkie skopiowane elementy webhook będą również wskazywały te same aplikacje logiki, a następnie otrzymywać powiadomienia z wielu organizacji.
+
+Aby zatrzymać niechciane powiadomienia, usuń rejestrację wywołania zwrotnego z organizacji, która wysyła te powiadomienia, wykonując następujące czynności:
+
+1. Określ organizację dataverse, z której chcesz usunąć powiadomienia, i zaloguj się do tej organizacji.
+
+1. W przeglądarce Chrome Znajdź rejestrację wywołania zwrotnego, która ma zostać usunięta, wykonując następujące czynności:
+
+   1. Przejrzyj listę ogólna dla wszystkich rejestracji wywołania zwrotnego na poniższym identyfikatorze URI OData, aby można było wyświetlić dane wewnątrz `callbackregistrations` jednostki:
+
+      `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
+
+      > [!NOTE]
+      > Jeśli nie zostaną zwrócone żadne wartości, możesz nie mieć uprawnień do wyświetlania tego typu jednostki lub być może nie zarejestrowano się w odpowiedniej organizacji.
+
+   1. Odfiltruj nazwę logiczną jednostki wyzwalającej `entityname` i zdarzenie powiadomienia pasujące do przepływu pracy aplikacji logiki (komunikatu). Każdy typ zdarzenia jest mapowany na liczbę całkowitą wiadomości w następujący sposób:
+
+      | Typ zdarzenia | Liczba całkowita komunikatu |
+      |------------|-----------------|
+      | Utwórz | 1 |
+      | Usuń | 2 |
+      | Aktualizacja | 3 |
+      | Metodę createorupdate | 4 |
+      | CreateOrDelete | 5 |
+      | UpdateOrDelete | 6 |
+      | CreateOrUpdateOrDelete | 7 |
+      |||
+
+      Ten przykład pokazuje, jak można odfiltrować `Create` powiadomienia w jednostce o nazwie przy `nov_validation` użyciu następującego identyfikatora URI OData dla przykładowej organizacji:
+
+      `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
+
+      ![Zrzut ekranu przedstawiający okno przeglądarki i identyfikator URI protokołu OData na pasku adresu.](./media/connect-common-data-service/find-callback-registrations.png)
+
+      > [!TIP]
+      > Jeśli istnieje wiele wyzwalaczy dla tej samej jednostki lub zdarzenia, można filtrować listę przy użyciu dodatkowych filtrów, takich jak `createdon` `_owninguser_value` atrybuty i. Nazwa użytkownika będącego właścicielem jest wyświetlana w sekcji `/api/data/v9.0/systemusers({id})` .
+
+   1. Po znalezieniu identyfikatora dla rejestracji wywołania zwrotnego, która ma zostać usunięta, wykonaj następujące czynności:
+   
+      1. W przeglądarce Chrome Otwórz Narzędzia deweloperskie programu Chrome (klawiatura: F12).
+
+      1. W oknie w górnej części Wybierz kartę **konsola** .
+
+      1. W wierszu polecenia wprowadź następujące polecenie, które wysyła żądanie usunięcia określonej rejestracji wywołania zwrotnego:
+
+         `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
+
+         > [!IMPORTANT]
+         > Upewnij się, że żądanie zostało wysłane z nieujednoliconego interfejsu klienta (UCI), na przykład ze strony usługi OData lub interfejsu API odpowiedzi. W przeciwnym razie logika w pliku app.js może kolidować z tą operacją.
+
+   1. Aby upewnić się, że rejestracja wywołania zwrotnego już nie istnieje, sprawdź listę rejestracji wywołania zwrotnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

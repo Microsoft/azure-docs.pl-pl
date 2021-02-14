@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132086"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392327"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 
@@ -194,6 +194,14 @@ automl_config = AutoMLConfig(task='forecasting',
                              **forecasting_parameters)
 ```
 
+Ilość danych wymaganych do pomyślnego nauczenia modelu prognozowania ze zautomatyzowaną ML ma wpływ na `forecast_horizon` `n_cross_validations` `target_lags` `target_rolling_window_size` wartości określone podczas konfigurowania `AutoMLConfig` . 
+
+Poniższa formuła służy do obliczania ilości danych historycznych, które są potrzebne do konstruowania funkcji szeregów czasowych.
+
+Wymagane są minimalne dane historyczne: (2x `forecast_horizon` ) + # `n_cross_validations` + Max (max ( `target_lags` ), `target_rolling_window_size` )
+
+Wyjątek błędu zostanie zgłoszony dla każdej serii w zestawie danych, która nie spełnia wymaganej ilości danych historycznych dla odpowiednich określonych ustawień. 
+
 ### <a name="featurization-steps"></a>Cechowania kroki
 
 W każdym automatycznym doświadczeniu uczenia maszynowego automatyczne skalowanie i techniki normalizacji są domyślnie stosowane do danych. Techniki te są typami **cechowania** , które pomagają *określonym* algorytmom, które są wrażliwe na funkcje w różnych skali. Dowiedz się więcej o domyślnych krokach cechowania w [cechowania w AutoML](how-to-configure-auto-features.md#automatic-featurization)
@@ -368,7 +376,7 @@ day_datetime,store,week_of_year
 Powtórz kroki niezbędne do załadowania tych przyszłych danych do ramki Dataframe, a następnie uruchom polecenie `best_run.predict(test_data)` , aby przewidzieć przyszłe wartości.
 
 > [!NOTE]
-> Wartości nie mogą być przewidywane dla liczby okresów większej niż `forecast_horizon` . Model musi być przeszkolony z większym horyzontem, aby przewidzieć przyszłe wartości poza bieżącym horyzontem.
+> Przewidywania w próbkach nie są obsługiwane w przypadku prognozowania za pomocą zautomatyzowanej ML `target_lags` , gdy i/lub `target_rolling_window_size` są włączone.
 
 
 ## <a name="example-notebooks"></a>Przykładowe notesy

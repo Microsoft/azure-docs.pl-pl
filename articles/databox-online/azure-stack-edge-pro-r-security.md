@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f7d81d14ca561e6d4d897994088b2fc01b2c7701
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 891885dce52ee57fa163bb71b427591156091651
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467800"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362867"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Bezpieczeństwo i ochrona danych dla Azure Stack EDGE Pro R i Azure Stack Edge mini R
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r--skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 Bezpieczeństwo jest ważnym problemem w przypadku przyjęcia nowej technologii, szczególnie jeśli technologia jest używana z danymi poufnymi lub zastrzeżonymi. Azure Stack EDGE Pro R i Azure Stack Edge w wersji mini R pomaga zapewnić, że tylko autoryzowane jednostki mogą wyświetlać, modyfikować i usuwać dane.
 
@@ -45,7 +45,7 @@ To urządzenie jest urządzeniem lokalnym, które pomaga przekształcić dane, p
 - Jest urządzeniem zablokowanym. Kontroler zarządzania płytą główną (BMC) urządzenia i system BIOS są chronione hasłem. Kontroler BMC jest chroniony przez ograniczony dostęp użytkownika.
 - Ma włączony bezpieczny rozruch, który gwarantuje, że urządzenie zostanie uruchomione tylko przy użyciu zaufanego oprogramowania udostępnianego przez firmę Microsoft.
 - Uruchamia kontrolę aplikacji w programie Windows Defender (WDAC). WDAC umożliwia uruchamianie tylko zaufanych aplikacji, które zostały zdefiniowane w zasadach integralności kodu.
-- Ma moduł TPM (TPM), który wykonuje funkcje związane z zabezpieczeniami. W każdym przypadku moduł TPM zarządza i chroni wpisy tajne oraz dane, które muszą zostać utrwalone na urządzeniu.
+- Ma Trusted Platform Module (TPM), który wykonuje funkcje związane z zabezpieczeniami. W każdym przypadku moduł TPM zarządza i chroni wpisy tajne oraz dane, które muszą zostać utrwalone na urządzeniu.
 - Na urządzeniu są otwierane tylko wymagane porty i wszystkie inne porty są blokowane. Aby uzyskać więcej informacji, zobacz listę [wymagań dotyczących portów dla urządzenia](azure-stack-edge-pro-r-system-requirements.md) .
 - Jest rejestrowany cały dostęp do sprzętu urządzenia oraz oprogramowania. 
     - W przypadku oprogramowania urządzenia są zbierane domyślne Dzienniki zapory dla ruchu przychodzącego i wychodzącego z urządzenia. Te dzienniki są powiązane z pakietem pomocy technicznej.

@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 10c606ab86a577f22167197138e56a14d176b88a
-  ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
-  ms.translationtype: HT
+  ms.openlocfilehash: 65b2c25bde616f8a2bbc9abf6439871d288306b9
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 01/19/2021
-  ms.locfileid: "98570137"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100363036"
 landingContent:
 - title: Informacje o usłudze Azure Functions
   linkLists:
@@ -128,14 +128,22 @@ landingContent:
       url: functions-how-to-azure-devops.md
     - text: Wdrażanie za pomocą wtyczki narzędzia Jenkins
       url: /azure/developer/jenkins/deploy-to-azure-functions
-- title: Wydajność i monitorowanie
+- title: Najlepsze rozwiązania dotyczące wydajności i monitorowania
   linkLists:
   - linkListType: concept
     links:
+    - text: Wydajność i niezawodność
+      url: functions-best-practices.md
+    - text: Zarządzanie połączeniami
+      url: manage-connections.md
+    - text: Zagadnienia dotyczące magazynu
+      url: storage-considerations.md
+    - text: Obsługa błędów i ponawianie prób funkcji
+      url: functions-bindings-error-pages.md
+    - text: Zabezpieczenia
+      url: security-concepts.md
     - text: Monitorowanie funkcji
       url: functions-monitoring.md
-    - text: Optymalizowanie wydajności
-      url: functions-best-practices.md
     - text: Zagadnienia dotyczące pracy w sieci
       url: functions-networking-options.md
   - linkListType: how-to-guide
