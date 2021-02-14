@@ -11,18 +11,21 @@ ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797638"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362747"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Konfigurowanie preferencji routingu sieciowego dla usługi Azure Storage (wersja zapoznawcza)
 
 Możesz skonfigurować [preferencję routingu](../../virtual-network/routing-preference-overview.md) sieciowego (wersja zapoznawcza) dla konta usługi Azure Storage, aby określić, w jaki sposób ruch sieciowy jest kierowany do konta z klientów przez Internet. Domyślnie ruch z Internetu jest kierowany do publicznego punktu końcowego konta magazynu za pośrednictwem [sieci globalnej firmy Microsoft](../../networking/microsoft-global-network.md). Usługa Azure Storage udostępnia dodatkowe opcje konfigurowania sposobu kierowania ruchu do konta magazynu.
 
 Skonfigurowanie preferencji routingu pozwala elastycznie optymalizować ruch w ramach wydajności sieci w warstwie Premium lub w kosztach. Konfigurując preferencję routingu, należy określić, jak domyślnie ruch będzie kierowany do publicznego punktu końcowego dla konta magazynu. Możesz również opublikować punkty końcowe specyficzne dla trasy dla konta magazynu.
+
+> [!NOTE]
+> Ta funkcja nie jest obsługiwana na kontach magazynu skonfigurowanych do korzystania z warstwy wydajności Premium lub magazynu Strefowo nadmiarowego (ZRS).
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Microsoft Global Network a Routing internetowy
 

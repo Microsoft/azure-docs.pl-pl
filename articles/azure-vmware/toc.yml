@@ -32,6 +32,8 @@
       href: tutorial-deploy-vmware-hcx.md
     - name: 8. Skalowanie chmury prywatnej
       href: tutorial-scale-private-cloud.md
+    - name: 9. Usuwanie chmury prywatnej
+      href: tutorial-delete-private-cloud.md
 - name: Pojęcia
   items:
     - name: Chmury prywatne i klastry

@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c58b267874f013a4660428e23abd41810a0fbf34
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521142"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093169"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Zasady pomocy technicznej usługi Azure Red Hat OpenShift
 
@@ -26,6 +26,7 @@ Niektóre konfiguracje klastrów usługi Azure Red Hat OpenShift 4 mogą mieć w
 * Klaster musi mieć co najmniej dwa węzły procesu roboczego. Nie Skaluj procesów roboczych klastra do zera lub spróbuj bezpieczniej zamknąć klaster.
 * Nie usuwaj ani nie Modyfikuj usług Cluster Prometheus i Alertmanager.
 * Nie usuwaj reguł usługi alertów usług.
+* Nie usuwaj ani nie Modyfikuj sieciowych grup zabezpieczeń.
 * Nie usuwaj ani nie Modyfikuj rejestrowania usługi Azure Red Hat OpenShift Service (procesem MDSD).
 * Nie usuwaj ani nie Modyfikuj klucza tajnego ściągania klastra "arosvc.azurecr.io".
 * Wszystkie maszyny wirtualne klastra muszą mieć bezpośredni dostęp do Internetu, co najmniej do punktów końcowych Azure Resource Manager (ARM) i rejestrowania usług (Genewa).  Nie jest obsługiwany żaden formularz proxy protokołu HTTPS.
@@ -39,7 +40,7 @@ Niektóre konfiguracje klastrów usługi Azure Red Hat OpenShift 4 mogą mieć w
 
 Azure Red Hat OpenShift 4 obsługuje wystąpienia węzłów procesu roboczego na następujących rozmiarach maszyn wirtualnych:
 
-### <a name="general-purpose"></a>Zastosowania ogólne
+### <a name="general-purpose"></a>Ogólnego przeznaczenia
 
 |Seria|Rozmiar|Procesor wirtualny|Pamięć: GiB|
 |-|-|-|-|

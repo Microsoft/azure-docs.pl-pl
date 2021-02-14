@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 57362aa84886d7b7d764617ce5a43ca2393bed52
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0e644b7937f6ccb23b4833405b8f4ed3119879a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018245"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362288"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalacja agenta Azure AD Connect Health
 
@@ -34,7 +34,7 @@ W poniższej tabeli przedstawiono wymagania dotyczące korzystania z Azure AD Co
 
 | Wymaganie | Opis |
 | --- | --- |
-| Azure AD — wersja Premium jest zainstalowany. |Azure AD Connect Health jest funkcją Azure AD — wersja Premium. Aby uzyskać więcej informacji, zobacz [Rejestrowanie się w usłudze Azure AD — wersja Premium](../fundamentals/active-directory-get-started-premium.md). <br /><br />Aby rozpocząć korzystanie z bezpłatnej 30-dniowej wersji próbnej, zobacz [Rozpoczynanie korzystania z wersji próbnej](https://azure.microsoft.com/trial/get-started-active-directory/). |
+| Istnieje Azure AD — wersja Premium (P1 lub P2) subskrypcji.  |Azure AD Connect Health jest funkcją Azure AD — wersja Premium (P1 lub P2). Aby uzyskać więcej informacji, zobacz [Rejestrowanie się w usłudze Azure AD — wersja Premium](../fundamentals/active-directory-get-started-premium.md). <br /><br />Aby rozpocząć korzystanie z bezpłatnej 30-dniowej wersji próbnej, zobacz [Rozpoczynanie korzystania z wersji próbnej](https://azure.microsoft.com/trial/get-started-active-directory/). |
 | Jesteś administratorem globalnym w usłudze Azure AD. |Domyślnie tylko Administratorzy globalni mogą instalować i konfigurować agentów kondycji, uzyskiwać dostęp do portalu i wykonywać dowolne operacje w Azure AD Connect Health. Aby więcej informacji, zobacz [Administering your Azure AD directory](../fundamentals/active-directory-whatis.md) (Administrowanie katalogiem usługi Azure AD). <br /><br /> Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można zezwolić innym użytkownikom w organizacji na dostęp do Azure AD Connect Health. Aby uzyskać więcej informacji, zobacz [Azure RBAC dla Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Ważne**: Użyj konta służbowego, aby zainstalować agentów. Nie można użyć konto Microsoft. Aby uzyskać więcej informacji, zobacz [Rejestrowanie się w usłudze Azure jako organizacja](../fundamentals/sign-up-organization.md). |
 | Agent Azure AD Connect Health jest instalowany na każdym serwerze dodanym. | Agenci kondycji muszą być zainstalowani i skonfigurowani na serwerach, aby mogły odbierać dane i zapewniać możliwości monitorowania i analizy. <br /><br />Na przykład aby uzyskać dane z infrastruktury Active Directory Federation Services (AD FS), należy zainstalować agenta na serwerze AD FS i serwerze proxy aplikacji sieci Web. Podobnie Aby uzyskać dane z infrastruktury lokalnej Azure AD Domain Services (Azure AD DS), należy zainstalować agenta na kontrolerach domeny.  |
 | Punkty końcowe usługi platformy Azure mają łączność wychodzącą. | Podczas instalowania i w czasie pracy agent wymaga łączności z punktami końcowymi usługi Azure AD Connect Health. Jeśli zapory blokują łączność wychodzącą, Dodaj [punkty końcowe łączności wychodzącej](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) do listy dozwolonych. |
@@ -195,7 +195,7 @@ Aby sprawdzić, czy agent został zainstalowany, znajdź następujące usługi n
 ![Zrzut ekranu przedstawiający uruchomioną Azure AD Connect Health dla usług synchronizacji na serwerze.](./media/how-to-connect-health-agent-install/services.png)
 
 > [!NOTE]
-> Pamiętaj, że musisz mieć Azure AD — wersja Premium, aby użyć Azure AD Connect Health. Jeśli nie masz Azure AD — wersja Premium, nie możesz ukończyć konfiguracji w Azure Portal. Aby uzyskać więcej informacji, zobacz [wymagania](how-to-connect-health-agent-install.md#requirements).
+> Należy pamiętać, że Azure AD — wersja Premium (P1 lub P2) mogą korzystać z Azure AD Connect Health. Jeśli nie masz Azure AD — wersja Premium, nie możesz ukończyć konfiguracji w Azure Portal. Aby uzyskać więcej informacji, zobacz [wymagania](how-to-connect-health-agent-install.md#requirements).
 >
 >
 

@@ -1,19 +1,19 @@
 ---
 title: Informacje o rolach wymaganych do wykonywania typowych zadań w programie Synapse
 description: W tym artykule opisano, które wbudowane role RBAC Synapse są wymagane do wykonania określonych zadań
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9735293c182e7fe67a498529425459c13a199101
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: ba00e6f4fe97b0614483fd04ddee9fc768558db5
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109797"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102108"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Informacje o rolach wymaganych do wykonywania typowych zadań w programie Synapse
 
@@ -65,11 +65,11 @@ W poniższej tabeli wymieniono typowe zadania i dla każdego zadania, Synapse RB
 
 Zadanie (chcę...) |Rola (muszę być...)|Synapse/akcja kontroli RBAC
 --|--|--
-|Otwórz Synapse Studio w obszarze roboczym|Synapse użytkownika lub|przeczytaj
+|Otwórz Synapse Studio w obszarze roboczym|Synapse użytkownika lub|odczyt
 | |Właściciel, współautor lub czytelnik platformy Azure w obszarze roboczym|brak
-|Wyświetl listę pul SQL, pul Apache Spark, środowisk Integration Runtime i uzyskaj dostęp do ich szczegółów konfiguracji|Synapse użytkownika lub|przeczytaj|
+|Wyświetl listę pul SQL, pul Apache Spark, środowisk Integration Runtime i uzyskaj dostęp do ich szczegółów konfiguracji|Synapse użytkownika lub|odczyt|
 ||Właściciel, współautor lub czytelnik platformy Azure w obszarze roboczym|brak
-|Wyświetlanie listy połączonych usług, poświadczeń, zarządzanych prywatnych punktów końcowych|Synapse użytkownika|przeczytaj
+|Wyświetlanie listy połączonych usług, poświadczeń, zarządzanych prywatnych punktów końcowych|Synapse użytkownika|odczyt
 PULE SQL|
 Tworzenie dedykowanej puli SQL lub bezserwerowej puli SQL|Właściciel lub współautor platformy Azure w obszarze roboczym|brak
 Zarządzanie (wstrzymywanie, skalowanie lub usuwanie) dedykowanej puli SQL|Właściciel lub współautor platformy Azure w puli lub obszarze roboczym SQL|brak
@@ -82,10 +82,10 @@ Zatwierdź zmiany w skrypcie SQL w repozytorium git|Wymaga uprawnień Git w repo
 Przypisywanie Active Directory administratora w obszarze roboczym (za pomocą właściwości obszaru roboczego w witrynie Azure Portal)|Właściciel lub współautor platformy Azure w obszarze roboczym |
 PULE PLATFORMY APACHE SPARK|
 Tworzenie puli Apache Spark|Właściciel lub współautor platformy Azure w obszarze roboczym|
-Monitorowanie aplikacji Apache Spark| Synapse użytkownika|przeczytaj
+Monitorowanie aplikacji Apache Spark| Synapse użytkownika|odczyt
 Wyświetlanie dzienników dla notesu i wykonywania zadań |Operator obliczeń Synapse|
 Anulowanie dowolnego notesu lub zadania Spark uruchomionego w puli Apache Spark|Synapse operator obliczeń w puli Apache Spark.|bigDataPools/useCompute
-Tworzenie notesu lub definicji zadania|Synapse użytkownika lub </br>Właściciel, współautor lub czytelnik platformy Azure w obszarze roboczym</br> *Do uruchamiania, publikowania lub zatwierdzania zmian są wymagane dodatkowe uprawnienia*|przeczytaj</br></br></br></br></br> 
+Tworzenie notesu lub definicji zadania|Synapse użytkownika lub </br>Właściciel, współautor lub czytelnik platformy Azure w obszarze roboczym</br> *Do uruchamiania, publikowania lub zatwierdzania zmian są wymagane dodatkowe uprawnienia*|odczyt</br></br></br></br></br> 
 Wyświetlenie listy i otwarcie opublikowanego notesu lub definicji zadania, w tym przeglądanie zapisanych danych wyjściowych|Użytkownik artefaktu Synapse, Wydawca artefaktu Synapse, współautor Synapse w obszarze roboczym|artefakty/odczyt
 Uruchamianie notesu i przeglądanie jego danych wyjściowych|Synapse Apache Spark administrator, operator obliczeń Synapse na wybranej puli Apache Spark|bigDataPools/useCompute 
 Publikowanie lub usuwanie notesu lub definicji zadania (łącznie z danymi wyjściowymi) do usługi|Wydawca artefaktu w obszarze roboczym, Synapse Apache Spark administrator|Notesy/zapis, usuwanie
@@ -94,8 +94,8 @@ POTOKI, ŚRODOWISKA INTEGRATION RUNTIME, DATAFLOWS, ZESTAWY DANYCH & WYZWALACZE|
 Tworzenie, aktualizowanie lub usuwanie środowiska Integration Runtime|Właściciel lub współautor platformy Azure w obszarze roboczym|
 Monitoruj stan środowiska Integration Runtime|Synapse użytkownika|Odczyt, potoki/viewOutputs
 Przejrzyj uruchomienia potoku|Współautor artefaktu Synapse/Synapse|Odczyt, potoki/viewOutputs 
-Tworzenie potoku |Synapse użytkownika</br>*Aby debugować, dodać wyzwalacze, opublikować lub zatwierdzić zmiany, wymagane są dodatkowe uprawnienia Synapse*|przeczytaj
-Tworzenie przepływu danych lub zestawu danych |Synapse użytkownika</br>*Aby opublikować lub zatwierdzić zmiany, wymagane są dodatkowe uprawnienia Synapse.*|przeczytaj
+Tworzenie potoku |Synapse użytkownika</br>*Aby debugować, dodać wyzwalacze, opublikować lub zatwierdzić zmiany, wymagane są dodatkowe uprawnienia Synapse*|odczyt
+Tworzenie przepływu danych lub zestawu danych |Synapse użytkownika</br>*Aby opublikować lub zatwierdzić zmiany, wymagane są dodatkowe uprawnienia Synapse.*|odczyt
 Wyświetlanie i otwieranie opublikowanego potoku |Użytkownik artefaktu Synapse | artefakty/odczyt
 Podgląd danych zestawu danych|Synapse użytkownika i poświadczenia Synapse na WorkspaceSystemIdentity| 
 Debugowanie potoku przy użyciu domyślnego środowiska Integration Runtime|Synapse użytkownika i poświadczenia Synapse użytkownika w poświadczeniu WorkspaceSystemIdentity|Przeczytaj </br>poświadczenia/useSecret
@@ -106,13 +106,13 @@ Pobieranie danych (przy użyciu harmonogramu)|Synapse autora + Synapse użytkown
 Opublikuj nowy, zaktualizowany lub usunięty potok, przepływu danych lub wyzwalacz do usługi|Synapse Wydawca artefaktu w obszarze roboczym|potoki/zapis, usuwanie</br>dataflows/Write, DELETE</br>Wyzwalacze/zapis, usuwanie
 Zatwierdź zmiany w potokach, dataflows, zestawach danych lub wyzwalaczach w repozytorium git |Uprawnienia git|brak 
 POŁĄCZONE USŁUGI|
-Tworzenie połączonej usługi (łącznie z przypisaniem poświadczenia)|Synapse użytkownika</br>*Aby można było użyć połączonej usługi z poświadczeniami lub opublikować lub zatwierdzić zmiany, wymagane są dodatkowe uprawnienia.*|przeczytaj
+Tworzenie połączonej usługi (łącznie z przypisaniem poświadczenia)|Synapse użytkownika</br>*Aby można było użyć połączonej usługi z poświadczeniami lub opublikować lub zatwierdzić zmiany, wymagane są dodatkowe uprawnienia.*|odczyt
 Wyświetlanie listy i otwieranie opublikowanej połączonej usługi|Użytkownik artefaktu Synapse|linkedServices/Write, DELETE  
 Test connection w połączonej usłudze zabezpieczonej przez poświadczenie|Użytkownik Synapse i administrator poświadczeń Synapse|poświadczenia/useSecret/akcja|
 Publikowanie połączonej usługi|Wydawca artefaktu Synapse, Synapse połączone Data Manager|linkedServices/Write, DELETE
 Zatwierdź definicje połączonych usług do repozytorium git|Uprawnienia git|brak
 ZARZĄDZANIE DOSTĘPEM|
-Przeglądanie przypisań ról Synapse RBAC w dowolnym zakresie|Synapse użytkownika|przeczytaj
+Przeglądanie przypisań ról Synapse RBAC w dowolnym zakresie|Synapse użytkownika|odczyt
 Przypisywanie i usuwanie przypisań roli RBAC Synapse dla użytkowników, grup i jednostek usługi| Synapse administratora w obszarze roboczym lub w określonym zakresie elementów obszaru roboczego|roleAssignments/Write, DELETE 
 
 >[!Note]

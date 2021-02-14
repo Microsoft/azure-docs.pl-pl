@@ -1,20 +1,17 @@
 ---
 title: Wprowadzenie do usługi Azure Data Factory
 description: Dowiedz się więcej o usłudze Azure Data Factory, czyli usłudze integracji danych w chmurze, która służy do aranżacji i automatyzacji przenoszenia i przekształcania danych.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 00ae812536e73f432b9bddb93fc1b4a958b379f5
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 8fef4bbc0c0e77c1e152b8c2c44254e091b0e5a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97812872"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392548"
 ---
 # <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory?
 
@@ -57,12 +54,12 @@ Jeśli wolisz naliczać przekształcenia ręcznie, moduł ADF obsługuje działa
 
 ### <a name="cicd-and-publish"></a>CI/CD i publikowanie
 [Data Factory oferuje pełną obsługę](continuous-integration-deployment.md) ciągłej integracji i ciągłego wdrażania potoków danych przy użyciu usług Azure DevOps i GitHub. Dzięki temu można stopniowo opracowywać i dostarczać procesy ETL przed opublikowaniem gotowego produktu. Po przekształceniu danych pierwotnych do postaci gotowej dla działań biznesowych należy załadować je do magazynu Azure Data Warehouse, bazy danych Azure SQL Database, bazy danych Azure CosmosDB lub dowolnego aparatu analizy, z którego mogą korzystać użytkownicy biznesowi przy użyciu swoich narzędzi do analizy biznesowej.
-### <a name="monitor"></a>Monitorowanie
+### <a name="monitor"></a>Monitor
 Po pomyślnym utworzeniu i wdrożeniu potoku integracji danych, zapewniającego wartość biznesową danym przetworzonym, należy monitorować zaplanowane działania i potoki pod kątem współczynników powodzenia i niepowodzenia. Usługa Azure Data Factory dysponuje wbudowaną obsługą monitorowania potoków przy użyciu narzędzi Azure Monitor, API, PowerShell, dzienników usługi Azure Monitor i paneli kondycji w witrynie Azure Portal.
 
 ## <a name="top-level-concepts"></a>Koncepcje najwyższego poziomu
 Subskrypcja platformy Azure może zawierać jedno lub więcej wystąpień usługi Azure Data Factory (lub fabryk danych). Azure Data Factory składa się z poniżej najważniejszych składników.
-- Potoki
+- Pipelines
 - Działania
 - Zestawy danych
 - Połączone usługi
@@ -126,5 +123,5 @@ Poniżej przedstawiono ważne dokumenty w następnym kroku umożliwiające Ekspl
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
 - [REST](quickstart-create-data-factory-rest-api.md)
-- [Szablon Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
+- [Szablon usługi Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
  

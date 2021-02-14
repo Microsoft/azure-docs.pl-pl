@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 9e537bfa782569fb8fa2a7957c6874bda69d8c06
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c12ad505777111499fb354709ce606189398458f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805351"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391941"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie zagrożeń cybernetycznymi.
@@ -118,10 +118,9 @@ Jeśli masz już licencję na usługę Microsoft Defender for Endpoint, nie musi
 Aby potwierdzić swój rabat, skontaktuj się z zespołem pomocy technicznej Security Center i podaj odpowiedni identyfikator obszaru roboczego, region i informacje o licencji dla każdej odpowiedniej licencji.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Moja subskrypcja ma włączoną usługę Azure Defender dla serwerów, czy płacisz za niedziałającymi serwerami? 
-Nie. Po włączeniu [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md) w ramach subskrypcji będzie naliczana stawka godzinowa tylko dla uruchomionych serwerów. Nie zostanie naliczona opłata za żaden serwer, który jest wyłączony, w czasie jego wyłączenia. 
+Nie. Po włączeniu [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md) w ramach subskrypcji nie będą naliczane opłaty za żadne serwery, które są w stanie "cofnięto przydział", gdy są w tym stanie.
 
-> [!TIP]
-> Dotyczy to również innych typów zasobów chronionych przez Security Center. 
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Virtual Machines platformy Azure z wyświetloną cofniętą maszyną":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Czy zostaną naliczone opłaty za maszyny, na których nie zainstalowano agenta Log Analytics?
 Tak. Po włączeniu [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md) w ramach subskrypcji maszyny w tej subskrypcji uzyskują zakres ochrony, nawet jeśli nie zainstalowano agenta log Analytics.

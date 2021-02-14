@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą automatycznego skalowania klastra auto
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c0564dc3b394b4a65e70a487b6f6989cb306bdda
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223146"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373253"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatyczne skalowanie klastra w celu spełnienia wymagań aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Aby zachować wymagania dotyczące aplikacji w usłudze Azure Kubernetes Service
 
 W tym artykule opisano sposób włączania automatycznego skalowania klastra i zarządzania nim w klastrze AKS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
@@ -273,6 +273,9 @@ az aks nodepool update \
 ```
 
 Jeśli chcesz ponownie włączyć automatyczne skalowanie klastra w istniejącym klastrze, możesz go ponownie włączyć przy użyciu polecenia [AZ AKS nodepool Update][az-aks-nodepool-update] , określając `--enable-cluster-autoscaler` `--min-count` Parametry, i `--max-count` .
+
+> [!NOTE]
+> Jeśli planujesz używanie automatycznego skalowania klastra z nodepoolsą obejmującą wiele stref i korzystając z funkcji planowania związanych z strefami, takimi jak planowanie topologiczny zbiorczych, zalecenie ma mieć jedną nodepool na strefę i włączyć `--balance-similar-node-groups` za pośrednictwem profilu skalowania automatycznego. Dzięki temu automatyczne skalowanie zostanie pomyślnie skalowane i będzie możliwe wypróbowanie i utrzymanie rozmiarów nodepools.
 
 ## <a name="next-steps"></a>Następne kroki
 

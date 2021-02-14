@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 03/21/2019
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4377ed76de971f78336ea9024b59dafc5d513487
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833983"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094971"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Rozwiązywanie problemów z portalem My Apps
 
@@ -31,11 +31,11 @@ Jeśli masz problemy z instalowaniem rozszerzenia moje aplikacje bezpieczne logo
 
     - **Microsoft Edge.** Działa w systemie Windows 10 w wersji rocznicowej lub nowszej.
 
-    - **Google Chrome.** Uruchomiona w systemie Windows 7 lub nowszym oraz na Mac OS X lub nowszych.
+    - **Google Chrome.** Działa w systemie Windows 7 lub nowszym oraz w systemie macOS X lub nowszym.
 
-    - **Mozilla Firefox 26,0 lub nowsza.** Uruchomiona w systemie Windows XP z dodatkiem SP2 lub nowszym oraz na Mac OS X 10,6 lub nowszym.
+    - **Mozilla Firefox 26,0 lub nowsza.** Uruchomiona w systemie Windows XP z dodatkiem SP2 lub nowszym oraz w systemie macOS X 10,6 lub nowszym.
 
-    - **Internet Explorer 11.** Uruchomiona w systemie Windows 7 lub nowszym (ograniczona obsługa).
+    - **Internet Explorer 11** Uruchomiona w systemie Windows 7 lub nowszym (ograniczona obsługa).
 
 - Upewnij się, że ustawienia rozszerzenia przeglądarki są włączone.
 
@@ -46,6 +46,11 @@ Jeśli masz problemy z instalowaniem rozszerzenia moje aplikacje bezpieczne logo
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Nie mogę zalogować się do portalu **My Apps**
 
 Jeśli masz problemy z zalogowaniem się do portalu **Moje aplikacje** , możesz spróbować wykonać następujące czynności:
+
+- Jeśli zostanie wyświetlony komunikat o błędzie logowania przy użyciu osobistego konto Microsoft, można nadal zalogować się przy użyciu nazwy domeny dla organizacji (takiej jak contoso.com) lub **identyfikatora dzierżawy** organizacji od administratora w jednym z następujących adresów URL:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 - Upewnij się, że używasz odpowiedniego adresu URL. Powinna być https://myapps.microsoft.com lub dostosowana Strona dla organizacji, na przykład https://myapps.microsoft.com/contoso.com .
 

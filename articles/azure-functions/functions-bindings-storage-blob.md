@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: e56d1add36d4296526348d12d7c0b6eb03108f27
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4ec21086ee94610be1d9cf5da7b64c837b5311a9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104363"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381532"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Powiązania magazynu obiektów blob platformy Azure dla Azure Functions — Omówienie
 
@@ -34,6 +34,13 @@ Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. 
 | Skrypt C#, Java, JavaScript, Python, PowerShell | Rejestrowanie [pakietu rozszerzeń]          | [Rozszerzenie narzędzi platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) jest zalecane do użycia z Visual Studio Code. |
 | Skrypt C# (tylko w trybie online w Azure Portal)         | Dodawanie powiązania                            | Aby zaktualizować istniejące rozszerzenia powiązań bez konieczności ponownego publikowania aplikacji funkcji, zobacz [Aktualizowanie rozszerzeń]. |
 
+#### <a name="storage-extension-5x-and-higher"></a>Rozszerzenie magazynu 5. x i nowsze
+
+Nowa wersja rozszerzenia powiązań magazynu jest dostępna jako [pakiet NuGet wersji zapoznawczej](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2). W tej wersji zapoznawczej wprowadzono możliwość [nawiązywania połączenia przy użyciu tożsamości zamiast wpisu tajnego](./functions-reference.md#configure-an-identity-based-connection). W przypadku aplikacji .NET zmienia również typy, do których można utworzyć powiązanie, zastępując typy z `WindowsAzure.Storage` i `Microsoft.Azure.Storage` z nowszymi typami z [platformy Azure. Storage. blob](/dotnet/api/azure.storage.blobs).
+
+> [!NOTE]
+> Pakiet w wersji zapoznawczej nie jest uwzględniony w pakiecie rozszerzenia i musi być zainstalowany ręcznie. W przypadku aplikacji .NET Dodaj odwołanie do pakietu. W przypadku wszystkich innych typów aplikacji zobacz [Aktualizowanie rozszerzeń].
+
 [core tools]: ./functions-run-local.md
 [pakiet rozszerzeń]: ./functions-bindings-register.md#extension-bundles
 [Pakiet NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
@@ -45,6 +52,28 @@ Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. 
 Aplikacje Functions 1. x automatycznie mają odwołanie do pakietu NuGet [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) w wersji 2. x.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
+## <a name="hostjson-settings"></a>host.jsustawień
+
+> [!NOTE]
+> Ta sekcja nie ma zastosowania w przypadku używania wersji rozszerzenia przed 5.0.0. Dla tych wersji nie istnieją globalne ustawienia konfiguracji dla obiektów BLOB.
+
+W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiązania w przypadku używania [rozszerzenia w wersji 5.0.0 lub nowszej](#storage-extension-5x-and-higher). Przykład *host.jsna* poniższym pliku zawiera tylko ustawienia wersji 2. x dla tego powiązania. Aby uzyskać więcej informacji na temat ustawień globalnej konfiguracji w funkcjach w wersji 2. x i więcej, zobacz [host.json Reference for Azure Functions](functions-host-json.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "blobs": {
+            "maxDegreeOfParallelism": "4"
+        }
+    }
+}
+```
+
+|Właściwość  |Domyślne | Opis |
+|---------|---------|---------|
+|maxDegreeOfParallelism|8 * (liczba dostępnych rdzeni)|Liczba całkowita liczby współbieżnych wywołań dozwolona dla każdej funkcji wyzwalanej przez obiekt BLOB. Minimalna dozwolona wartość to 1.|
 
 ## <a name="next-steps"></a>Następne kroki
 

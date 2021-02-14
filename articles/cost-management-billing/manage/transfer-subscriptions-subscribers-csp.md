@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/11/2021
 ms.author: banders
-ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962114"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363053"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
@@ -36,6 +36,7 @@ Po zatwierdzeniu żądania dostawca usług w chmurze może udostępnić swoim kl
 
 Aby przenieść wszelkie inne subskrypcje platformy Azure do partnera będącego dostawcą usług w chmurze, subskrybent musi przenieść zasoby z subskrypcji źródłowych do subskrypcji dostawcy usług w chmurze. Poniższe wskazówki pokazują, jak przenosić zasoby między subskrypcjami.
 
+1. Ustanów [relację odsprzedawcy](/partner-center/request-a-relationship-with-a-customer) z klientem. Zapoznaj się z [omówieniem regionalnej autoryzacji dostawcy usług kryptograficznych](/partner-center/regional-authorization-overview) , aby upewnić się, że wszyscy klienci i partnerzy znajdują się w tych samych uprawnionych
 1. Aby utworzyć docelowe subskrypcje dostawcy usług w chmurze platformy Azure, należy współpracować z partnerem będącym dostawcą usług w chmurze.
 1. Upewnij się, że źródłowa i docelowa subskrypcja dostawcy usług w chmurze znajdują się w tej samej dzierżawie usługi Azure Active Directory (Azure AD).  
     Nie możesz zmienić dzierżawy usługi Azure AD dla subskrypcji dostawcy usług w chmurze platformy Azure. Zamiast tego musisz dodać lub skojarzyć subskrypcję źródłową z dzierżawą usługi Azure AD dostawcy usług w chmurze. Aby uzyskać więcej informacji, zobacz [Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub jej dodawanie do niej](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

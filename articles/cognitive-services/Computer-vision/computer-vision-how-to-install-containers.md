@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokalna, OCR, Docker, kontener
-ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 843000963bc05cab5415c9bb1db32b3272c8dc9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008591"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391778"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 
 
@@ -41,7 +41,7 @@ Kontener OCR Read 3,2-Preview umożliwia:
 * Wyniki pewności.
 * Obsługa dokumentów z drukowanym i odręcznym tekstem.
 * Możliwość wyodrębnienia tekstu z tylko wybranych stron w dokumencie.
-* Wybierz pozycję wiersz tekstu kolejność wyprowadzania z domyślnej do bardziej naturalnej kolejności odczytywania.
+* Wybierz pozycję kolejność wyprowadzania tekstu w wierszu od domyślnego do bardziej naturalnej kolejności odczytywania tylko dla języków łacińskich.
 * Klasyfikacja wiersza tekstu jako styl pisma ręcznego lub nie tylko w przypadku języków łacińskich.
 
 Jeśli obecnie używasz kontenerów z Przeczytajm 2,0, zapoznaj się z [przewodnikiem migracji](read-container-migration-guide.md) , aby dowiedzieć się więcej o zmianach w nowych wersjach.

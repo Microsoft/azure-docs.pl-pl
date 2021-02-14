@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 815947b7c1774fb58ca4e3d20a4d1d2b43099cd2
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 83cf8840ffb9d123efa88d4acc304c8af4db5bf8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593082"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102465"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Szybki start: Konfigurowanie dzierżawy
 
@@ -50,7 +50,7 @@ Wielu deweloperów ma już dzierżawców za pomocą usług lub subskrypcji, któ
 
 Aby sprawdzić dzierżawcę:
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Użyj konta, którego będziesz używać do zarządzania aplikacją.
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>. Użyj konta, którego będziesz używać do zarządzania aplikacją.
 1. Zaznacz prawy górny róg. Jeśli masz dzierżawcę, nastąpi automatyczne zalogowanie. Nazwa dzierżawy zostanie wyświetlona bezpośrednio pod nazwą konta.
    * Umieść wskaźnik myszy nad nazwą konta, aby wyświetlić nazwę, adres e-mail, katalog lub identyfikator dzierżawy (GUID) i domenę.
    * Jeśli Twoje konto jest skojarzone z wieloma dzierżawami, możesz wybrać nazwę swojego konta, aby otworzyć menu, w którym można przełączać się między dzierżawami. Każda dzierżawa ma własny identyfikator dzierżawy.

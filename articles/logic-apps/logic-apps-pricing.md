@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 0de0c5d53bd3195a24f75f4a2e65c19602e2a2b3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 103855748c4b5d998dfc81eeb4044f5f53dae9e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088925"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372012"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modele cen i rozliczeń dla Azure Logic Apps
 
@@ -72,8 +72,8 @@ Stały model cen ma zastosowanie do aplikacji logiki, które działają w [ *śr
 
 | JEDNOSTKA SKU ISE | Opis |
 |---------|-------------|
-| **Premium** | Jednostka podstawowa ma stałą pojemność i jest [rozliczana według stawki godzinowej dla jednostki SKU Premium](https://azure.microsoft.com/pricing/details/logic-apps). Jeśli potrzebujesz większej przepływności, możesz [dodać więcej jednostek skalowania](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) podczas tworzenia ISE lub później. Każda jednostka skalowania jest rozliczana według [stawki godzinowej, która jest w przybliżeniu połowa stawki jednostki bazowej](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>Aby uzyskać informacje o limitach, zobacz [limity ISE w Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
-| **Deweloper** | Jednostka podstawowa ma stałą pojemność i jest [rozliczana według stawki godzinowej dla jednostki SKU dewelopera](https://azure.microsoft.com/pricing/details/logic-apps). Ta jednostka SKU nie ma możliwości skalowania w górę, umowy dotyczącej poziomu usług (SLA) ani opublikowanych limitów. Tej jednostki SKU należy używać tylko w przypadku eksploracji, eksperymentów, programowania i testowania, a nie produkcji lub testowania wydajności. |
+| **Premium** | Jednostka podstawowa ma [stałą pojemność](logic-apps-limits-and-config.md#integration-service-environment-ise) i jest [rozliczana według stawki godzinowej dla jednostki SKU Premium](https://azure.microsoft.com/pricing/details/logic-apps). Jeśli potrzebujesz większej przepływności, możesz [dodać więcej jednostek skalowania](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) podczas tworzenia ISE lub później. Każda jednostka skalowania jest rozliczana według [stawki godzinowej, która jest w przybliżeniu połowa stawki jednostki bazowej](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>Aby uzyskać informacje o pojemności i limitach, zobacz [limity ISE w Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+| **Deweloper** | Jednostka podstawowa ma [stałą pojemność](logic-apps-limits-and-config.md#integration-service-environment-ise) i jest [rozliczana według stawki godzinowej dla jednostki SKU dewelopera](https://azure.microsoft.com/pricing/details/logic-apps). Jednak ta jednostka SKU nie ma umowy dotyczącej poziomu usług (SLA), skalowania w górę lub nadmiarowości podczas odtwarzania, co oznacza, że mogą wystąpić opóźnienia lub przestoje. Aktualizacje zaplecza mogą sporadycznie przerwać działanie usługi. <p><p>**Ważne**: Upewnij się, że ta jednostka SKU jest używana tylko do eksploracji, eksperymentów, programowania i testowania, a nie do testowania wydajności lub produkcji. <p><p>Aby uzyskać informacje o pojemności i limitach, zobacz [limity ISE w Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
 |||
 
 ### <a name="included-at-no-extra-cost"></a>Wliczone bez dodatkowych kosztów

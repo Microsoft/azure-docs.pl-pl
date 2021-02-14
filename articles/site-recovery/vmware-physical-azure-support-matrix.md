@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 0b829955d931bd26b7d38c8cb282f55a6043562e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: f684f57ed1acb5c48694196b4e19de809c98dc9f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550848"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102261"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -180,7 +180,7 @@ Zmień rozmiar dysku na zreplikowanej maszynie wirtualnej | Obsługiwane przez �
 Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wyłącz replikację dla maszyny wirtualnej, Dodaj dysk, a następnie ponownie Włącz replikację.
 
 > [!NOTE]
-> Jakakolwiek zmiana tożsamości dysku nie jest obsługiwana. Na przykład, jeśli partycjonowanie dysku zostało zmienione z GPT na MBR lub odwrotnie, spowoduje to zmianę tożsamości dysku. W takim scenariuszu replikacja zostanie przerwana i konieczne będzie skonfigurowanie nowej instalacji. 
+> Jakakolwiek zmiana tożsamości dysku nie jest obsługiwana. Na przykład, jeśli partycjonowanie dysku zostało zmienione z GPT na MBR lub odwrotnie, spowoduje to zmianę tożsamości dysku. W takim scenariuszu replikacja zostanie przerwana i konieczne będzie skonfigurowanie nowej instalacji. W przypadku maszyn z systemem Linux zmiana nazwy urządzenia nie jest obsługiwana, ponieważ ma ona wpływ na tożsamość dysku.
 
 ## <a name="network"></a>Sieć
 

@@ -1,23 +1,18 @@
 ---
 title: Kopiowanie danych do/z usługi Azure Synapse Analytics
 description: Dowiedz się, jak kopiować dane do/z usługi Azure Synapse Analytics przy użyciu Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0d071599b72f6a71bdff815f514311fb87f53d5b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aa364ec434db980bf226008537ca928628fcac1b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452355"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392089"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Synapse Analytics przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -307,14 +302,14 @@ Data Factory tworzy tabelę w magazynie docelowym z tą samą nazwą tabeli w ź
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Liczba dziesiętna | Liczba dziesiętna |
-| Numeryczne | Liczba dziesiętna |
+| Numeryczny | Liczba dziesiętna |
 | Float | Float |
 | Pieniądze | Pieniądze |
 | Rzeczywiste | Rzeczywiste |
 | SmallMoney | SmallMoney |
 | Binarne | Binarne |
 | Liczby | Varbinary (do 8000) |
-| Data | Data |
+| Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Godzina | Godzina |
@@ -322,7 +317,7 @@ Data Factory tworzy tabelę w magazynie docelowym z tą samą nazwą tabeli w ź
 | SmallDateTime | SmallDateTime |
 | Tekst | Varchar (do 8000) |
 | NText | NVarChar (do 4000) |
-| Obraz | VarBinary (do 8000) |
+| Image (Obraz) | VarBinary (do 8000) |
 | UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
@@ -346,9 +341,9 @@ Mapowanie jest takie samo jak [Mapowanie typu danych SQL Server ADO.NET](/dotnet
 | --- | --- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean (wartość logiczna) |
+| bit |Wartość logiczna |
 | char |String, Char [] |
-| date |DateTime |
+| data |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |

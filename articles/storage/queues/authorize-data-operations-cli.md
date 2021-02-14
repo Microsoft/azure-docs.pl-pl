@@ -6,17 +6,17 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozgun
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 01b78fa3250f371cfc4d713668531664ef8c139e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2f7092d8ce184d7021774814e96935e46d1ffb56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587608"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363172"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Wybieranie metody autoryzacji dostępu do danych kolejki za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -34,6 +34,9 @@ Polecenie interfejsu wiersza polecenia platformy Azure służące do odczytywani
 
 Aby użyć `--auth-mode` parametru, upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji v 2.0.46 lub nowszej. Uruchom `az --version` , aby sprawdzić zainstalowaną wersję.
 
+> [!NOTE]
+> [W przypadku](/rest/api/storagerp/storageaccounts/listkeys) zablokowania konta magazynu z Azure Resource Manager blokadą **tylko do odczytu** nie jest dozwolone dla tego konta magazynu. **Klucze list** są operacją post, a wszystkie operacje post są blokowane, gdy dla konta skonfigurowano blokadę **tylko do odczytu** . Z tego powodu, gdy konto jest zablokowane w przypadku blokady **tylko do odczytu** , użytkownicy, którzy nie posiadają jeszcze kluczy konta, muszą używać poświadczeń usługi Azure AD w celu uzyskania dostępu do danych kolejki.
+
 > [!IMPORTANT]
 > Jeśli pominięto `--auth-mode` parametr lub ustawisz go na `key` , interfejs wiersza polecenia platformy Azure próbuje użyć klucza dostępu do konta w celu autoryzacji. W takim przypadku firma Microsoft zaleca, aby podać klucz dostępu przy użyciu polecenia lub `AZURE_STORAGE_KEY` zmiennej środowiskowej. Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zapoznaj się z sekcją [Ustawianie zmiennych środowiskowych dla parametrów autoryzacji](#set-environment-variables-for-authorization-parameters).
 >
@@ -41,7 +44,7 @@ Aby użyć `--auth-mode` parametru, upewnij się, że zainstalowano interfejs wi
 
 ## <a name="authorize-with-azure-ad-credentials"></a>Autoryzuj przy użyciu poświadczeń usługi Azure AD
 
-Po zalogowaniu się do interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD zwracany jest token dostępu OAuth 2,0. Ten token jest automatycznie używany przez interfejs wiersza polecenia platformy Azure do autoryzacji kolejnych operacji na danych w odniesieniu do Blob Storage lub Queue Storage. W przypadku obsługiwanych operacji nie jest już konieczne przekazywanie klucza konta ani tokenu SAS przy użyciu polecenia.
+Po zalogowaniu się do interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD zwracany jest token dostępu OAuth 2,0. Ten token jest automatycznie używany przez interfejs wiersza polecenia platformy Azure do autoryzacji kolejnych operacji na danych w odniesieniu do Queue Storage. W przypadku obsługiwanych operacji nie jest już konieczne przekazywanie klucza konta ani tokenu SAS przy użyciu polecenia.
 
 Można przypisać uprawnienia do kolejki danych do podmiotu zabezpieczeń usługi Azure AD za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Aby uzyskać więcej informacji na temat ról platformy Azure w usłudze Azure Storage, zobacz [Zarządzanie prawami dostępu do danych usługi Azure Storage za pomocą funkcji RBAC platformy Azure](../common/storage-auth-aad-rbac-portal.md).
 
@@ -55,7 +58,7 @@ Aby uzyskać szczegółowe informacje o uprawnieniach wymaganych dla każdej ope
 
 Poniższy przykład pokazuje, jak utworzyć kolejkę z interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD. Aby utworzyć kolejkę, należy zalogować się do interfejsu wiersza polecenia platformy Azure i będzie potrzebna Grupa zasobów i konto magazynu.
 
-1. Przed utworzeniem kolejki Przypisz rolę [współautor danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) do siebie. Mimo że jesteś właścicielem konta, potrzebujesz jawnych uprawnień do wykonywania operacji na danych na koncie magazynu. Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-portal.md).
+1. Przed utworzeniem kolejki Przypisz rolę [współautor danych kolejki magazynu](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) do siebie. Mimo że jesteś właścicielem konta, potrzebujesz jawnych uprawnień do wykonywania operacji na danych na koncie magazynu. Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > Propagowanie przypisań ról platformy Azure może potrwać kilka minut.
