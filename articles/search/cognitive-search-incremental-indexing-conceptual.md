@@ -7,13 +7,13 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/09/2021
+ms.openlocfilehash: 2448609b1184c8e91947bffbd13cfea8e3fe5d52
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971640"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390865"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Przyrostowe wzbogacanie i buforowanie na platformie Azure Wyszukiwanie poznawcze
 
@@ -23,7 +23,7 @@ ms.locfileid: "90971640"
 
 *Wzbogacanie przyrostowe* jest funkcją, która jest przeznaczona dla [umiejętności](cognitive-search-working-with-skillsets.md). Korzysta ona z usługi Azure Storage, aby zapisać dane wyjściowe przetwarzania emitowane przez potok wzbogacania do ponownego użycia w przyszłych uruchomieniach indeksatora. Gdy jest to możliwe, indeksator ponownie używa wszystkich buforowanych danych wyjściowych, które są nadal ważne. 
 
-Nie tylko to, że przyrostowe wzbogacanie zachowuje inwestycje pieniężne w przetwarzaniu (w szczególności w przypadku przetwarzania OCR i obrazów), ale również zapewnia wydajniejszy system. Gdy struktury i zawartość są buforowane, indeksator może ustalić, które umiejętności uległy zmianie, i uruchamiać tylko te, które zostały zmodyfikowane, a także wszelkie podrzędne umiejętności zależne. 
+Nie tylko to, że przyrostowe wzbogacanie zachowuje inwestycje pieniężne w przetwarzaniu (w szczególności w przypadku przetwarzania OCR i obrazów), ale również zapewnia wydajniejszy system. 
 
 Przepływ pracy korzystający z buforowania przyrostowego obejmuje następujące kroki:
 
@@ -95,7 +95,7 @@ Ustawienie tego parametru gwarantuje, że tylko aktualizacje definicji zestawu u
 Poniższy przykład przedstawia żądanie aktualizacji zestawu umiejętności z parametrem:
 
 ```http
-PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
+PUT https://[search service].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
 ### <a name="bypass-data-source-validation-checks"></a>Pomiń sprawdzanie poprawności źródła danych
@@ -103,7 +103,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 Większość zmian w definicji źródła danych spowoduje unieważnienie pamięci podręcznej. Jednak w przypadku scenariuszy, w których wiadomo, że zmiana nie powinna unieważnić pamięci podręcznej, takich jak zmiana parametrów połączenia lub obracanie klucza na koncie magazynu, należy dołączyć `ignoreResetRequirement` parametr do aktualizacji źródła danych. Ustawienie tego parametru `true` pozwala na przechodzenie przez proces zatwierdzania, bez wyzwalania warunku resetowania, który spowodowałaby odbudowanie wszystkich obiektów i wypełnienie ich od podstaw.
 
 ```http
-PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2020-06-30-Preview&ignoreResetRequirement=true
+PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview&ignoreResetRequirement=true
 ```
 
 ### <a name="force-skillset-evaluation"></a>Wymuś Obliczanie zestawu umiejętności
@@ -111,6 +111,10 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 Celem pamięci podręcznej jest uniknięcie niepotrzebnego przetwarzania, ale Załóżmy, że wprowadzasz zmiany w umiejętności, którą indeksator nie wykrywa (na przykład w przypadku zmiany elementu w kodzie zewnętrznym, np. z niestandardową umiejętnością).
 
 W takim przypadku można użyć możliwości [resetowania](/rest/api/searchservice/preview-api/reset-skills) w celu wymuszenia przetworzenia konkretnej umiejętności, w tym wszelkich umiejętności podrzędnych, które są zależne od danych wyjściowych tej umiejętności. Ten interfejs API akceptuje żądanie POST z listą umiejętności, które powinny być unieważnione i oznaczone do ponownego przetworzenia. Po zresetowaniu umiejętności Uruchom indeksator w celu wywołania potoku.
+
+### <a name="reset-documents"></a>Resetuj dokumenty
+
+[Zresetowanie indeksatora](/rest/api/searchservice/reset-indexer) spowoduje ponowne przetworzenie wszystkich dokumentów w korpus wyszukiwania. W scenariuszach, w których należy ponownie przetworzyć tylko kilka dokumentów i nie można zaktualizować źródła danych, użyj [resetowania dokumentów (wersja zapoznawcza)](/rest/api/searchservice/preview-api/reset-documents) , aby wymusić ponowne przetwarzanie określonych dokumentów. Po zresetowaniu dokumentu indeksator unieważnia pamięć podręczną dla tego dokumentu, a dokument jest przetwarzany przez odczytanie go ze źródła danych. Aby uzyskać więcej informacji, zobacz [Uruchamianie lub resetowanie indeksatorów, umiejętności i dokumentów](search-howto-run-reset-indexers.md).
 
 ## <a name="change-detection"></a>Wykrywanie zmian
 

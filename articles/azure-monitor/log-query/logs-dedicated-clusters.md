@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 1222108694ff7274e5d8fd063635b70a76ffc59c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bcd89274b1f2ba7b31a10a481e3d73901eac2c60
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954753"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375191"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -84,7 +84,7 @@ Po utworzeniu zasobu *klastra* można edytować dodatkowe właściwości, takie 
 Na subskrypcję można mieć maksymalnie 2 aktywne klastry dla poszczególnych regionów. Jeśli klaster zostanie usunięty, nadal jest zarezerwowany przez 14 dni. Możesz mieć maksymalnie 4 zastrzeżone klastry na subskrypcję na region (aktywne lub ostatnio usunięte).
 
 > [!WARNING]
-> Tworzenie klastra wyzwala alokację zasobów i Inicjowanie obsługi administracyjnej. Wykonanie tej operacji może potrwać do godziny. Zalecane jest, aby uruchomić go asynchronicznie.
+> Tworzenie klastra wyzwala alokację zasobów i Inicjowanie obsługi administracyjnej. Wykonanie tej operacji może potrwać kilka godzin. Zalecane jest, aby uruchomić go asynchronicznie.
 
 Konto użytkownika, które tworzy klastry, musi mieć standardowe uprawnienie do tworzenia zasobów platformy Azure: `Microsoft.Resources/deployments/*` i uprawnienia do zapisu klastra `Microsoft.OperationalInsights/clusters/write` przez posiadanie przypisanej im roli tej konkretnej akcji lub `Microsoft.OperationalInsights/*` lub `*/write` .
 

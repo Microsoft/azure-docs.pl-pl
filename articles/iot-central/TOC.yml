@@ -1,0 +1,317 @@
+- name: Dokumentacja usługi Azure IoT Central
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest usługa Azure IoT Central
+      href: core/overview-iot-central.md
+    - name: Przewodnik po interfejsie użytkownika
+      href: core/overview-iot-central-tour.md
+    - name: Najnowsze aktualizacje
+      items:
+        - name: Styczeń 2021. nowe i zaktualizowane funkcje
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
+        - name: "Nowe i zaktualizowane funkcje — listopad 2020\_r."
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
+        - name: "Nowe i zaktualizowane funkcje — październik 2020\_r."
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/'
+        - name: Nowe i zaktualizowane funkcje — wrzesień 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/'
+        - name: Nowe i zaktualizowane funkcje — sierpień 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/'
+        - name: Nowe i zaktualizowane funkcje — lipiec 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/'
+        - name: Nowe i zaktualizowane funkcje — czerwiec 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/'
+        - name: Aktualizacje interfejsu użytkownika i dokumentacji — czerwiec 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/'
+        - name: Aktualizacje zadań i metryk — maj 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/'
+        - name: Aktualizacje pulpitu nawigacyjnego — maj 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/'
+        - name: Nowe funkcje — kwiecień 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/'
+        - name: Aktualizacje — kwiecień 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/'
+        - name: Marzec 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: 1. Tworzenie nowej aplikacji
+      href: core/quick-deploy-iot-central.md
+    - name: 2. Dodawanie symulowanego urządzenia
+      href: core/quick-create-simulated-device.md
+    - name: 3. Konfigurowanie reguł i akcji
+      href: core/quick-configure-rules.md
+    - name: 4. Monitorowanie urządzeń
+      href: core/quick-monitor-devices.md
+- name: Samouczki
+  items:
+    - name: Tworzenie i łączenie urządzeń
+      items:
+        - name: Tworzenie i łączenie urządzenia
+          href: core/tutorial-connect-device.md
+        - name: Tworzenie szablonu urządzenia bramy
+          href: core/tutorial-define-gateway-device-type.md
+        - name: Łączenie urządzenia usługi IoT Edge
+          href: core/tutorial-add-edge-as-leaf-device.md
+    - name: Tworzenie zintegrowanych rozwiązań
+      items:
+        - name: Tworzenie grupy urządzeń
+          href: core/tutorial-use-device-groups.md
+        - name: Tworzenie reguły
+          href: core/tutorial-create-telemetry-rules.md
+        - name: Eksplorowanie interfejsów API usługi IoT Central
+          href: /learn/modules/manage-iot-central-apps-with-rest-api/
+    - name: Rozwiązania dla branż
+      items:
+        - name: Retail
+          href: retail/overview-iot-central-retail.md
+          items:
+            - name: Analiza w sklepie — finalizacja zakupu
+              href: retail/store-analytics-architecture.md
+              items:
+                - name: 1 — Tworzenie aplikacji handlu detalicznego
+                  href: retail/tutorial-in-store-analytics-create-app.md
+                - name: 2 — Dostosowywanie pulpitu nawigacyjnego operatora
+                  href: retail/tutorial-in-store-analytics-customize-dashboard.md
+                - name: 3 — Eksportowanie danych i wizualizacja szczegółowych informacji
+                  href: retail/tutorial-in-store-analytics-export-data-visualize-insights.md
+            - name: Inteligentne zarządzanie magazynem
+              href: retail/architecture-smart-inventory-management.md
+              items:
+                - name: Tworzenie aplikacji inteligentnego zarządzania magazynem
+                  href: retail/tutorial-iot-central-smart-inventory-management.md
+            - name: Połączona logistyka
+              href: retail/architecture-connected-logistics.md
+              items:
+                - name: Tworzenie aplikacji połączonej logistyki
+                  href: retail/tutorial-iot-central-connected-logistics.md
+            - name: Cyfrowe centrum dystrybucji
+              href: retail/architecture-digital-distribution-center.md
+              items:
+                - name: Tworzenie aplikacji cyfrowego centrum dystrybucji
+                  href: retail/tutorial-iot-central-digital-distribution-center.md
+            - name: Centrum mikrorealizacji
+              href: retail/architecture-micro-fulfillment-center.md
+              items:
+                - name: Tworzenie aplikacji centrum mikrorealizacji
+                  href: retail/tutorial-micro-fulfillment-center.md
+            - name: Analiza wideo — wykrywanie obiektów i ruchu
+              href: retail/architecture-video-analytics.md
+              items:
+                - name: 0 — Wdrażanie aplikacji do wykrywania obiektów i ruchu
+                  href: retail/tutorial-video-analytics-deploy.md
+                - name: 1 — Tworzenie aplikacji do analizy wideo
+                  items:
+                    - name: Wykrywanie obiektów i ruchu (YOLO v3)
+                      href: retail/tutorial-video-analytics-create-app-yolo-v3.md
+                    - name: Wykrywanie obiektów i ruchu (OpenVINO)
+                      href: retail/tutorial-video-analytics-create-app-openvino.md
+                - name: 2 — Konfigurowanie urządzenia usługi IoT Edge
+                  items:
+                    - name: Tworzenie urządzenia do analizy wideo na brzegu sieci (maszyna wirtualna z systemem Linux)
+                      href: retail/tutorial-video-analytics-iot-edge-vm.md
+                    - name: Tworzenie urządzenia do analizy wideo na brzegu sieci (urządzenie Intel NUC)
+                      href: retail/tutorial-video-analytics-iot-edge-nuc.md
+                - name: 3 — Monitorowanie aplikacji do analizy wideo i zarządzanie nią
+                  href: retail/tutorial-video-analytics-manage.md
+                - name: 4 — Modyfikowanie i tworzenie modułów bramy analizy wideo na żywo
+                  href: retail/tutorial-video-analytics-build-module.md
+        - name: Energetyczna
+          href: energy/overview-iot-central-energy.md
+          items:
+            - name: Architektura aplikacji inteligentnych liczników
+              href: energy/concept-iot-central-smart-meter-app.md
+            - name: Tworzenie aplikacji do monitorowania inteligentnych liczników
+              href: energy/tutorial-smart-meter-app.md
+            - name: Architektura aplikacji paneli słonecznych
+              href: energy/concept-iot-central-solar-panel-app.md
+            - name: Tworzenie aplikacji do monitorowania paneli słonecznych
+              href: energy/tutorial-solar-panel-app.md
+        - name: Instytucje rządowe
+          href: government/overview-iot-central-government.md
+          items:
+            - name: Architektura referencyjna połączonego zarządzania odpadami
+              href: government/concepts-connectedwastemanagement-architecture.md
+            - name: Tworzenie aplikacji połączonego zarządzania odpadami
+              href: government/tutorial-connected-waste-management.md
+            - name: Architektura referencyjna monitorowania zużycia wody
+              href: government/concepts-waterconsumptionmonitoring-architecture.md
+            - name: Tworzenie aplikacji do monitorowania zużycia wody
+              href: government/tutorial-water-consumption-monitoring.md
+            - name: Architektura referencyjna monitorowania jakości wody
+              href: government/concepts-waterqualitymonitoring-architecture.md
+            - name: Tworzenie aplikacji do monitorowania jakości wody
+              href: government/tutorial-water-quality-monitoring.md
+            - name: Łączenie aplikacji IoT Central platformy Azure z usługami pól Dynamics 365
+              href: government/how-to-configure-connected-field-services.md
+        - name: Opieka zdrowotna
+          href: healthcare/overview-iot-central-healthcare.md
+          items:
+            - name: Architektura ciągłego monitorowania pacjenta
+              href: healthcare/concept-continuous-patient-monitoring-architecture.md
+            - name: Tworzenie aplikacji ciągłego monitorowania pacjenta
+              href: healthcare/tutorial-continuous-patient-monitoring.md
+            - name: Tworzenie pulpitu nawigacyjnego klasyfikacji danych medycznych
+              href: healthcare/howto-health-data-triage.md
+- name: Pojęcia
+  items:
+    - name: Architektura
+      href: core/concepts-architecture.md
+    - name: Przewodnik dla deweloperów urządzeń
+      href: core/overview-iot-central-developer.md
+    - name: Przewodnik po konstruktorze rozwiązań
+      href: core/overview-iot-central-developer.md
+    - name: Co to są szablony aplikacji?
+      href: core/concepts-app-templates.md
+    - name: Co to są szablony urządzeń?
+      href: core/concepts-device-templates.md
+    - name: Łączność urządzeń
+      href: core/concepts-get-connected.md
+    - name: Ładunki komunikatów
+      href: core/concepts-telemetry-properties-commands.md
+    - name: Łączenie urządzeń usługi IoT Edge
+      href: core/concepts-iot-edge.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Tworzenie i łączenie urządzeń
+      items:
+        - name: Konfigurowanie szablonu urządzenia
+          href: core/howto-set-up-template.md
+        - name: Wersjonowanie szablonu urządzenia
+          href: core/howto-version-device-template.md
+        - name: Jak używać właściwości
+          href: core/howto-use-properties.md
+        - name: Jak używać poleceń
+          href: core/howto-use-commands.md
+        - name: Łączenie urządzeń przy użyciu standardu X.509
+          href: core/how-to-connect-devices-x509.md
+        - name: Monitorowanie łączności urządzeń przy użyciu interfejsu wiersza polecenia platformy Azure
+          href: core/howto-monitor-devices-azure-cli.md
+        - name: Przygotowywanie i łączenie zestawu Azure Sphere DevKit
+          href: core/howto-connect-sphere.md
+        - name: Przygotowywanie i łączenie urządzenia RuuviTag
+          href: core/howto-connect-ruuvi.md
+        - name: Przygotowywanie i łączenie urządzenia Rigado Cascade 500
+          href: core/howto-connect-rigado-cascade-500.md
+        - name: Łączenie innych chmur IoT
+          href: core/howto-build-iotc-device-bridge.md
+    - name: Tworzenie zintegrowanych rozwiązań
+      items:
+        - name: Dodawanie kafelków do pulpitu nawigacyjnego
+          href: core/howto-add-tiles-to-your-dashboard.md
+        - name: Konfigurowanie reguł
+          href: core/howto-configure-rules.md
+        - name: Tworzenie elementów webhook w regułach
+          href: core/howto-create-webhooks.md
+        - name: Łączenie grup akcji usługi Azure Monitor w regułach
+          href: core/howto-use-action-groups.md
+        - name: Analizowanie danych urządzenia
+          href: core/howto-create-analytics.md
+        - name: Eksportowanie danych do lokalizacji docelowych w chmurze
+          href: core/howto-export-data.md
+        - name: Eksportowanie danych do lokalizacji docelowych w chmurze (starsza wersja)
+          href: core/howto-export-data-legacy.md
+        - name: Używanie przepływów pracy do integracji z innymi usługami
+          href: core/howto-configure-rules-advanced.md
+        - name: Tworzenie reguł niestandardowych
+          href: core/howto-create-custom-rules.md
+        - name: Tworzenie niestandardowych analiz przy użyciu usługi Databricks
+          href: core/howto-create-custom-analytics.md
+        - name: Wizualizacja danych w usłudze Power BI
+          href: core/howto-connect-powerbi.md
+    - name: Zarządzanie urządzeniami
+      items:
+        - name: Dodawanie i usuwanie urządzeń
+          href: core/howto-manage-devices.md
+        - name: Uruchamianie zadania
+          href: core/howto-run-a-job.md
+    - name: Administrowanie rozwiązaniem
+      items:
+        - name: Zmienianie ustawień aplikacji
+          href: core/howto-administer.md
+        - name: Zarządzanie użytkownikami i rolami
+          href: core/howto-manage-users-roles.md
+        - name: Zarządzanie rachunkiem
+          href: core/howto-view-bill.md
+        - name: Dostosowywanie interfejsu użytkownika aplikacji
+          href: core/howto-customize-ui.md
+        - name: Eksportowanie aplikacji
+          href: core/howto-use-app-templates.md
+        - name: Migrowanie aplikacji z wersji 2 do v3
+          href: core/howto-migrate.md
+        - name: Monitorowanie kondycji aplikacji
+          href: core/howto-monitor-application-health.md
+        - name: Informacje o aplikacji
+          href: core/howto-get-app-info.md
+        - name: Konfigurowanie i używanie przekazywania plików
+          href: core/howto-configure-file-uploads.md
+        - name: Wdrażanie certyfikatów X.509
+          href: core/how-to-roll-x509-certificates.md
+        - name: Zarządzanie z poziomu witryny Azure Portal
+          href: core/howto-manage-iot-central-from-portal.md
+        - name: Zarządzanie z poziomu interfejsu wiersza polecenia platformy Azure
+          href: core/howto-manage-iot-central-from-cli.md
+        - name: Zarządzanie z poziomu programu Azure PowerShell
+          href: core/howto-manage-iot-central-from-powershell.md
+        - name: Zarządzanie programistyczne
+          href: core/howto-manage-iot-central-programmatically.md
+        - name: Zarządzanie z poziomu portalu CSP
+          href: core/howto-create-and-manage-applications-csp.md
+    - name: Personalizowanie rozwiązania
+      items:
+        - name: Tworzenie osobistego pulpitu nawigacyjnego
+          href: core/howto-create-personal-dashboards.md
+        - name: Zarządzanie osobistymi preferencjami
+          href: core/howto-manage-preferences.md
+        - name: Przełączanie czatu na żywo
+          href: core/howto-show-hide-chat.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Połączenia urządzenia
+          href: core/troubleshoot-connection.md
+    - name: Często zadawane pytania
+      href: core/howto-faq.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/azure-cli-reference-for-IoT
+    - name: Dokumentacja interfejsu API usługi IoT Central
+      href: /rest/api/iotcentral/
+- name: Zasoby
+  items:
+    - name: Przykłady kodu
+      href: /samples/browse/?expanded=azure&products=azure-iot-central
+    - name: Opcje wsparcia technicznego i pomocy
+      href: ../iot-fundamentals/iot-support-help.md
+    - name: Usługi Azure IoT
+      items:
+        - name: Usługa IoT Hub
+          href: ../iot-hub/index.yml
+        - name: Usługa IoT Hub Device Provisioning
+          href: ../iot-dps/index.yml
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: Akceleratory rozwiązań IoT
+          href: ../iot-accelerators/index.yml
+        - name: IoT Plug and Play
+          href: ../iot-pnp/index.yml
+        - name: Azure Maps
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml
+    - name: Zestawy SDK usługi Azure IoT
+      items:
+        - name: Zestawy SDK usługi IoT
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
+        - name: Zestawy SDK urządzeń IoT
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
+    - name: Miejsce przechowywania danych klienta
+      href: core/iot-central-customer-data-residency.md
+    - name: Żądania danych klienta
+      href: core/iot-central-customer-data-requests.md
+    - name: Obsługiwane przeglądarki
+      href: core/iot-central-supported-browsers.md
+    - name: Azure IoT Central (starsze szablony)
+      href: /previous-versions/azure/iot-central/core/overview-iot-central

@@ -4,19 +4,19 @@ description: Monitorowanie wydajności aplikacji dla usług Azure App Services. 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186375"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365229"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
 Włączenie monitorowania na ASP.NET i opartych na ASP.NET Core aplikacjach sieci Web działających na [platformie Azure App Services](../../app-service/index.yml) jest teraz łatwiejsze niż kiedykolwiek wcześniej. Wcześniej trzeba było ręcznie zainstalować rozszerzenie witryny, dlatego najnowsze rozszerzenie/Agent jest teraz domyślnie wbudowane w obraz usługi App Service. W tym artykule opisano Włączanie monitorowania Application Insights oraz zamieszczono wstępne wskazówki dotyczące automatyzowania procesu wdrażania na dużą skalę.
 
 > [!NOTE]
-> Ręczne dodawanie rozszerzenia witryny Application Insights za pomocą **rozszerzeń narzędzi programistycznych**  >  **Extensions** jest przestarzałe. Ta metoda instalacji rozszerzenia była zależna od aktualizacji ręcznych dla każdej nowej wersji. Najnowsza stabilna wersja rozszerzenia jest teraz  [wstępnie zainstalowana](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) jako część obrazu App Service. Pliki znajdują się w `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` systemie i są automatycznie aktualizowane z każdą stabilną wersją. W przypadku korzystania z instrukcji opartych na agencie w celu włączenia monitorowania poniżej zostanie automatycznie usunięte przestarzałe rozszerzenie.
+> Ręczne dodawanie rozszerzenia witryny Application Insights za pomocą **rozszerzeń narzędzi programistycznych**  >   jest przestarzałe. Ta metoda instalacji rozszerzenia była zależna od aktualizacji ręcznych dla każdej nowej wersji. Najnowsza stabilna wersja rozszerzenia jest teraz  [wstępnie zainstalowana](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) jako część obrazu App Service. Pliki znajdują się w `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` systemie i są automatycznie aktualizowane z każdą stabilną wersją. W przypadku korzystania z instrukcji opartych na agencie w celu włączenia monitorowania poniżej zostanie automatycznie usunięte przestarzałe rozszerzenie.
 
 ## <a name="enable-application-insights"></a>Włączanie usługi Application Insights
 
@@ -75,7 +75,8 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Obsługiwane są następujące wersje ASP.NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
+> [!IMPORTANT]
+> Obsługiwane są następujące wersje ASP.NET Core: ASP.NET Core 2,1, 3,1 i 5,0. Wersje 2,0, 2,2 i 3,0 zostały wycofane i nie są już obsługiwane. Przeprowadź uaktualnienie do [obsługiwanej wersji](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) programu .NET Core, aby funkcja autoinstrumentacja działała prawidłowo.
 
 Ukierunkowanie na pełną strukturę ASP.NET Core, samodzielnego wdrażania i aplikacji opartych na systemie Linux **nie** są obecnie obsługiwane przez monitorowanie oparte na agentach/rozszerzeniach. ([Instrumentacja ręczna](./asp-net-core.md) za pośrednictwem kodu będzie działała we wszystkich poprzednich scenariuszach).
 
@@ -90,7 +91,7 @@ Ukierunkowanie na pełną strukturę ASP.NET Core, samodzielnego wdrażania i ap
 
      ![Instrumentacja aplikacji internetowej](./media/azure-web-apps/create-resource-01.png)
 
-2. Po określeniu zasobu, który ma być używany, można wybrać, w jaki sposób Application Insights zbierać dane na platformę dla aplikacji. ASP.NET Core oferuje **zalecane kolekcje** lub **wyłączone** dla ASP.NET Core 2,1, 2,2, 3,0 i 3,1.
+2. Po określeniu zasobu, który ma być używany, można wybrać, w jaki sposób Application Insights zbierać dane na platformę dla aplikacji. ASP.NET Core oferuje **zalecane kolekcje** lub **wyłączone** dla ASP.NET Core 2,1 i 3,1.
 
     ![Wybierz opcje na platformę](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -419,6 +420,12 @@ Jeśli chcesz przetestować monitorowanie po stronie serwera i klienta dla ASP.N
 ### <a name="connection-string-and-instrumentation-key"></a>Parametry połączenia i klucz Instrumentacji
 
 Gdy jest używane monitorowanie bez kodu, wymagane są tylko parametry połączenia. Mimo że nadal zalecamy ustawienie klucza Instrumentacji w celu zachowania zgodności z poprzednimi wersjami w przypadku wykonywania Instrumentacji ręcznej.
+
+### <a name="difference-between-standard-metrics-from-application-insights-vs-azure-app-service-metrics"></a>Różnica między standardowymi metrykami Application Insights a metrykami Azure App Service
+
+Application Insights zbiera dane telemetryczne dla tych żądań, które zostały przez nich wykonane. Jeśli wystąpił błąd w aplikacjach webapps/IIS, a żądanie nie dotarło do aplikacji użytkownika, Application Insights nie będzie zawierać żadnych danych telemetrii.
+
+Czas trwania `serverresponsetime` obliczony przez Application Insights nie zawsze pasuje do czasu odpowiedzi serwera zaobserwowanego przez Web Apps. Wynika to z faktu, że Application Insights liczy czas trwania, gdy żądanie rzeczywista dociera do aplikacji użytkownika. Jeśli żądanie jest zablokowane/kolejkowane w usługach IIS, ten czas oczekiwania zostanie uwzględniony w metrykach aplikacji sieci Web, ale nie w metrykach Application Insights.
 
 ## <a name="release-notes"></a>Informacje o wersji
 

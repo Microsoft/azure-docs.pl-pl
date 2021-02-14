@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 ms.author: banders
-ms.openlocfilehash: debe02a89e10712ad8a0b8d61b0fdc3f8a4bd7b2
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c599c64ce4b22bbf7bece77602b22fef6629d07c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577805"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369734"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-premium-v3-instances-and-isolated-stamps"></a>Jak są stosowane rabaty rezerwacji do Azure App Service wystąpień Premium v3 i wyizolowanych sygnatur
 
@@ -40,10 +40,6 @@ Rabat w ramach rezerwacji platformy Azure jest stosowany do uruchamiania wystąp
 4.  W godzinie 4 wystąpienie 1 działa przez 0,5 godz., a wystąpienie 2 działa przez 1 godz. Wystąpienie 1 jest w pełni objęte rezerwacją. W wystąpieniu 2 rezerwacją jest objęte 0,5 godz. Za pozostałe 0,5 godz. opłaty są naliczane według stawek płatności zgodnie z rzeczywistym użyciem.
 
 Aby poznać zastosowanie swoich rezerwacji platformy Azure w raportach rozliczeń użycia i przejrzeć je, zobacz [Omówienie użycia rezerwacji](understand-reserved-instance-usage-ea.md).
-
-### <a name="discount-can-apply-to-different-sizes"></a>Rabat może być stosowany do różnych rozmiarów
-
-W przypadku zakupu zarezerwowanego wystąpienia Premium v3 i wybrania opcji **zoptymalizowane pod kątem elastyczności rozmiaru wystąpienia**, pokrycie rabatu dotyczy wybranych rozmiarów wystąpienia Premium v3. Może również mieć zastosowanie do innych rozmiarów wystąpień, które znajdują się w tej samej grupie elastycznej rozmiaru wystąpienia serii.
 
 ## <a name="how-reservation-discounts-apply-to-isolated-stamps"></a>Jak rabaty rezerwacji dotyczą odizolowanych sygnatur
 

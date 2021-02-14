@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: 85f239afd1b9263440abff1f924c12cdb7eeadaa
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560283"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388859"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Jak utworzyć transkrypcje z etykietami ludzkimi
 
@@ -24,7 +24,12 @@ Jeśli chcesz poprawić dokładność rozpoznawania, szczególnie problemy, któ
 Do usprawnienia rozpoznawania jest wymagane duże przykładowe dane transkrypcji, dlatego sugerujemy dostarczenie danych transkrypcji od 10 do 20 godzin. Na tej stronie zawarto Przegląd wytycznych dotyczących tworzenia transkrypcji o wysokiej jakości. Ten przewodnik jest podzielony na ustawienia regionalne, z sekcjami dla angielskiej wersji językowej USA, chińskiej (mandarynek) i niemieckiej.
 
 > [!NOTE]
-> Nie wszystkie modele podstawowe obsługują Dostosowywanie przy użyciu plików audio. Jeśli model podstawowy nie obsługuje tego rozwiązania, szkolenie będzie używać tylko tekstu transkrypcji w taki sam sposób jak w przypadku użycia powiązanego tekstu.
+> Nie wszystkie modele podstawowe obsługują Dostosowywanie przy użyciu plików audio. Jeśli model podstawowy nie obsługuje tego rozwiązania, szkolenie będzie używać tylko tekstu transkrypcji w taki sam sposób jak w przypadku użycia powiązanego tekstu. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio.
+
+> [!NOTE]
+> W przypadkach, gdy zmieniasz model podstawowy używany do szkolenia i masz dźwięk w zestawie danych szkoleniowych, *zawsze* sprawdzaj, czy nowy wybrany model podstawowy [obsługuje szkolenia z danymi audio](language-support.md#speech-to-text). Jeśli wcześniej użyty model podstawowy nie obsługiwał szkolenia z danymi audio, a zestaw danych szkoleniowych zawiera dźwięk, czas uczenia z nowym modelem podstawowym zostanie **znacząco** zwiększony i może być łatwo przeszedł z kilku godzin do kilku dni i więcej. Jest to szczególnie prawdziwe, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
+>
+> Jeśli problem opisany w powyższym akapicie, możesz szybko skrócić czas uczenia, zmniejszając ilość dźwięku w zestawie danych lub usuwając ją całkowicie i pozostawiając tylko tekst. Ta ostatnia opcja jest zdecydowanie zalecana, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
 
 ## <a name="us-english-en-us"></a>Angielski (EN-US)
 

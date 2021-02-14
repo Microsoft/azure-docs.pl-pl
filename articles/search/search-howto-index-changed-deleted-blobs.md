@@ -8,14 +8,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: b23dabb4388331de9e37ee9db1d4b9d727ccde68
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 79d5583f8c9e562a0d21a91c210aa6259472661d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430564"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383538"
 ---
-# <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Jak skonfigurować wykrywanie zmian i usuwania dla obiektów BLOB w usłudze Azure Wyszukiwanie poznawcze Indexing
+# <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Wykrywanie zmian i usuwania w indeksie obiektów BLOB (Azure Wyszukiwanie poznawcze)
 
 Po utworzeniu początkowego indeksu wyszukiwania można chcieć, aby kolejne zadania indeksatora miały tylko możliwość pobrania nowych i zmienionych dokumentów. W przypadku wyszukiwania zawartości pochodzącej z usługi Azure Blob Storage wykrywanie zmian odbywa się automatycznie w przypadku użycia harmonogramu do wyzwolenia indeksowania. Domyślnie usługa ponownie indeksuje tylko zmienione obiekty blob zgodnie z `LastModified` sygnaturą czasową obiektu BLOB. W przeciwieństwie do innych źródeł danych obsługiwanych przez indeksatory wyszukiwania, obiekty blob zawsze mają sygnaturę czasową, co eliminuje konieczność ręcznego skonfigurowania zasad wykrywania zmian.
 

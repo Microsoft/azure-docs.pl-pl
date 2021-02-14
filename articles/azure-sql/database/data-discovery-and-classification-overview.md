@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/01/2020
+ms.date: 02/11/2021
 tags: azure-synapse
-ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185363"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392769"
 ---
 # <a name="data-discovery--classification"></a>Odnajdywanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -79,7 +79,7 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
 1. Przejdź do obszaru **odnajdywanie danych & Klasyfikacja** pod nagłówkiem **zabezpieczenia** w okienku Azure SQL Database. Karta przegląd zawiera podsumowanie bieżącego stanu klasyfikacji bazy danych. Podsumowanie zawiera szczegółową listę wszystkich sklasyfikowanych kolumn, które można również filtrować w celu wyświetlania tylko określonych części schematu, typów informacji i etykiet. Jeśli nie zostały jeszcze sklasyfikowane żadne kolumny, [Przejdź do kroku 4](#step-4).
 
-    ![Przegląd](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
+    ![Omówienie](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Aby pobrać raport w formacie programu Excel, wybierz opcję **Eksportuj** w górnym menu okienka.
 
@@ -183,6 +183,13 @@ Za pomocą interfejsu API REST można programowo zarządzać klasyfikacjami i za
 - [Get](/rest/api/sql/sensitivitylabels/get): Pobiera etykietę czułości dla określonej kolumny.
 - [Lista bieżąca według bazy danych](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): pobiera bieżące etykiety czułości określonej bazy danych.
 - [Lista zalecana przez bazę danych](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Pobiera zalecane etykiety czułości określonej bazy danych.
+
+
+## <a name="faq---advanced-classification-capabilities"></a>Często zadawane pytania — zaawansowane funkcje klasyfikacji
+
+**Pytanie**: czy [usługa Azure kontrolą](https://docs.microsoft.com/azure/purview/overview) zastąpi &ą klasyfikację i czy zostanie wycofana funkcja odnajdywania danych SQL & Klasyfikacja?
+**Odpowiedź**: nadal obsługujemy funkcję klasyfikacji & danych SQL i zachęcamy do wdrażania [usługi Azure kontrolą](https://docs.microsoft.com/azure/purview/overview) , która ma bogatsze możliwości w zakresie możliwości zaawansowanej klasyfikacji i zarządzania danymi. Jeśli zdecydujesz się wycofać wszelkie usługi, funkcje, interfejsy API lub jednostki SKU, otrzymasz informacje z wyprzedzeniem, w tym migracji lub ścieżki przejścia. Więcej informacji na temat zasad cyklu życia firmy Microsoft znajdziesz tutaj.
+
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Następne kroki
 

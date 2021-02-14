@@ -4,12 +4,12 @@ description: Włącz automatyczne skalowanie w puli w chmurze, aby dynamicznie d
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 06f717e7c3ab8285b494f89c39838af6b0d96c8f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95737296"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381430"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Utwórz automatyczną formułę skalowania węzłów obliczeniowych w puli usługi Batch
 
@@ -128,6 +128,7 @@ Możesz uzyskać wartość tych zmiennych zdefiniowanych przez usługę, aby wpr
 | $PendingTasks |Suma $ActiveTasks i $RunningTasks. |
 | $SucceededTasks |Liczba zadań, które zakończyły się pomyślnie. |
 | $FailedTasks |Liczba zadań, które zakończyły się niepowodzeniem. |
+| $TaskSlotsPerNode |Liczba gniazd zadań, których można użyć do uruchamiania współbieżnych zadań w pojedynczym węźle obliczeniowym w puli. |
 | $CurrentDedicatedNodes |Bieżąca liczba dedykowanych węzłów obliczeniowych. |
 | $CurrentLowPriorityNodes |Bieżąca liczba węzłów obliczeniowych o niskim priorytecie, w tym wszystkich węzłów, które zostały przeniesiona. |
 | $PreemptedNodeCount | Liczba węzłów w puli, które są w stanie przeniesiona. |
@@ -138,7 +139,7 @@ Możesz uzyskać wartość tych zmiennych zdefiniowanych przez usługę, aby wpr
 > [!NOTE]
 > Używany `$RunningTasks` podczas skalowania na podstawie liczby zadań uruchomionych w danym momencie oraz `$ActiveTasks` do skalowania na podstawie liczby zadań, które są umieszczane w kolejce do uruchomienia.
 
-## <a name="types"></a>Types
+## <a name="types"></a>Typy
 
 Formuły skalowania automatycznego obsługują następujące typy:
 

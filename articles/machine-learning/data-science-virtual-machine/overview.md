@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Omówienie usługi Azure Data Science Virtual Machine — łatwą w obsłudze maszynę wirtualną na platformie Azure Cloud Platform z wstępnie zainstalowanymi i skonfigurowanymi narzędziami i bibliotekami służącymi do analizy danych.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bd2333d89e4d1789b3464606b49f624609ef67d5
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322490"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518763"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Co to jest Data Science Virtual Machine platformy Azure dla systemów Linux i Windows?
 
@@ -24,7 +23,7 @@ Data Science Virtual Machine (DSVM) to dostosowany obraz maszyny wirtualnej na p
 DSVM jest dostępny w:
 
 + Windows Server 2019
-+ Ubuntu 18,04 LTS
++ Ubuntu 18.04 LTS
 
 ## <a name="comparison-with-azure-machine-learning"></a>Porównanie z Azure Machine Learning
 
@@ -49,7 +48,7 @@ DSVM to dostosowany obraz maszyny wirtualnej do nauki o danych, ale [Azure Machi
 Poniżej przedstawiono kluczowe różnice między tymi dwoma ofertami produktów:
 
 
-|Cechy |Analiza danych<br>VM |AzureML<br>Wystąpienie obliczeniowe  | 
+|Cecha |Analiza danych<br>VM |AzureML<br>Wystąpienie obliczeniowe  | 
 |---------|---------|---------|
 | W pełni zarządzane | Nie        | Tak        |
 |Obsługa języków     |  Python, R, Julia, SQL, C#,<br> Java, Node.js, F #       | Języki Python i R        |

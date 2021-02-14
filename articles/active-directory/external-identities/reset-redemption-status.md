@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc51a8af85b85db28265d1fca420a5b9b368b078
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d843755847d074e00aec9ed2830cb873b6bb3382
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576918"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365416"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>Zresetuj stan wykupu dla użytkownika-gościa
 
@@ -26,7 +26,7 @@ Po wykorzystaniu przez użytkownika-gościa zaproszenia do współpracy B2B mog�
 - Użytkownik został przeniesiony do innej firmy, ale nadal musi mieć ten sam dostęp do zasobów
 - Obowiązki użytkownika zostały przekazano do innego użytkownika
 
-Aby zarządzać tymi scenariuszami wcześniej, trzeba ręcznie usunąć konto użytkownika-gościa z katalogu i zaprosić użytkownika. Teraz można użyć programu PowerShell lub interfejsu API zaproszenia Microsoft Graph do resetowania stanu wykupu użytkownika i ponownego zaproszenia użytkownika przy zachowaniu identyfikatora obiektu użytkownika, członkostwa w grupach i przypisań aplikacji. Gdy użytkownik zrealizuje nowe zaproszenie, nowy adres e-mail będzie nazwą UPN użytkownika. Użytkownik może następnie zalogować się przy użyciu nowego adresu e-mail lub wiadomości e-mail dodanej do `otherMails` właściwości obiektu użytkownika.
+Aby zarządzać tymi scenariuszami wcześniej, trzeba ręcznie usunąć konto użytkownika-gościa z katalogu i zaprosić użytkownika. Teraz można użyć programu PowerShell lub interfejsu API zaproszenia Microsoft Graph do resetowania stanu wykupu użytkownika i ponownego zaproszenia użytkownika przy zachowaniu identyfikatora obiektu użytkownika, członkostwa w grupach i przypisań aplikacji. Gdy użytkownik zrealizuje nowe zaproszenie, nazwa UPN użytkownika nie ulegnie zmianie, ale nazwy logowania użytkownika zmienią się na nową wiadomość e-mail. Użytkownik może następnie zalogować się przy użyciu nowego adresu e-mail lub wiadomości e-mail dodanej do `otherMails` właściwości obiektu użytkownika.
 
 ## <a name="use-powershell-to-reset-redemption-status"></a>Resetowanie stanu wykupu przy użyciu programu PowerShell
 

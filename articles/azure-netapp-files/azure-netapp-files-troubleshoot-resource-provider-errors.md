@@ -13,20 +13,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac83e5a9366a12c5adce0e08f04f2bb28a7d788d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483469"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374885"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Rozwiązywanie problemów związanych z błędami dostawcy zasobów usługi Azure NetApp Files 
 
 W tym artykule opisano typowe błędy dostawcy zasobów Azure NetApp Files, ich przyczyny, rozwiązania i obejścia (jeśli są dostępne).
 
 ## <a name="common-azure-netapp-files-resource-provider-errors"></a>Typowe błędy dostawcy zasobów Azure NetApp Files
+
+***Tworzenie elementu `netAppAccounts` zostało ograniczone w tym regionie.***
+
+Ta sytuacja występuje, gdy subskrypcja jest waitlisted dla Azure NetApp Files i użytkownik próbuje utworzyć konto NetApp.
+
+* Przyczyna:   
+Dostawca zasobów platformy Azure dla Azure NetApp Files nie został pomyślnie zarejestrowany. 
+ 
+* Rozwiązanie:   
+Wykonaj wszystkie kroki opisane w artykule [Rejestracja dostawcy zasobów usługi Azure NetApp](azure-netapp-files-register.md#resource-provider) po waitlisted subskrypcji.
 
 ***Nie można zmienić BareMetalTenantId.***  
 

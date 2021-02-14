@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807550"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518083"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Rejestrowanie i skanowanie dzierżawy Power BI (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ W tym artykule pokazano, jak zarejestrować i przeskanować dzierżawę Power BI
 
 ## <a name="create-a-security-group-for-permissions"></a>Utwórz grupę zabezpieczeń dla uprawnień
 
-Aby skonfigurować uwierzytelnianie, należy utworzyć grupę zabezpieczeń i dodać do niej zarządzaną tożsamość katalogu.
+Aby skonfigurować uwierzytelnianie, należy utworzyć grupę zabezpieczeń i dodać do niej tożsamość zarządzaną kontrolą.
 
 1. W [Azure Portal](https://portal.azure.com)wyszukaj ciąg **Azure Active Directory**.
 1. Utwórz nową grupę zabezpieczeń w Azure Active Directory, wykonując następujące czynności: [Utwórz grupę podstawową i Dodaj członków przy użyciu Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -35,11 +35,11 @@ Aby skonfigurować uwierzytelnianie, należy utworzyć grupę zabezpieczeń i do
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Typ grupy zabezpieczeń":::
 
-1. Dodaj zarządzaną tożsamość wykazu do tej grupy zabezpieczeń. Wybierz pozycję **elementy członkowskie**, a następnie wybierz pozycję **+ Dodaj członków**.
+1. Dodaj tożsamość zarządzaną kontrolą do tej grupy zabezpieczeń. Wybierz pozycję **elementy członkowskie**, a następnie wybierz pozycję **+ Dodaj członków**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Dodaj wystąpienie zarządzane wykazu do grupy.":::
 
-1. Wyszukaj swój wykaz i wybierz go.
+1. Wyszukaj tożsamość zarządzaną kontrolą i wybierz ją.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Dodaj katalog, wyszukując go":::
 
@@ -61,14 +61,14 @@ Aby skonfigurować uwierzytelnianie, należy utworzyć grupę zabezpieczeń i do
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Obraz przedstawiający sposób zezwalania podmiotom usługi na pobieranie tylko do odczytu uprawnień Power BI administratora":::
 
     > [!Caution]
-    > Gdy zezwolisz utworzoną przez Ciebie grupę zabezpieczeń (która ma tożsamość zarządzaną przez usługi Data Catalog jako członka), aby korzystać z interfejsów API administratora Power BI tylko do odczytu, możesz również zezwolić na dostęp do metadanych (np. nazw pulpitów nawigacyjnych i raportów, właścicieli, opisów itp.) dla wszystkich artefaktów Power BI w tej dzierżawie. Po pobraniu metadanych do usługi Azure kontrolą, uprawnienia kontrolą, a nie Power BI, określają, kto może zobaczyć te metadane.
+    > Gdy zezwolisz utworzoną przez Ciebie grupę zabezpieczeń (która ma tożsamość zarządzaną przez program kontrolą jako członka), aby używać interfejsów API administratora Power BI tylko do odczytu, możesz również zezwolić na dostęp do metadanych (np. nazw pulpitów nawigacyjnych i raportów, właścicieli, opisów itp.) dla wszystkich artefaktów Power BI w tej dzierżawie. Po pobraniu metadanych do usługi Azure kontrolą, uprawnienia kontrolą, a nie Power BI, określają, kto może zobaczyć te metadane.
 
     > [!Note]
     > Grupę zabezpieczeń można usunąć z ustawień dewelopera, ale wcześniej wyodrębnione metadane nie zostaną usunięte z konta kontrolą. Możesz go usunąć oddzielnie, jeśli chcesz.
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Zarejestruj Power BI i Skonfiguruj skanowanie
 
-Teraz, gdy masz uprawnienia katalogu do nawiązywania połączenia z interfejsem API administratora dzierżawy Power BI, możesz skonfigurować skanowanie z poziomu portalu wykazu.
+Teraz, gdy masz uprawnienia do kontrolą zarządzanej tożsamości w celu nawiązania połączenia z interfejsem API administratora dzierżawy Power BI, możesz skonfigurować skanowanie z poziomu platformy Azure kontrolą Studio.
 
 Najpierw Dodaj specjalną flagę funkcji do adresu URL kontrolą 
 

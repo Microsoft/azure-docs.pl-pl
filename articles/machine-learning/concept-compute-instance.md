@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: ef753043218f259c69082dbb8682517be79cf95c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862138"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099799"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -51,7 +51,7 @@ Wystąpienie obliczeniowe Azure Machine Learning umożliwia tworzenie, uczenie i
 
 Notesy Jupyter można uruchamiać w [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) przy użyciu wystąpienia obliczeniowego jako serwera zdalnego bez konieczności używania protokołu SSH. Możesz również włączyć integrację VS Code za pośrednictwem [zdalnego rozszerzenia SSH](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-Można [zainstalować pakiety](how-to-create-manage-compute-instance.md#install-packages) i [dodać jądra](how-to-create-manage-compute-instance.md#add-new-kernels) do wystąpienia obliczeniowego.  
+Można [zainstalować pakiety](how-to-access-terminal.md#install-packages) i [dodać jądra](how-to-access-terminal.md#add-new-kernels) do wystąpienia obliczeniowego.  
 
 Następujące narzędzia i środowiska są już zainstalowane w wystąpieniu obliczeniowym: 
 
@@ -77,7 +77,7 @@ Następujące narzędzia i środowiska są już zainstalowane w wystąpieniu obl
 |Anaconda Python||
 |Jupyter i rozszerzenia||
 |Jupyterlab i rozszerzenia||
-[Zestaw SDK usługi Azure Machine Learning dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>z PyPI|Zawiera większość dodatkowych pakietów platformy Azure.  Aby wyświetlić pełną listę, [Otwórz okno terminalu na wystąpieniu obliczeniowym](how-to-run-jupyter-notebooks.md#terminal) i uruchom polecenie <br/> `conda list -n azureml_py36 azureml*` |
+[Zestaw SDK usługi Azure Machine Learning dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>z PyPI|Zawiera większość dodatkowych pakietów platformy Azure.  Aby wyświetlić pełną listę, [Otwórz okno terminalu na wystąpieniu obliczeniowym](how-to-access-terminal.md) i uruchom polecenie <br/> `conda list -n azureml_py36 azureml*` |
 |Inne pakiety PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pakiety Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pakiety uczenia głębokiego|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -124,15 +124,15 @@ Dla każdego wystąpienia obliczeniowego w obszarze roboczym, którego możesz u
 
 Te akcje mogą być kontrolowane przez funkcję RBAC platformy Azure:
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis*
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/usuwanie*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
 
 Aby utworzyć wystąpienie obliczeniowe, musisz mieć uprawnienia do następujących akcji:
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis*
-* *Microsoft. MachineLearningServices/obszary robocze/checkComputeNameAvailability/akcja*
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Tworzenie wystąpienia obliczeniowego

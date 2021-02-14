@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z usługi Hive przy użyciu Azure Data Factory
 description: Informacje o kopiowaniu danych z programu Hive do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 4207c4ddfcbab325b1ae119dcd200af30fc59f58
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8f6e85d82c01663e404f7046f84706feb209ba5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844954"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367031"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych z programu Hive przy użyciu Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -101,7 +96,7 @@ Aby skopiować dane z Hive, ustaw właściwość Type zestawu danych na **hiveob
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **hiveobject** | Tak |
 | schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| table (stolik) | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli, w tym część schematu. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -176,15 +171,15 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło Hi
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Przechowywanie | Magazyn musi być `hive` | yes |  `hive` | store | 
-| Format | Bez względu na to, czy czytasz z tabeli czy zapytania | yes | `table` lub `query` | format |
-| Nazwa schematu | W przypadku odczytywania danych z tabeli schemat tabeli źródłowej |  tak, jeśli format jest `table` | String | schemaName |
-| Nazwa tabeli | W przypadku odczytywania z tabeli Nazwa tabeli |   tak, jeśli format jest `table` | String | tableName |
-| Zapytanie | Jeśli format to `query` , zapytanie źródłowe w połączonej usłudze Hive | tak, jeśli format jest `query` | String | query |
-| Przygotowane | Tabela programu Hive zostanie zawsze przemieszczona. | yes | `true` | przygotowane |
-| Kontener magazynu | Kontener magazynu używany do przygotowywania danych przed przeczytaniem z programu Hive lub zapisem w usłudze Hive. Klaster programu Hive musi mieć dostęp do tego kontenera. | yes | String | storageContainer |
+| Przechowywanie | Magazyn musi być `hive` | tak |  `hive` | store | 
+| Format | Bez względu na to, czy czytasz z tabeli czy zapytania | tak | `table` lub `query` | format |
+| Nazwa schematu | W przypadku odczytywania danych z tabeli schemat tabeli źródłowej |  tak, jeśli format jest `table` | Ciąg | schemaName |
+| Nazwa tabeli | W przypadku odczytywania z tabeli Nazwa tabeli |   tak, jeśli format jest `table` | Ciąg | tableName |
+| Zapytanie | Jeśli format to `query` , zapytanie źródłowe w połączonej usłudze Hive | tak, jeśli format jest `query` | Ciąg | query |
+| Przygotowane | Tabela programu Hive zostanie zawsze przemieszczona. | tak | `true` | przygotowane |
+| Kontener magazynu | Kontener magazynu używany do przygotowywania danych przed przeczytaniem z programu Hive lub zapisem w usłudze Hive. Klaster programu Hive musi mieć dostęp do tego kontenera. | tak | Ciąg | storageContainer |
 | Tymczasowa baza danych | Schemat/baza danych, w której konto użytkownika określone w połączonej usłudze ma dostęp do usługi. Służy do tworzenia tabel zewnętrznych podczas przemieszczania i porzucenia później | nie | `true` lub `false` | stagingDatabaseName |
-| Wstępnie zdefiniowane skrypty SQL | Kod SQL do uruchomienia w tabeli Hive przed odczytaniem danych | nie | String | preSQLs |
+| Wstępnie zdefiniowane skrypty SQL | Kod SQL do uruchomienia w tabeli Hive przed odczytaniem danych | nie | Ciąg | preSQLs |
 
 #### <a name="source-example"></a>Przykład źródła
 

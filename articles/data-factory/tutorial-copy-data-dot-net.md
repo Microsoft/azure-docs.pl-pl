@@ -1,22 +1,17 @@
 ---
 title: Skopiuj dane z usługi Azure Blob Storage do Azure SQL Database
 description: Ten samouczek zawiera instrukcje krok po kroku dotyczące kopiowania danych z usługi Azure Blob Storage do bazy danych Azure SQL Database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2ec4a65f1001d6d1c93a23964d59972419f651e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513266"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380886"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiowanie danych z obiektu blob platformy Azure do bazy danych Azure SQL Database przy użyciu usługi Azure Data Factory
 
@@ -44,7 +39,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 * *Azure SQL Database*. Baza danych jest używana jako magazyn danych *ujścia*. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z tematem [Tworzenie bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * *Program Visual Studio*. W przewodniku w tym artykule jest wykorzystywany program Visual Studio 2019.
 * *[Zestaw Azure SDK dla platformy .NET](/dotnet/azure/dotnet-tools)*.
-* *Azure Active Directory aplikacji*. Jeśli nie masz aplikacji Azure Active Directory, zapoznaj się z sekcją [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) [: używanie portalu do tworzenia aplikacji usługi Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Skopiuj następujące wartości do użycia w kolejnych krokach: **Identyfikator aplikacji (klienta)**, **klucz uwierzytelniania**i **Identyfikator katalogu (dzierżawy)**. Przypisz aplikację do roli **współautor** , postępując zgodnie z instrukcjami w tym samym artykule.
+* *Azure Active Directory aplikacji*. Jeśli nie masz aplikacji Azure Active Directory, zapoznaj się z sekcją [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) [: używanie portalu do tworzenia aplikacji usługi Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Skopiuj następujące wartości do użycia w kolejnych krokach: **Identyfikator aplikacji (klienta)**, **klucz uwierzytelniania** i **Identyfikator katalogu (dzierżawy)**. Przypisz aplikację do roli **współautor** , postępując zgodnie z instrukcjami w tym samym artykule.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Tworzenie obiektu blob i tabeli SQL
 
@@ -89,7 +84,7 @@ Następnie utwórz tabelę programu SQL dla ujścia:
 
     3. W obszarze menu programu SQL Server **Wybierz pozycję** **zapory i sieci wirtualne**.
 
-    4. Na stronie **Zapora i sieci wirtualne** w obszarze **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera**wybierz pozycję **włączone**.
+    4. Na stronie **Zapora i sieci wirtualne** w obszarze **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera** wybierz pozycję **włączone**.
 
 ## <a name="create-a-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
@@ -97,8 +92,8 @@ Za pomocą programu Visual Studio Utwórz aplikację konsolową .NET C#.
 
 1. Otwórz program Visual Studio.
 2. W oknie **uruchamiania** wybierz pozycję **Utwórz nowy projekt**.
-3. W oknie **Tworzenie nowego projektu** wybierz wersję języka C# **aplikacji konsolowej (.NET Framework)** z listy typów projektów. Następnie wybierz pozycję **Dalej**.
-4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *ADFv2Tutorial*. W polu **Lokalizacja**przejdź do katalogu i/lub Utwórz katalog, w którym ma zostać zapisany projekt. Następnie wybierz przycisk **Utwórz**. Nowy projekt zostanie wyświetlony w środowisku IDE programu Visual Studio.
+3. W oknie **Tworzenie nowego projektu** wybierz wersję języka C# **aplikacji konsolowej (.NET Framework)** z listy typów projektów. Następnie wybierz przycisk **Dalej**.
+4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *ADFv2Tutorial*. W polu **Lokalizacja** przejdź do katalogu i/lub Utwórz katalog, w którym ma zostać zapisany projekt. Następnie wybierz pozycję **Utwórz**. Nowy projekt zostanie wyświetlony w środowisku IDE programu Visual Studio.
 
 ## <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet
 
@@ -432,7 +427,7 @@ Teraz Wstaw kod, aby sprawdzić Stany przebiegu potoku i uzyskać szczegółowe 
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Skompiluj aplikację, wybierając pozycję **Kompiluj**  >  **kompilację rozwiązania**. Następnie uruchom aplikację, wybierając **Debuguj**  >  **Rozpocznij debugowanie**i sprawdź wykonanie potoku.
+Skompiluj aplikację, wybierając pozycję **Kompiluj**  >  **kompilację rozwiązania**. Następnie uruchom aplikację, wybierając **Debuguj**  >  **Rozpocznij debugowanie** i sprawdź wykonanie potoku.
 
 Konsola wypisuje postęp tworzenia fabryki danych, połączonej usługi, zestawów danych, potoku i działania potoku. Następnie sprawdza stan uruchomienia potoku. Poczekaj, aż zobaczysz szczegóły uruchomienia działania kopiowania z rozmiarem odczytu/zapisu danych. Następnie przy użyciu narzędzi, takich jak SQL Server Management Studio (SSMS) lub Visual Studio, można nawiązać połączenie z Azure SQL Databaseą docelową i sprawdzić, czy określona tabela docelowa zawiera skopiowane dane.
 

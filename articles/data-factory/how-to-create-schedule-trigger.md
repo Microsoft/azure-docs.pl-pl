@@ -1,25 +1,21 @@
 ---
 title: Utwórz wyzwalacze harmonogramu w Azure Data Factory
 description: Dowiedz się, jak utworzyć wyzwalacz w Azure Data Factory, który uruchamia potok zgodnie z harmonogramem.
-services: data-factory
-documentationcenter: ''
 author: chez-charlie
 ms.author: chez
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3673dd9eba717d2bdb569b4248936bbb59a8eae7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001987"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387584"
 ---
-# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Tworzenie wyzwalacza uruchamiającego potok zgodnie z harmonogramem
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Tworzenie wyzwalacza uruchamiającego potok według harmonogramu
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Ten artykuł zawiera informacje na temat wyzwalacza harmonogramu oraz czynności służących do tworzenia, uruchamiania i monitorowania wyzwalacza harmonogramu. W przypadku innych typów wyzwalaczy zapoznaj się z tematem [wykonywanie i wyzwalacze potoku](concepts-pipeline-execution-triggers.md).
@@ -78,7 +74,7 @@ Można utworzyć **wyzwalacz harmonogramu** , aby zaplanować okresowe uruchamia
 
     ![Monitorowanie wyzwolonych uruchomień](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Przejdź do widoku **harmonogramu uruchamiania wyzwalacza**  \  **Schedule** . 
+1. Przejdź do widoku **harmonogramu uruchamiania wyzwalacza**  \   . 
 
     ![Monitorowanie uruchomień wyzwalacza](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 

@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych ze źródeł OData przy użyciu Azure Data Factory
 description: Informacje o kopiowaniu danych ze źródeł OData do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 146f9ea918f75e0521209d9db712bdcab76a8e7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 90cc4e3f9915db424cec89cfc764771b5be785e9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096593"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389726"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiowanie danych ze źródła strumieniowego OData przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,13 +34,13 @@ Możesz skopiować dane ze źródła danych OData do dowolnego obsługiwanego ma
 W przypadku tego łącznika OData obsługuje:
 
 - OData w wersji 3,0 i 4,0.
-- Kopiowanie danych przy użyciu jednego z następujących uwierzytelnień: **Anonymous**, **Basic**, **Windows**i **nazwy głównej usługi AAD**.
+- Kopiowanie danych przy użyciu jednego z następujących uwierzytelnień: **Anonymous**, **Basic**, **Windows** i **nazwy głównej usługi AAD**.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,7 +54,7 @@ Dla połączonej usługi OData są obsługiwane następujące właściwości:
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** musi być ustawiona na wartość **OData**. |Tak |
 | url | Główny adres URL usługi OData. |Tak |
-| authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia ze źródłem danych OData. Dozwolone wartości to **Anonymous**, **Basic**, **Windows**i **AadServicePrincipal**. Uwierzytelnianie OAuth oparte na użytkowniku nie jest obsługiwane. Dodatkowo można skonfigurować nagłówki uwierzytelniania we `authHeader` właściwości.| Tak |
+| authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia ze źródłem danych OData. Dozwolone wartości to **Anonymous**, **Basic**, **Windows** i **AadServicePrincipal**. Uwierzytelnianie OAuth oparte na użytkowniku nie jest obsługiwane. Dodatkowo można skonfigurować nagłówki uwierzytelniania we `authHeader` właściwości.| Tak |
 | authHeaders | Dodatkowe nagłówki żądań HTTP na potrzeby uwierzytelniania.<br/> Na przykład, aby użyć uwierzytelniania przy użyciu klucza interfejsu API, można wybrać typ uwierzytelniania jako anonimowy i określić klucz interfejsu API w nagłówku. | Nie |
 | userName | Określ **nazwę użytkownika** , jeśli używasz uwierzytelniania podstawowego lub systemu Windows. | Nie |
 | hasło | Określ **hasło** dla konta użytkownika określonego w polu **Nazwa użytkownika**. Oznacz to pole jako typ **SecureString** , aby bezpiecznie przechowywać go w Data Factory. Można również [odwołać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
@@ -70,7 +65,7 @@ Dla połączonej usługi OData są obsługiwane następujące właściwości:
 | servicePrincipalEmbeddedCertPassword | Określ hasło certyfikatu, jeśli certyfikat jest zabezpieczony hasłem. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md).  | Nie|
 | dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Pobierz go, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Nie |
 | aadResourceId | Określ zasób usługi AAD, którego żądasz do autoryzacji.| Nie |
-| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, do którego jest zarejestrowana aplikacja usługi AAD. <br/> Dozwolone wartości to **AzurePublic**, **AzureChina**, **AzureUsGovernment**i **AzureGermany**. Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
+| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, do którego jest zarejestrowana aplikacja usługi AAD. <br/> Dozwolone wartości to **AzurePublic**, **AzureChina**, **AzureUsGovernment** i **AzureGermany**. Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 **Przykład 1: korzystanie z uwierzytelniania anonimowego**

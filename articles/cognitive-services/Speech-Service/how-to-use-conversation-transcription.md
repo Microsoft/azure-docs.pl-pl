@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: trbye
 zone_pivot_groups: acs-js-csharp
-ms.openlocfilehash: ae3d7b329c55ce0be101cee73e1fc7674a2d75aa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 48cd4c7996eabad7293aa2429c76b8943e0ab3da
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026543"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368476"
 ---
 # <a name="get-started-with-real-time-conversation-transcription"></a>Wprowadzenie do transkrypcji konwersacji w czasie rzeczywistym
 
@@ -25,7 +25,7 @@ Interfejs API **ConversationTranscriber** zestawu mowy SDK umożliwia transkrypc
 ## <a name="limitations"></a>Ograniczenia
 
 * Dostępne tylko w następujących regionach subskrypcji: `centralus` ,, `eastasia` `eastus` , `westeurope`
-* Wymaga cyklicznej macierzy z obsługą wielomikrofonową z użyciem 7 mikrofonów z strumieniem odwołania odtwarzania. Tablica mikrofonów powinna być zgodna z [naszą specyfikacją](./speech-devices-sdk-microphone.md).
+* Wymaga cyklicznej macierzy wielomikrofonowej z 7 mikrofonem. Tablica mikrofonów powinna być zgodna z [naszą specyfikacją](./speech-devices-sdk-microphone.md).
 * [Zestaw SDK urządzeń mowy](speech-devices-sdk.md) udostępnia odpowiednie urządzenia i przykładową aplikację pokazującą transkrypcję konwersacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne

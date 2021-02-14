@@ -10,7 +10,7 @@
   items:
     - name: Uruchamianie pierwszej aplikacji
       href: spring-cloud-quickstart.md
-    - name: Kompilowanie i uruchamianie mikrousług
+    - name: Kompiluj i uruchamiaj mikrousługi
       expanded: true
       items:
         - name: Wprowadzenie do aplikacji przykładowej
@@ -45,8 +45,12 @@
       href: spring-cloud-concept-metrics.md
     - name: Siłownik Spring Boot platformy Azure
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Mechanizmy zabezpieczeń
-      href: spring-cloud-concept-security-controls.md
+    - name: Zabezpieczenia
+      items:
+        - name: Mechanizmy zabezpieczeń
+          href: spring-cloud-concept-security-controls.md
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          href: ./security-controls-policy.md
     - name: Opis stanu aplikacji
       href: spring-cloud-concept-app-status.md
     - name: Planowanie odzyskiwania po awarii
@@ -59,7 +63,7 @@
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Konfigurowanie serwera konfiguracji
           href: spring-cloud-tutorial-config-server.md
-        - name: Włączanie rejestracji usługi
+        - name: Włącz rejestrację usługi
           href: spring-cloud-service-registration.md
     - name: Wdróż
       items:
@@ -153,6 +157,10 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: Architektura
+  items:
+    - name: Architektura referencyjna
+      href: spring-cloud-reference-architecture.md
 - name: Wdrożenie usługi DevOps
   items:
     - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure DevOps

@@ -60,6 +60,8 @@
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: Zarządzanie protokołem DHCP
       href: manage-dhcp.md
+    - name: Konfigurowanie składników sieci NSX
+      href: configure-nsx-network-components-azure-portal.md
     - name: Wdrażanie odzyskiwania po awarii dla maszyn wirtualnych
       href: disaster-recovery-for-virtual-machines.md
     - name: Wdrażanie maszyny wirtualnej za pomocą biblioteki zawartości

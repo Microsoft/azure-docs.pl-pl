@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 9e79e0a2c030e2ebfcd5ddfd49e7c05afdb0dc3c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3ed3ff44b927fa230dedf16387c1daca889d7c66
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019554"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388706"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatyzowanie kompilacji, testów i wdrożeń zadania Azure Stream Analytics przy użyciu narzędzi CI/CD
 
@@ -45,7 +45,7 @@ Polecenie *Build* sprawdza składnię słowa kluczowego i wyprowadza szablon Azu
 azure-streamanalytics-cicd build -project "/Users/username/projects/samplejob/asaproj.json"
 ```
 
-#### <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd build -project "/Users/username/projects/samplejob/samplejob.asaproj"
@@ -95,7 +95,7 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/asaproj.json"
 ```
 
-#### <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/samplejob.asaproj"
@@ -129,7 +129,7 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob/asaproj.json"
 ```
 
-#### <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob/samplejob.asaproj"
@@ -158,7 +158,7 @@ Jeśli sprawdzanie poprawności testu ma ignorować niektóre dane wyjściowe, n
       "ExpectedOutputs": [
         {
           "OutputAlias": [Output alias string],
-          "FilePath": "Required",
+          "FilePath": [Required],
           "Required": true
         }
       ]

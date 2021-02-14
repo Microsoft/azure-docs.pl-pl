@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z listy usługi SharePoint Online przy użyciu Azure Data Factory
 description: Informacje o kopiowaniu danych z listy usługi SharePoint Online do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 3f05c90ba3c7e6b47009cbb597c56dac8a01427a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474951"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393432"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopiowanie danych z listy usługi SharePoint Online przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -196,7 +191,7 @@ Podczas kopiowania danych z listy usługi SharePoint Online następujące mapowa
 | Wiele wierszy tekstu                          | Edm.String                                           | Ciąg                                   |
 | Wybór (menu do wyboru)                    | Edm.String                                           | Ciąg                                   |
 | Liczba (1, 1,0, 100)                            | Edm.Double                                           | Double                                   |
-| Waluta ($, ¥, €)                              | Edm.Double                                           | Double                                   |
+| Waluta ($, ¥, &euro; )                              | Edm.Double                                           | Double                                   |
 | Data i godzina                                   | EDM. DateTime                                         | DateTime                                 |
 | Odnośnik (informacje znajdujące się już w tej lokacji)       | Edm.Int32                                            | Int32                                    |
 | Tak/nie (pole wyboru)                              | Edm.Boolean                                          | Wartość logiczna                                  |

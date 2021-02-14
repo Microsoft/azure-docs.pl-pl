@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: a370a7f04e0e43b96e4a574313c4f24c4990ab6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979309"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390361"
 ---
 # <a name="soft-delete-for-blobs"></a>Usuwanie nietrwałe dla obiektów blob
 
@@ -83,7 +83,7 @@ Kiedy **obiekt BLOB Delete** jest wywoływany na bazowym obiekcie BLOB (dowolny 
 > [!NOTE]  
 > Po nadpisaniu nietrwałego usuniętego obiektu BLOB nietrwała usunięta migawka stanu obiektu BLOB przed operacją zapisu jest generowana automatycznie. Nowy obiekt BLOB dziedziczy warstwę nadpisywanego obiektu BLOB.
 
-Usuwanie nietrwałe nie zapisuje danych w przypadku usunięcia kontenera lub konta, a także gdy metadane obiektów blob i właściwości obiektu BLOB są zastępowane. Aby chronić konto magazynu przed usunięciem, można skonfigurować blokadę przy użyciu Azure Resource Manager. Aby uzyskać więcej informacji, zobacz artykuł Azure Resource Manager [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
+Usuwanie nietrwałe nie zapisuje danych w przypadku usunięcia kontenera lub konta, a także gdy metadane obiektów blob i właściwości obiektu BLOB są zastępowane. Aby chronić konto magazynu przed usunięciem, można skonfigurować blokadę przy użyciu Azure Resource Manager. Aby uzyskać więcej informacji, zobacz artykuł Azure Resource Manager [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).  Aby chronić kontenery przed przypadkowym usunięciem, skonfiguruj nietrwałe usunięcie kontenera dla konta magazynu. Aby uzyskać więcej informacji, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md).
 
 W poniższej tabeli przedstawiono oczekiwane zachowanie podczas włączania usuwania nietrwałego:
 

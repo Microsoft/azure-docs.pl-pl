@@ -1,31 +1,31 @@
 ---
-title: Tworzenie głównej nazwy usługi z funkcją Azure Arc — wersja zapoznawcza
+title: Tworzenie głównej nazwy usługi Azure ARC, która umożliwia dołączanie (wersja zapoznawcza)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 02/09/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: 'Tworzenie jednostki usługi do dołączania z funkcją Azure Arc '
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: 8eb38dbc04d964c0ab4869e801099ee9420d6ac2
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8772cf7634d9a833af120784e3e7868b41d202c4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184700"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390491"
 ---
-# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Tworzenie głównej nazwy usługi z funkcją Azure Arc — wersja zapoznawcza
+# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Tworzenie głównej nazwy usługi Azure ARC, która umożliwia dołączanie (wersja zapoznawcza)
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 
-Możliwe jest użycie jednostek usługi z przypisaniem roli z ograniczonymi uprawnieniami do dołączania klastrów Kubernetes do usługi Azure Arc. Jest to przydatne w przypadku potoków ciągłej integracji i ciągłego wdrażania (CI/CD), takich jak Azure Pipelines i akcje GitHub.
+Klastry Kubernetes można dołączać do usługi Azure ARC przy użyciu jednostek usługi z ograniczonymi przypisaniami ról uprawnień. Ta funkcja jest przydatna w przypadku potoków ciągłej integracji i ciągłego wdrażania (CI/CD), takich jak Azure Pipelines i akcje GitHub.
 
-Poniższe kroki zawierają Przewodnik dotyczący używania jednostek usługi do dołączania klastrów Kubernetes do usługi Azure Arc.
+Wykonaj następujące kroki, aby dowiedzieć się, jak używać jednostek usługi do dołączania klastrów Kubernetes do usługi Azure Arc.
 
 ## <a name="create-a-new-service-principal"></a>Utwórz nową nazwę główną usługi
 
-Utwórz nową nazwę główną usługi z niesformatowaną nazwą. Należy pamiętać, że ta nazwa musi być unikatowa dla dzierżawy Azure Active Directory:
+Utwórz nową nazwę główną usługi o nazwie, która jest unikatowa dla dzierżawy Azure Active Directory.
 
 ```console
 az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
@@ -45,16 +45,16 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Przypisywanie uprawnień
 
-Po utworzeniu nowej jednostki usługi Przypisz rolę "Kubernetes Cluster-Azure Arc dołączania" do nowo utworzonego podmiotu zabezpieczeń. Jest to wbudowana rola platformy Azure z ograniczonymi uprawnieniami, która umożliwia podmiotowi zabezpieczeń rejestrowanie klastrów na platformie Azure. Podmiot zabezpieczeń nie może aktualizować, usuwać ani modyfikować żadnych innych klastrów ani zasobów w ramach subskrypcji.
+Przypisz rolę "Kubernetes klaster-Azure Arc dołączania" do nowo utworzonej nazwy głównej usługi. Ta wbudowana rola platformy Azure z ograniczonymi uprawnieniami zezwala tylko podmiotowi zabezpieczeń na rejestrowanie klastrów na platformie Azure. Podmiot zabezpieczeń z tą przypisaną rolą nie może aktualizować, usuwać ani modyfikować żadnych innych klastrów ani zasobów w ramach subskrypcji.
 
 Mając na względzie ograniczone możliwości, klienci mogą z łatwością korzystać z tego podmiotu do dołączania wielu klastrów.
 
-Uprawnienia mogą być dodatkowo ograniczone przez przekazanie odpowiednich `--scope` argumentów podczas przypisywania roli. Pozwala to klientom ograniczyć rejestrację klastra. Następujące scenariusze są obsługiwane przez różne `--scope` Parametry:
+Można ograniczyć uprawnienia, przekazując odpowiedni `--scope` argument podczas przypisywania roli. Pozwala to klientom ograniczyć rejestrację klastra. Następujące scenariusze są obsługiwane przez różne `--scope` Parametry:
 
 | Zasób  | Argument `scope`| Efekt |
 | ------------- | ------------- | ------------- |
 | Subskrypcja | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Jednostka usługi może zarejestrować dowolny klaster w istniejącej grupie zasobów w danej subskrypcji. |
-| Grupa zasobów | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Nazwa główna usługi może rejestrować __tylko__ klastry w grupie zasobów `myGroup` |
+| Grupa zasobów | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Nazwa główna usługi może rejestrować __tylko__ klastry w grupie zasobów `myGroup` . |
 
 ```console
 az role assignment create \
@@ -80,7 +80,7 @@ az role assignment create \
 
 ## <a name="use-service-principal-with-the-azure-cli"></a>Korzystanie z jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Odwołuje się do nowo utworzonej jednostki usługi:
+Odwołuje się do nowo utworzonej jednostki usługi przy użyciu następujących poleceń:
 
 ```azurecli
 az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID

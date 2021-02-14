@@ -1,23 +1,18 @@
 ---
 title: Przenoszenie danych z magazynów danych ODBC
 description: Dowiedz się więcej na temat przenoszenia danych z magazynów danych ODBC przy użyciu Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3c68b1f4d76a1899ce473c57f3a6d5de1eab71c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e847592127d19eba3370255385f5b969b87e886e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636871"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380104"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Przenoszenie danych ze magazynów danych ODBC przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -47,9 +42,9 @@ Poza bramą Zarządzanie danymi należy również zainstalować sterownik ODBC d
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok za pomocą działania kopiowania, które przenosi dane z magazynu danych ODBC przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania** . Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
+Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio** , **Azure PowerShell** , **szablon Azure Resource Manager** , interfejs API **platformy .NET** i **interfejs API REST** . Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET** i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
@@ -293,7 +288,7 @@ Dane są zapisywane w nowym obiekcie blob co godzinę (częstotliwość: godzina
 
 **Działanie kopiowania w potoku ze źródłem ODBC (RelationalSource) i obiektem BLOB sink (wartość blobsink)**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do używania tych wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **RelationalSource** , a typ **ujścia** to **wartość blobsink** . Zapytanie SQL określone dla właściwości **zapytania** wybiera dane w ciągu ostatniej godziny do skopiowania.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do używania tych wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **RelationalSource** , a typ **ujścia** to **wartość blobsink**. Zapytanie SQL określone dla właściwości **zapytania** wybiera dane w ciągu ostatniej godziny do skopiowania.
 
 ```json
 {
@@ -355,9 +350,9 @@ Aby dowiedzieć się więcej na temat mapowania kolumn w źródłowym zestawie d
 Podczas kopiowania danych z magazynów danych relacyjnych należy mieć na uwadze powtarzalność, aby uniknąć niezamierzonych wyników. W Azure Data Factory można ręcznie uruchomić ponownie wycinka. Możesz również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek był uruchamiany ponownie w przypadku wystąpienia błędu. Gdy wycinek jest uruchamiany ponownie w dowolny sposób, należy się upewnić, że te same dane są odczytywane niezależnie od tego, ile razy jest uruchomiony plasterek. Zobacz [powtarzanie odczytu ze źródeł relacyjnych](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="troubleshoot-connectivity-issues"></a>Rozwiązywanie problemów z łącznością
-Aby rozwiązać problemy z połączeniem, Użyj karty **Diagnostyka** w **Zarządzanie danymi Configuration Manager bramy** .
+Aby rozwiązać problemy z połączeniem, Użyj karty **Diagnostyka** w **Zarządzanie danymi Configuration Manager bramy**.
 
-1. Uruchom **Configuration Manager bramy zarządzanie danymi** . Można uruchomić opcję "C:\Program Files\Microsoft Zarządzanie danymi Gateway\1.0\Shared\ConfigManager.exe" bezpośrednio (lub) Wyszukaj **bramę** , aby znaleźć link do aplikacji **Microsoft zarządzanie danymi Gateway** , jak pokazano na poniższej ilustracji.
+1. Uruchom **Configuration Manager bramy zarządzanie danymi**. Można uruchomić opcję "C:\Program Files\Microsoft Zarządzanie danymi Gateway\1.0\Shared\ConfigManager.exe" bezpośrednio (lub) Wyszukaj **bramę** , aby znaleźć link do aplikacji **Microsoft zarządzanie danymi Gateway** , jak pokazano na poniższej ilustracji.
 
     ![Brama wyszukiwania](./media/data-factory-odbc-connector/search-gateway.png)
 2. Przejdź na kartę **Diagnostyka** .
