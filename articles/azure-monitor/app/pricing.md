@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3ae3224ae17d0dee2ed1080669c6057ca62959d9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556122"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384507"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -286,15 +286,18 @@ Aby wyłączyć dzienne wiadomości e-mail z limitem ilości, w sekcji **Konfigu
 
 W przypadku wczesnych użytkowników platformy Azure Application Insights nadal istnieją dwie warstwy cenowe: Basic i Enterprise. Podstawowa warstwa cenowa jest taka sama jak opisana powyżej i jest warstwą domyślną. Obejmuje ona wszystkie funkcje warstwy korporacyjnej bez dodatkowych kosztów. Podstawowa warstwa jest rozliczana głównie na ilość danych, które zostały pozyskane.
 
-> [!NOTE]
-> Te starsze warstwy cenowe zostały zmienione. Warstwa cenowa przedsiębiorstwa jest teraz wywoływana **dla każdego węzła** , a podstawowa warstwa cenowa jest teraz wywoływana **na GB**. Te nowe nazwy są używane poniżej i w Azure Portal.  
+Te starsze warstwy cenowe zostały zmienione. Warstwa cenowa przedsiębiorstwa jest teraz wywoływana **dla każdego węzła** , a podstawowa warstwa cenowa jest teraz wywoływana **na GB**. Te nowe nazwy są używane poniżej i w Azure Portal.  
 
-Warstwa na węzeł (dawniej Enterprise) ma opłatą za węzeł, a każdy węzeł otrzymuje dzienny limit danych. W warstwie cenowej na węzeł opłaty są naliczane za dane pozyskane powyżej uwzględnionego przydziału. Jeśli używasz pakietu Operations Management Suite, wybierz warstwę na węzeł.
+Warstwa na węzeł (dawniej Enterprise) ma opłatą za węzeł, a każdy węzeł otrzymuje dzienny limit danych. W warstwie cenowej na węzeł opłaty są naliczane za dane pozyskane powyżej uwzględnionego przydziału. Jeśli używasz pakietu Operations Management Suite, wybierz warstwę na węzeł. W kwietniu [2018 wprowadziliśmy nowy](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) model cen dla monitorowania platformy Azure. Ten model przyjmuje prosty model "płatność zgodnie z rzeczywistym użyciem" w całym portfolio usług monitorowania. Dowiedz się więcej o [nowym modelu cen](../platform/usage-estimated-costs.md).
 
 W przypadku bieżących cen w walucie i regionie zapoznaj się z tematem [Application Insights cenniku](https://azure.microsoft.com/pricing/details/application-insights/).
 
-> [!NOTE]
-> W kwietniu [2018 wprowadziliśmy nowy](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) model cen dla monitorowania platformy Azure. Ten model przyjmuje prosty model "płatność zgodnie z rzeczywistym użyciem" w całym portfolio usług monitorowania. Dowiedz się więcej o [nowym modelu cen](../platform/usage-estimated-costs.md), sposobach [oceny wpływu przejścia na ten model](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs) na podstawie wzorców użycia i [sposobu wybierania nowego modelu](../platform/usage-estimated-costs.md#azure-monitor-pricing-model)
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Informacje o rozliczeniu użycia w starszej warstwie przedsiębiorstwa (na węzeł) 
+
+Zgodnie z bardziej szczegółowymi informacjami, Starsza warstwa przedsiębiorstwa (na węzeł) łączy użycie spośród wszystkich Application Insights zasobów w ramach subskrypcji, aby obliczyć liczbę węzłów i nadwyżkowe dane. Ze względu na ten proces złożony, **użycie wszystkich zasobów Application Insights w subskrypcji jest raportowane tylko dla jednego z zasobów**.  Pozwala to na uzgadnianie [rozliczanego użycia](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) z użyciem obserwowania dla każdego Application Insights zasobów bardzo skomplikowane. 
+
+> [!WARNING]
+> Ze względu na złożoność śledzenia i interpretacji użycia zasobów Application Insights w starszej warstwie przedsiębiorstwa (na węzeł) zdecydowanie zalecamy korzystanie z bieżącej warstwy cenowej płatność zgodnie z rzeczywistym użyciem. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Uprawnienia do subskrypcji dla warstwy węzła i pakietu Operations Management Suite
 
@@ -347,4 +350,3 @@ Można napisać skrypt do ustawienia warstwy cenowej za pomocą usługi Azure Re
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

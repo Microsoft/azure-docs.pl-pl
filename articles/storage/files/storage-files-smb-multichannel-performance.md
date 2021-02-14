@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: cbded0a9c905bb488e1bae0f92d777e2e7ed7441
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a9edd93aa265622732be4a7582cce9900959bf6d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630857"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374987"
 ---
 # <a name="smb-multichannel-performance"></a>Wydajność funkcji SMB Multichannel
 
@@ -110,7 +110,7 @@ Przykładowe polecenie, które zostało użyte w tym teście, to:
 
 - Na jednej karcie sieciowej o większym średnim rozmiarze we/wy (> ~ 16 KB) wprowadzono znaczne ulepszenia zarówno operacji odczytu, jak i zapisu.
 - W przypadku mniejszych rozmiarów we/wy nastąpił niewielki wpływ ~ 10% na wydajność, gdy włączono Wielokanałowość SMB. Może to być skorygowane przez rozłożenie obciążenia na wiele plików lub wyłączenie funkcji.
-- Wydajność jest nadal ograniczona przez  [limity pojedynczego pliku](storage-files-scale-targets.md#file-level-limits).
+- Wydajność jest nadal ograniczona przez [limity pojedynczego pliku](storage-files-scale-targets.md#file-scale-targets).
 
 ## <a name="optimizing-performance"></a>Optymalizacja wydajności
 

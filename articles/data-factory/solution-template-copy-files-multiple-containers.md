@@ -1,22 +1,18 @@
 ---
 title: Kopiowanie plików z wielu kontenerów
 description: Dowiedz się, jak używać szablonu rozwiązania do kopiowania plików z wielu kontenerów za pomocą Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629429"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376092"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Kopiuj wiele folderów za pomocą Azure Data Factory
 
@@ -37,8 +33,8 @@ Szablon zawiera trzy działania:
 - **Kopiuj** kopiuje wszystkie foldery ze źródłowego magazynu magazynu do magazynu docelowego.
 
 Szablon definiuje następujące parametry:
-- *SourceFileFolder* jest częścią ścieżki folderu nadrzędnego magazynu źródła danych: *SourceFileFolder/SourceFileDirectory* , gdzie można uzyskać listę podfolderów. 
-- *SourceFileDirectory* jest częścią ścieżki folderu nadrzędnego magazynu źródła danych: *SourceFileFolder/SourceFileDirectory* , gdzie można uzyskać listę podfolderów. 
+- *SourceFileFolder* jest częścią ścieżki folderu nadrzędnego magazynu źródła danych: *SourceFileFolder/SourceFileDirectory*, gdzie można uzyskać listę podfolderów. 
+- *SourceFileDirectory* jest częścią ścieżki folderu nadrzędnego magazynu źródła danych: *SourceFileFolder/SourceFileDirectory*, gdzie można uzyskać listę podfolderów. 
 - *DestinationFileFolder* jest częścią ścieżki folderu nadrzędnego: *DestinationFileFolder/DestinationFileDirectory* , gdzie pliki zostaną skopiowane do magazynu docelowego. 
 - *DestinationFileDirectory* jest częścią ścieżki folderu nadrzędnego: *DestinationFileFolder/DestinationFileDirectory* , gdzie pliki zostaną skopiowane do magazynu docelowego. 
 
@@ -54,7 +50,7 @@ Jeśli chcesz skopiować wiele kontenerów z folderów głównych między magazy
 
     ![Utwórz nowe połączenie z miejscem docelowym](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Wybierz pozycję **Użyj tego szablonu** .
+3. Wybierz pozycję **Użyj tego szablonu**.
 
     ![Użyj tego szablonu](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
@@ -62,7 +58,7 @@ Jeśli chcesz skopiować wiele kontenerów z folderów głównych między magazy
 
     ![Pokaż potok](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Wybierz pozycję **Debuguj** , wprowadź **Parametry** , a następnie wybierz pozycję **Zakończ** .
+5. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
 
     ![Uruchamianie potoku](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

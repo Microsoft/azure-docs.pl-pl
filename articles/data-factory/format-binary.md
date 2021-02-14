@@ -2,19 +2,16 @@
 title: Format binarny w Azure Data Factory
 description: W tym temacie opisano sposób postępowania z formatem binarnym w Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: be4338942057cf52bf26b7fd1e15f77e724d49f8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc5b54e99584b74b287fa66deba1694419b46b16
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348912"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393687"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Format binarny w Azure Data Factory
 
@@ -73,7 +70,7 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 ### <a name="binary-as-source"></a>Plik binarny jako źródło
 
-W sekcji działanie copy **_ \_ Source \**** są obsługiwane następujące właściwości.
+W sekcji ***\* Źródło \**** działania kopiowania są obsługiwane następujące właściwości.
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -88,7 +85,7 @@ Obsługiwane **Ustawienia odczytu danych binarnych** w obszarze `formatSettings`
 | typ          | Typ formatSettings musi być ustawiony na **BinaryReadSettings**. | Tak      |
 | compressionProperties | Grupa właściwości na temat sposobu dekompresowania danych dla danego kodera kompresji. | Nie       |
 | preserveZipFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `ZipDeflateReadSettings`*) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` .<br>-Po ustawieniu na **wartość false** Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych źródłowych plikach ZIP, aby uniknąć wyścigów lub nieoczekiwanych zachowań.  | Nie |
-| preserveCompressionFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings` lub `TarReadSettings`*) | Stosuje się, gdy zestaw danych wejściowych **TarGzip** jest skonfigurowany z / kompresją **pułapki** TarGzip. Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false** Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
+| preserveCompressionFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings` lub `TarReadSettings`*) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z / kompresją **pułapki** TarGzip. Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false** Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
 
 ```json
 "activities": [
@@ -120,7 +117,7 @@ Obsługiwane **Ustawienia odczytu danych binarnych** w obszarze `formatSettings`
 
 ### <a name="binary-as-sink"></a>Dane binarne jako ujścia
 
-W sekcji działanie kopiowania **_ \_ ujścia \**** są obsługiwane następujące właściwości.
+W sekcji ***\* ujścia \**** działania kopiowania są obsługiwane następujące właściwości.
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |

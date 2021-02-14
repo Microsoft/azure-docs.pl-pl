@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć konto usługi Azure Batch w portalu Azu
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 943fd145dbd4964e0d43d91f726ea5a79fda59de
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896020"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368510"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Tworzenie konta usługi Batch w witrynie Azure Portal
 
@@ -67,6 +67,9 @@ Aby wyświetlić [przydziały zasobów](batch-quota-limit.md) , które są stoso
 ## <a name="additional-configuration-for-user-subscription-mode"></a>Dodatkowa konfiguracja dla trybu subskrypcji użytkownika
 
 Jeśli wybrano tworzenie konta usługi Batch w trybie subskrypcji użytkownika, należy wykonać następujące dodatkowe kroki przed utworzeniem konta.
+
+> [!IMPORTANT]
+> Użytkownik tworzący konto usługi Batch w trybie subskrypcji użytkownika musi mieć przypisaną rolę współautora lub właściciela do subskrypcji, w której zostanie utworzone konto usługi Batch.
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Umożliwia usłudze Azure Batch dostęp do subskrypcji (jednorazowa operacja)
 

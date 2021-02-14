@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6432cc9affd34c0fa9b832aea91932a2b9e7540f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: references_regions
+ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576676"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383895"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Obsługiwane źródła danych i typy plików w usłudze Azure kontrolą
 
@@ -70,6 +71,28 @@ Próbkowanie plików dla zestawów zasobów według typów plików:
 - **Inne strukturalne typy plików (JSON, XML, txt)** — 1 w 100 plikach są próbkowane (skanowanie P3) w obrębie folderu lub grupy plików partycji, które są uznawane za zestaw zasobów.
 - **Obiekty SQL i jednostki CosmosDB** — każdy plik ma skanowanie P3.
 - **Typy plików dokumentów** — każdy plik jest skanowany w P3. Wzorce zestawu zasobów nie mają zastosowania do tych typów plików.
+
+## <a name="scan-regions"></a>Regiony skanowania
+Poniżej znajduje się lista wszystkich regionów źródła danych platformy Azure, w których działa skaner kontrolą. Jeśli źródło danych platformy Azure znajduje się w regionie poza tą listą, skaner zostanie uruchomiony w regionie wystąpienia usługi kontrolą.
+ 
+### <a name="purview-scanner-regions"></a>Regiony skanera kontrolą
+
+- EastUs
+- EastUs2 
+- SouthCentralUS
+- WestUs
+- WestUs2
+- SoutheastAsia
+- WestEurope
+- NorthEurope
+- UkSouth
+- AustraliaEast
+- CanadaCentral
+- BrazilSouth
+- CentralIndia
+- JapanEast
+- SouthAfricaNorth
+- FranceCentral
 
 ## <a name="classification"></a>Klasyfikacja
 

@@ -2,13 +2,13 @@
 title: Korzystanie z usługi Azure Application Gateway do ochrony aplikacji sieci Web w rozwiązaniu VMware platformy Azure
 description: Skonfiguruj Application Gateway platformy Azure, aby bezpiecznie uwidaczniać aplikacje sieci Web działające w rozwiązaniu VMware platformy Azure.
 ms.topic: how-to
-ms.date: 02/08/2021
-ms.openlocfilehash: fdef37bd76b08a8778db8401a1e8a0406c2ed652
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/10/2021
+ms.openlocfilehash: 9b10c206114ca922cc11bd8cb0321941b8ba672c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988627"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384201"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Korzystanie z usługi Azure Application Gateway do ochrony aplikacji sieci Web w rozwiązaniu VMware platformy Azure
 
@@ -35,7 +35,7 @@ Na diagramie przedstawiono scenariusz testowania używany do sprawdzania poprawn
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram przedstawiający Scenariusz testowania używany do sprawdzania poprawności Application Gateway przy użyciu aplikacji sieci Web rozwiązań VMware platformy Azure." border="false":::
 
-Wystąpienie Application Gateway jest wdrażane w centrum w dedykowanej podsieci. Ma publiczny adres IP platformy Azure. Zalecane jest aktywowanie standardowej ochrony DDoS dla sieci wirtualnej. Serwer sieci Web jest hostowany w chmurze prywatnej rozwiązań VMware platformy Azure za NSX T0 i T1 routery. Rozwiązanie VMware platformy Azure używa [Global REACH ExpressRoute](../expressroute/expressroute-global-reach.md) , aby umożliwić komunikację z systemami centralnymi i lokalnymi.
+Wystąpienie Application Gateway jest wdrażane w centrum w dedykowanej podsieci. Ma publiczny adres IP platformy Azure. Zalecane jest aktywowanie standardowej ochrony DDoS dla sieci wirtualnej. Serwer sieci Web jest hostowany w chmurze prywatnej rozwiązania Azure VMware w tle NSX T0 i T1 Gateway. Rozwiązanie VMware platformy Azure używa [Global REACH ExpressRoute](../expressroute/expressroute-global-reach.md) , aby umożliwić komunikację z systemami centralnymi i lokalnymi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -57,7 +57,7 @@ Wystąpienie Application Gateway jest wdrażane w centrum w dedykowanej podsieci
 
 4. Dodaj pulę zaplecza maszyn wirtualnych działających w infrastrukturze rozwiązań VMware platformy Azure. Podaj szczegóły serwerów sieci Web, które działają w chmurze prywatnej rozwiązania Azure VMware i wybierz pozycję **Dodaj**.  Następnie wybierz pozycję **Next (dalej): Configuration>**.
 
-1. Na karcie **Konfiguracja** wybierz pozycję **Dodaj regułę routingu**.
+5. Na karcie **Konfiguracja** wybierz pozycję **Dodaj regułę routingu**.
 
 6. Na karcie **odbiornik** Podaj szczegóły odbiornika. W przypadku wybrania protokołu HTTPS należy podać certyfikat z pliku PFX lub istniejącego certyfikatu Azure Key Vault. 
 
@@ -67,7 +67,7 @@ Wystąpienie Application Gateway jest wdrażane w centrum w dedykowanej podsieci
 
 9. Jeśli chcesz skonfigurować reguły oparte na ścieżce, wybierz opcję **Dodaj wiele obiektów docelowych, aby utworzyć regułę opartą na ścieżce**. 
 
-10. Dodaj regułę opartą na ścieżce i wybierz pozycję **Dodaj**. Powtarzaj, aby dodać reguły oparte na ścieżce. 
+10. Dodaj regułę opartą na ścieżce i wybierz pozycję **Dodaj**. Powtarzaj, aby dodać więcej reguł opartych na ścieżce. 
 
 11. Po zakończeniu dodawania reguł opartych na ścieżce wybierz pozycję **Dodaj** ponownie. następnie wybierz kolejno pozycje **Dalej: tagi>**. 
 
@@ -77,7 +77,7 @@ Wystąpienie Application Gateway jest wdrażane w centrum w dedykowanej podsieci
 
 ## <a name="configuration-examples"></a>Przykłady konfiguracji
 
-W tej sekcji dowiesz się, jak skonfigurować Application Gateway z maszynami wirtualnymi rozwiązań VMware platformy Azure jako pulami zaplecza dla tych przypadków użycia: 
+Teraz skonfigurujemy Application Gateway z maszynami wirtualnymi rozwiązań VMware platformy Azure jako pulami zaplecza dla następujących przypadków użycia: 
 
 - [Hostowanie wielu lokacji](#hosting-multiple-sites)
 - [Routing według adresu URL](#routing-by-url)
@@ -94,7 +94,7 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool.png" alt-text="Zrzut ekranu przedstawiający podsumowanie szczegółów serwera sieci Web w kliencie VSphere.":::
 
-    Do zilustrowania tego samouczka użyto systemu Windows Server 2016 z zainstalowaną rolą Internet Information Services (IIS). Po zainstalowaniu maszyn wirtualnych Uruchom następujące polecenia programu PowerShell, aby skonfigurować usługi IIS na każdej z maszyn wirtualnych. 
+    Użyto systemu Windows Server 2016 z zainstalowaną rolą Internet Information Services (IIS). Po zainstalowaniu maszyn wirtualnych Uruchom następujące polecenia programu PowerShell, aby skonfigurować usługi IIS na każdej z maszyn wirtualnych. 
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -121,7 +121,7 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
 
 ### <a name="routing-by-url"></a>Routing według adresu URL
 
-Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszyn wirtualnych działających w chmurze prywatnej rozwiązania VMware platformy Azure w istniejącej bramie aplikacji. Następnie utworzysz reguły routingu, aby zapewnić, że ruch internetowy dociera do odpowiednich serwerów w pulach.
+Poniższe kroki definiują pule adresów zaplecza przy użyciu maszyn wirtualnych działających w chmurze prywatnej rozwiązania Azure VMware. Chmura prywatna znajduje się w istniejącej bramie aplikacji. Następnie utworzysz reguły routingu, aby zapewnić, że ruch internetowy dociera do odpowiednich serwerów w pulach.
 
 1. W chmurze prywatnej Utwórz pulę maszyn wirtualnych do reprezentowania kolektywu serwerów sieci Web. 
 

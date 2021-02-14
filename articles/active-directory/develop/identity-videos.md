@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: adb6be99fdfe9ef0a7fa21e025a9ef9a2c0dfffe
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0f9ef58fc9ad8c94e445638f98bcb57a19716ff6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104233"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366011"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Wideo poświęcone platformie tożsamości firmy Microsoft
 
@@ -30,17 +30,17 @@ Poznaj kluczowe składniki i możliwości platformy tożsamości firmy Microsoft
 ___
 
 :::row:::
-  :::column:::
+    :::column:::
         <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">Podstawowe informacje na temat nowoczesnego uwierzytelniania — platforma tożsamości firmy Microsoft</a>(12:28)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-07.jpg" alt="Video thumbnail for a video about the basics of modern authentication on the Microsoft identity platform."></a>
+        > [!Video https://www.youtube.com/embed/tkQJSHFsduY] 
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Nowoczesne uwierzytelnianie: w tym miejscu — Microsoft Identity platform</a>(15:47)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail for a video about modern authentication and the Microsoft identity platform." class="mx-imgBorder"></a>
+        > [!Video https://www.youtube.com/embed/7_vxnHiUA1M]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -48,7 +48,7 @@ ___
         <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Przegląd: implementowanie logowania jednokrotnego w aplikacjach mobilnych — Microsoft Identity platform</a> (20:30)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank"><img src="./media/identity-videos/mobile-single-sign-on.jpg" alt="Video thumbnail for a video about implementing mobile single sign on using the Microsoft identity platform."> </a> (20:30)
+        >[!Video https://www.youtube.com/embed/JpeMeTjQJ04]
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -75,13 +75,13 @@ ___
         1 — <a href="https://www.youtube.com/watch?v=zjezqZPPOfc&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=1" target="_blank">Omówienie platformy tożsamości firmy Microsoft dla deweloperów</a> (33:55)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=zjezqZPPOfc" target="_blank"> <img src="./media/identity-videos/id-for-devs-01.jpg" alt="Video thumbnail for a video overview of the Microsoft identity platform for developers."></a>
+        >[!Video https://www.youtube.com/embed/zjezqZPPOfc]
     :::column-end:::
      :::column:::
         2 — <a href="https://www.youtube.com/watch?v=Mtpx_lpfRLs&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=2" target="_blank">jak uwierzytelniać użytkowników aplikacji za pomocą platformy tożsamości firmy Microsoft </a> (29:09)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=Mtpx_lpfRLs" target="_blank"> <img src="./media/identity-videos/id-for-devs-02.jpg" alt="Video thumbnail for a video about how to authenticate users of your apps with the Microsoft identity platform."></a>
+        >[!Video https://www.youtube.com/embed/Mtpx_lpfRLs]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -89,13 +89,13 @@ ___
         3 — <a href="https://www.youtube.com/watch?v=toAWRNqqDL4&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=3" target="_blank">uprawnienia platformy tożsamości firmy Microsoft i struktura wyrażania zgody</a> (45:08)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=toAWRNqqDL4" target="_blank"> <img src="./media/identity-videos/id-for-devs-03.jpg" alt="Video thumbnail for a video about Microsoft identity platform’s permissions and consent framework."></a>
+        >[!Video https://www.youtube.com/embed/toAWRNqqDL4]
     :::column-end:::
     :::column:::
         4 — <a href="https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4" target="_blank">jak chronić interfejsy API przy użyciu platformy tożsamości firmy Microsoft</a> (33:17)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=IIQ7QW4bYqA" target="_blank"> <img src="./media/identity-videos/id-for-devs-04.jpg" alt="Video thumbnail for a video about how to protect APIs using the Microsoft identity platform."></a>
+        >[!Video https://www.youtube.com/embed/IIQ7QW4bYqA]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -103,7 +103,7 @@ ___
         5 — <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5" target="_blank">role aplikacji i grupy zabezpieczeń na platformie tożsamości firmy Microsoft</a> (15:52)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail for a video about application roles and security groups on the Microsoft identity platform."></a>
+        >[!Video https://www.youtube.com/embed/-BK2iBDrmNo]
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -138,13 +138,13 @@ ___
         1 — <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=1" target="_blank">podstawy: pojęcia nowoczesnego uwierzytelniania</a> (4:33)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-01.jpg" alt="Video thumbnail for a video about the concept of modern authentication."></a>
+        >[!Video https://www.youtube.com/embed/fbSVgC8nGz4]
     :::column-end:::
      :::column:::
         2 — <a href="https://www.youtube.com/watch?v=tCNcG1lcCHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=2" target="_blank">uwierzytelnianie nowoczesne dla aplikacji sieci Web</a> (6:02)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=tCNcG1lcCHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-02.jpg" alt="Video thumbnail for a video about modern authentication for web applications."></a>
+        >[!Video https://www.youtube.com/embed/tCNcG1lcCHY]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -152,13 +152,13 @@ ___
         3 — <a href="https://www.youtube.com/watch?v=51B-jSOBF8U&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=3" target="_blank">Logowanie jednokrotne w sieci Web</a> (4:13)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=51B-jSOBF8U" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-03.jpg" alt="Video thumbnail for a video about web single sign-on."></a>
+        >[!Video https://www.youtube.com/embed/51B-jSOBF8U]
     :::column-end:::
     :::column:::
         4 — <a href="https://www.youtube.com/watch?v=CjarTgjKcX8&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=4" target="_blank">federacyjne Uwierzytelnianie sieci Web</a> (6:19)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=CjarTgjKcX8" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-04.jpg" alt="Video thumbnail for a video about federated web authentication."></a>
+        >[!Video https://www.youtube.com/embed/CjarTgjKcX8]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -166,13 +166,13 @@ ___
         5 — <a href="https://www.youtube.com/watch?v=OGMDnuDrAcQ&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=5" target="_blank">natywne aplikacje klienckie — część 1 </a> (8:12)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=OGMDnuDrAcQ" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-05.jpg" alt="Video thumbnail for part 1 of a video about native client applications."></a>
+        >[!Video https://www.youtube.com/embed/OGMDnuDrAcQ]
     :::column-end:::
     :::column:::
         6 — <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=6" target="_blank">natywne aplikacje klienckie — część 2 </a> (5:33)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-06.jpg" alt="Video thumbnail for part 2 of a video about native client applications."></a>
+        >[!Video https://www.youtube.com/embed/2RE6IhXfmHY]
     :::column-end:::
 :::row-end:::
 
@@ -203,135 +203,125 @@ ___
         <a href="https://www.youtube.com/watch?v=bNlcFuIo3r8" target="_blank">Microsoft Identity platform — Omówienie </a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=bNlcFuIo3r8" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for an overview video about Microsoft identity platform."></a>
+        >[!Video https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank">Microsoft Graph i Biblioteka Microsoft Authentication Library (MSAL) </a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank"> <img src="./media/identity-videos/graph-and-msal.jpg" alt="Video thumbnail for a video about Microsoft Graph and the Microsoft Authentication Library (MSAL)."></a>
+        >[!Video https://www.youtube.com/embed/apbbx2n4tnU]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=yLVEBU9Z96Q" target="_blank">Co to jest rodzina MSAL bibliotek?</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=yLVEBU9Z96Q" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video about the MSAL family of libraries."></a>
+        >[!Video https://www.youtube.com/embed/yLVEBU9Z96Q]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=eiPHOoLmGJs" target="_blank">Wyjaśnione zakresy </a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=eiPHOoLmGJs" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video that explains scopes."></a>
+        >[!Video https://www.youtube.com/embed/eiPHOoLmGJs]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=Zd_Uubnu0U0" target="_blank">Co to są brokerzy </a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=Zd_Uubnu0U0" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video about brokers."> </a>
+        >[!Video https://www.youtube.com/embed/Zd_Uubnu0U0]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=znSN_3JAuoU" target="_blank">Jakie identyfikatory URI przekierowania</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=znSN_3JAuoU" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video that describers what redirect URIs do."></a>
+        >[!Video https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=mDhT4Zv1fZU" target="_blank">Wyjaśnienie dzierżawców </a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=mDhT4Zv1fZU" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video that explains tenants."></a>
+        >[!Video https://www.youtube.com/embed/mDhT4Zv1fZU]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank">Rola usługi Azure AD </a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video that describes the role of Azure AD."></a>
+        >[!Video https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank">Rola obiektów aplikacji usługi Azure AD</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video that describes the role of Azure AD app objects."></a>
+        >[!Video https://www.youtube.com/embed/HEpq_YSmuWw]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=E2OUluQQKSk" target="_blank">Różnice konto Microsoft organizacyjnych i prywatnych</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=E2OUluQQKSk" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video about organizational and personal Microsoft account differences."></a>
+        >[!Video https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=ZJirt7eTVw8" target="_blank">Różnice dotyczące SPA i aplikacji sieci Web</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=ZJirt7eTVw8" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video about SPA and web app differences."></a>
+        >[!Video https://www.youtube.com/embed/ZJirt7eTVw8]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank">Co to są uprawnienia aplikacji a delegowane uprawnienia?</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank"> <img src="./media/identity-videos/aad-basics-12.jpg" alt="Video thumbnail for a video about the differences between application permissions and delegated permissions."></a>
+        >[!Video https://www.youtube.com/embed/6R3W9T01gdE]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank">Co to jest Microsoft Identity platform OpenID Connect Connect Certified?</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail for a video about Microsoft identity platform OpenID Connect certified."></a>
+        >[!Video https://www.youtube.com/embed/Gm6sALdXtpg]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">Jakie są różne typy aplikacji Azure Active Directory i jak są one porównywane?</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank"> <img src="./media/identity-videos/aad-basics-13.jpg" alt="Video thumbnail for a video that compares Azure Active Directory app types."></a>
+        >[!Video https://www.youtube.com/embed/NrydwrckYaw]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">Jeśli używasz MSAL, jakie podstawowe pojęcia dotyczące protokołu należy znać?</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail for a video about protocol concepts you should know if you use MSAL."></a>
+        >[!Video https://www.youtube.com/embed/cZKgTqF4o88]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">Jaka jest różnica między tokenami identyfikatora, tokenami dostępu, tokenami odświeżania i tokenami sesji?</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-08.jpg" alt="Video thumbnail for a video that explains the difference between ID tokens, access tokens, refresh tokens, and session tokens."></a>
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">Jaka jest relacja między żądaniem autoryzacji i tokenami?</a>
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail for a video that describes the relationship between an authorization request and tokens."></a>
+        >[!Video https://www.youtube.com/embed/41vmzPdbfXM]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">Jaka jest relacja między żądaniem autoryzacji i tokenami?</a>
+    :::column-end:::
+    :::column:::
+        >[!Video https://www.youtube.com/embed/jEEwN7XAtUo]
+    :::column-end:::
+    :::column:::
         <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">Jakie aspekty używania protokołów ułatwiają tworzenie bibliotek MSAL?</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail for video that describes what aspects of using protocols does the MSAL libraries make easier."></a>
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-    :::column:::
+        >[!Video https://www.youtube.com/embed/4pwuRYcZbz4]
     :::column-end:::
 :::row-end:::
 
@@ -345,13 +335,13 @@ ___
         <a href="https://www.youtube.com/watch?v=qpdC45tZYDg" target="_blank">Dlaczego należy przeprowadzić migrację z biblioteki ADAL do MSAL</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=qpdC45tZYDg" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video that explains why to migrate from ADAL to MSAL."></a>
+        >[!Video https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
         <a href="https://www.youtube.com/watch?v=xgL_z9yCnrE" target="_blank">Migrowanie bazy kodu ADAL do MSAL</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=xgL_z9yCnrE" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video that describes migrating your ADAL codebase to MSAL."></a>
+        >[!Video https://www.youtube.com/embed/xgL_z9yCnrE]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -359,12 +349,12 @@ ___
         <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank">Zalety MSAL za pośrednictwem biblioteki ADAL</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for a video that describes the advantages of MSAL over ADAL."></a>
+        >[!Video https://www.youtube.com/embed/q-TDszj2O-4]
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank">Jakie są różnice między uwierzytelnianiem V1 i v2?</a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"></a>
+        >[!Video https://www.youtube.com/embed/aBMUxC4evhU]
     :::column-end:::
 :::row-end:::

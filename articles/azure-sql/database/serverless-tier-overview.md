@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 12/8/2020
-ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97687401"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393245"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,16 +25,16 @@ Bezserwerowy jest warstwą obliczeniową dla pojedynczych baz danych w Azure SQL
 
 ## <a name="serverless-compute-tier"></a>Warstwa bezserwerowych usług obliczeniowych
 
-Warstwa obliczeń bezserwerowych dla pojedynczej bazy danych w Azure SQL Database jest sparametryzowane przez zakres obliczeń skalowania automatycznego i opóźnienie automatycznego wstrzymania. Konfiguracja tych parametrów służy do kształtowania wydajności bazy danych i kosztu obliczeniowego.
+Warstwa obliczeń bezserwerowych dla pojedynczej bazy danych w Azure SQL Database jest sparametryzowane przez zakres obliczeń skalowania automatycznego i Opóźnij automatyczne wstrzymanie. Konfiguracja tych parametrów służy do kształtowania wydajności bazy danych i kosztu obliczeniowego.
 
 ![rozliczenia bezserwerowe](./media/serverless-tier-overview/serverless-billing.png)
 
 ### <a name="performance-configuration"></a>Konfiguracja wydajności
 
 - **Minimalna rdzeni wirtualnych** i **Maksymalna rdzeni wirtualnych** to konfigurowalne parametry, które definiują zakres wydajności obliczeniowej dostępny dla bazy danych. Limity pamięci i operacji we/wy są proporcjonalne do określonego zakresu rdzeń wirtualny.  
-- **Opóźnienie AutoPause** to konfigurowalny parametr, który określa okres czasu, przez który baza danych musi być nieaktywna, zanim zostanie automatycznie wstrzymana. Baza danych zostanie automatycznie wznowiona po wystąpieniu następnego logowania lub innego działania.  Alternatywnie można wyłączyć autowstrzymywanie.
+- **Opóźnienie automatycznej wstrzymania** to konfigurowalny parametr, który określa okres czasu, przez który baza danych musi być nieaktywna, zanim zostanie automatycznie wstrzymana. Baza danych zostanie automatycznie wznowiona po wystąpieniu następnego logowania lub innego działania.  Alternatywnie wstrzymywanie można wyłączyć.
 
-### <a name="cost"></a>Cost (Koszt)
+### <a name="cost"></a>Koszt
 
 - Koszt bazy danych bezserwerowej to podsumowanie kosztów i kosztów magazynu obliczeniowego.
 - Gdy użycie obliczeniowe ma wartość z przedziału minimalnego i maksymalnego skonfigurowanego limitu, koszt obliczeń jest oparty na rdzeń wirtualny i używanej pamięci.
@@ -54,10 +54,10 @@ Opcja bezserwerowa jest zoptymalizowana pod kątem stosunku ceny do wydajności 
 - Pojedyncze bazy danych w warstwie obliczeniowej, które są często zmieniane, i Klienci, którzy wolą do delegowania ponownego skalowania obliczeń do usługi.
 - Nowe pojedyncze bazy danych bez historii użycia, w których rozmiary obliczeń są trudne lub niemożliwe do oszacowania przed wdrożeniem w SQL Database.
 
-### <a name="scenarios-well-suited-for-provisioned-compute"></a>Scenariusze dla zainicjowanych obliczeń
+### <a name="scenarios-well-suited-for-provisioned-compute"></a>Scenariusze odpowiednie dla obliczeń zainicjowanych
 
 - Pojedyncze bazy danych z bardziej regularnymi, przewidywalnymi wzorcami użycia i wyższym średnim wykorzystaniem obliczeń w czasie.
-- Bazy danych, które nie mogą tolerować zwiększania wydajności, wynikających z większej częstej przycinania pamięci lub opóźnień w przypadku autowznawiania ze stanu wstrzymania.
+- Bazy danych, które nie mogą tolerować wydajności, wynikające z większej częstości przycinania lub opóźnień pamięci w przypadku wznawiania ze stanu wstrzymania.
 - Wiele baz danych z sporadycznymi, nieprzewidywalnymi wzorcami użycia, które można skonsolidować do pul elastycznych w celu zapewnienia lepszej optymalizacji wydajności.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Porównanie z zainicjowaną warstwą obliczeniową
@@ -97,17 +97,17 @@ W przeciwieństwie do baz danych obliczeniowych, pamięć z pamięci podręcznej
 
 W przypadku baz danych obliczeniowych bezserwerowych i inicjowanych, wpisy pamięci podręcznej mogą zostać wykluczone, jeśli jest używana cała dostępna pamięć.
 
-Należy pamiętać, że gdy użycie procesora CPU jest niskie, użycie aktywnej pamięci podręcznej może być wysokie w zależności od wzorca użycia i uniemożliwić odzyskiwanie pamięci.  Ponadto może istnieć dodatkowe opóźnienie po zatrzymaniu działania użytkownika przed odzyskaniem pamięci, ponieważ okresowe procesy w tle odpowiadają na poprzednie działania użytkownika.  Na przykład operacje usuwania operacji i oczyszczania QDS generują rekordy widma, które są oznaczone do usunięcia, ale nie są fizycznie usuwane do momentu uruchomienia procesu oczyszczania duplikowania, które mogą polegać na odczytywaniu stron danych w pamięci podręcznej.
+Należy pamiętać, że gdy użycie procesora CPU jest niskie, użycie aktywnej pamięci podręcznej może być wysokie w zależności od wzorca użycia i uniemożliwić odzyskiwanie pamięci.  Ponadto mogą wystąpić dodatkowe opóźnienia po zatrzymaniu działania użytkownika przed odzyskaniem pamięci, ponieważ okresowe procesy w tle odpowiadają na poprzednie działania użytkownika.  Na przykład operacje usuwania operacji i oczyszczania QDS generują rekordy widma, które są oznaczone do usunięcia, ale nie są fizycznie usuwane do momentu uruchomienia procesu oczyszczania duplikowania, który może polegać na odczytywaniu stron danych w pamięci podręcznej.
 
 #### <a name="cache-hydration"></a>Odwodnienie pamięci podręcznej
 
 Pamięć podręczna SQL powiększa się jak dane są pobierane z dysku w taki sam sposób i z taką samą szybkością jak dla zainicjowanych baz danych. Gdy baza danych jest zajęta, pamięć podręczna może być zwiększana o nieograniczony limit pamięci.
 
-## <a name="autopausing-and-autoresuming"></a>Autowstrzymywanie i autowznawianie
+## <a name="auto-pause-and-auto-resume"></a>Autowstrzymywanie i autowznawianie
 
-### <a name="autopausing"></a>Trwa autowstrzymywanie
+### <a name="auto-pause"></a>Autowstrzymywanie
 
-Autowstrzymywanie jest wyzwalane, jeśli wszystkie poniższe warunki są spełnione przez czas opóźnienia autowstrzymania:
+Funkcja AutoPause jest wyzwalana, jeśli dla czasu trwania opóźnień AutoPause spełnione są wszystkie następujące warunki:
 
 - Liczba sesji = 0
 - Procesor CPU = 0 dla obciążenia użytkownika działającego w puli użytkowników
@@ -118,15 +118,15 @@ Następujące funkcje nie obsługują automatycznego wstrzymywania, ale obsługu
 
 - Replikacja geograficzna (aktywna replikacja geograficzna i grupy autotrybu failover).
 - Długoterminowe przechowywanie kopii zapasowych (LTR).
-- Baza danych synchronizacji używana w usłudze SQL Data Sync.  W przeciwieństwie do baz danych synchronizacji, bazy danych Hub i elementów członkowskich obsługują autowstrzymywanie.
+- Baza danych synchronizacji używana w usłudze SQL Data Sync.  W przeciwieństwie do baz danych synchronizacji, bazy danych centrum i elementów członkowskich obsługują funkcję autowstrzymywanie.
 - Aliasowanie DNS
 - Baza danych zadań używana w zadaniach elastycznych (wersja zapoznawcza).
 
-Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych aktualizacji usługi, które wymagają, aby baza danych była w trybie online.  W takich przypadkach autowstrzymywanie zostanie ponownie dozwolone po zakończeniu aktualizacji usługi.
+Funkcja autowstrzymywanie jest tymczasowo uniemożliwiana podczas wdrażania niektórych aktualizacji usługi, które wymagają, aby baza danych była w trybie online.  W takich przypadkach autowstrzymywanie zostanie ponownie dozwolone po zakończeniu aktualizacji usługi.
 
-### <a name="autoresuming"></a>Trwa autowznawianie
+### <a name="auto-resuming"></a>Autowznawianie
 
-Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest którykolwiek z następujących warunków:
+Funkcja autowznawiania jest wyzwalana, jeśli w dowolnym momencie spełniony jest którykolwiek z następujących warunków:
 
 |Cecha|Wyzwalacz autowznawiania|
 |---|---|
@@ -139,7 +139,7 @@ Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest który
 |Ocena luk w zabezpieczeniach|Skanowania ad hoc i okresowe skanowanie, jeśli są włączone|
 |Zapytanie (wydajność) — magazyn danych|Modyfikowanie lub wyświetlanie ustawień magazynu zapytań|
 |Zalecenia dotyczące wydajności|Wyświetlanie lub stosowanie zaleceń dotyczących wydajności|
-|Autodostrajanie|Aplikacja i weryfikacja zalecenia autodostrajania, takie jak indeksowanie automatycznego|
+|Dostrajanie autodostrajania|Aplikacja i weryfikacja zalecenia autodostrajania, takie jak indeksowanie automatycznego|
 |Kopiowanie bazy danych|Utwórz bazę danych jako kopię.<br>Eksportuj do pliku BACPAC.|
 |Synchronizacja danych SQL|Synchronizacja między bazami danych centrum i elementami członkowskimi, które są uruchamiane w konfigurowalnym harmonogramie lub są wykonywane ręcznie|
 |Modyfikowanie niektórych metadanych bazy danych|Dodawanie nowych tagów bazy danych.<br>Zmiana maksymalnego opóźnienia rdzeni wirtualnych, minimum rdzeni wirtualnych lub AutoPause.|
@@ -147,7 +147,7 @@ Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest który
 
 Monitorowanie, zarządzanie lub inne rozwiązania wykonujące wszystkie operacje wymienione powyżej spowodują wygenerowanie autowznawiania.
 
-Autowznawianie jest również wyzwalane podczas wdrażania niektórych aktualizacji usługi, które wymagają, aby baza danych była w trybie online.
+Funkcja autowznawiania jest również wyzwalana podczas wdrażania niektórych aktualizacji usługi, które wymagają, aby baza danych była w trybie online.
 
 ### <a name="connectivity"></a>Łączność
 
@@ -155,7 +155,7 @@ Jeśli bezserwerowa baza danych jest wstrzymana, pierwsze logowanie spowoduje wz
 
 ### <a name="latency"></a>Opóźnienie
 
-Opóźnienie autowznawiania i autowstrzymanie bazy danych bezserwerowych jest zazwyczaj kolejnością od 1 minuty do autowznawiania i 1-10 minut do autowstrzymywania.
+Opóźnienie do autowznawiania i autowstrzymanie bezserwerowej bazy danych ma zazwyczaj kolejność od 1 minuty do autowznawiania i 1-10 minut do autowstrzymywania.
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Zarządzane szyfrowanie danych przez klienta (BYOK)
 
@@ -209,7 +209,7 @@ CREATE DATABASE testdb
 ( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
 ```
 
-Aby uzyskać szczegółowe informacje, zobacz [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+Aby uzyskać szczegółowe informacje, zobacz [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).  
 
 ### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Przenoszenie bazy danych ze wstępnie zainicjowanej warstwy obliczeniowej do warstwy obliczeń bezserwerowych
 
@@ -234,14 +234,14 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Korzystanie z języka Transact-SQL (T-SQL)
 
-W przypadku korzystania z języka T-SQL są stosowane wartości domyślne dla opóźnień rdzeni wirtualnych i pauzy.
+Przy użyciu języka T-SQL są stosowane wartości domyślne dla opóźnień rdzeni wirtualnych i AutoPause.
 
 ```sql
 ALTER DATABASE testdb 
 MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 ```
 
-Aby uzyskać szczegółowe informacje, zobacz [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
+Aby uzyskać szczegółowe informacje, zobacz [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
 ### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Przenoszenie bazy danych z warstwy obliczeniowej bezserwerowej do alokowanej warstwy obliczeniowej
 
@@ -276,7 +276,7 @@ Pula zasobów użytkowników jest wewnętrzną największą granicą zarządzani
 
 Metryki monitorowania użycia zasobów pakietu aplikacji i puli użytkowników bazy danych bezserwerowych są wymienione w poniższej tabeli:
 
-|Jednostka|Metryka|Opis|Lekcji|
+|Jednostka|Metric|Opis|Lekcji|
 |---|---|---|---|
 |Pakiet aplikacji|app_cpu_percent|Procent rdzeni wirtualnych używany przez aplikację względem maksymalnej rdzeni wirtualnych dozwolony dla aplikacji.|Procent|
 |Pakiet aplikacji|app_cpu_billed|Kwota obliczeń rozliczanych dla aplikacji w okresie raportowania. Kwota płacona w tym okresie jest iloczynem tej metryki i ceny jednostkowej rdzeń wirtualny. <br><br>Wartości tej metryki są określane przez agregowanie w czasie, gdy jest używana wartość maksymalna procesora CPU i używana pamięć. Jeśli użyta kwota jest mniejsza niż minimalna ilość określona przez minimalną rdzeni wirtualnych i minimalną pamięć, jest naliczana opłata w wysokości minimalnej.Aby porównać procesor z pamięcią na potrzeby rozliczeń, pamięć jest znormalizowana do jednostek rdzeni wirtualnych przez ponowne skalowanie ilości pamięci w GB przez 3 GB na rdzeń wirtualny.|Rdzeń wirtualny sekund|

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16e7f04c62f25e787c3cab44b85a075e1c7d7277
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601594"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386751"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps projekty "open source" dla społeczności
 
@@ -66,11 +66,14 @@ Poniżej znajduje się lista projektów typu "open source", które zwiększają 
 | [Wdrażanie analizy przestrzennej IoT przy użyciu usługi Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Śledzenie i przechwytywanie istotnych zdarzeń występujących w miejscu i czasie jest typowym scenariuszem IoT. |
 
 **Wtyczki formantów mapy innych firm**
+<a name="third-part-map-control-plugins"></a>
 
 | Nazwa projektu | Opis |
 |-|-|
+| [Wtyczka Azure Maps cesium](https://github.com/azure-samples/azure-maps-cesium) | Wtyczka [CESIUM js](https://cesium.com/cesiumjs/) , która ułatwia integrację usług Azure Maps, takich jak [warstwy kafelków](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) i [usługi geokodowania](https://docs.microsoft.com/rest/api/maps/search). |
 | [Wtyczka do Azure Maps ulotek](https://github.com/azure-samples/azure-maps-leaflet) | Wtyczka z [ulotką](https://leafletjs.com/) , która ułatwia nałożenie warstw kafelków z [usług kafelków Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- 
+ | [Wtyczka Azure Maps OpenLayers](https://github.com/azure-samples/azure-maps-openlayers) | Wtyczka [OpenLayers](https://www.openlayers.org/) języka JavaScript, która ułatwia nałożenie warstw kafelków z [Azure Maps kafelków](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+
 **Narzędzia i zasoby**
 
 | Nazwa projektu | Opis |
@@ -88,7 +91,7 @@ Poniższe instrukcje dotyczą wszystkich Azure Maps utworzonych i konserwowanych
 - Azure Maps projekty i próbki Open Source są obsługiwane przez firmę Microsoft i społeczność.
 - Azure Maps projekty open source i przykłady używają obsługiwanych i zalecanych technik.
 - Azure Maps projekty typu "open source" i próbki są inicjatywą Wspólnoty — ludzie, którzy pracują z inicjatywą w celu skorzystania z korzyści dla innych osób i mają również swoje zadania zwykłe.
-- Azure Maps projekty typu "open source" i próbki nie są produktem i w związku z tym nie są obsługiwane przez pomoc techniczna Premier lub innych oficjalnych kanałów pomocy technicznej.
+- Azure Maps projekty typu "open source" i próbki nie są produktem i w związku z tym nie są obsługiwane przez pomoc techniczna Premium lub innych oficjalnych kanałów pomocy technicznej.
 - Azure Maps projekty i przykłady "open source" są obsługiwane w podobny sposób, jak inne projekty open source wykonywane przez firmę Microsoft z obsługą społeczności przez społeczność.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -3,12 +3,12 @@ title: Adnotacje wydania dla Application Insights | Microsoft Docs
 description: Dodaj znaczniki wdrożenia lub kompilacji do wykresów Eksploratora metryk w Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c23c973bc02482e7000cfd1d066a322fff93542a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993724"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386037"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Adnotacje na wykresach metryk w Application Insights
 
@@ -81,7 +81,7 @@ Utwórz oddzielny klucz interfejsu API dla każdego z Azure Pipelines szablonów
 
 Teraz za każdym razem, gdy użyjesz szablonu zlecenia do wdrożenia nowej wersji, adnotacja zostanie wysłana do Application Insights. Adnotacje można przeglądać w następujących lokalizacjach:
 
-Okienko użycie, w którym można także ręcznie tworzyć adnotacje wersji:
+Okienko **użycie** , w którym można także ręcznie tworzyć adnotacje wersji:
 
 ![Zrzut ekranu przedstawiający wykres słupkowy z liczbą wizyt użytkowników wyświetlaną w danym okresie czasu. Adnotacje wersji są wyświetlane jako zielone znaczniki wyboru powyżej wykresu wskazujące moment, w którym wystąpiło wydanie](./media/annotations/usage-pane.png)
 

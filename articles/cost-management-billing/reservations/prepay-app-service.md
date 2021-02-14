@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 89e0c62b580c0c354fc7277e61b452005a86e3d9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 92a315121ad8ae6fadcadbf6d531eb3e99ae69a9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577813"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374545"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Oszczędzaj koszty za pomocą Azure App Service wystąpień zarezerwowanych
 
@@ -37,24 +37,12 @@ Możesz użyć zaleceń dotyczących rezerwacji, aby pomóc w ustaleniu zastrze�
 - Możesz użyć interfejsów API, aby uzyskać zalecenia dotyczące zakupu zarówno dla zakresu udostępnionego, jak i dla jednej subskrypcji. Aby uzyskać więcej informacji, zobacz [interfejsy API rekomendacji wystąpień zarezerwowanych dla klientów korporacyjnych](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - W przypadku klientów z Enterprise Agreement (EA) i Microsoft Customer Agreement (MCA) można zakupić zalecenia dotyczące współdzielonych i pojedynczych zakresów subskrypcji, korzystając z [pakietu zawartości Azure Consumption Insights Power BI](/power-bi/service-connect-to-azure-consumption-insights).
 
-#### <a name="instance-size-flexibility-setting"></a>Ustawienie elastyczności rozmiaru wystąpienia
-
-Ustawienie elastyczności rozmiaru wystąpienia określa, dla których usług są stosowane rabaty na wystąpienia zarezerwowane.
-
-Niezależnie od tego, czy to ustawienie jest włączone, czy wyłączone, rabaty rezerwacji są automatycznie stosowane do dowolnego zgodnego użycia wystąpienia zarezerwowanego w wersji 3.
-
 ### <a name="analyze-your-usage-information"></a>Analizowanie informacji o użyciu
 
 Analizuj informacje o użyciu, aby pomóc w ustaleniu, które rezerwacje należy zakupić. Dane użycia są dostępne w pliku użycia i interfejsach API. Należy używać ich razem w celu określenia rezerwacji do zakupu. Sprawdź wystąpienia Premium v3, które codziennie mają duże użycie, aby określić liczbę rezerwacji do zakupu.
 
 Twój plik użycia pokazuje opłaty według okresu rozliczeniowego i dziennego użycia. Aby uzyskać informacje na temat pobierania pliku użycia, zobacz [Wyświetlanie i pobieranie użycia platformy Azure oraz opłat](../understand/download-azure-daily-usage.md). Następnie za pomocą informacji o pliku użycia można [określić, jakie rezerwacji należy kupić](determine-reservation-purchase.md).
 
-### <a name="purchase-restriction-considerations"></a>Zagadnienia związane z ograniczeniami zakupu
-
-Rabaty zarezerwowane nie dotyczą następujących wystąpień w warstwie Premium v3:
-
-- **Wersja zapoznawcza lub promocja wystąpień** — dowolna liczba wystąpień zarezerwowanych w warstwie Premium v3, która jest w wersji zapoznawczej lub korzysta z miernika promocyjnego.
-- **Chmury** — rezerwacje nie są dostępne do zakupu w regionach Niemcy i Chiny.
 
 ## <a name="buy-a-premium-v3-reserved-instance"></a>Kupowanie zarezerwowanego wystąpienia Premium v3
 
@@ -79,7 +67,6 @@ Jeśli masz umowę EA, możesz użyć **opcji Dodaj więcej** , aby szybko doda�
 | Zakres | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji: <ul><li>**Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów. </li><li>**Zakres pojedynczej subskrypcji** — rabat na rezerwację jest stosowany do odpowiednich zasobów w wybranej subskrypcji.</li><li>**Zakres udostępniony** — rabat na rezerwację jest stosowany do odpowiednich zasobów w kwalifikujących się subskrypcjach w ramach kontekstu rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.</li></ul> |
 | Region (Region) | Region świadczenia usługi Azure objęty rezerwacją. |
 | Zarezerwowany rozmiar wystąpienia Premium v3 | Rozmiar zarezerwowanych wystąpień Premium v3. |
-| Optymalizuj pod kątem | Domyślnie wybrana jest elastyczność rozmiaru wystąpienia zarezerwowanego Premium v3. Kliknij pozycję **Ustawienia zaawansowane** , aby zmienić elastyczność rozmiaru wystąpienia, aby zastosować rabat rezerwacji do innych wystąpień zarezerwowanych Premium w wersji 3 w tej samej [grupie rozmiaru wystąpienia zarezerwowanego Premium v3](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Priorytet pojemności powoduje przydzielanie priorytetów pojemności centrum danych dla wdrożeń. Oferuje ona dodatkowe zaufanie do uruchamiania wystąpień zarezerwowanych Premium v3, gdy ich potrzebujesz. Priorytet pojemności jest dostępny tylko wtedy, gdy zakresem rezerwacji jest pojedyncza subskrypcja. |
 | Okres | Jeden rok lub trzy lata. Okres 5-letni jest dostępny tylko dla wystąpień zarezerwowanych HBv2 Premium v3. |
 | Liczba | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba zarezerwowanych wystąpień Premium v3, które mogą uzyskać rabat rozliczeń. Jeśli na przykład \_ w regionie Wschodnie stany USA używasz 10 standardowych wystąpień usługi D2 Premium w wersji 3, należy określić liczbę jako 10, aby zmaksymalizować korzyść dla wszystkich wystąpień zarezerwowanych dla systemu Premium v3. |
 

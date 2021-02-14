@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 2e09542cbe56df7c8d6984a98fe77142f543ec03
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 9ea71dae746ac423e7b17b6235b4d5cd3e143cd7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539200"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377333"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-cli"></a>Konfigurowanie i zarządzanie ciągłymi kopiami zapasowymi oraz przywracanie do punktu w czasie (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -46,7 +46,7 @@ W tym artykule opisano sposób aprowizacji konta z ciągłymi kopiami zapasowymi
 
 ## <a name="provision-a-sql-api-account-with-continuous-backup"></a><a id="provision-sql-api"></a>Inicjowanie obsługi administracyjnej konta interfejsu API SQL przy użyciu ciągłej kopii zapasowej
 
-Aby zapewnić obsługę administracyjną konta interfejsu API SQL przy użyciu ciągłej kopii zapasowej, `--backup-policy-type Continuous` należy przekazać dodatkowy argument wraz z zwykłym poleceniem aprowizacji. Poniższe polecenie jest przykładem konta zapisu w jednym regionie o nazwie `pitracct2` z zasadami ciągłego tworzenia kopii zapasowych utworzonych w regionie "zachodnie stany USA" w grupie zasobów "mojagz":
+Aby zapewnić obsługę administracyjną konta interfejsu API SQL przy użyciu ciągłej kopii zapasowej, `--backup-policy-type Continuous` należy przekazać dodatkowy argument wraz z zwykłym poleceniem aprowizacji. Poniższe polecenie jest przykładem konta zapisu w jednym regionie o nazwie `pitracct2` z zasadami ciągłego tworzenia kopii zapasowych utworzonych w regionie *zachodnie stany USA* w obszarze *mojagz* grupy zasobów:
 
 ```azurecli-interactive
 
@@ -61,7 +61,7 @@ az cosmosdb create \
 
 ## <a name="provision-an-azure-cosmos-db-api-for-mongodb-account-with-continuous-backup"></a><a id="provision-mongo-api"></a>Udostępnianie interfejsu API Azure Cosmos DB dla konta MongoDB z ciągłą kopią zapasową
 
-Następujące polecenie pokazuje przykład jednego regionu konta zapisu o nazwie `pitracct3` z zasadami ciągłego tworzenia kopii zapasowych utworzył region "zachodnie stany USA" w grupie zasobów "mojagz":
+Następujące polecenie pokazuje przykład jednego regionu konta zapisu o nazwie `pitracct3` z zasadami ciągłego tworzenia kopii zapasowych utworzony region *zachodnie stany USA* w obszarze *mojagz* grupy zasobów:
 
 ```azurecli-interactive
 
@@ -145,13 +145,13 @@ Odpowiedź dotyczy wszystkich kont bazy danych (zarówno aktywnych, jak i usuni�
   }
 ```
 
-Podobnie jak "CreationTime" lub "DeletionTime" dla konta, istnieje również "CreationTime" lub "DeletionTime" dla regionu. Te czasy umożliwiają wybranie odpowiedniego regionu i prawidłowego zakresu czasu do przywrócenia w danym regionie.
+Podobnie jak w `CreationTime` `DeletionTime` przypadku konta, istnieje `CreationTime` również `DeletionTime` region lub. Te czasy umożliwiają wybranie odpowiedniego regionu i prawidłowego zakresu czasu do przywrócenia w danym regionie.
 
 **Wyświetl listę wszystkich wersji bazy danych na aktywnym koncie bazy danych**
 
 Lista wszystkich wersji baz danych umożliwia wybranie odpowiedniej bazy danych w scenariuszu, w którym rzeczywisty czas istnienia bazy danych jest nieznany.
 
-Uruchom następujące polecenie interfejsu wiersza polecenia, aby wyświetlić listę wszystkich wersji baz danych. To polecenie działa tylko z kontami na żywo. Parametry "instanceId" i "Location" są uzyskiwane z właściwości "name" i "Location" w odpowiedzi `az cosmosdb restorable-database-account list` polecenia. Atrybut instanceId jest również właściwością konta źródłowej bazy danych, które jest przywracane:
+Uruchom następujące polecenie interfejsu wiersza polecenia, aby wyświetlić listę wszystkich wersji baz danych. To polecenie działa tylko z kontami na żywo. `instanceId` `location` Parametry i są uzyskiwane z `name` `location` właściwości i w odpowiedzi `az cosmosdb restorable-database-account list` polecenia. Atrybut instanceId jest również właściwością konta źródłowej bazy danych, które jest przywracane:
 
 ```azurecli-interactive
 az cosmosdb sql restorable-database list \
@@ -198,7 +198,7 @@ To dane wyjściowe polecenia są teraz wyświetlane, gdy baza danych została ut
 
 **Wyświetl listę wszystkich wersji kontenerów SQL bazy danych na aktywnym koncie bazy danych**
 
-Użyj poniższego polecenia, aby wyświetlić listę wszystkich wersji kontenerów SQL. To polecenie działa tylko z kontami na żywo. Parametr "databaseRid" to "ResourceId" bazy danych, którą chcesz przywrócić. Jest to wartość atrybutu "ownerResourceid" znaleziony w odpowiedzi `az cosmosdb sql restorable-database list` polecenia.
+Użyj poniższego polecenia, aby wyświetlić listę wszystkich wersji kontenerów SQL. To polecenie działa tylko z kontami na żywo. `databaseRid`Parametr jest `ResourceId` bazą danych, którą chcesz przywrócić. Jest to wartość `ownerResourceid` atrybutu znalezionego w odpowiedzi `az cosmosdb sql restorable-database list` polecenia.
 
 ```azurecli-interactive
 az cosmosdb sql restorable-container list \
@@ -265,7 +265,7 @@ az cosmosdb sql restorable-resource list \
 
 ## <a name="enumerate-restorable-resources-for-mongodb-api-account"></a><a id="enumerate-mongodb-api"></a>Wyliczanie zasobów dostępnych dla konta interfejsu API MongoDB
 
-Opisane poniżej polecenia wyliczania ułatwiają odnajdywanie zasobów dostępnych do przywrócenia w różnych sygnaturach czasowych. Ponadto udostępniają one również Źródło najważniejszych zdarzeń na koncie dostępnych, bazie danych i zasobach kontenerów. Podobnie jak w przypadku interfejsu API SQL, można użyć `az cosmosdb` polecenia, ale z parametrem "MongoDB" zamiast "SQL". Te polecenia działają tylko w przypadku kont na żywo.
+Opisane poniżej polecenia wyliczania ułatwiają odnajdywanie zasobów dostępnych do przywrócenia w różnych sygnaturach czasowych. Ponadto udostępniają one również Źródło najważniejszych zdarzeń na koncie dostępnych, bazie danych i zasobach kontenerów. Podobnie jak w przypadku interfejsu API SQL, można użyć `az cosmosdb` polecenia, ale z `mongodb` parametrem as zamiast `sql` . Te polecenia działają tylko w przypadku kont na żywo.
 
 **Wyświetlanie listy wszystkich wersji baz danych MongoDB na żywo konta bazy danych**
 

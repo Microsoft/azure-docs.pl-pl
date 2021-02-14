@@ -101,20 +101,12 @@
       href: ./workloads/oracle/oracle-database-quick-create.md
     - name: Elasticsearch
       href: ./linux/tutorial-elasticsearch.md
-    - name: Filtr pakietów systemu FreeBSD
-      href: ./linux/freebsd-pf-nat.md
     - name: Zmiana hosta komputera mainframe
       href: ./workloads/mainframe-rehosting/overview.md
-    - name: Bazy danych
-      items:
-        - name: MongoDB
-        - name: Baza danych MS SQL w systemie Linux
-          href: /sql/linux/sql-server-linux-azure-virtual-machine
+    - name: SQL on Virtual Machines
+      href: 'https://docs.microsoft.com/azure/azure-sql/virtual-machines/'
     - name: Obliczenia o wysokiej wydajności (HPC)
       href: /azure/architecture/topics/high-performance-computing/
-    - name: Kontenery
-    - name: Visual Studio
-      href: ./windows/using-visual-studio-vm.md
 - name: Wystąpienia
   items:
     - name: Rozmiary
@@ -218,6 +210,12 @@
                   href: ./windows/n-series-driver-setup.md
             - name: Konfigurowanie sterowników procesora GPU AMD
               href: ./windows/n-series-amd-driver-setup.md
+        - name: FPGA — przyspieszenie obliczeniowe
+          items:
+            - name: Omówienie
+              href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+            - name: Seria NP.
+              href: np-series.md
         - name: Obliczenia o wysokiej wydajności
           displayName: H-series
           items:
@@ -329,7 +327,8 @@
           href: ./linux/tutorial-build-deploy-azure-pipelines.md
         - name: Utwórz stos lampy
           href: ./linux/tutorial-lamp-stack.md
-        - name: Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
+        - name: Zabezpieczanie serwera sieci Web za pomocą TLS\SSL
+          displayname: SSL TLS
           items:
             - name: Linux
               href: ./linux/tutorial-secure-web-server.md
@@ -592,6 +591,8 @@
               href: ./linux/flatcar-create-upload-vhd.md
             - name: FreeBSD
               href: ./linux/freebsd-intro-on-azure.md
+            - name: Filtr pakietów systemu FreeBSD
+              href: ./linux/freebsd-pf-nat.md
             - name: Oracle Linux
               href: ./linux/oracle-create-upload-vhd.md
             - name: OpenBSD
@@ -636,6 +637,8 @@
           href: ./windows/capture-image-resource.md
         - name: Tworzenie maszyny wirtualnej na podstawie zarządzanego obrazu
           href: ./windows/create-vm-generalized-managed.md
+        - name: Visual Studio
+          href: ./windows/using-visual-studio-vm.md
     - name: Galerie obrazów udostępnionych
       items:
         - name: Omówienie
@@ -1225,6 +1228,8 @@
       href: maintenance-and-updates.md
     - name: Automatyczne stosowanie poprawki gościa maszyny wirtualnej (wersja zapoznawcza)
       href: ./windows/automatic-vm-guest-patching.md
+    - name: Automatyczne uaktualnianie rozszerzeń (wersja zapoznawcza)
+      href: ./automatic-extension-upgrade.md
     - name: Sterowanie konserwacją
       items:
         - name: Powiadomienia dotyczące konserwacji

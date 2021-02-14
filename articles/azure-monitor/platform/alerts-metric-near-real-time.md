@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/10/2021
 ms.subservice: alerts
-ms.openlocfilehash: 8f59f3488f6c8f5b35ec68d93db656447f882a92
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ee281e60a0eb6f6192e63a9733146714e4aaf2eb
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510686"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104386"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -35,7 +35,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. AppConfiguration/configurationStores |Tak | Nie | [Konfiguracja aplikacji](./metrics-supported.md#microsoftappconfigurationconfigurationstores) |
 |Microsoft. AppPlatform/Sprężyna | Tak | Nie | [Azure Spring Cloud](./metrics-supported.md#microsoftappplatformspring) |
 |Microsoft. Automation/automationAccounts | Tak| Nie | [Konta automatyzacji](./metrics-supported.md#microsoftautomationautomationaccounts) |
-|Microsoft. Automatyczna synchronizacja/privateClouds | Nie | Nie | |
+|Microsoft. Automatyczna synchronizacja/privateClouds | Nie | Nie | [Rozwiązanie Azure VMware](./metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Tak | Nie | [Konta usługi Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
 |Microsoft. cache/Redis | Tak | Tak | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
 |Microsoft. ClassicCompute/domainNames/gniazda/role | Nie | Nie | [Cloud Services klasyczny](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
@@ -54,7 +54,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. DataBoxEdge/dataBoxEdgeDevices | Tak | Tak | [Data Box](./metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
 |Microsoft. DataFactory/datafactors| Tak| Nie | [Fabryki danych v1](./metrics-supported.md#microsoftdatafactorydatafactories) |
 |Microsoft. DataFactory/fabryki |Tak | Nie | [Fabryki danych v2](./metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft. dataudział/konta | Tak | Nie | |
+|Microsoft. dataudział/konta | Tak | Nie | [Udziały danych](./metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft. DBforMariaDB/serwery | Nie | Nie | [Baza danych dla MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft. DBforMySQL/serwery | Nie | Nie |[Baza danych dla programu MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft. DBforPostgreSQL/serwery | Nie | Nie | [Baza danych dla PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
@@ -62,7 +62,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. DBforPostgreSQL/flexibleServers | Tak | Nie | [DB for PostgreSQL (serwery elastyczne)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft. Devices/IotHubs | Tak | Nie |[IoT Hub](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft. Devices/provisioningServices| Tak | Nie | [Usługi Device Provisioning](./metrics-supported.md#microsoftdevicesprovisioningservices) |
-|Microsoft. DigitalTwins/digitalTwinsInstances | Tak | Nie | |
+|Microsoft. DigitalTwins/digitalTwinsInstances | Tak | Nie | [Digital Twins](./metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
 |Microsoft.DocumentDB/databaseAccounts | Tak | Nie | [Cosmos DB](./metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
 |Microsoft. EventGrid/domeny | Tak | Nie | [Domeny usługi Event Grid](./metrics-supported.md#microsofteventgriddomains) |
 |Microsoft. EventGrid/systemTopics | Tak | Nie | [Tematy dotyczące systemu Event Grid](./metrics-supported.md#microsofteventgridsystemtopics) |
@@ -87,10 +87,10 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. Network/expressRouteCircuits | Tak | Nie |[Obwody usługi ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft. Network/expressRoutePorts | Tak | Nie |[Usługa ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft. Network/loadBalancers (tylko w przypadku standardowych jednostek SKU)| Tak| Nie | [Moduły równoważenia obciążenia](./metrics-supported.md#microsoftnetworkloadbalancers) |
-|Microsoft. Network/natGateways| Nie | Nie | |
-|Microsoft. Network/privateEndpoints| Nie | Nie | |
-|Microsoft. Network/privateLinkServices| Nie | Nie |
-|Microsoft. Network/adresów publicipaddress | Nie | Nie |[Publiczne adresy IP](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft. Network/natGateways| Nie | Nie | [Bramy translatora adresów sieciowych](./metrics-supported.md#microsoftnetworknatgateways) |
+|Microsoft. Network/privateEndpoints| Nie | Nie | [Prywatne punkty końcowe](./metrics-supported.md#microsoftnetworkprivateendpoints) |
+|Microsoft. Network/privateLinkServices| Nie | Nie | [Usługi linków prywatnych](./metrics-supported.md#microsoftnetworkprivatelinkservices) |
+|Microsoft. Network/adresów publicipaddress | Nie | Nie | [Publiczne adresy IP](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft. Network/trafficManagerProfiles | Tak | Nie | [Profile usługi Traffic Manager](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft. OperationalInsights/obszary robocze| Tak | Nie | [Obszary robocze usługi Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft. Komunikacja równorzędna/Komunikacja równorzędna | Tak | Nie | [Komunikacja równorzędna](./metrics-supported.md#microsoftpeeringpeerings) |
@@ -107,7 +107,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. Storage/storageAccounts/fileServices | Tak| Nie | [Konta magazynu — pliki](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
 |Microsoft. Storage/storageAccounts/queueServices | Tak| Nie | [Konta magazynu — kolejki](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
 |Microsoft. Storage/storageAccounts/tableServices | Tak| Nie | [Konta magazynu — tabele](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
-|Microsoft. StorageCache/pamięci podręczne | Tak | Nie | |
+|Microsoft. StorageCache/pamięci podręczne | Tak | Nie | [Pamięci podręczne HPC](./metrics-supported.md#microsoftstoragecachecaches) |
 |Microsoft. StorageSync/storageSyncServices | Tak | Nie | [Usługi synchronizacji magazynu](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft. StreamAnalytics/streamingjobs | Tak | Nie | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
 |Microsoft. Synapse/obszary robocze | Tak | Nie | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |

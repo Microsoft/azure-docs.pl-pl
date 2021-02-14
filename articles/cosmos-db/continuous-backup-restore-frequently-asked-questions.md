@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c0af1db12f3ade2945524f48e4539d2d2e9aa6b9
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 1cf94964f420f7a7d4fc0f6ba0b77813b3e75787
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539188"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393228"
 ---
 # <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Często zadawane pytania dotyczące funkcji przywracania do momentu Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -31,7 +31,7 @@ Czas trwania przywracania zależy od rozmiaru danych.
 Przywracanie może nie nastąpić w zależności od tego, czy w danym momencie istniały kluczowe zasoby, takie jak bazy danych lub kontenery. Możesz sprawdzić, wprowadzając czas i sprawdzając wybraną bazę danych lub kontener w danym momencie. Jeśli nie istnieją żadne zasoby, które nie istnieją do przywrócenia, proces przywracania nie działa.
 
 ### <a name="how-can-i-track-if-an-account-is-being-restored"></a>Jak mogę śledzić, czy konto jest przywracane?
-Po przesłaniu polecenia Restore i poczekaj na tę samą stronę po zakończeniu operacji na pasku stanu zostanie wyświetlony komunikat o błędzie przywrócony pomyślnie. Możesz również wyszukać przywrócone konto i [śledzić stan przywracanego konta](continuous-backup-restore-portal.md#track-restore-status). Gdy przywracanie jest w toku, stan konta będzie "Tworzenie", po zakończeniu operacji przywracania stan konta zmieni się na "online".
+Po przesłaniu polecenia Restore i poczekaj na tę samą stronę po zakończeniu operacji na pasku stanu zostanie wyświetlony komunikat o błędzie przywrócony pomyślnie. Możesz również wyszukać przywrócone konto i [śledzić stan przywracanego konta](continuous-backup-restore-portal.md#track-restore-status). Podczas przywracania trwa *Tworzenie* stanu konta. po zakończeniu operacji przywracania stan konta zmieni się na *online*.
 
 Podobnie w przypadku programu PowerShell i interfejsu wiersza polecenia można śledzić postęp operacji przywracania, wykonując `az cosmosdb show` polecenie w następujący sposób:
 
@@ -39,7 +39,7 @@ Podobnie w przypadku programu PowerShell i interfejsu wiersza polecenia można �
 az cosmosdb show --name "accountName" --resource-group "resourceGroup"
 ```
 
-ProvisioningState pokazuje "powodzenie", gdy konto jest w trybie online.
+ProvisioningState ukazuje *się pomyślnie* , gdy konto jest w trybie online.
 
 ```json
 {
@@ -60,7 +60,7 @@ ProvisioningState pokazuje "powodzenie", gdy konto jest w trybie online.
 ### <a name="how-can-i-find-out-whether-an-account-was-restored-from-another-account"></a>Jak mogę sprawdzić, czy konto zostało przywrócone z innego konta?
 Uruchom `az cosmosdb show` polecenie w danych wyjściowych, aby zobaczyć, że wartość `createMode` właściwości. Jeśli wartość jest ustawiona na **przywracanie**. oznacza to, że konto zostało przywrócone z innego konta. `restoreParameters`Właściwość zawiera dalsze szczegóły, takie jak `restoreSource` , które mają identyfikator konta źródłowego. Ostatni identyfikator GUID w `restoreSource` parametrze jest identyfikator InstanceId konta źródłowego.
 
-Na przykład w następujących danych wyjściowych identyfikator wystąpienia konta źródłowego to "7b4bb-f6a0-430E-ade1-638d781830cc"
+Na przykład w następujących danych wyjściowych identyfikator wystąpienia konta źródłowego to *7b4bb-f6a0-430E-ade1-638d781830cc*
 
 ```json
 "restoreParameters": {
@@ -75,9 +75,9 @@ Na przykład w następujących danych wyjściowych identyfikator wystąpienia ko
 Zostanie przywrócona cała udostępniona baza danych przepływności. Nie można wybrać podzestawu kontenerów w udostępnionej bazie danych przepływności na potrzeby przywracania.
 
 ### <a name="what-is-the-use-of-instanceid-in-the-account-definition"></a>Co to jest użycie obiektu InstanceID w definicji konta?
-W dowolnym momencie w czasie, właściwość "AccountName" Azure Cosmos DB konta jest globalnie unikatowa, gdy jest aktywny. Jednak po usunięciu konta można utworzyć inne konto o tej samej nazwie, w związku z czym "AccountName" nie jest już wystarczające do zidentyfikowania wystąpienia konta. 
+W dowolnym momencie, Azure Cosmos DB `accountName` Właściwość konta jest globalnie unikatowa, gdy jest aktywny. Jednak po usunięciu konta można utworzyć inne konto o tej samej nazwie, w związku z czym "AccountName" nie jest już wystarczające do zidentyfikowania wystąpienia konta. 
 
-ID lub "instanceId" jest właściwością wystąpienia konta i służy do rozróżnienia na wielu kontach (na żywo i usunięte), jeśli mają one taką samą nazwę jak przywracanie. Identyfikator wystąpienia można uzyskać, uruchamiając `Get-AzCosmosDBRestorableDatabaseAccount`  `az cosmosdb restorable-database-account` polecenia lub. Wartość atrybutu Name oznacza "InstanceID".
+Identyfikator lub `instanceId` jest właściwością wystąpienia konta i jest używany do odróżnienia na wielu kontach (na żywo i usunięte), jeśli mają taką samą nazwę w przypadku przywracania. Identyfikator wystąpienia można uzyskać, uruchamiając `Get-AzCosmosDBRestorableDatabaseAccount`  `az cosmosdb restorable-database-account` polecenia lub. Wartość atrybutu Name oznacza "InstanceID".
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 8dca9e3e29796618b905c4d266eb674f82565969
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4f57d2793a28f4bbb201764c67af82f31d0b9333
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097621"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369802"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Wbudowana obsługa notesów Jupyter w Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -24,7 +24,7 @@ Azure Cosmos DB wbudowane notesy Jupyter są bezpośrednio zintegrowane z Azure 
 
 Azure Cosmos DB obsługuje zarówno notesy C#, jak i Python dla wszystkich interfejsów API, w tym rdzeń (SQL), Cassandra, Gremlin, Table i API dla MongoDB. Wewnątrz notesu można korzystać z wbudowanych poleceń i funkcji, które ułatwiają tworzenie Azure Cosmos DB zasobów, przekazywanie danych i wykonywanie zapytań i wizualizację danych w Azure Cosmos DB. 
 
-:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Wizualizacje notesów Jupyter w Azure Cosmos DB":::
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Obsługa notesów Jupyter w Azure Cosmos DB":::
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Zalety notesów Jupyter
 
@@ -61,5 +61,7 @@ Notesy Jupyter mogą zawierać kilka typów składników, które są zorganizowa
 Aby rozpocząć pracę z wbudowanymi notesami Jupyter w Azure Cosmos DB, zobacz następujące artykuły:
 
 * [Włącz Notesy na koncie usługi Azure Cosmos](enable-notebooks.md)
+* [Eksploruj galerię przykładów notesu](https://cosmos.azure.com/gallery.html)
 * [Korzystanie z funkcji i poleceń notesu języka Python](use-python-notebook-features-and-commands.md)
 * [Korzystanie z funkcji i poleceń notesu języka C#](use-csharp-notebook-features-and-commands.md)
+* [Importowanie notesów z repozytorium GitHub](import-github-notebooks.md)

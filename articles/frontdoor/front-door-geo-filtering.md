@@ -13,18 +13,19 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cd3d4837c39fdeb0e7addced10ab2e7fd330b9a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449258"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369428"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrowanie geograficzne w domenie dla drzwi frontonu platformy Azure
 
 Domyślnie drzwi frontonu platformy Azure reagują na wszystkie żądania użytkowników, niezależnie od lokalizacji, z której pochodzi żądanie. W niektórych scenariuszach możesz chcieć ograniczyć dostęp do aplikacji sieci Web według krajów/regionów. Usługa Zapora aplikacji sieci Web (WAF) w przód drzwi umożliwia definiowanie zasad przy użyciu niestandardowych reguł dostępu dla określonej ścieżki w punkcie końcowym w celu zezwalania na dostęp lub blokowania go w określonych krajach/regionach. 
 
-Zasady WAF zawierają zestaw reguł niestandardowych. Reguła zawiera warunki dopasowania, akcję i priorytet. W warunku dopasowania należy zdefiniować zmienną dopasowania, operator i wartość Match. Dla reguły filtrowania geograficznego zmienna dopasowania jest REMOTE_ADDR, operator jest geodopasowywany, a wartość to dwuliterowy kod kraju/regionu. Można połączyć warunek geodopasowania i warunek dopasowania ciągu REQUEST_URI, aby utworzyć regułę filtrowania geograficznego opartego na ścieżce.
+Zasady WAF zawierają zestaw reguł niestandardowych. Reguła zawiera warunki dopasowania, akcję i priorytet. W warunku dopasowania należy zdefiniować zmienną dopasowania, operator i wartość Match. Dla reguły filtrowania geograficznego zmienna dopasowania jest REMOTE_ADDR, operator jest geodopasowywany, a wartość to dwuliterowy kod kraju/regionu. "ZZ" kod kraju lub "nieznany" kraju przechwytuje adresy IP, które nie zostały jeszcze zamapowane na kraj w naszym zestawie danych. Możesz dodać ZZ do warunku dopasowania, aby uniknąć fałszywych wartości dodatnich. Można połączyć warunek geodopasowania i warunek dopasowania ciągu REQUEST_URI, aby utworzyć regułę filtrowania geograficznego opartego na ścieżce. 
+
 
 Można skonfigurować zasady filtrowania geograficznego dla drzwi z przodu przy użyciu [Azure PowerShell](front-door-tutorial-geo-filtering.md) lub przy użyciu [szablonu szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
@@ -150,7 +151,7 @@ Można skonfigurować zasady filtrowania geograficznego dla drzwi z przodu przy 
 | MX | Meksyk|
 | MY | Malezja|
 | MZ | Mozambik|
-| Nie dotyczy | Namibia|
+| NA | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nikaragua|

@@ -1,21 +1,17 @@
 ---
 title: Konfigurowanie wydajności dla Azure-SSIS Integration Runtime
 description: Dowiedz się, jak skonfigurować właściwości Azure-SSIS Integration Runtime w celu uzyskania wysokiej wydajności
-services: data-factory
 ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
-ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: ''
-manager: anandsub
-ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5d275100124660b901504b7e7f71cf93518fd077
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635324"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364396"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurowanie Azure-SSIS Integration Runtime na potrzeby wysokiej wydajności
 
@@ -118,11 +114,11 @@ Oś y to liczba pakietów, które ukończyły wykonywanie w ciągu godziny. Nale
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** dostosowuje skalowalność środowiska Integration Runtime. Przepływność środowiska Integration Runtime jest proporcjonalna do **AzureSSISNodeNumber** . W pierwszej kolejności ustaw **AzureSSISNodeNumber** na małą wartość, Monitoruj przepływność środowiska Integration Runtime, a następnie Dostosuj wartość dla danego scenariusza. Aby ponownie skonfigurować liczbę węzłów procesu roboczego, zobacz [Zarządzanie środowiskiem Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** dostosowuje skalowalność środowiska Integration Runtime. Przepływność środowiska Integration Runtime jest proporcjonalna do **AzureSSISNodeNumber**. W pierwszej kolejności ustaw **AzureSSISNodeNumber** na małą wartość, Monitoruj przepływność środowiska Integration Runtime, a następnie Dostosuj wartość dla danego scenariusza. Aby ponownie skonfigurować liczbę węzłów procesu roboczego, zobacz [Zarządzanie środowiskiem Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Gdy używasz już zaawansowanego węzła procesu roboczego do uruchamiania pakietów, zwiększenie **AzureSSISMaxParallelExecutionsPerNode** może zwiększyć ogólną przepływność środowiska Integration Runtime. Jeśli chcesz zwiększyć maksymalną wartość, musisz użyć Azure PowerShell, aby zaktualizować **AzureSSISMaxParallelExecutionsPerNode** . Można oszacować odpowiednią wartość w oparciu o koszt pakietu oraz następujące konfiguracje dla węzłów procesu roboczego. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych ogólnego przeznaczenia](../virtual-machines/sizes-general.md).
+Gdy używasz już zaawansowanego węzła procesu roboczego do uruchamiania pakietów, zwiększenie **AzureSSISMaxParallelExecutionsPerNode** może zwiększyć ogólną przepływność środowiska Integration Runtime. Jeśli chcesz zwiększyć maksymalną wartość, musisz użyć Azure PowerShell, aby zaktualizować **AzureSSISMaxParallelExecutionsPerNode**. Można oszacować odpowiednią wartość w oparciu o koszt pakietu oraz następujące konfiguracje dla węzłów procesu roboczego. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych ogólnego przeznaczenia](../virtual-machines/sizes-general.md).
 
 | Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

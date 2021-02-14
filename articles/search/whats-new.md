@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 08491dcaf66789f13aa9f2e058303a28e7ab8388
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099527"
+ms.locfileid: "100104607"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -24,7 +24,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Opis | Dostępność  |
 |------------------------------|---------------|---------------|
 | [Resetuj dokumenty (wersja zapoznawcza)](search-howto-run-reset-indexers.md) |  Przetwarza ponownie pojedyncze wybrane dokumenty wyszukiwania w obciążeniach indeksatora. | [Search 2020-06-30 API REST — wersja zapoznawcza](/rest/api/searchservice/index-preview) |
-| Obsługa strefy dostępności | Usługi wyszukiwania z co najmniej dwiema replikami w niektórych regionach, jak wymieniono w obszarze [skalowanie pod kątem wydajności, zapewnianie](search-performance-optimization.md)odporności przez posiadanie replik w dwóch lub większej liczbie różnych lokalizacji fizycznych.  | Aby określić dostępność, region i Data tworzenia usługi wyszukiwania. Aby uzyskać szczegółowe informacje, zobacz dokument dostrajania wydajności. |
+| [Strefy dostępności](search-performance-optimization.md#availability-zones)| Usługi wyszukiwania z co najmniej dwiema replikami w określonych regionach, jak opisano w [tym artykule](search-performance-optimization.md#availability-zones), mają odporność na awarie w dwóch lub większej liczbie odrębnych lokalizacji fizycznych.  | Aby określić dostępność, region i Data tworzenia usługi wyszukiwania. Aby uzyskać szczegółowe informacje, zobacz dokument dostrajania wydajności. |
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
@@ -36,7 +36,8 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 | Month (Miesiąc) | Cecha | Opis |
 |-------|---------|-------------|
-| Listopad | [Szyfrowanie klucza zarządzanego przez klienta (rozszerzone)](search-security-manage-encryption-keys.md) | rozszerza szyfrowanie zarządzane przez klienta przez cały zakres zasobów utworzonych i zarządzanych przez usługę wyszukiwania. Ogólnie dostępna.|
+| Listopad | [Szyfrowanie klucza zarządzanego przez klienta (rozszerzone)](search-security-manage-encryption-keys.md) | Rozszerza szyfrowanie zarządzane przez klienta przez cały zakres zasobów utworzonych i zarządzanych przez usługę wyszukiwania. Ogólnie dostępna.|
+| Wrzesień | [Visual Studio Code rozszerzenie platformy Azure Wyszukiwanie poznawcze](search-get-started-vs-code.md) | Dodaje obszar roboczy, nawigację, IntelliSense i szablony służące do tworzenia indeksów, indeksatorów, źródeł danych i umiejętności. | Publiczna wersja zapoznawcza |
 | Wrzesień | [Tożsamość usługi zarządzanej (indeksatory)](search-howto-managed-identities-data-sources.md) | Ogólnie dostępna.  |
 | Wrzesień | [Żądania wychodzące przy użyciu linku prywatnego](search-indexer-howto-access-private.md) | Ogólnie dostępna.  |
 | Wrzesień | [Interfejs API REST zarządzania (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | Ogólnie dostępna. |

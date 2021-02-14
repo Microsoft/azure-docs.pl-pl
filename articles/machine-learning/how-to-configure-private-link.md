@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/30/2020
-ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.date: 02/09/2021
+ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979185"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368017"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning
 
@@ -31,8 +31,9 @@ Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem rob
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli planujesz używanie obszaru roboczego z włączoną obsługą linku prywatnego z kluczem zarządzanym przez klienta, musisz zażądać tej funkcji przy użyciu biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Jeśli planujesz używanie obszaru roboczego z włączoną obsługą linku prywatnego z kluczem zarządzanym przez klienta, musisz zażądać tej funkcji przy użyciu biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+* Aby utworzyć prywatny punkt końcowy w programie, musisz mieć istniejącą sieć wirtualną. Przed dodaniem prywatnego punktu końcowego należy również [wyłączyć zasady sieciowe dla prywatnych punktów końcowych](../private-link/disable-private-endpoint-network-policy.md) .
 ## <a name="limitations"></a>Ograniczenia
 
 * Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach Azure Government ani w regionach 21Vianet platformy Azure w Chinach.
@@ -73,6 +74,19 @@ ws = Workspace.create(name='myworkspace',
 * `--pe-vnet-name`: Istniejąca sieć wirtualna do utworzenia prywatnego punktu końcowego w programie.
 * `--pe-subnet-name`: Nazwa podsieci, w której ma zostać utworzony prywatny punkt końcowy. Wartość domyślna to `default`.
 
+Parametry te są oprócz innych wymaganych parametrów dla polecenia CREATE. Na przykład następujące polecenie tworzy nowy obszar roboczy w regionie zachodnie stany USA przy użyciu istniejącej grupy zasobów i sieci wirtualnej:
+
+```azurecli
+az ml workspace create -r myresourcegroup \
+    -l westus \
+    -n myworkspace \
+    --pe-name myprivateendpoint \
+    --pe-auto-approval \
+    --pe-resource-group myresourcegroup \
+    --pe-vnet-name myvnet \
+    --pe-subnet-name mysubnet
+```
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Karta __Sieć__ w programie Azure Machine Learning Studio umożliwia skonfigurowanie prywatnego punktu końcowego. Jednak wymaga istniejącej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Tworzenie obszarów roboczych w portalu](how-to-manage-workspace.md).
@@ -82,10 +96,6 @@ Karta __Sieć__ w programie Azure Machine Learning Studio umożliwia skonfigurow
 ## <a name="add-a-private-endpoint-to-a-workspace"></a>Dodawanie prywatnego punktu końcowego do obszaru roboczego
 
 Aby dodać prywatny punkt końcowy do istniejącego obszaru roboczego, użyj jednej z następujących metod:
-
-> [!IMPORTANT]
->
-> Aby utworzyć prywatny punkt końcowy w programie, musisz mieć istniejącą sieć wirtualną. Przed dodaniem prywatnego punktu końcowego należy również [wyłączyć zasady sieciowe dla prywatnych punktów końcowych](../private-link/disable-private-endpoint-network-policy.md) .
 
 > [!WARNING]
 >

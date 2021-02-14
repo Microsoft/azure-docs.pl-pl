@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299769"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368000"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programu Azure Active Directory (Azure AD) Connect Health. W tych często zadawanych pytań zawarto informacje na temat sposobu korzystania z usługi, która obejmuje model rozliczeń, możliwości, ograniczenia i pomoc techniczną.
@@ -29,7 +29,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programu 
 ## <a name="general-questions"></a>Pytania ogólne
 **P: zarządzamy wieloma katalogami usługi Azure AD. Jak mogę przełączać się do tego, który ma Azure Active Directory — wersja Premium?**
 
-Aby przełączać się między różnymi dzierżawami usługi Azure AD, wybierz nazwę aktualnie zalogowanego **użytkownika** w prawym górnym rogu, a następnie wybierz odpowiednie konto. Jeśli konta nie ma na liście, wybierz opcję **Wyloguj się**, a następnie Użyj poświadczeń administratora globalnego dla katalogu, dla którego Azure Active Directory — wersja Premium można się zalogować.
+Aby przełączać się między różnymi dzierżawami usługi Azure AD, wybierz nazwę aktualnie zalogowanego **użytkownika** w prawym górnym rogu, a następnie wybierz odpowiednie konto. Jeśli konta nie ma na liście, wybierz pozycję **Wyloguj**, a następnie Użyj poświadczeń administratora globalnego katalogu, który ma Azure Active Directory — wersja Premium (P1 lub P2), aby się zalogować.
 
 **P: Jakie wersje ról tożsamości są obsługiwane przez Azure AD Connect Health?**
 
@@ -47,8 +47,8 @@ Należy pamiętać, że funkcje udostępniane przez usługę mogą się różni�
 
 **P: ile licencji muszę monitorować moją infrastrukturę?**
 
-* Pierwszy Agent programu Connect Health wymaga co najmniej jednej licencji Azure AD — wersja Premium.
-* Każdy dodatkowy zarejestrowany agent wymaga 25 dodatkowych licencji Azure AD — wersja Premium.
+* Pierwszy Agent programu Connect Health wymaga co najmniej jednej licencji Azure AD — wersja Premium (P1 lub P2).
+* Każdy dodatkowy zarejestrowany agent wymaga 25 dodatkowych licencji Azure AD — wersja Premium (P1 lub P2).
 * Liczba agentów jest równoważna z łączną liczbą agentów zarejestrowanych we wszystkich monitorowanych rolach (AD FS, Azure AD Connect i/lub AD DS).
 * Licencjonowanie programu AAD Connect Health nie wymaga przypisywania licencji do określonych użytkowników. Musisz mieć tylko wymaganą liczbę prawidłowych licencji.
 

@@ -1,7 +1,7 @@
 ---
 title: Wprowadzenie do narzędzi Microsoft Spark Utilities
 description: 'Samouczek: MSSparkutils w notesach usługi Azure Synapse Analytics'
-author: ruxu
+author: ruixinxu
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: reference
@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954297"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368663"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Wprowadzenie do narzędzi Microsoft Spark Utilities
 
@@ -25,9 +25,9 @@ Microsoft Spark Utilities (MSSparkUtils) to pakiet wbudowane, który ułatwia wy
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Konfigurowanie dostępu do Azure Data Lake Storage Gen2 
 
-Notesy Synapse korzystają z usługi Azure Active Directory (Azure AD) w celu uzyskania dostępu do kont ADLS Gen2. Musisz być **Współautorem BLOB Storage** , aby uzyskać dostęp do konta ADLS Gen2 (lub folderu). 
+Notesy Synapse korzystają z usługi Azure Active Directory (Azure AD) w celu uzyskania dostępu do kont ADLS Gen2. Aby uzyskać dostęp do konta ADLS Gen2 (lub folderu), musisz być **współautorem danych BLOB Storage** . 
 
-Potoki Synapse używają tożsamości obszaru roboczego (MSI) do uzyskiwania dostępu do kont magazynu. Aby można było używać MSSparkUtils w działaniach potoku, tożsamość obszaru roboczego musi być **BLOB Storage współautor** , aby uzyskać dostęp do konta ADLS Gen2 (lub folderu).
+Potoki Synapse używają tożsamości obszaru roboczego (MSI) do uzyskiwania dostępu do kont magazynu. Aby można było używać MSSparkUtils w działaniach potoku, tożsamość obszaru roboczego musi być **BLOB Storage współautor danych** w celu uzyskania dostępu do konta ADLS Gen2 (lub folderu).
 
 Wykonaj następujące kroki, aby upewnić się, że usługa Azure AD i plik MSI obszaru roboczego mają dostęp do konta ADLS Gen2:
 1. Otwórz [Azure Portal](https://portal.azure.com/) i konto magazynu, do którego chcesz uzyskać dostęp. Możesz przejść do określonego kontenera, do którego chcesz uzyskać dostęp.

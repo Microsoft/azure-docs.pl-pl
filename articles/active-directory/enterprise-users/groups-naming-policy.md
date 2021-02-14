@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894a90c50f968c892a76160a7375f11fe09390d6
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 00291907ddea75ba4507779d1226502dc8343aea
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785003"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365705"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Wymuś zasady nazewnictwa w grupach Microsoft 365 w Azure Active Directory
 
@@ -78,8 +78,6 @@ Aby skonfigurować zasady nazewnictwa, wymagana jest jedna z następujących ró
 Wybrani Administratorzy mogą być wykluczeni z tych zasad, we wszystkich obciążeniach grup i punktach końcowych, dzięki czemu mogą tworzyć grupy przy użyciu zablokowanych słów i własnych konwencji nazewnictwa. Poniżej znajduje się lista ról administratorów wykluczonych z zasad nazewnictwa grup.
 
 - Administrator globalny
-- Obsługa warstwy 1 dla partnerów
-- Obsługa warstwy 2 partnera
 - Administrator użytkowników
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Skonfiguruj zasady nazewnictwa w Azure Portal

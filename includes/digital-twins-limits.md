@@ -5,18 +5,21 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 08ae189253c6141a6b84035b71016ff5099ec162
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689785"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370113"
 ---
 ### <a name="functional-limits"></a>Limity funkcjonalne
 
-Poniższa tabela zawiera listę limitów funkcjonalnych usługi Azure Digital bliźniaczych reprezentacji.
+Poniższa tabela zawiera listę limitów funkcjonalnych usługi Azure Digital bliźniaczych reprezentacji. 
 
-| Obszar | Możliwość | Limit domyślny | Wraz? |
+> [!TIP]
+> Aby uzyskać zalecenia dotyczące modelowania do działania w ramach tych limitów funkcjonalności, zobacz [najlepsze rozwiązania dotyczące projektowania modeli](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models).
+
+| Warstwowy | Możliwość | Limit domyślny | Wraz? |
 | --- | --- | --- | --- |
 | Zasób platformy Azure | Liczba wystąpień bliźniaczych reprezentacji cyfrowych platformy Azure w regionie, na subskrypcję | 10 | Tak |
 | Digital Twins | Liczba bliźniaczych reprezentacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji | 200,000 | Tak |
@@ -28,6 +31,7 @@ Poniższa tabela zawiera listę limitów funkcjonalnych usługi Azure Digital bl
 | Routing | Liczba tras dla pojedynczego wystąpienia usługi Azure Digital bliźniaczych reprezentacji | 6 | Tak |
 | Modele | Liczba modeli w pojedynczym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji | 10 000 | Tak |
 | Modele | Liczba modeli, które mogą być przekazane w jednym wywołaniu interfejsu API | 250 | Nie |
+| Modele | Maksymalny rozmiar (treść w formacie JSON w żądaniu PUT lub PATCH) jednego modelu | 1 MB | Nie |
 | Modele | Liczba elementów zwróconych na jednej stronie | 100 | Nie |
 | Zapytanie | Liczba elementów zwróconych na jednej stronie | 100 | Tak |
 | Zapytanie | Liczba `AND`  /  `OR` wyrażeń w zapytaniu | 50 | Tak |

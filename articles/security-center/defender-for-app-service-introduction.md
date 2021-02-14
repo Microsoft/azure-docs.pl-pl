@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 99da711038e1fcea3e14584fde09ccd1f79feffa
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2a3253d1ed8b0814fc20b3256a0f98d3aa0949f6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916717"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393313"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Wprowadzenie do usługi Azure Defender dla App Service
 
@@ -23,13 +23,13 @@ Azure App Service to w pełni zarządzana platforma do tworzenia i hostowania ap
 
 ## <a name="availability"></a>Dostępność
 
-|Aspekt|Szczegóły|
-|----|:----|
-|Stan wydania:|Ogólna dostępność (GA)|
-|Wpisaną|[Usługa Azure Defender dla App Service](azure-defender.md) jest rozliczana zgodnie z opisem na [stronie cennika](security-center-pricing.md)<br>Na stronie Cennik i ustawienia wyświetlana jest liczba wystąpień dla **ilości zasobów**. Ta liczba to łączna liczba wystąpień obliczeniowych w ramach wszystkich App Service planów w ramach tej subskrypcji, uruchomiona w momencie otwarcia strony warstwy cenowej.<br>Aby sprawdzić poprawność liczby, Otwórz **App Service plany** w Azure Portal i sprawdź liczbę wystąpień obliczeniowych używanych przez każdy plan.|
-|Obsługiwane App Service plany:|![Tak — ](./media/icons/yes-icon.png) podstawowa, standardowa, Premium, izolowany lub Linux<br>![Brak ](./media/icons/no-icon.png) wolnego, współdzielonego lub zużycia<br>[Dowiedz się więcej o planach App Service](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
-|||
+| Aspekt                       | Szczegóły                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Stan wydania:               | Ogólna dostępność (GA)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Wpisaną                     | [Usługa Azure Defender dla App Service](azure-defender.md) jest rozliczana zgodnie z opisem na [stronie cennika](security-center-pricing.md)<br>Opłaty są naliczane w oparciu o łączne wystąpienia obliczeniowe we wszystkich planach|
+| Obsługiwane App Service plany: | Obsługiwane są wszystkie plany App Service (z jednym wyjątkiem, patrz poniżej). [Dowiedz się więcej o planach App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).<br>Azure Functions w planie zużycia nie jest obsługiwana. [Dowiedz się więcej o opcjach hostingu Azure Functions](../azure-functions/functions-scale.md).                                                                                                                                                                                                                                                                   |
+| Połączeń                      | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)                                                                                                                                                                                                                                                                                                                                                                                 |
+|                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Jakie korzyści ma usługa Azure Defender dla App Service?
 

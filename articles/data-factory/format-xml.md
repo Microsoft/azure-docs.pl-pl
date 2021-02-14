@@ -2,19 +2,16 @@
 title: Format XML w Azure Data Factory
 description: W tym temacie opisano sposób postępowania z formatem XML w Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 1555d8b97f89b567cb1769c0ba10ecf50bca4366
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a4082e1e00ecb1d3b0157fcc35616704eaab0aae
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352606"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386360"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Format XML w Azure Data Factory
 
@@ -71,7 +68,7 @@ Dowiedz się więcej na temat sposobu mapowania danych XML i magazynu/formatu uj
 
 ### <a name="xml-as-source"></a>KOD XML jako źródło
 
-W sekcji działanie copy **_ \_ Source \**** są obsługiwane następujące właściwości. Dowiedz się więcej z poziomu [zachowań łączników XML](#xml-connector-behavior).
+W sekcji ***\* Źródło \**** działania kopiowania są obsługiwane następujące właściwości. Dowiedz się więcej z poziomu [zachowań łączników XML](#xml-connector-behavior).
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -90,7 +87,7 @@ Obsługiwane **Ustawienia odczytu XML** w obszarze `formatSettings` :
 | detectDataType | Określa, czy mają być wykrywane typy danych Integer, Double i Boolean. Dozwolone wartości to: **true** (wartość domyślna), **Fałsz**.| Nie |
 | compressionProperties | Grupa właściwości na temat sposobu dekompresowania danych dla danego kodera kompresji. | Nie       |
 | preserveZipFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `ZipDeflateReadSettings`*)  | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` .<br>-Po ustawieniu na **wartość false** Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych źródłowych plikach ZIP, aby uniknąć wyścigów lub nieoczekiwanych zachowań.  | Nie |
-| preserveCompressionFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings` lub `TarReadSettings`*) | Stosuje się, gdy zestaw danych wejściowych **TarGzip** jest skonfigurowany z / kompresją **pułapki** TarGzip. Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false** Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
+| preserveCompressionFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings` lub `TarReadSettings`*) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z / kompresją **pułapki** TarGzip. Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false** Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
 
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
@@ -107,7 +104,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez Źródło XM
 | Lista plików | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | Nie | `true` lub `false` | fileList |
 | Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | Nie | Ciąg | rowUrlColumn |
 | Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | Nie | Usuń: `true` lub `false` <br> Przenieś `['<from>', '<to>']` | purgeFiles <br>moveFiles |
-| Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | Nie | Timestamp | modifiedAfter <br>modifiedBefore |
+| Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | Nie | Znacznik czasu | modifiedAfter <br>modifiedBefore |
 | Tryb walidacji | Określa, czy ma być sprawdzana Walidacja schematu XML. | Nie | `None` (domyślnie bez sprawdzania poprawności)<br>`xsd` (Weryfikuj przy użyciu XSD)<br>`dtd` (Sprawdź poprawność przy użyciu DTD). | Walidacja |
 | Przestrzenie nazw | Określa, czy należy włączyć przestrzeń nazw podczas analizowania plików XML. | Nie | `true` (ustawienie domyślne) lub `false` | przestrzeni |
 | Pary prefiksów przestrzeni nazw | Identyfikator URI przestrzeni nazw do mapowania prefiksów, który jest używany do nazwy pól podczas analizowania pliku XML.<br/>Jeśli plik XML ma przestrzeń nazw i przestrzeń nazw jest włączona, domyślnie nazwa pola jest taka sama jak w dokumencie XML.<br>Jeśli istnieje element zdefiniowany dla identyfikatora URI przestrzeni nazw w tej mapie, nazwa pola to `prefix:fieldName` . | Nie | Tablica ze wzorcem`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |

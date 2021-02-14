@@ -11,18 +11,18 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9f81d059c1a71bf6349d0ef9b4aae8f7a47c161f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9ecb1c50fe99cc93417a37e892049e03585945a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938787"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370431"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurowanie urządzenia usługi IoT Edge, aby działało jako przezroczysta brama
 
 Ten artykuł zawiera szczegółowe instrukcje dotyczące konfigurowania urządzenia IoT Edge jako przezroczystej bramy dla innych urządzeń w celu komunikowania się z IoT Hub. W tym artykule jest wykorzystywana *IoT Edge Brama* do odwoływania się do urządzenia IoT Edge skonfigurowanego jako nieprzezroczysta brama. Aby uzyskać więcej informacji, zobacz [jak urządzenie IoT Edge może być używane jako brama](./iot-edge-as-gateway.md).
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
@@ -97,8 +97,8 @@ W przypadku scenariuszy produkcyjnych należy generować te pliki przy użyciu w
 2. Jeśli certyfikaty zostały utworzone na innym komputerze, skopiuj je na urządzenie IoT Edge.
 
 3. Na urządzeniu IoT Edge Otwórz plik konfiguracji demona zabezpieczeń.
-   * Systemy `C:\ProgramData\iotedge\config.yaml`
-   * System `/etc/iotedge/config.yaml`
+   * Windows: `C:\ProgramData\iotedge\config.yaml`
+   * Linux: `/etc/iotedge/config.yaml`
 
 4. Znajdź sekcję **Ustawienia certyfikatu** w pliku. Usuń znaczniki komentarza z czterech wierszy zaczynających się od **certyfikatów:** i podaj identyfikatory URI plików dla trzech plików jako wartości dla następujących właściwości:
    * **device_ca_cert**: certyfikat urzędu certyfikacji urządzenia
@@ -110,8 +110,8 @@ W przypadku scenariuszy produkcyjnych należy generować te pliki przy użyciu w
 5. Zapisz i zamknij plik.
 
 6. Uruchom ponownie IoT Edge.
-   * Systemy `Restart-Service iotedge`
-   * System `sudo systemctl restart iotedge`
+   * Windows: `Restart-Service iotedge`
+   * Linux: `sudo systemctl restart iotedge`
 
 ## <a name="deploy-edgehub-and-route-messages"></a>Wdrażanie edgeHub i komunikatów routingu
 

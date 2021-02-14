@@ -4,18 +4,14 @@ description: Opisuje role i uprawnienia wymagane do tworzenia fabryk danych i pr
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cec5df9a5046e912ab8542c91bde4344affa0925
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053775"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364481"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles and permissions for Azure Data Factory (Role i uprawnienia w usłudze Data Factory)
 
@@ -54,14 +50,13 @@ Rola **współautor Data Factory** , na poziomie grupy zasobów lub nowszej, umo
 
 Uprawnienia do Azure Repos i GitHub są niezależne od uprawnień Data Factory. W związku z tym użytkownik z uprawnieniami repozytorium, które jest członkiem roli czytelnik, może edytować Data Factory zasoby podrzędne i zatwierdzić zmiany w repozytorium, ale nie może opublikować tych zmian.
 
+
 > [!IMPORTANT]
 > Wdrożenie szablonu Menedżer zasobów z rolą **współautor Data Factory** nie podwyższa poziomu uprawnień. Na przykład jeśli wdrażasz szablon, który tworzy maszynę wirtualną platformy Azure, a nie masz uprawnień do tworzenia maszyn wirtualnych, wdrożenie zakończy się niepowodzeniem z powodu błędu autoryzacji.
 
-> [!IMPORTANT]
-> Uprawnienie **Microsoft. DataFactory/factorers/Write** jest wymagane w obu trybach w kontekście publikowania.
-
+   W kontekście publikowania **firma Microsoft. DataFactory/fabryka/** uprawnienie do zapisu ma zastosowanie do następujących trybów.
 - To uprawnienie jest wymagane tylko w trybie na żywo, gdy klient modyfikuje parametry globalne.
-- To uprawnienie jest zawsze wymagane w trybie git od momentu opublikowania przez klienta, ponieważ jest aktualizowany obiekt fabryki z ostatnim identyfikatorem zatwierdzenia.
+- To uprawnienie jest zawsze wymagane w trybie git od momentu opublikowania klienta, należy zaktualizować obiekt fabryki z ostatnim IDENTYFIKATORem zatwierdzenia.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scenariusze niestandardowe i role niestandardowe
 
@@ -95,6 +90,7 @@ Poniżej przedstawiono kilka przykładów demonstrujących to, co można osiągn
 - Zezwól użytkownikowi na aktualizację fabryki danych przy użyciu programu PowerShell lub zestawu SDK, ale nie w Azure Portal.
 
   Przypisz wbudowaną rolę **współautor** do zasobu fabryki danych dla użytkownika. Ta rola umożliwia użytkownikowi wyświetlanie zasobów w Azure Portal, ale użytkownik nie może uzyskać dostępu do przycisków  **Publikuj** i **Opublikuj wszystkie** .
+
 
 ## <a name="next-steps"></a>Następne kroki
 

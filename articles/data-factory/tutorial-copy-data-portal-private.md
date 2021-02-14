@@ -1,23 +1,18 @@
 ---
 title: Używanie prywatnych punktów końcowych do tworzenia potoku Azure Data Factory
 description: Ten samouczek zawiera instrukcje krok po kroku dotyczące tworzenia fabryki danych z potokiem za pomocą witryny Azure Portal. Potok używa działania kopiowania do kopiowania danych z usługi Azure Blob Storage do bazy danych Azure SQL Database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
 ms.author: jingwang
-ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 002ceba60853908e381f084e95ec1ee58e8580cb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249520"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375820"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Bezpieczne kopiowanie danych z usługi Azure Blob Storage do bazy danych SQL za pomocą prywatnych punktów końcowych
 
@@ -157,7 +152,7 @@ W tym samouczku Zacznij od utworzenia potoku. Następnie utworzysz usługi poł�
 
     ![Zrzut ekranu pokazujący interaktywną autorstwo.](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
 
-1. Wybierz **Test connection**. W przypadku, gdy konto magazynu zezwala na dostęp tylko z **wybranych sieci** i wymaga Data Factory do utworzenia prywatnego punktu końcowego, który powinien zostać zatwierdzony przed użyciem. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w [następnej sekcji](#create-a-managed-private-endpoint) , aby utworzyć zarządzany prywatny punkt końcowy.
+1. Wybierz pozycję **Testuj połączenie**. W przypadku, gdy konto magazynu zezwala na dostęp tylko z **wybranych sieci** i wymaga Data Factory do utworzenia prywatnego punktu końcowego, który powinien zostać zatwierdzony przed użyciem. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w [następnej sekcji](#create-a-managed-private-endpoint) , aby utworzyć zarządzany prywatny punkt końcowy.
 
    > [!NOTE]
    > Karta **Zarządzanie** może być niedostępna dla wszystkich wystąpień usługi Fabryka danych. Jeśli nie widzisz go, możesz uzyskać dostęp do prywatnych punktów końcowych, wybierając pozycję **Tworzenie**  >  **połączeń**  >  **prywatny punkt końcowy**.
@@ -235,7 +230,7 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
     1. W polu **Nazwa bazy danych** wybierz swoją usługę SQL Database.
     1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika.
     1. W polu **Hasło** wprowadź hasło użytkownika.
-    1. Wybierz **Test connection**. Nie powinno to być spowodowane tym, że program SQL Server zezwala na dostęp tylko z **wybranych sieci** i wymaga Data Factory do utworzenia prywatnego punktu końcowego, który powinien zostać zatwierdzony przed jego użyciem. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w następnej sekcji, aby utworzyć zarządzany prywatny punkt końcowy.
+    1. Wybierz pozycję **Testuj połączenie**. Nie powinno to być spowodowane tym, że program SQL Server zezwala na dostęp tylko z **wybranych sieci** i wymaga Data Factory do utworzenia prywatnego punktu końcowego, który powinien zostać zatwierdzony przed jego użyciem. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w następnej sekcji, aby utworzyć zarządzany prywatny punkt końcowy.
     1. Pozostaw otwarte okno dialogowe, a następnie przejdź do wybranego serwera SQL.
     1. Postępuj zgodnie z instrukcjami w [tej sekcji](#approval-of-a-private-link-in-sql-server) , aby zatwierdzić link prywatny.
     1. Wróć do okna dialogowego. Wybierz ponownie **Test connection** i wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.

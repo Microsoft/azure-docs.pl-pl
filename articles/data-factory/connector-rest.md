@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z i do punktu końcowego REST przy użyciu Azure Data Factory
 description: Informacje o kopiowaniu danych z chmury lub lokalnego źródła REST do obsługiwanych magazynów danych ujścia lub z obsługiwanego magazynu danych źródłowych do ujścia REST przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223103"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369887"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z i do punktu końcowego REST przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -385,7 +380,7 @@ Ten ogólny łącznik REST obsługuje następujące wzorce stronicowania:
 
 **Przykład:**
 
-Interfejs API programu Graph w serwisie Facebook zwraca odpowiedź w następującej strukturze, w której przypadku adres URL następnej strony jest reprezentowany w **_stronicowanie. Next_* _:
+Interfejs API programu Graph w serwisie Facebook zwraca odpowiedź w następującej strukturze, w której przypadku adres URL następnej strony jest reprezentowany w ***stronicowaniu. Next***:
 
 ```json
 {
@@ -440,7 +435,7 @@ W tej sekcji opisano, jak używać szablonu rozwiązania do kopiowania danych z 
 ### <a name="about-the-solution-template"></a>Informacje o szablonie rozwiązania
 
 Szablon zawiera dwa działania:
-- _ *Web** działanie pobiera token okaziciela, a następnie przekazuje go do kolejnego działania kopiowania jako autoryzacji.
+- Działanie **sieci Web** pobiera token okaziciela, a następnie przekazuje go do kolejnego działania kopiowania jako autoryzacji.
 - Działanie **kopiowania** kopiuje dane z REST do Azure Data Lake Storage.
 
 Szablon definiuje dwa parametry:

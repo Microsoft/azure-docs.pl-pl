@@ -5,19 +5,63 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 01/11/2021
-ms.openlocfilehash: 6347bd3710a4727b9d3f820072ffff21cb57752d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 02/10/2021
+ms.openlocfilehash: 35bfc9c752243a69912b0732c4105712fa4a6086
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071871"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377673"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Co nowego w dokumentacji Azure Monitor?
 
 Ten artykuł zawiera listę artykułów Azure Monitor, które są nowe lub zostały znacząco zaktualizowane. Zostanie odświeżony pierwszy tydzień każdego miesiąca, aby uwzględnić aktualizacje artykułów z poprzedniego miesiąca.
 
-## <a name="december-2020"></a>Grudzień 2020 r.
+## <a name="january-2021"></a>Styczeń 2021 r. 
+
+### <a name="general"></a>Ogólne 
+- [Azure monitor często zadawane pytania](faq.md) — dodano wpis na informacje o urządzeniu dla Application Insights.
+### <a name="agents"></a>Agenci  
+- [Zbieranie zdarzeń śledzenia zdarzeń systemu Windows (ETW) dla dzienników Azure monitor analizy](platform/data-sources-event-tracing-windows.md) — nowy artykuł.
+- [Reguły zbierania danych w Azure monitor (wersja zapoznawcza)](platform/data-collection-rule-overview.md) — dodano linki do przykładów programu PowerShell i interfejsu wiersza polecenia.
+
+### <a name="alerts"></a>Alerty  
+- [Skonfiguruj platformę Azure do łączenia narzędzi Narzędzia ITSM przy użyciu opcji Bezpieczny eksport](platform/itsm-connector-secure-webhook-connections-azure-configuration.md) — nowy artykuł.
+- [Błędy stanu łącznika na pulpicie nawigacyjnym ITSMC](platform/itsmc-dashboard-errors.md) — nowy artykuł.
+- [Zbadaj błędy za pomocą pulpitu nawigacyjnego ITSMC](platform/itsmc-dashboard.md) — nowy artykuł.
+- [Rozwiązywanie problemów z alertami metryki platformy Azure](platform/alerts-troubleshoot-metric.md) — dodano sekcje dla progów dynamicznych.
+- [Rozwiązywanie problemów z łącznik zarządzania usługami IT](platform/itsmc-troubleshoot-overview.md) — nowy artykuł.
+
+### <a name="application-insights"></a>Application Insights
+- [Korelacja telemetrii Application Insights platformy Azure](app/correlation.md) — dodano korelację śledzenia, gdy jeden moduł wywołuje inne środowisko w języku Python OpenCensus.
+- [Application Insights dla stron sieci Web](app/javascript.md) — nowy artykuł.
+- [Kliknij opcję wtyczka Autocollection Analytics dla Application Insights JavaScript SDK](app/javascript-click-analytics-plugin.md) — nowy artykuł.
+- [Monitoruj aplikacje bez zmian w kodzie — funkcja autoinstrumentation dla Azure Monitor Application Insights](app/codeless-overview.md) dodanej kolumny języka Python.
+- [Zareaguj na wtyczkę dla Application Insights JavaScript SDK](app/javascript-react-plugin.md) — nowy artykuł.
+- [Procesory telemetrii (wersja zapoznawcza) — Azure Monitor Application Insights dla języka Java](app/java-standalone-telemetry-processors.md) — Zapisano ponownie.
+- [Analiza użycia za pomocą usługi Azure Application Insights](app/usage-overview.md) — nowy artykuł.
+- [Użyj analizy zmian aplikacji w Azure monitor, aby znaleźć problemy z aplikacją sieci Web](app/change-analysis.md) — dodano błąd messges.
+
+
+### <a name="insights"></a>Insights    
+- [Azure monitor dla usługi Azure Eksplorator danych (wersja zapoznawcza)](insights/data-explorer.md) — nowy artykuł.
+
+### <a name="logs"></a>Dzienniki    
+- [Azure monitor klucz zarządzany przez klienta](platform/customer-managed-keys.md) — wprowadź tożsamość zarządzaną przypisaną przez użytkownika.
+- [Azure monitor rejestruje dedykowane klastry](log-query/logs-dedicated-clusters.md) — zaktualizowany kod odpowiedzi.
+- [Zapytanie dotyczące wielu usług — Azure monitor i Azure Eksplorator danych (wersja zapoznawcza)](platform/azure-monitor-troubleshooting-logs.md) — nowy artykuł.
+
+### <a name="metrics"></a>Metryki
+- [Azure monitor agregacji metryk i wyświetlaj wyjaśnienie](platform/metrics-aggregation-explained.md) — nowy artykuł.
+
+### <a name="platform-logs"></a>Dzienniki platformy
+- [Azure monitor dzienniki zasobów obsługiwane usługi i kategorie](platform/resource-logs-categories.md) — nowy artykuł.
+
+### <a name="visualizations"></a>Wizualizacje
+- [Azure monitor skoroszyty ze źródłami danych](platform/workbooks-data-sources.md) — dodano analizę scalania i zmian.
+
+
+## <a name="december-2020"></a>Grudzień 2020 r.
 
 ### <a name="general"></a>Ogólne
 - [Azure monitor](platform/customer-managed-keys.md) komunikaty o błędach, które zostały dodane przez klienta.

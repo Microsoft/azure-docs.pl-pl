@@ -323,8 +323,6 @@
       items:
         - name: Kanał dotyczący nadzoru w usłudze YouTube
           href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-        - name: Klip wideo — konferencja Ignite 2019
-          href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
         - name: Konfiguracja gościa — filmy
           items:
             - name: Getting Started

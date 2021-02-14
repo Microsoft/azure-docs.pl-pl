@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546175"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365552"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Włączanie zewnętrznej współpracy B2B i zarządzanie osobami, które mogą zapraszać gości
 
@@ -45,8 +45,6 @@ Domyślnie wszyscy użytkownicy, w tym Goście, mogą zapraszać użytkowników-
 
 4. W obszarze **ograniczenia dostępu użytkowników-Gości (wersja zapoznawcza)** wybierz poziom dostępu, który mają mieć użytkownicy-Goście:
   
-    ![Ustawienia ograniczeń dostępu użytkowników-Gości](./media/delegate-invitations/guest-user-access.png)
-
    - **Użytkownicy-Goście mają taki sam dostęp jak członkowie (z największym** uwzględnieniem): Ta opcja zapewnia Gościom taki sam dostęp do zasobów usługi Azure AD i danych katalogu jako użytkowników-członków.
 
    - **Użytkownicy-Goście mają ograniczony dostęp do właściwości i członkostw obiektów katalogu**: (ustawienie domyślne) to ustawienie powoduje zablokowanie Gości z określonych zadań katalogu, takich jak wyliczanie użytkowników, grup lub innych zasobów katalogu. Goście mogą zobaczyć członkostwo wszystkich nieukrytych grup.
@@ -69,13 +67,11 @@ Domyślnie wszyscy użytkownicy, w tym Goście, mogą zapraszać użytkowników-
 
 6. W obszarze **Wyślij pocztą e-mail jednorazowy kod dostępu gościa** wybierz odpowiednie ustawienia (Aby uzyskać więcej informacji, zobacz [poczta e-mail jednorazowe uwierzytelnianie kodu dostępu](one-time-passcode.md)):
 
-   ![Wyślij wiadomość e-mail do jednorazowego ustawienia kodu dostępu](./media/delegate-invitations/email-otp-settings.png)
-
-   - **Automatycznie Włącz jednorazowy kod dostępu wiadomości e-mail dla Gości w marcu 2021**. Wartooć Jeśli funkcja jednorazowego kodu dostępu wiadomości e-mail nie została już włączona dla Twojej dzierżawy, zostanie automatycznie włączona w marcu 2021. Jeśli funkcja ma być włączona w tym czasie, nie są wymagane żadne dalsze działania. Jeśli funkcja została już włączona lub wyłączona, ta opcja będzie niedostępna.
+   - **Automatycznie Włącz jednorazowy kod dostępu wiadomości e-mail dla Gości w październiku 2021**. Wartooć Jeśli funkcja jednorazowego kodu dostępu wiadomości e-mail nie została już włączona dla Twojej dzierżawy, zostanie automatycznie włączona w październiku 2021. Jeśli funkcja ma być włączona w tym czasie, nie są wymagane żadne dalsze działania. Jeśli funkcja została już włączona lub wyłączona, ta opcja będzie niedostępna.
 
    - **Włącz jednorazowy kod dostępu do wiadomości e-mail dla Gości**. Włącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy.
 
-   - **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**. Wyłącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy i uniemożliwia włączenie tej funkcji w marcu 2021.
+   - **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**. Wyłącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy i uniemożliwia włączenie tej funkcji w październiku 2021.
 
    > [!NOTE]
    > Zamiast opcji powyżej, zobaczysz następujący przełącznik, jeśli ta funkcja została włączona lub wyłączona, lub jeśli wcześniej wybrano w wersji zapoznawczej:

@@ -1,23 +1,19 @@
 ---
 title: Data Factory — dziennik zmian interfejsu API platformy .NET
 description: Opisuje istotne zmiany, Dodatki funkcji, poprawki błędów i tak dalej, w określonej wersji interfejsu API platformy .NET dla Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: 70df35409d1c84efb996bb40f4e39bde6ad7d5a8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3f7c80f5818c1353f438a164bf52c777056ad6d4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496504"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377486"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory — dziennik zmian interfejsu API platformy .NET
 > [!NOTE]
@@ -135,7 +131,7 @@ Dodatki do funkcji:
   * [AzureDataLakeStoreSink](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestoresink)
 
 ## <a name="version-401"></a>4.0.1 wersja
-### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a>Fundamentalne zmiany
 Zmieniono nazwy następujących klas. Nowe nazwy były oryginalnymi nazwami klas przed wydaniem 4.0.0.
 
 | Nazwa w 4.0.0 | Nazwa w 4.0.1 |
@@ -148,7 +144,7 @@ Zmieniono nazwy następujących klas. Nowe nazwy były oryginalnymi nazwami klas
 | SqlServerDataset |[SqlServerTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.sqlservertabledataset) |
 
 ## <a name="version-400"></a>Wersja 4.0.0
-### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a>Fundamentalne zmiany
 * Nazwy następujących klas/interfejsów zostały zmienione.
 
 | Stara nazwa | Nowa nazwa |

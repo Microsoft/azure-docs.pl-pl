@@ -3,14 +3,14 @@ title: Skonfiguruj klucze zarządzane przez klienta dla konta Azure Batch przy u
 description: Dowiedz się, jak szyfrować dane wsadowe przy użyciu kluczy zarządzanych przez klienta.
 author: pkshultz
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/11/2021
 ms.author: peshultz
-ms.openlocfilehash: 01dc21f067b03ad8e07a05a18aa6312ed7f7189e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d3f10436b95aaeb5eb35a873c2a3862c1492bd47
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789417"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385068"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Skonfiguruj klucze zarządzane przez klienta dla konta Azure Batch przy użyciu tożsamości Azure Key Vault i zarządzanej
 
@@ -22,16 +22,11 @@ Istnieją dwa typy tożsamości zarządzanych: [ *przypisane do systemu* i *przy
 
 Można utworzyć konto w usłudze Batch przy użyciu tożsamości zarządzanej przypisanej do systemu lub utworzyć oddzielną tożsamość zarządzaną przez użytkownika, która będzie miała dostęp do kluczy zarządzanych przez klienta. Zapoznaj się z [tabelą porównania](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) , aby poznać różnice, i rozważ, która opcja działa najlepiej dla danego rozwiązania. Jeśli na przykład chcesz używać tej samej tożsamości zarządzanej do uzyskiwania dostępu do wielu zasobów platformy Azure, będzie potrzebna tożsamość zarządzana przypisana przez użytkownika. W przeciwnym razie tożsamość zarządzana przypisana przez system skojarzona z kontem partii może być wystarczająca. Użycie tożsamości zarządzanej przypisanej przez użytkownika umożliwia również wymuszanie kluczy zarządzanych przez klienta podczas tworzenia konta usługi Batch, jak pokazano [w poniższym przykładzie](#create-a-batch-account-with-user-assigned-managed-identity-and-customer-managed-keys).
 
-> [!IMPORTANT]
-> Obsługa kluczy zarządzanych przez klienta w Azure Batch jest obecnie dostępna w publicznej wersji zapoznawczej dla Europy Zachodniej, Europa Północna, Szwajcaria Północna, środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA, Wschodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA 2, US Gov Wirginia i US Gov Arizona.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Tworzenie konta w usłudze Batch z tożsamością zarządzaną przypisaną przez system
 
 Jeśli nie potrzebujesz oddzielnej tożsamości zarządzanej przypisanej przez użytkownika, możesz włączyć tożsamość zarządzaną przypisaną przez system podczas tworzenia konta w usłudze Batch.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 W [Azure Portal](https://portal.azure.com/)podczas tworzenia kont wsadowych wybierz pozycję **system przypisany** w typie tożsamości na karcie **Zaawansowane** .
 
@@ -68,7 +63,7 @@ az batch account show \
 ```
 
 > [!NOTE]
-> Tożsamość zarządzana przypisana przez system utworzona na koncie usługi Batch jest używana tylko do pobierania kluczy zarządzanych przez klienta z Key Vault. Ta tożsamość nie jest dostępna w pulach partii.
+> Tożsamość zarządzana przypisana przez system utworzona na koncie usługi Batch jest używana tylko do pobierania kluczy zarządzanych przez klienta z Key Vault. Ta tożsamość nie jest dostępna w pulach partii. Aby użyć tożsamości zarządzanej przypisanej przez użytkownika w puli, zobacz [Konfigurowanie zarządzanych tożsamości w pulach wsadowym](managed-identity-pools.md).
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika
 
@@ -90,7 +85,7 @@ Podczas [tworzenia wystąpienia Azure Key Vault](../key-vault/general/quick-crea
 
 W Azure Portal po utworzeniu Key Vault w obszarze **zasady dostępu** w obszarze **ustawienie** Dodaj dostęp do konta usługi Batch przy użyciu tożsamości zarządzanej. W obszarze **uprawnienia klucza** wybierz pozycję **Pobierz**, **Zawijaj klucz** i **Odpakuj klucz**.
 
-![Screenshow wyświetlania ekranu Dodawanie zasad dostępu.](./media/batch-customer-managed-key/key-permissions.png)
+![Zrzut ekranu przedstawiający ekran Dodawanie zasad dostępu.](./media/batch-customer-managed-key/key-permissions.png)
 
 W polu **Wybierz** w obszarze **podmiot zabezpieczeń** Wypełnij jedną z następujących opcji:
 
@@ -111,7 +106,7 @@ Po utworzeniu klucza kliknij nowo utworzony klucz i bieżącą wersję, skopiuj 
 
 Po wykonaniu powyższych kroków można włączyć klucze zarządzane przez klienta na koncie w usłudze Batch.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 W [Azure Portal](https://portal.azure.com/)przejdź do strony konto w usłudze Batch. W sekcji **szyfrowanie** Włącz **klucz zarządzany przez klienta**. Można bezpośrednio użyć identyfikatora klucza lub wybrać Magazyn kluczy, a następnie kliknąć pozycję **Wybierz magazyn kluczy i klucz**.
 
@@ -202,7 +197,7 @@ az batch account set \
 - **Czy po przywróceniu dostępu przez program do czasu ponownego działania konta usługi Batch?** Ponowne udostępnienie konta po przywróceniu dostępu może potrwać do 10 minut.
 - **Czy konto usługa Batch jest niedostępna, co się dzieje z zasobami?** Wszystkie pule uruchomione w przypadku utraty dostępu do kluczy zarządzanych przez klienta będą nadal działać. Jednak węzły przechodzą w stan niedostępności, a zadania przestaną działać (i będą ponownie kolejkowane). Po przywróceniu dostępu węzły staną się znów dostępne i zadania zostaną ponownie uruchomione.
 - **Czy ten mechanizm szyfrowania ma zastosowanie do dysków maszyn wirtualnych w puli wsadowej?** Nie. W przypadku pul konfiguracji usługi w chmurze nie jest stosowane szyfrowanie dla systemu operacyjnego i dysku tymczasowego. W przypadku pul konfiguracji maszyny wirtualnej system operacyjny i wszystkie określone dyski danych zostaną domyślnie zaszyfrowane za pomocą klucza zarządzanego platformy firmy Microsoft. Obecnie nie można określić własnego klucza dla tych dysków. Aby zaszyfrować tymczasowy dysk maszyn wirtualnych dla puli usługi Batch przy użyciu klucza zarządzanego przez platformę Microsoft, należy włączyć właściwość [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) w puli [konfiguracji maszyny wirtualnej](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . W przypadku środowisk o wysokim poziomie dostępności zalecamy włączenie tymczasowego szyfrowania dysków i uniknięcie przechowywania poufnych danych na dyskach systemu operacyjnego i danych. Aby uzyskać więcej informacji, zobacz [Tworzenie puli z włączonym szyfrowaniem dysku](./disk-encryption.md)
-- **Czy tożsamość zarządzana przypisana przez system na koncie w usłudze Batch jest dostępna w węzłach obliczeniowych?** Nie. Tożsamość zarządzana przypisana przez system jest obecnie używana tylko do uzyskiwania dostępu do Azure Key Vault dla klucza zarządzanego przez klienta.
+- **Czy tożsamość zarządzana przypisana przez system na koncie w usłudze Batch jest dostępna w węzłach obliczeniowych?** Nie. Tożsamość zarządzana przypisana przez system jest obecnie używana tylko do uzyskiwania dostępu do Azure Key Vault dla klucza zarządzanego przez klienta. Aby użyć tożsamości zarządzanej przypisanej przez użytkownika w węzłach obliczeniowych, zobacz [Konfigurowanie zarządzanych tożsamości w pulach wsadowym](managed-identity-pools.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

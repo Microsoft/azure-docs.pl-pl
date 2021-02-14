@@ -3,22 +3,22 @@ title: Dodaj segment sieci NSX-T
 description: Kroki umożliwiające dodanie segmentu sieci NSX-T dla rozwiązania VMware platformy Azure.
 ms.topic: include
 ms.date: 11/09/2020
-ms.openlocfilehash: 5b97f0b280fa12eff39c9601bb73e439dba8e9fd
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 7db45650588d37c39e7d156fa189b3ff7da2239f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335059"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515050"
 ---
 <!-- Used in manage-dhcp.md and tutorial-nsx-t-network-segment.md -->
 
-1. W Menedżerze NSX-T wybierz pozycję **Networking**  >  **segmenty** sieci, a następnie wybierz pozycję **Dodaj segment**. 
+1. W Menedżerze NSX-T wybierz pozycję   >  **segmenty** sieci, a następnie wybierz pozycję **Dodaj segment**. 
 
    :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="Zrzut ekranu przedstawiający sposób dodawania nowego segmentu":::
 
 1. Wybierz pozycję **Dodaj segment** i wprowadź nazwę segmentu.
 
-1. Wybierz pozycję Brama pomoc (TNTxx-T1) jako **połączoną bramę** i pozostaw **Typ** jako elastyczny.
+1. Wybierz bramę warstwy 1 (TNTxx-T1) jako **połączoną bramę** i pozostaw **Typ** jako elastyczny.
 
 1. Wybierz wstępnie skonfigurowaną **strefę transportu** nakładki (TNTXX-nałóż-lt), a następnie wybierz pozycję **Ustaw podsieci**. 
 
@@ -39,7 +39,7 @@ ms.locfileid: "94335059"
 
 1. Potwierdź obecność nowego segmentu sieci. W tym przykładzie **ls01** jest nowym segmentem sieci.
 
-   1. W Menedżerze NSX-T wybierz pozycję **Networking**  >  **segmenty** sieci. 
+   1. W Menedżerze NSX-T wybierz pozycję   >  **segmenty** sieci. 
 
       :::image type="content" source="../media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Upewnij się, że nowy segment sieci jest obecny w NSX-T.":::
 

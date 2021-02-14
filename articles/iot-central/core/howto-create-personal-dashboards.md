@@ -1,6 +1,6 @@
 ---
-title: Tworzenie osobistych pulpitów nawigacyjnych platformy Azure IoT Central | Microsoft Docs
-description: Użytkownik może dowiedzieć się, jak tworzyć osobiste pulpity nawigacyjne i zarządzać nimi.
+title: Tworzenie pulpitów nawigacyjnych usługi Azure IoT Central | Microsoft Docs
+description: Dowiedz się, jak tworzyć pulpity nawigacyjne i zarządzać nimi.
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 6fc99470fdc52a2dc6553056f305226f8348550c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146113"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366725"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Tworzenie wielu pulpitów nawigacyjnych i zarządzanie nimi
 
@@ -33,7 +33,7 @@ Wybranie pozycji **+ Nowy** powoduje otwarcie edytora pulpitu nawigacyjnego. W e
 > [!div class="mx-imgBorder"]
 > ![Biblioteka pulpitu nawigacyjnego](media/howto-create-personal-dashboards/dashboard-library.png)
 
-Jeśli jesteś **administratorem** aplikacji, uzyskasz możliwość utworzenia pulpitu nawigacyjnego na poziomie osobistym lub pulpitu nawigacyjnego na poziomie aplikacji. Po utworzeniu pulpitu nawigacyjnego na poziomie osobistym będzie można go zobaczyć. Po utworzeniu pulpitu nawigacyjnego na poziomie aplikacji każdy użytkownik aplikacji będzie mógł go zobaczyć. Po wprowadzeniu tytułu i wybraniu typu pulpitu nawigacyjnego, który chcesz utworzyć, możesz zapisać i dodać kafelki później. Lub jeśli jesteś teraz gotowy i dodasz szablon urządzenia i wystąpienie urządzenia, możesz utworzyć pierwszy kafelek.  
+Jeśli jesteś **administratorem** aplikacji, otrzymasz opcję utworzenia pulpitu nawigacyjnego na poziomie osobistym lub pulpitu nawigacyjnego na poziomie aplikacji. W przypadku tworzenia pulpitu nawigacyjnego na poziomie osobistym tylko ty zobaczysz. Jeśli utworzysz pulpit nawigacyjny na poziomie aplikacji, będzie on widoczny dla każdego użytkownika aplikacji. Po wprowadzeniu tytułu i wybraniu typu pulpitu nawigacyjnego, który chcesz utworzyć, możesz zapisać i dodać kafelki później. Lub jeśli jesteś teraz gotowy i dodasz szablon urządzenia i wystąpienie urządzenia, możesz utworzyć pierwszy kafelek.  
 
 > [!div class="mx-imgBorder"]
 > ![Konfigurowanie szczegółów urządzenia z informacjami o temperaturze](media/howto-create-personal-dashboards/device-details.png)
@@ -41,8 +41,8 @@ Jeśli jesteś **administratorem** aplikacji, uzyskasz możliwość utworzenia p
 Na przykład można dodać kafelek **telemetrii** dla bieżącej temperatury urządzenia. W tym celu:
 
 1. Wybierz **szablon urządzenia**
-1. Wybierz urządzenie z **urządzeń** , które ma być wyświetlane na kafelku pulpitu nawigacyjnego. Zostanie wyświetlona lista właściwości urządzenia, które mogą być używane na kafelku.
-1. Aby utworzyć kafelek na pulpicie nawigacyjnym, kliknij pozycję **temperatura** i przeciągnij ją do obszaru pulpit nawigacyjny. Możesz również kliknąć pole wyboru obok pozycji **temperatura** i kliknąć pozycję **Dodaj kafelek** . Poniższy zrzut ekranu przedstawia Wybieranie szablonu urządzenia i urządzenia, a następnie Tworzenie kafelka telemetrii na pulpicie nawigacyjnym.
+1. Wybierz urządzenie z **urządzeń** , które ma być wyświetlane na kafelku pulpitu nawigacyjnego. Następnie zobaczysz listę właściwości urządzenia, które mogą być używane na kafelku.
+1. Aby utworzyć kafelek na pulpicie nawigacyjnym, wybierz pozycję **temperatura** i przeciągnij ją do obszaru pulpit nawigacyjny. Możesz również zaznaczyć pole wyboru obok pozycji **temperatura** i wybrać pozycję **Dodaj kafelek**. Poniższy zrzut ekranu przedstawia Wybieranie szablonu urządzenia i urządzenia, a następnie Tworzenie kafelka telemetrii na pulpicie nawigacyjnym.
 1. Wybierz pozycję **Zapisz** w lewym górnym rogu, aby zapisać zmiany na pulpicie nawigacyjnym.
 
 > [!div class="mx-imgBorder"]
@@ -64,7 +64,7 @@ Możesz mieć kilka osobistych pulpitów nawigacyjnych i przełączać się mię
 > [!div class="mx-imgBorder"]
 > ![Przełączanie między pulpitami nawigacyjnymi](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-Możesz edytować osobiste pulpity nawigacyjne i usunąć wszystkie pulpity nawigacyjne, które nie są już potrzebne. Jeśli jesteś **administratorem** , masz również możliwość edytowania lub usuwania pulpitów nawigacyjnych na poziomie aplikacji.
+Możesz edytować osobiste pulpity nawigacyjne i usunąć wszystkie pulpity nawigacyjne, które nie są już potrzebne. Jeśli jesteś **administratorem**, możesz również edytować lub usuwać pulpity nawigacyjne na poziomie aplikacji.
 
 > [!div class="mx-imgBorder"]
 > ![Usuń pulpity nawigacyjne](media/howto-create-personal-dashboards/delete-dashboards.png)

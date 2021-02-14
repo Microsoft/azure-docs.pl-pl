@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 45bb045e7bad2d5f8a56b71787b3abb5921cb7d5
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 4ff45eea8e07a282d8529c745344c11706bc27bb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985890"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387992"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Tworzenie grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
 
@@ -81,13 +81,13 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 > [!IMPORTANT]
 > - Klasa magazynu używana do tworzenia kopii zapasowych (_--Storage-Class-Backup-SCB_) domyślnie jest klasą magazynu danych kontrolera danych, jeśli nie została dostarczona.
 > - Aby przywrócić grupę serwerów do osobnej grupy serwerów (na przykład Przywracanie do punktu w czasie), należy skonfigurować grupę serwerów do używania obwodów PVC z trybem dostępu ReadWriteMany. Jest to wymagane do utworzenia grupy serwerów. Nie można go zmienić po utworzeniu. Aby uzyskać więcej informacji, zobacz:
->    - [Ta sekcja dotycząca tworzenia kopii zapasowych i przywracania](https://docs.microsoft.com/azure/azure-arc/data/backup-restore-postgresql-hyperscale#create-a-server-group-that-is-ready-for-backups-and-restores)
->    - [Ta sekcja dotycząca ograniczeń usługi Azure ARC z włączonym skalowaniem PostgreSQL](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale)
+>    - [Tworzenie grupy serwerów, która jest gotowa do tworzenia kopii zapasowych i przywracania](backup-restore-postgresql-hyperscale.md#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [Ograniczenia dotyczące skalowania za pomocą usługi Azure Arc PostgreSQL](limitations-postgresql-hyperscale.md)
 
 
 > [!NOTE]
 > - **Dostępne są inne parametry wiersza polecenia.  Zapoznaj się z pełną listą opcji, uruchamiając `azdata arc postgres server create --help` .**
-
+>
 > - Jednostka zaakceptowana przez parametry--Volume-* parametrów jest Kubernetesą ilością zasobów (liczba całkowita, po której następuje jeden z tych elementów SI (T, G, M, K, m) lub ich potęgi dwóch odpowiedników (TI, gi, mi, ki)).
 > - Nazwy muszą mieć długość co najmniej 12 znaków i być zgodne z konwencjami nazewnictwa DNS.
 > - Zostanie wyświetlony monit o wprowadzenie hasła dla standardowego użytkownika administracyjnego _Postgres_ .  Możesz pominąć interaktywny monit przez ustawienie `AZDATA_PASSWORD` zmiennej środowiskowej sesji przed uruchomieniem polecenia CREATE.

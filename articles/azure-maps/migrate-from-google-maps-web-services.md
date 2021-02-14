@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624042"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386853"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Samouczek: Migrowanie usługi sieci Web ze sklepu Google Maps
 
@@ -54,7 +54,7 @@ W tabeli przedstawiono interfejsy API usługi Azure Maps, które mają podobną 
 
 Następujące interfejsy API usługi nie są obecnie dostępne w Azure Maps:
 
-- Geolokalizacja
+- Geolokalizacja — Azure Maps ma usługę o nazwie Geolocation, ale udostępnia adres IP dla informacji o lokalizacji, ale obecnie nie obsługuje wielowymiarowego typu Tower lub sieci Wi-Fi.
 - Umieszcza szczegóły i zdjęcia — numery telefonów i adresy URL witryn internetowych są dostępne w interfejsie API wyszukiwania Azure Maps.
 - Adresy URL map
 - Najbliższe drogi — można to uzyskać za pomocą zestawu SDK sieci Web, jak pokazano [tutaj](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), ale nie jest to obecnie dostępne jako usługa.
@@ -116,7 +116,7 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 | `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `latlng`                    | `query`  |
-| `location_type`             | *Nie dotyczy*     |
+| `location_type`             | *NIE DOTYCZY*     |
 | `result_type`               | `entityType`    |
 
 Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wyszukiwania](how-to-use-best-practices-for-search.md).
@@ -160,9 +160,9 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 
 | Parametr interfejsu API usługi Google Maps | Porównywalny parametr interfejsu API Azure Maps |
 |---------------------------|-------------------------------------|
-| `fields`                  | *Nie dotyczy*                               |
+| `fields`                  | *NIE DOTYCZY*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *Nie dotyczy*                               |
+| `inputtype`               | *NIE DOTYCZY*                               |
 | `key`                     | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `locationbias`            | `lat``lon`i`radius`<br/>`topLeft` i `btmRight`<br/>`countrySet`  |
@@ -179,13 +179,13 @@ W tabeli przedstawiono parametry interfejsu API usługi Google Maps z porównywa
 | `keyword`                   | `categorySet` i `brandSet`        |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `location`                  | `lat` i `lon`                     |
-| `maxprice`                  | *Nie dotyczy*                               |
-| `minprice`                  | *Nie dotyczy*                               |
+| `maxprice`                  | *NIE DOTYCZY*                               |
+| `minprice`                  | *NIE DOTYCZY*                               |
 | `name`                      | `categorySet` i `brandSet`        |
-| `opennow`                   | *Nie dotyczy*                               |
+| `opennow`                   | *NIE DOTYCZY*                               |
 | `pagetoken`                 | `ofs` i `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *Nie dotyczy*                               |
+| `rankby`                    | *NIE DOTYCZY*                               |
 | `type`                      | `categorySet –` Zapoznaj się z dokumentacją dotyczącą [obsługiwanych kategorii wyszukiwania](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Obliczanie tras i wskazówek
@@ -265,10 +265,10 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | Nie *dotyczy — jest* to funkcja powiązana z geokodowaniem. Użyj `countrySet` parametru podczas korzystania z interfejsu API Azure Maps geokodowania.  |
-| `scale`                     | *Nie dotyczy*                              |
+| `scale`                     | *NIE DOTYCZY*                              |
 | `size`                      | `width` i `height` — może mieć rozmiar maksymalnie 8192x8192. |
-| `style`                     | *Nie dotyczy*                              |
-| `visible`                   | *Nie dotyczy*                              |
+| `style`                     | *NIE DOTYCZY*                              |
+| `visible`                   | *NIE DOTYCZY*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]

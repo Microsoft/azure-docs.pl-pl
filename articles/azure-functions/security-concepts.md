@@ -3,12 +3,12 @@ title: Zabezpieczanie Azure Functions
 description: Dowiedz się więcej na temat sposobu, w jaki kod funkcji działający na platformie Azure jest bezpieczniejszy przed typowymi atakami.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491328"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368493"
 ---
 # <a name="securing-azure-functions"></a>Zabezpieczanie Azure Functions
 
@@ -60,7 +60,7 @@ Poniższa tabela zawiera porównanie użycia różnych rodzajów kluczy dostępu
 
 | Akcja                                        | Zakres                    | Prawidłowe klucze         |
 |-----------------------------------------------|--------------------------|--------------------|
-| Wykonaj funkcję                            | Określona funkcja        | Function           |
+| Wykonaj funkcję                            | Określona funkcja        | Funkcja           |
 | Wykonaj funkcję                            | Dowolna funkcja             | Funkcja lub host   |
 | Wywoływanie punktu końcowego administratora                        | Aplikacja funkcji             | Host (tylko główny) |
 | Wywoływanie interfejsów API trwałych rozszerzeń zadań              | Aplikacja funkcji<sup>1</sup> | System<sup>2</sup> |
@@ -80,7 +80,7 @@ Domyślnie klucze są przechowywane w kontenerze magazynu obiektów BLOB na konc
 |---------|---------|---------|---------|
 |Inne konto magazynu     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Przechowuje klucze w magazynie obiektów BLOB na drugim koncie magazynu na podstawie podanego adresu URL sygnatury dostępu współdzielonego. Klucze są szyfrowane przed przechowywaniem przy użyciu klucza tajnego unikatowego dla aplikacji funkcji. |
 |System plików   | `AzureWebJobsSecretStorageType`   |  `files`       | Klucze są utrwalane w systemie plików, szyfrowane przed magazynem przy użyciu klucza tajnego unikatowego dla aplikacji funkcji. |
-|W usłudze Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | Magazyn musi mieć zasady dostępu odpowiadające tożsamości zarządzanej przypisanej do systemu zasobu hostingu. Zasady dostępu powinny udzielić tożsamości następujących uprawnień tajnych: `Get` , `Set` , `List` , i `Delete` . <br/>W przypadku uruchamiania lokalnego jest używana tożsamość dewelopera, a ustawienia muszą znajdować się w [local.settings.jspliku](functions-run-local.md#local-settings-file). | 
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | Magazyn musi mieć zasady dostępu odpowiadające tożsamości zarządzanej przypisanej do systemu zasobu hostingu. Zasady dostępu powinny udzielić tożsamości następujących uprawnień tajnych: `Get` , `Set` , `List` , i `Delete` . <br/>W przypadku uruchamiania lokalnego jest używana tożsamość dewelopera, a ustawienia muszą znajdować się w [local.settings.jspliku](functions-run-local.md#local-settings-file). | 
 |Wpisy tajne usługi Kubernetes  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (opcjonalnie) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Obsługiwane tylko w przypadku uruchamiania środowiska uruchomieniowego Functions w Kubernetes. Gdy `AzureWebJobsKubernetesSecretName` nie jest ustawiona, repozytorium jest uznawane za tylko do odczytu. W takim przypadku wartości muszą zostać wygenerowane przed wdrożeniem. Azure Functions Core Tools automatycznie generuje wartości podczas wdrażania do Kubernetes.|
 
 ### <a name="authenticationauthorization"></a>Uwierzytelnianie/autoryzacja
@@ -106,6 +106,8 @@ Parametry połączenia i inne poświadczenia przechowywane w ustawieniach aplika
 #### <a name="managed-identities"></a>Tożsamości zarządzane
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
+
+Tożsamości zarządzane mogą być używane zamiast wpisów tajnych dla połączeń z niektórych wyzwalaczy i powiązań. Zobacz [połączenia oparte na tożsamościach](#identity-based-connections).
 
 Aby uzyskać więcej informacji, zobacz [jak używać zarządzanych tożsamości dla App Service i Azure Functions](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json).
 
@@ -136,6 +138,14 @@ Podczas tworzenia funkcji na komputerze lokalnym można także szyfrować domyś
 Chociaż ustawienia aplikacji są wystarczające dla większości funkcji, warto udostępnić te same wpisy tajne w wielu usługach. W takim przypadku nadmiarowy Magazyn kluczy tajnych powoduje zwiększenie potencjalnych luk w zabezpieczeniach. Bardziej bezpiecznym podejściem jest centralny magazyn usługi Storage i Używanie odwołań do tej usługi zamiast samych tajemnic.      
 
 [Azure Key Vault](../key-vault/general/overview.md) to usługa zapewniająca scentralizowane zarządzanie kluczami tajnymi z pełną kontrolą nad zasadami dostępu i historią inspekcji. Możesz użyć odwołania Key Vault w miejscu parametrów połączenia lub klucza w ustawieniach aplikacji. Aby dowiedzieć się więcej, zobacz [używanie Key Vault odwołań dla App Service i Azure Functions](../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json).
+
+### <a name="identity-based-connections"></a>Połączenia oparte na tożsamościach
+
+Tożsamości mogą być używane zamiast wpisów tajnych do łączenia się z niektórymi zasobami. Ta zaleta nie wymaga zarządzania wpisem tajnym i oferuje bardziej precyzyjną kontrolę dostępu i inspekcję. 
+
+Podczas pisania kodu, który tworzy połączenie z [usługami platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), możesz użyć tożsamości zamiast hasła lub parametrów połączenia. Szczegółowe informacje dotyczące obu metod połączenia znajdują się w dokumentacji każdej usługi.
+
+Niektóre Azure Functions wyzwalacze i rozszerzenia powiązań można skonfigurować przy użyciu połączenia opartego na tożsamościach. Obecnie obejmuje to [usługi Azure Blob](./functions-bindings-storage-blob.md) i rozszerzenia [kolejki platformy Azure](./functions-bindings-storage-queue.md) . Informacje o sposobie konfigurowania tych rozszerzeń do korzystania z tożsamości znajdują się [w temacie jak używać połączeń opartych na tożsamościach w programie Azure Functions](./functions-reference.md#configure-an-identity-based-connection).
 
 ### <a name="set-usage-quotas"></a>Ustawianie przydziałów użycia
 

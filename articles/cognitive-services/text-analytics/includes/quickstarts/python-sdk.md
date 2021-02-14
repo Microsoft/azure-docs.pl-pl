@@ -5,12 +5,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 01/20/2021
 ms.author: aahi
-ms.openlocfilehash: 715b0d16e33412003820044ffa99fee9e2431a7b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: fc66cf75101d38ed1deac3b5368ee823dfdab821
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090755"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100514933"
 ---
 <a name="HOLTop"></a>
 
@@ -998,7 +998,7 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-Można również użyć operacji Analizuj, aby wykrywać dane OSOBowe i wyodrębnianie kluczowych fraz. Zobacz [przykład analizy](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_async.py) w witrynie GitHub.
+Można również użyć operacji Analizuj, aby wykrywać dane OSOBowe i wyodrębnianie kluczowych fraz. Zobacz [przykład analizy](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples) w witrynie GitHub.
 
 # <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 

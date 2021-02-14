@@ -1,22 +1,17 @@
 ---
 title: Zachowywanie metadanych i list ACL przy użyciu działania kopiowania w Azure Data Factory
 description: Dowiedz się, jak zachować metadane i listy ACL podczas kopiowania przy użyciu działania kopiowania w Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: a96b04df56dc7d5ea26463073d673275b8a4a8c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 396a598d143e85687f9dfbf765b3c18736627e41
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015081"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387720"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Zachowywanie metadanych i list ACL przy użyciu działania kopiowania w Azure Data Factory
 
@@ -35,7 +30,7 @@ Działanie kopiowania obsługuje zachowywanie następujących atrybutów podczas
 
 **Obsługa różnic w metadanych:** Usługi Amazon S3 i Azure Storage umożliwiają różne zestawy znaków w kluczach metadanych określonych przez klienta. Po wybraniu zachowywania metadanych przy użyciu działania kopiowania ADF automatycznie zastępuje nieprawidłowe znaki znakiem "_".
 
-W przypadku kopiowania plików jako-pochodzi z usługi Amazon S3/Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage do Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage z formatem binarnym można znaleźć opcję **Zachowaj** na karcie Ustawienia **działania kopiowania**  >  **Settings** dla tworzenia działań lub na stronie **Ustawienia** w narzędziu kopiowanie danych.
+W przypadku kopiowania plików jako-pochodzi z usługi Amazon S3/Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage do Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage z formatem binarnym można znaleźć opcję **Zachowaj** na karcie Ustawienia **działania kopiowania**  >   dla tworzenia działań lub na stronie **Ustawienia** w narzędziu kopiowanie danych.
 
 ![Metadane zachowywania działania kopiowania](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
@@ -98,7 +93,7 @@ Jeśli wybierzesz opcję kopiowania z folderu, Data Factory replikuje listy ACL 
 >[!IMPORTANT]
 >Po wybraniu opcji zachowania list kontroli dostępu należy się upewnić, że przyznano wystarczające uprawnienia, aby Data Factory działały na koncie ujścia Data Lake Storage Gen2. Na przykład Użyj uwierzytelniania klucza konta lub Przypisz rolę właściciela danych obiektu blob magazynu do nazwy głównej usługi lub tożsamości zarządzanej.
 
-Podczas konfigurowania źródła jako Data Lake Storage Gen1/Gen2 przy użyciu formatu binarnego lub opcji kopiowania binarnego oraz ujścia jako Data Lake Storage Gen2 za pomocą formatu binarnego lub opcji kopiowania binarnego można znaleźć opcję **Zachowaj** na stronie **Ustawienia** w narzędziu kopiowanie danych lub na karcie Ustawienia **działania kopiowania**  >  **Settings** dla tworzenia działań.
+Podczas konfigurowania źródła jako Data Lake Storage Gen1/Gen2 przy użyciu formatu binarnego lub opcji kopiowania binarnego oraz ujścia jako Data Lake Storage Gen2 za pomocą formatu binarnego lub opcji kopiowania binarnego można znaleźć opcję **Zachowaj** na stronie **Ustawienia** w narzędziu kopiowanie danych lub na karcie Ustawienia **działania kopiowania**  >   dla tworzenia działań.
 
 ![Data Lake Storage Gen1/Gen2 do Gen2 Zachowaj listę ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 
