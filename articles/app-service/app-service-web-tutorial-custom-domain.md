@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: eea42ab17311b85bdce429e22e8d0ed694e2f0ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608269"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096348"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "96608269"
 
 ![Zrzut ekranu pokazujący Azure Portal nawigację do aplikacji platformy Azure.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Mapowanie domeny podrzędnej (na przykład `www.contoso.com` ) przy użyciu rekordu CNAME.
@@ -309,17 +309,20 @@ Jeśli po przejściu do adresu URL domeny niestandardowej zostanie wyświetlony 
 - W skonfigurowanej domenie niestandardowej brakuje rekordu lub rekordu CNAME.
 - Klient przeglądarki umieścił w pamięci podręcznej stary adres IP Twojej domeny. Wyczyść pamięć podręczną i ponownie przetestuj rozpoznawanie nazw DNS. Do czyszczenia pamięci podręcznej na komputerze z systemem Windows należy użyć polecenia `ipconfig /flushdns`.
 
-<a name="virtualdir" aria-hidden="true"></a>
-
 ## <a name="migrate-an-active-domain"></a>Migrowanie aktywnej domeny
 
 Aby przeprowadzić migrację aktywnej witryny oraz jej nazwy domeny DNS do usługi App Service bez przestojów, zobacz [Migrate an active DNS name to Azure App Service](manage-custom-dns-migrate-domain.md) (Migrowanie aktywnej nazwy DNS do usługi Azure App Service).
+
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="redirect-to-a-custom-directory"></a>Przekierowywanie do katalogu niestandardowego
 
 Domyślnie usługa App Service kieruje żądania internetowe do katalogu głównego w kodzie aplikacji. Ale niektóre platformy sieci Web nie są uruchamiane w katalogu głównym. Na przykład platforma [Laravel](https://laravel.com/) uruchamia się w podkatalogu `public`. Aby kontynuować `contoso.com` przykład DNS, taka aplikacja jest dostępna w `http://contoso.com/public` , ale `http://contoso.com` zamiast tego chcesz skierować do `public` katalogu. Ten krok nie obejmuje rozpoznawania nazw DNS, ale ma na celu dostosowanie katalogu wirtualnego.
 
-Aby dostosować katalog wirtualny, wybierz pozycję **Ustawienia aplikacji** w lewym okienku strony aplikacji sieci Web.
+Aby dostosować katalog wirtualny dla aplikacji systemu Windows, wybierz pozycję **Ustawienia aplikacji** w lewym okienku strony aplikacji sieci Web. 
+
+> [!NOTE]
+> Aplikacje systemu Linux nie mają tej strony. Aby zmienić katalog główny witryny dla aplikacji systemu Linux, zobacz przewodniki dotyczące konfiguracji specyficzne dla języka (na przykład[php](configure-language-php.md?pivots=platform-linux#change-site-root)).
 
 W dolnej części strony widać, że główny katalog wirtualny `/` domyślnie wskazuje na katalog `site\wwwroot`, który jest katalogiem głównym kodu aplikacji. Zmień to ustawienie, aby główny katalog wirtualny wskazywał na przykład na katalog `site\wwwroot\public`, i zapisz zmiany.
 

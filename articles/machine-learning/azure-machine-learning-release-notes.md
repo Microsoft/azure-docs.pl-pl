@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: a01aab13b87398b7d27af02fa84dd7fadf7b8345
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b814c12a0d57230a81a68f6030a26ded93bd0399
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99431001"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097079"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -162,7 +162,7 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
 ## <a name="2020-11-30"></a>2020-11-30
 ### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z listopada)
 + **Nowe funkcje**
-   + Terminal macierzysty. Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem [zintegrowanego terminalu.](./how-to-run-jupyter-notebooks.md#terminal)
+   + Terminal macierzysty. Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem [zintegrowanego terminalu.](./how-to-access-terminal.md)
   + Zduplikowany folder 
   + Ustalanie kosztów dla listy rozwijanej obliczeń 
   + Pylance obliczeń w trybie offline 

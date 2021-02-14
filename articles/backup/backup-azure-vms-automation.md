@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i odzyskiwanie maszyn wirtualnych platformy Az
 description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych platformy Azure przy użyciu Azure Backup programu PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 66b8fe0109a4dd2e054106b67f893def2ee596b0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804791"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095090"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -526,6 +526,53 @@ Użytkownik może wybiórczo przywrócić kilka dysków zamiast całego zestawu 
 > Jeden z nich musi selektywnie tworzyć kopie zapasowe dysków w celu selektywnego przywracania dysków. Więcej szczegółów znajduje się w [tym miejscu](selective-disk-backup-restore.md#selective-disk-restore).
 
 Po przywróceniu dysków przejdź do następnej sekcji, aby utworzyć maszynę wirtualną.
+
+#### <a name="restore-disks-to-a-secondary-region"></a>Przywracanie dysków do regionu pomocniczego
+
+Jeśli w magazynie, z którym są chronione maszyny wirtualne, jest włączone przywracanie między regionami, dane kopii zapasowej są replikowane do regionu pomocniczego. Możesz użyć danych kopii zapasowej do wykonania przywracania. Wykonaj następujące kroki, aby wyzwolić przywracanie w regionie pomocniczym:
+
+1. [Pobierz identyfikator magazynu](#fetch-the-vault-id) , z którym są chronione maszyny wirtualne.
+1. Wybierz [prawidłowy element kopii zapasowej do przywrócenia](#select-the-vm-when-restoring-files).
+1. Wybierz odpowiedni punkt odzyskiwania w regionie pomocniczym, którego chcesz użyć do wykonania przywracania.
+
+    Aby ukończyć ten krok, uruchom następujące polecenie:
+
+    ```powershell
+    $rp=Get-AzRecoveryServicesBackupRecoveryPoint -UseSecondaryRegion -Item $backupitem -VaultId $targetVault.ID
+    $rp=$rp[0]
+    ```
+
+1. Wykonaj polecenie cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) z `-RestoreToSecondaryRegion` parametrem, aby wyzwolić przywracanie w regionie pomocniczym.
+
+    Aby ukończyć ten krok, uruchom następujące polecenie:
+
+    ```powershell
+    $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -VaultLocation $targetVault.Location -RestoreToSecondaryRegion -RestoreOnlyOSDisk
+    ```
+
+    Dane wyjściowe będą mieć postać podobną do następującej:
+
+    ```output
+    WorkloadName     Operation             Status              StartTime                 EndTime          JobID
+    ------------     ---------             ------              ---------                 -------          ----------
+    V2VM             CrossRegionRestore   InProgress           4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+    ```
+
+1. Wykonaj polecenie cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) z `-UseSecondaryRegion` parametrem umożliwiającym monitorowanie zadania przywracania.
+
+    Aby ukończyć ten krok, uruchom następujące polecenie:
+
+    ```powershell
+    Get-AzRecoveryServicesBackupJob -From (Get-Date).AddDays(-7).ToUniversalTime() -To (Get-Date).ToUniversalTime() -UseSecondaryRegion -VaultId $targetVault.ID
+    ```
+
+    Dane wyjściowe będą mieć postać podobną do następującej:
+
+    ```output
+    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+    ------------     ---------            ------               ---------                 -------                   -----
+    V2VM             CrossRegionRestore   InProgress           2/8/2021 4:24:57 PM                                 2d071b07-8f7c-4368-bc39-98c7fb2983f7
+    ```
 
 ## <a name="replace-disks-in-azure-vm"></a>Zastąp dyski na maszynie wirtualnej platformy Azure
 

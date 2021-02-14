@@ -6,19 +6,19 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475256"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099952"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Rozwiązywanie typowych problemów z agentem pulpitu wirtualnego systemu Windows
 
 Agent pulpitu wirtualnego systemu Windows może powodować problemy z połączeniem ze względu na wiele czynników:
    - Błąd brokera, który sprawia, że Agent zatrzymuje usługę.
    - Problemy z aktualizacjami.
-   - Problemy związane z instalowaniem programu podczas instalacji agenta, który zakłóca połączenie z hostem sesji.
+   - Problemy związane z instalowaniem programu podczas instalacji agenta, które zakłócają połączenie z hostem sesji.
 
 Ten artykuł przeprowadzi Cię przez rozwiązania do tych typowych scenariuszy i sposobów rozwiązywania problemów z połączeniami.
 
@@ -184,7 +184,7 @@ Aby rozwiązać ten problem, Zmień próg pulsu:
 1. Otwórz wiersz polecenia jako administrator.
 2. Wprowadź polecenie **qwinsta** i uruchom je.
 3. Powinny być wyświetlane dwa składniki stosu: **RDP-TCP** i **RDP-SxS**. 
-   - W zależności od używanej wersji systemu **operacyjnego może** następować numer kompilacji, jak pokazano na poniższym zrzucie ekranu. Jeśli tak, pamiętaj, aby zapisać tę liczbę w dół.
+   - W zależności od używanej wersji systemu operacyjnego, do **protokołu RDP-SxS** może następować numer kompilacji. Jeśli tak, pamiętaj, aby zapisać tę liczbę w dół.
 4. Otwórz Edytor rejestru.
 5. Przejdź do **HKEY_LOCAL_MACHINE**  >  **system**  >  **CurrentControlSet**  >  **Control**  >  **Terminal Server**  >  **WinStations**.
 6. W obszarze **WinStations** może być widocznych kilka folderów dla różnych wersji stosu. Wybierz folder pasujący do numeru wersji z kroku 3.
@@ -207,7 +207,7 @@ Aby rozwiązać ten problem, zwolnij miejsce na dysku przez:
 Otwórz okno programu PowerShell jako administrator i uruchom następujące polecenie cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
 Jeśli stan wymieniony dla hosta sesji lub hostów w puli hostów zawsze mówi **niedostępności** lub **uaktualnienie**, Instalacja agenta lub stosu zakończyła się niepowodzeniem

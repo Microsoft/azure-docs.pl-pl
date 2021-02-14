@@ -158,6 +158,8 @@
           href: migration-resources.md
         - name: Migrowanie aplikacji AD FS na platformę Azure
           href: migrate-adfs-apps-to-azure.md
+        - name: Migrowanie uwierzytelniania aplikacji do Azure Active Directory
+          href: migrate-application-authentication-to-azure-active-directory.md
         - name: Korzystanie z raportu aktywności aplikacji usługi AD FS (wersja zapoznawcza)
           href: migrate-adfs-application-activity.md
     - name: Konfigurowanie łączników lokalnych

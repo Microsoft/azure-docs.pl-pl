@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 34885e2a364778a2f81f4920aa26aa3bb5f40320
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124816"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095022"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Przeprowadzanie przeglądu dostępu z poziomu portalu Moje aplikacje
 
@@ -29,6 +29,11 @@ Jeśli nie masz dostępu do portalu **Moje aplikacje** , skontaktuj się z pomoc
 
 >[!Important]
 >Ta zawartość jest przeznaczona dla użytkowników **moich aplikacji** . Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania i zarządzania aplikacjami opartymi na chmurze w [dokumentacji zarządzania aplikacjami](../manage-apps/index.yml).
+>
+> Jeśli zostanie wyświetlony komunikat o błędzie logowania przy użyciu osobistego konto Microsoft, można nadal zalogować się przy użyciu nazwy domeny dla organizacji (takiej jak contoso.com) lub **identyfikatora dzierżawy** organizacji od administratora w jednym z następujących adresów URL:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="manage-access-reviews"></a>Zarządzanie recenzjami dostępu
 
@@ -41,17 +46,17 @@ Jeśli administrator udzielił Ci uprawnień do wykonywania własnych przegląd�
 
 1. Zaloguj się do konta służbowego.
 
-2. Otwórz przeglądarkę internetową i przejdź do https://myapps.microsoft.com lub Użyj linku dostarczonego przez organizację. Na przykład może nastąpić przekierowanie do dostosowanej strony organizacji, na przykład https://myapps.microsoft.com/contoso.com .
+1. Otwórz przeglądarkę internetową i przejdź do https://myapps.microsoft.com lub Użyj linku dostarczonego przez organizację. Na przykład może nastąpić przekierowanie do dostosowanej strony organizacji, na przykład https://myapps.microsoft.com/contoso.com .
 
     Zostanie wyświetlona strona **aplikacje** przedstawiająca wszystkie aplikacje oparte na chmurze należące do organizacji i dostępne do użycia.
 
     ![Strona aplikacje w portalu Moje aplikacje](media/my-apps-portal/my-apps-home.png)
 
-3. Wybierz kafelek **przeglądy dostępu** , aby wyświetlić listę przeglądów dostępu oczekujących na zatwierdzenie.
+1. Wybierz kafelek **przeglądy dostępu** , aby wyświetlić listę przeglądów dostępu oczekujących na zatwierdzenie.
 
     ![Strona przeglądy dostępu z oczekującymi przeglądami dostępu dla organizacji](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. Wybierz pozycję **Rozpocznij przegląd** , aby rozpocząć przegląd dostępu.
+1. Wybierz pozycję **Rozpocznij przegląd** , aby rozpocząć przegląd dostępu.
 
 5. Przejrzyj swój dostęp i ustal, czy nadal jest to konieczne.
 
@@ -62,11 +67,11 @@ Jeśli administrator udzielił Ci uprawnień do wykonywania własnych przegląd�
 
 6. Wybierz pozycję **tak** , aby zachować dostęp, lub przycisk **nie** , aby usunąć swój dostęp.
 
-    Jeśli wybierzesz opcję **tak** , w polu **Przyczyna** może być konieczne określenie uzasadnienia.
+    Jeśli wybierzesz opcję **tak**, w polu **Przyczyna** może być konieczne określenie uzasadnienia.
 
     ![Strona przeglądu dostępu pokazująca pole przyczyna z przykładowym tekstem](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
-7. Wybierz pozycję **Prześlij** .
+7. Wybierz pozycję **Prześlij**.
 
     Przegląd dostępu zostanie zakończony i wrócisz do portalu **My Apps** .
 

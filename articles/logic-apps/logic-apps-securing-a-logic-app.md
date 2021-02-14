@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a74868beea6e5903b6b17a7bc0c82cc822fcd36f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/12/2021
+ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055182"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104505"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -123,11 +123,11 @@ W treści należy uwzględnić `KeyType` Właściwość jako `Primary` lub `Seco
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Włącz Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)
 
-W przypadku wywołań przychodzących do punktu końcowego, który jest tworzony przez wyzwalacz oparty na żądaniach, można włączyć [Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml) przez zdefiniowanie lub dodanie zasad autoryzacji dla aplikacji logiki. W ten sposób wywołania przychodzące używają [tokenów dostępu](../active-directory/develop/access-tokens.md) OAuth do autoryzacji.
+W przypadku wywołań przychodzących do punktu końcowego, który jest tworzony przez wyzwalacz oparty na żądaniu, można włączyć [usługę Azure AD OAuth](../active-directory/develop/index.yml) przez zdefiniowanie lub dodanie zasad autoryzacji dla aplikacji logiki. W ten sposób wywołania przychodzące używają [tokenów dostępu](../active-directory/develop/access-tokens.md) OAuth do autoryzacji.
 
 Gdy aplikacja logiki odbiera żądanie przychodzące, które zawiera token dostępu OAuth, usługa Azure Logic Apps porównuje oświadczenia tokenu względem oświadczeń określonych przez poszczególne zasady autoryzacji. Jeśli istnieje dopasowanie między oświadczeniami tokenu a wszystkimi oświadczeniami w co najmniej jednym z zasad, autoryzacja powiedzie się dla żądania przychodzącego. Token może mieć więcej oświadczeń niż liczba określona przez zasady autoryzacji.
 
-Przed włączeniem protokołu OAuth usługi Azure AD zapoznaj się z następującymi kwestiami:
+#### <a name="considerations-before-you-enable-azure-ad-oauth"></a>Uwagi przed włączeniem uwierzytelniania OAuth usługi Azure AD
 
 * Wywołanie przychodzące do punktu końcowego żądania może korzystać tylko z jednego schematu autoryzacji, uwierzytelniania OAuth usługi Azure AD lub [sygnatury dostępu współdzielonego (SAS)](#sas). Chociaż użycie jednego schematu nie powoduje wyłączenia innego schematu, użycie obu tych schematów w tym samym czasie powoduje błąd, ponieważ usługa Logic Apps nie wie, który schemat wybrać.
 
@@ -180,11 +180,15 @@ Przed włączeniem protokołu OAuth usługi Azure AD zapoznaj się z następują
    }
    ```
 
+#### <a name="enable-azure-ad-oauth-for-your-logic-app"></a>Włączanie uwierzytelniania OAuth usługi Azure AD dla aplikacji logiki
+
+Wykonaj następujące kroki dla Azure Portal lub szablonu Azure Resource Manager:
+
 <a name="define-authorization-policy-portal"></a>
 
-#### <a name="define-authorization-policy-in-azure-portal"></a>Definiowanie zasad autoryzacji w Azure Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby włączyć usługę Azure AD OAuth dla aplikacji logiki w Azure Portal, wykonaj następujące kroki, aby dodać do aplikacji logiki co najmniej jedną zasadę autoryzacji:
+W [Azure Portal](https://portal.azure.com)Dodaj co najmniej jedną zasadę autoryzacji do aplikacji logiki:
 
 1. W [Azure Portal](https://portal.microsoft.com)Znajdź i Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
@@ -216,9 +220,9 @@ Aby włączyć usługę Azure AD OAuth dla aplikacji logiki w Azure Portal, wyko
 
 <a name="define-authorization-policy-template"></a>
 
-#### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definiowanie zasad autoryzacji w szablonie Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Szablon Menedżer zasobów](#tab/azure-resource-manager)
 
-Aby włączyć usługę Azure AD OAuth w szablonie ARM w celu wdrożenia aplikacji logiki, wykonaj następujące kroki i Poniższa składnia:
+W szablonie ARM Zdefiniuj zasady autoryzacji zgodnie z poniższymi krokami i składnią poniżej:
 
 1. W `properties` sekcji [definicji zasobu aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)Dodaj `accessControl` obiekt, jeśli nie istnieje, który zawiera `triggers` obiekt.
 
@@ -271,6 +275,8 @@ Oto składnia do obserwowania:
 ],
 ```
 
+---
+
 <a name="include-auth-header"></a>
 
 #### <a name="include-authorization-header-in-request-trigger-outputs"></a>Uwzględnij nagłówek "Authorization" w danych wyjściowych wyzwalacza żądania
@@ -310,11 +316,13 @@ Wraz z sygnaturą dostępu współdzielonego można jawnie ograniczyć liczbę k
 
 Niezależnie od określonych adresów IP można nadal uruchamiać aplikację logiki, która ma wyzwalacz oparty na żądaniach za [Logic Apps pomocą interfejsu API REST: wyzwalacze przepływu pracy — Uruchom](/rest/api/logic/workflowtriggers/run) żądanie lub przy użyciu API Management. Jednak ten scenariusz nadal wymaga [uwierzytelniania](../active-directory/develop/authentication-vs-authorization.md) względem interfejsu API REST platformy Azure. Wszystkie zdarzenia pojawiają się w dzienniku inspekcji platformy Azure. Upewnij się, że zasady kontroli dostępu zostały odpowiednio skonfigurowane.
 
+Aby ograniczyć przychodzące adresy IP dla aplikacji logiki, wykonaj następujące kroki dla Azure Portal lub szablonu Azure Resource Manager:
+
 <a name="restrict-inbound-ip-portal"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Ogranicz zakresy adresów IP dla ruchu przychodzącego w Azure Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Gdy korzystasz z portalu do ograniczania adresów IP dla ruchu przychodzącego dla aplikacji logiki, te ograniczenia wpływają na wyzwalacze *i* akcje, niezależnie od opisu w portalu w obszarze **dozwolone adresy IP dla ruchu przychodzącego**. Aby skonfigurować ograniczenia dotyczące wyzwalaczy niezależnie od akcji, użyj [ `accessControl` obiektu w szablonie Azure Resource Manager aplikacji logiki](#restrict-inbound-ip-template) lub w [interfejsie API REST Logic Apps: Operacja tworzenia lub aktualizowania przepływu pracy](/rest/api/logic/workflows/createorupdate).
+W [Azure Portal](https://portal.azure.com)filtr ma wpływ na wyzwalacze *i* akcje, w przeciwieństwie do opisu w portalu w obszarze **dozwolone adresy IP dla ruchu przychodzącego**. Aby skonfigurować ten filtr oddzielnie dla wyzwalaczy i dla akcji, użyj `accessControl` obiektu w szablonie Azure Resource Manager dla aplikacji logiki lub [interfejsu API REST Logic Apps: Operacja tworzenia lub aktualizowania przepływu pracy](/rest/api/logic/workflows/createorupdate).
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
@@ -323,23 +331,23 @@ Gdy korzystasz z portalu do ograniczania adresów IP dla ruchu przychodzącego d
 1. W sekcji **Konfiguracja kontroli dostępu** w obszarze **dozwolone adresy IP dla ruchu przychodzącego** wybierz ścieżkę dla danego scenariusza:
 
    * Aby aplikację logiki można było wywołać tylko jako zagnieżdżoną aplikację logiki przy użyciu wbudowanej [akcji Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md), zaznacz opcję **tylko inne Logic Apps**, która działa *tylko* wtedy, gdy używasz akcji **Azure Logic Apps** do wywoływania zagnieżdżonej aplikacji logiki.
-   
+
      Ta opcja umożliwia zapisanie pustej tablicy do zasobu aplikacji logiki i wymaga, aby tylko wywołania z nadrzędnych aplikacji logiki, które używają wbudowanej akcji **Azure Logic Apps** mogą wyzwolić zagnieżdżoną aplikację logiki.
 
    * Aby aplikację logiki można było wywołać tylko jako aplikację zagnieżdżoną przy użyciu akcji HTTP, wybierz **określone zakresy adresów IP**, a *nie* **tylko inne Logic Apps**. Gdy pojawi się okno **zakresy adresów IP dla wyzwalaczy** , wprowadź [wyjściowe adresy IP](../logic-apps/logic-apps-limits-and-config.md#outbound)aplikacji logiki nadrzędnej. Prawidłowy zakres adresów IP używa następujących formatów: *x. x. x. x/x* lub *x. x. x. x-x. x. x. x*.
-   
+
      > [!NOTE]
      > Jeśli używasz **jedynej opcji Logic Apps** i akcji HTTP do wywoływania zagnieżdżonej aplikacji logiki, wywołanie zostanie zablokowane i zostanie wyświetlony komunikat o błędzie "401 bez autoryzacji".
-        
+
    * W przypadku scenariuszy, w których chcesz ograniczyć wywołania przychodzące z innych adresów IP, gdy pojawi się okno **zakresy IP dla wyzwalaczy** , określ zakresy adresów IP akceptowane przez wyzwalacz. Prawidłowy zakres adresów IP używa następujących formatów: *x. x. x. x/x* lub *x. x. x. x-x. x. x. x*.
 
 1. Opcjonalnie w obszarze **Ogranicz wywołania do pobierania komunikatów wejściowych i wyjściowych z historii uruchamiania do podanych adresów IP** można określić zakresy adresów IP dla wywołań przychodzących, które mogą uzyskiwać dostęp do komunikatów wejściowych i wyjściowych w historii uruchamiania.
 
 <a name="restrict-inbound-ip-template"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Ogranicz zakresy adresów IP dla ruchu przychodzącego w szablonie Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Szablon Menedżer zasobów](#tab/azure-resource-manager)
 
-W przypadku [automatyzowania wdrażania aplikacji logiki za pomocą szablonów Menedżer zasobów](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)można określić dozwolone zakresy przychodzącego adresu IP w definicji zasobu aplikacji logiki przy użyciu `accessControl` sekcji. W tej sekcji Użyj `triggers` , `actions` i opcjonalne sekcje odpowiednio do `contents` potrzeb, dołączając `allowedCallerIpAddresses` sekcję z `addressRange` właściwością i ustawiając wartość właściwości na dozwolony zakres adresów IP w formacie *x. x. x. x/x* lub *x. x. x. x-x* . x. x. x.
+W szablonie ARM Określ dozwolone zakresy przychodzących adresów IP w definicji zasobu aplikacji logiki przy użyciu `accessControl` sekcji. W tej sekcji Użyj `triggers` , `actions` , i opcjonalne sekcje odpowiednio do `contents` `allowedCallerIpAddresses` sekcji z `addressRange` właściwością i ustaw wartość właściwości na dozwolony zakres adresów IP w formacie *x. x. x. x/x* lub *x. x. x. x-x* . x. x. x.
 
 * Jeśli zagnieżdżona aplikacja logiki używa **tylko innej Logic Apps** opcji, która zezwala na wywołania przychodzące tylko z innych aplikacji logiki, które używają akcji Azure Logic Apps, należy ustawić `addressRange` Właściwość na pustą tablicę (**[]**).
 
@@ -439,6 +447,8 @@ Ten przykład przedstawia definicję zasobu dla zagnieżdżonej aplikacji logiki
 }
 ```
 
+---
+
 <a name="secure-operations"></a>
 
 ## <a name="access-to-logic-app-operations"></a>Dostęp do operacji aplikacji logiki
@@ -473,11 +483,15 @@ Aby kontrolować dostęp do wejść i wyjść w historii uruchamiania aplikacji 
 
 ### <a name="restrict-access-by-ip-address-range"></a>Ograniczanie dostępu według zakresu adresów IP
 
-Możesz ograniczyć dostęp do danych wejściowych i wyjściowych w historii uruchamiania aplikacji logiki, tak aby tylko żądania z określonych zakresów adresów IP mogły wyświetlać te dane. Na przykład, aby zablokować wszystkim użytkownikom dostęp do wejść i wyjść, określ zakres adresów IP, taki jak `0.0.0.0-0.0.0.0` . Tylko osoba z uprawnieniami administratora może usunąć to ograniczenie, które zapewnia możliwość dostępu "just in Time" do danych aplikacji logiki. Możesz określić zakresy adresów IP, które mają być ograniczone przy użyciu Azure Portal lub szablonu Azure Resource Manager, który jest używany do wdrażania aplikacji logiki.
+Możesz ograniczyć dostęp do danych wejściowych i wyjściowych w historii uruchamiania aplikacji logiki, tak aby tylko żądania z określonych zakresów adresów IP mogły wyświetlać te dane.
 
-#### <a name="restrict-ip-ranges-in-azure-portal"></a>Ograniczanie zakresów adresów IP w Azure Portal
+Na przykład, aby zablokować wszystkim użytkownikom dostęp do wejść i wyjść, określ zakres adresów IP, taki jak `0.0.0.0-0.0.0.0` . Tylko osoba z uprawnieniami administratora może usunąć to ograniczenie, które zapewnia możliwość dostępu "just in Time" do danych aplikacji logiki.
 
-1. W Azure Portal Otwórz aplikację logiki w Projektancie aplikacji logiki.
+Aby określić dozwolone zakresy adresów IP, wykonaj następujące kroki dla szablonu Azure Portal lub Azure Resource Manager:
+
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
 1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Ustawienia przepływu pracy**.
 
@@ -487,9 +501,9 @@ Możesz ograniczyć dostęp do danych wejściowych i wyjściowych w historii uru
 
    Prawidłowy zakres adresów IP używa następujących formatów: *x. x. x. x/x* lub *x. x. x. x-x. x. x. x*
 
-#### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Ogranicz zakresy adresów IP w szablonie Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Szablon Menedżer zasobów](#tab/azure-resource-manager)
 
-W przypadku [automatyzowania wdrażania aplikacji logiki za pomocą szablonów Menedżer zasobów](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)można określić zakresy adresów IP za pomocą `accessControl` sekcji z `contents` sekcją w definicji zasobu aplikacji logiki, na przykład:
+W szablonie ARM określ zakresy adresów IP przy użyciu `accessControl` sekcji z `contents` sekcją w definicji zasobu aplikacji logiki, na przykład:
 
 ``` json
 {
@@ -528,11 +542,41 @@ W przypadku [automatyzowania wdrażania aplikacji logiki za pomocą szablonów M
 }
 ```
 
+---
+
 <a name="obfuscate"></a>
 
 ### <a name="secure-data-in-run-history-by-using-obfuscation"></a>Zabezpieczanie danych w historii uruchamiania przy użyciu zaciemniania
 
-Wiele wyzwalaczy i akcji ma ustawienia umożliwiające zabezpieczenie danych wejściowych, wyjściowych lub zarówno z historii uruchamiania aplikacji logiki. Przed użyciem tych ustawień, aby zabezpieczyć te dane, [Przejrzyj te zagadnienia](#obfuscation-considerations).
+Wiele wyzwalaczy i akcji ma ustawienia umożliwiające zabezpieczenie danych wejściowych, wyjściowych lub zarówno z historii uruchamiania aplikacji logiki. Przed użyciem tych ustawień, aby zabezpieczyć te dane, należy zapoznać się z następującymi kwestiami:
+
+* Gdy ukrywasz dane wejściowe lub dane wyjściowe wyzwalacza lub akcji, Logic Apps nie wysyłaj zabezpieczonych danych do usługi Azure Log Analytics. Nie można również dodać [śledzonych właściwości](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) do tego wyzwalacza lub akcji do monitorowania.
+
+* [Interfejs API Logic Apps obsługujący historię przepływu pracy](/rest/api/logic/) nie zwraca zabezpieczonych danych wyjściowych.
+
+* Aby zabezpieczyć wyjście z akcji, która ukrywa dane wejściowe lub jawnie zasłania wyjścia, należy ręcznie włączyć **bezpieczne wyjście** w tej akcji.
+
+* Upewnij się, że włączasz **bezpieczne dane wejściowe** lub **zabezpieczone wyjścia** w akcjach podrzędnych, w których oczekuje się, że historia uruchamiania ma zasłaniać te dane.
+
+  **Ustawienia bezpiecznego wyjścia**
+
+  Po ręcznym włączeniu **bezpiecznych danych wyjściowych** w wyzwalaczu lub akcji Logic Apps ukrywa te dane wyjściowe w historii uruchamiania. Jeśli akcja w trybie podrzędnym jawnie używa tych zabezpieczonych danych wyjściowych jako dane wejściowe, Logic Apps ukrywa dane wejściowe tej akcji w historii uruchamiania, ale *nie włącza* ustawienia **zabezpieczonych danych wejściowych** akcji.
+
+  ![Zabezpieczone wyjście jako dane wejściowe i wpływ na efekt podrzędny w większości akcji](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
+
+  Akcje redagowania, przeanalizowania JSON i odpowiedzi mają tylko ustawienia **zabezpieczeń danych wejściowych** . Po włączeniu tego ustawienia ukrywa także te wyniki. Jeśli te akcje jawnie wykorzystują dane wyjściowe przesyłane strumieniowo do strumienia, Logic Apps ukrywa **dane wejściowe i** wyjściowe akcji, ale *nie włączają* tych akcji. Jeśli akcja w trybie podrzędnym jawnie używa ukrytych danych wyjściowych z akcji Redaguj, Analizuj dane JSON lub odpowiedzi jako dane wejściowe, Logic Apps *nie ukrywa danych wejściowych lub wyjściowych akcji podrzędnej*.
+
+  ![Zabezpieczone wyjścia jako dane wejściowe z wpływem podrzędnym na określone akcje](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
+
+  **Bezpieczne ustawienie danych wejściowych**
+
+  Po ręcznym włączeniu **zabezpieczeń danych wejściowych** wyzwalacza lub akcji Logic Apps ukrywa te dane wejściowe w historii uruchamiania. Jeśli akcja przekroczenia jawnie używa widocznego wyjścia z tego wyzwalacza lub akcji jako danych wejściowych, Logic Apps ukrywa dane wejściowe akcji podrzędnej w historii uruchamiania, ale *nie włącza* **bezpiecznego wejścia** w tej akcji i nie ukrywa danych wyjściowych tej akcji.
+
+  ![Zabezpieczanie danych wejściowych i wpływu na wpływ na większość akcji](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
+
+  Jeśli akcje redagowania, analizy JSON i odpowiedzi jawnie używają widocznych danych wyjściowych wyzwalacza lub akcji, które mają zabezpieczone dane wejściowe, Logic Apps ukrywają dane wejściowe i wyjściowe akcji, ale *nie włączają* ustawienia **zabezpieczonych danych wejściowych** tej akcji. Jeśli akcja w trybie podrzędnym jawnie używa ukrytych danych wyjściowych z akcji Redaguj, Analizuj dane JSON lub odpowiedzi jako dane wejściowe, Logic Apps *nie ukrywa danych wejściowych lub wyjściowych akcji podrzędnej*.
+
+  ![Zabezpieczone wejścia i wpływ na określone akcje](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 #### <a name="secure-inputs-and-outputs-in-the-designer"></a>Zabezpieczanie wejść i wyjść w projektancie
 
@@ -575,8 +619,6 @@ W podstawowym wyzwalaczu lub definicji akcji Dodaj lub zaktualizuj `runtimeConfi
 * `"inputs"`: Zabezpiecza dane wejściowe w historii uruchamiania.
 * `"outputs"`: Zabezpiecza dane wyjściowe w historii uruchamiania.
 
-Poniżej przedstawiono kilka [kwestii, które należy wziąć pod uwagę](#obfuscation-considerations) podczas korzystania z tych ustawień, aby zabezpieczyć te dane.
-
 ```json
 "<trigger-or-action-name>": {
    "type": "<trigger-or-action-type>",
@@ -594,38 +636,6 @@ Poniżej przedstawiono kilka [kwestii, które należy wziąć pod uwagę](#obfus
    <other-attributes>
 }
 ```
-
-<a name="obfuscation-considerations"></a>
-
-#### <a name="considerations-when-securing-inputs-and-outputs"></a>Zagadnienia dotyczące zabezpieczania danych wejściowych i wyjściowych
-
-* Gdy ukrywasz dane wejściowe lub dane wyjściowe wyzwalacza lub akcji, Logic Apps nie wysyłaj zabezpieczonych danych do usługi Azure Log Analytics. Nie można również dodać [śledzonych właściwości](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) do tego wyzwalacza lub akcji do monitorowania.
-
-* [Interfejs API Logic Apps obsługujący historię przepływu pracy](/rest/api/logic/) nie zwraca zabezpieczonych danych wyjściowych.
-
-* Aby zabezpieczyć wyjście z akcji, która ukrywa dane wejściowe lub jawnie zasłania wyjścia, należy ręcznie włączyć **bezpieczne wyjście** w tej akcji.
-
-* Upewnij się, że włączasz **bezpieczne dane wejściowe** lub **zabezpieczone wyjścia** w akcjach podrzędnych, w których oczekuje się, że historia uruchamiania ma zasłaniać te dane.
-
-  **Ustawienia bezpiecznego wyjścia**
-
-  Po ręcznym włączeniu **bezpiecznych danych wyjściowych** w wyzwalaczu lub akcji Logic Apps ukrywa te dane wyjściowe w historii uruchamiania. Jeśli akcja w trybie podrzędnym jawnie używa tych zabezpieczonych danych wyjściowych jako dane wejściowe, Logic Apps ukrywa dane wejściowe tej akcji w historii uruchamiania, ale *nie włącza* ustawienia **zabezpieczonych danych wejściowych** akcji.
-
-  ![Zabezpieczone wyjście jako dane wejściowe i wpływ na efekt podrzędny w większości akcji](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
-
-  Akcje redagowania, przeanalizowania JSON i odpowiedzi mają tylko ustawienia **zabezpieczeń danych wejściowych** . Po włączeniu tego ustawienia ukrywa także te wyniki. Jeśli te akcje jawnie wykorzystują dane wyjściowe przesyłane strumieniowo do strumienia, Logic Apps ukrywa **dane wejściowe i** wyjściowe akcji, ale *nie włączają* tych akcji. Jeśli akcja w trybie podrzędnym jawnie używa ukrytych danych wyjściowych z akcji Redaguj, Analizuj dane JSON lub odpowiedzi jako dane wejściowe, Logic Apps *nie ukrywa danych wejściowych lub wyjściowych akcji podrzędnej*.
-
-  ![Zabezpieczone wyjścia jako dane wejściowe z wpływem podrzędnym na określone akcje](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
-
-  **Bezpieczne ustawienie danych wejściowych**
-
-  Po ręcznym włączeniu **zabezpieczeń danych wejściowych** wyzwalacza lub akcji Logic Apps ukrywa te dane wejściowe w historii uruchamiania. Jeśli akcja przekroczenia jawnie używa widocznego wyjścia z tego wyzwalacza lub akcji jako danych wejściowych, Logic Apps ukrywa dane wejściowe akcji podrzędnej w historii uruchamiania, ale *nie włącza* **bezpiecznego wejścia** w tej akcji i nie ukrywa danych wyjściowych tej akcji.
-
-  ![Zabezpieczanie danych wejściowych i wpływu na wpływ na większość akcji](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
-
-  Jeśli akcje redagowania, analizy JSON i odpowiedzi jawnie używają widocznych danych wyjściowych wyzwalacza lub akcji, które mają zabezpieczone dane wejściowe, Logic Apps ukrywają dane wejściowe i wyjściowe akcji, ale *nie włączają* ustawienia **zabezpieczonych danych wejściowych** tej akcji. Jeśli akcja w trybie podrzędnym jawnie używa ukrytych danych wyjściowych z akcji Redaguj, Analizuj dane JSON lub odpowiedzi jako dane wejściowe, Logic Apps *nie ukrywa danych wejściowych lub wyjściowych akcji podrzędnej*.
-
-  ![Zabezpieczone wejścia i wpływ na określone akcje](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 <a name="secure-action-parameters"></a>
 
@@ -1006,7 +1016,7 @@ Wyzwalacze żądań umożliwiają uwierzytelnianie wywołań przychodzących po 
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Tak | **Active Directory OAuth** <br>lub <br>`ActiveDirectoryOAuth` | Typ uwierzytelniania do użycia. Logic Apps jest obecnie zgodny z [protokołem OAuth 2,0](../active-directory/develop/v2-overview.md). |
 | **Urząd** | `authority` | Nie | <*Adres URL-urząd-token-wystawca*> | Adres URL urzędu dostarczającego token dostępu. Domyślnie ta wartość to `https://login.windows.net` . |
-| **Dzierżawa** | `tenant` | Tak | <*Identyfikator dzierżawy*> | Identyfikator dzierżawy dla dzierżawy usługi Azure AD |
+| **Dzierżaw** | `tenant` | Tak | <*Identyfikator dzierżawy*> | Identyfikator dzierżawy dla dzierżawy usługi Azure AD |
 | **Grupy odbiorców** | `audience` | Tak | <*zasób do autoryzacji*> | Zasób, który ma być używany na potrzeby autoryzacji, na przykład `https://management.core.windows.net/` |
 | **Identyfikator klienta** | `clientId` | Tak | <*Identyfikator klienta*> | Identyfikator klienta aplikacji żądającej autoryzacji |
 | **Typ poświadczeń** | `credentialType` | Tak | Certyfikat <br>lub <br>Wpis tajny | Typ poświadczeń, którego klient używa do żądania autoryzacji. Ta właściwość i wartość nie pojawiają się w podstawowej definicji aplikacji logiki, ale określają właściwości, które są wyświetlane dla wybranego typu poświadczenia. |

@@ -10,17 +10,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2021
+ms.date: 2/9/2021
 ms.author: yohaddad
-ms.openlocfilehash: d5892d0b2ae2004f8604333294411e849dc8394b
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bd295a753447771654522b3aef938b9a32c468c5
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805888"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100105134"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
+
+## <a name="february-2021-guest-os"></a>System operacyjny gościa z lutego 2021
+
+>[!NOTE] 
+
+>System operacyjny gościa w lutym jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w lutym uwzględniono następujące poprawki. Ta lista może ulec zmianie. 
+
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| --- | --- | --- | --- | --- |
+|  Rel 21-02 |  [4601345]  |  Najnowsza aktualizacja zbiorcza (LCU) | 6,28 | 9 lutego 2021 |
+|  Rel 21-02 |  [4580325]  |  Aktualizacja Flash | 3,94, 4,87, 5,52, 6,28 | 13 października 2020 |
+|  Rel 21-02 |  [4586768]  |  Aktualizacje zbiorcze programu IE | 2,107, 3,94, 4,87 | Lis 10, 2020 |
+|  Rel 21-02 |  [4601318]  |  Najnowsza aktualizacja zbiorcza (LCU) | 5,52 | 9 lutego 2021 |
+|  Rel 21-02 |  [4578952]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 2,107 | 12 stycznia 2021 |
+|  Rel 21-02 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,107 | 12 stycznia 2021 |
+|  Rel 21-02 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 4,87 | 12 stycznia 2021 |
+|  Rel 21-02 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 4,87 | 12 stycznia 2021 |
+|  Rel 21-02 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,94 | 12 stycznia 2021 |
+|  Rel 21-02 |  [4578954]  |  . Zestawienie zabezpieczeń i jakości platformy .NET Framework 4.5.2 | 3,94 | 12 stycznia 2021 |
+|  Rel 21-02 |  [4578966]  |  . .NET Framework 3,5 i 4.7.2 — aktualizacja zbiorcza | 6,28 | 13 października 2020 |
+|  Rel 21-02 |  [4601347]  |  Zestawienie miesięczne | 2,107 | 9 lutego 2021 |
+|  Rel 21-02 |  [4601348]  |  Zestawienie miesięczne | 3,94 | 9 lutego 2021 |
+|  Rel 21-02 |  [4601384]  |  Zestawienie miesięczne | 4,87 | 9 lutego 2021 |
+|  Rel 21-02 |  [4566426]  |  Obsługa aktualizacji stosu | 3,94 | 14 lipca 2020 r. |
+|  Rel 21-02 |  [4566425]  |  Obsługa aktualizacji stosu | 4,87 | 14 lipca 2020 r. |
+|  Rel 21-02 OOB |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | 4,87 | 19 sierpnia 2020 |
+|  Rel 21-02 |  [4601392]  |  Obsługa aktualizacji stosu | 5,52 | 9 lutego 2021 |
+|  Rel 21-02 |  [4592510]  |  Obsługa aktualizacji stosu | 2,107 | 8 grudnia 2020 |
+|  Rel 21-02 |  [4601393]  |  Obsługa aktualizacji stosu | 6,28 | 9 lutego 2021 |
+|  Rel 21-02 |  [4494175]  |  Włączenia mikrokodu | 5,52 | 1, 2020 |
+|  Rel 21-02 |  [4494174]  |  Włączenia mikrokodu | 6,28 | 1, 2020 |
+
+[4601345]: https://support.microsoft.com/kb/4601345
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4601318]: https://support.microsoft.com/kb/4601318
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4601347]: https://support.microsoft.com/kb/4601347
+[4601348]: https://support.microsoft.com/kb/4601348
+[4601384]: https://support.microsoft.com/kb/4601384
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4601392]: https://support.microsoft.com/kb/4601392
+[4592510]: https://support.microsoft.com/kb/4592510
+[4601393]: https://support.microsoft.com/kb/4601393
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## <a name="january-2021-guest-os"></a>System operacyjny gościa w styczniu 2021
 

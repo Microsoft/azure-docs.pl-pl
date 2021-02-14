@@ -781,6 +781,8 @@
             - name: Alerty dostępności
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
+            - name: Raport SLA
+              href: app/sla-report.md
             - name: Rozwiązywanie problemów
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
@@ -794,8 +796,8 @@
         - name: Transmisja strumieniowa metryk na żywo
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
-        - name: Raport SLA
-          href: app/sla-report.md
+        - name: Integracja elementów roboczych
+          href: app/work-item-integration.md
         - name: Metryki
           items:
             - name: Metryki dziennika i wstępnie zagregowane

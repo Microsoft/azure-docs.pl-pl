@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82b59e887eb35a972812dd82dbca5ca6bc5179b
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798214"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096212"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Zarządzanie urządzeniami połączonymi ze strony urządzenia
 
@@ -27,7 +27,12 @@ Strona **urządzenia** w portalu **My Account** umożliwia zarządzanie urządze
 - Wyłącz wszystkie urządzenia, które nie są już używane, zostały utracone lub skradzione.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o urządzeniu połączone z kontem służbowym. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu urządzeniami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą tożsamości urządzeń](../devices/index.yml).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o urządzeniu połączone z kontem służbowym. Jeśli podczas logowania za pomocą osobistego konto Microsoft zostanie wyświetlony komunikat o błędzie, możesz w dalszym ciągu zalogować się przy użyciu nazwy domeny organizacji (takiej jak contoso.com) lub **identyfikatora dzierżawy** organizacji od administratora w jednym z następujących adresów URL:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Jeśli jesteś administratorem, który szuka informacji o zarządzaniu urządzeniami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą tożsamości urządzeń](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Wyświetlanie podłączonych urządzeń
 

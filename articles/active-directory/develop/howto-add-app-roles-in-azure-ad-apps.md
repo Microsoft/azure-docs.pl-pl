@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2ac90334ade52d68c775d9db5a84545774f3844
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: fce963bd9ffdc6f768d7b3de4a9e4870add06136
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013706"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104250"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -49,7 +49,7 @@ Liczba dodawanych ról ma wpływ na limity manifestu aplikacji wymuszane przez A
 
 Aby utworzyć rolę aplikacji przy użyciu interfejsu użytkownika Azure Portal:
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Wybierz opcję Filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz dzierżawę Azure Active Directory, która zawiera rejestrację aplikacji, do której chcesz dodać rolę aplikacji.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację, w której chcesz zdefiniować role aplikacji.
@@ -66,7 +66,7 @@ Aby utworzyć rolę aplikacji przy użyciu interfejsu użytkownika Azure Portal:
     | **Dozwolone typy elementów członkowskich** | Określa, czy ta rola aplikacji może być przypisana do użytkowników, aplikacji, czy obu.<br/><br/>Gdy jest to możliwe `applications` , role aplikacji są wyświetlane jako uprawnienia aplikacji w sekcji **Zarządzanie** rejestracją aplikacji > **uprawnienia interfejsu api > Dodawanie uprawnień > moich interfejsów API > wybierz interfejs API > uprawnienia aplikacji**. | `Users/Groups` |
     | **Wartość** | Określa wartość żądania ról, które aplikacja powinna oczekiwać w tokenie. Wartość powinna dokładnie pasować do ciągu, do którego odwołuje się kod aplikacji. Wartość nie może zawierać spacji. | `Survey.Create` |
     | **Opis** | Bardziej szczegółowy opis roli aplikacji wyświetlanej podczas przypisywania i wyrażania zgody aplikacji administratora. | `Writers can create surveys.` |
-    | **Czy chcesz włączyć tę rolę aplikacji?** | Określa, czy rola aplikacji jest włączona. Aby usunąć rolę aplikacji, usuń zaznaczenie tego pola wyboru i Zastosuj zmianę przed podjęciem próby usunięcia operacji usuwania. | *Zaznaczono* |
+    | **Czy chcesz włączyć tę rolę aplikacji?** | Określa, czy rola aplikacji jest włączona. Aby usunąć rolę aplikacji, usuń zaznaczenie tego pola wyboru i Zastosuj zmianę przed podjęciem próby usunięcia operacji usuwania. | *Dane* |
 
 1. Wybierz pozycję **Zastosuj**, aby zapisać zmiany.
 
@@ -74,7 +74,7 @@ Aby utworzyć rolę aplikacji przy użyciu interfejsu użytkownika Azure Portal:
 
 Aby dodać role, edytując manifest bezpośrednio:
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Wybierz opcję Filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz dzierżawę Azure Active Directory, która zawiera rejestrację aplikacji, do której chcesz dodać rolę aplikacji.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację, w której chcesz zdefiniować role aplikacji.
@@ -136,7 +136,7 @@ Po dodaniu ról aplikacji w aplikacji można przypisać użytkowników i grupy d
 
 Aby przypisać użytkowników i grupy do ról przy użyciu Azure Portal:
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. W **Azure Active Directory** wybierz pozycję **aplikacje przedsiębiorstwa** w menu nawigacji po lewej stronie.
 1. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji. Jeśli aplikacja nie znajduje się na liście, użyj filtrów w górnej części listy **wszystkie aplikacje** , aby ograniczyć listę, lub przewiń w dół listy, aby zlokalizować aplikację.
 1. Wybierz aplikację, do której chcesz przypisać użytkowników lub grupę zabezpieczeń do ról.
@@ -158,7 +158,7 @@ W przypadku przypisywania ról aplikacji do aplikacji należy utworzyć *uprawni
 
 Aby przypisać role aplikacji do aplikacji przy użyciu Azure Portal:
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. W **Azure Active Directory** wybierz pozycję **rejestracje aplikacji** w menu nawigacji po lewej stronie.
 1. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji. Jeśli aplikacja nie znajduje się na liście, użyj filtrów w górnej części listy **wszystkie aplikacje** , aby ograniczyć listę, lub przewiń w dół listy, aby zlokalizować aplikację.
 1. Wybierz aplikację, do której chcesz przypisać rolę aplikacji.

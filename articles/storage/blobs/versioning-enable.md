@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5b6bd16eacf4b1bbb7b93f5500813e7fa9dc7eef
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993752"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095849"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Włączanie obsługi wersji obiektów blob i zarządzanie nimi
 
-Możesz włączyć przechowywanie wersji magazynu obiektów blob, aby automatycznie obsługiwać poprzednie wersje obiektu.  Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
+Możesz włączyć przechowywanie wersji magazynu obiektów blob, aby automatycznie zachować poprzednie wersje obiektu BLOB po jego zmodyfikowaniu lub usunięciu. Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
 
 W tym artykule przedstawiono sposób włączania lub wyłączania obsługi wersji obiektów BLOB dla konta magazynu przy użyciu szablonu Azure Portal lub Azure Resource Manager. Aby dowiedzieć się więcej na temat przechowywania wersji obiektów blob, zobacz temat [przechowywanie wersji obiektów BLOB](versioning-overview.md).
 
@@ -29,13 +29,39 @@ W tym artykule przedstawiono sposób włączania lub wyłączania obsługi wersj
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Aby włączyć obsługę wersji obiektów BLOB w Azure Portal:
+Aby włączyć obsługę wersji obiektów BLOB dla konta magazynu w Azure Portal:
 
 1. Przejdź do swojego konta magazynu w portalu.
 1. W obszarze **BLOB Service** wybierz pozycję **Ochrona danych**.
 1. W sekcji **przechowywanie wersji** wybierz pozycję **włączone**.
 
 :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Zrzut ekranu przedstawiający sposób włączania obsługi wersji obiektów BLOB w Azure Portal":::
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Aby włączyć obsługę wersji obiektów BLOB dla konta magazynu przy użyciu programu PowerShell, najpierw zainstaluj moduł [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) w wersji 2.3.0 lub nowszej. Następnie Wywołaj polecenie [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) , aby włączyć obsługę wersji, jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości w nawiasach ostrych własnymi wartościami:
+
+```powershell
+# Set resource group and account variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Enable versioning.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -IsVersioningEnabled $true
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby włączyć obsługę wersji obiektów BLOB dla konta magazynu przy użyciu interfejsu wiersza polecenia platformy Azure, najpierw zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Następnie Wywołaj polecenie [AZ Storage account BLOB-Service-Properties Update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) , aby włączyć obsługę wersji, jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości w nawiasach ostrych własnymi wartościami:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-versioning true
+```
 
 # <a name="template"></a>[Szablon](#tab/template)
 
