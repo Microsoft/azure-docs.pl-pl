@@ -15,7 +15,7 @@
       items:
         - name: Tworzenie kolejki usługi Service Bus
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -144,6 +144,10 @@
           href: ./security-controls-policy.md
         - name: Bezpieczeństwo sieci
           href: network-security.md
+    - name: Integracja z innymi usługami
+      items:
+        - name: Integracja Azure Service Bus i Azure Event Grid
+          href: service-bus-to-event-grid-integration-concept.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Przechodzenie między regionami
@@ -168,8 +172,6 @@
               href: message-sequencing.md
             - name: Wygaśnięcie komunikatu (czas wygaśnięcia)
               href: message-expiration.md
-            - name: Obsługa komunikatów przy użyciu usługi Azure Event Grid
-              href: service-bus-to-event-grid-integration-concept.md
         - name: Filtry tematów i akcje
           href: topic-filters.md
         - name: Migrowanie z przestrzeni nazw w warstwie Standardowa do przestrzeni nazw w warstwie Premium

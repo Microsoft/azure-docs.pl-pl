@@ -1,22 +1,18 @@
 ---
 title: Planowanie i wykonywanie przy użyciu Data Factory
 description: Poznaj aspekty planowania i wykonywania Azure Data Factory modelu aplikacji.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 60410eb2a9a5f18abf2daf87646943ffdc944402
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bfdae688f7736149fe7ddf04cd3833d9adf30818
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495178"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382722"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory planowanie i wykonywanie
 > [!NOTE]
@@ -25,7 +21,7 @@ ms.locfileid: "96495178"
 W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Azure Data Factory. W tym artykule założono, że rozumiesz podstawowe informacje dotyczące Data Factory pojęć modelu aplikacji, w tym działań, potoków, połączonych usług i zestawów danych. Podstawowe pojęcia dotyczące Azure Data Factory można znaleźć w następujących artykułach:
 
 * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)
-* [Potoki](data-factory-create-pipelines.md)
+* [Pipelines](data-factory-create-pipelines.md)
 * [Zestawy danych](data-factory-create-datasets.md) 
 
 ## <a name="start-and-end-times-of-pipeline"></a>Czasy rozpoczęcia i zakończenia potoku
@@ -184,11 +180,11 @@ W poniższej tabeli opisano właściwości, których można użyć w sekcji **do
 
 | Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
-| frequency |Określa jednostkę czasu dla produkcji wycinków zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuta, godzina, dzień, tydzień, miesiąc |Tak |Nie dotyczy |
-| interval |Określa mnożnik dla częstotliwości<br/><br/>"Interwał x częstotliwości" określa, jak często wycinek jest generowany.<br/><br/>Jeśli potrzebujesz zestawu danych, który ma być pofragmentowany co godzinę, ustawisz <b>częstotliwość</b> na <b>godzinę</b>, a <b>Interwał</b> na <b>1</b>.<br/><br/><b>Uwaga</b>: Jeśli określisz częstotliwość jako minutę, zalecamy ustawienie interwału na wartość nie mniejszą niż 15. |Tak |Nie dotyczy |
+| frequency |Określa jednostkę czasu dla produkcji wycinków zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuta, godzina, dzień, tydzień, miesiąc |Tak |NA |
+| interval |Określa mnożnik dla częstotliwości<br/><br/>"Interwał x częstotliwości" określa, jak często wycinek jest generowany.<br/><br/>Jeśli potrzebujesz zestawu danych, który ma być pofragmentowany co godzinę, ustawisz <b>częstotliwość</b> na <b>godzinę</b>, a <b>Interwał</b> na <b>1</b>.<br/><br/><b>Uwaga</b>: Jeśli określisz częstotliwość jako minutę, zalecamy ustawienie interwału na wartość nie mniejszą niż 15. |Tak |NA |
 | styl |Określa, czy wycinek ma być tworzony na początku, czy na końcu interwału.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Jeśli częstotliwość jest ustawiona na wartość miesiąc, a w polu styl ustawiono wartość EndOfInterval, wycinek zostanie utworzony w ostatnim dniu miesiąca. Jeśli styl jest ustawiony na StartOfInterval, wycinek jest generowany pierwszego dnia miesiąca.<br/><br/>Jeśli częstotliwość jest ustawiona na dzień, a styl ustawiono na EndOfInterval, wycinek jest tworzony w ciągu ostatniej godziny dnia.<br/><br/>Jeśli częstotliwość jest ustawiona na wartość Godzina i styl ustawiono na EndOfInterval, wycinek zostanie utworzony na końcu godziny. Na przykład dla wycinka dla 1 PM — 2 PM, wycinek jest generowany na 2 PM. |Nie |EndOfInterval |
 | anchorDateTime |Definiuje położenie bezwzględne w czasie używanym przez harmonogram do obliczania granic wycinków zestawu danych. <br/><br/><b>Uwaga</b>: Jeśli AnchorDateTime ma części daty, które są bardziej szczegółowe niż częstotliwość, są ignorowane części bardziej szczegółowe. <br/><br/>Jeśli na przykład <b>Interwał</b> ma wartość <b>co godzinę</b> (częstotliwość: godzina i interwał: 1), a <b>AnchorDateTime</b> zawiera <b>minuty i sekundy</b>, wówczas części <b>minut i sekund</b> AnchorDateTime są ignorowane. |Nie |01/01/0001 |
-| przesunięcie |Przedział czasu, przez który początek i koniec wszystkich wycinków zestawu danych są przesunięte. <br/><br/><b>Uwaga</b>: Jeśli określono zarówno anchorDateTime, jak i przesunięcie, wynik jest połączonym przesunięciem. |Nie |Nie dotyczy |
+| przesunięcie |Przedział czasu, przez który początek i koniec wszystkich wycinków zestawu danych są przesunięte. <br/><br/><b>Uwaga</b>: Jeśli określono zarówno anchorDateTime, jak i przesunięcie, wynik jest połączonym przesunięciem. |Nie |NA |
 
 ### <a name="offset-example"></a>przykład przesunięcia
 Domyślnie dzienne `"frequency": "Day", "interval": 1` wycinki () zaczynają się od 12 czasu UTC (północy). Jeśli chcesz, aby godzina rozpoczęcia była 6 czasem UTC, Ustaw przesunięcie, tak jak pokazano w poniższym fragmencie kodu: 
@@ -232,8 +228,8 @@ Sekcja **zasady** w definicji zestawu danych definiuje kryteria lub warunek, kt�
 
 | Policy Name (Nazwa zasad) | Opis | Zastosowane do | Wymagane | Domyślne |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB | Sprawdza, czy dane w **obiekcie blob platformy Azure** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Obiekt bob Azure |Nie |Nie dotyczy |
-| minimumRows | Sprawdza, czy dane w **Azure SQL Database** lub w **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |
+| minimumSizeMB | Sprawdza, czy dane w **obiekcie blob platformy Azure** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Obiekt bob Azure |Nie |NA |
+| minimumRows | Sprawdza, czy dane w **Azure SQL Database** lub w **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |NA |
 
 #### <a name="examples"></a>Przykłady
 **minimumSizeMB:**
@@ -695,7 +691,7 @@ Oto przykładowy kod JSON potoku:
 
 Zwróć uwagę, że w przykładzie wyjściowy zestaw danych pierwszego działania kopiowania (Dataset2) jest określony jako dane wejściowe dla drugiego działania. W związku z tym drugie działanie jest uruchamiane tylko wtedy, gdy wyjściowy zestaw danych z pierwszego działania jest gotowy.  
 
-W przykładzie CopyActivity2 może mieć inne dane wejściowe, takie jak Dataset3, ale jako dane wejściowe do CopyActivity2 należy określić Dataset2, więc działanie nie jest uruchamiane do momentu zakończenia plik copyactivity1. Przykład:
+W przykładzie CopyActivity2 może mieć inne dane wejściowe, takie jak Dataset3, ale jako dane wejściowe do CopyActivity2 należy określić Dataset2, więc działanie nie jest uruchamiane do momentu zakończenia plik copyactivity1. Na przykład:
 
 Plik copyactivity1
 

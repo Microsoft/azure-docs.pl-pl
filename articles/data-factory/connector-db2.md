@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z programu DB2 przy użyciu Azure Data Factory
 description: Informacje o kopiowaniu danych z programu DB2 do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: f890e4c47a427b6ca8c07463d6795f0813ef5bbd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 642f12386a7695e026eb0c30016acf6f53fc9e95
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638197"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381124"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiowanie danych z programu DB2 przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -79,11 +74,11 @@ Typowe właściwości wewnątrz parametrów połączenia:
 |:--- |:--- |:--- |
 | serwer |Nazwa serwera bazy danych DB2. Możesz określić numer portu następujący po nazwie serwera rozdzielany średnikiem, np. `server:port` .<br>Łącznik DB2 korzysta z protokołu DDM/DRDA i domyślnie używa portu 50000, jeśli nie zostanie określony. Port używany przez określoną bazę danych programu DB2 może różnić się w zależności od wersji i ustawień, np. w przypadku programu DB2 LUW domyślnym portem jest 50000, dla systemu AS400 domyślny port to 446 lub 448 po włączeniu protokołu TLS. Zapoznaj się z następującymi dokumentami programu DB2, na których jest konfigurowany port zazwyczaj: [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 ISERIES](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm)i [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Tak |
 | database |Nazwa bazy danych DB2. |Tak |
-| authenticationType |Typ uwierzytelniania używany do łączenia się z bazą danych programu DB2.<br/>Dozwolona wartość to: **podstawowa** . |Tak |
+| authenticationType |Typ uwierzytelniania używany do łączenia się z bazą danych programu DB2.<br/>Dozwolona wartość to: **podstawowa**. |Tak |
 | nazwa użytkownika |Określ nazwę użytkownika w celu nawiązania połączenia z bazą danych programu DB2. |Tak |
 | hasło |Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
-| pakietcollection | Określ w obszarze, w którym mają być tworzone pakiety do automatycznego tworzenia przez ADF podczas wykonywania zapytania dotyczącego bazy danych. Jeśli ta wartość nie jest ustawiona, Data Factory używa {username} jako wartości domyślnej. | Nie |
-| certificateCommonName | Korzystając z szyfrowania SSL (SSL) lub Transport Layer Security (TLS), należy wprowadzić wartość Nazwa pospolita certyfikatu. | Nie |
+| pakietcollection    | Określ w obszarze, w którym mają być tworzone pakiety do automatycznego tworzenia przez ADF podczas wykonywania zapytania dotyczącego bazy danych. Jeśli ta wartość nie jest ustawiona, Data Factory używa {username} jako wartości domyślnej. | Nie |
+| certificateCommonName | Korzystając z szyfrowania Secure Sockets Layer (SSL) lub Transport Layer Security (TLS), należy wprowadzić wartość Nazwa pospolita certyfikatu. | Nie |
 
 > [!TIP]
 > Jeśli zostanie wyświetlony komunikat o błędzie informujący o tym `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805` , że przyczyną jest wymagany pakiet nie jest tworzony dla użytkownika. Domyślnie ADF spróbuje utworzyć pakiet w obszarze Kolekcja o nazwie jako użytkownik, który został użyty do nawiązania połączenia z bazą danych DB2. Określ właściwość kolekcji pakietów, aby wskazać miejsce, w którym ma zostać utworzony zestaw danych na potrzeby wysyłania zapytań do bazy danych.
@@ -168,7 +163,7 @@ Aby skopiować dane z bazy danych DB2, obsługiwane są następujące właściwo
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **Db2Table** | Tak |
 | schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| table (stolik) | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -247,28 +242,28 @@ Podczas kopiowania danych z programu DB2 następujące mapowania są używane z 
 | BigInt |Int64 |
 | Binarne |Byte [] |
 | Obiekt blob |Byte [] |
-| Char |String |
-| Obiektów CLOB |String |
-| Date |Datetime (data/godzina) |
-| DB2DynArray |String |
-| DbClob |String |
+| Char |Ciąg |
+| Obiektów CLOB |Ciąg |
+| Date (Data) |Datetime (data/godzina) |
+| DB2DynArray |Ciąg |
+| DbClob |Ciąg |
 | Liczba dziesiętna |Liczba dziesiętna |
 | DecimalFloat |Liczba dziesiętna |
 | Double |Double |
 | Float |Double |
-| Zdjęć |String |
+| Zdjęć |Ciąg |
 | Liczba całkowita |Int32 |
 | LongVarBinary |Byte [] |
-| LongVarChar |String |
-| LongVarGraphic |String |
-| Numeryczne |Liczba dziesiętna |
+| LongVarChar |Ciąg |
+| LongVarGraphic |Ciąg |
+| Numeryczny |Liczba dziesiętna |
 | Rzeczywiste |Pojedynczy |
 | SmallInt |Int16 |
 | Godzina |przedział_czasu |
-| Timestamp |DateTime |
+| Znacznik czasu |DateTime |
 | Liczby |Byte [] |
-| VarChar |String |
-| VarGraphic |String |
+| VarChar |Ciąg |
+| VarGraphic |Ciąg |
 | Xml |Byte [] |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup

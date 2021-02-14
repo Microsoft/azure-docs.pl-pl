@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18a50e3d06135f2c17b7e7c5b2969be33f408c62
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076275"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093084"
 ---
 # <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Połącz alerty zabezpieczeń programu Orca z usługą Azure wskaźnikiem 
 
@@ -46,7 +46,7 @@ Po pomyślnym nawiązaniu połączenia dane są wyświetlane w Log Analytics w o
 Aby użyć odpowiedniego schematu w Log Analytics dla alertów programu Orca, wyszukaj ciąg `OrcaAlerts_CL` .
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
-Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut. 
+Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut. 
 
 
 ## <a name="next-steps"></a>Następne kroki

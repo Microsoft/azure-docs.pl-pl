@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 584266a8f6aa82d8a47b5e3faff044acf0ef298c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027003"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361625"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Konfigurowanie ustawień Multi-Factor Authentication usługi Azure AD
 
@@ -65,9 +65,7 @@ Aby zablokować użytkownika, wykonaj następujące czynności:
 
 1. Przejdź do usługi **Azure Active Directory**  >  **Security**  >  **MFA**  >  **Blokuj/Odblokuj użytkowników**.
 1. Wybierz pozycję **Dodaj** , aby zablokować użytkownika.
-1. Wybierz **grupę replikacji**, a następnie wybierz pozycję *Azure default*.
-
-    Wprowadź nazwę użytkownika dla zablokowanego użytkownika jako `username\@domain.com` , a następnie podaj komentarz w polu *Przyczyna* .
+1. Wprowadź nazwę użytkownika dla zablokowanego użytkownika jako `username@domain.com` , a następnie podaj komentarz w polu *Przyczyna* .
 1. Gdy wszystko będzie gotowe, wybierz **przycisk OK** , aby zablokować użytkownika.
 
 ### <a name="unblock-a-user"></a>Odblokuj użytkownika

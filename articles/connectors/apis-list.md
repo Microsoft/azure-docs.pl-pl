@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: c2b89450c0e474f5030f8812e888890f1fedde7e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/12/2021
+ms.openlocfilehash: 4b431220dbab49b74f38a8f37be8aac1a0c5c460
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019639"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382892"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Łączniki dla usługi Azure Logic Apps
 
@@ -452,15 +452,21 @@ Aby wywołać interfejsy API, które uruchamiają kod niestandardowy lub nie są
 >
 > Aby uzyskać więcej informacji na temat tworzenia ISEs, zobacz [nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
+## <a name="get-ready-for-deployment"></a>Przygotowanie do wdrożenia
+
+Mimo że tworzysz połączenia z poziomu aplikacji logiki, połączenia są oddzielane zasobami platformy Azure z ich własnymi definicjami zasobów. Aby przejrzeć te definicje zasobów połączeń, [Pobierz aplikację logiki z platformy Azure do programu Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), która jest najprostszym sposobem utworzenia prawidłowego szablonu sparametryzowanej aplikacji logiki, który jest głównie gotowy do wdrożenia.
+
 <a name="block-connections"></a>
 
 ## <a name="block-creating-connections"></a>Blokuj tworzenie połączeń
 
 Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami przy użyciu ich łączników w Azure Logic Apps, można [zablokować możliwość tworzenia tych połączeń](../logic-apps/block-connections-connectors.md) dla określonych łączników w przepływach pracy aplikacji logiki przy użyciu [Azure Policy](../governance/policy/overview.md). Aby uzyskać więcej informacji, zobacz [blok połączeń utworzonych przez określone łączniki w Azure Logic Apps](../logic-apps/block-connections-connectors.md).
 
-## <a name="get-ready-for-deployment"></a>Przygotowanie do wdrożenia
+## <a name="known-issues"></a>Znane problemy
 
-Mimo że tworzysz połączenia z poziomu aplikacji logiki, połączenia są oddzielane zasobami platformy Azure z ich własnymi definicjami zasobów. Aby przejrzeć te definicje zasobów połączeń, [Pobierz aplikację logiki z platformy Azure do programu Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), która jest najprostszym sposobem utworzenia prawidłowego szablonu sparametryzowanej aplikacji logiki, który jest głównie gotowy do wdrożenia.
+#### <a name="error-badgateway-client-request-id-guid"></a>Błąd: BadGateway. Identyfikator żądania klienta: "{GUID}"
+
+Ten błąd powoduje zaktualizowanie tagów w aplikacji logiki, w której co najmniej jedno połączenie nie obsługuje uwierzytelniania OAuth Azure Active Directory (Azure AD), takiego jak SFTP usługi AD SQL, a także przerywanie tych połączeń. Aby uniknąć tego zachowania, należy unikać aktualizowania tych tagów.
 
 ## <a name="next-steps"></a>Następne kroki
 

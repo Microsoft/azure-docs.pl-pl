@@ -2,13 +2,13 @@
 title: Metryki Azure Service Bus w Azure Monitor | Microsoft Docs
 description: W tym artykule wyjaśniono, jak używać Azure Monitor do monitorowania jednostek Service Bus (kolejek, tematów i subskrypcji).
 ms.topic: article
-ms.date: 11/18/2020
-ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 02/12/2021
+ms.openlocfilehash: fa242b4d8c8a6ce83801667e686864f858f8a000
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916886"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519103"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki Azure Service Bus w Azure Monitor
 
@@ -74,7 +74,7 @@ Następujące dwa typy błędów są klasyfikowane jako błędy użytkownika:
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Komunikaty przychodzące|Liczba zdarzeń lub komunikatów wysłanych do Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+|Komunikaty przychodzące|Liczba zdarzeń lub komunikatów wysłanych do Service Bus w określonym przedziale czasu. Ta Metryka nie obejmuje komunikatów, które są przekazywane do autoprzesłaniania.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
 |Komunikaty wychodzące|Liczba zdarzeń lub komunikatów odebranych z Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
 | Komunikaty| Liczba komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: Nazwa jednostki |
 | Aktywne komunikaty| Liczba aktywnych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: Nazwa jednostki |

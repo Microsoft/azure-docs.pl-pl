@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096393"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518168"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Rozwiązywanie problemów dotyczących komunikacji równorzędnej sieci wirtualnych
 
@@ -233,7 +233,7 @@ Aby rozwiązać ten problem, Usuń komunikację równorzędną z obu sieci wirtu
 
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>Nie można nawiązać komunikacji równorzędnej z siecią wirtualną datakostkami
 
-Aby rozwiązać ten problem, należy skonfigurować komunikację równorzędną sieci wirtualnej w obszarze **Azure Databricks**, a następnie określić docelową sieć wirtualną przy użyciu **identyfikatora zasobu**. Aby uzyskać więcej informacji, zobacz [równorzędną sieć wirtualną z siecią wirtualną do zdalnej sieci wirtualnej](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+Aby rozwiązać ten problem, należy skonfigurować komunikację równorzędną sieci wirtualnej w obszarze **Azure Databricks**, a następnie określić docelową sieć wirtualną przy użyciu **identyfikatora zasobu**. Aby uzyskać więcej informacji, zobacz [równorzędną sieć wirtualną z siecią wirtualną do zdalnej sieci wirtualnej](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2).
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>Zdalna Sieć wirtualna nie ma bramy
 

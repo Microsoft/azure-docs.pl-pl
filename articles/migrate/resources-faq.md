@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 6396ca4483f5e9782890123a7c39a0cbcdbd30a3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: a5db000ad76f23be60d279923a590204c2fcf5e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832576"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377384"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: typowe pytania
 

@@ -9,16 +9,46 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: b814c12a0d57230a81a68f6030a26ded93bd0399
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100097079"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375565"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
+
+
+## <a name="2021-02-09"></a>2021-02-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1220"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.22.0
++ **Poprawki i ulepszenia błędów**
+  + **azureml-automl-core**
+    + Naprawiono usterkę, w której dodaliśmy dodatkową zależność PIP do pliku YML Conda dla modeli wizji.
+  + **azureml-automl-runtime**
+    + Rozwiązano problem polegający na tym, że Klasyczne modele prognozowania (np. AutoArima) mogą odbierać dane szkoleniowe, ponieważ nie ma wierszy z wartościami docelowymi. Spowodowało to naruszenie umowy dotyczącej danych w tych modelach. * Naprawiono różne usterki z zachowaniem opóźnienia przez wystąpienie w operatorze opóźnionych sekwencji szeregów czasowych. Wcześniej operacja opóźnienia przez wystąpienie nie zawierała prawidłowo wszystkich wierszy z wierszami i dlatego nie zawsze generuje poprawne wartości zwłoki wystąpień. Rozwiązano również pewne problemy ze zgodnością między operatorem zwłoki a operatorem okna stopniowego z zachowaniem opóźnienia po wystąpieniu. Wcześniej spowodowało to, że operator okna kroczącego porzuca niektóre wiersze z danych szkoleniowych, których w przeciwnym razie powinno używać.
+  + **azureml-core**
+    + Dodawanie obsługi uwierzytelniania tokenów przez odbiorców.
+    + Dodaj `process_count` do [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) w celu obsługi wieloetapowych zadań PyTorch wielowęzłowych.
+  + **azureml-pipeline-steps**
+    + [CommandStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?preserve-view=true&view=azure-ml-py) teraz i przestanie być eksperymentalne.
+    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py): dodaj argument allowed_failed_count i allowed_failed_percent, aby sprawdzić próg błędu na poziomie minimalnej partii. Próg błędu ma teraz 3 typy:
+       + error_threshold — liczba dozwolonych niezakończonych niepowodzeniem elementów minimalnej partii: 
+       + allowed_failed_count — liczba dozwolonych niezakończonych niepowodzeniem partii mini; 
+       + allowed_failed_percent — procent dozwolonych niezakończonych niepowodzeniem partii mini. 
+       
+       Zadanie zostanie zatrzymane w przypadku przekroczenia któregoś z nich. Aby zachować zgodność z poprzednimi wersjami, wymagana jest error_threshold. Ustaw wartość na-1, aby ją zignorować.
+    + Stała obsługa białych znaków w nazwie AutoMLStep.
+    + ScriptRunConfig jest teraz obsługiwana przez HyperDriveStep
+  + **azureml-train-core**
+    + Przebiegi wywoływane z ScriptRun są teraz traktowane jako uruchomienie podrzędne.
+    + Dodaj `process_count` do [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) w celu obsługi wieloetapowych zadań PyTorch wielowęzłowych.
+  + **azureml-widgets**
+    + Dodaj widżet ParallelRunStepDetails do wizualizacji stanu elementu ParallelRunStep.
+    + Umożliwia użytkownikom stacji dysków wyświetlanie dodatkowej osi na wykresie równoległych współrzędnych, który pokazuje wartość metryki odpowiadającą każdemu zestawowi parametrów dla każdego przebiegu podrzędnego.
+
 
  ## <a name="2021-01-31"></a>2021-01-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z lipca)
@@ -35,6 +65,7 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
   + Większa wydajność 
   + Ulepszona szybkość i niezawodność jądra
   
+
  ## <a name="2021-01-25"></a>2021-01-25
 
 ### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.21.0
@@ -145,7 +176,7 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
     + HyperDriveRun.get_children_sorted_by_primary_metric () powinna teraz zostać zakończona szybsza
     + Ulepszona obsługa błędów w zestawie SDK dysku.
     +  Przestarzałe wszystkie klasy szacowania na korzyść używania ScriptRunConfig do konfigurowania przebiegów eksperymentu. Przestarzałe klasy obejmują:
-        + MMLBaseEstimator
+        + MMLBase
         + Szacowania
         + PyTorch 
         + TensorFlow 

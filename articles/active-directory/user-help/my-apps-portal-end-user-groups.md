@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fc8d211160e757c78a8e2adafad703118628e6dc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004159"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095048"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aktualizowanie informacji o grupach w portalu Moje aplikacje
 
@@ -27,6 +27,11 @@ Możesz użyć swojego konta służbowego z portalem **Moje aplikacje** oparte n
 
 >[!Important]
 >Ta zawartość jest przeznaczona dla użytkowników. Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania i zarządzania aplikacjami opartymi na chmurze w [dokumentacji zarządzania aplikacjami](../manage-apps/index.yml).
+>
+> Jeśli zostanie wyświetlony komunikat o błędzie logowania przy użyciu osobistego konto Microsoft, można nadal zalogować się przy użyciu nazwy domeny dla organizacji (takiej jak contoso.com) lub **identyfikatora dzierżawy** organizacji od administratora w jednym z następujących adresów URL:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="view-your-groups-information"></a>Wyświetlanie informacji o grupach
 
@@ -40,7 +45,11 @@ Jeśli administrator udzielił Ci uprawnień do wyświetlania kafelka **grupy** 
 
 1. Zaloguj się do konta służbowego.
 
-2. Otwórz przeglądarkę internetową i przejdź do https://myapps.microsoft.com lub Użyj linku dostarczonego przez organizację. Na przykład może nastąpić przekierowanie do dostosowanej strony organizacji, na przykład https://myapps.microsoft.com/contoso.com .
+2. Otwórz przeglądarkę internetową i przejdź do https://myapps.microsoft.com lub Użyj linku dostarczonego przez organizację. Na przykład może nastąpić przekierowanie do dostosowanej strony organizacji, na przykład https://myapps.microsoft.com/contoso.com . Jeśli logujesz się za pomocą konto Microsoft osobistych, możesz nadal zalogować się przy użyciu nazwy domeny dla organizacji (takiej jak contoso.com) lub **identyfikatora dzierżawy** organizacji od administratora w jednym z następujących adresów URL:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+
 
     Zostanie wyświetlona strona **aplikacje** przedstawiająca wszystkie aplikacje oparte na chmurze należące do organizacji i dostępne do użycia.
 
@@ -80,7 +89,7 @@ Jeśli administrator udzielił Ci uprawnień do wyświetlania kafelka **grupy** 
 
         - **Bezpieczeństw.** Używany do zarządzania dostępem członków i komputerów do udostępnionych zasobów dla grupy użytkowników. Na przykład można utworzyć grupę zabezpieczeń dla konkretnych zasad zabezpieczeń. W ten sposób można jednocześnie udzielić zestawu uprawnień wszystkim członkom zamiast udzielania uprawnień każdemu członkowi osobno.
 
-        - **Pakiet Office 365.** Zapewnia możliwości współpracy przez udostępnienie członkom współużytkowanej skrzynki pocztowej, kalendarza, plików, witryny programu SharePoint i innych. Ta opcja umożliwia również przyznanie osobom spoza organizacji dostępu do grupy.
+        - **Pakiet Office 365.** Zapewnia możliwości współpracy przez udostępnienie członkom współużytkowanej skrzynki pocztowej, kalendarza, plików, witryny programu SharePoint i innych. Ta opcja umożliwia także udzielenie dostępu do grupy osobom spoza organizacji.
 
     - **Nazwa grupy.** Dodaj nazwę grupy, która ma znaczenie i którą łatwo zapamiętać.
 
@@ -88,7 +97,7 @@ Jeśli administrator udzielił Ci uprawnień do wyświetlania kafelka **grupy** 
 
     - **Zasady grupy.** Wybierz opcję, aby umożliwić wszystkim dołączenie do grupy lub zezwalanie na dodawanie elementów członkowskich tylko właścicielowi grupy.
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
     Nowa grupa zostanie utworzona za pomocą użytkownika jako właściciel i zostanie wyświetlona na liście Twoich **grup** . Ponieważ jesteś właścicielem, ta grupa jest również wyświetlana na liście **grupy**
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 3c291d9a9d48b6f75148b673848b8451521bab91
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8d69033dedc3a45263b087c9b9ee5b156af460be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615805"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361064"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)
 
@@ -166,7 +166,7 @@ Dzięki integracji z usługą Azure RBAC AKS będzie używać serwera elementu w
 
 ![Przepływ autoryzacji usługi Azure RBAC dla Kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-Jak pokazano na powyższym diagramie, podczas korzystania z integracji z usługą Azure RBAC wszystkie żądania do interfejsu API Kubernetes będą zgodne z tym samym przepływem uwierzytelniania, co zostało wyjaśnione w [sekcji Azure Active Integration](#azure-active-directory-integration). 
+Jak pokazano na powyższym diagramie, podczas korzystania z integracji usługi Azure RBAC wszystkie żądania do interfejsu API Kubernetes będą zgodne z tym samym przepływem uwierzytelniania, co wyjaśniono w [sekcji integracja Azure Active Directory](#azure-active-directory-integration). 
 
 Jednak w takim przypadku zamiast polegać wyłącznie na Kubernetes RBAC na potrzeby autoryzacji, żądanie jest faktycznie autoryzowane przez platformę Azure, o ile tożsamość, która dokonała żądania, istnieje w usłudze AAD. Jeśli tożsamość nie istnieje w usłudze AAD, na przykład w ramach konta usługi Kubernetes, kontrola RBAC platformy Azure nie zostanie rozpoczęta i będzie standardowa kontrola RBAC Kubernetes.
 
@@ -174,6 +174,8 @@ W tym scenariuszu można nadać użytkownikom jedną z czterech wbudowanych ról
 
 Ta funkcja pozwoli na przykład nie tylko udzielić użytkownikom uprawnień do zasobu AKS w różnych subskrypcjach, ale skonfigurować i nadać im rolę i uprawnienia, które będą znajdować się w każdym z tych klastrów, które kontrolują dostęp do interfejsu API Kubernetes. Na przykład można udzielić `Azure Kubernetes Service RBAC Viewer` roli w zakresie subskrypcji, a jej odbiorca będzie mogła wyświetlać i pobierać wszystkie obiekty Kubernetes ze wszystkich klastrów, ale nie mogą ich modyfikować.
 
+> [!IMPORTANT]
+> Należy pamiętać, że przed użyciem tej funkcji należy włączyć uwierzytelnianie RBAC systemu Azure na potrzeby autoryzacji Kubernetes. Aby uzyskać szczegółowe informacje i wskazówki krok po kroku, [Zobacz tutaj](manage-azure-rbac.md).
 
 #### <a name="built-in-roles"></a>Wbudowane role
 
@@ -186,7 +188,6 @@ AKS udostępnia następujące cztery wbudowane role. Są one podobne do [wbudowa
 | Administrator RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora, który ma być przyznany w przestrzeni nazw. Zezwala na dostęp do odczytu/zapisu do większości zasobów w przestrzeni nazw (lub zakresie klastra), w tym możliwość tworzenia ról i powiązań ról w przestrzeni nazw. Ta rola nie zezwala na dostęp do zapisu do przydziału zasobów ani do samego obszaru nazw. |
 | Administrator klastra RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora do wykonywania dowolnych akcji względem dowolnego zasobu. Zapewnia pełną kontrolę nad każdym zasobem w klastrze i we wszystkich przestrzeniach nazw. |
 
-**Aby dowiedzieć się, jak włączyć funkcję RBAC na platformie Azure na potrzeby autoryzacji Kubernetes, [Przeczytaj tutaj](manage-azure-rbac.md).**
 
 ## <a name="summary"></a>Podsumowanie
 

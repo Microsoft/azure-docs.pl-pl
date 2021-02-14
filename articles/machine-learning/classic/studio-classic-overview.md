@@ -7,15 +7,15 @@ ms.author: keli19
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: overview
 ms.date: 08/19/2020
-ms.openlocfilehash: 0a18f9adb8c3723619b44b30bfa334edf4300c0d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ad0550dc20edfbc10fb8877ad049c27fc2edf086
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509482"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517539"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>Co mogę zrobić z Machine Learning Studio (klasyczny)?
 
@@ -30,14 +30,14 @@ Machine Learning Studio (klasyczny) to narzędzie typu "przeciągnij i upuść",
 
 Aby opracować model analizy predykcyjnej, zazwyczaj używane są dane z jednego lub większej liczby źródeł, przekształcania i analizowania tych danych za pośrednictwem różnych funkcji manipulowania danymi i funkcje statystyczne oraz generowanie zestawu wyników. Tworzenie modelu w ten sposób jest procesem iteracyjnym. Podczas modyfikowania różnych funkcji i ich parametrów wyniki stają się zbieżne, aż do uzyskania wytrenowanego, skutecznego modelu.
 
-Machine Learning Studio (klasyczny) oferuje interaktywny, wizualny obszar roboczy, który umożliwia łatwe kompilowanie, testowanie i iterację modelu analizy predykcyjnej. Przeciąganie i upuszczanie obiektów **_zestawów danych_* _ i _*_analiz na_*_ interaktywną kanwę, łącząc je ze sobą w celu utworzenia _*_eksperymentu_*_, który jest uruchamiany w Machine Learning Studio (klasyczny). W celu wykonania iteracji projektu modelu należy przeprowadzić edycję eksperymentu, zapisując kopię w razie potrzeby, a następnie uruchomić eksperyment ponownie. Gdy wszystko będzie gotowe, możesz przekonwertować _*_eksperyment szkoleniowy_*_ na _*_eksperyment predykcyjny_*_, a następnie opublikować go jako _*_usługę sieci Web_*_ , dzięki czemu model będzie dostępny dla innych osób.
+Machine Learning Studio (klasyczny) oferuje interaktywny, wizualny obszar roboczy, który umożliwia łatwe kompilowanie, testowanie i iterację modelu analizy predykcyjnej. Przeciąganie i upuszczanie obiektów ***zestawów danych** _ i _*_analiz na_*_ interaktywną kanwę, łącząc je ze sobą w celu utworzenia _*_eksperymentu_*_, który jest uruchamiany w Machine Learning Studio (klasyczny). W celu wykonania iteracji projektu modelu należy przeprowadzić edycję eksperymentu, zapisując kopię w razie potrzeby, a następnie uruchomić eksperyment ponownie. Gdy wszystko będzie gotowe, możesz przekonwertować _*_eksperyment szkoleniowy_*_ na _*_eksperyment predykcyjny_*_, a następnie opublikować go jako _ *_usługę sieci Web_**, aby uzyskać dostęp do modelu przez inne osoby.
 
 Nie jest wymagane programowanie, wizualne łączenie zestawów danych i modułów w celu utworzenia modelu analizy predykcyjnej.
 
 ![Diagram Machine Learning Studio (klasyczny): Tworzenie eksperymentów, odczytywanie danych z wielu źródeł, pisanie danych oceny i pisanie modeli.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## <a name="download-the-ml-studio-classic-overview-diagram"></a>Pobierz diagram omówienia ML Studio (klasyczny)
-Pobierz program _ *Microsoft ml Studio (klasyczny) przegląd funkcji** diagram i uzyskaj ogólny widok możliwości Machine Learning Studio (klasyczny). Aby mieć ten diagram zawsze w pobliżu, wydrukuj go w rozmiarze tabloidu (11 cali x 17 cali).
+Pobierz diagram **omówienia możliwości programu Microsoft ml Studio (klasyczny)** i uzyskaj ogólny widok możliwości Machine Learning Studio (klasyczny). Aby mieć ten diagram zawsze w pobliżu, wydrukuj go w rozmiarze tabloidu (11 cali x 17 cali).
 
 **Pobierz diagram tutaj: [Przegląd](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
  ![ możliwości programu Microsoft Machine Learning Studio (klasyczny) Przegląd możliwości programu Microsoft Machine Learning Studio (klasyczny)](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)

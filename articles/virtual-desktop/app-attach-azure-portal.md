@@ -3,15 +3,15 @@ title: Windows Virtual Desktop MSIX — wersja zapoznawcza portalu — Azure
 description: Jak skonfigurować dołączenie aplikacji MSIX dla pulpitu wirtualnego systemu Windows przy użyciu Azure Portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 34bcef24d5e7fbda53984f14a2307859c9210262
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185958"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373474"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Konfigurowanie dołączania aplikacji MSIX przy użyciu witryny Azure Portal
 
@@ -65,7 +65,7 @@ Następnie należy pobrać i skonfigurować interfejs zarządzania dołączania 
 
 Aby skonfigurować interfejs zarządzania:
 
-1. [Otwórz Portal w wersji zapoznawczej](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Otwórz Azure Portal](https://portal.azure.com).
 2. Jeśli zostanie wyświetlony monit z pytaniem, czy Rozważmy wiarygodność rozszerzenia, wybierz pozycję **Zezwalaj**.
 
       > [!div class="mx-imgBorder"]
@@ -171,6 +171,9 @@ Aby opublikować aplikacje:
 ## <a name="assign-a-user-to-an-app-group"></a>Przypisywanie użytkownika do grupy aplikacji
 
 Po przypisaniu aplikacji MSIX do grupy aplikacji należy udzielić użytkownikom dostępu do nich. Dostęp można przypisywać przez dodawanie użytkowników lub grup użytkowników do grupy aplikacji z opublikowanymi aplikacjami MSIX. Postępuj zgodnie z instrukcjami w temacie [Zarządzanie grupami aplikacji przy użyciu Azure Portal,](manage-app-groups.md) aby przypisać użytkowników do grupy aplikacji.
+
+>[!NOTE]
+>Aplikacje zdalne dołączania aplikacji MSIX mogą zniknąć z kanału informacyjnego w przypadku testowania aplikacji zdalnych w trakcie publicznej wersji zapoznawczej. Aplikacje nie są wyświetlane, ponieważ pula hostów używana w środowisku ewaluacyjnym jest obsługiwana przez brokera usług pulpitu zdalnego w środowisku produkcyjnym. Ponieważ Broker usług pulpitu zdalnego w środowisku produkcyjnym nie rejestruje obecności aplikacji MSIX dołączania aplikacji zdalnych, aplikacje nie będą wyświetlane w kanale informacyjnym.
 
 ## <a name="change-msix-package-state"></a>Zmień stan pakietu MSIX
 

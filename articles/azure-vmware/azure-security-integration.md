@@ -1,26 +1,26 @@
 ---
 title: Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center
-description: Dowiedz się, jak chronić maszyny wirtualne rozwiązań VMware platformy Azure przy użyciu natywnych narzędzi zabezpieczeń platformy Azure z poziomu jednego pulpitu nawigacyjnego w Azure Security Center.
+description: Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu natywnych narzędzi zabezpieczeń platformy Azure z poziomu pulpitu nawigacyjnego Azure Security Center.
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 02/12/2021
+ms.openlocfilehash: b37d09d6e8f239586a18c0fa3b1dcd7bfee98102
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584961"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516366"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center
 
-Narzędzia zabezpieczeń natywnych platformy Azure zapewniają bezpieczną infrastrukturę dla środowiska hybrydowego platformy Azure, rozwiązania VMware platformy Azure i lokalnych maszyn wirtualnych. W tym artykule opisano sposób konfigurowania zabezpieczeń środowiska hybrydowego dla narzędzi platformy Azure. Będziesz używać różnych narzędzi do identyfikowania i rozwiązywania różnych typów zagrożeń.
+Natywne narzędzia zabezpieczeń platformy Azure zapewniają ochronę środowiska hybrydowego platformy Azure, rozwiązania VMware platformy Azure i lokalnych maszyn wirtualnych. W tym artykule opisano sposób konfigurowania zabezpieczeń środowiska hybrydowego dla narzędzi platformy Azure. Te narzędzia służą do identyfikowania i rozwiązywania różnych zagrożeń.
 
 ## <a name="azure-native-services"></a>Usługi natywne platformy Azure
 
-Oto krótkie podsumowanie każdej usługi platformy Azure Native:
+Oto krótkie podsumowanie usług Azure Native Services:
 
 - **Log Analytics obszar roboczy:** Obszar roboczy Log Analytics jest unikatowym środowiskiem do przechowywania danych dziennika. Każdy obszar roboczy ma własne repozytorium danych i konfigurację. Źródła danych i rozwiązania są skonfigurowane do przechowywania danych w określonym obszarze roboczym.
-- **Azure Security Center:** Azure Security Center to ujednolicony system zarządzania zabezpieczeniami infrastruktury. Wzmacnia stan zabezpieczeń centrów danych i zapewnia zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych w chmurze lub lokalnie.
-- **Wskaźnik na platformie Azure:** Azure — wskaźnikowy to natywne w chmurze rozwiązanie do zarządzania zdarzeniami zabezpieczeń (SIEM) i usługa automatycznej reakcji aranżacji (o). Zapewnia ona inteligentne analizy zabezpieczeń i analizy zagrożeń w środowisku. Jest to pojedyncze rozwiązanie do wykrywania alertów, widoczności zagrożeń, aktywnego polowania i reagowania na zagrożenia.
+- **Azure Security Center:** Azure Security Center to ujednolicony system zarządzania zabezpieczeniami infrastruktury. Zwiększa to bezpieczeństwo centrów danych i zapewnia zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych w chmurze lub lokalnie.
+- **Wskaźnik na platformie Azure:** Azure — Wskaźnikowanie to natywne rozwiązanie do zarządzania zdarzeniami zabezpieczeń (SIEM) w chmurze. Oferuje ona funkcje analizy zabezpieczeń, wykrywania alertów i automatycznej reakcji na zagrożenia w środowisku.
 
 ## <a name="topology"></a>Topologia
 
@@ -30,7 +30,7 @@ Agent Log Analytics umożliwia zbieranie danych dziennika z platformy Azure, roz
 
 Po zebraniu dzienników przez obszar roboczy Log Analytics można skonfigurować Log Analytics obszar roboczy przy użyciu Azure Security Center. Azure Security Center ocenia stan luk w zabezpieczeniach maszyn wirtualnych rozwiązań VMware platformy Azure i zgłasza alert dla każdej krytycznej luki w zabezpieczeniach. Na przykład ocenia brakujące poprawki systemu operacyjnego, nieprawidłowe konfiguracje zabezpieczeń i program [Endpoint Protection](../security-center/security-center-services.md).
 
-Obszar roboczy Log Analytics można skonfigurować przy użyciu funkcji wskaźnikowej platformy Azure na potrzeby wykrywania alertów, widoczności zagrożeń, aktywnego polowania i odpowiedzi na zagrożenia. Na powyższym diagramie Azure Security Center jest połączony z punktem kontrolnym platformy Azure przy użyciu łącznika Azure Security Center. Azure Security Center przekaże luki w zabezpieczeniach środowiska do usługi Azure wskaźnikowej, aby utworzyć zdarzenie i zmapować inne zagrożenia. Możesz również utworzyć zapytanie o zaplanowane reguły, aby wykryć niechciane działanie i przekonwertować je na zdarzenia.
+Obszar roboczy Log Analytics można skonfigurować przy użyciu funkcji wskaźnikowej platformy Azure na potrzeby wykrywania alertów, widoczności zagrożeń, łowiectwa i reagowania na zagrożenia. Na powyższym diagramie Azure Security Center jest połączony z punktem kontrolnym platformy Azure przy użyciu łącznika Azure Security Center. Azure Security Center przekaże luki w zabezpieczeniach środowiska do usługi Azure wskaźnikowej, aby utworzyć zdarzenie i zmapować inne zagrożenia. Możesz również utworzyć zapytanie o zaplanowane reguły, aby wykryć niechciane działanie i przekonwertować je na zdarzenia.
 
 ## <a name="benefits"></a>Korzyści
 
@@ -54,11 +54,11 @@ Do zbierania danych z różnych źródeł potrzebny jest obszar roboczy Log Anal
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Wdrażanie Security Center i Konfigurowanie maszyn wirtualnych rozwiązań VMware platformy Azure
 
-Azure Security Center jest wstępnie skonfigurowanym narzędziem i nie wymaga wdrożenia. W Azure Portal Wyszukaj **Security Center** i wybierz go.
+Azure Security Center jest wstępnie skonfigurowanym narzędziem, które nie wymaga wdrożenia. W Azure Portal Wyszukaj **Security Center** i wybierz go.
 
 ### <a name="enable-azure-defender"></a>Włączanie usługi Azure Defender
 
-Usługa Azure Defender Azure Security Center rozszerza zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych zarówno lokalnych, jak i w chmurze. Aby chronić maszyny wirtualne rozwiązań VMware platformy Azure, należy włączyć usługę Azure Defender. 
+Usługa Azure Defender Azure Security Center rozszerza zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych, zarówno lokalnych, jak i w chmurze. Aby chronić maszyny wirtualne rozwiązań VMware platformy Azure, należy włączyć usługę Azure Defender. 
 
 1. W Security Center wybierz opcję **wprowadzenie**.
 
@@ -149,7 +149,7 @@ Teraz możesz przystąpić do łączenia usługi Azure wskaźnikowej ze źródł
 
 ## <a name="create-rules-to-identify-security-threats"></a>Tworzenie reguł do identyfikowania zagrożeń bezpieczeństwa
 
-Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzyć reguły generowania alertów na podstawie wykrytych zagrożeń. W poniższym przykładzie utworzymy regułę identyfikującą próby zalogowania się do systemu Windows Server przy użyciu nieprawidłowego hasła.
+Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzyć reguły generowania alertów dla wykrytych zagrożeń. W poniższym przykładzie utworzymy regułę służącą do próby zalogowania się do systemu Windows Server przy użyciu nieprawidłowego hasła.
 
 1. Na stronie Przegląd wskaźnikowego platformy Azure w obszarze konfiguracje wybierz pozycję **Analiza**.
 
@@ -196,7 +196,7 @@ Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzy
 
 Po trzecim nieudanej próbie zalogowania się do systemu Windows Server utworzona reguła wyzwala zdarzenie dla każdej nieudanej próby.
 
-## <a name="view-generated-alerts"></a>Wyświetl wygenerowane alerty
+## <a name="view-alerts"></a>Wyświetlanie alertów
 
 Wygenerowane zdarzenia można wyświetlić za pomocą platformy Azure — wskaźnik. Możesz również przypisywać zdarzenia i zamykać je po ich rozwiązaniu, a wszystko to w ramach platformy Azure.
 

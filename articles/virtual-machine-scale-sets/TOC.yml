@@ -329,9 +329,10 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Konwertowanie szablonu zestawu skalowania w celu używania dysku zarządzanego
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Korzystanie z dedykowanych hostów (wersja zapoznawcza)
-          href: ../virtual-machines/dedicated-hosts.md
+        - name: Korzystanie z dedykowanych hostów
           items:
+            - name: Omówienie
+              href: ../virtual-machines/dedicated-hosts.md
             - name: Interfejs wiersza polecenia
               href: ../virtual-machines/linux/dedicated-hosts-cli.md
             - name: PowerShell

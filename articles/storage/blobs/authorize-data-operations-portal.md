@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8c963f11a34217253f02cb5d116d66cdbf8bcc19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 319bbdd7809e224ca608fdac06d4b304c2052e86
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033961"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391545"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Wybierz sposób autoryzacji dostępu do danych obiektów BLOB w Azure Portal
 
@@ -37,6 +37,9 @@ Aby uzyskać dostęp do danych obiektów BLOB przy użyciu klucza dostępu do ko
 - Rola [współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Gdy próbujesz uzyskać dostęp do danych obiektów BLOB w Azure Portal, Portal najpierw sprawdzi, czy masz przypisaną rolę z **firmą Microsoft. Storage/storageAccounts/ListKeys/Action**. Jeśli przypisano rolę z tą akcją, Portal używa klucza konta do uzyskiwania dostępu do danych obiektów BLOB. Jeśli nie masz przypisanej roli z tą akcją, Portal próbuje uzyskać dostęp do danych przy użyciu konta usługi Azure AD.
+
+> [!IMPORTANT]
+> [W przypadku](/rest/api/storagerp/storageaccounts/listkeys) zablokowania konta magazynu z Azure Resource Manager blokadą **tylko do odczytu** nie jest dozwolone dla tego konta magazynu. **Klucze list** są operacją post, a wszystkie operacje post są blokowane, gdy dla konta skonfigurowano blokadę **tylko do odczytu** . Z tego powodu w przypadku zablokowania konta z blokadą **tylko do odczytu** użytkownicy muszą użyć poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów BLOB w portalu. Aby uzyskać informacje o uzyskiwaniu dostępu do danych obiektów BLOB w portalu przy użyciu usługi Azure AD, zobacz [Korzystanie z konta usługi Azure AD](#use-your-azure-ad-account).
 
 > [!NOTE]
 > Administrator usług ról klasycznych administrator i Co-Administrator obejmujący odpowiednik roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, w tym **Microsoft. Storage/storageAccounts/ListKeys/Action**, dzięki czemu użytkownik mający jedną z tych ról administracyjnych może również uzyskać dostęp do danych obiektów BLOB przy użyciu klucza konta. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
@@ -111,6 +114,6 @@ Aby określić sposób autoryzacji operacji przekazywania obiektów blob, wykona
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uwierzytelnianie dostępu do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](../common/storage-auth-aad.md)
-- [Użyj Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-portal.md)
+- [Przypisywanie roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek za pomocą witryny Azure Portal](../common/storage-auth-aad-rbac-portal.md)
 - [Używanie interfejsu wiersza polecenia platformy Azure do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-cli.md)
 - [Użyj modułu Azure PowerShell, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-powershell.md)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: e6bbebafab45080a2076f33d66dd96296a761e4f
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: fc5d9cbd02490748c17a9f40a1440c5ad0c46278
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754954"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104114"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrowanie aplikacji jednostronicowej JavaScript z niejawnego przydzielenia do przepływu kodu uwierzytelniania
 
@@ -41,7 +41,7 @@ Jeśli chcesz kontynuować korzystanie z istniejącej rejestracji aplikacji dla 
 
 Wykonaj następujące kroki w przypadku rejestracji aplikacji skonfigurowanych obecnie przy użyciu identyfikatorów URI przekierowań platformy **sieci Web** :
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> i wybierz dzierżawę **Azure Active Directory** .
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> i wybierz dzierżawę **Azure Active Directory** .
 1. W **rejestracje aplikacji** wybierz aplikację, a następnie pozycję **uwierzytelnianie**.
 1. Na kafelku Platforma **sieci Web** w obszarze **identyfikatory URI przekierowania** wybierz transparent ostrzegawczy wskazujący, że chcesz migrować identyfikatory URI.
 

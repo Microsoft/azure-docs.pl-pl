@@ -3,22 +3,22 @@ title: 'ML Studio (klasyczny): Oceń & modele weryfikacji krzyżowej — Azure'
 description: Informacje o metrykach, których można użyć do monitorowania wydajności modelu w Azure Machine Learning Studio (klasyczny).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b2ca78d30659fce6e4246c81216cae94b404955e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310158"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520021"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Oceń wydajność modelu w Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Ten artykuł zawiera informacje na temat metryk, których można użyć do monitorowania wydajności modelu w Azure Machine Learning Studio (klasyczny).  Ocenianie wydajności modelu jest jednym z podstawowych etapów procesu analizy danych. Wskazuje, jak pomyślne ocenianie (przewidywania) zestawu danych zostało przeprowadzone przez szkolony model. Azure Machine Learning Studio (klasyczny) obsługuje Obliczanie modelu przez dwa z głównych modułów uczenia maszynowego: 
@@ -47,7 +47,7 @@ Alternatywnie można użyć weryfikacji krzyżowej do wykonywania wielu różnyc
 W poniższych sekcjach utworzysz proste modele regresji i klasyfikacji oraz Oceń ich wydajność przy użyciu zarówno [modelu oceny][evaluate-model] , jak i modułowego [sprawdzania poprawności][cross-validate-model] .
 
 ## <a name="evaluating-a-regression-model"></a>Ocenianie modelu regresji
-Załóżmy, że chcemy przewidzieć cenę samochodu przy użyciu funkcji, takich jak wymiary, możliwości techniczne, specyfikacje silnika i tak dalej. Jest to typowy problem z regresją, gdzie zmienna docelowa ( *Cena* ) jest stałą wartością liczbową. Możemy dopasować model regresji liniowej, który zapewnia wartości funkcji określonego samochodu, można przewidzieć cenę tego samochodu. Ten model regresji może służyć do oceny tego samego zestawu danych, który został przeszkolony. Po przeprowadzeniu przewidywanych cen samochodu możemy oszacować wydajność modelu, sprawdzając, ile prognoz odchyleń od rzeczywistych cen. Aby to zilustrować, korzystamy z *zestawu danych cen dla samochodów (RAW)* dostępnego w sekcji **zapisywanych zestawów** danych w Machine Learning Studio (klasyczny).
+Załóżmy, że chcemy przewidzieć cenę samochodu przy użyciu funkcji, takich jak wymiary, możliwości techniczne, specyfikacje silnika i tak dalej. Jest to typowy problem z regresją, gdzie zmienna docelowa (*Cena*) jest stałą wartością liczbową. Możemy dopasować model regresji liniowej, który zapewnia wartości funkcji określonego samochodu, można przewidzieć cenę tego samochodu. Ten model regresji może służyć do oceny tego samego zestawu danych, który został przeszkolony. Po przeprowadzeniu przewidywanych cen samochodu możemy oszacować wydajność modelu, sprawdzając, ile prognoz odchyleń od rzeczywistych cen. Aby to zilustrować, korzystamy z *zestawu danych cen dla samochodów (RAW)* dostępnego w sekcji **zapisywanych zestawów** danych w Machine Learning Studio (klasyczny).
 
 ### <a name="creating-the-experiment"></a>Tworzenie eksperymentu
 Dodaj następujące moduły do obszaru roboczego w Azure Machine Learning Studio (klasyczny):
@@ -58,14 +58,14 @@ Dodaj następujące moduły do obszaru roboczego w Azure Machine Learning Studio
 * [Klasyfikacja modelu][score-model]
 * [Ocena modelu][evaluate-model]
 
-Połącz porty, jak pokazano poniżej na rysunku 1 i ustaw kolumnę etykieta modułu [uczenie modelu][train-model] na Price ( *Cena* ).
+Połącz porty, jak pokazano poniżej na rysunku 1 i ustaw kolumnę etykieta modułu [uczenie modelu][train-model] na Price ( *Cena*).
 
 ![Ocenianie modelu regresji](./media/evaluate-model-performance/1.png)
 
 Rysunek 1. Ocenianie modelu regresji.
 
 ### <a name="inspecting-the-evaluation-results"></a>Sprawdzanie wyników oceny
-Po uruchomieniu eksperymentu możesz kliknąć port wyjściowy modułu [Oceń model][evaluate-model] i wybrać opcję *Wizualizuj* , aby wyświetlić wyniki oceny. Metryki oceny dostępne dla modeli regresji to: *średni błąd bezwzględny* , *główny średni błąd bezwzględny* , *względny* błąd względny, względny *błąd* i *współczynnik wyznaczania*.
+Po uruchomieniu eksperymentu możesz kliknąć port wyjściowy modułu [Oceń model][evaluate-model] i wybrać opcję *Wizualizuj* , aby wyświetlić wyniki oceny. Metryki oceny dostępne dla modeli regresji to: *średni błąd bezwzględny*, *główny średni błąd bezwzględny*, *względny* błąd względny, względny *błąd* i *współczynnik wyznaczania*.
 
 Termin "błąd" oznacza różnicę między wartością przewidywaną a wartością rzeczywistą. Wartość bezwzględna lub kwadrat tej różnicy jest zwykle obliczany w celu przechwycenia łącznej wielkości błędu we wszystkich wystąpieniach, ponieważ różnica między wartością przewidywaną i rzeczywistą może być ujemna w niektórych przypadkach. Metryki błędów mierzą predykcyjną wydajność modelu regresji pod względem średniego odchylenia jego prognoz od wartości true. Niższe wartości błędów oznaczają, że model jest bardziej precyzyjny podczas tworzenia prognoz. Ogólna Metryka błędu równa zero oznacza, że model dopasowuje dane.
 
@@ -107,7 +107,7 @@ Połącz porty, jak pokazano poniżej na rysunku 5 i ustaw kolumnę etykieta mod
 Rysunek 5. Ocenianie binarnego modelu klasyfikacji.
 
 ### <a name="inspecting-the-evaluation-results"></a>Sprawdzanie wyników oceny
-Po uruchomieniu eksperymentu możesz kliknąć port wyjściowy modułu [oceny modelu][evaluate-model] i wybrać opcję *Wizualizuj* , aby wyświetlić wyniki oceny (Rysunek 7). Metryki oceny dostępne dla modeli klasyfikacji binarnych są następujące: *dokładność* , *precyzja* , *odwołanie* , *wynik F1* i *AUC*. Ponadto moduł wyprowadza macierz niepoprawną, pokazując liczbę prawdziwych dodatnich, fałszywych wartości ujemnych, fałszywych dodatnich i prawdziwych wartości ujemnych, a także *Roc* , *dokładności/odwoływania* i *podnoszenia* krzywych.
+Po uruchomieniu eksperymentu możesz kliknąć port wyjściowy modułu [oceny modelu][evaluate-model] i wybrać opcję *Wizualizuj* , aby wyświetlić wyniki oceny (Rysunek 7). Metryki oceny dostępne dla modeli klasyfikacji binarnych są następujące: *dokładność*, *precyzja*, *odwołanie*, *wynik F1* i *AUC*. Ponadto moduł wyprowadza macierz niepoprawną, pokazując liczbę prawdziwych dodatnich, fałszywych wartości ujemnych, fałszywych dodatnich i prawdziwych wartości ujemnych, a także *Roc*, *dokładności/odwoływania* i *podnoszenia* krzywych.
 
 Dokładność jest po prostu proporcją poprawnie sklasyfikowanych wystąpień. Zwykle jest to pierwsza Metryka, która jest sprawdzana podczas oceny klasyfikatora. Jednak jeśli dane testowe są niezrównoważone (gdzie większość wystąpień należy do jednej z klas) lub użytkownik jest bardziej interesujący w wydajności jednej z klas, dokładność nie przechwytuje skuteczności klasyfikatora. W scenariuszu klasyfikacji poziomu dochodu przyjęto założenie, że testy są przeprowadzane na niektórych danych, gdzie 99% wystąpień reprezentuje osoby, które uzyskują mniej niż lub równą 50 000 na rok. Istnieje możliwość osiągnięcia dokładności 0,99, przewidywalność klasy "<= 50 000" dla wszystkich wystąpień. Klasyfikator w tym przypadku wygląda na to, że jest to dobre zadanie ogólne, ale w rzeczywistości nie jest klasyfikowane żadnej z dużych dochodów (1%) prawidłowego.
 
@@ -123,7 +123,7 @@ Powracając do problemu klasyfikacji dochodu, chcemy zadać kilka pytań dotycz�
 
 Rysunek 7. Wyniki oceny klasyfikacji danych binarnych.
 
-Kolejną pokrewną metryką, która jest często używana, jest **wynik F1** , który przyjmuje precyzję i odwołanie do rozważenia. Jest to średnia harmoniczna tych dwóch metryk i jest obliczana w następujący sposób: F1 = 2 (precyzja x odwołania)/(precyzja + odwoływanie). Wynik F1 jest dobrym sposobem podsumowywania oceny w pojedynczej liczbie, ale zawsze dobrym rozwiązaniem jest zapoznanie się z dokładnością i odzyskanie, aby lepiej zrozumieć, jak działa klasyfikator.
+Kolejną pokrewną metryką, która jest często używana, jest **wynik F1**, który przyjmuje precyzję i odwołanie do rozważenia. Jest to średnia harmoniczna tych dwóch metryk i jest obliczana w następujący sposób: F1 = 2 (precyzja x odwołania)/(precyzja + odwoływanie). Wynik F1 jest dobrym sposobem podsumowywania oceny w pojedynczej liczbie, ale zawsze dobrym rozwiązaniem jest zapoznanie się z dokładnością i odzyskanie, aby lepiej zrozumieć, jak działa klasyfikator.
 
 Ponadto jeden może sprawdzać prawdziwą dodatnią stawkę w porównaniu z fałszywą dodatnią częstotliwością w krzywej **charakterystyki (ROC) odbiornika** i odpowiednim **obszarze pod wartością krzywej (AUC)** . Bliżej tej krzywej jest w lewym górnym rogu, tym lepsza wydajność klasyfikatora to (maksymalizuje prawdziwie dodatnią częstotliwość, jednocześnie minimalizując wynik fałszywie dodatni). Krzywe znajdujące się blisko przekątnej wykresu mogą wynikać z klasyfikatorów, które mają na celu wykonywanie prognoz, które są blisko losowego odgadnięcia.
 
@@ -144,7 +144,7 @@ W tym doświadczeniu będziemy używać popularnego zestawu danych [Iris](https:
 ### <a name="creating-the-experiment"></a>Tworzenie eksperymentu
 Dodaj następujące moduły do obszaru roboczego w Azure Machine Learning Studio (klasyczny):
 
-* [Importuj dane][import-data]
+* [Importowanie danych][import-data]
 * [Wieloklasowy las decyzyjny][multiclass-decision-forest]
 * [Dzielenie danych][split]
 * [Trenowanie modelu][train-model]

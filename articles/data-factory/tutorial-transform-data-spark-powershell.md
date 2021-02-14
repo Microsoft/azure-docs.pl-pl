@@ -1,21 +1,17 @@
 ---
 title: 'Przekształcanie danych przy użyciu platformy Spark w Azure Data Factory '
 description: Ten samouczek zawiera instrukcje krok po kroku przekształcania danych za pomocą platformy Spark w usłudze Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf425ecb1a8aebf594828bfba50e9aba8ca9dd7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409084"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377622"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Przekształcanie danych w chmurze za pomocą działania platformy Spark w usłudze Azure Data Factory
 
@@ -66,7 +62,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     if __name__ == "__main__":
         main()
     ```
-2. Zastąp ** &lt; storageAccountName &gt; ** nazwą konta usługi Azure Storage. Następnie zapisz plik. 
+2. Zastąp **&lt; storageAccountName &gt;** nazwą konta usługi Azure Storage. Następnie zapisz plik. 
 3. W usłudze Azure Blob Storage utwórz kontener o nazwie **adftutorial**, jeśli nie istnieje. 
 4. Utwórz folder o nazwie **spark**.
 5. Utwórz podfolder o nazwie **script** w folderze **spark**. 
@@ -182,7 +178,7 @@ Pamiętaj o następujących kwestiach:
 
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych 
-W plikach w formacie JSON zostały zredagowane połączona usługa i definicje potoku. Teraz utwórzmy fabrykę danych i wdróżmy pliki w formacie JSON dla połączonej usługi i potoku przy użyciu poleceń cmdlet programu PowerShell. Uruchom następujące polecenia programu PowerShell jedno po drugim: 
+W plikach w formacie JSON zostały zredagowane połączona usługa i definicje potoku. Teraz Utwórzmy fabrykę danych i wdrożono pliki JSON połączonej usługi i potoku za pomocą poleceń cmdlet programu PowerShell. Uruchom następujące polecenia programu PowerShell jedno po drugim: 
 
 1. Ustaw zmienne jedną po drugiej.
 
