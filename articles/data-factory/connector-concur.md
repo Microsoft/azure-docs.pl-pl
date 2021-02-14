@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z Concur za pomocą Azure Data Factory (wersja zapoznawcza)
 description: Informacje o kopiowaniu danych z programu Concur do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030802"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383674"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopiowanie danych z Concur za pomocą Azure Data Factory (wersja zapoznawcza)
 
@@ -53,7 +48,7 @@ Dla połączonej usługi Concur są obsługiwane następujące właściwości:
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość: **Concur** | Tak |
 | connectionProperties | Grupa właściwości, która definiuje sposób nawiązywania połączenia z Concur. | Tak |
-| **_W obszarze `connectionProperties` :_* _ | | |
+| ***W obszarze `connectionProperties` :*** | | |
 | authenticationType | Dozwolone wartości to `OAuth_2.0_Bearer` i `OAuth_2.0` (starsza wersja). Opcja uwierzytelniania OAuth 2,0 działa z starym interfejsem API Concur, który został uznany za przestarzały od lutego 2017. | Tak |
 | host | Punkt końcowy serwera Concur, np. `implementation.concursolutions.com` .  | Tak |
 | baseUrl | Podstawowy adres URL autoryzacji adresu URL Concur. | Tak na potrzeby `OAuth_2.0_Bearer` uwierzytelniania |
@@ -65,7 +60,7 @@ Dla połączonej usługi Concur są obsługiwane następujące właściwości:
 | useHostVerification | Określa, czy nazwa hosta ma być wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas łączenia się za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 | usePeerVerification | Określa, czy należy zweryfikować tożsamość serwera podczas łączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 
-_ *Przykład:**
+**Przykład:**
 
 ```json
 { 

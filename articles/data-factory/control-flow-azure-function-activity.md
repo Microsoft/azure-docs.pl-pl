@@ -1,22 +1,18 @@
 ---
 title: Działanie funkcji platformy Azure w Azure Data Factory
 description: Dowiedz się, jak używać działania funkcji platformy Azure do uruchamiania funkcji platformy Azure w potoku Data Factory
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: f7c8f1e5ae0da9e7c404a942fcb4f554281486a7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 51cf396fb6f1fcc86a0187e9f3be6b81487b86c2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500050"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383407"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Działanie funkcji platformy Azure w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,20 +28,20 @@ Zwracany typ funkcji platformy Azure musi być prawidłowy `JObject` . (Należy 
 
 | **Właściwość** | **Opis** | **Wymagane** |
 | --- | --- | --- |
-| typ   | Właściwość Type musi mieć wartość: **AzureFunction** | yes |
-| adres URL aplikacji funkcji | Adres URL aplikacja funkcji platformy Azure. Format to `https://<accountname>.azurewebsites.net` . Ten adres URL jest wartością w sekcji **adresu URL** podczas wyświetlania aplikacja funkcji w Azure Portal  | yes |
-| klucz funkcji | Klucz dostępu dla funkcji platformy Azure. Kliknij sekcję **Zarządzanie** odpowiednią funkcją i skopiuj **klucz funkcji** lub **klucz hosta**. Dowiedz się więcej tutaj: [Azure Functions wyzwalacze i powiązania HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | yes |
+| typ   | Właściwość Type musi mieć wartość: **AzureFunction** | tak |
+| adres URL aplikacji funkcji | Adres URL aplikacja funkcji platformy Azure. Format to `https://<accountname>.azurewebsites.net` . Ten adres URL jest wartością w sekcji **adresu URL** podczas wyświetlania aplikacja funkcji w Azure Portal  | tak |
+| klucz funkcji | Klucz dostępu dla funkcji platformy Azure. Kliknij sekcję **Zarządzanie** odpowiednią funkcją i skopiuj **klucz funkcji** lub **klucz hosta**. Dowiedz się więcej tutaj: [Azure Functions wyzwalacze i powiązania HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | tak |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Działanie funkcji platformy Azure
 
 | **Właściwość**  | **Opis** | **Dozwolone wartości** | **Wymagane** |
 | --- | --- | --- | --- |
-| name  | Nazwa działania w potoku  | Ciąg | yes |
-| typ  | Typ działania to "AzureFunctionActivity" | Ciąg | yes |
-| połączona usługa | Połączona usługa funkcji platformy Azure dla odpowiednich aplikacja funkcji platformy Azure  | Odwołanie do połączonej usługi | yes |
-| Nazwa funkcji  | Nazwa funkcji w aplikacja funkcji platformy Azure, którą wywołuje to działanie | Ciąg | yes |
-| method  | Metoda interfejsu API REST dla wywołania funkcji | Obsługiwane typy ciągów: "GET", "POST", "PUT"   | yes |
+| name  | Nazwa działania w potoku  | Ciąg | tak |
+| typ  | Typ działania to "AzureFunctionActivity" | Ciąg | tak |
+| połączona usługa | Połączona usługa funkcji platformy Azure dla odpowiednich aplikacja funkcji platformy Azure  | Odwołanie do połączonej usługi | tak |
+| Nazwa funkcji  | Nazwa funkcji w aplikacja funkcji platformy Azure, którą wywołuje to działanie | Ciąg | tak |
+| method  | Metoda interfejsu API REST dla wywołania funkcji | Obsługiwane typy ciągów: "GET", "POST", "PUT"   | tak |
 | header  | Nagłówki wysyłane do żądania. Na przykład, aby ustawić język i typ dla żądania: "heads": {"Accept-Language": "en-us", "Content-Type": "Application/JSON"} | Ciąg (lub wyrażenie z typem ResultType ciągu) | Nie |
 | body  | treść, która jest wysyłana wraz z żądaniem do metody interfejsu API funkcji  | Ciąg (lub wyrażenie z typem ResultType String) lub Object.   | Wymagane dla metod PUT/POST |
 |   |   |   | |
@@ -60,7 +56,7 @@ Działanie funkcji platformy Azure obsługuje również **zapytania**. Zapytanie
 
 ## <a name="timeout-and-long-running-functions"></a>Funkcje limitu czasu i długotrwałego działania
 
-Azure Functions limit czasu po 230 sekund niezależnie od `functionTimeout` ustawień skonfigurowanych w ustawieniach. Aby uzyskać więcej informacji, zobacz [ten artykuł](../azure-functions/functions-versions.md#timeout). Aby obejść ten problem, postępuj zgodnie ze wzorcem asynchronicznym lub użyj Durable Functions. Korzyść Durable Functions polega na tym, że oferują własne mechanizmy śledzenia stanu, więc nie trzeba implementować własnych.
+Azure Functions limit czasu po 230 sekund niezależnie od `functionTimeout` ustawień skonfigurowanych w ustawieniach. Więcej informacji znajduje się w [tym artykule](../azure-functions/functions-versions.md#timeout). Aby obejść ten problem, postępuj zgodnie ze wzorcem asynchronicznym lub użyj Durable Functions. Korzyść Durable Functions polega na tym, że oferują własne mechanizmy śledzenia stanu, więc nie trzeba implementować własnych.
 
 Dowiedz się więcej na temat Durable Functions w [tym artykule](../azure-functions/durable/durable-functions-overview.md). Można skonfigurować działanie funkcji platformy Azure w celu wywołania funkcji trwałej, która zwróci odpowiedź z innym identyfikatorem URI, na przykład w [tym przykładzie](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Ponieważ `statusQueryGetUri` zwraca stan HTTP 202, gdy funkcja jest uruchomiona, można sondować stan funkcji przy użyciu działania sieci Web. Wystarczy skonfigurować działanie sieci Web z `url` polem ustawionym na `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri` . Po zakończeniu trwałej funkcji dane wyjściowe funkcji będą dane wyjściowe działania sieci Web.
 

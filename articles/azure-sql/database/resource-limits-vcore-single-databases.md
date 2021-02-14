@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2021
-ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1fec13eefad7f27bcaac8f2c690b99909cd24e59
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735245"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518049"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych podczas używania modelu zakupu opartego na rdzeniach wirtualnych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,14 +42,14 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Min — maks. rdzeni wirtualnych|0.5-1|0.5-2|0,5 – 4|0,75-6|1.0-8|
 |Min — maks. pamięć (GB)|2.02-3|2.05-6|2.10-12|2.25 – 18|3,00-24|
 |Min-Maksymalne opóźnienie AutoPause (minuty)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|
+|Obsługa magazynu kolumn|Tak*|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Maksymalny rozmiar danych (GB)|512|1024|1024|1024|1536|
 |Maksymalny rozmiar dziennika (GB)|154|307|307|307|461|
 |Maksymalny rozmiar danych TempDB (GB)|32|64|128|192|256|
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
-|Maksymalna liczba operacji we/wy danych *|320|640|1280|1920|2560|
+|Maksymalna liczba operacji we/wy danych \*\*|320|640|1280|1920|2560|
 |Maksymalny współczynnik rejestrowania (MB/s)|4.5|9|18|27|36|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|75|150|300|450|600|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|
@@ -58,7 +58,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
-\* Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
+\* Cele usługi z mniejszymi maksymalnymi konfiguracjami rdzeń wirtualny mogą mieć za mało pamięci do tworzenia i używania indeksów magazynu kolumn.  Jeśli wystąpią problemy z wydajnością magazynu kolumn, należy zwiększyć maksymalną rdzeń wirtualnyą konfigurację, aby zwiększyć maksymalną ilość dostępnej pamięci.  
+\*\* Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generowanie obliczeń 5 rdzeń (część 2)
 
@@ -212,7 +213,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Maksymalny rozmiar dziennika (TB)|Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |
 |Maksymalny rozmiar danych TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Typ magazynu| [Uwaga 1](#notes) |[Uwaga 1](#notes)|[Uwaga 1](#notes)|[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |
-|Maksymalna liczba operacji we/wy lokalnego dysku SSD *|64000 |72000 |80000 |96000 |160000 |192000 |204800 |
+|Maksymalna liczba operacji we/wy lokalnego dysku SSD *|64000 |72000 |80000 |96000 |128000 |160000 |204800 |
 |Maksymalny współczynnik rejestrowania (MB/s)|100 |100 |100 |100 |100 |100 |100 |
 |Opóźnienie we/wy (przybliżone)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|1600|1800|2000|2400|3200|4000|8000|

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 0e9189b6608b74be6a72dbdfe66276c5050f042f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859635"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365467"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Właściwości Azure Active Directory użytkownika współpracy B2B
 
@@ -28,7 +28,7 @@ W zależności od potrzeb organizacji użytkownik współpracy B2B usługi Azure
 - Stan 1: domowa w zewnętrznym wystąpieniu usługi Azure AD i reprezentowana jako użytkownik-Gość w organizacji zapraszanie. W takim przypadku użytkownik B2B loguje się przy użyciu konta usługi Azure AD należącego do zaproszonej dzierżawy. Jeśli organizacja partnera nie korzysta z usługi Azure AD, nadal jest tworzony użytkownik-Gość w usłudze Azure AD. Wymagania polegają na tym, że zrealizują swoje zaproszenia, a usługa Azure AD weryfikuje swój adres e-mail. To rozwiązanie jest również nazywane dzierżawcą just-in-Time (JIT) lub dzierżawą "wirusową".
 
    > [!IMPORTANT]
-   > **Od 31 marca 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
+   > **Od października 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
 - Stan 2: nastawione na konto Microsoft lub inne i reprezentowane jako użytkownik-Gość w organizacji hosta. W takim przypadku użytkownik Gość loguje się przy użyciu konto Microsoft lub konta społecznościowego (google.com lub podobny). Tożsamość zaproszonego użytkownika jest tworzona jako konto Microsoft w katalogu zapraszanej organizacji podczas realizacji oferty.
 

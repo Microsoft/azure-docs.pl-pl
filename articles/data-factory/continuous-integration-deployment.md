@@ -1,22 +1,18 @@
 ---
 title: Ciągła integracja i dostarczanie w usłudze Azure Data Factory
 description: Dowiedz się, jak korzystać z ciągłej integracji i dostarczania, aby przenosić Data Factory potoków z jednego środowiska (Programowanie, testowanie, produkcja) do innego.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
-manager: jroth
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: c0d3ba8d9bea9fade58ed4a65c6d3ae43ef6acb3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680294"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383606"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w usłudze Azure Data Factory
 
@@ -24,9 +20,9 @@ ms.locfileid: "97680294"
 
 ## <a name="overview"></a>Omówienie
 
-Ciągła integracja to metoda automatycznego testowania każdej zmiany dokonanej w bazie kodu, jak najszybciej. Ciągłe dostarczanie odbywa się przy testowaniu, który jest wykonywany podczas ciągłej integracji i wypycha zmiany do systemu przejściowego lub produkcyjnego.
+Ciągła integracja to metoda automatycznego testowania każdej zmiany dokonanej w bazie kodu, jak najszybciej. Ciągłe dostarczanie odbywa się po testowaniu, które jest wykonywane podczas ciągłej integracji, i wypycha zmiany do systemu przejściowego lub produkcyjnego.
 
-W Azure Data Factory, ciągła integracja i dostarczanie (CI/CD) oznacza przemieszczenie Data Factory potoków z jednego środowiska (Programowanie, testowanie, produkcja) do innego. Azure Data Factory korzysta z [szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md) do przechowywania konfiguracji różnych jednostek ADF (potoków, zestawów danych, przepływów i itp.). Istnieją dwie sugerowane metody podwyższania poziomu fabryki danych do innego środowiska:
+W usłudze Azure Data Factory ciągła integracja i ciągłe dostarczanie (CI/CD) oznacza przenoszenie potoków usługi Data Factory z jednego środowiska (programistycznego, testowego, produkcyjnego) do innego. Azure Data Factory korzysta z [szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md) do przechowywania konfiguracji różnych jednostek ADF (potoków, zestawów danych, przepływów i itp.). Istnieją dwie sugerowane metody podwyższania poziomu fabryki danych do innego środowiska:
 
 -    Automatyczne wdrażanie przy użyciu integracji Data Factory z [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 -    Ręcznie Przekaż szablon Menedżer zasobów przy użyciu integracji środowiska UX Data Factory z Azure Resource Manager.

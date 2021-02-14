@@ -1,23 +1,18 @@
 ---
 title: Przenoszenie danych z lokalnego systemu plików HDFS
 description: Dowiedz się więcej na temat przenoszenia danych z lokalnego systemu plików HDFS przy użyciu Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 3215b82d-291a-46db-8478-eac1a3219614
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4393ebeb8b1e287bd881233418a902fc523f7f5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 52e176e0fed85b649d482614667d695db539e5d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589624"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383079"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Przenoszenie danych z lokalnego systemu plików HDFS przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -112,6 +107,7 @@ Połączona usługa łączy magazyn danych z fabryką danych. Utworzysz połącz
     }
 }
 ```
+
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje, takie jak struktura, dostępność i zasady JSON zestawu danych są podobne dla wszystkich typów zestawu danych (Azure SQL, Azure Blob, Azure Table itp.).
 
@@ -363,25 +359,25 @@ Dostępne są dwie opcje konfigurowania środowiska lokalnego w taki sposób, ab
 
 **Na maszynie bramy:**
 
-1.  Uruchom narzędzie **Ksetup** , aby skonfigurować serwer i obszar KDC protokołu Kerberos.
+1. Uruchom narzędzie **Ksetup** , aby skonfigurować serwer i obszar KDC protokołu Kerberos.
 
-    Komputer musi być skonfigurowany jako członek grupy roboczej, ponieważ obszar Kerberos różni się od domeny systemu Windows. Można to osiągnąć przez ustawienie obszaru protokołu Kerberos i dodanie serwera KDC w następujący sposób. Zastąp *REALM.com* własnymi obszarami w miarę potrzeb.
+   Komputer musi być skonfigurowany jako członek grupy roboczej, ponieważ obszar Kerberos różni się od domeny systemu Windows. Można to osiągnąć przez ustawienie obszaru protokołu Kerberos i dodanie serwera KDC w następujący sposób. Zastąp *REALM.com* własnymi obszarami w miarę potrzeb.
 
-    ```cmd
-    C:> Ksetup /setdomain REALM.COM
-    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-    ```
+   ```cmd
+   Ksetup /setdomain REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ```
 
-    Po wykonaniu tych dwóch poleceń **ponownie uruchom** maszynę.
+   Po wykonaniu tych dwóch poleceń **ponownie uruchom** maszynę.
 
-2.  Sprawdź konfigurację przy użyciu polecenia **Ksetup** . Dane wyjściowe powinny wyglądać następująco:
+2. Sprawdź konfigurację przy użyciu polecenia **Ksetup** . Dane wyjściowe powinny wyglądać następująco:
 
-    ```cmd
-    C:> Ksetup
-    default realm = REALM.COM (external)
-    REALM.com:
-        kdc = <your_kdc_server_address>
-    ```
+   ```cmd
+   Ksetup
+   default realm = REALM.COM (external)
+   REALM.com:
+      kdc = <your_kdc_server_address>
+   ```
 
 **W Azure Data Factory:**
 
@@ -390,8 +386,8 @@ Dostępne są dwie opcje konfigurowania środowiska lokalnego w taki sposób, ab
 ### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opcja 2: Włącz wzajemne zaufanie między domeną systemu Windows i obszarem Kerberos
 
 #### <a name="requirement"></a>Wymog
-*   Komputer bramy musi przyłączyć się do domeny systemu Windows.
-*   Musisz mieć uprawnienia do aktualizowania ustawień kontrolera domeny.
+*    Komputer bramy musi przyłączyć się do domeny systemu Windows.
+*    Musisz mieć uprawnienia do aktualizowania ustawień kontrolera domeny.
 
 #### <a name="how-to-configure"></a>Jak skonfigurować:
 
@@ -450,54 +446,54 @@ Dostępne są dwie opcje konfigurowania środowiska lokalnego w taki sposób, ab
 
 **Na kontrolerze domeny:**
 
-1.  Uruchom następujące polecenia **Ksetup** , aby dodać wpis obszaru:
+1. Uruchom następujące polecenia **Ksetup** , aby dodać wpis obszaru:
 
-    ```cmd
-    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
-    ```
+   ```cmd
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
-2.  Ustanów relację zaufania z domeny systemu Windows do obszaru Kerberos. [hasło] jest hasłem dla głównego elementu **KRBTGT/obszaru. COM \@ AD.com**.
+2. Ustanów relację zaufania z domeny systemu Windows do obszaru Kerberos. [hasło] jest hasłem dla głównego elementu **KRBTGT/obszaru. COM \@ AD.com**.
 
-    ```cmd
-    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
-    ```
+   ```cmd
+   netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+   ```
 
-3.  Wybierz algorytm szyfrowania używany w protokole Kerberos.
+3. Wybierz algorytm szyfrowania używany w protokole Kerberos.
 
-    1. Przejdź do Menedżer serwera > zasady grupy zarządzanie > domeny > zasady grupy obiektów > domyślnych lub aktywnych zasad domeny i Edytuj.
+   1. Przejdź do Menedżer serwera > zasady grupy zarządzanie > domeny > zasady grupy obiektów > domyślnych lub aktywnych zasad domeny i Edytuj.
 
-    2. W oknie podręcznym **Edytor zarządzania zasadami grupy** przejdź do pozycji konfiguracja komputera > zasady > ustawienia systemu Windows > ustawienia zabezpieczeń > zasady lokalne > opcje zabezpieczeń i skonfiguruj **zabezpieczenia sieci: Skonfiguruj typy szyfrowania dozwolone dla protokołu Kerberos**.
+   2. W oknie podręcznym **Edytor zarządzania zasadami grupy** przejdź do pozycji konfiguracja komputera > zasady > ustawienia systemu Windows > ustawienia zabezpieczeń > zasady lokalne > opcje zabezpieczeń i skonfiguruj **zabezpieczenia sieci: Skonfiguruj typy szyfrowania dozwolone dla protokołu Kerberos**.
 
-    3. Wybierz algorytm szyfrowania, który ma być używany podczas nawiązywania połączenia z centrum dystrybucji kluczy. Zazwyczaj można po prostu wybrać wszystkie opcje.
+   3. Wybierz algorytm szyfrowania, który ma być używany podczas nawiązywania połączenia z centrum dystrybucji kluczy. Zazwyczaj można po prostu wybrać wszystkie opcje.
 
-        ![Typy szyfrowania dla protokołu Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
+      ![Typy szyfrowania dla protokołu Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
 
-    4. Użyj polecenia **Ksetup** , aby określić algorytm szyfrowania, który ma być używany w konkretnym obszarze.
+   4. Użyj polecenia **Ksetup** , aby określić algorytm szyfrowania, który ma być używany w konkretnym obszarze.
 
-       ```cmd
-       C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
-       ```
+      ```cmd
+      ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+      ```
 
-4.  Utwórz mapowanie między kontem domeny i podmiotem zabezpieczeń protokołu Kerberos, aby użyć podmiotu zabezpieczeń Kerberos w domenie systemu Windows.
+4. Utwórz mapowanie między kontem domeny i podmiotem zabezpieczeń protokołu Kerberos, aby użyć podmiotu zabezpieczeń Kerberos w domenie systemu Windows.
 
-    1. Uruchom narzędzia administracyjne > **Active Directory Użytkownicy i komputery**.
+   1. Uruchom narzędzia administracyjne > **Active Directory Użytkownicy i komputery**.
 
-    2. Skonfiguruj funkcje zaawansowane, klikając pozycję **Wyświetl**  >  **Zaawansowane funkcje**.
+   2. Skonfiguruj funkcje zaawansowane, klikając pozycję **Wyświetl**  >  **Zaawansowane funkcje**.
 
-    3. Znajdź konto, do którego chcesz utworzyć mapowania, a następnie kliknij prawym przyciskiem myszy, aby wyświetlić **mapowania nazw** > kliknij kartę **nazwy Kerberos** .
+   3. Znajdź konto, do którego chcesz utworzyć mapowania, a następnie kliknij prawym przyciskiem myszy, aby wyświetlić **mapowania nazw** > kliknij kartę **nazwy Kerberos** .
 
-    4. Dodaj podmiot zabezpieczeń z obszaru.
+   4. Dodaj podmiot zabezpieczeń z obszaru.
 
-        ![Zamapuj tożsamość zabezpieczeń](media/data-factory-hdfs-connector/map-security-identity.png)
+      ![Zamapuj tożsamość zabezpieczeń](media/data-factory-hdfs-connector/map-security-identity.png)
 
 **Na maszynie bramy:**
 
 * Aby dodać wpis obszaru, uruchom następujące polecenia **Ksetup** .
 
    ```cmd
-   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
    ```
 
 **W Azure Data Factory:**
@@ -506,7 +502,6 @@ Dostępne są dwie opcje konfigurowania środowiska lokalnego w taki sposób, ab
 
 > [!NOTE]
 > Aby zmapować kolumny ze źródłowego zestawu danych do kolumn z obiektu ujścia danych, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).
-
 
 ## <a name="performance-and-tuning"></a>Wydajność i dostrajanie
 Zobacz [Przewodnik dostrajania wydajności & działania kopiowania](data-factory-copy-activity-performance.md) , aby poznać kluczowe czynniki wpływające na wydajność przenoszenia danych (działanie kopiowania) w Azure Data Factory i różne sposoby jego optymalizacji.

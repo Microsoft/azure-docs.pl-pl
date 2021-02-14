@@ -1,22 +1,18 @@
 ---
 title: Programowe monitorowanie fabryki danych Azure
 description: Dowiedz się, jak monitorować potok w fabryce danych przy użyciu różnych zestawów SDK (Software Development Kit).
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: b5d1f0c0d6aa848e590e68e1f18abf7861674483
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556566"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379900"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Programowe monitorowanie fabryki danych Azure
 
@@ -28,12 +24,23 @@ W tym artykule opisano sposób monitorowania potoku w fabryce danych przy użyci
 
 ## <a name="data-range"></a>Zakres danych
 
-Data Factory przechowuje tylko dane uruchomienia potoku przez 45 dni. Podczas wykonywania zapytania programistycznego w celu uzyskania danych o Data Factory uruchomieniach potoku — na przykład przy użyciu polecenia programu PowerShell `Get-AzDataFactoryV2PipelineRun` nie są dostępne żadne maksymalne daty dla parametrów opcjonalnych `LastUpdatedAfter` i `LastUpdatedBefore` . Ale jeśli kwerenda dotyczy danych przez ostatni rok, na przykład zapytanie nie zwraca błędu, ale zwraca dane przebiegu potoku z ostatnich 45 dni.
+Data Factory przechowuje tylko dane uruchomienia potoku przez 45 dni. Podczas wykonywania zapytania programistycznego w celu uzyskania danych o Data Factory uruchomieniach potoku — na przykład przy użyciu polecenia programu PowerShell `Get-AzDataFactoryV2PipelineRun` nie są dostępne żadne maksymalne daty dla parametrów opcjonalnych `LastUpdatedAfter` i `LastUpdatedBefore` . Ale jeśli kwerenda dotyczy danych przez ostatni rok, na przykład nie zostanie wyświetlony błąd, ale tylko dane uruchomienia potoku z ostatnich 45 dni.
 
-Jeśli chcesz utrwalać dane przebiegu potoku przez ponad 45 dni, skonfiguruj własne rejestrowanie diagnostyczne przy użyciu [Azure monitor](monitor-using-azure-monitor.md).
+Jeśli chcesz zachować dane przebiegu potoku przez ponad 45 dni, skonfiguruj własne rejestrowanie diagnostyczne przy użyciu [Azure monitor](monitor-using-azure-monitor.md).
+
+## <a name="pipeline-run-information"></a>Informacje o uruchamianiu potoku
+
+Aby uzyskać właściwości przebiegu potoku, zapoznaj się z dokumentacją [interfejsu API PipelineRun](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). Uruchomienie potoku ma inny stan w trakcie jego cyklu życia. poniżej przedstawiono możliwe wartości stanu uruchomienia:
+
+* W kolejce
+* Toku
+* Powodzenie
+* Niepowodzenie
+* Anulowanie
+* Anulowane
 
 ## <a name="net"></a>.NET
-Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu zestawu .NET SDK można znaleźć w temacie [Tworzenie fabryki danych i potoku przy użyciu platformy .NET](quickstart-create-data-factory-dot-net.md).
+Aby uzyskać kompletny przewodnik tworzenia i monitorowania potoku przy użyciu zestawu .NET SDK, zobacz [Tworzenie fabryki danych i potoku przy użyciu platformy .NET](quickstart-create-data-factory-dot-net.md).
 
 1. Dodaj następujący kod, aby stale sprawdzać stan uruchomienia potoku do momentu zakończenia kopiowania danych.
 
@@ -45,7 +52,7 @@ Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu zestawu .NET SDK
     {
         pipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, runResponse.RunId);
         Console.WriteLine("Status: " + pipelineRun.Status);
-        if (pipelineRun.Status == "InProgress")
+        if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
             System.Threading.Thread.Sleep(15000);
         else
             break;
@@ -71,7 +78,7 @@ Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu zestawu .NET SDK
 Aby uzyskać pełną dokumentację dotyczącą zestawu SDK platformy .NET, zobacz temat [informacje dotyczące Data Factory .NET SDK](/dotnet/api/microsoft.azure.management.datafactory).
 
 ## <a name="python"></a>Python
-Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu zestawu SDK języka Python można znaleźć w temacie [Tworzenie fabryki danych i potoku przy użyciu języka Python](quickstart-create-data-factory-python.md).
+Aby uzyskać kompletny przewodnik tworzenia i monitorowania potoku przy użyciu zestawu SDK języka Python, zobacz [Tworzenie fabryki danych i potoku przy użyciu języka Python](quickstart-create-data-factory-python.md).
 
 Aby monitorować uruchomienie potoku, Dodaj następujący kod:
 
@@ -89,7 +96,7 @@ print_activity_run_details(activity_runs_paged[0])
 Aby uzyskać pełną dokumentację dotyczącą zestawu SDK języka Python, zobacz [Data Factory Dokumentacja zestawu SDK języka Python](/python/api/overview/azure/datafactory).
 
 ## <a name="rest-api"></a>Interfejs API REST
-Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu interfejsu API REST można znaleźć w temacie [Tworzenie fabryki danych i potoku przy użyciu interfejsu API REST](quickstart-create-data-factory-rest-api.md).
+Aby uzyskać kompletny przewodnik tworzenia i monitorowania potoku przy użyciu interfejsu API REST, zobacz [Tworzenie fabryki danych i potoku przy użyciu interfejsu API REST](quickstart-create-data-factory-rest-api.md).
  
 1. Uruchom następujący skrypt, aby stale sprawdzać stan uruchomienia potoku do momentu zakończenia kopiowania danych.
 
@@ -99,7 +106,7 @@ Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu interfejsu API R
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {
@@ -119,7 +126,7 @@ Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu interfejsu API R
 Aby uzyskać pełną dokumentację interfejsu API REST, zobacz [Data Factory Dokumentacja interfejsu API REST](/rest/api/datafactory/).
 
 ## <a name="powershell"></a>PowerShell
-Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu programu PowerShell znajduje się w temacie [Tworzenie fabryki danych i potoku przy użyciu programu PowerShell](quickstart-create-data-factory-powershell.md).
+Aby uzyskać pełny Przewodnik po tworzeniu i monitorowaniu potoku przy użyciu programu PowerShell, zobacz [Tworzenie fabryki danych i potoku przy użyciu programu PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Uruchom następujący skrypt, aby stale sprawdzać stan uruchomienia potoku do momentu zakończenia kopiowania danych.
 
@@ -128,12 +135,12 @@ Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu programu PowerSh
         $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
-            if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+            if ( ($run.Status -ne "InProgress") -and ($run.Status -ne "Queued") ) {
+                Write-Output ("Pipeline run finished. The status is: " +  $run.Status)
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output ("Pipeline is running...status: " + $run.Status)
         }
 
         Start-Sleep -Seconds 30

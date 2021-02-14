@@ -55,10 +55,8 @@
       href: disaster-recovery.md
 - name: Dokumentacja
   items:
-    - name: Interfejs API Rozpoznawanie formularzy w wersji 2.1 (wersja zapoznawcza)
-      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync'
-    - name: Interfejs API rozpoznawania formularzy w wersji 2.0
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
+    - name: Interfejs API REST
+      href: 'https://docs.microsoft.com/rest/api/formrecognizer/'
     - name: Zestawy SDK
       items:
         - name: .NET

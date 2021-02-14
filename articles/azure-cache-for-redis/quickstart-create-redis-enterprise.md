@@ -1,20 +1,20 @@
 ---
-title: 'Szybki Start: tworzenie pamięci podręcznej warstwy przedsiębiorstwa'
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć wystąpienie pamięci podręcznej platformy Azure dla warstwy przedsiębiorstwa Redis
+title: 'Szybki Start: tworzenie pamięci podręcznej Redis przedsiębiorstwa'
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć wystąpienie usługi Azure cache for Redis w warstwach przedsiębiorstwa
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/28/2020
-ms.openlocfilehash: 95f6e2cf7803ff0b152f33c08f170725b5a0e94e
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 02/08/2021
+ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795668"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365008"
 ---
-# <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Szybki Start: tworzenie pamięci podręcznej warstwy przedsiębiorstwa (wersja zapoznawcza)
+# <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Szybki Start: tworzenie pamięci podręcznej Redis Enterprise (wersja zapoznawcza)
 
 Usługa Azure cache for Redis "warstwy przedsiębiorstwa zapewniają w pełni zintegrowane i zarządzane [Redis przedsiębiorstwa](https://redislabs.com/redis-enterprise/) na platformie Azure. Są one obecnie dostępne jako wersja zapoznawcza. W tej wersji zapoznawczej są dostępne dwie nowe warstwy:
 * Enterprise, która używa pamięci lotnej (DRAM) na maszynie wirtualnej do przechowywania danych
@@ -22,7 +22,7 @@ Usługa Azure cache for Redis "warstwy przedsiębiorstwa zapewniają w pełni zi
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie masz, Utwórz [konto](https://azure.microsoft.com/). Aby uzyskać więcej informacji, zobacz [wymagania dotyczące warstwy przedsiębiorstwa](cache-overview.md#enterprise-tier-requirements).
+Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie masz, Utwórz [konto](https://azure.microsoft.com/). Aby uzyskać więcej informacji, zobacz [wymagania dotyczące warstwy przedsiębiorstwa](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements).
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 1. Aby utworzyć pamięć podręczną, zaloguj się do Azure Portal przy użyciu linku w zaproszeniu do wersji zapoznawczej i wybierz pozycję **Utwórz zasób**.

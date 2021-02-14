@@ -3,22 +3,22 @@ title: 'ML Studio (klasyczny): wdrażanie i użycie — Azure'
 description: Azure Machine Learning Studio (klasyczny) służy do wdrażania przepływów pracy i modeli uczenia maszynowego jako usług sieci Web. Te usługi sieci Web mogą być następnie używane do wywoływania modeli uczenia maszynowego z aplikacji przez Internet, aby wykonywać przewidywania w czasie rzeczywistym lub w trybie wsadowym.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: dc71dc87ca972c52fabb91a6412eec702eee5460
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 57c5462cd6eccab1d9c42e674e10ea34db3612b7
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307438"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520361"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klasyczne) usługi sieci Web: wdrażanie i użycie
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Azure Machine Learning Studio (klasyczny) służy do wdrażania przepływów pracy i modeli uczenia maszynowego jako usług sieci Web. Te usługi sieci Web mogą być następnie używane do wywoływania modeli uczenia maszynowego z aplikacji przez Internet, aby wykonywać przewidywania w czasie rzeczywistym lub w trybie wsadowym. Ponieważ usługi sieci Web są RESTful, możesz je wywoływać z różnych języków programowania i platform, takich jak .NET i Java, oraz z aplikacji, takich jak program Excel.
 

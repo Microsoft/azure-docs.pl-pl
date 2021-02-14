@@ -1,6 +1,6 @@
 ---
 title: Przeniesienie uwierzytelniania aplikacji z AD FS do Azure Active Directory
-description: Ten artykuł ma pomóc organizacjom zrozumieć, jak przenieść aplikacje do usługi Azure AD, z fokusem na federacyjnych aplikacjach SaaS.
+description: Ten artykuł ma pomóc organizacjom zrozumieć, jak przenosić aplikacje do Azure Active Directory, z fokusem na federacyjnych aplikacjach SaaS.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,25 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 04/01/2020
+ms.date: 02/10/2021
 ms.author: kenwith
 ms.reviewer: baselden
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27ccf5a861295ae83b5ddc021e77de75962de48
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: b8ad137389ac11a41872190122eae6405a126b5b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258392"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381243"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przenoszenie uwierzytelniania aplikacji z usługi Active Directory Federation Services do usługi Azure Active Directory
 
 [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) oferuje uniwersalną platformę do obsługi tożsamości, która umożliwia osobom, partnerom i klientom pojedynczą tożsamość dostęp do aplikacji i współpracę z dowolnego platformy i urządzenia. Usługa Azure AD ma [pełen pakiet funkcji zarządzania tożsamościami](../fundamentals/active-directory-whatis.md). Ujednolicenie uwierzytelniania aplikacji i autoryzacji do usługi Azure AD zapewnia korzyści oferowane przez te funkcje.
 
 > [!TIP]
-> Ten artykuł jest przeznaczony dla użytkowników deweloperów. Menedżerowie projektów i Administratorzy planują przechodzenie aplikacji do usługi Azure AD, należy rozważyć zapoznanie się z naszym [migrowaniem uwierzytelniania aplikacji do usługi Azure AD](https://aka.ms/migrateapps/whitepaper) oficjalny dokument (PDF).
+> Ten artykuł jest przeznaczony dla użytkowników deweloperów. Menedżerowie projektów i Administratorzy planują przechodzenie aplikacji do usługi Azure AD należy rozważyć zapoznanie się z artykułem [Migrowanie uwierzytelniania aplikacji do usługi Azure AD](migrate-application-authentication-to-azure-active-directory.md) .
 
 ## <a name="introduction"></a>Wprowadzenie
 

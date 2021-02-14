@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 3e4211da59193d0c48398d9f2822fd12cc217d8b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979230"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390576"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage
 
@@ -159,7 +159,7 @@ Zobacz [dzienniki źródła zmian procesów na platformie Azure Blob Storage](st
 
 Kanał informacyjny zmiany jest dziennikiem zmian zorganizowanych na *segmenty* **godzinowe** , ale dołączane i aktualizowane co kilka minut. Te segmenty są tworzone tylko wtedy, gdy istnieją zdarzenia zmiany obiektów blob, które wystąpiły w danej godzinie. Dzięki temu aplikacja kliencka może zużywać zmiany, które wystąpiły w określonych zakresach czasu bez konieczności przeszukiwania całego dziennika. Aby dowiedzieć się więcej, zobacz [specyfikacje](#specifications).
 
-Dostępny segment godzinowy kanału informacyjnego zmiany jest opisany w pliku manifestu, który określa ścieżki do plików kanału informacyjnego zmiany dla tego segmentu. Na liście `$blobchangefeed/idx/segments/` katalogu wirtualnego są wyświetlane te segmenty uporządkowane według czasu. Ścieżka segmentu opisuje początek okresu godzinowego, który reprezentuje segment. Za pomocą tej listy można odfiltrować segmenty dzienników, które są dla Ciebie ważne.
+Dostępny segment godzinowy kanału informacyjnego zmiany jest opisany w pliku manifestu, który określa ścieżki do plików kanału informacyjnego zmiany dla tego segmentu. Na liście `$blobchangefeed/idx/segments/` katalogu wirtualnego są wyświetlane te segmenty uporządkowane według czasu. Ścieżka segmentu opisuje początek okresu godzinowego, który reprezentuje segment. Za pomocą tej listy można odfiltrować segmenty dzienników, które są interesujące dla użytkownika.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    

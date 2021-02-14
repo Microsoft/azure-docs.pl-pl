@@ -5,12 +5,12 @@ description: Dowiedz się, jak zaktualizować lub zresetować poświadczenia naz
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427517"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389012"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aktualizowanie lub obracanie poświadczeń usługi Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Możesz również [zintegrować klaster AKS z Azure Active Directory][aad-integr
 
 Alternatywnie można użyć tożsamości zarządzanej w celu uzyskania uprawnień zamiast nazwy głównej usługi. Zarządzane tożsamości są łatwiejsze do zarządzania niż nazwy główne usługi i nie wymagają aktualizacji ani rotacji. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -47,6 +47,9 @@ az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 ### <a name="reset-the-existing-service-principal-credential"></a>Zresetuj istniejące poświadczenia jednostki usługi
 
 Aby zaktualizować poświadczenia dla istniejącej nazwy głównej usługi, Pobierz identyfikator jednostki usługi klastra za pomocą polecenia [AZ AKS show][az-aks-show] . Poniższy przykład pobiera identyfikator klastra o nazwie *myAKSCluster* w *grupie zasobów zasobu* . Identyfikator jednostki usługi jest ustawiany jako zmienna o nazwie *SP_ID* do użycia w dodatkowym poleceniu. Te polecenia używają składni bash.
+
+> [!WARNING]
+> Po zresetowaniu poświadczeń klastra w klastrze AKS, który korzysta z usługi Azure Virtual Machine Scale Sets, [uaktualnienie obrazu węzła][node-image-upgrade] zostanie wykonane w celu zaktualizowania węzłów przy użyciu nowych informacji o poświadczeniach.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -82,7 +85,7 @@ Dane wyjściowe będą podobne do poniższego przykładu. Zanotuj własne warto�
 }
 ```
 
-Teraz Zdefiniuj zmienne dla identyfikatora jednostki usługi i wpisu tajnego klienta przy użyciu danych wyjściowych polecenia [AZ AD Sp Create-for-RBAC][az-ad-sp-create] , jak pokazano w poniższym przykładzie. *SP_ID* jest *identyfikatorem aplikacji* , a *SP_SECRET* to *hasło* :
+Teraz Zdefiniuj zmienne dla identyfikatora jednostki usługi i wpisu tajnego klienta przy użyciu danych wyjściowych polecenia [AZ AD Sp Create-for-RBAC][az-ad-sp-create] , jak pokazano w poniższym przykładzie. *SP_ID* jest *identyfikatorem aplikacji*, a *SP_SECRET* to *hasło*:
 
 ```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -138,3 +141,4 @@ W tym artykule opisano nazwę główną usługi dla klastra AKS oraz aplikacje i
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[node-image-upgrade]: ./node-image-upgrade.md

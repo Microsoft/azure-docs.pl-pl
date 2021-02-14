@@ -3,18 +3,17 @@ title: Śledzenie eksperymentu i wdrażanie modeli
 titleSuffix: Azure Data Science Virtual Machine
 description: Dowiedz się, jak śledzić i rejestrować eksperymenty z Data Science Virtual Machine za pomocą Azure Machine Learning i/lub MLFlow.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704544"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518542"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Śledź eksperymenty i wdrażaj modele w Azure Machine Learning
 
@@ -30,7 +29,7 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 
 ## <a name="create-a-new-notebook"></a>Tworzenie nowego notesu
 
-Azure Machine Learning i MLFlow SDK są preinstalowane na Data Science VM i można uzyskać do nich dostęp w środowisku **azureml_py36_ \** _ Conda. W JupyterLab, kliknij przycisk Uruchom i wybierz następujące jądro:
+Azure Machine Learning i MLFlow SDK są preinstalowane na Data Science VM i można uzyskać do nich dostęp w środowisku **azureml_py36_ \*** Conda. W JupyterLab, kliknij przycisk Uruchom i wybierz następujące jądro:
 
 ![wybór jądra](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +136,7 @@ W menu po lewej stronie w programie [Azure Studio](https://ml.azure.com) kliknij
 
 W okienku __nowe informacje o klastrze wnioskowania__ o:
 
-_ Nazwa obliczenia
+* Nazwa obliczeniowa
 * Usługa Kubernetes — wybierz pozycję Utwórz nowe
 * Wybierz region
 * Wybierz rozmiar maszyny wirtualnej (na potrzeby tego samouczka wartość domyślna Standard_D3_v2 jest wystarczająca)

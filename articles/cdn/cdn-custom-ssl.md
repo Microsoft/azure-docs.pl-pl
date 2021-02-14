@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c4ad270b989e0e212c1d362ae4bfafc91fe07f3e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 61ba50f8ec9e1de18238160b23096670753cffd6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943580"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367507"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN
 
@@ -158,7 +158,9 @@ Udziel usłudze Azure CDN uprawnień dostępu do certyfikatów (wpisów tajnych)
 
 5. Wybierz pozycję **Dodaj**. 
 
-    Usługa Azure CDN ma teraz dostęp do tego magazynu kluczy i certyfikatów (kluczy tajnych), które są przechowywane w tym magazynie kluczy.
+> [!NOTE]
+> Usługa Azure CDN ma teraz dostęp do tego magazynu kluczy i certyfikatów (kluczy tajnych), które są przechowywane w tym magazynie kluczy. Każde wystąpienie usługi CDN utworzone w tej subskrypcji będzie miało dostęp do certyfikatów w tym magazynie kluczy. 
+
  
 ### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>Wybieranie certyfikatu do wdrożenia dla usługi Azure CDN
  

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226560"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388621"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -140,7 +140,7 @@ Odp **.:** uczenie modelu z danymi audio może być długotrwałym procesem. W z
 
 W celu uzyskania szybszych wyników użyj jednego z [regionów](custom-speech-overview.md#set-up-your-azure-account) , w których dedykowany sprzęt jest dostępny do uczenia się. Ogólnie rzecz biorąc, usługa przetwarza około 10 godzin danych audio dziennie w regionach z takim sprzętem. Może przetwarzać około 1 godziny danych audio dziennie w innych regionach. Możesz skopiować w pełni przeszkolony model do innego regionu przy użyciu [interfejsu API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Szkolenie z zaledwie tekstem jest znacznie szybsze i zwykle kończy się w ciągu kilku minut.
 
-Niektóre modele podstawowe nie mogą być dostosowane do danych audio. W przypadku usługi będą po prostu używać tekstu transkrypcji do uczenia i ignorować dane audio. Szkolenie zostanie wykonane znacznie szybciej, a wyniki będą takie same jak w przypadku szkoleń w postaci zwykłego tekstu.
+Niektóre modele podstawowe nie mogą być dostosowane do danych audio. W przypadku usługi będą po prostu używać tekstu transkrypcji do uczenia i ignorować dane audio. Szkolenie zostanie wykonane znacznie szybciej, a wyniki będą takie same jak w przypadku szkoleń w postaci zwykłego tekstu. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio.
 
 ## <a name="accuracy-testing"></a>Testowanie dokładności
 

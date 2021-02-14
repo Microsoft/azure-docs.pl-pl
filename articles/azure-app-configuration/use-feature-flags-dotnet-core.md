@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: bf0df4cc6e686b553baf8c2439c807d2f07ef440
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 701fe4ffc6147086dde740bfdb2dc7db92508e28
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807482"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380240"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Samouczek: używanie flag funkcji w aplikacji ASP.NET Core
 
@@ -218,7 +218,7 @@ Zgodnie z Konwencją, `FeatureManagement` sekcja tego dokumentu JSON jest używa
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Użyj iniekcji zależności, aby uzyskać dostęp do IFeatureManager 
 
-W przypadku niektórych operacji, takich jak ręczne sprawdzanie wartości flag funkcji, należy uzyskać wystąpienie [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanage). W ASP.NET Core MVC można uzyskać dostęp do Menedżera funkcji `IFeatureManager` za pomocą iniekcji zależności. W poniższym przykładzie argument typu `IFeatureManager` jest dodawany do podpisu konstruktora dla kontrolera. Środowisko uruchomieniowe automatycznie rozpoznaje odwołanie i udostępnia interfejs podczas wywoływania konstruktora. Jeśli używasz szablonu aplikacji, w którym kontroler ma już jeden lub więcej argumentów iniekcji zależności w konstruktorze, takich jak, możesz `ILogger` po prostu dodać `IFeatureManager` jako dodatkowy argument:
+W przypadku niektórych operacji, takich jak ręczne sprawdzanie wartości flag funkcji, należy uzyskać wystąpienie [IFeatureManager](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). W ASP.NET Core MVC można uzyskać dostęp do Menedżera funkcji `IFeatureManager` za pomocą iniekcji zależności. W poniższym przykładzie argument typu `IFeatureManager` jest dodawany do podpisu konstruktora dla kontrolera. Środowisko uruchomieniowe automatycznie rozpoznaje odwołanie i udostępnia interfejs podczas wywoływania konstruktora. Jeśli używasz szablonu aplikacji, w którym kontroler ma już jeden lub więcej argumentów iniekcji zależności w konstruktorze, takich jak, możesz `ILogger` po prostu dodać `IFeatureManager` jako dodatkowy argument:
 
 ### <a name="net-5x"></a>[.NET 5. x](#tab/core5x)
     

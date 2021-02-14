@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/10/2021
 ms.author: tisande
-ms.openlocfilehash: 58ee3bcd0ba14359ea9adaa131b8280b81008b57
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 26465eb9826c60daad7b44e1c2fe6ae3c19b1ed0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526776"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378812"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -290,7 +290,7 @@ WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true)
 ORDER BY c.firstName, c.lastName
 ```
 
-Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w celu optymalizacji zapytania z `ORDER BY` klauzulą Filter i:
+Podczas tworzenia indeksów złożonych w celu optymalizacji zapytania z klauzulą Filter i należy stosować następujące zagadnienia `ORDER BY` :
 
 * Jeśli nie zdefiniujesz indeksu złożonego w zapytaniu z filtrem dla jednej właściwości i oddzielną `ORDER BY` klauzulą używającą innej właściwości, zapytanie będzie nadal kończyć się powodzeniem. Koszt RU zapytania można jednak zmniejszyć przy użyciu indeksu złożonego, szczególnie jeśli właściwość w `ORDER BY` klauzuli ma wysoką Kardynalność.
 * Jeśli zapytanie filtruje właściwości, należy je najpierw uwzględnić w `ORDER BY` klauzuli.
@@ -308,6 +308,26 @@ Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w cel
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
+### <a name="queries-with-a-filter-and-an-aggregate"></a>Zapytania z filtrem i agregacją 
+
+Jeśli zapytanie filtruje dla jednej lub wielu właściwości i ma zagregowaną funkcję systemową, warto utworzyć indeks złożony dla właściwości w funkcji filtrowania i agregacji systemu. Ta optymalizacja ma zastosowanie do funkcji [Suma](sql-query-aggregate-sum.md) i [średnia](sql-query-aggregate-avg.md) .
+
+Poniższe uwagi dotyczą tworzenia indeksów złożonych w celu zoptymalizowania zapytania za pomocą funkcji filtrowania i agregacji systemu.
+
+* Indeksy złożone są opcjonalne podczas wykonywania zapytań z agregacjami. Koszt RU zapytania można jednak często znacznie zmniejszyć przy użyciu indeksu złożonego.
+* Jeśli zapytanie jest filtrowane dla wielu właściwości, filtry równości muszą być pierwszymi właściwościami w indeksie złożonym.
+* Można mieć maksymalnie jeden filtr zakresu dla indeksu złożonego i musi on znajdować się we właściwości w funkcji agregującej system.
+* Właściwość w agregowanej funkcji systemowej powinna być zdefiniowana jako Ostatnia w indeksie złożonym.
+* `order`( `ASC` Lub) nie `DESC` ma znaczenia.
+
+| **Indeks złożony**                      | **Przykładowe zapytanie**                                  | **Obsługiwane przez indeks złożony?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `No` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name > "John"``` | `No` |
+| ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
+| ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
 
 ## <a name="index-transformationmodifying-the-indexing-policy"></a><>modyfikowania zasad indeksowania
 

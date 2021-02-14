@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych ze źródła HTTP przy użyciu Azure Data Factory
 description: Informacje o kopiowaniu danych z chmury lub lokalnego źródła HTTP do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 730efb552ef218cc5a5ce6a984d20b4e23b364ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0462dac12d41fff667212902152b420d1460186d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416943"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383640"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z punktu końcowego HTTP przy użyciu Azure Data Factory
 
@@ -46,7 +41,7 @@ Możesz skopiować dane ze źródła HTTP do dowolnego obsługiwanego magazynu d
 Tego łącznika protokołu HTTP można użyć do:
 
 - Pobieranie danych z punktu końcowego HTTP/S przy użyciu metod **Get** lub **post** protokołu HTTP.
-- Pobierz dane przy użyciu jednego z następujących uwierzytelnień: **anonimowe**, **podstawowe**, **szyfrowane**, **Windows**lub **ClientCertificate**.
+- Pobierz dane przy użyciu jednego z następujących uwierzytelnień: **anonimowe**, **podstawowe**, **szyfrowane**, **Windows** lub **ClientCertificate**.
 - Należy skopiować odpowiedź HTTP jako-is lub przeanalizować ją przy użyciu [obsługiwanych formatów plików i koderów](supported-file-formats-and-compression-codecs.md).
 
 > [!TIP]
@@ -71,12 +66,12 @@ Dla połączonej usługi HTTP są obsługiwane następujące właściwości:
 | typ | Właściwość **Type** musi być ustawiona na wartość **HttpServer**. | Tak |
 | url | Podstawowy adres URL serwera sieci Web. | Tak |
 | enableServerCertificateValidation | Określ, czy włączyć weryfikację certyfikatu protokołu TLS/SSL serwera podczas łączenia się z punktem końcowym HTTP. Jeśli serwer HTTPS używa certyfikatu z podpisem własnym, ustaw dla tej właściwości **wartość false**. | Nie<br /> (wartość domyślna to **true**) |
-| authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to **anonimowe**, **podstawowe**, **szyfrowane**, **Windows**i **ClientCertificate**. <br><br> Zapoznaj się z sekcjami w poniższej tabeli, aby uzyskać więcej właściwości i przykładów JSON dla tych typów uwierzytelniania. | Tak |
+| authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to **anonimowe**, **podstawowe**, **szyfrowane**, **Windows** i **ClientCertificate**. <br><br> Zapoznaj się z sekcjami w poniższej tabeli, aby uzyskać więcej właściwości i przykładów JSON dla tych typów uwierzytelniania. | Tak |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Korzystanie z uwierzytelniania podstawowego, szyfrowanego lub systemu Windows
 
-Ustaw właściwość **AuthenticationType** na wartość **Basic**, **Digest**lub **Windows**. Oprócz ogólnych właściwości, które są opisane w poprzedniej sekcji, określ następujące właściwości:
+Ustaw właściwość **AuthenticationType** na wartość **Basic**, **Digest** lub **Windows**. Oprócz ogólnych właściwości, które są opisane w poprzedniej sekcji, określ następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
@@ -290,8 +285,8 @@ Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (w
 | requestMethod | Metoda HTTP. Dozwolone wartości to **Get** (default) i **post**. | Nie |
 | additionalHeaders | Dodatkowe nagłówki żądań HTTP. | Nie |
 | Elemencie requestbody | Treść żądania HTTP. | Nie |
-| format | Jeśli chcesz pobrać dane z punktu końcowego HTTP jako-is bez analizy, a następnie skopiować dane do magazynu opartego na plikach, Pomiń sekcję **Format** w definicjach zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz przeanalizować zawartość odpowiedzi HTTP podczas kopiowania, obsługiwane są następujące typy formatu plików: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**i **ParquetFormat**. W obszarze **Format**ustaw właściwość **Type** na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format tekstu](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)i [Format Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Nie |
-| kompresja | Określ typ i poziom kompresji danych. Aby uzyskać więcej informacji, zobacz [obsługiwane formaty plików i kodery-dekoder kompresji](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/><br/>Obsługiwane typy: **gzip**, **Wklęśnięcie**, **BZip2**i **ZipDeflate**.<br/>Obsługiwane poziomy:  **optymalne** i **najszybszy**. |Nie |
+| format | Jeśli chcesz pobrać dane z punktu końcowego HTTP jako-is bez analizy, a następnie skopiować dane do magazynu opartego na plikach, Pomiń sekcję **Format** w definicjach zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz przeanalizować zawartość odpowiedzi HTTP podczas kopiowania, obsługiwane są następujące typy formatu plików: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat** i **ParquetFormat**. W obszarze **Format** ustaw właściwość **Type** na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format tekstu](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)i [Format Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Nie |
+| kompresja | Określ typ i poziom kompresji danych. Aby uzyskać więcej informacji, zobacz [obsługiwane formaty plików i kodery-dekoder kompresji](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/><br/>Obsługiwane typy: **gzip**, **Wklęśnięcie**, **BZip2** i **ZipDeflate**.<br/>Obsługiwane poziomy:  **optymalne** i **najszybszy**. |Nie |
 
 > [!NOTE]
 > Obsługiwany rozmiar ładunku żądania HTTP to około 500 KB. Jeśli rozmiar ładunku, który ma zostać przekazany do punktu końcowego sieci Web, jest większy niż 500 KB, należy rozważyć przetwarzanie wsadowe w mniejszych fragmentach.

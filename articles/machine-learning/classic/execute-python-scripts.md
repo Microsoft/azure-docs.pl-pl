@@ -3,22 +3,22 @@ title: 'ML Studio (klasyczny): wykonywanie skryptów języka Python — Azure'
 description: Dowiedz się, jak używać modułu skryptu języka Python do używania kodu Python w Machine Learning Studio (klasyczne) eksperymenty i usługi sieci Web.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 822bb43aaeb3cc1cf5914bb1600ef754441c4206
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 374589212b230e6b3ce0abcadbad8aa3eb7271fc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310199"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519987"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Wykonywanie skryptów w języku Python Machine Learning w Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Język Python jest cennym narzędziem w obszarze klatki narzędzia wielu analityków danych. Jest on używany w każdym etapie typowych przepływów pracy uczenia maszynowego, takich jak Eksploracja danych, wyodrębnianie funkcji, szkolenia modeli i sprawdzanie poprawności oraz wdrażanie.

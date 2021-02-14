@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001239"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381498"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure queue storage dla Azure Functions
 
@@ -357,13 +357,15 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**wskazywa**| n/d | W *function.jstylko na* pliku. Musi być ustawiony na `in` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
 |**Nazwij** | n/d |Nazwa zmiennej, która zawiera ładunek elementu kolejki w kodzie funkcji.  |
 |**Zmienną QueueName** | **Zmienną QueueName**| Nazwa kolejki do sondowania. |
-|**połączenia** | **Połączenie** |Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "WebStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .|
+|**połączenia** | **Połączenie** |Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy.<br><br>Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "WebStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .<br><br>Jeśli używasz [wersji 5. x lub nowszej rozszerzenia](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)zamiast parametrów połączenia, możesz podać odwołanie do sekcji konfiguracji, która definiuje połączenie. Zobacz [połączenia](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Użycie
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Domyślne
 
 Uzyskaj dostęp do danych komunikatów przy użyciu parametru metody, takiego jak `string paramName` . Można powiązać z dowolnym z następujących typów:
 
@@ -374,7 +376,17 @@ Uzyskaj dostęp do danych komunikatów przy użyciu parametru metody, takiego ja
 
 Jeśli próbujesz powiązać z `CloudQueueMessage` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+### <a name="additional-types"></a>Dodatkowe typy
+
+Aplikacje korzystające z [5.0.0 lub nowszej wersji rozszerzenia magazynu](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) mogą również używać typów z [zestawu Azure SDK dla platformy .NET](/dotnet/api/overview/azure/storage.queues-readme). Ta wersja porzuca obsługę starszego `CloudQueueMessage` typu na korzyść następujących typów:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+ 
+Przykłady korzystania z tych typów znajdują się w [repozytorium GitHub dla rozszerzenia](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
+
+### <a name="default"></a>Domyślne
 
 Uzyskaj dostęp do danych komunikatów przy użyciu parametru metody, takiego jak `string paramName` . `paramName`Jest wartością określoną we `name` właściwości *function.jsna*. Można powiązać z dowolnym z następujących typów:
 
@@ -384,6 +396,14 @@ Uzyskaj dostęp do danych komunikatów przy użyciu parametru metody, takiego ja
 * [CloudQueueMessage]
 
 Jeśli próbujesz powiązać z `CloudQueueMessage` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+
+### <a name="additional-types"></a>Dodatkowe typy
+
+Aplikacje korzystające z [5.0.0 lub nowszej wersji rozszerzenia magazynu](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) mogą również używać typów z [zestawu Azure SDK dla platformy .NET](/dotnet/api/overview/azure/storage.queues-readme). Ta wersja porzuca obsługę starszego `CloudQueueMessage` typu na korzyść następujących typów:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+
+Przykłady korzystania z tych typów znajdują się w [repozytorium GitHub dla rozszerzenia](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -448,7 +468,7 @@ Wyzwalacz kolejki automatycznie zapobiega przetwarzaniu komunikatu kolejki wielo
 
 ## <a name="hostjson-properties"></a>host.jswłaściwości
 
-[host.jsw](functions-host-json.md#queues) pliku zawiera ustawienia sterujące zachowaniem wyzwalacza kolejki. Aby uzyskać szczegółowe informacje na temat dostępnych ustawień, zobacz sekcję [host.jsw ustawieniach](functions-bindings-storage-queue-output.md#hostjson-settings) .
+[host.jsw](functions-host-json.md#queues) pliku zawiera ustawienia sterujące zachowaniem wyzwalacza kolejki. Aby uzyskać szczegółowe informacje na temat dostępnych ustawień, zobacz sekcję [host.jsw ustawieniach](functions-bindings-storage-queue.md#hostjson-settings) .
 
 ## <a name="next-steps"></a>Następne kroki
 

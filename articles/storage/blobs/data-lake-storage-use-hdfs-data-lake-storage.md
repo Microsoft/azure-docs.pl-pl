@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f1f2ea8bd51b7eeda9afdd6a94d5de1d58acef57
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912403"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520650"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia systemu plików HDFS z Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Usługa HDInsight zapewnia dostęp do kontenera rozproszonego, który jest lokal
 Aby uzyskać więcej informacji na temat interfejsu systemu plików HDFS, zobacz [oficjalną dokumentację](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) i [Podręcznik uprawnień systemu HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
->Jeśli używasz Azure Databricks zamiast usługi HDInsight, a chcesz korzystać z danych przy użyciu interfejsu wiersza polecenia, możesz użyć obiektu CLI, aby móc korzystać z systemu plików datakostki. Zobacz [interfejs wiersza polecenia datakosteks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+>Jeśli używasz Azure Databricks zamiast usługi HDInsight, a chcesz korzystać z danych przy użyciu interfejsu wiersza polecenia, możesz użyć obiektu CLI, aby móc korzystać z systemu plików datakostki. Zobacz [interfejs wiersza polecenia datakosteks](/azure/databricks/dev-tools/cli/).
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Korzystanie z interfejsu wiersza polecenia systemu plików HDFS z klastrem Hadoop usługi HDInsight w systemie Linux
 

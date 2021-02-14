@@ -3,25 +3,25 @@ title: Monitoruj kondycję aplikacji IoT Central platformy Azure | Microsoft Doc
 description: Jako operator lub administrator Monitoruj ogólną kondycję urządzeń podłączonych do aplikacji IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12485e07bc3cad9d420141ecc6ee66763ac010b7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1c16da10a8a7853b1392383855aba0ff24424f33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760760"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515873"
 ---
-# <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Monitorowanie ogólnej kondycji urządzeń podłączonych do aplikacji IoT Central
+# <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Monitorowanie ogólnej kondycji aplikacji IoT Central
 
 > [!NOTE]
 > Metryki są dostępne tylko dla aplikacji IoT Central w wersji 3. Aby dowiedzieć się, jak sprawdzić wersję aplikacji, zobacz [Informacje o aplikacji](./howto-get-app-info.md).
 
 *Ten artykuł ma zastosowanie do operatorów i administratorów.*
 
-W tym artykule dowiesz się, jak używać zestawu metryk dostarczonych przez IoT Central do oceny ogólnej kondycji urządzeń podłączonych do aplikacji IoT Central.
+W tym artykule dowiesz się, jak używać zestawu metryk dostarczanych przez IoT Central do oceny kondycji urządzeń podłączonych do aplikacji IoT Central i kondycji wykonywanych eksportów danych.
 
 Metryki są domyślnie włączone dla aplikacji IoT Central i uzyskują do nich dostęp z [Azure Portal](https://portal.azure.com/). [Platforma danych Azure monitor udostępnia te metryki](../../azure-monitor/platform/data-platform-metrics.md) i oferuje kilka sposobów na korzystanie z nich. Na przykład można użyć wykresów w Azure Portal, interfejsie API REST lub kwerendach w programie PowerShell lub interfejsie wiersza polecenia platformy Azure.
 
@@ -31,7 +31,7 @@ Aplikacje korzystające z planu bezpłatnej wersji próbnej nie mają skojarzone
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Wyświetl metryki w Azure Portal
 
-W poniższych krokach założono, że masz [aplikację IoT Central](./quick-deploy-iot-central.md) z niektórymi [połączonymi urządzeniami](./tutorial-connect-device.md).
+W poniższych krokach przyjęto założenie, że masz [aplikację IoT Central](./quick-deploy-iot-central.md) z niektórymi [połączonymi urządzeniami](./tutorial-connect-device.md) lub z uruchomionym [eksportem danych](howto-export-data.md).
 
 Aby wyświetlić metryki IoT Central w portalu:
 

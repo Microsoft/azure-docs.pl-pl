@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 7006096154d8958e13e7a86783bd07067b95d293
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 38bf8b3c1c39322aea27f5f4d427c31010837bfb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872896"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391024"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux Przenieś własne obrazy z subskrypcji na platformę Azure
 
@@ -30,9 +30,6 @@ Obrazy Red Hat Enterprise Linux (RHEL) są dostępne na platformie Azure za poś
 - Maszyny wirtualne obsługiwane z obrazów Red Hat Gold nie mają opłat RHEL związanych z obrazami z opcją płatność zgodnie z rzeczywistym użyciem.
 - Obrazy są nieuprawnione. Aby rejestrować i subskrybować maszyny wirtualne w celu uzyskania aktualizacji z firmy Red Hat, należy użyć narzędzia Red Hat Subscription-Manager.
 - Można przełączać się z obrazów z opcją płatność zgodnie z rzeczywistym użyciem, aby BYOS przy użyciu [korzyść użycia hybrydowego platformy Azure](../../linux/azure-hybrid-benefit-linux.md). Nie jest jednak możliwe przełączenie się ze wstępnie wdrożonych BYOS na modele rozliczania z płatnością zgodnie z rzeczywistym użyciem dla obrazów systemu Linux. Aby zmienić model rozliczeń z BYOS na płatność zgodnie z rzeczywistym użyciem, należy ponownie wdrożyć maszynę wirtualną z odpowiedniego obrazu.
-
->[!NOTE]
-> Obrazy generacji 2 RHEL BYOS nie są obecnie dostępne w ramach oferty portalu Marketplace. Jeśli potrzebujesz obrazu generacji 2 RHEL BYOS, odwiedź pulpit nawigacyjny dostępu do chmury w usłudze Red Hat Subscription Management. Aby uzyskać więcej informacji, zobacz [dokumentację Red Hat](https://access.redhat.com/articles/4847681).
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Wymagania i warunki dostępu do obrazów Red Hat Gold
 

@@ -1,19 +1,17 @@
 ---
 title: Strategie dostępu do danych
 description: Azure Data Factory teraz obsługuje zakresy statycznych adresów IP.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 785381e0a42f2b502e4ea7054753d5f3fb67f385
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: edc773ec2db078b6c50b55c81ad6570758a3f5f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632774"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389250"
 ---
 # <a name="data-access-strategies"></a>Strategie dostępu do danych
 
@@ -38,7 +36,7 @@ Ta czynność powinna działać w wielu scenariuszach. wiemy, że unikatowy stat
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Strategie dostępu do danych za poorednictwem Azure Data Factory
 
 * **[Link prywatny](../private-link/private-link-overview.md)** — można utworzyć Azure Integration Runtime w ramach Azure Data Factory zarządzanym Virtual Network i wykorzystać prywatne punkty końcowe do bezpiecznego łączenia się z obsługiwanymi magazynami danych. Ruch między zarządzanymi Virtual Networkami i źródłami danych porusza się w sieci szkieletowej firmy Microsoft i nie jest narażony na sieć publiczną.
-* **[Usługa zaufana](../storage/common/storage-network-security.md#exceptions)** — Magazyn Azure (Blob, ADLS Gen2) obsługuje konfigurację zapory, która umożliwia bezpieczne wybieranie zaufanych usług platformy Azure w celu bezpiecznego uzyskiwania dostępu do konta magazynu. Usługi zaufane wymuszają uwierzytelnianie tożsamości zarządzanej, co gwarantuje, że żadna inna Fabryka danych nie może nawiązać połączenia z tym magazynem, chyba że zostanie zatwierdzone do tego celu przy użyciu tożsamości zarządzanej. Więcej szczegółów można znaleźć w **[tym blogu](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . W związku z tym jest to niezwykle bezpieczne i zalecane. 
+* **[Usługa zaufana](../storage/common/storage-network-security.md#exceptions)** — Magazyn Azure (Blob, ADLS Gen2) obsługuje konfigurację zapory, która umożliwia bezpieczne wybieranie zaufanych usług platformy Azure w celu bezpiecznego uzyskiwania dostępu do konta magazynu. Usługi zaufane wymuszają uwierzytelnianie tożsamości zarządzanej, co gwarantuje, że żadna inna Fabryka danych nie może nawiązać połączenia z tym magazynem, chyba że zostanie zatwierdzone do tego celu przy użyciu tożsamości zarządzanej. Więcej szczegółów można znaleźć w **[tym blogu](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. W związku z tym jest to niezwykle bezpieczne i zalecane. 
 * **Unikatowy statyczny adres IP** — należy skonfigurować własne środowisko Integration Runtime, aby uzyskać statyczny adres IP dla łączników Data Factory. Dzięki temu mechanizmowi można zablokować dostęp ze wszystkich innych adresów IP. 
 * **[Statyczny zakres adresów IP](./azure-integration-runtime-ip-addresses.md)** — można użyć adresów IP Azure Integration Runtime, aby zezwolić na wyświetlanie listy w magazynie (wypowiedz S3, Salesforce itp.). Na pewno ogranicza adresy IP, które mogą łączyć się z magazynami danych, ale również opierają się na regułach uwierzytelniania/autoryzacji.
 * **[Tag usługi](../virtual-network/service-tags-overview.md)** — tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure (np. Azure Data Factory). Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Jest to przydatne podczas filtrowania dostępu do danych w hostowanych magazynach danych IaaS w Virtual Network.
@@ -56,7 +54,7 @@ Aby uzyskać więcej informacji na temat obsługiwanych mechanizmów zabezpiecze
     |                              | Azure File Storage                                  | Tak              | -                   | Tak             | -            | .                    |
     |                              | Azure Storage (BLOB, ADLS Gen2)                     | Tak              | Tak (tylko uwierzytelnianie MSI) | Tak             | -            | .                    |
     |                              | Azure SQL DB, Azure Synapse Analytics), SQL ml  | Tak (tylko usługa Azure SQL DB/DW)        | -                   | Tak             | -            | Tak                  |
-    |                              | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | yes      | Tak                 | Tak             | -            | -                    |
+    |                              | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | tak      | Tak                 | Tak             | -            | -                    |
     | Inne magazyny danych PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage itd.    | -                | -                   | Tak             | -            | -                    |
     | Azure laaS                   | SQL Server, Oracle itd.                          | -                | -                   | Tak             | Tak          | -                    |
     | Lokalna laaS              | SQL Server, Oracle itd.                          | -                | -                   | Tak             | -            | -                    |

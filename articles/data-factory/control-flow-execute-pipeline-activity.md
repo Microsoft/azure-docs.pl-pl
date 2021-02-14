@@ -1,22 +1,18 @@
 ---
 title: Działanie wykonywania potoku w Azure Data Factory
 description: Dowiedz się, jak za pomocą działania Execute Pipeline wywołać jeden Data Factory potoku z innego potoku Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7df636bbdc85b9fcdcbfef260daca905f9949d8c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9bcf8fd62e3b20701136d7912074afb37d567e2f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500053"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383351"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Działanie wykonywania potoku w Azure Data Factory
 
@@ -70,7 +66,7 @@ name | Nazwa działania wykonywania potoku. | Ciąg | Tak
 typ | Musi być ustawiona na: **ExecutePipeline**. | Ciąg | Tak
 proces | Odwołanie do potoku do potoku zależnego, który wywołuje ten potok. Obiekt odwołania potoku ma dwie właściwości: **ReferenceName** i **Type**. Właściwość ReferenceName określa nazwę potoku odwołania. Właściwość Type musi być ustawiona na wartość PipelineReference. | PipelineReference | Tak
 parameters | Parametry, które mają zostać przesłane do wywoływanego potoku | Obiekt JSON, który mapuje nazwy parametrów na wartości argumentów | Nie
-waitOnCompletion | Określa, czy wykonanie działania czeka na zakończenie zależnego wykonania potoku. Wartość domyślna to false. | Boolean (wartość logiczna) | Nie
+waitOnCompletion | Określa, czy wykonanie działania czeka na zakończenie zależnego wykonania potoku. Wartość domyślna to false. | Wartość logiczna | Nie
 
 ## <a name="sample"></a>Przykład
 Ten scenariusz ma dwa potoki:

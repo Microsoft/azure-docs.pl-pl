@@ -4,19 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Dostępne platformy i narzędzia uczenia głębokiego na platformie Azure Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309032"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519494"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Głębokie uczenie i platformy AI dla Data Science VM platformy Azure
 Poniżej wymieniono platformy uczenia głębokiego na DSVM.
@@ -146,5 +145,5 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | ------------- | ------------- |
 | Obsługiwane wersje | 1.0.3 |
 | Obsługiwane wersje DSVM      | Ubuntu 16.04 |
-| Jak jest on skonfigurowany/instalowany w DSVM?  |Theano jest zainstalowany w języku Python 2,7 ( _root_ ) i w środowisku Python 3,5 ( _py35_ ). |
+| Jak jest on skonfigurowany/instalowany w DSVM?  |Theano jest zainstalowany w języku Python 2,7 (_root_) i w środowisku Python 3,5 (_py35_). |
 | Jak uruchomić go      |  Terminal: Aktywuj żądaną wersję języka Python (root lub py35), uruchom środowisko Python, a następnie zaimportuj Theano.<br/>* Jupyter: Wybierz jądro Python 2,7 lub 3,5, a następnie zaimportuj Theano.  <br/>Aby obejść ostatnią usterkę biblioteki jądra matematycznego (MKL), musisz najpierw ustawić warstwę wątku MKL w następujący sposób:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

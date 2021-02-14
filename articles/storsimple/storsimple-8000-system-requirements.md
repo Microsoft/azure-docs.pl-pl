@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/28/2017
+ms.date: 02/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fa7616a740e8246fa08e950494428095f41ee404
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966194"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382858"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Oprogramowanie StorSimple 8000 Series, wysoka dostępność i wymagania dotyczące sieci
 
@@ -41,7 +41,7 @@ Poniższe wymagania dotyczące oprogramowania dotyczą klientów magazynu, któr
 
 | Obsługiwane systemy operacyjne | Wymagana wersja | Dodatkowe wymagania/uwagi |
 | --- | --- | --- |
-| Windows Server |2008 R2 Z DODATKIEM SP1, 2012, 2012 R2, 2016 |StorSimple woluminów iSCSI są obsługiwane tylko na następujących typach dysków systemu Windows:<ul><li>Wolumin prosty na dysku podstawowym</li><li>Wolumin prosty i dublowany na dysku dynamicznym</li></ul>Obsługiwane są tylko inicjatory iSCSI oprogramowania obecne w systemie operacyjnym. Sprzętowe inicjatory iSCSI nie są obsługiwane.<br></br>W przypadku korzystania z StorSimple woluminu iSCSI obsługiwane są funkcje alokowania elastycznego i ODX systemu Windows Server 2012 i 2016.<br><br>StorSimple mogą tworzyć woluminy alokowane elastycznie i w pełni inicjowane. Nie można utworzyć woluminów częściowo zainicjowanych.<br><br>Ponowne formatowanie woluminu alokowanego elastycznie może zająć dużo czasu. Zalecamy usunięcie woluminu, a następnie utworzenie nowego, a nie ponowne formatowanie. Jeśli jednak wolisz ponownie sformatować wolumin:<ul><li>Przed ponownym formatowaniem uruchom następujące polecenie, aby uniknąć opóźnień odzyskiwania miejsca:  <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Po zakończeniu formatowania użyj następującego polecenia, aby ponownie włączyć odzyskiwanie miejsca: <br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Zastosuj poprawkę systemu Windows Server 2012, zgodnie z opisem w artykule [KB 2878635](https://support.microsoft.com/kb/2870270) na komputerze z systemem Windows Server.</li></ul></li></ul></ul> Jeśli konfigurujesz StorSimple Snapshot Manager lub StorSimple adapter dla programu SharePoint, przejdź do pozycji [wymagania dotyczące oprogramowania dla składników opcjonalnych](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 Z DODATKIEM SP1, 2012, 2012 R2, 2016 |StorSimple woluminów iSCSI są obsługiwane tylko na następujących typach dysków systemu Windows:<ul><li>Wolumin prosty na dysku podstawowym</li><li>Wolumin prosty i dublowany na dysku dynamicznym</li></ul>Obsługiwane są tylko inicjatory iSCSI oprogramowania obecne w systemie operacyjnym. Sprzętowe inicjatory iSCSI nie są obsługiwane.<br></br>W przypadku korzystania z StorSimple woluminu iSCSI obsługiwane są funkcje alokowania elastycznego i ODX systemu Windows Server 2012 i 2016.<br><br>StorSimple mogą tworzyć woluminy alokowane elastycznie i w pełni inicjowane. Nie można utworzyć woluminów częściowo zainicjowanych.<br><br>Ponowne formatowanie woluminu alokowanego elastycznie może zająć dużo czasu. Zalecamy usunięcie woluminu, a następnie utworzenie nowego, a nie ponowne formatowanie. Jeśli jednak wolisz ponownie sformatować wolumin:<ul><li>Przed ponownym formatowaniem uruchom następujące polecenie, aby uniknąć opóźnień odzyskiwania miejsca:  <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Po zakończeniu formatowania użyj następującego polecenia, aby ponownie włączyć odzyskiwanie miejsca: <br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Zastosuj poprawkę systemu Windows Server 2012, zgodnie z opisem w artykule [KB 2878635](https://support.microsoft.com/kb/2870270) na komputerze z systemem Windows Server.</li></ul></li></ul></ul> Jeśli konfigurujesz StorSimple Snapshot Manager lub StorSimple adapter dla programu SharePoint, przejdź do pozycji [wymagania dotyczące oprogramowania dla składników opcjonalnych](#software-requirements-for-optional-components). <br> Jeśli klient systemu Windows Server korzysta z protokołu SMB w celu uzyskania dostępu do urządzenia StorSimple, przejdź do [dostrajania wydajności dla serwerów plików SMB](/windows-server/administration/performance-tuning/role/file-server/smb-file-server) , aby uzyskać wskazówki dotyczące zwiększania przetwarzania równoległego.|
 | VMware ESX |5,5 i 6,0 |Obsługiwane w przypadku VMware vSphere jako klienta iSCSI. Funkcja VAAI-Block jest obsługiwana w VMware vSphere na urządzeniach StorSimple. |
 | Linux RHEL/CentOS |5, 6 i 7 |Obsługa klientów iSCSI z systemem Linux z użyciem inicjatora Open-iSCSI w wersji 5, 6 i 7. |
 | Linux |SUSE Linux 11 | |
@@ -69,7 +69,7 @@ Urządzenie StorSimple jest urządzeniem zablokowanym. Należy jednak otworzyć 
 | TCP 443 (HTTPS)<sup>3</sup> |Out |Sieć WAN |Tak |<ul><li>Port wychodzący służy do uzyskiwania dostępu do danych w chmurze.</li><li>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika.</li><li>Aby zezwolić na aktualizacje systemu, ten port musi być również otwarty dla stałych adresów IP kontrolera.</li><li>Ten port jest również używany na kontrolerach do wyrzucania elementów bezużytecznych.</li></ul> |
 | UDP 53 (DNS) |Out |Sieć WAN |W niektórych przypadkach: Zobacz uwagi. |Ten port jest wymagany tylko wtedy, gdy jest używany internetowy serwer DNS. |
 | UDP 123 (NTP) |Out |Sieć WAN |W niektórych przypadkach: Zobacz uwagi. |Ten port jest wymagany tylko wtedy, gdy jest używany internetowy serwer NTP. |
-| TCP 9354 |Out |Sieć WAN |Tak |Port wychodzący jest używany przez urządzenie StorSimple do komunikowania się z usługą StorSimple Menedżer urządzeń. |
+| TCP 9354 |Out |Sieć WAN |Tak |Port wychodzący jest używany przez urządzenie StorSimple do komunikowania się z usługą StorSimple Device Manager. |
 | 3260 (iSCSI) |W |Sieć LAN |Nie |Ten port służy do uzyskiwania dostępu do danych za pośrednictwem protokołu iSCSI. |
 | 5985 |W |Sieć LAN |Nie |Port wejściowy jest używany przez StorSimple Snapshot Manager do komunikowania się z urządzeniem StorSimple.<br>Ten port jest również używany podczas zdalnego łączenia się z program Windows PowerShell dla usługi StorSimple za pośrednictwem protokołu HTTP. |
 | 5986 |W |Sieć LAN |Nie |Ten port jest używany podczas zdalnego łączenia się z program Windows PowerShell dla usługi StorSimple za pośrednictwem protokołu HTTPS. |
@@ -86,7 +86,7 @@ Urządzenie StorSimple jest urządzeniem zablokowanym. Należy jednak otworzyć 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Wzorce adresów URL dla reguł zapory
 
-Administratorzy sieci mogą często konfigurować zaawansowane reguły zapory na podstawie wzorców adresów URL, aby filtrować ruch przychodzący i wychodzący. Urządzenie StorSimple i Usługa StorSimple Menedżer urządzeń są zależne od innych aplikacji firmy Microsoft, takich jak Azure Service Bus, Azure Active Directory Access Control, konta magazynu i serwery Microsoft Update. Wzorce adresów URL skojarzone z tymi aplikacjami mogą służyć do konfigurowania reguł zapory. Ważne jest, aby zrozumieć, że wzorce adresów URL skojarzone z tymi aplikacjami mogą się zmieniać. To z kolei wymaga od administratora sieci monitorowania i aktualizowania reguł zapory dla StorSimple, jak i w razie potrzeby.
+Administratorzy sieci mogą często konfigurować zaawansowane reguły zapory na podstawie wzorców adresów URL, aby filtrować ruch przychodzący i wychodzący. Urządzenie StorSimple i Usługa StorSimple Device Manager są zależne od innych aplikacji firmy Microsoft, takich jak Azure Service Bus, Azure Active Directory Access Control, konta magazynu i serwery Microsoft Update. Wzorce adresów URL skojarzone z tymi aplikacjami mogą służyć do konfigurowania reguł zapory. Ważne jest, aby zrozumieć, że wzorce adresów URL skojarzone z tymi aplikacjami mogą się zmieniać. To z kolei wymaga od administratora sieci monitorowania i aktualizowania reguł zapory dla StorSimple, jak i w razie potrzeby.
 
 Zalecamy ustawienie reguł zapory dla ruchu wychodzącego na podstawie stałych adresów IP StorSimple, w większości przypadków. Można jednak użyć poniższych informacji, aby ustawić zaawansowane reguły zapory, które są potrzebne do tworzenia bezpiecznych środowisk.
 
@@ -98,7 +98,7 @@ Zalecamy ustawienie reguł zapory dla ruchu wychodzącego na podstawie stałych 
 
 | Wzorzec adresu URL | Składnik/funkcjonalność | Adresy IP urządzeń |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Usługa Menedżer urządzeń StorSimple<br>Access Control Service<br>Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe obsługujące chmurę |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Usługa Menedżer urządzeń StorSimple<br>Access Control Service<br>Usługa Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe obsługujące chmurę |
 | `https://*.backup.windowsazure.com` |Rejestracja urządzenia |Tylko dane 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Odwoływanie certyfikatów |Interfejsy sieciowe obsługujące chmurę |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Konta usługi Azure Storage i monitorowanie |Interfejsy sieciowe obsługujące chmurę |
@@ -110,7 +110,7 @@ Zalecamy ustawienie reguł zapory dla ruchu wychodzącego na podstawie stałych 
 
 | Wzorzec adresu URL | Składnik/funkcjonalność | Adresy IP urządzeń |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Usługa Menedżer urządzeń StorSimple<br>Access Control Service<br>Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe obsługujące chmurę |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Usługa Menedżer urządzeń StorSimple<br>Access Control Service<br>Usługa Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe obsługujące chmurę |
 | `https://*.backup.windowsazure.us` |Rejestracja urządzenia |Tylko dane 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Odwoływanie certyfikatów |Interfejsy sieciowe obsługujące chmurę |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Konta usługi Azure Storage i monitorowanie |Interfejsy sieciowe obsługujące chmurę |
@@ -174,7 +174,7 @@ Oprócz wymagań dotyczących sieci w celu uzyskania optymalnej wydajności rozw
 
 Platforma sprzętowa dołączona do rozwiązania StorSimple ma funkcje dostępności i niezawodności, które stanowią podstawę dla infrastruktury magazynu o wysokiej dostępności, która jest odporna na uszkodzenia w centrum danych. Istnieją jednak wymagania i najlepsze rozwiązania, które należy spełnić, aby zapewnić dostępność rozwiązania StorSimple. Przed wdrożeniem StorSimple należy uważnie zapoznać się z następującymi wymaganiami i najlepszymi rozwiązaniami dotyczącymi urządzeń StorSimple i podłączonych komputerów hosta.
 
-Aby uzyskać więcej informacji na temat monitorowania i konserwowania składników sprzętowych urządzenia StorSimple, przejdź do pozycji [Korzystanie z usługi StorSimple Menedżer urządzeń do monitorowania składników sprzętowych i stanu](storsimple-8000-monitor-hardware-status.md) i [StorSimple składników sprzętowych](storsimple-8000-hardware-component-replacement.md).
+Aby uzyskać więcej informacji na temat monitorowania i konserwowania składników sprzętowych urządzenia StorSimple, przejdź do pozycji [Korzystanie z usługi StorSimple Device Manager do monitorowania składników sprzętowych i stanu](storsimple-8000-monitor-hardware-status.md) i [StorSimple składników sprzętowych](storsimple-8000-hardware-component-replacement.md).
 
 ### <a name="high-availability-requirements-and-procedures-for-your-storsimple-device"></a>Wymagania i procedury wysokiej dostępności dla urządzenia StorSimple
 
@@ -233,7 +233,7 @@ Model urządzenia StorSimple 8600 zawiera rozszerzoną część obudowy dysków 
 * Upewnij się, że zarówno moduły EBOD, jak i wszystkie stacje dysków twardych są zainstalowane przez cały czas.
 * Jeśli moduł kontrolera obudów EBOD nie powiedzie się, zażądaj natychmiastowego zastępowania.
 * Jeśli moduł kontrolera obudów EBOD kończy się niepowodzeniem, upewnij się, że inny moduł kontrolera jest aktywny przed zastąpieniem modułu, który się nie powiódł. Aby sprawdzić, czy kontroler jest aktywny, przejdź do pozycji [Identyfikowanie aktywnego kontrolera na urządzeniu](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Podczas zastępowania modułu kontrolera EBOD w sposób ciągły monitoruje stan składnika w usłudze StorSimple Menedżer urządzeń, uzyskując dostęp do **monitorowania**  >  **kondycji sprzętu**.
+* Podczas zastępowania modułu kontrolera EBOD w sposób ciągły monitoruje stan składnika w usłudze StorSimple Device Manager, uzyskując dostęp do **monitorowania**  >  **kondycji sprzętu**.
 * Jeśli kabel SAS ulegnie awarii lub wymaga zastąpienia (pomoc techniczna firmy Microsoft powinien zostać użyty do dokonania takiego ustalenia), pamiętaj, aby usunąć tylko kabel SAS wymagający zamiany.
 * Nie usuwaj równocześnie obu kabli SAS z systemu w dowolnym momencie.
 

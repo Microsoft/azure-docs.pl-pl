@@ -3,16 +3,16 @@ title: Komunikaty programu Exchange z Azure Service Bus
 description: Twórz zautomatyzowane zadania i przepływy pracy, które wysyłają i odbierają wiadomości za pomocą Azure Service Bus w Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019717"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367422"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Wymiana komunikatów w chmurze przy użyciu Azure Logic Apps i Azure Service Bus
 
@@ -169,7 +169,7 @@ Podczas tworzenia aplikacji logiki można wybrać **skorelowaną dostawę w kole
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Opóźnienia aktualizacji aplikacji logiki
 
-Jeśli interwał sondowania wyzwalacza Service Bus jest mały, na przykład 10 sekund, aktualizacje aplikacji logiki mogą nie obowiązywać przez maksymalnie 10 minut. Aby obejść ten problem, można tymczasowo zwiększyć interwał sondowania do większej wartości, na przykład 30 sekund lub 1 minuty, zanim zaktualizujesz aplikację logiki. Po dokonaniu aktualizacji można zresetować interwał sondowania do wartości oryginalnej. 
+Jeśli interwał sondowania wyzwalacza Service Bus jest mały, na przykład 10 sekund, aktualizacje aplikacji logiki mogą nie obowiązywać przez maksymalnie 10 minut. Aby obejść ten problem, możesz wyłączyć aplikację logiki, wprowadzić zmiany, a następnie ponownie włączyć aplikację logiki.
 
 <a name="connector-reference"></a>
 

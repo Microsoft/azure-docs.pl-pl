@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 087073437fe9d6159422799c04ce095c0aae5eca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 778424cbb81f8fe51a57dd41d94aa9015ffad94e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001256"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381515"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Powiązania wyjściowe usługi Azure queue storage dla Azure Functions
 
@@ -398,13 +398,15 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**wskazywa** | n/d | Musi być ustawiony na `out` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
 |**Nazwij** | n/d | Nazwa zmiennej, która reprezentuje kolejkę w kodzie funkcji. Ustaw, aby `$return` odwoływać się do zwracanej wartości funkcji.|
 |**Zmienną QueueName** |**Zmienną QueueName** | Nazwa kolejki. |
-|**połączenia** | **Połączenie** |Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "WebStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .|
+|**połączenia** | **Połączenie** |Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy.<br><br>Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "WebStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .<br><br>Jeśli używasz [wersji 5. x lub nowszej rozszerzenia](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)zamiast parametrów połączenia, możesz podać odwołanie do sekcji konfiguracji, która definiuje połączenie. Zobacz [połączenia](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Użycie
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Domyślne
 
 Napisz pojedynczy komunikat w kolejce przy użyciu parametru metody, takiego jak `out T paramName` . Można użyć typu zwracanego metody zamiast `out` parametru i `T` może być dowolny z następujących typów:
 
@@ -420,7 +422,18 @@ W skrypcie C# i C# Napisz wiele komunikatów w kolejce przy użyciu jednego z na
 * `ICollector<T>` lub `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
+### <a name="additional-types"></a>Dodatkowe typy
+
+Aplikacje korzystające z [5.0.0 lub nowszej wersji rozszerzenia magazynu](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) mogą również używać typów z [zestawu Azure SDK dla platformy .NET](/dotnet/api/overview/azure/storage.queues-readme). Ta wersja porzuca obsługę starszych `CloudQueue` i `CloudQueueMessage` typów na korzyść następujących typów:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+- [QueueClient](/dotnet/api/azure.storage.queues.queueclient) do pisania wielu komunikatów w kolejce
+
+Przykłady korzystania z tych typów znajdują się w [repozytorium GitHub dla rozszerzenia](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
+
+### <a name="default"></a>Domyślne
 
 Napisz pojedynczy komunikat w kolejce przy użyciu parametru metody, takiego jak `out T paramName` . `paramName`Jest wartością określoną we `name` właściwości *function.jsna*. Można użyć typu zwracanego metody zamiast `out` parametru i `T` może być dowolny z następujących typów:
 
@@ -435,6 +448,15 @@ W skrypcie C# i C# Napisz wiele komunikatów w kolejce przy użyciu jednego z na
 
 * `ICollector<T>` lub `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
+
+### <a name="additional-types"></a>Dodatkowe typy
+
+Aplikacje korzystające z [5.0.0 lub nowszej wersji rozszerzenia magazynu](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) mogą również używać typów z [zestawu Azure SDK dla platformy .NET](/dotnet/api/overview/azure/storage.queues-readme). Ta wersja porzuca obsługę starszych `CloudQueue` i `CloudQueueMessage` typów na korzyść następujących typów:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+- [QueueClient](/dotnet/api/azure.storage.queues.queueclient) do pisania wielu komunikatów w kolejce
+
+Przykłady korzystania z tych typów znajdują się w [repozytorium GitHub dla rozszerzenia](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -469,38 +491,6 @@ Istnieją dwie opcje wyprowadzania komunikatu kolejki z funkcji:
 | Kolejka | [Kody błędów kolejki](/rest/api/storageservices/queue-service-error-codes) |
 | Obiekt BLOB, tabela, kolejka | [Kody błędów magazynu](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Obiekt BLOB, tabela, kolejka |  [Rozwiązywanie problemów](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
-
-<a name="host-json"></a>  
-
-## <a name="hostjson-settings"></a>host.jsustawień
-
-W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiązania w wersji 2. x i nowszych. Przykład host.jsna poniższym pliku zawiera tylko ustawienia wersji 2. x dla tego powiązania. Aby uzyskać więcej informacji na temat ustawień konfiguracji globalnej w wersjach 2. x i więcej, zobacz [host.json Reference for Azure Functions](functions-host-json.md).
-
-> [!NOTE]
-> Aby uzyskać informacje na temat host.jsw funkcjach 1. x, zobacz [host.json Reference for Azure Functions 1. x](functions-host-json-v1.md).
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "queues": {
-            "maxPollingInterval": "00:00:02",
-            "visibilityTimeout" : "00:00:30",
-            "batchSize": 16,
-            "maxDequeueCount": 5,
-            "newBatchThreshold": 8
-        }
-    }
-}
-```
-
-|Właściwość  |Domyślne | Opis |
-|---------|---------|---------|
-|maxPollingInterval|00:00:01|Maksymalny interwał między sondami kolejki. Wartość minimalna to 00:00:00.100 (100 ms) i zwiększa się do 00:01:00 (1 min).  W 1. x typ danych to milisekundy, a w 2. x i wyższych jest to TimeSpan.|
-|visibilityTimeout|00:00:00|Przedział czasu między ponownymi próbami, gdy przetwarzanie komunikatu kończy się niepowodzeniem. |
-|batchSize|16|Liczba komunikatów w kolejce, które środowisko uruchomieniowe funkcji jednocześnie pobiera i przetwarza równolegle. Gdy przetwarzana liczba jest w dół `newBatchThreshold` , środowisko uruchomieniowe pobiera kolejną partię i uruchamia przetwarzanie tych komunikatów. Dlatego Maksymalna liczba współbieżnych komunikatów przetwarzanych na funkcję to `batchSize` Plus `newBatchThreshold` . Ten limit dotyczy osobno każdej funkcji wyzwalanej przez kolejkę. <br><br>Aby zapobiec równoległemu wykonywaniu komunikatów odebranych w jednej kolejce, można ustawić wartość `batchSize` 1. To ustawienie eliminuje jednak współbieżność tylko wtedy, gdy aplikacja funkcji działa na jednej maszynie wirtualnej. Jeśli aplikacja funkcji jest skalowana do wielu maszyn wirtualnych, każda maszyna wirtualna może uruchomić jedno wystąpienie każdej funkcji wyzwalanej przez kolejkę.<br><br>Wartość maksymalna `batchSize` to 32. |
-|maxDequeueCount|5|Liczba prób przetworzenia komunikatu przed przeniesieniem go do kolejki trującej.|
-|newBatchThreshold|batchSize/2|Gdy liczba przetwarzanych komunikatów współbieżnie przyjdzie do tego numeru, środowisko uruchomieniowe pobiera kolejną partię.|
 
 ## <a name="next-steps"></a>Następne kroki
 

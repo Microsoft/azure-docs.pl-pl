@@ -1,22 +1,18 @@
 ---
 title: Kopiowanie danych z tabeli SAP
 description: Informacje o kopiowaniu danych z tabeli SAP do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/01/2021
-ms.openlocfilehash: b796b9eb065a221904fe4487c900efa2db1955af
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: e4f756631b51ce9c5fba32939d1c6651e7b328d0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429547"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378523"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiowanie danych z tabeli SAP przy użyciu Azure Data Factory
 

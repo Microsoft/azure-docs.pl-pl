@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a1fb1c1be8a0203d9f36712fda8e30f0f9354091
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8fc3ad3e1597d9b38bd095875c8a6f11260e8711
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576119"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100514908"
 ---
 Profile dla klientów sieci VPN platformy Azure (Windows 10) można wdrożyć przy użyciu Microsoft Intune. W tym artykule opisano tworzenie profilu usługi Intune przy użyciu ustawień niestandardowych.
 
@@ -46,21 +46,14 @@ Aby poznać inne obsługiwane opcje, zapoznaj się z artykułem [Obsługa sieci 
       <PluginProfile>
         <ServerUrlList>azuregateway-7cee0077-d553-4323-87df-069c331f58cb-053dd0f6af02.vpn.azure.com</ServerUrlList> 
         <CustomConfiguration>
+
         </CustomConfiguration>
         <PluginPackageFamilyName>Microsoft.AzureVpn_8wekyb3d8bbwe</PluginPackageFamilyName>
       </PluginProfile>
     </VPNProfile>
    ```
 1. Zmodyfikuj wpis między ```<ServerUrlList>``` i ```</ServerUrlList>``` wraz z pozycją pobranego profilu (azurevpnconfig.xml). Zmień nazwę FQDN "TrustedNetworkDetection" tak, aby była zgodna z Twoim środowiskiem.
-1. Otwórz profil pobrany przez platformę Azure (azurevpnconfig.xml) i skopiuj zawartość do schowka, wyróżnij tekst i naciśnij klawisze <ctrl> + C. Skopiuj wszystko między następującymi wierszami AzVpnProfile, ale nie Kopiuj samych wierszy AzVpnProfile:
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-   For example - copy the text in your xml that is located here.
-   </AzVpnProfile>
-   ```
+1. Otwórz profil pobrany na platformie Azure (azurevpnconfig.xml) i Skopiuj całą zawartość do schowka, zaznaczając tekst i naciskając klawisz (Ctrl) + C. 
 1. Wklej skopiowany tekst z poprzedniego kroku do pliku utworzonego w kroku 2 między ```<CustomConfiguration>  </CustomConfiguration>``` tagami. Zapisz plik z rozszerzeniem XML.
 1. Zapisz wartość w ```<name>  </name>``` znacznikach. To jest nazwa profilu. Ta nazwa będzie potrzebna podczas tworzenia profilu w usłudze Intune. Zamknij plik i Zapamiętaj lokalizację, w której został zapisany.
 

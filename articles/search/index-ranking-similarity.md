@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: 651e0635f0b556cd47adfccdbac59ef587570128
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2caa09d41abb1842100ed8259e82ec411390ccb
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535733"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520633"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algorytm klasyfikacji w usłudze Azure Wyszukiwanie poznawcze
 
@@ -32,7 +32,7 @@ Chociaż koncepcyjnie przypomina starszy klasyczny algorytm podobieństwa, BM25 
 
 Podczas tworzenia nowego indeksu można ustawić właściwość **podobieństwo** , aby określić algorytm. Możesz użyć `api-version=2019-05-06-Preview` , jak pokazano poniżej, lub `api-version=2020-06-30` .
 
-```
+```http
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
 ```
 

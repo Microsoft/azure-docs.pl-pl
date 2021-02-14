@@ -1,24 +1,20 @@
 ---
 title: Zarządzana Sieć wirtualna & zarządzanymi prywatnymi punktami końcowymi
 description: Informacje na temat zarządzanej sieci wirtualnej i zarządzanych prywatnych punktów końcowych w Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980382"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379577"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -51,7 +47,7 @@ Zarządzane prywatne punkty końcowe są prywatnymi punktami końcowymi utworzon
 
 ![Nowy zarządzany prywatny punkt końcowy](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory obsługuje linki prywatne. Link prywatny umożliwia dostęp do usług platformy Azure (PaaS) (takich jak Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (dawniej SQL Data Warehouse)).
+Azure Data Factory obsługuje linki prywatne. Link prywatny umożliwia dostęp do usług platformy Azure (PaaS) (takich jak Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
 W przypadku korzystania z prywatnego linku ruch między magazynami danych i zarządzanym Virtual Network przechodzi całkowicie za pośrednictwem sieci szkieletowej firmy Microsoft. Prywatne łącze chroniące przed ryzykiem eksfiltracji danych. Aby utworzyć prywatny link do zasobu, można utworzyć prywatny punkt końcowy.
 
@@ -86,9 +82,9 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (nie obejmuje wystąpienia zarządzanego usługi Azure SQL)
-- Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
+- Azure Synapse Analytics
 - Azure CosmosDB — SQL
-- W usłudze Azure Key Vault
+- Azure Key Vault
 - Usługa linków prywatnych platformy Azure
 - Azure Search
 - Azure Database for MySQL
@@ -115,7 +111,7 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - Usługi Azure Storage i Azure Data Lake Gen2 nie są obsługiwane przez publiczny punkt końcowy z Virtual Network zarządzanych przez usługę ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Tworzenie połączonej usługi Azure Key Vault 
-- Podczas tworzenia połączonej usługi dla Azure Key Vault nie ma Azure Integration Runtime odwołanie. Nie można więc utworzyć prywatnego punktu końcowego podczas tworzenia połączonej usługi Azure Key Vault. Jednak podczas tworzenia połączonej usługi dla magazynów danych, które odwołują się do Azure Key Vault połączonej usługi, a ta połączona usługa odwołuje się Azure Integration Runtime z włączonym Virtual Network zarządzanym, można utworzyć prywatny punkt końcowy dla Azure Key Vault połączonej usługi podczas tworzenia. 
+- W przypadku tworzenia połączonej usługi dla usługi Azure Key Vault nie można odwołać się do środowiska Azure Integration Runtime. Nie można więc utworzyć prywatnego punktu końcowego podczas tworzenia połączonej usługi Azure Key Vault. Jednak podczas tworzenia połączonej usługi dla magazynów danych, które odwołują się do Azure Key Vault połączonej usługi, a ta połączona usługa odwołuje się Azure Integration Runtime z włączonym Virtual Network zarządzanym, można utworzyć prywatny punkt końcowy dla Azure Key Vault połączonej usługi podczas tworzenia. 
 - Operacja **Test connection** dla połączonej usługi Azure Key Vault tylko weryfikuje format adresu URL, ale nie wykonuje żadnych operacji sieciowych.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,20 +1,20 @@
 ---
 title: Samouczek — wdrażanie połączonego szablonu
 description: Dowiedz się, jak wdrożyć połączony szablon
-ms.date: 01/12/2021
+ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 4ec49fad35e958f010461abf2ee0e3dab8077d55
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: b69d4e8d2748cffec6a4f0cddfa20e6722653c76
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134198"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519018"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Samouczek: wdrażanie połączonego szablonu
 
-W [poprzednich samouczkach](./deployment-tutorial-local-template.md)przedstawiono sposób wdrażania szablonu, który jest przechowywany na komputerze lokalnym. Aby wdrożyć złożone rozwiązania, możesz przerwać szablon do wielu szablonów i wdrożyć te szablony za pomocą szablonu głównego. W tym samouczku dowiesz się, jak wdrożyć szablon główny, który zawiera odwołanie do połączonego szablonu. Po wdrożeniu głównego szablonu są wywoływane wdrożenia szablonów połączonych. Dowiesz się również, jak przechowywać i zabezpieczyć połączony szablon przy użyciu tokenu SAS. Ukończenie może potrwać około **12 minut** .
+W [poprzednich samouczkach](./deployment-tutorial-local-template.md)przedstawiono sposób wdrażania szablonu, który jest przechowywany na komputerze lokalnym. Aby wdrożyć złożone rozwiązania, możesz przerwać szablon do wielu szablonów i wdrożyć te szablony za pomocą szablonu głównego. W tym samouczku dowiesz się, jak wdrożyć szablon główny, który zawiera odwołanie do połączonego szablonu. Po wdrożeniu głównego szablonu są wywoływane wdrożenia szablonów połączonych. Dowiesz się również, jak przechowywać szablony i zabezpieczać je za pomocą tokenu SAS. Ukończenie może potrwać około **12 minut** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,15 +32,18 @@ Zasób konta magazynu można rozdzielić na połączony szablon:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-Następujący szablon jest głównym szablonem. Wyróżniony `Microsoft.Resources/deployments` obiekt pokazuje, jak wywołać połączony szablon. Połączony szablon nie może być przechowywany jako plik lokalny ani plik, który jest dostępny tylko w sieci lokalnej. Można podać tylko wartość identyfikatora URI, która zawiera HTTP lub HTTPS. Menedżer zasobów musi mieć możliwość uzyskania dostępu do szablonu. Jedną z opcji jest umieszczenie powiązanego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu. Identyfikator URI jest przesyłany do szablonu za pomocą parametru. Zobacz definicję wyróżnionego parametru.
+Następujący szablon jest głównym szablonem. Wyróżniony `Microsoft.Resources/deployments` obiekt pokazuje, jak wywołać połączony szablon. Połączony szablon nie może być przechowywany jako plik lokalny ani plik, który jest dostępny tylko w sieci lokalnej. Możesz podać wartość identyfikatora URI połączonego szablonu, który zawiera HTTP lub HTTPS lub użyć właściwości _RelativePath_ do wdrożenia zdalnego szablonu połączonego w lokalizacji względnej dla szablonu nadrzędnego. Jedną z opcji jest umieszczenie szablonu głównego i połączonego szablonu na koncie magazynu.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
-
-Zapisz kopię głównego szablonu na komputerze lokalnym z rozszerzeniem _JSON_ , na przykład _azuredeploy.json_. Nie musisz zapisywać kopii połączonego szablonu. Połączony szablon zostanie skopiowany z repozytorium GitHub do konta magazynu.
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="34-52":::
 
 ## <a name="store-the-linked-template"></a>Zapisz połączony szablon
 
-Poniższy skrypt programu PowerShell tworzy konto magazynu, tworzy kontener i kopiuje połączony szablon z repozytorium GitHub do kontenera. Kopia połączonego szablonu jest przechowywana w serwisie [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
+Oba szablony główne i połączone szablony są przechowywane w witrynie GitHub:
+
+Poniższy skrypt programu PowerShell tworzy konto magazynu, tworzy kontener i kopiuje dwa szablony z repozytorium GitHub do kontenera. Te dwa szablony są następujące:
+
+- Główny szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+- Połączony szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell, wybierz pozycję **Kopiuj** , aby skopiować skrypt programu PowerShell, a następnie kliknij prawym przyciskiem myszy okienko powłoki, aby wkleić skrypt:
 
@@ -55,11 +58,15 @@ $resourceGroupName = $projectName + "rg"
 $storageAccountName = $projectName + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json" # A completed linked template used in this tutorial.
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+$mainTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json"
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json"
 
-# Download the template
-Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+$mainFileName = "azuredeploy.json" # A file name used for downloading and uploading the main template.Add-PSSnapin
+$linkedFileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+# Download the templates
+Invoke-WebRequest -Uri $mainTemplateURL -OutFile "$home/$mainFileName"
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$linkedFileName"
 
 # Create a resource group
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -76,11 +83,17 @@ $context = $storageAccount.Context
 # Create a container
 New-AzStorageContainer -Name $containerName -Context $context -Permission Container
 
-# Upload the template
+# Upload the templates
 Set-AzStorageBlobContent `
     -Container $containerName `
-    -File "$home/$fileName" `
-    -Blob $fileName `
+    -File "$home/$mainFileName" `
+    -Blob $mainFileName `
+    -Context $context
+
+Set-AzStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$linkedFileName" `
+    -Blob $linkedFileName `
     -Context $context
 
 Write-Host "Press [ENTER] to continue ..."
@@ -88,7 +101,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
-Aby wdrożyć szablon prywatny na koncie magazynu, wygeneruj token sygnatury dostępu współdzielonego i umieść go w identyfikatorze URI dla szablonu. Ustaw czas wygaśnięcia, aby zapewnić wystarczającą ilość czasu na ukończenie wdrożenia. Obiekt BLOB zawierający szablon jest dostępny tylko dla właściciela konta. Jednak podczas tworzenia tokenu sygnatury dostępu współdzielonego dla obiektu BLOB obiekt BLOB jest dostępny dla wszystkich użytkowników o tym identyfikatorze URI. Jeśli inny użytkownik przechwytuje identyfikator URI, ten użytkownik będzie mógł uzyskać dostęp do szablonu. Token SAS to dobry sposób ograniczania dostępu do szablonów, ale nie należy uwzględniać poufnych danych, takich jak hasła bezpośrednio w szablonie.
+Aby wdrożyć szablony na koncie magazynu, wygeneruj token sygnatury dostępu współdzielonego i podaj go do parametru _-QueryString_ . Ustaw czas wygaśnięcia, aby zapewnić wystarczającą ilość czasu na ukończenie wdrożenia. Obiekty blob zawierające szablony są dostępne tylko dla właściciela konta. Jednak podczas tworzenia tokenu sygnatury dostępu współdzielonego dla obiektu BLOB obiekt BLOB jest dostępny dla wszystkich użytkowników z tokenem SAS. Jeśli inny użytkownik przechwytuje identyfikator URI i token sygnatury dostępu współdzielonego, ten użytkownik będzie mógł uzyskać dostęp do szablonu. Token SAS to dobry sposób ograniczania dostępu do szablonów, ale nie należy uwzględniać poufnych danych, takich jak hasła bezpośrednio w szablonie.
 
 Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](./deployment-tutorial-local-template.md#create-resource-group).
 
@@ -97,69 +110,66 @@ Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 
-$projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
-$templateFile = Read-Host -Prompt "Enter the main template file and path"
+$projectName = Read-Host -Prompt "Enter the same project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 
 $resourceGroupName="${projectName}rg"
 $storageAccountName="${projectName}store"
 $containerName = "templates"
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 $key = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 $context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
 
-# Generate a SAS token
-$linkedTemplateUri = New-AzStorageBlobSASToken `
+$mainTemplateUri = $context.BlobEndPoint + "$containerName/azuredeploy.json"
+$sasToken = New-AzStorageContainerSASToken `
     -Context $context `
     -Container $containerName `
-    -Blob $fileName `
     -Permission r `
-    -ExpiryTime (Get-Date).AddHours(2.0) `
-    -FullUri
+    -ExpiryTime (Get-Date).AddHours(2.0)
+$newSas = $sasToken.substring(1)
 
-# Deploy the template
+
 New-AzResourceGroupDeployment `
   -Name DeployLinkedTemplate `
   -ResourceGroupName $resourceGroupName `
-  -TemplateFile $templateFile `
+  -TemplateUri $mainTemplateUri `
+  -QueryString $newSas `
   -projectName $projectName `
-  -linkedTemplateUri $linkedTemplateUri `
   -verbose
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
+echo "Enter a project name that is used to generate resource names:" &&
+read projectName &&
 
-echo "Enter a project name that is used to generate resource names:"
-read projectName
-echo "Enter the main template file:"
-read templateFile
+resourceGroupName="${projectName}rg" &&
+storageAccountName="${projectName}store" &&
+containerName="templates" &&
 
-resourceGroupName="${projectName}rg"
-storageAccountName="${projectName}store"
-containerName="templates"
-fileName="linkedStorageAccount.json"
+key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv) &&
 
-key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv)
-
-linkedTemplateUri=$(az storage blob generate-sas \
+sasToken=$(az storage container generate-sas \
   --account-name $storageAccountName \
   --account-key $key \
-  --container-name $containerName \
-  --name $fileName \
+  --name $containerName \
   --permissions r \
-  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'` \
-  --full-uri)
+  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'`) &&
+sasToken=$(echo $sasToken | sed 's/"//g')&&
 
-linkedTemplateUri=$(echo $linkedTemplateUri | sed 's/"//g')
+blobUri=$(az storage account show -n $storageAccountName -g $resourceGroupName -o tsv --query primaryEndpoints.blob) &&
+templateUri="${blobUri}${containerName}/azuredeploy.json" &&
+
 az deployment group create \
   --name DeployLinkedTemplate \
   --resource-group $resourceGroupName \
-  --template-file $templateFile \
-  --parameters projectName=$projectName linkedTemplateUri=$linkedTemplateUri \
+  --template-uri $templateUri \
+  --parameters projectName=$projectName \
+  --query-string $sasToken \
   --verbose
 ```
 

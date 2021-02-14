@@ -1,19 +1,19 @@
 ---
-title: plik dołączania
+title: Plik dyrektywy include
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/16/2020
+ms.date: 02/10/2021
 ms.author: tamram
-ms.openlocfilehash: 96d8100f2cffcfb001a693575128ce19e742225d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483f5853c321eee4ac6d10543f0e360a0a5e54b9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534140"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373758"
 ---
-Przed przypisaniem roli platformy Azure do podmiotu zabezpieczeń należy określić zakres dostępu, który powinien mieć podmiot zabezpieczeń. Najlepsze rozwiązania określają, że zawsze najlepiej jest przyznać tylko najwęższy możliwy zakres.
+Przed przypisaniem roli RBAC platformy Azure do podmiotu zabezpieczeń należy określić zakres dostępu, który powinien mieć podmiot zabezpieczeń. Najlepsze rozwiązania określają, że zawsze najlepiej jest przyznać tylko najwęższy możliwy zakres. Role RBAC platformy Azure zdefiniowane w szerszym zakresie są dziedziczone przez zasoby znajdujące się poniżej.
 
 Na poniższej liście opisano poziomy, w których można określić zakres dostępu do zasobów usługi Azure BLOB i kolejek, rozpoczynając od najwęższego zakresu:
 

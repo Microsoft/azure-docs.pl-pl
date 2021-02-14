@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych do i z programu Oracle przy użyciu Azure Data Factory
 description: Informacje o kopiowaniu danych z obsługiwanych magazynów źródłowych do bazy danych Oracle lub z programu Oracle do obsługiwanych magazynów ujścia przy użyciu Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: b4d2b277eea85fb8a5c9eb733e5bfd64d66f392c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bba1ae991f2a4702a0d55a8dc3f6c7a44b9e7b65
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91407830"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381345"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiowanie danych z i do programu Oracle przy użyciu Azure Data Factory
 
@@ -154,13 +149,13 @@ Aby włączyć szyfrowanie na połączeniu z programem Oracle, dostępne są dwi
         "type": "Oracle",
         "typeProperties": {
             "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -219,7 +214,7 @@ Aby skopiować dane z programu Oracle, należy ustawić typ źródła w działan
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość `OracleSource` . | Tak |
 | oracleReaderQuery | Użyj niestandardowego zapytania SQL, aby odczytać dane. Może to być na przykład `"SELECT * FROM MyTable"`.<br>Po włączeniu obciążenia partycjonowanego należy podłączyć wszystkie odpowiednie wbudowane parametry partycji w zapytaniu. Przykłady można znaleźć w sekcji [Kopiowanie równoległe z programu Oracle](#parallel-copy-from-oracle) . | Nie |
-| partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z programu Oracle. <br>Dozwolone wartości to **none** (wartość domyślna), **PhysicalPartitionsOfTable**i **DynamicRange**.<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z bazy danych Oracle jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Nie |
+| partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z programu Oracle. <br>Dozwolone wartości to **none** (wartość domyślna), **PhysicalPartitionsOfTable** i **DynamicRange**.<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z bazy danych Oracle jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Nie |
 | partitionSettings | Określ grupę ustawień partycjonowania danych. <br>Zastosuj, gdy opcja partycji nie jest `None` . | Nie |
 | partitionNames | Lista partycji fizycznych, które muszą zostać skopiowane. <br>Zastosuj, gdy opcja partycji to `PhysicalPartitionsOfTable` . Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfTabularPartitionName` w klauzuli WHERE. Aby zapoznać się z przykładem, zobacz sekcję [copy Parallel from Oracle](#parallel-copy-from-oracle) . | Nie |
 | partitionColumnName | Określ nazwę kolumny źródłowej **w typie liczb całkowitych** , która będzie używana przez partycjonowanie zakresu do kopiowania równoległego. Jeśli nie zostanie określony, klucz podstawowy tabeli zostanie wykryty i użyty jako kolumna partycji. <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak  `?AdfRangePartitionColumnName` w klauzuli WHERE. Aby zapoznać się z przykładem, zobacz sekcję [copy Parallel from Oracle](#parallel-copy-from-oracle) . | Nie |
@@ -372,7 +367,7 @@ Podczas kopiowania danych z programu i do programu Oracle są stosowane następu
 | NVARCHAR2 |Ciąg |
 | SUROWCÓW |Byte [] |
 | Właściwość |Ciąg |
-| ZNACZNIK czasu |DateTime |
+| TIMESTAMP |DateTime |
 | SYGNATURA CZASOWA Z LOKALNĄ STREFĄ CZASOWĄ |Ciąg |
 | SYGNATURA CZASOWA ZE STREFĄ CZASOWĄ |Ciąg |
 | LICZBA CAŁKOWITA BEZ ZNAKU |Liczba |

@@ -3,22 +3,22 @@ title: 'ML Studio (klasyczny): ponowne uczenie usługi sieci Web — Azure'
 description: Dowiedz się, jak zaktualizować usługę sieci Web, aby korzystała z nowo przeszkolonego modelu uczenia maszynowego w Azure Machine Learning Studio (klasyczny).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: ff0378871139a038f096a44b9ee0c6af2cb67d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a4fe9e54e5e03a8dbf2a727b22f784c36d6c65f9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325828"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517590"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ponowne uczenie i wdrażanie modelu uczenia maszynowego
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Przeszkolenie jest jednym ze sposobów zapewnienia, że modele uczenia maszynowego są dokładne i oparte na najbardziej przydatnych dostępnych danych. W tym artykule pokazano, jak ponownie nauczyć i wdrożyć model uczenia maszynowego jako nową usługę sieci Web w programie Studio (klasyczna). Jeśli chcesz ponownie przeprowadzić uczenie klasycznej usługi sieci Web, [zapoznaj się z tym artykułem.](retrain-classic-web-service.md)
@@ -89,14 +89,14 @@ W sekcji **podstawowe informacje o zużyciu** na stronie **Używanie** Znajdź k
 Przykładowy kod BES przekazuje plik z dysku lokalnego (na przykład "C:\temp\CensusInput.csv") do usługi Azure Storage, przetwarza go i zapisuje wyniki z powrotem do usługi Azure Storage.
 
 1. Logowanie do witryny Azure Portal
-1. W lewej kolumnie nawigacji kliknij pozycję **więcej usług** , Wyszukaj pozycję **konta magazynu** i wybierz ją.
+1. W lewej kolumnie nawigacji kliknij pozycję **więcej usług**, Wyszukaj pozycję **konta magazynu** i wybierz ją.
 1. Z listy kont magazynu wybierz jedną z nich, aby zachować ponownie przemieszczony model.
 1. W lewej kolumnie nawigacji kliknij pozycję **klucze dostępu**.
 1. Skopiuj i Zapisz **podstawowy klucz dostępu**.
 1. W lewej kolumnie nawigacji kliknij pozycję **obiekty blob**.
 1. Wybierz istniejący kontener lub Utwórz nowy, a następnie Zapisz nazwę.
 
-Znajdź deklaracje *StorageAccountName* , *StorageAccountKey* i *StorageContainerName* , a następnie zaktualizuj wartości zapisane w portalu.
+Znajdź deklaracje *StorageAccountName*, *StorageAccountKey* i *StorageContainerName* , a następnie zaktualizuj wartości zapisane w portalu.
 
 ```csharp
 const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
@@ -130,11 +130,11 @@ Oto przykład reszkoleniowych danych wyjściowych:
 
 Po uruchomieniu aplikacji dane wyjściowe obejmują adres URL i token sygnatur dostępu współdzielonego, które są niezbędne do uzyskania dostępu do wyników oceny.
 
-Wyniki wydajności przeprowadzonego przez siebie modelu można zobaczyć, łącząc *BaseLocation* , *RelativeLocation* i *SasBlobToken* z wyników wyjściowych na potrzeby *output2* i wklejając pełny adres URL na pasku adresu przeglądarki.
+Wyniki wydajności przeprowadzonego przez siebie modelu można zobaczyć, łącząc *BaseLocation*, *RelativeLocation* i *SasBlobToken* z wyników wyjściowych na potrzeby *output2* i wklejając pełny adres URL na pasku adresu przeglądarki.
 
 Sprawdź wyniki, aby określić, czy nowo szkolony model wykonuje lepsze niż już istniejące.
 
-Zapisz *BaseLocation* , *RelativeLocation* i *SasBlobToken* z wyników danych wyjściowych.
+Zapisz *BaseLocation*, *RelativeLocation* i *SasBlobToken* z wyników danych wyjściowych.
 
 ## <a name="update-the-predictive-experiment"></a>Aktualizowanie eksperymentu predykcyjnego
 

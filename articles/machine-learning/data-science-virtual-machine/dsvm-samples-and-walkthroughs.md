@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Za pomocą tych przykładów i przewodników dowiesz się, jak obsługiwać typowe zadania i scenariusze przy użyciu Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 98a1cd883867aa2f785b15f4c7ae4f2266a421ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda5dfd936243602775e1f4f965032b9d746b0b7
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012573"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519766"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Przykłady dotyczące Virtual Machines analizy danych na platformie Azure
 
@@ -33,7 +32,7 @@ Aby można było uruchomić te przykłady, trzeba mieć zainicjowaną [Ubuntu Da
 | Język R  | Przykłady ilustrują scenariusze, takie jak nawiązywanie połączenia z magazynami danych w chmurze opartymi na platformie Azure i porównywanie języka R i Microsoft Machine Learning Server typu open source. Wyjaśniono także, jak operacjonalizować modele na Microsoft Machine Learning Server i SQL Server. <br/> [Język R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Język Python  | Przykłady wyjaśniają scenariusze, takie jak nawiązywanie połączenia z magazynami danych w chmurze opartymi na platformie Azure i jak korzystać z Azure Machine Learning.  <br/> [Język Python](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Język Julia  | Zawiera szczegółowy opis wykreślania i uczenia głębokiego w Julia. Wyjaśniono również, jak wywoływać C i Python z Julia. <br/> [Język Julia](#julia-language) |<br/> W systemie Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> W systemie Linux:<br/> `~notebooks/julia`<br/><br/> |
-| Azure Machine Learning  | Ilustruje sposób tworzenia modeli uczenia maszynowego i uczenia głębokiego przy użyciu Machine Learning. Wdrażaj modele w dowolnym miejscu. Użyj zautomatyzowanej uczenia maszynowego i inteligentnego dostrajania parametrów. Należy również użyć zarządzania modelami i szkolenia rozproszonego. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
+| Azure Machine Learning  | Ilustruje sposób tworzenia modeli uczenia maszynowego i uczenia głębokiego przy użyciu Machine Learning. Wdrażaj modele w dowolnym miejscu. Użyj zautomatyzowanej uczenia maszynowego i inteligentnego dostrajania parametrów. Należy również użyć zarządzania modelami i szkolenia rozproszonego. <br/> [Usługa Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | Notesy PyTorch  | Przykłady głębokiej uczenia, które używają sieci neuronowych opartych na PyTorch. Notesy przedziały od początku do zaawansowanych scenariuszy.  <br/> [Notesy PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  Wiele przykładów i technik sieci neuronowych zaimplementowanych przy użyciu platformy TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
 | Zestaw narzędzi usług Microsoft Cognitive <br/>   | Przykłady głębokiej uczenia opublikowane przez zespół Cognitive Toolkit w firmie Microsoft.  <br/> [Zestaw narzędzi Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> W systemie Linux:<br/> `~notebooks/CNTK`<br/> <br/>|

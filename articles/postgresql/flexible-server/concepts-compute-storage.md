@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710077"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519392"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opcje obliczeń i magazynowania w Azure Database for PostgreSQL-elastycznym serwerze
 
@@ -65,7 +65,7 @@ Szczegółowe specyfikacje dostępnych typów serwerów są następujące:
 | E48s_v3              | 48     | 384 GiB     | 18000              | 750 MiB/s                 |
 | E64s_v3              | 64     | 432 GiB     | 18000              | 750 MiB/s                 |
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla serwera Azure Database for PostgreSQL. Magazyn jest używany dla plików bazy danych, plików tymczasowych, dzienników transakcji i dzienników serwera PostgreSQL. Całkowita ilość dostępnego miejsca w magazynie określa również wydajność we/wy dostępną dla serwera.
 
@@ -151,7 +151,10 @@ Po oznaczeniu z opcją \* przepustowość we/wy jest ograniczona przez wybrany t
 
 Po osiągnięciu limitu magazynu serwer zacznie zwracać błędy i uniemożliwia dalsze modyfikacje. Może to również spowodować problemy z innymi działaniami operacyjnymi, takimi jak kopie zapasowe i archiwum WAL.
 
+Aby uniknąć tej sytuacji, gdy użycie magazynu osiągnie 95% lub dostępna pojemność jest mniejsza niż 5 GiB, serwer zostanie automatycznie przełączony do **trybu tylko do odczytu**.
+
 Zalecamy, aby aktywnie monitorować miejsce na dysku, które jest używane, i zwiększyć rozmiar dysku przed sytuacją braku miejsca w magazynie. Możesz skonfigurować alert, aby powiadomić Cię, gdy magazyn serwera zbliża się do dysku, aby uniknąć problemów z uruchamianiem dysku. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [sposobu konfigurowania alertu](howto-alert-on-metrics.md).
+
 
 ### <a name="storage-auto-grow"></a>Autouzupełnianie magazynu
 

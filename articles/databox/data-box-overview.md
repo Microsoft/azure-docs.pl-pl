@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: dd71b03f55cc1522727f6c496c1bdbe0f42cb828
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 13c07da7393c70bb1fc61930dd1179994c68ed75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678620"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389811"
 ---
 # <a name="what-is-azure-data-box"></a>Co to jest usługa Azure Data Box?
 
@@ -22,7 +22,7 @@ Rozwiązanie Microsoft Azure urządzenie Data Box w chmurze umożliwia szybkie, 
 
 Możesz zamówić urządzenie urządzenie Data Box za pośrednictwem Azure Portal do importowania lub eksportowania danych z platformy Azure. Po otrzymaniu urządzenia możesz szybko je skonfigurować przy użyciu lokalnego internetowego interfejsu użytkownika. W zależności od tego, czy zostaną zaimportowane lub wyeksportowane dane, skopiuj dane z serwerów do urządzenia lub z urządzenia na serwery, a następnie Wyślij urządzenie z powrotem do platformy Azure. W przypadku importowania danych na platformę Azure w centrum danych Azure dane są automatycznie przekazywane z urządzenia do platformy Azure. Cały proces można śledzić przez usługę Data Box w witrynie Azure Portal.
 
-## <a name="use-cases"></a>Przypadki użycia
+## <a name="use-cases"></a>Przypadki zastosowań
 
 Urządzenie Data Box doskonale nadaje się do przesyłania danych o rozmiarze przekraczającym 40 TB w scenariuszach z ograniczoną łącznością lub bez łączności z siecią. Przenoszenie danych może być jednorazowe lub okresowe. Może być to również początkowy transfer danych zbiorczych, po którym następują transfery okresowe. 
 
