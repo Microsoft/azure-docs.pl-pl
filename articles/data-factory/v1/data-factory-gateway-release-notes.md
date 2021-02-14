@@ -1,22 +1,18 @@
 ---
 title: Informacje o wersji bramy zarządzania danymi
 description: Informacje o wersji tory bramy Zarządzanie danymi
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b5bf0c6d6996a67e8b0fec3ec51e31fef8eedf26
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001630"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363920"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Informacje o wersji bramy zarządzania danymi
 > [!NOTE]
@@ -46,12 +42,12 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Usprawni
--   Możesz dodać wpisy DNS, aby zezwalać Service Bus, a nie zezwalać na wszystkie adresy IP platformy Azure z zapory (jeśli to konieczne). Więcej informacji znajdziesz tutaj.
--   Teraz można kopiować dane do/z pojedynczego bloku obiektów BLOB o rozmiarze do 4,75 TB, czyli maksymalnego obsługiwanego rozmiaru blokowego obiektu BLOB. (wcześniejszy limit to 195 GB).
--   Rozwiązano: problem z brakiem pamięci podczas rozpakowywania kilku małych plików podczas działania kopiowania.
--   Naprawiono: problem z zakresem podczas kopiowania z bazy danych dokumentów do SQL Server za pomocą funkcji idempotentności.
--   Naprawiono: skrypt czyszczący SQL nie działa z SQL Server Kreatora kopiowania.
--   Naprawiono: Nazwa kolumny ze spacją nie działa w działaniu kopiowania.
+-    Możesz dodać wpisy DNS, aby zezwalać Service Bus, a nie zezwalać na wszystkie adresy IP platformy Azure z zapory (jeśli to konieczne). Więcej informacji znajdziesz tutaj.
+-    Teraz można kopiować dane do/z pojedynczego bloku obiektów BLOB o rozmiarze do 4,75 TB, czyli maksymalnego obsługiwanego rozmiaru blokowego obiektu BLOB. (wcześniejszy limit to 195 GB).
+-    Rozwiązano: problem z brakiem pamięci podczas rozpakowywania kilku małych plików podczas działania kopiowania.
+-    Naprawiono: problem z zakresem podczas kopiowania z bazy danych dokumentów do SQL Server za pomocą funkcji idempotentności.
+-    Naprawiono: skrypt czyszczący SQL nie działa z SQL Server Kreatora kopiowania.
+-    Naprawiono: Nazwa kolumny ze spacją nie działa w działaniu kopiowania.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Usprawni
@@ -128,7 +124,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
     *  Dane można kopiować z magazynu za pomocą narzędzia do [kopiowania bez kodu](data-factory-copy-data-wizard-tutorial.md). Więcej informacji o tej funkcji znajduje się w sekcji [przygotowane kopie](data-factory-copy-activity-performance.md#staged-copy) .
 *  Za pomocą bramy Zarządzanie danymi można odbierać dane przychodzące bezpośrednio z SQL Serverj bazy danych w Azure Machine Learning.
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 
     * Zwiększ wydajność wyświetlania schematu/podglądu w odniesieniu do SQL Server w narzędziu do kopiowania bez kodu.
 
@@ -144,7 +140,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 *  W przypadku niepowodzenia automatycznego aktualizowania Instalator bramy ponawia próbę automatycznego zaktualizowania.
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 
     * Zwiększ wydajność ładowania dużych tabel z serwera lokalnego w scenariuszu kopiowania bez kodu.
 
@@ -152,7 +148,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 
 *  Poprawki błędów
 
@@ -164,34 +160,34 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 *  Możliwość ustawienia czasu harmonogramu aktualizacji
 *  Skrypt programu PowerShell służący do przełączania lub wyłączania autoaktualizacji
 *  Obsługa formatu JSON  
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Ulepszanie środowiska rozwiązywania problemów
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Obsługa lokalnego źródła/ujścia systemu plików HDFS
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -208,7 +204,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Nazwa tabeli obsługi dla źródła danych ODBC dla Azure Data Factory
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -229,13 +225,13 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 *  Obsługa pięciu relacyjnych baz danych dla Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata i Sybase)
 *  Obsługa kompresji (gzip i Wklęśnięcie)
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Dodaj obsługę programu Oracle Data Source dla Azure Data Factory
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1454921"></a>1.4.5492.1

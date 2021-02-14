@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Przetwarzanie dokumentu
-ms.openlocfilehash: 0405ea116a1867ec75beff21637f18fb37565627
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584723"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364805"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -228,7 +228,7 @@ Postępuj zgodnie z powyższymi krokami, aby oznaczyć co najmniej pięć formul
 Opcjonalnie można ustawić oczekiwany typ danych dla każdego tagu. Otwórz menu kontekstowe z prawej strony znacznika i wybierz typ z menu. Ta funkcja umożliwia algorytmowi wykrywania wykonywanie pewnych założeń, które spowodują poprawienie dokładności wykrywania tekstu. Zapewnia również, że wykryte wartości będą zwracane w formacie standardowym w końcowym danych wyjściowych JSON. Informacje o typie wartości są zapisywane w *fields.js* w pliku w tej samej ścieżce co pliki etykiet.
 
 > [!div class="mx-imgBorder"]
-> ![Wybór typu wartości z przykładowym narzędziem do etykietowania](../media/whats-new/formre-value-type.png)
+> ![Wybór typu wartości z przykładowym narzędziem do etykietowania](../media/whats-new/value-type.png)
 
 Następujące typy wartości i różnice są obecnie obsługiwane:
 * `string`

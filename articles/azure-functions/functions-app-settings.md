@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881927"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378302"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -19,7 +19,7 @@ Ustawienia aplikacji w aplikacji funkcji zawierają globalne opcje konfiguracji,
 Istnieją inne opcje konfiguracji globalnej w [host.js](functions-host-json.md) plik i w [local.settings.js](functions-run-local.md#local-settings-file) pliku.
 
 > [!NOTE]  
-> Ustawienia aplikacji umożliwiają przesłonięcie host.jsprzy ustawianiu wartości bez konieczności zmiany host.jssamego pliku. Jest to przydatne w scenariuszach, w których trzeba skonfigurować lub zmodyfikować określone host.jsw ustawieniach dla określonego środowiska. Pozwala to również na zmianę host.jsw ustawieniach bez konieczności ponownego publikowania projektu. Aby dowiedzieć się więcej, zobacz [ artykułhost.json Reference](functions-host-json.md#override-hostjson-values).  
+> Ustawienia aplikacji umożliwiają przesłonięcie host.jsprzy ustawianiu wartości bez konieczności zmiany host.jssamego pliku. Jest to przydatne w scenariuszach, w których trzeba skonfigurować lub zmodyfikować określone host.jsw ustawieniach dla określonego środowiska. Pozwala to również na zmianę host.jsw ustawieniach bez konieczności ponownego publikowania projektu. Aby dowiedzieć się więcej, zobacz [ artykułhost.json Reference](functions-host-json.md#override-hostjson-values). Zmiany ustawień aplikacji funkcji wymagają ponownego uruchomienia aplikacji funkcji.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -213,7 +213,7 @@ Wartość tego ustawienia wskazuje niestandardowy adres URL indeksu pakietu dla 
 
 Aby dowiedzieć się więcej, zobacz [zależności niestandardowe](functions-reference-python.md#remote-build-with-extra-index-url) w dokumentacji dewelopera języka Python.
 
-## <a name="scale_controller_logging_enable"></a>\_ \_ Włączanie rejestrowania kontrolerów skalowania \_
+## <a name="scale_controller_logging_enabled"></a>\_Rejestrowanie kontrolera skalowania \_ \_ włączone
 
 _To ustawienie jest obecnie dostępne w wersji zapoznawczej._  
 
@@ -221,7 +221,7 @@ To ustawienie steruje rejestrowaniem z kontrolera skalowania Azure Functions. Ab
 
 |Klucz|Wartość przykładowa|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights: verbose|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights: verbose|
 
 Wartość tego klucza jest podawana w formacie `<DESTINATION>:<VERBOSITY>` zdefiniowanym w następujący sposób:
 
@@ -235,7 +235,7 @@ Parametry połączenia dla konta magazynu, w którym kod i konfiguracja aplikacj
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [klucz]|
 
-Używane tylko w przypadku wdrażania w planach zużycia lub Premium uruchomionych w systemie Windows. Nieobsługiwane w systemie Linux. Zmiana lub usunięcie tego ustawienia może spowodować, że aplikacja funkcji nie zostanie uruchomiona. Aby dowiedzieć się więcej, zobacz [ten artykuł dotyczący rozwiązywania problemów](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+Używany tylko w przypadku wdrażania w planie Premium lub planu zużycia działającego w systemie Windows. Nieobsługiwane w przypadku planów użycia z systemem Linux. Zmiana lub usunięcie tego ustawienia może spowodować, że aplikacja funkcji nie zostanie uruchomiona. Aby dowiedzieć się więcej, zobacz [ten artykuł dotyczący rozwiązywania problemów](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
 
 ## <a name="website_contentovervnet"></a>CONTENTOVERVNET witryny sieci Web \_
 
@@ -253,7 +253,7 @@ Tylko w przypadku planów Premium. Wartość `1` umożliwia skalowanie aplikacji
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-Używane przez aplikacje funkcji w planach użycia lub Premium działających w systemie Windows. Nieobsługiwane w systemie Linux. Zmiana lub usunięcie tego ustawienia może spowodować, że aplikacja funkcji nie zostanie uruchomiona. Aby dowiedzieć się więcej, zobacz [ten artykuł dotyczący rozwiązywania problemów](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Używany tylko w przypadku wdrażania w planie Premium lub planu zużycia działającego w systemie Windows. Nieobsługiwane w przypadku planów użycia z systemem Linux. Zmiana lub usunięcie tego ustawienia może spowodować, że aplikacja funkcji nie zostanie uruchomiona. Aby dowiedzieć się więcej, zobacz [ten artykuł dotyczący rozwiązywania problemów](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 W przypadku korzystania z Azure Resource Manager do tworzenia aplikacji funkcji podczas wdrażania nie należy dołączać WEBSITE_CONTENTSHARE do szablonu. To ustawienie aplikacji jest generowane podczas wdrażania. Aby dowiedzieć się więcej, zobacz [Automatyzowanie wdrażania zasobów dla aplikacji funkcji](functions-infrastructure-as-code.md#windows).   
 

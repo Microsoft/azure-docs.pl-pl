@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 30852b6b3f9a4b490c4b58fe07f34ee49c60fa9f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 250c1ef837793c2149ff653f395f40272cf43335
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955250"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384949"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Tworzenie grupy serwerów PostgreSQL do skalowania przy użyciu narzędzi Kubernetes
 
@@ -44,14 +44,14 @@ data:
   password: <your base64 encoded password>
 kind: Secret
 metadata:
-  name: example-login-secret
+  name: pg1-login-secret
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: postgresql-12
 metadata:
   generation: 1
-  name: example
+  name: pg1
 spec:
   engine:
     extensions:
@@ -107,7 +107,7 @@ echo '<your string to encode here>' | base64
 
 ### <a name="customizing-the-name"></a>Dostosowywanie nazwy
 
-Szablon ma wartość "example" dla atrybutu Name.  Można to zmienić, ale muszą to być znaki zgodne ze standardami nazewnictwa DNS.  Należy również zmienić nazwę wpisu tajnego na zgodne.  Jeśli na przykład zmienisz nazwę grupy serwerów PostgreSQL na "postgres1", musisz zmienić nazwę wpisu tajnego z "example-login-Secret" na "postgres1-login-Secret"
+Szablon ma wartość "PG1" dla atrybutu Name.  Można to zmienić, ale muszą to być znaki zgodne ze standardami nazewnictwa DNS.  Należy również zmienić nazwę wpisu tajnego na zgodne.  Jeśli na przykład zmienisz nazwę grupy serwerów PostgreSQL na "grupy PG2", musisz zmienić nazwę wpisu tajnego z "PG1-login-Secret" na "grupy PG2-login-Secret"
 
 ### <a name="customizing-the-engine-version"></a>Dostosowywanie wersji aparatu
 
@@ -152,10 +152,10 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 Utworzenie grupy serwerów PostgreSQL do skalowania może potrwać kilka minut. Postęp można monitorować w innym oknie terminalu przy użyciu następujących poleceń:
 
 > [!NOTE]
->  W przykładowych poleceniach przyjęto założenie, że utworzono grupę serwerów PostgreSQL z skalowaniem o nazwie "postgres1" i Kubernetes przestrzeń nazw o nazwie "ARC".  Jeśli użyto innej nazwy grupy serwerów przestrzeni nazw/PostgreSQL, można zastąpić "ARC" i "postgres1" nazwami.
+>  W przykładowych poleceniach przyjęto założenie, że utworzono grupę serwerów PostgreSQL z skalowaniem o nazwie "PG1" i Kubernetes przestrzeń nazw o nazwie "ARC".  Jeśli użyto innej nazwy grupy serwerów przestrzeni nazw/PostgreSQL, można zastąpić "ARC" i "PG1" nazwami.
 
 ```console
-kubectl get postgresql-12/postgres1 --namespace arc
+kubectl get postgresql-12/pg1 --namespace arc
 ```
 
 ```console
@@ -168,7 +168,7 @@ Możesz również sprawdzić stan tworzenia dowolnego określonego obszaru pod, 
 kubectl describe po/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/postgres1-0 --namespace arc
+#kubectl describe po/pg1-0 --namespace arc
 ```
 
 ## <a name="troubleshooting-creation-problems"></a>Rozwiązywanie problemów z tworzeniem

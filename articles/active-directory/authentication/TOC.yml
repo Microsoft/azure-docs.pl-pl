@@ -154,6 +154,8 @@
           href: howto-password-ban-bad-on-premises-faq.md
         - name: Historia wersji agenta
           href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Używanie tymczasowego dostępu (wersja zapoznawcza)
+      href: howto-authentication-temporary-access-pass.md
     - name: Korzystanie z uwierzytelniania opartego na programie SMS
       href: howto-authentication-sms-signin.md
     - name: Użyj logowania przy użyciu adresu e-mail

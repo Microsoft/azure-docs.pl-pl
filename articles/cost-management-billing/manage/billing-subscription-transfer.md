@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979437"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367201"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto
 
@@ -91,9 +91,12 @@ Jeśli masz problemy związane z transferem subskrypcji, skorzystaj z poniższyc
 
 ### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>Oryginalny właściciel rozliczeń subskrypcji platformy Azure opuści organizację
 
-Istnieje możliwość, że oryginalny właściciel rozliczeń, który utworzył konto platformy Azure i subskrypcję platformy Azure, opuści Twoją organizację. Jeśli taka sytuacja się zdarzy, jego tożsamość użytkownika nie jest już w Azure Active Directory organizacji. Następnie subskrypcja platformy Azure nie ma właściciela rozliczenia. Ta sytuacja uniemożliwia wszystkim użytkownikom wykonywanie operacji rozliczeniowych na koncie, w tym wyświetlanie i płacenie rachunków. Subskrypcja może przejść w stan przeszłości. Ostatecznie subskrypcja może zostać wyłączona z powodu braku płatności. Ostatecznie subskrypcja może zostać usunięta i będzie mieć wpływ na każdą usługę uruchomioną w ramach subskrypcji.
+> [!Note]
+> Ta sekcja dotyczy tylko konta rozliczeniowego umowy klienta firmy Microsoft. Sprawdź, czy masz dostęp do [umowy klienta firmy Microsoft](mca-request-billing-ownership.md#check-for-access).
 
-Jeśli subskrypcja nie ma już prawidłowego właściciela rozliczeń, platforma Azure wysyła wiadomość e-mail do innych właścicieli rozliczeń, administratorów usługi, współadministratorów i właścicieli subskrypcji, którzy informują o sytuacji i udostępniają im link umożliwiający akceptację własności rozliczeń subskrypcji. Jeden z użytkowników może wybrać łącze, aby zaakceptować własność rozliczeń. Aby uzyskać więcej informacji na temat ról rozliczeń, zobacz [role rozliczeń](understand-mca-roles.md) i role [klasyczne oraz role RBAC platformy Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Istnieje możliwość, że oryginalny właściciel konta rozliczeń, który utworzył konto platformy Azure i subskrypcję platformy Azure, opuści Twoją organizację. Jeśli taka sytuacja się zdarzy, jego tożsamość użytkownika nie jest już w Azure Active Directory organizacji. Następnie subskrypcja platformy Azure nie ma właściciela rozliczenia. Ta sytuacja uniemożliwia wszystkim użytkownikom wykonywanie operacji rozliczeniowych na koncie, w tym wyświetlanie i płacenie rachunków. Subskrypcja może przejść w stan przeszłości. Ostatecznie subskrypcja może zostać wyłączona z powodu braku płatności. Ostatecznie subskrypcja może zostać usunięta i będzie mieć wpływ na każdą usługę uruchomioną w ramach subskrypcji.
+
+Jeśli subskrypcja nie ma już prawidłowego właściciela konta rozliczeniowego, na platformie Azure jest wysyłana wiadomość e-mail do innych właścicieli konta rozliczeniowego, administratorów usługi (jeśli istnieje), Co-Administrators (jeśli istnieją) i właściciele subskrypcji, którzy informują o sytuacji i udostępniają im link do akceptowania własności rozliczeń subskrypcji. Jeden z użytkowników może wybrać łącze, aby zaakceptować własność rozliczeń. Aby uzyskać więcej informacji na temat ról rozliczeń, zobacz [role rozliczeń](understand-mca-roles.md) i role [klasyczne oraz role RBAC platformy Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Oto przykład wiadomości e-mail.
 

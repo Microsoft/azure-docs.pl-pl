@@ -1,23 +1,17 @@
 ---
 title: Oficjalne dokumenty opisujące Azure Data Factory
 description: Te oficjalne dokumenty opisują Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 71b1b57cb2a9fa442dc3cef3bf34077040cff58e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e631dafd7281b601230755514eab831ad1bb6e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410921"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369496"
 ---
 # <a name="azure-data-factory-whitepapers"></a>Oficjalne dokumenty Azure Data Factory 
 

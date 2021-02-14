@@ -6,15 +6,15 @@ author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 68a5f6773543b922d024336556e4de24dd96fd33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503911"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517386"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Samouczek 3: Wdrażanie modelu ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
 
@@ -48,12 +48,12 @@ Ukończona [druga część samouczka](tutorial-part2-credit-risk-train.md).
 ## <a name="prepare-for-deployment"></a>Przygotowanie do wdrożenia
 Aby zapewnić innym osobom możliwość użycia modelu predykcyjnego, który został opracowany w ramach tego samouczka, możesz go wdrożyć jako usługę internetową na platformie Azure.
 
-Do tej pory były przeprowadzane eksperymenty z trenowaniem naszego modelu. Ale wdrożona usługa nie będzie już trenowana — będzie generowała nowe przewidywania, generując wyniki dla danych wejściowych użytkownika na podstawie naszego modelu. Dlatego będziemy wykonywać pewne przygotowania, aby przekonwertować ten eksperyment z programu ***szkolenia** _ do eksperymentu _*_predykcyjnego_*_ . 
+Do tej pory były przeprowadzane eksperymenty z trenowaniem naszego modelu. Ale wdrożona usługa nie będzie już trenowana — będzie generowała nowe przewidywania, generując wyniki dla danych wejściowych użytkownika na podstawie naszego modelu. W związku z tym wykonamy pewne przygotowania, aby przekonwertować ten eksperyment z **szkolenia * uczenie***_* na eksperymenty *._* 
 
 Proces przygotowania do wdrożenia składa się z trzech kroków:  
 
 1. Usunięcie jednego z modeli
-1. Konwertuj _training eksperyment * został utworzony w *eksperymentie predykcyjnym*
+1. Przekonwertowanie utworzonego *eksperymentu trenowania* w *eksperyment predykcyjny*
 1. Wdrożenie eksperymentu predykcyjnego jako usługi internetowej
 
 ### <a name="remove-one-of-the-models"></a>Usunięcie jednego z modeli

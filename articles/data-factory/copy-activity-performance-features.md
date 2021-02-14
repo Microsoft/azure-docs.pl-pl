@@ -1,23 +1,18 @@
 ---
 title: Funkcje optymalizacji wydajności działania kopiowania
 description: Poznaj najważniejsze funkcje, które ułatwiają optymalizację wydajności działania kopiowania w programie Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
-ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecb4550b218b069273cba2e3d70a9510c1cc74ca
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324335"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387805"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Funkcje optymalizacji wydajności działania kopiowania
 
@@ -126,10 +121,10 @@ Po określeniu wartości `parallelCopies` właściwości należy zwiększyć obc
 
 W przypadku kopiowania danych ze źródłowego magazynu danych do magazynu danych ujścia można użyć usługi Azure Blob Storage lub Azure Data Lake Storage Gen2 jako tymczasowego magazynu przemieszczania. Przygotowanie jest szczególnie przydatne w następujących przypadkach:
 
-- **Chcesz pozyskać dane z różnych magazynów danych do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pośrednictwem bazy danych Base, skopiować dane z/do płaty śnieg lub pozyskiwać dane z usług Amazon RedShift/HDFS performantly.** Więcej informacji zawiera temat:
+- **Chcesz pozyskać dane z różnych magazynów danych w usłudze Azure Synapse Analytics za pośrednictwem bazy danych Base, skopiować dane z/do płaty śniegu lub pozyskiwać dane z usługi Amazon RedShift/HDFS performantly.** Więcej informacji zawiera temat:
   - [Użyj podstawy, aby załadować dane do usługi Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
   - [Łącznik płatka śniegu](connector-snowflake.md)
-  - [Łącznik usługi Amazon RedShift](connector-amazon-redshift.md)
+  - [Łącznik usługi Amazon Redshift](connector-amazon-redshift.md)
   - [Łącznik HDFS](connector-hdfs.md)
 - **Nie chcesz otwierać portów innych niż port 80 i port 443 w zaporze ze względu na firmowe zasady IT.** Na przykład podczas kopiowania danych z lokalnego magazynu danych do Azure SQL Database lub analizy usługi Azure Synapse należy aktywować wychodzącą komunikację TCP na porcie 1433 zarówno dla zapory systemu Windows, jak i zapory firmowej. W tym scenariuszu kopia przygotowana może korzystać z własnego środowiska Integration Runtime, aby najpierw skopiować dane do tymczasowego magazynu za pośrednictwem protokołu HTTP lub HTTPS na porcie 443, a następnie załadować dane z przemieszczania do SQL Database lub Azure Synapse Analytics. W tym przepływie nie trzeba włączać portu 1433.
 - **Czasami trwa przeprowadzenie hybrydowego przenoszenia danych (czyli kopiowania z lokalnego magazynu danych do magazynu danych w chmurze) przez wolne połączenie sieciowe.** Aby zwiększyć wydajność, można użyć kopii przygotowanej do skompresowania danych w środowisku lokalnym, co pozwala na przenoszenie danych do tymczasowego magazynu danych w chmurze. Następnie można zdekompresować dane w magazynie przemieszczania przed załadowaniem do docelowego magazynu danych.
@@ -144,7 +139,7 @@ W przypadku aktywowania przenoszenia danych przy użyciu magazynu przemieszczani
 
 Obecnie nie można kopiować danych między dwoma magazynami danych, które są połączone za pośrednictwem różnych urzędów certyfikacji samodzielnych, ani z kopią etapową lub bez niej. W tym scenariuszu można skonfigurować dwa jawne działania kopiowania w łańcuchu w celu skopiowania danych ze źródła do przemieszczania z miejsca przejściowego do ujścia.
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Skonfiguruj ustawienie **enableStaging** w działaniu kopiowania, aby określić, czy dane mają zostać przygotowane w magazynie przed załadowaniem ich do docelowego magazynu danych. Po ustawieniu **enableStaging** na `TRUE` , określ dodatkowe właściwości wymienione w poniższej tabeli. 
 
@@ -197,7 +192,7 @@ Opłata jest naliczana na podstawie dwóch kroków: Kopiuj czas trwania i typ ko
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
 - [Przewodnik dotyczący wydajności i skalowalności działania kopiowania](copy-activity-performance.md)
 - [Rozwiązywanie problemów z wydajnością działania kopiowania](copy-activity-performance-troubleshooting.md)
 - [Używanie Azure Data Factory do migrowania danych z usługi Data Lake lub magazynu danych na platformę Azure](data-migration-guidance-overview.md)

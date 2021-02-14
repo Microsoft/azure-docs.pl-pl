@@ -3,22 +3,22 @@ title: 'ML Studio (klasyczny): Wyświetl & ponownie uruchom eksperymenty — Azu
 description: Zarządzaj przebiegami eksperymentów w Azure Machine Learning Studio (klasyczny). Możesz sprawdzić poprzednie uruchomienia eksperymentów w dowolnym momencie, aby zakwestionować, odwiedzać i ostatecznie potwierdzić lub uściślić poprzednie założenia.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 419a696da1244afab7aa03cd8c4521ea819a5298
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312865"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515958"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Zarządzanie przebiegami eksperymentów w Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Tworzenie modelu analizy predykcyjnej jest procesem iteracyjnym — w miarę modyfikowania różnych funkcji i parametrów eksperymentu wyniki są zbieżne do momentu, gdy masz nauczone, skuteczny model. Kluczem do tego procesu jest śledzenie różnych iteracji parametrów i konfiguracji eksperymentu.
@@ -42,10 +42,10 @@ Załóżmy na przykład, że tworzysz eksperyment z modułem [regresja liniowa][
 
 | Wartość współczynnika uczenia | Godzina rozpoczęcia przebiegu |
 | --- | --- |
-| 0,1 |9/11/2014 4:18:58 pm |
+| 0.1 |9/11/2014 4:18:58 pm |
 | 0,2 |9/11/2014 4:24:33 PM |
 | 0,4 |9/11/2014 4:28:36 pm |
-| 0.5 |9/11/2014 4:33:31 PM |
+| 0,5 |9/11/2014 4:33:31 PM |
 
 Po kliknięciu przycisku **Wyświetl historię uruchamiania** zostanie wyświetlona lista wszystkich przebiegów:
 
@@ -58,7 +58,7 @@ Kliknij dowolny z tych przebiegów, aby wyświetlić migawkę eksperymentu w mom
 > 
 > 
 
-Lista eksperymentów na karcie **eksperymenty** w Machine Learning Studio (klasyczny) zawsze wyświetla najnowszą wersję eksperymentu. Jeśli otworzysz poprzednie uruchomienie eksperymentu (przy użyciu **wcześniejszej** **historii uruchamiania lub wyświetlania** ), możesz powrócić do wersji roboczej, klikając polecenie **Wyświetl historię uruchamiania** i wybierając iterację mającą **stan** **edytowalny**.
+Lista eksperymentów na karcie **eksperymenty** w Machine Learning Studio (klasyczny) zawsze wyświetla najnowszą wersję eksperymentu. Jeśli otworzysz poprzednie uruchomienie eksperymentu (przy użyciu **wcześniejszej** **historii uruchamiania lub wyświetlania**), możesz powrócić do wersji roboczej, klikając polecenie **Wyświetl historię uruchamiania** i wybierając iterację mającą **stan** **edytowalny**.
 
 ## <a name="run-a-previous-experiment"></a>Uruchom poprzedni eksperyment
 Po kliknięciu przycisku **poprzedni przebieg** lub **Wyświetl historię uruchamiania** i Otwórz poprzedni przebieg, można wyświetlić gotowy eksperyment w trybie tylko do odczytu.

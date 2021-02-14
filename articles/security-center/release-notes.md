@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fe031fa6de86b8059ba175fc4e1df6385ca7e796
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d40d6107d3eee4b45f2184a61b1cdfc99559e9c7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551030"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379034"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -31,7 +31,7 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 > Jeśli szukasz elementów starszych niż sześć miesięcy, znajdziesz je w [archiwum, co nowego w programie Azure Security Center](release-notes-archive.md).
 
 
-## <a name="february-2021"></a>Luty 2021
+## <a name="february-2021"></a>Luty 2021 r.
 
 Aktualizacje w lutym obejmują:
 
@@ -39,6 +39,7 @@ Aktualizacje w lutym obejmują:
 - [Bezpośrednie łącze do zasad z poziomu strony Szczegóły rekomendacji](#direct-link-to-policy-from-recommendation-details-page)
 - [Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
+- [Ulepszenia strony spisu zasobów](#asset-inventory-page-enhancements)
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)
 
@@ -70,16 +71,32 @@ Jeśli przeglądasz listę zaleceń w [przewodniku dotyczącym zaleceń dotyczą
 
 
 ### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik
-
 Nie ma już wpływu na **ważne dane w bazach danych SQL** . Jest to jedyne zalecenie w kontroli zabezpieczeń **Zastosuj klasyfikację danych** , dzięki czemu kontrolka ma teraz bezpieczną wartość oceny równą 0.
 
 
 ### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)
-
 Dodaliśmy trzeci typ danych do opcji wyzwalacza dla automatyzacji przepływu pracy: zmiany dotyczące oceny zgodności z przepisami.
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Używanie zmian do oceny zgodności z przepisami w celu wyzwalania automatyzacji przepływu pracy" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
+
+### <a name="asset-inventory-page-enhancements"></a>Ulepszenia strony spisu zasobów
+Strona spisu zasobów Security Center została ulepszona w następujący sposób:
+
+- Podsumowania w górnej części strony zawierają teraz **niezarejestrowane subskrypcje**, pokazując liczbę subskrypcji bez włączonej Security Center.
+
+    :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Liczba niezarejestrowanej subskrypcji w podsumowaniu w górnej części strony spisu zasobów":::
+
+- Filtry zostały rozszerzone i udoskonalone w celu uwzględnienia:
+    - **Liczba** — każdy filtr przedstawia liczbę zasobów, które spełniają kryteria każdej kategorii.
+
+        :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Liczba w filtrach na stronie spisu zasobów Azure Security Center":::
+
+    - **Zawiera filtr wykluczeń** (opcjonalnie) — Zawęź wyniki do zasobów, których nie zostały wykluczone. Ten filtr nie jest domyślnie pokazywany, ale jest dostępny z poziomu przycisku **Dodaj filtr** .
+
+        :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Dodawanie filtru &quot;zawiera zwolnienie&quot; na stronie spisu zasobów Azure Security Center":::
+
+Dowiedz się więcej na temat sposobu [eksplorowania zasobów i zarządzania nimi za pomocą spisu](asset-inventory.md)zasobów.
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
@@ -630,7 +647,7 @@ Pulpit nawigacyjny zgodności z przepisami Security Center zapewnia wgląd w sta
 
 Pulpit nawigacyjny zawiera domyślny zestaw standardów prawnych. Jeśli którekolwiek z podanych standardów nie są odpowiednie dla Twojej organizacji, jest to prosty proces usuwania ich z interfejsu użytkownika dla subskrypcji. Standardy można usuwać tylko na poziomie *subskrypcji* . to nie jest zakres grupy zarządzania.
 
-Dowiedz się więcej w temacie [usuwanie standardu z pulpitu nawigacyjnego](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard).
+Dowiedz się więcej w temacie [usuwanie standardu z pulpitu nawigacyjnego](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
 
 
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Tabela Microsoft. Security/securityStatuses została usunięta z grafu zasobów platformy Azure (ARG)

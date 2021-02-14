@@ -1,21 +1,18 @@
 ---
 title: Wyrażenie i funkcje w Azure Data Factory
 description: Ten artykuł zawiera informacje o wyrażeniach i funkcjach, których można użyć podczas tworzenia jednostek fabryki danych.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 1b10146e59cefb17ff267eb0b470dd83004a7c2a
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 997700b27f52af174dab914097ceeef8d20ff148
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976575"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385629"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Wyrażenia i funkcje w usłudze Azure Data Factory
 
@@ -178,7 +175,7 @@ Do pracy z kolekcjami, ogólnie tablicami, ciągami i czasami słownikami można
 
 | Funkcja kolekcji | Zadanie |
 | ------------------- | ---- |
-| [zawiera](control-flow-expression-language-functions.md#contains) | Sprawdź, czy kolekcja zawiera określony element. |
+| [wyświetlana](control-flow-expression-language-functions.md#contains) | Sprawdź, czy kolekcja zawiera określony element. |
 | [puste](control-flow-expression-language-functions.md#empty) | Sprawdź, czy kolekcja jest pusta. |
 | [pierwszego](control-flow-expression-language-functions.md#first) | Zwróć pierwszy element z kolekcji. |
 | [część wspólną](control-flow-expression-language-functions.md#intersection) | Zwróć kolekcję, która ma *tylko* wspólne elementy w określonej kolekcji. |
@@ -186,7 +183,7 @@ Do pracy z kolekcjami, ogólnie tablicami, ciągami i czasami słownikami można
 | [ostatniego](control-flow-expression-language-functions.md#last) | Zwróć ostatni element z kolekcji. |
 | [length](control-flow-expression-language-functions.md#length) | Zwraca liczbę elementów w ciągu lub tablicy. |
 | [Skocz](control-flow-expression-language-functions.md#skip) | Usuń elementy z przodu kolekcji i zwróć *wszystkie pozostałe* elementy. |
-| [take (pobierz)](control-flow-expression-language-functions.md#take) | Zwróć elementy z przodu kolekcji. |
+| [czasochłonn](control-flow-expression-language-functions.md#take) | Zwróć elementy z przodu kolekcji. |
 | [Unii](control-flow-expression-language-functions.md#union) | Zwraca kolekcję zawierającą *wszystkie* elementy z określonych kolekcji. | 
 
 ## <a name="logical-functions"></a>Funkcje logiczne  
@@ -250,7 +247,7 @@ Te funkcje są przydatne w warunkach, ale mogą służyć do szacowania dowolneg
 | [add](control-flow-expression-language-functions.md#add) | Zwróć wynik dodawania dwóch liczb. |
 | [div](control-flow-expression-language-functions.md#div) | Zwróć wynik dzielenia dwóch liczb. |
 | [Maksymalny](control-flow-expression-language-functions.md#max) | Zwraca najwyższą wartość z zestawu liczb lub tablicy. |
-| [długości](control-flow-expression-language-functions.md#min) | Zwróć najniższą wartość z zestawu liczb lub tablicy. |
+| [min](control-flow-expression-language-functions.md#min) | Zwróć najniższą wartość z zestawu liczb lub tablicy. |
 | [Funkcja](control-flow-expression-language-functions.md#mod) | Zwróć resztę z dzielenia dwóch liczb. |
 | [mul](control-flow-expression-language-functions.md#mul) | Zwróć produkt z mnożenia dwóch liczb. |
 | [Rand](control-flow-expression-language-functions.md#rand) | Zwraca losową liczbę całkowitą z podanego zakresu. |

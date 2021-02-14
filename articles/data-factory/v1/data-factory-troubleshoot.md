@@ -1,24 +1,19 @@
 ---
 title: Rozwiązywanie problemów dotyczących Azure Data Factory
 description: Dowiedz się, jak rozwiązywać problemy przy użyciu Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: bd18a26a1c199e1ecc32cfc371d2931b1dee0c3f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ed831e5f07eb29110b858dfb16b73f276926424f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494974"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388247"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Rozwiązywanie problemów z usługą Data Factory
 > [!NOTE]
@@ -35,14 +30,15 @@ Wyświetlenie tego błędu oznacza, że dostawca zasobów usługi Azure Data Fac
 1. Uruchom program Azure PowerShell.
 2. Zaloguj się do konta platformy Azure przy użyciu następującego polecenia.
 
-    ```powershell
-    Connect-AzAccount
-    ```
+   ```powershell
+   Connect-AzAccount
+   ```
+
 3. Uruchom następujące polecenie, aby zarejestrować dostawcę Azure Data Factory.
 
-    ```powershell        
-    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-    ```
+   ```powershell
+   Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+   ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problem: nieautoryzowany błąd podczas uruchamiania polecenia cmdlet Data Factory
 Przypuszczalnie nie używasz prawidłowego konta lub subskrypcji platformy Azure w programie Azure PowerShell. Użyj następujących poleceń cmdlet, aby wybrać odpowiednie konto i subskrypcję platformy Azure do stosowania w programie Azure PowerShell.
@@ -67,7 +63,7 @@ Uruchom **Zarządzanie danymi bramę Configuration Manager** na maszynie bramy i
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problem: wycinki wejściowe są w stanie oczekiwania w nieskończoność
 Wycinki mogą znajdować się w stanie **oczekiwania** z różnych powodów. Jednym z typowych przyczyn jest to, że właściwość **zewnętrzna** nie jest ustawiona na **wartość true**. Każdy zestaw danych, który jest tworzony poza zakresem Azure Data Factory powinien być oznaczony przy użyciu właściwości **zewnętrznej** . Ta właściwość wskazuje, że dane są zewnętrzne i nie są obsługiwane przez żadne potoki w fabryce danych. Wycinki danych są oznaczane jako **Gotowy**, gdy dane staną się dostępne w odpowiednim magazynie.
 
-Zobacz poniższy przykład wykorzystania właściwości **external**. Opcjonalnie można określić **externalData** _, gdy ustawisz zewnętrzny na true.
+Zobacz poniższy przykład wykorzystania właściwości **external**. Opcjonalnie można określić **externalData*** po ustawieniu zewnętrzny na true.
 
 Dodatkowe informacje na temat tej właściwości można znaleźć w artykule [Zestawy danych](data-factory-create-datasets.md).
 
@@ -97,7 +93,7 @@ Dodatkowe informacje na temat tej właściwości można znaleźć w artykule [Ze
 }
 ```
 
-Aby rozwiązać ten problem, należy dodać właściwość _ *External** i opcjonalną sekcję **EXTERNALDATA** do definicji JSON tabeli wejściowej i ponownie utworzyć tabelę.
+Aby rozwiązać ten problem, dodaj właściwość **external** i opcjonalną sekcję **externalData** do definicji JSON tabeli wejściowej i utwórz tabelę ponownie.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problem: operacja kopiowania hybrydowego kończy się niepowodzeniem
 Zobacz [Rozwiązywanie problemów z bramą](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) , aby uzyskać instrukcje dotyczące rozwiązywania problemów z kopiowaniem do/z lokalnego magazynu danych przy użyciu bramy zarządzanie danymi.

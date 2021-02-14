@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 34f24b8fbdb28e1b1f73e9db428c510d3f4661ce
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 4b48e98ab35b620030b15165d4c9341c0f11b440
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804851"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393279"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Skonfiguruj OpenVPN dla usługi Azure Point-to-site VPN Gateway
 
@@ -31,12 +31,12 @@ W tym artykule opisano konfigurowanie **protokołu OpenVPN®** na platformie Azu
 ## <a name="portal"></a>Portal
 
 1. W portalu przejdź do **bramy sieci wirtualnej — > konfigurację punkt-lokacja**.
-1. W polu **Typ tunelu** wybierz pozycję **OpenVPN (SSL)** lub **IKEv2 i OpenVPN (SSL)** z listy rozwijanej.
+1. W polu **Typ tunelu** wybierz pozycję **OpenVPN (SSL)** z listy rozwijanej.
 
    :::image type="content" source="./media/vpn-gateway-howto-openvpn/portal.png" alt-text="Z listy rozwijanej wybierz pozycję OpenVPN SSL":::
 1. Zapisz zmiany i przejdź do **następnych kroków**.
 
-Włącz OpenVPN na bramie.
+## <a name="enable-openvpn-on-your-gateway-using-powershell"></a>Włącz OpenVPN w bramie przy użyciu programu PowerShell.
 
 1. Włącz OpenVPN na bramie, korzystając z następującego przykładu:
 

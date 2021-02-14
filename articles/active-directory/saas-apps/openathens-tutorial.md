@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 02/03/2021
 ms.author: jeedes
-ms.openlocfilehash: fc2d1c5dca4265bc0f0c26dd0a6c62a7e1698a38
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: de54e179c6972ca1f79dbcd6e210ff64ee3480bb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621471"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378884"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą OpenAthens
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować usługę OpenAthens z usługą Az
 * Kontrolka w usłudze Azure AD, która ma dostęp do OpenAthens.
 * Zezwól użytkownikom na automatyczne logowanie się do usługi OpenAthens przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,22 +40,22 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Usługa OpenAthens obsługuje logowanie jednokrotne inicjowane przez **dostawcę tożsamości**
 * Usługa OpenAthens obsługuje aprowizację użytkowników typu **Just In Time**
 
-## <a name="adding-openathens-from-the-gallery"></a>Dodawanie usługi OpenAthens z galerii
+## <a name="add-openathens-from-the-gallery"></a>Dodaj OpenAthens z galerii
 
 Aby skonfigurować integrację usługi OpenAthens z usługą Azure AD, musisz dodać usługę OpenAthens z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **OpenAthens** w polu wyszukiwania.
 1. Wybierz pozycję **OpenAthens** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-openathens"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla OpenAthens
+## <a name="configure-and-test-azure-ad-sso-for-openathens"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla OpenAthens
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą OpenAthens przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w OpenAthens.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą OpenAthens, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą OpenAthens, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -70,9 +68,9 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **OpenAthens** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **OpenAthens** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -117,15 +115,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **OpenAthens**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-openathens-sso"></a>Konfigurowanie logowania jednokrotnego OpenAthens
@@ -134,19 +126,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Wybierz pozycję **Connections** (Połączenia) z listy na karcie **Management** (Zarządzanie).
 
-    ![Zrzut ekranu przedstawiający stronę firmy "OpenAthens" z opcją "Connections" wybraną z karty "Zarządzanie".](./media/openathens-tutorial/tutorial_openathens_application1.png)
+    ![Zrzut ekranu przedstawiający stronę firmy "OpenAthens" z opcją "Connections" wybraną z karty "Zarządzanie".](./media/openathens-tutorial/connections.png)
 
 1. Wybierz pozycję **SAML 1.1/2.0**, a następnie wybierz przycisk **Configure** (Konfiguruj).
 
-    ![Zrzut ekranu pokazujący "Wybieranie lokalnego uwierzytelniania systemu". Zostanie wyświetlone okno dialogowe z opcją "S A M L 1.1/2.0" i wybranym przyciskiem "Konfiguruj".](./media/openathens-tutorial/tutorial_openathens_application2.png)
+    ![Zrzut ekranu pokazujący "Wybieranie lokalnego uwierzytelniania systemu". Zostanie wyświetlone okno dialogowe z opcją "S A M L 1.1/2.0" i wybranym przyciskiem "Konfiguruj".](./media/openathens-tutorial/saml.png)
 
 1. W celu dodania konfiguracji wybierz przycisk **Browse** (Przeglądaj), aby przekazać plik xml metadanych pobrany z witryny Azure Portal, a następnie wybierz przycisk **Add** (Dodaj).
 
-    ![Zrzut ekranu pokazujący system uwierzytelniania "Dodaj S A M L". zostanie wyświetlone okno dialogowe z akcją "Przeglądaj" i "Dodaj".](./media/openathens-tutorial/tutorial_openathens_application3.png)
+    ![Zrzut ekranu pokazujący system uwierzytelniania "Dodaj S A M L". zostanie wyświetlone okno dialogowe z akcją "Przeglądaj" i "Dodaj".](./media/openathens-tutorial/configure.png)
 
 1. Wykonaj poniższe kroki na karcie **Details** (Szczegóły).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/openathens-tutorial/tutorial_openathens_application4.png)
+    ![Konfigurowanie logowania jednokrotnego](./media/openathens-tutorial/add.png)
 
     a. W obszarze **Display name mapping** (Mapowanie nazwy wyświetlanej) wybierz opcję **Use attribute** (Użyj atrybutu).
 
@@ -164,7 +156,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     h. Z karty **</> Relying Party** (</> Jednostka uzależniona) skopiuj adres **Metadata URL** (Adres URL metadanych) i otwórz go w przeglądarce, aby pobrać plik **XML metadanych dostawcy usług**. Przekaż ten plik metadanych dostawcy usług w sekcji **Podstawowa konfiguracja protokołu SAML** w usłudze Azure AD.
 
-    ![Zrzut ekranu pokazujący wybraną kartę "Jednostka uzależniona" i wyróżnioną pozycję "metadane U R L".](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![Zrzut ekranu pokazujący wybraną kartę "Jednostka uzależniona" i wyróżnioną pozycję "metadane U R L".](./media/openathens-tutorial/metadata.png)
 
 ### <a name="create-openathens-test-user"></a>Tworzenie użytkownika testowego usługi OpenAthens
 
@@ -172,16 +164,12 @@ W tej sekcji w usłudze OpenAthens jest tworzony użytkownik o nazwie Britta Sim
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-Po kliknięciu kafelka OpenAthens w panelu dostępu powinno nastąpić automatyczne zalogowanie do usługi OpenAthens, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do OpenAthens, dla którego skonfigurowano Logowanie jednokrotne.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka OpenAthens w obszarze Moje aplikacje należy automatycznie zalogować się do OpenAthens, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj OpenAthens z usługą Azure AD](https://aad.portal.azure.com/)
+Po skonfigurowaniu OpenAthens można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

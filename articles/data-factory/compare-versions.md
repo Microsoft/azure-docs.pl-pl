@@ -1,21 +1,17 @@
 ---
 title: Porównanie bieżącej wersji usługi Azure Data Factory z wersją 1 usługi Data Factory
 description: Ten artykuł zawiera porównanie bieżącej wersji usługi Azure Data Factory z wersją 1 usługi Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: kromerm
-manager: anandsub
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: makromer
-ms.openlocfilehash: c6a46f6c8a57b681f66bb98fced17bf0e2464fcd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dc5a4c92ee4ac0acd4a69ef94fec0981e328d829
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638248"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393721"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Porównanie bieżącej wersji usługi Azure Data Factory z wersją 1 usługi Data Factory
 
@@ -26,18 +22,18 @@ Ten artykuł zawiera porównanie bieżącej wersji usługi Data Factory z wersj�
 ## <a name="feature-comparison"></a>Porównanie funkcji
 Poniższa tabela zawiera porównanie funkcji bieżącej wersji usługi Data Factory oraz funkcji wersji 1 usługi Data Factory. 
 
-| Cechy | Wersja 1 | Bieżąca wersja | 
+| Cecha | Wersja 1 | Bieżąca wersja | 
 | ------- | --------- | --------- | 
 | Zestawy danych | Nazwany widok danych odwołujący się do danych, które mają być używane w działaniach jako dane wejściowe lub wyjściowe. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure określa kontener obiektów blob i folder w usłudze Azure Blob Storage, z których działanie ma odczytywać dane.<br/><br/>**Dostępność** definiuje model tworzenia wycinków okien przetwarzania dla zestawu danych (na przykład co godzinę, codziennie itd.). | Zestawy danych są takie same w bieżącej wersji. Nie trzeba jednak definiować harmonogramów **dostępności** dla zestawów danych. Można zdefiniować zasób wyzwalający, który może planować potoki z paradygmatu harmonogramu zegarowego. Aby uzyskać więcej informacji, zobacz [Triggers](concepts-pipeline-execution-triggers.md#trigger-execution) (Wyzwalacze) i [Datasets](concepts-datasets-linked-services.md) (Zestawy danych). | 
 | Połączone usługi | Połączone usługi działają podobnie do parametrów połączenia, umożliwiając definiowanie informacji dla usługi Data Factory, które są niezbędne do nawiązywania połączeń z zasobami zewnętrznymi. | Połączone usługi są takie same jak w usłudze Data Factory w wersji 1, ale z nową właściwością **connectVia** do korzystania ze środowiska obliczeniowego Integration Runtime bieżącej wersji usługi Data Factory. Aby uzyskać więcej informacji, zobacz [Infrastruktura Integration Runtime w usłudze Azure Data Factory](concepts-integration-runtime.md) i [Linked service properties for Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) (Właściwości usługi połączonej dla usługi Azure Blob Storage). |
-| Potoki | Fabryka danych może obejmować jeden lub wiele potoków. Potok jest logicznym grupowaniem działań, które wspólnie wykonują zadanie. Do planowania i uruchamiania potoków są używane parametry startTime, endTime i isPaused. | Potoki są grupami działań wykonywanych na danych. Jednak planowanie działań w potoku zostało rozdzielone na nowe zasoby wyzwalające. Potoki w bieżącej wersji usługi Data Factory można traktować raczej jako „jednostki przepływu pracy”, które są planowane oddzielnie za pośrednictwem wyzwalaczy. <br/><br/>W bieżącej wersji usługi Data Factory potoki nie mają „okien” czasu wykonywania. Koncepcje startTime, endTime i isPaused z wersji 1 usługi Data Factory nie są już dostępne w bieżącej wersji usługi Data Factory. Aby uzyskać więcej informacji, zobacz [Wyzwalacze i wykonywanie potoku](concepts-pipeline-execution-triggers.md) oraz [Potoki i działania](concepts-pipelines-activities.md). |
+| Pipelines | Fabryka danych może obejmować jeden lub wiele potoków. Potok jest logicznym grupowaniem działań, które wspólnie wykonują zadanie. Do planowania i uruchamiania potoków są używane parametry startTime, endTime i isPaused. | Potoki są grupami działań wykonywanych na danych. Jednak planowanie działań w potoku zostało rozdzielone na nowe zasoby wyzwalające. Potoki można traktować w bieżącej wersji Data Factory więcej jako "jednostki przepływu pracy", które są planowane osobno za pośrednictwem wyzwalaczy. <br/><br/>Potoki nie mają wykonywania czasu "Windows" w bieżącej wersji Data Factory. Koncepcje startTime, endTime i isPaused z wersji 1 usługi Data Factory nie są już dostępne w bieżącej wersji usługi Data Factory. Aby uzyskać więcej informacji, zobacz [Wyzwalacze i wykonywanie potoku](concepts-pipeline-execution-triggers.md) oraz [Potoki i działania](concepts-pipelines-activities.md). |
 | Działania | Działania definiują akcje do wykonania na danych w potoku. Obsługiwane są działania przenoszenia danych (działanie kopiowania) i przekształcania danych (takie jak Hive, Pig i MapReduce). | W bieżącej wersji Data Factory działania nadal są zdefiniowane w ramach potoku. Bieżąca wersja Data Factory wprowadza nowe [działania przepływu sterowania](concepts-pipelines-activities.md#control-flow-activities). Te działania są używane w przepływie sterowania (zapętlanie i rozgałęzianie). Działania przenoszenia i przekształcania danych, które były obsługiwane w wersji 1, są obsługiwane w bieżącej wersji. W bieżącej wersji można zdefiniować działania przekształcania bez używania zestawów danych. |
 | Hybrydowe przenoszenie danych i wysyłanie działania | Teraz nazywana środowiskiem Integration Runtime, [brama zarządzania danymi](v1/data-factory-data-management-gateway.md) obsługiwała przenoszenie danych między środowiskiem lokalnym i chmurą.| Brama zarządzania danymi jest teraz nazywana środowiskiem Integration Runtime (Self-hosted). Zapewnia te same funkcje, co w wersji 1. <br/><br/> Infrastruktura Azure-SSIS Integration Runtime w bieżącej wersji usługi Data Factory obsługuje również wdrażanie i uruchamianie pakietów usług SQL Server Integration Services (SSIS) w chmurze. Aby uzyskać więcej informacji, zobacz [Infrastruktura Integration Runtime w usłudze Azure Data Factory](concepts-integration-runtime.md).|
-| Parametry | Nie dotyczy | Parametry to pary klucz-wartość ustawień konfiguracji tylko do odczytu, które są zdefiniowane w potokach. Argumenty dla parametrów można przekazywać podczas ręcznego uruchamiania potoku. Jeśli używasz wyzwalacza harmonogramu, wyzwalacz też może przekazywać wartości parametrów. Działania w ramach potoku wykorzystują wartości parametrów.  |
+| Parametry | NA | Parametry to pary klucz-wartość ustawień konfiguracji tylko do odczytu, które są zdefiniowane w potokach. Argumenty dla parametrów można przekazywać podczas ręcznego uruchamiania potoku. Jeśli używasz wyzwalacza harmonogramu, wyzwalacz też może przekazywać wartości parametrów. Działania w ramach potoku wykorzystują wartości parametrów.  |
 | Wyrażenia | Usługa Data Factory V1 pozwala używać funkcji i zmiennych systemowych w zapytaniach wyboru danych i właściwościach działania/zestawu danych. | W bieżącej wersji usługi Data Factory można używać wyrażeń w dowolnym miejscu w wartości ciągu JSON. Aby uzyskać więcej informacji, zobacz [Expressions and functions in the current version of Data Factory](control-flow-expression-language-functions.md) (Wyrażenia i funkcje w bieżącej wersji usługi Data Factory).|
-| Uruchomienia potoków | Nie dotyczy | Pojedyncze wystąpienie wykonania potoku. Załóżmy na przykład istnienie potoku, który jest wykonywany o 8:00, 9:00 i 10:00. W takim przypadku występują trzy osobne uruchomienia potoku. Każde uruchomienie potoku ma unikatowy identyfikator uruchomienia potoku. Każdy identyfikator uruchomienia potoku jest identyfikatorem GUID, który w sposób unikatowy definiuje to konkretne uruchomienie potoku. Uruchomienia potoku są tworzone zazwyczaj przez przekazanie argumentów do parametrów, które są definiowane w potokach. |
-| Uruchomienia działania | Nie dotyczy | Wystąpienie wykonania działania w potoku. | 
-| Uruchomienia wyzwalacza | Nie dotyczy | Wystąpienie wykonania wyzwalacza. Aby uzyskać więcej informacji, zobacz [Triggers](concepts-pipeline-execution-triggers.md) (Wyzwalacze). |
+| Uruchomienia potoków | NA | Pojedyncze wystąpienie wykonania potoku. Załóżmy na przykład istnienie potoku, który jest wykonywany o 8:00, 9:00 i 10:00. W takim przypadku występują trzy osobne uruchomienia potoku. Każde uruchomienie potoku ma unikatowy identyfikator uruchomienia potoku. Każdy identyfikator uruchomienia potoku jest identyfikatorem GUID, który w sposób unikatowy definiuje to konkretne uruchomienie potoku. Uruchomienia potoku są tworzone zazwyczaj przez przekazanie argumentów do parametrów, które są definiowane w potokach. |
+| Uruchomienia działania | NA | Wystąpienie wykonania działania w potoku. | 
+| Uruchomienia wyzwalacza | NA | Wystąpienie wykonania wyzwalacza. Aby uzyskać więcej informacji, zobacz [Triggers](concepts-pipeline-execution-triggers.md) (Wyzwalacze). |
 | Planowanie | Planowanie zależy od godzin rozpoczęcia/zakończenia potoku i dostępności zestawu danych. | Wyzwalacz harmonogramu lub wykonywanie przez zewnętrzny harmonogram. Aby uzyskać więcej informacji, zobacz [Wyzwalacze i wykonywanie potoku](concepts-pipeline-execution-triggers.md). |
 
 Następujące sekcje zawierają więcej informacji na temat funkcji bieżącej wersji. 
@@ -69,7 +65,7 @@ Potoki mogą być wywoływane na żądanie (na podstawie zdarzenia, np. opubliko
 [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md) umożliwia potokowi usługi Data Factory wywoływanie innego potoku.
 
 ### <a name="delta-flows"></a>Przepływy delta
-Przypadek użycia klucza we wzorcach ETL to „ładowania delta”, w których ładowane są tylko te dane, które zmieniły się od czasu ostatniej iteracji potoku. Nowe funkcje w bieżącej wersji, takie jak [działanie wyszukiwania](control-flow-lookup-activity.md), elastyczne harmonogramy i przepływ sterowania, w naturalny sposób umożliwiają ten przypadek użycia. Aby uzyskać samouczek z instrukcjami krok po kroku, zobacz [Samouczek: kopia przyrostowa](tutorial-incremental-copy-powershell.md).
+Kluczowym przypadkiem użycia w wzorcach ETL jest "ładunki różnicowe", w których załadowano tylko dane, które uległy zmianie od czasu ostatniej iteracji potoku. Nowe funkcje w bieżącej wersji, takie jak [działanie wyszukiwania](control-flow-lookup-activity.md), elastyczne harmonogramy i przepływ sterowania, w naturalny sposób umożliwiają ten przypadek użycia. Aby uzyskać samouczek z instrukcjami krok po kroku, zobacz [Samouczek: kopia przyrostowa](tutorial-incremental-copy-powershell.md).
 
 ### <a name="other-control-flow-activities"></a>Inne działania przepływu sterowania
 Poniżej przedstawiono kilka kolejnych działań przepływu sterowania, które są obsługiwane w bieżącej wersji usługi Data Factory. 
@@ -92,7 +88,7 @@ Na przykład możesz użyć programu SQL Server Data Tools lub SQL Server Manage
 ## <a name="flexible-scheduling"></a>Elastyczne harmonogramy
 W bieżącej wersji usługi Data Factory nie trzeba definiować harmonogramów dostępności zestawu danych. Można zdefiniować zasób wyzwalający, który może planować potoki z paradygmatu harmonogramu zegarowego. Parametry można też przekazać do potoków z wyzwalacza dla modelu elastycznego harmonogramu i wykonywania. 
 
-W bieżącej wersji usługi Data Factory potoki nie mają „okien” czasu wykonywania. Koncepcje startTime, endTime i isPaused z wersji 1 usługi Data Factory nie istnieją w bieżącej wersji usługi Data Factory. Aby uzyskać więcej informacji o sposobie tworzenia, a następnie planowania potoku w bieżącej wersji usługi Data Factory, zobacz [Wyzwalacze i wykonywanie potoku](concepts-pipeline-execution-triggers.md).
+Potoki nie mają wykonywania czasu "Windows" w bieżącej wersji Data Factory. Koncepcje startTime, endTime i isPaused z wersji 1 usługi Data Factory nie istnieją w bieżącej wersji usługi Data Factory. Aby uzyskać więcej informacji o sposobie tworzenia, a następnie planowania potoku w bieżącej wersji usługi Data Factory, zobacz [Wyzwalacze i wykonywanie potoku](concepts-pipeline-execution-triggers.md).
 
 ## <a name="support-for-more-data-stores"></a>Obsługa większej liczby magazynów danych
 Bieżąca wersja obsługuje kopiowanie danych do i z większej liczby magazynów danych niż wersja 1. Listę obsługiwanych magazynów danych zawierają następujące artykuły:
@@ -118,13 +114,13 @@ Aby uzyskać więcej informacji, zobacz [Difference between custom activity in D
 ## <a name="sdks"></a>Zestawy SDK
  Bieżąca wersja usługi Data Factory udostępnia bogatszy zestaw środowisk SDK, których można używać do tworzenia i monitorowania potoków oraz zarządzania nimi.
 
-- **.NET SDK** : zestaw .NET SDK został zaktualizowany w bieżącej wersji.
+- **.NET SDK**: zestaw .NET SDK został zaktualizowany w bieżącej wersji.
 
-- **PowerShell** : polecenia cmdlet programu PowerShell zostały zaktualizowane w bieżącej wersji. Polecenia cmdlet dla bieżącej wersji mają **nazwie datafactoryv2** w nazwie, na przykład: Get-AzDataFactoryV2. 
+- **PowerShell**: polecenia cmdlet programu PowerShell zostały zaktualizowane w bieżącej wersji. Polecenia cmdlet dla bieżącej wersji mają **nazwie datafactoryv2** w nazwie, na przykład: Get-AzDataFactoryV2. 
 
-- **Python SDK** : ten zestaw SDK jest nowym składnikiem w bieżącej wersji.
+- **Python SDK**: ten zestaw SDK jest nowym składnikiem w bieżącej wersji.
 
-- **REST API** : interfejs API REST został zaktualizowany w bieżącej wersji. 
+- **REST API**: interfejs API REST został zaktualizowany w bieżącej wersji. 
 
 Zestawy SDK, które zostały zaktualizowane w bieżącej wersji, nie są zgodne wstecz z klientami w wersji 1. 
 

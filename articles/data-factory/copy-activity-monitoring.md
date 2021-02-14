@@ -1,22 +1,17 @@
 ---
 title: Monitorowanie działania kopiowania
 description: Dowiedz się więcej na temat monitorowania wykonywania działania kopiowania w Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440613"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388298"
 ---
 # <a name="monitor-copy-activity"></a>Monitorowanie działania kopiowania
 
@@ -48,7 +43,7 @@ W niektórych scenariuszach, gdy uruchomisz działanie kopiowania w Data Factory
 
 ## <a name="monitor-programmatically"></a>Monitoruj programowo
 
-Szczegóły wykonania działania kopiowania i charakterystyki wydajności są również zwracane w sekcji **Copy Activity run result**  >  **danych wyjściowych** działania Uruchom działanie kopiowania, która jest używana do renderowania widoku monitorowania interfejsu użytkownika. Poniżej znajduje się kompletna lista właściwości, które mogą zostać zwrócone. Zobaczysz tylko właściwości, które mają zastosowanie do Twojego scenariusza kopiowania. Aby uzyskać informacje o tym, jak ogólnie monitorować uruchomienia działań, zobacz programowe [monitorowanie fabryki danych Azure](monitor-programmatically.md).
+Szczegóły wykonania działania kopiowania i charakterystyki wydajności są również zwracane w sekcji   >  **danych wyjściowych** działania Uruchom działanie kopiowania, która jest używana do renderowania widoku monitorowania interfejsu użytkownika. Poniżej znajduje się kompletna lista właściwości, które mogą zostać zwrócone. Zobaczysz tylko właściwości, które mają zastosowanie do Twojego scenariusza kopiowania. Aby uzyskać informacje o tym, jak ogólnie monitorować uruchomienia działań, zobacz programowe [monitorowanie fabryki danych Azure](monitor-programmatically.md).
 
 | Nazwa właściwości  | Opis | Jednostka w danych wyjściowych |
 |:--- |:--- |:--- |
@@ -67,9 +62,9 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
 | danych | Szybkość transferu danych. | Liczba zmiennoprzecinkowa w KB/s |
 | sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int32 (brak jednostki) |
 | sinkPeakConnections| Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania.| Wartość Int32 (brak jednostki) |
-| sqlDwPolyBase | Niezależnie od tego, czy baza danych jest używana, gdy dane są kopiowane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse). | Boolean (wartość logiczna) |
-| redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Boolean (wartość logiczna) |
-| hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Boolean (wartość logiczna) |
+| sqlDwPolyBase | Niezależnie od tego, czy baza danych jest używana, gdy dane są kopiowane do usługi Azure Synapse Analytics. | Wartość logiczna |
+| redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Wartość logiczna |
+| hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Wartość logiczna |
 | effectiveIntegrationRuntime | Środowisko Integration Runtime (IR) lub środowisko uruchomieniowe służące do włączania uruchomienia działania w formacie `<IR name> (<region if it's Azure IR>)` . | Tekst (ciąg) |
 | usedDataIntegrationUnits | Efektywna jednostka integracji danych podczas kopiowania. | Wartość Int32 |
 | usedParallelCopies | Efektywna parallelCopies podczas kopiowania. | Wartość Int32 |
@@ -163,6 +158,6 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-\- [Omówienie działania kopiowania](copy-activity-overview.md)
+\-[Przegląd działania kopiowania](copy-activity-overview.md)
 
 \- [Wydajność działania kopiowania](copy-activity-performance.md)

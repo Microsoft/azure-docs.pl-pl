@@ -8,18 +8,25 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: bffff099e8df2b944cbef50a074ef625267ed238
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cf0db71600c9350b4d70e6375f509a6e88709f70
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944630"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378336"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Jak połączyć urządzenia z certyfikatami X. 509 za pomocą zestawu SDK urządzeń Node.js dla IoT Central aplikacji
 
 IoT Central obsługuje zarówno sygnatury dostępu współdzielonego, jak i certyfikat X. 509 w celu zabezpieczenia komunikacji między urządzeniem a aplikacją. W samouczku [Tworzenie i łączenie aplikacji klienckiej z aplikacją platformy Azure IoT Central używany jest](./tutorial-connect-device.md) sygnatura dostępu współdzielonego. W tym artykule dowiesz się, jak zmodyfikować przykładowy kod, aby użyć X. 509.  Certyfikaty X. 509 są zalecane w środowiskach produkcyjnych. Aby uzyskać więcej informacji, zobacz temat [połączono z usługą Azure IoT Central](./concepts-get-connected.md).
 
 W tym artykule przedstawiono dwa sposoby używania rejestracji X. 509 — [grupy](how-to-connect-devices-x509.md#use-a-group-enrollment) są zwykle używane w środowisku produkcyjnym, a [indywidualne rejestracje](how-to-connect-devices-x509.md#use-an-individual-enrollment) przydatne do testowania.
+
+Fragmenty kodu w tym artykule używają języka JavaScript. Przykłady kodu w innych językach można znaleźć w temacie:
+
+- [S](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_ll_client_x509_sample)
+- [C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/X509DeviceCertWithChainSample)
+- [Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
+- [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

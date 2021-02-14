@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 2. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym w wersji 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654816"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374052"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host.json dla usługi Azure Functions w wersji 2.x lub nowszej 
 
@@ -39,6 +39,7 @@ W poniższym przykładzie *host.jsw* pliku dla wersji 2. x + dostępne są wszys
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -151,7 +152,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 > [!NOTE]
 > Próbkowanie dziennika może spowodować, że niektóre wykonania nie są wyświetlane w bloku monitora Application Insights. Aby uniknąć próbkowania dziennika, Dodaj `excludedTypes: "Request"` do `samplingSettings` wartości.
 
-| Właściwość | Domyślny | Opis |
+| Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | samplingSettings | n/d | Zobacz [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Włącza zbieranie metryk na żywo. |
@@ -165,7 +166,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 Aby uzyskać więcej informacji na temat tych ustawień, zobacz [próbkowanie w Application Insights](../azure-monitor/app/sampling.md). 
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | isEnabled | true | Włącza lub wyłącza próbkowanie. | 
 | maxTelemetryItemsPerSecond | 20 | Docelowa liczba elementów telemetrii zarejestrowanych na sekundę na każdym hoście serwera. Jeśli aplikacja działa na wielu hostach, Zmniejsz tę wartość, aby pozostała w ogólnym docelowym wskaźniku ruchu. | 
@@ -173,15 +174,15 @@ Aby uzyskać więcej informacji na temat tych ustawień, zobacz [próbkowanie w 
 | initialSamplingPercentage| 100,0 | Procent początkowej próbki stosowany na początku procesu próbkowania, aby dynamicznie zmieniać wartość procentową. Nie Redukuj wartości podczas debugowania. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | Gdy wartość procentowa próbkowania ulegnie zmianie, ta właściwość określa, jak wkrótce Application Insights może ponownie wywołać procent próbkowania, aby przechwycić więcej danych. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | Gdy wartość procentowa próbkowania ulegnie zmianie, ta właściwość określa, jak wkrótce później Application Insights można ponownie obniżyć procent próbkowania, aby przechwycić mniejszą ilość danych. |
-| minSamplingPercentage | 0,1 | W miarę jak procent próbkowania różni się, ta właściwość określa minimalny dozwolony procent próbkowania. |
+| minSamplingPercentage | 0.1 | W miarę jak procent próbkowania różni się, ta właściwość określa minimalny dozwolony procent próbkowania. |
 | maxSamplingPercentage | 100,0 | W miarę jak procent próbkowania różni się, ta właściwość określa maksymalny dozwolony procent próbkowania. |
 | movingAverageRatio | 1.0 | Przy obliczaniu średniej przenoszonej waga przypisana do najnowszej wartości. Użyj wartości równej lub mniejszej od 1. Mniejsze wartości sprawiają, że algorytm jest mniej aktywny w nagłych zmianach. |
-| excludedTypes | wartość null | Rozdzielana średnikami lista typów, które nie mają być próbkowane. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wszystkie wystąpienia określonych typów są przesyłane; typy, które nie są określone, są próbkowane. |
-| includedTypes | wartość null | Rozdzielana średnikami lista typów, które mają być próbkowane; pusta lista implikuje wszystkie typy. Typ wymieniony w liście `excludedTypes` typów przesłonięcia w tym miejscu. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wystąpienia określonych typów są próbkowane; typy, które nie są określone lub implikowane są przesyłane bez próbkowania. |
+| excludedTypes | null | Rozdzielana średnikami lista typów, które nie mają być próbkowane. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wszystkie wystąpienia określonych typów są przesyłane; typy, które nie są określone, są próbkowane. |
+| includedTypes | null | Rozdzielana średnikami lista typów, które mają być próbkowane; pusta lista implikuje wszystkie typy. Typ wymieniony w liście `excludedTypes` typów przesłonięcia w tym miejscu. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wystąpienia określonych typów są próbkowane; typy, które nie są określone lub implikowane są przesyłane bez próbkowania. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Włącza lub wyłącza rozszerzone informacje żądania HTTP dla wyzwalaczy HTTP: nagłówki korelacji żądań przychodzących, obsługa kluczy wielu instrumentacji, metoda HTTP, ścieżka i odpowiedź. |
 | enableW3CDistributedTracing | true | Włącza lub wyłącza obsługę protokołu śledzenia rozproszonego W3C (i włącza starszą wersję schematu korelacji). Domyślnie włączone, jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość true. Jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość false, ta flaga ma zastosowanie tylko do żądań wychodzących, a nie do żądań przychodzących. |
@@ -191,9 +192,9 @@ Aby uzyskać więcej informacji na temat tych ustawień, zobacz [próbkowanie w 
 
 Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na wyjątkach w aplikacjach .NET](../azure-monitor/app/snapshot-debugger.md) i [Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
-| agentEndpoint | wartość null | Punkt końcowy używany do nawiązywania połączenia z usługą Application Insights Snapshot Debugger. Jeśli wartość jest równa null, używany jest domyślny punkt końcowy. |
+| agentEndpoint | null | Punkt końcowy używany do nawiązywania połączenia z usługą Application Insights Snapshot Debugger. Jeśli wartość jest równa null, używany jest domyślny punkt końcowy. |
 | captureSnapshotMemoryWeight | 0,5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | Limit liczby żądań zakończonych niepowodzeniem do żądania migawek przed wyłączeniem procesora telemetrii.|
 | handleUntrackedExceptions | true | Włącza lub wyłącza śledzenie wyjątków, które nie są śledzone przez Application Insights dane telemetryczne. |
@@ -207,14 +208,18 @@ Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na
 | problemCounterResetInterval | 24:00:00 | Jak często resetować liczniki problemu w zakresie od 1 minuty do siedmiu dni. Po osiągnięciu tego interwału wszystkie liczby problemów są resetowane do zera. Istniejące problemy, które osiągnęły już próg dla tworzenia migawek, ale nie wygenerowały jeszcze liczby migawek w programie `maximumSnapshotsRequired` , pozostają aktywne. |
 | provideAnonymousTelemetry | true | Określa, czy wysyłać anonimowe użycie i dane telemetryczne błędu do firmy Microsoft. Te dane telemetryczne mogą być używane w przypadku kontaktowania się z firmą Microsoft w celu ułatwienia rozwiązywania problemów z Snapshot Debugger. Służy również do monitorowania wzorców użycia. |
 | reconnectInterval | 00:15:00 | Jak często ponownie nawiązujemy połączenie z punktem końcowym Snapshot Debugger. Dozwolony zakres to jedna minuta na jeden dzień. |
-| shadowCopyFolder | wartość null | Określa folder, który ma być używany do kopiowania plików binarnych w tle. Jeśli nie zostanie ustawiona, foldery określone przez następujące zmienne środowiskowe są podejmowane w kolejności: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
+| shadowCopyFolder | null | Określa folder, który ma być używany do kopiowania plików binarnych w tle. Jeśli nie zostanie ustawiona, foldery określone przez następujące zmienne środowiskowe są podejmowane w kolejności: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
 | shareUploaderProcess | true | Jeśli wartość jest równa true, tylko jedno wystąpienie elementu SnapshotUploader będzie zbierać i przekazywać migawki dla wielu aplikacji, które współużytkują InstrumentationKey. W przypadku ustawienia wartości false SnapshotUploader będzie unikatowy dla każdej kolekcji (ProcessName, InstrumentationKey). |
 | snapshotInLowPriorityThread | true | Określa, czy przetwarzać migawki w wątku niskiego priorytetu we/wy. Tworzenie migawki jest szybką operacją, ale w celu przekazania migawki do usługi Snapshot Debugger należy najpierw zapisać ją na dysku jako minizrzutu. Dzieje się tak w procesie SnapshotUploader. Ustawienie tej wartości na true powoduje użycie operacji we/wy o niskim priorytecie w celu zapisania minizrzutu, która nie będzie konkurować z aplikacją dla zasobów. Ustawienie tej wartości na wartość false powoduje przyspieszenie minizrzutu tworzenia w kosztach spowolnienia działania aplikacji. |
 | snapshotsPerDayLimit | 30 | Maksymalna liczba migawek dozwolonych w ciągu jednego dnia (24 godziny). Ten limit jest również wymuszany po stronie usługi Application Insights. Operacje przekazywania mają szybkość ograniczoną do 50 dziennie dla aplikacji (czyli na klucz Instrumentacji). Ta wartość pomaga zapobiegać tworzeniu dodatkowych migawek, które ostatecznie zostaną odrzucone podczas przekazywania. Wartość zerowa powoduje całkowite usunięcie limitu, co nie jest zalecane. |
 | snapshotsPerTenMinutesLimit | 1 | Maksymalna liczba migawek dozwolona w ciągu 10 minut. Chociaż nie ma górnej granicy tej wartości, należy zachować ostrożność w obciążeniu produkcyjnym, ponieważ może to mieć wpływ na wydajność aplikacji. Tworzenie migawki jest szybkie, ale utworzenie minizrzutu migawki i przekazanie jej do usługi Snapshot Debugger jest znacznie wolniejszą operacją, która spowoduje konkurowanie z aplikacją dla zasobów (zarówno procesora CPU, jak i we/wy). |
-| tempFolder | wartość null | Określa folder, w którym mają zostać zapisane pliki dziennika minizrzutów i obiektu przekazującego. Jeśli nie jest ustawiona, zostanie użyta wartość *%temp%\Dumps* . |
+| tempFolder | null | Określa folder, w którym mają zostać zapisane pliki dziennika minizrzutów i obiektu przekazującego. Jeśli nie jest ustawiona, zostanie użyta wartość *%temp%\Dumps* . |
 | thresholdForSnapshotting | 1 | Ile razy Application Insights musi zobaczyć wyjątek przed wyświetleniem monitu o migawki. |
-| uploaderProxy | wartość null | Zastępuje serwer proxy używany w procesie obiektu przekazującego migawek. Może być konieczne użycie tego ustawienia, jeśli aplikacja łączy się z Internetem za pośrednictwem serwera proxy. Snapshot Collector działa w ramach procesu aplikacji i będzie używać tych samych ustawień serwera proxy. Jednak migawka obiektu przekazującego działa jako oddzielny proces i może być konieczne ręczne skonfigurowanie serwera proxy. Jeśli ta wartość jest równa null, Snapshot Collector spróbuje automatycznie wykryć adres serwera proxy, sprawdzając system .NET. WebRequest. DefaultWebProxy i przekazując wartość do migawki obiektu przekazującego. Jeśli ta wartość nie ma wartości null, wykrywanie autowykrywania nie jest używane i serwer proxy określony w tym miejscu zostanie użyty w migawce obiektu przekazującego. |
+| uploaderProxy | null | Zastępuje serwer proxy używany w procesie obiektu przekazującego migawek. Może być konieczne użycie tego ustawienia, jeśli aplikacja łączy się z Internetem za pośrednictwem serwera proxy. Snapshot Collector działa w ramach procesu aplikacji i będzie używać tych samych ustawień serwera proxy. Jednak migawka obiektu przekazującego działa jako oddzielny proces i może być konieczne ręczne skonfigurowanie serwera proxy. Jeśli ta wartość jest równa null, Snapshot Collector spróbuje automatycznie wykryć adres serwera proxy, sprawdzając system .NET. WebRequest. DefaultWebProxy i przekazując wartość do migawki obiektu przekazującego. Jeśli ta wartość nie ma wartości null, wykrywanie autowykrywania nie jest używane i serwer proxy określony w tym miejscu zostanie użyty w migawce obiektu przekazującego. |
+
+## <a name="blobs"></a>Liczba
+
+Ustawienia konfiguracji można znaleźć w tematach [wyzwalacze i powiązania obiektów blob magazynu](functions-bindings-storage-blob.md#hostjson-settings).  
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -235,7 +240,7 @@ Ustawienia konfiguracji niestandardowego programu obsługi. Aby uzyskać więcej
 }
 ```
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- |
 | defaultExecutablePath | n/d | Plik wykonywalny, który ma zostać uruchomiony jako proces procedury obsługi niestandardowej. To ustawienie jest wymagane w przypadku korzystania z niestandardowych programów obsługi, a jego wartość jest określana względem katalogu głównego aplikacji funkcji. |
 | workingDirectory | *Katalog główny aplikacji funkcji* | Katalog roboczy, w którym ma zostać uruchomiony proces obsługi niestandardowej. Jest to ustawienie opcjonalne, a jego wartość jest określana względem katalogu głównego aplikacji funkcji. |
@@ -305,7 +310,7 @@ Ustawienia konfiguracji dla [monitora kondycji hosta](https://github.com/Azure/a
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |enabled|true|Określa, czy funkcja jest włączona. | 
 |healthCheckInterval|10 sekund|Przedział czasu między okresowymi kontrolami kondycji w tle. | 
@@ -337,7 +342,7 @@ Steruje zachowaniem rejestrowania aplikacji funkcji, w tym Application Insights.
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Określa, jaki poziom rejestrowania plików jest włączony.  Dostępne opcje to `never` , `always` , `debugOnly` . |
 |logLevel|n/d|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) w dokumentacji ASP.NET Core. |
@@ -360,7 +365,7 @@ To ustawienie jest elementem podrzędnym [rejestrowania](#logging). Kontroluje R
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |isEnabled|fałsz|Włącza lub wyłącza rejestrowanie konsoli.| 
 
@@ -378,7 +383,7 @@ Zależność zarządzana to funkcja, która jest obecnie obsługiwana tylko w pr
 
 ## <a name="queues"></a>tworzone
 
-Ustawienia konfiguracji można znaleźć w temacie [wyzwalacze i powiązania kolejki magazynu](functions-bindings-storage-queue-output.md#host-json).  
+Ustawienia konfiguracji można znaleźć w temacie [wyzwalacze i powiązania kolejki magazynu](functions-bindings-storage-queue.md#host-json).  
 
 ## <a name="retry"></a>retry
 
@@ -394,13 +399,13 @@ Kontroluje opcje [zasad ponawiania prób](./functions-bindings-error-pages.md#re
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
-|strategii|wartość null|Wymagane. Strategia ponawiania, która ma zostać użyta. Prawidłowe wartości to `fixedDelay` lub `exponentialBackoff` .|
-|Wartość MaxRetryCount|wartość null|Wymagane. Maksymalna dozwolona liczba ponownych prób na wykonanie funkcji. `-1` oznacza, aby ponowić próbę w nieskończoność.|
-|delayInterval|wartość null|Opóźnienie, które jest używane między ponownymi próbami z `fixedDelay` strategią.|
-|minimumInterval|wartość null|Minimalne opóźnienie ponowienia próby w przypadku korzystania z `exponentialBackoff` strategii.|
-|maximumInterval|wartość null|Maksymalne opóźnienie ponowienia próby w przypadku korzystania z `exponentialBackoff` strategii.| 
+|strategii|null|Wymagane. Strategia ponawiania, która ma zostać użyta. Prawidłowe wartości to `fixedDelay` lub `exponentialBackoff` .|
+|Wartość MaxRetryCount|null|Wymagane. Maksymalna dozwolona liczba ponownych prób na wykonanie funkcji. `-1` oznacza, aby ponowić próbę w nieskończoność.|
+|delayInterval|null|Opóźnienie, które jest używane między ponownymi próbami z `fixedDelay` strategią.|
+|minimumInterval|null|Minimalne opóźnienie ponowienia próby w przypadku korzystania z `exponentialBackoff` strategii.|
+|maximumInterval|null|Maksymalne opóźnienie ponowienia próby w przypadku korzystania z `exponentialBackoff` strategii.| 
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -426,7 +431,7 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Okres, w którym są wykonywane blokady poziomu funkcji. Blokady autorenew.| 
 |listenerLockPeriod|00:01:00|Okres, w którym są wykonywane blokady odbiornika.| 

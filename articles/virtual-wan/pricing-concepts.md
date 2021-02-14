@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 13451291544f704000ab61d41ed5014fa69298e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905540"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517692"
 ---
 # <a name="about-virtual-wan-pricing"></a>Informacje o cenach wirtualnych sieci WAN
 
@@ -23,8 +23,7 @@ Wirtualna sieć WAN platformy Azure oferuje wiele usług sieciowych i zabezpiecz
 Cena każdej usługi w wirtualnej sieci WAN jest naliczana. W związku z tym nie można zasugerować pojedynczej ceny dla wirtualnej sieci WAN. [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) udostępnia mechanizm umożliwiający uzyskanie kosztów, który jest oparty na usługach udostępnianych w wirtualnej sieci WAN. W tym artykule opisano często zadawane pytania dotyczące cen wirtualnych sieci WAN.
 
 >[!NOTE]
->Aby uzyskać aktualne informacje o cenach, zobacz [Cennik usługi Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/).
->
+>Aby uzyskać aktualne informacje o cenach, zobacz [Cennik usługi Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/). Opłaty między centrami (między centrami a centrami) nie są wyświetlane na stronie cennika wirtualnej sieci WAN, ponieważ podlegają opłatom za usługi związane z [transferem danych Inter-Region na platformie Azure](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="common-pricing-questions"></a><a name="questions"></a>Często zadawane pytania dotyczące cen
 

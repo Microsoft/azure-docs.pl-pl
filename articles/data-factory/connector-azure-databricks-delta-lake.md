@@ -1,22 +1,18 @@
 ---
 title: Kopiowanie danych do i z Azure Databricks różnicowa Lake
 description: Dowiedz się, jak kopiować dane do i z Azure Databricks delty Lake przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: bdf71276d59dec9a19e29ae7f49cb92a0512c05a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221163"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364243"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Kopiuj dane do i z Azure Databricks delty Lake przy użyciu Azure Data Factory
 
@@ -151,8 +147,8 @@ Aby skopiować dane z Azure Databricks delty Lake, w sekcji **Źródło** dział
 | typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AzureDatabricksDeltaLakeSource**. | Tak      |
 | query          | Określ zapytanie SQL do odczytu danych. W przypadku kontroli podróży czasowej postępuj zgodnie z poniższym wzorcem:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | Nie       |
 | exportSettings | Ustawienia zaawansowane używane do pobierania danych z tabeli różnicowej. | Nie       |
-| ***W obszarze `exportSettings` :** _ |  |  |
-| typ | Typ polecenia eksportu, ustawiony na _ * AzureDatabricksDeltaLakeExportCommand * *. | Tak |
+| ***W obszarze `exportSettings` :*** |  |  |
+| typ | Typ polecenia eksportu, ustawiony na **AzureDatabricksDeltaLakeExportCommand**. | Tak |
 | dateFormat | Sformatuj typ daty na ciąg o formacie daty. Niestandardowe formaty dat są zgodne z formatami we [wzorcu DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Jeśli nie zostanie określony, zostanie użyta wartość domyślna `yyyy-MM-dd` . | Nie |
 | timestampFormat | Sformatuj typ sygnatury czasowej na ciąg z formatem sygnatury czasowej. Niestandardowe formaty dat są zgodne z formatami we [wzorcu DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Jeśli nie zostanie określony, zostanie użyta wartość domyślna `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | Nie |
 
@@ -265,8 +261,8 @@ Aby skopiować dane do Azure Databricks delty Lake, w sekcji **ujścia** działa
 | typ          | Właściwość Type ujścia działania Copy ustawiona na wartość **AzureDatabricksDeltaLakeSink**. | Tak      |
 | preCopyScript | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych w tabeli różnicowej datakostki w każdym uruchomieniu. Tej właściwości można użyć do oczyszczenia wstępnie załadowanych danych lub dodania instrukcji TRUNCATE TABLE lub próżniowej. | Nie       |
 | importSettings | Ustawienia zaawansowane używane do zapisywania danych w tabeli różnicowej. | Nie |
-| **_W obszarze `importSettings` :_* _ |                                                              |  |
-| typ | Typ polecenia importowania, ustawiony na _ * AzureDatabricksDeltaLakeImportCommand * *. | Tak |
+| ***W obszarze `importSettings` :*** |                                                              |  |
+| typ | Typ polecenia importowania, ustawiony na **AzureDatabricksDeltaLakeImportCommand**. | Tak |
 | dateFormat | Sformatuj ciąg jako typ daty z formatem daty. Niestandardowe formaty dat są zgodne z formatami we [wzorcu DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Jeśli nie zostanie określony, zostanie użyta wartość domyślna `yyyy-MM-dd` . | Nie |
 | timestampFormat | Sformatuj ciąg do typu sygnatury czasowej z formatem sygnatury czasowej. Niestandardowe formaty dat są zgodne z formatami we [wzorcu DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Jeśli nie zostanie określony, zostanie użyta wartość domyślna `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | Nie |
 

@@ -3,14 +3,14 @@ title: Azure Monitor Application Insights schemat zasobów oparty na obszarze ro
 description: Zapoznaj się z nową strukturą tabeli i schematem Azure Monitor Application Insights zasobów obszaru roboczego.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e63d4a680ad76ccd6895aed53f3276a5775b1226
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931057"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385969"
 ---
-# <a name="workspace-based-resource-changes-preview"></a>Zmiany zasobów na podstawie obszaru roboczego (wersja zapoznawcza)
+# <a name="workspace-based-resource-changes"></a>Zmiany zasobów na podstawie obszaru roboczego
 
 Przed wprowadzeniem [zasobów Application Insights opartych na obszarze roboczym](create-workspace-resource.md)Application Insights dane były przechowywane oddzielnie od innych danych dziennika w Azure monitor. Oba są oparte na platformie Azure Eksplorator danych i używają tego samego języka zapytań Kusto (KQL). Opisano to w [dziennikach w Azure monitor](../platform/data-platform-logs.md).
 
@@ -18,7 +18,7 @@ Za pomocą Application Insights danych zasobów opartych na obszarze roboczym s�
 
 ## <a name="table-structure"></a>Struktura tabeli
 
-| Nazwa starszej tabeli | Nazwa nowej tabeli | Opis |
+| Nazwa starszej tabeli | Nowa nazwa tabeli | Opis |
 |:---|:---|:---|
 | availabilityResults | AppAvailabilityResults |  Dane podsumowujące z testów dostępności.|
 | browserTimings | AppBrowserTimings | Dane dotyczące wydajności klienta, takie jak czas przetwarzania danych przychodzących.|
@@ -41,7 +41,7 @@ Większość kolumn ma taką samą nazwę co różne wielkości liter. Ponieważ
 
 Starsza tabela: dostępność
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -63,9 +63,9 @@ Starsza tabela: dostępność
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Type|Ciąg|
+|itemType|ciąg|Typ|Ciąg|
 |location|ciąg|Lokalizacja|ciąg|
-|message|ciąg|Wiadomość|ciąg|
+|message|ciąg|Komunikat|ciąg|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -85,7 +85,7 @@ Starsza tabela: dostępność
 
 Starsza tabela: browserTimings
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -129,7 +129,7 @@ Starsza tabela: browserTimings
 
 Starsza tabela: zależności
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -152,7 +152,7 @@ Starsza tabela: zależności
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Type|Ciąg|
+|itemType|ciąg|Typ|Ciąg|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -174,7 +174,7 @@ Starsza tabela: zależności
 
 Starsza tabela: customEvents
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -211,7 +211,7 @@ Starsza tabela: customEvents
 
 Starsza tabela: customMetrics
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -241,7 +241,7 @@ Starsza tabela: customMetrics
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|value|liczba rzeczywista|usunięte||
+|wartość|liczba rzeczywista|usunięte||
 |valueCount|int|ValueCount|int|
 |valueMax|liczba rzeczywista|ValueMax|liczba rzeczywista|
 |valueMin|liczba rzeczywista|ValueMin|liczba rzeczywista|
@@ -252,7 +252,7 @@ Starsza tabela: customMetrics
 
 Starsza tabela: pageViews
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -274,7 +274,7 @@ Starsza tabela: pageViews
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Type|Ciąg|
+|itemType|ciąg|Typ|Ciąg|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -293,7 +293,7 @@ Starsza tabela: pageViews
 
 Starsza tabela: Liczniki wydajności
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -326,13 +326,13 @@ Starsza tabela: Liczniki wydajności
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|value|liczba rzeczywista|Wartość|liczba rzeczywista|
+|wartość|liczba rzeczywista|Wartość|liczba rzeczywista|
 
 ### <a name="apprequests"></a>AppRequests
 
 Starsza tabela: żądania
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -354,7 +354,7 @@ Starsza tabela: żądania
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Type|Ciąg|
+|itemType|ciąg|Typ|Ciąg|
 |name|ciąg|Nazwa|Ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -376,7 +376,7 @@ Starsza tabela: żądania
 
 Starsza tabela: wyjątki
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -404,7 +404,7 @@ Starsza tabela: wyjątki
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
 |itemType|ciąg|Typ|ciąg|
-|message|ciąg|Wiadomość|ciąg|
+|message|ciąg|Komunikat|ciąg|
 |method|ciąg|Metoda|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -428,7 +428,7 @@ Starsza tabela: wyjątki
 
 Starsza tabela: ślady
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Typ|LogAnalytics|Typ|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -449,7 +449,7 @@ Starsza tabela: ślady
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
 |itemType|ciąg|Typ|ciąg|
-|message|ciąg|Wiadomość|ciąg|
+|message|ciąg|Komunikat|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
 |operation_ParentId|ciąg|OperationParentId|ciąg|

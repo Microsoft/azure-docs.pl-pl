@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f8d8547c2d4900e6258f7360c50d8dfc17157832
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423049"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517248"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Przegląd ciągłości działania z Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -21,7 +21,7 @@ Ten przegląd zawiera opis możliwości, które Azure Database for PostgreSQL za
 
 Podczas opracowywania planu ciągłości biznesowej należy zrozumieć maksymalny akceptowalny czas, po upływie którego aplikacja zostanie w pełni odzyskana po wystąpieniu zdarzenia zakłócenia — jest to cel czasu odzyskiwania (RTO). Należy również zrozumieć maksymalną ilość najnowszych aktualizacji danych (przedział czasu), jaką aplikacja może tolerować podczas odzyskiwania po wystąpieniu zdarzenia zakłócenia — jest to cel punktu odzyskiwania (RPO).
 
-Azure Database for PostgreSQL zapewnia funkcje ciągłości biznesowej, które obejmują geograficznie nadmiarowe kopie zapasowe z możliwością inicjowania przywracania geograficznego oraz wdrażania replik odczytu w innym regionie. Każdy z nich ma różne cechy czasu odzyskiwania i potencjalną utratę danych. Dzięki funkcji [przywracania geograficznego](concepts-backup.md) nowy serwer jest tworzony przy użyciu danych kopii zapasowej replikowanych z innego regionu. Całkowity czas przywracania i odzyskiwania zależy od rozmiaru bazy danych i ilości dzienników do odzyskania. Całkowity czas ustanowienia serwera różni się od kilku minut do kilku godzin. W przypadku [replik odczytu](concepts-read-replicas.md)dzienniki transakcji z podstawowego programu są przesyłane strumieniowo do repliki. W przypadku awarii podstawowej bazy danych z powodu błędu poziomu strefy lub poziomu regionu, przełączenie w tryb failover do repliki zapewnia krótszą RTO i zmniejsza utratę danych.
+Usługa Azure Database for PostgreSQL oferuje funkcje ciągłości biznesowej, które obejmują geograficznie nadmiarowe kopie zapasowe z możliwością inicjowania przywracania geograficznego oraz wdrażanie replik odczytu w innym regionie. Każdy z nich ma różne cechy czasu odzyskiwania i potencjalną utratę danych. Dzięki funkcji [przywracania geograficznego](concepts-backup.md) nowy serwer jest tworzony przy użyciu danych kopii zapasowej replikowanych z innego regionu. Całkowity czas przywracania i odzyskiwania zależy od rozmiaru bazy danych i ilości dzienników do odzyskania. Całkowity czas ustanowienia serwera różni się od kilku minut do kilku godzin. W przypadku [replik odczytu](concepts-read-replicas.md)dzienniki transakcji z podstawowego programu są przesyłane strumieniowo do repliki. W przypadku awarii podstawowej bazy danych z powodu błędu poziomu strefy lub poziomu regionu, przełączenie w tryb failover do repliki zapewnia krótszą RTO i zmniejsza utratę danych.
 
 > [!NOTE]
 > Opóźnienie między serwerem podstawowym a repliką zależy od opóźnienia między lokacjami, ilości danych do przesłania i najważniejszego obciążenia pracą zapisu na serwerze podstawowym. Duże obciążenia mogą generować duże opóźnienia. 
@@ -30,9 +30,9 @@ Azure Database for PostgreSQL zapewnia funkcje ciągłości biznesowej, które o
 
 W poniższej tabeli porównano RTO i cel punktu odzyskiwania w **typowym** scenariuszu obciążenia:
 
-| **Funkcja** | **Podstawowe** | **Ogólnego przeznaczenia** | **Optymalizacja pod kątem pamięci** |
+| **Funkcja** | **Podstawowa** | **Ogólnego przeznaczenia** | **Optymalizacja pod kątem pamięci** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Przywracanie do punktu w czasie z kopii zapasowej | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania |
+| Przywracanie do punktu w czasie z kopii zapasowej | Dowolny punkt przywracania w okresie przechowywania <br/> RTO — różne <br/>Cel punktu odzyskiwania < 15 min| Dowolny punkt przywracania w okresie przechowywania <br/> RTO — różne <br/>Cel punktu odzyskiwania < 15 min | Dowolny punkt przywracania w okresie przechowywania <br/> RTO — różne <br/>Cel punktu odzyskiwania < 15 min |
 | Przywracanie geograficzne z kopii zapasowych replikowanych geograficznie | Nieobsługiwane | RTO — różne <br/>Cel punktu odzyskiwania < 1 h | RTO — różne <br/>Cel punktu odzyskiwania < 1 h |
 | Repliki do odczytu | RTO — minuty * <br/>Cel punktu odzyskiwania < 5 min * | RTO — minuty * <br/>Cel punktu odzyskiwania < 5 min *| RTO — minuty * <br/>Cel punktu odzyskiwania < 5 min *|
 

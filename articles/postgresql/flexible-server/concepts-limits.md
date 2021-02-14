@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 0221022c342735744d59f956d6047b4abf23b5cf
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937665"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516519"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limity na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -66,6 +66,13 @@ Połączenie PostgreSQL, nawet bezczynne, może zajmować około 10 MB pamięci.
 
 - Automatyczna Migracja między wersjami aparatu głównej bazy danych nie jest obecnie obsługiwana. Jeśli chcesz uaktualnić do następnej wersji głównej, zrób [zrzut i Przywróć](../howto-migrate-using-dump-and-restore.md) go na serwerze, który został utworzony przy użyciu nowej wersji aparatu.
 
+### <a name="storage"></a>Storage
+
+- Po skonfigurowaniu nie można zmniejszyć rozmiaru magazynu.
+- Obecnie funkcja autozwiększania magazynu jest niedostępna. Monitoruj użycie i Zwiększ rozmiar magazynu w większym rozmiarze. 
+- Gdy użycie magazynu osiągnie 95% lub dostępna pojemność jest mniejsza niż 5 GiB, serwer jest automatycznie przełączany do **trybu tylko do odczytu** , aby uniknąć błędów skojarzonych z założeniami dysków. 
+- Zalecamy ustawienie reguł alertów dla `storage used` lub `storage percent` czasu przekroczenia określonych progów, aby można było aktywnie podejmować działania, takie jak zwiększenie rozmiaru magazynu. Na przykład można ustawić alert, jeśli procent miejsca do magazynowania przekracza 80% użycia.
+  
 ### <a name="networking"></a>Sieć
 
 - Przechodzenie do i z sieci wirtualnej nie jest obecnie obsługiwane.

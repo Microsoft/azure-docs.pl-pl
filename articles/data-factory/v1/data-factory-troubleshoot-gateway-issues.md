@@ -1,22 +1,18 @@
 ---
 title: Rozwiązywanie problemów z bramą Zarządzanie danymi
 description: Zawiera wskazówki dotyczące rozwiązywania problemów związanych z bramą Zarządzanie danymi.
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 284486c5db248ced8ada6e7194c7bc5a9be5689f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896569"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388349"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Rozwiązywanie problemów z używaniem bramy zarządzania danymi
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z usługą Zarządzanie danymi Gateway.
@@ -99,7 +95,7 @@ Jeśli konfiguracja jest aktualna/Najnowsza i nadal istnieje w portalu, ponownie
 ### <a name="6-problem"></a>6. problem
 Podczas rejestrowania bramy może zostać wyświetlony następujący komunikat o błędzie.
 
-`Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
+`Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
 ![Klucz bramy jest nieprawidłowy lub pusty](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
@@ -107,7 +103,7 @@ Podczas rejestrowania bramy może zostać wyświetlony następujący komunikat o
 Ten błąd może wystąpić, ponieważ Brama została usunięta lub ponownie wygenerowano skojarzony klucz bramy.
 
 #### <a name="resolution"></a>Rozwiązanie
-Jeśli Brama została usunięta, ponownie utwórz bramę z portalu, kliknij pozycję **zarejestruj** , skopiuj klucz z portalu, wklej go i spróbuj zarejestrować bramę.
+Jeśli Brama została usunięta, ponownie utwórz bramę z portalu, kliknij pozycję **zarejestruj**, skopiuj klucz z portalu, wklej go i spróbuj zarejestrować bramę.
 
 Jeśli Brama nadal istnieje, ale jej klucz został wygenerowany ponownie, Użyj nowego klucza do zarejestrowania bramy. Jeśli nie masz klucza, ponownie Wygeneruj klucz w portalu.
 
@@ -167,7 +163,7 @@ Brama nie może nawiązać połączenia z usługą w chmurze za pomocą Service 
 #### <a name="resolution"></a>Rozwiązanie
 Wykonaj następujące kroki, aby ponownie uzyskać dostęp do bramy w trybie online:
 
-1. Zezwalaj na reguły wychodzące adresów IP na maszynie bramy i w zaporze firmowej. Adresy IP można znaleźć z dziennika zdarzeń systemu Windows (identyfikator = = 401): podjęto próbę uzyskania dostępu do gniazda w sposób zabroniony przez jego uprawnienia dostępu XX. XX. XX. XX: 9350.
+1. Zezwalaj na reguły wychodzące adresów IP na maszynie bramy i w zaporze firmowej. Adresy IP można znaleźć z dziennika zdarzeń systemu Windows (ID = = 401): podjęto próbę uzyskania dostępu do gniazda w sposób zabroniony przez jego uprawnienia dostępu XX. XX. XX. XX: 9350.
 1. Skonfiguruj ustawienia serwera proxy na bramie. Szczegółowe informacje znajdują się w sekcji zagadnienia dotyczące serwerów proxy.
 1. Włącz porty wychodzące 5671 i 9350-9354 zarówno w zaporze systemu Windows na maszynie bramy, jak i w firmowej zaporze. Szczegółowe informacje znajdują się w sekcji porty i zapory. Ten krok jest opcjonalny, ale zalecamy jego użycie w celu uwzględnienia wydajności.
 

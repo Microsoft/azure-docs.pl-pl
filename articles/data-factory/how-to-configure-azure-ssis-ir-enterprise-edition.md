@@ -1,21 +1,17 @@
 ---
 title: Udostępnianie wersji Enterprise Edition dla Azure-SSIS Integration Runtime
 description: W tym artykule opisano funkcje wersji Enterprise Edition dotyczące Azure-SSIS Integration Runtime i sposobu ich aprowizacji
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
-ms.openlocfilehash: be49d56d301c23791777f4d89e8c6c6fd35d7035
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f700729c2d059648b1c3a7e451526aefcb436818
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636310"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387550"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Udostępnianie wersji Enterprise Edition dla Azure-SSIS Integration Runtime
 
@@ -30,7 +26,7 @@ Wydanie Enterprise Azure-SSIS Integration Runtime umożliwia korzystanie z nast�
 
 Niektóre z tych funkcji wymagają zainstalowania dodatkowych składników w celu dostosowania Azure-SSIS IR. Aby uzyskać więcej informacji na temat instalowania dodatkowych składników, zobacz [Konfiguracja niestandardowa środowiska Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-## <a name="enterprise-features"></a>Funkcje dla przedsiębiorstw
+## <a name="enterprise-features"></a>Funkcje przedsiębiorstwa
 
 | **Funkcje przedsiębiorstwa** | **Znajduje** |
 |---|---|

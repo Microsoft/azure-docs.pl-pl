@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91cf6729911cdb674c5451f172e76a2e9d5943e4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1818dc558ba45e318b71e1443556cc48feaede8b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467673"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367677"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Rozwiązywanie problemów z Azure Monitor dla pulpitu wirtualnego systemu Windows (wersja zapoznawcza)
 
@@ -20,9 +20,9 @@ ms.locfileid: "96467673"
 
 W tym artykule przedstawiono znane problemy i rozwiązania typowych problemów występujących w Azure Monitor dla pulpitu wirtualnego systemu Windows (wersja zapoznawcza).
 
-## <a name="the-configuration-workbook-isnt-working-properly"></a>Skoroszyt konfiguracji nie działa prawidłowo
+## <a name="issues-with-configuration-and-setup"></a>Problemy związane z konfiguracją i instalacją
 
-Jeśli skoroszyt konfiguracji Azure Monitor nie działa, możesz użyć tych zasobów do ręcznego skonfigurowania jego części:
+Jeśli skoroszyt konfiguracji nie działa prawidłowo w celu zautomatyzowania instalacji, możesz użyć tych zasobów, aby ręcznie skonfigurować środowisko:
 
 - Aby ręcznie włączyć diagnostykę lub uzyskać dostęp do obszaru roboczego Log Analytics, zobacz [wysyłanie diagnostyki pulpitu wirtualnego systemu Windows do log Analytics](diagnostics-log-analytics.md).
 - Aby ręcznie zainstalować rozszerzenie Log Analytics na hoście, zobacz [log Analytics rozszerzenie maszyny wirtualnej dla systemu Windows](../virtual-machines/extensions/oms-windows.md).
@@ -30,27 +30,29 @@ Jeśli skoroszyt konfiguracji Azure Monitor nie działa, możesz użyć tych zas
 - Aby dodać lub usunąć liczniki wydajności, zobacz [Konfigurowanie liczników wydajności](../azure-monitor/platform/data-sources-performance-counters.md).
 - Aby skonfigurować zdarzenia dla obszaru roboczego Log Analytics, zobacz [zbieranie źródeł danych dziennika zdarzeń systemu Windows z agentem log Analytics](../azure-monitor/platform/data-sources-windows-events.md).
 
-Alternatywnie problem może być spowodowany brakiem zasobów lub brakiem wymaganych uprawnień.
-
-Jeśli subskrypcja nie zawiera żadnych zasobów pulpitu wirtualnego systemu Windows, nie będzie wyświetlana w parametrze *subskrypcji* .
-
-Jeśli nie masz dostępu do odczytu do odpowiednich subskrypcji, nie będą one wyświetlane w parametrze *subskrypcji* , a ich dane nie będą widoczne na pulpicie nawigacyjnym. Aby rozwiązać ten problem, skontaktuj się z właścicielem subskrypcji i poproś o dostęp do odczytu.
-
 ## <a name="my-data-isnt-displaying-properly"></a>Moje dane nie są prawidłowo wyświetlane
 
-Jeśli dane nie są wyświetlane prawidłowo, może to być spowodowane tym, że wystąpił problem podczas procesu konfiguracji Azure Monitor. Najpierw upewnij się, że wypełniono wszystkie pola w skoroszycie konfiguracji, zgodnie z opisem w temacie [używanie Azure monitor dla pulpitu wirtualnego systemu Windows do monitorowania wdrożenia](azure-monitor.md). Ustawienia dla nowych i istniejących środowisk można zmienić w dowolnym momencie. Jeśli nie ma żadnych liczników lub zdarzeń, dane skojarzone z nimi nie będą wyświetlane w Azure Portal.
+Jeśli dane nie są wyświetlane prawidłowo, sprawdź konfigurację, uprawnienia i sprawdź, czy wymagane adresy IP zostały odblokowane. 
 
-Jeśli nie masz żadnych informacji, ale dane nadal nie są wyświetlane prawidłowo, może wystąpić problem z kwerendą lub źródłami danych. 
+- Najpierw upewnij się, że wypełniono wszystkie pola w skoroszycie konfiguracji, zgodnie z opisem w temacie [używanie Azure monitor dla pulpitu wirtualnego systemu Windows do monitorowania wdrożenia](azure-monitor.md). Jeśli nie ma żadnych liczników lub zdarzeń, dane skojarzone z nimi nie będą wyświetlane w Azure Portal.
 
-Jeśli nie widzisz żadnych błędów instalacji i nadal nie widzisz oczekiwanych danych, możesz poczekać 15 minut i odświeżyć kanał informacyjny. Azure Monitor ma okres opóźnienia 15 minut na zapełnienie danych dziennika. Aby dowiedzieć się więcej, zobacz czas pozyskiwania [danych dziennika w Azure monitor](../azure-monitor/platform/data-ingestion-time.md).
+- Sprawdź uprawnienia dostępu & skontaktować się z właścicielami zasobów, aby zażądać brakujących uprawnień; Każda osoba monitorująca pulpit wirtualny systemu Windows wymaga następujących uprawnień:
 
-Na koniec Jeśli nie masz żadnych informacji, ale dane nadal nie pojawiają się, może wystąpić problem z kwerendą lub źródłami danych. W takim przypadku może być konieczne skontaktowanie się z pomocą techniczną w celu rozwiązania problemu.
+    - Dostęp do odczytu do subskrypcji platformy Azure, w których przechowywane są zasoby pulpitu wirtualnego systemu Windows
+    - Dostęp do odczytu do grup zasobów subskrypcji, w których znajdują się hosty sesji usług pulpitu wirtualnego systemu Windows 
+    - Dostęp do odczytu do obszaru roboczego Log Analytics
+
+- Może być konieczne otwarcie portów wychodzących w zaporze serwera, aby umożliwić Azure Monitor wysyłanie danych do portalu, zobacz [porty wychodzące](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
+
+- Nie widzisz danych z ostatniej aktywności? Możesz poczekać 15 minut i odświeżyć źródło danych. Azure Monitor zawiera 15-minutowy okres opóźnienia do wypełniania danych dziennika. Aby dowiedzieć się więcej, zobacz czas pozyskiwania [danych dziennika w Azure monitor](../azure-monitor/platform/data-ingestion-time.md).
+
+Jeśli nie masz żadnych informacji, ale dane nadal nie są wyświetlane prawidłowo, może wystąpić problem z kwerendą lub źródłami danych. Przejrzyj nasze znane problemy i ograniczenia. 
 
 ## <a name="i-want-to-customize-azure-monitor-for-windows-virtual-desktop"></a>Chcę dostosować Azure Monitor dla pulpitu wirtualnego systemu Windows
 
 Azure Monitor dla pulpitu wirtualnego systemu Windows używa Azure Monitor skoroszytów. Skoroszyty umożliwiają zapisywanie kopii szablonu skoroszytu pulpitu wirtualnego systemu Windows i tworzenie własnych dostosowań.
 
-Niestandardowe szablony nie będą aktualizowane, gdy grupa produktów zaktualizuje oryginalny szablon. Jest to zgodne z projektem w narzędziu skoroszyty, należy zapisać kopię zaktualizowanego szablonu i ponownie skompilować dostosowania w celu zastosowania aktualizacji. Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów opartych na skoroszycie](../azure-monitor/insights/troubleshoot-workbooks.md) i [Omówienie skoroszytów](../azure-monitor/platform/workbooks-overview.md).
+Zgodnie z projektem niestandardowe szablony skoroszytów nie będą automatycznie przyjmować aktualizacji z grupy produkty. Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów opartych na skoroszycie](../azure-monitor/insights/troubleshoot-workbooks.md) i [Omówienie skoroszytów](../azure-monitor/platform/workbooks-overview.md).
 
 ## <a name="i-cant-interpret-the-data"></a>Nie można zinterpretować danych
 
@@ -58,24 +60,36 @@ Dowiedz się więcej na temat terminów dotyczących danych na [Azure monitor s�
 
 ## <a name="the-data-i-need-isnt-available"></a>Potrzebne dane nie są dostępne
 
+Jeśli chcesz monitorować więcej liczników wydajności lub zdarzeń, możesz umożliwić im wysyłanie danych do obszaru roboczego Log Analytics i monitorowanie ich w diagnostyce hosta: przeglądarka hosta. 
+
+- Aby dodać liczniki wydajności, zobacz [Konfigurowanie liczników wydajności](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters)
+- Aby dodać zdarzenia systemu Windows, zobacz [Konfigurowanie dzienników zdarzeń systemu Windows](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs)
+
 Nie można znaleźć punktu danych ułatwiającego zdiagnozowanie problemu? Wyślij nam opinię!
 
 - Aby dowiedzieć się, jak opuścić opinię, zobacz [Omówienie rozwiązywania problemów, opinie i pomoc techniczną dla pulpitu wirtualnego systemu Windows](troubleshoot-set-up-overview.md).
 - Możesz również wystawić opinię na temat pulpitu wirtualnego systemu Windows w [centrum opinii na pulpicie wirtualnym systemu Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) lub [naszym forum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 
-## <a name="known-issues"></a>Znane problemy
+## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
 
-Poniżej znajdują się problemy, które obecnie są świadome i które pracują w celu naprawy:
+Są to problemy i ograniczenia, które obecnie są świadome i działające w celu naprawy:
 
-- Teraz można wybrać tylko jedną subskrypcję, grupę zasobów i pulę hostów do monitorowania w danym momencie. W związku z tym w przypadku korzystania ze strony raporty użytkowników w celu zrozumienia środowiska użytkownika należy sprawdzić, czy masz poprawną pulę hostów, z której korzysta użytkownik, czy też dane nie zapełnią wizualizacji.
+- Można monitorować tylko jedną pulę hostów jednocześnie. 
 
-- Nie jest obecnie możliwe Zapisywanie ulubionych ustawień w Azure Monitor, chyba że zostanie zapisany szablon niestandardowy skoroszytu. Oznacza to, że administratorzy IT będą musieli wprowadzać nazwy subskrypcji, nazwy grup zasobów i preferencji puli hostów za każdym razem, gdy otwierają Azure Monitor dla pulpitu wirtualnego systemu Windows.
-
-- Obecnie nie istnieje sposób eksportowania danych z Azure Monitor dla pulpitu wirtualnego systemu Windows do programu Excel.
-
-- Wszystkie informacje o ważności 1 Azure Monitor alertów dla wszystkich produktów w ramach wybranej subskrypcji zostaną wyświetlone na stronie Przegląd. Jest to zgodne z projektem, ponieważ alerty z innych produktów w subskrypcji mogą mieć wpływ na pulpit wirtualny systemu Windows. Teraz zapytanie jest ograniczone do alertów o ważności 1, z wyłączeniem alertów o ważności 0 o wysokim priorytecie na stronie Przegląd.
+- Aby zapisać ulubione ustawienia, musisz zapisać niestandardowy szablon skoroszytu. Szablony niestandardowe nie będą automatycznie przyjmować aktualizacji z grupy produktów.
 
 - Niektóre komunikaty o błędach nie są oznaczane w sposób przyjazny dla użytkownika, a nie wszystkie komunikaty o błędach są opisane w dokumentacji.
+
+- Licznik wydajności całkowita liczba sesji może nadmiernie przekroczyć liczbę sesji według niewielkiej liczby, a całkowita liczba sesji może pozornie przekroczyć limit maksymalnej liczby sesji.
+
+- Liczba dostępnych sesji nie odzwierciedla zasad skalowania w puli hostów. 
+    
+- Sporadycznie może istnieć zdarzenie zakończenia połączenia, które może mieć wpływ na niektóre wizualizacje, takie jak połączenia w czasie i stan połączenia użytkownika.  
+    
+- Skoroszyt konfiguracji obsługuje tylko Konfigurowanie hostów w tym samym regionie, w których znajduje się grupa zasobów. 
+
+- Czas połączenia obejmuje czas, w którym użytkownicy wprowadzają swoje poświadczenia; jest to skorelowane ze środowiska, ale w niektórych przypadkach może pokazać fałszywe szczyty. 
+    
 
 ## <a name="next-steps"></a>Następne kroki
 

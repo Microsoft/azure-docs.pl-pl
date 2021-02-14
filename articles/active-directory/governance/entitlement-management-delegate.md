@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5812d4dbbd1a63b16d5bee77bb018ea18dd1d6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c8e6c13600cb5940351d31b54af403584cc68a5f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937681"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515652"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegowanie i role w zarządzaniu prawami usługi Azure AD
 
@@ -133,9 +133,6 @@ Użytkownik, który nie jest administratorem globalnym lub administratorem użyt
 | [Administrator aplikacji](../roles/permissions-reference.md) | Właściciel katalogu |  |  | :heavy_check_mark: |  |
 | [Administrator aplikacji w chmurze](../roles/permissions-reference.md) | Właściciel katalogu |  |  | :heavy_check_mark: |  |
 | Użytkownik | Właściciel katalogu | Tylko wtedy, gdy właściciel grupy | Tylko wtedy, gdy właściciel grupy | Tylko wtedy, gdy właściciel aplikacji |  |
-
-> [!NOTE]
-> Jeśli użytkownik doda grupę zabezpieczeń lub grupę Microsoft 365, Grupa nie może być przypisana do roli. Jeśli użytkownik doda grupę, która jest przypisana do roli podczas tworzenia pakietu dostępu, musi również być właścicielem tej grupy przypisanej do roli. Aby uzyskać więcej informacji, należy utworzyć grupę z możliwością [przypisywania ról w Azure Active Directory](../roles/groups-create-eligible.md).
 
 Aby określić najmniejszą rolę uprzywilejowaną dla zadania, można także odwoływać się do [ról administratorów za pomocą zadania administratora w Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 

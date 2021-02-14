@@ -1,21 +1,17 @@
 ---
 title: Kopiowanie danych z usługi Amazon RedShift
 description: Informacje o sposobie kopiowania danych z usługi Amazon RedShift do obsługiwanych magazynów danych ujścia przy użyciu Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: b17c567b2e83bef3c37c8f1272091021a1943b15
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 9441885766dad97dfc237ab81a59710245bf13ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008331"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364260"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -101,7 +97,7 @@ Aby skopiować dane z usługi Amazon RedShift, obsługiwane są następujące w�
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonRedshiftTable** | Tak |
 | schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| table (stolik) | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -225,10 +221,10 @@ Podczas kopiowania danych z usługi Amazon RedShift następujące mapowania są 
 | DOKŁADNOŚCI |Liczba dziesiętna |
 | PODWÓJNA PRECYZJA |Double |
 | LICZBA CAŁKOWITA |Int32 |
-| LICZBA RZECZYWISTA |Pojedyncze |
+| LICZBA RZECZYWISTA |Pojedynczy |
 | SMALLINT |Int16 |
 | TEKST |Ciąg |
-| ZNACZNIK czasu |DateTime |
+| TIMESTAMP |DateTime |
 | VARCHAR |Ciąg |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup

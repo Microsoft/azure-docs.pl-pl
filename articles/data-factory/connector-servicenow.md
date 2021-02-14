@@ -1,22 +1,18 @@
 ---
 title: Kopiuj dane z usługi ServiceNow
 description: Informacje o kopiowaniu danych z programu usługi ServiceNow do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: bc48f651a1adb099017e8f47d9fa6bcfa8078fa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7ebc422a9fd8503c5a3b004e1d06cb5ebfb987
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415348"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378455"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiowanie danych z usługi ServiceNow za pomocą Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -116,16 +112,15 @@ Aby skopiować dane z usługi ServiceNow, ustaw typ źródła w działaniu Copy 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **ServiceNowSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM Actual.alm_asset"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Actual.alm_asset"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 Należy pamiętać o następujących kwestiach podczas określania schematu i kolumny dla usługi ServiceNow w kwerendzie i **zapoznaj się z [poradami dotyczącymi wydajności](#performance-tips) kopiowania**.
 
-- **Schemat:** Określ schemat jako `Actual` lub `Display` w zapytaniu usługi ServiceNow, który można sprawdzić jako parametr `sysparm_display_value` jako wartość true lub false podczas wywoływania [interfejsów API usługi ServiceNow RESTful](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Schemat:** Określ schemat jako `Actual` lub `Display` w zapytaniu usługi ServiceNow, który można sprawdzić jako parametr `sysparm_display_value` jako wartość true lub false podczas wywoływania [interfejsów API usługi ServiceNow RESTful](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Kolumna:** nazwa kolumny dla wartości rzeczywistej w obszarze `Actual` schemat to `[column name]_value` , a dla wartości wyświetlanej w obszarze `Display` schemat znajduje się wartość `[column name]_display_value` . Zwróć uwagę na to, że nazwa kolumny musi być mapowana na schemat używany w zapytaniu.
 
 **Przykładowe zapytanie:** 
- `SELECT col_value FROM Actual.alm_asset` ORAZ 
-`SELECT col_display_value FROM Display.alm_asset`
+ `SELECT col_value FROM Actual.alm_asset` ORAZ`SELECT col_display_value FROM Display.alm_asset`
 
 **Przykład:**
 
