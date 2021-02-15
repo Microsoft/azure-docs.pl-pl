@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e0fb337defc69354aa625fe63bef9768dbc4cf1f
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538854"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381872"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>Konfigurowanie i zarządzanie ciągłymi kopiami zapasowymi oraz przywracanie do punktu w czasie (wersja zapoznawcza) — Używanie Azure Portal
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -74,7 +74,7 @@ Na przykład jeśli chcesz przywrócić do punktu przed usunięciem lub zaktuali
 Za pomocą Azure Portal można całkowicie przywrócić usunięte konto w ciągu 30 dni od jego usunięcia. Wykonaj następujące kroki, aby przywrócić usunięte konto:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/)
-1. Wyszukaj zasoby "Azure Cosmos DB" na pasku wyszukiwania globalnego. Wyświetla on wszystkie istniejące konta.
+1. Wyszukaj zasoby *Azure Cosmos DB* na pasku wyszukiwania globalnego. Wyświetla on wszystkie istniejące konta.
 1. Następnie wybierz przycisk **Przywróć** . W okienku przywracanie zostanie wyświetlona lista usuniętych kont, które mogą zostać przywrócone w okresie przechowywania, co oznacza 30 dni od czasu usunięcia.
 1. Wybierz konto, które chcesz przywrócić.
 
@@ -95,7 +95,7 @@ Za pomocą Azure Portal można całkowicie przywrócić usunięte konto w ciągu
 
 ## <a name="track-the-status-of-restore-operation"></a><a id="track-restore-status"></a>Śledzenie stanu operacji przywracania
 
-Po zainicjowaniu operacji przywracania wybierz ikonę dzwonka **powiadomienia** w prawym górnym rogu portalu. Zawiera link do wyświetlania stanu przywracanego konta. Gdy przywracanie jest w toku, stan konta będzie "Tworzenie", po zakończeniu operacji przywracania stan konta zmieni się na "online".
+Po zainicjowaniu operacji przywracania wybierz ikonę dzwonka **powiadomienia** w prawym górnym rogu portalu. Zawiera link do wyświetlania stanu przywracanego konta. Podczas przywracania trwa *Tworzenie* stanu konta. po zakończeniu operacji przywracania stan konta zmieni się na *online*.
 
 :::image type="content" source="./media/continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="Stan przywróconych zmian konta z tworzenia do trybu online po zakończeniu operacji." border="true":::
 

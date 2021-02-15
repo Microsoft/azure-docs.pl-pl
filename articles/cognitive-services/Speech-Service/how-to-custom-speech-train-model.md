@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968470"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373372"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Trenowanie i wdrażanie modelu usługi Custom Speech
 
@@ -40,7 +40,19 @@ Pierwszym krokiem do uczenia modelu jest przekazanie danych szkoleniowych. Zobac
 3. Wybierz pozycję **Testuj model**.
 4. Nadaj swojemu szkoleniowi **nazwę** i **Opis**.
 5. Z listy **model scenariusza i linia bazowa** Wybierz scenariusz, który najlepiej pasuje do domeny. Jeśli nie masz pewności, który scenariusz wybrać, wybierz pozycję **Ogólne**. Model linii bazowej jest punktem początkowym szkolenia. Najnowszym modelem jest zazwyczaj najlepszy wybór.
-6. Na stronie **Wybierz dane szkoleniowe** wybierz jeden lub więcej powiązanych zestawów danych tekstowych lub zestawy danych do transkrypcji audio + z etykietami, które mają być używane do szkoleń. Podczas uczenia nowego modelu Zacznij od pokrewnego tekstu; szkolenie z użyciem zapisu z dźwiękiem i ludzkich etykiet może trwać znacznie dłużej (do [kilku dni](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
+6. Na stronie **Wybierz dane szkoleniowe** wybierz jeden lub więcej powiązanych zestawów danych tekstowych lub zestawy danych do transkrypcji audio + z etykietami, które mają być używane do szkoleń.
+
+> [!NOTE]
+> Podczas uczenia nowego modelu Zacznij od pokrewnego tekstu; szkolenie z użyciem zapisu z dźwiękiem i ludzkich etykiet może trwać znacznie dłużej **(do [kilku dni](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)**).
+
+> [!NOTE]
+> Nie wszystkie modele podstawowe obsługują szkolenia z dźwiękiem. Jeśli model podstawowy nie obsługuje tego elementu, usługa mowy będzie używać tylko tekstu z transkrypcji i ignorować dźwięk. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio.
+
+> [!NOTE]
+> W przypadkach, gdy zmieniasz model podstawowy używany do szkolenia i masz dźwięk w zestawie danych szkoleniowych, *zawsze* sprawdzaj, czy nowy wybrany model podstawowy [obsługuje szkolenia z danymi audio](language-support.md#speech-to-text). Jeśli wcześniej użyty model podstawowy nie obsługiwał szkolenia z danymi audio, a zestaw danych szkoleniowych zawiera dźwięk, czas uczenia z nowym modelem podstawowym zostanie **znacząco** zwiększony i może być łatwo przeszedł z kilku godzin do kilku dni i więcej. Jest to szczególnie prawdziwe, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
+>
+> Jeśli problem opisany w powyższym akapicie, możesz szybko skrócić czas uczenia, zmniejszając ilość dźwięku w zestawie danych lub usuwając ją całkowicie i pozostawiając tylko tekst. Ta ostatnia opcja jest zdecydowanie zalecana, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
+
 7. Po zakończeniu szkolenia można przeprowadzić testy dokładności dla nowo przeszkolonego modelu. Ta czynność jest opcjonalna.
 8. Wybierz pozycję **Utwórz** , aby skompilować niestandardowy model.
 

@@ -1,23 +1,18 @@
 ---
 title: Zarządzanie danymi bramę dla Data Factory
 description: Użyj Zarządzanie danymi Gateway w Azure Data Factory, aby przenieść dane.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 94c1bed8d94f73bc7794037b307618f4c36c4518
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450609"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375208"
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
 > [!NOTE]
@@ -307,7 +302,7 @@ Funkcję autoaktualizacji można wyłączyć lub włączyć, wykonując następu
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Configuration Manager
+## <a name="configuration-manager"></a>Menedżer konfiguracji
 Po zainstalowaniu bramy można uruchomić Zarządzanie danymi Configuration Manager bramy w jeden z następujących sposobów:
 
 1. W oknie **wyszukiwania** wpisz **Zarządzanie danymi Gateway** , aby uzyskać dostęp do tego narzędzia.
@@ -380,11 +375,11 @@ Na tej stronie zobaczysz niektóre ustawienia, które są bardziej zrozumiałe, 
 ### <a name="gateway-status"></a>Stan bramy
 W poniższej tabeli przedstawiono możliwe stany **węzła bramy**:
 
-Stan  | Komentarze/scenariusze
+Stan    | Komentarze/scenariusze
 :------- | :------------------
 Tryb online | Węzeł połączony z usługą Data Factory.
 Tryb offline | Węzeł jest w trybie offline.
-Unowocześnieni | Węzeł jest aktualizowany w sposób autouzupełniania.
+Uaktualnianie | Węzeł jest aktualizowany w sposób autouzupełniania.
 Ograniczone | Z powodu problemu z łącznością. Może to być spowodowane problemem z portem HTTP 8050, problemem z łącznością usługi Service Bus lub problemem z synchronizacją poświadczeń.
 Nieaktywne | Węzeł jest w konfiguracji innej niż Konfiguracja innych węzłów większości.<br/><br/> Węzeł może być nieaktywny, jeśli nie może połączyć się z innymi węzłami.
 
@@ -422,7 +417,7 @@ Ta sekcja zawiera instrukcje dotyczące przeniesienia klienta bramy z jednego ko
     ![Konfiguruj stronę](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. Pozostaw otwarte **Configuration Manager Microsoft zarządzanie danymi Gateway** .
 
-    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![Menedżer konfiguracji](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Na stronie **Konfigurowanie** w portalu kliknij pozycję **Utwórz ponownie klucz** na pasku poleceń, a następnie kliknij przycisk **tak** dla komunikatu ostrzegawczego. Kliknij przycisk **Kopiuj** obok tekstu klucza, który kopiuje klucz do Schowka. Brama na starym komputerze przestaje działać po ponownym utworzeniu klucza.
 
     ![Utwórz ponownie klucz 2](./media/data-factory-data-management-gateway/RecreateKey.png)
@@ -435,7 +430,7 @@ Ta sekcja zawiera instrukcje dotyczące przeniesienia klienta bramy z jednego ko
    ![Określ certyfikat](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
    Certyfikat ze starej bramy można wyeksportować, wykonując następujące czynności: Uruchom Zarządzanie danymi bramę Configuration Manager na starym komputerze, przejdź do karty **certyfikat** , kliknij przycisk **Eksportuj** i postępuj zgodnie z instrukcjami.
-10. Po pomyślnej rejestracji bramy powinien zostać wyświetlony zestaw **rejestracji** , który ma być **zarejestrowany** , i stan **ustawiony na na** stronie głównej Configuration Manager bramy. **Status**
+10. Po pomyślnej rejestracji bramy powinien zostać wyświetlony zestaw **rejestracji** , który ma być **zarejestrowany** , i stan **ustawiony na na** stronie głównej Configuration Manager bramy. 
 
 ## <a name="encrypting-credentials"></a>Szyfrowanie poświadczeń
 Aby zaszyfrować poświadczenia w edytorze Data Factory, wykonaj następujące czynności:

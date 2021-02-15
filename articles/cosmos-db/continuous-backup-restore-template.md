@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 642c61414d882b9cfe83f585fda8ff5404e8834a
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 4abfdd0209bd9f13fb7bd902b27a53f65156da2e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538480"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381821"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-resource-manager-templates"></a>Konfigurowanie i zarządzanie ciągłymi kopiami zapasowymi oraz przywracanie do punktu w czasie (wersja zapoznawcza) — Używanie szablonów Azure Resource Manager
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -28,7 +28,7 @@ W tym artykule opisano sposób aprowizacji konta z ciągłymi kopiami zapasowymi
 
 ## <a name="provision-an-account-with-continuous-backup"></a><a id="provision"></a>Inicjowanie obsługi administracyjnej konta przy użyciu ciągłej kopii zapasowej
 
-Za pomocą szablonów Azure Resource Manager można wdrożyć konto Azure Cosmos DB z trybem ciągłym. Podczas definiowania szablonu w celu aprowizacji konta należy uwzględnić parametr "backupPolicy", jak pokazano w następującym przykładzie:
+Za pomocą szablonów Azure Resource Manager można wdrożyć konto Azure Cosmos DB z trybem ciągłym. Podczas definiowania szablonu w celu aprowizacji konta należy uwzględnić parametr, `backupPolicy` jak pokazano w następującym przykładzie:
 
 ```json
 {
@@ -66,9 +66,9 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 Konto można również przywrócić przy użyciu szablonu Menedżer zasobów. Podczas definiowania szablonu należy uwzględnić następujące parametry:
 
-* Ustaw parametr "createmode" na "Restore"
-* Zdefiniuj "restoreParameters", Zauważ, że wartość "restoreSource" jest wyodrębniana z danych wyjściowych `az cosmosdb restorable-database-account list` polecenia dla konta źródłowego. Atrybut identyfikatora wystąpienia dla nazwy konta jest używany do przywracania.
-* Ustaw parametr "RestoreMode" na "PointInTime" i skonfiguruj wartość "restoreTimestampInUtc".
+* Ustaw `createMode` parametr do *przywrócenia*
+* Zdefiniuj `restoreParameters` , Zauważ, że `restoreSource` wartość jest wyodrębniana z danych wyjściowych `az cosmosdb restorable-database-account list` polecenia dla konta źródłowego. Atrybut identyfikatora wystąpienia dla nazwy konta jest używany do przywracania.
+* Ustaw `restoreMode` parametr na *PointInTime* i skonfiguruj `restoreTimestampInUtc` wartość.
 
 ```json
 {

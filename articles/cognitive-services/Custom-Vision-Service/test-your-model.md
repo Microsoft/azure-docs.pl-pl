@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 5a3aacd1d07ff068fe50312b2c1d47ac080e5c2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 736d135323e2a2df38a13dc46189e2a243fbe381
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391727"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097538"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Testowanie i ponowne uczenie modelu z Custom Vision Service
 
@@ -31,7 +31,7 @@ Po przeprowadzeniu szkolenia modelu można szybko przetestować go przy użyciu 
 
     ![Obraz strony przesyłania obrazu](./media/test-your-model/submit-image.png)
 
-Wybrany obraz pojawia się w środku strony. Następnie wyniki są wyświetlane poniżej obrazu w postaci tabeli zawierającej dwie kolumny z etykietami i **pewnością**. **Tags** Po wyświetleniu wyników możesz zamknąć okno **szybkie testy** .
+Wybrany obraz pojawia się w środku strony. Następnie wyniki są wyświetlane poniżej obrazu w postaci tabeli zawierającej dwie kolumny z etykietami i **pewnością**.  Po wyświetleniu wyników możesz zamknąć okno **szybkie testy** .
 
 Teraz możesz dodać ten obraz testowy do modelu, a następnie ponownie przeprowadzić uczenie modelu.
 
@@ -59,4 +59,4 @@ Aby użyć obrazu przesłanego wcześniej do szkolenia, wykonaj następujące cz
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Poprawianie klasyfikatora](getting-started-improving-your-classifier.md)
+[Ulepszanie modelu](getting-started-improving-your-classifier.md)

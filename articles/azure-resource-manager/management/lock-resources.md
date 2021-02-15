@@ -4,12 +4,12 @@ description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania zas
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 912c7e86d253aa18b9a6c60717ceaa70e32fcf0e
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 6df6aec06fadaacc6b1d08ed9ee33b72c5971359
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428321"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369479"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -32,7 +32,7 @@ Blokady usługi Resource Manager dotyczą tylko operacji wykonywanych na płaszc
 
 Zastosowanie blokad może prowadzić do nieoczekiwanych wyników, ponieważ niektóre operacje, które nie pozornie modyfikują zasobu, rzeczywiście wymagają akcji blokowanych przez blokadę. Blokady uniemożliwią wykonywanie operacji, które wymagają żądania POST do interfejsu API Azure Resource Manager. Niektóre typowe przykłady operacji blokowanych przez blokady są następujące:
 
-* Blokada tylko do odczytu na **koncie magazynu** uniemożliwia wszystkim użytkownikom wyświetlanie kluczy. Operacje listy kluczy są obsługiwane za pomocą żądania POST, ponieważ zwrócone klucze są dostępne dla operacji zapisu.
+* Blokada tylko do odczytu na **koncie magazynu** uniemożliwia użytkownikom wyświetlanie listy kluczy konta. Operacja [kluczy list](/rest/api/storagerp/storageaccounts/listkeys) usługi Azure Storage jest obsługiwana za pomocą żądania post w celu ochrony dostępu do kluczy konta, co zapewnia pełny dostęp do danych na koncie magazynu. W przypadku skonfigurowania blokady tylko do odczytu dla konta magazynu użytkownicy, którzy nie posiadają kluczy konta, muszą używać poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub kolejek. Blokada tylko do odczytu uniemożliwia również Przypisanie ról RBAC platformy Azure objętych zakresem do konta magazynu lub kontenera danych (kontenera obiektów blob lub kolejki).
 
 * Blokada tylko do odczytu w ramach zasobu **App Service** uniemożliwia programowi Visual Studio Eksplorator serwera wyświetlanie plików dla zasobu, ponieważ ta interakcja wymaga dostępu do zapisu.
 

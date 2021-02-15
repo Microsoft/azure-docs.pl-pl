@@ -1,23 +1,18 @@
 ---
 title: Przekształcanie danych za pomocą działania Hadoop Streaming — Azure
 description: Dowiedz się, jak używać działania przesyłania strumieniowego Hadoop w usłudze Azure Data Factory w celu przekształcania danych przez uruchamianie programów przesyłania strumieniowego Hadoop na żądanie/własny klaster usługi HDInsight.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
-ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 80f78e3d2e7fdcd8fef53ca0412676a37c6486c2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 532ece3bcc8c62771511fb2608e824de846b54fe
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495603"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383096"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania usługi Hadoop streaming w Azure Data Factory
 > [!div class="op_single_selector" title1="Działania transformacji"]
@@ -38,7 +33,7 @@ ms.locfileid: "96495603"
 
 Za pomocą działania HDInsightStreamingActivity można wywołać zadanie przesyłania strumieniowego Hadoop z potoku Azure Data Factory. Poniższy fragment kodu JSON przedstawia składnię używania HDInsightStreamingActivity w pliku JSON potoku. 
 
-Działanie przesyłania strumieniowego usługi HDInsight w [potoku](data-factory-create-pipelines.md) Data Factory wykonuje programy przesyłania strumieniowego Hadoop we [własnym lub lokalnym klastrze usługi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) HDInsight opartym na systemie Windows/Linux. [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) W tym artykule przedstawiono artykuł [działania przekształcania danych](data-factory-data-transformation-activities.md) , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.
+Działanie przesyłania strumieniowego usługi HDInsight w [potoku](data-factory-create-pipelines.md) Data Factory wykonuje programy przesyłania strumieniowego Hadoop we [własnym lub lokalnym klastrze usługi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) HDInsight opartym na systemie Windows/Linux. [](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) W tym artykule przedstawiono artykuł [działania przekształcania danych](data-factory-data-transformation-activities.md) , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.
 
 > [!NOTE] 
 > Jeśli dopiero zaczynasz Azure Data Factory, przeczytaj artykuł [wprowadzenie do Azure Data Factory](data-factory-introduction.md) i wykonaj samouczek: [Kompiluj pierwszy potok danych](data-factory-build-your-first-pipeline.md) przed przeczytaniem tego artykułu. 

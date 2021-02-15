@@ -6,13 +6,13 @@ ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
-ms.date: 10/23/2020
-ms.openlocfilehash: 542528bb0a3f76705e61f28338ccf1460159871d
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.date: 2/11/2021
+ms.openlocfilehash: 1f6abb62086bf92be8ae2fe50abbfa5300185fd7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749083"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384269"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---flexible-server"></a>Szybki Start: Użyj szablonu ARM, aby utworzyć serwer elastyczny Azure Database for PostgreSQL
 
@@ -98,7 +98,7 @@ Utwórz _postgres-flexible-server-template.jsw_ pliku i skopiuj do niego następ
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"        
+        "tier": "[parameters('serverEdition')]"
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -209,6 +209,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 ```
 
 ---
+
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -5,15 +5,14 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: e5e1a4ff676a6677357638dc4b67dc94926adbd2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556311"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393755"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Rozwiązywanie problemów z dyskami CD, DevOps i usługą GitHub w usłudze ADF 
 
@@ -78,14 +77,14 @@ Potok zwolnień ciągłej integracji/ciągłego wdrażania kończy się niepowod
 
 #### <a name="cause"></a>Przyczyna
 
-Jest to spowodowane Integration Runtime o tej samej nazwie w fabryki docelowej, ale z innym typem. Integration Runtime musi być tego samego typu podczas wdrażania.
+Jest to spowodowane działaniem środowiska Integration Runtime o tej samej nazwie w fabryce docelowej, ale z innym typem. Integration Runtime musi być tego samego typu podczas wdrażania.
 
 #### <a name="recommendation"></a>Zalecenie
 
 - Zapoznaj się z najlepszymi rozwiązaniami dotyczącymi ciągłej integracji/ciągłego wdrażania:
 
     https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
-- Środowiska Integration Runtime nie zmieniają się często i są podobne do wszystkich etapów w ciągłej integracji/ciągłego wdrażania, dlatego Data Factory oczekuje, że masz taką samą nazwę i typ środowiska Integration Runtime dla wszystkich etapów ciągłej integracji/ciągłego wdrażania. Jeśli nazwa i typy & właściwości różnią się, upewnij się, że jest zgodna z konfiguracją źródłową i docelową, a następnie wdróż potok wersji.
+- Środowiska Integration Runtime nie zmieniają się często i są podobne do wszystkich etapów w ciągłej integracji/ciągłego wdrażania, dlatego Data Factory oczekuje, że masz taką samą nazwę i typ środowiska Integration Runtime dla wszystkich etapów ciągłej integracji/ciągłego wdrażania. Jeśli nazwa i typy & właściwości różnią się, upewnij się, że jest zgodna z konfiguracją źródłową i docelową konfiguracji środowiska Integration Runtime, a następnie wdróż potok wersji.
 - Jeśli chcesz udostępnić środowisko Integration Runtime na wszystkich etapach, rozważ użycie usługi Trzyelementowy Factory, aby zawierała udostępnione środowisko Integration Runtime. Tej fabryki udostępnionej można używać we wszystkich środowiskach jako połączonego typu środowiska Integration Runtime.
 
 ### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>Tworzenie lub aktualizowanie dokumentu nie powiodło się z powodu nieprawidłowego odwołania
@@ -133,7 +132,7 @@ Nie można przenieść Data Factory z jednej grupy zasobów do innej, niepowodze
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Musisz usunąć SSIS-IR i udostępnione urzędy skarbowe, aby zezwolić na operację przenoszenia. Jeśli nie chcesz usunąć urzędu skarbowego, najlepszym sposobem jest wykonanie kopii i klonowanie dokumentu w celu wykonania kopii, a po jej zakończeniu Usuń starą fabrykę danych.
+Musisz usunąć SSIS-IR i udostępnione urzędy skarbowe, aby zezwolić na operację przenoszenia. Jeśli nie chcesz usuwać środowiska Integration Runtime, najlepszym sposobem jest wykonanie kopii i klonowanie dokumentu, aby wykonać kopię, a po jej zakończeniu usunąć stary Data Factory.
 
 ###  <a name="unable-to-export-and-import-arm-template"></a>Nie można wyeksportować i zaimportować szablonu ARM
 
@@ -150,6 +149,34 @@ Utworzono rolę klienta jako użytkownika, która nie ma wystarczających uprawn
 #### <a name="resolution"></a>Rozwiązanie
 
 Aby rozwiązać ten problem, należy dodać następujące uprawnienie do roli: *Microsoft. DataFactory/factorers/queryFeaturesValue/Action*. To uprawnienie powinno być domyślnie włączone w roli "Współautor Data Factory".
+
+###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Automatyczne publikowanie dla ciągłej integracji/ciągłego wdrażania bez kliknięcia przycisku Publikuj  
+
+#### <a name="issue"></a>Problem
+
+Ręczne publikowanie za pomocą przycisku w portalu ADF nie powoduje włączenia automatycznej operacji ciągłej integracji/ciągłego wdrażania.
+
+#### <a name="cause"></a>Przyczyna
+
+Przede wszystkim, tylko w celu opublikowania potoku usługi ADF dla wdrożeń był używany przycisk portalu ADF. Teraz proces ten można wykonać automatycznie. 
+
+#### <a name="resolution"></a>Rozwiązanie
+
+Ulepszono proces ciągłej integracji/ciągłego wdrażania. Funkcja **automatycznego publikowania** wykonuje walidację i eksportuje wszystkie funkcje szablonu Azure Resource Manager (ARM) z poziomu środowiska ADF. Umożliwia ona korzystanie z logiki za pośrednictwem publicznie dostępnego pakietu npm [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . Pozwala to na programowe wyzwalanie tych akcji zamiast konieczności przechodzenia do interfejsu użytkownika funkcji ADF i kliknięcia przycisku. Dzięki temu **Usługa ciągłej** integracji potoku Ci/CD. Aby uzyskać szczegółowe informacje, postępuj zgodnie z ulepszeniami dotyczącymi wdrażania w usłudze [ADF/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) 
+
+###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>Nie można opublikować z powodu limitu szablonów ARM 4 MB  
+
+#### <a name="issue"></a>Problem
+
+Nie można wdrożyć, ponieważ trafił Azure Resource Manager limit 4 MB rozmiaru szablonu. Musisz wdrożyć rozwiązanie po przekroczeniu limitu. 
+
+#### <a name="cause"></a>Przyczyna
+
+Azure Resource Manager ogranicza rozmiar szablonu do 4 MB. Ogranicz rozmiar szablonu do 4 MB, a każdy plik parametrów do 64 KB. Limit 4 MB ma zastosowanie do końcowego stanu szablonu po jego rozszerzeniu z powtarzającymi się definicjami zasobów i wartościami zmiennych i parametrów. Ale Przekroczono limit. 
+
+#### <a name="resolution"></a>Rozwiązanie
+
+W przypadku małych i średnich rozwiązań łatwiej jest zrozumieć i utrzymywać jeden szablon. Wszystkie zasoby i wartości są widoczne w jednym pliku. W przypadku zaawansowanych scenariuszy połączone szablony umożliwiają podzielenie rozwiązania na składniki przeznaczone do realizacji. Postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi [korzystania z szablonów połączonych i zagnieżdżonych](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
 
 ## <a name="next-steps"></a>Następne kroki
 

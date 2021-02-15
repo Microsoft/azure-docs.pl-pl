@@ -2,17 +2,17 @@
 title: Subskrypcja platformy Azure jako źródło Event Grid
 description: Opisuje właściwości, które są dostępne dla zdarzeń subskrypcji z Azure Event Grid
 ms.topic: reference
-ms.date: 07/07/2020
-ms.openlocfilehash: 72b1a73bf418b417cd29f88063781e7b45979998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/12/2021
+ms.openlocfilehash: b9753ecfb46f5ac5f383f19e3d409e703c144d48
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105901"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363189"
 ---
 # <a name="azure-subscription-as-an-event-grid-source"></a>Subskrypcja platformy Azure jako źródło Event Grid
 
-Ten artykuł zawiera właściwości i schemat zdarzeń subskrypcji platformy Azure.Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md).
+Ten artykuł zawiera właściwości i schemat zdarzeń subskrypcji platformy Azure. Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md).
 
 Subskrypcje i grupy zasobów platformy Azure emitują te same typy zdarzeń. Typy zdarzeń są powiązane z zmianami lub akcjami zasobów. Podstawowa różnica polega na tym, że grupy zasobów emitują zdarzenia dla zasobów w grupie zasobów, a subskrypcje platformy Azure emitują zdarzenia dotyczące zasobów w ramach subskrypcji.
 
@@ -25,9 +25,8 @@ Aby programowo obsługiwać zdarzenia, Możesz sortować zdarzenia, sprawdzając
 Podmiot zdarzenia jest IDENTYFIKATORem zasobu zasobu, który jest elementem docelowym operacji. Aby filtrować zdarzenia dla zasobu, podaj ten identyfikator zasobu podczas tworzenia subskrypcji zdarzeń. Aby filtrować według typu zasobu, użyj wartości w następującym formacie: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 
-## <a name="event-grid-event-schema"></a>Schemat zdarzeń usługi Event Grid
 
-### <a name="available-event-types"></a>Dostępne typy zdarzeń
+## <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 Subskrypcje platformy Azure emitują zdarzenia zarządzania z Azure Resource Manager, na przykład podczas tworzenia maszyny wirtualnej lub usuwania konta magazynu.
 
@@ -43,7 +42,9 @@ Subskrypcje platformy Azure emitują zdarzenia zarządzania z Azure Resource Man
 | Microsoft. resources. ResourceWriteFailure | Uruchamiany, gdy operacja tworzenia lub aktualizacji nie powiedzie się. |
 | Microsoft. resources. ResourceWriteSuccess | Uruchamiany, gdy operacja tworzenia lub aktualizacji zakończy się pomyślnie. |
 
-### <a name="example-event"></a>Przykładowe zdarzenie
+## <a name="example-event"></a>Przykładowe zdarzenie
+
+# <a name="event-grid-event-schema"></a>[Schemat zdarzeń usługi Event Grid](#tab/event-grid-event-schema)
 
 Poniższy przykład przedstawia schemat zdarzenia **ResourceWriteSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceWriteFailure** i **ResourceWriteCancel** z różnymi wartościami dla `eventType` .
 
@@ -227,35 +228,238 @@ Poniższy przykład przedstawia schemat zdarzenia **ResourceActionSuccess** . Te
 }]
 ```
 
+# <a name="cloud-event-schema"></a>[Schemat zdarzeń w chmurze](#tab/cloud-event-schema)
+
+
+Poniższy przykład przedstawia schemat zdarzenia **ResourceWriteSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceWriteFailure** i **ResourceWriteCancel** z różnymi wartościami dla `eventType` .
+
+```json
+[{
+  "subject": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+  "topic": "/subscriptions/{subscription-id}",
+  "type": "Microsoft.Resources.ResourceWriteSuccess",
+  "time": "2018-07-19T18:38:04.6117357Z",
+  "id": "4db48cba-50a2-455a-93b4-de41a3b5b7f6",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+      "action": "Microsoft.Storage/storageAccounts/write",
+      "evidence": {
+        "role": "Subscription Admin"
+      }
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "_claim_names": "{\"groups\":\"src1\"}",
+      "_claim_sources": "{\"src1\":{\"endpoint\":\"{URI}\"}}",
+      "http://schemas.microsoft.com/claims/authnclassreference": "1",
+      "aio": "{token}",
+      "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "{ID}",
+      "e_exp": "{expiration}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "{last-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "{first-name}",
+      "ipaddr": "{IP-address}",
+      "name": "{full-name}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "onprem_sid": "{ID}",
+      "puid": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "{user-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "{user-name}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "resourceProvider": "Microsoft.Storage",
+    "resourceUri": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+    "operationName": "Microsoft.Storage/storageAccounts/write",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "specversion": "`1.0"
+
+}]
+```
+
+Poniższy przykład przedstawia schemat zdarzenia **ResourceDeleteSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceDeleteFailure** i **ResourceDeleteCancel** z różnymi wartościami dla `eventType` .
+
+```json
+[{
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+  "source": "/subscriptions/{subscription-id}",
+  "type": "Microsoft.Resources.ResourceDeleteSuccess",
+  "time": "2018-07-19T19:24:12.763881Z",
+  "id": "19a69642-1aad-4a96-a5ab-8d05494513ce",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+      "action": "Microsoft.Storage/storageAccounts/delete",
+      "evidence": {
+        "role": "Subscription Admin"
+      }
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "_claim_names": "{\"groups\":\"src1\"}",
+      "_claim_sources": "{\"src1\":{\"endpoint\":\"{URI}\"}}",
+      "http://schemas.microsoft.com/claims/authnclassreference": "1",
+      "aio": "{token}",
+      "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "{ID}",
+      "e_exp": "262800",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "{last-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "{first-name}",
+      "ipaddr": "{IP-address}",
+      "name": "{full-name}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "onprem_sid": "{ID}",
+      "puid": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "{user-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "{user-name}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "httpRequest": {
+      "clientRequestId": "{ID}",
+      "clientIpAddress": "{IP-address}",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}?api-version=2018-02-01"
+    },
+    "resourceProvider": "Microsoft.Storage",
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+    "operationName": "Microsoft.Storage/storageAccounts/delete",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "specversion": "1.0"
+}]
+```
+
+Poniższy przykład przedstawia schemat zdarzenia **ResourceActionSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceActionFailure** i **ResourceActionCancel** z różnymi wartościami dla `eventType` .
+
+```json
+[{   
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+  "source": "/subscriptions/{subscription-id}",
+  "type": "Microsoft.Resources.ResourceActionSuccess",
+  "time": "2018-10-08T22:46:22.6022559Z",
+  "id": "{ID}",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+      "action": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/{subscription-id}",
+        "roleAssignmentId": "{ID}",
+        "roleDefinitionId": "{ID}",
+        "principalId": "{ID}",
+        "principalType": "ServicePrincipal"
+      }     
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "aio": "{token}",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/identity/claims/identityprovider": "{URL}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",       "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "httpRequest": {
+      "clientRequestId": "{ID}",
+      "clientIpAddress": "{IP-address}",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey/listKeys?api-version=2017-04-01"
+    },
+    "resourceProvider": "Microsoft.EventHub",
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+    "operationName": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "specversion": "1.0"
+}]
+```
+
+---
+
 ### <a name="event-properties"></a>Właściwości zdarzenia
+
+# <a name="event-grid-event-schema"></a>[Schemat zdarzeń usługi Event Grid](#tab/event-grid-event-schema)
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
-| subject | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| eventType | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
-| eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | object | Dane zdarzenia subskrypcji. |
-| dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
-| metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
+| `topic` | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
+| `subject` | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| `eventType` | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| `eventTime` | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
+| `id` | ciąg | Unikatowy identyfikator zdarzenia. |
+| `data` | object | Dane zdarzenia subskrypcji. |
+| `dataVersion` | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
+| `metadataVersion` | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
+
+# <a name="cloud-event-schema"></a>[Schemat zdarzeń w chmurze](#tab/cloud-event-schema)
+
+Zdarzenie ma następujące dane najwyższego poziomu:
+
+| Właściwość | Typ | Opis |
+| -------- | ---- | ----------- |
+| `source` | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
+| `subject` | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| `type` | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| `time` | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
+| `id` | ciąg | Unikatowy identyfikator zdarzenia. |
+| `data` | object | Dane zdarzenia subskrypcji. |
+| `specversion` | ciąg | Wersja specyfikacji schematu CloudEvents. |
+
+---
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| autoryzacja | object | Żądana autoryzacja dla operacji. |
-| oświadczenia | object | Właściwości oświadczeń. Aby uzyskać więcej informacji, zobacz [specyfikację JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | ciąg | Identyfikator operacji na potrzeby rozwiązywania problemów. |
-| httpRequest | object | Szczegóły operacji. Ten obiekt jest uwzględniany tylko w przypadku aktualizowania istniejącego zasobu lub usuwania zasobu. |
-| resourceProvider | ciąg | Dostawca zasobów dla operacji. |
-| resourceUri | ciąg | Identyfikator URI zasobu w operacji. |
-| operationName | ciąg | Operacja, która została wykonana. |
-| status | ciąg | Stan operacji. |
-| subscriptionId | ciąg | Identyfikator subskrypcji zasobu. |
-| tenantId | ciąg | Identyfikator dzierżawy zasobu. |
+| `authorization` | object | Żądana autoryzacja dla operacji. |
+| `claims` | object | Właściwości oświadczeń. Aby uzyskać więcej informacji, zobacz [specyfikację JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| `correlationId` | ciąg | Identyfikator operacji na potrzeby rozwiązywania problemów. |
+| `httpRequest` | object | Szczegóły operacji. Ten obiekt jest uwzględniany tylko w przypadku aktualizowania istniejącego zasobu lub usuwania zasobu. |
+| `resourceProvider` | ciąg | Dostawca zasobów dla operacji. |
+| `resourceUri` | ciąg | Identyfikator URI zasobu w operacji. |
+| `operationName` | ciąg | Operacja, która została wykonana. |
+| `status` | ciąg | Stan operacji. |
+| `subscriptionId` | ciąg | Identyfikator subskrypcji zasobu. |
+| `tenantId` | ciąg | Identyfikator dzierżawy zasobu. |
 
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 |Tytuł |Opis  |

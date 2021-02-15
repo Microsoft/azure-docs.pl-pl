@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: de7c5dba5a4868b7a8fdb390f974134cfaef7395
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218369"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384524"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Łączenie z zasobami obszaru roboczego z sieci z ograniczeniami
 
@@ -74,7 +74,7 @@ Po utworzeniu prywatnego linku połączenia można uzyskać dostęp do strony lo
 
 Aby uzyskać dostęp do zasobów w ramach zasobu obszaru roboczego usługi Azure Synapse Analytics Studio, należy utworzyć następujące elementy:
 
-- Co najmniej jeden prywatny punkt końcowy łącza z typem **dev** dla **docelowego zasobu podrzędnego**.
+- Co najmniej jeden prywatny punkt końcowy łącza z **docelowym typem zasobu podrzędnego** **dev**.
 - Dwa inne opcjonalne prywatne punkty końcowe z typami **SQL** lub **SqlOnDemand**, w zależności od zasobów w obszarze roboczym, do których chcesz uzyskać dostęp.
 
 Tworzenie tych metod jest podobne do sposobu tworzenia punktu końcowego w poprzednim kroku.  
@@ -146,7 +146,8 @@ Po dodaniu łącza do sieci wirtualnej należy dodać zestaw rekordów DNS w wcz
 
 * W polu **Nazwa** wprowadź dedykowane ciągi nazw dla różnych prywatnych punktów końcowych: 
   * **Internet** jest przeznaczony dla prywatnego punktu końcowego dostępu do usługi Azure Synapse Analytics Studio.
-  * "***YourWorkSpaceName * * _" jest przeznaczony dla prywatnego punktu końcowego wykonywania zapytań SQL w puli SQL, a także dla prywatnego punktu końcowego, który uzyskuje dostęp do wszystkich innych elementów w obszarach roboczych usługi Azure Synapse Analytics Studio. _ "*** YourWorkSpaceName *-OnDemand * *" jest przeznaczony dla prywatnego punktu końcowego wykonywania zapytań SQL w puli wbudowanej.
+  * "***YourWorkSpaceName***" jest przeznaczony dla prywatnego punktu końcowego wykonywania zapytań SQL w puli SQL, a także dla prywatnego punktu końcowego, który uzyskuje dostęp do wszystkich innych elementów w obszarze roboczym usługi Azure Synapse Analytics Studio.
+  * "***YourWorkSpaceName *-OnDemand**" jest dla prywatnego punktu końcowego wykonywania zapytania SQL w puli wbudowanej.
 * W obszarze **Typ** wybierz pozycję tylko rekord DNS typ **A** . 
 * W polu **adres IP** wprowadź odpowiedni adres IP każdego prywatnego punktu końcowego. Adres IP można uzyskać w **interfejsie sieciowym** z omówienia prywatnego punktu końcowego.
 

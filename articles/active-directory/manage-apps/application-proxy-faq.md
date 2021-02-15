@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 121dcdf51374f625ad7393bb181b1be215775a0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 19a5d223b587e47c562977cc9fea34f990eb0e46
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257781"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370822"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -106,6 +106,15 @@ Domyślna długość to 85 sekund. Ustawienie "Long" to 180 sekund. Nie można r
 
 Nie. nie jest to obecnie obsługiwane.
 
+### <a name="what-happens-if-i-delete-cwap_authsecret-the-client-secret-in-the-app-registration"></a>Co się stanie w przypadku usunięcia CWAP_AuthSecret (klucz tajny klienta) w rejestracji aplikacji?
+
+Klucz tajny klienta, nazywany również *CWAP_AuthSecret*, jest automatycznie dodawany do obiektu aplikacji (Rejestracja aplikacji) podczas tworzenia aplikacji Azure serwer proxy aplikacji usługi Azure AD.
+
+Klucz tajny klienta jest ważny przez jeden rok. Nowy klucz tajny klienta z jednym rokiem jest tworzony automatycznie przed upływem aktualnego ważnego wpisu tajnego klienta. Trzy wpisy tajne klienta CWAP_AuthSecret są przechowywane w obiekcie aplikacji przez cały czas. 
+
+> [!IMPORTANT]
+> Usuwanie CWAP_AuthSecret przerwań wstępnych uwierzytelniania dla usługi Azure serwer proxy aplikacji usługi Azure AD. Nie usuwaj CWAP_AuthSecret.
+
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Jak mogę zmienić strony docelowej załadowanej przez aplikację?
 
 Na stronie rejestracje aplikacji można zmienić adres URL strony głównej na żądany zewnętrzny adres URL strony docelowej. Określona strona zostanie załadowana, gdy aplikacja zostanie uruchomiona z poziomu moich aplikacji lub portalu Office 365. Aby uzyskać instrukcje dotyczące konfiguracji, zobacz [Ustawianie niestandardowej strony głównej dla opublikowanych aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](./application-proxy-configure-custom-home-page.md)
@@ -187,11 +196,11 @@ Nie. Usługa Azure serwer proxy aplikacji usługi Azure AD została zaprojektowa
 
 ## <a name="websocket"></a>WebSocket
 
-### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>Czy obsługa protokołu WebSocket działa w przypadku aplikacji innych niż QlikSense?
+### <a name="does-websocket-support-work-for-applications-other-than-qliksense-and-remote-desktop-web-client-html5"></a>Czy obsługa protokołu WebSocket działa w przypadku aplikacji innych niż QlikSense i Pulpit zdalny Web Client (HTML5)?
 
 Obecnie obsługa protokołu WebSocket jest nadal w publicznej wersji zapoznawczej i może nie współpracować z innymi aplikacjami. Niektórzy klienci mają mieszany sukces przy użyciu protokołu WebSocket z innymi aplikacjami. Jeśli testujesz takie scenariusze, chcielibyśmy poznać Twoje wyniki. Wyślij nam swoją opinię na ten temat aadapfeedback@microsoft.com .
 
-Funkcje (EventLogs, PowerShell i Usługi pulpitu zdalnego) w centrum administracyjnym systemu Windows (WAC) lub Pulpit zdalny Web Client (HTML5) nie działają na platformie Azure serwer proxy aplikacji usługi Azure AD.
+Funkcje (EventLogs, PowerShell i Usługi pulpitu zdalnego) w centrum administracyjnym systemu Windows (WAC) nie działają na platformie Azure serwer proxy aplikacji usługi Azure AD.
 
 ## <a name="link-translation"></a>Połącz tłumaczenie
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96477622"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100514921"
 ---
 Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta. Izolowane rozmiary na żywo i działają na określonej generacji sprzętu i zostaną wycofane, gdy generacja sprzętu zostanie wycofana.
 
@@ -23,14 +23,14 @@ Rozmiary maszyn wirtualnych wyizolowane najlepiej nadają się do obciążeń, k
 Ponadto, ponieważ maszyny wirtualne o rozmiarze izolowanym są duże, klienci mogą wybrać opcję podziału zasobów tych maszyn wirtualnych, korzystając z [pomocy technicznej platformy Azure dla zagnieżdżonych maszyn wirtualnych](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
 Obecnie odizolowane oferty maszyn wirtualnych obejmują:
-* Standard_E64is_v3
-* Standard_E64i_v3
 * Standard_E80ids_v4
 * Standard_E80is_v4
+* Standard_F72s_v2
+* Standard_E64is_v3
+* Standard_E64i_v3
 * Standard_M128ms
 * Standardowa_GS5
 * Standard_G5
-* Standard_F72s_v2
 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Obecnie odizolowane oferty maszyn wirtualnych obejmują:
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Wycofanie wyizolowanych rozmiarów maszyn wirtualnych
 
-Ponieważ rozmiary maszyn wirtualnych są zależne od rozmiarów sprzętowych, platforma Azure dostarczy monity 12 miesięcy przed oficjalnym wycofaniem rozmiarów.  Platforma Azure oferuje także zaktualizowany wyizolowany rozmiar w następnej wersji sprzętowej, z którą klient może rozważyć przeniesienie obciążeń do programu.
+Izolowane rozmiary maszyn wirtualnych mają ograniczoną cykl życia sprzętową. Na platformie Azure będą wystawiane przypomnienia 12 miesięcy przed oficjalną datą zakończenia rozmiarów i zostaną zaktualizowane wyizolowane oferty.
 
 | Rozmiar | Data wycofania izolacji | 
 | --- | --- |
@@ -49,7 +49,7 @@ Ponieważ rozmiary maszyn wirtualnych są zależne od rozmiarów sprzętowych, p
 
 
 ## <a name="faq"></a>Często zadawane pytania
-### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>P: czy rozmiar, który ma zostać wycofany, czy tylko "izolacja" jest?
+### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>P: czy rozmiar, który ma zostać wycofany, czy tylko jego funkcję "izolacja"?
 Odp **.: Jeśli** rozmiar maszyny wirtualnej nie ma indeksu dolnego "i", tylko funkcja "izolacja" zostanie wycofana. Jeśli izolacja nie jest konieczna, nie ma żadnej akcji, a maszyna wirtualna będzie nadal działać zgodnie z oczekiwaniami. Przykładami mogą być Standard_DS15_v2, Standard_D15_v2, Standard_M128ms itd. Jeśli rozmiar maszyny wirtualnej obejmuje indeks dolny, rozmiar zostanie wycofany.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>P: czy w przypadku maszyn wirtualnych znajdujących się na innym sprzęcie nie jest wyizolowany?
@@ -67,7 +67,7 @@ Odp **.: nie**. Gwarancje zapewniane przez Service Fabric [warstwy trwałości](
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>P: Jakie są punkty kontrolne na potrzeby wycofania D15_v2 lub odDS15_v2nia izolacji? 
 Odp **.:** 
  
-| Data | Akcja |
+| Date (Data) | Akcja |
 |---|---| 
 | 18 listopada 2019 r. | Dostępność D/DS15i_v2 (PAYG, 1 – rok RI) | 
 | 14 maja 2020 | Ostatni dzień zakupu D/DS15i_v2 1 roku RI | 

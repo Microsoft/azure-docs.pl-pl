@@ -4,15 +4,15 @@ description: Linia bazowa zabezpieczeń usługi Azure bastionu zawiera wskazówk
 author: msmbaldwin
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 92c57c863cf09fee500b3ea7392757a4f729e4a5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d20a646eb7675efdab4cbdc5f13e929544dceaa3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723935"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392378"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure bastionu
 
@@ -69,7 +69,11 @@ Aby usługa działała prawidłowo, usługa Azure bastionu wymaga otwarcia nast�
 
 **Wskazówki**: usługa Azure bastionu jest zintegrowana z Azure Active Directory (Azure AD), która jest domyślną usługą zarządzania tożsamościami i dostępem platformy Azure. Użytkownicy mogą uzyskiwać dostęp do Azure Portal przy użyciu uwierzytelniania usługi Azure AD w celu zarządzania usługą Azure bastionu (tworzenie, aktualizowanie i usuwanie zasobów bastionu).
 
-Nawiązywanie połączenia z maszynami wirtualnymi przy użyciu usługi Azure bastionu opiera się na kluczu SSH lub nazwie użytkownika/haśle i obecnie nie obsługuje korzystania z poświadczeń usługi Azure AD.
+Nawiązywanie połączenia z maszynami wirtualnymi przy użyciu usługi Azure bastionu opiera się na kluczu SSH lub nazwie użytkownika/haśle i obecnie nie obsługuje korzystania z poświadczeń usługi Azure AD. 
+
+Klucze SSH można przechowywać jako wpisy tajne Azure Key Vault i używać ich do łączenia się z maszynami wirtualnymi przy użyciu usługi Azure bastionu. Możesz kontrolować dostęp użytkowników do tych kluczy tajnych, [przypisując Key Vault zasady dostępu](../key-vault/general/assign-access-policy-portal.md) dla poszczególnych użytkowników lub grup usługi Azure AD. Aby nawiązać połączenie z maszyną wirtualną, użytkownicy będą musieli mieć następujące uprawnienia:
+- **Uzyskaj** dostęp do wpisów tajnych przechowywanych w wybranych Azure Key Vault
+- **Wyświetl listę** dostępu do wpisów tajnych przechowywanych w wybranych Azure Key Vault
 
 Oprócz klucza SSH lub nazwy użytkownika/hasła, podczas nawiązywania połączenia z maszynami wirtualnymi za pomocą usługi Azure bastionu użytkownik będzie potrzebować następujących przypisań ról:
 - Rola czytnika na docelowej maszynie wirtualnej
@@ -106,7 +110,8 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Używanie kontrolek silnego uwierzytelniania dla całego dostępu opartego na usłudze Azure Active Directory
 
-**Wskazówki**: usługa Azure bastionu jest zintegrowana z usługą Azure Active Directory (Azure AD) w celu uzyskania dostępu do usługi i zarządzania nią. Skonfiguruj Multi-Factor Authentication platformy Azure dla dzierżawy usługi Azure AD. Usługa Azure AD obsługuje mechanizmy kontroli silnego uwierzytelniania za pomocą uwierzytelniania wieloskładnikowego (MFA) i silnych metod bezhaseł.  
+**Wskazówki**: usługa Azure bastionu jest zintegrowana z usługą Azure Active Directory (Azure AD) w celu uzyskania dostępu do usługi i zarządzania nią. Skonfiguruj Multi-Factor Authentication Azure Active Directory dla dzierżawy usługi Azure AD. Usługa Azure AD obsługuje mechanizmy kontroli silnego uwierzytelniania za pomocą uwierzytelniania wieloskładnikowego (MFA) i silnych metod bezhaseł.
+  
 - Uwierzytelnianie wieloskładnikowe: Włącz usługę Azure AD MFA i postępuj zgodnie z zaleceniami Azure Security Center zarządzaniem tożsamościami i dostępem dla konfiguracji usługi MFA. Usługę MFA można wymusić dla wszystkich użytkowników, wybrać użytkowników lub na poziomie poszczególnych użytkowników na podstawie warunków logowania i czynników ryzyka. 
 
 - Uwierzytelnianie bezhasła: dostępne są trzy opcje uwierzytelniania bezhasła: funkcja Windows Hello dla firm, aplikacja Microsoft Authenticator i lokalne metody uwierzytelniania, takie jak karty inteligentne. 
@@ -375,7 +380,7 @@ Włącz i zbierz dzienniki zasobów sieciowych grup zabezpieczeń (sieciowej gru
 
 - [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-- [Włączanie dzienników zasobów platformy Azure dla usługi Azure bastionu ](diagnostic-logs.md)
+- [Włączanie dzienników zasobów platformy Azure dla usługi Azure bastionu](diagnostic-logs.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

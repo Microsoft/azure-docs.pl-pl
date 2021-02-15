@@ -1,20 +1,20 @@
 ---
 title: Tworzenie zestawu skalowania korzystającego z maszyn wirtualnych platformy Azure
 description: Dowiedz się, jak tworzyć zestawy skalowania maszyn wirtualnych platformy Azure korzystające z maszyn wirtualnych do oszczędzania kosztów.
-author: cynthn
-ms.author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
-ms.reviewer: jagaveer
+ms.reviewer: cynthn
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03bf5e0ef7e6268e68139b6d73685f67d88f6231
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729019"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385935"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Maszyny wirtualne platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -29,6 +29,24 @@ Cennik wystąpień dodatkowych to zmienna, na podstawie regionu i jednostki SKU.
 
 
 W przypadku zmiennych cenowych istnieje możliwość ustawienia maksymalnej ceny w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość będzie `0.98765` Cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1` , wystąpienie nie zostanie wykluczone w oparciu o cenę. Cena dla tego wystąpienia będzie aktualna cena za wystąpienie standardowe lub cena w przypadku wystąpienia standardowego, które kiedykolwiek jest mniejsze, o ile jest dostępna pojemność i przydział.
+
+
+## <a name="limitations"></a>Ograniczenia
+
+Następujące rozmiary nie są obsługiwane w przypadku platformy Azure:
+ - Seria B
+ - Promocja wersji dowolnego rozmiaru (na przykład Dv2, NV, w obszarze rozmiary promocji)
+
+Usługę Azure Spot można wdrożyć w dowolnym regionie, z wyjątkiem Microsoft Azure Chinach 21Vianet.
+
+<a name="channel"></a>
+
+Następujące [typy ofert](https://azure.microsoft.com/support/legal/offer-details/) są obecnie obsługiwane:
+
+-   Enterprise Agreement
+-   Kod oferty z opcją płatność zgodnie z rzeczywistym użyciem 003P
+-   Sponsorowan
+- W przypadku dostawcy usług w chmurze (CSP) skontaktuj się z partnerem
 
 ## <a name="eviction-policy"></a>Zasady eksmisji
 
@@ -48,8 +66,8 @@ Grupa umieszczania to konstrukcja podobna do zestawu dostępności platformy Azu
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Wdrażanie maszyn wirtualnych w zestawach skalowania
 
-*Aby wdrożyć*maszyny wirtualne do maszyn wirtualnych w zestawach skalowania, można ustawić flagę nowy *priorytet* . Wszystkie maszyny wirtualne w zestawie skalowania zostaną ustawione jako aktywne. Aby utworzyć zestaw skalowania z maszynami wirtualnymi, należy użyć jednej z następujących metod:
-- [Azure Portal](#portal)
+*Aby wdrożyć* maszyny wirtualne do maszyn wirtualnych w zestawach skalowania, można ustawić flagę nowy *priorytet* . Wszystkie maszyny wirtualne w zestawie skalowania zostaną ustawione jako aktywne. Aby utworzyć zestaw skalowania z maszynami wirtualnymi, należy użyć jednej z następujących metod:
+- [Witryna Azure Portal](#portal)
 - [Interfejs wiersza polecenia platformy Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
 - [Szablony usługi Azure Resource Manager](#resource-manager-templates)
@@ -76,7 +94,7 @@ az vmss create \
     --max-price -1 
 ```
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 Proces tworzenia zestawu skalowania z maszynami wirtualnymi jest taki sam jak szczegółowy w [artykule wprowadzenie](quick-create-powershell.md).
 Po prostu Dodaj opcję "-Priority" i podaj `-max-price` do [nowego AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
@@ -119,7 +137,7 @@ Dodaj `priority` `evictionPolicy` `billingProfile` właściwości i do sekcji `"
 
 Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy` parametr na `Delete` .
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **P:** Po utworzeniu, czy to wystąpienie jest takie samo jak standardowe wystąpienie?
 
@@ -163,22 +181,7 @@ Odp **.:** Tak, możesz ustawić reguły skalowania automatycznego w zestawie sk
 
 **P:**  Czy automatyczne skalowanie jest wykonywane z użyciem zasad wykluczania (cofanie alokacji i usuwanie)?
 
-Odp **.:** Tak, jednak zalecane jest ustawienie zasad wykluczania do usunięcia podczas korzystania z funkcji automatycznego skalowania. Wynika to z faktu, że nieprzypisane wystąpienia są zliczane względem liczby pojemności w zestawie skalowania. W przypadku korzystania z funkcji automatycznego skalowania prawdopodobnie dojdziemy do szybszej liczby wystąpień docelowych ze względu na cofnięte alokacje. Ponadto wykluczanie danych może mieć wpływ na operacje skalowania. Na przykład wystąpienia VMSS mogą spaść poniżej ustawionej liczby minimalnej ze względu na wykluczenie wielu punktów podczas operacji skalowania. 
-
-**P:** Jakie kanały obsługują maszyny wirtualne na miejscu?
-
-Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych maszyn wirtualnych.
-
-<a name="channel"></a>
-
-| Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Tak                               |
-| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
-| Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](/partner-center/azure-plan-get-started) |
-| Korzyści                     | Niedostępne                     |
-| Sponsorowan                    | Tak                               |
-| Bezpłatna wersja próbna                   | Niedostępne                     |
+Odp **.:** Tak, jednak zalecane jest ustawienie zasad wykluczania do usunięcia podczas korzystania z funkcji automatycznego skalowania. Wynika to z faktu, że nieprzypisane wystąpienia są zliczane względem liczby pojemności w zestawie skalowania. W przypadku korzystania z funkcji automatycznego skalowania prawdopodobnie dojdziemy do szybszej liczby wystąpień docelowych ze względu na cofnięte alokacje. Ponadto wykluczanie danych może mieć wpływ na operacje skalowania. Na przykład wystąpienia zestawu skalowania maszyn wirtualnych mogą spaść poniżej zestawu wartości minimalnej ze względu na wykluczenie wielu punktów podczas operacji skalowania. 
 
 
 **P:** Gdzie mogę publikować pytania?

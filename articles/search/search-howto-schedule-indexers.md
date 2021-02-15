@@ -7,20 +7,22 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/28/2021
-ms.openlocfilehash: dfd8526a035d4eef4d07539e541e37c88023b500
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/09/2021
+ms.openlocfilehash: 8ae9a89ddba2010603ae5a5f6b812e3aa1e1e3a6
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063217"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097980"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Jak zaplanować indeksatory na platformie Azure Wyszukiwanie poznawcze
 
 Indeksator jest zwykle uruchamiany jednokrotnie, natychmiast po jego utworzeniu. Później można uruchomić ją ponownie na żądanie przy użyciu Azure Portal, [Uruchom indeksatora (REST)](/rest/api/searchservice/run-indexer)lub zestawu Azure SDK. Alternatywnie można również skonfigurować indeksator do uruchamiania zgodnie z harmonogramem. Niektóre sytuacje, w których jest przydatne planowanie indeksatora, to m.in.:
 
-* Dane źródłowe zostaną zmienione z upływem czasu i chcesz, aby indeksator wyszukiwania automatycznie przetworzył różnicę.
-* Dane źródłowe są bardzo duże i chcesz rozłożyć przetwarzanie indeksatora w czasie. Aby uzyskać więcej informacji na temat indeksowania dużych ilości danych, zobacz [jak indeksować duże zestawy danych w usłudze Azure wyszukiwanie poznawcze](search-howto-large-index.md).
+* Dane źródłowe zostaną zmienione wraz z upływem czasu i chcesz, aby indeksator wyszukiwania automatycznie przetworzył różnicę.
+
+* Dane źródłowe są bardzo duże i chcesz rozłożyć przetwarzanie indeksatora w czasie. Zadania indeksatora podlegają maksymalnym godzinom działania w 24 godzinach dla zwykłych źródeł danych i 2 godzin dla indeksatorów z umiejętności. Jeśli indeksowania nie można ukończyć w maksymalnym interwale, można skonfigurować harmonogram uruchamiany co 2 godziny. Indeksatory mogą być automatycznie wybierane w miejscu, w którym zostały pozostawione, zgodnie z zawodami wewnętrznego znaku wodnego, który oznacza, gdzie indeksowanie ostatniego zakończyło się. Uruchamianie indeksatora w cyklicznym harmonogramie 2 godzin umożliwia działowi IT przetwarzanie bardzo dużego zestawu danych (wiele milionów dokumentów) poza interwałem dozwolonym dla pojedynczego zadania. Aby uzyskać więcej informacji na temat indeksowania dużych ilości danych, zobacz [jak indeksować duże zestawy danych w usłudze Azure wyszukiwanie poznawcze](search-howto-large-index.md).
+
 * Indeks wyszukiwania zostanie wypełniony z wielu źródeł danych, a indeksatory mają być uruchamiane w różnym czasie w celu zmniejszenia konfliktów.
 
 Wizualnie harmonogram może wyglądać następująco: od 1 stycznia, co 50 minut.

@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla Azure Backup
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Backup. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bbc293241557b6cb4c4c0212108156d12927d17a
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 866750347109225e48f3913801b98d7f5c3e6a23
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99558072"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097618"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-backup"></a>Azure Policy wbudowane definicje Azure Backup
 

@@ -1,14 +1,14 @@
 ---
 title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
-ms.date: 01/14/2021
+ms.date: 02/08/2021
 ms.topic: how-to
-ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c0a886b692b99156cbd53e5f0f5953047560c5b9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232679"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372148"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
@@ -311,12 +311,13 @@ Jeśli konieczne jest wprowadzenie zmian po dodaniu klienta, można [zaktualizow
 Jeśli nie możesz pomyślnie dołączyć klienta lub jeśli użytkownicy mają problemy z uzyskaniem dostępu do delegowanych zasobów, zapoznaj się z poniższymi wskazówkami i wymaganiami i spróbuj ponownie.
 
 - `managedbyTenantId`Wartość nie może być taka sama jak identyfikator dzierżawy subskrypcji, która jest dołączana.
-- Nie można mieć wielu przypisań w tym samym zakresie z tym samym zakresem `mspOfferName` . 
+- Nie można mieć wielu przypisań w tym samym zakresie z tym samym zakresem `mspOfferName` .
 - Dostawca zasobów **Microsoft. ManagedServices** musi być zarejestrowany dla delegowanej subskrypcji. Powinno to nastąpić automatycznie podczas wdrażania, ale jeśli nie, można [zarejestrować je ręcznie](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Autoryzacje nie mogą zawierać żadnych użytkowników z wbudowaną rolą [właściciela](../../role-based-access-control/built-in-roles.md#owner) ani żadnych wbudowanych ról z [akcjami dataactions](../../role-based-access-control/role-definitions.md#dataactions).
 - Grupy muszą być tworzone z [**typem grupy**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) ustawionym na **zabezpieczenia** , a nie **Microsoft 365**.
 - Przed włączeniem dostępu dla [zagnieżdżonych grup](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md)może istnieć dodatkowe opóźnienie.
 - Użytkownicy, którzy muszą wyświetlać zasoby w Azure Portal muszą mieć rolę [czytelnik](../../role-based-access-control/built-in-roles.md#reader) (lub inną wbudowaną rolę, która obejmuje dostęp do czytnika).
+- [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md) dołączone do autoryzacji nie mogą zawierać żadnych przestarzałych ról. Jeśli wbudowana rola platformy Azure stanie się przestarzała, wszyscy użytkownicy, którzy zostali dołączeni do tej roli, utraci dostęp i nie będą mogli dołączyć dodatkowych delegowania. Aby rozwiązać ten problem, zaktualizuj szablon tak, aby używał tylko obsługiwanych ról wbudowanych, a następnie wykonaj nowe wdrożenie.
 
 ## <a name="next-steps"></a>Następne kroki
 

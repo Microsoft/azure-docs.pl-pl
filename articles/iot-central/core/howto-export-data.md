@@ -4,16 +4,16 @@ description: Jak używać nowego eksportu danych do eksportowania danych IoT do 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 11/05/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 350cd7c14a4f1ee5058a60ccf60c1205ce97916a
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d31673b8d789cff5de3ddce63b67a98854b7aabc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226067"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515907"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych
 
@@ -166,6 +166,17 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
 
 1. Po zakończeniu konfigurowania eksportu wybierz pozycję **Zapisz**. Po kilku minutach dane zostaną wyświetlone w Twoich miejscach docelowych.
 
+## <a name="monitor-your-export"></a>Monitorowanie eksportu
+
+Oprócz wyświetlania stanu eksportu w IoT Central można monitorować ilość danych przepływających przez Eksporty i obserwować błędy eksportu na platformie danych Azure Monitor. Możesz uzyskać dostęp do metryk dotyczących eksportów i kondycji urządzeń na wykresach w Azure Portal, interfejsie API REST lub kwerendach w programie PowerShell lub interfejsie wiersza polecenia platformy Azure. Obecnie można monitorować te metryki eksportu danych w Azure Monitor:
+
+1. Liczba komunikatów przychodzących do eksportu przed zastosowaniem filtrów
+2. Liczba komunikatów przekazywanych przez filtry
+3. Liczba komunikatów, które zostały pomyślnie wyeksportowane do miejsc docelowych
+4. Liczba napotkanych błędów
+ 
+[Dowiedz się więcej o sposobach uzyskiwania dostępu do metryk IoT Central.](howto-monitor-application-health.md)
+
 ## <a name="destinations"></a>Miejsca docelowe
 
 ### <a name="azure-blob-storage-destination"></a>Miejsce docelowe Blob Storage platformy Azure
@@ -233,7 +244,6 @@ Poniższy przykład pokazuje wyeksportowany komunikat telemetrii:
     }
 }
 ```
-
 ### <a name="message-properties"></a>Właściwości komunikatu
 
 Komunikaty telemetryczne mają właściwości metadanych oprócz ładunku telemetrii. W poprzednim fragmencie kodu przedstawiono przykłady komunikatów systemowych, takich jak `deviceId` i `enqueuedTime` . Aby dowiedzieć się więcej o właściwościach komunikatów systemowych, zobacz [Właściwości systemu D2C IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).

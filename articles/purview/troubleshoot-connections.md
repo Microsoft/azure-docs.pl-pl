@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: f76a05757f86308785d4ca678675b87b3fa9d63e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8be5def6d4780fd8b2ab65c5c9e1104a869f6d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554418"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391596"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Rozwiązywanie problemów z połączeniami w usłudze Azure kontrolą
 
@@ -53,7 +53,7 @@ Sprawdź, czy skonfigurowano odpowiednie uprawnienia dla tożsamości zarządzan
 Aby to sprawdzić, wykonaj następujące czynności:
 
 1. Przejdź do magazynu kluczy i w sekcji **zasady dostępu**
-1. Sprawdź, czy tożsamość zarządzana kontrolą jest wyświetlana w sekcji *bieżące zasady dostępu* z uprawnieniami do **uzyskiwania** informacji o wpisach tajnych co najmniej
+1. Sprawdź, czy tożsamość zarządzana kontrolą jest wyświetlana w sekcji *bieżące zasady dostępu* z uprawnieniami do **pobierania** i **wyświetlania** na wpisach tajnych co najmniej
 
 Jeśli nie widzisz swojej tożsamości zarządzanej w usłudze kontrolą, postępuj zgodnie z instrukcjami w temacie [Tworzenie i zarządzanie poświadczeniami do skanowania](manage-credentials.md) , aby je dodać. 
 

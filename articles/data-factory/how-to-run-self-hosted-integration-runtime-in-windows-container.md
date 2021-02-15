@@ -1,22 +1,18 @@
 ---
 title: Jak uruchomić Self-Hosted Integration Runtime w kontenerze systemu Windows
 description: Dowiedz się więcej na temat uruchamiania Self-Hosted Integration Runtime w kontenerze systemu Windows.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: 7035da173102e59aec9c643381bad701d6facf38
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e34e1f589442be41e2a4eac3ac893f377675e4b5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634542"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379509"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Jak uruchomić Self-Hosted Integration Runtime w kontenerze systemu Windows
 
@@ -29,7 +25,7 @@ Azure Data Factory dostarcza oficjalną obsługę kontenera systemu Windows Self
 - [Wymagania dotyczące kontenera systemu Windows](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker w wersji 2,3 lub nowszej 
 - Self-Hosted Integration Runtime w wersji 4.11.7512.1 lub nowszej 
-## <a name="get-started"></a>Wprowadzenie 
+## <a name="get-started"></a>Rozpoczęcie pracy 
 1.  Zainstaluj platformę Docker i Włącz kontener systemu Windows 
 2.  Pobieranie kodu źródłowego z lokalizacji https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container
 3.  Pobierz najnowszą wersję SHIR w folderze "SHIR" 

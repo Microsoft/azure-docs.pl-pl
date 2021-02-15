@@ -3,15 +3,15 @@ title: Konfiguracja klastra w usłudze Azure Kubernetes Services (AKS)
 description: Dowiedz się, jak skonfigurować klaster w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: eacca50e00dfe8625d86362c444544e2fd5d5511
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 5519157b58268b30ecb7a1af7b86d13d587a23b8
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201114"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519409"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra usługi AKS
 
@@ -19,13 +19,19 @@ W ramach tworzenia klastra AKS może być konieczne dostosowanie konfiguracji kl
 
 ## <a name="os-configuration"></a>Konfiguracja systemu operacyjnego
 
-AKS teraz obsługuje Ubuntu 18,04 jako system operacyjny węzła (OS) w ogólnej dostępności dla klastrów w wersjach Kubernetes wyższych niż 1.18.8. W przypadku wersji poniżej 1.18. x AKS Ubuntu 16,04 jest nadal domyślnym obrazem podstawowym. Z Kubernetes v 1.18. x i z lewej, domyślną bazą jest AKS Ubuntu 18,04.
+Program AKS obsługuje teraz Ubuntu 18,04 jako domyślny system operacyjny (OS) w ogólnej dostępności (GA) dla klastrów w wersjach Kubernetes wyższych niż 1,18 dla wersji poniżej 1,18, AKS Ubuntu 16,04 nadal jest domyślnym obrazem podstawowym. W Kubernetes v 1.18 i wyższych wartość domyślna to AKS Ubuntu 18,04.
 
-### <a name="use-aks-ubuntu-1804-generally-available-on-new-clusters"></a>Korzystanie z AKS Ubuntu 18,04 ogólnie dostępnych w nowych klastrach
+> [!IMPORTANT]
+> Pule węzłów utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 `AKS Ubuntu 16.04` są odbierane jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` chwili, gdy wersja Kubernetes puli węzłów zostanie zaktualizowana do wersji v 1.18 lub nowszej.
+> 
+> Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej.
+
+
+### <a name="use-aks-ubuntu-1804-ga-on-new-clusters"></a>Użyj AKS Ubuntu 18,04 (GA) dla nowych klastrów
 
 Klastry utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 nadal będą wyświetlane `AKS Ubuntu 16.04` jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` wersji, gdy klaster lub Pula węzłów Kubernetes wersja została zaktualizowana do programu v 1.18 lub nowszego.
 
-Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej. Przeczytaj, jak [przetestować pule węzłów Ubuntu 18,04](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej.
 
 Aby utworzyć klaster przy użyciu `AKS Ubuntu 18.04` obrazu węzła, po prostu Utwórz klaster z systemem Kubernetes v 1.18 lub nowszym, jak pokazano poniżej
 
@@ -33,11 +39,11 @@ Aby utworzyć klaster przy użyciu `AKS Ubuntu 18.04` obrazu węzła, po prostu 
 az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
 
-### <a name="use-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Korzystanie z AKS Ubuntu 18,04 ogólnie dostępnych w istniejących klastrach
+### <a name="use-aks-ubuntu-1804-ga-on-existing-clusters"></a>Użyj AKS Ubuntu 18,04 (GA) w istniejących klastrach
 
 Klastry utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 nadal będą wyświetlane `AKS Ubuntu 16.04` jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` wersji, gdy klaster lub Pula węzłów Kubernetes wersja została zaktualizowana do programu v 1.18 lub nowszego.
 
-Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej. Przeczytaj, jak [przetestować pule węzłów Ubuntu 18,04](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej.
 
 Jeśli klastry lub pule węzłów są gotowe do `AKS Ubuntu 18.04` obrazu węzła, można po prostu uaktualnić je do wersji 1.18 lub nowszej w następujący sposób.
 
@@ -51,7 +57,7 @@ Jeśli chcesz tylko uaktualnić tylko jedną pulę węzłów:
 az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
 
-### <a name="test-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Test AKS Ubuntu 18,04 ogólnie dostępny w istniejących klastrach
+### <a name="test-aks-ubuntu-1804-ga-on-existing-clusters"></a>Test AKS Ubuntu 18,04 (GA) dla istniejących klastrów
 
 Pule węzłów utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 nadal będą wyświetlane `AKS Ubuntu 16.04` jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` wersji, gdy zostanie zaktualizowana wersja Kubernetes puli węzłów na wartość v 1.18 lub nowsza.
 
@@ -65,58 +71,6 @@ az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes
 
 az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
-
-### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>Korzystanie z AKS Ubuntu 18,04 w nowych klastrach (wersja zapoznawcza)
-
-W poniższej sekcji wyjaśniono, jak używać i testować AKS Ubuntu 18,04 w klastrach, które nie używają jeszcze wersji Kubernetes 1.18. x lub nowszej, lub zostały utworzone przed udostępnieniem tej funkcji.
-
-Wymagane są następujące zasoby:
-
-- [Interfejs wiersza polecenia platformy Azure][azure-cli-install]w wersji 2.2.0 lub nowszej
-- Rozszerzenie AKS-Preview 0.4.35
-
-Aby zainstalować rozszerzenie AKS-Preview 0.4.35 lub nowsze, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-Zarejestruj `UseCustomizedUbuntuPreview` funkcję:
-
-```azurecli
-az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
-```
-
-Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature#az-feature-list) :
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
-```
-
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider#az-provider-register) :
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-Skonfiguruj klaster tak, aby używał Ubuntu 18,04 podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi, aby ustawić Ubuntu 18,04 jako domyślny system operacyjny.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
-```
-
-Jeśli chcesz utworzyć klastry z obrazem AKS Ubuntu 16,04, możesz to zrobić, pomijając `--aks-custom-headers` znacznik niestandardowy.
-
-### <a name="use-aks-ubuntu-1804-existing-clusters-preview"></a>Używanie istniejących klastrów w programie AKS Ubuntu 18,04 (wersja zapoznawcza)
-
-Skonfiguruj nową pulę węzłów do używania Ubuntu 18,04. Użyj `--aks-custom-headers` flagi, aby ustawić Ubuntu 18,04 jako domyślny system operacyjny dla tej puli węzłów.
-
-```azurecli
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
-```
-
-Jeśli chcesz utworzyć pule węzłów za pomocą obrazu AKS Ubuntu 16,04, możesz to zrobić, pomijając `--aks-custom-headers` tag niestandardowy.
 
 ## <a name="container-runtime-configuration"></a>Konfiguracja środowiska uruchomieniowego kontenera
 
@@ -139,69 +93,6 @@ Przy użyciu `containerd` for AKS nodes, pod kątem opóźnień uruchamiania, zw
 > 
 > Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów AKS za pomocą `containerD` starszych klastrów niż 1,19 lub więcej.
 
-W poniższej sekcji wyjaśniono, jak można używać i testować AKS z `containerD` klastrami, które nie korzystają jeszcze z Kubernetes w wersji 1,19 lub nowszej, lub zostały utworzone przed udostępnieniem tej funkcji, przy użyciu wersji zapoznawczej środowiska uruchomieniowego kontenera.
-
-### <a name="use-containerd-as-your-container-runtime-preview"></a>Użyj `containerd` jako środowiska uruchomieniowego kontenera (wersja zapoznawcza)
-
-Wymagane są następujące wymagania wstępne:
-
-- Zainstalowano [interfejs wiersza polecenia platformy Azure][azure-cli-install]w wersji 2.8.0 lub nowszej
-- Rozszerzenie AKS-Preview w wersji 0.4.53 lub nowszej
-- `UseCustomizedContainerRuntime`Zarejestrowano flagę funkcji
-- `UseCustomizedUbuntuPreview`Zarejestrowano flagę funkcji
-
-Aby zainstalować rozszerzenie AKS-Preview 0.4.53 lub nowsze, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-Zarejestruj `UseCustomizedContainerRuntime` funkcje i `UseCustomizedUbuntuPreview` :
-
-```azurecli
-az feature register --name UseCustomizedContainerRuntime --namespace Microsoft.ContainerService
-az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
-
-```
-
-Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature#az-feature-list) :
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
-```
-
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider#az-provider-register) :
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```  
-
-### <a name="use-containerd-on-new-clusters-preview"></a>Użyj `containerd` w nowych klastrach (wersja zapoznawcza)
-
-Skonfiguruj klaster, który ma być używany `containerd` podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi, aby ustawić `containerd` jako środowisko uruchomieniowe kontenera.
-
-> [!NOTE]
-> `containerd`Środowisko uruchomieniowe jest obsługiwane tylko w węzłach i pulach węzłów przy użyciu obrazu AKS Ubuntu 18,04.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
-```
-
-Jeśli chcesz utworzyć klastry za pomocą środowiska uruchomieniowego Moby (Docker), możesz to zrobić, pomijając tag niestandardowy `--aks-custom-headers` .
-
-### <a name="use-containerd-on-existing-clusters-preview"></a>Użyj `containerd` w istniejących klastrach (wersja zapoznawcza)
-
-Skonfiguruj nową pulę węzłów do użycia `containerd` . Użyj `--aks-custom-headers` flagi, aby ustawić `containerd` jako środowisko uruchomieniowe dla tej puli węzłów.
-
-```azurecli
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
-```
-
-Jeśli chcesz utworzyć pule węzłów za pomocą środowiska uruchomieniowego Moby (Docker), możesz to zrobić, pomijając `--aks-custom-headers` tag niestandardowy.
-
-
 ### <a name="containerd-limitationsdifferences"></a>`Containerd` ograniczenia/różnice
 
 * Aby użyć `containerd` programu jako środowiska uruchomieniowego kontenera, musisz użyć AKS Ubuntu 18,04 jako obrazu podstawowego systemu operacyjnego.
@@ -213,9 +104,9 @@ Jeśli chcesz utworzyć pule węzłów za pomocą środowiska uruchomieniowego M
 * Nie można już uzyskiwać dostępu do aparatu platformy Docker `/var/run/docker.sock` lub używać platformy Docker-Docker (DinD).
   * W przypadku obecnie wyodrębniania dzienników aplikacji lub monitorowania danych z aparatu platformy Docker należy zamiast tego użyć takich elementów jak [Azure monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) . Ponadto AKS nie obsługuje uruchamiania jakichkolwiek poleceń poza pasmem w węzłach agenta, które mogą spowodować niestabilność.
   * Nawet w przypadku korzystania z Moby/Docker nie zaleca się tworzenia obrazów i bezpośrednio wykorzystujących aparat platformy Docker za pomocą powyższych metod. Kubernetes nie jest w pełni świadomy tych używanych zasobów, a te podejścia omawiają wiele problemów szczegółowych [tutaj](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) [, a na](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)przykład.
-* Tworzenie obrazów — możesz nadal używać bieżącego przepływu pracy kompilacji platformy Docker jako normalnego, chyba że tworzysz imagages wewnątrz klastra AKS. W takim przypadku Rozważ przełączenie do zalecanej metody tworzenia obrazów przy użyciu [zadań ACR](../container-registry/container-registry-quickstart-task-cli.md)lub bezpieczniejszej opcji w klastrze, takiej jak [Docker buildx](https://github.com/docker/buildx).
+* Tworzenie obrazów — możesz nadal używać bieżącego przepływu pracy kompilacji platformy Docker jako normalnego, chyba że tworzysz obrazy wewnątrz klastra AKS. W takim przypadku Rozważ przełączenie do zalecanej metody tworzenia obrazów przy użyciu [zadań ACR](../container-registry/container-registry-quickstart-task-cli.md)lub bezpieczniejszej opcji w klastrze, takiej jak [Docker buildx](https://github.com/docker/buildx).
 
-## <a name="generation-2-virtual-machines-preview"></a>Maszyny wirtualne generacji 2 (wersja zapoznawcza)
+## <a name="generation-2-virtual-machines"></a>Maszyny wirtualne 2. generacji:
 
 Platforma Azure obsługuje [maszyny wirtualne generacji 2 (Gen2)](../virtual-machines/generation-2.md). Maszyny wirtualne generacji 2 obsługują kluczowe funkcje, które nie są obsługiwane w maszynach wirtualnych generacji 1 (Gen1). Te funkcje obejmują zwiększoną ilość pamięci, rozszerzenia funkcji ochrony oprogramowania firmy Intel (Intel SGX) i zwirtualizowaną pamięć trwałą (vPMEM).
 
@@ -223,59 +114,6 @@ Maszyny wirtualne generacji 2 wykorzystują nową architekturę rozruchową opar
 Tylko określone jednostki SKU i rozmiary obsługują maszyny wirtualne Gen2. Sprawdź [listę obsługiwanych rozmiarów](../virtual-machines/generation-2.md#generation-2-vm-sizes), aby sprawdzić, czy jednostka SKU obsługuje lub wymaga Gen2.
 
 Ponadto nie wszystkie obrazy maszyn wirtualnych obsługują Gen2, na maszynach wirtualnych AKS Gen2 będzie używany nowy [obraz AKS Ubuntu 18,04](#os-configuration). Ten obraz obsługuje wszystkie jednostki SKU i rozmiary Gen2.
-
-Aby korzystać z maszyn wirtualnych Gen2 w wersji zapoznawczej, wymagane są:
-- `aks-preview`Rozszerzenie interfejsu wiersza polecenia zostało zainstalowane.
-- `Gen2VMPreview`Zarejestrowano flagę funkcji.
-
-Zarejestruj `Gen2VMPreview` funkcję:
-
-```azurecli
-az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
-```
-
-Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature#az-feature-list) :
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
-```
-
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider#az-provider-register) :
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-Aby zainstalować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Aby zaktualizować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### <a name="use-gen2-vms-on-new-clusters-preview"></a>Korzystanie z maszyn wirtualnych Gen2 w nowych klastrach (wersja zapoznawcza)
-Skonfiguruj klaster tak, aby korzystał z maszyn wirtualnych Gen2 dla wybranej jednostki SKU podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi, aby ustawić Gen2 jako generację maszyny wirtualnej w nowym klastrze.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
-```
-
-Jeśli chcesz utworzyć zwykły klaster przy użyciu maszyn wirtualnych generacji 1 (Gen1), możesz to zrobić, pomijając `--aks-custom-headers` znacznik niestandardowy. Możesz również dodać więcej maszyn wirtualnych Gen1 lub Gen2, tak jak na poniższej liście.
-
-### <a name="use-gen2-vms-on-existing-clusters-preview"></a>Korzystanie z maszyn wirtualnych Gen2 w istniejących klastrach (wersja zapoznawcza)
-Skonfiguruj nową pulę węzłów do używania maszyn wirtualnych Gen2. Użyj `--aks-custom-headers` flagi, aby ustawić Gen2 jako generację maszyny wirtualnej dla tej puli węzłów.
-
-```azurecli
-az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
-```
-
-Jeśli chcesz utworzyć regularne pule węzłów Gen1, możesz to zrobić, pomijając `--aks-custom-headers` znacznik niestandardowy.
-
 
 ## <a name="ephemeral-os"></a>Tymczasowych systemów operacyjnych
 

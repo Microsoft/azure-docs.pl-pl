@@ -3,13 +3,13 @@ title: Koncepcje — podstawy Kubernetes dla usług Azure Kubernetes Services (A
 description: Informacje o podstawowym klastrze i składnikach obciążenia Kubernetes oraz o tym, jak odnoszą się do funkcji w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 12/07/2020
+ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674930"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373236"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Podstawowe pojęcia Kubernetes dla usługi Azure Kubernetes Service (AKS)
 
@@ -31,8 +31,8 @@ Usługa Azure Kubernetes Service (AKS) oferuje zarządzaną usługę Kubernetes,
 
 Klaster Kubernetes jest podzielony na dwa składniki:
 
-- Węzły *płaszczyzny kontroli* zapewniają podstawowe usługi Kubernetes i aranżację obciążeń aplikacji.
-- *Węzły* uruchamiają obciążenia aplikacji.
+- *Płaszczyzna kontroli* zapewnia podstawowe usługi Kubernetes oraz aranżację obciążeń aplikacji.
+- *Węzły* , które uruchamiają obciążenia aplikacji.
 
 ![Kubernetes i płaszczyzny kontroli](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 

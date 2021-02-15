@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: d5556ffb18a7a67e9415310f221e470761bf8cb8
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098643"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388213"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Oceń automatyczne wyniki eksperymentu w usłudze Machine Learning
 
@@ -234,10 +234,7 @@ W tym przykładzie należy zauważyć, że lepszym modelem jest wiersz przewidyw
 
 Chociaż metryki i wykresy oceny modelu są dobre do mierzenia ogólnej jakości modelu, sprawdzanie, który zestaw danych zawiera model, który jest używany do zapewnienia, że jego przewidywania jest niezbędne w przypadku praktycznego odpowiedzialnego AI. Dlatego zautomatyzowanej sieci zapewnia pulpit nawigacyjny z możliwością interpretacji modelu, który umożliwia mierzenie i raportowanie względnych wkładów funkcji zestawu danych.
 
-![Znaczenie funkcji](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
-
 Aby wyświetlić pulpit nawigacyjny z interpretacją w Studio:
-
 1. [Zaloguj się do programu Studio](https://ml.azure.com/) i przejdź do obszaru roboczego
 2. W menu po lewej stronie wybierz pozycję **eksperymenty**
 3. Wybierz swój eksperyment z listy eksperymentów
@@ -246,10 +243,11 @@ Aby wyświetlić pulpit nawigacyjny z interpretacją w Studio:
 6. Na karcie **wyjaśnienia** można zobaczyć, że wyjaśnienie zostało już utworzone, jeśli model jest najlepszy
 7. Aby utworzyć nowe wyjaśnienie, wybierz pozycję **Wyjaśnij model** i wybierz zdalne obliczenie, za pomocą którego mają zostać obliczone wyjaśnienia
 
+[Dowiedz się więcej na temat wyjaśnień modelu w zautomatyzowanej ml](how-to-machine-learning-interpretability-automl.md).
+
 > [!NOTE]
 > Model ForecastTCN nie jest obecnie obsługiwany przez automatyczne objaśnienia ML, a inne modele prognozowania mogą mieć ograniczony dostęp do narzędzi do interpretacji.
 
 ## <a name="next-steps"></a>Następne kroki
 * Wypróbuj [przykładowy model uczenia maszynowego](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
-* Dowiedz się więcej o [niewłaściwych ofertach AI w zautomatyzowanej ml](how-to-machine-learning-interpretability-automl.md).
 * W przypadku zautomatyzowanych pytań określonych w ML należy skontaktować się z askautomatedml@microsoft.com .
