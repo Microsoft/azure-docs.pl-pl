@@ -3,22 +3,22 @@ title: 'ML Studio (klasyczny): Tworzenie punktów końcowych usługi sieci Web �
 description: Utwórz punkty końcowe usługi sieci Web w Azure Machine Learning Studio (klasyczny). Każdy punkt końcowy w usłudze sieci Web jest niezależnie kierowany, ograniczany i zarządzany.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 1032a90a35e60643e2ce937ed457a1fe3493d4d7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 36eb6a67aa2a8da80894c27937994afd4f263ecd
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322893"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517114"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Utwórz punkty końcowe dla wdrożonych usług sieci Web Azure Machine Learning Studio (klasycznych)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 > [!NOTE]

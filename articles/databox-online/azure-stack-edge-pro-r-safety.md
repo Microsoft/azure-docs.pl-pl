@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: dacc9ecc28ffa482b60d1e48735fe3620b5b7558
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981344"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363070"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Azure Stack Edge — instrukcje bezpieczeństwa w programie R.
 
@@ -134,6 +134,7 @@ Następujące ikony zagrożeń są przestrzegane podczas konfigurowania i urucha
 
 * W przypadku systemów bez nieprzerwanego zasilacza (UPS) Odłącz wszystkie wtyki prądu przemiennego, aby całkowicie usunąć zasilanie prądu przemiennego z urządzenia.
 * W przypadku systemów z zasilaczem UPS Odłącz wszystkie przewody zasilania i Użyj zasilacza UPS, aby Energize system. Zasilacz UPS zawiera niebezpieczne napięcia AC i DC.
+* Jeśli system zawiera zasilacz UPS, zasilacz UPS został dostarczony z podłączonym kablem wejściowym z osłoną. Musisz użyć wejściowego kabla zasilającego, nie zamieniaj ani nie Modyfikuj kabla.
 
 ![Ikona ostrzeżenia ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
  ![ ikona porażenia elektryczną ](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **Ostrzeżenie:**
@@ -210,21 +211,22 @@ A device that has a UPS installed is designed to operate in the following enviro
 
 > ![Ikona powiadomienia — 2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **Uwaga:** &nbsp; zmiany lub modyfikacje sprzętu, które nie zostały wyraźnie zatwierdzone przez firmę Microsoft, mogą unieważnić urząd użytkownika w celu obsługi sprzętu.
 
-Kanada i Stany Zjednoczone:
+#### <a name="canada-and-usa"></a>Kanada i Stany Zjednoczone:
 
-Uwaga: ten sprzęt został przetestowany i odnaleziony w celu zachowania zgodności z ograniczeniami dla klasy urządzenie cyfrowe, zgodnie z częścią 15 reguł FCC. Limity te zostały zaprojektowane w celu zapewnienia odpowiedniej ochrony przed szkodliwymi zakłóceniami, gdy sprzęt jest eksploatowany w środowisku komercyjnym. Ten sprzęt generuje, używa i może wypromieniowanać energię radiową oraz, jeśli nie jest zainstalowany i używany zgodnie z instrukcją ręczną instrukcji, może spowodować szkodliwe zakłócenia komunikacji radiowej. Działanie tego sprzętu w obszarze mieszkalnym prawdopodobnie spowoduje szkodliwe zakłócenia, w takim przypadku użytkownik będzie musiał poprawić zakłócenie na własny koszt.
+> ![Ikona powiadomienia — 2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **Uwaga:** &nbsp; ten sprzęt został przetestowany i odnaleziony w celu zachowania zgodności z limitami dla klasy urządzenie cyfrowe, zgodnie z częścią 15 reguł FCC. Limity te zostały zaprojektowane w celu zapewnienia odpowiedniej ochrony przed szkodliwymi zakłóceniami, gdy sprzęt jest eksploatowany w środowisku komercyjnym. Ten sprzęt generuje, używa i może wypromieniowanać energię radiową oraz, jeśli nie jest zainstalowany i używany zgodnie z instrukcją ręczną instrukcji, może spowodować szkodliwe zakłócenia komunikacji radiowej. Działanie tego sprzętu w obszarze mieszkalnym prawdopodobnie spowoduje szkodliwe zakłócenia, w takim przypadku użytkownik będzie musiał poprawić zakłócenie na własny koszt.
 
 To urządzenie jest zgodne z częścią 15 reguł FCC i standardami RSS w branży. Operacje podlegają następującym dwóm warunkom: (1) to urządzenie może nie prowadzić do szkodliwych zakłóceń i (2) to urządzenie musi akceptować wszelkie odebrane zakłócenia, w tym zakłócenia, które mogą spowodować niepożądane działanie urządzenia.
 
 ![Ostrzeżenie dotyczące informacji prawnych 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
 
-MOŻE ICES-3 (A)/NMB-3 (A) Microsoft Corporation, jeden Microsoft Way, Redmond, WA 98052, USA.
-Stany Zjednoczone: (800) 426-9400 Kanada: (800) 933-4750
+MOŻE ICES-3 (A)/NMB-3 (A) Microsoft Corporation, jeden Microsoft Way, Redmond, WA 98052, USA Stany Zjednoczone: (800) 426-9400 Kanada: (800) 933-4750
 
-Unia Europejska: Zażądaj kopii deklaracji zgodności UE. 
+#### <a name="european-union"></a>UNIA EUROPEJSKA:
 
-![Ikona ostrzeżenia](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+Zażądaj kopii deklaracji zgodności UE. Wyślij wiadomość e-mail do [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
+
+![Ostrzeżenie ikony ostrzeżenia ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) **!**
 
 To jest produkt klasy A. W środowisku wewnętrznym ten produkt może spowodować zakłócenia radioelektrycznych, w takim przypadku użytkownik może być zobowiązany do podjęcia odpowiednich działań.
 
@@ -237,7 +239,6 @@ Ten symbol na produkcie lub jego baterie lub jego opakowanie oznacza, że ten pr
 Ten produkt zawiera baterie z komórkami monet.
 
 Microsoft Irlandia Sandyford IND Est Dublin D18 KX32 IRL numer telefonu: + 353 1 295 3826 numer faksu: + 353 1 706 4110
-
 
 
 ## <a name="next-steps"></a>Następne kroki

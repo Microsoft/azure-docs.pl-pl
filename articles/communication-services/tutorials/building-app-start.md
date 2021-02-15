@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 60b5a2bf5c0aed3d1a4621e179429a157c2a0962
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: db59a9e7693190582736b9460658f629f4f1e555
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99421578"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369632"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Samouczek: przygotowywanie aplikacji sieci Web dla usług Azure Communications Services (Node.js)
 
@@ -106,11 +106,25 @@ Wykonaj te same czynności dla rozszerzeń [Azure Functions](https://marketplace
 
 ## <a name="set-up-a-local-webserver"></a>Konfigurowanie lokalnego serwera WebServer
 
+### <a name="create-a-new-npm-package"></a>Utwórz nowy pakiet npm
+
+W terminalu w polu Ścieżka folderu obszaru roboczego wpisz:
+
+``` console
+npm init -y
+```
+
+To polecenie inicjuje nowy pakiet npm i dodaje `package.json` do folderu głównego projektu.
+
+:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Plik JSON pakietu":::
+
+Dodatkową dokumentację dotyczącą polecenia init npm można znaleźć [tutaj](https://docs.npmjs.com/cli/v6/commands/npm-init)
+
 ### <a name="install-webpack"></a>Zainstaluj pakiet WebPack
 
 [pakiet WebPack](https://webpack.js.org/) umożliwia łączenie kodu z plikami statycznymi, które można wdrożyć na platformie Azure. Ma również serwer programistyczny, który zostanie skonfigurowany do użycia z przykładem wywołującym.
 
-Wpisz następujące w otwartym terminalu, aby zainstalować pakiet WebPack:
+W terminalu wpisz następujące czynności, aby zainstalować pakiet WebPack:
 
 ``` Console
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
@@ -175,7 +189,7 @@ Opcje mapy źródłowej są wymienione [tutaj](https://webpack.js.org/configurat
 
 :::image type="content" source="./media/step-one-pic-11.png" alt-text="Konfigurowanie pakietu WebPack":::
 
-Aby uruchomić serwer programistyczny, przejdź do `package.json.js` i Dodaj następujący kod w obszarze skrypty:
+Aby uruchomić serwer programistyczny, przejdź do `package.json` i Dodaj następujący kod w obszarze skrypty:
 
 ```JavaScript
     "build:dev": "webpack-dev-server --config webpack.dev.js"
@@ -206,7 +220,7 @@ Plik powinien teraz wyglądać następująco:
 
 Dodano polecenie, które może być używane z npm. 
 
-:::image type="content" source="./media/step-one-pic-12.png" alt-text="Modyfikowanie package-json.js":::
+:::image type="content" source="./media/step-one-pic-12.png" alt-text="Modyfikowanie package.jsna":::
 
 ### <a name="testing-the-development-server"></a>Testowanie serwera deweloperskiego
 
@@ -261,7 +275,7 @@ Aby przetestować konfigurację programistyczną, użyj następującego poleceni
 npm run build:dev
 ```
 
-W konsoli programu zostanie wyświetlony stan uruchomiony na serwerze programu. Domyślnie jest to `http://localhost:8080` . Kompilacja: dev polecenie to polecenie, które zostało dodane `package-json.js` wcześniej.
+W konsoli programu zostanie wyświetlony stan uruchomiony na serwerze programu. Domyślnie jest to `http://localhost:8080` . Kompilacja: dev polecenie to polecenie, które zostało dodane `package.json` wcześniej.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="Uruchamianie serwera deweloperskiego":::
  
@@ -289,26 +303,11 @@ Ta akcja spowoduje dodanie pakietów wspólnych i wywołujących usługi Azure C
 
 :::image type="content" source="./media/step-one-pic-nine.png" alt-text="Instalowanie pakietów usług Azure Communications Services":::
 
-Te pakiety są udostępniane przez zespół usługi Azure Communication Services i obejmują uwierzytelnianie i biblioteki wywołujące. Polecenie "--Save" sygnalizuje, że nasza aplikacja zależy od tych pakietów do użycia w środowisku produkcyjnym i zostanie uwzględniona w `dependencies` naszym `package-json.js` pliku. Po skompilowaniu aplikacji dla środowiska produkcyjnego pakiety zostaną uwzględnione w naszym kodzie produkcyjnym.
+Te pakiety są udostępniane przez zespół usługi Azure Communication Services i obejmują uwierzytelnianie i biblioteki wywołujące. Polecenie "--Save" sygnalizuje, że nasza aplikacja zależy od tych pakietów do użycia w środowisku produkcyjnym i zostanie uwzględniona w `dependencies` naszym `package.json` pliku. Po skompilowaniu aplikacji dla środowiska produkcyjnego pakiety zostaną uwzględnione w naszym kodzie produkcyjnym.
 
 
 ## <a name="publish-your-website-to-azure-static-websites"></a>Publikowanie witryny sieci Web w usłudze Azure static websites
 
-### <a name="create-a-new-npm-package"></a>Utwórz nowy pakiet npm
-
-W terminalu w polu Ścieżka folderu obszaru roboczego wpisz:
-
-``` console
-npm init -y
-```
-
-To polecenie inicjuje nowy pakiet npm i dodaje `package.json` do folderu głównego projektu.
-
-:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Plik JSON pakietu":::
-
-Dodatkową dokumentację dotyczącą polecenia init npm można znaleźć [tutaj](https://docs.npmjs.com/cli/v6/commands/npm-init)
-
- 
 ### <a name="create-a-configuration-for-production-deployment"></a>Utwórz konfigurację wdrożenia produkcyjnego
 
 Dodaj następujący kod do `webpack.prod.js` :

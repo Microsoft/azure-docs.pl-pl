@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 24671a34214864e253d96c356dc8b2853bf6d560
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626664"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519800"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenariusz: kierowanie ruchem za pośrednictwem urządzenia NVA
 
@@ -30,9 +30,9 @@ Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka
 
 W tym scenariuszu będziemy używać konwencji nazewnictwa:
 
-* "Urządzenie WUS sieci wirtualnych" dla sieci wirtualnych, w których użytkownicy wdrażali urządzenie WUS i połączeni z innymi sieciami wirtualnymi jako szprych (Sieć wirtualna 2 i Sieć wirtualna 4 w **macierzy łączności**, poniżej).
-* "Urządzenie WUS szprych" dla sieci wirtualnych połączonych z siecią wirtualną urządzenie WUS (Sieć wirtualna 5, Sieć wirtualna 6, Sieć wirtualna 7 i Sieć wirtualna 8 w **macierzy połączeń**).
-* "Urządzenie WUS sieci wirtualnych" dla sieci wirtualnych podłączonych do wirtualnej sieci WAN, które nie mają urządzenie WUS lub innych sieci wirtualnych komunikacji równorzędnej (Sieć wirtualna 1 i Sieć wirtualna 3 w **macierzy łączności**, poniżej).
+* "Urządzenie WUS sieci wirtualnych" dla sieci wirtualnych, w których użytkownicy wdrażali urządzenie WUS i połączeni z innymi sieciami wirtualnymi jako szprych (sieć VNet 2 i Sieć wirtualna 4 na **rysunku 2** ).
+* "Urządzenie WUS Szprychs" dla sieci wirtualnych połączonych z siecią wirtualną urządzenie WUS (Sieć wirtualna 5, Sieć wirtualna 6, Sieć wirtualna 7 i Sieć wirtualna 8 na **rysunku 2** ).
+* "Urządzenie WUS sieci wirtualnych" dla sieci wirtualnych podłączonych do wirtualnej sieci WAN, które nie mają urządzenie WUS lub innych sieci wirtualnych komunikacji równorzędnej (Sieć wirtualna 1 i Sieć wirtualna 3 na **rysunku 2** ).
 * "Centra" dla wirtualnych centrów sieci WAN zarządzanych przez firmę Microsoft, z którymi są połączone urządzenie WUS sieci wirtualnych. URZĄDZENIE WUS szprych sieci wirtualnych nie musi być podłączony do wirtualnych koncentratorów sieci WAN, tylko do urządzenie WUS sieci wirtualnych.
 
 Następująca macierz łączności podsumowuje przepływy obsługiwane w tym scenariuszu:
@@ -49,7 +49,7 @@ Następująca macierz łączności podsumowuje przepływy obsługiwane w tym sce
 Każda komórka w macierzy łączności opisuje, jak sieć wirtualna lub gałąź ("od") przepływu, nagłówki wierszy w tabeli) komunikują się z docelową siecią wirtualną lub gałęzią (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli). "Direct" oznacza, że łączność jest zapewniana natywnie przez wirtualną sieć WAN, "Komunikacja równorzędna" oznacza, że łączność jest zapewniana przez trasę User-Defined w sieci wirtualnej, "ponad Sieć wirtualna urządzenie WUS" oznacza, że połączenie przechodzi przez urządzenie WUS wdrożone w sieci wirtualnej urządzenie WUS. Rozważ następujące źródła:
 
 * URZĄDZENIE WUS szprych nie są zarządzane przez wirtualną sieć WAN. W efekcie mechanizmy, z którymi będą komunikować się z innymi sieci wirtualnychami lub gałęziami, są obsługiwane przez użytkownika. Łączność z siecią wirtualną urządzenie WUS jest zapewniana przez komunikację równorzędną sieci wirtualnych, a domyślna trasa do 0.0.0.0/0 wskazuje, że urządzenie WUS jako następny przeskok powinien obejmować łączność z Internetem, z innymi szprychami i gałęziami
-* URZĄDZENIE WUS sieci wirtualnych będzie wiedzieć o swoich własnych urządzenie WUS szprych, ale nie o urządzenie WUS szprych podłączonych do innych urządzenie WUS sieci wirtualnych. Na przykład w tabeli 1 Sieć wirtualna 2 wie o sieci VNet 5 i sieci wirtualnej 6, ale nie na temat innych szprych, takich jak sieć wirtualna 7 i Sieć wirtualna 8. Trasa statyczna jest wymagana do wprowadzenia prefiksów innych szprych do urządzenie WUS sieci wirtualnych
+* URZĄDZENIE WUS sieci wirtualnych będzie wiedzieć o swoich własnych urządzenie WUS szprych, ale nie o urządzenie WUS szprych podłączonych do innych urządzenie WUS sieci wirtualnych. Na przykład na rysunku 2 w dalszej tabeli w tym artykule Sieć wirtualna 2 wie o sieci VNet 5 i sieci VNet 6, ale nie na temat innych szprych, takich jak sieć wirtualna 7 i Sieć wirtualna 8. Trasa statyczna jest wymagana do wprowadzenia prefiksów innych szprych do urządzenie WUS sieci wirtualnych
 * Podobnie gałęzie i urządzenie WUS sieci wirtualnych nie wiedzą o żadnej urządzenie WUS szprychy, ponieważ urządzenie WUS szprych nie są połączone z koncentratorami wirtualnych sieci WAN. W związku z tym w tym miejscu będą również musiały istnieć trasy statyczne.
 
 Biorąc pod uwagę, że urządzenie WUS szprych nie są zarządzane przez wirtualną sieć WAN, wszystkie pozostałe wiersze pokazują ten sam wzorzec łączności. W efekcie jedna tabela tras (domyślnie jedna) wykona następujące czynności:

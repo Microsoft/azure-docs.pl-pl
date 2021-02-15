@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3055c9dd1294af81c6c52603dd60bb5aa6075abd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bff1eec0152ab0f57edd212adf6b14f7b588fb51
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777855"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390168"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Tworzenie dzierżawy usługi Azure Active Directory dla połączeń protokołu OpenVPN typu punkt-lokacja
 
@@ -42,7 +42,7 @@ Wykonaj kroki opisane w sekcji [Dodawanie lub usuwanie użytkowników — Azure 
 
 1. Znajdź identyfikator katalogu katalogu, który ma być używany do uwierzytelniania. Jest on wymieniony w sekcji właściwości na stronie Active Directory.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Nowa dzierżawa usługi Azure AD" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Zrzut ekranu pokazujący właściwości katalogu" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
 
 1. Skopiuj identyfikator katalogu.
 
@@ -80,28 +80,28 @@ Wykonaj kroki opisane w sekcji [Dodawanie lub usuwanie użytkowników — Azure 
 
 1. Jeśli zostanie wyświetlony monit, wybierz konto **administratora globalnego** .
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Nowa dzierżawa usługi Azure AD" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Wybieranie konta" border="false":::
 1. Wybierz pozycję **Akceptuj** po wyświetleniu monitu.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Nowa dzierżawa usługi Azure AD" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Zrzut ekranu przedstawia uprawnienia dotyczące komunikatów, które zażądały akceptacji w organizacji, z informacjami i opcją akceptacji." border="false":::
 1. W ramach usługi Azure AD w **aplikacjach dla przedsiębiorstw** zostanie wyświetlona lista **Azure VPN** .
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="Nowa dzierżawa usługi Azure AD" lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="Zrzut ekranu przedstawiający stronę wszystkie aplikacje." lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
 1. Jeśli nie masz jeszcze działającego środowiska punkt-lokacja, postępuj zgodnie z instrukcjami, aby je utworzyć. Zobacz [Tworzenie sieci VPN typu punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md) , aby utworzyć i skonfigurować bramę sieci VPN typu punkt-lokacja.
 
     > [!IMPORTANT]
     > Podstawowa jednostka SKU nie jest obsługiwana w przypadku OpenVPN.
 
-1. Włącz uwierzytelnianie usługi Azure AD na bramie sieci VPN, przechodząc do **konfiguracji typu punkt-lokacja** i wybierając **OpenVPN (SSL)** jako **Typ tunelu** . Wybierz **Azure Active Directory** jako **Typ uwierzytelniania** , a następnie wypełnij informacje w sekcji **Azure Active Directory** .
+1. Włącz uwierzytelnianie usługi Azure AD na bramie sieci VPN, przechodząc do **konfiguracji typu punkt-lokacja** i wybierając **OpenVPN (SSL)** jako **Typ tunelu**. Wybierz **Azure Active Directory** jako **Typ uwierzytelniania**, a następnie wypełnij informacje w sekcji **Azure Active Directory** .
 
    * **Dzierżawca:** TenantID dla dzierżawy usługi Azure AD ```https://login.microsoftonline.com/{AzureAD TenantID}/```
 
    * **Odbiorcy:** Identyfikator aplikacji "Azure VPN" Azure AD Enterprise ```{AppID of the "Azure VPN" AD Enterprise app}```
 
-   * **Wystawca** : adres URL usługi bezpiecznego tokenu ```https://sts.windows.net/{AzureAD TenantID}/```
+   * **Wystawca**: adres URL usługi bezpiecznego tokenu ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="Nowa dzierżawa usługi Azure AD" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="SAzure sieci VPN" border="false":::
 
    > [!NOTE]
    > Upewnij się, że na końcu wartości dołączysz końcowy ukośnik `AadIssuerUri` . W przeciwnym razie połączenie może się nie powieść.
@@ -117,4 +117,4 @@ Wykonaj kroki opisane w sekcji [Dodawanie lub usuwanie użytkowników — Azure 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Do sieci wirtualnej należy utworzyć i skonfigurować profil klienta sieci VPN. Zobacz [Konfigurowanie klienta VPN dla połączeń sieci VPN P2S](openvpn-azure-ad-client.md).
+Utwórz i skonfiguruj profil klienta sieci VPN. Zobacz [Konfigurowanie klienta VPN dla połączeń sieci VPN P2S](openvpn-azure-ad-client.md).

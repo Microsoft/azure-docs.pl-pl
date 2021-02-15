@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: d11154e26e2ffe97a1ea102a11dddb746db9433a
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 10246277715d23f42eb0bd17d19794b8d4503f3f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809273"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521870"
 ---
 # <a name="security-recommendations"></a>Zalecenia dotyczące zabezpieczeń
 
@@ -60,7 +60,6 @@ Alerty dotyczące rekomendacji zapewniają wgląd i sugestie dotyczące działa�
 | Śred. | Domyślne zasady filtrowania adresów IP powinny być Odmów | Usługa IoT Hub | Konfiguracja filtru IP powinna mieć reguły zdefiniowane dla dozwolonego ruchu i powinna domyślnie odmówić całego ruchu. |
 | Śred. | Reguła filtru IP obejmuje duży zakres adresów IP | Usługa IoT Hub | Źródłowy zakres adresów IP reguły filtru adresów IP jest zbyt duży. Nadmiernie ograniczające reguły mogą uwidocznić Centrum IoT w złośliwych aktorach. |
 | Niski | Włączanie dzienników diagnostycznych w IoT Hub | Usługa IoT Hub | Włącz dzienniki i zachowaj je przez maksymalnie rok. Przechowywanie dzienników umożliwia ponowne utworzenie śladów aktywności w celach dochodzeniowych w przypadku wystąpienia zdarzenia związanego z bezpieczeństwem lub zabezpieczenia sieci. |
-
 
 ## <a name="next-steps"></a>Następne kroki
 

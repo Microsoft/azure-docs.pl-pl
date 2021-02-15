@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f6c12b892e01aafd5beecdff14751481cf7fc96
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 406420fcd517ceda8ea6eedfc955f54b15541f74
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963401"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366606"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Learn how to deploy modules and establish routes in IoT Edge (Dowiedz się, jak wdrażać moduły i ustanawiać trasy w usłudze IoT Edge).
 
@@ -162,7 +162,7 @@ Na przykład:
 }
 ```
 
-Każdy moduł ma właściwość **ustawień** , która zawiera **obraz**modułu, adres dla obrazu kontenera w rejestrze kontenerów oraz wszelkie **Opcje** konfigurowania obrazu podczas uruchamiania. Aby uzyskać więcej informacji, zobacz [jak skonfigurować opcje tworzenia kontenerów dla modułów IoT Edge](how-to-use-create-options.md).
+Każdy moduł ma właściwość **ustawień** , która zawiera **obraz** modułu, adres dla obrazu kontenera w rejestrze kontenerów oraz wszelkie **Opcje** konfigurowania obrazu podczas uruchamiania. Aby uzyskać więcej informacji, zobacz [jak skonfigurować opcje tworzenia kontenerów dla modułów IoT Edge](how-to-use-create-options.md).
 
 Moduł edgeHub i moduły niestandardowe mają również trzy właściwości, które poinformują agenta IoT Edge, jak zarządzać nimi:
 
@@ -234,7 +234,7 @@ Właściwość Source może mieć jedną z następujących wartości:
 
 Warunek jest opcjonalny w deklaracji trasy. Jeśli chcesz przekazać wszystkie komunikaty ze źródła do ujścia, po prostu pozostaw klauzulę **WHERE** całkowicie. Można też użyć [języka zapytań IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) do filtrowania pewnych komunikatów lub typów komunikatów, które spełniają warunek. Trasy IoT Edge nie obsługują filtrowania komunikatów na podstawie znaczników lub właściwości bliźniaczych.
 
-Komunikaty przekazywane między modułami w IoT Edge są sformatowane tak samo jak komunikaty przekazywane między urządzeniami i usługą Azure IoT Hub. Wszystkie komunikaty są sformatowane w formacie JSON i mają parametry **systemProperties**, **appProperties**i **Body** .
+Komunikaty przekazywane między modułami w IoT Edge są sformatowane tak samo jak komunikaty przekazywane między urządzeniami i usługą Azure IoT Hub. Wszystkie komunikaty są sformatowane w formacie JSON i mają parametry **systemProperties**, **appProperties** i **Body** .
 
 Można tworzyć zapytania dotyczące każdego z trzech parametrów z następującą składnią:
 
@@ -327,7 +327,7 @@ Poniższy przykład pokazuje, jak może wyglądać prawidłowy dokument manifest
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
               "createOptions": ""
             }
           },
@@ -337,7 +337,7 @@ Poniższy przykład pokazuje, jak może wyglądać prawidłowy dokument manifest
             "restartPolicy": "always",
             "startupOrder": 0,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }

@@ -1,22 +1,18 @@
 ---
 title: Automatyczne publikowanie na potrzeby ciągłej integracji i dostarczania
 description: Dowiedz się, jak publikować na potrzeby ciągłej integracji i dostarczania automatycznie.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: maghan
-manager: weetok
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 7b9e07c6bd2cb52858550fe5c34b2660c4d977eb
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b5becd8ddaf74ab2acd059054a095ce9d21c178f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99431227"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366844"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>Automatyczne publikowanie na potrzeby ciągłej integracji i dostarczania
 
@@ -26,7 +22,7 @@ ms.locfileid: "99431227"
 
 Ciągła integracja to metoda testowania każdej zmiany dokonanej w bazie kodu automatycznie, jak najszybciej, jak to możliwe, ciągłe dostarczanie odbywa się przy testowaniu, które odbywa się podczas ciągłej integracji i wypycha zmiany w systemie przejściowym lub produkcyjnym.
 
-W Azure Data Factory, ciągła integracja i dostarczanie (CI/CD) oznacza przemieszczenie Data Factory potoków z jednego środowiska (Programowanie, testowanie, produkcja) do innego. Azure Data Factory korzysta z [szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md) do przechowywania konfiguracji różnych jednostek ADF (potoków, zestawów danych, przepływów i itp.). Istnieją dwie sugerowane metody podwyższania poziomu fabryki danych do innego środowiska:
+W usłudze Azure Data Factory ciągła integracja i ciągłe dostarczanie (CI/CD) oznacza przenoszenie potoków usługi Data Factory z jednego środowiska (programistycznego, testowego, produkcyjnego) do innego. Azure Data Factory korzysta z [szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md) do przechowywania konfiguracji różnych jednostek ADF (potoków, zestawów danych, przepływów i itp.). Istnieją dwie sugerowane metody podwyższania poziomu fabryki danych do innego środowiska:
 
 - Automatyczne wdrażanie przy użyciu integracji Data Factory z [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
 - Ręcznie Przekaż szablon Menedżer zasobów przy użyciu integracji środowiska UX Data Factory z Azure Resource Manager.

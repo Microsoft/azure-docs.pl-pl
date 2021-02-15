@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c6ec84d41d113a38e78ab13404ef19faf625530b
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102176"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369003"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Jak skonfigurować kontrolę dostępu dla obszaru roboczego Synapse 
 
@@ -132,7 +132,7 @@ Aby tworzyć pule SQL, pule Apache Spark i środowiska Integration Runtime, uży
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>Krok 6. Przypisywanie roli administratora Active Directory SQL
 
-Twórca stacji roboczej jest automatycznie ustawiany jako administrator Active Directory SQL dla obszaru roboczego.  Tę rolę można udzielić tylko jednemu użytkownikowi lub grupie. W tym kroku przypiszesz administrator Active Directory SQL w obszarze roboczym do `workspace1_SQLAdmins` grupy zabezpieczeń.  Przypisanie tej roli daje grupie administratorów o wysokim poziomie uprawnień dostęp do wszystkich pul SQL i baz danych w obszarze roboczym.   
+Twórca obszaru roboczego jest automatycznie ustawiany jako administrator Active Directory SQL dla obszaru roboczego.  Tę rolę można udzielić tylko jednemu użytkownikowi lub grupie. W tym kroku przypiszesz administrator Active Directory SQL w obszarze roboczym do `workspace1_SQLAdmins` grupy zabezpieczeń.  Przypisanie tej roli daje grupie administratorów o wysokim poziomie uprawnień dostęp do wszystkich pul SQL i baz danych w obszarze roboczym.   
 
 - Otwórz witrynę Azure Portal
 - Przejdź do strony `workspace1`

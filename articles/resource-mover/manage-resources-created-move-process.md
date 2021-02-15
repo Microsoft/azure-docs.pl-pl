@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 6d6f56fb47bfdaadc6704e2a13ebcf0e893b8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602357"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388485"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Zarządzanie zasobami utworzonymi podczas przenoszenia maszyny wirtualnej
 
@@ -28,7 +28,7 @@ Ręcznie usuń kolekcję przenoszenia i Site Recovery zasobów utworzonych dla m
 2. Sprawdź, czy maszyna wirtualna i wszystkie inne zasoby źródłowe w kolekcji przenoszenia zostały przeniesione/usunięte. Dzięki temu nie ma żadnych oczekujących zasobów, których używają.
 2. Usuń te zasoby.
 
-    - Nazwa kolekcji przenoszenia to ```movecollection-<sourceregion>-<target-region>``` .
+    - Nazwa kolekcji przenoszenia to ```movecollection-<sourceregion>-<target-region>-<metadata-region>``` .
     - Nazwa konta magazynu pamięci podręcznej to ```resmovecache<guid>```
     - Nazwa magazynu to ```ResourceMove-<sourceregion>-<target-region>-GUID``` .
 

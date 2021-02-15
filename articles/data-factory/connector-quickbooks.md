@@ -1,23 +1,18 @@
 ---
 title: Kopiowanie danych z usługi QuickBooks online przy użyciu Azure Data Factory (wersja zapoznawcza)
 description: Informacje o kopiowaniu danych z usługi QuickBooks online do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
-ms.openlocfilehash: ecdb0e55aa7127a373e63612908ed58109c1f8e2
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: eecbcb817ad31480f8f6c3c7272328d06b17c081
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233172"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384065"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Kopiowanie danych z usługi QuickBooks online przy użyciu Azure Data Factory (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,7 +47,7 @@ Dla połączonej usługi programu QuickBooks są obsługiwane następujące wła
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi być ustawiona na wartość: **Quickbooks** | Tak |
 | connectionProperties | Grupa właściwości, która definiuje sposób nawiązywania połączenia z programem QuickBooks. | Tak |
-| **_W obszarze `connectionProperties` :_* _ | | |
+| ***W obszarze `connectionProperties` :*** | | |
 | endpoint | Punkt końcowy serwera usługi QuickBooks online. (to jest, quickbooks.api.intuit.com)  | Tak |
 | companyId | Identyfikator firmy w firmie QuickBooks do autoryzacji. Aby uzyskać informacje na temat sposobu wyszukiwania identyfikatora firmy, zobacz [Jak mogę Find My ID firmy](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Tak |
 | consumerKey | Identyfikator klienta aplikacji usługi QuickBooks online na potrzeby uwierzytelniania OAuth 2,0. Więcej informacji znajdziesz [tutaj](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). | Tak |
@@ -60,7 +55,7 @@ Dla połączonej usługi programu QuickBooks są obsługiwane następujące wła
 | refreshToken | Token odświeżania OAuth 2,0 skojarzony z aplikacją QuickBooks. Więcej informacji znajdziesz [tutaj](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Token odświeżania notatki zostanie wygasły po 180 dniach. Klient musi regularnie aktualizować token odświeżania. <br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md).| Tak |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 
-_ *Przykład:**
+**Przykład:**
 
 ```json
 {

@@ -1,22 +1,17 @@
 ---
 title: Weryfikacja spójności danych w działaniu kopiowania
 description: Dowiedz się, jak włączyć weryfikację spójności danych w działaniu kopiowania w Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: 274250fecdf69b6a488c33ff25df3728a1c90af0
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b71657f67c1b9c623d6d48f33b986ac43533cca6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556379"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373020"
 ---
 #  <a name="data-consistency-verification-in-copy-activity"></a>Weryfikacja spójności danych w działaniu kopiowania
 
@@ -33,7 +28,7 @@ Po przeniesieniu danych ze źródła do magazynu docelowego, Azure Data Factory 
 -   W przypadku kopiowania tabeli w działaniu pojedynczej kopii z włączoną weryfikacją spójności danych działanie kopiowania zakończy się niepowodzeniem, jeśli liczba wierszy odczytanych ze źródła jest różna od liczby wierszy skopiowanych do miejsca docelowego oraz liczby pominiętych wierszy, które były pomijane.
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON, aby włączyć weryfikację spójności danych w działaniu kopiowania: 
 
 ```json
@@ -130,7 +125,7 @@ Znacznik czasu | Sygnatura czasowa, gdy moduł ADF pomija niespójne pliki.
 Poziom | Poziom dziennika tego elementu. Będzie on wyświetlany na poziomie "ostrzeżenie" dla elementu pokazującego pomijanie plików.
 OperationName | Zachowanie działania kopiowania APD dla każdego pliku. Będzie to "FileSkip", aby określić plik do pominięcia.
 OperationItem | Nazwa pliku do pominięcia.
-Wiadomość | Więcej informacji o tym, dlaczego pliki są pomijane.
+Komunikat | Więcej informacji o tym, dlaczego pliki są pomijane.
 
 Przykładowy plik dziennika jest następujący: 
 ```

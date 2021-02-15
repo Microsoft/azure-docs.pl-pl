@@ -1,23 +1,18 @@
 ---
 title: Kopiowanie danych z usługi Google BigQuery przy użyciu Azure Data Factory
 description: Informacje o kopiowaniu danych z usługi Google BigQuery do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku usługi Fabryka danych.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 6751f64706444176f0df8f8fc0c6132e76b39b2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3fcaa6c1542578d983461623da743724a3114d9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417319"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389692"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Google BigQuery przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -94,7 +89,7 @@ Ustaw właściwość "AuthenticationType" na wartość **UserAuthentication**, a
 
 ### <a name="using-service-authentication"></a>Korzystanie z uwierzytelniania usługi
 
-Ustaw właściwość "AuthenticationType" na wartość **serviceauthentication**i określ następujące właściwości wraz z właściwościami ogólnymi opisanymi w poprzedniej sekcji. Tego typu uwierzytelniania można używać tylko w przypadku samodzielnej obsługi Integration Runtime.
+Ustaw właściwość "AuthenticationType" na wartość **serviceauthentication** i określ następujące właściwości wraz z właściwościami ogólnymi opisanymi w poprzedniej sekcji. Tego typu uwierzytelniania można używać tylko w przypadku samodzielnej obsługi Integration Runtime.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |

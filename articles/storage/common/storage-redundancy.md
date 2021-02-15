@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094913"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388519"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -185,6 +185,14 @@ Poniższa tabela wskazuje, czy dane są trwałe i dostępne w danym scenariuszu,
 | Dostęp do odczytu do regionu pomocniczego jest dostępny, jeśli region podstawowy stał się niedostępny | Nie | Nie | Tak (z RA-GRS) | Tak (z RA-GZRS) |
 
 <sup>1</sup> przełączenie w tryb failover jest wymagane do przywrócenia dostępności zapisu, jeśli region podstawowy stał się niedostępny. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i konto magazynu w trybie failover](storage-disaster-recovery-guidance.md).
+
+### <a name="supported-azure-storage-services"></a>Obsługiwane usługi Azure Storage
+
+W poniższej tabeli przedstawiono, które opcje nadmiarowości są obsługiwane przez poszczególne usługi Azure Storage.
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files<br />Azure Managed disks | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files<br /> | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files<br /> |
 
 ### <a name="supported-storage-account-types"></a>Obsługiwane typy kont magazynu
 

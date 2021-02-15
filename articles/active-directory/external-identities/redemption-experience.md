@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aef4ff77eb02723bcd95dcc99a55094bd10acd4c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 08f560f076caf90c9c930cedfd6a7ba9c6c8b37d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355481"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365450"
 ---
-# <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory realizacji zaproszeń do współpracy B2B
+# <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Realizacja zaproszenia do współpracy B2B w usłudze Azure Active Directory
 
 W tym artykule opisano sposób, w jaki użytkownicy-Goście mogą uzyskać dostęp do Twoich zasobów i proces wyrażania zgody. Jeśli wyślesz wiadomość e-mail z zaproszeniem do gościa, zaproszenie zawiera link, który może zostać zrealizowany przez Gościa w celu uzyskania dostępu do aplikacji lub portalu. Wiadomość e-mail z zaproszeniem jest tylko jeden z sposobów, w którym Goście mogą uzyskać dostęp do zasobów. Alternatywnie możesz dodać Gości do katalogu i udostępnić im bezpośredni link do portalu lub aplikacji, którą chcesz udostępnić. Niezależnie od używanej metody Goście są przeprowadzani przez proces wyrażania zgody po raz pierwszy. Ten proces zapewnia, że Goście zgadzają się na warunki zachowania poufności i akceptują wszelkie skonfigurowane [warunki użytkowania](../conditional-access/terms-of-use.md) .
 
@@ -26,7 +26,7 @@ Po dodaniu użytkownika-gościa do katalogu konto użytkownika-gościa ma stan z
 
    > [!IMPORTANT]
    > - **Od 4 stycznia 2021** firma Google jest [przestarzałą obsługą logowania do usługi WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). W przypadku korzystania z usługi Google Federation lub samoobsługowego rejestrowania się w usłudze Gmail należy [przetestować natywne aplikacje biznesowe pod kątem zgodności](google-federation.md#deprecation-of-webview-sign-in-support).
-   > - **Od 31 marca 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
+   > - **Od października 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
 ## <a name="redemption-through-the-invitation-email"></a>Wykup za pośrednictwem wiadomości e-mail z zaproszeniem
 

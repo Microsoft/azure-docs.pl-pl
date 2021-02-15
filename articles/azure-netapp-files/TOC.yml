@@ -125,7 +125,7 @@
           href: troubleshoot-capacity-pools.md
         - name: Rozwiązywanie problemów z replikacją między regionami
           href: troubleshoot-cross-region-replication.md
-        - name: Rozwiązywanie problemów z woluminami używającymi dwóch protokołów
+        - name: Rozwiązywanie problemów z woluminami SMB lub Dual-Protocol
           href: troubleshoot-dual-protocol-volumes.md
         - name: Rozwiązywanie problemów z woluminami Kerberos systemu NFS 4.1
           href: troubleshoot-nfsv41-kerberos-volumes.md

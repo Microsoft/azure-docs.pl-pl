@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 94fd488ceb7ddb3724dd576c97c9070481e95147
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547767"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365637"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Active Directory najlepszych rozwiązań B2B
 Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące współpracy między firmami (B2B, Business-to-Business) w Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **Począwszy od marca 2021**, firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych ("wirusowego" lub "just-in-Time") kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W tym czasie funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. Włączamy funkcję jednorazowego kodu dostępu wiadomości e-mail, ponieważ zapewnia ona bezproblemową metodę uwierzytelniania dla użytkowników-Gości. Istnieje jednak możliwość wyłączenia tej funkcji, jeśli nie zostanie ona użyta. Aby uzyskać szczegółowe informacje, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md) .
+   > **Od października 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych ("wirusowego" lub "just-in-Time") kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W tym czasie funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. Włączamy funkcję jednorazowego kodu dostępu wiadomości e-mail, ponieważ zapewnia ona bezproblemową metodę uwierzytelniania dla użytkowników-Gości. Istnieje jednak możliwość wyłączenia tej funkcji, jeśli nie zostanie ona użyta. Aby uzyskać szczegółowe informacje, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md) .
 
 
 ## <a name="b2b-recommendations"></a>Zalecenia B2B

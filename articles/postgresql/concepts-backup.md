@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: db3b62e7ce07c1e10bc5030c37cb8957d281ea05
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219727"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517301"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-pojedynczym serwerze
 
@@ -66,7 +66,7 @@ Dostępne są dwa typy przywracania:
 - **Przywracanie do punktu w czasie** jest dostępne z opcją nadmiarowości kopii zapasowych i tworzy nowy serwer w tym samym regionie, w którym znajduje się oryginalny serwer.
 - **Przywracanie geograficzne** jest dostępne tylko wtedy, gdy skonfigurowano serwer dla magazynu geograficznie nadmiarowego i umożliwia przywrócenie serwera do innego regionu.
 
-Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiary bazy danych, rozmiar dziennika transakcji, przepustowość sieci i łączna liczba baz danych, które są odzyskiwane w tym samym regionie w tym samym czasie. Czas odzyskiwania jest zwykle krótszy niż 12 godzin.
+Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiary bazy danych, rozmiar dziennika transakcji, przepustowość sieci i łączna liczba baz danych, które są odzyskiwane w tym samym regionie w tym samym czasie. Czas odzyskiwania zależy od ostatniej kopii zapasowej danych i ilości, które należy wykonać. Jest ona zwykle krótsza niż 12 godzin.
 
 > [!NOTE] 
 > Jeśli źródłowy serwer PostgreSQL jest szyfrowany przy użyciu kluczy zarządzanych przez klienta, zapoznaj się z [dokumentacją](concepts-data-encryption-postgresql.md) , aby uzyskać dodatkowe zagadnienia. 

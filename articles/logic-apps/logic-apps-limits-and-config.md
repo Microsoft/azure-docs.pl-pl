@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/05/2021
-ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805938"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388536"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -193,19 +193,20 @@ Aby uzyskać więcej informacji na temat definicji zasobu aplikacji logiki, zoba
 
 ### <a name="integration-service-environment-ise"></a>Środowisko usługi integracji (ISE)
 
-Poniżej przedstawiono limity przepływności dla [jednostki SKU ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+* [Jednostka SKU ISE dewelopera](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): zapewnia do 500 wykonań na minutę, ale należy zwrócić uwagę na następujące zagadnienia:
 
-| Nazwa | Limit | Uwagi |
-|------|-------|-------|
-| Limit wykonywania jednostki podstawowej | Ograniczanie systemu w przypadku, gdy pojemność infrastruktury osiągnie 80% | Zapewnia 4 000 wykonania akcji na minutę, czyli ~ 160 000 000 wykonań akcji miesięcznie | |
-| Limit wykonywania jednostek skalowania | Ograniczanie systemu w przypadku, gdy pojemność infrastruktury osiągnie 80% | Każda jednostka skalowania może dostarczyć ~ 2 000 dodatkowych wykonań akcji na minutę, czyli ~ 80 000 000 więcej wykonań akcji miesięcznie | |
-| Maksymalna liczba jednostek skalowania, które można dodać | 10 | |
-||||
+  * Upewnij się, że ta jednostka SKU jest używana tylko do eksploracji, eksperymentów, programowania lub testowania, a nie do testowania wydajności lub produkcji. Ta jednostka SKU nie ma umowy dotyczącej poziomu usług (SLA), skalowania w górę lub nadmiarowości podczas odtwarzania, co oznacza, że mogą wystąpić opóźnienia lub przestoje.
 
-Aby przekroczyć te limity podczas normalnego przetwarzania lub uruchomić testy obciążenia, które mogą wykraczać ponad te limity, [skontaktuj się z zespołem Logic Apps](mailto://logicappsemail@microsoft.com) , aby uzyskać pomoc dotyczącą Twoich wymagań.
+  * Aktualizacje zaplecza mogą sporadycznie przerwać działanie usługi.
 
-> [!NOTE]
-> [Jednostka SKU ISE dewelopera](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) nie ma opublikowanych limitów, nie ma możliwości skalowania w górę i umowy dotyczącej poziomu usług (SLA). Tej jednostki SKU można używać tylko na potrzeby eksperymentowania, programowania i testowania, a nie produkcji ani testowania wydajności.
+* [Jednostka SKU ISE w warstwie Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): w poniższej tabeli opisano limity PRZEPŁYWNOŚCI jednostki SKU, ale aby przekroczyć te limity podczas normalnego przetwarzania lub uruchomić testy obciążenia, które mogą wykraczać poza te limity, należy [skontaktować się z zespołem Logic Apps](mailto://logicappsemail@microsoft.com) , aby uzyskać pomoc dotyczącą wymagań.
+
+  | Nazwa | Limit | Uwagi |
+  |------|-------|-------|
+  | Limit wykonywania jednostki podstawowej | Ograniczanie systemu w przypadku, gdy pojemność infrastruktury osiągnie 80% | Zapewnia 4 000 wykonania akcji na minutę, czyli ~ 160 000 000 wykonań akcji miesięcznie | |
+  | Limit wykonywania jednostek skalowania | Ograniczanie systemu w przypadku, gdy pojemność infrastruktury osiągnie 80% | Każda jednostka skalowania może dostarczyć ~ 2 000 dodatkowych wykonań akcji na minutę, czyli ~ 80 000 000 więcej wykonań akcji miesięcznie | |
+  | Maksymalna liczba jednostek skalowania, które można dodać | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 

@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: efb91c7b26c67a3672abb3f9cc8992fd45971a25
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3ddd84f2f73546b42a3925802b3357df16485488
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932459"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521445"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -41,7 +41,7 @@ Można zainstalować tylko jedną wersję podstawowych narzędzi na danym komput
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Azure Functions Core Tools obecnie zależy od interfejsu wiersza polecenia platformy Azure na potrzeby uwierzytelniania przy użyciu konta platformy Azure. Oznacza to, że musisz [zainstalować interfejs wiersza polecenia platformy Azure lokalnie](/cli/azure/install-azure-cli) , aby można było [publikować na platformie azure](#publish) na podstawie Azure Functions Core Tools. 
+Azure Functions Core Tools obecnie zależy od [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/install-az-ps) do uwierzytelniania za pomocą konta platformy Azure. Oznacza to, że musisz zainstalować jedno z tych narzędzi, aby móc [publikować na platformie Azure](#publish) z Azure Functions Core Tools. 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalowanie podstawowych narzędzi usługi Azure Functions
 
@@ -505,7 +505,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 Azure Functions Core Tools obsługuje dwa typy wdrożeń: Wdrażanie plików projektów funkcji bezpośrednio w aplikacji funkcji za pomocą narzędzia [zip Deploy](functions-deployment-technologies.md#zip-deploy) i [wdrażanie niestandardowego kontenera Docker](functions-deployment-technologies.md#docker-container). Użytkownik musi już [utworzyć aplikację funkcji w ramach subskrypcji platformy Azure](functions-cli-samples.md#create), w której zostanie wdrożony swój kod. Projekty wymagające kompilacji powinny zostać skompilowane, aby można było wdrożyć pliki binarne.
 
 >[!IMPORTANT]
->Aby można było publikować na platformie Azure z podstawowych narzędzi, musisz mieć zainstalowany [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lokalnie.  
+>Musisz mieć [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/install-az-ps) zainstalowany lokalnie, aby można było publikować na platformie Azure z podstawowych narzędzi.  
 
 Folder projektu może zawierać pliki i katalogi specyficzne dla języka, które nie powinny być publikowane. Wykluczone elementy są wymienione w pliku. funcignore w folderze głównym projektu.     
 
@@ -520,7 +520,7 @@ func azure functionapp publish <FunctionAppName>
 >[!IMPORTANT]
 > Język Java używa Maven do publikowania projektu lokalnego na platformie Azure. Użyj następującego polecenia, aby opublikować na platformie Azure: `mvn azure-functions:deploy` . Zasoby platformy Azure są tworzone podczas wstępnego wdrażania.
 
-To polecenie publikuje w istniejącej aplikacji funkcji na platformie Azure. Wystąpi błąd podczas próby opublikowania w usłudze `<FunctionAppName>` , która nie istnieje w Twojej subskrypcji. Aby dowiedzieć się, jak utworzyć aplikację funkcji z poziomu wiersza polecenia lub okna terminalu przy użyciu interfejsu CLI platformy Azure, zobacz [tworzenie aplikacja funkcji do wykonywania bezserwerowego](./scripts/functions-cli-create-serverless.md). Domyślnie to polecenie korzysta z [kompilacji zdalnej](functions-deployment-technologies.md#remote-build) i wdraża aplikację do [uruchamiania z pakietu wdrożeniowego](run-functions-from-deployment-package.md). Aby wyłączyć ten zalecany tryb wdrażania, użyj `--nozip` opcji.
+To polecenie publikuje w istniejącej aplikacji funkcji na platformie Azure. Wystąpi błąd podczas próby opublikowania w usłudze `<FunctionAppName>` , która nie istnieje w Twojej subskrypcji. Aby dowiedzieć się, jak utworzyć aplikację funkcji z poziomu wiersza polecenia lub okna terminalu przy użyciu interfejsu użytkownika platformy Azure lub Azure PowerShell, zobacz [tworzenie aplikacja funkcji do wykonywania bezserwerowego](./scripts/functions-cli-create-serverless.md). Domyślnie to polecenie korzysta z [kompilacji zdalnej](functions-deployment-technologies.md#remote-build) i wdraża aplikację do [uruchamiania z pakietu wdrożeniowego](run-functions-from-deployment-package.md). Aby wyłączyć ten zalecany tryb wdrażania, użyj `--nozip` opcji.
 
 >[!IMPORTANT]
 > Podczas tworzenia aplikacji funkcji w Azure Portal jest domyślnie używane środowisko uruchomieniowe funkcji w wersji 3. x. Aby aplikacja funkcji korzystała z wersji 1. x środowiska uruchomieniowego, postępuj zgodnie z instrukcjami w temacie [Run on Version 1. x](functions-versions.md#creating-1x-apps).
@@ -543,7 +543,7 @@ Następujące opcje publikowania są obsługiwane tylko dla wersji 2. x i nowszy
 | **`--nozip`** | Wyłącza tryb domyślny `Run-From-Package` . |
 | **`--build-native-deps`** | Pomija generowanie folderu. kół podczas publikowania aplikacji funkcji języka Python. |
 | **`--build`**, **`-b`** | Wykonuje akcję kompilacji podczas wdrażania w aplikacji funkcji systemu Linux. Akceptuje: `remote` i `local` . |
-| **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Przykład: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Na przykład: `python3-dev libevent-dev`. |
 | **`--force`** | Ignoruj weryfikację przed publikacją w określonych scenariuszach. |
 | **`--csx`** | Opublikuj projekt skryptu C# (. CSX). |
 | **`--no-build`** | Projekt nie został skompilowany podczas publikowania. Dla języka Python `pip install` nie jest wykonywane. |

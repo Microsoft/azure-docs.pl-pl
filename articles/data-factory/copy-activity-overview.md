@@ -1,22 +1,17 @@
 ---
 title: Działanie kopiowania w Azure Data Factory
 description: Dowiedz się więcej o działaniu kopiowania w Azure Data Factory. Za jego pomocą można skopiować dane z obsługiwanego źródłowego magazynu danych do obsługiwanego magazynu danych ujścia.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 0b10a4de78c44e4c0a113a1f1a46c316b13a1f78
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d52a0bba5fddaa865b8fad74b778ba7a3838b2a4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96902168"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387907"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
 
@@ -253,7 +248,7 @@ W przypadku kopiowania danych do usługi SQL Database/Azure Synapse Analytics, j
 Ta funkcja jest obsługiwana podczas kopiowania danych z dowolnego źródła do następujących magazynów danych ujścia. Możesz znaleźć opcję w *interfejsie użytkownika tworzenia ADF* *— >-* > *opcji tabeli* — > *automatycznego tworzenia tabeli* lub za pośrednictwem `tableOption` właściwości w ładunku ujścia działania kopiowania.
 
 - [Azure SQL Database](connector-azure-sql-database.md)
-- [Wystąpienie zarządzane usługi Azure SQL Database](connector-azure-sql-managed-instance.md)
+- [Azure SQL Database wystąpienie zarządzane](connector-azure-sql-managed-instance.md)
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 

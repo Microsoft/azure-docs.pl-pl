@@ -14,7 +14,21 @@
 - name: Samples
   items:
     - name: Azure PowerShell
-      href: powershell-samples.md
+      items:
+        - name: Przykładowe skrypty
+          href: powershell-samples.md
+        - name: Tworzenie bramy sieci VPN
+          href: scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md
+        - name: Usługa VPN Gateway i P2S RADIUS
+          href: scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md
+        - name: Uwierzytelnianie certyfikatu w usłudze VPN Gateway i P2S
+          href: scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md
+        - name: Brama sieci VPN i lokacja-lokacja
+          href: scripts/vpn-gateway-sample-site-to-site-powershell.md
+        - name: Połączenia między sieciami wirtualnymi
+          href: scripts/vpn-gateway-sample-vnet-vnet-powershell.md
+        - name: Pobieranie szablonu urządzenia sieci VPN
+          href: scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md
 - name: Pojęcia
   items:
     - name: Praca zdalna
@@ -101,8 +115,6 @@
           href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
         - name: Sieć VPN przez prywatną komunikację równorzędną
           href: site-to-site-vpn-private-peering.md
-    - name: Połączenie między lokacjami pomiędzy platformą Azure i usługą AWS
-      href: create-vpn-azure-aws-managed-solutions.md
     - name: Połączenia między sieciami wirtualnymi
       items:
         - name: Konfigurowanie połączeń między sieciami wirtualnymi
