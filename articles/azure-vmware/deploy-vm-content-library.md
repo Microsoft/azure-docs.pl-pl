@@ -3,12 +3,12 @@ title: Tworzenie biblioteki zawartości w celu wdrożenia maszyn wirtualnych w r
 description: Utwórz bibliotekę zawartości, aby wdrożyć maszynę wirtualną w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: 9e27529ee355ece62f12cc2e6de491dddb5d3f28
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: a50b12ef8e139bf7de171398fd28f74fc3f310c9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550542"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382008"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Tworzenie biblioteki zawartości w celu wdrożenia maszyn wirtualnych w rozwiązaniu VMware platformy Azure
 
@@ -18,7 +18,7 @@ W tym artykule omówiono procedurę tworzenia biblioteki zawartości.  Następni
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka są wymagane segmenty przełącznika logicznego NSX-T i zarządzana usługa DHCP.  Aby uzyskać więcej informacji, zobacz artykuł [dotyczący zarządzania serwerem DHCP w programie Azure VMware](manage-dhcp.md) .
+Do ukończenia tego samouczka są wymagane segmenty NSX-T (przełącznik logiczny) i zarządzana usługa DHCP.  Aby uzyskać więcej informacji, zobacz artykuł [dotyczący zarządzania serwerem DHCP w programie Azure VMware](manage-dhcp.md) .
 
 ## <a name="create-a-content-library"></a>Tworzenie biblioteki zawartości
 

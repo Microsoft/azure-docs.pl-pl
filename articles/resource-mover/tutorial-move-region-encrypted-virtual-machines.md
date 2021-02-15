@@ -5,15 +5,15 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0bc70e14e341d9681c75933455eae6b0278724ca
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982296"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361013"
 ---
 # <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Samouczek: przenoszenie zaszyfrowanych maszyn wirtualnych platformy Azure między regionami
 
@@ -54,26 +54,49 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 **Opłaty w regionie docelowym** | Sprawdź ceny i opłaty związane z regionem docelowym, do którego przenosisz maszyny wirtualne. Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/) , aby uzyskać pomoc.
 
 
-## <a name="verify-key-vault-permissions-azure-disk-encryption"></a>Weryfikowanie uprawnień magazynu kluczy (Azure Disk Encryption)
+## <a name="verify-user-permissions-on-key-vault-for-vms-using-azure-disk-encryption-ade"></a>Weryfikowanie uprawnień użytkowników w magazynie kluczy dla maszyn wirtualnych przy użyciu Azure Disk Encryption (ADE)
 
-Jeśli przenosisz maszyny wirtualne, na których włączono usługę Azure Disk Encryption, w magazynach kluczy w regionach źródłowym i docelowym Sprawdź/Ustaw uprawnienia, aby upewnić się, że przeniesione zaszyfrowane maszyny wirtualne będą działały zgodnie z oczekiwaniami. 
+Jeśli przenosisz maszyny wirtualne z włączonym szyfrowaniem dysków Azure, musisz uruchomić skrypt opisany [poniżej](#copy-the-keys-to-the-destination-key-vault) , dla którego użytkownik wykonujący skrypt powinien mieć odpowiednie uprawnienia. Zapoznaj się z poniższą tabelą, aby dowiedzieć się o wymaganych uprawnieniach. Opcje zmiany uprawnień można znaleźć, przechodząc do magazynu kluczy w Azure Portal, w obszarze **Ustawienia**, wybierz pozycję **zasady dostępu**.
 
-1. W Azure Portal Otwórz Magazyn kluczy w regionie źródłowym.
-2. W obszarze **Ustawienia** wybierz pozycję **zasady dostępu**.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Przycisk umożliwiający otwarcie zasad dostępu magazynu kluczy." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Przycisk umożliwiający otwarcie zasad dostępu magazynu kluczy." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+Jeśli nie ma żadnych uprawnień użytkownika, wybierz pozycję **Dodaj zasady dostępu** i określ uprawnienia. Jeśli konto użytkownika ma już zasady, w obszarze **użytkownik** Ustaw uprawnienia zgodnie z poniższą tabelą.
 
-3. Jeśli nie ma żadnych uprawnień użytkownika, wybierz pozycję **Dodaj zasady dostępu** i określ uprawnienia. Jeśli konto użytkownika ma już zasady, w obszarze **użytkownik** Ustaw uprawnienia.
+Maszyny wirtualne platformy Azure korzystające z programu ADE mogą mieć następujące odmiany i należy odpowiednio ustawić uprawnienia dla odpowiednich składników.
+- Opcja domyślna, w której dysk jest szyfrowany tylko przy użyciu kluczy tajnych
+- Dodano zabezpieczenia przy użyciu [klucza szyfrowania klucza](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
 
-    - Jeśli maszyny wirtualne, które mają zostać przeniesione, są włączone przy użyciu usługi Azure Disk Encryption (ADE), w obszarze **uprawnienia** do  >  **zarządzania kluczami**, wybierz pozycję **Pobierz** i **Wyświetl** , jeśli nie są one zaznaczone.
-    - Jeśli używasz kluczy zarządzanych przez klienta (CMKs) do szyfrowania kluczy szyfrowania dysku używanych do szyfrowania w czasie spoczynku (szyfrowanie po stronie serwera), w **kluczowych uprawnienia** do  >  **zarządzania kluczami**, wybierz pozycję **Pobierz** i **Wyświetl**. Ponadto w **operacjach kryptograficznych** wybierz opcję **Odszyfruj** i **Szyfruj**
- 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="Lista rozwijana umożliwiająca wybranie uprawnień magazynu kluczy." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png":::
+### <a name="source-region-keyvault"></a>Magazyn kluczy w regionie źródłowym
 
-4. W **uprawnieniach tajnych**, w  **operacjach tajnych zarządzania** wybierz pozycję **Pobierz**, **Wyświetl** i **Ustaw**. 
-5. Jeśli przypiszesz uprawnienia do nowego konta użytkownika, w obszarze **Wybierz podmiot zabezpieczeń** wybierz użytkownika, do którego chcesz przypisać uprawnienia.
-6. W obszarze **zasady dostępu** upewnij się, że **Azure Disk Encryption szyfrowania woluminów** jest włączona.
-7. Powtórz procedurę dla magazynu kluczy w regionie docelowym.
+Należy ustawić poniższe uprawnienia dla użytkownika wykonującego skrypt 
+
+**Składnik** | **Wymagana uprawnienia**
+--- | ---
+Wpisy tajne|  Pobierz uprawnienie <br> </br> W obszarze tajne uprawnienia do zarządzania wpisami **tajnymi** >   wybierz pozycję **Pobierz** . 
+Klucze <br> </br> Jeśli używasz klucza szyfrowania klucza (KEK), musisz mieć to uprawnienie oprócz wpisów tajnych| Uprawnienie pobieranie i odszyfrowywanie <br> </br> W obszarze **uprawnienia klucza**  >  **operacje zarządzania kluczami** wybierz pozycję **Pobierz**. W obszarze **operacje kryptograficzne** wybierz opcję **Odszyfruj**.
+
+### <a name="destination-region-keyvault"></a>Magazyn kluczy regionu docelowego
+
+W obszarze **zasady dostępu** upewnij się, że **Azure Disk Encryption szyfrowania woluminów** jest włączona. 
+
+Należy ustawić poniższe uprawnienia dla użytkownika wykonującego skrypt 
+
+**Składnik** | **Wymagana uprawnienia**
+--- | ---
+Wpisy tajne|  Ustaw uprawnienie <br> </br> W obszarze tajne uprawnienia do zarządzania wpisami **tajnymi** >   wybierz pozycję **Ustaw** . 
+Klucze <br> </br> Jeśli używasz klucza szyfrowania klucza (KEK), musisz mieć to uprawnienie oprócz wpisów tajnych| Uprawnienie pobieranie, tworzenie i szyfrowanie <br> </br> W obszarze **uprawnienia klucza**  >  **operacje zarządzania kluczami** wybierz pozycję **Pobierz** i **Utwórz** . W obszarze **operacje kryptograficzne** wybierz pozycję **Szyfruj**.
+
+Oprócz powyższych uprawnień w magazynie kluczy docelowych należy dodać uprawnienia do [tożsamości systemu zarządzanego](./common-questions.md#how-is-managed-identity-used-in-resource-mover) używanego przez urządzenia do zarządzania zasobami platformy Azure w Twoim imieniu. 
+
+1. W obszarze **Ustawienia** wybierz pozycję **Dodaj zasady dostępu**. 
+2. W obszarze **Wybierz podmiot zabezpieczeń** Wyszukaj plik msi. Nazwa MSI to ```movecollection-<sourceregion>-<target-region>-<metadata-region>``` . 
+3. Dodaj poniższe uprawnienia dla pliku MSI
+
+**Składnik** | **Wymagana uprawnienia**
+--- | ---
+Wpisy tajne|  Uprawnienie pobieranie i wyświetlanie <br> </br> W  >   **operacjach tajnych zarządzania** uprawnieniami tajnymi, wybierz pozycję **Pobierz** i **Wyświetl** 
+Klucze <br> </br> Jeśli używasz klucza szyfrowania klucza (KEK), musisz mieć to uprawnienie oprócz wpisów tajnych| Pobieranie, uprawnienie do listy <br> </br> W obszarze **uprawnienia klucza**  >  **operacje zarządzania kluczami** wybierz pozycję **Pobierz** i **Wyświetl**
+
 
 
 ### <a name="copy-the-keys-to-the-destination-key-vault"></a>Kopiuj klucze do docelowego magazynu kluczy

@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581758"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104216"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -75,7 +75,7 @@ Aby sprawdzić uprawnienia do subskrypcji:
 
 Przejdźmy bezpośrednio do tworzenia tożsamości. Jeśli napotkasz problem, sprawdź [wymagane uprawnienia](#permissions-required-for-registering-an-app) , aby upewnić się, że konto może utworzyć tożsamość.
 
-1. Zaloguj się do konta platformy Azure za pomocą <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Zaloguj się do konta platformy Azure za pomocą <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Wybierz pozycję **Azure Active Directory**.
 1. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz pozycję **Nowa rejestracja**.
@@ -181,7 +181,7 @@ Jeśli zdecydujesz się nie używać certyfikatu, możesz utworzyć nowy klucz t
 ## <a name="configure-access-policies-on-resources"></a>Konfigurowanie zasad dostępu do zasobów
 Należy pamiętać, że konieczne może być skonfigurowanie dodatkowych uprawnień do zasobów wymaganych przez aplikację. Na przykład należy również [zaktualizować zasady dostępu magazynu kluczy](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) , aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.
 
-1. W <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Azure Portal</a>przejdź do magazynu kluczy i wybierz pozycję **zasady dostępu**.
+1. W <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>przejdź do magazynu kluczy i wybierz pozycję **zasady dostępu**.
 1. Wybierz pozycję **Dodaj zasady dostępu**, a następnie wybierz uprawnienia Key, Secret i Certificate, które chcesz udzielić aplikacji.  Wybierz nazwę główną usługi utworzoną wcześniej.
 1. Wybierz pozycję **Dodaj** , aby dodać zasady dostępu, a następnie pozycję **Zapisz** , aby zatwierdzić zmiany.
     ![Dodawanie zasad dostępu](./media/howto-create-service-principal-portal/add-access-policy.png)

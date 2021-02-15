@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f95068b66fdd7907bf06086f855473b156738847
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536442"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371106"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Jak używać urządzenia usługi IoT Edge jako bramy
 
@@ -37,7 +37,7 @@ Wszystkie wzorce bramy zapewniają następujące korzyści:
 
 * **Analiza na brzegu** — korzystaj z usług AI lokalnie, aby przetwarzać dane pochodzące z urządzeń podrzędnych bez wysyłania danych telemetrycznych o pełnej wierności do chmury. Znajdź i reaguj na szczegółowe informacje lokalnie i wysyłaj tylko podzestaw danych do IoT Hub.
 * **Izolacja urządzenia podrzędnego** — urządzenie bramy może osłonować wszystkie urządzenia podrzędne przed narażeniem na Internet. Może ona znajdować się między siecią z technologią operacyjną (OT), która nie ma łączności i sieci IT zapewniającej dostęp do sieci Web. Podobnie urządzenia, które nie mają możliwości łączenia się ze IoT Hubem, nie mogą nawiązywać połączenia z urządzeniem bramy.
-* **Multiplekser połączenia** — wszystkie urządzenia łączące się z IoT Hub za pomocą bramy IoT Edge używają tego samego połączenia podstawowego.
+* **Multiplekser połączenia** — wszystkie urządzenia łączące się z IoT Hub za pomocą bramy IoT Edge mogą korzystać z tego samego połączenia podstawowego. Ta funkcja multipleksowania wymaga, aby brama IoT Edge korzystała z AMQP jako protokołu nadrzędnego.
 * **Wygładzanie ruchu** — urządzenie IoT Edge automatycznie implementuje wykładniczą wycofywania, jeśli IoT Hub ogranicza ruch, przy jednoczesnym zachowaniu komunikatów lokalnie. Dzięki temu rozwiązanie jest odporne na wzrost ruchu.
 * **Obsługa offline** — urządzenie bramy przechowuje komunikaty i aktualizacje bliźniaczye, których nie można dostarczyć do IoT Hub.
 
@@ -45,7 +45,9 @@ Wszystkie wzorce bramy zapewniają następujące korzyści:
 
 W przypadku wzorca bramy przezroczystej urządzenia, które teoretycznie mogą łączyć się z IoT Hub mogą łączyć się z urządzeniem bramy. Urządzenia podrzędne mają własne tożsamości IoT Hub i nawiązują połączenie przy użyciu protokołów MQTT lub AMQP. Brama po prostu przekazuje komunikaty pomiędzy urządzeniami a usługą IoT Hub. Zarówno urządzenia, jak i użytkownicy korzystający z nich przy użyciu IoT Hub są nieświadome, że brama mediating ich komunikację. Brak świadomości oznacza, że brama jest uznawana za *przezroczystą*.
 
-<!-- 1.0.10 -->
+Aby uzyskać więcej informacji na temat sposobu, w jaki usługa IoT Edge Hub zarządza komunikacją między urządzeniami podrzędnymi a chmurą, zobacz [Opis środowiska uruchomieniowego Azure IoT Edge i jego architektury](iot-edge-runtime.md).
+
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 Urządzenia IoT Edge nie mogą należeć do IoT Edge bramy.
@@ -73,6 +75,11 @@ Relacja nadrzędny/podrzędny jest ustanowiona w trzech punktach w konfiguracji 
 
 Wszystkie urządzenia w niewidocznym scenariuszu bramy wymagają tożsamości w chmurze, dzięki czemu mogą uwierzytelniać się w IoT Hub. Podczas tworzenia lub aktualizowania tożsamości urządzenia można ustawić urządzenia nadrzędne lub podrzędne urządzenia. Ta konfiguracja autoryzuje urządzenie bramy nadrzędnej do obsługi uwierzytelniania na urządzeniach podrzędnych.
 
+>[!NOTE]
+>Ustawienie urządzenia nadrzędnego w IoT Hub używany jako opcjonalny krok dla urządzeń podrzędnych korzystających z uwierzytelniania przy użyciu klucza symetrycznego. Jednak począwszy od wersji 1.1.0 każde urządzenie podrzędne musi być przypisane do urządzenia nadrzędnego.
+>
+>Można skonfigurować Centrum IoT Edge, aby powrócić do poprzedniego zachowania przez ustawienie zmiennej środowiskowej **authenticationMode** na wartość **CloudAndScope**.
+
 Urządzenia podrzędne mogą mieć tylko jeden element nadrzędny. Każdy element nadrzędny może mieć do 100 elementów podrzędnych.
 
 <!-- 1.2.0 -->
@@ -82,7 +89,7 @@ Urządzenia IoT Edge mogą być elementami nadrzędnymi i podrzędnymi w ramach 
 
 #### <a name="gateway-discovery"></a>Odnajdywanie bramy
 
-Urządzenie podrzędne musi być w stanie znaleźć swoje urządzenie nadrzędne w sieci lokalnej. Skonfiguruj urządzenia bramy przy użyciu nazwy **hosta** , w pełni kwalifikowanej nazwy domeny (FQDN) lub adresu IP, która będzie używana przez jego urządzenia podrzędne do lokalizowania go.
+Urządzenie podrzędne musi być w stanie znaleźć swoje urządzenie nadrzędne w sieci lokalnej. Skonfiguruj urządzenia bramy przy użyciu nazwy **hosta**, w pełni kwalifikowanej nazwy domeny (FQDN) lub adresu IP, która będzie używana przez jego urządzenia podrzędne do lokalizowania go.
 
 Na podrzędnych urządzeniach IoT Użyj parametru **gatewayHostname** w parametrach połączenia, aby wskazać urządzenie nadrzędne.
 
@@ -106,7 +113,7 @@ Wszystkie IoT Hub elementy podstawowe działające z potokiem obsługi komunikat
 
 Skorzystaj z poniższej tabeli, aby dowiedzieć się, w jaki sposób różne możliwości IoT Hub są obsługiwane w przypadku urządzeń w porównaniu z urządzeniami za bramą.
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 | Możliwość | Urządzenie IoT | IoT za bramą |
@@ -134,7 +141,7 @@ Skorzystaj z poniższej tabeli, aby dowiedzieć się, w jaki sposób różne mo�
 
 **Obrazy kontenerów** mogą być pobierane, przechowywane i dostarczane z urządzeń nadrzędnych do urządzeń podrzędnych.
 
-**Obiekty blob** , w tym zestawy obsługi i dzienniki, można przekazać z urządzeń podrzędnych do urządzeń nadrzędnych.
+**Obiekty blob**, w tym zestawy obsługi i dzienniki, można przekazać z urządzeń podrzędnych do urządzeń nadrzędnych.
 
 ::: moniker-end
 

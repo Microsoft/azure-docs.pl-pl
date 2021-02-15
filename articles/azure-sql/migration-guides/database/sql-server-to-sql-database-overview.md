@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d668775e8d11faa0b2913cebc41e5217b49c278
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357334"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368051"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Przegląd migracji: SQL Server do SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -166,7 +166,7 @@ Konfiguracja ręczna SQL Server funkcji wysokiej dostępności, takich jak zawsz
 Poza architekturą wysokiej dostępności, która jest uwzględniona w SQL Database, istnieje również funkcja [grup autopracy awaryjnej](../../database/auto-failover-group-overview.md) , która umożliwia zarządzanie replikacją i trybem failover baz danych w wystąpieniu zarządzanym w innym regionie. 
 
 #### <a name="sql-agent-jobs"></a>Zadania programu SQL Agent
-Zadania programu SQL Agent nie są bezpośrednio obsługiwane w Azure SQL Database i muszą zostać wdrożone w celu [Elastic Database zadań (wersja zapoznawcza)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
+Zadania programu SQL Agent nie są bezpośrednio obsługiwane w Azure SQL Database i muszą zostać wdrożone w celu [Elastic Database zadań (wersja zapoznawcza)](../../database/job-automation-overview.md).
 
 #### <a name="logins-and-groups"></a>Nazwy logowania i grupy
 Przenieś nazwy logowania SQL ze źródła SQL Server do Azure SQL Database przy użyciu Database Migration Service (DMS) w trybie offline.  Użyj **wybranego bloku logowania** w **Kreatorze migracji** w celu migrowania logowań do SQL Database docelowej. 

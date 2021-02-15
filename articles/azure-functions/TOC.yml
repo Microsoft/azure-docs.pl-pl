@@ -138,6 +138,23 @@
               href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Pojęcia
   items:
+    - name: Najlepsze rozwiązania
+      items:
+        - name: Wydajność i niezawodność
+          href: functions-best-practices.md
+          displayName: best practices
+        - name: Zarządzanie połączeniami
+          href: manage-connections.md
+          displayName: best practices
+        - name: Zagadnienia dotyczące magazynu
+          href: storage-considerations.md
+          displayName: 'encryption, keys, mount, files'
+        - name: Obsługa błędów i ponawianie prób funkcji
+          href: functions-bindings-error-pages.md
+          displayName: best practices
+        - name: Zabezpieczenia
+          href: security-concepts.md
+          displayName: best practices
     - name: Porównywanie wersji środowiska uruchomieniowego
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
@@ -212,12 +229,7 @@
       href: functions-diagnostics.md
     - name: Koszty planu zużycia
       href: functions-consumption-costs.md
-    - name: Zagadnienia dotyczące wydajności
-      href: functions-best-practices.md
       displayName: best practice
-    - name: Zagadnienia dotyczące magazynu
-      href: storage-considerations.md
-      displayName: 'encryption, keys, mount, files'
     - name: Serwery proxy usługi Functions
       href: functions-proxies.md
     - name: Opcje sieci

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 49929cfe0abc634dc4b704aba1c7b11a5d7dd777
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 427b471158e89b2b3ae4ea6477133f1e69247078
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383589"
+ms.locfileid: "100518848"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikowanie maszyn wirtualnych platformy Azure do innego regionu platformy Azure
 
@@ -54,7 +54,7 @@ Włącz replikację. W tej procedurze przyjęto założenie, że podstawowy regi
    - **Docelowe konta magazynu (źródłowa maszyna wirtualna nie używa dysków zarządzanych)**: domyślnie Site Recovery tworzy nowe docelowe konto magazynu naśladując konfigurację magazynu ŹRÓDŁOWEJ maszyny wirtualnej. W przypadku, gdy konto magazynu już istnieje, jest ponownie używane.
    - **Dyski zarządzane przez replikę (źródłowa maszyna wirtualna korzysta z dysków zarządzanych)**: Site Recovery tworzy nowe dyski zarządzane przez repliki w regionie docelowym, aby dublować dyski zarządzane ŹRÓDŁOWEJ maszyny wirtualnej z tym samym typem magazynu (Standard lub Premium) co dysk zarządzany ŹRÓDŁOWEJ maszyny wirtualnej.
    - **Konta magazynu pamięci podręcznej**: Site Recovery wymaga dodatkowego konta magazynu o nazwie Magazyn pamięci podręcznej w regionie źródłowym. Wszystkie zmiany wykonywane na źródłowych maszynach wirtualnych są śledzone i wysyłane do konta magazynu pamięci podręcznej przed ich replikacją do lokalizacji docelowej. To konto magazynu powinno być standardowe.
-   - **Docelowe zestawy dostępności**: domyślnie Site Recovery tworzy nowy zestaw dostępności w regionie docelowym z sufiksem "Azure Site Recovery" w nazwie dla maszyn wirtualnych, które są częścią zestawu dostępności w regionie źródłowym. Jeśli zestaw dostępności utworzony przez Site Recovery już istnieje, jest ponownie używany.
+   - **Docelowe zestawy dostępności**: domyślnie Site Recovery tworzy nowy zestaw dostępności w regionie docelowym z sufiksem "ASR" w nazwie dla maszyn wirtualnych, które są częścią zestawu dostępności w regionie źródłowym. Jeśli zestaw dostępności utworzony przez Site Recovery już istnieje, jest ponownie używany.
      >[!NOTE]
      >Podczas konfigurowania docelowych zestawów dostępności Skonfiguruj różne zestawy dostępności dla maszyn wirtualnych o różnych rozmiarach. 
      >

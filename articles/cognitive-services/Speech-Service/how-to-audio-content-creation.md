@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024963"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388587"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Popraw syntezę przy użyciu narzędzia do tworzenia zawartości audio
 
@@ -125,7 +125,7 @@ Po przejrzeniu danych wyjściowych audio i spełnieniu ich dostrajania można wy
 
 ## <a name="how-to-addremove-audio-content-creation-users"></a>Jak dodać/usunąć użytkowników tworzenia zawartości audio?
 
-Jeśli więcej niż jeden użytkownik chce użyć tworzenia zawartości audio, możesz udostępnić swoje konto platformy Azure i hasło użytkownikowi albo udzielić użytkownikowi dostępu do subskrypcji platformy Azure i zasobu mowy. Jeśli dodasz użytkownika do subskrypcji platformy Azure, użytkownik będzie mógł uzyskać dostęp do wszystkich zasobów w ramach subskrypcji platformy Azure. Ale jeśli dodasz tylko użytkownika do zasobu mowy, użytkownik będzie miał dostęp tylko do zasobu mowy i nie może uzyskać dostępu do innych zasobów w ramach tej subskrypcji platformy Azure. Użytkownik mający dostęp do zasobu mowy może korzystać z tworzenia zawartości audio.
+Jeśli więcej niż jeden użytkownik chce użyć tworzenia zawartości audio, można przyznać użytkownikom dostęp do subskrypcji platformy Azure i zasobu mowy. Jeśli dodasz użytkownika do subskrypcji platformy Azure, użytkownik będzie mógł uzyskać dostęp do wszystkich zasobów w ramach subskrypcji platformy Azure. Ale jeśli dodasz tylko użytkownika do zasobu mowy, użytkownik będzie miał dostęp tylko do zasobu mowy i nie może uzyskać dostępu do innych zasobów w ramach tej subskrypcji platformy Azure. Użytkownik mający dostęp do zasobu mowy może korzystać z tworzenia zawartości audio.
 
 ### <a name="add-users-to-a-speech-resource"></a>Dodawanie użytkowników do zasobu mowy
 
@@ -146,7 +146,7 @@ Użytkownicy, którzy znajdują się w tym samym zasobie mowy, zobaczą swoją s
 
 ### <a name="remove-users-from-a-speech-resource"></a>Usuwanie użytkowników z zasobu mowy
 1. Wyszukaj **usługi poznawcze** w Azure Portal wybierz zasób mowy, z którego chcesz usunąć użytkowników.
-2. Kliknij pozycję **Kontrola dostępu (IAM)** . Kliknij kartę **przypisania ról** , aby wyświetlić wszystkie przypisania ról dla tego zasobu mowy.
+2. Kliknij pozycję **Kontrola dostępu (IAM)**. Kliknij kartę **przypisania ról** , aby wyświetlić wszystkie przypisania ról dla tego zasobu mowy.
 3. Wybierz użytkowników, których chcesz usunąć, a następnie kliknij przycisk **Usuń**  >  **OK**.
     :::image source="media/audio-content-creation/remove-user.png" alt-text="Przycisk Usuń":::
 
@@ -158,7 +158,7 @@ Jeśli chcesz, aby jeden z użytkowników miał dostęp do innych użytkowników
 1. Przeszukaj konto Microsoft użytkownika i przejdź do strony szczegółów użytkownika. Kliknij pozycję **przypisane role**.
 1. Kliknij pozycję **Dodaj przydziały**  ->  **katalogów**.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Długi interfejs API audio](./long-audio-api.md)
 

@@ -2,18 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4991bb889d4b9a099662b8d46c6d5cd5a89c1c63
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: dcd08c0635eb4a104cc945fbf4025a6807987968
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555807"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092364"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
+|[Obszary robocze usługi Azure Synapse powinny zezwalać na ruch danych wychodzących tylko do zatwierdzonych celów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3484ce98-c0c5-4c83-994b-c5ac24785218) |Zwiększ bezpieczeństwo obszaru roboczego Synapse, zezwalając na ruch danych wychodzących tylko do zatwierdzonych celów. Pomaga to zapobiegać eksfiltracji danych przez sprawdzanie poprawności elementu docelowego przed wysłaniem danych. |Inspekcja, wyłączona, Odmów |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_RestrictOutboundDataTraffic_Audit.json) |
 |[Obszary robocze usługi Azure Synapse powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |Klucze zarządzane przez klienta umożliwiają sterowanie szyfrowaniem w pozostałej części danych przechowywanych w obszarze roboczym usługi Azure Synapse. Klucze zarządzane przez klienta oferują podwójne szyfrowanie, dodając drugą warstwę szyfrowania od domyślnego szyfrowania przy użyciu kluczy zarządzanych przez usługę. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
 |[Reguły zapory IP w obszarach roboczych usługi Azure Synapse należy usunąć](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56fd377d-098c-4f02-8406-81eb055902b8) |Usuwanie wszystkich reguł zapory adresów IP usprawnia zabezpieczenia, zapewniając dostęp do obszaru roboczego usługi Azure Synapse tylko z prywatnego punktu końcowego. Ta konfiguracja przeprowadza inspekcję tworzenia reguł zapory zezwalających na dostęp do sieci publicznej w obszarze roboczym. |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceFirewallRules_Audit.json) |
 |[Sieć wirtualna zarządzanego obszaru roboczego w obszarze roboczym usługi Azure Synapse powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |Włączenie zarządzanej sieci wirtualnej obszaru roboczego gwarantuje, że obszar roboczy jest odizolowany od innych obszarów roboczych. Integracja danych i zasoby platformy Spark wdrożone w tej sieci wirtualnej również zapewniają izolację poziomu użytkownika dla działań Spark. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |

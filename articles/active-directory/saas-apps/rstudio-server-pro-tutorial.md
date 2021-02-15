@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu protokołu SAML RStudio Server Pro Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i RStudio Server Pro SAML Authentication.
+title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą RStudio Server Pro | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i RStudio Server Pro.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ecefc7c585f2f556e76efe6a3a272e38de98e297
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 490ecb201b91cdbdcdddceecdd2d145d2f9bb815
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181564"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390049"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rstudio-server-pro-saml-authentication"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z uwierzytelnianiem za pomocą protokołu SAML RStudio Server Pro
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rstudio-server-pro"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą RStudio Server Pro
 
-W tym samouczku dowiesz się, jak zintegrować uwierzytelnianie SAML RStudio Server Pro z Azure Active Directory (Azure AD). Po zintegrowaniu uwierzytelniania SAML RStudio Server Pro z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować usługę RStudio Server Pro (RSP) z usługą Azure Active Directory (Azure AD). W przypadku integrowania usługi RSP z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do uwierzytelniania SAML RStudio Server Pro.
-* Zezwól użytkownikom na automatyczne logowanie do RStudio Server Pro uwierzytelnianie SAML przy użyciu kont usługi Azure AD.
+* Kontrolka w usłudze Azure AD, która ma dostęp do usługi RSP.
+* Zezwól użytkownikom na automatyczne logowanie do usługi RSP przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -31,17 +31,17 @@ W tym samouczku dowiesz się, jak zintegrować uwierzytelnianie SAML RStudio Ser
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) w programie RStudio Server Pro.
+* Instalacja programu RSP (wersja >= 1,4).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Uwierzytelnianie SAML w programie RStudio Server Pro obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
+* Żądanie RSP obsługuje usługę zainicjowaną przez usługę **SP i dostawcy tożsamości**
 
-## <a name="adding-rstudio-server-pro-saml-authentication-from-the-gallery"></a>Dodawanie uwierzytelniania SAML RStudio Server Pro z galerii
+## <a name="adding-rstudio-server-pro-from-the-gallery"></a>Dodawanie RStudio Server Pro z galerii
 
-Aby skonfigurować integrację uwierzytelniania SAML RStudio Server Pro z usługą Azure AD, musisz dodać uwierzytelnianie SAML RStudio Server Pro z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację usługi RSP z usługą Azure AD, musisz dodać uwierzytelnianie SAML RStudio Server Pro z galerii do listy zarządzanych aplikacji SaaS.
 
 1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
@@ -51,17 +51,17 @@ Aby skonfigurować integrację uwierzytelniania SAML RStudio Server Pro z usług
 1. Wybierz pozycję **RStudio Server Pro uwierzytelnianie SAML** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-rstudio-server-pro-saml-authentication"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD na potrzeby uwierzytelniania SAML w programie RStudio Server Pro
+## <a name="configure-and-test-azure-ad-sso-for-rstudio-server-pro"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla programu RStudio Server Pro
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą uwierzytelniania SAML RStudio Server Pro przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze RStudio Server Pro SAML Authentication.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą funkcji RSP przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze RSP.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą uwierzytelniania SAML RStudio Server Pro, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj Logowanie jednokrotne uwierzytelniania SAML w programie RStudio Server Pro](#configure-rstudio-server-pro-saml-authentication-sso)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz użytkownika testowego uwierzytelniania SAML programu RStudio Server Pro](#create-rstudio-server-pro-saml-authentication-test-user)** , aby uzyskać odpowiednik B. Simon w ramach uwierzytelniania SAML RStudio Server Pro, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Skonfiguruj Logowanie jednokrotne w programie RStudio Server Pro](#configure-rstudio-server-pro-sso)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego programu RStudio Server Pro](#create-rstudio-server-pro-test-user)** , aby dysponować odpowiednikiem B. Simon w programie RStudio Server Pro, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
@@ -76,16 +76,16 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.rstudioservices.com/<PATH>/saml/metadata`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<RSP-SERVER>/<PATH>/saml/metadata`
 
-    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.rstudioservices.com/<PATH>/saml/acs`
+    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<RSP-SERVER>/<PATH>/saml/acs`
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.rstudioservices.com`
+    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<RSP-SERVER>/<PATH>/`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta uwierzytelniania SAML programu RStudio Server Pro](mailto:support@rstudio.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora URI instalacji żądania RSP. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -101,7 +101,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -115,13 +115,27 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-rstudio-server-pro-saml-authentication-sso"></a>Konfigurowanie logowania jednokrotnego uwierzytelniania SAML w programie RStudio Server Pro
+## <a name="configure-rstudio-server-pro-sso"></a>Konfigurowanie serwera RStudio Pro SSO
 
-Aby skonfigurować Logowanie jednokrotne na stronie **uwierzytelnianie SAML RStudio Server Pro** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej usługi RStudio Server Pro SAML Authentication](mailto:support@rstudio.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+1. Zaktualizuj plik konfiguracji RSP `/etc/rstudio/rserver.conf` o następujący sposób:
 
-### <a name="create-rstudio-server-pro-saml-authentication-test-user"></a>Utwórz użytkownika testowego uwierzytelniania SAML programu RStudio Server Pro
+    ```
+    auth-saml=1
+    auth-saml-metadata-url=<federation-metadata-URI>
+    auth-saml-sp-name-id-format=emailaddress
+    auth-saml-sp-attribute-username=NameID
+    auth-saml-sp-base-uri=<RSP-Server-URI>
+    ```
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w usłudze RStudio Server Pro SAML Authentication. Aby dodać użytkowników na platformie uwierzytelniania SAML programu RStudio Server Pro, Pracuj z [zespołem pomocy technicznej RStudio Server Pro SAML Authentication](mailto:support@rstudio.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+2. Uruchom ponownie żądanie RSP, uruchamiając następujące czynności:
+
+    ```
+    sudo rstudio-server restart
+    ```
+
+### <a name="create-rstudio-server-pro-test-user"></a>Tworzenie użytkownika testowego programu RStudio Server Pro
+
+Wszyscy użytkownicy, którzy mają korzystać z RSP, muszą być obsługiwani na serwerze programu. Można utworzyć użytkownika za pomocą `useradd` `adduser` polecenia lub.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 

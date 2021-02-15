@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: f43fa06cf93d383efcb0fe746de28ab143280e50
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1d434697802596a0200dc0cb5f1afe5bc67afef5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988023"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379713"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Współpracuj z innymi autorami i edytorami
 
@@ -23,6 +23,9 @@ Wszystkie uprawnienia są kontrolowane przez uprawnienia umieszczane w zasobie Q
 Ta funkcja RBAC platformy Azure obejmuje następujące funkcje:
 * Azure Active Directory (AAD) to 100% wstecz zgodne z uwierzytelnianiem na podstawie klucza dla właścicieli i współautorów. Klienci mogą korzystać z uwierzytelniania opartego na kluczach lub uwierzytelniania opartego na rolach RBAC na platformie Azure w swoich żądaniach.
 * Szybko dodawaj autorów i redaktorów do wszystkich baz wiedzy w zasobie, ponieważ kontrola znajduje się na poziomie zasobu, a nie na poziomie bazy wiedzy.
+
+> [!NOTE]
+> Po zakończeniu należy się upewnić, że dla zasobu dodano niestandardową poddomenę. [Niestandardowa poddomena](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) powinna być obecna domyślnie, ale jeśli nie, należy ją dodać
 
 ## <a name="access-is-provided-by-a-defined-role"></a>Dostęp jest udostępniany przez zdefiniowaną rolę
 

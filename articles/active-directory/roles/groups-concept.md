@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a35bafd2c5dc78f0d9d1debbf21babb6279545
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a204db8453ec8126e1aa9033e10f739a6f8a0d43
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740095"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095141"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Zarządzanie przypisaniami ról w programie Azure Active Directory przy użyciu grup chmurowych (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Rozważmy ten przykład: contoso zatrudniał osoby w lokalizacje geograficzneie,
 
 ## <a name="how-this-feature-works"></a>Jak działa ta funkcja
 
-Utwórz nową Microsoft 365 lub grupę zabezpieczeń z właściwością "isAssignableToRole" ustawioną na wartość "true". Możesz również włączyć tę właściwość podczas tworzenia grupy w Azure Portal przez włączenie **ról usługi Azure AD można przypisać do grupy**. W obu przypadkach można przypisać grupę do co najmniej jednej roli usługi Azure AD w taki sam sposób, jak w przypadku przypisywania ról do użytkowników. Maksymalnie 200 grup można tworzyć w jednej organizacji usługi Azure AD (dzierżawie).
+Utwórz nową Microsoft 365 lub grupę zabezpieczeń z właściwością "isAssignableToRole" ustawioną na wartość "true". Możesz również włączyć tę właściwość podczas tworzenia grupy w Azure Portal przez włączenie **ról usługi Azure AD można przypisać do grupy**. W obu przypadkach można przypisać grupę do co najmniej jednej roli usługi Azure AD w taki sam sposób, jak w przypadku przypisywania ról do użytkowników. Maksymalnie 250 grup można tworzyć w jednej organizacji usługi Azure AD (dzierżawie).
 
 Jeśli nie chcesz, aby członkowie grupy mieli stały dostęp do roli, możesz użyć Azure AD Privileged Identity Management. Przypisz grupę jako uprawniony członek roli usługi Azure AD. Każdy członek grupy jest następnie uprawniony do przypisywania do roli, do której przypisano grupę. Mogą oni następnie aktywować ich przypisanie roli przez ustalony czas trwania.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 01/14/2021
-ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 2433e62fd1dbf35748483b40958fc3367532102a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247555"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099238"
 ---
 # <a name="introduction-to-listing-options"></a>Wprowadzenie do opcji wyświetlania
 
@@ -38,7 +38,11 @@ Ta tabela zawiera listę opcji dostępnych dla każdego typu oferty.
 
 &#42; opcję Pobierz teraz listę, która obejmuje pobieranie teraz (bezpłatnie), korzystanie z własnej licencji (BYOL), subskrypcji i cen opartych na użyciu. Aby uzyskać szczegółowe informacje, zobacz [Pobierz teraz](#get-it-now).
 
-### <a name="free-trial"></a>Bezpłatna wersja próbna
+## <a name="changing-offer-type"></a>Zmienianie typu oferty
+
+[!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
+
+## <a name="free-trial"></a>Bezpłatna wersja próbna
 
 Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji wersji próbnej rozwiązania. Dzięki temu potencjalni klienci mogą bezpłatnie korzystać z oprogramowania jako usługi (SaaS), IaaS lub firmy Microsoft w aplikacji bez ponoszenia kosztów z 30 dni do sześciu miesięcy, w zależności od typu oferty.
 
@@ -46,18 +50,18 @@ Aby wypróbować ofertę, klienci używają przycisku _bezpłatnej wersji próbn
 
 W przypadku ofert związanych z maszynami wirtualnymi klienci są obciążani kosztami infrastruktury platformy Azure za korzystanie z oferty w okresie próbnym. Po zakończeniu okresu próbnego klienci są obciążani automatycznie opłatą za ostatni plan, który podjął próbę w oparciu o stawki standardowe, chyba że zostaną anulowane przed końcem okresu próbnego.
 
-### <a name="test-drive"></a>Wersja testowa
+## <a name="test-drive"></a>Wersja testowa
 
 Aby uzyskać dostęp do wstępnie skonfigurowanego środowiska przez określoną liczbę godzin, klienci używają na stronie aukcji oferty przycisku _Testuj dysk_ . Aby dowiedzieć się więcej na temat dysków testowych, zobacz [co to jest dysk testowy?](what-is-test-drive.md)
 
 > [!TIP]
 > Stacja testowa jest różna od bezpłatnej wersji próbnej. Możesz zaoferować wersję testową, bezpłatny okres próbny lub oba te elementy. Oba te osoby zapewniają klientom swoje rozwiązanie w ustalonym czasie. Jednak test zawiera również praktyczny przewodnik po najważniejszych funkcjach produktu i korzyści, jakie można przedstawić w rzeczywistym scenariuszu implementacji.
 
-### <a name="contact-me"></a>Skontaktuj się z nami
+## <a name="contact-me"></a>Skontaktuj się z nami
 
 Prosta lista aplikacji lub usługi. Klienci używają na stronie aukcji oferty przycisku _kontakt ze mną_ w celu zażądania połączenia z ofertą.
 
-### <a name="get-it-now"></a>Pobierz teraz
+## <a name="get-it-now"></a>Pobierz teraz
 
 Ta opcja tworzenia oferty obejmuje oferty transakcyjne (subskrypcje i cenniki oparte na użytkownikach), tworzenie własnych ofert licencji i pobieranie ich teraz (bezpłatnie). Oferty transakcyjne są sprzedawane za pomocą komercyjnej witryny Marketplace. Firma Microsoft jest odpowiedzialna za rozliczanie i zbieranie danych. Aby uzyskać ofertę, klienci używają _przycisku Pobierz teraz_ .
 
@@ -92,28 +96,28 @@ W tej tabeli przedstawiono typy ofert obsługujące dodatkowe opcje cenowe, któ
 
 <sup>2</sup> cena za godzinę i rozliczenia miesięcznie.
 
-#### <a name="get-it-now-free"></a>Pobierz teraz (bezpłatnie)
+### <a name="get-it-now-free"></a>Pobierz teraz (bezpłatnie)
 
 Użyj tej opcji, aby bezpłatnie zaoferować swoją aplikację. Klienci używają przycisku _Pobierz teraz_ , aby skorzystać z bezpłatnej oferty.
 
 > [!NOTE]
 > Oferta Pobierz teraz (bezpłatna) nie kwalifikuje się do skorzystania z zalet oferowanych przez witrynę Marketplace w przypadku ofert z możliwością realizacji transakcji. Ze względu na to, że nie ma transakcji w sklepie, są one klasyfikowane jako "wersja próbna". Skorzystaj z poniższych [korzyści z witryny Marketplace](#marketplace-rewards) .
 
-#### <a name="bring-your-own-license-byol"></a>Bring Your Own License (BYOL)
+### <a name="bring-your-own-license-byol"></a>Bring Your Own License (BYOL)
 
 Skorzystaj z tej opcji, aby umożliwić klientom wdrożenie oferty przy użyciu licencji zakupionej poza rynkiem komercyjnym. Ta opcja jest idealnym rozwiązaniem w przypadku migracji między lokalizacjami lokalnymi i chmurą. Klienci używają przycisku _Pobierz teraz_ , aby kupić ofertę przy użyciu licencji, którą wstępnie kupisz.
 
 > [!NOTE]
 > Oferty BYOL nie są objęte korzyściami z tytułu Oferty Marketplace w przypadku ofert transakcyjnych. Ponieważ wymagają one klientowi uzyskania licencji od partnera i nie ma transakcji za pośrednictwem komercyjnej witryny sklepu Marketplace, są one podzielone na kategorie jako "Lista". Skorzystaj z poniższych [korzyści z witryny Marketplace](#marketplace-rewards) .
 
-#### <a name="subscription"></a>Subskrypcja
+### <a name="subscription"></a>Subskrypcja
 
 Możesz naliczać stałą opłatę za następujące typy ofert:
 
 - Usługa Azure Application (zarządzana aplikacja) oferuje subskrypcje miesięczne.
 - SaaS oferuje subskrypcje miesięczne i roczne.
 
-#### <a name="usage-based-pricing"></a>Cennik oparty na użyciu
+### <a name="usage-based-pricing"></a>Cennik oparty na użyciu
 
 Następujące typy ofert obsługują Cennik oparty na użyciu:
 

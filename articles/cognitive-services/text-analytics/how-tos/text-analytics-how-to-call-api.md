@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654833"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092132"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -34,6 +34,16 @@ Przed użyciem interfejs API analizy tekstu należy utworzyć zasób platformy A
 2.  Wybierz region, który ma być używany dla punktu końcowego.  Należy zwrócić uwagę, że `/analyze` `/health` punkty końcowe i są dostępne tylko w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA 2, środkowe stany USA, Europa Północna i Europa Zachodnia.
 
 3.  Utwórz zasób analiza tekstu i przejdź do bloku "klucze i punkt końcowy" w lewej części strony. Skopiuj klucz, który będzie używany później podczas wywoływania interfejsów API. Ten element zostanie później dodany jako wartość `Ocp-Apim-Subscription-Key` nagłówka.
+
+## <a name="change-your-pricing-tier"></a>Zmień warstwę cenową 
+
+Jeśli masz istniejący zasób analiza tekstu za pomocą warstwy cenowej S0 za pośrednictwem S4, możesz ją zaktualizować do korzystania z [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S):
+
+1. Przejdź do zasobu analiza tekstu w [Azure Portal](https://portal.azure.com/).
+2. Wybierz pozycję **warstwa cenowa** w menu nawigacji po lewej stronie. Będzie on niższy niż **Zarządzanie zasobami**. 
+3. Wybierz warstwę cenową Standard (S). Następnie kliknij pozycję **Wybierz**.
+
+Nowy zasób analiza tekstu można również utworzyć za pomocą warstwy cenowej Standard (S) i przeprowadzić migrację aplikacji w celu użycia poświadczeń dla nowego zasobu. 
 
 ## <a name="using-the-api-synchronously"></a>Korzystanie z interfejsu API synchronicznie
 
@@ -301,7 +311,7 @@ Jeśli to się powiedzie, żądanie GET do `/analyze` punktu końcowego zwróci 
 
 --- 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Często zadawane pytania](../text-analytics-resource-faq.md)</br>

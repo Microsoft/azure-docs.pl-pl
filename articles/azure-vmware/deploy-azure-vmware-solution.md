@@ -3,12 +3,12 @@ title: Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 description: Dowiedz się, jak korzystać z informacji zebranych w fazie planowania, aby wdrożyć chmurę prywatną rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 12/24/2020
-ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 4c6929ca59bae022642082e8382203a10bd41309
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760881"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382059"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 
@@ -68,13 +68,13 @@ W tym przykładzie sieć 10.74.72.0/22 została wprowadzona podczas wdrażania w
 
 ## <a name="connect-and-sign-in-to-vcenter-and-nsx-t"></a>Nawiązywanie połączenia i logowanie do programu vCenter i NSX-T
 
-Zaloguj się do pola skoku utworzonego w poprzednim kroku. Po zalogowaniu Otwórz przeglądarkę internetową i przejdź do i zaloguj się do konsoli administracyjnej programu vCenter i NSX-T.  
+Zaloguj się do pola skoku utworzonego w poprzednim kroku. Po zalogowaniu Otwórz przeglądarkę internetową i przejdź do i zaloguj się do Menedżera vCenter i NSX-T.  
 
-W Azure Portal można zidentyfikować adresy IP i poświadczenia konsoli administracyjnej programu vCenter oraz NSX-T.  Wybierz chmurę prywatną, a następnie w widoku **Przegląd** wybierz pozycję **tożsamość > domyślna**. 
+W Azure Portal można zidentyfikować adresy IP i poświadczenia konsoli Menedżera vCenter oraz NSX-T.  Wybierz chmurę prywatną, a następnie w widoku **Przegląd** wybierz pozycję **tożsamość > domyślna**. 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Tworzenie segmentu sieci w rozwiązaniu VMware platformy Azure
 
-NSX-T służy do tworzenia nowych segmentów sieci w środowisku rozwiązań VMware platformy Azure.  W [sekcji Planowanie](production-ready-deployment-steps.md)zostały zdefiniowane sieci, które chcesz utworzyć.  Jeśli nie zostały one zdefiniowane, Wróć do [sekcji Planowanie](production-ready-deployment-steps.md) przed kontynuowaniem.
+Menedżer NSX-T służy do tworzenia nowych segmentów sieci w środowisku rozwiązań VMware platformy Azure.  W [sekcji Planowanie](production-ready-deployment-steps.md)zostały zdefiniowane sieci, które chcesz utworzyć.  Jeśli nie zostały one zdefiniowane, Wróć do [sekcji Planowanie](production-ready-deployment-steps.md) przed kontynuowaniem.
 
 >[!IMPORTANT]
 >Upewnij się, że zdefiniowany blok adresów sieciowych CIDR nie nakłada się na wszystkie elementy w środowiskach platformy Azure i lokalnych.  

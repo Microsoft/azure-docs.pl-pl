@@ -4,13 +4,13 @@ description: Dowiedz się, jak replikować maszyny wirtualne platformy Azure dzi
 author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
-ms.date: 05/25/2020
-ms.openlocfilehash: 7ac836992db33c6212fd009b914b30b7221249d8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/11/2021
+ms.openlocfilehash: 681b635099d450f061e0bcdb5b2c5d60d56c20a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745587"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380760"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replikowanie maszyn wirtualnych platformy Azure działających w grupach umieszczania w pobliżu w innym regionie
 
@@ -25,21 +25,72 @@ W typowym scenariuszu maszyny wirtualne mogą działać w grupie umieszczania bl
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
 - Najlepszym nakładem pracy jest przełączenie w tryb failover i powrót po awarii maszyn wirtualnych do grupy umieszczania sąsiedztwa. Jeśli jednak maszyna wirtualna nie może zostać przełączona w tryb failover lub powrotu po awarii, nastąpi przejście do trybu failover/powrotu po awarii, a maszyny wirtualne zostaną utworzone poza grupą położenia sąsiedztwa.
--  Jeśli zestaw dostępności jest przypięty do grupy umieszczania bliskości, a podczas pracy w trybie failover/powrotu po awarii w zestawie dostępności istnieją ograniczenia alokacji, maszyny wirtualne zostaną utworzone poza zestaw dostępności i grupę umieszczania sąsiedztwa.
--  Site Recovery dla grup umieszczania zbliżeniowe nie jest obsługiwana w przypadku dysków niezarządzanych.
+- Jeśli zestaw dostępności jest przypięty do grupy umieszczania bliskości, a podczas pracy w trybie failover/powrotu po awarii w zestawie dostępności istnieją ograniczenia alokacji, maszyny wirtualne zostaną utworzone poza zestaw dostępności i grupę umieszczania sąsiedztwa.
+- Site Recovery dla grup umieszczania zbliżeniowe nie jest obsługiwana w przypadku dysków niezarządzanych.
 
 > [!NOTE]
 > Azure Site Recovery nie obsługuje powrotu po awarii z dysków zarządzanych dla scenariuszy funkcji Hyper-V do platformy Azure. Z tego powodu powrót po awarii z grupy umieszczania sąsiedztwa na platformie Azure do funkcji Hyper-V nie jest obsługiwany.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-portal"></a>Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych w grupach umieszczania w sąsiedztwie za pośrednictwem portalu
+
+### <a name="azure-to-azure-via-portal"></a>Azure do platformy Azure za pośrednictwem portalu
+
+Można włączyć replikację dla maszyny wirtualnej za pośrednictwem strony odzyskiwania po awarii maszyny wirtualnej lub przechodząc do wstępnie utworzonego magazynu, a następnie przejść do sekcji Site Recovery, a następnie włączyć replikację. Przyjrzyjmy się, jak Site Recovery można skonfigurować dla maszyn wirtualnych w PPG za pomocą obu metod:
+
+- Jak wybrać PPG w regionie odzyskiwania po włączeniu replikacji za pomocą bloku DR IaaS VM:
+  1. Przejdź do maszyny wirtualnej. W bloku z lewej strony w obszarze "operacje" Wybierz pozycję "odzyskiwanie po awarii"
+  2. Na karcie "podstawowe" Wybierz region DR, do którego chcesz replikować maszynę wirtualną. Przejdź do pozycji "Ustawienia zaawansowane"
+  3. W tym miejscu można zobaczyć grupę umieszczania sąsiedztwa maszyny wirtualnej oraz opcję wybierania PPG w regionie odzyskiwania po awarii. Site Recovery udostępnia również opcję użycia nowej grupy położenia zbliżeniowe, która jest tworzona dla Ciebie, jeśli zdecydujesz się użyć tej opcji domyślnej. Możesz wybrać żądaną grupę umieszczania, a następnie przejść do pozycji "przegląd + uruchamianie replikacji", a następnie włączyć replikację.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-1.png" alt-text="Włącz replikację.":::
+
+- Jak wybrać PPG w regionie odzyskiwania po włączeniu replikacji za pomocą bloku magazynu:
+  1. Przejdź do magazynu Recovery Services i przejdź do karty Site Recovery
+  2. Kliknij pozycję "+ Włącz Site Recovery", a następnie wybierz pozycję "1: Włącz replikację" w obszarze Azure Virtual Machines (w przypadku przeprowadzania replikacji maszyny wirtualnej platformy Azure)
+  3. Wypełnij pola wymagane na karcie "Źródło" i kliknij przycisk "dalej"
+  4. Wybierz listę maszyn wirtualnych, dla których chcesz włączyć replikację na karcie maszyny wirtualne, a następnie kliknij przycisk Dalej.
+  5. W tym miejscu możesz zobaczyć opcję wyboru PPG w regionie odzyskiwania po awarii. Site Recovery udostępnia również opcję użycia nowego PPG, który tworzy dla Ciebie, jeśli zdecydujesz się użyć tej opcji domyślnej. Możesz wybrać PPG, a następnie włączyć replikację.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-2.png" alt-text="Włącz replikację za pośrednictwem magazynu.":::
+
+Należy pamiętać, że można łatwo zaktualizować wybór PPG w regionie odzyskiwania po włączeniu replikacji dla maszyny wirtualnej.
+
+1. Przejdź do maszyny wirtualnej i w bloku po lewej stronie w obszarze "operacje" Wybierz pozycję "odzyskiwanie awaryjne".
+2. Przejdź do bloku "obliczenia i sieć" i kliknij pozycję "Edytuj" w górnej części strony
+3. Można wyświetlić opcje edycji wielu ustawień docelowych, w tym docelowa PPG. Wybierz PPG, do których maszyna wirtualna ma zostać przejściu w tryb failover, a następnie kliknij pozycję "Zapisz".
+
+### <a name="vmware-to-azure-via-portal"></a>VMware do platformy Azure za pośrednictwem portalu
+
+Grupę umieszczania dla docelowej maszyny wirtualnej można skonfigurować po włączeniu replikacji dla maszyny wirtualnej. Upewnij się, że oddzielnie utworzysz PPG w regionie docelowym zgodnie z wymaganiami. Następnie możesz łatwo zaktualizować wybór PPG w regionie odzyskiwania po włączeniu replikacji dla maszyny wirtualnej.
+
+1. Wybierz maszynę wirtualną z magazynu i w bloku po lewej stronie w obszarze "operacje" Wybierz pozycję "odzyskiwanie awaryjne".
+2. Przejdź do bloku "obliczenia i sieć" i kliknij pozycję "Edytuj" w górnej części strony
+3. Można wyświetlić opcje edycji wielu ustawień docelowych, w tym docelowa PPG. Wybierz PPG, do których maszyna wirtualna ma zostać przejściu w tryb failover, a następnie kliknij pozycję "Zapisz".
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-v2a.png" alt-text="Aktualizacja PPG V2A":::
+
+### <a name="hyper-v-to-azure-via-portal"></a>Funkcja Hyper-V do platformy Azure za pośrednictwem portalu
+
+Grupę umieszczania dla docelowej maszyny wirtualnej można skonfigurować po włączeniu replikacji dla maszyny wirtualnej. Upewnij się, że oddzielnie utworzysz PPG w regionie docelowym zgodnie z wymaganiami. Następnie możesz łatwo zaktualizować wybór PPG w regionie odzyskiwania po włączeniu replikacji dla maszyny wirtualnej.
+
+1. Wybierz maszynę wirtualną z magazynu i w bloku po lewej stronie w obszarze "operacje" Wybierz pozycję "odzyskiwanie awaryjne".
+2. Przejdź do bloku "obliczenia i sieć" i kliknij pozycję "Edytuj" w górnej części strony
+3. Można wyświetlić opcje edycji wielu ustawień docelowych, w tym docelowa PPG. Wybierz PPG, do których maszyna wirtualna ma zostać przejściu w tryb failover, a następnie kliknij pozycję "Zapisz".
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-h2a.png" alt-text="Aktualizacja PPG H2A":::
+
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-powershell"></a>Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych w grupach umieszczania sąsiedztwa za pośrednictwem programu PowerShell
+
+### <a name="prerequisites"></a>Wymagania wstępne 
 
 1. Upewnij się, że masz Azure PowerShell AZ module. Jeśli musisz zainstalować lub uaktualnić Azure PowerShell, postępuj zgodnie [z tym przewodnikiem, aby zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-az-ps).
 2. Minimalna Azure PowerShell AZ Version powinna być 4.1.0. Aby sprawdzić bieżącą wersję, użyj poniższego polecenia.
+
     ```
     Get-InstalledModule -Name Az
     ```
 
-## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Skonfiguruj Site Recovery Virtual Machines w grupie umieszczania sąsiedztwa
+### <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Skonfiguruj Site Recovery Virtual Machines w grupie umieszczania sąsiedztwa
 
 > [!NOTE]
 > Upewnij się, że masz unikatowy identyfikator docelowej grupy umieszczania sąsiedztwa. Jeśli tworzysz nową grupę umieszczania bliskości, sprawdź to polecenie w [tym miejscu](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) i jeśli używasz istniejącej grupy umieszczania bliskości, a następnie użyj tego polecenia w [tym miejscu](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
@@ -165,7 +216,7 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 
 14. Aby wyłączyć replikację, wykonaj kroki opisane [tutaj](./azure-to-azure-powershell.md#disable-replication).
 
-### <a name="vmware-to-azure"></a>Z programu VMware do platformy Azure
+### <a name="vmware-to-azure-via-powershell"></a>Program VMware do platformy Azure za pośrednictwem programu PowerShell
 
 1. Upewnij się, że [przygotowano lokalne serwery VMware](./vmware-azure-tutorial-prepare-on-premises.md) do odzyskiwania po awarii na platformie Azure.
 2. Zaloguj się do swojego konta i ustaw subskrypcję zgodnie z opisem w [tym miejscu](./vmware-azure-disaster-recovery-powershell.md#log-into-azure).
@@ -203,7 +254,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 10. [Uruchom](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover) test pracy w trybie failover.
 11. Przełączenie do trybu failover na platformie Azure za pomocą [tych](./vmware-azure-disaster-recovery-powershell.md#fail-over-to-azure) kroków.
 
-### <a name="hyper-v-to-azure"></a>Z funkcji Hyper-V do platformy Azure
+### <a name="hyper-v-to-azure-via-powershell"></a>Funkcja Hyper-V do platformy Azure za pośrednictwem programu PowerShell
 
 1. Upewnij się, że [przygotowano lokalne serwery funkcji Hyper-V](./hyper-v-prepare-on-premises-tutorial.md) na potrzeby odzyskiwania po awarii na platformie Azure.
 2. [Zaloguj](./hyper-v-azure-powershell-resource-manager.md#step-1-sign-in-to-your-azure-account) się do platformy Azure.

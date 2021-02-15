@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 12/22/2020
+ms.date: 02/10/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 873fdba1d24db55b3269cc2c13f0140da4a9b4e3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920430"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393359"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów
 
@@ -37,7 +37,6 @@ Możliwości zarządzania zasobami dla tego narzędzia są znaczne i nadal rosn�
 
 
 ## <a name="availability"></a>Dostępność
-
 |Aspekt|Szczegóły|
 |----|:----|
 |Stan wydania:|Ogólna dostępność (GA)|
@@ -48,33 +47,36 @@ Możliwości zarządzania zasobami dla tego narzędzia są znaczne i nadal rosn�
 
 
 ## <a name="what-are-the-key-features-of-asset-inventory"></a>Jakie są kluczowe funkcje spisu zasobów?
-
 Na stronie spisu dostępne są następujące narzędzia:
 
-- **Podsumowania** — przed zdefiniowaniem filtrów, widoczny pasek wartości w górnej części widoku spisu pokazuje:
+:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Główne funkcje strony spisu zasobów w Azure Security Center" lightbox="media/asset-inventory/highlights-of-inventory.png":::
 
-    - **Łączna liczba zasobów**: łączną liczbę zasobów podłączonych do Security Center.
-    - **Zasoby w złej kondycji**: zasoby z zaleceniami dotyczącymi zabezpieczeń. [Dowiedz się więcej o zaleceniach dotyczących zabezpieczeń](security-center-recommendations.md).
-    - **Niemonitorowane zasoby**: zasoby z problemami związanymi z monitorowaniem agentów — mają wdrożony Agent log Analytics, ale agent nie wysyła danych lub ma inne problemy z kondycją.
 
-- **Filtry** — wiele filtrów w górnej części strony umożliwia szybkie udoskonalenie listy zasobów na podstawie pytania, na które próbujesz odpowiedzieć. Na przykład jeśli chcesz odpowiedzieć na pytanie, *które z moich maszyn z tagiem "produkcja" brakuje agenta log Analytics?* można połączyć filtr **monitorowania agentów** z filtrem **tagów** , jak pokazano w następującym klipie:
+### <a name="1---summaries"></a>1 — podsumowania
+Przed zdefiniowaniem jakichkolwiek filtrów widoczny w górnej części widoku spisu są widoczne następujące wartości:
 
-    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane":::
+- **Łączna liczba zasobów**: łączną liczbę zasobów podłączonych do Security Center.
+- **Zasoby w złej kondycji**: zasoby z zaleceniami dotyczącymi zabezpieczeń. [Dowiedz się więcej o zaleceniach dotyczących zabezpieczeń](security-center-recommendations.md).
+- **Niemonitorowane zasoby**: zasoby z problemami związanymi z monitorowaniem agentów — mają wdrożony Agent log Analytics, ale agent nie wysyła danych lub ma inne problemy z kondycją.
+- **Niezarejestrowane subskrypcje**: wszelkie subskrypcje w wybranym zakresie, które nie zostały jeszcze połączone z Azure Security Center.
 
-    Po zastosowaniu filtrów podsumowania wartości są aktualizowane w celu powiązania z wynikami zapytania. 
+### <a name="2---filters"></a>2 — filtry
+Wiele filtrów w górnej części strony umożliwia szybkie udoskonalenie listy zasobów na podstawie pytania, na które próbujesz odpowiedzieć. Na przykład jeśli chcesz odpowiedzieć na pytanie, *które z moich maszyn ze znacznikiem "produkcja" brakuje agenta log Analytics?* filtr **monitorowania agentów** można połączyć z filtrem **Tagi** .
 
-- **Opcje eksportowania** — funkcja spisu udostępnia opcję eksportu wyników wybranych opcji filtru do pliku CSV. Ponadto możesz wyeksportować zapytanie do Eksploratora Azure Resource Graph, aby dodatkowo udoskonalać, zapisywać lub modyfikować zapytanie Kusto Query Language (KQL).
+Po zastosowaniu filtrów podsumowania wartości są aktualizowane w celu powiązania z wynikami zapytania. 
 
-    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="Opcje eksportu spisu":::
+### <a name="3---export-and-asset-management-tools"></a>3 — narzędzia do zarządzania eksportami i zasobami
 
-    > [!TIP]
-    > Dokumentacja KQL zawiera bazę danych z przykładowymi danymi wraz z niektórymi prostymi zapytaniami dotyczącymi języka. [Dowiedz się więcej w tym samouczku KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+**Opcje eksportu** — spis obejmuje opcję eksportu wyników wybranych opcji filtru do pliku CSV. Możesz również wyeksportować zapytanie do Eksploratora Azure Resource Graph, aby dodatkowo udoskonalać, zapisywać lub modyfikować zapytanie Kusto Query Language (KQL).
 
-- **Opcje zarządzania zasobami** — spis umożliwia wykonywanie złożonych zapytań odnajdowania. Po znalezieniu zasobów pasujących do zapytań Spis zawiera skróty do operacji takich jak:
+> [!TIP]
+> Dokumentacja KQL zawiera bazę danych z przykładowymi danymi wraz z niektórymi prostymi zapytaniami dotyczącymi języka. [Dowiedz się więcej w tym samouczku KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
-    - Przypisywanie tagów do filtrowanych zasobów — zaznacz pola wyboru obok zasobów, które chcesz oznaczyć tagami.
-    - Dodaj nowe serwery do Security Center — Użyj przycisku paska narzędzi **Dodawanie serwerów spoza platformy Azure** .
-    - Automatyzowanie obciążeń przy użyciu Azure Logic Apps — Użyj przycisku **Wyzwalaj aplikację logiki** , aby uruchomić aplikację logiki w jednym lub większej liczbie zasobów. Aplikacje logiki muszą zostać przygotowane z wyprzedzeniem i zaakceptować odpowiedni typ wyzwalacza (żądanie HTTP). [Dowiedz się więcej o usłudze Logic Apps](../logic-apps/logic-apps-overview.md).
+**Opcje zarządzania zasobami** — spis umożliwia wykonywanie złożonych zapytań odnajdowania. Po znalezieniu zasobów pasujących do zapytań Spis zawiera skróty do operacji takich jak:
+
+- Przypisywanie tagów do filtrowanych zasobów — zaznacz pola wyboru obok zasobów, które chcesz oznaczyć tagami.
+- Dodaj nowe serwery do Security Center — Użyj przycisku paska narzędzi **Dodawanie serwerów spoza platformy Azure** .
+- Automatyzowanie obciążeń przy użyciu Azure Logic Apps — Użyj przycisku **Wyzwalaj aplikację logiki** , aby uruchomić aplikację logiki w jednym lub większej liczbie zasobów. Aplikacje logiki muszą zostać przygotowane z wyprzedzeniem i zaakceptować odpowiedni typ wyzwalacza (żądanie HTTP). [Dowiedz się więcej o usłudze Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Jak działa spis zasobów?
@@ -94,14 +96,14 @@ Za pomocą [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), spis
 
 1. Wybierz odpowiednie opcje w filtrach, aby utworzyć konkretne zapytanie, które chcesz wykonać.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opcje filtrowania spisu" lightbox="./media/asset-inventory/inventory-filters.png":::
-
     Domyślnie zasoby są sortowane według liczby aktywnych zaleceń dotyczących zabezpieczeń.
 
     > [!IMPORTANT]
     > Opcje w każdym filtrze są specyficzne dla zasobów w aktualnie wybranych subskrypcjach **i** wybrane w innych filtrach.
     >
     > Na przykład jeśli wybrano tylko jedną subskrypcję, a subskrypcja nie ma żadnych zasobów z pozostałymi zaleceniami dotyczącymi zabezpieczeń, które zostaną skorygowane (0 zasobów w złej kondycji), filtr **zaleceń** nie będzie miał żadnych opcji. 
+
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Używanie opcji filtru w Azure Security Center spisie zasobów do filtrowania zasobów do zasobów produkcyjnych, które nie są monitorowane":::
 
 1. Aby można było użyć filtrów **zabezpieczeń** , należy wprowadzić tekst bezpłatny od identyfikatora, sprawdzenia zabezpieczeń lub nazwy CVE luki w zabezpieczeniach wyszukiwania do odpowiednich zasobów:
 
@@ -112,7 +114,7 @@ Za pomocą [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), spis
 
 1. Aby użyć filtru **usługi Azure Defender** , wybierz jedną lub więcej opcji (wyłączone, włączone lub częściowe):
 
-    - **Poza** zasobami, które nie są chronione przez plan usługi Azure Defender. Możesz kliknąć dowolny z tych elementów i uaktualnić je:
+    - **Poza** zasobami, które nie są chronione przez plan usługi Azure Defender. Możesz kliknąć prawym przyciskiem myszy dowolny z tych elementów i uaktualnić je:
 
         :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Uaktualnianie zasobu do usługi Azure Defender po kliknięciu prawym przyciskiem myszy" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 

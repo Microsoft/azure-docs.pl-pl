@@ -6,13 +6,13 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: c82f98df8fb79fa10f2e30b219c1a02bb646e2de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/12/2021
+ms.openlocfilehash: 27552b2c39f2d1e5d9cc1719a9cc2944e088773a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85937564"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517131"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Zarządzanie dostępem do sieci publicznej dla Centrum IoT Hub
 
@@ -28,7 +28,13 @@ Aby ograniczyć dostęp tylko do [prywatnego punktu końcowego dla Centrum IoT w
 
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Obraz przedstawiający Azure Portal gdzie wyłączyć dostęp do sieci publicznej" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
-Aby włączyć dostęp do sieci publicznej, wybierz opcję **włączone**, a następnie **Zapisz**.
+Aby włączyć dostęp do sieci publicznej, wybierz pozycję **wszystkie sieci**, a następnie pozycję **Zapisz**.
+
+## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>IoT Hub punktu końcowego, adresu IP i portów po wyłączeniu dostępu do sieci publicznej
+
+IoT Hub to wielodostępna platforma jako usługa (PaaS), więc różni klienci korzystają z tej samej puli zasobów obliczeniowych, sieciowych i magazynowych. Nazwy hostów IoT Hub są mapowane na publiczny punkt końcowy z publicznie rutowanym adresem IP przez Internet. Różni klienci korzystają z tego IoT Hub publicznego punktu końcowego, a urządzenia IoT w sieci rozległej i sieci lokalne mogą uzyskać do niego dostęp. 
+
+Wyłączenie dostępu do sieci publicznej jest wymuszane w określonym zasobie Centrum IoT, zapewniając izolację. Aby zachować aktywną usługę dla innych zasobów klienta przy użyciu ścieżki publicznej, jego publiczny punkt końcowy pozostaje rozpoznawalny, adresy IP są wykrywalne i porty pozostają otwarte. Nie jest to powód dla obaw, ponieważ firma Microsoft integruje wiele warstw zabezpieczeń w celu zapewnienia pełnej izolacji między dzierżawcami. Aby dowiedzieć się więcej, zobacz [izolacja w chmurze publicznej platformy Azure](../security/fundamentals/isolation-choices.md#tenant-level-isolation).
 
 ## <a name="ip-filter"></a>Filtr adresów IP 
 

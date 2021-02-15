@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 73652f821abfa4a092e4a61ffe2be9e7262a2f10
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5261075a82eaefd91cbedd2dd2fe08cb1e0a20b4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538548"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381838"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-powershell"></a>Konfigurowanie i zarządzanie ciągłymi kopiami zapasowymi oraz przywracanie do punktu w czasie (wersja zapoznawcza) — Używanie Azure PowerShell
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -50,7 +50,7 @@ W tym artykule opisano sposób aprowizacji konta z ciągłymi kopiami zapasowymi
 
 Aby udostępnić konto przy użyciu ciągłej kopii zapasowej, Dodaj argument `-BackupPolicyType Continuous` wraz z poleceniem regularnego inicjowania obsługi.
 
-Poniższe polecenie cmdlet to przykład konta zapisu z jednym regionem `pitracct2` z zasadami ciągłego tworzenia kopii zapasowych utworzonych w regionie "zachodnie stany USA" w grupie zasobów "mojagz":
+Poniższe polecenie cmdlet to przykład konta zapisu z jednym regionem `pitracct2` z zasadami ciągłego tworzenia kopii zapasowych utworzonych w regionie *zachodnie stany USA* w obszarze *mojagz* grupy zasobów:
 
 ```azurepowershell
 
@@ -65,7 +65,7 @@ New-AzCosmosDBAccount `
 
 ## <a name="provision-a-mongodb-api-account-with-continuous-backup"></a><a id="provision-mongodb-api"></a>Inicjowanie obsługi administracyjnej konta interfejsu API MongoDB przy użyciu ciągłej kopii zapasowej
 
-Następujące polecenie cmdlet to przykład konta ciągłej kopii zapasowej "pitracct2" utworzonego w regionie "zachodnie stany USA" w grupie zasobów "mojagz":
+Następujące polecenie cmdlet jest przykładem ciągłego tworzenia kopii zapasowych *pitracct2* utworzonych w regionie *zachodnie stany USA* w obszarze Grupa zasobów *mojagz* :
 
 ```azurepowershell
 
@@ -162,13 +162,13 @@ Odpowiedź dotyczy wszystkich kont bazy danych (zarówno aktywnych, jak i usuni�
   },
 ```
 
-Podobnie jak "CreationTime" lub "DeletionTime" dla konta, istnieje również "CreationTime" lub "DeletionTime" dla regionu. Te czasy umożliwiają wybranie odpowiedniego regionu i prawidłowego zakresu czasu do przywrócenia w danym regionie.
+Podobnie jak w `CreationTime` `DeletionTime` przypadku konta, istnieje `CreationTime` również `DeletionTime` region lub. Te czasy umożliwiają wybranie odpowiedniego regionu i prawidłowego zakresu czasu do przywrócenia w danym regionie.
 
 **Wyświetlanie listy wszystkich wersji baz danych SQL na żywo konta bazy danych**
 
 Lista wszystkich wersji baz danych umożliwia wybranie odpowiedniej bazy danych w scenariuszu, w którym rzeczywisty czas istnienia bazy danych jest nieznany.
 
-Uruchom następujące polecenie programu PowerShell, aby wyświetlić listę wszystkich wersji baz danych. To polecenie działa tylko z kontami na żywo. Parametry "DatabaseAccountInstanceId" i "LocationName" są uzyskiwane z właściwości "name" i "Location" w odpowiedzi `Get-AzCosmosDBRestorableDatabaseAccount` polecenia cmdlet. Atrybut "DatabaseAccountInstanceId" odwołuje się do właściwości "instanceId" konta źródłowej bazy danych, która jest przywracana:
+Uruchom następujące polecenie programu PowerShell, aby wyświetlić listę wszystkich wersji baz danych. To polecenie działa tylko z kontami na żywo. `DatabaseAccountInstanceId` `LocationName` Parametry i są uzyskiwane z `name` `location` właściwości i w odpowiedzi `Get-AzCosmosDBRestorableDatabaseAccount` polecenia cmdlet. Ten `DatabaseAccountInstanceId` atrybut odnosi się do `instanceId` Właściwości przywracanego konta źródłowej bazy danych:
 
 
 ```azurepowershell
@@ -181,7 +181,7 @@ Get-AzCosmosdbSqlRestorableDatabase `
 
 **Wyświetl listę wszystkich wersji kontenerów SQL bazy danych na aktywnym koncie bazy danych.**
 
-Użyj poniższego polecenia, aby wyświetlić listę wszystkich wersji kontenerów SQL. To polecenie działa tylko z kontami na żywo. Parametr "DatabaseRid" to "ResourceId" bazy danych, którą chcesz przywrócić. Jest to wartość atrybutu "ownerResourceid" znaleziona w odpowiedzi `Get-AzCosmosdbSqlRestorableDatabase` polecenia cmdlet. Odpowiedź zawiera również listę operacji wykonanych na wszystkich kontenerach w tej bazie danych.
+Użyj poniższego polecenia, aby wyświetlić listę wszystkich wersji kontenerów SQL. To polecenie działa tylko z kontami na żywo. `DatabaseRid`Parametr jest `ResourceId` bazą danych, którą chcesz przywrócić. Jest to wartość `ownerResourceid` atrybutu znalezionego w odpowiedzi `Get-AzCosmosdbSqlRestorableDatabase` polecenia cmdlet. Odpowiedź zawiera również listę operacji wykonanych na wszystkich kontenerach w tej bazie danych.
 
 ```azurepowershell
 
@@ -208,7 +208,7 @@ Get-AzCosmosdbSqlRestorableResource `
 
 ## <a name="enumerate-restorable-resources-for-mongodb"></a><a id="enumerate-mongodb-api"></a>Wyliczanie zasobów dostępnych dla MongoDB
 
-Opisane poniżej polecenia wyliczania ułatwiają odnajdywanie zasobów dostępnych do przywrócenia w różnych sygnaturach czasowych. Ponadto udostępniają one również Źródło najważniejszych zdarzeń na koncie dostępnych, bazie danych i zasobach kontenerów. Te polecenia działają tylko dla kont na żywo i są podobne do poleceń interfejsu API języka SQL, ale z "MongoDB" w nazwie polecenia zamiast "SQL".
+Opisane poniżej polecenia wyliczania ułatwiają odnajdywanie zasobów dostępnych do przywrócenia w różnych sygnaturach czasowych. Ponadto udostępniają one również Źródło najważniejszych zdarzeń na koncie dostępnych, bazie danych i zasobach kontenerów. Te polecenia działają tylko dla kont na żywo i są podobne do poleceń interfejsu API języka SQL, ale przy użyciu `MongoDB` nazwy polecenia zamiast `sql` .
 
 **Wyświetlanie listy wszystkich wersji baz danych MongoDB na żywo konta bazy danych**
 

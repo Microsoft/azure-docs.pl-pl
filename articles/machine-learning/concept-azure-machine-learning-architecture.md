@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540198"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091673"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -47,28 +47,15 @@ Obszar roboczy zawiera inne zasoby platformy Azure, które są używane przez ob
 
 Obszar roboczy można udostępniać innym osobom.
 
-### <a name="create-workspace"></a>Tworzenie obszaru roboczego
-
-Na poniższym diagramie przedstawiono przepływ pracy tworzenia obszaru roboczego.
-
-* Zaloguj się do usługi Azure AD z jednego z obsługiwanych klientów Azure Machine Learning (interfejs wiersza polecenia platformy Azure, zestaw SDK języka Python, Azure Portal) i zażądaj odpowiedniego tokenu Azure Resource Manager.
-* Wywołaj Azure Resource Manager, aby utworzyć obszar roboczy. 
-* Azure Resource Manager skontaktować się z dostawcą zasobów Azure Machine Learning w celu udostępnienia obszaru roboczego.
-* Jeśli nie określisz istniejących zasobów, w subskrypcji zostaną utworzone dodatkowe wymagane zasoby.
-
-W razie potrzeby można również udostępnić innym obiektom docelowym obliczeń, które są dołączone do obszaru roboczego (np. usługi Azure Kubernetes lub maszyn wirtualnych).
-
-[![Przepływ pracy tworzenia obszaru roboczego](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
-
 ## <a name="computes"></a>Oblicza
 
 <a name="compute-targets"></a>[Obiekt docelowy obliczeń](concept-compute-target.md) to dowolna maszyna lub zestaw maszyn używanych do uruchamiania skryptu szkoleniowego lub hostowania wdrożenia usługi. Możesz użyć komputera lokalnego lub zdalnego zasobu obliczeniowego jako obiektu docelowego obliczeń.  Elementy docelowe obliczeń umożliwiają rozpoczęcie szkolenia na komputerze lokalnym, a następnie skalowanie do chmury bez konieczności zmiany skryptu szkoleniowego.
 
 W Azure Machine Learning wprowadzono dwie w pełni zarządzane maszyny wirtualne oparte na chmurze, które zostały skonfigurowane na potrzeby zadań uczenia maszynowego:
 
-* <a name="compute-instance"></a>**Wystąpienie obliczeniowe** : wystąpienie obliczeniowe to maszyna wirtualna, która obejmuje wiele narzędzi i środowisk zainstalowanych na potrzeby uczenia maszynowego. Podstawowym użyciem wystąpienia obliczeniowego jest dla stacji roboczej deweloperskiej.  Możesz zacząć uruchamiać przykładowe notesy bez konieczności instalacji. Wystąpienia obliczeniowego można także użyć jako elementu docelowego obliczeń dla zadań szkolenia i inferencing.
+* <a name="compute-instance"></a>**Wystąpienie obliczeniowe**: wystąpienie obliczeniowe to maszyna wirtualna, która obejmuje wiele narzędzi i środowisk zainstalowanych na potrzeby uczenia maszynowego. Podstawowym użyciem wystąpienia obliczeniowego jest dla stacji roboczej deweloperskiej.  Możesz zacząć uruchamiać przykładowe notesy bez konieczności instalacji. Wystąpienia obliczeniowego można także użyć jako elementu docelowego obliczeń dla zadań szkolenia i inferencing.
 
-* **Klastry obliczeniowe** : Klastry obliczeniowe to klaster maszyn wirtualnych z funkcjami skalowania wielowęzłowego. Klastry obliczeniowe są lepiej dopasowane do celów obliczeniowych dużych zadań i produkcyjnych.  Klaster jest skalowany automatycznie podczas przesyłania zadania.  Użyj jako elementu docelowego obliczeń szkoleniowych lub do wdrożenia deweloperskiego/testowego.
+* **Klastry obliczeniowe**: Klastry obliczeniowe to klaster maszyn wirtualnych z funkcjami skalowania wielowęzłowego. Klastry obliczeniowe są lepiej dopasowane do celów obliczeniowych dużych zadań i produkcyjnych.  Klaster jest skalowany automatycznie podczas przesyłania zadania.  Użyj jako elementu docelowego obliczeń szkoleniowych lub do wdrożenia deweloperskiego/testowego.
 
 Aby uzyskać więcej informacji na temat szkoleniowych obiektów docelowych, zobacz [uczenie obiektów docelowych obliczeń](concept-compute-target.md#train).  Aby uzyskać więcej informacji na temat celów obliczeniowych wdrożenia, zobacz [cele wdrożenia](concept-compute-target.md#deploy).
 
@@ -126,10 +113,6 @@ Na przykład Uruchom konfiguracje, zobacz [Konfigurowanie przebiegu szkolenioweg
 [Obszar roboczy](#workspace)  >  [Eksperymenty](#experiments)  >  [Uruchom](#runs)  >  **Migawka**
 
 W przypadku przesyłania przebiegu Azure Machine Learning kompresuje katalog zawierający skrypt jako plik zip i wysyła go do obiektu docelowego obliczeń. Następnie plik zip zostanie wyodrębniony, a skrypt zostanie uruchomiony w tym miejscu. Azure Machine Learning również zapisuje plik zip jako migawkę w ramach rekordu uruchomieniowego. Każda osoba mająca dostęp do obszaru roboczego może przeglądać rekord uruchomienia i pobrać migawkę.
-
-Na poniższym diagramie przedstawiono przepływ pracy migawek kodu.
-
-[![Przepływ pracy migawek kodu](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>Rejestrowanie
 

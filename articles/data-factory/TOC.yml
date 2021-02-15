@@ -736,6 +736,8 @@
               href: how-to-sqldb-to-cosmosdb.md
             - name: Deduplikowanie i sprawdzanie wartości null przy użyciu fragmentów kodu
               href: how-to-data-flow-dedupe-nulls-snippets.md
+            - name: Przetwarzanie danych z modeli AML przy użyciu przepływu danych
+              href: scenario-dataflow-process-data-aml-models.md
         - name: Migracja ze środowiska lokalnego za pomocą usług SSIS
           items:
             - name: Migracja za pomocą usług SSIS — omówienie

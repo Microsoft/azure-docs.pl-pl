@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 7fb414680b8ff64d057f9f68d7b97380baeaa551
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 186ded90b504420a2f315d054551d97821cf8465
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778200"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385051"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -37,7 +37,7 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
 1. W [Azure Portal](https://portal.azure.com)przejdź do profilu CDN zawierającego punkt końcowy, który ma zostać wstępnie załadowany. Zostanie otwarte okienko profil.
     
 2. Kliknij punkt końcowy na liście. Zostanie otwarte okienko punkt końcowy.
-3. W okienku punkt końcowy usługi CDN wybierz pozycję **Załaduj** .
+3. W okienku punkt końcowy usługi CDN wybierz pozycję **Załaduj**.
    
     ![Okienko punktu końcowego usługi CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
    
@@ -47,7 +47,7 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
 4. W polu **ścieżka zawartości** wprowadź pełną ścieżkę do każdego zasobu, który ma zostać załadowany (na przykład `/pictures/kitten.png` ).
    
    > [!TIP]
-   > Po rozpoczęciu wprowadzania tekstu, pojawią się więcej pól tekstowych **ścieżki zawartości** , aby umożliwić tworzenie listy wielu zasobów. Aby usunąć zasoby z listy, wybierz przycisk wielokropka (...), a następnie wybierz pozycję **Usuń** .
+   > Po rozpoczęciu wprowadzania tekstu, pojawią się więcej pól tekstowych **ścieżki zawartości** , aby umożliwić tworzenie listy wielu zasobów. Aby usunąć zasoby z listy, wybierz przycisk wielokropka (...), a następnie wybierz pozycję **Usuń**.
    > 
    > Każda ścieżka zawartości musi być względnym adresem URL, który pasuje do następujących [wyrażeń regularnych](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
    > - Załaduj pojedynczą ścieżkę pliku: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
@@ -58,7 +58,7 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
    > 
    
     ![Przycisk ładowania](./media/cdn-preload-endpoint/cdn-load-paths.png)
-5. Po zakończeniu wprowadzania ścieżek zawartości wybierz pozycję **Załaduj** .
+5. Po zakończeniu wprowadzania ścieżek zawartości wybierz pozycję **Załaduj**.
    
 
 > [!NOTE]
@@ -66,7 +66,7 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
 > 
 > 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Przeczyszczanie punktu końcowego Azure CDN](cdn-purge-endpoint.md)
-* [Azure CDN informacje o interfejsie API REST: Załaduj wstępnie zawartość w punkcie końcowym](/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN informacje o interfejsie API REST: Przeczyść zawartość z punktu końcowego](/rest/api/cdn/endpoints/purgecontent)
+* [Azure CDN informacje o interfejsie API REST: Załaduj wstępnie zawartość w punkcie końcowym](/rest/api/cdn/cdn/endpoints/loadcontent)
+* [Azure CDN informacje o interfejsie API REST: Przeczyść zawartość z punktu końcowego](/rest/api/cdn/cdn/endpoints/purgecontent)

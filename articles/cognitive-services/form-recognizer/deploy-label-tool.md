@@ -2,19 +2,19 @@
 title: Jak wdrożyć przykładowe narzędzie do etykietowania z aparatem rozpoznawania formularzy
 titleSuffix: Azure Cognitive Services
 description: Poznaj różne sposoby wdrażania przykładowego narzędzia do etykietowania aparatu rozpoznawania formularzy, które ułatwia uczenie nadzorowane.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/14/2020
-ms.author: pafarley
-ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/11/2021
+ms.author: lajanuar
+ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790431"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370050"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
 
@@ -32,26 +32,26 @@ Najszybszą metodą uruchamiania etykietowania danych jest uruchomienie lokalneg
 
 ## <a name="deploy-with-azure-container-instances-aci"></a>Wdrażanie za pomocą Azure Container Instances (ACI)
 
-Przed rozpoczęciem należy zauważyć, że istnieją dwa sposoby wdrożenia przykładowego narzędzia do tworzenia etykiet do wystąpienia kontenera platformy Azure (ACI). Obie opcje służą do uruchamiania przykładowego narzędzia do etykietowania z ACI: 
+Przed rozpoczęciem należy zauważyć, że istnieją dwa sposoby wdrożenia przykładowego narzędzia do tworzenia etykiet do wystąpienia kontenera platformy Azure (ACI). Obie opcje służą do uruchamiania przykładowego narzędzia do etykietowania z ACI:
 
 * [Korzystanie z witryny Azure Portal](#azure-portal)
 * [Przy użyciu interfejsu wiersza polecenia platformy Azure](#azure-cli)
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal: 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/signin/index/).
-2. Wybierz pozycję **Utwórz zasób**. 
-3. Następnie wybierz pozycję **aplikacja sieci Web**. 
+2. Wybierz pozycję **Utwórz zasób**.
+3. Następnie wybierz pozycję **aplikacja sieci Web**.
 
    > [!div class="mx-imgBorder"]
-   > ![Wybierz aplikację sieci Web](./media/quickstarts/formre-create-web-app.png)
-   
-4. Najpierw upewnij się, że wybrana jest karta **podstawy** . Teraz musisz podać pewne informacje: 
+   > ![Wybierz aplikację sieci Web](./media/quickstarts/create-web-app.png)
+
+4. Najpierw upewnij się, że wybrana jest karta **podstawy** . Teraz musisz podać pewne informacje:
 
    > [!div class="mx-imgBorder"]
-   > ![Wybierz podstawowe elementy](./media/quickstarts/formre-select-basics.png)
+   > ![Wybierz podstawowe elementy](./media/quickstarts/select-basics.png)
    * Subskrypcja — wybierz istniejącą subskrypcję platformy Azure
    * Grupa zasobów — możesz ponownie użyć istniejącej grupy zasobów lub utworzyć nową dla tego projektu. Zaleca się utworzenie nowej grupy zasobów.
    * Nazwa — Nadaj aplikacji sieci Web nazwę. 
@@ -61,44 +61,46 @@ Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal
    * Plan systemu Linux — wybierz warstwę cenową/plan dla usługi App Service. 
 
    > [!div class="mx-imgBorder"]
-   > ![Konfigurowanie aplikacji sieci Web](./media/quickstarts/formre-select-docker-linux.png)
+   > ![Konfigurowanie aplikacji sieci Web](./media/quickstarts/select-docker.png)
 
-5. Następnie wybierz kartę **Docker** . 
+5. Następnie wybierz kartę **Docker** .
 
    > [!div class="mx-imgBorder"]
-   > ![Wybierz platformę Docker](./media/quickstarts/formre-select-docker.png)
+   > ![Wybierz platformę Docker](./media/quickstarts/select-docker.png)
 
 6. Teraz Skonfigurujmy kontener platformy Docker. Wszystkie pola są wymagane, o ile nie wskazano inaczej:
 
-    # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)  
-   * Opcje — zaznacz **pojedynczy kontener**
-   * Źródło obrazu — wybierz **Rejestr prywatny** 
-   * Adres URL serwera — Ustaw tę wartość na `https://mcr.microsoft.com`
-   * Nazwa użytkownika (opcjonalnie) — Utwórz nazwę użytkownika. 
-   * Hasło (opcjonalnie) — Utwórz bezpieczne hasło.
-   * Obraz i tag — Ustaw tę wartość na `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-   * Ciągłe wdrażanie — Ustaw tę wartość **na włączone** , jeśli chcesz otrzymywać aktualizacje automatyczne, gdy zespół programistyczny wprowadza zmiany w przykładowym narzędziu do etykietowania.
-   * Uruchamianie polecenia — Ustaw tę opcję na `./run.sh eula=accept`
+    # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+
+* Opcje — zaznacz **pojedynczy kontener**
+* Źródło obrazu — wybierz **Rejestr prywatny** 
+* Adres URL serwera — Ustaw tę wartość na `https://mcr.microsoft.com`
+* Nazwa użytkownika (opcjonalnie) — Utwórz nazwę użytkownika. 
+* Hasło (opcjonalnie) — Utwórz bezpieczne hasło.
+* Obraz i tag — Ustaw tę wartość na `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Ciągłe wdrażanie — Ustaw tę wartość **na włączone** , jeśli chcesz otrzymywać aktualizacje automatyczne, gdy zespół programistyczny wprowadza zmiany w przykładowym narzędziu do etykietowania.
+* Uruchamianie polecenia — Ustaw tę opcję na `./run.sh eula=accept`
 
     # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1) 
-   * Opcje — zaznacz **pojedynczy kontener**
-   * Źródło obrazu — wybierz **Rejestr prywatny** 
-   * Adres URL serwera — Ustaw tę wartość na `https://mcr.microsoft.com`
-   * Nazwa użytkownika (opcjonalnie) — Utwórz nazwę użytkownika. 
-   * Hasło (opcjonalnie) — Utwórz bezpieczne hasło.
-   * Obraz i tag — Ustaw tę wartość na `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
-   * Ciągłe wdrażanie — Ustaw tę wartość **na włączone** , jeśli chcesz otrzymywać aktualizacje automatyczne, gdy zespół programistyczny wprowadza zmiany w przykładowym narzędziu do etykietowania.
-   * Uruchamianie polecenia — Ustaw tę opcję na `./run.sh eula=accept`
-    
+
+* Opcje — zaznacz **pojedynczy kontener**
+* Źródło obrazu — wybierz **Rejestr prywatny** 
+* Adres URL serwera — Ustaw tę wartość na `https://mcr.microsoft.com`
+* Nazwa użytkownika (opcjonalnie) — Utwórz nazwę użytkownika. 
+* Hasło (opcjonalnie) — Utwórz bezpieczne hasło.
+* Obraz i tag — Ustaw tę wartość na `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
+* Ciągłe wdrażanie — Ustaw tę wartość **na włączone** , jeśli chcesz otrzymywać aktualizacje automatyczne, gdy zespół programistyczny wprowadza zmiany w przykładowym narzędziu do etykietowania.
+* Uruchamianie polecenia — Ustaw tę opcję na `./run.sh eula=accept`
+
     ---
 
    > [!div class="mx-imgBorder"]
-   > ![Skonfiguruj platformę Docker](./media/quickstarts/formre-configure-docker.png)
+   > ![Skonfiguruj platformę Docker](./media/quickstarts/configure-docker.png)
 
 7. To wszystko. Następnie wybierz kolejno pozycje **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby wdrożyć aplikację sieci Web. Po zakończeniu możesz uzyskać dostęp do aplikacji sieci Web przy użyciu adresu URL podanego w **omówieniu** dla zasobu.
 
 > [!NOTE]
-> Podczas tworzenia aplikacji sieci Web można również skonfigurować autoryzację/uwierzytelnianie. Nie jest to konieczne, aby rozpocząć pracę. 
+> Podczas tworzenia aplikacji sieci Web można również skonfigurować autoryzację/uwierzytelnianie. Nie jest to konieczne, aby rozpocząć pracę.
 
 > [!IMPORTANT]
 > Może być konieczne włączenie protokołu TLS dla aplikacji sieci Web w celu wyświetlenia jej w `https` adresie. Postępuj zgodnie z instrukcjami w temacie [Włączanie punktu końcowego protokołu TLS](../../container-instances/container-instances-container-group-ssl.md) w celu skonfigurowania kontenera przyczepki niż włączenie protokołu TLS/SSL dla aplikacji sieci Web.
@@ -114,10 +116,10 @@ Istnieje kilka rzeczy, które należy znać dla tego polecenia:
 * Należy określić lokalizację, w której chcesz utworzyć zasób. Zamień `<region name>` na żądany region aplikacji sieci Web. 
 * To polecenie automatycznie akceptuje Umowę EULA.
 
-W interfejsie wiersza polecenia platformy Azure Uruchom to polecenie, aby utworzyć zasób aplikacji sieci Web dla przykładowego narzędzia do etykietowania: 
+W interfejsie wiersza polecenia platformy Azure Uruchom to polecenie, aby utworzyć zasób aplikacji sieci Web dla przykładowego narzędzia do etykietowania:
 
+# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
-# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -131,8 +133,10 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-``` 
-# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
+`
+
+# [v2.1 preview](#tab/v2-1) 
+   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 

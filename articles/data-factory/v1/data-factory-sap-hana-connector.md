@@ -1,23 +1,18 @@
 ---
 title: Przenoszenie danych z SAP HANA przy użyciu Azure Data Factory
 description: Dowiedz się więcej na temat przenoszenia danych z SAP HANA przy użyciu Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c08aeca8e7aaa71e5a2a80cbdece762b989e28c2
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 9c192a5f84f36fbdea0dd1d280928aa40186d4ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510145"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386989"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Przenoszenie danych z SAP HANA przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -287,8 +282,8 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-LICZBA RZECZYWISTA | Pojedyncze
-DOUBLE | Pojedyncze
+LICZBA RZECZYWISTA | Pojedynczy
+DOUBLE | Pojedynczy
 DOKŁADNOŚCI | Liczba dziesiętna
 TYPU | Byte
 VARCHAR | Ciąg
@@ -296,10 +291,10 @@ NVARCHAR | Ciąg
 OBIEKTÓW CLOB | Byte []
 ALPHANUM | Ciąg
 TWORZENIA | Byte []
-DATE | Data/godzina
+DATE | DateTime
 TIME | przedział_czasu
-ZNACZNIK czasu | Data/godzina
-SECONDDATE | Data/godzina
+TIMESTAMP | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 Podczas kopiowania danych z SAP HANA istnieje kilka znanych ograniczeń:

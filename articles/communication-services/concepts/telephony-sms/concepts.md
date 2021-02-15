@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 35398d60008ac52ba16dca0a0201f8c2f2101a0f
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 6f03195c801f241a79a6bf68ef9d398370b0d4c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758561"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391817"
 ---
 # <a name="sms-concepts"></a>Pojęcia dotyczące wiadomości SMS
 
@@ -45,4 +45,4 @@ Następujące dokumenty mogą być interesujące:
 
 - Zapoznaj się z [biblioteką klienta programu SMS](../telephony-sms/sdk-features.md)
 - Uzyskaj [numer telefonu](../../quickstarts/telephony-sms/get-phone-number.md) z obsługą wiadomości SMS
-- [Planowanie rozwiązania programu SMS](../telephony-sms/plan-solution.md)
+- [Typy numerów telefonów w usłudze Azure Communications Services](../telephony-sms/plan-solution.md)

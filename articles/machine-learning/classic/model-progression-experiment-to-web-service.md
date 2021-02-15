@@ -3,33 +3,33 @@ title: 'ML Studio (klasyczny): jak model jest usługą sieci Web — Azure'
 description: Przegląd Mechanics, jak model Azure Machine Learning Studio (klasyczny) postępuje z eksperymentu deweloperskiego z usługą sieci Web.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c92f8c74da76b2ac938892e27f3d6be9c70c3238
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4e0f5786047977a319825aae9f3c7b89c0aa118b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95507256"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518627"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Jak model Machine Learning Studio (klasyczny) postępuje z eksperymentu z usługą sieci Web
 
 **dotyczy:** ![ Jest to znacznik wyboru, co oznacza, że ten artykuł ma zastosowanie do Machine Learning Studio (klasyczne). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ to jest X, co oznacza, że ten artykuł ma zastosowanie do Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
-Azure Machine Learning Studio (klasyczny) zapewnia interaktywną kanwę, która umożliwia tworzenie, uruchamianie, testowanie i Iterowanie **_eksperymentu_*, który reprezentuje model analizy predykcyjnej. Dostępne są szeroką gamę modułów, które mogą:
+Azure Machine Learning Studio (klasyczny) zapewnia interaktywną kanwę, która umożliwia tworzenie, uruchamianie, testowanie i Iterowanie ***eksperymentu*** reprezentującego model analizy predykcyjnej. Dostępne są szeroką gamę modułów, które mogą:
 
-_ Dane wejściowe do eksperymentu
+* Wprowadzanie danych do eksperymentu
 * Manipulowanie danymi
 * Uczenie modelu przy użyciu algorytmów uczenia maszynowego
 * Ocenianie modelu
 * Ocena wyników
 * Końcowe wartości wyjściowe
 
-Po zakończeniu eksperymentu możesz wdrożyć go jako ***klasyczną Azure Machine Learning sieci Web** _ lub _*_nową usługę sieci Web Azure Machine Learning_*_ , dzięki czemu użytkownicy będą mogli wysyłać nowe dane i odbierać wyniki.
+Po zakończeniu eksperymentu możesz wdrożyć go jako ***klasyczną Azure Machine Learning sieci Web** _ lub _ *_Nowa Azure Machine Learning usługa sieci Web_**, aby użytkownicy mogli wysyłać nowe dane i odbierać wyniki.
 
 W tym artykule przedstawiono omówienie Mechanics, jak model Machine Learning postępuje od eksperymentu programistycznego do działającej usługi sieci Web.
 
@@ -38,7 +38,7 @@ W tym artykule przedstawiono omówienie Mechanics, jak model Machine Learning po
 >
 >
 
-Mimo że Azure Machine Learning Studio (klasyczny) jest zaprojektowana w celu ułatwienia projektowania i wdrażania modelu analizy _predictive *, można użyć programu Studio (klasycznego) do opracowania eksperymentu, który nie zawiera modelu analizy predykcyjnej. Na przykład eksperyment może po prostu wprowadzać dane, manipulować nim, a następnie wyprowadzać wyniki. Podobnie jak w przypadku eksperymentu analizy predykcyjnej, możesz wdrożyć ten eksperyment niepredykcyjny jako usługę sieci Web, ale jest to prostsze proces, ponieważ eksperyment nie jest szkoleniowy ani nie ocenia modelu uczenia maszynowego. Chociaż nie jest to typowy sposób użycia programu Studio (klasyczny), zostanie on uwzględniony w dyskusji, dzięki czemu możemy przekazać nam pełny opis sposobu działania programu Studio (klasycznego).
+Mimo że Azure Machine Learning Studio (klasyczny) jest zaprojektowana w celu ułatwienia projektowania i wdrażania *modelu analizy predykcyjnej*, można użyć programu Studio (klasycznego) do opracowania eksperymentu, który nie zawiera modelu analizy predykcyjnej. Na przykład eksperyment może po prostu wprowadzać dane, manipulować nim, a następnie wyprowadzać wyniki. Podobnie jak w przypadku eksperymentu analizy predykcyjnej, możesz wdrożyć ten eksperyment niepredykcyjny jako usługę sieci Web, ale jest to prostsze proces, ponieważ eksperyment nie jest szkoleniowy ani nie ocenia modelu uczenia maszynowego. Chociaż nie jest to typowy sposób użycia programu Studio (klasyczny), zostanie on uwzględniony w dyskusji, dzięki czemu możemy przekazać nam pełny opis sposobu działania programu Studio (klasycznego).
 
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Opracowywanie i wdrażanie usługi sieci Web predykcyjnej
 Poniżej przedstawiono etapy, które zwykle są używane podczas opracowywania i wdrażania przy użyciu Machine Learning Studio (klasyczne):
@@ -48,14 +48,14 @@ Poniżej przedstawiono etapy, które zwykle są używane podczas opracowywania i
 *Rysunek 1 — etapy typowego modelu analizy predykcyjnej*
 
 ### <a name="the-training-experiment"></a>Eksperyment szkoleniowy
-***Eksperyment szkoleniowy** _ to początkowa faza tworzenia usługi sieci Web w Machine Learning Studio (klasyczny). Celem eksperymentu szkoleniowego jest stworzenie miejsca do opracowania, testowania, iteracji i ostatecznie uczenia modelu uczenia maszynowego. Możesz nawet przeszkolić wiele modeli jednocześnie, gdy szukasz najlepszego rozwiązania, ale po zakończeniu eksperymentowania wybierzesz jeden szkolony model i usuniesz resztę z eksperymentu. Aby zapoznać się z przykładem opracowywania eksperymentu analizy predykcyjnej, zobacz [opracowywanie rozwiązania do analizy predykcyjnej w celu oceny ryzyka kredytowego w Azure Machine Learning Studio (klasyczny)](tutorial-part1-credit-risk.md).
+***Eksperyment szkoleniowy*** to początkowa faza tworzenia usługi sieci Web w Machine Learning Studio (klasyczny). Celem eksperymentu szkoleniowego jest stworzenie miejsca do opracowania, testowania, iteracji i ostatecznie uczenia modelu uczenia maszynowego. Możesz nawet przeszkolić wiele modeli jednocześnie, gdy szukasz najlepszego rozwiązania, ale po zakończeniu eksperymentowania wybierzesz jeden szkolony model i usuniesz resztę z eksperymentu. Aby zapoznać się z przykładem opracowywania eksperymentu analizy predykcyjnej, zobacz [opracowywanie rozwiązania do analizy predykcyjnej w celu oceny ryzyka kredytowego w Azure Machine Learning Studio (klasyczny)](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>Eksperyment predykcyjny
-Po umieszczeniu nauczonego modelu w doświadczeniu szkoleniowym kliknij pozycję _*Skonfiguruj usługę sieci Web** i wybierz opcję **predykcyjna usługa internetowa** w Machine Learning Studio (klasyczny), aby zainicjować proces konwersji eksperymentu szkoleniowego na **_eksperyment predykcyjny_*_. Celem eksperymentu predykcyjnego jest użycie przeszkolonego modelu do oceny nowych danych, a celem ostatecznie staje się to usługa sieci Web platformy Azure.
+Gdy w doświadczeniu szkoleniowym masz model szkolony, kliknij pozycję **Skonfiguruj usługę sieci Web** i wybierz opcję **predykcyjna usługa internetowa** w Machine Learning Studio (klasyczny), aby zainicjować proces konwertowania eksperymentu szkoleniowego na **_eksperyment predykcyjny_**. Celem eksperymentu predykcyjnego jest użycie przeszkolonego modelu do oceny nowych danych, a celem ostatecznie staje się to usługa sieci Web platformy Azure.
 
 Ta konwersja jest wykonywana przez następujące kroki:
 
-_ Konwertuj zestaw modułów używanych do uczenia się w pojedynczym module i Zapisz go jako przeszkolony model
+* Przekonwertuj zestaw modułów używanych do szkolenia w jeden moduł i Zapisz go jako przeszkolony model
 * Eliminowanie wszelkich obcych modułów niezwiązanych z ocenianiem
 * Dodawanie portów wejściowych i wyjściowych, które będą używane przez usługę sieci Web
 
@@ -97,7 +97,7 @@ Oto przykład: Załóżmy, że eksperyment predykcyjny zwraca cały wiersz danyc
 
 Jeśli chcesz zachować model uczenia maszynowego, ale chcesz go ponownie przeszkolić przy użyciu nowych danych, będziesz mieć dwie możliwości:
 
-1. **Przeszkol model w trakcie działania usługi sieci Web** — Jeśli chcesz ponownie przeprowadzić uczenie modelu w trakcie działania usługi sieci Web predykcyjnej, możesz to zrobić, wprowadzając kilka modyfikacji eksperymentu szkoleniowego, aby przeprowadzić eksperyment szkoleniowy **_retraining experiment_*_, a następnie wdrożyć go jako _* usługę _sieci Web_**. Aby uzyskać instrukcje, jak to zrobić, zobacz temat ponowne [uczenie Machine Learning modeli](./retrain-machine-learning-model.md).
+1. **Przeszkol model w trakcie działania usługi sieci Web** — Jeśli chcesz ponownie przeprowadzić uczenie modelu w trakcie działania usługi sieci Web predykcyjnej, możesz to zrobić, wprowadzając kilka modyfikacji eksperymentu szkoleniowego, aby przeprowadzić eksperyment szkoleniowy ***_, a następnie wdrożyć go jako _* usługę _sieci Web_**. Aby uzyskać instrukcje, jak to zrobić, zobacz temat ponowne [uczenie Machine Learning modeli](./retrain-machine-learning-model.md).
 2. Wróć **do oryginalnego eksperymentu szkoleniowego i Użyj różnych danych szkoleniowych do opracowania modelu** — eksperyment predykcyjny jest połączony z usługą sieci Web, ale eksperyment szkoleniowy nie jest bezpośrednio połączony w ten sposób. Jeśli zmodyfikujesz oryginalny eksperyment szkoleniowy i klikniesz pozycję **Konfiguruj usługę sieci Web**, zostanie utworzony *Nowy*     eksperyment predykcyjny, który po wdrożeniu spowoduje utworzenie *nowej* usługi sieci Web. Nie tylko aktualizuje oryginalną usługę sieci Web.
 
    Jeśli musisz zmodyfikować eksperyment szkoleniowy, otwórz go, a następnie kliknij pozycję **Zapisz jako** , aby utworzyć kopię. Spowoduje to pozostawienie oryginalnego eksperymentu szkoleniowego, eksperymentu predykcyjnego i usługi sieci Web. Teraz można utworzyć nową usługę sieci Web ze zmianami. Po wdrożeniu nowej usługi sieci Web możesz zdecydować, czy zatrzymać poprzednią usługę sieci Web, czy będzie ona działać obok nowej.
