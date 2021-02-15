@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e9904e9157a560e2a4853a1a9cd37977defe73ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9367cf4324d577e4dd44cb9294a8b82b1bceaf74
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937389"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522958"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Przewodnik rozwiązywania problemów z agentem zabezpieczeń (Linux)
 
@@ -97,21 +97,15 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 | Konfiguracja lokalna | Niemożliwa analiza konfiguracji | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, który klucz nie może zostać przeanalizowany. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie znajduje się w oczekiwanym typie lub wartość znajduje się poza zakresem. | Popraw wartość klucza w/var/LocalConfiguration.jsw pliku, aby był zgodny ze schematem LocalConfiguration, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) , aby uzyskać szczegółowe informacje. |  Popraw wartość klucza w pliku General.config, aby był zgodny ze schematem, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) , aby uzyskać szczegółowe informacje.|
 | Konfiguracja lokalna | Format pliku | Nie można przeanalizować pliku konfiguracji. | Plik konfiguracji jest uszkodzony, pobierz agenta i zainstaluj go ponownie. | |
 | Konfiguracja zdalna | Limit czasu | Agent nie może pobrać sznurka modułu azureiotsecurity w określonym limicie czasu. | Upewnij się, że konfiguracja uwierzytelniania jest poprawna, i spróbuj ponownie. | Agent nie może pobrać sznurka modułu azureiotsecurity w ramach limitu czasu. | Upewnij się, że konfiguracja uwierzytelniania jest poprawna, i spróbuj ponownie. |
-| Uwierzytelnianie | Plik nie istnieje | Plik w danej ścieżce nie istnieje. | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do **LocalConfiguration.jsw** pliku i Zmień konfigurację **ścieżki** . | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do pliku **Authentication.config** i Zmień konfigurację **ścieżki** .|
-| Uwierzytelnianie | Uprawnienie do pliku | Agent nie ma wystarczających uprawnień, aby otworzyć plik. | Nadaj użytkownikowi **asciotagent** uprawnienia do odczytu pliku w danej ścieżce. | Upewnij się, że plik jest dostępny. |
-| Uwierzytelnianie | Format pliku | Dany plik ma nieprawidłowy format. | Upewnij się, że plik jest w poprawnym formacie. Obsługiwane typy plików to PFX i PEM. | Upewnij się, że plik jest prawidłowym plikiem certyfikatu. |
-| Uwierzytelnianie | Brak autoryzacji | Agent nie może uwierzytelnić się w odniesieniu do IoT Hub z podanym poświadczeniami. | Sprawdź poprawność konfiguracji uwierzytelniania w pliku LocalConfiguration, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, i sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością. | Sprawdź poprawność konfiguracji uwierzytelniania w Authentication.config, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, a następnie sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością.
-| Uwierzytelnianie | Nie znaleziono | Znaleziono urządzenie/moduł. | Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. |  Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. |
-| Uwierzytelnianie | Brakująca konfiguracja | Brak konfiguracji w pliku *Authentication.config* . Komunikat o błędzie powinien określać, który klucz nie istnieje. | Dodaj brakujący klucz do *LocalConfiguration.js* pliku.| Dodaj brakujący klucz do pliku *Authentication.config* , aby uzyskać szczegółowe informacje, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) . |
-| Uwierzytelnianie | Niemożliwa analiza konfiguracji | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, który klucz nie może zostać przeanalizowany. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie jest oczekiwanego typu lub wartość znajduje się poza zakresem. |Popraw wartość klucza w **LocalConfiguration.js** pliku. |Popraw wartość klucza w pliku **Authentication.config** , aby dopasować schemat, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) , aby uzyskać szczegółowe informacje.|
+| Authentication | Plik nie istnieje | Plik w danej ścieżce nie istnieje. | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do **LocalConfiguration.jsw** pliku i Zmień konfigurację **ścieżki** . | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do pliku **Authentication.config** i Zmień konfigurację **ścieżki** .|
+| Authentication | Uprawnienie do pliku | Agent nie ma wystarczających uprawnień, aby otworzyć plik. | Nadaj użytkownikowi **asciotagent** uprawnienia do odczytu pliku w danej ścieżce. | Upewnij się, że plik jest dostępny. |
+| Authentication | Format pliku | Dany plik ma nieprawidłowy format. | Upewnij się, że plik jest w poprawnym formacie. Obsługiwane typy plików to PFX i PEM. | Upewnij się, że plik jest prawidłowym plikiem certyfikatu. |
+| Authentication | Brak autoryzacji | Agent nie może uwierzytelnić się w odniesieniu do IoT Hub z podanym poświadczeniami. | Sprawdź poprawność konfiguracji uwierzytelniania w pliku LocalConfiguration, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, i sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością. | Sprawdź poprawność konfiguracji uwierzytelniania w Authentication.config, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, a następnie sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością.
+| Authentication | Nie znaleziono | Znaleziono urządzenie/moduł. | Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. |  Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. |
+| Authentication | Brakująca konfiguracja | Brak konfiguracji w pliku *Authentication.config* . Komunikat o błędzie powinien określać, który klucz nie istnieje. | Dodaj brakujący klucz do *LocalConfiguration.js* pliku.| Dodaj brakujący klucz do pliku *Authentication.config* , aby uzyskać szczegółowe informacje, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) . |
+| Authentication | Niemożliwa analiza konfiguracji | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, który klucz nie może zostać przeanalizowany. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie jest oczekiwanego typu lub wartość znajduje się poza zakresem. |Popraw wartość klucza w **LocalConfiguration.js** pliku. |Popraw wartość klucza w pliku **Authentication.config** , aby dopasować schemat, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) , aby uzyskać szczegółowe informacje.|
 |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [omówieniem](overview.md) usługi Defender for IoT
-- Dowiedz się więcej o [architekturze](architecture.md) usługi Defender for IoT
-- Włączanie [usługi](quickstart-onboard-iot-hub.md) Defender for IoT
-- Przeczytaj [często zadawane pytania](resources-frequently-asked-questions.md) dotyczące usługi Defender for IoT
-- Dowiedz się, jak uzyskać dostęp do [danych pierwotnych zabezpieczeń](how-to-security-data-access.md)
-- Omówienie [zaleceń](concept-recommendations.md)
-- Informacje o [alertach](concept-security-alerts.md) zabezpieczeń
+Zapoznaj się z tematem [Omówienie](overview.md) usługi Defender for IoT. więcej informacji [](concept-security-alerts.md) na temat [architektury](architecture.md) usługi Defender for IoT można znaleźć w [usłudze](quickstart-onboard-iot-hub.md) Defender for IoT. Zapoznaj się z tematem [](concept-recommendations.md) informacje o tym, jak uzyskać dostęp do [danych pierwotnych zabezpieczeń](how-to-security-data-access.md) [](resources-frequently-asked-questions.md)

@@ -210,6 +210,8 @@
                       href: connect-zscaler.md
                 - name: KROK 3. Weryfikowanie łączności
                   href: connect-cef-verify.md
+        - name: Tworzenie łączników niestandardowych
+          href: create-custom-connector.md
         - name: Łączenie z funkcjami analizy zagrożeń
           href: connect-threat-intelligence.md
         - name: Łączenie maszyn wirtualnych usługi Azure Stack
@@ -255,8 +257,6 @@
           href: hunting-with-rest-api.md
         - name: Zarządzanie watchlists za pomocą interfejsu REST API
           href: watchlist-with-rest-api.md
-    - name: Odwołanie do danych Azure Monitor
-      href: /azure/azure-monitor/reference/
     - name: Łącznik usługi Logic Apps dla usługi Azure Sentinel
       href: /connectors/azuresentinel/
     - name: Schemat normalizacji sieci
@@ -275,8 +275,6 @@
   items:
     - name: Przydatne zasoby
       href: resources.md
-    - name: Harmonogram działania dla platformy Azure
-      href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Blog dotyczący zabezpieczeń, ochrony prywatności i zgodności na platformie Azure'
       href: /archive/blogs/azuresecurity/
     - name: Dostępność regionalna

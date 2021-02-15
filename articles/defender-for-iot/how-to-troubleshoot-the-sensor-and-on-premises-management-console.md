@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955437"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523723"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Rozwiązywanie problemów z czujnikiem i lokalną konsolą zarządzania
 
@@ -283,7 +283,7 @@ Wyeksportowane dzienniki zostaną dodane do listy **zarchiwizowane dzienniki** .
 
 Lista zarchiwizowanych dzienników może zawierać maksymalnie pięć elementów. Jeśli liczba elementów na liście wykracza poza tę liczbę, najwcześniejszy element zostanie usunięty.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
 - [Wyświetlanie alertów](how-to-view-alerts.md)
 

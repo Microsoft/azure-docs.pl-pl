@@ -108,7 +108,7 @@
     - name: Format testowania wsadowego
       href: reference-tsv-format-batch-testing.md
     - name: Szyfrowanie
-      href: qna-maker-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
     - name: Dokumentacja interfejsu API REST
       items:
         - name: QnA Maker 4.0

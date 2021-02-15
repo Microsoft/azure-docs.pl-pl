@@ -4,12 +4,12 @@ description: Dowiedz się więcej o partnerach Azure Monitor i sposobach ich int
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bfec05935b4cbe5c3c4495f7c261bd34bc0a0032
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500244"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522171"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integracje partnerów w usłudze Azure Monitor
 
@@ -161,7 +161,7 @@ LogRhythm, lider w NextGen firewall SIEM, umożliwia organizacjom z sześciu kon
 
 **Mostka operacji** mikrofokusu automatycznie monitoruje wszystkie hybrydowe zasoby IT — dowolne urządzenie, system operacyjny, baza danych, aplikacja lub usługa, niezależnie od tego, gdzie działa, i stosuje AIOps do wszystkich typów danych — zdarzeń, metryk, dzienników i zależności. Zapewnia ona unikatową kombinację monitorowania jakości usług, w połączeniu z kompleksową analizą kondycji aplikacji i oferuje kompleksowe monitorowanie wydajności i dostępności usług Microsoft Azure. Program Operations Bridge umożliwia klientom dostarczanie pojedynczego okienka ze szkła, dostępnego na dowolnym urządzeniu z przeglądarką, zarówno w celu zrozumienia firmy, jak i udziałowców IT.
 
-Dowiedz się więcej
+Więcej tutaj
 - [Przegląd zestawu OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Pobieranie](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope to składnik pakietu Operations Bridge Suite.
@@ -274,6 +274,24 @@ SignalFx jest liderem analizy operacyjnej w czasie rzeczywistym dla DevOps opart
 APLIKACJI SIGNL4 — aplikacja do obsługi alertów mobilnych dla zespołów Operations — jest najszybszym sposobem na kierowanie alertów krytycznych od Azure Monitor do odpowiednich osób w odpowiednim czasie — w dowolnym miejscu przez wywołania wypychania, tekstu i komunikacji głosowej. APLIKACJI SIGNL4 zarządza cłami na rozmowy i zmianami zespołu, śledzi dostarczenie i własność alertów i eskalacji w razie potrzeby. Podano pełną przejrzystość w zespole. Korzystając z funkcji łatwego w obsłudze sieci Web aplikacji SIGNL4, dowolna usługa systemu Azure może być połączona bez wysiłku. Dzięki usłudze aplikacji SIGNL4 zobaczysz do 10X szybszej reakcji przy użyciu powiadomień e-mail i alertów ręcznych.
 
 [Dokumentacja aplikacji SIGNL4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
+
+## <a name="site24x7"></a>Site24x7
+
+![Logo Site24x7](./media/partners/site24-7.png)
+
+Usługa Site24x7 zapewnia zaawansowane i kompletne rozwiązanie do monitorowania platformy Azure, zapewniając widoczność i wgląd w aplikacje, dzięki czemu właściciele aplikacji mogą szybko wykrywać wąskie gardła wydajności, zautomatyzować Rozwiązywanie błędów i zoptymalizować ich wydajność.
+Dzięki usłudze Site24x7 Azure można:
+
+* Monitoruj ponad 100 usług Azure IaaS i PaaS.
+* Uzyskaj szczegółowe monitorowanie maszyn wirtualnych z systemami Windows i Linux z wyłącznymi rozszerzeniami platformy Azure, bezpośrednio z witryny Azure Marketplace.
+* Rozwiązywanie problemów z aplikacjami za pomocą wglądu w dzienniki z platformy Azure. Wysyłanie dzienników do Site24x7, zapisywanie zapytań wyszukiwania, Ustawianie alertów opartych na zapytaniach i zarządzanie dziennikami platformy Azure za pomocą jednego pulpitu nawigacyjnego.
+* Wykrywaj wszelkie problemy z kondycją usługi i zapewnij niezawodne wdrożenia za pośrednictwem kontroli kondycji usługi Azure Deployment Manager (ADM).
+* Automatyzowanie rozwiązywania błędów za pomocą zestawu narzędzi automatyzacji IT.
+* Monitoruj swoje kompletne ecospherey programu Microsoft, w tym SQL, Exchange, Active Directory, Office 365, IIS i funkcji Hyper-V.
+* Bezproblemowo Integruj z usługami innych firm, takimi jak Microsoft Teams, usługi PagerDuty, zapier i inne.
+
+[Dokumentacja 24X7 witryny](https://www.site24x7.com/)
+
 
 ## <a name="solarwinds"></a>SolarWinds
 

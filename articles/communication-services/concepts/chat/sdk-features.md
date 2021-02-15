@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: dcd8222b46262f6ec70459ec670789ae4a433c1d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 93f90520f9a5f6ec424a7558418abfa4de4699ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625268"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364838"
 ---
 # <a name="chat-client-library-overview"></a>Omówienie biblioteki klienta czatu
 
@@ -44,7 +44,7 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 |                   | Wysyłać i odbierać powiadomienia o wpisywaniu, gdy członek aktywnie pisze komunikat w wątku rozmowy <br/> *Niedostępne, gdy w wątku rozmowy znajduje się więcej niż 20 elementów członkowskich*      | ✔️   | ✔️   | ✔️    | ✔️    |
 |                   | Pobierz wszystkie komunikaty w wątku rozmowy <br/> *Obsługiwane znaki emoji Unicode*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | Wyślij emojis jako część zawartości komunikatu                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|Sygnalizowanie w czasie rzeczywistym (włączone przez zastrzeżony pakiet sygnałów)| Otrzymuj powiadomienia, gdy użytkownik odbierze nową wiadomość w wątku rozmowy, do której należy.                                     | ✔️   | ❌    | ❌  | ❌  |
+|Sygnalizowanie w czasie rzeczywistym (włączone przez zastrzeżony pakiet sygnałów * *)| Otrzymuj powiadomienia, gdy użytkownik odbierze nową wiadomość w wątku rozmowy, do której należy.                                     | ✔️   | ❌    | ❌  | ❌  |
 |                    | Otrzymuj powiadomienia, gdy komunikat był edytowany przez innego członka w wątku rozmowy, do którego należy                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Otrzymuj powiadomienia, gdy wiadomość została usunięta przez innego członka w wątku rozmowy, do której należy.                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Otrzymuj powiadomienia, gdy zostanie wpisany inny element członkowski wątku rozmowy                                                             | ✔️   | ❌    | ❌    | ❌  |
@@ -53,6 +53,8 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 | Monitorowanie        | Monitoruj użycie w odniesieniu do wysłanych komunikatów                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitorowanie jakości i stanu żądań interfejsu API wykonywanych przez aplikację oraz Konfigurowanie alertów za pośrednictwem portalu                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Dodatkowe funkcje | Użyj [interfejsy API usług Cognitive Services](../../../cognitive-services/index.yml) wraz z biblioteką klienta programu chat, aby włączyć funkcję inteligentnego *tłumaczenia języka & tonacji analizę komunikatu przychodzącego na kliencie, konwersji zamiany mowy na tekst w celu redagowania wiadomości w czasie, gdy członek mówi, itd.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+
+* * Zastrzeżony pakiet sygnalizowania jest implementowany przy użyciu gniazd sieci Web. Nastąpi powrót do długiego sondowania, jeśli gniazda sieci Web nie są obsługiwane.
 
 ## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Obsługa biblioteki klienta rozmowy w języku JavaScript według systemu operacyjnego i przeglądarki
 

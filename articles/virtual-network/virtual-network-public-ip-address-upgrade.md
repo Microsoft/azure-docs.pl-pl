@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493723"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522890"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Uaktualnianie publicznych adresów IP
 
@@ -36,7 +36,7 @@ W tym artykule opisano następujące scenariusze:
 Aby można było uaktualnić publiczny adres IP, nie może być skojarzony z żadnym zasobem (zobacz [Tę stronę](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) , aby uzyskać więcej informacji na temat usuwania skojarzenia publicznych adresów IP).
 
 >[!IMPORTANT]
->Publiczne adresy IP uaktualnione z podstawowej do standardowej jednostki SKU nadal nie mają [stref dostępności](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Oznacza to, że nie mogą być skojarzone z zasobem platformy Azure, który jest strefowo nadmiarowy lub powiązany ze wstępnie określoną strefą w regionach, w których jest oferowana.
+>Publiczne adresy IP uaktualnione z podstawowej do standardowej jednostki SKU nadal nie mają gwarantowanych [stref dostępności](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Przed wybraniem zasobów, z którymi należy skojarzyć adres IP, należy się upewnić, że jest to konieczne.
 
 ---
 # <a name="basic-to-standard---powershell"></a>[**Basic do Standard — PowerShell**](#tab/option-upgrade-powershell)

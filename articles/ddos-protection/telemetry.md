@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: b34fcd66f0b64e2522da69bcfc7d119628b9d9d9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0a8c30076231aecb17505dd0d7a2fe4e7be485a3
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516706"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522669"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS
 
@@ -70,7 +70,7 @@ Następujące [metryki](../azure-monitor/platform/metrics-supported.md#microsoft
 
 ## <a name="view-ddos-protection-telemetry"></a>Wyświetlanie telemetrii ochrony DDoS
 
-Dane telemetryczne dla ataku są udostępniane za pośrednictwem Azure Monitor w czasie rzeczywistym. Dane telemetryczne są dostępne tylko dla czasu, w którym publiczny adres IP jest objęty ograniczeniem. Nie widzisz danych telemetrycznych przed usunięciem ataku lub po nim.
+Dane telemetryczne dla ataku są udostępniane za pośrednictwem Azure Monitor w czasie rzeczywistym. Dane telemetryczne są dostępne tylko wtedy, gdy publiczny adres IP został objęty ograniczeniem. 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do planu DDoS Protection.
 2. W obszarze **Monitorowanie** wybierz pozycję **Metryki**.

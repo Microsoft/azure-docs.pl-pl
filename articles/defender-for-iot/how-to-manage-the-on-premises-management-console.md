@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 80dbad919e9446100bdeebb7cde71c147abfc8bc
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539346"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523944"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Zarządzanie lokalną konsolą zarządzania
 
@@ -388,7 +388,7 @@ Aby zresetować hasło:
 1. Przejdź do strony usługi Defender dla **witryn i czujników** , a następnie wybierz kartę **Odzyskaj hasło** .
 1. Wprowadź unikatowy identyfikator i wybierz pozycję **Odzyskaj**. Plik aktywacji zostanie pobrany.
 1. Przejdź do strony **Odzyskiwanie hasła** i Przekaż plik aktywacji.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
  
    Otrzymasz teraz nazwę użytkownika i nowe hasło generowane przez system.
 
@@ -415,7 +415,7 @@ Poniższa procedura zawiera opis sposobu aktualizowania wersji oprogramowania lo
 
 1. Wybierz plik pobrany ze strony **aktualizacje** usługi Defender for IoT.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Następne kroki
 
 [Zarządzanie czujnikami z poziomu konsoli zarządzania](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

@@ -1,22 +1,18 @@
 ---
 title: Środowiska obliczeniowe obsługiwane przez Azure Data Factory wersji 1
 description: Informacje o środowiskach obliczeniowych, których można użyć w potokach Azure Data Factory (takich jak usługa Azure HDInsight) do przekształcania lub przetwarzania danych.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9f970b66bd30ef2faf705d2fb41825bb81bbb8c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 07e13036a427ff7ff4f0cbbd2dfd6fbe272bf915
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496096"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377197"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory wersji 1
 > [!NOTE]
@@ -29,7 +25,7 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | Środowisko obliczeniowe                      | Działania                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [Klaster usługi Azure HDInsight na żądanie](#azure-hdinsight-on-demand-linked-service) lub [własny klaster HDInsight](#azure-hdinsight-linked-service) | [Dotnet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [świnie](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), usługa [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Usługa Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
+| [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning Studio (klasyczny)](#azure-machine-learning-studio-classic-linked-service) | [Działania programu Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Działania procedur składowanych](data-factory-stored-proc-activity.md) |
@@ -229,7 +225,7 @@ Istnieje możliwość zarejestrowania istniejącego środowiska obliczeniowego j
 Ten typ konfiguracji jest obsługiwany dla następujących środowisk obliczeniowych:
 
 * Azure HDInsight
-* Usługa Azure Batch
+* Azure Batch
 * Azure Machine Learning Studio (klasyczny)
 * Azure Data Lake Analytics
 * Azure SQL Database, usługa Azure Synapse Analytics, SQL Server
@@ -289,13 +285,13 @@ Jeśli dopiero zaczynasz korzystać z usługi Batch:
 }
 ```
 
-Dla właściwości **AccountName** Dołącz wartość **. \<region name\>** Nazwa konta w usłudze Batch. Przykład:
+Dla właściwości **AccountName** Dołącz wartość **. \<region name\>** Nazwa konta w usłudze Batch. Na przykład:
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-Innym rozwiązaniem jest dostarczenie punktu końcowego **batchUri** . Przykład:
+Innym rozwiązaniem jest dostarczenie punktu końcowego **batchUri** . Na przykład:
 
 ```json
 "accountName": "adfteam",

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 14d7a0de1cd29b8c07f90c759a4d423d7186fdb9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 64e81e246ec62c8995d0e31629b4f21a2c1096b0
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841727"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522550"
 ---
 # <a name="accelerate-alert-workflows"></a>Przyspiesz przepływy pracy alertów
 
@@ -70,11 +70,11 @@ Odpowiednia grupa alertów pojawia się w rozwiązaniach danych wyjściowych par
 
 W obszarze obsługiwane rozwiązania partnerskie zostanie wyświetlona Grupa alertów z następującymi prefiksami:
 
-  - **kot** for QRadar, ArcSight, dziennik systemowy CEF, dziennik SYSTEMowy LEEF
+- **kot** for QRadar, ArcSight, dziennik systemowy CEF, dziennik SYSTEMowy LEEF
 
-  - **Grupa alertów** dla komunikatów tekstowych dziennika systemowego
+- **Grupa alertów** dla komunikatów tekstowych dziennika systemowego
 
-  - **alert_group** dla obiektów dziennika systemowego
+- **alert_group** dla obiektów dziennika systemowego
 
 Te pola należy skonfigurować w rozwiązaniu partnerskim, aby wyświetlić nazwę grupy alertów. Jeśli nie ma alertu skojarzonego z grupą alertów, w polu w rozwiązaniu partnerskim będzie wyświetlana wartość **na**.
 
@@ -92,11 +92,29 @@ Automatycznie definiowane są następujące grupy alertów:
 | Błędy poleceń | Problemy operacyjne |  |
 | Zmiany konfiguracji | Użytkow |  |
 
-Grupy alertów są wstępnie zdefiniowane. Aby uzyskać szczegółowe informacje o alertach skojarzonych z grupami alertów oraz o tworzeniu niestandardowych grup alertów, skontaktuj się z [Pomoc techniczna firmy Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+Grupy alertów są wstępnie zdefiniowane. Aby uzyskać szczegółowe informacje o alertach skojarzonych z grupami alertów oraz o tworzeniu niestandardowych grup alertów, skontaktuj się z [Pomoc techniczna firmy Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## <a name="customize-alert-rules"></a>Dostosuj reguły alertów
 
-Możesz dodawać niestandardowe reguły alertów na podstawie informacji wykrywanych przez poszczególne czujniki. Na przykład Zdefiniuj regułę, która powoduje, że czujnik wyzwala alert w oparciu o źródłowy adres IP, docelowy adres IP lub polecenie (w ramach protokołu). Gdy czujnik wykryje ruch zdefiniowany w regule, generowany jest alert lub zdarzenie.
+Użyj niestandardowych reguł alertów, aby dokładniej ustalić działania interesujące dla użytkownika. 
+
+Możesz dodać niestandardowe reguły alertów w oparciu o:
+
+- Kategoria, na przykład protokół, port lub plik.
+- Adresy źródłowe i docelowe
+- Warunek oparty na wybranej kategorii, na przykład funkcja skojarzona z protokołem, nazwą pliku, portem lub numerem transportu.
+- Warunek oparty na odwołaniu daty i godziny, na przykład w przypadku wykrycia określonego dnia lub określonej części dnia.
+
+Jeśli czujnik wykrywa działanie opisane w regule, jest wysyłany alert.
+informacje wykrywane przez poszczególne czujniki. Na przykład Zdefiniuj regułę, która powoduje, że czujnik wyzwala alert w oparciu o źródłowy adres IP, docelowy adres IP lub polecenie (w ramach protokołu). Gdy czujnik wykryje ruch zdefiniowany w regule, generowany jest alert lub zdarzenie.
+
+Możesz również użyć akcji reguły alertu, aby wyszkolić usługę Defender for IoT:
+
+- Zezwól użytkownikom na dostęp do pliku PCAP z poziomu alertu.
+- Przypisywanie ważności alertu.
+- Generuj zdarzenie zamiast alertu. Wykryte informacje pojawią się na osi czasu zdarzeń.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Zrzut ekranu, który pokazuje regułę zdefiniowaną przez użytkownika.":::
 
 Komunikat alertu wskazuje, że alert jest wyzwalany przez regułę zdefiniowaną przez użytkownika.
 
@@ -106,24 +124,24 @@ Aby utworzyć niestandardową regułę alertu:
 
 1. Wybierz pozycję **alerty niestandardowe** z menu po stronie czujnika.
 1. Wybierz znak plus ( **+** ), aby utworzyć regułę.
-
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Zrzut ekranu, który pokazuje regułę zdefiniowaną przez użytkownika.":::
-
 1. Zdefiniuj nazwę reguły.
 1. Wybierz kategorię lub protokół z okienka **Kategorie** .
 1. Zdefiniuj konkretny źródłowy i docelowy adres IP lub MAC lub wybierz dowolny adres.
-1. Dodaj warunek. Lista warunków i ich właściwości są unikatowe dla każdej kategorii. Dla każdego alertu można wybrać więcej niż jeden warunek.
-1. Wskaż, czy reguła wyzwala **alarm** czy **zdarzenie**.
-1. Przypisz do alertu poziom ważności.
-1. Wskaż, czy alert będzie zawierać plik PCAP.
+1. Zdefiniuj jeden lub kilka warunków reguły. Można utworzyć dwie kategorie warunków:
+    - Warunki na podstawie unikatowych wartości skojarzonych z wybraną kategorią. Wybierz pozycję Dodaj i Zdefiniuj wartości.
+    - Warunki w zależności od tego, kiedy działanie zostało wykryte. W sekcji wykrycia Wybierz okres i dzień, w którym należy przeprowadzić wykrywanie w celu wysłania alertu. Można wysłać Alert, jeśli działanie zostanie wykryte w dowolnym czasie, w czasie lub po godzinach pracy. Użyj opcji Definiuj godziny pracy, aby wyszkolić usługę Defender dla godzin pracy IoT w organizacji.
+1. Zdefiniuj akcje reguły: 
+    - Wskaż, czy reguła wyzwala **alarm** czy **zdarzenie**.
+    - Przypisz do alertu poziom ważności.
+    - Wskaż, czy alert będzie zawierać plik PCAP.
 1. Wybierz pozycję **Zapisz**.
 
 Reguła jest dodawana do listy **niestandardowych reguł alertów** , w której można przeglądać podstawowe parametry reguł, przy ostatnim wywołaniu reguły i nie tylko. Możesz również włączyć i wyłączyć regułę z listy.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Zrzut ekranu przedstawiający dodaną regułę dostosowaną przez użytkownika.":::
 
-### <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Następne kroki
 
 [Wyświetlanie informacji podanych w alertach](how-to-view-information-provided-in-alerts.md)
 
-[Zarządzanie wydarzeniem alertu](how-to-manage-the-alert-event.md)
+[Zarządzanie zdarzeniem alertu](how-to-manage-the-alert-event.md)

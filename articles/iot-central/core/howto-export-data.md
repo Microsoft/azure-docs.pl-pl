@@ -8,12 +8,12 @@ ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: d31673b8d789cff5de3ddce63b67a98854b7aabc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 7152012c7c4a342c7491e5f8b835eaede4269c4c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515907"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522618"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych
 
@@ -168,14 +168,14 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
 
 ## <a name="monitor-your-export"></a>Monitorowanie eksportu
 
-Oprócz wyświetlania stanu eksportu w IoT Central można monitorować ilość danych przepływających przez Eksporty i obserwować błędy eksportu na platformie danych Azure Monitor. Możesz uzyskać dostęp do metryk dotyczących eksportów i kondycji urządzeń na wykresach w Azure Portal, interfejsie API REST lub kwerendach w programie PowerShell lub interfejsie wiersza polecenia platformy Azure. Obecnie można monitorować te metryki eksportu danych w Azure Monitor:
+Oprócz wyświetlania stanu eksportów w IoT Central, można użyć [Azure monitor](../../azure-monitor/overview.md) do sprawdzenia ilości eksportowanych danych i wszelkich błędów eksportu. Można uzyskać dostęp do metryk eksportu i kondycji urządzeń na wykresach w Azure Portal, za pomocą interfejsu API REST lub z zapytaniami w programie PowerShell lub interfejsie wiersza polecenia platformy Azure. Obecnie można monitorować następujące metryki eksportu danych w Azure Monitor:
 
-1. Liczba komunikatów przychodzących do eksportu przed zastosowaniem filtrów
-2. Liczba komunikatów przekazywanych przez filtry
-3. Liczba komunikatów, które zostały pomyślnie wyeksportowane do miejsc docelowych
-4. Liczba napotkanych błędów
- 
-[Dowiedz się więcej o sposobach uzyskiwania dostępu do metryk IoT Central.](howto-monitor-application-health.md)
+- Liczba komunikatów przychodzących do eksportu przed zastosowaniem filtrów.
+- Liczba komunikatów, które przechodzą przez filtry.
+- Liczba komunikatów, które zostały pomyślnie wyeksportowane do miejsc docelowych.
+- Liczba napotkanych błędów.
+
+Aby dowiedzieć się więcej, zobacz [monitorowanie ogólnej kondycji aplikacji IoT Central](howto-monitor-application-health.md).
 
 ## <a name="destinations"></a>Miejsca docelowe
 

@@ -7,24 +7,24 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509077"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523672"
 ---
 # <a name="view-alerts"></a>Wyświetlanie alertów
 
 W tym artykule opisano sposób wyświetlania alertów wyzwalanych przez czujnik i zarządzania nimi za pomocą narzędzi alertów.
 
-Alerty można wyświetlać na podstawie różnych kategorii, takich jak alerty zarchiwizowane lub przypięte. Możesz też wyszukać alerty, na przykład alerty oparte na adresie IP lub MAC.  
+Alerty można wyświetlać na podstawie różnych kategorii, takich jak alerty zarchiwizowane lub przypięte. Możesz również wyszukać alerty, na przykład alerty oparte na adresie IP lub MAC.  
 
 Możesz również wyświetlać alerty z poziomu pulpitu nawigacyjnego czujnika.
 
 Aby wyświetlić alerty:
 
-- Z menu po lewej stronie wybierz pozycję **alerty** . W oknie **alerty** są wyświetlane alerty wykryte przez czujnik.
+- Z menu po lewej stronie wybierz pozycję **alerty** . W oknie alerty są wyświetlane alerty wykryte przez czujnik.
 
   :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="Widok ekranu alertów.":::
 
@@ -42,21 +42,21 @@ Alerty można wyświetlać zgodnie z różnymi kategoriami w widoku głównym **
 
 ## <a name="search-for-alerts-of-interest"></a>Wyszukaj alerty interesujące
 
-Widok główny **alertów** zawiera różne funkcje wyszukiwania, które ułatwiają znalezienie alertów.
+Widok główny alertów zawiera różne funkcje wyszukiwania, które ułatwiają znalezienie alertów.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="Zrzut ekranu uczenia się.":::
 
-### <a name="text-search"></a>Wyszukiwanie tekstu 
+### <a name="text-search"></a>Wyszukiwanie tekstu
 
-Użyj opcji **bezpłatne wyszukiwanie** , aby wyszukać alerty według tekstu, cyfr lub znaków.
+Użyj opcji bezpłatne wyszukiwanie, aby wyszukać alerty według tekstu, cyfr lub znaków.
 
 Aby wyszukać:
 
-- Wpisz wymagany tekst w polu **bezpłatne wyszukiwanie** i naciśnij klawisz Enter na klawiaturze.
+- Wpisz wymagany tekst w polu bezpłatne wyszukiwanie i naciśnij klawisz Enter na klawiaturze.
 
 Aby wyczyścić wyszukiwanie:
 
-- Usuń tekst w polu **bezpłatne wyszukiwanie** i naciśnij klawisz Enter na klawiaturze.
+- Usuń tekst w polu bezpłatne wyszukiwanie i naciśnij klawisz Enter na klawiaturze.
 
 ### <a name="device-group-or-device-ip-address-search"></a>Wyszukiwanie w grupie urządzeń lub adresie IP urządzenia
 
@@ -100,7 +100,7 @@ Komunikaty alertów udostępniają następujące akcje:
 
 - Wybierz :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: , aby poznać i potwierdzić wszystkie alerty.
 
-- Wybierz, :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: Aby wyeksportować listę alertów do pliku CSV, a następnie wybierz opcję Eksportuj. Wybierz pozycję **eksport alertów** dla zwykłej opcji eksport do pliku CSV. Lub wybierz opcję **wyeksportuj alertu rozszerzonego** , aby dodać oddzielne wiersze w celu uzyskania dodatkowych informacji na temat alertu w pliku CSV.
+- Wybierz :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: , aby wyeksportować informacje o alercie do pliku CSV. Użyj opcji **eksport alertów rozszerzonych** , aby wyeksportować informacje o alercie w oddzielnych wierszach dla każdego alertu obejmującego wiele urządzeń.
 
 ## <a name="alert-pop-up-window-options"></a>Opcje okna podręcznego alertu
 

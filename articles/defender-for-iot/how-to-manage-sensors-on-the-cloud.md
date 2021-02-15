@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/27/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 427ea3884a3db6ba33405014435cf1f962670064
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 459bac2ef01e69b9316af7e8374e7416ab51d915
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562713"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523910"
 ---
 # <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Dodawanie czujników i zarządzanie nimi w portalu Defender for IoT
 
@@ -52,12 +52,10 @@ Aby pobrać plik aktywacji:
 
 ## <a name="view-onboarded-sensors"></a>Wyświetlanie czujników dołączanych
 
-W [portalu Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)można wyświetlić podstawowe informacje na temat czujników dołączanych. 
+W [portalu Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)można wyświetlić podstawowe informacje na temat czujników dołączanych.
 
 1. Wybierz **Lokacje i czujniki**.
-1. Na stronie **witryny i czujniki** Użyj narzędzi filtrujących i wyszukiwania, aby znaleźć potrzebne informacje o czujnikach.
-
-Dostępne są następujące informacje:
+1. Skorzystaj z narzędzi do filtrowania i wyszukiwania, aby znaleźć potrzebne informacje dotyczące czujnika i analizy zagrożeń.
 
 - Ile czujników zostało dodanych
 - Liczba czujników, które są połączone z chmurą i zarządzane lokalnie
@@ -68,32 +66,40 @@ Dostępne są następujące informacje:
 
 [Portal usługi Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) służy do zarządzania zadaniami związanymi z czujnikami.
 
-### <a name="export"></a>Eksportowanie
+Czujniki dołączane można wyświetlać na stronie **witryny i czujniki** . Informacje o czujniku można edytować również na tej stronie.
+
+### <a name="export-sensor-details"></a>Eksportuj szczegóły czujnika
 
 Aby wyeksportować informacje z czujnika dołączania, wybierz ikonę **eksportowania** w górnej części strony **witryny i czujniki** .
 
-### <a name="edit"></a>Edytuj
+### <a name="edit-sensor-zone-details"></a>Edytuj szczegóły strefy czujnika
 
-Narzędzia do edytowania lokacji **i czujników** umożliwiają dodawanie i edytowanie nazw lokacji, strefy i tagów.
+Aby edytować nazwę czujnika i strefę, użyj opcji Edytuj **Lokacje i czujniki** .
 
-### <a name="delete"></a>Usuń
+Aby edytować:
+
+1. Kliknij prawym przyciskiem myszy wielokropek (**...**) dla czujnika, który chcesz edytować.
+1. Wybierz pozycję Edytuj.
+1. Zaktualizuj strefę czujnika lub Utwórz nową strefę.
+
+### <a name="delete-a-sensor"></a>Usuwanie czujnika
 
 W przypadku usunięcia czujnika połączonego z chmurą informacje nie będą wysyłane do centrum IoT Hub. Usuń połączone lokalnie czujniki, gdy nie będziesz już pracować z nimi.
 
 Aby usunąć Czujnik:
 
-1. Wybierz wielokropek (**...**) dla czujnika, który chcesz usunąć. 
+1. Wybierz wielokropek (**...**) dla czujnika, który chcesz usunąć.
 1. Potwierdź usunięcie.
 
-### <a name="reactivate"></a>Uaktywnij ponownie
+### <a name="reactivate-a-sensor"></a>Ponowne uaktywnianie czujnika 
 
-Możesz chcieć zaktualizować tryb, w którym zarządzasz czujnikiem. Przykład:
+Może być konieczne ponowne aktywowanie czujnika, ponieważ chcesz:
 
-- **Pracuj w trybie podłączonym do chmury, a nie w trybie zarządzanym lokalnie**: Aby to zrobić, zaktualizuj plik aktywacji dla czujnika połączonego lokalnie z plikiem aktywacji dla czujnika połączonego z chmurą. Po ponownym uaktywnieniu wykrywania czujników są wyświetlane zarówno w czujnikach, jak i w [portalu usługi Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). Po pomyślnym przekazaniu pliku reaktywacji nowo wykryte informacje o alercie są wysyłane do platformy Azure.
+- **Pracuj w trybie połączonym z chmurą, a nie w trybie zarządzanym lokalnie**: po ponownym uaktywnieniu wykrywania czujników są wyświetlane w czujniku, a nowo wykryte informacje o alertach są dostarczane przez Centrum IoT Hub. Te informacje mogą być współużytkowane z innymi usługami platformy Azure, takimi jak Azure — wskaźnikiem.
 
-- **Pracuj w trybie połączonym lokalnie, a nie w trybie połączonym z chmurą**: Aby to zrobić, zaktualizuj plik aktywacji dla czujnika połączonego z chmurą z plikiem aktywacji dla lokalnego czujnika zarządzanego. Po ponownej aktywacji informacje wykrywania czujnika są wyświetlane tylko w czujniku.
+- **Pracuj w trybie zarządzanym lokalnie, a nie w trybie połączonym z chmurą**: po ponownej aktywacji informacje wykrywania czujnika są wyświetlane tylko w czujniku.
 
-- **Skojarz czujnik z nowym centrum IoT Hub**: Aby to zrobić, zarejestruj się ponownie i przekaż nowy plik aktywacji.
+- **Skojarz czujnik z nowym centrum IoT Hub**: Aby to zrobić, ponownie zarejestruj czujnik przy użyciu nowego centrum, a następnie Pobierz nowy plik aktywacji.
 
 Aby ponownie uaktywnić Czujnik:
 
@@ -103,20 +109,20 @@ Aby ponownie uaktywnić Czujnik:
 
 3. Usuń czujnik.
 
-4. Ponownie Dołącz czujnik **z strony** dołączania w trybie nowy lub z nowym centrum IoT.
+4. Ponownie Dołącz czujnik w nowym trybie lub z nowym centrum IoT Hub, wybierając pozycję Dołączanie **czujnika** ze strony wprowadzenie.
 
-5. Pobierz plik aktywacji ze strony **pobierania pliku aktywacji** .
+5. Pobierz plik aktywacji.
 
-6. Zaloguj się do konsoli czujnika usługi Defender for IoT.
+1. Zaloguj się do konsoli czujnika usługi Defender for IoT.
 
 7. W konsoli czujnika wybierz pozycję **Ustawienia systemu** , a następnie wybierz pozycję **ponowna aktywacja**.
 
    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Przekaż plik aktywacji, aby ponownie aktywować czujnik.":::
 
-8. Wybierz pozycję **Przekaż** i wybierz zapisany plik.
+8. Wybierz pozycję **Przekaż** i wybierz plik zapisany na stronie czujnika dołączania.
 
-9. Wybierz pozycję **Aktywuj**. 
+9. Wybierz pozycję **Aktywuj**.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
 [Aktywowanie i konfigurowanie czujnika](how-to-activate-and-set-up-your-sensor.md)

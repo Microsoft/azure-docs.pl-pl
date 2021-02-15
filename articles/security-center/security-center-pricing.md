@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 8d6cee5e8d9683ca88a71608595b7dfde8261b8d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 845697b9d2fd8d43caa3a9992fea8a780b7d9b7c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520531"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522873"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie zagrożeń cybernetycznymi.
@@ -125,11 +125,9 @@ Nie. Po włączeniu [usługi Azure Defender dla serwerów](defender-for-servers-
 | Uruchamianie     | Maszyna wirtualna jest uruchamiana.                                                                                                                               | Bez opłat            |
 | Uruchomienie      | Normalny stan roboczy dla maszyny wirtualnej                                                                                                                    | Rozliczane                |
 | Zatrzymywanie     | Jest to stan przejściowy. Po zakończeniu będzie wyświetlana jako zatrzymana.                                                                           | Rozliczane                |
-| Zatrzymano      | Maszyna wirtualna została zamknięta z poziomu systemu operacyjnego gościa lub przy użyciu interfejsów API wyłączenie. Sprzęt jest nadal przydzielony do maszyny wirtualnej i pozostaje na hoście. | Rozliczenia (1)            |
-| Cofanie przydziału | Stan przejściowy. Po zakończeniu maszyna wirtualna będzie wyświetlana jako cofnięta alokacja.                                                                             | Bez opłat (1)        |
+| Zatrzymano      | Maszyna wirtualna została zamknięta z poziomu systemu operacyjnego gościa lub przy użyciu interfejsów API wyłączenie. Sprzęt jest nadal przydzielony do maszyny wirtualnej i pozostaje na hoście. | Rozliczane                |
+| Cofanie przydziału | Stan przejściowy. Po zakończeniu maszyna wirtualna będzie wyświetlana jako cofnięta alokacja.                                                                             | Bez opłat            |
 | Cofnięto przydział  | Maszyna wirtualna została pomyślnie zatrzymana i usunięta z hosta.                                                                                  | Bez opłat            |
-
-(1) niektóre zasoby platformy Azure, takie jak dyski i sieci, wiążą się z naliczeniem opłat. W licencjach na oprogramowanie w wystąpieniu nie są naliczane opłaty.
 
 :::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Virtual Machines platformy Azure z wyświetloną cofniętą maszyną":::
 

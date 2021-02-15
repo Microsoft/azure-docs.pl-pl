@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 3ae17ebce564de465a91739a210ae7f18f86a3b9
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842847"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523553"
 ---
 # <a name="work-with-alerts-on-your-sensor"></a>Pracuj z alertami na czujniku
 
@@ -68,9 +68,9 @@ Na przykład:
 
   - Zdarzenia złośliwego oprogramowania wykryte na urządzeniach sieciowych są zgłaszane w raportach oceny ryzyka. Gdy alerty dotyczące zdarzeń złośliwego oprogramowania są *wyciszone*, zmodyfikowane urządzenia nie zostaną obliczone w raporcie oceny ryzyka.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Następne kroki
 
-- [Nauka i inteligentne tryby nauki IT](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-- [Wyświetlanie informacji podanych w alertach](how-to-view-information-provided-in-alerts.md)
-- [Zarządzanie wydarzeniem alertu](how-to-manage-the-alert-event.md)
-- [Przyspiesz przepływy pracy alertów](how-to-accelerate-alert-incident-response.md)
+[Nauka i inteligentne tryby](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes) 
+ nauki IT [Wyświetlanie informacji podanych w alertach](how-to-view-information-provided-in-alerts.md) 
+ [Zarządzanie wydarzeniem](how-to-manage-the-alert-event.md) 
+ alertu [Przyspiesz przepływy pracy alertów](how-to-accelerate-alert-incident-response.md)

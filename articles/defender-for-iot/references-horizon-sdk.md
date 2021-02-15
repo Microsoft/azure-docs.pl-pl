@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746023"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523366"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Odsektora bezwłasnościowego protokołu
 
@@ -320,7 +320,7 @@ W tej sekcji opisano podstawowe parametry.
 | **sanity_failure_codes** | Są to kody zwracane z parsera, gdy występuje konflikt Sanity związany z tożsamością kodu. Zobacz temat sprawdzanie poprawności liczby magicznej w sekcji C++. | Ciąg |
 | **malformed_codes** | Są to kody, które zostały prawidłowo zidentyfikowane, ale wykryto błąd. Na przykład, jeśli długość pola jest za krótka lub długa lub wartość jest nieprawidłowa. | Ciąg |
 | **dissect_as** | Tablica definiująca, gdzie ma być odbierany ruch określony przez protokół. | TCP/UDP, port itd. |
-| **fields** | Deklaracja, z której pola zostaną wyodrębnione z ruchu. Każde pole ma własny identyfikator (nazwę) i typ (numeric, String, RAW, Array, Complex). Na przykład [Funkcja](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) pola wyodrębniona w pliku parsera implementacji. Pola, które są zapisywane w pliku konfiguracyjnym są jedynymi, które można dodać do warstwy. |  |
+| **pola** | Deklaracja, z której pola zostaną wyodrębnione z ruchu. Każde pole ma własny identyfikator (nazwę) i typ (numeric, String, RAW, Array, Complex). Na przykład [Funkcja](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) pola wyodrębniona w pliku parsera implementacji. Pola, które są zapisywane w pliku konfiguracyjnym są jedynymi, które można dodać do warstwy. |  |
 
 ### <a name="other-advanced-fields"></a>Inne pola zaawansowane 
 
@@ -1640,6 +1640,6 @@ Aby monitorować:
 
 Wybierz przycisk Monitoruj dla wtyczki z przeglądu.
 
-Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Konfigurowanie [interfejsu API usługi Horizon](references-horizon-api.md)

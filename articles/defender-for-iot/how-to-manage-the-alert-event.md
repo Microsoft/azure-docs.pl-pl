@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6a1a4d13ee9f9032c739773b678600d52dec82b8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508747"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523927"
 ---
 # <a name="manage-alert-events"></a>Zarządzanie zdarzeniami alertów
 
@@ -23,7 +23,8 @@ Dostępne są następujące opcje zarządzania zdarzeniami alertów:
  | **Learn** | Autoryzuj wykryte zdarzenie. Aby uzyskać więcej informacji, zobacz [Informacje o nauce i rozuczeniu zdarzeń](#about-learning-and-unlearning-events). |
  | **Potwierdzenie** | Ukryj alert raz dla wykrytego zdarzenia. Alert zostanie wyzwolony ponownie, jeśli zdarzenie zostanie wykryte ponownie. Aby uzyskać więcej informacji, zobacz [Informacje o potwierdzaniu i niepotwierdzaniu zdarzeń](#about-acknowledging-and-unacknowledging-events). |
  | **Głos** | Ciągle Ignoruj działania z identycznymi urządzeniami i porównywalnym ruchem. Aby uzyskać więcej informacji, zobacz [Informacje o zdarzeniach wyciszania i wyciszania](#about-muting-and-unmuting-events). |
-
+ 
+Możesz również eksportować informacje o alertach.
 ## <a name="about-learning-and-unlearning-events"></a>Informacje o nauce i rozuczeniu zdarzeń
 
 Zdarzenia wskazujące odchylenia sieci poznaniej mogą odzwierciedlać prawidłowe zmiany w sieci. Przykładami mogą być nowe autoryzowane urządzenia dołączone do sieci lub autoryzowanej aktualizacji oprogramowania układowego.
@@ -68,7 +69,7 @@ W takich sytuacjach uczenie nie jest dostępne. Gdy nie można przeprowadzić uc
 > [!NOTE] 
 > Nie można wyciszać zdarzeń, w których urządzenie internetowe jest zdefiniowane jako źródło lub miejsce docelowe.
 
-### <a name="what-traffic-is-muted"></a>Jaki ruch jest wyciszony?
+### <a name="what-alert-activity-is-muted"></a>Jakie działania alertu są wyciszone?
 
 Wyciszony scenariusz obejmuje urządzenia sieciowe i ruch wykryty dla zdarzenia. Tytuł alertu opisuje ruch, który jest wyciszony.
 
@@ -106,6 +107,25 @@ Gdy zdarzenie jest wyciszone, jest ignorowane, gdy źródło wysyła nagłówek 
 
 2. Umieść kursor nad alertem, aby sprawdzić, czy jest wyciszony.  
 
-## <a name="see-also"></a>Zobacz też
+## <a name="export-alert-information"></a>Eksportowanie informacji o alercie
+
+Eksportowanie informacji o alercie do pliku CSV. Możesz wyeksportować informacje o wszystkich alertach wykrytych lub wyeksportować informacje na podstawie filtrowanego widoku. Eksportowane są następujące informacje:
+
+- Adres źródłowy
+- Adres docelowy
+- Tytuł alertu
+- Ważność alertu
+- Komunikat alertu
+- Dodatkowe informacje
+- Stan potwierdzenia
+- Dostępność PCAP
+
+Aby wyeksportować:
+
+1. Z menu po lewej stronie wybierz pozycję alerty.
+1. Wybierz pozycję Eksportuj.
+1. Wybierz pozycję Eksportuj Rozszerzone alerty, aby wyeksportować informacje o alercie w osobnych wierszach dla każdego alertu obejmującego wiele urządzeń. Po wybraniu pozycji Eksportuj alerty rozszerzone zostanie utworzony zduplikowany wiersz zdarzenia alertu z unikatowymi elementami w każdym wierszu. Użycie tej opcji ułatwia badanie wyeksportowanych zdarzeń alertów.
+
+## <a name="next-steps"></a>Następne kroki
 
 [Sterowanie monitorowanym ruchem](how-to-control-what-traffic-is-monitored.md)

@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z poleceń interfejsu wiersza polecenia usługi Defender for IoT
+title: Praca z poleceniami interfejsu wiersza polecenia usługi Defender for IoT
 description: W tym artykule opisano polecenia usługi Defender dla usługi IoT dla czujników i lokalnych konsol zarządzania.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 48c525004b095c1e0f498f86a5395d0002be26f1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845251"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523145"
 ---
-# <a name="work-with-defender-for-iot-cli-commands"></a>Korzystanie z poleceń interfejsu wiersza polecenia usługi Defender for IoT
+# <a name="work-with-defender-for-iot-cli-commands"></a>Praca z poleceniami interfejsu wiersza polecenia usługi Defender for IoT
 
 Ten artykuł zawiera opis poleceń interfejsu wiersza polecenia dla czujników i lokalnych konsol zarządzania. Polecenia są dostępne dla administratorów, użytkowników cyberx i użytkowników pomocy technicznej.
 
@@ -290,6 +290,6 @@ Gdy używasz narzędzia:
 
 - Potwierdź, że jest ona domeną urządzenia (w postaci, w jakiej występuje w certyfikacie) z serwerem DNS i odpowiednim adresem IP. 
     
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Następne kroki
 
 [Interfejsy API usługi Defender dla czujnika i konsoli zarządzania usługi IoT](references-work-with-defender-for-iot-apis.md)

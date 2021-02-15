@@ -4,15 +4,15 @@ description: Dowiedz się, jak zarządzać indywidualnymi czujnikami, w tym zarz
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: ba98eb7e87ba277dcd5279ecf17373a8276b1cb1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508764"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523978"
 ---
 # <a name="manage-individual-sensors"></a>Zarządzanie pojedynczymi czujnikami
 
@@ -86,7 +86,7 @@ Jeśli nie można przekazać pliku aktywacji, zostanie wyświetlony komunikat o 
 
 - **W przypadku czujników połączonych z chmurą**: czujnik nie może połączyć się z Internetem. Sprawdź konfigurację sieci czujnika. Jeśli czujnik musi nawiązać połączenie za pomocą serwera proxy sieci Web w celu uzyskania dostępu do Internetu, sprawdź, czy serwer proxy jest prawidłowo skonfigurowany na ekranie **konfiguracji sieci czujnika** . Sprawdź, czy \* w zaporze i/lub serwerze proxy jest dozwolony Azure-Devices.NET:443. Jeśli symbole wieloznaczne nie są obsługiwane lub chcesz mieć większą kontrolę, nazwa FQDN określonej usługi Defender for IoT Hub powinna być otwarta w zaporze i/lub serwerze proxy. Aby uzyskać szczegółowe informacje, zobacz [punkty końcowe IoT Hub referencyjnych](../iot-hub/iot-hub-devguide-endpoints.md).  
 
-- **W przypadku czujników połączonych z chmurą**: plik aktywacji jest prawidłowy, ale usługa Defender dla usługi IoT odrzuciła ją. Jeśli nie możesz rozwiązać tego problemu, możesz pobrać kolejną aktywację ze strony **zarządzania czujnikami** w portalu Defender for IoT. Jeśli to nie zadziała, skontaktuj się z pomoc techniczna firmy Microsoft.
+- **W przypadku czujników połączonych z chmurą**: plik aktywacji jest prawidłowy, ale usługa Defender dla usługi IoT odrzuciła ją. Jeśli nie możesz rozwiązać tego problemu, możesz pobrać kolejną aktywację ze strony witryny i czujniki w portalu Defender for IoT. Jeśli to nie zadziała, skontaktuj się z pomoc techniczna firmy Microsoft.
 
 ## <a name="manage-certificates"></a>Zarządzanie certyfikatami
 
@@ -114,7 +114,7 @@ Usługa Defender dla czujnika IoT oraz lokalna Konsola zarządzania używają pr
  
  - Bezpieczna komunikacja między czujnikami i lokalną konsolą zarządzania. 
 
-Po zainstalowaniu urządzenie generuje lokalny certyfikat z podpisem własnym, aby umożliwić wstępny dostęp do konsoli sieci Web. Za pomocą narzędzia wiersza polecenia można zainstalować certyfikaty SSL przedsiębiorstwa i TLS [`cyberx-xsense-certificate-import`](#cli-commands) . 
+Po zainstalowaniu urządzenie generuje lokalny certyfikat z podpisem własnym, aby umożliwić wstępny dostęp do konsoli sieci Web. Za pomocą narzędzia wiersza polecenia można zainstalować certyfikaty SSL przedsiębiorstwa i TLS [`cyberx-xsense-certificate-import`](#cli-commands) .
 
  > [!NOTE]
  > W przypadku integracji i reguł przekazywania, gdy urządzenie jest klientem i inicjatorem sesji, używane są określone certyfikaty i nie są związane z certyfikatami systemu.  
@@ -363,15 +363,23 @@ Jeśli Czujnik został zarejestrowany jako czujnik połączony z chmurą, nazwa 
 
 Aby zmienić nazwę:
 
-1. W portalu usługi Azure Defender dla IoT przejdź do strony **zarządzanie czujnikiem** .
+1. W portalu usługi Azure Defender dla IoT przejdź do strony witryny i czujniki.
 
-1. Usuń czujnik z okna **Zarządzanie czujnikami** .
+1. Usuń czujnik ze strony Lokacje i czujniki.
 
-1. Zarejestruj się ponownie, używając nowej nazwy.
+1. Zarejestruj się przy użyciu nowej nazwy, wybierając opcję **czujnik** dołączania ze strony wprowadzenie.
 
 1. Pobierz nowy plik aktywacji.
 
-1. Zaloguj się do czujnika i przekaż nowy plik aktywacji.
+1. Zaloguj się do konsoli czujnika usługi Defender for IoT.
+
+1. W konsoli czujnika wybierz pozycję **Ustawienia systemu** , a następnie wybierz pozycję **ponowna aktywacja**.
+
+   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Przekaż plik aktywacji, aby ponownie aktywować czujnik.":::
+
+1. Wybierz pozycję **Przekaż** i wybierz zapisany plik.
+
+1. Wybierz pozycję **Aktywuj**.
 
 ## <a name="update-the-sensor-network-configuration"></a>Aktualizowanie konfiguracji sieci czujnika
 
@@ -387,7 +395,7 @@ Aby zmienić konfigurację:
 
     :::image type="content" source="media/how-to-manage-individual-sensors/edit-network-configuration-screen.png" alt-text="Skonfiguruj ustawienia sieci.":::
 
-3. Ustaw parametry w następujący sposób:
+3. Ustaw parametry:
 
     | Parametr | Opis |
     |--|--|
@@ -458,7 +466,7 @@ Aby zapisać kopię zapasową na zewnętrznym serwerze SMB:
 
     - `sudo chmod 777 /<backup_folder_name_on_cyberx_server>/`
 
-3. Edytuj `fstab` : 
+3. Edytuj `fstab` :
 
     - `sudo nano /etc/fstab`
 
@@ -526,7 +534,7 @@ Poniższa procedura opisuje sposób aktualizowania czujnika autonomicznego za po
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Zrzut ekranu przedstawiający wersję uaktualnienia, która pojawia się po zalogowaniu się.":::
 
-## <a name="forward-sensor-failure-alerts"></a>Alerty błędów czujnika do przodu 
+## <a name="forward-sensor-failure-alerts"></a>Alerty błędów czujnika do przodu
 
 Możesz przesłać dalej alerty do stron trzecich, aby przedstawić szczegóły:
 
@@ -562,7 +570,7 @@ Aby uzyskać dostęp do właściwości systemu:
 
 3. Wybierz pozycję **Właściwości systemu** z sekcji **Ogólne** .
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
 [Badania i pakiety analizy zagrożeń](how-to-work-with-threat-intelligence-packages.md)
 

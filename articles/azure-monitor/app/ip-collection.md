@@ -4,12 +4,12 @@ description: Zrozumienie, jak adresy IP i geolokalizacja są obsługiwane za pom
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333311"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521921"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Obsługa geolokalizacji i adresów IP
 
@@ -62,7 +62,7 @@ Aby umożliwić zbieranie i przechowywanie adresów IP, `DisableIpMasking` Wła�
 
 Jeśli musisz zmodyfikować zachowanie dla pojedynczego zasobu Application Insights, użyj Azure Portal. 
 
-1. Przejdź do szablonu eksportu > **usługi Automatyzacja**zasobów Application Insights  >  **Export Template** 
+1. Przejdź do szablonu eksportu > **usługi Automatyzacja** zasobów Application Insights  >   
 
 2. Wybierz pozycję **Wdróż**
 
@@ -77,9 +77,9 @@ Jeśli musisz zmodyfikować zachowanie dla pojedynczego zasobu Application Insig
     ![Zrzut ekranu dodaje przecinek po "IbizaAIExtension" i dodaje nowy wiersz poniżej z "DisableIpMasking": true](media/ip-collection/save.png)
 
     > [!WARNING]
-    > Jeśli wystąpi błąd informujący, że ** _Grupa zasobów znajduje się w lokalizacji, która nie jest obsługiwana przez co najmniej jeden zasób w szablonie. Wybierz inną grupę zasobów._** Tymczasowo wybierz inną grupę zasobów z listy rozwijanej, a następnie ponownie wybierz oryginalną grupę zasobów, aby rozwiązać ten problem.
+    > Jeśli wystąpi błąd informujący, że **_Grupa zasobów znajduje się w lokalizacji, która nie jest obsługiwana przez co najmniej jeden zasób w szablonie. Wybierz inną grupę zasobów._** Tymczasowo wybierz inną grupę zasobów z listy rozwijanej, a następnie ponownie wybierz oryginalną grupę zasobów, aby rozwiązać ten problem.
 
-5. Wybierz opcję **zgadzam**się na  >  **zakup**. 
+5. Wybierz opcję **zgadzam** się na  >  **zakup**. 
 
     ![Zaznaczone pole z wyrazami "Zgadzam się na warunki i postanowienia wymienione powyżej" wyróżnione na czerwono nad przyciskiem z wyrazem "zakup" wyróżnionym kolorem czerwonym.](media/ip-collection/purchase.png)
 
@@ -241,7 +241,7 @@ requests
 
 Nowo zebrane adresy IP pojawią się w `customDimensions_client-ip` kolumnie. Kolumna Domyślna `client-ip` nadal będzie zawierać wszystkie cztery oktety, które są zerowane. 
 
-W przypadku testowania z hosta lokalnego i wartości dla parametru `customDimensions_client-ip` is jest `::1` to oczekiwane zachowanie. `::1` reprezentuje adres sprzężenia zwrotnego w protokole IPv6. Jest to odpowiednik `127.0.01` w protokole IPv4.
+W przypadku testowania z hosta lokalnego i wartości dla parametru `customDimensions_client-ip` is jest `::1` to oczekiwane zachowanie. `::1` reprezentuje adres sprzężenia zwrotnego w protokole IPv6. Jest to odpowiednik `127.0.0.1` w protokole IPv4.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -131,8 +131,8 @@
               displayName: 'Active Directory, roles, permissions'
               href: how-to-create-and-manage-users.md
             - name: Definiowanie globalnej kontroli dostępu użytkowników
-              displayName: 'business unit, site, region'
               href: how-to-define-global-user-access-control.md
+              displayName: 'business unit, site, region, user'
         - name: Sterowanie monitorowanym ruchem
           displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
           href: how-to-control-what-traffic-is-monitored.md
@@ -140,8 +140,8 @@
           displayName: 'disconnect, connect, activation file, sensor backup'
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: Zarządzanie pojedynczymi czujnikami
-          displayName: 'activation, certificate, connect, timezone time zone, backup, restore, software update, failure'
           href: how-to-manage-individual-sensors.md
+          displayName: 'activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure'
         - name: Zarządzanie czujnikami w chmurze
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Zarządzanie lokalną konsolą zarządzania
@@ -153,10 +153,13 @@
           items:
             - name: Badanie wszystkich wykryć czujników przedsiębiorstwa w spisie urządzeń
               href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+              displayName: classification
             - name: Badanie wykryć czujników w spisie urządzeń
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+              displayName: 'classification, Windows registry'
         - name: Praca z mapą urządzeń czujników
           href: how-to-work-with-the-sensor-device-map.md
+          displayName: 'connections, Purdue, zoom'
         - name: Praca z alertami wykrytymi przez czujnik
           items:
             - name: Praca z alertem czujnika
@@ -165,8 +168,10 @@
               href: how-to-view-alerts.md
             - name: Wyświetlanie informacji podanych w alertach
               href: how-to-view-information-provided-in-alerts.md
+              displayName: PCAP
             - name: Zarządzanie zdarzeniem alertu
               href: how-to-manage-the-alert-event.md
+              displayName: 'PCAP, acknowledge, learn, mute, policy'
             - name: Skracanie czasu reakcji na incydent zgłaszany przez alert
               href: how-to-accelerate-alert-incident-response.md
               displayName: 'custom, alerts, comments, groups'
@@ -175,18 +180,21 @@
               displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
         - name: 'Uzyskiwanie wglądu w globalne, regionalne i lokalne zagrożenia'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
+          displayName: 'site, business unit, region, map'
         - name: Praca z alertami w lokalnej konsoli zarządzania
           href: how-to-work-with-alerts-on-premises-management-console.md
         - name: Tworzenie raportów
           items:
             - name: Tworzenie raportów oceny ryzyka
               href: how-to-create-risk-assessment-reports.md
+              displayName: 'vulnerability, security score, score'
             - name: Tworzenie raportów wektorów ataków
               href: how-to-create-attack-vector-reports.md
             - name: Tworzenie raportów wyszukiwania danych
               href: how-to-create-data-mining-queries.md
             - name: Tworzenie raportów trendów i statystyk
-              href: how-to-create-data-mining-queries.md
+              href: how-to-create-trends-and-statistics-reports.md
+              displayName: 'widgets, charts'
         - name: Wzbogacanie informacji o urządzeniu
           items:
             - name: Praca z powiadomieniami urządzeń

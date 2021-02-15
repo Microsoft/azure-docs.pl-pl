@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie monitorowania usługi SNMP MIB
+title: Konfigurowanie monitorowania SNMP MIB
 description: Monitorowanie kondycji czujnika można przeprowadzić przy użyciu protokołu SNMP. Czujnik reaguje na zapytania protokołu SNMP wysyłane z autoryzowanego serwera monitorowania.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: e0ae029323d5b64288c5e61ea28a494c1106a53f
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 051ce1be66f91d60f719ca3695f15e6c8001b20f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842036"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523825"
 ---
-# <a name="set-up-snmp-mib-monitoring"></a>Konfigurowanie monitorowania usługi SNMP MIB
+# <a name="set-up-snmp-mib-monitoring"></a>Konfigurowanie monitorowania SNMP MIB
 
 Monitorowanie kondycji czujnika można przeprowadzić za pomocą Simple Network Management Protocol (SNMP). Czujnik reaguje na zapytania protokołu SNMP wysyłane z autoryzowanego serwera monitorowania. Monitor SNMP okresowo sonduje identyfikatory OID (do 50 razy sekund).
 
@@ -36,7 +36,7 @@ Przed rozpoczęciem konfigurowania monitorowania SNMP należy otworzyć port UDP
 | Użycie pamięci | 1.3.6.1.4.1.9.9.53313.3.3 | WARTOŚĆ GAUGE32 | Oznaczenie od zera do 100 |
 | Użycie dysku | 1.3.6.1.4.1.9.9.53313.3.4 | WARTOŚĆ GAUGE32 | Oznaczenie od zera do 100 |
 | Stan usługi | 1.3.6.1.4.1.9.9.53313.5 | KLASIE | W trybie online lub offline, jeśli jeden z czterech najważniejszych składników nie działa |
-| Przepustowość | Poza zakresem 2,4 |  | Przepustowość odebrana na każdym interfejsie monitora w Xsense |
+| Szerokość pasma | Poza zakresem 2,4 |  | Przepustowość odebrana na każdym interfejsie monitora w Xsense |
 
    - Nieistniejące klucze reagują na wartość null, HTTP 200 na podstawie [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200).
     
@@ -84,6 +84,6 @@ Aby zdefiniować monitorowanie kondycji SNMP v3:
 
 5. Wybierz pozycję **Zapisz**.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Następne kroki
 
 [Eksportuj dzienniki rozwiązywania problemów](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

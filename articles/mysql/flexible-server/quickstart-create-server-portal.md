@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 864152d1f1d0074305cbba448946bc05888b4f3b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 074b799a4f0e83c47aac0b2b3fca5386bd45429f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566762"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521972"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Szybki Start: Użyj Azure Portal, aby utworzyć Azure Database for MySQL elastyczny serwer
 
@@ -51,11 +51,11 @@ Wykonaj następujące kroki, aby utworzyć elastyczny serwer:
     Subskrypcja|Nazwa subskrypcji użytkownika|Subskrypcja platformy Azure, która ma być używana dla serwera. Jeśli masz wiele subskrypcji, wybierz subskrypcję, w ramach której chcesz naliczać opłaty za dany zasób.|
     Grupa zasobów|**myresourcegroup**| Nowa nazwa grupy zasobów lub istniejąca nazwa z subskrypcji.|
     Nazwa serwera |**mydemoserver**|Unikatowa nazwa identyfikująca elastyczny serwer. Nazwa domeny `mysql.database.azure.com` jest dołączana do podania nazwy serwera. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.|
-    Nazwa użytkownika administratora |**mydemouser**| Twoje własne konto logowania do użycia podczas łączenia się z serwerem. Nazwa użytkownika administratora nie może być **azure_superuser** , **admin** , **administrator** , **root** , **Guest** ani **Public**.|
+    Nazwa użytkownika administratora |**mydemouser**| Twoje własne konto logowania do użycia podczas łączenia się z serwerem. Nazwa użytkownika administratora nie może być **azure_superuser**, **admin**, **administrator**, **root**, **Guest** ani **Public**.|
     Hasło |Twoje hasło| Nowe hasło do konta administratora serwera. Musi zawierać od 8 do 128 znaków. Musi również zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (od 0 do 9) i znaki inne niż alfanumeryczne (!, $, #,% itd.).|
     Region (Region)|Region najbliżej Twoich użytkowników| Lokalizacja znajdująca się najbliżej użytkowników.|
-    Wersja|**5,7**| Wersja główna programu MySQL.|
-    Obliczenia i magazyn | **Burstable** **Standard_B1ms** , **10** **dni** | Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję **Konfiguruj serwer**. Wartości domyślne dla **warstwy obliczeniowej** , **rozmiaru obliczeń** , **rozmiaru magazynu** i **okresu przechowywania** kopii zapasowej są przełączone **,** **Standard_B1ms** , **10 GIB** i **7 dni** . Te wartości można pozostawić lub dostosować. Aby zapisać wybór obliczeń i magazynu, wybierz pozycję **Zapisz** , aby kontynuować konfigurację. Poniższy zrzut ekranu przedstawia opcje obliczeń i magazynu.|
+    Wersja|**5.7**| Wersja główna programu MySQL.|
+    Obliczenia i magazyn |  **Standard_B1ms**, **10** **dni** | Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję **Konfiguruj serwer**. Wartości domyślne dla **warstwy obliczeniowej**, **rozmiaru obliczeń**, **rozmiaru magazynu** i **okresu przechowywania** kopii zapasowej są przełączone **,** **Standard_B1ms**, **10 GIB** i **7 dni** . Te wartości można pozostawić lub dostosować. Aby zapisać wybór obliczeń i magazynu, wybierz pozycję **Zapisz** , aby kontynuować konfigurację. Poniższy zrzut ekranu przedstawia opcje obliczeń i magazynu.|
     
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Zrzut ekranu przedstawiający opcje obliczeń i magazynu.":::
 
@@ -74,9 +74,9 @@ Wykonaj następujące kroki, aby utworzyć elastyczny serwer:
 
 6. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć konfigurację elastycznego serwera.
 
-7. Wybierz pozycję **Utwórz** , aby aprowizować serwer. Inicjowanie obsługi może potrwać kilka minut.
+7. Wybierz pozycję **Utwórz**, aby aprowizować serwer. Inicjowanie obsługi może potrwać kilka minut.
 
-8. Wybierz pozycję **powiadomienia** na pasku narzędzi (przycisk dzwonka), aby monitorować proces wdrażania. Po zakończeniu wdrażania możesz wybrać pozycję **Przypnij do pulpitu nawigacyjnego** , co spowoduje utworzenie kafelka dla elastycznego serwera na pulpicie nawigacyjnym Azure Portal. Ten kafelek jest skrótem do strony **Przegląd** serwera. Po wybraniu opcji **Przejdź do zasobu** zostanie otwarta strona **Przegląd** serwera.
+8. Wybierz pozycję **powiadomienia** na pasku narzędzi (przycisk dzwonka), aby monitorować proces wdrażania. Po zakończeniu wdrażania możesz wybrać pozycję **Przypnij do pulpitu nawigacyjnego**, co spowoduje utworzenie kafelka dla elastycznego serwera na pulpicie nawigacyjnym Azure Portal. Ten kafelek jest skrótem do strony **Przegląd** serwera. Po wybraniu opcji **Przejdź do zasobu** zostanie otwarta strona **Przegląd** serwera.
 
 Domyślnie te bazy danych są tworzone na serwerze: information_schema, MySQL, performance_schema i sys.
 
@@ -85,17 +85,35 @@ Domyślnie te bazy danych są tworzone na serwerze: information_schema, MySQL, p
 
 ## <a name="connect-to-the-server-by-using-mysqlexe"></a>Nawiązywanie połączenia z serwerem za pomocą mysql.exe
 
-Jeśli serwer elastyczny został utworzony przy użyciu dostępu prywatnego (Integracja z siecią wirtualną), należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do sieci wirtualnej utworzonej przy użyciu elastycznego serwera.
+Jeśli serwer elastyczny został utworzony przy użyciu dostępu prywatnego (Integracja z siecią wirtualną), należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do sieci wirtualnej utworzonej przy użyciu elastycznego serwera. Aby dowiedzieć się więcej, zobacz Konfigurowanie [dokumentacji dostępu prywatnego](how-to-manage-virtual-network-portal.md) .
 
-Jeśli serwer elastyczny został utworzony przy użyciu dostępu publicznego (dozwolone adresy IP), można dodać lokalny adres IP do listy reguł zapory na serwerze.
+Jeśli serwer elastyczny został utworzony przy użyciu dostępu publicznego (dozwolone adresy IP), można dodać lokalny adres IP do listy reguł zapory na serwerze. Zapoznaj się z dokumentacją dotyczącą [tworzenia reguł zapory lub zarządzania nimi](how-to-manage-firewall-portal.md) , aby uzyskać wskazówki krok po kroku.
 
 Aby nawiązać połączenie z serwerem ze środowiska lokalnego, można użyć opcji [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) lub [MySQL Workbench](./connect-workbench.md) . 
 
-Jeśli używasz mysql.exe, Połącz się za pomocą następującego polecenia. Użyj nazwy serwera, nazwy użytkownika i hasła w poleceniu. 
-
 ```bash
- mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
+
+Jeśli udostępniasz elastyczny serwer przy użyciu **dostępu publicznego**, możesz również użyć [Azure Cloud Shell](https://shell.azure.com/bash) , aby nawiązać połączenie z elastycznym serwerem przy użyciu wstępnie zainstalowanego klienta MySQL, jak pokazano poniżej:
+
+Aby można było używać Azure Cloud Shell do nawiązywania połączenia z serwerem elastycznym, należy zezwolić na dostęp sieciowy z Azure Cloud Shell do serwera elastycznego. Aby to osiągnąć, możesz przejść do bloku **Sieć** na Azure Portal dla elastycznego serwera MySQL i zaznaczyć pole wyboru w obszarze **Zapora** , która wskazuje, "Zezwalaj na dostęp publiczny z dowolnej usługi platformy Azure na platformie Azure do tego serwera" i kliknij przycisk Zapisz, aby zachować to ustawienie.
+
+> [!NOTE]
+> Sprawdzanie **zezwalania na dostęp publiczny z dowolnej usługi platformy Azure na platformie Azure do tego serwera** powinno być używane tylko do celów deweloperskich i testowych. Konfiguruje zaporę tak, aby zezwalała na połączenia z adresów IP przypisanych do dowolnej usługi lub zasobu platformy Azure, w tym połączeń z subskrypcji innych klientów.
+
+Kliknij pozycję **Wypróbuj** , aby uruchomić Azure Cloud Shell i użyć poniższych poleceń, aby nawiązać połączenie z serwerem elastycznym. Użyj nazwy serwera, nazwy użytkownika i hasła w poleceniu. 
+
+```azurecli-interactive
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
+```
+
+Jeśli zostanie wyświetlony następujący komunikat o błędzie podczas nawiązywania połączenia z elastycznym serwerem po poleceniu wcześniej, pominięto ustawienie reguły zapory przy użyciu opcji "Zezwalaj na dostęp publiczny z dowolnych usług platformy Azure na platformie Azure na ten serwer" lub opcja nie została zapisana. Ponów ustawienie zapory i spróbuj ponownie.
+
+BŁĄD 2002 (HY000): nie można nawiązać połączenia z serwerem MySQL na <servername> (115)
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 W grupie zasobów utworzono teraz Azure Database for MySQL elastyczny serwer. Jeśli nie chcesz potrzebować tych zasobów w przyszłości, możesz je usunąć przez usunięcie grupy zasobów lub usunięcie serwera MySQL. Aby usunąć grupę zasobów, wykonaj następujące kroki:
 

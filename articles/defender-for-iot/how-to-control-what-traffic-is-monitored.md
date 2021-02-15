@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624688"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522397"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Sterowanie monitorowanym ruchem
 
@@ -157,7 +157,7 @@ Mogą wystąpić zmiany, na przykład gdy serwer DHCP przypisuje adresy IP.
 
 Zdefiniowanie dynamicznych adresów IP na każdym czujniku umożliwia kompleksową, przejrzystą obsługę w wystąpieniach zmian adresów IP. Zapewnia to kompleksowe raportowanie dla każdego unikatowego urządzenia.
 
-Konsola czujnika przedstawia najbardziej aktualny adres IP skojarzony z urządzeniem i wskazuje, które urządzenia są dynamiczne. Przykład:
+Konsola czujnika przedstawia najbardziej aktualny adres IP skojarzony z urządzeniem i wskazuje, które urządzenia są dynamiczne. Na przykład:
 
 - Raport wyszukiwania danych i spis urządzeń są konsolidowane wszystkie działania uzyskane z urządzenia jako jedna jednostka, niezależnie od zmiany adresu IP. Te raporty wskazują, które adresy zostały zdefiniowane jako adresy DHCP.
 
@@ -295,7 +295,7 @@ Aby wyświetlić wyniki skanowania:
 
 1. Po zakończeniu skanowania w okienku **Akcje** wybierz pozycję **Wyświetl wyniki skanowania**. Plik CSV z wynikami skanowania zostanie pobrany na komputer.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
 [Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  [Badanie wykrywania czujników na mapie urządzeń](how-to-work-with-the-sensor-device-map.md)

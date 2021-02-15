@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0b71f7ca3f812de1514612f8b0dd5915f3f81bc4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843566"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522737"
 ---
 # <a name="forward-alert-information"></a>Przekazywanie informacji o alercie
 
@@ -118,7 +118,7 @@ Wprowadź następujące parametry:
 | Priorytet | User. alert |
 | Hostname (Nazwa hosta) | Adres IP czujnika |
 | Protokół | TCP lub UDP |
-| Wiadomość | Czujnik: Nazwa czujnika.<br /> Alert: Tytuł alertu.<br /> Typ: typ alertu. Może to być **naruszenie protokołu**, **naruszenie zasad**, **złośliwe oprogramowanie**, **anomalia** lub **działanie.**<br /> Ważność: ważność alertu. Może być **ostrzegawczy**, **pomocniczy**, **główny** lub **krytyczny**.<br /> Źródło: nazwa urządzenia źródłowego.<br /> Źródłowy adres IP: źródłowego adresu IP urządzenia.<br /> Lokalizacja docelowa: nazwa urządzenia docelowego.<br /> Docelowy IP: adres IP urządzenia docelowego.<br /> Komunikat: komunikat alertu.<br /> Grupa alertów: Grupa alertów skojarzona z tym alertem. |
+| Komunikat | Czujnik: Nazwa czujnika.<br /> Alert: Tytuł alertu.<br /> Typ: typ alertu. Może to być **naruszenie protokołu**, **naruszenie zasad**, **złośliwe oprogramowanie**, **anomalia** lub **działanie.**<br /> Ważność: ważność alertu. Może być **ostrzegawczy**, **pomocniczy**, **główny** lub **krytyczny**.<br /> Źródło: nazwa urządzenia źródłowego.<br /> Źródłowy adres IP: źródłowego adresu IP urządzenia.<br /> Lokalizacja docelowa: nazwa urządzenia docelowego.<br /> Docelowy IP: adres IP urządzenia docelowego.<br /> Komunikat: komunikat alertu.<br /> Grupa alertów: Grupa alertów skojarzona z tym alertem. |
 
 
 | Wynikowy obiekt dziennika systemu | Opis |
@@ -126,7 +126,7 @@ Wprowadź następujące parametry:
 | Data i godzina |   Data i godzina odebrania informacji przez komputer z serwera dziennika systemowego. |  
 | Priorytet |    User. alert | 
 | Hostname (Nazwa hosta) |    Adres IP czujnika | 
-| Wiadomość | Nazwa czujnika: nazwa urządzenia. <br /> Czas alertu: czas wykrycia alertu: może się różnić od czasu komputera serwera dziennika systemowego i zależy od konfiguracji strefy czasowej reguły przekazywania. <br /> Tytuł alertu: Tytuł alertu. <br /> Komunikat alertu: komunikat alertu. <br /> Ważność alertu: ważność alertu: **Ostrzeżenie**, **pomocniczy**, **główny** lub **krytyczny**. <br /> Typ alertu: **naruszenie protokołu**, **naruszenie zasad**, **złośliwe oprogramowanie**, **anomalia** lub **działania**. <br /> Protokół: protokół alertu.  <br /> **Source_MAC**: adres IP, nazwa, dostawca lub system operacyjny urządzenia źródłowego. <br /> Destination_MAC: adres IP, nazwa, dostawca lub system operacyjny miejsca docelowego. Jeśli brakuje danych, wartość będzie równa **N/A**. <br /> alert_group: Grupa alertów skojarzona z alertem. |
+| Komunikat | Nazwa czujnika: nazwa urządzenia. <br /> Czas alertu: czas wykrycia alertu: może się różnić od czasu komputera serwera dziennika systemowego i zależy od konfiguracji strefy czasowej reguły przekazywania. <br /> Tytuł alertu: Tytuł alertu. <br /> Komunikat alertu: komunikat alertu. <br /> Ważność alertu: ważność alertu: **Ostrzeżenie**, **pomocniczy**, **główny** lub **krytyczny**. <br /> Typ alertu: **naruszenie protokołu**, **naruszenie zasad**, **złośliwe oprogramowanie**, **anomalia** lub **działania**. <br /> Protokół: protokół alertu.  <br /> **Source_MAC**: adres IP, nazwa, dostawca lub system operacyjny urządzenia źródłowego. <br /> Destination_MAC: adres IP, nazwa, dostawca lub system operacyjny miejsca docelowego. Jeśli brakuje danych, wartość będzie równa **N/A**. <br /> alert_group: Grupa alertów skojarzona z alertem. |
 
 
 | Format danych wyjściowych CEF dziennika systemu | Opis |
@@ -134,14 +134,14 @@ Wprowadź następujące parametry:
 | Data i godzina | Data i godzina odebrania informacji przez komputer z serwera dziennika systemowego. |
 | Priorytet | User. alert | 
 | Hostname (Nazwa hosta) | Adres IP czujnika |
-| Wiadomość | CEF: 0 <br />Usługa Azure Defender dla IoT <br />Nazwa czujnika: nazwa urządzenia czujnika. <br />Wersja czujnika <br />Tytuł alertu: Tytuł alertu. <br />msg: komunikat alertu. <br />Protokół: protokół alertu. <br />ważność: **Ostrzeżenie**, **pomocniczy**, **główny** lub **krytyczny**. <br />Typ: **naruszenie protokołu**, **naruszenie zasad**, **złośliwe oprogramowanie**, **anomalia** lub **działania**. <br /> Początek: godzina wykrycia alertu. <br />Może się różnić od czasu komputera serwera dziennika systemu i zależy od konfiguracji strefy czasowej reguły przesyłania dalej. <br />src_ip: adres IP urządzenia źródłowego.  <br />dst_ip: adres IP urządzenia docelowego.<br />Cat: Grupa alertów skojarzona z alertem.  |
+| Komunikat | CEF: 0 <br />Usługa Azure Defender dla IoT <br />Nazwa czujnika: nazwa urządzenia czujnika. <br />Wersja czujnika <br />Tytuł alertu: Tytuł alertu. <br />msg: komunikat alertu. <br />Protokół: protokół alertu. <br />ważność: **Ostrzeżenie**, **pomocniczy**, **główny** lub **krytyczny**. <br />Typ: **naruszenie protokołu**, **naruszenie zasad**, **złośliwe oprogramowanie**, **anomalia** lub **działania**. <br /> Początek: godzina wykrycia alertu. <br />Może się różnić od czasu komputera serwera dziennika systemu i zależy od konfiguracji strefy czasowej reguły przesyłania dalej. <br />src_ip: adres IP urządzenia źródłowego.  <br />dst_ip: adres IP urządzenia docelowego.<br />Cat: Grupa alertów skojarzona z alertem.  |
 
 | Format danych wyjściowych LEEF dziennika systemu | Opis |
 |--|--|
 | Data i godzina |   Data i godzina odebrania informacji przez komputer z serwera dziennika systemowego. |  
 | Priorytet |    User. alert | 
 | Hostname (Nazwa hosta) |    Adres IP czujnika |
-| Wiadomość | Nazwa czujnika: nazwa urządzenia usługi Azure Defender dla IoT. <br />LEEF: 1.0 <br />Usługa Azure Defender dla IoT <br />Czujnik  <br />Wersja czujnika <br />Alert usługi Azure Defender dla IoT <br />title: Tytuł alertu. <br />msg: komunikat alertu. <br />Protokół: protokół alertu.<br />ważność: **Ostrzeżenie**, **pomocniczy**, **główny** lub **krytyczny**. <br />Typ: typ alertu: **naruszenie protokołu**, **naruszenie zasad**, **złośliwe oprogramowanie**, **anomalia** lub **działania**. <br />Początek: godzina alertu.Należy pamiętać, że może się to różnić od czasu komputera z serwerem dziennika systemu. (Jest to zależne od konfiguracji strefy czasowej). <br />src_ip: adres IP urządzenia źródłowego.<br />dst_ip: adres IP urządzenia docelowego. <br />Cat: Grupa alertów skojarzona z alertem. |
+| Komunikat | Nazwa czujnika: nazwa urządzenia usługi Azure Defender dla IoT. <br />LEEF: 1.0 <br />Usługa Azure Defender dla IoT <br />Czujnik  <br />Wersja czujnika <br />Alert usługi Azure Defender dla IoT <br />title: Tytuł alertu. <br />msg: komunikat alertu. <br />Protokół: protokół alertu.<br />ważność: **Ostrzeżenie**, **pomocniczy**, **główny** lub **krytyczny**. <br />Typ: typ alertu: **naruszenie protokołu**, **naruszenie zasad**, **złośliwe oprogramowanie**, **anomalia** lub **działania**. <br />Początek: godzina alertu.Należy pamiętać, że może się to różnić od czasu komputera z serwerem dziennika systemu. (Jest to zależne od konfiguracji strefy czasowej). <br />src_ip: adres IP urządzenia źródłowego.<br />dst_ip: adres IP urządzenia docelowego. <br />Cat: Grupa alertów skojarzona z alertem. |
 
 Po wprowadzeniu wszystkich informacji wybierz pozycję **Prześlij**.
 
@@ -203,6 +203,6 @@ Administrator może mieć zdefiniowane reguły wykluczania alertów. Te reguły 
 
 Oznacza to, że zdefiniowane reguły przekazywania mogą być ignorowane na podstawie reguł wykluczeń utworzonych przez administratora. Reguły wykluczania są zdefiniowane w lokalnej konsoli zarządzania.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Następne kroki
 
 [Przyspiesz przepływy pracy alertów](how-to-accelerate-alert-incident-response.md)
