@@ -7,16 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832134"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390474"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji Centrum programu Micro-zrealizować
 
-W tym samouczku zostanie użyty szablon aplikacji Centrum programu Azure IoT Central Micro-zrealizować, aby utworzyć rozwiązanie detaliczne. Dowiesz się, jak wdrożyć szablon, co zawiera jego zawartość i co warto zrobić dalej.
+W tym samouczku zostanie użyty szablon aplikacji Centrum programu Azure IoT Central Micro-zrealizować, aby utworzyć rozwiązanie detaliczne.
+
+W ramach tego samouczka nauczysz się:
+
+> [!div class="checklist"]
+> * Jak wdrożyć szablon aplikacji
+> * Jak używać szablonu aplikacji
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do ukończenia tej serii samouczków potrzebna jest subskrypcja platformy Azure. Opcjonalnie możesz użyć bezpłatnej 7-dniowej wersji próbnej. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć na [stronie rejestracji na platformie Azure](https://aka.ms/createazuresubscription).

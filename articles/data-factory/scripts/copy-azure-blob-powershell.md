@@ -1,21 +1,18 @@
 ---
 title: Kopiowanie danych w chmurze przy użyciu programu PowerShell
 description: Ten skrypt programu PowerShell kopiuje dane z jednej lokalizacji w Blob Storage platformy Azure do innej lokalizacji w tej samej Blob Storage.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 9550556aa022a9211072fd4c5fb18acb4ee7882e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 169420aee32a49549a71746708bd8377a4c63b5d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637993"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370295"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Tworzenie potoku usługi Data Factory w celu kopiowania danych w chmurze przy użyciu programu PowerShell
 
@@ -26,7 +23,7 @@ Ten przykładowy skrypt programu PowerShell tworzy potok w Azure Data Factory, k
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Konto usługi Azure Storage** . Magazyn obiektów blob jest używany zarówno jako magazyn **źródła** , jak i **ujścia** danych. Jeśli nie masz konta usługi Azure Storage, zobacz Tworzenie [konta magazynu](../../storage/common/storage-account-create.md) przy tworzeniu go. 
+* **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany zarówno jako magazyn **źródła**, jak i **ujścia** danych. Jeśli nie masz konta usługi Azure Storage, zobacz Tworzenie [konta magazynu](../../storage/common/storage-account-create.md) przy tworzeniu go. 
 * Utwórz **kontener obiektów blob** w usłudze Blob Storage, utwórz **folder** wejściowy w kontenerze i przekaż niektóre pliki do folderu. Za pomocą narzędzi, takich jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , można nawiązać połączenie z usługą Azure Blob Storage, utworzyć kontener obiektów blob, przekazać plik wejściowy i zweryfikować plik wyjściowy.
 
 ## <a name="sample-script"></a>Przykładowy skrypt

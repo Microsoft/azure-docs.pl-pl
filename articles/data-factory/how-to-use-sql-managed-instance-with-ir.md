@@ -1,22 +1,17 @@
 ---
 title: Korzystanie z wystąpienia zarządzanego Azure SQL na platformie Azure — SQL Server Integration Services (SSIS) w systemie Azure Data Factory
 description: Dowiedz się, jak używać wystąpienia zarządzanego usługi Azure SQL z usługą SQL Server Integration Services (SSIS) w programie Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: fb622bdb1d7aa485c421122cdfbd2493a32cf5db
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 43b118b8f3f7444cd3c4d0cfa31b72a3522d6d84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555666"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392582"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Korzystanie z wystąpienia zarządzanego usługi Azure SQL z usługą SQL Server Integration Services (SSIS) w programie Azure Data Factory
 
@@ -116,7 +111,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Zezwalaj na ruch wychodzący do wystąpienia zarządzanego SQL. Jeśli dla zasad połączenia ustawiono wartość **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do uzyskiwania dostępu do usług platformy Azure, takich jak Azure Storage i Azure Event Hubs. |
         | TCP | VirtualNetwork | * | Internet | 80 | Obowiązkowe Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do pobierania listy odwołania certyfikatów z Internetu. Jeśli zablokujesz ten ruch, może wystąpić obniżenie wydajności podczas uruchamiania środowiska IR i utrata możliwości sprawdzenia listy odwołania certyfikatów w celu użycia certyfikatu. Jeśli chcesz jeszcze bardziej zawęzić miejsce docelowe do określonych nazw FQDN, zapoznaj się z tematem [Korzystanie z usługi Azure ExpressRoute lub trasy zdefiniowanej przez użytkownika (UDR)](./join-azure-ssis-integration-runtime-virtual-network.md#route).|
-        | TCP | VirtualNetwork | * | Magazyn | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
+        | TCP | VirtualNetwork | * | Storage | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
         |||||||
 
         1. **Wymagania przychodzące Azure-SSIS IR**, aby zezwolić na ruch wymagany przez Azure-SSIS IR.

@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 11/23/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: e38dcf1e12629405ae5f28a987ba20557037ee67
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 0b18a73d0357b5dd90b329ba55c6601e60df5bbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683452"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367575"
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu usługi API Management
 
@@ -80,7 +80,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 ## <a name="limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Ogranicz częstotliwość wywołań według subskrypcji
 
-`rate-limit`Zasady uniemożliwiają użycie interfejsu API dla każdej subskrypcji, ograniczając częstotliwość wywołań do określonej liczby w określonym przedziale czasu. Po wyzwoleniu tych zasad obiekt wywołujący otrzymuje `429 Too Many Requests` kod stanu odpowiedzi.
+`rate-limit`Zasady uniemożliwiają użycie interfejsu API dla każdej subskrypcji, ograniczając częstotliwość wywołań do określonej liczby w określonym przedziale czasu. Po przekroczeniu liczby wywołań wywołujący otrzymuje `429 Too Many Requests` kod stanu odpowiedzi.
 
 > [!IMPORTANT]
 > Tych zasad można używać tylko raz dla każdego dokumentu zasad.
@@ -98,18 +98,25 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
     <api name="API name" id="API id" calls="number" renewal-period="seconds" />
-        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
+        retry-after-header-name="header name" 
+        retry-after-variable-name="policy expression variable name"
+        remaining-calls-header-name="header name"  
+        remaining-calls-variable-name="policy expression variable name"
+        total-calls-header-name="header name"/>
     </api>
 </rate-limit>
 ```
 
 ### <a name="example"></a>Przykład
 
+W poniższym przykładzie limit stawki na subskrypcję wynosi 20 wywołań na 90 sekund. Po każdym wykonaniu zasad pozostałe wywołania dozwolone w danym okresie są przechowywane w zmiennej `remainingCallsPerSubscription` .
+
 ```xml
 <policies>
     <inbound>
         <base />
-        <rate-limit calls="20" renewal-period="90" />
+        <rate-limit calls="20" renewal-period="90" remaining-calls-variable-name="remainingCallsPerSubscription"/>
     </inbound>
     <outbound>
         <base />
@@ -131,7 +138,12 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nazwa interfejsu API, dla którego ma zostać zastosowany limit szybkości.                                                | Tak      | Nie dotyczy     |
 | Rozmowa          | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` . | Tak      | Nie dotyczy     |
-| Okres odnawiania | Czas (w sekundach), po upływie którego zostanie zresetowany przydział.                                              | Tak      | Nie dotyczy     |
+| Okres odnawiania | Czas (w sekundach), po upływie którego zostanie zresetowana stawka.                                              | Tak      | Nie dotyczy     |
+| Ponów-po-nazwa nagłówka    | Nazwa nagłówka odpowiedzi, którego wartość jest zalecanym interwałem ponawiania (w sekundach), po przekroczeniu określonej liczby wywołań. |  Nie | Nie dotyczy  |
+| Ponów-po-Zmienna-name    | Nazwa zmiennej wyrażenia zasad, która przechowuje Zalecany interwał ponawiania (w sekundach) po przekroczeniu określonego współczynnika wywołań. |  Nie | Nie dotyczy  |
+| Pozostałe-wywołania — nazwa nagłówka    | Nazwa nagłówka odpowiedzi, którego wartość po każdym wykonaniu zasad to liczba pozostałych wywołań dozwolonych dla interwału czasu określonego w `renewal-period` . |  Nie | Nie dotyczy  |
+| Pozostałe-wywołania-Zmienna-name    | Nazwa zmiennej wyrażenia zasad, która po każdym wykonaniu zasad przechowuje liczbę pozostałych wywołań dozwolonych dla interwału czasu określonego w `renewal-period` . |  Nie | Nie dotyczy  |
+| łącznie-Calls-header-Name    | Nazwa nagłówka odpowiedzi, którego wartością jest wartość określona w `calls` . |  Nie | Nie dotyczy  |
 
 ### <a name="usage"></a>Użycie
 
@@ -146,7 +158,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 > [!IMPORTANT]
 > Ta funkcja jest niedostępna w warstwie **zużycia** API Management.
 
-`rate-limit-by-key`Zasady uniemożliwiają użycie interfejsu API na podstawie poszczególnych kluczy, ograniczając częstotliwość wywołań do określonej liczby w określonym przedziale czasu. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu. Po wyzwoleniu tych zasad obiekt wywołujący otrzymuje `429 Too Many Requests` kod stanu odpowiedzi.
+`rate-limit-by-key`Zasady uniemożliwiają użycie interfejsu API na podstawie poszczególnych kluczy, ograniczając częstotliwość wywołań do określonej liczby w określonym przedziale czasu. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu. Po przekroczeniu tej liczby wywołań obiekt wywołujący otrzymuje `429 Too Many Requests` kod stanu odpowiedzi.
 
 Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management](./api-management-sample-flexible-throttling.md).
 
@@ -162,13 +174,16 @@ Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [zaawansowane Og
 <rate-limit-by-key calls="number"
                    renewal-period="seconds"
                    increment-condition="condition"
-                   counter-key="key value" />
+                   counter-key="key value" 
+                   retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
+                   remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
+                   total-calls-header-name="header name"/> 
 
 ```
 
 ### <a name="example"></a>Przykład
 
-W poniższym przykładzie Limit szybkości jest poprzedzony przez adres IP obiektu wywołującego.
+W poniższym przykładzie Limit szybkości 10 wywołań na 60 sekund jest wybierany przez adres IP obiektu wywołującego. Po każdym wykonaniu zasad pozostałe wywołania dozwolone w danym okresie są przechowywane w zmiennej `remainingCallsPerIP` .
 
 ```xml
 <policies>
@@ -177,7 +192,8 @@ W poniższym przykładzie Limit szybkości jest poprzedzony przez adres IP obiek
         <rate-limit-by-key  calls="10"
               renewal-period="60"
               increment-condition="@(context.Response.StatusCode == 200)"
-              counter-key="@(context.Request.IpAddress)"/>
+              counter-key="@(context.Request.IpAddress)"
+              remaining-calls-variable-name="remainingCallsPerIP"/>
     </inbound>
     <outbound>
         <base />
@@ -197,8 +213,13 @@ W poniższym przykładzie Limit szybkości jest poprzedzony przez adres IP obiek
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Rozmowa               | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` . | Tak      | Nie dotyczy     |
 | klucz licznika         | Klucz, który ma być używany na potrzeby zasad limitu szybkości.                                                             | Tak      | Nie dotyczy     |
-| Zwiększ warunek | Wyrażenie logiczne określające, czy żądanie powinno być wliczane do limitu przydziału ( `true` ).        | Nie       | Nie dotyczy     |
-| Okres odnawiania      | Czas (w sekundach), po upływie którego zostanie zresetowany przydział.                                              | Tak      | Nie dotyczy     |
+| Zwiększ warunek | Wyrażenie logiczne określające, czy żądanie powinno być zliczane względem współczynnika ( `true` ).        | Nie       | Nie dotyczy     |
+| Okres odnawiania      | Czas (w sekundach), po upływie którego zostanie zresetowana stawka.                                              | Tak      | Nie dotyczy     |
+| Ponów-po-nazwa nagłówka    | Nazwa nagłówka odpowiedzi, którego wartość jest zalecanym interwałem ponawiania (w sekundach), po przekroczeniu określonej liczby wywołań. |  Nie | Nie dotyczy  |
+| Ponów-po-Zmienna-name    | Nazwa zmiennej wyrażenia zasad, która przechowuje Zalecany interwał ponawiania (w sekundach) po przekroczeniu określonego współczynnika wywołań. |  Nie | Nie dotyczy  |
+| Pozostałe-wywołania — nazwa nagłówka    | Nazwa nagłówka odpowiedzi, którego wartość po każdym wykonaniu zasad to liczba pozostałych wywołań dozwolonych dla interwału czasu określonego w `renewal-period` . |  Nie | Nie dotyczy  |
+| Pozostałe-wywołania-Zmienna-name    | Nazwa zmiennej wyrażenia zasad, która po każdym wykonaniu zasad przechowuje liczbę pozostałych wywołań dozwolonych dla interwału czasu określonego w `renewal-period` . |  Nie | Nie dotyczy  |
+| łącznie-Calls-header-Name    | Nazwa nagłówka odpowiedzi, którego wartością jest wartość określona w `calls` . |  Nie | Nie dotyczy  |
 
 ### <a name="usage"></a>Użycie
 
@@ -319,7 +340,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 > [!IMPORTANT]
 > Ta funkcja jest niedostępna w warstwie **zużycia** API Management.
 
-`quota-by-key`Zasady wymuszają odnowienie i/lub przydział przepustowości dla każdego klucza. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu przydziału. Jeśli wiele zasad zwiększy tę samą wartość klucza, jest zwiększana tylko raz dla każdego żądania. Po osiągnięciu limitu wywołań wywołujący otrzymuje `403 Forbidden` kod stanu odpowiedzi.
+`quota-by-key`Zasady wymuszają odnowienie i/lub przydział przepustowości dla każdego klucza. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu przydziału. Jeśli wiele zasad zwiększy tę samą wartość klucza, jest zwiększana tylko raz dla każdego żądania. Po przekroczeniu liczby wywołań wywołujący otrzymuje `403 Forbidden` kod stanu odpowiedzi.
 
 Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management](./api-management-sample-flexible-throttling.md).
 

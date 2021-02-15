@@ -1,21 +1,20 @@
 ---
-title: Jak skalować usługę Azure Cache for Redis
-description: Dowiedz się, jak skalować usługę Azure cache for Redis Instances przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell, i interfejsu wiersza polecenia platformy Azure.
+title: Skalowanie pamięci podręcznej platformy Azure dla wystąpienia Redis
+description: Dowiedz się, jak skalować usługę Azure cache for Redis Instances przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell, i interfejsu wiersza polecenia platformy Azure
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.custom: devx-track-csharp
-ms.date: 04/11/2017
-ms.openlocfilehash: 332233873bfbcb2ae77f5a70b4aaa5a6102cecec
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 02/08/2021
+ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537851"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382399"
 ---
-# <a name="how-to-scale-azure-cache-for-redis"></a>Jak skalować usługę Azure Cache for Redis
-Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej. Po utworzeniu pamięci podręcznej można skalować rozmiar i warstwę cenową pamięci podręcznej w przypadku zmiany wymagań aplikacji. W tym artykule przedstawiono sposób skalowania pamięci podręcznej przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell i interfejs wiersza polecenia platformy Azure.
+# <a name="scale-an-azure-cache-for-redis-instance"></a>Skalowanie pamięci podręcznej platformy Azure dla wystąpienia Redis
+Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej. W przypadku pamięci podręcznej podstawowa, standardowa lub Premium można zmienić jej rozmiar i warstwę po jej utworzeniu, aby zachować zapotrzebowanie na aplikacje. W tym artykule przedstawiono sposób skalowania pamięci podręcznej przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell i interfejs wiersza polecenia platformy Azure.
 
 ## <a name="when-to-scale"></a>Kiedy skalować
 Można użyć funkcji [monitorowania](cache-how-to-monitor.md) usługi Azure cache for Redis do monitorowania kondycji i wydajności pamięci podręcznej oraz określania czasu skalowania pamięci podręcznej. 
@@ -30,11 +29,11 @@ Można monitorować następujące metryki, aby pomóc w ustaleniu, czy konieczne
 Jeśli okaże się, że pamięć podręczna nie spełnia już wymagań aplikacji, można skalować ją do większej lub mniejszej warstwy cenowej pamięci podręcznej, która jest odpowiednia dla danej aplikacji. Aby uzyskać więcej informacji na temat określania warstwy cenowej pamięci podręcznej, która ma być używana, zobacz [Wybieranie odpowiedniej warstwy](cache-overview.md#choosing-the-right-tier).
 
 ## <a name="scale-a-cache"></a>Skalowanie pamięci podręcznej
-Aby skalować pamięć podręczną, [Przejdź do pamięci podręcznej](cache-configure.md#configure-azure-cache-for-redis-settings) w [Azure Portal](https://portal.azure.com) a następnie kliknij pozycję **Skaluj** w **menu zasób** .
+Aby skalować pamięć podręczną, [Przejdź do pamięci podręcznej](cache-configure.md#configure-azure-cache-for-redis-settings) w [Azure Portal](https://portal.azure.com) a następnie kliknij pozycję **Skaluj** w **menu zasób**.
 
 ![Skalowanie](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-Wybierz żądaną warstwę cenową w bloku **Wybierz warstwę cenową** , a następnie kliknij przycisk **Wybierz** .
+Wybierz żądaną warstwę cenową w bloku **Wybierz warstwę cenową** , a następnie kliknij przycisk **Wybierz**.
 
 ![Warstwa cenowa][redis-cache-pricing-tier-blade]
 
@@ -52,7 +51,7 @@ Podczas skalowania pamięci podręcznej do nowej warstwy cenowej w bloku **usłu
 
 ![Skalowanie][redis-cache-scaling]
 
-Po zakończeniu skalowania stan zmieni się ze **skalowanie** na **uruchomione** .
+Po zakończeniu skalowania stan zmieni się ze **skalowanie** na **uruchomione**.
 
 ## <a name="how-to-automate-a-scaling-operation"></a>Jak zautomatyzować operację skalowania
 Oprócz skalowania wystąpień pamięci podręcznej w Azure Portal można skalować za pomocą poleceń cmdlet programu PowerShell, interfejsu wiersza polecenia platformy Azure i za pomocą bibliotek zarządzania Microsoft Azure (MAML). 
@@ -174,7 +173,7 @@ Jeśli operacja skalowania nie powiedzie się, usługa podejmie próbę przywró
 Skalowanie czasu zależy od ilości danych znajdujących się w pamięci podręcznej, dzięki czemu większa ilość danych trwa dłużej. Skalowanie trwa około 20 minut. W przypadku klastrowanych pamięci podręcznych skalowanie trwa około 20 minut na fragmentu.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Jak mogę sprawdzić, czy skalowanie zostało zakończone?
-W Azure Portal można zobaczyć operację skalowania w toku. Po zakończeniu skalowania stan pamięci podręcznej zmieni się na **uruchomiony** .
+W Azure Portal można zobaczyć operację skalowania w toku. Po zakończeniu skalowania stan pamięci podręcznej zmieni się na **uruchomiony**.
 
 <!-- IMAGES -->
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99580200"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100514906"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -39,6 +39,16 @@ Jeśli dane wyjściowe są wyprowadzane do pliku, Edytor tekstu, taki jak Notatn
 
 #### <a name="linux-install"></a>[Instalacja systemu Linux](#tab/linuxinstall)
 
+Obsługiwane są następujące dystrybucje systemu Linux dla architektury x64 za pomocą interfejsu wiersza polecenia mowy:
+
+* CentOS 7/8
+* Debian 9/10 
+* Red Hat Enterprise Linux (RHEL) 7/8
+* Ubuntu 16.04/18.04/20.04
+
+> [!NOTE]
+> Dodatkowe architektury są obsługiwane przez zestaw SDK mowy (nie interfejs wiersza polecenia mowy). Aby uzyskać więcej informacji, zobacz [Informacje o zestawie mowy SDK](../speech-sdk.md).
+
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w systemie Linux na PROCESORze x64:
 
 1. Zainstaluj program [.NET Core 3,1](/dotnet/core/install/linux).
@@ -49,7 +59,7 @@ Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy 
 Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
 
 > [!NOTE]
-> Alternatywą dla programu NuGet jest pobranie plików binarnych w [archiwum zip](https://aka.ms/speech/spx-zips.zip), wyodrębnienie ich `spx-netcore-30-linux-x64` do nowego `~/spx` katalogu, wpisanie `sudo chmod +r+x spx` pliku binarnego i dodanie `~/spx` ścieżki do zmiennej systemowej PATH.
+> Alternatywą dla programu NuGet jest pobranie plików binarnych w [archiwum zip](https://aka.ms/speech/spx-zips.zip), wyodrębnienie ich `spx-netcore-30-linux-x64.zip` do nowego `~/spx` katalogu, wpisanie `sudo chmod +r+x spx` pliku binarnego i dodanie `~/spx` ścieżki do zmiennej systemowej PATH.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalacja platformy Docker (Windows, Linux, macOS)](#tab/dockerinstall)
@@ -107,7 +117,7 @@ Aby użyć `spx` polecenia zainstalowanego w kontenerze, należy zawsze wprowadz
 Na przykład w systemie Windows to polecenie ustawia klucz:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
 ```
 
 Aby uzyskać bardziej rozszerzoną interakcję z narzędziem wiersza polecenia, można uruchomić kontener z interaktywną powłoką bash, dodając parametr punktu wejścia.
@@ -160,8 +170,8 @@ Aby rozpocząć korzystanie z interfejsu wiersza polecenia mowy, należy wprowad
 Gdy masz klucz subskrypcji i Identyfikator regionu (np. `eastus`, `westus` Uruchom następujące polecenia.
 
 ```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
+spx config --set @key SUBSCRIPTION-KEY
+spx config --set @region REGION
 ```
 
 Twoje uwierzytelnianie subskrypcji jest teraz przechowywane dla przyszłych żądań SPX. Jeśli musisz usunąć jedną z tych przechowywanych wartości, uruchom polecenie `spx config @region --clear` lub `spx config @key --clear` .

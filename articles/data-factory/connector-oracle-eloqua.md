@@ -1,22 +1,18 @@
 ---
 title: Kopiowanie danych z programu Oracle Eloqua (wersja zapoznawcza)
 description: Informacje o kopiowaniu danych z programu Oracle Eloqua do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: 3ea9d7baf427e70df349c926a0b6b8b72ba82293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4bb392b05fb54f22720202b83f1af707e381251
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416851"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372233"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Kopiowanie danych z programu Oracle Eloqua przy użyciu Azure Data Factory (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -115,7 +111,7 @@ Aby skopiować dane z programu Oracle Eloqua, ustaw typ źródła w działaniu C
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **EloquaSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM Accounts"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Accounts"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

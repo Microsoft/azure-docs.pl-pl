@@ -52,7 +52,11 @@
             - name: Wersja używająca skryptu
               href: how-to-set-up-instance-scripted.md
         - name: Włączanie dostępu prywatnego za pomocą usługi Private Link
-          href: how-to-enable-private-link.md
+          items:
+            - name: Wersja dla portalu
+              href: how-to-enable-private-link-portal.md
+            - name: Wersja interfejsu wiersza polecenia
+              href: how-to-enable-private-link-cli.md
         - name: Pisanie kodu uwierzytelniania aplikacji
           href: how-to-authenticate-client.md
         - name: Tworzenie rejestracji aplikacji
@@ -103,12 +107,16 @@
       items:
         - name: Zarządzanie punktami końcowymi i trasami
           items:
-            - name: Wersja interfejsu wiersza polecenia i interfejsów API
-              href: how-to-manage-routes-apis-cli.md
             - name: Wersja dla portalu
               href: how-to-manage-routes-portal.md
+            - name: Wersja interfejsu wiersza polecenia i interfejsów API
+              href: how-to-manage-routes-apis-cli.md
         - name: Włącz zarządzaną tożsamość dla zdarzeń routingu
-          href: how-to-enable-managed-identities.md
+          items:
+            - name: Wersja dla portalu
+              href: how-to-enable-managed-identities-portal.md
+            - name: Wersja interfejsu wiersza polecenia
+              href: how-to-enable-managed-identities-cli.md
         - name: Integracja z usługą Azure Maps
           href: how-to-integrate-maps.md
         - name: Integracja z usługą Azure Time Series Insights

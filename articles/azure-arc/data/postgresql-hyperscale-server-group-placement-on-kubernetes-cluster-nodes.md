@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: ecc2e98d4c6c58e11b2bdc86b623f31d828cabc0
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: b88b36ba8ec1d2d612adbbf19a6cf1e91fbb2cfd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985924"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377758"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Rozmieszczenie grupy serwerów PostgreSQL na platformie Azure z włączonym łukiem
 
@@ -28,13 +28,13 @@ W tym przykładzie korzystamy z klastra usługi Azure Kubernetes Service (AKS), 
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/1_cluster_portal.png" alt-text="4 węzeł klastra AKS w Azure Portal":::
 
-Wyświetl listę fizycznych węzłów klastra Kubernetes, uruchamiając polecenie:
+Wyświetl listę węzłów fizycznych klastra Kubernetes. Uruchom polecenie:
 
 ```console
 kubectl get nodes
 ```
 
-Który pokazuje cztery węzły fizyczne wewnątrz klastra Kubernetes:
+`kubectl` zwraca cztery węzły fizyczne wewnątrz klastra Kubernetes:
 
 ```output
 NAME                                STATUS   ROLES   AGE   VERSION
@@ -55,7 +55,7 @@ Utwórz listę zasobników za pomocą polecenia:
 ```console
 kubectl get pods -n arc3
 ```
-Co generuje następujące dane wyjściowe:
+`kubectl` typu
 
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -64,7 +64,7 @@ postgres01c-0         3/3     Running   0          9h
 postgres01w-0         3/3     Running   0          9h
 postgres01w-1         3/3     Running   0          9h
 ```
-Każdy z tych zasobników jest hostem wystąpienia PostgreSQL. Razem z usługą Azure Arc PostgreSQLą grupę serwerów z włączonym skalowaniem:
+Każdy z tych zasobników jest hostem wystąpienia PostgreSQL. W obu przypadkach jest to grupa serwerów z włączonym skalowaniem usługi Azure PostgreSQL:
 
 ```output
 Pod name        Role in the server group
@@ -80,7 +80,7 @@ Przyjrzyjmy się, jak Kubernetes umieszcza w grupie serwerów. Opisz każdy pod 
 kubectl describe pod postgres01c-0 -n arc3
 ```
 
-Co generuje następujące dane wyjściowe:
+`kubectl` typu
 
 ```output
 Name:         postgres01c-0
@@ -104,7 +104,7 @@ Należy również pamiętać, że w opisie wartości nazwanych kontenerów, któ
 kubectl describe pod postgres01w-1 -n arc3
 ```
 
-Co generuje następujące dane wyjściowe:
+`kubectl` typu
 
 ```output
 …
@@ -131,7 +131,7 @@ Architektura wygląda następująco:
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3, każdy umieszczony w osobnych węzłach":::
 
-Oznacza to, że w tym momencie każde wystąpienie PostgreSQL tworzące grupę serwerów PostgreSQL z funkcją Azure Arc jest hostowane na określonym hoście fizycznym w kontenerze Kubernetes. Jest to Najlepsza konfiguracja, która pomaga w uzyskaniu największej wydajności z usługi Azure ARC z włączoną obsługą PostgreSQL, ponieważ każda rola (koordynator i procesy robocze) korzysta z zasobów każdego węzła fizycznego. Te zasoby nie są współużytkowane przez kilka ról PostgreSQL.
+Oznacza to, że w tym momencie każde wystąpienie PostgreSQL tworzące grupę serwerów PostgreSQL z funkcją Azure Arc jest hostowane na określonym hoście fizycznym w kontenerze Kubernetes. Ta konfiguracja zapewnia największą wydajność grupy serwerów PostgreSQL z funkcją Azure ARC, ponieważ każda rola (koordynator i procesy robocze) korzysta z zasobów każdego węzła fizycznego. Te zasoby nie są współużytkowane przez kilka ról PostgreSQL.
 
 ## <a name="scale-out-azure-arc-enabled-postgresql-hyperscale"></a>Skalowanie w poziomie usługi Azure ARC z włączonym skalowaniem PostgreSQL
 
@@ -217,19 +217,19 @@ Przy użyciu tych samych poleceń jak powyżej; widzimy, co każdy węzeł fizyc
 
 |Inne nazwy na podst.\* |Użycie|Kubernetes węzeł fizyczny hostujący zasobniki
 |----|----|----
-|program inicjujący — jh48b|Jest to usługa, która obsługuje żądania przychodzące do tworzenia, edytowania i usuwania zasobów niestandardowych, takich jak wystąpienia zarządzane SQL, grupy serwerów PostgreSQL w skali i kontrolery danych|AKS-nieznanej obiektu agentpool-42715708-vmss000003
+|program inicjujący — jh48b|Usługa, która obsługuje żądania przychodzące do tworzenia, edytowania i usuwania zasobów niestandardowych, takich jak wystąpienia zarządzane SQL, grupy serwerów PostgreSQL w skali i kontrolery danych|AKS-nieznanej obiektu agentpool-42715708-vmss000003
 |Control-gwmbs||AKS-nieznanej obiektu agentpool-42715708-vmss000002
-|controldb-0|Jest to magazyn danych kontrolera, który jest używany do przechowywania konfiguracji i stanu dla kontrolera danych.|AKS-nieznanej obiektu agentpool-42715708-vmss000001
-|controlwd-zzjp7|Jest to usługa "Watch Dog", która utrzymuje dostęp do kontrolera danych.|AKS-nieznanej obiektu agentpool-42715708-vmss000000
-|logsdb-0|Jest to elastyczne wystąpienie wyszukiwania, które służy do przechowywania wszystkich dzienników zebranych przez wszystkie zbiory danych Arc. Elasticsearch, odbiera dane z `Fluentbit` kontenera każdego z nich|AKS-nieznanej obiektu agentpool-42715708-vmss000003
-|logsui-5fzv5|Jest to wystąpienie Kibana, które znajduje się na wierzchu bazy danych wyszukiwania elastycznego, aby przedstawić graficzny interfejs użytkownika usługi log Analytics.|AKS-nieznanej obiektu agentpool-42715708-vmss000003
-|metricsdb-0|Jest to wystąpienie InfluxDB, które jest używane do przechowywania wszystkich metryk zbieranych na wszystkich serwerach Arc Data Services. InfluxDB, odbiera dane z `Telegraf` kontenera każdego pod|AKS-nieznanej obiektu agentpool-42715708-vmss000000
-|metricsdc-47d47|Jest to elementu daemonset wdrożony we wszystkich węzłach Kubernetes w klastrze, aby zbierać metryki na poziomie węzła dotyczące węzłów.|AKS-nieznanej obiektu agentpool-42715708-vmss000002
-|metricsdc-864kj|Jest to elementu daemonset wdrożony we wszystkich węzłach Kubernetes w klastrze, aby zbierać metryki na poziomie węzła dotyczące węzłów.|AKS-nieznanej obiektu agentpool-42715708-vmss000001
-|metricsdc-l8jkf|Jest to elementu daemonset wdrożony we wszystkich węzłach Kubernetes w klastrze, aby zbierać metryki na poziomie węzła dotyczące węzłów.|AKS-nieznanej obiektu agentpool-42715708-vmss000003
-|metricsdc-nxm4l|Jest to elementu daemonset wdrożony we wszystkich węzłach Kubernetes w klastrze, aby zbierać metryki na poziomie węzła dotyczące węzłów.|AKS-nieznanej obiektu agentpool-42715708-vmss000000
-|metricsui-4fb7l|Jest to wystąpienie Grafana, które znajduje się na bazie danych InfluxDB, aby przedstawić graficzny interfejs użytkownika monitorowania.|AKS-nieznanej obiektu agentpool-42715708-vmss000003
-|mgmtproxy-4qppp|Jest to warstwa serwera proxy aplikacji sieci Web, która znajduje się przed wystąpieniami Grafana i Kibana.|AKS-nieznanej obiektu agentpool-42715708-vmss000002
+|controldb-0|Magazyn danych kontrolera, który jest używany do przechowywania konfiguracji i stanu dla kontrolera danych.|AKS-nieznanej obiektu agentpool-42715708-vmss000001
+|controlwd-zzjp7|Usługa "Obejrzyj pies" kontrolera, która utrzymuje dostęp do kontrolera danych.|AKS-nieznanej obiektu agentpool-42715708-vmss000000
+|logsdb-0|Elastyczne wystąpienie wyszukiwania, które służy do przechowywania wszystkich dzienników zebranych przez wszystkie zbiory danych Arc. Elasticsearch, odbiera dane z `Fluentbit` kontenera każdego z nich|AKS-nieznanej obiektu agentpool-42715708-vmss000003
+|logsui-5fzv5|Wystąpienie Kibana, które znajduje się na wierzchu bazy danych wyszukiwania elastycznego, aby przedstawić graficzny interfejs użytkownika usługi log Analytics.|AKS-nieznanej obiektu agentpool-42715708-vmss000003
+|metricsdb-0|Wystąpienie InfluxDB, które jest używane do przechowywania wszystkich metryk zbieranych przez wszystkie zbiory usługi Data Services. InfluxDB, odbiera dane z `Telegraf` kontenera każdego pod|AKS-nieznanej obiektu agentpool-42715708-vmss000000
+|metricsdc-47d47|Zestaw demonów wdrożony na wszystkich węzłach Kubernetes w klastrze, aby zbierać metryki na poziomie węzła dotyczące węzłów.|AKS-nieznanej obiektu agentpool-42715708-vmss000002
+|metricsdc-864kj|Zestaw demonów wdrożony na wszystkich węzłach Kubernetes w klastrze, aby zbierać metryki na poziomie węzła dotyczące węzłów.|AKS-nieznanej obiektu agentpool-42715708-vmss000001
+|metricsdc-l8jkf|Zestaw demonów wdrożony na wszystkich węzłach Kubernetes w klastrze, aby zbierać metryki na poziomie węzła dotyczące węzłów.|AKS-nieznanej obiektu agentpool-42715708-vmss000003
+|metricsdc-nxm4l|Zestaw demonów wdrożony na wszystkich węzłach Kubernetes w klastrze, aby zbierać metryki na poziomie węzła dotyczące węzłów.|AKS-nieznanej obiektu agentpool-42715708-vmss000000
+|metricsui-4fb7l|Wystąpienie Grafana, które znajduje się w bazie danych InfluxDB, aby przedstawić graficzny interfejs użytkownika monitorowania.|AKS-nieznanej obiektu agentpool-42715708-vmss000003
+|mgmtproxy-4qppp|Warstwa serwera proxy aplikacji sieci Web, która znajduje się przed wystąpieniami Grafana i Kibana.|AKS-nieznanej obiektu agentpool-42715708-vmss000002
 
 > \* Sufiks pod nazwami pod nazw różni się w zależności od innych wdrożeń. Ponadto wymieniamy tutaj tylko te, które są hostowane w przestrzeni nazw Kubernetes kontrolera danych usługi Azure Arc.
 
@@ -237,7 +237,7 @@ Architektura wygląda następująco:
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Wszystkie zasobniki w przestrzeni nazw w różnych węzłach":::
 
-Oznacza to, że węzły koordynatora (1) z włączoną grupą Postgres z systemem Azure Arc współużytkują te same zasoby fizyczne, co trzeci węzeł procesu roboczego (pod 4) grupy serwerów. Jest to akceptowalne w przypadku, gdy węzeł koordynator zazwyczaj używa bardzo małych zasobów w porównaniu z tym, co może być używane przez węzeł procesu roboczego. W tym celu można wywnioskować, że należy starannie wybrać:
+Zgodnie z powyższym opisem, węzły koordynatora (pod 1) grupy serwerów Postgres wieloskalowanie z obsługą usługi Azure Arc współużytkują te same zasoby fizyczne, co trzeci węzeł procesu roboczego (pod 4) grupy serwerów. Jest to akceptowalne, ponieważ węzeł koordynator zwykle używa bardzo kilku zasobów w porównaniu z tym, co może być używane przez węzeł procesu roboczego. Z tego powodu starannie wybieramy:
 - rozmiar klastra Kubernetes i właściwości każdego z jego węzłów fizycznych (pamięć, rdzeń wirtualny)
 - Liczba węzłów fizycznych w klastrze Kubernetes
 - aplikacje lub obciążenia, które są hostowane w klastrze Kubernetes.

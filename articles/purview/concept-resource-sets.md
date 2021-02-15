@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: e4b48729f13ec0234a7a711032a2db34e55a8bd1
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 39a1400bfe642672ba276686851d4f0edebbeb00
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539471"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387856"
 ---
 # <a name="understanding-resource-sets"></a>Informacje o zestawach zasobów
 
@@ -86,19 +86,19 @@ Gdy usługa Azure kontrolą jest zgodna z grupą zasobów w zestawie, podejmuje 
 
 ### <a name="example-1"></a>Przykład 1
 
-Nazwa kwalifikowana: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+Nazwa kwalifikowana: `https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}`
 
 Nazwa wyświetlana: "Nazwa wyjścia Spark"
 
 ### <a name="example-2"></a>Przykład 2
 
-Nazwa kwalifikowana: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+Nazwa kwalifikowana: `https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}`
 
 Nazwa wyświetlana: "Moje partycjonowane dane"
 
 ### <a name="example-3"></a>Przykład 3
 
-Nazwa kwalifikowana: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+Nazwa kwalifikowana: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Nazwa wyświetlana: "dane"
 

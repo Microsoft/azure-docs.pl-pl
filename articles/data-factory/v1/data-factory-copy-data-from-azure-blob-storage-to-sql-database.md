@@ -1,24 +1,18 @@
 ---
 title: Kopiowanie danych z Blob Storage do SQL Database — Azure
 description: W tym samouczku pokazano, jak za pomocą działania kopiowania w potoku Azure Data Factory skopiować dane z usługi BLOB Storage do usługi SQL Database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 15bce219b96268124729de2f475e33fc386348a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 24cedc6a1e0be66e9a924a50e25257f18b7f96a6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021218"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376891"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Samouczek: kopiowanie danych z Blob Storage do SQL Database przy użyciu Data Factory
 > [!div class="op_single_selector"]
@@ -26,7 +20,7 @@ ms.locfileid: "96021218"
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -117,7 +111,7 @@ Wymagania wstępne zostały spełnione. Fabrykę danych można utworzyć, korzys
 * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-* [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 

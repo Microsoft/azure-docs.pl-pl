@@ -1,21 +1,18 @@
 ---
 title: Korzystanie z działań niestandardowych w potoku
 description: Dowiedz się, jak tworzyć niestandardowe działania przy użyciu platformy .NET, a następnie używać działań w potoku Azure Data Factory.
-services: data-factory
 ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: e84f7a2ee8c2f7a57ce1734ad3392a217d6de5fe
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ec1e7c77c44cf1969e472a6e7288d1af5d6640e1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632111"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374800"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 
@@ -104,7 +101,7 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Nazwa działania w potoku     | Tak      |
 | description (opis)           | Tekst opisujący działanie działania.  | Nie       |
-| typ                  | W przypadku działania niestandardowego typem działania jest **niestandardowy** . | Tak      |
+| typ                  | W przypadku działania niestandardowego typem działania jest **niestandardowy**. | Tak      |
 | linkedServiceName     | Połączona usługa do Azure Batch. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) .  | Tak      |
 | command               | Polecenie aplikacji niestandardowej do wykonania. Jeśli aplikacja jest już dostępna w węźle puli Azure Batch, można pominąć resourceLinkedService i folderPath. Na przykład możesz określić polecenie `cmd /c dir` , które ma być natywnie obsługiwane przez węzeł puli usługi Windows Batch. | Tak      |
 | resourceLinkedService | Połączona usługa Azure Storage z kontem magazynu, w którym jest przechowywana aplikacja niestandardowa | Brak &#42;       |
@@ -310,7 +307,7 @@ Możesz wysyłać niestandardowe wartości z kodu w niestandardowym działaniu z
 
 ## <a name="retrieve-securestring-outputs"></a>Pobieranie danych wyjściowych SecureString
 
-Poufne wartości właściwości wyznaczono jako typ *SecureString* , jak pokazano w niektórych przykładach w tym artykule, są maskowane na karcie monitorowanie w interfejsie użytkownika Data Factory.  Jednak w rzeczywistym wykonaniu potoku Właściwość *SecureString* jest serializowana jako kod JSON w `activity.json` pliku jako zwykły tekst. Na przykład:
+Poufne wartości właściwości wyznaczono jako typ *SecureString*, jak pokazano w niektórych przykładach w tym artykule, są maskowane na karcie monitorowanie w interfejsie użytkownika Data Factory.  Jednak w rzeczywistym wykonaniu potoku Właściwość *SecureString* jest serializowana jako kod JSON w `activity.json` pliku jako zwykły tekst. Na przykład:
 
 ```json
 "extendedProperties": {

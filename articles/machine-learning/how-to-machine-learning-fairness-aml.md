@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: ee589aed2b8f3c53d21c1f762a5d2027f3762649
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 322b036fee840db58ed610795155af6c9e1320cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222772"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366979"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Użyj Azure Machine Learning z pakietem typu open source Fairlearn do oceny sprawiedliwości modeli ML (wersja zapoznawcza)
 
@@ -214,10 +214,15 @@ Poniższy przykład pokazuje, jak używać pakietu o atrakcyjności. Będziemy p
     1. Wybierz pozycję **eksperymenty** w okienku po lewej stronie, aby wyświetlić listę eksperymentów, które zostały uruchomione na Azure Machine Learning.
     1. Wybierz konkretny eksperyment, aby wyświetlić wszystkie uruchomienia w tym eksperymentie.
     1. Wybierz przebieg, a następnie kartę **sprawiedliwość** do pulpitu nawigacyjnego wizualizacji z wyjaśnieniem.
+    1. Po przeprowadzeniu na karcie **godziwej** kliknij pozycję **Identyfikator godziwy** w menu po prawej stronie.
+    1. Skonfiguruj pulpit nawigacyjny, wybierając poufny atrybut, metrykę wydajności i metrykę godziwą zainteresowania, które mają być używane na stronie oceny godziwej.
+    1. Przełącz typ wykresu z jednego do drugiego, aby obserwować szkody związane z **rozmieszczeniem** i **jakością usług** .
 
 
-    [![Pulpit nawigacyjny uczciwości](./media/how-to-machine-learning-fairness-aml/dashboard.png)](./media/how-to-machine-learning-fairness-aml/dashboard.png#lightbox)
+
+    [![Alokacja pulpitu nawigacyjnego z atrakcyjnością](./media/how-to-machine-learning-fairness-aml/dashboard-1.png)](./media/how-to-machine-learning-fairness-aml/dashboard-1.png#lightbox)
     
+    [![Quality of Service pulpitu nawigacyjnego uczciwości](./media/how-to-machine-learning-fairness-aml/dashboard-2.png)](./media/how-to-machine-learning-fairness-aml/dashboard-2.png#lightbox)
     * **Okienko modele**
     1. Jeśli oryginalny model został zarejestrowany zgodnie z poprzednimi krokami, w okienku po lewej stronie możesz wybrać **modele** , aby je wyświetlić.
     1. Wybierz model, a następnie kartę **godziwość** , aby wyświetlić pulpit nawigacyjny wizualizacji z wyjaśnieniem.

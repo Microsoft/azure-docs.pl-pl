@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start utworzysz grupę zarządzania w celu
 ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 25fd93e51c1b49519bb315aab28cdfc44a2a0c58
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 99a2ed406d4837f6fc346e68b3b400003feed38c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593980"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099153"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Szybki Start: Tworzenie grupy zarządzania przy użyciu języka JavaScript
 
@@ -29,7 +29,7 @@ Wykonanie pierwszej grupy zarządzania utworzonej w katalogu może potrwać do 1
 
 ## <a name="application-setup"></a>Konfiguracja aplikacji
 
-Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów platformy Azure, należy skonfigurować środowisko. Ta konfiguracja działa wszędzie tam, gdzie można używać języka JavaScript, [w tym bash w systemie Windows 10](/windows/wsl/install-win10).
+Aby włączyć obsługę języka JavaScript do zarządzania grupami zarządzania, należy skonfigurować środowisko. Ta konfiguracja działa wszędzie tam, gdzie można używać języka JavaScript, [w tym bash w systemie Windows 10](/windows/wsl/install-win10).
 
 1. Skonfiguruj nowy projekt Node.js, uruchamiając następujące polecenie.
 

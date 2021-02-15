@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007401"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390406"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
@@ -26,7 +26,7 @@ Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Przeczytaj publiczną wersję zapoznawczą interfejsu API v 3.2 z obsługą OCR dla języków 73
 Informacje o wersji zapoznawczej interfejsu API v 3.2 przetwarzanie obrazów dostępne jako usługa w chmurze i kontener Docker obejmują następujące aktualizacje:
 * Program [OCR dla języków 73, w](./language-support.md#optical-character-recognition-ocr) tym uproszczony i tradycyjny język chiński, japoński, koreański i łaciński.
-* Naturalna kolejność odczytywania danych wyjściowych wiersza tekstu.
+* Naturalna kolejność odczytywania danych wyjściowych w wierszu tekstu (tylko języki łacińskie)
 * Klasyfikacja stylu pisma ręcznego dla linii tekstowych wraz z oceną pewności (tylko języki łacińskie).
 * Wyodrębnij tekst tylko dla wybranych stron dla dokumentu wielostronicowego.
 * Dostępne jako [kontener Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) dla wdrożenia lokalnego.

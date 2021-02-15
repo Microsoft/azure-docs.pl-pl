@@ -1,29 +1,25 @@
 ---
 title: Automatyzacja instalacji samoobsługowego środowiska Integration Runtime za pomocą lokalnych skryptów programu PowerShell
 description: W celu zautomatyzowania instalacji Integration Runtime samoobsługowego na maszynach lokalnych.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 36414c975e97dbaa7d8747da98c31eeb12fbc206
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8cbe54a23cb1c8b55afd86a18b51c0e392c3f78a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636973"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376211"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatyzacja instalacji samoobsługowego środowiska Integration Runtime za pomocą lokalnych skryptów programu PowerShell
 Aby zautomatyzować instalację Integration Runtime samoobsługowego na maszynach lokalnych (innych niż maszyny wirtualne platformy Azure, w których możemy wykorzystać szablon Menedżer zasobów), możesz użyć lokalnych skryptów programu PowerShell. W tym artykule wprowadzono dwa skrypty, których można użyć.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Uruchom program PowerShell na komputerze lokalnym. Aby uruchomić skrypty, należy wybrać **Uruchom jako administrator** .
+* Uruchom program PowerShell na komputerze lokalnym. Aby uruchomić skrypty, należy wybrać **Uruchom jako administrator**.
 * [Pobierz](https://www.microsoft.com/download/details.aspx?id=39717) własne oprogramowanie Integration Runtime. Skopiuj ścieżkę, w której znajduje się pobrany plik. 
 * Do zarejestrowania własnego środowiska Integration Runtime jest również wymagany **klucz uwierzytelniania** .
 * Aby zautomatyzować aktualizacje ręczne, musisz dysponować wstępnie skonfigurowanym środowiskiem Integration Runtime.
@@ -38,13 +34,13 @@ Aby zautomatyzować instalację Integration Runtime samoobsługowego na maszynac
 
 * Aby zautomatyzować aktualizacje ręczne: należy zaktualizować samodzielny węzeł IR przy użyciu określonej wersji lub do najnowszej wersji **[script-update-gateway.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/script-update-gateway.ps1)** — jest to również obsługiwane na wypadek wyłączenia automatycznej aktualizacji lub chcesz mieć większą kontrolę nad aktualizacjami. Skrypt ten może służyć do aktualizowania węzła samodzielnego środowiska Integration Runtime do najnowszej wersji lub do określonej wyższej wersji (obniżenie poziomu nie działa). Akceptuje on argument służący do określania numeru wersji (przykład:-Version 3.13.6942.1). Jeśli żadna wersja nie zostanie określona, program zawsze aktualizuje środowisko IR obsługiwane przez funkcję samodzielnego udostępniania do najnowszej [wersji.](https://www.microsoft.com/download/details.aspx?id=39717)
     > [!NOTE]
-    > Można określić tylko ostatnie 3 wersje. W idealnym przypadku służy do aktualizowania istniejącego węzła do najnowszej wersji. **przyjęto założenie, że masz zarejestrowane własne środowisko IR** . 
+    > Można określić tylko ostatnie 3 wersje. W idealnym przypadku służy do aktualizowania istniejącego węzła do najnowszej wersji. **przyjęto założenie, że masz zarejestrowane własne środowisko IR**. 
 
 ## <a name="usage-examples"></a>Przykłady użycia
 
 ### <a name="for-automating-setup"></a>Do automatyzowania instalacji
 1. Pobierz własne środowisko IR z tego [miejsca](https://www.microsoft.com/download/details.aspx?id=39717). 
-1. Określ ścieżkę do powyższego pobranego pliku MSI SHIR (plik instalacyjny). Na przykład jeśli ścieżka jest *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi* , można użyć poniżej przykładowego wiersza polecenia programu PowerShell dla tego zadania:
+1. Określ ścieżkę do powyższego pobranego pliku MSI SHIR (plik instalacyjny). Na przykład jeśli ścieżka jest *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi*, można użyć poniżej przykładowego wiersza polecenia programu PowerShell dla tego zadania:
 
    ```powershell
    PS C:\windows\system32> C:\Users\username\Desktop\InstallGatewayOnLocalMachine.ps1 -path "C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi" -authKey "[key]"

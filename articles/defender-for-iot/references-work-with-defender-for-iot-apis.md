@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: ae7965dd319f2ff885f4329262ae4772452afd62
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222138"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523247"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Usługa Defender dla interfejsów API konsoli zarządzania i czujnika IoT
 
@@ -2654,6 +2654,6 @@ response:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Badanie wykryć czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[Badanie wykryć czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 
-- [Badanie wszystkich wykryć czujników przedsiębiorstwa w spisie urządzeń](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+[Badanie wszystkich wykryć czujników przedsiębiorstwa w spisie urządzeń](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

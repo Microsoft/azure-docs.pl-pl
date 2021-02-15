@@ -3,14 +3,16 @@ title: Rozwiązywanie problemów dotyczących Azure Automation hybrydowych proce
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation hybrydowych procesów roboczych elementów Runbook.
 services: automation
 ms.subservice: ''
-ms.date: 11/25/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055335"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388009"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu runbook
 
@@ -26,9 +28,7 @@ Hybrydowy proces roboczy elementu Runbook zależy od agenta, który komunikuje s
 
 Wykonanie elementu Runbook nie powiodło się i zostanie wyświetlony następujący komunikat o błędzie:
 
-```error
-"The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
-```
+`The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times.`
 
 Element Runbook zostanie zawieszony wkrótce po ponownym uruchomieniu. Istnieją warunki, które umożliwiają przerwanie wykonywania elementu Runbook. Komunikat o błędzie pokrewny może nie zawierać żadnych dodatkowych informacji.
 
@@ -56,13 +56,12 @@ Sprawdź w dzienniku zdarzeń **Microsoft-SMA** odpowiednie zdarzenie z opisem `
 
 Hybrydowy proces roboczy elementu Runbook odbiera zdarzenie 15011, co oznacza, że wynik zapytania jest nieprawidłowy. Następujący błąd pojawia się, gdy proces roboczy próbuje otworzyć połączenie z [serwerem sygnałów](/aspnet/core/signalr/introduction).
 
-```error
-[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
+`[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
 [Uri=https://cc-jobruntimedata-prod-su1.azure-automation.net/notifications/hub][Exception=System.TimeoutException: Transport timed out trying to connect
    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at JobRuntimeData.NotificationsClient.JobRuntimeDataServiceSignalRClient.<Start>d__45.MoveNext()
-```
+`
 
 #### <a name="cause"></a>Przyczyna
 
@@ -96,14 +95,13 @@ Uruchom maszynę proces roboczy, a następnie rereregister ją przy użyciu Azur
 
 Element Runbook uruchomiony w hybrydowym procesie roboczym elementu Runbook kończy się niepowodzeniem z następującym komunikatem o błędzie:
 
-```error
-Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
-At line:3 char:1
-+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
-```
+`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`  
+`At line:3 char:1`  
+`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`  
+`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`  
+`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`  
+`    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand`
+
 #### <a name="cause"></a>Przyczyna
 
 Ten błąd występuje podczas próby użycia [konta Uruchom jako](../automation-security-overview.md#run-as-accounts) w elemencie Runbook, który działa w hybrydowym procesie roboczym elementu Runbook, gdzie nie jest obecny certyfikat konta Uruchom jako. Hybrydowe procesy robocze elementów Runbook nie mają domyślnie zasobu lokalnego. Konto Uruchom jako wymaga poprawnego działania tego elementu zawartości.
@@ -118,9 +116,7 @@ Jeśli hybrydowy proces roboczy elementu Runbook jest maszyną wirtualną platfo
 
 Początkowa faza rejestracji procesu roboczego kończy się niepowodzeniem i pojawia się następujący błąd (403):
 
-```error
-"Forbidden: You don't have permission to access / on this server."
-```
+`Forbidden: You don't have permission to access / on this server.`
 
 #### <a name="cause"></a>Przyczyna
 
@@ -139,6 +135,37 @@ Aby sprawdzić, czy identyfikator obszaru roboczego agenta lub klucz obszaru rob
 Obszar roboczy Log Analytics i konto usługi Automation muszą znajdować się w połączonym regionie. Listę obsługiwanych regionów można znaleźć w temacie [Azure Automation i log Analytics mapowania obszaru roboczego](../how-to/region-mappings.md).
 
 Może być również konieczne zaktualizowanie daty lub strefy czasowej komputera. W przypadku wybrania niestandardowego zakresu czasu upewnij się, że zakres jest w formacie UTC, który może się różnić od lokalnej strefy czasowej.
+
+### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>Scenariusz: niepowodzenie Set-AzStorageBlobContent w hybrydowym procesie roboczym elementu Runbook 
+
+#### <a name="issue"></a>Problem
+
+Element Runbook kończy się niepowodzeniem, gdy zostanie podjęta próba wykonania `Set-AzStorageBlobContent` i zostanie wyświetlony następujący komunikat o błędzie:
+
+`Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
+
+#### <a name="cause"></a>Przyczyna
+
+ Ten błąd jest spowodowany zachowaniem długiej nazwy pliku wywołań `[System.IO.Path]::GetFullPath()` , które dodaje ścieżki UNC.
+
+#### <a name="resolution"></a>Rozwiązanie
+
+Aby obejść ten element, można utworzyć plik konfiguracji o nazwie `OrchestratorSandbox.exe.config` z następującą zawartością:
+
+```azurecli
+<configuration>
+  <runtime>
+    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />
+  </runtime>
+</configuration>
+```
+
+Umieść ten plik w tym samym folderze, w którym znajduje się plik wykonywalny `OrchestratorSandbox.exe` . Na przykład
+
+`%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
+
+>[!Note]
+> W przypadku uaktualnienia agenta ten plik konfiguracji zostanie usunięty i będzie trzeba go odtworzyć.
 
 ## <a name="linux"></a>Linux
 
@@ -192,7 +219,7 @@ Jeśli Agent nie jest uruchomiony, uruchom następujące polecenie, aby uruchomi
 
 Jeśli zostanie wyświetlony komunikat o błędzie `The specified class does not exist..` w programie **/var/opt/Microsoft/omsconfig/omsconfig.log**, należy zaktualizować agenta log Analytics dla systemu Linux. Uruchom następujące polecenie, aby ponownie zainstalować agenta.
 
-```bash
+```Bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
@@ -267,8 +294,7 @@ Maszyna hybrydowego procesu roboczego elementu Runbook jest uruchomiona, ale nie
 
 Poniższe przykładowe zapytanie pokazuje maszyny w obszarze roboczym i ich ostatni puls:
 
-```loganalytics
-// Last heartbeat of each computer
+```kusto
 Heartbeat
 | summarize arg_max(TimeGenerated, *) by Computer
 ```
@@ -295,9 +321,7 @@ Start-Service -Name HealthService
 
 Podczas próby dodania hybrydowego procesu roboczego elementu Runbook za pomocą polecenia cmdlet zostanie wyświetlony następujący komunikat `Add-HybridRunbookWorker` :
 
-```error
-Machine is already registered
-```
+`Machine is already registered`
 
 #### <a name="cause"></a>Przyczyna
 
@@ -315,15 +339,11 @@ Aby rozwiązać ten problem, usuń następujący klucz rejestru, uruchom ponowni
 
 Podczas próby dodania hybrydowego procesu roboczego elementu Runbook przy użyciu skryptu języka Python zostanie wyświetlony następujący komunikat `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` :
 
-```error
-Unable to register, an existing worker was found. Please deregister any existing worker and try again.
-```
+`Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
 Ponadto próba wyrejestrowania hybrydowego procesu roboczego elementu Runbook przy użyciu skryptu języka `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` Python:
 
-```error
-Failed to deregister worker. [response_status=404]
-```
+`Failed to deregister worker. [response_status=404]`
 
 #### <a name="cause"></a>Przyczyna
 

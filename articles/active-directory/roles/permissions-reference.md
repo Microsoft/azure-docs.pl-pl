@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb8533f4ca714402482c666c520c1d0bd745e8cf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 509eae7acf0dd9f6b8ae80befb7423422f778710
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363274"
+ms.locfileid: "100518831"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
 
@@ -83,11 +83,11 @@ Rola [administrator uwierzytelniania uprzywilejowanego](#privileged-authenticati
 
 Rola [administrator zasad uwierzytelniania](#authentication-policy-administrator) ma uprawnienia do ustawiania zasad metod uwierzytelniania dzierżawy, które określają, które metody mogą być rejestrowane i używane przez każdego użytkownika.
 
-| Rola | Zarządzanie metodami uwierzytelniania użytkownika | Zarządzanie usługą MFA dla poszczególnych użytkowników | Zarządzanie ustawieniami usługi MFA | Zarządzaj zasadami metody uwierzytelniania | Zarządzanie zasadami ochrony hasłem |  
+| Rola | Zarządzanie metodami uwierzytelniania użytkownika | Zarządzanie usługą MFA dla poszczególnych użytkowników | Zarządzanie ustawieniami usługi MFA | Zarządzaj zasadami metody uwierzytelniania | Zarządzanie zasadami ochrony hasłem |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | Administrator uwierzytelniania | Tak dla niektórych użytkowników (Zobacz powyżej) | Tak dla niektórych użytkowników (Zobacz powyżej) | Nie | Nie | Nie | 
-| Administrator uprzywilejowanego uwierzytelniania| Tak dla wszystkich użytkowników | Tak dla wszystkich użytkowników  |Nie | Nie  |Nie | 
-| Administrator zasad uwierzytelniania | Nie  |Nie | Tak | Tak | Tak | 
+| Administrator uprzywilejowanego uwierzytelniania| Tak dla wszystkich użytkowników | Tak dla wszystkich użytkowników | Nie | Nie | Nie | 
+| Administrator zasad uwierzytelniania | Nie |Nie | Tak | Tak | Tak | 
 
 > [!IMPORTANT]
 > Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
@@ -107,11 +107,11 @@ Użytkownicy z tą rolą mogą konfigurować zasady metod uwierzytelniania, usta
 
 Role [administrator uwierzytelniania](#authentication-administrator) i [administrator uprzywilejowanego uwierzytelniania](#privileged-authentication-administrator) mają uprawnienia do zarządzania zarejestrowanymi metodami uwierzytelniania dla użytkowników i mogą wymusić ponowne rejestrację i uwierzytelnianie wieloskładnikowe dla wszystkich użytkowników. 
 
-| Rola | Zarządzanie metodami uwierzytelniania użytkownika | Zarządzanie usługą MFA dla poszczególnych użytkowników | Zarządzanie ustawieniami usługi MFA | Zarządzaj zasadami metody uwierzytelniania | Zarządzanie zasadami ochrony hasłem |  
+| Rola | Zarządzanie metodami uwierzytelniania użytkownika | Zarządzanie usługą MFA dla poszczególnych użytkowników | Zarządzanie ustawieniami usługi MFA | Zarządzaj zasadami metody uwierzytelniania | Zarządzanie zasadami ochrony hasłem |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | Administrator uwierzytelniania | Tak dla niektórych użytkowników (Zobacz powyżej) | Tak dla niektórych użytkowników (Zobacz powyżej) | Nie | Nie | Nie | 
-| Administrator uprzywilejowanego uwierzytelniania| Tak dla wszystkich użytkowników | Tak dla wszystkich użytkowników  |Nie | Nie  |Nie | 
-| Administrator zasad uwierzytelniania | Nie  |Nie | Tak | Tak | Tak | 
+| Administrator uprzywilejowanego uwierzytelniania| Tak dla wszystkich użytkowników | Tak dla wszystkich użytkowników | Nie | Nie | Nie | 
+| Administrator zasad uwierzytelniania | Nie | Nie | Tak | Tak | Tak | 
 
 > [!IMPORTANT]
 > Ta rola nie jest obecnie w stanie zarządzać ustawieniami usługi MFA w starszym portalu zarządzania usługi MFA.
@@ -293,7 +293,7 @@ Ta rola była wcześniej nazywana "administratorem haseł" w [Azure Portal](http
 
 ### <a name="hybrid-identity-administrator"></a>[Administrator tożsamości hybrydowej](#hybrid-identity-administrator-permissions)
 
-Użytkownicy w tej roli mogą tworzyć i wdrażać ustawienia konfiguracji aprowizacji z usługi AD w usłudze Azure AD przy użyciu aprowizacji w chmurze, a także zarządzać ustawieniami federacyjnymi. Użytkownicy mogą również rozwiązywać problemy i monitorować dzienniki przy użyciu tej roli.  
+Użytkownicy w tej roli mogą tworzyć i wdrażać ustawienia konfiguracji aprowizacji z usługi AD w usłudze Azure AD przy użyciu aprowizacji w chmurze, a także zarządzać ustawieniami federacyjnymi. Użytkownicy mogą również rozwiązywać problemy i monitorować dzienniki przy użyciu tej roli.
 
 ### <a name="insights-administrator"></a>[Administrator usługi Insights](#insights-administrator-permissions)
 Użytkownicy w tej roli mogą uzyskać dostęp do pełnego zestawu funkcji administracyjnych w [aplikacji M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Ta rola ma możliwość odczytywania informacji o katalogu, monitorowania kondycji usługi, biletów pomocy technicznej dotyczącej plików i uzyskiwania dostępu do aspektów ustawień administratora szczegółowego.
@@ -336,10 +336,10 @@ Użytkownicy z rolą użytkownika Modern Commerce zazwyczaj mają uprawnienia ad
 
 **Kiedy jest przypisana nowoczesny rola użytkownika Commerce?**
 
-* Samoobsługowe **kupowanie w Microsoft 365 centrum administracyjnego** — zakup samoobsługowy umożliwia użytkownikom wypróbowanie nowych produktów przez ich zakup lub utworzenie. Te produkty są zarządzane w centrum administracyjnym. Użytkownicy, którzy dokonują zakupu samoobsługowego, mają przypisaną rolę w systemie Commerce i nowoczesnej roli użytkownika commerce, aby mogli zarządzać zakupami w centrum administracyjnym. Administratorzy mogą blokować zakupy samoobsługowe (w przypadku Power BI, aplikacji zaawansowanych, automatyzacji) za poorednictwem [programu PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Aby uzyskać więcej informacji, zobacz [Zakup samoobsługowy — często zadawane pytania](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).  
-* **Zakupy od firmy Microsoft komercyjnej Marketplace**  — podobnie jak w przypadku zakupu samoobsługowego, gdy użytkownik kupuje produkt lub usługę od Microsoft AppSource lub Azure Marketplace, jest przypisywany współczesna rola użytkownika commerce w przypadku, gdy nie ma roli Administrator globalny lub rozliczenia. W niektórych przypadkach użytkownicy mogą mieć zablokowaną możliwość dokonywania tych zakupów. Aby uzyskać więcej informacji, zobacz [Microsoft Commercial Marketplace](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
-* **Propozycje firmy Microsoft**  — propozycja jest formalną ofertą oferowaną przez firmę Microsoft w organizacji do kupowania produktów i usług firmy Microsoft. Gdy osoba akceptująca ofertę nie ma roli administratora globalnego lub administratora rozliczeń w usłudze Azure AD, są oni przypisani do roli specyficzne dla handlu, aby dokończyć propozycję i współczesną rolę użytkownika handlowego w celu uzyskania dostępu do centrum administracyjnego. Gdy uzyskują dostęp do centrum administracyjnego, mogą korzystać tylko z funkcji, które są autoryzowane przez ich rolę specyficzną dla danego handlu.
-* **Role specyficzne dla handlu** — niektórzy użytkownicy mają przypisane role dotyczące handlu. Jeśli użytkownik nie jest administratorem globalnym lub rozliczeniami, uzyska nowoczesnej roli użytkownika commerce, aby mógł uzyskać dostęp do centrum administracyjnego.  
+* Samoobsługowe **kupowanie w Microsoft 365 centrum administracyjnego** — zakup samoobsługowy umożliwia użytkownikom wypróbowanie nowych produktów przez ich zakup lub utworzenie. Te produkty są zarządzane w centrum administracyjnym. Użytkownicy, którzy dokonują zakupu samoobsługowego, mają przypisaną rolę w systemie Commerce i nowoczesnej roli użytkownika commerce, aby mogli zarządzać zakupami w centrum administracyjnym. Administratorzy mogą blokować zakupy samoobsługowe (w przypadku Power BI, aplikacji zaawansowanych, automatyzacji) za poorednictwem [programu PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Aby uzyskać więcej informacji, zobacz [Zakup samoobsługowy — często zadawane pytania](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).
+* **Zakupy od firmy Microsoft komercyjnej Marketplace** — podobnie jak w przypadku zakupu samoobsługowego, gdy użytkownik kupuje produkt lub usługę od Microsoft AppSource lub Azure Marketplace, jest przypisywany współczesna rola użytkownika commerce w przypadku, gdy nie ma roli Administrator globalny lub rozliczenia. W niektórych przypadkach użytkownicy mogą mieć zablokowaną możliwość dokonywania tych zakupów. Aby uzyskać więcej informacji, zobacz [Microsoft Commercial Marketplace](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
+* **Propozycje firmy Microsoft** — propozycja jest formalną ofertą oferowaną przez firmę Microsoft w organizacji do kupowania produktów i usług firmy Microsoft. Gdy osoba akceptująca ofertę nie ma roli administratora globalnego lub administratora rozliczeń w usłudze Azure AD, są oni przypisani do roli specyficzne dla handlu, aby dokończyć propozycję i współczesną rolę użytkownika handlowego w celu uzyskania dostępu do centrum administracyjnego. Gdy uzyskują dostęp do centrum administracyjnego, mogą korzystać tylko z funkcji, które są autoryzowane przez ich rolę specyficzną dla danego handlu.
+* **Role specyficzne dla handlu** — niektórzy użytkownicy mają przypisane role dotyczące handlu. Jeśli użytkownik nie jest administratorem globalnym lub rozliczeniami, uzyska nowoczesnej roli użytkownika commerce, aby mógł uzyskać dostęp do centrum administracyjnego.
 
 Jeśli nie przypisano do użytkownika nowoczesnej roli użytkownika w języku commerce, utraci on dostęp do centrum administracyjnego Microsoft 365. W przypadku zarządzania produktami przez siebie lub w organizacji nie będą oni mogli nimi zarządzać. Może to dotyczyć przypisywania licencji, zmiany metod płatności, płacenia rachunków lub innych zadań związanych z zarządzaniem subskrypcjami.
 
@@ -389,11 +389,11 @@ Rola [administrator uwierzytelniania](#authentication-administrator) ma uprawnie
 
 Rola [administrator zasad uwierzytelniania](#authentication-policy-administrator) ma uprawnienia do ustawiania zasad metod uwierzytelniania dzierżawy, które określają, które metody mogą być rejestrowane i używane przez każdego użytkownika.
 
-| Rola | Zarządzanie metodami uwierzytelniania użytkownika | Zarządzanie usługą MFA dla poszczególnych użytkowników | Zarządzanie ustawieniami usługi MFA | Zarządzaj zasadami metody uwierzytelniania | Zarządzanie zasadami ochrony hasłem |  
+| Rola | Zarządzanie metodami uwierzytelniania użytkownika | Zarządzanie usługą MFA dla poszczególnych użytkowników | Zarządzanie ustawieniami usługi MFA | Zarządzaj zasadami metody uwierzytelniania | Zarządzanie zasadami ochrony hasłem |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | Administrator uwierzytelniania | Tak dla niektórych użytkowników (Zobacz powyżej) | Tak dla niektórych użytkowników (Zobacz powyżej) | Nie | Nie | Nie | 
-| Administrator uprzywilejowanego uwierzytelniania| Tak dla wszystkich użytkowników | Tak dla wszystkich użytkowników  |Nie | Nie  |Nie | 
-| Administrator zasad uwierzytelniania | Nie  |Nie | Tak | Tak | Tak | 
+| Administrator uprzywilejowanego uwierzytelniania| Tak dla wszystkich użytkowników | Tak dla wszystkich użytkowników | Nie | Nie | Nie | 
+| Administrator zasad uwierzytelniania | Nie | Nie | Tak | Tak | Tak | 
 
 > [!IMPORTANT]
 > Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
@@ -992,7 +992,7 @@ Może odczytywać & pisać podstawowe informacje o katalogu. Do udzielania dost�
 > | --- | --- |
 > | Microsoft. Directory/Groups/appRoleAssignments/Update | Zaktualizuj Właściwość groups. appRoleAssignments w Azure Active Directory. |
 > | Microsoft. Directory/Groups/assignLicense | Zarządzanie licencjami w grupach w Azure Active Directory. |
-> | Microsoft. Directory/Groups/Basic/Update | Zaktualizuj podstawowe właściwości dla grup w Azure Active Directory.  |
+> | Microsoft. Directory/Groups/Basic/Update | Zaktualizuj podstawowe właściwości dla grup w Azure Active Directory. |
 > | Microsoft. katalog/grupy/Klasyfikacja/aktualizacja | Zaktualizuj Właściwość klasyfikacji grupy w Azure Active Directory. |
 > | Microsoft. Directory/Groups/Create | Utwórz grupy w Azure Active Directory. |
 > | Microsoft. Directory/Groups/GroupType/Update | Zaktualizuj Właściwość GroupType grupy w Azure Active Directory. |
@@ -1183,69 +1183,69 @@ Może odczytywać wszystko, co Administrator globalny może, ale nie edytować n
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
 > | --- | --- |
-> | Microsoft. Commerce. rozliczenia/allEntities/odczyt    | Przeczytaj wszystkie aspekty rozliczeń. |
-> | Microsoft. Directory/administrativeUnits/Basic/Read    | Zapoznaj się z podstawowymi właściwościami administrativeUnits w Azure Active Directory. |
-> | Microsoft. Directory/administrativeUnits/Members/odczyt    | Przeczytaj Właściwość administrativeUnits. Members w Azure Active Directory. |
-> | Microsoft. Directory/Applications/Basic/Read    | Zapoznaj się z podstawowymi właściwościami aplikacji w Azure Active Directory. |
-> | Microsoft. Directory/Applications/Owners/Read    | Odczytywanie właściwości Applications. Owners w Azure Active Directory. |
-> | Microsoft. Directory/Applications/policies/Read    | Odczytaj Właściwość Applications. policies w Azure Active Directory. |
+> | Microsoft. Commerce. rozliczenia/allEntities/odczyt | Przeczytaj wszystkie aspekty rozliczeń. |
+> | Microsoft. Directory/administrativeUnits/Basic/Read | Zapoznaj się z podstawowymi właściwościami administrativeUnits w Azure Active Directory. |
+> | Microsoft. Directory/administrativeUnits/Members/odczyt | Przeczytaj Właściwość administrativeUnits. Members w Azure Active Directory. |
+> | Microsoft. Directory/Applications/Basic/Read | Zapoznaj się z podstawowymi właściwościami aplikacji w Azure Active Directory. |
+> | Microsoft. Directory/Applications/Owners/Read | Odczytywanie właściwości Applications. Owners w Azure Active Directory. |
+> | Microsoft. Directory/Applications/policies/Read | Odczytaj Właściwość Applications. policies w Azure Active Directory. |
 > | Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
-> | Microsoft. Directory/Contacts/Basic/Read    | Zapoznaj się z podstawowymi właściwościami kontaktów w Azure Active Directory. |
-> | Microsoft. Directory/Contacts/memberOf/odczyt    | Przeczytaj Właściwość Contacts. memberOf w Azure Active Directory. |
-> | Microsoft. Directory/kontrakts/Basic/Read    | Zapoznaj się z podstawowymi właściwościami umów w Azure Active Directory. |
-> | Microsoft. Directory/Devices/podstawowa/odczytana    | Zapoznaj się z podstawowymi właściwościami urządzeń w Azure Active Directory. |
-> | Microsoft. Directory/Devices/memberOf/odczyt    | Odczytaj właściwości Devices. memberOf w Azure Active Directory. |
-> | Microsoft. Directory/Devices/registeredOwners/Read    | Odczytaj Właściwość Devices. registeredOwners w Azure Active Directory. |
-> | Microsoft. Directory/Devices/registeredUsers/Read    | Odczytaj Właściwość Devices. registeredUsers w Azure Active Directory. |
-> | Microsoft. Directory/directoryRoles/Basic/Read    | Zapoznaj się z podstawowymi właściwościami directoryRoles w Azure Active Directory. |
-> | Microsoft. Directory/directoryRoles/eligibleMembers/odczyt    | Odczytaj Właściwość directoryRoles. eligibleMembers w Azure Active Directory. |
-> | Microsoft. Directory/directoryRoles/Members/odczyt    | Przeczytaj Właściwość directoryRoles. Members w Azure Active Directory. |
-> | Microsoft. Directory/domen/podstawowa/odczytana    | Zapoznaj się z podstawowymi właściwościami domen w Azure Active Directory. |
+> | Microsoft. Directory/Contacts/Basic/Read | Zapoznaj się z podstawowymi właściwościami kontaktów w Azure Active Directory. |
+> | Microsoft. Directory/Contacts/memberOf/odczyt | Przeczytaj Właściwość Contacts. memberOf w Azure Active Directory. |
+> | Microsoft. Directory/kontrakts/Basic/Read | Zapoznaj się z podstawowymi właściwościami umów w Azure Active Directory. |
+> | Microsoft. Directory/Devices/podstawowa/odczytana | Zapoznaj się z podstawowymi właściwościami urządzeń w Azure Active Directory. |
+> | Microsoft. Directory/Devices/memberOf/odczyt | Odczytaj właściwości Devices. memberOf w Azure Active Directory. |
+> | Microsoft. Directory/Devices/registeredOwners/Read | Odczytaj Właściwość Devices. registeredOwners w Azure Active Directory. |
+> | Microsoft. Directory/Devices/registeredUsers/Read | Odczytaj Właściwość Devices. registeredUsers w Azure Active Directory. |
+> | Microsoft. Directory/directoryRoles/Basic/Read | Zapoznaj się z podstawowymi właściwościami directoryRoles w Azure Active Directory. |
+> | Microsoft. Directory/directoryRoles/eligibleMembers/odczyt | Odczytaj Właściwość directoryRoles. eligibleMembers w Azure Active Directory. |
+> | Microsoft. Directory/directoryRoles/Members/odczyt | Przeczytaj Właściwość directoryRoles. Members w Azure Active Directory. |
+> | Microsoft. Directory/domen/podstawowa/odczytana | Zapoznaj się z podstawowymi właściwościami domen w Azure Active Directory. |
 > | Microsoft. Directory/entitlementManagement/allProperties/odczyt | Odczytaj wszystkie właściwości w temacie Zarządzanie prawami usługi Azure AD. |
-> | Microsoft. Directory/Groups/appRoleAssignments/Read    | Odczytaj właściwości groups. appRoleAssignments w Azure Active Directory. |
-> | Microsoft. Directory/Groups/Basic/Read    | Zapoznaj się z podstawowymi właściwościami grup w Azure Active Directory. |
-> | Microsoft. Directory/Groups/hiddenMembers/Read    | Odczytaj właściwości groups. hiddenMembers w Azure Active Directory. |
-> | Microsoft. Directory/Groups/memberOf/Read    | Odczytaj właściwości groups. memberOf w Azure Active Directory. |
-> | Microsoft. Directory/Groups/Members/Read    | Odczytywanie właściwości groups. Members w Azure Active Directory. |
-> | Microsoft. Directory/Groups/Owners/Read    | Odczytywanie właściwości groups. Owners w Azure Active Directory. |
-> | Microsoft. Directory/Groups/Settings/Read    | Odczytywanie właściwości groups. Settings w Azure Active Directory. |
-> | Microsoft. Directory/groupSettings/Basic/Read    | Zapoznaj się z podstawowymi właściwościami groupSettings w Azure Active Directory. |
-> | Microsoft. Directory/groupSettingTemplates/Basic/Read    | Zapoznaj się z podstawowymi właściwościami groupSettingTemplates w Azure Active Directory. |
-> | Microsoft. Directory/elementu oauth2permissiongrants/Basic/Read    | Zapoznaj się z podstawowymi właściwościami elementu oauth2permissiongrants w Azure Active Directory. |
-> | Microsoft. Directory/organizacja/podstawowa/odczytana    | Odczytaj podstawowe właściwości organizacji w Azure Active Directory. |
-> | Microsoft. Directory/Organization/trustedCAsForPasswordlessAuth/Read    | Przeczytaj Właściwość Organization. trustedCAsForPasswordlessAuth w Azure Active Directory. |
-> | Microsoft. katalog/zasady/standardowe/odczyt    | Odczytaj standardowe zasady w Azure Active Directory. |
+> | Microsoft. Directory/Groups/appRoleAssignments/Read | Odczytaj właściwości groups. appRoleAssignments w Azure Active Directory. |
+> | Microsoft. Directory/Groups/Basic/Read | Zapoznaj się z podstawowymi właściwościami grup w Azure Active Directory. |
+> | Microsoft. Directory/Groups/hiddenMembers/Read | Odczytaj właściwości groups. hiddenMembers w Azure Active Directory. |
+> | Microsoft. Directory/Groups/memberOf/Read | Odczytaj właściwości groups. memberOf w Azure Active Directory. |
+> | Microsoft. Directory/Groups/Members/Read | Odczytywanie właściwości groups. Members w Azure Active Directory. |
+> | Microsoft. Directory/Groups/Owners/Read | Odczytywanie właściwości groups. Owners w Azure Active Directory. |
+> | Microsoft. Directory/Groups/Settings/Read | Odczytywanie właściwości groups. Settings w Azure Active Directory. |
+> | Microsoft. Directory/groupSettings/Basic/Read | Zapoznaj się z podstawowymi właściwościami groupSettings w Azure Active Directory. |
+> | Microsoft. Directory/groupSettingTemplates/Basic/Read | Zapoznaj się z podstawowymi właściwościami groupSettingTemplates w Azure Active Directory. |
+> | Microsoft. Directory/elementu oauth2permissiongrants/Basic/Read | Zapoznaj się z podstawowymi właściwościami elementu oauth2permissiongrants w Azure Active Directory. |
+> | Microsoft. Directory/organizacja/podstawowa/odczytana | Odczytaj podstawowe właściwości organizacji w Azure Active Directory. |
+> | Microsoft. Directory/Organization/trustedCAsForPasswordlessAuth/Read | Przeczytaj Właściwość Organization. trustedCAsForPasswordlessAuth w Azure Active Directory. |
+> | Microsoft. katalog/zasady/standardowe/odczyt | Odczytaj standardowe zasady w Azure Active Directory. |
 > | Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytaj wszystkie właściwości dzienników aprowizacji. |
-> | Microsoft. Directory/roleAssignments/Basic/Read    | Zapoznaj się z podstawowymi właściwościami roleAssignments w Azure Active Directory. |
-> | Microsoft. Directory/roleDefinitions/Basic/Read    | Zapoznaj się z podstawowymi właściwościami roleDefinitions w Azure Active Directory. |
-> | Microsoft. Directory/serviceprincipals/appRoleAssignedTo/Read    | Odczytywanie właściwości serviceprincipals. appRoleAssignedTo w Azure Active Directory. |
-> | Microsoft. Directory/serviceprincipals/appRoleAssignments/Read    | Odczytywanie właściwości serviceprincipals. appRoleAssignments w Azure Active Directory. |
-> | Microsoft. Directory/serviceprincipals/Basic/Read    | Zapoznaj się z podstawowymi właściwościami obiektów serviceprincipals w Azure Active Directory. |
-> | Microsoft. Directory/serviceprincipals/memberOf/Read    | Odczytywanie właściwości serviceprincipals. memberOf w Azure Active Directory. |
-> | Microsoft. Directory/serviceprincipals/elementu oauth2permissiongrants/Basic/Read    | Odczytywanie właściwości serviceprincipals. elementu oauth2permissiongrants w Azure Active Directory. |
-> | Microsoft. Directory/serviceprincipals/ownedObjects/Read    | Odczytywanie właściwości serviceprincipals. ownedObjects w Azure Active Directory. |
-> | Microsoft. Directory/serviceprincipals/Owners/Read    | Odczytywanie właściwości serviceprincipals. Owners w Azure Active Directory. |
-> | Microsoft. Directory/serviceprincipals/policies/Read    | Odczytywanie właściwości serviceprincipals. policies w Azure Active Directory. |
-> | Microsoft. Directory/signInReports/allProperties/odczyt    | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie signInReports w Azure Active Directory. |
-> | Microsoft. Directory/subscribedSkus/Basic/Read    | Zapoznaj się z podstawowymi właściwościami subscribedSkus w Azure Active Directory. |
-> | Microsoft. Directory/Users/appRoleAssignments/Read    | Odczytywanie właściwości users. appRoleAssignments w Azure Active Directory. |
-> | Microsoft. Directory/Users/Basic/Read    | Zapoznaj się z podstawowymi właściwościami użytkowników w Azure Active Directory. |
-> | Microsoft. Directory/Users/directReports/Read    | Odczytywanie właściwości users. directReports w Azure Active Directory. |
-> | Microsoft. Directory/Users/Manager/Odczytaj    | Odczytywanie właściwości users. Manager w Azure Active Directory. |
-> | Microsoft. Directory/Users/memberOf/odczyt    | Odczytaj właściwości users. memberOf w Azure Active Directory. |
-> | Microsoft. Directory/Users/elementu oauth2permissiongrants/Basic/Read    | Odczytywanie właściwości users. elementu oauth2permissiongrants w Azure Active Directory. |
-> | Microsoft. Directory/Users/ownedDevices/Read    | Odczytywanie właściwości users. ownedDevices w Azure Active Directory. |
-> | Microsoft. Directory/Users/ownedObjects/Read    | Odczytywanie właściwości users. ownedObjects w Azure Active Directory. |
-> | Microsoft. Directory/Users/registeredDevices/Read    | Odczytywanie właściwości users. registeredDevices w Azure Active Directory. |
-> | Microsoft. Directory/Users/strongAuthentication/Read    | Odczytywanie właściwości silnego uwierzytelniania, takich jak informacje o poświadczeniach usługi MFA. |
-> | Microsoft. Office 365. Exchange/allEntities/Read    | Przeczytaj wszystkie aspekty usługi Exchange Online. |
-> | Microsoft. Office 365. messageCenter/messages/Read    | Odczytuj wiadomości w Microsoft. 365. messageCenter. |
-> | Microsoft. Office 365. messageCenter/securityMessages/odczyt    | Przeczytaj securityMessages w Microsoft. 365. messageCenter. |
+> | Microsoft. Directory/roleAssignments/Basic/Read | Zapoznaj się z podstawowymi właściwościami roleAssignments w Azure Active Directory. |
+> | Microsoft. Directory/roleDefinitions/Basic/Read | Zapoznaj się z podstawowymi właściwościami roleDefinitions w Azure Active Directory. |
+> | Microsoft. Directory/serviceprincipals/appRoleAssignedTo/Read | Odczytywanie właściwości serviceprincipals. appRoleAssignedTo w Azure Active Directory. |
+> | Microsoft. Directory/serviceprincipals/appRoleAssignments/Read | Odczytywanie właściwości serviceprincipals. appRoleAssignments w Azure Active Directory. |
+> | Microsoft. Directory/serviceprincipals/Basic/Read | Zapoznaj się z podstawowymi właściwościami obiektów serviceprincipals w Azure Active Directory. |
+> | Microsoft. Directory/serviceprincipals/memberOf/Read | Odczytywanie właściwości serviceprincipals. memberOf w Azure Active Directory. |
+> | Microsoft. Directory/serviceprincipals/elementu oauth2permissiongrants/Basic/Read | Odczytywanie właściwości serviceprincipals. elementu oauth2permissiongrants w Azure Active Directory. |
+> | Microsoft. Directory/serviceprincipals/ownedObjects/Read | Odczytywanie właściwości serviceprincipals. ownedObjects w Azure Active Directory. |
+> | Microsoft. Directory/serviceprincipals/Owners/Read | Odczytywanie właściwości serviceprincipals. Owners w Azure Active Directory. |
+> | Microsoft. Directory/serviceprincipals/policies/Read | Odczytywanie właściwości serviceprincipals. policies w Azure Active Directory. |
+> | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie signInReports w Azure Active Directory. |
+> | Microsoft. Directory/subscribedSkus/Basic/Read | Zapoznaj się z podstawowymi właściwościami subscribedSkus w Azure Active Directory. |
+> | Microsoft. Directory/Users/appRoleAssignments/Read | Odczytywanie właściwości users. appRoleAssignments w Azure Active Directory. |
+> | Microsoft. Directory/Users/Basic/Read | Zapoznaj się z podstawowymi właściwościami użytkowników w Azure Active Directory. |
+> | Microsoft. Directory/Users/directReports/Read | Odczytywanie właściwości users. directReports w Azure Active Directory. |
+> | Microsoft. Directory/Users/Manager/Odczytaj | Odczytywanie właściwości users. Manager w Azure Active Directory. |
+> | Microsoft. Directory/Users/memberOf/odczyt | Odczytaj właściwości users. memberOf w Azure Active Directory. |
+> | Microsoft. Directory/Users/elementu oauth2permissiongrants/Basic/Read | Odczytywanie właściwości users. elementu oauth2permissiongrants w Azure Active Directory. |
+> | Microsoft. Directory/Users/ownedDevices/Read | Odczytywanie właściwości users. ownedDevices w Azure Active Directory. |
+> | Microsoft. Directory/Users/ownedObjects/Read | Odczytywanie właściwości users. ownedObjects w Azure Active Directory. |
+> | Microsoft. Directory/Users/registeredDevices/Read | Odczytywanie właściwości users. registeredDevices w Azure Active Directory. |
+> | Microsoft. Directory/Users/strongAuthentication/Read | Odczytywanie właściwości silnego uwierzytelniania, takich jak informacje o poświadczeniach usługi MFA. |
+> | Microsoft. Office 365. Exchange/allEntities/Read | Przeczytaj wszystkie aspekty usługi Exchange Online. |
+> | Microsoft. Office 365. messageCenter/messages/Read | Odczytuj wiadomości w Microsoft. 365. messageCenter. |
+> | Microsoft. Office 365. messageCenter/securityMessages/odczyt | Przeczytaj securityMessages w Microsoft. 365. messageCenter. |
 > | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytaj strony wydajności sieci w centrum administracyjnym Microsoft 365. |
-> | Microsoft. Office 365. protectionCenter/allEntities/odczyt    | Przeczytaj wszystkie aspekty Centrum ochrony pakietu Office 365. |
-> | Microsoft. Office 365. securityComplianceCenter/allEntities/odczyt    | Odczytaj wszystkie standardowe właściwości w Microsoft. 365. securityComplianceCenter. |
-> | Microsoft. Office 365. usageReports/allEntities/odczyt    | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
-> | Microsoft. 365. webports/allEntities/Standard/Read    | Odczytywanie właściwości standardowych wszystkich zasobów w Microsoft. 365. webport. |
+> | Microsoft. Office 365. protectionCenter/allEntities/odczyt | Przeczytaj wszystkie aspekty Centrum ochrony pakietu Office 365. |
+> | Microsoft. Office 365. securityComplianceCenter/allEntities/odczyt | Odczytaj wszystkie standardowe właściwości w Microsoft. 365. securityComplianceCenter. |
+> | Microsoft. Office 365. usageReports/allEntities/odczyt | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
+> | Microsoft. 365. webports/allEntities/Standard/Read | Odczytywanie właściwości standardowych wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="groups-administrator-permissions"></a>Uprawnienia administratora grup
 
@@ -1313,8 +1313,8 @@ Może zarządzać usługą AD w usłudze Azure AD — Inicjowanie obsługi admin
 > | --- | --- |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 > | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
-> | Microsoft. katalog/aplikacje/odbiorcy/aktualizacja  | Aktualizowanie właściwości Applications. odbiorców w Azure Active Directory. |
-> | Microsoft. katalog/aplikacje/uwierzytelnianie/aktualizacja | Aktualizowanie właściwości Applications. Authentication w Azure Active Directory.  |
+> | Microsoft. katalog/aplikacje/odbiorcy/aktualizacja | Aktualizowanie właściwości Applications. odbiorców w Azure Active Directory. |
+> | Microsoft. katalog/aplikacje/uwierzytelnianie/aktualizacja | Aktualizowanie właściwości Applications. Authentication w Azure Active Directory. |
 > | Microsoft. Directory/Applications/Basic/Update | Zaktualizuj podstawowe właściwości aplikacji w Azure Active Directory. |
 > | Microsoft. Directory/Applications/Create | Twórz aplikacje w Azure Active Directory. |
 > | Microsoft. Directory/Applications/Credentials/Update | Zaktualizuj Właściwość Applications. Credentials w Azure Active Directory. |
@@ -1491,7 +1491,7 @@ Może zarządzać lokalizacjami sieci i przeglądać szczegółowe informacje o 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
 > | --- | --- |
-> | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytaj strony wydajności sieci w centrum administracyjnym M365.  |
+> | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytaj strony wydajności sieci w centrum administracyjnym M365. |
 > | Microsoft. Office 365. Network/Locations/allProperties/allTasks | Odczytaj i skonfiguruj właściwości lokalizacji sieciowych dla każdej lokalizacji. |
 
 ### <a name="office-apps-administrator-permissions"></a>Uprawnienia administratora aplikacji pakietu Office
@@ -1896,7 +1896,7 @@ Może zarządzać wszystkimi aspektami produktu Skype dla firm.
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 > | Microsoft. Office 365. skypeForBusiness/allEntities/allTasks | Zarządzaj wszystkimi aspektami usługi Skype dla firm Online. |
 > | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
-> | Microsoft. Office 365. usageReports/allEntities/odczyt    | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
+> | Microsoft. Office 365. usageReports/allEntities/odczyt | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
 > | Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 ### <a name="teams-administrator-permissions"></a>Uprawnienia administratora zespołów
@@ -2144,7 +2144,7 @@ Przyłączanie urządzenia | Przestarzałe | [Dokumentacja przestarzałych ról]
 Menedżerowie urządzeń | Przestarzałe | [Dokumentacja przestarzałych ról](permissions-reference.md#deprecated-roles)
 Użytkownicy urządzeń | Przestarzałe | [Dokumentacja przestarzałych ról](permissions-reference.md#deprecated-roles)
 Konta synchronizacji katalogów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja kont synchronizacji katalogów](permissions-reference.md#directory-synchronization-accounts)
-Użytkownik-gość | Niepokazywany, ponieważ nie można go użyć  | NA
+Użytkownik-gość | Niepokazywany, ponieważ nie można go użyć | NA
 Obsługa warstwy 1 dla partnerów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja dotycząca pomocy technicznej pomoc partnera](permissions-reference.md#partner-tier1-support)
 Obsługa warstwy 2 partnera | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja dotycząca pomocy technicznej SVR partnera](permissions-reference.md#partner-tier2-support)
 Ograniczony użytkownik-Gość | Niepokazywany, ponieważ nie można go użyć | NA

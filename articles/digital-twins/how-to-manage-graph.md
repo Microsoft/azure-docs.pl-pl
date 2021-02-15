@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 037e7fd13f55a0f5de939197f71324221392bd55
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: bc548d4cc728611387b36451d563be6ca0e21530
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601064"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388196"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
@@ -115,6 +115,21 @@ Korzystając z podanych powyżej metod wyświetlania wychodzących i przychodzą
 Teraz można wywołać tę funkcję w metodzie Main w następujący sposób: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
+
+## <a name="update-relationships"></a>Aktualizuj relacje
+
+Relacje są aktualizowane przy użyciu `UpdateRelationship` metody. 
+
+>[!NOTE]
+>Ta metoda służy do aktualizowania **Właściwości** relacji. Jeśli trzeba zmienić źródło [pojedynczej](#create-relationships) lub docelową dwuosiową relację, należy [usunąć relację](#delete-relationships) i utworzyć ją ponownie przy użyciu nowego bliźniaczych reprezentacji.
+
+Parametry wymagane dla wywołania klienta to identyfikator przędzy źródłowej (przędza, z której pochodzi relacja), identyfikator relacji do zaktualizowania i dokument [poprawki JSON](http://jsonpatch.com/) zawierający właściwości i nowe wartości, które chcesz zaktualizować.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
+
+Oto przykład wywołania tej metody, przekazując do dokumentu poprawki JSON informacje służące do aktualizowania właściwości.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
 
 ## <a name="delete-relationships"></a>Usuń relacje
 

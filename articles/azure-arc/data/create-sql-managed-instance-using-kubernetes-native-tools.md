@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: dde2794e459e9375a231b7792bc1bd5ab21561bf
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: cade888d951c2071f8f40c145e28eed3c3a5d27c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955233"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384252"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Tworzenie wystąpienia zarządzanego Azure SQL przy użyciu narzędzi Kubernetes
 
@@ -45,13 +45,13 @@ data:
   username: <your base64 encoded user name. 'sa' is not allowed>
 kind: Secret
 metadata:
-  name: example-login-secret
+  name: sql1-login-secret
 type: Opaque
 ---
 apiVersion: sql.arcdata.microsoft.com/v1alpha1
 kind: sqlmanagedinstance
 metadata:
-  name: example
+  name: sql1
 spec:
   limits:
     memory: 4Gi
@@ -62,13 +62,7 @@ spec:
   service:
     type: LoadBalancer
   storage:
-    backups:
-      className: default
-      size: 5Gi
     data:
-      className: default
-      size: 5Gi
-    datalogs:
       className: default
       size: 5Gi
     logs:
@@ -107,7 +101,7 @@ echo '<your string to encode here>' | base64
 
 ### <a name="customizing-the-name"></a>Dostosowywanie nazwy
 
-Szablon ma wartość "example" dla atrybutu Name.  Można to zmienić, ale muszą to być znaki zgodne ze standardami nazewnictwa DNS.  Należy również zmienić nazwę wpisu tajnego na zgodne.  Na przykład jeśli zmienisz nazwę wystąpienia zarządzanego SQL na "SQL1", musisz zmienić nazwę wpisu tajnego z "example-login-Secret" na "SQL1-login-Secret"
+Szablon ma wartość "SQL1" dla atrybutu Name.  Można to zmienić, ale muszą to być znaki zgodne ze standardami nazewnictwa DNS.  Należy również zmienić nazwę wpisu tajnego na zgodne.  Na przykład jeśli zmienisz nazwę wystąpienia zarządzanego SQL na "sql2", musisz zmienić nazwę wpisu tajnego z "SQL1-login-Secret" na "sql2-login-Secret"
 
 ### <a name="customizing-the-resource-requirements"></a>Dostosowywanie wymagań dotyczących zasobów
 

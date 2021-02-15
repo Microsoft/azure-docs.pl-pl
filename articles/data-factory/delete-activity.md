@@ -1,23 +1,17 @@
 ---
 title: Działanie usuwania w usłudze Azure Data Factory
 description: Dowiedz się, jak usuwać pliki w różnych magazynach plików przy użyciu działania usuwania w Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 47a280a46cbc0650efb9a7576bb21bb31d1d2613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3021d29f472dbbf43ae53981287b1f4676e8f932
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330421"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392718"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Działanie usuwania w usłudze Azure Data Factory
 

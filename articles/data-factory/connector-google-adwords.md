@@ -1,22 +1,18 @@
 ---
 title: Kopiuj dane z usługi Google AdWords
 description: Dowiedz się, jak skopiować dane z usługi Google AdWords do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
-ms.openlocfilehash: 79e277cb3d512ee17da866a61e9d6d66a50cd902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b3036f09e41b20bc3c190f06842acd817fcece6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415023"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380954"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Skopiuj dane z usługi Google AdWords przy użyciu Azure Data Factory
 
@@ -137,7 +133,7 @@ Aby skopiować dane z usługi Google AdWords, ustaw typ źródła w działaniu C
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **GoogleAdWordsSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

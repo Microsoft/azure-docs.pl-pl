@@ -6,18 +6,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 40003db9c3bd2c736f9cedd73b8b7a31a77f625f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: d63a31eae57d09f1658f5f19c1518cb0648fa4e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854584"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373757"
 ---
-# <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Użyj Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek
+# <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Przypisywanie roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek za pomocą witryny Azure Portal
 
 Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md). Usługa Azure Storage definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do danych obiektu BLOB lub kolejki.
 
@@ -43,10 +43,12 @@ Po ustaleniu odpowiedniego zakresu przypisania roli przejdź do tego zasobu w Az
 
 W poniższych sekcjach opisano poszczególne kroki bardziej szczegółowo.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Podczas tworzenia konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych za pośrednictwem usługi Azure AD. Musisz jawnie przypisać sobie rolę platformy Azure dla usługi Azure Storage. Można ją przypisać na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera lub kolejki.
 >
 > Przed przypisaniem roli do dostępu do danych będzie można uzyskać dostęp do danych na koncie magazynu za pośrednictwem Azure Portal, ponieważ Azure Portal może także używać klucza konta do uzyskiwania dostępu do danych. Aby uzyskać więcej informacji, zobacz [Wybieranie metody autoryzacji dostępu do danych obiektów BLOB w Azure Portal](../blobs/authorize-data-operations-portal.md).
+>
+> W przypadku zablokowania konta magazynu z Azure Resource Manager blokadą tylko do odczytu, blokada uniemożliwia Przypisanie ról RBAC platformy Azure objętych zakresem do konta magazynu lub kontenera danych (kontenera obiektów blob lub kolejki).
 
 ### <a name="assign-an-azure-built-in-role"></a>Przypisywanie roli wbudowanej platformy Azure
 

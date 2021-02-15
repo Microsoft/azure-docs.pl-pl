@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: d9e575d68fe4fef607bdf443ece1ddd04f085533
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1664656f82492e664b7574339893cd688f0a061d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746460"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097317"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>RabbitMQ wyjściowe powiązania dla Azure Functions przegląd
 
@@ -207,7 +207,7 @@ def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-Poniższy przykład pokazuje funkcję języka Java, która wysyła komunikat do kolejki RabbitMQ po wyzwoleniu przez TimerTrigger co 5 minut.
+Następująca funkcja języka Java używa `@RabbitMQOutput` adnotacji z [typów RabbitMQ języka Java](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) , aby opisać konfigurację dla powiązania danych wyjściowych w kolejce RabbitMQ. Funkcja wysyła komunikat do kolejki RabbitMQ, gdy jest wyzwalany przez TimerTrigger co 5 minut.
 
 ```java
 @FunctionName("RabbitMQOutputExample")
@@ -262,7 +262,7 @@ Zobacz [przykład](#example) powiązania danych wyjściowych, aby uzyskać więc
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `RabbitMQ` atrybutu.
 

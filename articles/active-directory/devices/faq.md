@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165148"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365824"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory często zadawane pytania dotyczące zarządzania urządzeniami
 
@@ -299,6 +299,11 @@ Odp **.:** Jeśli hasło zostanie zmienione poza siecią firmową (na przykład 
 - W przypadku zarejestrowanych urządzeń z systemem Windows 10 w usłudze Azure AD przejdź do pozycji **Ustawienia**  >  **konta**  >  **dostęp do zasobów służbowych**. Wybierz swoje konto i wybierz pozycję **Rozłącz**. Rejestracja urządzenia dotyczy profilu użytkownika w systemie Windows 10.
 - W przypadku systemów iOS i Android można użyć Microsoft Authenticator   >  **rejestracji urządzeń** ustawień aplikacji i wybrać pozycję **Wyrejestruj urządzenie**.
 - W przypadku macOS można użyć aplikacji Portal firmy Microsoft Intune, aby wyrejestrować urządzenie z zarządzania i usunąć wszelkie rejestracje. 
+
+W przypadku urządzeń z systemem Windows 10 proces ten można zautomatyzować za pomocą [Narzędzia do usuwania Workplace Join (WPJ)](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
+
+> [!NOTE]
+> To narzędzie usuwa wszystkie konta logowania jednokrotnego na urządzeniu. Po wykonaniu tej operacji wszystkie aplikacje utracą stan logowania jednokrotnego, a urządzenie zostanie wyrejestrowane z poziomu narzędzia do zarządzania (MDM) i wyrejestrowania z chmury. Przy następnym próbie zalogowania się aplikacji zostanie wyświetlony monit o ponowne dodanie konta.
 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>P: jak zablokować użytkownikom możliwość dodawania dodatkowych kont służbowych (zarejestrowanych w usłudze Azure AD) na urządzeniach z systemem Windows 10 firmowych?
