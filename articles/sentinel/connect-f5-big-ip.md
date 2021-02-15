@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: e895640daeb3fbbba2f2708969ee4cf856bf1033
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 17c31bbe54326962c26ab53f702cbd28d1e36c6d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621185"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092795"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>Połączenie z urządzeniem F5 BIG-IP 
 
@@ -42,7 +42,7 @@ F5 BIG-IP umożliwia integrację i eksportowanie dzienników bezpośrednio do us
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut. 
+Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut. 
 
 
 

@@ -1,22 +1,18 @@
 ---
 title: Tworzenie wyzwalaczy opartych na zdarzeniach w Azure Data Factory
 description: Dowiedz się, jak utworzyć wyzwalacz w Azure Data Factory, który uruchamia potok w odpowiedzi na zdarzenie.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: chez-charlie
 ms.author: chez
-manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 495dda603a8ab8ce2983e010ea23856df5a094ef
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 0364bc46059593a51c3e5cd756bd7be032e69028
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897126"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393738"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Tworzenie wyzwalacza uruchamiającego potok w odpowiedzi na zdarzenie
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8bc9773fa7e1b3db2e249e803f4d2a3cf39edb48
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173519"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102550"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Biblioteka uwierzytelniania w sieci Web firmy Microsoft
 
@@ -28,7 +28,7 @@ Microsoft Identity Web to zestaw bibliotek ASP.NET Core, które upraszczają Dod
 
 Jeśli tworzysz ASP.NET Core aplikacje sieci Web lub interfejsy API sieci Web i chcesz używać Azure Active Directory (Azure AD) lub Azure AD B2C do zarządzania tożsamościami i dostępem (IAM), zalecamy korzystanie z sieci Web Microsoft Identity dla wszystkich następujących scenariuszy:
 
-- [Aplikacja internetowa z możliwością logowania użytkowników](scenario-web-app-sign-user-overview.md)
+- [Aplikacja internetowa, która loguje użytkowników](scenario-web-app-sign-user-overview.md)
 - [Aplikacja sieci Web, która loguje użytkowników i wywołuje interfejs API sieci Web w ich imieniu](scenario-web-app-call-api-overview.md)
 - [Chroniony internetowy interfejs API, do którego dostęp mają tylko uwierzytelnieni użytkownicy](scenario-protected-web-api-overview.md)
 - [Chroniony internetowy interfejs API, który wywołuje inny (podrzędny) interfejs API sieci Web w imieniu zalogowanego użytkownika](scenario-web-api-call-api-overview.md)
@@ -70,7 +70,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-00
 
 #### <a name="github"></a>GitHub
 
-Microsoft Identity Web to projekt Open Source hostowany w witrynie GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/Microsoft-Identity-Web <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Microsoft Identity Web to projekt Open Source hostowany w witrynie GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/Microsoft-Identity-Web</a>
 
 [Witryna typu wiki repozytorium](https://github.com/AzureAD/microsoft-identity-web/wiki) zawiera dodatkową dokumentację i jeśli potrzebna jest pomoc lub odkryje usterkę, można [zgłosić problem](https://github.com/AzureAD/microsoft-identity-web/issues).
 
@@ -78,7 +78,7 @@ Microsoft Identity Web to projekt Open Source hostowany w witrynie GitHub: <a hr
 
 Program Microsoft Identity Web zawiera kilka funkcji, które nie są dostępne w przypadku używania domyślnych szablonów projektów ASP.NET 3,1.
 
-| Cechy                                                                                  | ASP.NET Core 3,1                                                     | Microsoft Identity Web                                                                                  |
+| Cecha                                                                                  | ASP.NET Core 3,1                                                     | Microsoft Identity Web                                                                                  |
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | [Logowanie użytkowników](scenario-web-app-sign-user-app-configuration.md) w usłudze Web Apps             | <li>Konta służbowe<li>Tożsamości społecznościowe (z Azure AD B2Cem) | <li>Konta służbowe<li>Osobiste konta Microsoft<li>Tożsamości społecznościowe (z Azure AD B2Cem)     |
 | [Ochrona internetowych interfejsów API](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Konta służbowe<li>Tożsamości społecznościowe (z Azure AD B2Cem) | <li>Konta służbowe<li>Osobiste konta Microsoft<li>Tożsamości społecznościowe (z Azure AD B2Cem)     |
@@ -99,12 +99,14 @@ Aby wyświetlić witrynę sieci Web firmy Microsoft dotyczącą tożsamości, wy
 
 Witryna sieci Web Microsoft Identity webwiki w witrynie GitHub zawiera obszerną dokumentację referencyjną dla różnych aspektów biblioteki. Na przykład użycie certyfikatu, propozycję zgody i dostęp warunkowy można znaleźć tutaj:
 
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Używanie certyfikatów z firmą Microsoft. Identity. <span class="docon docon-navigate-external x-hidden-focus"></span> Web</a> GitHub
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Przyrostowa zgoda i <span class="docon docon-navigate-external x-hidden-focus"></span> dostęp warunkowy</a> GitHub
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Używanie certyfikatów z firmą Microsoft. Identity. Web</a> (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Prowyrażenie przyrostowe i dostęp warunkowy</a> (GitHub)
 
 <!-- LINKS -->
 <!--  [miw-certs]: microsoft-identity-web-certificates.md  -->
 <!--  [miw-certs-decrypt]: microsoft-identity-web-certificates.md#decryption-certificates  -->
 <!--  [miw-inc-consent-ca-header]: microsoft-identity-web-consent-conditional-access.md#handling-incremental-consent-or-conditional-access-in-web-apis  -->
 <!--  [miw-inc-consent-ca]: microsoft-identity-web-consent-conditional-access.md  -->
-[scenariusz-API-Call-API]: scenariusz-Web-API-Call-API-Call-API. MD # Option-1-Call-Microsoft-Graph-with-SDK [scenariusz-API-Call-Graph]: scenariusz-Web-API-Call-API-Call-API. MD # opcja-1-Call-Microsoft-Graph-with-the-SDK [scenariusz-API-Validation]: scenario-protected-web-api-verification-scope-app-roles.md
+[scenariusz-API-Call-API]: scenariusz-Web-API-Call-API-Call-API. MD # Option-1-Call-Microsoft-Graph-with-SDK  
+[scenariusz-API-Call-Graph]: scenariusz-Web-API-Call-API-Call-API. MD # Option-1-Call-Microsoft-Graph-with-SDK  
+[scenariusz-API-Validation]: scenario-protected-web-api-verification-scope-app-roles.md  

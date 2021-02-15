@@ -42,6 +42,14 @@
     - name: Test porównawczy zabezpieczeń platformy Azure
       displayName: 'standards, azure, benchmark'
       href: ./samples/azure-security-benchmark.md
+    - name: Usługa Azure Security test Foundation
+      items:
+        - name: Omówienie
+          displayName: 'standards, azure, benchmark, foundation'
+          href: ./samples/azure-security-benchmark-foundation/index.md
+        - name: Procedura wdrażania
+          displayName: 'standards, azure, benchmark, foundation, deploy'
+          href: ./samples/azure-security-benchmark-foundation/deploy.md
     - name: Australian Government ISM PROTECTED
       items:
         - name: Omówienie

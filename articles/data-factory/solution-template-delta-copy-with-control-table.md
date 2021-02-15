@@ -1,23 +1,18 @@
 ---
 title: Kopiowanie przyrostowe z bazy danych przy użyciu tabeli formantów
 description: Dowiedz się, jak używać szablonu rozwiązania do przyrostowego kopiowania nowych lub zaktualizowanych wierszy tylko z bazy danych z Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 3f15ffd6f7ed784cce398d419e013a69c60289d8
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: b3b5679b254a07b275cc7fd1295ba4ca5b405fbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921803"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362016"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Kopiowanie przyrostowe z bazy danych z tabelą formantów
 

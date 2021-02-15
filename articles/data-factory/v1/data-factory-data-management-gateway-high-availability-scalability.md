@@ -1,23 +1,18 @@
 ---
 title: Wysoka dostępność z bramą zarządzania danymi w Azure Data Factory
 description: W tym artykule wyjaśniono, jak można skalować bramę zarządzania danymi przez dodawanie kolejnych węzłów i skalowanie w górę przez zwiększenie liczby współbieżnych zadań, które można uruchomić w węźle.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003620"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391732"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Zarządzanie danymi Gateway — wysoka dostępność i skalowalność (wersja zapoznawcza)
 > [!NOTE]
@@ -98,7 +93,7 @@ W tej sekcji założono, że przeniesiono następujące dwa artykuły lub zapozn
         > Listę wymagań dotyczących korzystania z certyfikatu TLS/SSL zawiera sekcja [wymagania dotyczące certyfikatu TLS/SSL](#tlsssl-certificate-requirements) . 
     5. Po pomyślnym zainstalowaniu bramy kliknij przycisk Uruchom Configuration Manager:
     
-        ![Konfiguracja ręczna — Uruchamianie programu Configuration Manager](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
+        ![Konfiguracja ręczna — Uruchamianie programu Configuration Manager](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
     6. na węźle (lokalnym komputerze z systemem Windows) widzisz Zarządzanie danymi Configuration Manager Gateway, który pokazuje stan łączności, **nazwę bramy** i **nazwę węzła**.  
 
         ![Zarządzanie danymi Gateway — instalacja powiodła się](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
@@ -200,11 +195,11 @@ Rola | Istnieją dwa typy ról — Dyspozytor i proces roboczy. Wszystkie węzł
 
 W poniższej tabeli przedstawiono możliwe stany **węzła bramy**: 
 
-Stan  | Komentarze/scenariusze
+Stan    | Komentarze/scenariusze
 :------- | :------------------
 Tryb online | Węzeł połączony z usługą Data Factory.
 Tryb offline | Węzeł jest w trybie offline.
-Unowocześnieni | Węzeł jest aktualizowany w sposób autouzupełniania.
+Uaktualnianie | Węzeł jest aktualizowany w sposób autouzupełniania.
 Ograniczone | Z powodu problemu z łącznością. Może to być spowodowane problemem z portem HTTP 8050, problemem z łącznością usługi Service Bus lub problemem z synchronizacją poświadczeń. 
 Nieaktywne | Węzeł jest w konfiguracji innej niż Konfiguracja innych węzłów większości.<br/><br/> Węzeł może być nieaktywny, jeśli nie może połączyć się z innymi węzłami. 
 

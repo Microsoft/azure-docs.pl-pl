@@ -9,13 +9,13 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 05/28/2020
-ms.openlocfilehash: aa236ecaaa9c38c68e66d1813280cd98b85b9463
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/09/2021
+ms.openlocfilehash: 332a2273a377268a425619a0cdaa5f4780b46e73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790393"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361659"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrowanie Azure SQL Database z modelu opartego na jednostkach DTU do modelu opartego na rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,24 +52,33 @@ Wykonaj to zapytanie w kontekście bazy danych, która ma zostać zmigrowana, a 
 ```SQL
 WITH dtu_vcore_map AS
 (
-SELECT TOP (1) rg.slo_name,
-               CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
-                    WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
-               END AS dtu_hardware_gen,
-               s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
-               CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
+SELECT rg.slo_name,
+       DATABASEPROPERTYEX(DB_NAME(), 'Edition') AS dtu_service_tier,
+       CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG7%' THEN 'Gen5'
+       END AS dtu_hardware_gen,
+       s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
+       CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
 FROM sys.dm_user_db_resource_governance AS rg
 CROSS JOIN (SELECT COUNT(1) AS scheduler_count FROM sys.dm_os_schedulers WHERE status = 'VISIBLE ONLINE') AS s
 CROSS JOIN sys.dm_os_job_object AS jo
 WHERE dtu_limit > 0
       AND
       DB_NAME() <> 'master'
+      AND
+      rg.database_id = DB_ID()
 )
 SELECT dtu_logical_cpus,
        dtu_hardware_gen,
        dtu_memory_per_core_gb,
+       dtu_service_tier,
+       CASE WHEN dtu_service_tier = 'Basic' THEN 'General Purpose'
+            WHEN dtu_service_tier = 'Standard' THEN 'General Purpose or Hyperscale'
+            WHEN dtu_service_tier = 'Premium' THEN 'Business Critical or Hyperscale'
+       END AS vcore_service_tier,
        CASE WHEN dtu_hardware_gen = 'Gen4' THEN dtu_logical_cpus
             WHEN dtu_hardware_gen = 'Gen5' THEN dtu_logical_cpus * 0.7
        END AS Gen4_vcores,
@@ -97,7 +106,7 @@ Oprócz liczby rdzeni wirtualnych (logiczne procesory CPU) i generowania sprzęt
 - W przypadku tej samej generacji sprzętowej i limitów zasobów rdzeni wirtualnych, liczby operacji we/wy oraz przepływności dziennika transakcji dla baz danych rdzeń wirtualny są często większe niż w przypadku baz danych DTU. W przypadku obciążeń związanych we/wy można obniżyć liczbę rdzeni wirtualnych w modelu rdzeń wirtualny, aby osiągnąć ten sam poziom wydajności. Limity zasobów dla baz danych DTU i rdzeń wirtualny w wartościach bezwzględnych są ujawniane w widoku [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Porównanie tych wartości między bazą danych jednostek DTU do migracji a bazą danych rdzeń wirtualny przy użyciu przybliżonego celu usługi pomoże Ci dokładniej wybrać cel usługi rdzeń wirtualny.
 - Zapytanie mapowania zwraca również ilość pamięci na rdzeń dla bazy danych DTU lub elastycznej puli do migracji oraz dla każdej generacji sprzętu w modelu rdzeń wirtualny. Zapewnienie podobnej lub wyższej całkowitej ilości pamięci po migracji do rdzeń wirtualny jest istotne dla obciążeń wymagających dużej ilości pamięci podręcznej danych w celu osiągnięcia wystarczającej wydajności lub obciążeń, które wymagają dużych przydziałów pamięci do przetwarzania zapytań. W przypadku takich obciążeń, w zależności od rzeczywistej wydajności, może być konieczne zwiększenie liczby rdzeni wirtualnych, aby uzyskać wystarczającą ilość pamięci.
 - W przypadku wybrania celu usługi rdzeń wirtualny należy wziąć pod uwagę [historyczne wykorzystanie zasobów](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) bazy danych DTU. Bazy danych DTU ze spójnie używanymi zasobami procesora CPU mogą wymagać mniejszej liczby rdzeni wirtualnych niż zwracana przez zapytanie mapowania. W przypadku baz danych DTU, w których spójne użycie procesora CPU powoduje, że niewystarczająca wydajność obciążeń może wymagać więcej rdzeni wirtualnych niż zwracanych przez zapytanie.
-- W przypadku migrowania baz danych z użyciem sporadycznych lub nieprzewidywalnych wzorców użycia należy rozważyć użycie warstwy obliczeń [Bezserwerowych](serverless-tier-overview.md) .  Należy zauważyć, że maksymalna liczba współbieżnych procesów roboczych (żądań) w bezserwerowym wyniesieniu do 75% limitu zainicjowanego obliczeń dla tej samej liczby skonfigurowanych maksymalnych rdzeni wirtualnych.  Ponadto Maksymalna ilość pamięci dostępnej w ramach serwera to 3 GB, a maksymalna liczba skonfigurowanych rdzeni wirtualnych; na przykład Maksymalna pamięć to 120 GB, gdy konfigurowane są maksymalnie 40 rdzeni wirtualnych.   
+- W przypadku migrowania baz danych z użyciem sporadycznych lub nieprzewidywalnych wzorców użycia należy rozważyć użycie warstwy obliczeń [Bezserwerowych](serverless-tier-overview.md) . Należy zauważyć, że maksymalna liczba współbieżnych procesów roboczych (żądań) w bezserwerowym wyniesieniu do 75% limitu zainicjowanego obliczeń dla tej samej liczby skonfigurowanych maksymalnych rdzeni wirtualnych. Ponadto Maksymalna ilość pamięci dostępnej w ramach serwera to 3 GB, a maksymalna liczba skonfigurowanych rdzeni wirtualnych; na przykład Maksymalna pamięć to 120 GB, gdy konfigurowane są maksymalnie 40 rdzeni wirtualnych.   
 - W modelu rdzeń wirtualny obsługiwany maksymalny rozmiar bazy danych może się różnić w zależności od generacji sprzętu. W przypadku dużych baz danych sprawdź obsługiwane maksymalne rozmiary w modelu rdzeń wirtualny dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).
 - W przypadku pul elastycznych modele [jednostek DTU](resource-limits-dtu-elastic-pools.md) i [rdzeń wirtualny](resource-limits-vcore-elastic-pools.md) mają różnice w maksymalnej obsługiwanej liczbie baz danych na pulę. Należy wziąć pod uwagę podczas migrowania pul elastycznych z wieloma bazami danych.
 - Niektóre generacje sprzętu mogą nie być dostępne w każdym regionie. Sprawdź dostępność w obszarze [generacja sprzętu](service-tiers-vcore.md#hardware-generations).
@@ -167,14 +176,14 @@ W poniższej tabeli przedstawiono wskazówki dotyczące określonych scenariuszy
 
 |Bieżąca warstwa usługi|Docelowa warstwa usługi|Typ migracji|Akcje użytkownika|
 |---|---|---|---|
-|Standardowa|Zastosowania ogólne|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
+|Standardowa|Ogólnego przeznaczenia|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
 |Premium|Krytyczne dla działania firmy|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
-|Standardowa|Krytyczne dla działania firmy|Upgrade|Najpierw należy przeprowadzić migrację pomocniczą|
+|Standardowa|Krytyczne dla działania firmy|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
 |Krytyczne dla działania firmy|Standardowa|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
-|Premium|Zastosowania ogólne|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
-|Zastosowania ogólne|Premium|Upgrade|Najpierw należy przeprowadzić migrację pomocniczą|
-|Krytyczne dla działania firmy|Zastosowania ogólne|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
-|Zastosowania ogólne|Krytyczne dla działania firmy|Upgrade|Najpierw należy przeprowadzić migrację pomocniczą|
+|Premium|Ogólnego przeznaczenia|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
+|Ogólnego przeznaczenia|Premium|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
+|Krytyczne dla działania firmy|Ogólnego przeznaczenia|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
+|Ogólnego przeznaczenia|Krytyczne dla działania firmy|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
 ||||
 
 ## <a name="migrate-failover-groups"></a>Migrowanie grup trybu failover

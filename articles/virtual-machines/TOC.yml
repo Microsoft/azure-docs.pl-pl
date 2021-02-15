@@ -990,7 +990,7 @@
       href: ephemeral-os-disks.md
     - name: Migracja i konwersja
       items:
-        - name: Konwertowanie dysku między warstwami Standardowa i Premium
+        - name: Konwertuj dysk na inny typ dysku
           items:
             - name: Interfejs wiersza polecenia
               href: ./linux/convert-disk-storage.md

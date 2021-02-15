@@ -3,18 +3,18 @@ title: 'ML Studio (klasyczny): Importuj dane szkoleniowe — Azure'
 description: Jak zaimportować dane do Azure Machine Learning Studio (klasycznego) z różnych źródeł danych. Dowiedz się, jakie typy danych i formaty danych są obsługiwane.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: db5f3cc4b9530c4aeac40786756b36cc0ac98728
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302780"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520378"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importowanie danych szkoleniowych do Azure Machine Learning Studio (klasyczne) z różnych źródeł danych
 
@@ -73,12 +73,12 @@ Następujące typy danych są rozpoznawane przez program Studio (klasyczny):
 * Data/godzina
 * przedział_czasu
 
-Studio używa wewnętrznego typu danych o nazwie ***Data Table** _ do przekazywania danych między modułami. Dane można jawnie przekonwertować na format tabeli danych przy użyciu modułu [Konwertuj na zestaw][convert-to-dataset] danych.
+Studio używa wewnętrznego typu danych o nazwie ***tabela danych*** do przekazywania danych między modułami. Dane można jawnie przekonwertować na format tabeli danych przy użyciu modułu [Konwertuj na zestaw][convert-to-dataset] danych.
 
 Każdy moduł, który akceptuje formaty inne niż tabela danych, przekonwertuje dane do tabeli danych dyskretnie przed przekazaniem ich do następnego modułu.
 
 W razie potrzeby można przekonwertować Format tabeli danych z powrotem do formatu CSV, TSV, ARFF lub SVMLight przy użyciu innych modułów konwersji.
-Zapoznaj się z sekcją _ *konwersje formatu danych** w palecie modułów dla modułów, które wykonują te funkcje.
+Zapoznaj się z sekcją **konwersje formatu danych** w palecie modułów dla modułów, które wykonują te funkcje.
 
 ## <a name="data-capacities"></a>Pojemności danych
 

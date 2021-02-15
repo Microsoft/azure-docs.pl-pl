@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783984"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379832"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Odzyskiwanie po awarii i tryb failover konta magazynu
 
@@ -23,7 +23,7 @@ Firma Microsoft dąży do zapewnienia, że usługi platformy Azure są zawsze do
 
 Usługa Azure Storage obsługuje tryb failover dla konta magazynu geograficznie nadmiarowego. Korzystając z trybu failover konta, można zainicjować proces trybu failover dla konta magazynu, jeśli podstawowy punkt końcowy stanie się niedostępny. Tryb failover aktualizuje pomocniczy punkt końcowy, aby stał się podstawowym punktem końcowym dla konta magazynu. Po zakończeniu pracy w trybie failover klienci mogą rozpocząć zapisywanie do nowego podstawowego punktu końcowego.
 
-Tryb failover konta jest dostępny dla typów kont ogólnego przeznaczenia w wersji 1, w wersji 2 i dla usługi BLOB Storage z wdrożeniami Azure Resource Manager. Tryb failover konta jest obsługiwany przez wszystkie regiony publiczne, ale nie jest w tej chwili dostępna w chmurach suwerennych lub krajowych.
+Tryb failover konta jest dostępny dla typów kont ogólnego przeznaczenia w wersji 1, ogólnego przeznaczenia w wersji 2 i kont magazynu obiektów blob z wdrożeniami usługi Azure Resource Manager. Tryb failover konta jest obsługiwany przez wszystkie regiony publiczne, ale nie jest w tej chwili dostępna w chmurach suwerennych lub krajowych.
 
 W tym artykule opisano koncepcje i procesy związane z trybem failover konta oraz omówiono sposób przygotowania konta magazynu do odzyskania przy minimalnym wpływie na klienta. Aby dowiedzieć się, jak zainicjować tryb failover konta w Azure Portal lub PowerShell, zobacz [inicjowanie trybu failover konta](storage-initiate-account-failover.md).
 
@@ -55,7 +55,7 @@ Ponadto należy pamiętać o najlepszych rozwiązaniach dotyczących utrzymania 
 
 - **Dyski:** Użyj [Azure Backup](https://azure.microsoft.com/services/backup/) , aby utworzyć kopię zapasową dysków maszyny wirtualnej używanych przez maszyny wirtualne platformy Azure. Należy również rozważyć użycie [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) do ochrony maszyn wirtualnych w przypadku awarii regionalnej.
 - **Blokowe obiekty blob:** Włącz opcję [usuwania nietrwałego](../blobs/soft-delete-blob-overview.md) , aby chronić przed usuwaniem na poziomie obiektów i zastępowaniem, lub kopiować blokowe obiekty blob na inne konto magazynu w innym regionie przy użyciu [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)lub [biblioteki przenoszenia danych platformy Azure](storage-use-data-movement-library.md).
-- **Pliki:** Użyj [AzCopy](./storage-use-azcopy-v10.md) lub [Azure PowerShell](/powershell/module/az.storage/) , aby skopiować pliki do innego konta magazynu w innym regionie.
+- **Pliki:** Użyj [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) , aby utworzyć kopię zapasową udziałów plików. Włącz także [usuwanie nietrwałe](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) , aby chronić przed przypadkowym usunięciem udziałów plików. Aby zapewnić nadmiarowość geograficzną, gdy GRS nie jest dostępna, użyj [AzCopy](./storage-use-azcopy-v10.md) lub [Azure PowerShell](/powershell/module/az.storage/) , aby skopiować pliki na inne konto magazynu w innym regionie.
 - **Tabele:** Użyj [AzCopy](./storage-use-azcopy-v10.md) , aby wyeksportować dane tabeli do innego konta magazynu w innym regionie.
 
 ## <a name="track-outages"></a>Śledź przerwy
@@ -171,7 +171,7 @@ Jeśli konto magazynu jest skonfigurowane pod kątem dostępu do odczytu do elem
 
 W skrajnych okolicznościach, gdy region zostanie utracony ze względu na znaczną awarię, firma Microsoft może zainicjować regionalną pracę w trybie failover. W takim przypadku nie jest wymagana żadna akcja z Twojej strony. Do momentu ukończenia pracy w trybie failover zarządzanej przez firmę Microsoft nie będziesz mieć dostępu do zapisu na koncie magazynu. Aplikacje mogą odczytywać z regionu pomocniczego, jeśli konto magazynu jest skonfigurowane dla usługi RA-GRS lub RA-GZRS.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Projektowanie aplikacji o wysokiej dostępności przy użyciu nadmiarowości geograficznej](geo-redundant-design.md)
 - [Inicjowanie trybu failover konta](storage-initiate-account-failover.md)

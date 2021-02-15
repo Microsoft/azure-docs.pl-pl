@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629667"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379118"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
@@ -187,7 +187,9 @@ Jeśli nie chcesz [przywracać całej migawki do woluminu](#restore-a-snapshot-t
 
 Zainstalowany wolumin zawiera katalog migawek o nazwie  `.snapshot` (w klientach NFS) lub `~snapshot` (w klientach SMB), który jest dostępny dla klienta. Katalog migawek zawiera podkatalogi odpowiadające migawkom woluminu. Każdy podkatalog zawiera pliki migawki. Jeśli przypadkowo usuniesz lub zastąpisz plik, możesz przywrócić plik do nadrzędnego katalogu do odczytu i zapisu, kopiując plik z podkatalogu migawek do katalogu do odczytu i zapisu. 
 
-Jeśli katalog migawek nie jest widoczny, może być ukryty, ponieważ opcja Ukryj ścieżkę migawki jest obecnie włączona. Można [edytować opcję Ukryj ścieżkę migawki](#edit-the-hide-snapshot-path-option) , aby ją wyłączyć.  
+Dostęp do katalogów migawek można kontrolować przy użyciu [opcji Ukryj ścieżkę migawki](#edit-the-hide-snapshot-path-option). Ta opcja określa, czy katalog powinien być ukryty względem klientów. W związku z tym kontroluje również dostęp do plików i folderów w migawce.  
+
+NFSv 4.1 nie pokazuje `.snapshot` katalogu ( `ls -la` ). Jeśli jednak opcja Ukryj ścieżkę migawki nie jest ustawiona, nadal można uzyskać dostęp do `.snapshot` katalogu za pośrednictwem nfsv 4.1 przy użyciu `cd <snapshot-path>` polecenia z wiersza polecenia klienta. 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Przywracanie pliku przy użyciu klienta systemu plików NFS z systemem Linux 
 
@@ -269,4 +271,4 @@ Można usunąć migawki, które nie są już potrzebne.
 * [Rozwiązywanie problemów z zasadami migawek](troubleshoot-snapshot-policies.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Film Azure NetApp Files migawek 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
-* [Co to jest narzędzie do tworzenia migawek spójnych aplikacji platformy Azure](azacsnap-introduction.md)
+* [Co to jest narzędzie platformy Azure do tworzenia migawek spójnych na poziomie aplikacji](azacsnap-introduction.md)

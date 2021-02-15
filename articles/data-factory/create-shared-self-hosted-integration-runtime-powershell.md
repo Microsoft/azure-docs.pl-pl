@@ -1,22 +1,18 @@
 ---
 title: Tworzenie współużytkowanego środowiska Integration Runtime przy użyciu programu PowerShell
 description: Dowiedz się, jak utworzyć udostępnione środowisko Integration Runtime w Azure Data Factory, dzięki czemu wiele fabryk danych może uzyskać dostęp do środowiska Integration Runtime.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 3f0cf3de4c2cffca6540fcd727872372103ac98f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 16feeb124859fa6199303d9d590fa0a286033ef9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118255"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389437"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Utwórz udostępnione środowisko Integration Runtime w Azure Data Factory
 

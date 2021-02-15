@@ -3,22 +3,22 @@ title: 'ML Studio (klasyczny): dodatek programu Excel dla usług sieci Web — A
 description: Jak używać Azure Machine Learning usług sieci Web bezpośrednio w programie Excel bez konieczności pisania kodu.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 45d9e494b9f885cfa0680bec595aefcd4074d41e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310079"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520004"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Dodatek programu Excel dla usług sieci Web Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Program Excel ułatwia wywoływanie usług sieci Web bezpośrednio bez konieczności pisania kodu.
@@ -65,7 +65,7 @@ Pobierz klucz interfejsu API dla usługi sieci Web. Miejsce, w którym wykonujes
 
 **Użyj nowej usługi sieci Web**
 
-1. W portalu [usług sieci web Azure Machine Learning](https://services.azureml.net) kliknij pozycję **usługi sieci Web** , a następnie wybierz usługę sieci Web. 
+1. W portalu [usług sieci web Azure Machine Learning](https://services.azureml.net) kliknij pozycję **usługi sieci Web**, a następnie wybierz usługę sieci Web. 
 2. Kliknij **pozycję** Użyj.
 3. Poszukaj sekcji **podstawowe informacje o zużyciu** . Skopiuj i Zapisz **klucz podstawowy** i adres URL **odpowiedzi żądania** .
 

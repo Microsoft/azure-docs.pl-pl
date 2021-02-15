@@ -2,19 +2,16 @@
 title: Format programu Excel w Azure Data Factory
 description: W tym temacie opisano sposób postępowania z formatem programu Excel w Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 8f19ccc90c44ef90cee7bb1ae881086321e863b6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: bef29bc958253be0498442f842dda67105ce799b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902038"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386530"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format programu Excel w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -74,7 +71,7 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 ### <a name="excel-as-source"></a>Excel jako źródło 
 
-W sekcji działanie copy **_ \_ Source \**** są obsługiwane następujące właściwości.
+W sekcji ***\* Źródło \**** działania kopiowania są obsługiwane następujące właściwości.
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -116,7 +113,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło pr
 | Lista plików             | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie       | `true` lub `false`                                         | fileList                          |
 | Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego       | nie       | Ciąg                                                    | rowUrlColumn                      |
 | Po zakończeniu          | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie       | Usuń: `true` lub `false` <br> Przenieś `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
-| Filtruj według ostatniej modyfikacji   | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| Filtruj według ostatniej modyfikacji   | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie       | Znacznik czasu                                                 | modifiedAfter <br> modifiedBefore |
 | Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Przykład źródła

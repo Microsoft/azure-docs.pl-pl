@@ -1,19 +1,19 @@
 ---
-title: Jak używać Redis-CLI z pamięcią podręczną platformy Azure dla Redis
-description: Dowiedz się, jak używać *redis-cli.exe* jako narzędzia wiersza polecenia do współdziałania z pamięcią podręczną platformy Azure dla Redis jako klienta.
+title: Korzystanie z interfejsu wiersza polecenia Redis z usługą Azure cache dla Redis
+description: Dowiedz się, jak używać *redis-cli.exe* jako narzędzia wiersza polecenia do współdziałania z pamięcią podręczną platformy Azure dla Redis jako klient
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/22/2018
-ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 02/08/2021
+ms.openlocfilehash: 3a1e1cdb7706cb284da57e10e35afe3420deaf75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538021"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375310"
 ---
-# <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Jak używać narzędzia wiersza polecenia Redis z usługą Azure cache for Redis
+# <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Korzystanie z narzędzia wiersza polecenia Redis z usługą Azure cache for Redis
 
 *redis-cli.exe* to popularne narzędzie wiersza polecenia służące do współdziałania z usługą Azure cache for Redis jako klient. To narzędzie jest również dostępne do użycia z usługą Azure cache for Redis.
 
@@ -46,7 +46,7 @@ W przypadku usługi Azure cache for Redis tylko port TLS (6380) jest domyślnie 
 
     Uruchom **interfejs GUI stunnel** , aby uruchomić serwer.
 
-    Kliknij prawym przyciskiem myszy ikonę paska zadań dla serwera stunnel, a następnie kliknij polecenie **Pokaż okno Dziennik** .
+    Kliknij prawym przyciskiem myszy ikonę paska zadań dla serwera stunnel, a następnie kliknij polecenie **Pokaż okno Dziennik**.
 
     W menu stunnel log, kliknij kolejno opcje **Konfiguracja**  >  **Edytuj konfigurację** , aby otworzyć bieżący plik konfiguracji.
 
@@ -61,7 +61,7 @@ W przypadku usługi Azure cache for Redis tylko port TLS (6380) jest domyślnie 
 
     Zapisz i zamknij plik konfiguracji. 
   
-    W menu stunnel log, kliknij kolejno pozycje **Konfiguracja**  >  **Załaduj ponownie konfigurację** .
+    W menu stunnel log, kliknij kolejno pozycje **Konfiguracja**  >  **Załaduj ponownie konfigurację**.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Połącz się za pomocą narzędzia wiersza polecenia Redis.
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![Zrzut ekranu pokazujący, że połączenie z pamięcią podręczną zostało wykonane pomyślnie.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Jeśli używasz pamięci podręcznej testów z **niezabezpieczonym** portem innym niż TLS, uruchom `redis-cli.exe` i przekaż *nazwę hosta* , *port* i *klucz dostępu* (podstawowy lub pomocniczy), aby nawiązać połączenie z pamięcią podręczną testową.
+Jeśli używasz pamięci podręcznej testów z **niezabezpieczonym** portem innym niż TLS, uruchom `redis-cli.exe` i przekaż *nazwę hosta*, *port* i *klucz dostępu* (podstawowy lub pomocniczy), aby nawiązać połączenie z pamięcią podręczną testową.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

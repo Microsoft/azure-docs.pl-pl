@@ -3,22 +3,22 @@ title: 'ML Studio (klasyczny): Tworzenie wielu & punktów końcowych modelu — 
 description: Użyj programu PowerShell, aby utworzyć wiele modeli Machine Learning i punkty końcowe usługi sieci Web przy użyciu tego samego algorytmu, ale różnych zestawów danych szkoleniowych.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: ef9ea055f437b53313dc9ee11b0b91f095664f5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 35b5fe4556f1d557d3fc0420e9069f2fb510eec4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322857"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520514"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Tworzenie wielu punktów końcowych usługi sieci Web na podstawie jednego eksperymentu z ML Studio (klasyczny) i programu PowerShell
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Oto typowy problem uczenia maszynowego: chcesz utworzyć wiele modeli, które mają ten sam przepływ pracy szkoleniowej i korzystać z tego samego algorytmu. Ale chcesz, aby miały różne zestawy danych szkoleniowych jako dane wejściowe. W tym artykule pokazano, jak to zrobić na dużą skalę w Azure Machine Learning Studio (klasyczny) przy użyciu tylko jednego eksperymentu.
 
@@ -55,7 +55,7 @@ Można to zrobić na inne sposoby. Możesz użyć zapytania SQL z parametrem us�
 
 ![Przeszkolone dane wyjściowe modułu modelu do modułu wyjściowego usługi sieci Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-Teraz Uruchommy ten eksperyment szkoleniowy przy użyciu wartości domyślnej *rental001.csv* jako zestawu danych szkoleniowych. Jeśli wyświetli się dane wyjściowe modułu **szacowania** (kliknij dane wyjściowe i wybierz polecenie **wizualizator** ), zobaczysz znośnego wydajność *AUC* = 0,91. W tym momencie możesz przystąpić do wdrożenia usługi sieci Web z tego eksperymentu szkoleniowego.
+Teraz Uruchommy ten eksperyment szkoleniowy przy użyciu wartości domyślnej *rental001.csv* jako zestawu danych szkoleniowych. Jeśli wyświetli się dane wyjściowe modułu **szacowania** (kliknij dane wyjściowe i wybierz polecenie **wizualizator**), zobaczysz znośnego wydajność *AUC* = 0,91. W tym momencie możesz przystąpić do wdrożenia usługi sieci Web z tego eksperymentu szkoleniowego.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Wdrażanie usług sieci Web szkoleń i oceniania
 Aby wdrożyć usługę szkoleniową sieci Web, kliknij przycisk **Skonfiguruj usługę sieci Web** pod kanwą eksperymentu i wybierz pozycję **Wdróż usługę sieci Web**. Wywołaj tę usługę sieci Web "szkolenia z zakresu roweru".

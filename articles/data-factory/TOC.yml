@@ -105,6 +105,8 @@
       items:
         - name: Przekształcanie danych przy użyciu przepływów danych mapowania
           items:
+            - name: Przekształcanie danych w Lake przy użyciu różnicowej Lake
+              href: tutorial-data-flow-delta-lake.md
             - name: Przekształcanie danych przy użyciu przepływów danych mapowania
               href: tutorial-data-flow.md
             - name: Samouczki wideo dotyczące przepływów mapowania danych
@@ -556,6 +558,8 @@
           href: data-flow-lookup.md
         - name: Nowa gałąź
           href: data-flow-new-branch.md
+        - name: Analizuj
+          href: data-flow-parse.md
         - name: Przestawianie
           href: data-flow-pivot.md
         - name: Ranga
@@ -806,6 +810,8 @@
       href: /azure/templates/microsoft.datafactory/allversions
     - name: Python
       href: /python/api/overview/azure/datafactory
+    - name: Elementy wbudowane usługi Azure Policy
+      href: policy-reference.md
 - name: Zasoby
   items:
     - name: Oficjalne dokumenty

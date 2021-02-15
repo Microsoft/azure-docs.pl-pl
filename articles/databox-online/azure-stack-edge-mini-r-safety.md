@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: aa363b1eeddff6c3b10d8e36371becb8b690697c
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: eb42a9a77927d8577dfec3c9167294eb8f809fec
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981031"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382632"
 ---
 # <a name="azure-stack-edge-mini-r-safety-instructions"></a>Instrukcje dotyczące bezpieczeństwa w Azure Stack Edge
 
@@ -161,7 +161,6 @@ Operacja w paśmie z pasmem 5150 – 5250 MHz służy tylko do obniżenia potenc
 
 ![Ostrzeżenie dotyczące informacji o przepisach — użycie wewnętrzne](./media/azure-stack-edge-mini-r-safety/regulatory-information-indoor-use-only.png)
 
-
 Użytkownicy są informowani, że duże ilości energii są przydzieleni jako użytkownicy podstawowi (Użytkownicy o priorytecie) z pasm 5250 – 5350 MHz i 5650 – 5850 MHz, a te radary mogą spowodować zakłócenia i/lub uszkodzenia urządzeń z systemem LE-LAN.
 
 Ten sprzęt generuje, używa i może wypromieniowanać energię radiową i, jeśli nie jest zainstalowany i używany zgodnie z instrukcjami, może spowodować szkodliwe zakłócenia komunikacji radiowej. Nie ma jednak gwarancji, że zakłócenia nie wystąpi w danej instalacji.
@@ -205,11 +204,13 @@ Tabelę z określoną szybkością pochłaniania (SAR) średnią z 1 g dla każd
 
 #### <a name="european-union"></a>UNIA EUROPEJSKA:
 
-Zażądaj kopii deklaracji zgodności UE dla tego sprzętu.
+Zażądaj kopii deklaracji zgodności UE dla tego sprzętu. Wyślij wiadomość e-mail do [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
 
 Karta NETGEAR A6150 Wi-Fi USB dostarczona z tym wyposażeniem jest zgodna z dyrektywą 2014/53/UE i może być również świadczona na żądanie.
 
-> ![Ikona ostrzeżenia 13 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) jest produktem klasy a. W środowisku wewnętrznym ten produkt może spowodować zakłócenia radioelektrycznych, w takim przypadku użytkownik może być zobowiązany do podjęcia odpowiednich działań.
+![Ikona ostrzeżenia 13 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **Ostrzeżenie:**  
+
+To jest produkt klasy A. W środowisku wewnętrznym ten produkt może spowodować zakłócenia radioelektrycznych, w takim przypadku użytkownik może być zobowiązany do podjęcia odpowiednich działań.
 
 Usuwanie baterii i sprzętu elektrycznego i elektronicznego:
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: a18937d84b05159626708d577982405d79161a1a
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0ab7cdfb3d699a8415739565aae5d4326002bc43
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500801"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389148"
 ---
 # <a name="manage-device-event-alert-notifications-on-azure-stack-edge-pro-resources"></a>Zarządzaj powiadomieniami o alertach zdarzeń urządzeń w witrynie Azure Stack EDGE Pro
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób tworzenia reguł akcji w Azure Portal w celu wyzw
 
 Reguła akcji może wyzwalać lub pomijać powiadomienia o alertach. Reguła akcji jest dodawana do *grupy akcji* — zestawu preferencji powiadomień, który służy do powiadamiania użytkowników, którzy muszą działać na alertach wyzwalanych w różnych kontekstach dla zasobu lub zestawu zasobów.
 
-Aby uzyskać więcej informacji na temat reguł akcji, zobacz [Konfigurowanie reguły akcji](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule). Aby uzyskać więcej informacji na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](/blob/master/articles/azure-monitor/platform/action-groups).
+Aby uzyskać więcej informacji na temat reguł akcji, zobacz [Konfigurowanie reguły akcji](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule). Aby uzyskać więcej informacji na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](/azure/azure-monitor/platform/action-groups).
 
 > [!NOTE]
 > Funkcja reguł akcji jest w wersji zapoznawczej. Niektóre ekrany i kroki mogą ulec zmianie, gdy proces jest rafinowany.
@@ -123,8 +123,8 @@ Powiadomienie e-mail będzie wyglądać podobnie do tego.
 
 ## <a name="next-steps"></a>Następne kroki
 
-<!-- - See [Create and manage action groups in the Azure portal](/blob/master/articles/azure-monitor/platform/action-groups) for guidance on creating a new action group.
+<!-- - See [Create and manage action groups in the Azure portal](/azure/azure-monitor/platform/action-groups) for guidance on creating a new action group.
 - See [Configure an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications. -2 bullets referenced above. Making room for local tasks in "Next Steps." --> 
 - Aby uzyskać informacje na temat przeglądania zdarzeń urządzeń, stanu sprzętu i wykresów metryk, zobacz [monitorowanie Azure Stack Edge](azure-stack-edge-monitor.md) . 
 - Zobacz [używanie Azure monitor](azure-stack-edge-gpu-enable-azure-monitor.md) , aby uzyskać informacje na temat optymalizowania Azure monitor dla urządzeń z urządzeniami GPU w programie Azure Stack Edge.
-- Aby uzyskać informacje na temat zarządzania indywidualnymi alertami [, zobacz Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi za pomocą Azure monitor linku docelowego](/../azure-monitor/platform/alerts-metric.md) .
+- Aby uzyskać informacje na temat zarządzania indywidualnymi alertami [, zobacz Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi za pomocą Azure monitor linku docelowego](/azure/azure-monitor/platform/alerts-metric) .

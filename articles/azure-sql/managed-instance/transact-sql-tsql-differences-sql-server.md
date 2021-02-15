@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626278"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378625"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -284,6 +284,7 @@ Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/a
 ### <a name="sql-server-agent"></a>Program SQL Server Agent
 
 - Włączanie i wyłączanie agenta SQL Server nie jest obecnie obsługiwane w wystąpieniu zarządzanym SQL. Agent SQL zawsze działa.
+- Wyzwalacz harmonogramu zadań oparty na bezczynnym procesorze CPU nie jest obsługiwany.
 - Ustawienia agenta SQL Server są tylko do odczytu. Procedura `sp_set_agent_properties` nie jest obsługiwana w wystąpieniu zarządzanym SQL. 
 - Stanowiska
   - Obsługiwane są czynności zadania T-SQL.
@@ -306,13 +307,7 @@ Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/a
   - Serwery proxy nie są obsługiwane.
 - Dziennik zdarzeń nie jest obsługiwany.
 - Użytkownik musi być bezpośrednio mapowany do podmiotu zabezpieczeń serwera usługi Azure AD, aby można było tworzyć, modyfikować lub wykonywać zadania programu SQL Agent. Użytkownicy, którzy nie są bezpośrednio zamapowane, na przykład użytkownicy, którzy należą do grupy usługi Azure AD, która ma uprawnienia do tworzenia, modyfikowania lub wykonywania zadań agenta SQL, nie będą efektywnie mogli wykonywać tych czynności. Przyczyną jest personifikacja wystąpienia zarządzanego i [wykonywanie jako ograniczenia](#logins-and-users).
-
-Następujące funkcje agenta SQL nie są obecnie obsługiwane:
-
-- Proxy
-- Planowanie zadań w bezczynnym procesorze CPU
-- Włączanie lub wyłączanie agenta
-- Alerty
+- Funkcja administrowania wieloma serwerami dla zadań Master/Target (głównego/TSX) nie jest obsługiwana.
 
 Aby uzyskać informacje na temat agenta programu SQL Server, zobacz [SQL Server Agent (Agent programu SQL Server)](/sql/ssms/agent/sql-server-agent).
 

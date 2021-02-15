@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: a7b51138abe6d8e97f55ceae11d4cf13b9ebc136
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820606"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516842"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Zbadaj podejrzane urządzenie IoT
 
-Alerty usługi Defender for IoT zawierają jasne informacje o tym, kiedy urządzenia IoT są podejrzane o uczestnictwo w podejrzanych działaniach, a także o naruszeniu zabezpieczeń urządzenia.
+Alerty usługi Defender for IoT zawierają jasne informacje o tym, kiedy urządzenia IoT są podejrzane o uczestnictwo w podejrzanych działaniach, a także o tym, czy zostały naruszone zabezpieczenia urządzenia.
 
 W tym przewodniku Skorzystaj z sugestii dotyczących badania, aby pomóc w ustaleniu potencjalnego ryzyka dla organizacji, określić sposób korygowania i poznać najlepsze sposoby zapobiegania podobnym atakom w przyszłości.
 
@@ -39,12 +39,12 @@ Aby zlokalizować obszar roboczy Log Analytics magazynu danych:
 1. Otwórz Centrum IoT Hub,
 1. W obszarze **zabezpieczenia** wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **zbieranie danych**.
 1. Zmień szczegóły konfiguracji obszaru roboczego Log Analytics.
-1. Kliknij pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 Wykonaj następujące czynności konfiguracyjne, aby uzyskać dostęp do danych przechowywanych w obszarze roboczym Log Analytics:
 
-1. Wybierz i kliknij alert usługi Defender for IoT w IoT Hub.
-1. Kliknij przycisk **dalszych badań**.
+1. Wybierz i wybierz alert usługi Defender for IoT w IoT Hub.
+1. Wybierz **dalsze badanie**.
 1. Wybierz, **Aby zobaczyć, które urządzenia mają ten alert kliknij tutaj i Wyświetl kolumnę DeviceID**.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Kroki badania dla podejrzanych urządzeń IoT
@@ -55,7 +55,7 @@ Zobacz przykładowe zapytania KQL, aby rozpocząć badanie alertów i działań 
 
 ### <a name="related-alerts"></a>Powiązane alerty
 
-Aby dowiedzieć się, czy inne alerty zostały wyzwolone w tym samym czasie, użyj następującego zapytania KQL:
+Możesz sprawdzić, czy inne alerty zostały wyzwolone w tym samym czasie przez następujące zapytanie KQL:
 
   ```
   let device = "YOUR_DEVICE_ID";
@@ -143,8 +143,8 @@ Aby znaleźć użytkowników zalogowanych do urządzenia, użyj następującego 
 
 Użyj wyników zapytania, aby odkryć:
 
-- Którzy użytkownicy zalogowani na urządzeniu?
-- Czy użytkownicy zalogowani, powinni zalogować się?
+- Którzy użytkownicy zalogowani do urządzenia?
+- Czy użytkownicy, którzy zalogowali się w programie, powinni zalogować się?
 - Czy użytkownicy zalogowani w programie nawiązują połączenie z oczekiwanych lub nieoczekiwanych adresów IP?
 
 ### <a name="process-list"></a>Lista procesów

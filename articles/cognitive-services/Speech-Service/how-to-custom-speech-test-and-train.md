@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8546201d21e68fbcf1e519c8fe9ba0de1dc38a96
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702206"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367983"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
@@ -57,9 +57,17 @@ Pliki powinny być pogrupowane według typu w zestawie danych i przekazywane jak
 > [!TIP]
 > Aby szybko rozpocząć pracę, rozważ użycie przykładowych danych. Zapoznaj się z tym repozytorium GitHub, aby uzyskać <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">przykładowe dane <span class="docon docon-navigate-external x-hidden-focus"></span> Custom Speech</a>
 
+> [!NOTE]
+> Nie wszystkie modele podstawowe obsługują szkolenia z dźwiękiem. Jeśli model podstawowy nie obsługuje tego elementu, usługa mowy będzie używać tylko tekstu z transkrypcji i ignorować dźwięk. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio.
+
+> [!NOTE]
+> W przypadkach, gdy zmieniasz model podstawowy używany do szkolenia i masz dźwięk w zestawie danych szkoleniowych, *zawsze* sprawdzaj, czy nowy wybrany model podstawowy [obsługuje szkolenia z danymi audio](language-support.md#speech-to-text). Jeśli wcześniej użyty model podstawowy nie obsługiwał szkolenia z danymi audio, a zestaw danych szkoleniowych zawiera dźwięk, czas uczenia z nowym modelem podstawowym zostanie **znacząco** zwiększony i może być łatwo przeszedł z kilku godzin do kilku dni i więcej. Jest to szczególnie prawdziwe, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
+>
+> Jeśli problem opisany w powyższym akapicie, możesz szybko skrócić czas uczenia, zmniejszając ilość dźwięku w zestawie danych lub usuwając ją całkowicie i pozostawiając tylko tekst. Ta ostatnia opcja jest zdecydowanie zalecana, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
+
 ## <a name="upload-data"></a>Przekazywanie danych
 
-Aby przekazać dane, przejdź do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"></span> Custom Speech </a>. W portalu kliknij pozycję **Przekaż dane** , aby uruchomić kreatora i utworzyć swój pierwszy zestaw danych. Przed umożliwieniem przekazania danych użytkownik zostanie poproszony o wybranie typu danych mowy dla zestawu danych.
+Aby przekazać dane, przejdź do programu <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. W portalu kliknij pozycję **Przekaż dane** , aby uruchomić kreatora i utworzyć swój pierwszy zestaw danych. Przed umożliwieniem przekazania danych użytkownik zostanie poproszony o wybranie typu danych mowy dla zestawu danych.
 
 ![Zrzut ekranu, który podświetla opcję przekazywania audio z portalu mowy.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -136,14 +144,14 @@ speech03.wav    the lazy dog was not amused
 
 Transkrypcje są normalizowane pod względem tekstu, aby mogły być przetwarzane przez system. Istnieje jednak kilka ważnych normalizacji, które należy wykonać przed przekazaniem danych do programu Speech Studio. Aby uzyskać odpowiedni język do użycia podczas przygotowywania transkrypcji, zobacz [jak utworzyć transkrypcję z oznaczeniem ludzkim](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Po zebraniu plików audio i odpowiednich transkrypcji należy je spakować jako jeden plik zip przed przekazaniem do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"></span> Custom Speech </a>. Poniżej znajduje się przykładowy zestaw danych z trzema plikami audio i plik transkrypcji z etykietami ludzkimi:
+Po zebraniu plików audio i odpowiednich transkrypcji należy je spakować jako jeden plik zip przed przekazaniem do programu <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Poniżej znajduje się przykładowy zestaw danych z trzema plikami audio i plik transkrypcji z etykietami ludzkimi:
 
 > [!div class="mx-imgBorder"]
 > ![Wybierz dźwięk z portalu mowy](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
 Zobacz [Konfigurowanie konta platformy Azure](custom-speech-overview.md#set-up-your-azure-account) , aby uzyskać listę zalecanych regionów dla subskrypcji usługi mowy. Skonfigurowanie subskrypcji mowy w jednym z tych regionów spowoduje skrócenie czasu potrzebnego do uczenia modelu. W tych regionach szkolenia mogą przetwarzać około 10 godzin pracy audio w porównaniu do 1 godziny dziennie w innych regionach. Jeśli nie można wykonać szkolenia modelu w ciągu tygodnia, model zostanie oznaczony jako niepowodzenie.
 
-Nie wszystkie modele podstawowe obsługują szkolenia z danymi audio. Jeśli model podstawowy nie obsługuje tego typu, usługa zignoruje dźwięk i po prostu nawiąże połączenie z tekstem transkrypcji. W takim przypadku szkolenie będzie takie samo jak szkolenie związane z tekstem.
+Nie wszystkie modele podstawowe obsługują szkolenia z danymi audio. Jeśli model podstawowy nie obsługuje tego typu, usługa zignoruje dźwięk i po prostu nawiąże połączenie z tekstem transkrypcji. W takim przypadku szkolenie będzie takie samo jak szkolenie związane z tekstem. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio.
 
 ## <a name="related-text-data-for-training"></a>Powiązane dane tekstowe do szkolenia
 
@@ -154,7 +162,7 @@ Nazwy produktów lub funkcje, które są unikatowe, powinny zawierać powiązane
 | Zdania (wyrażenia długości) | Popraw dokładność podczas rozpoznawania nazw produktów lub słownika właściwych dla branż w kontekście zdania. |
 | Wymowy | Popraw wymowę nietypowych warunków, akronimów lub innych wyrazów z niezdefiniowanymi wymowiemi. |
 
-Zdania można podać jako pojedynczy plik tekstowy lub wiele plików tekstowych. Aby poprawić dokładność, użyj danych tekstowych, które są bliżej oczekiwanego wyrażenia długości. Wymowy należy dostarczyć jako pojedynczy plik tekstowy. Wszystkie elementy można spakować jako jeden plik zip i przekazać je do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"></span> Custom Speech </a>.
+Zdania można podać jako pojedynczy plik tekstowy lub wiele plików tekstowych. Aby poprawić dokładność, użyj danych tekstowych, które są bliżej oczekiwanego wyrażenia długości. Wymowy należy dostarczyć jako pojedynczy plik tekstowy. Wszystkie elementy można spakować jako pojedynczy plik zip i przekazać je do programu <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 Szkolenie z pokrewnym tekstem zwykle kończy się w ciągu kilku minut.
 

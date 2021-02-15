@@ -2,18 +2,17 @@
 title: 'Szybki Start: Tworzenie Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
 description: Skonfiguruj i Utwórz Data Science Virtual Machine dla systemu Linux (Ubuntu), aby przeprowadzić analizę i uczenie maszynowe.
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 4a414b706dffae76eaa9841ee7b1fe6bcc1ac0d3
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: b25d9846f3bb678c182fa22d824f7b4171d2d803
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109848"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515635"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Szybki Start: Konfigurowanie Data Science Virtual Machine dla systemu Linux (Ubuntu)
 
@@ -59,10 +58,10 @@ Poniżej przedstawiono procedurę tworzenia wystąpienia Data Science Virtual Ma
 
        * **Hasło**: wprowadź hasło, które będzie używane do logowania się do maszyny wirtualnej.    
     
-   1. Wybierz pozycję **Przeglądanie + tworzenie**.
+   1. Wybierz pozycję **Przejrzyj i utwórz**.
    1. **Przegląd + tworzenie**
       * Sprawdź, czy wszystkie wprowadzone informacje są poprawne. 
-      * Wybierz pozycję **Utwórz**.
+      * Wybierz przycisk **Utwórz**.
     
     Inicjowanie obsługi powinno trwać około 5 minut. Stan jest wyświetlany w Azure Portal.
 

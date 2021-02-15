@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678827"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391987"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Uwierzytelnianie urządzenia podrzędnego w usłudze Azure IoT Hub
 
@@ -68,6 +68,11 @@ Podczas tworzenia nowej tożsamości urządzenia podaj następujące informacje:
 * Wybierz pozycję **Ustaw urządzenie nadrzędne** i wybierz urządzenie bramy IoT Edge, za pomocą którego będzie nawiązywane połączenie. Możesz zawsze zmienić element nadrzędny później.
 
    ![Tworzenie identyfikatora urządzenia z uwierzytelnianiem przy użyciu klucza symetrycznego w portalu](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
+
+   >[!NOTE]
+   >Ustawienie urządzenia nadrzędnego jako opcjonalnego dla urządzeń podrzędnych korzystających z uwierzytelniania przy użyciu klucza symetrycznego. Jednak począwszy od IoT Edge wersja 1.1.0 każde urządzenie podrzędne musi być przypisane do urządzenia nadrzędnego.
+   >
+   >Można skonfigurować Centrum IoT Edge, aby powrócić do poprzedniego zachowania przez ustawienie zmiennej środowiskowej **authenticationMode** na wartość **CloudAndScope**.
 
 Możesz również użyć [rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension) , aby ukończyć tę samą operację. W poniższym przykładzie za pomocą polecenia [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) można utworzyć nowe urządzenie IoT z uwierzytelnianiem przy użyciu klucza symetrycznego i przypisać urządzenie nadrzędne:
 
@@ -201,7 +206,7 @@ Oraz
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Dzięki relacji nadrzędny/podrzędny można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Przykład:
+Dzięki relacji nadrzędny/podrzędny można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Na przykład:
 
 ```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

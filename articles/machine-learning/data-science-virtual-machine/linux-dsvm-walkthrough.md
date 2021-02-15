@@ -3,18 +3,17 @@ title: Poznaj system Linux
 titleSuffix: Azure Data Science Virtual Machine
 description: Dowiedz się, jak wykonać kilka typowych zadań związanych z nauką o danych przy użyciu Data Science Virtual Machine systemu Linux.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315805"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517675"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Nauka danych przy użyciu Data Science Virtual Machine Ubuntu na platformie Azure
 
@@ -62,7 +61,7 @@ mv headers spambaseHeaders.data
 
 Zestaw danych zawiera kilka typów statystyk dla każdej wiadomości e-mail:
 
-* Kolumny, takie jak **Word \_ FREQ \_ _Word_** , wskazują procent słów w wiadomości e-mail pasującej do *wyrazu*. Jeśli na przykład **słowo \_ FREQ \_** ma wartość **1** , *nastąpiło* 1% wszystkich wyrazów w wiadomości e-mail.
+* Kolumny, takie jak **Word \_ FREQ \_ _Word_** , wskazują procent słów w wiadomości e-mail pasującej do *wyrazu*. Jeśli na przykład **słowo \_ FREQ \_** ma wartość **1**, *nastąpiło* 1% wszystkich wyrazów w wiadomości e-mail.
 * Kolumny, takie jak **char \_ FREQ \_ _char_** wskazują procent wszystkich znaków w wiadomości e-mail, które są *znakami*.
 * **\_ Długość uruchomienia \_ w \_ Wielkiej** litery jest najdłuższym długością sekwencji wielkich liter.
 * **\_ \_ \_ średnia długość uruchomienia kapitału** to średnia długość wszystkich sekwencji wielkich liter.
@@ -315,7 +314,7 @@ Kilka przykładowych notesów jest już zainstalowanych na DSVM:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) ( *R* *A* nalityczny *t* OOL *t* o *L* zdobyć *E* asily) to graficzne narzędzie języka r do wyszukiwania danych. Rattle ma intuicyjny interfejs, który ułatwia ładowanie, eksplorowanie i Przekształcanie danych oraz tworzenie i ocenę modeli. [Rattle: interfejs GUI wyszukiwania danych dla języka R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) zawiera Przewodnik pokazujący funkcje Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A* nalityczny *t* OOL *t* o *L* zdobyć *E* asily) to graficzne narzędzie języka r do wyszukiwania danych. Rattle ma intuicyjny interfejs, który ułatwia ładowanie, eksplorowanie i Przekształcanie danych oraz tworzenie i ocenę modeli. [Rattle: interfejs GUI wyszukiwania danych dla języka R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) zawiera Przewodnik pokazujący funkcje Rattle.
 
 Zainstaluj i uruchom program Rattle, uruchamiając następujące polecenia:
 
@@ -333,14 +332,14 @@ Rattle używa interfejsu opartego na kartach. Większość kart odpowiada krokom
 Aby załadować i skonfigurować zestaw danych:
 
 1. Aby załadować plik, wybierz kartę **dane** .
-1. Wybierz selektor obok **nazwy pliku** , a następnie wybierz pozycję **spambaseHeaders. Data**.
+1. Wybierz selektor obok **nazwy pliku**, a następnie wybierz pozycję **spambaseHeaders. Data**.
 1. Do załadowania pliku. Wybierz pozycję **Wykonaj**. Powinno zostać wyświetlone podsumowanie każdej kolumny, w tym określony typ danych. bez względu na to, czy jest to wejście, obiekt docelowy czy inny typ zmiennej; oraz liczbę unikatowych wartości.
 1. Rattle poprawnie zidentyfikowała kolumnę **spamu** jako element docelowy. Wybierz kolumnę **spam** , a następnie ustaw **docelowy typ danych** na **categoric**.
 
 Aby eksplorować dane:
 
 1. Wybierz kartę **Eksploruj** .
-1. Aby wyświetlić informacje o typach zmiennych i niektórych statystykach podsumowujących, wybierz opcję wykonywanie **podsumowania**  >  **Execute**.
+1. Aby wyświetlić informacje o typach zmiennych i niektórych statystykach podsumowujących, wybierz opcję wykonywanie **podsumowania**  >  .
 1. Aby wyświetlić inne typy statystyk dla każdej zmiennej, wybierz inne opcje, takie jak **opisywanie** lub **podstawy**.
 
 Karta **Eksplorowanie** umożliwia również generowanie szczegółowych wykresów. Aby wykreślić histogram dotyczący danych:
@@ -355,7 +354,7 @@ Wykresy **korelacji** są również interesujące. Aby utworzyć wykres:
 1. Wybierz pozycję **Wykonaj**.
 1. Rattle ostrzega o tym, że zaleca się użycie maksymalnie 40 zmiennych. Wybierz pozycję **tak** , aby wyświetlić wykres.
 
-Istnieje kilka interesujących korelacji: _technologia_ jest silnie skorelowana z _HP_ i _Labs_ , na przykład. Jest również silnie skorelowane z _650_ , ponieważ kod obszaru dawców zestawu danych to 650.
+Istnieje kilka interesujących korelacji: _technologia_ jest silnie skorelowana z _HP_ i _Labs_, na przykład. Jest również silnie skorelowane z _650_ , ponieważ kod obszaru dawców zestawu danych to 650.
 
 Wartości liczbowe korelacji między wyrazami są dostępne w oknie **Eksplorowanie** . Warto zwrócić uwagę na przykład, że _technologia_ jest niekorzystnie _skorelowane z i_ _pieniędzy_.
 
@@ -374,7 +373,7 @@ Rattle może również uruchamiać analizę klastra. Wykluczmy niektóre funkcje
 * word_freq_business
 * spam
 
-Wróć do karty **klaster** . Wybierz pozycję **KMeans** , a następnie ustaw **liczbę klastrów** na **4**. Wybierz pozycję **Wykonaj**. Wyniki są wyświetlane w oknie dane wyjściowe. Jeden klaster ma wysoką częstotliwość _George_ i _HP_ i prawdopodobnie jest uzasadnioną służbową pocztą e-mail.
+Wróć do karty **klaster** . Wybierz pozycję **KMeans**, a następnie ustaw **liczbę klastrów** na **4**. Wybierz pozycję **Wykonaj**. Wyniki są wyświetlane w oknie dane wyjściowe. Jeden klaster ma wysoką częstotliwość _George_ i _HP_ i prawdopodobnie jest uzasadnioną służbową pocztą e-mail.
 
 Aby utworzyć podstawowy model uczenia maszynowego w strukturze:
 
@@ -387,7 +386,7 @@ Przydatna funkcja Rattle może uruchamiać kilka metod uczenia maszynowego i szy
 
 1. Dla opcji **Typ** zaznacz **wszystko**.
 1. Wybierz pozycję **Wykonaj**.
-1. Po zakończeniu działania Rattle można wybrać dowolną wartość **typu** , na przykład **SVM** , i wyświetlić wyniki.
+1. Po zakończeniu działania Rattle można wybrać dowolną wartość **typu** , na przykład **SVM**, i wyświetlić wyniki.
 1. Możesz również porównać wydajność modeli w zestawie walidacji, korzystając z karty **szacowanie** . Na przykład wybór **macierzy błędów** pokazuje macierz pomyłek, ogólny błąd i średnią błąd klasy dla każdego modelu w zestawie walidacji. Można również wykreślić krzywe ROC, uruchamiać analizę czułości i wykonywać inne typy ocen modeli.
 
 Po zakończeniu tworzenia modeli wybierz kartę **Dziennik** , aby wyświetlić kod języka R, który został uruchomiony przez Rattle podczas sesji. Możesz wybrać przycisk **Eksportuj** , aby go zapisać.
@@ -416,7 +415,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-Zmień linię **połączenia lokalnego IPv4** , aby używać **algorytmu MD5** zamiast **ident** , więc można zalogować się przy użyciu nazwy użytkownika i hasła:
+Zmień linię **połączenia lokalnego IPv4** , aby używać **algorytmu MD5** zamiast **ident**, więc można zalogować się przy użyciu nazwy użytkownika i hasła:
 
 ```
 # IPv4 local connections:
@@ -464,12 +463,12 @@ Teraz eksplorujmy dane i uruchamiasz niektóre zapytania za pomocą SQuirreL SQL
 
 Aby rozpocząć, w menu **aplikacje** Otwórz SQuirreL SQL. Aby skonfigurować sterownik:
 
-1. Wybierz **Windows** pozycję  >  **sterowniki widoku** systemu Windows.
+1. Wybierz pozycję  >  **sterowniki widoku** systemu Windows.
 1. Kliknij prawym przyciskiem myszy pozycję **PostgreSQL** i wybierz pozycję **Modyfikuj sterownik**.
 1. Wybierz pozycję **dodatkowa ścieżka klasy**  >  **Dodaj**.
 1. W obszarze **Nazwa pliku** wprowadź **/usr/share/Java/jdbcdrivers/PostgreSQL-9.4.1208.jre6.jar**.
 1. Wybierz pozycję **Otwórz**.
-1. Wybierz pozycję **Wyświetl sterowniki**. W obszarze **Nazwa klasy** wybierz pozycję **org. PostgreSQL. Driver** , a następnie wybierz przycisk **OK**.
+1. Wybierz pozycję **Wyświetl sterowniki**. W obszarze **Nazwa klasy** wybierz pozycję **org. PostgreSQL. Driver**, a następnie wybierz przycisk **OK**.
 
 Aby skonfigurować połączenie z serwerem lokalnym:
 
@@ -494,7 +493,7 @@ Istnieje wiele zapytań, które można uruchomić, aby eksplorować te dane. Na 
 SELECT avg(word_freq_make), spam from data group by spam;
 ```
 
-Lub jakie są cechy poczty e-mail, które często zawierają *3D* ?
+Lub jakie są cechy poczty e-mail, które często zawierają *3D*?
 
 ```SQL
 SELECT * from data order by word_freq_3d desc;

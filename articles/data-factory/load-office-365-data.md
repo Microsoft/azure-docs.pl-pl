@@ -1,22 +1,17 @@
 ---
 title: Ładowanie danych z pakietu Office 365 przy użyciu Azure Data Factory
 description: Użyj Azure Data Factory, aby skopiować dane z pakietu Office 365
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 05f336af62bc0869249d5b32700ea3515ac5994f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8b98344dcb2321d5d91c9974dc833a735164d428
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459698"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370661"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Ładowanie danych z pakietu Office 365 przy użyciu Azure Data Factory
 
@@ -26,7 +21,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. Z menu po lewej stronie wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory** analizy zasobów: 
+1. Z menu po lewej stronie wybierz pozycję **Utwórz**  >    >  **Data Factory** analizy zasobów: 
    
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -40,7 +35,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
     * **Wersja**: Wybierz pozycję **Wersja 2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji:
    
    ![Strona główna fabryki danych](./media/load-office-365-data/data-factory-home-page.png)
@@ -79,7 +74,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
 
     ![Konfiguracja tabeli zestawu danych pakietu Office 365](./media/load-office-365-data/edit-dataset.png)
 
-8. Teraz wróć do karty Źródło **potoku**,  >  **Source tab** aby kontynuować konfigurowanie dodatkowych właściwości wyodrębniania danych pakietu Office 365.  Zakres użytkownika i filtr zakresu użytkownika to opcjonalne predykaty, które można zdefiniować, aby ograniczyć dane, które mają zostać wyodrębnione z pakietu Office 365. Aby skonfigurować te ustawienia, zobacz sekcję [Właściwości zestawu danych pakietu Office 365](./connector-office-365.md#dataset-properties) .
+8. Teraz wróć do karty Źródło **potoku**,  >   aby kontynuować konfigurowanie dodatkowych właściwości wyodrębniania danych pakietu Office 365.  Zakres użytkownika i filtr zakresu użytkownika to opcjonalne predykaty, które można zdefiniować, aby ograniczyć dane, które mają zostać wyodrębnione z pakietu Office 365. Aby skonfigurować te ustawienia, zobacz sekcję [Właściwości zestawu danych pakietu Office 365](./connector-office-365.md#dataset-properties) .
 
 9. Wymagane jest wybranie jednego z filtrów daty i podanie wartości czasu rozpoczęcia i czasu zakończenia.
 

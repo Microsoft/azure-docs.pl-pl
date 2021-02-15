@@ -3,19 +3,16 @@ title: Przekształcanie danych przy użyciu działania usługi Hadoop Streaming
 description: Wyjaśnia, jak używać działania przesyłania strumieniowego usługi Hadoop w Azure Data Factory do przekształcania danych przez uruchamianie programów przesyłania strumieniowego Hadoop w klastrze usługi Hadoop.
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 85dd75b2af5d14d835db8aacc415069a2d67298e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e2a9bc9d664ba15da3cdefa5cf28519ab703d6ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631839"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361438"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania usługi Hadoop streaming w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -24,7 +21,7 @@ ms.locfileid: "92631839"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działanie przesyłania strumieniowego usługi HDInsight w [potoku](concepts-pipelines-activities.md) Data Factory wykonuje programy przesyłania strumieniowego Hadoop [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) we własnym lub [lokalnym klastrze usługi](compute-linked-services.md#azure-hdinsight-linked-service) HDInsight. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md) , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.
+Działanie przesyłania strumieniowego usługi HDInsight w [potoku](concepts-pipelines-activities.md) Data Factory wykonuje programy przesyłania strumieniowego Hadoop [](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) we własnym lub [lokalnym klastrze usługi](compute-linked-services.md#azure-hdinsight-linked-service) HDInsight. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md) , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.
 
 Jeśli jesteś nowym do Azure Data Factory, przeczytaj artykuł [wprowadzenie do Azure Data Factory](introduction.md) i wykonaj [Samouczek: Przekształcanie danych](tutorial-transform-data-spark-powershell.md) przed przeczytaniem tego artykułu. 
 

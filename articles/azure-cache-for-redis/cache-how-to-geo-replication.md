@@ -1,24 +1,28 @@
 ---
-title: Jak skonfigurować replikację geograficzną dla usługi Azure cache for Redis | Microsoft Docs
-description: Dowiedz się, jak replikować pamięć podręczną platformy Azure dla wystąpień Redis w różnych regionach geograficznych.
+title: Konfigurowanie replikacji geograficznej usługi Azure cache dla wystąpień Redis
+description: Dowiedz się, jak replikować pamięć podręczną platformy Azure dla wystąpień Redis Premium w regionach platformy Azure
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 27ccc81ddf0a771de9fb15f60820dfd3efa6146e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536882"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386878"
 ---
-# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Jak skonfigurować replikację geograficzną dla usługi Azure cache for Redis
+# <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Konfigurowanie replikacji geograficznej usługi Azure cache dla wystąpień Redis
 
-Replikacja geograficzna zapewnia mechanizm łączenia dwóch pamięci podręcznej platformy Azure w warstwie Premium dla wystąpień Redis. Jedna pamięć podręczna jest wybierana jako podstawowa połączona pamięć podręczna, a druga jako pomocnicza połączonej pamięci podręcznej. Pomocnicza połączonej pamięci podręcznej jest tylko do odczytu, a dane zapisywane w podstawowej pamięci podręcznej są replikowane do pomocniczej połączonej pamięci podręcznej. Transfer danych między podstawowym i pomocniczym wystąpieniem pamięci podręcznej jest zabezpieczony przy użyciu protokołu TLS. Replikacja geograficzna może służyć do konfigurowania pamięci podręcznej obejmującej dwa regiony platformy Azure. Ten artykuł zawiera Przewodnik konfigurowania replikacji geograficznej dla usługi Azure cache w warstwie Premium dla wystąpień Redis.
+W tym artykule dowiesz się, jak skonfigurować geograficzną replikację pamięci podręcznej platformy Azure przy użyciu Azure Portal.
+
+Replikacja geograficzna łączy dwie pamięć podręczną platformy Azure w warstwie Premium dla wystąpień Redis i tworzy relację replikacji danych. Te wystąpienia pamięci podręcznej zwykle znajdują się w różnych regionach świadczenia usługi Azure, ale nie są wymagane przez program. Jedno wystąpienie działa jako podstawowy, a drugi jako pomocniczy. Podstawowy obsługuje żądania odczytu i zapisu oraz propaguje zmiany do pomocniczego. Ten proces jest kontynuowany do momentu usunięcia łącza między dwoma wystąpieniami.
 
 > [!NOTE]
-> Replikacja geograficzna jest zaprojektowana jako rozwiązanie odzyskiwania po awarii. Domyślnie aplikacja zostanie zapisana w regionie podstawowym i odczytana z niej. Opcjonalnie można ją skonfigurować do odczytu z regionu pomocniczego. Replikacja geograficzna nie zapewnia automatycznej pracy awaryjnej ze względu na problemy z dodanym opóźnieniem sieci między regionami, jeśli pozostała część aplikacji pozostaje w regionie podstawowym. Należy zarządzać i inicjować tryb failover przez odłączenie pomocniczej pamięci podręcznej. Spowoduje to podwyższenie poziomu IT do nowego wystąpienia podstawowego.
+> Replikacja geograficzna jest zaprojektowana jako rozwiązanie odzyskiwania po awarii.
+>
+>
 
 ## <a name="geo-replication-prerequisites"></a>Wymagania wstępne dotyczące replikacji geograficznej
 
@@ -75,7 +79,7 @@ Po skonfigurowaniu replikacji geograficznej, następujące ograniczenia mają za
 
     ![Zrzut ekranu przedstawiający sposób wyświetlania stanu konsolidacji dla podstawowych i pomocniczych pamięci podręcznych.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Po zakończeniu procesu replikacji **Stan łącza** zmieni się na **powodzenie** .
+    Po zakończeniu procesu replikacji **Stan łącza** zmieni się na **powodzenie**.
 
     ![Stan pamięci podręcznej](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 

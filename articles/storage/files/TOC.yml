@@ -93,8 +93,6 @@
           href: storage-how-to-create-file-share.md
         - name: Wdrażanie usługi Azure File Sync
           href: storage-sync-files-deployment-guide.md
-        - name: Tworzenie udziału plików w warstwie Premium
-          href: storage-how-to-create-premium-fileshare.md
         - name: Tworzenie udziału NFS
           href: storage-files-how-to-create-nfs-shares.md
         - name: Rozwiązanie SQL Server FCI z udziałami plików w warstwie Premium

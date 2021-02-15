@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 236acc2ded3fcb651295e0342ab4e1e88174be46
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 22e948a0100f23dbddef8fc138576bb4b9372c77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202967"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363206"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji usługi Azure IoT Central
 
@@ -31,9 +31,9 @@ Na przykład Konstruktor może utworzyć szablon urządzenia dla połączonego w
 - Wysyła stan operacyjny wentylatora
 - Zapewnia Właściwość szybkość wentylatorów zapisywalnych
 - Udostępnia polecenie ponownego uruchomienia urządzenia
-- Udostępnia ogólny widok urządzenia za pośrednictwem pulpitu nawigacyjnego
+- Udostępnia ogólny widok urządzenia przy użyciu widoku
 
-Z tego szablonu urządzenia operator może tworzyć i łączyć urządzenia wentylatorów w rzeczywistości. Wszystkie te wentylatory mają pomiary, właściwości i polecenia używane przez operatorów do monitorowania ich i zarządzania nimi. Operatory korzystają z [pulpitów nawigacyjnych](#add-dashboards) i formularzy urządzeń w celu współdziałania z urządzeniami wentylatorów. Deweloper urządzenia używa szablonu, aby zrozumieć, jak urządzenie współdziała z aplikacją. Aby dowiedzieć się więcej, zobacz dane [telemetryczne, właściwości i poleceń](concepts-telemetry-properties-commands.md).
+Z tego szablonu urządzenia operator może tworzyć i łączyć urządzenia wentylatorów w rzeczywistości. Wszystkie te wentylatory mają pomiary, właściwości i polecenia używane przez operatorów do monitorowania ich i zarządzania nimi. Operatory umożliwiają współdziałanie z urządzeniami wentylatorów przy użyciu widoków i formularzy [urządzeń](#add-views) . Deweloper urządzenia używa szablonu, aby zrozumieć, jak urządzenie współdziała z aplikacją. Aby dowiedzieć się więcej, zobacz dane [telemetryczne, właściwości i poleceń](concepts-telemetry-properties-commands.md).
 
 > [!NOTE]
 > Tylko konstruktory i Administratorzy mogą tworzyć, edytować i usuwać szablony urządzeń. Każdy użytkownik może tworzyć urządzenia na stronie **urządzenia** z istniejących szablonów urządzeń.
@@ -46,8 +46,8 @@ W aplikacji IoT Central szablon urządzenia używa modelu urządzenia do opisywa
 > IoT Central wymaga pełnego modelu ze wszystkimi interfejsami, do których istnieją odwołania w tym samym pliku, podczas importowania modelu z repozytorium modelu należy użyć słowa kluczowego "Expanded" w celu uzyskania pełnej wersji.
 Na przykład. https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
 
-- Tworzenie modelu urządzenia przy użyciu [języka Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Program Visual Studio Code ma rozszerzenie, które obsługuje tworzenie modeli DTDL. Aby dowiedzieć się więcej, zobacz [Instalowanie i używanie narzędzi autorskich DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Następnie opublikuj model w repozytorium modelu publicznego. Aby dowiedzieć się więcej, zobacz [repozytorium modeli urządzeń](../../iot-pnp/concepts-model-repository.md). Zaimplementuj swój kod urządzenia z modelu, a następnie połącz rzeczywiste urządzenie z aplikacją IoT Central. IoT Central odnajduje i importuje model urządzenia z repozytorium publicznego, a następnie generuje szablon urządzenia. Następnie można dodać wszystkie właściwości, dostosowania i pulpity nawigacyjne, których aplikacja IoT Central musi być szablonem urządzenia.
-- Tworzenie modelu urządzenia przy użyciu DTDL. Zaimplementuj swój kod urządzenia z modelu. Ręcznie zaimportuj model urządzenia do aplikacji IoT Central, a następnie Dodaj wszystkie właściwości, dostosowania i pulpity nawigacyjne, których potrzebuje aplikacja IoT Central.
+- Tworzenie modelu urządzenia przy użyciu [języka Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Program Visual Studio Code ma rozszerzenie, które obsługuje tworzenie modeli DTDL. Aby dowiedzieć się więcej, zobacz [Instalowanie i używanie narzędzi autorskich DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Następnie opublikuj model w repozytorium modelu publicznego. Aby dowiedzieć się więcej, zobacz [repozytorium modeli urządzeń](../../iot-pnp/concepts-model-repository.md). Zaimplementuj swój kod urządzenia z modelu, a następnie połącz rzeczywiste urządzenie z aplikacją IoT Central. IoT Central odnajduje i importuje model urządzenia z repozytorium publicznego, a następnie generuje szablon urządzenia. Następnie można dodać do szablonu urządzenia wszystkie właściwości, dostosowania i widoki, które IoT Central aplikacji.
+- Tworzenie modelu urządzenia przy użyciu DTDL. Zaimplementuj swój kod urządzenia z modelu. Ręcznie zaimportuj model urządzenia do aplikacji IoT Central, a następnie Dodaj wszystkie właściwości chmury, dostosowania i widoki potrzeb aplikacji IoT Central.
 
 > [!TIP]
 > IoT Central wymaga pełnego modelu ze wszystkimi interfejsami, do których istnieją odwołania w tym samym pliku. Podczas importowania modelu z repozytorium modelu należy użyć słowa kluczowego *rozszerzonego* , aby uzyskać pełną wersję.
@@ -72,8 +72,8 @@ Szablon urządzenia zawiera:
 
 - _Model urządzenia_ , który określa dane telemetryczne, właściwości i polecenia implementowane przez urządzenie. Te możliwości są zorganizowane w jeden lub więcej składników.
 - _Właściwości chmury_ definiujące informacje o urządzeniach, które IoT Central aplikacji. Na przykład właściwość chmury może rejestrować datę ostatniej obsługi urządzenia. Te informacje nigdy nie są udostępniane na urządzeniu.
-- _Dostosowania_ pozwalają konstruktorowi zastępować niektóre definicje w modelu urządzenia. Na przykład Konstruktor może zastąpić nazwę właściwości urządzenia. Nazwy właściwości są wyświetlane na IoT Central pulpitów nawigacyjnych i formularzach.
-- _Pulpity nawigacyjne i formularze_ umożliwiają konstruktorowi Tworzenie interfejsu użytkownika, który umożliwia operatorom monitorowanie i zarządzanie urządzeniami podłączonymi do aplikacji.
+- _Dostosowania_ pozwalają konstruktorowi zastępować niektóre definicje w modelu urządzenia. Na przykład Konstruktor może zastąpić nazwę właściwości urządzenia. Nazwy właściwości są wyświetlane w IoT Central widokach i formularzach.
+- _Widoki i formularze_ umożliwiają tworzenie interfejsu użytkownika przez konstruktora, który umożliwia operatorom monitorowanie urządzeń podłączonych do aplikacji i zarządzanie nimi.
 
 Aby utworzyć szablon urządzenia w IoT Central:
 
@@ -129,7 +129,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji telemetrii
 
 | Pole | Opis |
 | ----- | ----------- |
-| Nazwa wyświetlana | Nazwa wyświetlana wartości telemetrii używanej na pulpitach nawigacyjnych i formularzach. |
+| Nazwa wyświetlana | Nazwa wyświetlana wartości telemetrii używanej w widokach i formularzach. |
 | Nazwa | Nazwa pola w komunikacie telemetrii. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi być alfanumeryczne. |
 | Typ możliwości | Telemetrii. |
 | Typ semantyczny | Typ semantyczny telemetrii, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne. |
@@ -137,7 +137,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji telemetrii
 | Ważność | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji** lub **ostrzeżenia**. |
 | Wartości stanu | Dostępne tylko dla typu semantyki stanu. Zdefiniuj możliwe wartości stanu, z których każdy ma nazwę wyświetlaną, nazwę, typ wyliczenia i wartość. |
 | Jednostka | Jednostka wartości telemetrii, na przykład **mph**, **%** lub **&deg; C**. |
-| Jednostka wyświetlania | Jednostka wyświetlania do użycia na pulpitach nawigacyjnych i formularzach. |
+| Jednostka wyświetlania | Jednostka wyświetlania do użycia w widokach i formularzach. |
 | Komentarz | Wszelkie komentarze dotyczące funkcji telemetrii. |
 | Opis | Opis możliwości telemetrii. |
 
@@ -149,7 +149,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwo
 
 | Pole | Opis |
 | ----- | ----------- |
-| Nazwa wyświetlana | Nazwa wyświetlana wartości właściwości używanej na pulpitach nawigacyjnych i formularzach. |
+| Nazwa wyświetlana | Nazwa wyświetlana wartości właściwości używanej w widokach i formularzach. |
 | Nazwa | Nazwa właściwości. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi być alfanumeryczne. |
 | Typ możliwości | Wartość. |
 | Typ semantyczny | Typ semantyczny właściwości, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne. |
@@ -158,7 +158,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwo
 | Ważność | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji** lub **ostrzeżenia**. |
 | Wartości stanu | Dostępne tylko dla typu semantyki stanu. Zdefiniuj możliwe wartości stanu, z których każdy ma nazwę wyświetlaną, nazwę, typ wyliczenia i wartość. |
 | Jednostka | Jednostka wartości właściwości, takiej jak **mph**, **%** lub **&deg; C**. |
-| Jednostka wyświetlania | Jednostka wyświetlania do użycia na pulpitach nawigacyjnych i formularzach. |
+| Jednostka wyświetlania | Jednostka wyświetlania do użycia w widokach i formularzach. |
 | Komentarz | Wszelkie komentarze dotyczące możliwości właściwości. |
 | Opis | Opis możliwości właściwości. |
 
@@ -170,7 +170,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji polecenia:
 
 | Pole | Opis |
 | ----- | ----------- |
-| Nazwa wyświetlana | Nazwa wyświetlana polecenia użyta na pulpitach nawigacyjnych i formularzach. |
+| Nazwa wyświetlana | Nazwa wyświetlana polecenia używana w widokach i formularzach. |
 | Nazwa | Nazwa polecenia. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi być alfanumeryczne. |
 | Typ możliwości | Dotyczące. |
 | Komentarz | Wszelkie komentarze dotyczące funkcji polecenia. |
@@ -209,7 +209,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla właściwości chm
 
 | Pole | Opis |
 | ----- | ----------- |
-| Nazwa wyświetlana | Nazwa wyświetlana wartości właściwości chmury używanej na pulpitach nawigacyjnych i formularzach. |
+| Nazwa wyświetlana | Nazwa wyświetlana wartości właściwości chmury używanej w widokach i formularzach. |
 | Nazwa | Nazwa właściwości chmury. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. |
 | Typ semantyczny | Typ semantyczny właściwości, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne. |
 | Schemat | Typ danych właściwości chmury, taki jak Double, String lub Vector. Dostępne opcje są określane przez typ semantyczny. |
@@ -234,24 +234,24 @@ Generowanie widoków domyślnych to szybki sposób wizualizacji ważnych informa
 
 Po wybraniu opcji **Generuj domyślne widoki** zobaczysz, że zostały one automatycznie dodane w sekcji **widoki** szablonu urządzenia.
 
-## <a name="add-dashboards"></a>Dodaj pulpity nawigacyjne
+## <a name="add-views"></a>Dodawanie widoków
 
-Dodaj pulpity nawigacyjne do szablonu urządzenia, aby umożliwić operatorom wizualizację urządzenia za pomocą wykresów i metryk. Dla szablonu urządzenia można mieć wiele pulpitów nawigacyjnych.
+Dodaj widoki do szablonu urządzenia, aby umożliwić operatorom wizualizacji urządzenia za pomocą wykresów i metryk. Można mieć wiele widoków dla szablonu urządzenia.
 
-Aby dodać pulpit nawigacyjny do szablonu urządzenia:
+Aby dodać widok do szablonu urządzenia:
 
 1. Przejdź do szablonu urządzenia i wybierz pozycję **widoki**.
 1. Wybierz **wizualizację urządzenia**.
-1. Wprowadź nazwę pulpitu nawigacyjnego w polu **Nazwa pulpitu nawigacyjnego**.
-1. Dodaj kafelki do pulpitu nawigacyjnego z listy kafelków statycznej, właściwości, chmury, telemetrii i poleceń. Przeciągnij i upuść kafelki, które chcesz dodać do pulpitu nawigacyjnego.
+1. Wprowadź nazwę widoku w polu **Nazwa widoku**.
+1. Dodaj kafelki do widoku z listy kafelków statycznej, właściwości, chmury, telemetrii i poleceń. Przeciągnij i upuść kafelki, które chcesz dodać do widoku.
 1. Aby wykreolić wiele wartości telemetrii na pojedynczym kafelku wykresu, wybierz wartości telemetryczne, a następnie wybierz pozycję **Połącz**.
 1. Skonfiguruj wszystkie dodawane kafelki, aby dostosować sposób wyświetlania danych. Dostęp do tej opcji można uzyskać, wybierając ikonę koła zębatego lub wybierając pozycję **Zmień konfigurację** na kafelku wykresu.
-1. Rozmieść kafelki na pulpicie nawigacyjnym i zmień ich rozmiar.
+1. Rozmieść kafelki i zmień ich rozmiar w widoku.
 1. Zapisz zmiany.
 
-### <a name="configure-preview-device-to-view-dashboard"></a>Konfigurowanie urządzenia w wersji zapoznawczej do wyświetlania pulpitu nawigacyjnego
+### <a name="configure-preview-device-to-view"></a>Skonfiguruj Podgląd urządzenia do wyświetlania
 
-Aby wyświetlić i przetestować pulpit nawigacyjny, wybierz pozycję **Konfiguruj urządzenie w wersji zapoznawczej**. Ta funkcja umożliwia wyświetlenie pulpitu nawigacyjnego, ponieważ jest on widoczny po opublikowaniu. Użyj tej funkcji, aby sprawdzić, czy w widokach są wyświetlane poprawne dane. Możesz wybrać z następujących opcji:
+Aby wyświetlić i przetestować widok, wybierz opcję **Konfiguruj urządzenie w wersji zapoznawczej**. Ta funkcja umożliwia wyświetlenie widoku, gdy zostanie on wyświetlony przez operatora po jego opublikowaniu. Użyj tej funkcji, aby sprawdzić, czy w widokach są wyświetlane poprawne dane. Możesz wybrać z następujących opcji:
 
 - Brak urządzenia w wersji zapoznawczej.
 - Rzeczywiste urządzenie testowe skonfigurowane dla szablonu urządzenia.

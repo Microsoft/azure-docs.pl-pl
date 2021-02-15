@@ -6,17 +6,17 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 047a24133dfdf68e2176b20cf31a871d11f0d4f9
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: d297d215d4b0edfdd67b603ba4707bf02057ad78
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241161"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516876"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Zatrzymywanie/uruchamianie Azure Database for MySQL
 
 > [!IMPORTANT]
-> Funkcje Stop/Start dla Azure Database for MySQL są obecnie dostępne w publicznej wersji zapoznawczej.
+>  **Zatrzymanie** serwera pozostanie w tym stanie w ciągu następnych 7 dni w rozciągnięciu. Jeśli nie **uruchomisz** go ręcznie w tym czasie, serwer zostanie automatycznie uruchomiony po upływie 7 dni. Jeśli serwer nie jest używany, można go **zatrzymać** ponownie.
 
 Ten artykuł zawiera procedury krok po kroku umożliwiające przeprowadzenie zatrzymania i uruchomienia jednego serwera.
 
@@ -48,7 +48,7 @@ Aby ukończyć ten przewodnik, musisz:
 
 2.  Na stronie **Przegląd** kliknij przycisk **Start** na pasku narzędzi.
 
-    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Azure Database for MySQL Zatrzymaj serwer":::
+    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Azure Database for MySQL uruchomić serwer":::
 
     > [!NOTE]
     > Po uruchomieniu serwera wszystkie operacje zarządzania będą teraz dostępne dla jednego serwera.

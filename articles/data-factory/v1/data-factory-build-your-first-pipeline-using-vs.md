@@ -1,28 +1,24 @@
 ---
 title: Tworzenie pierwszej fabryki danych (Visual Studio)
 description: Ten samouczek zawiera instrukcje tworzenia przykładowego potoku dla usługi Azure Data Factory przy użyciu programu Visual Studio.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: b0532e75ac581bad3b5dd8669a591186dc320a86
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2ae8e24b10a6661f5a18f3d04e243232436b2911
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496572"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377452"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Samouczek: Tworzenie fabryki danych za pomocą programu Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
-> * [Program Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+> * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Szablon Menedżer zasobów](data-factory-build-your-first-pipeline-using-arm.md)
 > * [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
@@ -565,7 +561,7 @@ Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po dr
 
 | Temat | Opis |
 |:--- |:--- |
-| [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem konstruowania za ich pomocą przepływów pracy opartych na danych na potrzeby scenariusza lub firmy. |
+| [Pipelines](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem konstruowania za ich pomocą przepływów pracy opartych na danych na potrzeby scenariusza lub firmy. |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
 | [Działania przekształcania danych](data-factory-data-transformation-activities.md) |Ten artykuł zawiera listę działań przekształcania danych (takich jak przekształcenie programu Hive w usłudze HDInsight używane w tym samouczku) obsługiwanych w usłudze Fabryka danych Azure. |
 | [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |

@@ -5,18 +5,16 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 8ae76ca27c8c6f8fed5692b9a2376fff53a52bb6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 02/08/2021
+ms.openlocfilehash: 58148e3a20ba41ae9707543be290f2d632cb1185
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536576"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375293"
 ---
-# <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować trwałość danych dla pamięci podręcznej systemu Azure w warstwie Premium dla Redis
-W tym artykule dowiesz się, jak skonfigurować trwałość w pamięci podręcznej systemu Azure w warstwie Premium dla wystąpienia Redis za pomocą Azure Portal. Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. 
+# <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Skonfiguruj trwałość danych dla wystąpienia usługi Redis w warstwie Premium
 
-## <a name="what-is-data-persistence"></a>Co to jest trwałość danych?
 [Trwałość Redis](https://redis.io/topics/persistence) umożliwia utrwalanie danych przechowywanych w Redis. Można również tworzyć migawki i tworzyć kopie zapasowe danych, które można ładować w przypadku awarii sprzętu. Jest to ogromna korzyść w porównaniu z warstwą podstawową lub standardową, w której wszystkie dane są przechowywane w pamięci i może istnieć potencjalna utrata danych w przypadku awarii, w której węzły pamięci podręcznej nie działają. 
 
 Usługa Azure cache for Redis oferuje Trwałość Redis przy użyciu następujących modeli:
@@ -32,19 +30,21 @@ Trwałość zapisuje dane Redis do konta usługi Azure Storage, którego jesteś
 > 
 > 
 
-1. Aby utworzyć pamięć podręczną Premium, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób** . Oprócz tworzenia pamięci podręcznych w witrynie Azure Portal, możesz również utworzyć je przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure oraz szablonów usługi Resource Manager. Aby uzyskać więcej informacji na temat tworzenia pamięci podręcznej platformy Azure dla usługi Redis, zobacz [Tworzenie pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+## <a name="set-up-data-persistence"></a>Konfigurowanie trwałości danych
+
+1. Aby utworzyć pamięć podręczną Premium, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**. Oprócz tworzenia pamięci podręcznych w witrynie Azure Portal, możesz również utworzyć je przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure oraz szablonów usługi Resource Manager. Aby uzyskać więcej informacji na temat tworzenia pamięci podręcznej platformy Azure dla usługi Redis, zobacz [Tworzenie pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Utwórz zasób.":::
    
-2. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis** .
+2. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Utwórz zasób.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
 
 3. Na stronie **nowy Redis Cache** Skonfiguruj ustawienia nowej pamięci podręcznej Premium.
    
    | Ustawienie      | Sugerowana wartość  | Opis |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, które zawierają tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to *\<DNS name> . Redis.cache.Windows.NET* . | 
+   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, które zawierają tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to *\<DNS name> . Redis.cache.Windows.NET*. | 
    | **Subskrypcja** | I wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzone nowe wystąpienie usługi Azure cache for Redis. | 
    | **Grupa zasobów** | Wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
    | **Lokalizacja** | I wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
@@ -62,11 +62,14 @@ Trwałość zapisuje dane Redis do konta usługi Azure Storage, którego jesteś
    
    | Ustawienie      | Sugerowana wartość  | Opis |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Częstotliwość tworzenia kopii zapasowych** | Lista rozwijana i wybór interwału kopii zapasowych, dostępne opcje to **15 minut** , **30 minut** , **60 minut** , **6 godzin** , **12** godzin i **24 godziny** . | Ten interwał rozpoczyna zliczanie w dół po pomyślnym zakończeniu poprzedniej operacji tworzenia kopii zapasowej i po zainicjowaniu nowej kopii zapasowej. | 
+   | **Częstotliwość tworzenia kopii zapasowych** | Lista rozwijana i wybór interwału kopii zapasowych, dostępne opcje to **15 minut**, **30 minut**, **60 minut**, **6 godzin**, **12** godzin i **24 godziny**. | Ten interwał rozpoczyna zliczanie w dół po pomyślnym zakończeniu poprzedniej operacji tworzenia kopii zapasowej i po zainicjowaniu nowej kopii zapasowej. | 
    | **Konto magazynu** | I wybierz konto magazynu. | Musisz wybrać konto magazynu w tym samym regionie i subskrypcji co pamięć podręczną, a konto **Premium Storage** jest zalecane, ponieważ usługa Premium Storage ma wyższą przepływność.  | 
    | **Klucz magazynu** | Wybierz pozycję **klucz podstawowy** lub **klucz pomocniczy** do użycia. | W przypadku ponownego wygenerowania klucza magazynu dla konta trwałości należy ponownie skonfigurować żądany klucz z listy rozwijanej **klucza magazynu** . | 
 
     Pierwsza kopia zapasowa jest inicjowana po upłynięciu interwału częstotliwości tworzenia kopii zapasowych.
+    
+   > [!NOTE]
+   > Gdy kopie zapasowe plików RDB są tworzone w magazynie, są one przechowywane w formie stronicowych obiektów BLOB.
 
 9. Aby włączyć trwałość kopia zapasowa AOF, kliknij pozycję **kopia zapasowa AOF** i skonfiguruj ustawienia. 
    
@@ -83,11 +86,11 @@ Trwałość zapisuje dane Redis do konta usługi Azure Storage, którego jesteś
 
 11. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
 
-12. Wybierz pozycję **Przejrzyj i utwórz** . Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
+12. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
 
-13. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz** .
+13. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
 
-Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony** , pamięć podręczna jest gotowa do użycia. 
+Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia. 
 
 ## <a name="persistence-faq"></a>Często zadawane pytania dotyczące trwałości
 Poniższa lista zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure cache for Redis trwałość.
@@ -97,7 +100,7 @@ Poniższa lista zawiera odpowiedzi na często zadawane pytania dotyczące usług
 * [Który model trwałości należy wybrać?](#which-persistence-model-should-i-choose)
 * [Co się stanie, jeśli przeprowadzono skalowanie do innego rozmiaru i przywrócono kopię zapasową wykonaną przed operacją skalowania?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 * [Czy można używać tego samego konta magazynu w celu zapewnienia trwałości w dwóch różnych pamięciach podręcznych?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
-
+* [Czy zostanie naliczona opłata za magazyn używany w trwałości danych](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
 
 ### <a name="rdb-persistence"></a>Trwałość RDB
 * [Czy mogę zmienić częstotliwość tworzenia kopii zapasowych RDB po utworzeniu pamięci podręcznej?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
@@ -160,7 +163,7 @@ Trwałość kopia zapasowa AOF ma wpływ na przepływność przez około 15% –
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>Jak usunąć drugie konto magazynu?
 
-Konto magazynu pomocniczego trwałości kopia zapasowa AOF można usunąć, ustawiając drugie konto magazynu jako takie samo, jak pierwsze konto magazynu. W przypadku istniejących pamięci podręcznych blok **trwałość danych** jest dostępny z **menu zasób** dla pamięci podręcznej. Aby wyłączyć trwałość kopia zapasowa AOF, kliknij pozycję **wyłączone** .
+Konto magazynu pomocniczego trwałości kopia zapasowa AOF można usunąć, ustawiając drugie konto magazynu jako takie samo, jak pierwsze konto magazynu. W przypadku istniejących pamięci podręcznych blok **trwałość danych** jest dostępny z **menu zasób** dla pamięci podręcznej. Aby wyłączyć trwałość kopia zapasowa AOF, kliknij pozycję **wyłączone**.
 
 ### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>Co to jest ponowne zapisywanie i jak ma to wpływ na moją pamięć podręczną?
 
@@ -186,6 +189,10 @@ Dane przechowywane w plikach kopia zapasowa AOF są podzielone na wiele stronico
 Gdy klastrowanie jest włączone, każda fragmentu w pamięci podręcznej ma swój własny zestaw stronicowych obiektów blob, jak wskazano w poprzedniej tabeli. Na przykład pamięć podręczna P2 z trzema fragmentów dystrybuuje swój plik kopia zapasowa AOF w 24-stronicowych obiektach Blob (8 obiektów BLOB na fragmentu, z 3 fragmentów).
 
 Po ponownej operacji zapisu w magazynie istnieją dwa zestawy plików kopia zapasowa AOF. Ponowne Zapisywanie odbywa się w tle i dołącza do pierwszego zestawu plików, podczas gdy ustawienia operacji, które są wysyłane do pamięci podręcznej podczas ponownego zapisu, dołączane do drugiego zestawu. Kopia zapasowa jest tymczasowo przechowywana podczas ponownego zapisywania w przypadku awarii, ale jest natychmiast usuwana po zakończeniu ponownego zapisywania.
+
+### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>Czy zostanie naliczona opłata za magazyn używany w trwałości danych?
+
+Tak. opłata zostanie naliczona za magazyn używany zgodnie z modelem cen używanego konta magazynu.
 
 
 ## <a name="next-steps"></a>Następne kroki

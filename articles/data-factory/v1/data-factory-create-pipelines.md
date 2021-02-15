@@ -1,22 +1,18 @@
 ---
 title: Tworzenie/planowanie potoków, działania łańcucha w Data Factory
 description: Dowiedz się, jak utworzyć potok danych w Azure Data Factory, aby przenosić i przekształcać dane. Utwórz przepływ pracy oparty na danych, aby utworzyć gotowy do korzystania z informacji.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 83b4d14d46677c731b7fb9faae2217492368d4b2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9cc81a8e157c244828a15ac82913ce9a88c3d34f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496062"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376874"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działania w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -97,7 +93,7 @@ Przyjrzyjmy się bliżej definicji potoku w formacie JSON. Ogólna struktura pot
 | name |Nazwa potoku. Określ nazwę, która reprezentuje akcję wykonywaną przez potok. <br/><ul><li>Maksymalna liczba znaków: 260</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", " \* ", "%", "&", ":", " \\ "</li></ul> |Tak |
 | description (opis) | Wprowadź tekst opisujący przeznaczenie potoku. |Tak |
 | activities | W sekcji **activities** można zdefiniować jedno lub więcej działań. Zobacz następną sekcję, aby uzyskać szczegółowe informacje o elemencie JSON. | Tak |
-| start | Data i godzina rozpoczęcia potoku. Musi być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Przykład: `2016-10-14T16:32:41Z`. <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00` ", czyli 6.<br/><br/>Właściwości Start i End wspólnie określają aktywny okres dla potoku. Wycinki wyjściowe są tworzone tylko w tym aktywnym okresie. |Nie<br/><br/>W przypadku określenia wartości właściwości End należy określić wartość właściwości Start.<br/><br/>Aby można było utworzyć potok, oba czasy rozpoczęcia i zakończenia mogą być puste. Należy określić obie wartości, aby ustawić aktywny okres uruchomienia potoku. Jeśli nie określisz godzin początkowych i końcowych podczas tworzenia potoku, możesz je ustawić przy użyciu polecenia cmdlet Set-AzDataFactoryPipelineActivePeriod w późniejszym czasie. |
+| start | Data i godzina rozpoczęcia potoku. Musi być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: `2016-10-14T16:32:41Z`. <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00` ", czyli 6.<br/><br/>Właściwości Start i End wspólnie określają aktywny okres dla potoku. Wycinki wyjściowe są tworzone tylko w tym aktywnym okresie. |Nie<br/><br/>W przypadku określenia wartości właściwości End należy określić wartość właściwości Start.<br/><br/>Aby można było utworzyć potok, oba czasy rozpoczęcia i zakończenia mogą być puste. Należy określić obie wartości, aby ustawić aktywny okres uruchomienia potoku. Jeśli nie określisz godzin początkowych i końcowych podczas tworzenia potoku, możesz je ustawić przy użyciu polecenia cmdlet Set-AzDataFactoryPipelineActivePeriod w późniejszym czasie. |
 | end | Data i godzina zakończenia potoku. Jeśli ta wartość jest określona, musi być w formacie ISO. Na przykład: `2016-10-14T17:32:41Z` <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00` , czyli 6.<br/><br/>Aby uruchomić potok bezterminowo, określ 9999-09-09 jako wartość właściwości end. <br/><br/> Potok jest aktywny tylko między jego czasem rozpoczęcia i czasem zakończenia. Nie jest wykonywane przed czasem rozpoczęcia lub po zakończeniu. Jeśli potok jest wstrzymany, nie jest wykonywany niezależnie od jego czasu rozpoczęcia i zakończenia. Do uruchomienia potoku nie należy wstrzymywać. Zapoznaj się z tematem [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) , aby zrozumieć, jak planowanie i wykonywanie działa w Azure Data Factory. |Nie <br/><br/>W przypadku określenia wartości właściwości Start należy określić wartość właściwości end.<br/><br/>Zobacz uwagi dotyczące właściwości **Start** . |
 | isPaused | W przypadku ustawienia wartości true potok nie zostanie uruchomiony. Jest w stanie wstrzymania. Wartość domyślna = false. Ta właściwość służy do włączania lub wyłączania potoku. |Nie |
 | potokmode | Metoda planowania przebiegów dla potoku. Dozwolone wartości to: zaplanowane (wartość domyślna), jednorazowej.<br/><br/>Wartość "zaplanowany" wskazuje, że potok jest uruchamiany w określonym przedziale czasu, zgodnie z jego aktywnym okresem (godzina rozpoczęcia i zakończenia). Element "jednorazowej" wskazuje, że potok jest uruchamiany tylko raz. Nie można obecnie modyfikować/aktualizować potoków jednorazowej utworzonych po utworzeniu. Zobacz [potok jednorazowej](#onetime-pipeline) , aby uzyskać szczegółowe informacje na temat ustawienia jednorazowej. |Nie |

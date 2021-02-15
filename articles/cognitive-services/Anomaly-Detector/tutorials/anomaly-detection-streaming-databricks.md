@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f42d294dec4dd2c92fe08498a7bce3c1eabae4b3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368716"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519137"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Samouczek: wykrywanie anomalii na danych przesyłanych strumieniowo przy użyciu Azure Databricks
 
@@ -61,7 +61,7 @@ Aby uzyskać informacje na temat tworzenia przestrzeni nazw i centrum zdarzeń, 
 
 W tej sekcji utworzysz obszar roboczy Azure Databricks przy użyciu [Azure Portal](https://portal.azure.com/).
 
-1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks** analizy zasobów.
+1. W Azure Portal wybierz pozycję **Utwórz**  >    >  **Azure Databricks** analizy zasobów.
 
     ![Azure Databricks w portalu](../media/tutorials/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
@@ -113,7 +113,7 @@ Aby otrzymywać strumień tweetów, musisz utworzyć aplikację w usłudze Twitt
 
     ![Szczegóły aplikacji usługi Twitter](../media/tutorials/databricks-provide-twitter-app-details.png "Szczegóły aplikacji usługi Twitter")
 
-3. Na stronie aplikacji wybierz kartę **Keys and Access Tokens (Klucze i tokeny dostępu)** , a następnie skopiuj wartości pól **Consumer Key (Klucz klienta)** i **Consumer Secret (Wpis tajny klienta)**. Zaznacz również pole **Create my access token (Utwórz mój token dostępu)** , aby wygenerować tokeny dostępu. Skopiuj wartości pól **Access Token (Token dostępu)** i **Access Token Secret (Klucz tajny tokenu dostępu)**.
+3. Na stronie aplikacji wybierz kartę **Keys and Access Tokens (Klucze i tokeny dostępu)**, a następnie skopiuj wartości pól **Consumer Key (Klucz klienta)** i **Consumer Secret (Wpis tajny klienta)**. Zaznacz również pole **Create my access token (Utwórz mój token dostępu)**, aby wygenerować tokeny dostępu. Skopiuj wartości pól **Access Token (Token dostępu)** i **Access Token Secret (Klucz tajny tokenu dostępu)**.
 
     ![Szczegóły aplikacji usługi Twitter 2](../media/tutorials/twitter-app-key-secret.png "Szczegóły aplikacji usługi Twitter")
 
@@ -123,7 +123,7 @@ Zapisz wartości dotyczące aplikacji usługi Twitter. Będą one potrzebne w da
 
 W tym samouczku tweety są wysyłane do usługi Event Hubs za pomocą interfejsów API usługi Twitter. Ponadto dane są odczytywane i zapisywane w usłudze Azure Event Hubs za pomocą [łącznika Event Hubs platformy Apache Spark](https://github.com/Azure/azure-event-hubs-spark). Aby korzystać z tych interfejsów API w ramach klastra, dodaj je jako biblioteki do usługi Azure Databricks, a następnie je skojarz z klastrem Spark. Poniższe instrukcje pokazują, jak dodać biblioteki do folderu **udostępnionego** w obszarze roboczym.
 
-1. W obszarze roboczym usługi Azure Databricks wybierz pozycję **Obszar roboczy** , a następnie kliknij prawym przyciskiem myszy pozycję **Udostępnione**. Z menu kontekstowego wybierz polecenie **Utwórz**  >  **bibliotekę**.
+1. W obszarze roboczym usługi Azure Databricks wybierz pozycję **Obszar roboczy**, a następnie kliknij prawym przyciskiem myszy pozycję **Udostępnione**. Z menu kontekstowego wybierz polecenie **Utwórz**  >  **bibliotekę**.
 
    ![Okno dialogowe Dodawanie biblioteki](../media/tutorials/databricks-add-library-option.png "Okno dialogowe Dodawanie biblioteki")
 
@@ -151,7 +151,7 @@ Na stronie Biblioteka wybierz klaster, do którego chcesz użyć biblioteki, a n
 
 W tym samouczku użyjesz [interfejsów API wykrywania anomalii w usłudze Azure Cognitive Services](../overview.md) do uruchamiania wykrywania anomalii na strumieniu tweetów niemal w czasie rzeczywistym. Przed użyciem interfejsów API należy utworzyć zasób wykrywania anomalii na platformie Azure i pobrać klucz dostępu, aby używać interfejsów API wykrywania anomalii.
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Wybierz pozycję **+ Utwórz zasób**.
 
@@ -586,7 +586,7 @@ groupTime                       average
 
 Następnie Pobierz zagregowany wynik danych wyjściowych do różnic. Ponieważ wykrywanie anomalii wymaga dłuższego okna historii, używamy delty, aby zachować dane historii dla punktu, który ma zostać wykryty.
 Zastąp ciąg "[PLACEHOLDER: Table Name]" nazwą kwalifikowanej tabeli różnicowej, która ma zostać utworzona (na przykład "tweety"). Zastąp ciąg "[PLACEHOLDER: nazwa folderu dla punktów kontrolnych]" wartością ciągu, która jest unikatowa za każdym razem, gdy uruchamiasz ten kod (na przykład "ETL-from-eventhub-20190605").
-Aby dowiedzieć się więcej o usłudze Delta Lake na Azure Databricks, zobacz temat [Delta Lake](https://docs.azuredatabricks.net/delta/index.html)
+Aby dowiedzieć się więcej o usłudze Delta Lake na Azure Databricks, zobacz temat [Delta Lake](/databricks/delta/)
 
 
 ```scala
@@ -682,7 +682,7 @@ Wynik w następujący sposób:
 Gotowe. Korzystając z Azure Databricks, dane przesyłane strumieniowo do usługi Azure Event Hubs zostały pomyślnie przesłane przy użyciu łącznika Event Hubs, a następnie uruchamiane jest wykrywanie anomalii na danych przesyłanych strumieniowo w czasie niemal rzeczywistym.
 Chociaż w tym samouczku stopień szczegółowości jest co godzinę, zawsze można zmienić stopień szczegółowości, aby sprostać potrzebom.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po ukończeniu tego samouczka możesz zakończyć działanie klastra. Aby to zrobić, w obszarze roboczym Azure Databricks wybierz pozycję **klastry** w okienku po lewej stronie. W przypadku klastra, który chcesz zakończyć, przesuń kursor na wielokropek w kolumnie **Akcje** , a następnie wybierz ikonę **zakończenia** , a następnie wybierz pozycję **Potwierdź**.
 

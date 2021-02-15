@@ -1,19 +1,17 @@
 ---
 title: Rozwiązywanie problemów Azure Data Factory | Microsoft Docs
 description: Dowiedz się, jak rozwiązywać problemy związane z zewnętrznymi kontrolkami w Azure Data Factory.
-services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/30/2020
 ms.author: abnarain
-ms.reviewer: craigg
-ms.openlocfilehash: 922ec6c4b579a657e7ee5e872148f8126ce175e2
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 101e55188b8021040e2fd6bd573c1c6330241e72
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822288"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382807"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów z usługą Azure Data Factory
 
@@ -21,7 +19,7 @@ ms.locfileid: "97822288"
 
 W tym artykule przedstawiono typowe metody rozwiązywania problemów z zewnętrznymi działaniami związanymi z kontrolą w Azure Data Factory.
 
-## <a name="connector-and-copy-activity"></a>Działanie łącznika i kopiowania
+## <a name="connector-and-copy-activity"></a>Łącznik i działanie kopiowania
 
 W przypadku problemów z łącznikiem, takich jak napotkany błąd przy użyciu działania kopiowania, zapoznaj się z tematem [Rozwiązywanie problemów Azure Data Factory łączników](connector-troubleshoot-guide.md).
 

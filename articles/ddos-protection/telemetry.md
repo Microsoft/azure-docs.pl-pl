@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: a3f6c14b7ed2686a262f28510efb37068cfb9cb3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b34fcd66f0b64e2522da69bcfc7d119628b9d9d9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787302"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516706"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS
 
@@ -39,7 +39,6 @@ Następujące [metryki](../azure-monitor/platform/metrics-supported.md#microsoft
 
 | Metric | Nazwa wyświetlana metryki | Jednostka | Typ agregacji | Opis |
 | --- | --- | --- | --- | --- |
-| ByteCount | Liczba bajtów | Liczba | Łącznie | Łączna liczba bajtów przesłanych w okresie |
 | BytesDroppedDDoS | Bajty przychodzące opuszczone DDoS | BytesPerSecond | Maksimum | Bajty przychodzące opuszczone DDoS| 
 | BytesForwardedDDoS | Przekazane bajty przychodzące DDoS | BytesPerSecond | Maksimum | Przekazane bajty przychodzące DDoS |
 | BytesInDDoS | Bajty przychodzące DDoS | BytesPerSecond | Maksimum | Bajty przychodzące DDoS |
@@ -47,11 +46,9 @@ Następujące [metryki](../azure-monitor/platform/metrics-supported.md#microsoft
 | DDoSTriggerTCPPackets | Przychodzące pakiety TCP do wyzwalania łagodzenia DDoS | CountPerSecond | Maksimum | Przychodzące pakiety TCP do wyzwalania łagodzenia DDoS |
 | DDoSTriggerUDPPackets | Przychodzące pakiety UDP do wyzwalania łagodzenia DDoS | CountPerSecond | Maksimum | Przychodzące pakiety UDP do wyzwalania łagodzenia DDoS |
 | IfUnderDDoSAttack | W obszarze atak DDoS | Liczba | Maksimum | W obszarze atak DDoS |
-| PacketCount | Liczba pakietów | Liczba | Łącznie | Łączna liczba pakietów wysłanych w czasie |
 | PacketsDroppedDDoS | Odrzucone pakiety przychodzące DDoS | CountPerSecond | Maksimum | Odrzucone pakiety przychodzące DDoS |
 | PacketsForwardedDDoS | Przekazane pakiety przychodzące DDoS | CountPerSecond | Maksimum | Przekazane pakiety przychodzące DDoS |
 | PacketsInDDoS | Pakiety przychodzące DDoS | CountPerSecond | Maksimum | Pakiety przychodzące DDoS |
-| SynCount | Liczba SYN | Liczba | Łącznie | Łączna liczba pakietów SYN wysłanych w czasie |
 | TCPBytesDroppedDDoS | Liczba porzuconych bajtów przychodzących protokołu TCP DDoS | BytesPerSecond | Maksimum | Liczba porzuconych bajtów przychodzących protokołu TCP DDoS |
 | TCPBytesForwardedDDoS | Przekazane DDoS przychodzące bajty TCP | BytesPerSecond | Maksimum | Przekazane DDoS przychodzące bajty TCP |
 | TCPBytesInDDoS | Przychodzące bajty TCP DDoS | BytesPerSecond | Maksimum | Przychodzące bajty TCP DDoS |
@@ -64,7 +61,6 @@ Następujące [metryki](../azure-monitor/platform/metrics-supported.md#microsoft
 | UDPPacketsDroppedDDoS | Liczba porzuconych pakietów przychodzących UDP DDoS | CountPerSecond | Maksimum | Liczba porzuconych pakietów przychodzących UDP DDoS |
 | UDPPacketsForwardedDDoS | Przychodzące pakiety UDP DDoS przesłane dalej | CountPerSecond | Maksimum | Przychodzące pakiety UDP DDoS przesłane dalej |
 | UDPPacketsInDDoS | Przychodzące pakiety UDP DDoS | CountPerSecond | Maksimum | Przychodzące pakiety UDP DDoS |
-| VipAvailability | Dostępność ścieżki danych | Liczba | Średnia | Średnia dostępność adresów IP na czas trwania |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 4deda838d229081ccd23c123f75d0c0ada2383bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2222c6b020f712282a78ac5f82a87015d4cd86a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878667"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368204"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -358,7 +358,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Koszty rejestrowania** w usłudze Flow: w przypadku rejestrowania przepływu sieciowej grupy zabezpieczeń są naliczane opłaty za ilość generowanych dzienników. Duże natężenie ruchu może skutkować dużym woluminem dziennika przepływu i powiązanymi kosztami. Cennik dziennika przepływu sieciowej grupy zabezpieczeń nie obejmuje podstawowych kosztów magazynu. Korzystanie z funkcji zasad przechowywania z rejestrowaniem przepływu sieciowej grupy zabezpieczeń oznacza, że są to różne koszty magazynowania przez dłuższy czas. Jeśli nie jest wymagana funkcja zasad przechowywania, zalecamy ustawienie wartości 0. Aby uzyskać więcej informacji, zobacz [cennik Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) i [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) , aby uzyskać dodatkowe informacje.
 
-**Problemy ze zdefiniowanymi przez użytkownika regułami protokołu TCP dla ruchu przychodzącego**: [sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)](../virtual-network/network-security-groups-overview.md) są implementowane jako [zapory stanowe](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Jednak ze względu na bieżące ograniczenia platformy reguły zdefiniowane przez użytkownika, które mają wpływ na przychodzące przepływy TCP, są implementowane w sposób bezstanowy. Z tego powodu przepływy, na które wpływają reguły ruchu przychodzącego zdefiniowane przez użytkownika, stają się niekończące. Ponadto liczby bajtów i pakietów nie są rejestrowane dla tych przepływów. W związku z tym liczba bajtów i pakietów raportowanych w dziennikach przepływu sieciowej grupy zabezpieczeń (i Analiza ruchu) może różnić się od liczby rzeczywistej. Flaga wyboru, która rozwiązuje te problemy, jest zaplanowana do udostępnienia w grudniu 2020 najnowszych. W przypadku klientów z poważnymi problemami związanymi z tym zachowaniem może zażądać rezygnacji z pomocy technicznej, Zgłoś żądanie pomocy technicznej w obszarze Network Watcher > dzienniki przepływów sieciowej grupy zabezpieczeń.  
+**Problemy ze zdefiniowanymi przez użytkownika regułami protokołu TCP dla ruchu przychodzącego**: [sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)](../virtual-network/network-security-groups-overview.md) są implementowane jako [zapory stanowe](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Jednak ze względu na bieżące ograniczenia platformy reguły zdefiniowane przez użytkownika, które mają wpływ na przychodzące przepływy TCP, są implementowane w sposób bezstanowy. Z tego powodu przepływy, na które wpływają reguły ruchu przychodzącego zdefiniowane przez użytkownika, stają się niekończące. Ponadto liczby bajtów i pakietów nie są rejestrowane dla tych przepływów. W związku z tym liczba bajtów i pakietów raportowanych w dziennikach przepływu sieciowej grupy zabezpieczeń (i Analiza ruchu) może różnić się od liczby rzeczywistej. Flaga wyboru, która rozwiązuje te problemy, jest zaplanowana do udostępnienia do marca 2021 najnowszych. W przypadku klientów z poważnymi problemami związanymi z tym zachowaniem może zażądać rezygnacji z pomocy technicznej, Zgłoś żądanie pomocy technicznej w obszarze Network Watcher > dzienniki przepływów sieciowej grupy zabezpieczeń.  
 
 **Przepływy przychodzące zarejestrowane z Internetu adresów IP na maszynach wirtualnych bez publicznych** adresach IP: maszyny wirtualne, które nie mają publicznego adresu do sieci, są przypisane za pośrednictwem publicznego adresu IP SKOJARZONEGO z kartą sieciową jako publiczny adres IPv4 na poziomie wystąpienia lub które są częścią puli zaplecza usługi równoważenia obciążenia, użyj [domyślnego](../load-balancer/load-balancer-outbound-connections.md) , a także adresu IP przypisanego przez platformę Azure. W związku z tym mogą pojawić się wpisy dziennika przepływu dla przepływów z internetowych adresów IP, jeśli przepływ jest przeznaczony do portu w zakresie portów przypisanych do tego elementu. Mimo że platforma Azure nie zezwala na te przepływy na maszynę wirtualną, próba zostanie zarejestrowana i zostanie wyświetlona Network Watcher w dzienniku przepływu sieciowej grupy zabezpieczeń przez zaprojektowanie. Zalecamy, aby niepożądane przychodzące ruch internetowy został jawnie zablokowany przy użyciu sieciowej grupy zabezpieczeń.
 

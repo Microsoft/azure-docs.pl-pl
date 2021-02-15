@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 8c9a7a09d3085b1ec67bf29f142c6e7b205561ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70bfd12b018e785e7b3b91e098c99fea1101c04
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021753"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093101"
 ---
 # <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>Łączenie dzienników aktywności obwodowej 81 z platformą Azure
 
@@ -54,7 +54,7 @@ Dzienniki aktywności obwodowej 81 umożliwiają integrację i eksportowanie dzi
 
 Po pomyślnym nawiązaniu połączenia dane pojawiają się w **dziennikach** w obszarze **CustomLogs**  -  **Perimeter81_CL**.
 
-Rozpoczęcie wyświetlania dzienników może zająć więcej niż 20 minut.
+Rozpoczęcie wyświetlania dzienników może potrwać do 20 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 

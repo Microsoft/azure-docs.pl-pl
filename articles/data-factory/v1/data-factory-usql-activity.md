@@ -1,24 +1,19 @@
 ---
 title: Przekształcanie danych przy użyciu skryptu U-SQL — Azure
 description: Dowiedz się, jak przetwarzać lub przekształcać dane, uruchamiając skrypty U-SQL w usłudze Azure Data Lake Analytics COMPUTE Service — wersja 1.
-services: data-factory
-documentationcenter: ''
-ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/01/2017
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: a5e53cab30f1adca05652a3b3b7541e12ebebbdb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5931cb28721e8658a771ceea1cd94624a0c09f7c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631465"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392922"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przekształcanie danych przez uruchamianie skryptów U-SQL w usłudze Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -48,7 +43,7 @@ Poniższa tabela zawiera opis właściwości ogólnych używanych w definicji JS
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **Wprowadź** |Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics** . |Tak |
+| **Wprowadź** |Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics**. |Tak |
 | **accountName** |Nazwa konta Azure Data Lake Analytics. |Tak |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics identyfikator URI. |Nie |
 | **Identyfikator** |Identyfikator subskrypcji platformy Azure |Nie (jeśli nie zostanie określony, zostanie użyta subskrypcja fabryki danych). |
@@ -208,7 +203,7 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 
 | Właściwość            | Opis                              | Wymagane                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| typ                | Właściwość Type musi być ustawiona na wartość **DataLakeAnalyticsU-SQL** . | Tak                                      |
+| typ                | Właściwość Type musi być ustawiona na wartość **DataLakeAnalyticsU-SQL**. | Tak                                      |
 | linkedServiceName   | Odwołanie do Azure Data Lake Analytics zarejestrowanego jako połączona usługa w Data Factory | Tak                                      |
 | scriptPath          | Ścieżka do folderu, który zawiera skrypt U-SQL. Nazwa pliku jest rozróżniana wielkość liter. | Nie (Jeśli używasz skryptu)                   |
 | Elementu scriptlinkedservice | Połączona usługa, która łączy magazyn zawierający skrypt z fabryką danych | Nie (Jeśli używasz skryptu)                   |

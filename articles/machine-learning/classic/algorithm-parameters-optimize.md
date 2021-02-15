@@ -3,22 +3,22 @@ title: 'ML Studio (klasyczny): Optymalizacja algorytmów — Azure'
 description: Wyjaśnia, jak wybrać optymalny zestaw parametrów dla algorytmu w Azure Machine Learning Studio (klasyczny).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: b08318d4c12fd2e6ea8055771ca6792b0fb280dd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a216dc7cb17b9e35e412c6bebe34c0cccfb732e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307859"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519307"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Wybierz parametry, aby zoptymalizować algorytmy w Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 W tym temacie opisano, jak wybrać prawy parametr ustawiony dla algorytmu w Azure Machine Learning Studio (klasyczny). Większość algorytmów uczenia maszynowego ma parametry do ustawienia. Podczas uczenia modelu należy podać wartości tych parametrów. Skuteczność przeszkolonego modelu zależy od wybranych parametrów modelu. Proces znajdowania optymalnego zestawu parametrów jest znany jako *wybór modelu*.
 
@@ -28,10 +28,10 @@ Istnieją różne sposoby wyboru modelu. W uczeniu maszynowym, krzyżowe sprawdz
 
 W procesie znajdowania najlepszego zestawu parametrów istnieją cztery etapy:
 
-1. **Zdefiniuj miejsce parametru** : dla algorytmu należy najpierw określić dokładne wartości parametrów, które mają być brane pod uwagę.
-2. **Zdefiniuj ustawienia dotyczące krzyżowego sprawdzania poprawności** : Zdecyduj, jak wybierać zgięcia krzyżowe dla zestawu danych.
-3. **Zdefiniuj metrykę** : Zdecyduj, która Metryka ma być używana do określania najlepszego zestawu parametrów, takich jak dokładność, główny znak średnika, precyzja, odwołanie lub f-Score.
-4. **Uczenie, szacowanie i porównywanie** : dla każdej unikatowej kombinacji wartości parametrów, wzajemne sprawdzanie poprawności jest wykonywane w oparciu o określoną metrykę błędu. Po dokonaniu oceny i porównaniu można wybrać model najlepiej wykonujący.
+1. **Zdefiniuj miejsce parametru**: dla algorytmu należy najpierw określić dokładne wartości parametrów, które mają być brane pod uwagę.
+2. **Zdefiniuj ustawienia dotyczące krzyżowego sprawdzania poprawności**: Zdecyduj, jak wybierać zgięcia krzyżowe dla zestawu danych.
+3. **Zdefiniuj metrykę**: Zdecyduj, która Metryka ma być używana do określania najlepszego zestawu parametrów, takich jak dokładność, główny znak średnika, precyzja, odwołanie lub f-Score.
+4. **Uczenie, szacowanie i porównywanie**: dla każdej unikatowej kombinacji wartości parametrów, wzajemne sprawdzanie poprawności jest wykonywane w oparciu o określoną metrykę błędu. Po dokonaniu oceny i porównaniu można wybrać model najlepiej wykonujący.
 
 Na poniższej ilustracji przedstawiono, jak można to osiągnąć w Azure Machine Learning Studio (klasyczny).
 
@@ -66,7 +66,7 @@ Moduł zawiera również opcjonalne dane wejściowe zestawu danych. Połącz zes
 
 ![Klasyfikator drzewa podwyższanych decyzji](./media/algorithm-parameters-optimize/fig6a.png)
 
-Model jest następnie oceniany w zestawie danych walidacji. Lewy port wyjściowy modułu pokazuje różne metryki jako funkcje wartości parametrów. Prawidłowy port wyjściowy zapewnia szkolony model, który odpowiada modelowi najlepiej działającemu zgodnie z wybraną metryką ( **dokładność** w tym przypadku).  
+Model jest następnie oceniany w zestawie danych walidacji. Lewy port wyjściowy modułu pokazuje różne metryki jako funkcje wartości parametrów. Prawidłowy port wyjściowy zapewnia szkolony model, który odpowiada modelowi najlepiej działającemu zgodnie z wybraną metryką (**dokładność** w tym przypadku).  
 
 ![Zestaw danych walidacji](./media/algorithm-parameters-optimize/fig6b.png)
 

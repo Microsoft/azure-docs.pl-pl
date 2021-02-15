@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: beb58922172a045242f4f9bcaf647b3cfc8b5551
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339499"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380801"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Samouczek: Tworzenie notesu w Azure Cosmos DB, aby analizować i wizualizować dane
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ W tym artykule opisano, jak używać wbudowanych notesów Jupyter do importowani
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Włącz obsługę notesów podczas tworzenia konta usługi Azure Cosmos](enable-notebooks.md)
+* [Włącz Notesy na koncie usługi Azure Cosmos](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>Tworzenie zasobów i importowanie danych
  

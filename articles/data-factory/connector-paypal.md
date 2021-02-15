@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z systemu PayPal przy użyciu Azure Data Factory (wersja zapoznawcza)
 description: Informacje o kopiowaniu danych z systemu PayPal do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c93425fe2e5210a3a8cc577b6e74e281c88121c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6753159acbc4a2da20695d61c6e7c31f4ac0a7c3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416785"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381294"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Kopiowanie danych z systemu PayPal przy użyciu Azure Data Factory (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -115,7 +110,7 @@ Aby skopiować dane z systemu PayPal, ustaw typ źródła w działaniu Copy na *
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **PayPalSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM Payment_Experience"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Payment_Experience"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

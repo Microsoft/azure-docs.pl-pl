@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: f2b9f6dfe60aa50eb4ec6da76fe8781ecd8a1f13
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951331"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385034"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Używanie trybu programu w celu uczenia personalizacji bez wpływu na istniejącą aplikację
 
@@ -63,7 +63,7 @@ Uczenie się w trybie pracy różni się od trybu online w następujący sposób
 |--|--|--|
 |Wpływ na środowisko użytkownika|Możesz użyć istniejącego zachowania użytkownika w celu pouczenia personalizacji, zezwalając na przestrzeganie (nie ma wpływu na to, jakie **działania domyślne** byłyby, a uzyskaną przez niego opłatą). Oznacza to, że nie będzie to miało wpływu na wrażenia użytkowników i wyniki biznesowe.|Wyświetl najwyższą akcję zwróconą z wywołania rangi w celu wpływu na zachowanie użytkownika.|
 |Szybkość uczenia|Personalizowanie będzie bardziej wolniejsze w trybie zawodnym niż w przypadku uczenia się w trybie online. Tryb działania może uczyć się tylko przez zaobserwowanie korzyści uzyskanych przez **akcję domyślną**, co ogranicza szybkość uczenia się, ponieważ nie można przeprowadzić eksploracji.|Szybsze uczenie się, ponieważ może wykorzystać bieżący model i poznać nowe trendy.|
-|"Pułap" skuteczności uczenia się|Personalizowanie może być przybliżone, bardzo rzadko dopasowywane, a nigdy nie przekracza wydajności podstawowej logiki biznesowej (suma uzyskana przez **domyślną akcję** każdego wywołania rangi).|Program Personalizuj powinien przekroczyć linię bazową aplikacji, a w czasie, w którym zajdzie taka potrzeba, należy przeprowadzić ocenę w trybie offline i ocenę funkcji, aby nadal uzyskać ulepszenia modelu. |
+|"Pułap" skuteczności uczenia się|Personalizowanie może być przybliżone, bardzo rzadko dopasowywane, a nigdy nie przekracza wydajności podstawowej logiki biznesowej (suma uzyskana przez **domyślną akcję** każdego wywołania rangi). Ten górny limit jest redukowany przez eksplorację. Na przykład w przypadku eksploracji o 20% jest bardzo mało prawdopodobne, że wydajność trybu działania będzie przekroczyć 80%, a 60% to rozsądny element docelowy, w którym można przeprowadzić stopniowe skalowanie do trybu online.|Program Personalizuj powinien przekroczyć linię bazową aplikacji, a w czasie, w którym zajdzie taka potrzeba, należy przeprowadzić ocenę w trybie offline i ocenę funkcji, aby nadal uzyskać ulepszenia modelu. |
 |Wartość interfejsu API rangi dla rewardActionId|Nie ma to wpływu na środowisko użytkownika, ponieważ _rewardActionId_ jest zawsze pierwszą akcją wysłaną w żądaniu rangi. Innymi słowy, interfejs API rangi nie jest widoczny dla aplikacji w trybie wykonywania. Nagradzanie interfejsów API w aplikacji nie powinno zmieniać sposobu korzystania z interfejsu API nagradzania między jednym trybem a drugim.|Środowisko użytkownika zostanie zmienione przez _rewardActionId_ , który wybierze dla aplikacji. |
 |Ocen|Personalizacja zachowuje porównanie sum całkowitych, które są uzyskiwane przez domyślną logikę biznesową, a w tym momencie Personalizacja sum uzyskuje się w trybie online. W Azure Portal dla tego zasobu jest dostępne porównanie|Oceń efektywność personalizacji, uruchamiając [oceny w trybie offline](concepts-offline-evaluation.md), co pozwoli na porównanie całkowitego nagrody, który został osiągnięty w porównaniu z potencjalnymi korzyściami z linii bazowej aplikacji.|
 

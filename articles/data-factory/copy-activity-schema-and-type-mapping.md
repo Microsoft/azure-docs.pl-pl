@@ -1,22 +1,17 @@
 ---
 title: Mapowanie schematu i typu danych w działaniu kopiowania
 description: Dowiedz się więcej o tym, jak działa kopiowanie w Azure Data Factory mapuje schematy i typy danych z danych źródłowych na dane ujścia.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: afcc7ad34807b74fa0b1ddaaa29223d8a6e25584
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702223"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392786"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mapowanie schematu i typu danych w działaniu kopiowania
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

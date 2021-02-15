@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2658c088304eba457b25bb3dc421b356ba70b57f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090191"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102482"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Uprawnienia i zgoda na platformie tożsamości firmy Microsoft
 
@@ -181,7 +181,7 @@ Ogólnie rzecz biorąc, uprawnienia powinny być zdefiniowane statycznie dla dan
 
 Aby skonfigurować listę uprawnień statycznych żądanych dla aplikacji:
 
-1. Przejdź do swojej aplikacji w środowisku szybkiego startu <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure Portal rejestracje aplikacji <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+1. Przejdź do swojej aplikacji w środowisku szybkiego startu <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure Portal rejestracje aplikacji</a> .
 1. Wybierz aplikację lub [Utwórz aplikację](quickstart-register-app.md) , jeśli jeszcze tego nie zrobiono.
 1. Na stronie **Przegląd** aplikacji w obszarze **Zarządzanie** wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**.
 1. Wybierz pozycję **Microsoft Graph** z listy dostępnych interfejsów API. Następnie Dodaj uprawnienia wymagane przez aplikację.
