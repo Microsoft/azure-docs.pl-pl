@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: aa4e8c2baaaa0c8ccc9bcdda595f040fac72682f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e9ee994564e175d3c41cfd5ce415ead8c67df353
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181447"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103570"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie narzędzia Smartsheet na potrzeby automatycznego aprowizacji użytkowników
 
@@ -131,28 +131,26 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do narzędzia Smartsheet**.
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do narzędzia Smartsheet w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie narzędzia Smartsheet for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-   |Atrybut|Typ|
-   |---|---|
+   |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+   |---|---|---|
+   |userName|Ciąg|&check;|
    |aktywne|Wartość logiczna|
    |title|Ciąg|
-   |userName|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
    |phoneNumbers[type eq "work"].value|Ciąg|
    |phoneNumbers[type eq "mobile"].value|Ciąg|
    |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
+   |emails[type eq "work"].value|Ciąg|
    |externalId|Ciąg|
-   |role [podstawowa EQ "true"]. Display|Ciąg|
-   |role [podstawowa EQ "true"]. Type|Ciąg|
-   |roles[primary eq "True"].value|Ciąg|
    |role|Ciąg|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Ciąg|
@@ -188,6 +186,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 ## <a name="change-log"></a>Dziennik zmian
 
 * 06/16/2020 — dodano obsługę atrybutów rozszerzenia przedsiębiorstwa "centrum kosztów", "Wydział", "Menedżer" i "dział" dla użytkowników.
+* 02/10/2021 — dodano obsługę podstawowych atrybutów "emails [Type EQ" Work "]" dla użytkowników.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

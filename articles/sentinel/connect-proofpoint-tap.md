@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: df4292a40335e58c64b8ebc50ffb6ac1ceee8836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86018bafaa42eac01e5dccf8da1d290b64e2475c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059905"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092982"
 ---
 # <a name="connect-your-proofpoint-tap-to-azure-sentinel-with-azure-function"></a>Połącz swoje Proofpoint z platformą Azure, korzystając z funkcji platformy Azure
 
@@ -48,7 +48,7 @@ Po pomyślnym nawiązaniu połączenia dane są wyświetlane w Log Analytics w t
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut.
+Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 

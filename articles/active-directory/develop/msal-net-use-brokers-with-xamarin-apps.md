@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6958302a429fd88d4e26087b860b7f473bf4a1f9
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583845"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103995"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Używanie Microsoft Authenticator lub Intune — Portal firmy w aplikacjach platformy Xamarin
 
@@ -183,7 +183,7 @@ Dodaj identyfikator URI przekierowania do rejestracji aplikacji w [Azure Portal]
 
 **Aby wygenerować identyfikator URI przekierowania:**
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Wybierz **Azure Active Directory**  >  **rejestracje aplikacji** > zarejestrowanej aplikacji
 1. Wybieranie **uwierzytelniania**  >  **Dodawanie platformy**  >  **iOS/macOS**
 1. Wprowadź identyfikator pakietu, a następnie wybierz pozycję **Konfiguruj**.

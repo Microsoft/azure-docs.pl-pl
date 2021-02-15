@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: e13b251c9bd95a5b52d63d8ea1bbf265c9c46fd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c26931db617109c36c19b73bd3ec9263f4b40cc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023878"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096450"
 ---
 # <a name="connect-your-vmware-carbon-black-cloud-endpoint-standard-to-azure-sentinel-with-azure-function"></a>Połącz Standard punktu końcowego chmury VMware węgla czarnego z platformą Azure
 
@@ -47,7 +47,7 @@ Azure Functions mogą integrować i ściągać zdarzenia i dzienniki bezpośredn
 Po pomyślnym nawiązaniu połączenia dane pojawiają się w Log Analytics pod **CarbonBlackAuditLogs_CL**, **CarbonBlackNotifications_CL** i * * * * CarbonBlackEvents_CL * * * * *.
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
-Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut. 
+Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut. 
 
 
 ## <a name="next-steps"></a>Następne kroki

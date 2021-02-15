@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: dea881acc4cec90c4a8ad6169d94734f24d5b759
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82b72567a0db4dc9dbff9128402d0ee9f40f3512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880037"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094155"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Szybki Start: Tworzenie konta usługi Azure kontrolą w Azure Portal
 
@@ -115,6 +115,9 @@ W razie potrzeby wykonaj następujące kroki, aby skonfigurować swoją subskryp
 1. Przejdź do strony **konta kontrolą** w Azure Portal a następnie wybierz pozycję **Dodaj** , aby utworzyć nowe konto usługi Azure kontrolą. Alternatywnie możesz przejść do witryny Marketplace Search dla **kont kontrolą** i wybrać pozycję **Utwórz**. Należy pamiętać, że w danym momencie można dodać tylko jedno konto usługi Azure kontrolą.
 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia wystąpienia konta usługi Azure kontrolą w Azure Portal.":::
+
+    > [!Note] 
+    > Usługa Azure kontrolą nie obsługuje przeniesienia swojego konta między regionami. Więcej informacji na ten temat można znaleźć na [stronie usługi obsługiwane przez platformę Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/region-move-support).
 
 1. Na karcie **podstawowe** wykonaj następujące czynności:
     1. Wybierz **grupę zasobów**.

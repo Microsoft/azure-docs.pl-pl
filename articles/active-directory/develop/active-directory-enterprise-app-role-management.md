@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 076054b7240712fec57d0908615ce7abbfb62013
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 38673df29dd50e77acc4b4d106d69a82cad9c040
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582234"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104352"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -34,7 +34,7 @@ Użyj tej funkcji, jeśli aplikacja oczekuje ról niestandardowych w odpowiedzi 
 
 ## <a name="create-roles-for-an-application"></a>Tworzenie ról dla aplikacji
 
-1. W <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>w lewym okienku wybierz ikonę **Azure Active Directory** .
+1. W <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>w lewym okienku wybierz ikonę **Azure Active Directory** .
 
     ![Ikona Azure Active Directory][1]
 

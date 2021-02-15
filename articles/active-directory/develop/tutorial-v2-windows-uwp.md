@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 4c4158fe9c976ca214409ef4c0c9833c610ee34c
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6383f63d2118d8618f07bf3cb6cd08a0b16140f3
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584334"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102652"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji platforma uniwersalna systemu Windows (platformy UWP)
 
@@ -345,7 +345,7 @@ private async Task DisplayMessageAsync(string message)
 
 Teraz Zarejestruj aplikację:
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
@@ -356,8 +356,8 @@ Teraz Zarejestruj aplikację:
 
 Skonfiguruj uwierzytelnianie dla aplikacji:
 
-1. Z powrotem w <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**, a następnie wybierz pozycję **aplikacje mobilne i klasyczne**.
-1. W sekcji **identyfikatory URI przekierowania** Sprawdź **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Z powrotem w <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**, a następnie wybierz pozycję **aplikacje mobilne i klasyczne**.
+1. W sekcji **identyfikatory URI przekierowania** wprowadź wartość `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 1. Wybierz pozycję **Konfiguruj**.
 
 Skonfiguruj uprawnienia interfejsu API dla aplikacji:

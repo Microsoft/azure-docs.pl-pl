@@ -1,23 +1,18 @@
 ---
 title: Przenoszenie danych z PostgreSQL za pomocą Azure Data Factory
 description: Dowiedz się więcej na temat przenoszenia danych z bazy danych PostgreSQL przy użyciu Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca8770944a12c6e0dd3e4f95d286758ebee5f9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082838"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387278"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Przenoszenie danych z PostgreSQL za pomocą Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -99,7 +94,7 @@ Jeśli źródło jest typu **RelationalSource** (co obejmuje PostgreSQL), w sekc
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
 
 > [!NOTE]
 > W nazwach schematu i tabeli jest rozróżniana wielkość liter. Ujmij je w `""` (podwójne cudzysłowy) w zapytaniu.
@@ -309,7 +304,7 @@ Podczas przesuwania danych do PostgreSQL następujące mapowania są używane z 
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte [], ciąg |
 | różne bity [(n)] |varbit |Byte [], ciąg |
-| boolean |bool |Boolean (wartość logiczna) |
+| boolean |bool |Wartość logiczna |
 | dialogowym | |Byte [], ciąg |
 | bajty | |Byte [], ciąg |
 | znak [(n)] |Char [(n)] |Ciąg |
@@ -317,7 +312,7 @@ Podczas przesuwania danych do PostgreSQL następujące mapowania są używane z 
 | Identyfikator | |Ciąg |
 | cidr | |Ciąg |
 | koło | |Byte [], ciąg |
-| date | |Datetime (data/godzina) |
+| data | |Datetime (data/godzina) |
 | daterange | |Ciąg |
 | Podwójna precyzja |float8 |Double |
 | inet | |Byte [], ciąg |

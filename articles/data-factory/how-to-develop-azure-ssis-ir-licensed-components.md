@@ -1,22 +1,18 @@
 ---
 title: Zainstaluj licencjonowane składniki dla środowiska Azure-SSIS Integration Runtime
 description: Dowiedz się, w jaki sposób dostawca ISV może opracowywać i instalować płatne lub licencjonowane składniki niestandardowe dla środowiska Azure-SSIS Integration Runtime
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: 77eedbfc65b54ce128e1adbd93375bc624ef38cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd62822e111346ee9a81a5d1bcce55191b19da02
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187623"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386292"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalowanie płatnych lub licencjonowanych składników niestandardowych w środowisku Azure-SSIS Integration Runtime
 

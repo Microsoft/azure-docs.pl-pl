@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 40882f2a0c1a65650d633d0784214afbeef9ae63
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5fc5b52cb8fb4d654bef136f44d8579036921364
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842893"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097198"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim
 
@@ -44,7 +44,7 @@ Wystąpienia obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku s
 
 **Szacowany czas**: około 5 minut.
 
-Tworzenie wystąpienia obliczeniowego to jednorazowy proces dla Twojego obszaru roboczego. Można ponownie użyć tego obliczenia jako stacji roboczej deweloperskiej lub jako elementu docelowego obliczeń do szkolenia. Do obszaru roboczego można dołączyć wiele wystąpień obliczeniowych.
+Tworzenie wystąpienia obliczeniowego to jednorazowy proces dla Twojego obszaru roboczego. Można ponownie użyć obliczeń jako stacji roboczej deweloperskiej lub jako elementu docelowego obliczeń do szkolenia. Do obszaru roboczego można dołączyć wiele wystąpień obliczeniowych.
 
 Dedykowane rdzenie dla poszczególnych regionów na poszczególne regiony i łączne limity przydziału regionalnego, które mają zastosowanie do tworzenia wystąpienia obliczeniowego, są ujednolicone i udostępniane przy użyciu Azure Machine Learninggo przydziału klastra obliczeniowego. Zatrzymanie wystąpienia obliczeniowego nie powoduje zwolnienia przydziału w celu zapewnienia, że będzie można ponownie uruchomić wystąpienie obliczeniowe. Należy pamiętać, że nie można zmienić rozmiaru maszyny wirtualnej wystąpienia obliczeniowego po jego utworzeniu.
 
@@ -161,7 +161,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Usuwanie
+* Usuń
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -196,7 +196,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
 
     Aby uzyskać więcej informacji, zobacz [AZ ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-* Usuwanie
+* Usuń
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v
@@ -226,72 +226,18 @@ Dla każdego wystąpienia obliczeniowego w utworzonym obszarze roboczym (lub kt�
 
 ---
 
-[Usługa Azure RBAC](../role-based-access-control/overview.md) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie zawierać Logowanie jednokrotne, a wszystkie akcje będą korzystały z tożsamości tego użytkownika dla usługi Azure RBAC oraz do naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
+[Usługa Azure RBAC](../role-based-access-control/overview.md) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie miało Logowanie jednokrotne i wszystkie akcje będą korzystać z tożsamości tego użytkownika dla usługi Azure RBAC oraz do naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
 
 Te akcje mogą być kontrolowane przez funkcję RBAC platformy Azure:
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis*
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/usuwanie*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
 
-
-## <a name="access-the-terminal-window"></a>Dostęp do okna terminalu
-
-Otwórz okno terminalu wystąpienia obliczeniowego w dowolny z następujących sposobów:
-
-* RStudio: Wybierz kartę **terminalu** u góry po lewej stronie.
-* Jupyter Lab: wybierz kafelek **terminalu** pod **innym** nagłówkiem na karcie Uruchamianie.
-* Jupyter: wybierz pozycję **Nowy Terminal>** w prawym górnym rogu na karcie pliki.
-* Protokół SSH do maszyny, jeśli włączono dostęp SSH podczas tworzenia wystąpienia obliczeniowego.
-
-Użyj okna terminalu, aby zainstalować pakiety i utworzyć dodatkowe jądra.
-
-## <a name="install-packages"></a>Zainstaluj pakiety
-
-Pakiety można instalować bezpośrednio w Jupyter Notebook lub RStudio:
-
-* RStudio Użyj karty **pakiety** w prawym dolnym rogu lub karty **konsoli** w lewym górnym rogu.  
-* Python: Dodawanie kodu instalacji i wykonywanie w komórce Jupyter Notebook.
-
-Można też zainstalować program z poziomu okna terminalu. Zainstaluj pakiety języka Python w środowisku **python 3,6-Azure** .  Zainstaluj pakiety języka R w środowisku **języka r** .
-
-> [!NOTE]
-> Aby zarządzać pakietami w ramach notesu, użyj funkcji **% PIP** lub **% Conda** Magic w celu automatycznego zainstalowania pakietów w **aktualnie uruchomionym jądrze** zamiast **! PIP** lub **! Conda** , które odwołują się do wszystkich pakietów (w tym pakietów poza aktualnie uruchomionym jądrem).
-
-## <a name="add-new-kernels"></a>Dodaj nowe jądra
-
-> [!WARNING]
->  Podczas dostosowywania wystąpienia obliczeniowego upewnij się, że nie usuniesz środowiska **azureml_py36** Conda ani jądra **Python 3,6-Azure** . Jest to niezbędny w przypadku funkcji Jupyter/JupyterLab
-
-Aby dodać nowe jądro Jupyter do wystąpienia obliczeniowego:
-
-1. Tworzenie nowego terminalu z poziomu okienka Jupyter, JupyterLab lub z notesów lub z poziomu protokołu SSH do wystąpienia obliczeniowego
-2. Użyj okna terminalu, aby utworzyć nowe środowisko.  Na przykład poniższy kod tworzy `newenv` :
-
-    ```shell
-    conda create --name newenv
-    ```
-
-3. Aktywuj środowisko.  Na przykład po utworzeniu `newenv` :
-
-    ```shell
-    conda activate newenv
-    ```
-
-4. Zainstaluj pakiet PIP i ipykernel w nowym środowisku i Utwórz jądro dla tej Conda ENV
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Można zainstalować dowolne z [dostępnych jądra Jupyter](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) .
-
-
-
 ## <a name="next-steps"></a>Następne kroki
 
+* [Dostęp do terminalu wystąpienia obliczeniowego](how-to-access-terminal.md)
+* [Tworzenie plików i zarządzanie nimi](how-to-manage-files.md)
 * [Prześlij przebieg szkoleniowy](how-to-set-up-training-targets.md)

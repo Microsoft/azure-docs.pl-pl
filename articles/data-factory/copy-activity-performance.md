@@ -1,23 +1,18 @@
 ---
 title: Przewodnik dotyczący wydajności i skalowalności działania kopiowania
 description: Zapoznaj się z najważniejszymi czynnikami wpływającymi na wydajność przenoszenia danych w Azure Data Factory podczas korzystania z działania kopiowania.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: a6e89883ec0e1e493bad9572876af86f4a0d3853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324450"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387669"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Przewodnik dotyczący wydajności i skalowalności działania kopiowania
 
@@ -149,7 +144,7 @@ Azure Data Factory zapewnia następujące funkcje optymalizacji wydajności:
 
 ### <a name="data-integration-units"></a>Jednostki integracji danych
 
-Jednostka integracji danych (DIU) to miara, która reprezentuje moc pojedynczej jednostki w Azure Data Factory. Potęga to kombinacja procesora CPU, pamięci i zasobów sieciowych. DIU dotyczy tylko [platformy Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime). DIU nie ma zastosowania do [własnego środowiska Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Dowiedz się więcej tutaj](copy-activity-performance-features.md#data-integration-units).
+Jednostka integracji danych (DIU) to miara, która reprezentuje moc pojedynczej jednostki w Azure Data Factory. Potęga to kombinacja procesora CPU, pamięci i zasobów sieciowych. DIU dotyczy tylko [platformy Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime). DIU nie ma zastosowania do [własnego środowiska Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Więcej informacji można znaleźć tutaj](copy-activity-performance-features.md#data-integration-units).
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>Samoobsługowa skalowalność środowiska Integration Runtime
 
@@ -176,7 +171,7 @@ Operacja kopiowania danych może wysyłać dane _bezpośrednio_ do magazynu dany
 
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-* [Omówienie działania kopiowania](copy-activity-overview.md)
+* [Przegląd działania kopiowania](copy-activity-overview.md)
 * [Rozwiązywanie problemów z wydajnością działania kopiowania](copy-activity-performance-troubleshooting.md)
 * [Funkcje optymalizacji wydajności działania kopiowania](copy-activity-performance-features.md)
 * [Używanie Azure Data Factory do migrowania danych z usługi Data Lake lub magazynu danych na platformę Azure](data-migration-guidance-overview.md)

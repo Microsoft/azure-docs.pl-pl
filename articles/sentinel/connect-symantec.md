@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 67fc80b5f34cf3a98fd39ddc352cb2dd9a5e7151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b32baa23a31342095e542d60745a503b81e89a9
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564920"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092710"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Łączenie urządzenia z firmą Symantec ICDx 
 
@@ -39,13 +39,13 @@ Firma Symantec ICDx może zintegrować i eksportować dzienniki bezpośrednio do
 1. Otwórz konsolę zarządzania ICDx, aby dodać usługi przesyłania dalej Microsoft Azure wskaźnikiem próbnym (Log Analytics).
 2. Na pasku nawigacyjnym ICDx kliknij pozycję **Konfiguracja**. 
 3. W górnej części ekranu **konfiguracji** kliknij pozycję **usługi przesyłania dalej**.
-4. W obszarze **usługi przesyłania**dalej obok pozycji Microsoft Azure wskaźnikiem (log Analytics) kliknij pozycję **Dodaj**. 
+4. W obszarze **usługi przesyłania** dalej obok pozycji Microsoft Azure wskaźnikiem (log Analytics) kliknij pozycję **Dodaj**. 
 4. W oknie **Microsoft Azure wskaźnikiem kontrolnym (log Analytics)** kliknij pozycję **Pokaż zaawansowane**. 
 5. W górnej części okna do Microsoft Azure wskaźnikiem kontrolnym (Log Analytics) wykonaj następujące czynności:
     -   **Nazwa**: wpisz nazwę usługi przesyłania dalej, która ma nie więcej niż 30 znaków. Wybierz unikatową, zrozumiałą nazwę. Ta nazwa jest wyświetlana na liście usług przesyłania dalej na ekranie **Konfiguracja** i na pulpitach nawigacyjnych na ekranie **pulpitu nawigacyjnego** . Na przykład: Microsoft Azure Log Analytics wschód. To pole jest wymagane.
     -   **Opis**: wpisz opis dla usługi przesyłania dalej. Ten opis jest również wyświetlany na liście usług przesyłania dalej na ekranie **Konfiguracja** . Dołącz szczegóły, takie jak typ zdarzenia, który jest przekazywany i Grupa, która wymaga inspekcji danych.
     -   **Typ uruchamiania**: Wybierz metodę uruchamiania konfiguracji usługi przesyłania dalej. Dostępne są opcje ręczne i automatyczne.<br>Wartość domyślna to automatyczne. 
-6. W obszarze **zdarzenia**wykonaj następujące czynności: 
+6. W obszarze **zdarzenia** wykonaj następujące czynności: 
     - **Źródło**: Wybierz co najmniej jedno archiwum, z którego mają być przekazywane zdarzenia. Można wybrać aktywne archiwa modułu zbierającego (w tym typowe archiwum), oddzielone archiwa modułu zbierającego (czyli archiwa dla usuniętych modułów zbierających), archiwa odbiorników ICDx lub archiwum systemowe. <br>Wartość domyślna to częste archiwum.
       > [!NOTE]
       > Archiwa odbiorników ICDx są wymieniane osobno według nazwy. 
@@ -59,18 +59,18 @@ Firma Symantec ICDx może zintegrować i eksportować dzienniki bezpośrednio do
     - **Wykluczone atrybuty**: Wpisz listę atrybutów rozdzielanych przecinkami, które mają zostać wykluczone z danych przekazywanych dalej.
     - **Rozmiar wsadu**: Wybierz liczbę zdarzeń do wysłania na partię. Dostępne opcje to 10, 50, 100, 500 i 1000.<br>Wartość domyślna to 100. 
     - **Limit szybkości**: Wybierz częstotliwość przekazywania zdarzeń, wyrażony jako zdarzenia na sekundę. Dostępne opcje to nieograniczone, 500, 1000, 5000, 10000. <br> Wartość domyślna to 5000. 
-7. W obszarze **Lokalizacja docelowa platformy Azure**wykonaj następujące czynności: 
+7. W obszarze **Lokalizacja docelowa platformy Azure** wykonaj następujące czynności: 
     - **Identyfikator obszaru roboczego**: wklej identyfikator obszaru roboczego poniżej. To pole jest wymagane.
     - **Klucz podstawowy**: Wklej klucz podstawowy poniżej. To pole jest wymagane.
     - **Nazwa dziennika niestandardowego**: wpisz nazwę dziennika niestandardowego w obszarze roboczym Microsoft Azure Portal log Analytics, do którego chcesz przekazywać zdarzenia. Wartość domyślna to SymantecICDx. To pole jest wymagane.
 8. Kliknij przycisk *Zapisz* , aby zakończyć konfigurację usługi przesyłania dalej. 
-9. Aby uruchomić usługę przesyłania dalej, w obszarze **Opcje**kliknij pozycję **więcej** , a następnie **Zacznij**.
+9. Aby uruchomić usługę przesyłania dalej, w obszarze **Opcje** kliknij pozycję **więcej** , a następnie **Zacznij**.
 10. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń firmy Symantec ICDx, wyszukaj ciąg **SymantecICDx_CL**.
 
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut. 
+Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut. 
 
 
 

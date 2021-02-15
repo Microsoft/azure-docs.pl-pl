@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 02/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 4d095c3cc7e67938120260c35376b128be73ffa8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: cd6ba1da92a19a1f73fc67c0165bfb19b3bb77aa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726985"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363853"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perimeter-81"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z obwodem 81
 
@@ -71,13 +71,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji **81 w sieci obwodowej** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `urn:auth0:perimeter81:<SUBDOMAIN>`
+    a. W polu tekstowym **Identyfikator** wpisz wartość przy użyciu następującego wzorca: `urn:auth0:perimeter81:<SUBDOMAIN>`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://auth.perimeter81.com/login/callback?connection=<SUBDOMAIN>`
 
@@ -88,9 +88,14 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem obsługi klienta obwodu 81](mailto:support@perimeter81.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
-    ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
+    ![Link do pobierania certyfikatu](common/certificatebase64.png)
+
+1. W sekcji **Konfigurowanie obwodu 81** skopiuj odpowiednie adresy URL na podstawie wymagań.
+
+    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
@@ -117,7 +122,42 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-perimeter-81-sso"></a>Skonfiguruj obwód logowania jednokrotnego 81
 
-Aby skonfigurować Logowanie jednokrotne na stronie **81** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej granicznej 81](mailto:support@perimeter81.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+1. Aby zautomatyzować konfigurację w ramach obwodu 81, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Skonfiguruj obwód obwodu 81** , aby skierować do aplikacji obwodowej 81. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do obwodu 81. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i zautomatyzuje kroki 3–7.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować obwód 81 w innym oknie przeglądarki sieci Web, zaloguj się do firmowej lokacji firmy 81 jako administrator.
+
+4. Przejdź do pozycji **Ustawienia** , a następnie kliknij pozycję **dostawcy tożsamości**.
+
+    ![Ustawienia obwodu 81](./media/perimeter-81-tutorial/settings.png)
+
+5. Kliknij przycisk **Dodaj dostawcę** .
+
+    ![Obwód 81 Dodaj dostawcę](./media/perimeter-81-tutorial/add-provider.png)
+
+6. Wybierz pozycję **dostawcy tożsamości SAML 2,0** i kliknij przycisk **Kontynuuj** .
+
+    ![Obwód 81 Dodawanie dostawcy tożsamości](./media/perimeter-81-tutorial/add-identity-provider.png)
+
+7. W sekcji **dostawcy tożsamości SAML 2,0** wykonaj następujące czynności:
+
+    ![Obwód 81 — Konfigurowanie protokołu SAML](./media/perimeter-81-tutorial/setting-up-saml.png)
+
+    a. W polu tekstowym **adres URL logowania** wklej wartość **adresu URL logowania**, który został skopiowany z Azure Portal.
+
+    b. W polu tekstowym **aliasy domeny** wprowadź wartość aliasu domeny.
+
+    c. Otwórz pobrany **certyfikat (base64)** z Azure Portal do Notatnika i wklej zawartość do pola tekstowego **certyfikat podpisywania x509** .
+
+    > [!NOTE]
+    > Alternatywnie możesz kliknąć opcję **Przekaż plik PEM/CERT** , aby przekazać **certyfikat (base64)** pobrany z Azure Portal.
+    
+    d. Kliknij przycisk **Gotowe**.
 
 ### <a name="create-perimeter-81-test-user"></a>Utwórz użytkownika testowego obwodu 81
 
@@ -135,7 +175,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 #### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i zalogować się automatycznie do obwodu 81, dla którego skonfigurowano Logowanie jednokrotne 
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do obwodu 81, dla którego skonfigurowano Logowanie jednokrotne.
 
 Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka 81 w obszarze Moje aplikacje, jeśli skonfigurowano w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do obwodu 81, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 

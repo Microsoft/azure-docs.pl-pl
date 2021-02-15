@@ -1,23 +1,19 @@
 ---
 title: Przetwarzanie zestawów danych na dużą skalę przy użyciu Data Factory i usługi Batch
 description: Opisuje, jak przetwarzać ogromne ilości danych w potoku Azure Data Factory przy użyciu funkcji przetwarzania równoległego Azure Batch.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 365de79db450eda897621ccde3b92478ed93ecc3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c59e164d67a665a5e99cb5045b3b0cf38e33dc87
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496164"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364277"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Przetwarzanie zestawów danych na dużą skalę przy użyciu Data Factory i usługi Batch
 > [!NOTE]
@@ -193,7 +189,7 @@ Metoda zawiera kilka najważniejszych składników, które należy zrozumieć:
 
    przykład Wybierz przycisk **OK**, aby utworzyć projekt.
 
-1. Wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
+1. Wybierz pozycję **Narzędzia** > **Menedżer pakietów NuGet** > **Konsola menedżera pakietów**.
 
 1. W konsoli Menedżera pakietów wykonaj następujące polecenie, aby zaimportować pakiet Microsoft. Azure. Management. datafactors:
 
@@ -224,12 +220,12 @@ Metoda zawiera kilka najważniejszych składników, które należy zrozumieć:
     ```csharp
     namespace MyDotNetActivityNS
     ```
-1. Zmień nazwę **klasy na IDotNetActivity** i utwórz ją z interfejsu **IDotNetActivity** , jak pokazano poniżej:
+1. Zmień nazwę **klasy na IDotNetActivity** i utwórz ją z interfejsu  , jak pokazano poniżej:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
-1. Zaimplementuj (Dodaj) metodę **Execute** interfejsu **IDotNetActivity** do klasy. **MyDotNetActivity** Skopiuj następujący przykładowy kod do metody. Aby uzyskać wyjaśnienie logiki używanej w tej metodzie, zobacz sekcję [Execute Method](#execute-method) .
+1. Zaimplementuj (Dodaj) metodę **Execute** interfejsu **IDotNetActivity** do klasy.  Skopiuj następujący przykładowy kod do metody. Aby uzyskać wyjaśnienie logiki używanej w tej metodzie, zobacz sekcję [Execute Method](#execute-method) .
 
     ```csharp
     /// <summary>
@@ -561,7 +557,7 @@ Połączone usługi łączą magazyny danych lub usługi obliczeniowe z fabryką
 
 1. Wybierz przycisk **Wdróż** na pasku poleceń, aby wdrożyć połączoną usługę.
 
-   ![Wdrażanie](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Wdróż](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Tworzenie połączonej usługi Azure Batch
 W tym kroku utworzysz połączoną usługę dla konta usługi Batch, która jest używana do uruchamiania niestandardowego działania usługi Data Factory.
@@ -914,7 +910,7 @@ Debugowanie składa się z kilku podstawowych technik.
 
    ![Lista plików zip działania niestandardowego](./media/data-factory-data-processing-using-batch/image20.png)
 
-1. Upewnij się, że **AssemblyName** (MyDotNetActivity.dll), **EntryPoint** (MyDotNetActivityNS. packageFile), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) i **packageLinkedService** (powinna wskazywać na magazyn obiektów blob, który zawiera plik zip), są ustawione na poprawne wartości.
+1. Upewnij się, że **AssemblyName** (MyDotNetActivity.dll), **EntryPoint** (MyDotNetActivityNS. packageFile),  (customactivitycontainer/MyDotNetActivity.zip) i **packageLinkedService** (powinna wskazywać na magazyn obiektów blob, który zawiera plik zip), są ustawione na poprawne wartości.
 
 1. Jeśli Naprawiono błąd i chcesz ponownie przetworzyć wycinek, kliknij prawym przyciskiem myszy wycinek w bloku **OutputDataset** i wybierz polecenie **Uruchom**.
 
@@ -971,7 +967,7 @@ Po przeprowadzeniu danych można korzystać z nich za pomocą narzędzi online, 
   * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)
   * [Wprowadzenie do Data Factory](data-factory-build-your-first-pipeline.md)
   * [Korzystanie z działań niestandardowych w potoku Data Factory](data-factory-use-custom-activities.md)
-* [Usługa Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
+* [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
   * [Podstawowe informacje o usłudze Batch](../../azure-sql/database/sql-database-paas-overview.md)
   * [Omówienie funkcji usługi Batch](../../batch/batch-service-workflow-features.md)

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/03/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834153"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096076"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Wyświetlanie i wyszukiwanie ostatnich działań związanych z logowaniem ze strony Moje logowania
 
@@ -25,6 +25,12 @@ Możesz wyświetlić wszystkie ostatnie działania związane z logowaniem do kon
 - Jeśli ktoś próbuje odgadnąć hasło.
 - Jeśli osoba atakująca pomyślnie zalogował się na konto i z lokalizacji.
 - Jakie aplikacje próbowały uzyskać dostęp osoby atakującej.
+
+>[!Note]
+> Jeśli podczas logowania za pomocą osobistego konto Microsoft zostanie wyświetlony komunikat o błędzie, możesz w dalszym ciągu zalogować się przy użyciu nazwy domeny organizacji (takiej jak contoso.com) lub **identyfikatora dzierżawy** organizacji od administratora w jednym z następujących adresów URL:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="view-your-recent-sign-in-activity"></a>Wyświetlanie ostatniej aktywności logowania
 
