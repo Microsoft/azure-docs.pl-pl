@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie agentem serwerów z obsługą usługi Azure Arc
 description: W tym artykule opisano różne zadania zarządzania, które zwykle są wykonywane w cyklu życia serwerów z obsługą usługi Azure Arc połączonej z agentem.
-ms.date: 01/21/2021
+ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 27712dcd30857ca8c677de4f99dc4ed7e2e7b292
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cc42830fc73612e744942bdd8b353832e0ccbf2a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662130"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368459"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
@@ -48,60 +48,17 @@ W przypadku serwerów z obsługą łuku przed zmianą nazwy maszyny należy usun
 > [!WARNING]
 > Zalecamy uniknięcie zmiany nazwy komputera komputera i wykonanie tej procedury tylko w razie potrzeby.
 
-Poniższe kroki podsumowują procedurę zmiany nazwy komputera.
-
 1. Inspekcja rozszerzeń maszyn wirtualnych zainstalowanych na maszynie i zanotuj ich konfigurację przy użyciu [interfejsu wiersza polecenia platformy Azure](manage-vm-extensions-cli.md#list-extensions-installed) lub przy użyciu [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
 
-2. Usuń rozszerzenia maszyny wirtualnej przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure lub z Azure Portal.
+2. Usuń rozszerzenia maszyny wirtualnej zainstalowane z [Azure Portal](manage-vm-extensions-portal.md#uninstall-extension)przy użyciu [interfejsu wiersza polecenia platformy Azure](manage-vm-extensions-cli.md#remove-an-installed-extension)lub [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
 
-    > [!NOTE]
-    > Po wdrożeniu agenta usługi Azure Monitor dla maszyn wirtualnych (Insights) lub agenta Log Analytics przy użyciu Azure Policy zasad konfiguracji gościa agenci są wdrażani ponownie po kolejnym [cyklu oceny](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) i po zarejestrowaniu maszyny o zmienionej nazwie na serwerach z obsługą łuku.
-
-3. Odłącz maszynę od serwerów z obsługą łuku przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure lub portalu.
+3. Użyj narzędzia **azcmagent** z parametrem [Disconnect](manage-agent.md#disconnect) , aby rozłączyć maszynę z usługi Azure Arc i usunąć zasób maszyny z platformy Azure. Odłączanie maszyny od serwerów z obsługą łuku nie powoduje usunięcia agenta połączonej maszyny i nie ma potrzeby usuwania agenta w ramach tego procesu. Można uruchomić to ręcznie podczas logowania interakcyjnego lub zautomatyzować przy użyciu tej samej jednostki usługi, która została użyta do dołączenia wielu agentów lub [tokenu dostępu](../../active-directory/develop/access-tokens.md)platformy tożsamości firmy Microsoft. Jeśli nie korzystasz z jednostki usługi w celu zarejestrowania maszyny przy użyciu serwerów z obsługą usługi Azure ARC, zapoznaj się z poniższym [artykułem](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) , aby utworzyć nazwę główną usługi.
 
 4. Zmień nazwę komputera.
 
-5. Połącz maszynę z serwerami z obsługą łuku przy użyciu `Azcmagent` Narzędzia, aby zarejestrować i utworzyć nowy zasób na platformie Azure.
+5. Zarejestruj ponownie agenta połączonej maszyny z włączonymi serwerami z funkcją Arc. Uruchom `azcmagent` Narzędzie z parametrem [Connect](manage-agent.md#connect) , aby wykonać ten krok.
 
-6. Wdróż rozszerzenia maszyny wirtualnej, które zostały wcześniej zainstalowane na maszynie docelowej.
-
-Aby wykonać to zadanie, wykonaj następujące czynności.
-
-1. Usuń rozszerzenia maszyny wirtualnej zainstalowane z [Azure Portal](manage-vm-extensions-portal.md#uninstall-extension)przy użyciu [interfejsu wiersza polecenia platformy Azure](manage-vm-extensions-cli.md#remove-an-installed-extension)lub [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
-
-2. Aby odłączyć maszynę od usługi Azure ARC, użyj jednej z poniższych metod. Odłączanie maszyny od serwerów z obsługą łuku nie powoduje usunięcia agenta połączonej maszyny i nie ma potrzeby usuwania agenta w ramach tego procesu. Wszystkie rozszerzenia maszyn wirtualnych, które są wdrożone na maszynie, nadal pracują w trakcie tego procesu.
-
-    # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
-
-    1. W przeglądarce przejdź do [Azure Portal](https://portal.azure.com).
-    1. W portalu przejdź do opcji **serwery — Azure Arc** i wybierz maszynę hybrydową z listy.
-    1. Z wybranego zarejestrowanego serwera z włączonym Łukem wybierz pozycję **Usuń** z górnego paska, aby usunąć zasób na platformie Azure.
-
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-    
-    ```azurecli
-    az resource delete \
-      --resource-group ExampleResourceGroup \
-      --name ExampleArcMachine \
-      --resource-type "Microsoft.HybridCompute/machines"
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-    ```powershell
-    Remove-AzResource `
-     -ResourceGroupName ExampleResourceGroup `
-     -ResourceName ExampleArcMachine `
-     -ResourceType Microsoft.HybridCompute/machines
-    ```
-
-3. Zmień nazwę komputera.
-
-### <a name="after-renaming-operation"></a>Po zmianie nazwy operacji
-
-Po zmianie nazwy komputera agent połączonej maszyny musi zostać ponownie zarejestrowany przy użyciu serwerów z włączonym łukiem. Uruchom `azcmagent` Narzędzie z parametrem [Connect](#connect) , aby wykonać ten krok.
-
-Wdróż ponownie rozszerzenia maszyn wirtualnych, które zostały początkowo wdrożone na maszynie z serwerów z włączonym łukiem. Po wdrożeniu agenta usługi Azure Monitor dla maszyn wirtualnych (Insights) lub agenta Log Analytics przy użyciu Azure Policy zasad konfiguracji gościa agenci są wdrażani ponownie po kolejnym [cyklu oceny](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+6. Wdróż ponownie rozszerzenia maszyn wirtualnych, które zostały początkowo wdrożone na maszynie z serwerów z włączonym łukiem. Po wdrożeniu agenta Azure Monitor dla maszyn wirtualnych (Insights) lub agenta Log Analytics przy użyciu zasad platformy Azure agenci są wdrażani ponownie po kolejnym [cyklu oceny](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## <a name="upgrading-agent"></a>Uaktualnianie agenta
 

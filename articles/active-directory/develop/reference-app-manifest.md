@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 0291d2e6f0cee07bd7164b63dfd4ac8b02c42a01
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 47215070893c6fefd42554fdf4514e4aa8b45047
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583047"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103349"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
@@ -33,7 +33,7 @@ Atrybuty aplikacji można skonfigurować za pomocą Azure Portal lub programowo 
 
 Aby skonfigurować manifest aplikacji:
 
-1. Przejdź do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Wyszukaj i wybierz usługę **Azure Active Directory** .
+1. Przejdź do witryny <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>. Wyszukaj i wybierz usługę **Azure Active Directory** .
 1. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację, którą chcesz skonfigurować.
 1. Na stronie **Przegląd** aplikacji wybierz sekcję **Manifest**. Zostanie otwarty Edytor manifestu oparty na sieci Web, który umożliwia edytowanie manifestu w portalu. Opcjonalnie możesz wybrać pozycję **Pobierz** , aby edytować manifest lokalnie, a następnie użyć opcji **Przekaż** , aby ponownie zastosować ją do aplikacji.

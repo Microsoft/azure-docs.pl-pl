@@ -1,14 +1,14 @@
 ---
 title: Indeks przykładów strategii
 description: Indeks przykładów dotyczących zgodności i przykładów standardowych dotyczących wdrażania środowisk, zasad i podstaw struktury Cloud Adoptions Framework za pomocą usługi Azure Blueprints.
-ms.date: 02/01/2021
+ms.date: 02/08/2020
 ms.topic: sample
-ms.openlocfilehash: 17bacecf8fcf7c0f1969a489561a3a3ac976872e
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: c64bc02c1dea4e2c53d4ff195add2ac7fa57874f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225145"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370958"
 ---
 # <a name="azure-blueprints-samples"></a>Przykłady usługi Azure Blueprints
 
@@ -18,9 +18,10 @@ Poniższa tabela zawiera linki do przykładów dla usługi Azure Blueprints. Ka�
 
 | Sample | Opis |
 |---------|---------|
-| [Australian Government ISM PROTECTED](./ism-protected/index.md) | Zapewnia guardrails pod kątem zgodności z przepisami australijski rząd ISM. |
-| [Azure Security test — wersja 1](./azure-security-benchmark.md) | Zapewnia guardrails zgodności z [usługą Azure Security test, wersja 1](../../../security/benchmarks/overview.md). |
-| [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Zapewnia guardrails pod kątem zgodności z federalnym stanem Federal Protected B, średnią integralnością i średnią dostępnością (PBMM). |
+| [Australian Government ISM PROTECTED](./ism-protected/index.md) | Zapewnia zabezpieczenia zgodności z wytycznymi Australian Government ISM PROTECTED. |
+| [Test porównawczy zabezpieczeń platformy Azure](./azure-security-benchmark.md) | Zapewnia zabezpieczenia zgodności z wytycznymi [testu porównawczego zabezpieczeń platformy Azure](../../../security/benchmarks/overview.md). |
+| [Usługa Azure Security test Foundation](./azure-security-benchmark-foundation/index.md) | Wdraża i konfiguruje platformę Azure Security test Foundation. |
+| [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Zapewnia zabezpieczenia zgodności zgodnie z wytycznymi Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Udostępnia zestaw zasad pomagających w zachowaniu zgodności z zaleceniami CIS Microsoft Azure Foundations Benchmark. |
 | [DoD Impact Level 4](./dod-impact-level-4/index.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem DoD Impact Level 4. |
 | [DoD Impact Level 5](./dod-impact-level-5/index.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem DoD Impact Level 5. |

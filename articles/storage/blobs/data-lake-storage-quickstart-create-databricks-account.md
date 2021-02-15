@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d712dc0ebe91ea8815adf235e02b8945e0dea84
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912828"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518865"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Szybki Start: analizowanie danych z użyciem datakostki
 
@@ -34,7 +34,7 @@ W tym przewodniku szybki start uruchomisz zadanie Apache Spark przy użyciu Azur
 
 W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witryny Azure Portal.
 
-1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks** analizy zasobów.
+1. W Azure Portal wybierz pozycję **Utwórz**  >    >  **Azure Databricks** analizy zasobów.
 
     ![Datakostki na Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
@@ -76,7 +76,7 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witr
 
 4. Wybierz pozycję **Utwórz klaster**. Po uruchomieniu klastra możesz dołączyć do niego notesy i uruchamiać zadania Spark.
 
-Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Tworzenie klastra Spark w usłudze Azure Databricks).
+Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a Spark cluster in Azure Databricks](/azure/databricks/clusters/create) (Tworzenie klastra Spark w usłudze Azure Databricks).
 
 ## <a name="create-notebook"></a>Utwórz Notes
 
@@ -92,7 +92,7 @@ W tej sekcji utworzysz notes w obszarze roboczym usługi Azure Databricks, a nas
 
     ![Tworzenie notesu w kostkach](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "Tworzenie notesu w kostkach")
 
-    Wybierz pozycję **Utwórz**.
+    Wybierz przycisk **Utwórz**.
 
 4. Skopiuj i wklej następujący blok kodu do pierwszej komórki, ale jeszcze nie uruchamiaj kodu.
 
@@ -149,7 +149,7 @@ Aby uruchomić zadanie Spark SQL w danych, wykonaj poniższe zadania.
 
     Po pomyślnym wykonaniu polecenia wszystkie dane z pliku JSON znajdą się w tabeli w klastrze usługi Databricks.
 
-    Magiczne polecenie języka `%sql` umożliwia uruchamianie kodu SQL z notesu, nawet jeśli notes jest innego typu. Aby uzyskać więcej informacji, zobacz [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook) (Łączenie języków w notesie).
+    Magiczne polecenie języka `%sql` umożliwia uruchamianie kodu SQL z notesu, nawet jeśli notes jest innego typu. Aby uzyskać więcej informacji, zobacz [Mixing languages in a notebook](/azure/databricks/notebooks/notebooks-use#mix-languages) (Łączenie języków w notesie).
 
 2. Przyjrzyjmy się migawce przykładowych danych JSON, aby lepiej zrozumieć uruchamiane zapytanie. Wklej poniższy fragment kodu w komórce kodu i naciśnij klawisze **SHIFT+ENTER**.
 
@@ -200,6 +200,6 @@ Przejdź do następnego artykułu, aby dowiedzieć się, jak wykonać operację 
 > [!div class="nextstepaction"]
 >[Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
-- Aby dowiedzieć się, jak importować dane z innych źródeł danych do Azure Databricks, zobacz [źródła danych Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+- Aby dowiedzieć się, jak importować dane z innych źródeł danych do Azure Databricks, zobacz [źródła danych Spark](/azure/databricks/data/data-sources/).
 
-- Aby dowiedzieć się więcej na temat innych sposobów uzyskiwania dostępu do Azure Data Lake Storage Gen2 z poziomu obszaru roboczego Azure Databricks, zobacz [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).
+- Aby dowiedzieć się więcej na temat innych sposobów uzyskiwania dostępu do Azure Data Lake Storage Gen2 z poziomu obszaru roboczego Azure Databricks, zobacz [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2).

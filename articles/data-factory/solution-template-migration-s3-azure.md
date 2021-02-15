@@ -1,22 +1,18 @@
 ---
 title: Migrowanie danych z usługi Amazon S3 do Azure Data Lake Storage Gen2
 description: Dowiedz się, jak za pomocą szablonu rozwiązania przeprowadzić migrację danych z usługi Amazon S3 przy użyciu zewnętrznej tabeli formantów do przechowywania listy partycji na AWS S3 z Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1fd4cb248abdc219c6ee5d098e10c329826c160
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398224"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361999"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrowanie danych z usługi Amazon S3 do Azure Data Lake Storage Gen2
 
@@ -119,7 +115,7 @@ Szablon zawiera dwa parametry:
 
     ![Zrzut ekranu pokazujący dwa potoki i trzy zestawy danych, które zostały utworzone przy użyciu szablonu.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
+6. Przejdź do potoku "BulkCopyFromS3" i wybierz pozycję **Debuguj**, a następnie wprowadź **Parametry**. Następnie wybierz pozycję **Finish** (Zakończ).
 
     ![Zrzut ekranu pokazujący, gdzie wybrać opcję Debuguj i wprowadzić parametry przed wybraniem opcji Zakończ.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
@@ -182,7 +178,7 @@ Szablon zawiera dwa parametry:
 
     ![Przeglądanie potoku](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
+6.  Przejdź do potoku "DeltaCopyFromS3" i wybierz pozycję **Debuguj**, a następnie wprowadź **Parametry**. Następnie wybierz pozycję **Finish** (Zakończ).
 
     ![Kliknij pozycję * * Debuguj * *](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 

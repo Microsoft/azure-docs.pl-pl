@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 1e5a04d385ba6c6dda5b52b23fd4793860f991dc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 33661eafee6b180819b18d9a9a980eff1e2aeceb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737205"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371553"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Najlepsze rozwiązania dotyczące konfiguracji aplikacji platformy Azure
 
@@ -92,7 +92,7 @@ Konfiguracja aplikacji to usługa regionalna. W przypadku aplikacji z różnymi 
 
 ## <a name="client-applications-in-app-configuration"></a>Aplikacje klienckie w konfiguracji aplikacji 
 
-Nadmierne żądania konfiguracji aplikacji mogą powodować naliczanie opłat lub za użycie nadwyżkowe. Aplikacje wykorzystują buforowanie i inteligentne odświeżanie obecnie dostępne w celu zoptymalizowania liczby wysyłanych żądań. Ten proces może być dublowany w aplikacjach klienckich o dużym nasileniu, unikając bezpośrednich połączeń z magazynem konfiguracji. Zamiast tego aplikacje klienckie nawiązują połączenie z usługą niestandardową, a ta usługa komunikuje się z magazynem konfiguracji. To rozwiązanie proxy może zapewnić, że aplikacje klienckie nie zbliżają się do limitu ograniczania w magazynie konfiguracji. Aby uzyskać więcej informacji na temat ograniczania przepustowości, zobacz [często zadawane pytania](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+Nadmierne żądania konfiguracji aplikacji mogą powodować naliczanie opłat lub za użycie nadwyżkowe. Aplikacje wykorzystują buforowanie i inteligentne odświeżanie obecnie dostępne w celu zoptymalizowania liczby wysyłanych żądań. Ten proces może być dublowany w aplikacjach klienckich o dużym nasileniu, unikając bezpośrednich połączeń z magazynem konfiguracji. Zamiast tego aplikacje klienckie nawiązują połączenie z usługą niestandardową, a ta usługa komunikuje się z magazynem konfiguracji. To rozwiązanie proxy może zapewnić, że aplikacje klienckie nie zbliżają się do limitu ograniczania w magazynie konfiguracji. Aby uzyskać więcej informacji na temat ograniczania przepustowości, zobacz [często zadawane pytania](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Następne kroki
 

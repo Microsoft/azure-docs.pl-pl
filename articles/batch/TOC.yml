@@ -172,6 +172,11 @@
         - name: Tworzenie puli z publicznymi adresami IP
           displayName: private
           href: batch-pool-no-public-ip-address.md
+        - name: Korzystanie z rozszerzeń z pulami
+          href: create-pool-extensions.md
+        - name: Konfigurowanie tożsamości zarządzanych
+          displayName: user-assigned
+          href: managed-identity-pools.md
         - name: Instalowanie wirtualnego systemu plików
           href: virtual-file-mount.md
         - name: Instalowanie udziału plików platformy Azure

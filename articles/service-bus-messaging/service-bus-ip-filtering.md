@@ -2,13 +2,13 @@
 title: Konfigurowanie reguł zapory adresów IP dla Azure Service Bus
 description: Jak używać reguł zapory do zezwalania na połączenia z określonych adresów IP do Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3aacf54dca07f0e1f2a66c8cdd85f892dda68cd4
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 02/12/2021
+ms.openlocfilehash: 11a17575e65bc8878819767804d7f69f3d590ad3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426583"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516553"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus z określonych adresów IP lub zakresów
 Domyślnie obszary nazw Service Bus są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją tylko do zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -37,7 +37,8 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory IP d
     > [!NOTE]
     > Karta **Sieć** zawiera tylko obszary nazw w **warstwie Premium** .  
     
-    Domyślnie wybrana jest opcja **wybrane sieci** . Jeśli nie dodasz co najmniej jednej reguły zapory IP lub sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznej sieci Internet (przy użyciu klucza dostępu).
+    >[!WARNING]
+    > Jeśli wybierzesz opcję **wybrane sieci** i nie dodasz co najmniej jednej reguły zapory IP lub sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznej sieci Internet (przy użyciu klucza dostępu).
 
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Strona sieci — domyślna" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
@@ -61,28 +62,12 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory IP d
 [!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Używanie szablonu usługi Resource Manager
-Ta sekcja zawiera przykładowy szablon Azure Resource Manager, który tworzy sieć wirtualną i regułę zapory.
+Ta sekcja zawiera przykładowy szablon Azure Resource Manager, który dodaje sieć wirtualną i regułę zapory do istniejącej przestrzeni nazw Service Bus.
 
+**ipMask** to pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 70.37.104.0/24 reprezentuje adresy IPv4 256 z 70.37.104.0 do 70.37.104.255, z 24 wskazujące liczbę znaczących bitów prefiksu dla zakresu.
 
-Poniższy szablon Menedżer zasobów umożliwia dodanie reguły sieci wirtualnej do istniejącej Service Bus przestrzeni nazw.
+W przypadku dodawania reguł sieci wirtualnej lub zapór ustaw wartość `defaultAction` na `Deny` .
 
-Parametry szablonu:
-
-- **ipMask** to pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 70.37.104.0/24 reprezentuje adresy IPv4 256 z 70.37.104.0 do 70.37.104.255, z 24 wskazujące liczbę znaczących bitów prefiksu dla zakresu.
-
-> [!NOTE]
-> Chociaż nie ma możliwych reguł Odmów, szablon Azure Resource Manager ma ustawioną akcję domyślną **"Zezwalaj"** , która nie ogranicza połączeń.
-> Podczas tworzenia reguł Virtual Network lub zapór należy zmienić wartość **_"DefaultAction"_**
-> 
-> wniosek
-> ```json
-> "defaultAction": "Allow"
-> ```
-> na wartość
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -147,6 +132,10 @@ Parametry szablonu:
 ```
 
 Aby wdrożyć szablon, postępuj zgodnie z instrukcjami dotyczącymi [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> Jeśli nie ma reguł adresów IP i sieci wirtualnej, cały ruch jest przesyłany do przestrzeni nazw nawet wtedy, gdy ustawisz `defaultAction` na `deny` . Do przestrzeni nazw można uzyskać dostęp za pośrednictwem publicznego Internetu (przy użyciu klucza dostępu). Określ co najmniej jedną regułę IP lub regułę sieci wirtualnej dla przestrzeni nazw, aby zezwalać na ruch tylko z określonych adresów IP lub podsieci sieci wirtualnej.  
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12d858488c4530e4b0d949cd36ed9ad2f7df4c59
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590564"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384490"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Utwórz obszar roboczy z włączoną ochroną eksfiltracji danych
 W tym artykule opisano sposób tworzenia obszaru roboczego z włączoną ochroną eksfiltracji danych oraz zarządzania zatwierdzonymi dzierżawcami usługi Azure AD dla tego obszaru roboczego.
@@ -49,6 +49,9 @@ Można utworzyć zarządzane prywatne punkty końcowe, aby połączyć się z za
 >[!IMPORTANT]
 >Zasoby w dzierżawach innych niż dzierżawa obszaru roboczego nie mogą blokować reguł zapory, aby pule SQL mogły się z nimi łączyć. Zasoby w zarządzanej sieci wirtualnej obszaru roboczego, takie jak klastry Spark, mogą łączyć zarządzane linki prywatne z zasobami chronionymi przez zaporę.
 
+## <a name="known-limitations"></a>Znane ograniczenia
+Użytkownicy mogą udostępnić plik konfiguracyjny środowiska, aby zainstalować pakiety języka Python z publicznych repozytoriów, takich jak PyPI. W chronionych obszarach roboczych danych eksfiltracji połączenia z repozytoriami wychodzącymi są blokowane. W związku z tym biblioteka języka Python zainstalowana z repozytoriów publicznych, takich jak PyPI, nie jest obsługiwana. 
+  
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej [na temat ochrony danych eksfiltracji w obszarach roboczych Synapse](./workspace-data-exfiltration-protection.md)

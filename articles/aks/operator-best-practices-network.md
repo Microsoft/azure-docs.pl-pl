@@ -5,12 +5,12 @@ description: Informacje o najlepszych rozwiązaniach dotyczących operatorów kl
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f004e0e78d7a626f878ba3651e4c6078f9cd21e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482729"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366572"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące łączności sieciowej i zabezpieczeń w usłudze Azure Kubernetes Service
 
@@ -19,7 +19,7 @@ Podczas tworzenia klastrów i zarządzania nimi w usłudze Azure Kubernetes Serv
 Te najlepsze rozwiązania koncentrują się na łączności sieciowej i zabezpieczeniach dla operatorów klastra. W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
-> * Porównanie trybów sieci korzystającą wtyczki kubenet i Azure CNI w systemie AKS
+> * Porównanie trybów sieciowych korzystającą wtyczki kubenet i Azure Container Networking Interface (CNI) w AKS
 > * Planowanie wymaganych adresów IP i połączeń
 > * Dystrybuuj ruch przy użyciu modułów równoważenia obciążenia, kontrolerów transferu danych przychodzących lub zapory aplikacji sieci Web (WAF)
 > * Bezpieczne łączenie z węzłami klastra
@@ -33,11 +33,13 @@ Sieci wirtualne zapewniają podstawową łączność z węzłami AKS i klientami
 * **Korzystającą wtyczki kubenet Networking** — platforma Azure zarządza zasobami sieci wirtualnej w miarę wdrażania klastra i korzysta z wtyczki Kubernetes [korzystającą wtyczki kubenet][kubenet] .
 * **Azure CNI Networking** — wdraża w sieci wirtualnej i używa wtyczki Kubernetes [interfejsu sieciowego kontenera platformy Azure (CNI)][cni-networking] . Usługi zasobnikowe odbierają pojedyncze adresy IP, które mogą być kierowane do innych usług sieciowych lub zasobów lokalnych.
 
-Interfejs sieciowy kontenera (CNI) to protokół neutralny od dostawcy, który umożliwia wykonywanie żądań do dostawcy sieci przez środowisko uruchomieniowe kontenera. Usługa Azure CNI przypisuje adresy IP do wielofirmowych i węzłów oraz udostępnia funkcje zarządzania adresami IP (IPAM) podczas nawiązywania połączenia z istniejącymi sieciami wirtualnymi platformy Azure. Każdy węzeł i zasób pod są odbierane przy użyciu adresu IP w sieci wirtualnej platformy Azure, a do komunikacji z innymi zasobami lub usługami nie jest wymagany żaden dodatkowy Routing.
+W przypadku wdrożeń produkcyjnych zarówno korzystającą wtyczki kubenet, jak i Azure CNI są prawidłowymi opcjami.
+
+### <a name="cni-networking"></a>CNI sieci
+
+Interfejs sieciowy kontenera (CNI) to protokół neutralny od dostawcy, który umożliwia wykonywanie żądań do dostawcy sieci przez środowisko uruchomieniowe kontenera. Usługa Azure CNI przypisuje adresy IP do wielofirmowych i węzłów oraz udostępnia funkcje zarządzania adresami IP (IPAM) podczas nawiązywania połączenia z istniejącymi sieciami wirtualnymi platformy Azure. Każdy węzeł i zasób pod są odbierane w sieci wirtualnej platformy Azure, a żadne dodatkowe Routing nie są potrzebne do komunikowania się z innymi zasobami lub usługami.
 
 ![Diagram przedstawiający dwa węzły z mostkami łączącymi każdy z jedną siecią wirtualną platformy Azure](media/operator-best-practices-network/advanced-networking-diagram.png)
-
-W przypadku wdrożeń produkcyjnych zarówno korzystającą wtyczki kubenet, jak i Azure CNI są prawidłowymi opcjami.
 
 Istotną zaletą usługi Azure CNI Networking dla środowiska produkcyjnego jest model sieci umożliwiający rozdzielenie kontroli i zarządzanie zasobami. Z punktu widzenia zabezpieczeń często chcesz, aby inne zespoły zarządzali i zabezpieczali te zasoby. Usługa Azure CNI Networking umożliwia łączenie się z istniejącymi zasobami platformy Azure, zasobami lokalnymi lub innymi usługami bezpośrednio za pośrednictwem adresów IP przypisanych do każdego z nich.
 
@@ -51,6 +53,8 @@ Ponieważ każdy węzeł i pod otrzymają własny adres IP, Zaplanuj zakresy adr
 
 Aby obliczyć wymagany adres IP, zobacz [Konfigurowanie usługi Azure CNI Networking w AKS][advanced-networking].
 
+Podczas tworzenia klastra za pomocą usługi Azure CNI Networking należy określić inne zakresy adresów, które mają być używane przez klaster, takie jak adres mostka platformy Docker, IP usługi DNS i zakres adresów usługi. Ogólnie rzecz biorąc, te zakresy adresów nie powinny nakładać się na siebie i nie powinny nakładać się na żadne sieci skojarzone z klastrem, w tym między innymi sieci wirtualne, podsieci, lokalne i równorzędne sieci. Aby uzyskać szczegółowe informacje dotyczące limitów i rozmiarów tych zakresów adresów, zobacz [Konfigurowanie usługi Azure CNI Networking w AKS][advanced-networking].
+
 ### <a name="kubenet-networking"></a>Korzystającą wtyczki kubenet sieci
 
 Chociaż korzystającą wtyczki kubenet nie wymaga konfigurowania sieci wirtualnych przed wdrożeniem klastra, istnieją wady:
@@ -58,7 +62,9 @@ Chociaż korzystającą wtyczki kubenet nie wymaga konfigurowania sieci wirtualn
 * Węzły i zasobniki są umieszczane w różnych podsieciach IP. Routing zdefiniowany przez użytkownika (UDR) i przekazywanie adresów IP są używane do kierowania ruchu między nimi i węzłami. Ten dodatkowy Routing może zmniejszyć wydajność sieci.
 * Połączenia z istniejącymi sieciami lokalnymi lub komunikacji równorzędnej z innymi sieciami wirtualnymi platformy Azure mogą być złożone.
 
-Korzystającą wtyczki kubenet jest odpowiednie dla małych obciążeń programistycznych lub testowych, ponieważ nie jest konieczne tworzenie sieci wirtualnej i podsieci niezależnie od klastra AKS. Proste witryny sieci Web z niskim ruchem lub do przenoszenia i przenoszenia obciążeń do kontenerów mogą również korzystać z prostoty klastrów AKS wdrożonych przy użyciu sieci korzystającą wtyczki kubenet. W przypadku większości wdrożeń produkcyjnych należy zaplanować usługę Azure CNI Networking i korzystać z niej. Możesz również [skonfigurować własne zakresy adresów IP i sieci wirtualne przy użyciu korzystającą wtyczki kubenet][aks-configure-kubenet-networking].
+Korzystającą wtyczki kubenet jest odpowiednie dla małych obciążeń programistycznych lub testowych, ponieważ nie jest konieczne tworzenie sieci wirtualnej i podsieci niezależnie od klastra AKS. Proste witryny sieci Web z niskim ruchem lub do przenoszenia i przenoszenia obciążeń do kontenerów mogą również korzystać z prostoty klastrów AKS wdrożonych przy użyciu sieci korzystającą wtyczki kubenet. W przypadku większości wdrożeń produkcyjnych należy zaplanować usługę Azure CNI Networking i korzystać z niej.
+
+Możesz również [skonfigurować własne zakresy adresów IP i sieci wirtualne przy użyciu korzystającą wtyczki kubenet][aks-configure-kubenet-networking]. Podobnie jak w przypadku sieci Azure CNI, te zakresy adresów nie powinny nakładać się na siebie i nie powinny nakładać się na żadne sieci skojarzone z klastrem, w tym sieci wirtualne, podsieci, lokalne i sieci równorzędne. Aby uzyskać szczegółowe informacje dotyczące limitów i rozmiarów tych zakresów adresów, zobacz [Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w AKS][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Dystrybuuj ruch przychodzący
 
@@ -70,7 +76,7 @@ Moduł równoważenia obciążenia platformy Azure może dystrybuować ruch klie
 
  Istnieją dwa składniki związane z ruchem przychodzącym:
 
- * *Zasób*transferu danych przychodzących i
+ * *Zasób* transferu danych przychodzących i
  * *Kontroler* transferu danych przychodzących
 
 Zasób transferu danych przychodzących to YAML manifest, `kind: Ingress` który definiuje host, certyfikaty i reguły do kierowania ruchu do usług uruchomionych w KLASTRZE AKS. Poniższy przykład manifestu YAML dystrybuuje ruch dla *MyApp.com* do jednej z dwóch usług, *blogservice* lub *storeservice*. Klient jest kierowany do jednej usługi lub innej w zależności od adresu URL, do którego uzyskuje dostęp.

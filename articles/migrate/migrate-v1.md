@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 4fda6c51121838bfa1f3624759b1230d8554d573
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 719fcca74d2cd048bf170940eff7da6a25425469
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753947"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373287"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Pracuj z poprzednią wersją Azure Migrate
 
@@ -22,7 +22,7 @@ Ten artykuł zawiera informacje dotyczące pracy z poprzednią wersją programu 
 Istnieją dwie wersje usługi Azure Migrate:
 
 - **Bieżąca wersja**: Użyj tej wersji do tworzenia projektów Azure Migrate, odnajdywania maszyn lokalnych i organizowania ocen i migracji. [Dowiedz się więcej](whats-new.md) na temat Nowości w tej wersji.
-- **Poprzednia wersja**: Jeśli używasz starszej wersji Azure Migrate (obsługiwana jest tylko Ocena lokalnych maszyn wirtualnych programu VMware), należy teraz używać bieżącej wersji. Poprzednie projekty wersji są nazywane projektami klasycznymi w tym artykule. Jeśli nadal musisz używać Azure Migrate projektów utworzonych w poprzedniej wersji, to to, co możesz zrobić, i nie możesz tego zrobić:
+- **Poprzednia wersja**: Jeśli używasz starszej wersji Azure Migrate (obsługiwana jest tylko Ocena lokalnych maszyn wirtualnych programu VMware), należy teraz używać bieżącej wersji. Poprzednie projekty wersji są nazywane projektami klasycznymi w tym artykule. Azure Migratee klasyczne jest wycofywane w lutym 2024. Po lutym 2024 wersja klasyczna Azure Migrate nie będzie już obsługiwana i metadane spisu w projektach klasycznych zostaną usunięte. Jeśli nadal potrzebujesz używać klasycznych projektów Azure Migrate, to co można zrobić i nie możesz wykonać:
     - Nie można już tworzyć projektów migracji.
     - Zalecamy, aby nie wykonywać nowych odnajdywania.
     - Nadal możesz uzyskiwać dostęp do istniejących projektów.
@@ -85,7 +85,7 @@ Komputer jest przenoszony tylko do późniejszego etapu, jeśli przekaże poprze
 
 Widok gotowości platformy Azure w ocenie przedstawia stan gotowości każdej maszyny wirtualnej.
 
-**Gotowości** | **Państwu** | **Szczegóły**
+**Gotowości** | **Stan** | **Szczegóły**
 --- | --- | ---
 Gotowa na platformę Azure | Brak problemów ze zgodnością. Maszynę można migrować na platformę Azure i uruchamiać ją na platformie Azure z pełną pomocą techniczną platformy Azure. | W przypadku maszyn wirtualnych, które są gotowe do migracji, usługa Azure Migrate wyświetla zalecany rozmiar maszyny wirtualnej na platformie Azure.
 Warunkowo gotowa na platformę Azure | Komputer może przeprowadzić rozruch na platformie Azure, ale może nie mieć pełnej pomocy technicznej platformy Azure. Na przykład maszyna ze starszą wersją systemu Windows Server, która nie jest obsługiwana na platformie Azure. | Azure Migrate objaśnia problemy z gotowością i zawiera czynności zaradcze.
@@ -304,7 +304,7 @@ Aby uruchomić zapytania Kusto:
 
 1. Po zainstalowaniu agentów przejdź do portalu, a następnie kliknij pozycję **Przegląd**.
 2. W obszarze **Przegląd** przejdź do sekcji **podstawowe** projektu i kliknij nazwę obszaru roboczego podaną obok **obszaru roboczego pakietu OMS**.
-3. Na stronie obszar roboczy log Analytics kliknij pozycję **General**  >  **dzienniki** ogólne.
+3. Na stronie obszar roboczy log Analytics kliknij pozycję   >  **dzienniki** ogólne.
 4. Napisz zapytanie, aby zebrać dane zależności przy użyciu dzienników Azure Monitor. Znajdź przykładowe zapytania w następnej sekcji.
 5. Uruchom zapytanie, klikając polecenie Uruchom. 
 

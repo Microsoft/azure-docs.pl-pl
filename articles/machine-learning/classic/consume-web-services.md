@@ -3,18 +3,18 @@ title: 'ML Studio (klasyczny): korzystanie z usług sieci Web — Azure'
 description: Po wdrożeniu usługi Machine Learning z poziomu Azure Machine Learning Studio (klasycznego) usługa sieci Web RESTFul może być używana jako usługa żądania-odpowiedzi w czasie rzeczywistym lub jako usługa wykonywania wsadowego.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: eaf0131877e7a333fe2a6f157523da5ad7bcf07b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 0dc49265c0ea799e194e4ac7004b558d8a9d4dd8
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500003"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519273"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Jak korzystać z usługi sieci Web Machine Learning Studio (klasycznej)
 

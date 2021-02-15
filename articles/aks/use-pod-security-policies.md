@@ -3,18 +3,18 @@ title: Używanie zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS
 description: Dowiedz się, jak kontrolować przyjmowanie w systemie za pomocą PodSecurityPolicy w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 77c618429503caf9aa7bb6abda109504bbf68d71
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 02/12/2021
+ms.openlocfilehash: 23c436cb3ddf970939ab9d7b936a4e03e1fbb7ff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696000"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371230"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Wersja zapoznawcza — Zabezpieczanie klastra przy użyciu zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), jest ustawiana jako przestarzała i nie będzie już dostępna po 31 maja, 2021** na korzyść [Azure Policy AKS](use-pod-security-on-azure-policy.md). Data wycofania została rozszerzona od daty wcześniejszej 15 października 2020.
+> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), została ustawiona na przestarzałe i nie będzie już dostępna po 30 czerwca 2021** na korzyść [Azure Policy dla AKS](use-pod-security-on-azure-policy.md). Data wycofania została rozszerzona od daty wcześniejszej 15 października 2020.
 >
 > Gdy zasady zabezpieczeń (wersja zapoznawcza) są przestarzałe, należy wyłączyć tę funkcję w przypadku wszystkich istniejących klastrów przy użyciu przestarzałej funkcji w celu przeprowadzania przyszłych uaktualnień klastra i pozostawania w ramach pomocy technicznej systemu Azure.
 >

@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 856d8961cbdf77fc848df41502678cb438773dbe
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 78c27292a92152946ba33258d27940e3c1aea47d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550121"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391579"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -35,6 +35,7 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 **Replikowanie maszyn wirtualnych platformy Azure z jednej subskrypcji do innej na potrzeby odzyskiwania po awarii** | Obsługiwane w ramach tej samej dzierżawy Azure Active Directory.
 **Migrowanie maszyn wirtualnych między regionami w ramach obsługiwanych klastrów geograficznych (w ramach i między subskrypcjami)** | Obsługiwane w ramach tej samej dzierżawy Azure Active Directory.
 **Migrowanie maszyn wirtualnych w tym samym regionie** | Nieobsługiwane.
+**Dedykowane hosty platformy Azure** | Nieobsługiwane.
 
 ## <a name="region-support"></a>Obsługa regionów
 
@@ -205,7 +206,7 @@ Maszyny wirtualne migrowane przy użyciu Site Recovery | Obsługiwane | Jeśli m
 Zasady kontroli RBAC platformy Azure | Nieobsługiwane | Zasady kontroli dostępu opartej na rolach (Azure RBAC) na maszynach wirtualnych nie są replikowane do maszyny wirtualnej trybu failover w regionie docelowym.
 Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są replikowane do maszyny wirtualnej trybu failover w regionie docelowym. Należy ją zainstalować ręcznie po przejściu do trybu failover.
 Grupy umieszczania zbliżeniowe | Obsługiwane | Maszyny wirtualne znajdujące się w grupie umieszczania w sąsiedztwie mogą być chronione przy użyciu Site Recovery.
-Tagi  | Obsługiwane | Tagi wygenerowane przez użytkownika zastosowane na źródłowych maszynach wirtualnych są przenoszone do docelowych maszyn wirtualnych po przejściu do trybu failover lub przejścia w tryb failover.
+Tagi  | Obsługiwane | Tagi wygenerowane przez użytkownika zastosowane na źródłowych maszynach wirtualnych są przenoszone do docelowych maszyn wirtualnych po przejściu do trybu failover lub przejścia w tryb failover. Tagi na maszynach wirtualnych są replikowane co 24 godziny przez cały czas, gdy maszyny wirtualne znajdują się w regionie docelowym.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Zreplikowane maszyny — akcje dysku
@@ -265,7 +266,7 @@ Dyski interfejsu NVMe | Nieobsługiwane
 Dyski udostępnione platformy Azure | Nieobsługiwane
 Opcja bezpiecznego transferu | Obsługiwane
 Dyski z włączonym akceleratorem zapisu | Nieobsługiwane
-Tagi  | Tagi generowane przez użytkownika są replikowane co 24 godziny.
+Tagi  | Obsługiwane | Tagi generowane przez użytkownika są replikowane co 24 godziny.
 
 >[!IMPORTANT]
 > Aby uniknąć problemów z wydajnością, należy się upewnić, że dla [dysków zarządzanych](../virtual-machines/disks-scalability-targets.md)są używane elementy docelowe skalowalności i wydajności dysków maszyny wirtualnej. Jeśli używasz ustawień domyślnych, Site Recovery tworzy wymagane dyski i konta magazynu na podstawie konfiguracji źródłowej. Jeśli dostosowujesz i wybierasz własne ustawienia, postępuj zgodnie z celami skalowalności i wydajności dysków dla źródłowych maszyn wirtualnych.

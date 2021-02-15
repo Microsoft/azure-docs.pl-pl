@@ -8,22 +8,22 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879279"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371944"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Planowanie oferty usługi zarządzanej dla portalu komercyjnego firmy Microsoft
 
 W tym artykule wprowadzono wymagania dotyczące publikowania oferty usługi zarządzanej w portalu komercyjnym firmy Microsoft za pomocą Centrum partnerskiego.
 
-Usługi zarządzane to oferty w portalu Azure Marketplace, które umożliwiają zarządzanie wieloma dzierżawcami i wielodostępną usługą Azure Lighthouse. Aby dowiedzieć się więcej, zobacz [co to jest usługa Azure Lighthouse?](../lighthouse/overview.md) Gdy klient kupuje ofertę usługi zarządzanej, może delegować co najmniej jedną subskrypcję lub grupę zasobów
+Usługi zarządzane to oferty w portalu Azure Marketplace, które umożliwiają zarządzanie wieloma dzierżawcami i wielodostępną usługą Azure Lighthouse. Aby dowiedzieć się więcej, zobacz [co to jest usługa Azure Lighthouse?](../lighthouse/overview.md) Gdy klient kupuje ofertę usługi zarządzanej, może delegować co najmniej jedną subskrypcję lub grupę zasobów. Następnie możesz korzystać z tych zasobów, korzystając z funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../lighthouse/concepts/azure-delegated-resource-management.md) Lighthouse.
 
 ## <a name="eligibility-requirements"></a>Wymagania dotyczące kwalifikowania się
 
-Aby opublikować usługę zarządzaną, należy uzyskać kompetencje firmy Microsoft dotyczące złota lub srebra na platformie chmury. Ta kompetencja pokazuje Twoją wiedzę dla klientów. Aby uzyskać więcej informacji, zobacz [Microsoft Partner Network kompetencji](https://partner.microsoft.com/membership/competencies).
+Aby opublikować ofertę usługi zarządzanej, należy uzyskać kompetencje firmy Microsoft dotyczące złota lub srebra na platformie chmurowej. Ta kompetencja pokazuje Twoją wiedzę dla klientów. Aby uzyskać więcej informacji, zobacz [Microsoft Partner Network kompetencji](https://partner.microsoft.com/membership/competencies).
 
 Oferty muszą spełniać wszystkie odpowiednie [komercyjne zasady certyfikacji portalu Marketplace](/legal/marketplace/certification-policies) , które mają zostać opublikowane w portalu Azure Marketplace.
 

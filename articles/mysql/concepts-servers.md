@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 5477aa0c4eb2a66af816b287a8b6d7da8a53952f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ed6d5d676fd2c6eefd3288b7609446eb61611ed6
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534895"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517981"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Pojęcia dotyczące serwerów w Azure Database for MySQL
 
@@ -46,7 +46,7 @@ Poniższe elementy zapewniają bezpieczny dostęp do bazy danych programu.
 | **Zapora** | Aby zapewnić ochronę danych, reguła zapory zapobiega wszystkim dostępowi do serwera bazy danych, dopóki nie określisz, które komputery mają uprawnienia. Zobacz [reguły zapory serwera Azure Database for MySQL](./concepts-firewall-rules.md). |
 | **Protokół SSL** | Usługa obsługuje wymuszanie połączeń SSL między aplikacjami a serwerem bazy danych.  Zobacz [Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MySQL](./howto-configure-ssl.md). |
 
-## <a name="stopstart-an-azure-database-for-mysql-preview"></a>Zatrzymywanie/uruchamianie Azure Database for MySQL (wersja zapoznawcza)
+## <a name="stopstart-an-azure-database-for-mysql"></a>Zatrzymywanie/uruchamianie Azure Database for MySQL
 
 Azure Database for MySQL daje możliwość **zatrzymania** serwera, gdy nie jest używany, i **uruchamiania** serwera podczas wznawiania działania. Ma to na celu zaoszczędzenie kosztów na serwerach bazy danych i płatność tylko za zasób, gdy jest używany. Jest to jeszcze ważniejsze w przypadku obciążeń deweloperskich i testowych, a w przypadku korzystania z serwera tylko dla części dnia. Po zatrzymaniu serwera wszystkie aktywne połączenia zostaną usunięte. Później, jeśli chcesz przywrócić serwer do trybu online, możesz użyć [Azure Portal](how-to-stop-start-server.md) lub [interfejsu wiersza polecenia](how-to-stop-start-server.md).
 
@@ -67,5 +67,5 @@ Serwerami Azure Database for MySQL można zarządzać przy użyciu Azure Portal 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z omówieniem usługi, zobacz [Azure Database for MySQL przegląd](./overview.md)
-- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy cenowej** , zobacz [warstwy cenowe](./concepts-pricing-tiers.md)
+- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy cenowej**, zobacz [warstwy cenowe](./concepts-pricing-tiers.md)
 - Aby uzyskać informacje na temat nawiązywania połączenia z usługą, zobacz [biblioteki połączeń dla Azure Database for MySQL](./concepts-connection-libraries.md).

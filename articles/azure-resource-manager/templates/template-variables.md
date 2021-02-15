@@ -1,28 +1,82 @@
 ---
 title: Zmienne w szablonach
-description: Opisuje sposób definiowania zmiennych w szablonie Azure Resource Manager (szablon ARM).
+description: Opisuje sposób definiowania zmiennych w szablonie Azure Resource Manager (szablon ARM) i pliku Bicep.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: feecc4b5df77e6a3bf51294cb12aabf44899dde5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 02/12/2021
+ms.openlocfilehash: cafd42112e5d296cb73f88e292a66ca2203f3810
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874438"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364464"
 ---
-# <a name="variables-in-arm-template"></a>Zmienne w szablonie ARM
+# <a name="variables-in-arm-templates"></a>Zmienne w szablonach ARM
 
-W tym artykule opisano sposób definiowania i używania zmiennych w szablonie Azure Resource Manager (szablon ARM). Do uproszczenia szablonu używane są zmienne. Zamiast powtarzać skomplikowane wyrażenia w całym szablonie, należy zdefiniować zmienną, która zawiera wyrażenie złożone. Następnie należy odwołać się do tej zmiennej w zależności od potrzeb w szablonie.
+W tym artykule opisano sposób definiowania i używania zmiennych w szablonie Azure Resource Manager (szablon ARM) lub pliku Bicep. Do uproszczenia szablonu używane są zmienne. Zamiast powtarzać skomplikowane wyrażenia w całym szablonie, należy zdefiniować zmienną, która zawiera wyrażenie złożone. Następnie użyj tej zmiennej w miarę potrzeb w całym szablonie.
 
 Menedżer zasobów rozpoznaje zmienne przed rozpoczęciem operacji wdrażania. Wszędzie tam, gdzie w szablonie jest używana zmienna, usługa Resource Manager zastępuje ją rozpoznaną wartością.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## <a name="define-variable"></a>Zdefiniuj zmienną
 
-Podczas definiowania zmiennej podaj wartość lub wyrażenie szablonu, które jest rozpoznawane jako [Typ danych](template-syntax.md#data-types). Podczas konstruowania zmiennej można użyć wartości z parametru lub innej zmiennej.
+Podczas definiowania zmiennej nie jest określany [Typ danych](template-syntax.md#data-types) dla zmiennej. Zamiast tego podaj wartość lub wyrażenie szablonu. Typ zmiennej jest wywnioskowany na podstawie rozwiązanej wartości. Poniższy przykład ustawia zmienną na ciąg.
 
-Możesz użyć [funkcji szablonu](template-functions.md) w deklaracji zmiennej, ale nie można użyć funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) . Te funkcje uzyskują stan środowiska uruchomieniowego zasobu i nie można ich wykonać przed wdrożeniem, gdy zmienne są rozwiązane.
+# <a name="json"></a>[JSON](#tab/json)
 
-W poniższym przykładzie przedstawiono definicję zmiennej. Tworzy wartość ciągu dla nazwy konta magazynu. Używa kilka funkcji szablonu do uzyskania wartości parametru i łączy ją z unikatowym ciągiem.
+```json
+"variables": {
+  "stringVar": "example value"
+},
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var stringVar = 'example value'
+```
+
+---
+
+Podczas konstruowania zmiennej można użyć wartości z parametru lub innej zmiennej.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "inputValue": {
+    "defaultValue": "deployment parameter",
+    "type": "string"
+  }
+},
+"variables": {
+  "stringVar": "myVariable",
+  "concatToVar": "[concat(variables('stringVar'), '-addtovar') ]",
+  "concatToParam": "[concat(parameters('inputValue'), '-addtoparam')]"
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param inputValue string = 'deployment parameter'
+
+var stringVar = 'myVariable'
+var concatToVar =  '${stringVar}-addtovar'
+var concatToParam = '${inputValue}-addtoparam'
+```
+
+---
+
+Możesz użyć [funkcji szablonu](template-functions.md) do skonstruowania wartości zmiennej.
+
+W szablonach JSON nie można używać funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) w deklaracji zmiennej. Te funkcje uzyskują stan środowiska uruchomieniowego zasobu i nie można ich wykonać przed wdrożeniem, gdy zmienne są rozwiązane.
+
+Funkcje Reference i list są prawidłowe w przypadku deklarowania zmiennej w pliku Bicep.
+
+Poniższy przykład tworzy wartość ciągu dla nazwy konta magazynu. Używa kilka funkcji szablonu do uzyskania wartości parametru i łączy ją z unikatowym ciągiem.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "variables": {
@@ -30,9 +84,21 @@ W poniższym przykładzie przedstawiono definicję zmiennej. Tworzy wartość ci
 },
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+```
+
+---
+
 ## <a name="use-variable"></a>Użyj zmiennej
 
-W szablonie należy odwołać się do wartości parametru za pomocą funkcji [zmienne](template-functions-deployment.md#variables) . Poniższy przykład pokazuje, jak używać zmiennej dla właściwości zasobu.
+Poniższy przykład pokazuje, jak używać zmiennej dla właściwości zasobu.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+W szablonie JSON należy odwołać się do wartości zmiennej przy użyciu funkcji [zmienne](template-functions-deployment.md#variables) .
 
 ```json
 "resources": [
@@ -44,17 +110,46 @@ W szablonie należy odwołać się do wartości parametru za pomocą funkcji [zm
 ]
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+W pliku Bicep należy odwołać się do wartości zmiennej, podając nazwę zmiennej.
+
+```bicep
+resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: storageName
+```
+
+---
+
 ## <a name="example-template"></a>Przykładowy szablon
 
-Następujący szablon nie wdraża żadnych zasobów. Po prostu pokazuje pewne sposoby deklarowania zmiennych.
+Następujący szablon nie wdraża żadnych zasobów. Przedstawia on niektóre sposoby deklarowania zmiennych różnych typów.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variables.json":::
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Bicep obecnie nie obsługuje pętli.
+
+:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/variables.bicep":::
+
+---
+
 ## <a name="configuration-variables"></a>Zmienne konfiguracyjne
 
-Można zdefiniować zmienne, które przechowują powiązane wartości w celu skonfigurowania środowiska. Zmienna jest definiowana jako obiekt z wartościami. Poniższy przykład pokazuje obiekt, który przechowuje wartości dla dwóch środowisk — **test** i **prod**. Podczas wdrażania należy przekazać jedną z tych wartości.
+Można zdefiniować zmienne, które przechowują powiązane wartości w celu skonfigurowania środowiska. Zmienna jest definiowana jako obiekt z wartościami. Poniższy przykład pokazuje obiekt, który przechowuje wartości dla dwóch środowisk — **test** i **prod**. Podczas wdrażania Przekaż jedną z tych wartości.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.json":::
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.bicep":::
+
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

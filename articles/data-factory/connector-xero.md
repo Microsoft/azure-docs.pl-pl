@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z Xero za pomocą Azure Data Factory
 description: Informacje o kopiowaniu danych z programu Xero do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/26/2021
 ms.author: jingwang
-ms.openlocfilehash: 3f8c74f36c1c441e00b808954ce7f7710d3fbd52
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d795f8355943032751b911423b8aaa93b2df3206
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879969"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366912"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Kopiowanie danych z Xero za pomocą Azure Data Factory
 
@@ -52,10 +47,10 @@ Dla połączonej usługi Xero są obsługiwane następujące właściwości:
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość: **Xero** | Tak |
 | connectionProperties | Grupa właściwości, która definiuje sposób nawiązywania połączenia z Xero. | Tak |
-| **_W obszarze `connectionProperties` :_* _ | | |
+| ***W obszarze `connectionProperties` :*** | | |
 | host | Punkt końcowy serwera Xero ( `api.xero.com` ).  | Tak |
 | authenticationType | Dozwolone wartości to `OAuth_2.0` i `OAuth_1.0` . | Tak |
-| consumerKey | W przypadku protokołu OAuth 2,0 Określ *Identyfikator _ klienta** dla aplikacji Xero.<br>W przypadku protokołu OAuth 1,0 Określ klucz klienta skojarzony z aplikacją Xero.<br>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| consumerKey | W przypadku protokołu OAuth 2,0 Określ **Identyfikator klienta** dla aplikacji Xero.<br>W przypadku protokołu OAuth 1,0 Określ klucz klienta skojarzony z aplikacją Xero.<br>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | privateKey | W przypadku protokołu OAuth 2,0 Określ **klucz tajny klienta** dla aplikacji Xero.<br>W przypadku protokołu OAuth 1,0 Określ klucz prywatny z pliku PEM, który został wygenerowany dla aplikacji prywatnej Xero, zobacz [Tworzenie pary kluczy publicznych/prywatnych](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Uwaga Aby **wygenerować PrivateKey. pem z numbitsem 512** przy użyciu `openssl genrsa -out privatekey.pem 512` , 1024 nie jest obsługiwane. Dołącz cały tekst z pliku PEM włącznie z zakończeniami wierszy systemu UNIX (\n), zobacz przykład poniżej.<br/><br>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | tenantId | Identyfikator dzierżawy skojarzony z aplikacją Xero. Dotyczy uwierzytelniania OAuth 2,0.<br>Dowiedz się, jak uzyskać identyfikator dzierżawy od [sprawdzenia dzierżawców, do których](https://developer.xero.com/documentation/oauth2/auth-flow)masz uprawnienia dostępu. | Tak dla uwierzytelniania OAuth 2,0 |
 | refreshToken | Dotyczy uwierzytelniania OAuth 2,0.<br/>Token odświeżania OAuth 2,0 jest skojarzony z aplikacją Xero i używany do odświeżania tokenu dostępu. token dostępu wygasa po 30 minutach. Dowiedz się więcej o tym, jak działa przepływ autoryzacji Xero oraz jak uzyskać token odświeżania z [tego artykułu](https://developer.xero.com/documentation/oauth2/auth-flow). Aby uzyskać token odświeżania, należy zażądać [zakresu offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>Informacje o **ograniczeniu**: Uwaga Xero resetuje token odświeżania, gdy jest używany do odświeżania tokenu dostępu. W przypadku obciążenia operacyjnego przed każdym uruchomieniem działania kopiowania należy ustawić prawidłowy token odświeżania na potrzeby funkcji ADF.<br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak dla uwierzytelniania OAuth 2,0 |

@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak zarządzać kopiami zapasowymi SA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb552c5a336c3c55652936b87a668b54cfdeb41e
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 665dfc64e750f448fc4c1a2d7e18f0cb6552f223
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507235"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371774"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: zarządzanie bazami danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -95,7 +95,7 @@ Przykład:
 az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
 ```
 
-Przykładowe dane wyjściowe JSON (sappolicy.json):
+Przykładowy kod JSON (sappolicy.json):
 
 ```json
   "eTag": null,
@@ -226,11 +226,12 @@ Przykładowe dane wyjściowe JSON (sappolicy.json):
     ],
     "workLoadType": "SAPHanaDatabase"
   },
-  "resourceGroup": "azurefiles",
+  "resourceGroup": "saphanaResourceGroup",
   "tags": null,
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+Po pomyślnym utworzeniu zasad dane wyjściowe polecenia będą wyświetlać kod JSON zasad, który został przesłany jako parametr podczas wykonywania polecenia.
 
 Aby określić żądaną częstotliwość tworzenia kopii zapasowych i przechowywać przyrostowe kopie zapasowe, można zmodyfikować następującą sekcję zasad.
 
