@@ -1,22 +1,18 @@
 ---
 title: Kopiowanie i Przekształcanie danych w Azure Database for PostgreSQL
 description: Dowiedz się, jak kopiować i przekształcać dane w Azure Database for PostgreSQL przy użyciu Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/01/2021
-ms.openlocfilehash: 8b1177278583bdb46f17119eb59235e70c58e806
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 32c65a3e1063b29ab6458151aec42e4415a73b62
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223099"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381328"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure Database for PostgreSQL przy użyciu Azure Data Factory
 
@@ -73,7 +69,7 @@ Typowe parametry połączenia to `Server=<server>.postgres.database.azure.com;Da
 
 **Przykład:**
 
-**_Zapisz hasło w Azure Key Vault_* _
+***Zapisz hasło w Azure Key Vault***
 
 ```json
 {
@@ -99,7 +95,7 @@ Typowe parametry połączenia to `Server=<server>.postgres.database.azure.com;Da
 
 Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz [zestawy danych w Azure Data Factory](concepts-datasets-linked-services.md). Ta sekcja zawiera listę właściwości, które Azure Database for PostgreSQL obsługiwane w zestawach danych.
 
-Aby skopiować dane z Azure Database for PostgreSQL, ustaw właściwość Type zestawu danych na _ * AzurePostgreSqlTable * *. Obsługiwane są następujące właściwości:
+Aby skopiować dane z Azure Database for PostgreSQL, ustaw właściwość Type zestawu danych na **AzurePostgreSqlTable**. Obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9fa23ca2ae655a11d7aaa4be67e08a6b3fa44394
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6e53a6a4875b3dde55d1822daa342d6cde536d1c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359391"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096433"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurowanie modułu równoważenia obciążenia dla SQL Server zawsze włączone grupy dostępności na platformie Azure Virtual Machines
 
@@ -76,12 +76,12 @@ Najpierw Utwórz moduł równoważenia obciążenia.
    | **Sieć wirtualna** |Wybierz sieć wirtualną, w której znajdują się wystąpienia SQL Server. |
    | **Podsieć** |Wybierz podsieć, w której znajdują się wystąpienia SQL Server. |
    | **Przypisanie adresu IP** |**Statyczny** |
-   | **Prywatny adres IP** |Określ dostępny adres IP z podsieci. Użyj tego adresu IP podczas tworzenia odbiornika w klastrze. W skrypcie programu PowerShell w dalszej części tego artykułu Użyj tego adresu dla `$ILBIP` zmiennej. |
+   | **Prywatny adres IP** |Określ dostępny adres IP z podsieci. Użyj tego adresu IP podczas tworzenia odbiornika w klastrze. W skrypcie programu PowerShell w dalszej części tego artykułu Użyj tego adresu dla `$ListenerILBIP` zmiennej. |
    | **Subskrypcja** |Jeśli masz wiele subskrypcji, to pole może się pojawić. Wybierz subskrypcję, którą chcesz skojarzyć z tym zasobem. Zwykle jest to taka sama subskrypcja jak wszystkie zasoby dla grupy dostępności. |
    | **Grupa zasobów** |Wybierz grupę zasobów, w której znajdują się wystąpienia SQL Server. |
    | **Lokalizacja** |Wybierz lokalizację platformy Azure, w której znajdują się wystąpienia SQL Server. |
 
-6. Wybierz pozycję **Utwórz**. 
+6. Wybierz przycisk **Utwórz**. 
 
 Platforma Azure tworzy moduł równoważenia obciążenia. Moduł równoważenia obciążenia należy do określonej sieci, podsieci, grupy zasobów i lokalizacji. Po zakończeniu zadania przez platformę Azure Sprawdź ustawienia modułu równoważenia obciążenia na platformie Azure. 
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5012e90aae316897454ffc7933efc88d83afdf6e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893387"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361772"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
@@ -74,6 +74,7 @@ W celu zapewnienia bezpieczeństwa partnerzy firmy Microsoft z następującymi d
 | Partner niezależnego dostawcy oprogramowania | Wskazówki dotyczące opisu i integracji |
 |:-------------------------|:--------------|
 | ![Zrzut ekranu przedstawiający logo laboratorium Arkose](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) to dostawca rozwiązań zapobiegania oszustwom, który pomaga organizacjom chronić przed atakami bot, atakami polegającymi na przejęciu kont i nieuczciwych otwartych kontach. |
+| ![Zrzut ekranu przedstawiający logo systemu Microsoft Dynamics 365](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Ochrona oszustw w systemie Microsoft Dynamics 365](./partner-dynamics-365-fraud-protection.md) to rozwiązanie, które ułatwia organizacjom ochronę przed nieuczciwymi procesami otwierania konta za pomocą odcisku palca urządzeń. |
 | ![Zrzut ekranu przedstawiający logo polecenia ping](./media/partner-gallery/ping-logo.png) | [Polecenie ping Identity](./partner-ping-identity.md) umożliwia bezpieczny dostęp hybrydowy do lokalnych starszych aplikacji w wielu chmurach. |
 | ![Zrzut ekranu przedstawiający logo warstwy strat](./media/partner-gallery/strata-logo.png) | Firma [strat](./partner-strata.md) zapewnia bezpieczny dostęp hybrydowy do aplikacji lokalnych przez wymuszanie spójnych zasad dostępu, utrzymywanie tożsamości w synchronizacji oraz proste przenoszenie aplikacji ze starszych systemów tożsamości do opartych na standardach uwierzytelniania i kontroli dostępu zapewnianych przez Azure AD B2C. |
 | ![Zrzut ekranu przedstawiający logo rozwiązania Zscaler](./media/partner-gallery/zscaler-logo.png) | [Rozwiązania Zscaler](./partner-zscaler.md) zapewnia oparte na zasadach, bezpieczny dostęp do prywatnych aplikacji i zasobów bez konieczności ponoszenia kosztów, problemów lub zagrożeń bezpieczeństwa sieci VPN. |

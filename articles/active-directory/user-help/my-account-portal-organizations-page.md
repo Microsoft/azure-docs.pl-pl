@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 09/10/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ef2e79f8c8e7964d04db0dd1a3f9988599fcb130
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370342"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094121"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Zarządzanie organizacjami, do których masz dostęp w portalu My Account
 
@@ -30,21 +30,26 @@ Strona **organizacje** portalu **My Account** ułatwia zarządzanie organizacjam
 - **Inne organizacje.** Inne organizacje to wszystkie grupy, do których użytkownik zalogował się wcześniej przy użyciu konta służbowego. W każdej chwili możesz opuścić każdą z tych organizacji.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o organizacji, do których uzyskuje dostęp za pomocą konta służbowego. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu grupami i użytkownikami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą zarządzania użytkownikami przedsiębiorstwa](../enterprise-users/index.yml).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o organizacji, do których uzyskuje dostęp za pomocą konta służbowego. Jeśli podczas logowania za pomocą osobistego konto Microsoft zostanie wyświetlony komunikat o błędzie, możesz w dalszym ciągu zalogować się przy użyciu nazwy domeny organizacji (takiej jak contoso.com) lub **identyfikatora dzierżawy** organizacji od administratora w jednym z następujących adresów URL:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Jeśli jesteś administratorem, który szuka informacji o zarządzaniu grupami i użytkownikami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą zarządzania użytkownikami przedsiębiorstwa](../enterprise-users/index.yml).
 
 ## <a name="view-your-organizations"></a>Wyświetlanie organizacji
 
-1. Zaloguj się do konta służbowego, a następnie przejdź do strony **Moje konto** ( https://myaccount.microsoft.com/) Strona.
+1. Zaloguj się do konta służbowego, a następnie przejdź do strony **Moje konto** ( https://myaccount.microsoft.com/) Strona. 
 
-2. W okienku nawigacji po lewej stronie wybierz pozycję **organizacje** lub wybierz łącze **Zarządzaj organizacjami** w bloku **organizacje** .
+1. W okienku nawigacji po lewej stronie wybierz pozycję **organizacje** lub wybierz łącze **Zarządzaj organizacjami** w bloku **organizacje** .
 
     ![Strona Moje konto z widocznymi łączami wyróżnionych organizacji](media/my-account-portal/my-account-portal-organizations.png)
 
-3. Przejrzyj informacje dotyczące **organizacji domowej**.
+1. Przejrzyj informacje dotyczące **organizacji domowej**.
 
     ![Strona organizacji](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Zapoznaj się z innymi organizacjami, aby rozpoznać wszystkie organizacje, do których masz dostęp.
+1. Zapoznaj się z innymi organizacjami, aby rozpoznać wszystkie organizacje, do których masz dostęp.
 
 ## <a name="leave-an-organization"></a>Opuszczanie organizacji
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: 2192ae5f3de551cb8ff2b6c36e233804c3c56bf1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633251"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380138"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Eksportowanie przepływów z usługi Power Automate i wdrażanie w usłudze Azure Logic Apps
 
@@ -24,7 +24,7 @@ Aby rozszerzać i rozszerzać możliwości przepływu, można migrować ten prze
 >
 > * Aby dowiedzieć się, które łączniki automatyzuje nie mają odpowiedników Logic Apps, zobacz [Łączniki automatyzacji](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Aby dowiedzieć się, które łączniki Logic Apps nie mają odpowiedników, zobacz [Logic Apps łączników](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Aby dowiedzieć się, które łączniki Logic Apps nie mają odpowiedników, zobacz [Logic Apps łączników](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -78,7 +78,7 @@ Aby uzyskać więcej informacji, zobacz [zwiększanie do Azure Logic Apps](https
       | <*Nazwa połączenia*> | Jedna lub wiele nazw dla wszystkich wcześniej utworzonych połączeń, które mogą być używane przez aplikację logiki <p><p>**Uwaga**: Jeśli ta aplikacja logiki jest w pierwszej kolejności, wszystkie połączenia są tworzone jako nowe, więc można zaakceptować domyślne nazwy. W przeciwnym razie można określić nazwy dla wcześniej utworzonych połączeń, które mogą być używane w wielu aplikacjach logiki. |
       |||
 
-      Przykład:
+      Na przykład:
 
       ![Określ parametry wejściowe dla szablonu](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
@@ -158,7 +158,7 @@ Jeśli skonfigurowano program Visual Studio z [wymaganiami wstępnymi](../logic-
 
    ![Edytuj parametry wdrożenia](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   Po rozpoczęciu wdrażania stan wdrożenia aplikacji zostanie wyświetlony w oknie **Dane wyjściowe** programu Visual Studio. Jeśli stan się nie pojawi, otwórz listę **Pokaż dane wyjściowe z** i wybierz grupę zasobów platformy Azure. Przykład:
+   Po rozpoczęciu wdrażania stan wdrożenia aplikacji zostanie wyświetlony w oknie **Dane wyjściowe** programu Visual Studio. Jeśli stan się nie pojawi, otwórz listę **Pokaż dane wyjściowe z** i wybierz grupę zasobów platformy Azure. Na przykład:
 
    ![Okno wyniku](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

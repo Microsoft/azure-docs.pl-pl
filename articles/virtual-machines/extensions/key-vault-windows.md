@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e1a9f5d08168841d7651a17e2de4995b7a7cf38b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f7c8a7eb06490a46e1c5b633944dcd596fa08515
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820725"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093628"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
 
@@ -35,25 +35,31 @@ Rozszerzenie maszyny wirtualnej Key Vault jest również obsługiwane na niestan
 - #12 PKCS
 - PEM
 
-## <a name="prerequisities"></a>Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
+
   - Key Vault wystąpienie z certyfikatem. Zobacz [tworzenie Key Vault](../../key-vault/general/quick-create-portal.md)
   - Maszyna wirtualna musi mieć przypisaną [tożsamość zarządzaną](../../active-directory/managed-identities-azure-resources/overview.md)
   - Zasady dostępu Key Vault muszą być ustawione przy użyciu wpisów tajnych `get` i `list` uprawnień dla tożsamości ZARZĄDZANEJ maszyny wirtualnej/VMSS w celu pobrania części certyfikatu klucza tajnego. Zobacz [Jak przeprowadzić uwierzytelnianie, aby Key Vault](../../key-vault/general/authentication.md) i [przypisać zasady dostępu Key Vault](../../key-vault/general/assign-access-policy-cli.md).
-  -  VMSS powinny mieć następujące ustawienie tożsamości: ` 
+  -  Virtual Machine Scale Sets powinna mieć następujące ustawienie tożsamości:
+
+  ``` 
   "identity": {
-  "type": "UserAssigned",
-  "userAssignedIdentities": {
-  "[parameters('userAssignedIdentityResourceId')]": {}
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "[parameters('userAssignedIdentityResourceId')]": {}
+    }
   }
-  }
-  `
+  ```
   
-- Rozszerzenie AKV powinno mieć to ustawienie: `
-                  "authenticationSettings": {
-                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
-                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
-                  }
-   `
+  - Rozszerzenie AKV powinno mieć to ustawienie:
+
+  ```
+  "authenticationSettings": {
+    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+  }
+  ```
+
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
 Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault. Rozszerzenie nie wymaga ustawień chronionych — wszystkie jego ustawienia są uznawane za informacje publiczne. Rozszerzenie wymaga listy monitorowanych certyfikatów, częstotliwości sondowania i docelowego magazynu certyfikatów. W szczególności:  
@@ -164,7 +170,9 @@ Aby je włączyć, ustaw następujące elementy:
     ...
 }
 ```
-> Korygując Korzystanie z tej funkcji jest niezgodne z szablonem usługi ARM, który tworzy tożsamość przypisaną do systemu i aktualizuje zasady dostępu Key Vault przy użyciu tej tożsamości. Wykonanie tej czynności spowoduje zakleszczenie, ponieważ nie będzie można zaktualizować zasad dostępu do magazynu, dopóki nie zostaną uruchomione wszystkie rozszerzenia. Przed wdrożeniem należy zamiast tego użyć *pojedynczej tożsamości pliku MSI przypisanej do użytkownika* i wstępnie listy ACL magazynów z tą tożsamością.
+
+> [!Note] 
+> Korzystanie z tej funkcji jest niezgodne z szablonem usługi ARM, który tworzy tożsamość przypisaną do systemu i aktualizuje zasady dostępu Key Vault przy użyciu tej tożsamości. Wykonanie tej czynności spowoduje zakleszczenie, ponieważ nie będzie można zaktualizować zasad dostępu do magazynu, dopóki nie zostaną uruchomione wszystkie rozszerzenia. Przed wdrożeniem należy zamiast tego użyć *pojedynczej tożsamości pliku MSI przypisanej do użytkownika* i wstępnie listy ACL magazynów z tą tożsamością.
 
 ## <a name="azure-powershell-deployment"></a>Wdrożenie Azure PowerShell
 > [!WARNING]
@@ -222,9 +230,9 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
     
     ```azurecli
        # Start the deployment
-         az vm extension set --name "KeyVaultForWindows" `
+         az vm extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         --resource-group "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
@@ -233,9 +241,9 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
 
    ```azurecli
         # Start the deployment
-        az vmss extension set --name "KeyVaultForWindows" `
+        az vmss extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         --resource-group "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```

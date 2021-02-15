@@ -12,6 +12,8 @@
       href: quickstarts/create-communication-resource.md
     - name: Tworzenie tokenów dostępu i zarządzanie nimi
       href: quickstarts/access-tokens.md
+    - name: Korzystanie z tożsamości zarządzanych (.NET)
+      href: quickstarts/managed-identity.md
     - name: Czat
       items:
         - name: Dodawanie czatu do aplikacji
@@ -58,8 +60,6 @@
 - name: Pojęcia
   expanded: false
   items:
-    - name: Współdziałanie usługi Teams
-      href: concepts/teams-interop.md
     - name: Czat
       items:
         - name: Omówienie biblioteki klienta czatu
@@ -72,8 +72,12 @@
           href: concepts/telephony-sms/sdk-features.md
         - name: Pojęcia dotyczące wiadomości SMS
           href: concepts/telephony-sms/concepts.md
-        - name: Planowanie rozwiązania do obsługi telefonii i wiadomości SMS
+        - name: Koncepcje dotyczące telefonii
+          href: concepts/telephony-sms/telephony-concept.md
+        - name: Typy numerów telefonów w usłudze Azure Communications Services
           href: concepts/telephony-sms/plan-solution.md
+        - name: Wymagania dotyczące infrastruktury interfejsu SIP
+          href: concepts/telephony-sms/sip-interface-infrastructure.md
     - name: Połączenia głosowe i wideo
       items:
         - name: Omówienie biblioteki klienta połączeń
@@ -86,6 +90,8 @@
           href: concepts/ui-framework/ui-sdk-overview.md
         - name: Możliwości struktury interfejsu użytkownika
           href: concepts/ui-framework/ui-sdk-features.md
+    - name: Współdziałanie usługi Teams
+      href: concepts/teams-interop.md
     - name: Architektura klienta i serwera
       href: concepts/client-and-server-architecture.md
     - name: Przepływy połączenia

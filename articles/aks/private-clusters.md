@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 2749e66375fbd808a9e87f252a813f1054ceff21
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: d3b53c860c150b5b67d38cf5d11db9f070ffb81d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525572"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392803"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -66,7 +66,7 @@ Gdzie `--enable-private-cluster` jest obowiązkową flagą dla klastra prywatneg
 > [!NOTE]
 > Jeśli adres CIDR (172.17.0.1/16) mostka platformy Docker koliduje z maską CIDR podsieci, należy odpowiednio zmienić adres mostka platformy Docker.
 
-## <a name="configure-private-dns-zone"></a>Konfigurowanie strefy Prywatna strefa DNS
+## <a name="configure-private-dns-zone"></a>Konfigurowanie strefy Prywatna strefa DNS 
 
 Aby skonfigurować strefę Prywatna strefa DNS, można użyć następujących parametrów.
 
@@ -79,7 +79,7 @@ Aby skonfigurować strefę Prywatna strefa DNS, można użyć następujących pa
 * AKS wersja zapoznawcza 0.4.71 lub nowsza
 * Interfejs API w wersji 2020-11-01 lub nowszej
 
-### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Tworzenie prywatnego klastra AKS z strefą Prywatna strefa DNS
+### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Tworzenie prywatnego klastra AKS z strefą Prywatna strefa DNS (wersja zapoznawcza)
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]

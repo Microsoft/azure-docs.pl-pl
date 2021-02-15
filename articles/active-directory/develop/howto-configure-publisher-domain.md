@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d793ed912af1c6fdd6e0da417b8709cad8bf08b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013638"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104182"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Instrukcje: Konfigurowanie domeny wydawcy aplikacji
 
@@ -34,7 +34,7 @@ Poniższa tabela zawiera podsumowanie domyślnego zachowania wartości domeny wy
 
 | Domeny zweryfikowane przez dzierżawcę | Domyślna wartość domeny wydawcy |
 |-------------------------|----------------------------|
-| wartość null | wartość null |
+| null | null |
 | *. onmicrosoft.com | *. onmicrosoft.com |
 | -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (podstawowy) | domain2.com |
 
@@ -48,18 +48,12 @@ Jeśli aplikacja została zarejestrowana przed 21 maja 2019, monit o zgodę apli
 
 Aby ustawić domenę wydawcy aplikacji, wykonaj następujące kroki.
 
-1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> przy użyciu konta służbowego lub konto Microsoft prywatnego.
-
-1. Jeśli Twoje konto jest obecne w więcej niż jednej dzierżawie usługi Azure AD:
-   1. Wybierz swój profil z menu w prawym górnym rogu strony, a następnie **Przełącz katalog**.
-   1. Zmień sesję na dzierżawę usługi Azure AD, w której chcesz utworzyć aplikację.
-
+1. Zaloguj się w witrynie <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym zarejestrowano aplikację.
 1. Przejdź do [Azure Active Directory > rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) , aby znaleźć i wybrać aplikację, którą chcesz skonfigurować.
 
    Po wybraniu aplikacji zobaczysz stronę **omówienia** aplikacji.
-
-1. Na stronie **Przegląd** aplikacji wybierz sekcję **znakowania** .
-
+1. W obszarze **Zarządzaj** wybierz **znakowanie**.
 1. Znajdź pole **domena wydawcy** i wybierz jedną z następujących opcji:
 
    - Wybierz opcję **Konfiguruj domenę** , jeśli jeszcze nie skonfigurowano domeny.

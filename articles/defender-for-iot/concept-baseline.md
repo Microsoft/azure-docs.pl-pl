@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 75c6841b7fed354843b955a971f02946be349a02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548889"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102244"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Usługa Azure Defender dla linii bazowej i czeków niestandardowych
 
@@ -35,9 +35,13 @@ Niestandardowe kontrole linii bazowej określają niestandardową listę kontrol
 ## <a name="setting-baseline-properties"></a>Ustawianie właściwości linii bazowej
 
 1. W IoT Hub Znajdź i wybierz urządzenie, które chcesz zmienić.
+
 1. Kliknij urządzenie, a następnie kliknij moduł **azureiotsecurity** .
+
 1. Kliknij pozycję **moduł identyfikacja sznurka**.
+
 1. Przekaż **niestandardowy plik kontroli linii bazowej** na urządzenie.
+
 1. Dodaj właściwości linii bazowej do modułu zabezpieczeń, a następnie kliknij przycisk **Zapisz**.
 
 ### <a name="baseline-custom-check-file-example"></a>Przykład podstawowego pliku sprawdzania niestandardowego

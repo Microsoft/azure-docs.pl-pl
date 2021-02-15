@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba00e6f4fe97b0614483fd04ddee9fc768558db5
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102108"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384456"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Informacje o rolach wymaganych do wykonywania typowych zadań w programie Synapse
 
@@ -87,7 +87,7 @@ Wyświetlanie dzienników dla notesu i wykonywania zadań |Operator obliczeń Sy
 Anulowanie dowolnego notesu lub zadania Spark uruchomionego w puli Apache Spark|Synapse operator obliczeń w puli Apache Spark.|bigDataPools/useCompute
 Tworzenie notesu lub definicji zadania|Synapse użytkownika lub </br>Właściciel, współautor lub czytelnik platformy Azure w obszarze roboczym</br> *Do uruchamiania, publikowania lub zatwierdzania zmian są wymagane dodatkowe uprawnienia*|odczyt</br></br></br></br></br> 
 Wyświetlenie listy i otwarcie opublikowanego notesu lub definicji zadania, w tym przeglądanie zapisanych danych wyjściowych|Użytkownik artefaktu Synapse, Wydawca artefaktu Synapse, współautor Synapse w obszarze roboczym|artefakty/odczyt
-Uruchamianie notesu i przeglądanie jego danych wyjściowych|Synapse Apache Spark administrator, operator obliczeń Synapse na wybranej puli Apache Spark|bigDataPools/useCompute 
+Uruchamianie notesu i przeglądanie jego danych wyjściowych lub przesyłanie zadania platformy Spark|Synapse Apache Spark administrator, operator obliczeń Synapse na wybranej puli Apache Spark|bigDataPools/useCompute 
 Publikowanie lub usuwanie notesu lub definicji zadania (łącznie z danymi wyjściowymi) do usługi|Wydawca artefaktu w obszarze roboczym, Synapse Apache Spark administrator|Notesy/zapis, usuwanie
 Zatwierdź zmiany w notesie lub definicji zadania w repozytorium git|Uprawnienia git|brak
 POTOKI, ŚRODOWISKA INTEGRATION RUNTIME, DATAFLOWS, ZESTAWY DANYCH & WYZWALACZE|

@@ -30,7 +30,7 @@
     - name: Przewodniki Szybki start
       expanded: true
       items:
-        - name: Tworzenie serwera
+        - name: Tworzenie pojedynczego serwera MySQL
           items:
             - name: Azure Portal
               href: quickstart-create-mysql-server-database-using-azure-portal.md
@@ -419,8 +419,7 @@
     - name: Przewodniki Szybki start
       expanded: true
       items:
-        - name: Tworzenie serwera
-          expanded: true
+        - name: Tworzenie elastycznego serwera MySQL
           items:
             - name: Azure Portal
               href: flexible-server/quickstart-create-server-portal.md

@@ -1,23 +1,18 @@
 ---
 title: Kopiuj dane z programu SAP Business Warehouse za pośrednictwem usługi Open Hub
 description: Informacje o kopiowaniu danych z programu SAP Business Warehouse (BW) za pośrednictwem usługi Open Hub do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/02/2020
-ms.openlocfilehash: ca8fad59e581ef3f5a3ebf585356564d539f0bbd
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b766ce248a3543ef3323e026d760e550a0e3dd75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430734"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386683"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse za pośrednictwem usługi Open Hub przy użyciu Azure Data Factory
 

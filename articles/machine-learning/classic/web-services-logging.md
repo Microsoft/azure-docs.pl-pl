@@ -4,22 +4,21 @@ description: Dowiedz się, jak włączyć rejestrowanie dla usług sieci Web Mac
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 154479be1eae01bcc533b556b751ed24aee3da2b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c9ce9b7b0d739301e76abd43b265fe28195ed302
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308564"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518287"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Włącz rejestrowanie dla usług sieci Web Azure Machine Learning Studio (klasycznych)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Ten dokument zawiera informacje na temat możliwości rejestrowania usług sieci Web Machine Learning Studio (klasycznych). Rejestrowanie zawiera dodatkowe informacje, po których tylko numer błędu i komunikat mogą pomóc w rozwiązywaniu problemów z wywołaniami do interfejsów API Machine Learning Studio (klasycznego).  
@@ -44,7 +43,7 @@ Rejestrowanie można włączyć z poziomu portalu [usług sieci Web Azure Machin
 
    ![Wybierz poziom rejestrowania](./media/web-services-logging/enable-logging.png)
 
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 
 7. W przypadku klasycznych usług sieci Web Utwórz kontener **"ml-Diagnostics"** .
 
@@ -52,9 +51,9 @@ Rejestrowanie można włączyć z poziomu portalu [usług sieci Web Azure Machin
 
    1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu skojarzonego z usługą sieci Web.
 
-   2. W obszarze **BLOB Service** kliknij pozycję **Containers (kontenery** ).
+   2. W obszarze **BLOB Service** kliknij pozycję **Containers (kontenery**).
 
-   3. Jeśli kontener Container **-Diagnostics** nie istnieje, kliknij pozycję **+ kontener** , nadaj kontenerowi nazwę "ml-Diagnostics" i wybierz **Typ dostępu** jako "BLOB". Kliknij pozycję **OK**.
+   3. Jeśli kontener Container **-Diagnostics** nie istnieje, kliknij pozycję **+ kontener**, nadaj kontenerowi nazwę "ml-Diagnostics" i wybierz **Typ dostępu** jako "BLOB". Kliknij przycisk **OK**.
 
       ![Utwórz nowy kontener do przechowywania dzienników diagnostycznych](./media/web-services-logging/create-ml-diagnostics-container.png)
 
@@ -66,7 +65,7 @@ Rejestrowanie można włączyć z poziomu portalu [usług sieci Web Azure Machin
 ## <a name="the-effects-of-enabling-logging"></a>Skutki włączenia rejestrowania
 Po włączeniu rejestrowania Diagnostyka i błędy w punkcie końcowym usługi sieci Web są rejestrowane w kontenerze obiektów BLOB **diagnostyki ml** na koncie usługi Azure Storage połączonym z obszarem roboczym użytkownika. Ten kontener zawiera wszystkie informacje diagnostyczne dla wszystkich punktów końcowych usługi sieci Web dla wszystkich obszarów roboczych skojarzonych z tym kontem magazynu.
 
-Dzienniki można przeglądać przy użyciu dowolnego z kilku dostępnych narzędzi do eksplorowania konta usługi Azure Storage. Najłatwiejszym rozwiązaniem może być przechodzenie do konta magazynu w Azure Portal, kliknij pozycję **kontenery** , a następnie kliknij kontener **ml — Diagnostyka**.  
+Dzienniki można przeglądać przy użyciu dowolnego z kilku dostępnych narzędzi do eksplorowania konta usługi Azure Storage. Najłatwiejszym rozwiązaniem może być przechodzenie do konta magazynu w Azure Portal, kliknij pozycję **kontenery**, a następnie kliknij kontener **ml — Diagnostyka**.  
 
 ## <a name="log-blob-detail-information"></a>Informacje szczegółowe dotyczące dziennika obiektów BLOB
 Każdy obiekt BLOB w kontenerze przechowuje informacje diagnostyczne dla dokładnie jednej z następujących akcji:

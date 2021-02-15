@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c24fd42f866cd15f84688318050bc07d5ad235e9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447832"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384660"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Zapewnianie modułom dostępu do magazynu lokalnego na urządzeniu
 
@@ -36,7 +36,7 @@ Lub można skonfigurować magazyn lokalny bezpośrednio w manifeście wdrożenia
 "systemModules": {
     "edgeAgent": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
@@ -52,7 +52,7 @@ Lub można skonfigurować magazyn lokalny bezpośrednio w manifeście wdrożenia
     },
     "edgeHub": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
@@ -72,7 +72,7 @@ Lub można skonfigurować magazyn lokalny bezpośrednio w manifeście wdrożenia
 
 Zamień `<HostStoragePath>` i `<ModuleStoragePath>` na ścieżkę magazynu hosta i modułu; obie wartości muszą być ścieżką bezwzględną.
 
-Na przykład w systemie Linux `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` oznacza, że katalog **/etc/iotedge/Storage** w systemie hosta jest mapowany do katalogu **/iotedge/Storage/** w kontenerze. W systemie Windows inny przykład `"Binds":["C:\\temp:C:\\contemp"]` oznacza, że katalog **c: \\ temp** w systemie hosta jest mapowany do katalogu **c: \\ ** , w którym znajduje się w kontenerze.
+Na przykład w systemie Linux `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` oznacza, że katalog **/etc/iotedge/Storage** w systemie hosta jest mapowany do katalogu **/iotedge/Storage/** w kontenerze. W systemie Windows inny przykład `"Binds":["C:\\temp:C:\\contemp"]` oznacza, że katalog **c: \\ temp** w systemie hosta jest mapowany do katalogu **c: \\** , w którym znajduje się w kontenerze.
 
 Ponadto na urządzeniach z systemem Linux upewnij się, że profil użytkownika dla modułu ma wymagane uprawnienia Odczyt, zapis i wykonywanie do katalogu systemu hosta. Powracanie do wcześniejszego przykładu włączenia IoT Edge centrum do przechowywania wiadomości w lokalnym magazynie urządzenia, należy przyznać uprawnienia do jego profilu użytkownika, UID 1000. (Agent IoT Edge działa jako element główny, więc nie potrzebuje dodatkowych uprawnień). Istnieje kilka sposobów zarządzania uprawnieniami katalogu w systemach Linux, w tym przy użyciu programu, `chown` zmiana właściciela katalogu, a następnie `chmod` zmiana uprawnień, takich jak:
 

@@ -2,13 +2,13 @@
 title: Izolowanie Azure Service Bus aplikacji przed awariami i katastrofami
 description: W tym artykule przedstawiono techniki ochrony aplikacji przed potencjalną Azure Service Bus awarią.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/10/2021
+ms.openlocfilehash: b9090a54cd58788dbd13f528af4dda4aa96005b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065628"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374596"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Najlepsze rozwiązania dotyczące izolowania aplikacji od wyłączeń i awarii usługi Service Bus
 
@@ -23,11 +23,13 @@ Pojęcia dotyczące wysokiej dostępności i odzyskiwania po awarii są wbudowan
 
 ### <a name="geo-disaster-recovery"></a>Geo-Disaster odzyskiwanie
 
-Service Bus Premium obsługuje odzyskiwanie geograficzne po awarii na poziomie przestrzeni nazw. Aby uzyskać więcej informacji, zobacz [Azure Service Bus geograficznie z odzyskiwaniem po awarii](service-bus-geo-dr.md). Funkcja odzyskiwania po awarii dostępna tylko dla [jednostki SKU Premium](service-bus-premium-messaging.md) , implementuje odzyskiwanie po awarii metadanych i opiera się na podstawowych i pomocniczych przestrzeniach nazw odzyskiwania po awarii.
+Service Bus Premium obsługuje odzyskiwanie geograficzne po awarii na poziomie przestrzeni nazw. Aby uzyskać więcej informacji, zobacz [Azure Service Bus geograficznie z odzyskiwaniem po awarii](service-bus-geo-dr.md). Funkcja odzyskiwania po awarii dostępna tylko dla [jednostki SKU Premium](service-bus-premium-messaging.md) , implementuje odzyskiwanie po awarii metadanych i opiera się na podstawowych i pomocniczych przestrzeniach nazw odzyskiwania po awarii. W przypadku odzyskiwania Geo-Disaster tylko metadane dla jednostek są replikowane między podstawowymi i pomocniczymi przestrzeniami nazw.  
 
 ### <a name="availability-zones"></a>Strefy dostępności
 
 Jednostka SKU Service Bus Premium obsługuje [strefy dostępności](../availability-zones/az-overview.md), zapewniając izolowane lokalizacje w ramach tego samego regionu świadczenia usługi Azure. Service Bus zarządza trzema kopiami magazynu komunikatów (1 Podstawowa i 2). Service Bus synchronizuje wszystkie trzy kopie na potrzeby operacji związanych z danymi i zarządzaniem. Jeśli podstawowa kopia nie powiedzie się, jedna z kopii pomocniczych jest podwyższana do podstawowej bez postrzeganego przestoju. Jeśli aplikacje Zobacz przejściowe odłączenia od Service Bus, logika ponowień w zestawie SDK automatycznie ponownie nawiąże połączenie z Service Bus. 
+
+W przypadku korzystania ze stref dostępności zarówno metadane, jak i dane (komunikaty) są replikowane między centrami danych w strefie dostępności. 
 
 > [!NOTE]
 > Strefy dostępności wsparcia dla Azure Service Bus Premium jest dostępna tylko w [regionach świadczenia usługi Azure](../availability-zones/az-region.md) , w których znajdują się strefy dostępności.

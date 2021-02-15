@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 21b9d73da0df5ada626500a706a19d1025de1dcc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186001"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391970"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archiwizowanie danych z obszaru roboczego Log Analytics w usłudze Azure Storage przy użyciu aplikacji logiki
 W tym artykule opisano metodę używania [Azure Logic Apps](../../logic-apps/index.yml) do wykonywania zapytań dotyczących danych z log Analytics obszaru roboczego w Azure monitor i wysyłania do usługi Azure Storage. Tego procesu należy użyć, gdy trzeba wyeksportować dane dziennika Azure Monitor na potrzeby scenariuszy inspekcji i zgodności albo zezwolić innej usłudze na pobieranie tych danych.  
@@ -69,7 +69,7 @@ Przejdź do **Logic Apps** w Azure Portal i kliknij przycisk **Dodaj**. Wybierz 
 Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz**. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu** , aby otworzyć **projektanta Logic Apps**.
 
 ## <a name="create-a-trigger-for-the-logic-app"></a>Tworzenie wyzwalacza dla aplikacji logiki
-W obszarze **Rozpocznij od typowego wyzwalacza** wybierz pozycję **cykl**. Spowoduje to utworzenie aplikacji logiki, która jest automatycznie uruchamiana w regularnych odstępach czasu. W polu **częstotliwość** akcji wybierz pozycję **godzina** i w polu **Interwał** wprowadź wartość **1** , aby uruchomić przepływ pracy raz dziennie.
+W obszarze **Rozpocznij od typowego wyzwalacza** wybierz pozycję **cykl**. Spowoduje to utworzenie aplikacji logiki, która jest automatycznie uruchamiana w regularnych odstępach czasu. W polu **częstotliwość** akcji wybierz pozycję **dzień** , a następnie w polu **Interwał** wprowadź wartość **1** , aby uruchomić przepływ pracy raz dziennie.
 
 ![Akcja cyklu](media/logs-export-logicapp/recurrence-action.png)
 

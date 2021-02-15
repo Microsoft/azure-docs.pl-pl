@@ -59,10 +59,8 @@
       href: ./update-application-to-3.0-sdk.md
 - name: Dokumentacja
   items:
-    - name: Interfejs API szkolenia usługi Custom Vision
-      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
-    - name: Interfejs API prognozowania usługi Custom Vision
-      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+    - name: Interfejs API REST
+      href: 'https://docs.microsoft.com/rest/api/custom-vision/'
     - name: Zestawy SDK
       items:
         - name: .NET

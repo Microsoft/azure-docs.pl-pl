@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636881"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376364"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -45,17 +45,17 @@ Jeśli jednak chcesz uzyskać wszystkie najnowsze funkcje i aktualizacje, najlep
 Skorzystaj z tego linku, aby dowiedzieć się więcej na temat [autouaktualniania](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> Od 1 listopada, 2020 rozpocznie się wdrożenie procesu wycofywania, dzięki czemu wersje Azure AD Connect wydane ponad 18 miesięcy temu będą przestarzałe. W tym momencie rozpocznie ten proces przez zaniechanie wszystkich wydań Azure AD Connect w wersji 1.3.20.0 (opublikowanej w dniu 4/24/2019) i starszej wersji, a my sprawdzimy, czy starsze wersje Azure AD Connect są dostępne za każdym razem, gdy są nowe wersje.
+> Począwszy od 1 kwietnia 2024, wycofamy wersje Azure AD Connect, które zostały wydane przed 1 maja 2018 wersji 1.1.751.0 i starszych. 
 >
 > Musisz upewnić się, że korzystasz z najnowszej wersji Azure AD Connect, aby uzyskać optymalne środowisko pomocy technicznej. 
 >
->W przypadku uruchomienia przestarzałej wersji programu Azure AD Connect można nie mieć najnowszych poprawek zabezpieczeń, ulepszeń wydajności, narzędzi do rozwiązywania problemów i funkcji diagnostycznych oraz ulepszeń usług, a jeśli jest to wymagane, firma Microsoft może nie być w stanie zapewnić Ci potrzebom swojej organizacji.
+>W przypadku korzystania z wycofanej wersji programu Azure AD Connect mogą nie mieć najnowszych poprawek zabezpieczeń, ulepszeń wydajności, narzędzi do rozwiązywania problemów i funkcji diagnostycznych oraz ulepszeń usług, a jeśli będziesz potrzebować pomocy technicznej, firma Microsoft może nie być w stanie zapewnić Ci potrzebom swojej organizacji.
 >
->Jeśli włączono Azure AD Connect do synchronizacji, wkrótce rozpocznie się automatyczne otrzymywanie powiadomień o kondycji, które ostrzegają o nadchodzących zastosowaniach, gdy korzystasz z jednej ze starszych wersji.
+
 >
 >Zapoznaj się z [tym artykułem](./how-to-upgrade-previous-version.md) , aby dowiedzieć się więcej o tym, jak uaktualnić Azure AD Connect do najnowszej wersji.
 >
->Informacje o historii wersji dotyczące przestarzałych wersji znajdują się w temacie [Azure AD Connect archiwalny historia wersji archiwum](reference-connect-version-history-archive.md)
+>Informacje o historii wersji dotyczące wycofywanych wersji znajdują się w temacie [Azure AD Connect archiwalny historia wersji archiwum](reference-connect-version-history-archive.md)
 
 ## <a name="15450"></a>1.5.45.0
 

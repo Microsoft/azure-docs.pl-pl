@@ -278,8 +278,16 @@
         - name: Konfigurowanie środowisk deweloperskich
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Uruchamianie notesów programu Jupyter
-          href: how-to-run-jupyter-notebooks.md
+        - name: Konfigurowanie środowiska Studio
+          items:
+            - name: Tworzenie plików i zarządzanie nimi
+              href: how-to-manage-files.md
+              displayName: 'Jupyter, notebooks, clone, samples'
+            - name: Uruchamianie notesów programu Jupyter
+              href: how-to-run-jupyter-notebooks.md
+            - name: Korzystanie z terminalu
+              href: how-to-access-terminal.md
+              displayName: 'git, github, clone, kernel, package'
         - name: Konfigurowanie środowisk oprogramowania
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 8d096bcd15254df4081a005b268934659e43037d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742934"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380308"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Role administratorów według zadania administratora w Azure Active Directory
 
@@ -109,7 +109,7 @@ Wyświetl metryki i alerty usługi synchronizacji | Reader ([Zobacz dokumentacj�
 
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
-Zarządzanie domenami | Administrator globalny | 
+Zarządzanie domenami | Administrator nazw domen | 
 Odczytaj całą konfigurację | Czytelnicy katalogów | Domyślna rola użytkownika ([Zobacz dokumentację](../fundamentals/users-default-permissions.md))
 
 ## <a name="domain-services"></a>Domain Services
@@ -216,9 +216,9 @@ Odczytuj dzienniki logowania | Czytelnik raportów | Czytelnik zabezpieczeń, ad
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
 Usuń wszystkie istniejące hasła aplikacji wygenerowane przez wybranych użytkowników | Administrator globalny | 
-Wyłącz usługę MFA | Administrator globalny | 
-Włączanie usługi MFA | Administrator globalny | 
-Zarządzanie ustawieniami usługi MFA | Administrator globalny | 
+Wyłącz usługę MFA | Administrator uwierzytelniania (za pośrednictwem programu PowerShell) | Administrator uwierzytelniania uprzywilejowanego (za pośrednictwem programu PowerShell)
+Włączanie usługi MFA | Administrator uwierzytelniania (za pośrednictwem programu PowerShell) | Administrator uwierzytelniania uprzywilejowanego (za pośrednictwem programu PowerShell) 
+Zarządzanie ustawieniami usługi MFA | Administrator zasad uwierzytelniania | 
 Wymagaj od wybranych użytkowników ponownego podania metod kontaktu | Administrator uwierzytelniania | 
 Przywracanie uwierzytelniania wieloskładnikowego na wszystkich zapamiętanych urządzeniach  | Administrator uwierzytelniania | 
 
@@ -226,15 +226,15 @@ Przywracanie uwierzytelniania wieloskładnikowego na wszystkich zapamiętanych u
 
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
-Blokuj/Odblokuj użytkowników | Administrator globalny | 
-Konfigurowanie blokady konta | Administrator globalny | 
-Konfigurowanie reguł buforowania | Administrator globalny | 
-Konfigurowanie alertu oszustwa | Administrator globalny
-Konfigurowanie powiadomień | Administrator globalny | 
-Skonfiguruj jednorazowe obejście | Administrator globalny | 
-Konfigurowanie ustawień połączenia telefonicznego | Administrator globalny | 
-Konfiguruj dostawców | Administrator globalny | 
-Konfigurowanie ustawień serwera | Administrator globalny | 
+Blokuj/Odblokuj użytkowników | Administrator zasad uwierzytelniania | 
+Konfigurowanie blokady konta | Administrator zasad uwierzytelniania | 
+Konfigurowanie reguł buforowania | Administrator zasad uwierzytelniania | 
+Konfigurowanie alertu oszustwa | Administrator zasad uwierzytelniania
+Konfigurowanie powiadomień | Administrator zasad uwierzytelniania | 
+Skonfiguruj jednorazowe obejście | Administrator zasad uwierzytelniania | 
+Konfigurowanie ustawień połączenia telefonicznego | Administrator zasad uwierzytelniania | 
+Konfiguruj dostawców | Administrator zasad uwierzytelniania | 
+Konfigurowanie ustawień serwera | Administrator zasad uwierzytelniania | 
 Odczytaj raport działania | Czytnik globalny | 
 Odczytaj całą konfigurację | Czytnik globalny | 
 Odczytaj stan serwera | Czytnik globalny |  

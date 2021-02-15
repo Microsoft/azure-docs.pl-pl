@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 014c592713a8568b3bbc7e8e536f81b203271ccc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683344"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388077"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Korzystanie z tożsamości zarządzanych z Azure Machine Learning (wersja zapoznawcza)
 
@@ -29,6 +29,7 @@ W tym artykule dowiesz się, jak używać tożsamości zarządzanych do:
 
  * Skonfiguruj i używaj ACR dla obszaru roboczego Azure Machine Learning bez konieczności włączania dostępu administratora do ACR.
  * Uzyskaj dostęp do prywatnego ACR zewnętrznego dla obszaru roboczego, aby ściągnąć podstawowe obrazy na potrzeby szkoleń lub wnioskowania.
+ * Utwórz obszar roboczy z tożsamością zarządzaną przez użytkownika, aby uzyskać dostęp do skojarzonych zasobów.
 
 > [!IMPORTANT]
 > Korzystanie z tożsamości zarządzanych do kontrolowania dostępu do zasobów za pomocą Azure Machine Learning jest obecnie w wersji zapoznawczej. Funkcje w wersji zapoznawczej są udostępniane "w takiej postaci, w jakiej są" bez gwarancji pomocy technicznej ani umowy dotyczącej poziomu usług. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych programu Microsoft Azure.
@@ -102,7 +103,7 @@ Jeśli nie podasz własnych ACR, usługa Azure Machine Learning utworzy ją podc
 
 ### <a name="create-compute-with-managed-identity-to-access-docker-images-for-training"></a>Tworzenie obliczeń przy użyciu tożsamości zarządzanej w celu uzyskania dostępu do obrazów platformy Docker na potrzeby szkolenia
 
-Aby uzyskać dostęp do obszaru roboczego ACR, Utwórz klaster obliczeniowy uczenia maszynowego z włączoną tożsamością zarządzaną przypisaną przez system. Tożsamość można włączyć z poziomu Azure Portal lub Studio podczas tworzenia obliczeń lub z poziomu interfejsu wiersza polecenia platformy Azure przy użyciu
+Aby uzyskać dostęp do obszaru roboczego ACR, Utwórz klaster obliczeniowy uczenia maszynowego z włączoną tożsamością zarządzaną przypisaną przez system. Tożsamość można włączyć z poziomu Azure Portal lub Studio podczas tworzenia obliczeń lub z poziomu interfejsu wiersza polecenia platformy Azure, korzystając z poniższego. Aby uzyskać więcej informacji, zobacz [Używanie tożsamości zarządzanej z klastrami obliczeniowymi](how-to-create-attach-compute-cluster.md#managed-identity).
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -171,7 +172,7 @@ env.python.user_managed_dependencies = True
 
 ### <a name="build-azure-machine-learning-managed-environment-into-base-image-from-private-acr-for-training-or-inference"></a>Kompiluj Azure Machine Learning środowisko zarządzane do obrazu podstawowego z prywatnego ACR na potrzeby szkolenia lub wnioskowania
 
-W tym scenariuszu usługa Azure Machine Learning kompiluje środowisko szkoleniowe lub wnioskowania na podstawie obrazu podstawowego dostarczanego z ACR prywatnego. Ponieważ zadanie kompilacji obrazu odbywa się w obszarze roboczym ACR przy użyciu zadań ACR, należy wykonać dodatkowe czynności, aby zezwolić na dostęp.
+W tym scenariuszu usługa Azure Machine Learning kompiluje środowisko szkoleniowe lub wnioskowania na podstawie obrazu podstawowego dostarczanego z ACR prywatnego. Ponieważ zadanie kompilacji obrazu odbywa się w obszarze roboczym ACR przy użyciu zadań ACR, należy wykonać więcej czynności, aby zezwolić na dostęp.
 
 1. Utwórz __tożsamość zarządzaną przypisaną przez użytkownika__ i Udziel tożsamości ACRPull dostęp do __prywatnego ACR__.  
 1. Przyznaj tożsamości zarządzanej przez __system__ obszaru roboczego rolę operatora tożsamości zarządzanej na __zarządzanej tożsamości przypisanej przez użytkownika__ z poprzedniego kroku. Ta rola umożliwia obszarowi roboczemu przypisanie tożsamości zarządzanej przypisanej przez użytkownika do ACR zadania tworzenia środowiska zarządzanego. 
@@ -228,6 +229,41 @@ Po skonfigurowaniu ACR bez użytkownika administracyjnego zgodnie z wcześniejsz
 
 > [!NOTE]
 > Jeśli przeniesiesz własny klaster AKS, klaster musi mieć włączoną jednostkę usługi zamiast tożsamości zarządzanej.
+
+## <a name="create-workspace-with-user-assigned-managed-identity"></a>Tworzenie obszaru roboczego przy użyciu tożsamości zarządzanej przypisanej przez użytkownika
+
+Podczas tworzenia obszaru roboczego można określić tożsamość zarządzaną przypisaną przez użytkownika, która będzie używana w celu uzyskania dostępu do skojarzonych zasobów: ACR, magazynu kluczy, magazynu i usługi App Insights.
+
+Najpierw [Utwórz tożsamość zarządzaną przypisaną przez użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli])i zanotuj identyfikator zasobu ARM zarządzanej tożsamości.
+
+Następnie Utwórz obszar roboczy przy użyciu interfejsu wiersza polecenia platformy Azure lub zestawu SDK języka Python. Korzystając z interfejsu wiersza polecenia, należy określić identyfikator przy użyciu `--primary-user-assigned-identity` parametru. Korzystając z zestawu SDK, użyj polecenia `primary_user_assigned_identity` . Poniżej przedstawiono przykłady użycia interfejsu wiersza polecenia platformy Azure i języka Python w celu utworzenia nowego obszaru roboczego przy użyciu następujących parametrów:
+
+__Interfejs wiersza polecenia platformy Azure__
+
+```azurecli-interactive
+az ml workspace create -w <workspace name> -g <resource group> --primary-user-assigned-identity <managed identity ARM ID>
+```
+
+__Python__
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.create(name="workspace name", 
+    subscription_id="subscription id", 
+    resource_group="resource group name",
+    primary_user_assigned_identity="managed identity ARM ID")
+```
+
+Możesz również użyć [szablonu ARM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) , aby utworzyć obszar roboczy z tożsamością zarządzaną przez użytkownika.
+
+> [!IMPORTANT]
+> Jeśli utworzysz własne skojarzone zasoby, a nie chcesz, aby usługa Azure Machine Learning je utworzyć, musisz przyznać zarządzanym rolom tożsamości w tych zasobach. Użyj [szablonu ARM przypisania roli](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) , aby utworzyć przypisania.
+
+W przypadku obszaru roboczego z (klucze zarządzane przez klienta do szyfrowania) [ https://docs.microsoft.com/azure/machine-learning/concept-data-encryption ] można przekazać tożsamości zarządzanej przypisanej przez użytkownika do uwierzytelniania z magazynu w celu Key Vault. Użyj argumentu __przypisanego przez użytkownika-Identity-for-CMK-Encryption__ (CLI) lub __user_assigned_identity_for_cmk_encryption__ (SDK), aby przekazać tożsamość zarządzaną. Ta tożsamość zarządzana może być taka sama lub inna jak tożsamość zarządzana użytkownika podstawowego przypisanego do obszaru roboczego.
+
+Jeśli masz istniejący obszar roboczy, możesz go zaktualizować z przypisanej do użytkownika tożsamości zarządzanej przy użyciu ```az ml workspace update``` interfejsu wiersza polecenia lub ```Workspace.update``` zestawu SDK języka Python.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

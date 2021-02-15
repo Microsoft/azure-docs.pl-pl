@@ -5,35 +5,32 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 5783f8092a6435b43ab8720df18cc5200e390d46
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428304"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378251"
 ---
-# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optymalizowanie wydajności i niezawodności usługi Azure Functions
+# <a name="best-practices-for-performance-and-reliability-of-azure-functions"></a>Najlepsze rozwiązania dotyczące wydajności i niezawodności Azure Functions
 
 Ten artykuł zawiera wskazówki dotyczące poprawy wydajności i niezawodności aplikacji funkcji [bezserwerowych](https://azure.microsoft.com/solutions/serverless/) .  
 
-## <a name="general-best-practices"></a>Ogólne najlepsze praktyki
-
 Poniżej przedstawiono najlepsze rozwiązania w zakresie kompilowania i tworzenia architektury rozwiązań bezserwerowych przy użyciu Azure Functions.
 
-### <a name="avoid-long-running-functions"></a>Unikaj długotrwałych funkcji
+## <a name="avoid-long-running-functions"></a>Unikaj długotrwałych funkcji
 
-Duże, długotrwałe funkcje mogą powodować nieoczekiwane problemy z przekroczeniem limitu czasu. Aby dowiedzieć się więcej o limitach czasu dla danego planu hostingu, zobacz [limit czasu aplikacji funkcji](functions-scale.md#timeout). 
+Duże, długotrwałe funkcje mogą powodować nieoczekiwane problemy z przekroczeniem limitu czasu. Aby dowiedzieć się więcej o limitach czasu dla danego planu hostingu, zobacz [limit czasu aplikacji funkcji](functions-scale.md#timeout).
 
-Funkcja może być duża ze względu na wiele zależności Node.js. Importowanie zależności może być również przyczyną zwiększonych czasów ładowania, które powodują nieoczekiwane przekroczenie limitu czasu. Zależności są ładowane jawnie i niejawnie. Pojedynczy moduł załadowany przez kod może ładować własne dodatkowe moduły. 
+Funkcja może być duża ze względu na wiele zależności Node.js. Importowanie zależności może być również przyczyną zwiększonych czasów ładowania, które powodują nieoczekiwane przekroczenie limitu czasu. Zależności są ładowane jawnie i niejawnie. Pojedynczy moduł załadowany przez kod może ładować własne dodatkowe moduły.
 
 Jeśli to możliwe, Refaktoryzacja duże funkcje do mniejszych zestawów funkcji, które współpracują i zwracają odpowiedzi szybko. Na przykład funkcja webhook lub wyzwalacz HTTP może wymagać odpowiedzi potwierdzenia w określonym limicie czasu; elementy webhook często wymagają natychmiastowej reakcji. Ładunek wyzwalacza HTTP można przekazać do kolejki w celu przetworzenia przez funkcję wyzwalacza kolejki. Takie podejście umożliwia odroczenie rzeczywistej pracy i zwrócenie natychmiastowej odpowiedzi.
 
-
-### <a name="cross-function-communication"></a>Komunikacja między funkcjami
+## <a name="cross-function-communication"></a>Komunikacja między funkcjami
 
 [Durable Functions](durable/durable-functions-overview.md) i [Azure Logic Apps](../logic-apps/logic-apps-overview.md) są kompilowane do zarządzania przejściami stanu i komunikacją między wieloma funkcjami.
 
-Jeśli nie korzystasz z Durable Functions lub Logic Apps do integracji z wieloma funkcjami, najlepszym rozwiązaniem jest użycie kolejek usługi Storage w celu komunikacji między funkcjami. Głównym powodem jest to, że kolejki magazynu są tańsze i łatwiejsze do aprowizacji niż inne opcje magazynu. 
+Jeśli nie korzystasz z Durable Functions lub Logic Apps do integracji z wieloma funkcjami, najlepszym rozwiązaniem jest użycie kolejek usługi Storage w celu komunikacji między funkcjami. Głównym powodem jest to, że kolejki magazynu są tańsze i łatwiejsze do aprowizacji niż inne opcje magazynu.
 
 Rozmiar poszczególnych komunikatów w kolejce magazynu jest ograniczony do 64 KB. Jeśli konieczne jest przekazanie większych komunikatów między funkcjami, kolejka Azure Service Bus może służyć do obsługi rozmiaru wiadomości do 256 KB w warstwie Standardowa i do 1 MB w warstwie Premium.
 
@@ -41,28 +38,26 @@ Tematy Service Bus są przydatne, jeśli wymagane jest filtrowanie komunikatów 
 
 Centra zdarzeń są przydatne do obsługi komunikacji dużej ilości.
 
+## <a name="write-functions-to-be-stateless"></a>Funkcje zapisu są bezstanowe
 
-### <a name="write-functions-to-be-stateless"></a>Funkcje zapisu są bezstanowe 
-
-Funkcje powinny być bezstanowe i idempotentne, jeśli jest to możliwe. Skojarz wszystkie wymagane informacje o stanie z danymi. Na przykład przetworzone zamówienie prawdopodobnie ma skojarzony `state` element członkowski. Funkcja może przetwarzać zamówienie na podstawie tego stanu, gdy sama funkcja pozostaje bez zmian. 
+Funkcje powinny być bezstanowe i idempotentne, jeśli jest to możliwe. Skojarz wszystkie wymagane informacje o stanie z danymi. Na przykład przetworzone zamówienie prawdopodobnie ma skojarzony `state` element członkowski. Funkcja może przetwarzać zamówienie na podstawie tego stanu, gdy sama funkcja pozostaje bez zmian.
 
 Funkcje idempotentne są szczególnie zalecane z wyzwalaczami czasomierza. Na przykład, jeśli masz coś, co bezwzględnie musi być uruchamiane raz dziennie, napisz je tak, aby można je było uruchamiać w dowolnym momencie dnia z takimi samymi wynikami. Funkcja może wyjść, gdy nie ma pracy przez konkretny dzień. Ponadto jeśli poprzednie uruchomienie nie powiodło się, następne uruchomienie powinno zostać wznowione w miejscu, w którym zostało pozostawione.
 
-
-### <a name="write-defensive-functions"></a>Zapisz funkcje obronne
+## <a name="write-defensive-functions"></a>Zapisz funkcje obronne
 
 Załóżmy, że funkcja może napotkać wyjątek w dowolnym momencie. Zaprojektuj funkcje z możliwością kontynuowania z poprzedniego punktu awarii podczas następnego wykonania. Rozważmy scenariusz, który wymaga następujących akcji:
 
 1. Zapytanie o 10 000 wierszy w bazie danych.
 2. Utwórz komunikat kolejki dla każdego z tych wierszy, aby przetworzyć kolejny wiersz.
- 
+
 W zależności od tego, jak skomplikowany jest system, może być: działania usług podrzędnych zachowuje się nieprawidłowo, awaria sieci lub osiągnięto limity przydziału itd. Wszystkie te funkcje mogą mieć wpływ na funkcję w dowolnym momencie. Musisz zaprojektować swoje funkcje, aby można je było przygotować.
 
 Jak reaguje kod, jeśli wystąpi błąd po wstawieniu 5 000 elementów do kolejki w celu przetworzenia? Śledź elementy w zestawie, który został ukończony. W przeciwnym razie można je ponownie wstawić później. Takie podwójne wstawianie może mieć poważny wpływ na przepływ pracy, więc [idempotentne funkcje](functions-idempotent.md). 
 
 Jeśli element kolejki został już przetworzony, zezwól funkcji na wartość No-op.
 
-Skorzystaj ze środków obronnych już dostarczonych dla składników, których używasz na platformie Azure Functions. Na przykład zobacz **Obsługa komunikatów trującej kolejki** w dokumentacji [wyzwalaczy i powiązań kolejki usługi Azure Storage](functions-bindings-storage-queue-trigger.md#poison-messages). 
+Skorzystaj ze środków obronnych już dostarczonych dla składników, których używasz na platformie Azure Functions. Na przykład zobacz **Obsługa komunikatów trującej kolejki** w dokumentacji [wyzwalaczy i powiązań kolejki usługi Azure Storage](functions-bindings-storage-queue-trigger.md#poison-messages).
 
 ## <a name="function-organization-best-practices"></a>Najlepsze rozwiązania w zakresie organizacji
 
@@ -85,7 +80,7 @@ Aplikacje funkcji mają `host.json` plik, który służy do konfigurowania zaawa
 
 Wszystkie funkcje w projekcie lokalnym są wdrażane wraz z zestawem plików w aplikacji funkcji na platformie Azure. Może być konieczne oddzielne wdrożenie pojedynczych funkcji lub użycie takich funkcji jak miejsca [wdrożenia](./functions-deployment-slots.md) dla niektórych funkcji, a nie innych. W takich przypadkach należy wdrożyć te funkcje (w oddzielnych projektach kodu) do różnych aplikacji funkcji.
 
-### <a name="organize-functions-by-privilege"></a>Organizuj funkcje według uprawnień 
+### <a name="organize-functions-by-privilege"></a>Organizuj funkcje według uprawnień
 
 Parametry połączenia i inne poświadczenia przechowywane w ustawieniach aplikacji dają wszystkie funkcje w aplikacji funkcji ten sam zestaw uprawnień w skojarzonym zasobie. Rozważ zminimalizowanie liczby funkcji mających dostęp do określonych poświadczeń, przenosząc funkcje, które nie używają tych poświadczeń do osobnej aplikacji funkcji. Można zawsze używać technik, takich jak [łańcuchy funkcji](/learn/modules/chain-azure-functions-data-using-bindings/) , do przekazywania danych między funkcjami w różnych aplikacjach funkcji.  
 
@@ -99,7 +94,7 @@ Używaj ponownie połączeń z zasobami zewnętrznymi, gdy jest to możliwe. Zob
 
 ### <a name="avoid-sharing-storage-accounts"></a>Unikaj udostępniania kont magazynu
 
-Podczas tworzenia aplikacji funkcji należy skojarzyć ją z kontem magazynu. Połączenie konta magazynu jest obsługiwane w [ustawieniu aplikacji AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+Podczas tworzenia aplikacji funkcji należy skojarzyć ją z kontem magazynu. Połączenie konta magazynu jest obsługiwane w [ustawieniu aplikacji AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage).
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
@@ -123,9 +118,9 @@ W języku C# należy zawsze unikać odwoływania się do `Result` właściwości
 
 ### <a name="use-multiple-worker-processes"></a>Korzystanie z wielu procesów roboczych
 
-Domyślnie każde wystąpienie hosta dla funkcji używa jednego procesu roboczego. Aby zwiększyć wydajność, szczególnie w przypadku środowisk uruchomieniowych jednowątkowego, takich jak Python, użyj [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) , aby zwiększyć liczbę procesów roboczych na hosta (do 10). Azure Functions następnie próbuje równomiernie rozpowszechnić jednoczesne wywołania funkcji przez tych pracowników. 
+Domyślnie każde wystąpienie hosta dla funkcji używa jednego procesu roboczego. Aby zwiększyć wydajność, szczególnie w przypadku środowisk uruchomieniowych jednowątkowego, takich jak Python, użyj [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) , aby zwiększyć liczbę procesów roboczych na hosta (do 10). Azure Functions następnie próbuje równomiernie rozpowszechnić jednoczesne wywołania funkcji przez tych pracowników.
 
-FUNCTIONS_WORKER_PROCESS_COUNT ma zastosowanie do każdego hosta, który tworzy funkcje podczas skalowania aplikacji w celu spełnienia wymagań. 
+FUNCTIONS_WORKER_PROCESS_COUNT ma zastosowanie do każdego hosta, który tworzy funkcje podczas skalowania aplikacji w celu spełnienia wymagań.
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>W miarę możliwości odbieraj komunikaty w usłudze Batch
 

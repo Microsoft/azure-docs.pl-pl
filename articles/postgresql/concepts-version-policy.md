@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f325a43895e1e9d73b11c06662851d7654d31ddb
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 62fe1b3391eb4cb2d409a92b936fd3f1ae56d992
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331825"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518423"
 ---
-# <a name="azure-database-for-postgresql-versioning-policy"></a>Zasady dotyczące wersji Azure Database for PostgreSQL
+# <a name="azure-database-for-postgresql-versioning-policy"></a>Zasady wersji usługi Azure Database for PostgreSQL
 
 Ta strona zawiera opis zasad dotyczących wersji Azure Database for PostgreSQL i ma zastosowanie do trybu wdrożenia serwera Azure Database for PostgreSQL i Azure Database for PostgreSQL-elastycznym (wersja zapoznawcza).
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL obsługuje następujące wersje bazy danych.
 | PostgreSQL 11 | X | X |
 | PostgreSQL 10 | X |  |
 | PostgreSQL 9,6 | X |  |
-| PostgreSQL 9,5 | X |  |
+| *PostgreSQL 9,5 (wycofane)* | X |  |
 
 ## <a name="major-version-support"></a>Obsługa wersji głównej
 Każda główna wersja PostgreSQL będzie obsługiwana przez Azure Database for PostgreSQL od daty, w której platforma Azure zacznie obsługiwać wersję, dopóki wersja nie zostanie wycofana przez społeczność PostgreSQL, zgodnie z zasadami dotyczącymi [wersji społeczności PostgreSQL](https://www.postgresql.org/support/versioning/).
@@ -39,9 +39,9 @@ Azure Database for PostgreSQL automatycznie przeprowadza uaktualnienia wersji po
 ## <a name="major-version-retirement-policy"></a>Zasady wycofywania wersji głównych
 Poniższa tabela zawiera szczegóły wycofania dla wersji głównych PostgreSQL. Daty są zgodne z [zasadami wersji społeczności PostgreSQL](https://www.postgresql.org/support/versioning/).
 
-| Wersja | Co nowego | Data rozpoczęcia pomocy technicznej platformy Azure | Data wycofania|
+| Wersja | Nowości | Data rozpoczęcia pomocy technicznej platformy Azure | Data wycofania|
 | ----- | ----- | ------ | ----- |
-| PostgreSQL 9,5| [Funkcje](https://www.postgresql.org/docs/9.5/release-9-5.html)  | 18 kwietnia 2018 r.    | 11 lutego 2021
+| [PostgreSQL 9,5 (wycofane)](https://www.postgresql.org/about/news/postgresql-132-126-1111-1016-9621-and-9525-released-2165/)| [Funkcje](https://www.postgresql.org/docs/9.5/release-9-5.html)  | 18 kwietnia 2018 r.   | 11 lutego 2021
 | [PostgreSQL 9,6](https://www.postgresql.org/about/news/postgresql-96-released-1703/) | [Funkcje](https://wiki.postgresql.org/wiki/NewIn96) | 18 kwietnia 2018 r.  | 11 listopada 2021
 | [PostgreSQL 10](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [Funkcje](https://wiki.postgresql.org/wiki/New_in_postgres_10) | 4 czerwca 2018  | 10 listopada 2022
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Funkcje](https://www.postgresql.org/docs/11/release-11.html) | 24 lipca 2019 r.  | 9 listopada, 2023
@@ -49,7 +49,7 @@ Poniższa tabela zawiera szczegóły wycofania dla wersji głównych PostgreSQL.
 
 ## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>Wycofane wersje aparatu PostgreSQL nie są obsługiwane w Azure Database for PostgreSQL
 
-Po upływie daty wycofania dla każdej wersji bazy danych PostgreSQL należy pamiętać o następujących ograniczeniach:
+Można nadal uruchamiać wycofaną wersję w Azure Database for PostgreSQL. Należy jednak pamiętać o następujących ograniczeniach po dacie wycofania dla każdej wersji bazy danych PostgreSQL:
 - Ponieważ Wspólnota nie będzie zwalniać żadnych dalszych poprawek lub poprawek zabezpieczeń, Azure Database for PostgreSQL nie będzie w żaden sposób naprawiać niewycofanego aparatu bazy danych pod kątem błędów lub problemów z zabezpieczeniami albo podjąć środki bezpieczeństwa w odniesieniu do wycofanego aparatu bazy danych. W związku z tym mogą wystąpić luki w zabezpieczeniach lub inne problemy. Jednak platforma Azure będzie kontynuowała okresowe konserwacje i stosowanie poprawek dla hosta, systemu operacyjnego, kontenerów i innych składników związanych z usługą.
 - Jeśli dowolny problem z pomocą techniczną, który może się pojawić, odnosi się do bazy danych PostgreSQL, firma Microsoft może nie być w stanie zapewnić pomoc techniczną. W takich przypadkach trzeba będzie uaktualnić bazę danych, aby umożliwić nam zapewnienie pomocy technicznej.
 - Nie będzie można tworzyć nowych serwerów baz danych dla wycofanej wersji. Można jednak przeprowadzić odzyskiwanie do punktu w czasie i utworzyć repliki odczytu dla istniejących serwerów.

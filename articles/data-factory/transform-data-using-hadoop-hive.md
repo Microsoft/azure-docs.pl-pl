@@ -1,22 +1,18 @@
 ---
 title: Przekształcanie danych za pomocą działania programu Hive platformy Hadoop
 description: Dowiedz się, jak za pomocą działania programu Hive w usłudze Azure Data Factory uruchamiać zapytania programu Hive na żądanie/własny klaster usługi HDInsight.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/08/2019
-ms.openlocfilehash: 20deb1a235843bf5fe5c42c513e1d8d2117c65c5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: de897f6350893f6188c9a97480c0a849fc142fb1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637908"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375871"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania programu Hive platformy Hadoop w Azure Data Factory
 

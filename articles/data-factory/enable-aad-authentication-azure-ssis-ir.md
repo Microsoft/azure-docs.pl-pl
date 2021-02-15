@@ -1,22 +1,19 @@
 ---
 title: Włącz usługę AAD dla usług Azure SSIS Integration Runtime
 description: W tym artykule opisano sposób włączania uwierzytelniania Azure Active Directory przy użyciu tożsamości zarządzanej Azure Data Factory do tworzenia Azure-SSIS Integration Runtime.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: powershell
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: 30f5b5990e189cb6942c15b65b6a417ce49f0c2b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cd3f590e1869b28f0ac08ce98da32a98160e4e86
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637806"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392735"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime (Włączanie uwierzytelniania usługi Azure Active Directory dla środowiska Azure-SSIS Integration Runtime)
 
@@ -86,9 +83,9 @@ Można [skonfigurować uwierzytelnianie usługi Azure AD i zarządzać nimi za p
 
 2.  Wybierz serwer w SQL Database, który ma zostać skonfigurowany przy użyciu uwierzytelniania usługi Azure AD.
 
-3.  W sekcji **Ustawienia** w bloku wybierz pozycję **Active Directory administrator** .
+3.  W sekcji **Ustawienia** w bloku wybierz pozycję **Active Directory administrator**.
 
-4.  Na pasku poleceń wybierz pozycję **Ustaw administratora** .
+4.  Na pasku poleceń wybierz pozycję **Ustaw administratora**.
 
 5.  Wybierz konto użytkownika usługi Azure AD, które ma być administratorem serwera, a następnie wybierz pozycję **Wybierz.**
 
@@ -108,9 +105,9 @@ W tym następnym kroku potrzebujesz [Microsoft SQL Server Management Studio](/sq
 
 5. Wybierz pozycję **Połącz** i Zakończ proces logowania.
 
-6. W **Eksplorator obiektów** rozwiń folder bazy danych **Databases**  ->  **system** Databases.
+6. W **Eksplorator obiektów** rozwiń folder bazy danych   ->  **system** Databases.
 
-7. Kliknij prawym przyciskiem myszy bazę danych **Master** , a następnie wybierz pozycję **nowe zapytanie** .
+7. Kliknij prawym przyciskiem myszy bazę danych **Master** , a następnie wybierz pozycję **nowe zapytanie**.
 
 8. W oknie zapytania wprowadź następujące polecenie T-SQL, a następnie wybierz pozycję **Wykonaj** na pasku narzędzi.
 
@@ -128,7 +125,7 @@ W tym następnym kroku potrzebujesz [Microsoft SQL Server Management Studio](/sq
 
    Polecenie powinno zakończyć się pomyślnie, przyznając zawartemu użytkownikowi możliwość tworzenia bazy danych (SSISDB).
 
-10. Jeśli SSISDB został utworzony przy użyciu uwierzytelniania SQL i chcesz przełączyć się do korzystania z uwierzytelniania usługi Azure AD w celu uzyskania dostępu do tego Azure-SSIS IR, najpierw upewnij się, że kroki umożliwiające udzielenie uprawnienia do bazy danych **Master** zostały zakończone pomyślnie. Następnie kliknij prawym przyciskiem myszy bazę danych **SSISDB** , a następnie wybierz pozycję **nowe zapytanie** .
+10. Jeśli SSISDB został utworzony przy użyciu uwierzytelniania SQL i chcesz przełączyć się do korzystania z uwierzytelniania usługi Azure AD w celu uzyskania dostępu do tego Azure-SSIS IR, najpierw upewnij się, że kroki umożliwiające udzielenie uprawnienia do bazy danych **Master** zostały zakończone pomyślnie. Następnie kliknij prawym przyciskiem myszy bazę danych **SSISDB** , a następnie wybierz pozycję **nowe zapytanie**.
 
 11. W oknie zapytania wprowadź następujące polecenie T-SQL, a następnie wybierz pozycję **Wykonaj** na pasku narzędzi.
 
@@ -162,9 +159,9 @@ W tym następnym kroku potrzebujesz [Microsoft SQL Server Management Studio](/sq
 
 2.  Połącz się z wystąpieniem zarządzanym SQL przy użyciu konta SQL Server, które jest **administratorem** systemu. Jest to tymczasowe ograniczenie, które zostanie usunięte po znalezieniu głównych zabezpieczeń serwera Azure AD (logowania) dla wystąpienia zarządzanego Azure SQL. Jeśli spróbujesz użyć konta administratora usługi Azure AD do utworzenia nazwy logowania, zobaczysz następujący komunikat o błędzie: Msg 15247, poziom 16, stan 1, użytkownik Line 1 nie ma uprawnień do wykonania tej akcji.
 
-3.  W **Eksplorator obiektów** rozwiń folder bazy danych **Databases**  ->  **system** Databases.
+3.  W **Eksplorator obiektów** rozwiń folder bazy danych   ->  **system** Databases.
 
-4.  Kliknij prawym przyciskiem myszy bazę danych **Master** , a następnie wybierz pozycję **nowe zapytanie** .
+4.  Kliknij prawym przyciskiem myszy bazę danych **Master** , a następnie wybierz pozycję **nowe zapytanie**.
 
 5.  W oknie zapytania wykonaj następujący skrypt T-SQL, aby dodać zarządzaną tożsamość dla Twojego ADF jako użytkownika
 
@@ -176,7 +173,7 @@ W tym następnym kroku potrzebujesz [Microsoft SQL Server Management Studio](/sq
     
     Polecenie powinno zakończyć się pomyślnie, przyznając zarządzaną tożsamość dla usługi ADF, która umożliwia tworzenie bazy danych (SSISDB).
 
-6.  Jeśli SSISDB został utworzony przy użyciu uwierzytelniania SQL i chcesz przełączyć się do korzystania z uwierzytelniania usługi Azure AD w celu uzyskania dostępu do tego Azure-SSIS IR, najpierw upewnij się, że kroki umożliwiające udzielenie uprawnienia do bazy danych **Master** zostały zakończone pomyślnie. Następnie kliknij prawym przyciskiem myszy bazę danych **SSISDB** , a następnie wybierz pozycję **nowe zapytanie** .
+6.  Jeśli SSISDB został utworzony przy użyciu uwierzytelniania SQL i chcesz przełączyć się do korzystania z uwierzytelniania usługi Azure AD w celu uzyskania dostępu do tego Azure-SSIS IR, najpierw upewnij się, że kroki umożliwiające udzielenie uprawnienia do bazy danych **Master** zostały zakończone pomyślnie. Następnie kliknij prawym przyciskiem myszy bazę danych **SSISDB** , a następnie wybierz pozycję **nowe zapytanie**.
 
 7.  W oknie zapytania wprowadź następujące polecenie T-SQL, a następnie wybierz pozycję **Wykonaj** na pasku narzędzi.
 

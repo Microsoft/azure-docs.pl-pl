@@ -2,13 +2,13 @@
 title: Funkcje zdefiniowane przez użytkownika w szablonach
 description: Opisuje sposób definiowania i używania funkcji zdefiniowanych przez użytkownika w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 02/11/2021
+ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934683"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379628"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funkcje zdefiniowane przez użytkownika w szablonie ARM
 
@@ -44,7 +44,7 @@ Funkcje wymagają wartości przestrzeni nazw, aby uniknąć konfliktów nazw z f
 
 ## <a name="use-the-function"></a>Korzystanie z funkcji
 
-Poniższy przykład pokazuje szablon, który zawiera funkcję zdefiniowaną przez użytkownika. Używa tej funkcji, aby uzyskać unikatową nazwę konta magazynu. Szablon ma parametr o nazwie `storageNamePrefix` , który przekazuje jako parametr do funkcji.
+Poniższy przykład pokazuje szablon, który zawiera funkcję zdefiniowaną przez użytkownika, aby uzyskać unikatową nazwę konta magazynu. Szablon ma parametr o nazwie `storageNamePrefix` , który jest przekazaniem jako parametr do funkcji.
 
 ```json
 {
@@ -92,6 +92,12 @@ Poniższy przykład pokazuje szablon, który zawiera funkcję zdefiniowaną prze
  ]
 }
 ```
+
+Podczas wdrażania `storageNamePrefix` parametr jest przesyłany do funkcji:
+
+* Szablon definiuje parametr o nazwie `storageNamePrefix` .
+* Funkcja używa, `namePrefix` ponieważ można używać tylko parametrów zdefiniowanych w funkcji. Aby uzyskać więcej informacji, zobacz [ograniczenia](#limitations).
+* W `resources` sekcji szablonu `name` element używa funkcji i przekazuje `storageNamePrefix` wartość do funkcji `namePrefix` .
 
 ## <a name="limitations"></a>Ograniczenia
 

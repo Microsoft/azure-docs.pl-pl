@@ -2,14 +2,14 @@
 title: Skonfiguruj punkty końcowe usługi sieci wirtualnej dla Azure Service Bus
 description: Ten artykuł zawiera informacje dotyczące sposobu dodawania punktu końcowego usługi Microsoft. ServiceBus do sieci wirtualnej.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/12/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8005a2c43d42908a9ad6ebea10b6a13ef381084c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 6b168bbdc69f2d18a724084d9de694fa83d23dda
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427653"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516145"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus z określonych sieci wirtualnych
 Integracja Service Bus z [punktami końcowymi usługi Virtual Network (VNET)][vnet-sep] umożliwia bezpieczny dostęp do funkcji obsługi komunikatów z obciążeń takich jak maszyny wirtualne, które są powiązane z sieciami wirtualnymi, z zabezpieczoną ścieżką ruchu sieciowego na obu końcach.
@@ -57,7 +57,8 @@ W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy u
     > [!NOTE]
     > Karta **Sieć** zawiera tylko obszary nazw w **warstwie Premium** .  
     
-    Domyślnie wybrana jest opcja **wybrane sieci** . Jeśli nie dodasz co najmniej jednej reguły zapory IP lub sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznej sieci Internet (przy użyciu klucza dostępu).
+    >[!WARNING]
+    > Jeśli wybierzesz opcję **wybrane sieci** i nie dodasz co najmniej jednej reguły zapory IP lub sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznej sieci Internet (przy użyciu klucza dostępu).
 
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Strona sieci — domyślna" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
@@ -88,26 +89,11 @@ W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy u
 [!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Używanie szablonu usługi Resource Manager
-Poniższy szablon Menedżer zasobów umożliwia dodanie reguły sieci wirtualnej do istniejącej Service Bus przestrzeni nazw.
+Poniższy przykładowy szablon Menedżer zasobów dodaje regułę sieci wirtualnej do istniejącej Service Bus przestrzeni nazw. Dla reguły sieci określa identyfikator podsieci w sieci wirtualnej. 
 
-Parametry szablonu:
+Identyfikator jest w pełni kwalifikowaną ścieżką Menedżer zasobów dla podsieci sieci wirtualnej. Na przykład `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` dla domyślnej podsieci sieci wirtualnej.
 
-* **przestrzeń nazw** : Service Bus przestrzeń nazw.
-* **virtualNetworkingSubnetId** : w pełni kwalifikowana ścieżka Menedżer zasobów dla podsieci sieci wirtualnej; na przykład `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` dla domyślnej podsieci sieci wirtualnej.
-
-> [!NOTE]
-> Chociaż nie ma możliwych reguł Odmów, szablon Azure Resource Manager ma ustawioną akcję domyślną **"Zezwalaj"** , która nie ogranicza połączeń.
-> Podczas tworzenia reguł Virtual Network lub zapór należy zmienić wartość **_"DefaultAction"_**
-> 
-> wniosek
-> ```json
-> "defaultAction": "Allow"
-> ```
-> na wartość
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+W przypadku dodawania reguł sieci wirtualnej lub zapór ustaw wartość `defaultAction` na `Deny` .
 
 Szablon:
 
@@ -211,6 +197,9 @@ Szablon:
 ```
 
 Aby wdrożyć szablon, postępuj zgodnie z instrukcjami dotyczącymi [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> Jeśli nie ma reguł adresów IP i sieci wirtualnej, cały ruch jest przesyłany do przestrzeni nazw nawet wtedy, gdy ustawisz `defaultAction` na `deny` .  Do przestrzeni nazw można uzyskać dostęp za pośrednictwem publicznego Internetu (przy użyciu klucza dostępu). Określ co najmniej jedną regułę IP lub regułę sieci wirtualnej dla przestrzeni nazw, aby zezwalać na ruch tylko z określonych adresów IP lub podsieci sieci wirtualnej.  
 
 ## <a name="next-steps"></a>Następne kroki
 
