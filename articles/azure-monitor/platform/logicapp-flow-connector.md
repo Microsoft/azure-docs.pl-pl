@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fdd3886dda794ff9a91e2c2be6a3d810086d0ed2
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019042"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526990"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Łącznik Azure Monitor Logs dla Logic Apps i automatyzacji
 [Azure Logic Apps](../../logic-apps/index.yml) i [Automatyzacja](https://flow.microsoft.com) — umożliwia tworzenie zautomatyzowanych przepływów pracy przy użyciu setek działań dla różnych usług. Łącznik Azure Monitor Logs umożliwia tworzenie przepływów pracy, które pobierają dane z obszaru roboczego Log Analytics lub aplikacji Application Insights w Azure Monitor. W tym artykule opisano akcje dołączone do łącznika i przedstawiono Przewodnik tworzenia przepływu pracy przy użyciu tych danych.
@@ -25,6 +25,7 @@ Na przykład możesz utworzyć aplikację logiki, która będzie używać danych
 * Maksymalny rozmiar odpowiedzi kwerendy 100 MB
 * Maksymalna liczba rekordów: 500 000
 * Maksymalny limit czasu zapytania 110 sekundę.
+* Wizualizacje wykresów mogą być dostępne na stronie dzienników i brakuje ich w łączniku, ponieważ strona łącznik i dzienniki nie używają obecnie tych samych bibliotek wykresów.
 
 W zależności od rozmiaru danych i użytego zapytania łącznik może trafić w jego limity i zakończyć się niepowodzeniem. Takie przypadki można obejść podczas dopasowywania cyklu wyzwalacza do uruchamiania częściej i wykonywania zapytań o mniej danych. Możesz użyć zapytań, które agregują dane, aby zwracać mniejsze rekordy i kolumny.
 

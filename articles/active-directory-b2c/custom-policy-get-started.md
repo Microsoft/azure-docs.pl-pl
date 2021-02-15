@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936373"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526242"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
 
@@ -111,7 +111,7 @@ Następnie udostępnienie interfejsu API przez dodanie zakresu:
 Następnie określ, że aplikacja powinna być traktowana jako klient publiczny:
 
 1. W menu po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-1. W obszarze **Ustawienia zaawansowane** Włącz **Traktuj aplikację jako klienta publicznego** (wybierz opcję **tak**). Upewnij się, że **wartość "allowPublicClient": true** jest ustawiona w manifeście aplikacji. 
+1. W obszarze **Ustawienia zaawansowane** w sekcji **Zezwalaj na publiczne przepływy klientów** ustaw opcję **Włącz następujące przepływy dla urządzeń przenośnych i komputerów stacjonarnych** na **wartość tak**. Upewnij się, że **wartość "allowPublicClient": true** jest ustawiona w manifeście aplikacji. 
 1. Wybierz pozycję **Zapisz**.
 
 Teraz Udziel uprawnień do zakresu interfejsu API, który został uwidoczniony we wcześniejszej części rejestracji *IdentityExperienceFramework* :

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bc548d4cc728611387b36451d563be6ca0e21530
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e5009e59477e6862c4441090a6480075c9e22385
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388196"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526787"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
@@ -53,7 +53,7 @@ Poniższy przykład kodu ilustruje sposób tworzenia relacji w wystąpieniu usł
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod":::
 
-W metodzie Main można teraz wywołać `CreateRelationship()` funkcję, aby utworzyć relację _zawierającą_ , taką jak: 
+W metodzie Main można teraz wywołać funkcję niestandardową, aby utworzyć relację _zawierającą_ , taką jak: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
@@ -86,7 +86,7 @@ Oto przykład, który pobiera listę relacji:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
-Teraz można wywołać tę metodę, aby zobaczyć wychodzące relacje bliźniaczych reprezentacji w następujący sposób:
+Teraz można wywołać tę metodę niestandardową, aby wyświetlić wychodzące relacje bliźniaczych reprezentacji w następujący sposób:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
@@ -102,17 +102,17 @@ Należy zauważyć, że `IncomingRelationship` wywołania nie zwracają pełnej 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod":::
 
-Teraz można wywołać tę metodę, aby zobaczyć przychodzące relacje bliźniaczych reprezentacji w następujący sposób:
+Teraz można wywołać tę metodę niestandardową, aby zobaczyć przychodzące relacje bliźniaczych reprezentacji w następujący sposób:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindIncomingRelationships":::
 
 ### <a name="list-all-twin-properties-and-relationships"></a>Wyświetl wszystkie właściwości i relacje z przędzą
 
-Korzystając z podanych powyżej metod wyświetlania wychodzących i przychodzących relacji do sznurka, można utworzyć metodę, która drukuje pełne informacje o pojedynczej bliźniaczyej, w tym właściwości przędzy i oba typy relacji. Poniżej przedstawiono przykładową metodę o nazwie `FetchAndPrintTwinAsync()` , która pokazuje, jak to zrobić.
+Korzystając z podanych powyżej metod wyświetlania wychodzących i przychodzących relacji do sznurka, można utworzyć metodę, która drukuje pełne informacje o pojedynczej bliźniaczyej, w tym właściwości przędzy i oba typy relacji. Oto przykładowa Metoda niestandardowa pokazująca, jak to zrobić.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
-Teraz można wywołać tę funkcję w metodzie Main w następujący sposób: 
+Teraz można wywołać tę funkcję niestandardową w metodzie Main w następujący sposób: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
 
@@ -127,7 +127,7 @@ Parametry wymagane dla wywołania klienta to identyfikator przędzy źródłowej
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
 
-Oto przykład wywołania tej metody, przekazując do dokumentu poprawki JSON informacje służące do aktualizowania właściwości.
+Oto przykład wywołania tej metody niestandardowej, przekazując do dokumentu poprawki JSON informacje służące do aktualizowania właściwości.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
 
@@ -137,7 +137,7 @@ Pierwszy parametr określa przędzę źródłową (dwuosiową, z której pochodz
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod":::
 
-Teraz można wywołać tę metodę, aby usunąć relację podobną do tej:
+Teraz możesz wywołać tę metodę niestandardową, aby usunąć relację podobną do tej:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 

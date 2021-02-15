@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat szyfrowania w usłudze Azure Containe
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: bc692dc8df133aa5fae352a7667062f81ceed350
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062732"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526446"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Szyfrowanie rejestru przy użyciu klucza zarządzanego przez klienta
 
@@ -127,11 +127,11 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Alternatywnie możesz przypisać uprawnienia do tożsamości w celu uzyskania dostępu do magazynu kluczy za pomocą [usługi Azure RBAC dla Key Vault](../key-vault/general/rbac-guide.md) (wersja zapoznawcza). Na przykład Przypisz rolę szyfrowania Key Vault usług kryptograficznych do tożsamości za pomocą polecenia [AZ role Assign Create](/cli/azure/role/assignment#az-role-assignment-create) :
+Alternatywnie można przypisywać uprawnienia do tożsamości w celu uzyskania dostępu do magazynu kluczy za pomocą [usługi Azure RBAC dla Key Vault](../key-vault/general/rbac-guide.md) . Na przykład Przypisz rolę szyfrowania Key Vault usług kryptograficznych do tożsamości za pomocą polecenia [AZ role Assign Create](/cli/azure/role/assignment#az-role-assignment-create) :
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption (preview)" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
@@ -267,12 +267,12 @@ Skonfiguruj zasady dla magazynu kluczy, aby tożsamość mogła uzyskać do nieg
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Utwórz zasady dostępu do magazynu kluczy":::
 
-Alternatywnie możesz przypisać uprawnienia do tożsamości w celu uzyskania dostępu do magazynu kluczy za pomocą [usługi Azure RBAC dla Key Vault](../key-vault/general/rbac-guide.md) (wersja zapoznawcza). Na przykład Przypisz rolę szyfrowania Key Vault usług kryptograficznych do tożsamości.
+Alternatywnie można przypisywać uprawnienia do tożsamości w celu uzyskania dostępu do magazynu kluczy za pomocą [usługi Azure RBAC dla Key Vault](../key-vault/general/rbac-guide.md) . Na przykład Przypisz rolę szyfrowania Key Vault usług kryptograficznych do tożsamości.
 
 1. Przejdź do magazynu kluczy.
 1. Wybierz pozycję **Kontrola dostępu (IAM)**  >  **i Dodaj**  >  **Dodawanie przypisania roli**.
 1. W oknie **Dodawanie przypisania roli** :
-    1. Wybierz rolę **Key Vault szyfrowania usług kryptograficznych (wersja zapoznawcza)** . 
+    1. Wybierz **Key Vault rolę użytkownika szyfrowania usługi kryptograficznej** . 
     1. Przypisz dostęp do **tożsamości zarządzanej przypisanej przez użytkownika**.
     1. Wybierz nazwę zasobu tożsamości zarządzanej przypisanej przez użytkownika, a następnie wybierz pozycję **Zapisz**.
 

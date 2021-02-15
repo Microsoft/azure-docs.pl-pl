@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786043"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526645"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informacje o kluczach tajnych Azure Key Vault
 
@@ -74,7 +74,7 @@ Przewodniki ułatwiające kontrolowanie dostępu w Key Vault:
 - [Przypisywanie zasad dostępu Key Vault przy użyciu interfejsu wiersza polecenia](../general/assign-access-policy-cli.md)
 - [Przypisywanie zasad dostępu Key Vault przy użyciu programu PowerShell](../general/assign-access-policy-powershell.md)
 - [Przypisywanie zasad dostępu Key Vault przy użyciu Azure Portal](../general/assign-access-policy-portal.md)
-- [Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)](../general/rbac-guide.md)
+- [Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach na platformie Azure](../general/rbac-guide.md)
 
 ## <a name="secret-tags"></a>Tagi tajne  
 W postaci tagów można określić dodatkowe metadane specyficzne dla aplikacji. Key Vault obsługuje do 15 tagów, z których każdy może mieć nazwę znaku 256 i wartość znaku 256.  
@@ -124,7 +124,7 @@ Przewodniki ułatwiające kontrolowanie dostępu w Key Vault:
 - [Przypisywanie zasad dostępu Key Vault przy użyciu interfejsu wiersza polecenia](../general/assign-access-policy-cli.md)
 - [Przypisywanie zasad dostępu Key Vault przy użyciu programu PowerShell](../general/assign-access-policy-powershell.md)
 - [Przypisywanie zasad dostępu Key Vault przy użyciu Azure Portal](../general/assign-access-policy-portal.md)
-- [Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)](../general/rbac-guide.md)
+- [Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach na platformie Azure](../general/rbac-guide.md)
 
 
 ## <a name="next-steps"></a>Następne kroki

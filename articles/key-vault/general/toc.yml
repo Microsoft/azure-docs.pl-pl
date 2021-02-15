@@ -96,10 +96,12 @@
               href: assign-access-policy-powershell.md
             - name: Portal
               href: assign-access-policy-portal.md
-        - name: 'Zarządzanie dostępem do kluczy, wpisów tajnych i certyfikatów za pomocą kontroli dostępu opartej na rolach na platformie Azure (wersja zapoznawcza)'
-          href: rbac-guide.md
-        - name: Przewodnik migracji z zasad dostępu do magazynu do kontroli dostępu na podstawie ról platformy Azure
-          href: rbac-migration.md
+        - name: Model uprawnień RBAC platformy Azure
+          items:
+            - name: 'Korzystanie z usługi Azure RBAC do zarządzania dostępem do kluczy, wpisów tajnych i certyfikatów'
+              href: rbac-guide.md
+            - name: Przewodnik migracji z zasad dostępu do magazynu do kontroli dostępu na podstawie ról platformy Azure
+              href: rbac-migration.md
         - name: Rozwiązywanie problemów z dostępem
           href: troubleshooting-access-issues.md
     - name: Programowanie

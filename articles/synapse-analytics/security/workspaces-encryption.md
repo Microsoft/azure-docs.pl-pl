@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9a9d3c303739e68b5b8ef28053d6cf0b071f955
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d4bc59a9bd5299698bff9949aaaa881fbdf385ee
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501060"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526276"
 ---
-# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Szyfrowanie dla obszarów roboczych usługi Azure Synapse Analytics
+# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Szyfrowanie obszarów roboczych usługi Azure Synapse Analytics
 
 W tym artykule opisano:
 * Szyfrowanie danych magazynowanych w obszarach roboczych Synapse Analytics.
@@ -39,7 +39,7 @@ Dane w następujących składnikach Synapse są szyfrowane za pomocą klucza zar
 * Pule SQL
  * Dedykowane pule SQL
  * Pule SQL bezserwerowe
-* Pule Apache Spark
+* Pule platformy Apache Spark
 * Azure Data Factory środowiska Integration Runtime, potoków, zestawów danych.
 
 ## <a name="workspace-encryption-configuration"></a>Konfiguracja szyfrowania obszaru roboczego
@@ -53,7 +53,7 @@ Obszary robocze można skonfigurować tak, aby włączyć podwójne szyfrowanie 
 
 ### <a name="key-access-and-workspace-activation"></a>Dostęp do klucza i aktywacja obszaru roboczego
 
-Model szyfrowania Azure Synapse z kluczami zarządzanymi przez klienta obejmuje obszar roboczy z dostępem do kluczy w Azure Key Vault do szyfrowania i odszyfrowywania w razie potrzeby. Klucze są dostępne dla obszaru roboczego za pomocą zasad dostępu lub Azure Key Vault dostępu RBAC ([wersja zapoznawcza](../../key-vault/general/rbac-guide.md)). Podczas udzielania uprawnień przy użyciu zasad dostępu Azure Key Vault wybierz opcję ["tylko aplikacja"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) podczas tworzenia zasad (Wybierz zarządzaną tożsamość obszaru roboczego i nie dodawaj jej jako autoryzowaną aplikację).
+Model szyfrowania Azure Synapse z kluczami zarządzanymi przez klienta obejmuje obszar roboczy z dostępem do kluczy w Azure Key Vault do szyfrowania i odszyfrowywania w razie potrzeby. Klucze są dostępne dla obszaru roboczego za pomocą zasad dostępu lub [Azure Key Vault dostępu RBAC](../../key-vault/general/rbac-guide.md). Podczas udzielania uprawnień przy użyciu zasad dostępu Azure Key Vault wybierz opcję ["tylko aplikacja"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) podczas tworzenia zasad (Wybierz zarządzaną tożsamość obszaru roboczego i nie dodawaj jej jako autoryzowaną aplikację).
 
  Aby można było aktywować obszar roboczy, tożsamość zarządzana obszaru roboczego musi mieć przyznane uprawnienia wymagane w magazynie kluczy. Ta stopniowa podejście do aktywacji obszaru roboczego gwarantuje, że dane w obszarze roboczym są szyfrowane za pomocą klucza zarządzanego przez klienta. Należy pamiętać, że szyfrowanie można włączyć lub wyłączyć dla dedykowanych pul SQL-dla każdej puli nie jest domyślnie włączona obsługa szyfrowania.
 

@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 23a36bfc048a6214ccb79b793a23c21d5f8e305e
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e7a8fd53e78e1aeab9db5af0432d0c3f1d786823
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288262"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526956"
 ---
-# <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-preview-permission-model"></a>Migrowanie z zasad dostępu magazynu do modelu uprawnień kontroli dostępu opartej na rolach (wersja zapoznawcza)
+# <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migrowanie z zasad dostępu do magazynu do modelu uprawnień kontroli dostępu opartej na rolach na platformie Azure
 
 Model zasad dostępu do magazynu to istniejący system autoryzacji oparty na Key Vault w celu zapewnienia dostępu do kluczy, wpisów tajnych i certyfikatów. Dostęp można kontrolować, przypisując indywidualne uprawnienia do podmiotu zabezpieczeń (użytkownika, grupy, nazwy głównej usługi, tożsamości zarządzanej) w Key Vault zakresie. 
 
-Kontrola dostępu oparta na rolach (Azure RBAC) to system autoryzacji oparty na [Azure Resource Manager](../../azure-resource-manager/management/overview.md) , który zapewnia precyzyjne zarządzanie dostępem do zasobów platformy Azure. Usługa Azure RBAC dla Key Vault klucze, wpisy tajne i zarządzanie dostępem do certyfikatów jest obecnie w publicznej wersji zapoznawczej. Dzięki funkcji RBAC platformy Azure można kontrolować dostęp do zasobów przez tworzenie przypisań ról, które składają się z trzech elementów: podmiot zabezpieczeń, definicja roli (wstępnie zdefiniowany zestaw uprawnień) i zakres (Grupa zasobów lub pojedynczy zasób). Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+Kontrola dostępu oparta na rolach (Azure RBAC) to system autoryzacji oparty na [Azure Resource Manager](../../azure-resource-manager/management/overview.md) , który zapewnia precyzyjne zarządzanie dostępem do zasobów platformy Azure. Dzięki funkcji RBAC platformy Azure można kontrolować dostęp do zasobów przez tworzenie przypisań ról, które składają się z trzech elementów: podmiot zabezpieczeń, definicja roli (wstępnie zdefiniowany zestaw uprawnień) i zakres (Grupa zasobów lub pojedynczy zasób). Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 Przed przeprowadzeniem migracji do usługi Azure RBAC ważne jest zapoznanie się z jej zaletami i ograniczeniami.
 
@@ -39,13 +39,14 @@ Wady RBAC platformy Azure:
 Usługa Azure RBAC ma kilka wbudowanych ról platformy Azure, które można przypisać do użytkowników, grup, podmiotów usługi i zarządzanych tożsamości. Jeśli wbudowane role nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne [role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md).
 
 Key Vault wbudowane role dla kluczy, certyfikatów i zarządzania dostępem do wpisów tajnych:
-- Administrator Key Vault (wersja zapoznawcza)
-- Key Vault Reader (wersja zapoznawcza)
-- Key Vault oficera certyfikatów (wersja zapoznawcza)
-- Key Vault oficer kryptograficzny (wersja zapoznawcza)
-- Użytkownik kryptografii Key Vault (wersja zapoznawcza)
-- Key Vault tajemnicy (wersja zapoznawcza)
-- Użytkownik Key Vault Secret (wersja zapoznawcza)
+- Key Vault administrator
+- Key Vault czytelnik
+- Key Vault oficera certyfikatów
+- Key Vault oficer kryptograficzny
+- Key Vault użytkownika kryptograficznego
+- Key Vault użytkownika szyfrowania usługi kryptograficznej
+- Key Vault oficerów tajnych
+- Użytkownik Key Vault Secret
 
 Aby uzyskać więcej informacji na temat istniejących ról wbudowanych, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md) .
 
@@ -68,18 +69,18 @@ Zasady dostępu wstępnie zdefiniowane szablony uprawnień:
 ### <a name="access-policies-templates-to-azure-roles-mapping"></a>Mapowanie zasad dostępu do usługi Azure Roles
 | Szablon zasad dostępu | Operacje | Rola na platformie Azure |
 | --- | --- | --- |
-| Klucz, wpis tajny, zarządzanie certyfikatami | Klucze: wszystkie operacje <br>Certyfikaty: wszystkie operacje<br>Wpisy tajne: wszystkie operacje | Administrator Key Vault (wersja zapoznawcza) |
-| Zarządzanie kluczami tajnymi Key & | Klucze: wszystkie operacje <br>Wpisy tajne: wszystkie operacje| Key Vault oficer kryptograficzny (wersja zapoznawcza)<br> Key Vault tajemnicy (wersja zapoznawcza)|
-| Zarządzanie certyfikatami tajnymi & | Certyfikaty: wszystkie operacje <br>Wpisy tajne: wszystkie operacje| Oficer certyfikatów Key Vault (wersja zapoznawcza)<br> Key Vault tajemnicy (wersja zapoznawcza)|
-| Zarządzanie kluczami | Klucze: wszystkie operacje| Key Vault oficer kryptograficzny (wersja zapoznawcza)|
-| Zarządzanie kluczami tajnymi | Wpisy tajne: wszystkie operacje| Key Vault tajemnicy (wersja zapoznawcza)|
-| Zarządzanie certyfikatami | Certyfikaty: wszystkie operacje | Oficer certyfikatów Key Vault (wersja zapoznawcza)|
-| SQL Server Connector | Klucze: pobieranie, wyświetlanie, zawijanie klucza, odpakowywanie klucza | Key Vault szyfrowanie usługi kryptograficznej (wersja zapoznawcza)|
-| Azure Data Lake Storage lub Azure Storage | Klucze: pobieranie, wyświetlanie, odpakowywanie klucza | Brak<br> Wymagana rola niestandardowa|
-| Azure Backup | Klucze: pobieranie, wyświetlanie, tworzenie kopii zapasowej<br> Certyfikat: Get, list, Backup | Brak<br> Wymagana rola niestandardowa|
-| Klucz klienta usługi Exchange Online | Klucze: pobieranie, wyświetlanie, zawijanie klucza, odpakowywanie klucza | Key Vault szyfrowanie usługi kryptograficznej (wersja zapoznawcza)|
-| Klucz klienta usługi Exchange Online | Klucze: pobieranie, wyświetlanie, zawijanie klucza, odpakowywanie klucza | Key Vault szyfrowanie usługi kryptograficznej (wersja zapoznawcza)|
-| Usługa Azure Information BYOK | Klucze: pobieranie, odszyfrowywanie, podpisywanie | Brak<br>Wymagana rola niestandardowa|
+| Klucz, wpis tajny, zarządzanie certyfikatami | Klucze: wszystkie operacje <br>Certyfikaty: wszystkie operacje<br>Wpisy tajne: wszystkie operacje | Key Vault administrator |
+| Zarządzanie kluczami tajnymi Key & | Klucze: wszystkie operacje <br>Wpisy tajne: wszystkie operacje| Key Vault oficer kryptograficzny <br> Key Vault oficerów tajnych |
+| Zarządzanie certyfikatami tajnymi & | Certyfikaty: wszystkie operacje <br>Wpisy tajne: wszystkie operacje| Oficer certyfikatów Key Vault <br> Key Vault oficerów tajnych|
+| Zarządzanie kluczami | Klucze: wszystkie operacje| Key Vault oficer kryptograficzny|
+| Zarządzanie kluczami tajnymi | Wpisy tajne: wszystkie operacje| Key Vault oficerów tajnych|
+| Zarządzanie certyfikatami | Certyfikaty: wszystkie operacje | Oficer certyfikatów Key Vault|
+| SQL Server Connector | Klucze: pobieranie, wyświetlanie, zawijanie klucza, odpakowywanie klucza | Key Vault użytkownika szyfrowania usługi kryptograficznej|
+| Azure Data Lake Storage lub Azure Storage | Klucze: pobieranie, wyświetlanie, odpakowywanie klucza | Nie dotyczy<br> Wymagana rola niestandardowa|
+| Azure Backup | Klucze: pobieranie, wyświetlanie, tworzenie kopii zapasowej<br> Certyfikat: Get, list, Backup | Nie dotyczy<br> Wymagana rola niestandardowa|
+| Klucz klienta usługi Exchange Online | Klucze: pobieranie, wyświetlanie, zawijanie klucza, odpakowywanie klucza | Key Vault użytkownika szyfrowania usługi kryptograficznej|
+| Klucz klienta usługi Exchange Online | Klucze: pobieranie, wyświetlanie, zawijanie klucza, odpakowywanie klucza | Key Vault użytkownika szyfrowania usługi kryptograficznej|
+| Usługa Azure Information BYOK | Klucze: pobieranie, odszyfrowywanie, podpisywanie | Nie dotyczy<br>Wymagana rola niestandardowa|
 
 
 ## <a name="assignment-scopes-mapping"></a>Mapowanie zakresów przypisania  
@@ -102,10 +103,13 @@ Ogólnie rzecz biorąc, najlepszym rozwiązaniem jest posiadanie jednego magazyn
 ## <a name="vault-access-policy-to-azure-rbac-migration-steps"></a>Zasady dostępu magazynu do kroków migracji usługi Azure RBAC
 Istnieje wiele różnic między modelem uprawnień usługi Azure RBAC i zasadami dostępu do magazynu. W celu uniknięcia przestojów podczas migracji zaleca się wykonanie poniższych kroków.
  
-1. **Zidentyfikuj i przypisz role** : Zidentyfikuj wbudowane role na podstawie powyższej tabeli mapowania i w razie konieczności Utwórz role niestandardowe. Przypisywanie ról w zakresach na podstawie wskazówek dotyczących mapowania zakresów. Aby uzyskać więcej informacji na temat sposobu przypisywania ról do magazynu kluczy, zobacz [zapewnianie dostępu do Key Vault przy użyciu kontroli dostępu opartej na rolach na platformie Azure (wersja zapoznawcza)](rbac-guide.md)
-1. **Weryfikowanie przypisania ról** : propagowanie przypisań ról w usłudze Azure RBAC może potrwać kilka minut. Aby uzyskać informacje na temat sposobu sprawdzania przypisań ról, zobacz [Lista przypisań ról w zakresie](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)
-1. **Konfigurowanie monitorowania i alertów w magazynie kluczy** : ważne jest włączenie rejestrowania i konfiguracji alertów dotyczących wyjątków odmowy dostępu. Aby uzyskać więcej informacji, zobacz [monitorowanie i zgłaszanie alertów dla Azure Key Vault](./alert.md)
-1. **Ustaw model uprawnień kontroli dostępu opartej na rolach na platformie Azure na Key Vault** : włączenie modelu uprawnień RBAC platformy Azure spowoduje unieważnienie wszystkich istniejących zasad dostępu. Jeśli wystąpi błąd, model uprawnień może zostać przełączony z powrotem, a wszystkie istniejące zasady dostępu pozostają nienaruszone.
+1. **Zidentyfikuj i przypisz role**: Zidentyfikuj wbudowane role na podstawie powyższej tabeli mapowania i w razie konieczności Utwórz role niestandardowe. Przypisywanie ról w zakresach na podstawie wskazówek dotyczących mapowania zakresów. Aby uzyskać więcej informacji na temat sposobu przypisywania ról do magazynu kluczy, zobacz [zapewnianie dostępu do Key Vault przy użyciu kontroli dostępu opartej na rolach na platformie Azure](rbac-guide.md)
+1. **Weryfikowanie przypisania ról**: propagowanie przypisań ról w usłudze Azure RBAC może potrwać kilka minut. Aby uzyskać informacje na temat sposobu sprawdzania przypisań ról, zobacz [Lista przypisań ról w zakresie](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)
+1. **Konfigurowanie monitorowania i alertów w magazynie kluczy**: ważne jest włączenie rejestrowania i konfiguracji alertów dotyczących wyjątków odmowy dostępu. Aby uzyskać więcej informacji, zobacz [monitorowanie i zgłaszanie alertów dla Azure Key Vault](./alert.md)
+1. **Ustaw model uprawnień kontroli dostępu opartej na rolach na platformie Azure na Key Vault**: włączenie modelu uprawnień RBAC platformy Azure spowoduje unieważnienie wszystkich istniejących zasad dostępu. Jeśli wystąpi błąd, model uprawnień może zostać przełączony z powrotem, a wszystkie istniejące zasady dostępu pozostają nienaruszone.
+
+> [!NOTE]
+> Zmiana modelu uprawnień wymaga uprawnienia "Microsoft. Authorization/roleAssignments/Write", które jest częścią ról [administratorów dostępu](../../role-based-access-control/built-in-roles.md#user-access-administrator) [właściciela](../../role-based-access-control/built-in-roles.md#owner) i użytkownika. Role administratora klasycznej subskrypcji, takie jak "administrator usługi" i "współadministrator", nie są obsługiwane.
 
 > [!NOTE]
 > Gdy model uprawnień RBAC platformy Azure jest włączony, wszystkie skrypty, które próbują zaktualizować zasady dostępu, zakończą się niepowodzeniem. Ważne jest, aby zaktualizować te skrypty do korzystania z usługi Azure RBAC.
@@ -114,7 +118,7 @@ Istnieje wiele różnic między modelem uprawnień usługi Azure RBAC i zasadami
 -  Przypisanie roli nie działa po kilku minutach — istnieją sytuacje, w których może upłynąć więcej czasu. Ważne jest zapisanie logiki ponawiania w kodzie, aby uwzględnić te przypadki.
 - Przypisania ról zniknęły po usunięciu Key Vault (usuwanie nietrwałe) i odzyskanych — obecnie ograniczenie funkcji usuwania nietrwałego w ramach wszystkich usług platformy Azure. Wymagane jest ponowne utworzenie wszystkich przypisań ról po odzyskaniu.    
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Przegląd RBAC platformy Azure](../../role-based-access-control/overview.md)
 - [Samouczek ról niestandardowych](../../role-based-access-control/tutorial-custom-role-cli.md)

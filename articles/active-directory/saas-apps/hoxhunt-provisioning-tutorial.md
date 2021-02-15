@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: Zhchia
-ms.openlocfilehash: eb3df574029a7c13488830e01354e738930fcd7f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 55da26296f0545c8e2c0008185de14230cfee304
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523434"
+ms.locfileid: "100526616"
 ---
 # <a name="tutorial-configure-hoxhunt-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Hoxhunt na potrzeby automatycznego aprowizacji użytkowników
 
@@ -42,16 +42,13 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 * Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (na przykład administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny). 
 * Dzierżawa Hoxhunt.
 * Klucz interfejsu API Standard scim i adres URL punktu końcowego Standard scim dla organizacji (konfigurowane przez pomoc techniczną Hoxhunt).
-?
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
 1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 2. Określ, kto znajdzie się [w zakresie aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Określ, które dane mają być [mapowane między usługą Azure AD i Hoxhunt](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
 ## <a name="step-2-configure-hoxhunt-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie Hoxhunt w celu obsługi aprowizacji za pomocą usługi Azure AD
-?
 Skontaktuj się z [pomocą techniczną usługi Hoxhunt](mailto:support@hoxhunt.com) , aby uzyskać klucz interfejsu API Standard scim i adres URL punktu końcowego Standard scim, aby skonfigurować Hoxhunt do obsługi aprowizacji za pomocą usługi Azure AD.
-?
 ## <a name="step-3-add-hoxhunt-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie Hoxhunt z galerii aplikacji usługi Azure AD
 
 Dodaj Hoxhunt z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do Hoxhunt. Jeśli wcześniej skonfigurowano Hoxhunt do logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 

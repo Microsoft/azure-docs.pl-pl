@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 091f4d7a4acdcc5d1a2b89a5121ee0cff3ee1f55
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381192"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526701"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Poświadczenia uwierzytelniania źródłowego w usłudze Azure kontrolą
 
@@ -67,7 +67,7 @@ Aby można było utworzyć poświadczenia, najpierw skojarz co najmniej jedno is
 
 4. Z listy rozwijanej uprawnienia do wpisów **tajnych** wybierz pozycję uprawnienia **Get** i **list** .
 
-5. Dla **opcji wybór podmiotu zabezpieczeń** wybierz tożsamość zarządzaną kontrolą.
+5. Dla **opcji wybór podmiotu zabezpieczeń** wybierz tożsamość zarządzaną kontrolą. Plik MSI kontrolą można wyszukać przy użyciu nazwy wystąpienia kontrolą **lub** identyfikatora aplikacji zarządzanej tożsamości. Obecnie nie są obsługiwane tożsamości złożone (nazwa tożsamości zarządzanej i identyfikator aplikacji).
 
    :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Dodawanie zasad dostępu":::
 

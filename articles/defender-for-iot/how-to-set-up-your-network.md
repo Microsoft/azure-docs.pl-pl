@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3d5a29ed26d58f0cbaa57768d4b8ad236283deb9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523859"
+ms.locfileid: "100526514"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informacje o usłudze Azure Defender dla sieci IoT — konfiguracja
 
@@ -695,6 +695,6 @@ Skontaktuj się z administratorem Active Directory, aby utworzyć grupę użytko
 | Aparat fotograficzny | |
 | Maszyna X-ray | |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
 [Informacje o instalacji usługi Defender for IoT](how-to-install-software.md)

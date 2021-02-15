@@ -3,12 +3,12 @@ title: Dowiedz się więcej o usłudze Azure Service Fabric
 description: Zapoznaj się z podstawowymi pojęciami i Głównymi obszarami Service Fabric platformy Azure. Zawiera dodatkowe Omówienie Service Fabric i sposobu tworzenia mikrousług.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 36215dd3419050cf498a749b5caf927c3c4e275a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 011ddf5db1555e83a1a61a349cc19ed791ab900b
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485454"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526770"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Czy chcesz dowiedzieć się więcej o Service Fabric?
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi.  Service Fabric ma jednak duże powierzchnie, ale istnieje wiele informacji.  Ten artykuł zawiera streszczenie Service Fabric i zawiera opis podstawowych pojęć, modeli programowania, cyklu życia aplikacji, testowania, klastrów i monitorowania kondycji. Zapoznaj się z [omówieniem](service-fabric-overview.md) i [co to są mikrousługi?](service-fabric-overview-microservices.md) , aby zapoznać się z wprowadzeniem i jak Service Fabric może służyć do tworzenia mikrousług. Ten artykuł nie zawiera obszernej listy zawartości, ale łączy się z artykułami dotyczącymi przeglądu i uruchamiania dla każdego obszaru Service Fabric. 
@@ -66,7 +66,7 @@ Dlaczego mikrousługi stanowe mają być bezstanowe? Istnieją dwa główne przy
 ## <a name="supported-programming-models"></a>Obsługiwane modele programowania
 Service Fabric oferuje wiele sposobów zapisywania usług i zarządzania nimi. Usługi mogą korzystać z interfejsów API Service Fabric, aby w pełni korzystać z funkcji platformy i struktur aplikacji. Usługi mogą być również dowolnym skompilowanym programem wykonywalnym zapisanym w dowolnym języku i hostowanym w klastrze Service Fabric. Aby uzyskać więcej informacji, zobacz [obsługiwane modele programowania](service-fabric-choose-framework.md).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Kontenery
 Domyślnie program Service Fabric wdraża i aktywuje usługi jako procesy. Service Fabric można również wdrożyć usługi w [kontenerach](service-fabric-containers-overview.md). Ważne, można mieszać usługi w ramach procesów i usług w kontenerach w tej samej aplikacji. Service Fabric obsługuje wdrażanie kontenerów systemu Linux i kontenerów Windows w systemie Windows Server 2016. W kontenerach można wdrażać istniejące aplikacje, usługi bezstanowe lub usługi stanowe. 
 
 ### <a name="reliable-services"></a>Reliable Services
@@ -87,7 +87,7 @@ Service Fabric integruje się z [ASP.NET Core](service-fabric-reliable-services-
 ## <a name="application-lifecycle"></a>Cykl życia aplikacji
 Podobnie jak w przypadku innych platform, aplikacja na Service Fabric zwykle przechodzi przez następujące fazy: projektowanie, programowanie, testowanie, wdrażanie, uaktualnianie, konserwacja i usuwanie. Service Fabric zapewnia obsługę pierwszej klasy dla pełnego cyklu życia aplikacji w chmurze, od projektowania przez wdrażanie, codzienne zarządzanie i konserwację do ostatecznego wycofania. Model usług umożliwia wielu różnym rolom uczestnictwo niezależnie w cyklu życia aplikacji. [Cykl życia aplikacji Service Fabric](service-fabric-application-lifecycle.md) zawiera omówienie interfejsów API i ich użycia przez różne role w fazie cyklu życia aplikacji Service Fabric. 
 
-Cały cykl życia aplikacji można zarządzać przy użyciu poleceń [cmdlet programu PowerShell](/powershell/module/ServiceFabric/), [poleceń interfejsu wiersza polecenia](service-fabric-sfctl.md), interfejsów API języka [C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [interfejsów API języka Java](/java/api/overview/azure/servicefabric)i [interfejsów API REST](/rest/api/servicefabric/). Możesz również skonfigurować potoki ciągłej integracji/ciągłego wdrażania przy użyciu narzędzi, takich jak [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) lub [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
+Cały cykl życia aplikacji można zarządzać przy użyciu poleceń [cmdlet programu PowerShell](/powershell/module/ServiceFabric/New-ServiceFabricService), [poleceń interfejsu wiersza polecenia](service-fabric-sfctl.md), interfejsów API języka [C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [interfejsów API języka Java](/java/api/overview/azure/servicefabric)i [interfejsów API REST](/rest/api/servicefabric/). Możesz również skonfigurować potoki ciągłej integracji/ciągłego wdrażania przy użyciu narzędzi, takich jak [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) lub [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
 
 ## <a name="test-applications-and-services"></a>Testowanie aplikacji i usług
 Aby stworzyć prawdziwą usługę w skali chmury, należy sprawdzić, czy aplikacje i usługi mogą wytrzymywać rzeczywiste błędy. Usługa błędów analizy jest przeznaczona do testowania usług, które są oparte na Service Fabric. Za pomocą [usługi błędów analizy](service-fabric-testability-overview.md)można wywołać znaczące błędy i uruchamiać kompletne scenariusze testów dla aplikacji. Te usterki i scenariusze wykonują działania oraz weryfikują liczne Stany i przejścia, które usługa będzie w całym okresie istnienia, w sposób kontrolowany, bezpieczny i spójny.
@@ -160,7 +160,7 @@ Z pola Service Fabric składniki raportów kondycji wszystkich jednostek w klast
 
 Service Fabric zapewnia wiele sposobów [wyświetlania raportów kondycji](service-fabric-view-entities-aggregated-health.md) zagregowanych w magazynie kondycji:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lub inne narzędzia do wizualizacji.
-* Zapytania dotyczące kondycji (za pomocą [programu PowerShell](/powershell/module/ServiceFabric/), [interfejsu wiersza polecenia](service-fabric-sfctl.md), interfejsów API języka [C# FabricClient](/dotnet/api/system.fabric.fabricclient.healthclient) oraz [interfejsów API języka Java FabricClient](/java/api/system.fabric)i [interfejsów API REST](/rest/api/servicefabric)).
+* Zapytania dotyczące kondycji (za pomocą [programu PowerShell](/powershell/module/ServiceFabric/New-ServiceFabricService), [interfejsu wiersza polecenia](service-fabric-sfctl.md), interfejsów API języka [C# FabricClient](/dotnet/api/system.fabric.fabricclient.healthclient) oraz [interfejsów API języka Java FabricClient](/java/api/system.fabric)i [interfejsów API REST](/rest/api/servicefabric)).
 * Ogólne zapytania, które zwracają listę jednostek, które mają kondycję jako jedną z właściwości (za pomocą programu PowerShell, interfejsu wiersza polecenia, interfejsów API lub REST).
 
 ## <a name="monitoring-and-diagnostics"></a>Monitorowanie i diagnostyka

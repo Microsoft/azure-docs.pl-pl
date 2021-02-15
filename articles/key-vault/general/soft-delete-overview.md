@@ -7,17 +7,20 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e06a388f2391f4ed94370dd072a66a162ba5240f
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257950"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526667"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault — omówienie usuwania nietrwałego
 
 > [!IMPORTANT]
 > Musisz natychmiast włączyć funkcję usuwania nietrwałego w magazynie kluczy. Możliwość rezygnacji z usuwania nietrwałego zostanie wkrótce wycofana. [Tutaj](soft-delete-change.md) Zobacz pełne szczegóły
+
+> [!IMPORTANT]
+> Magazyn usuniętych nietrwale wyzwala ustawienia dla zintegrowanego z usługami Key Vault, np. przypisania ról RBAC platformy Azure, subskrypcje Event Grid, Azure Monitor ustawień diagnostycznych. Po odzyskaniu nieusuwania nietrwałego Key Vault ustawień dla zintegrowanych usług trzeba będzie ręcznie odtworzyć. 
 
 Funkcja usuwania nietrwałego Key Vault umożliwia Odzyskiwanie usuniętych magazynów i usuniętych obiektów magazynu kluczy (na przykład kluczy, wpisów tajnych, certyfikatów), znanych jako nietrwałego usuwania. W tym celu należy zająć się następującymi scenariuszami: Ta ochrona oferuje następujące kwestie:
 
@@ -27,7 +30,7 @@ Funkcja usuwania nietrwałego Key Vault umożliwia Odzyskiwanie usuniętych maga
 
 ## <a name="supporting-interfaces"></a>Interfejsy pomocnicze
 
-Funkcja usuwania nietrwałego jest dostępna za pomocą [interfejsu API REST](/rest/api/keyvault/), interfejs [wiersza polecenia platformy Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md)i interfejsy [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , a także [Szablony ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+Funkcja usuwania nietrwałego jest dostępna za pomocą [interfejsu API REST](/rest/api/keyvault/), interfejs [wiersza polecenia platformy Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md)i interfejsy [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) , a także [Szablony ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Scenariusze
 

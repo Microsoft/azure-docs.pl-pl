@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 8be5def6d4780fd8b2ab65c5c9e1104a869f6d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: db3954b0368392d63680a8d92f13d6a0423e8ef5
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391596"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526882"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Rozwiązywanie problemów z połączeniami w usłudze Azure kontrolą
 
@@ -53,7 +53,10 @@ Sprawdź, czy skonfigurowano odpowiednie uprawnienia dla tożsamości zarządzan
 Aby to sprawdzić, wykonaj następujące czynności:
 
 1. Przejdź do magazynu kluczy i w sekcji **zasady dostępu**
-1. Sprawdź, czy tożsamość zarządzana kontrolą jest wyświetlana w sekcji *bieżące zasady dostępu* z uprawnieniami do **pobierania** i **wyświetlania** na wpisach tajnych co najmniej
+
+1. Sprawdź, czy tożsamość zarządzana kontrolą jest wyświetlana w sekcji *bieżące zasady dostępu* z co najmniej uprawnieniami **pobierania** i **wyświetlania** na wpisach tajnych
+
+   :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Obraz przedstawiający listę rozwijaną opcji uprawnień get i list":::
 
 Jeśli nie widzisz swojej tożsamości zarządzanej w usłudze kontrolą, postępuj zgodnie z instrukcjami w temacie [Tworzenie i zarządzanie poświadczeniami do skanowania](manage-credentials.md) , aby je dodać. 
 

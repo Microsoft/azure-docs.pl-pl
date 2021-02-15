@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f7a0190d664e3330d2a6205014c00c61c1183dd3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 886b87adeabdc0aadde04c189b78739435aabede
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936247"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100527068"
 ---
-# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)
+# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach na platformie Azure
 
 > [!NOTE]
 > Dostawca zasobów Key Vault obsługuje dwa typy zasobów: **magazyny** i **zarządzane sprzętowych modułów zabezpieczeń**. Kontrola dostępu opisana w tym artykule dotyczy tylko **magazynów**. Aby dowiedzieć się więcej o kontroli dostępu dla zarządzanego modułu HSM, zobacz [zarządzana kontrola dostępu modułu HSM](../managed-hsm/access-control.md).
@@ -44,20 +44,20 @@ Więcej informacji na temat wytycznych dotyczących zarządzania Azure Key Vault
 - [Omówienie zabezpieczeń Azure Key Vault](security-overview.md)
 - [Limity usługi Azure Key Vault](service-limits.md)
 
-## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Wbudowane role platformy Azure dla operacji Key Vault płaszczyzny danych (wersja zapoznawcza)
+## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Wbudowane role platformy Azure dla operacji Key Vault płaszczyzny danych
 > [!NOTE]
 > `Key Vault Contributor` Rola dotyczy operacji płaszczyzny zarządzania w celu zarządzania magazynami kluczy. Nie zezwala na dostęp do kluczy, wpisów tajnych i certyfikatów.
 
 | Wbudowana rola | Opis | ID (Identyfikator) |
 | --- | --- | --- |
-| Administrator Key Vault (wersja zapoznawcza) | Wykonaj wszystkie operacje płaszczyzny danych w magazynie kluczy i wszystkie obiekty w nim, w tym certyfikaty, klucze i wpisy tajne. Nie można zarządzać zasobami magazynu kluczy ani zarządzać przypisaniami ról. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-| Oficer certyfikatów Key Vault (wersja zapoznawcza) | Wykonaj dowolną akcję dotyczącą certyfikatów magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | a4417e6f-fecd-4de8-b567-7b0420556985 |
-| Key Vault oficer kryptograficzny (wersja zapoznawcza)| Wykonaj dowolną akcję dotyczącą kluczy magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-| Key Vault szyfrowanie usługi kryptograficznej (wersja zapoznawcza) | Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-| Użytkownik kryptografii Key Vault (wersja zapoznawcza) | Wykonywanie operacji kryptograficznych przy użyciu kluczy. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 12338af0-0e69-4776-bea7-57ae8d297424 |
-| Key Vault Reader (wersja zapoznawcza)| Odczytywanie metadanych magazynów kluczy oraz jego certyfikatów, kluczy i wpisów tajnych. Nie można odczytać wartości poufnych, takich jak zawartość wpisu tajnego lub materiał klucza. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 21090545-7ca7-4776-b22c-e363652d74d2 |
-| Key Vault tajemnicy (wersja zapoznawcza)| Wykonaj wszelkie działania dotyczące wpisów tajnych magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-| Użytkownik Key Vault Secret (wersja zapoznawcza)| Odczytaj zawartość wpisu tajnego. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Key Vault administrator| Wykonaj wszystkie operacje płaszczyzny danych w magazynie kluczy i wszystkie obiekty w nim, w tym certyfikaty, klucze i wpisy tajne. Nie można zarządzać zasobami magazynu kluczy ani zarządzać przypisaniami ról. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+| Oficer certyfikatów Key Vault | Wykonaj dowolną akcję dotyczącą certyfikatów magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+| Key Vault oficer kryptograficzny | Wykonaj dowolną akcję dotyczącą kluczy magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+| Key Vault użytkownika szyfrowania usługi kryptograficznej | Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+| Key Vault użytkownika kryptograficznego  | Wykonywanie operacji kryptograficznych przy użyciu kluczy. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 12338af0-0e69-4776-bea7-57ae8d297424 |
+| Key Vault czytelnik | Odczytywanie metadanych magazynów kluczy oraz jego certyfikatów, kluczy i wpisów tajnych. Nie można odczytać wartości poufnych, takich jak zawartość wpisu tajnego lub materiał klucza. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+| Key Vault oficerów tajnych| Wykonaj wszelkie działania dotyczące wpisów tajnych magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+| Użytkownik Key Vault Secret | Odczytaj zawartość wpisu tajnego. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
 Aby uzyskać więcej informacji na temat definicji ról wbudowanych platformy Azure, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -74,8 +74,8 @@ Aby dodać przypisania ról, musisz mieć:
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Włącz uprawnienia usługi Azure RBAC na Key Vault
 
-> [!IMPORTANT]
-> Ustawienie modelu uprawnień RBAC platformy Azure unieważnia wszystkie uprawnienia zasad dostępu. Może to spowodować awarię, gdy równoważne role platformy Azure nie są przypisane.
+> [!NOTE]
+> Zmiana modelu uprawnień wymaga uprawnienia "Microsoft. Authorization/roleAssignments/Write", które jest częścią ról [administratorów dostępu](../../role-based-access-control/built-in-roles.md#user-access-administrator) [właściciela](../../role-based-access-control/built-in-roles.md#owner) i użytkownika. Role administratora klasycznej subskrypcji, takie jak "administrator usługi" i "współadministrator", nie są obsługiwane.
 
 1.  Włącz uprawnienia kontroli RBAC platformy Azure dla nowego magazynu kluczy:
 
@@ -85,10 +85,13 @@ Aby dodać przypisania ról, musisz mieć:
 
     ![Włączanie uprawnień RBAC platformy Azure — istniejący magazyn](../media/rbac/image-2.png)
 
+> [!IMPORTANT]
+> Ustawienie modelu uprawnień RBAC platformy Azure unieważnia wszystkie uprawnienia zasad dostępu. Może to spowodować awarię, gdy równoważne role platformy Azure nie są przypisane.
+
 ### <a name="assign-role"></a>Przypisywanie roli
 
 > [!Note]
-> Zaleca się używanie unikatowego identyfikatora roli zamiast nazwy roli w skryptach. W związku z tym, jeśli zostanie zmieniona nazwa roli, skrypty nadal będą działały. W wersji zapoznawczej Każda rola miałaby sufiks "(wersja zapoznawcza)", który zostanie później usunięty. Ta nazwa roli dokumentu jest używana tylko na potrzeby czytelności.
+> Zaleca się używanie unikatowego identyfikatora roli zamiast nazwy roli w skryptach. W związku z tym, jeśli zostanie zmieniona nazwa roli, skrypty nadal będą działały. Ta nazwa roli dokumentu jest używana tylko na potrzeby czytelności.
 
 Polecenie interfejsu wiersza polecenia platformy Azure do utworzenia przypisania roli:
 
@@ -107,13 +110,13 @@ W Azure Portal ekran przypisań ról platformy Azure jest dostępny dla wszystki
 
 2.  Kliknij kolejno pozycje kontrola dostępu (IAM) Dodaj \> przypisanie roli \> Dodaj
 
-3.  Utwórz rolę czytnika Key Vault "Key Vault Reader (wersja zapoznawcza)" dla bieżącego użytkownika
+3.  Utwórz Key Vault rolę czytnika "Key Vault Reader" dla bieżącego użytkownika
 
     ![Dodaj rolę — grupę zasobów](../media/rbac/image-5.png)
 
 Interfejs wiersza polecenia platformy Azure:
 ```azurecli
-az role assignment create --role "Key Vault Reader (preview)" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+az role assignment create --role "Key Vault Reader" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
 
 Powyższe przypisanie roli umożliwia wyświetlanie listy obiektów magazynu kluczy w magazynie kluczy.
@@ -124,14 +127,14 @@ Powyższe przypisanie roli umożliwia wyświetlanie listy obiektów magazynu klu
 
 2. Kliknij przycisk Dodaj przypisanie roli \> Dodaj
 
-3. Utwórz rolę oficera klucza tajnego "Key Vault tajemnicy (wersja zapoznawcza)" dla bieżącego użytkownika.
+3. Utwórz rolę oficera klucza tajnego "Key Vault tajemnicy" dla bieżącego użytkownika.
 
     ![Przypisanie roli — Magazyn kluczy](../media/rbac/image-6.png)
 
  Interfejs wiersza polecenia platformy Azure:
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer (preview)" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
 Po utworzeniu przypisaniu roli można utworzyć/zaktualizować/usunąć wpisy tajne.
@@ -142,18 +145,18 @@ Po utworzeniu przypisaniu roli można utworzyć/zaktualizować/usunąć wpisy ta
 
 ### <a name="secret-scope-role-assignment"></a>Przypisanie roli zakresu wpisów tajnych
 
-1. Otwórz jeden z wcześniej utworzonych wpisów tajnych, sprawdź przegląd i kontrolę dostępu (IAM) (wersja zapoznawcza)
+1. Otwórz jeden z wcześniej utworzonych wpisów tajnych, sprawdź przegląd i kontrolę dostępu (IAM) 
 
-2. Kliknij kartę kontrola dostępu (IAM) (wersja zapoznawcza)
+2. Kliknij kartę kontrola dostępu (IAM)
 
     ![Przypisanie roli — klucz tajny](../media/rbac/image-8.png)
 
-3. Utwórz rolę oficera kluczy tajnych "Key Vault tajemnicy (wersja zapoznawcza)" dla bieżącego użytkownika, tak jak powyżej, w przypadku Key Vault.
+3. Utwórz rolę oficera klucza tajnego "Key Vault oficerów tajnych" dla bieżącego użytkownika, tak jak powyżej, została przeprowadzona powyżej dla Key Vault.
 
 Interfejs wiersza polecenia platformy Azure:
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer (preview)" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
+az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
 
 ### <a name="test-and-verify"></a>Testowanie i weryfikowanie
@@ -164,7 +167,7 @@ az role assignment create --role "Key Vault Secrets Officer (preview)" --assigne
 
 1. Sprawdź poprawność dodawania nowego wpisu tajnego bez roli "Key Vault tajemnicy" na poziomie magazynu kluczy.
 
-Przejdź do karty kontrola dostępu do magazynu kluczy (IAM) i usuń przypisanie roli "Key Vault tajemnicy (wersja zapoznawcza)" dla tego zasobu.
+Przejdź do karty kontrola dostępu do magazynu kluczy (IAM) i usuń przypisanie roli "Key Vault tajemnicy dla tego zasobu.
 
 ![Usuwanie magazynu kluczy przypisania](../media/rbac/image-9.png)
 
@@ -178,7 +181,7 @@ Utwórz nowy wpis tajny (wpisy tajne \> + generowanie/import) powinien zostać w
 
 2.  Weryfikuj tajne edytowanie bez "Key Vault tajemnicy" na poziomie tajnym.
 
--   Przejdź do karty utworzone wcześniej wpisy tajne Access Control (IAM) (wersja zapoznawcza) i usuń przypisanie roli "Key Vault tajemnicy (wersja zapoznawcza)" dla tego zasobu.
+-   Przejdź do wcześniej utworzonego wpisu tajnego Access Control (IAM) i usuń przypisanie roli "Key Vault tajemnicy" dla tego zasobu.
 
 -   Przejdź do wcześniej utworzonego klucza tajnego. Można wyświetlić właściwości klucza tajnego.
 
@@ -186,7 +189,7 @@ Utwórz nowy wpis tajny (wpisy tajne \> + generowanie/import) powinien zostać w
 
 3. Sprawdź poprawność odczytu wpisów tajnych bez roli czytnika na poziomie magazynu kluczy.
 
--   Przejdź do karty kontrola dostępu grupy zasobów magazynu kluczy (IAM) i usuń przypisanie roli "Key Vault Reader (wersja zapoznawcza)".
+-   Przejdź do karty kontrola dostępu grupy zasobów magazynu kluczy (IAM) i usuń przypisanie roli "Key Vault Reader".
 
 -   Przejdź do karty wpisy tajne magazynu kluczy, który powinien zostać wyświetlony poniżej:
 
@@ -224,7 +227,7 @@ Aby uzyskać więcej informacji o sposobach tworzenia ról niestandardowych, zob
 
 -   Opóźnienie przypisań ról: w bieżącej oczekiwanej wydajności zajmie to 10 minut (600 sekund) po zmianie przypisań ról dla roli do zastosowania
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Przegląd RBAC platformy Azure](../../role-based-access-control/overview.md)
 - [Samouczek ról niestandardowych](../../role-based-access-control/tutorial-custom-role-cli.md)

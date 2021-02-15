@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 902bd46fcf6efc20c81992e29fd463781fecc15e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 817b6b373f521543234cf02818cde8c4b4ba40c1
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731439"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526429"
 ---
 # <a name="tutorial-configure-parsable-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie przeanalizowania dla automatycznej aprowizacji użytkowników
 
@@ -32,6 +32,7 @@ W tym samouczku opisano kroki, które należy wykonać w celu przeanalizowania i
 > * Tworzenie użytkowników w celu przeanalizowania
 > * Usuwanie użytkowników w celu przeanalizowania, gdy nie wymagają już dostępu
 > * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i możliwym do przeanalizowania
+> * Udostępnianie grup i członkostw w grupach w celu przeanalizowania
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,17 +108,25 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |userName|Ciąg|&check;|
    |displayName|Ciąg|
 
-10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory grupy, aby przeanalizować**.
 
-11. Aby umożliwić przeanalizowanie usługi Azure AD Provisioning, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
+11. Przejrzyj atrybuty grup, które są synchronizowane z usługi Azure AD, aby można je było przeanalizować w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania grup w celu przeanalizowania dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
+
+      |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+      |---|---|---|
+      |displayName|Ciąg|&check;|
+      |elementy członkowskie|Tematy pomocy|
+12. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Aby umożliwić przeanalizowanie usługi Azure AD Provisioning, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
     ![Stan aprowizacji — przełącznik w pozycji włączonej](common/provisioning-toggle-on.png)
 
-12. Zdefiniuj użytkowników i/lub grupy, które chcesz przeanalizować, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
+14. Zdefiniuj użytkowników i/lub grupy, które chcesz przeanalizować, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-13. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
+15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
@@ -129,6 +138,10 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 1. Użyj [dzienników aprowizacji](../reports-monitoring/concept-provisioning-logs.md), aby określić, których użytkowników udało się lub nie udało aprowizować
 2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Dziennik zmian
+
+* 02/15/2021 — włączono obsługę grupy.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
