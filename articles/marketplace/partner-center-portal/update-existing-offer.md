@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 26ceee828bae7ea3fe2d78ec1393f308556b8401
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c28ab557f6aac94fa9acde78c7433b850ecba0be
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033361"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097261"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Aktualizowanie istniejących ofert w portalu komercyjnym
 
@@ -31,6 +31,10 @@ Wykonaj następujące kroki, aby zaktualizować ofertę, która została pomyśl
     - **Nieopublikowane zmiany**: sekcja została zaktualizowana i została ukończona. Wszystkie wymagane dane zostały dostarczone, a aktualizacje nie zostały wprowadzone.
     - **Niekompletne**: aktualizacje wprowadzone w sekcji wprowadziły błędy, które muszą zostać naprawione lub wymagają podania więcej informacji.
 2. Wybierz pozycję **Publikuj** , aby przesłać zaktualizowaną ofertę na potrzeby publikowania. Twoja oferta przejdzie do standardowej [procedury walidacji i publikacji](../review-publish-offer.md#validation-and-publishing-steps).
+
+## <a name="changing-offer-type"></a>Zmienianie typu oferty
+
+[!INCLUDE [change-offer-type](../includes/change-offer-type.md)]
 
 > [!IMPORTANT]
 > Musisz przejrzeć podgląd oferty, gdy jest ona dostępna, a następnie wybierz pozycję Przejdź do usługi **Live** , aby opublikować zaktualizowaną ofertę dla zamierzonych odbiorców (publiczna lub prywatna).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509388"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100360962"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Tworzenie indeksatorów na platformie Azure Wyszukiwanie poznawcze
 
@@ -142,6 +142,20 @@ Zaplanowane przetwarzanie zwykle pokrywa się z potrzebą przyrostowego indeksow
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 + [Table Storage platformy Azure](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+
+## <a name="change-detection-and-indexer-state"></a>Stan wykrywania zmian i indeksatora
+
+Indeksatory mogą wykrywać zmiany w danych źródłowych i przetwarzać nowe lub zaktualizowane dokumenty na każdym uruchomieniu indeksatora. Na przykład jeśli stan indeksatora wskazuje, że uruchomienie zakończyło się pomyślnie z `0/0` przetworzonymi dokumentami, oznacza to, że indeksator nie znalazł żadnych nowych lub zmienionych wierszy ani obiektów BLOB w źródłowym źródle danych.
+
+Jak indeksator obsługuje wykrywanie zmian w zależności od źródła danych:
+
++ Na platformie Azure Blob Storage, na platformie Azure Table Storage i Azure Data Lake Storage Gen2 sygnatury każdej aktualizacji obiektów blob lub wierszy wraz z datą i godziną. Różne indeksatory używają tych informacji do ustalenia, które dokumenty należy zaktualizować w indeksie. Wbudowane wykrywanie zmian oznacza, że indeksator może rozpoznawać nowe i zaktualizowane dokumenty, bez konieczności dodatkowej konfiguracji.
+
++ Usługi Azure SQL i Cosmos DB udostępniają funkcje wykrywania zmian na swoich platformach. W definicji źródła danych można określić zasady wykrywania zmian.
+
+W przypadku dużych obciążeń indeksowania indeksator śledzi również informacje o ostatnim dokumencie przetworzonym przez wewnętrzny "górny znak wodny". Znacznik nigdy nie jest ujawniany w interfejsie API, ale wewnętrznie indeksator śledzi miejsce zatrzymania. Gdy indeksowanie zostanie wznowione, za pomocą zaplanowanego uruchomienia lub wywołania na żądanie, indeksator odwołuje się do znacznika limitu górnego, aby można było go wybrać w miejscu, w którym został pozostawiony.
+
+Jeśli konieczne jest wyczyszczenie znacznika limitu górnego, aby ponownie indeksować pełne, można użyć [Zresetuj indeksator](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Aby uzyskać bardziej wybiórcze ponowne indeksowanie, użyj [Ustawienia umiejętności](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) lub [Zresetuj dokumenty](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Resetowanie interfejsów API umożliwia wyczyszczenie stanu wewnętrznego, a także opróżnianie pamięci podręcznej, jeśli włączono [wzbogacanie przyrostowe](search-howto-incremental-index.md). Aby uzyskać więcej informacji w tle i porównaniu z każdą opcją resetowania, zobacz [Uruchamianie lub resetowanie indeksatorów, umiejętności i dokumentów](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Poznaj swoje dane
 

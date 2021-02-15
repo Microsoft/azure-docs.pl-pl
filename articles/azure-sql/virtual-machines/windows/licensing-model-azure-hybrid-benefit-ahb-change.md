@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5813331d5eafd953d776dd19d9cc885ff71b8be0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879834"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361557"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Zmienianie modelu licencjonowania maszyny wirtualnej z programem SQL na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -119,7 +119,6 @@ Zmiana modelu licencji to:
    - Obsługiwane tylko w wersjach Standard i Enterprise SQL Server. Zmiany licencji dla ekspresowych, sieci Web i dewelopera nie są obsługiwane. 
    - Obsługiwane tylko w przypadku maszyn wirtualnych wdrożonych za pomocą modelu Azure Resource Manager. Maszyny wirtualne wdrożone za pomocą modelu klasycznego nie są obsługiwane. 
    - Dostępne tylko dla chmur publicznych lub Azure Government. 
-   - Obsługiwane tylko na maszynach wirtualnych, które mają pojedynczy interfejs sieciowy (NIC). 
 
 > [!Note]
 > Korzyść użycia hybrydowego platformy Azure nie kwalifikują się tylko do SQL Server licencjonowania opartego na rdzeniach z programem Software Assurance lub licencją subskrypcyjną. Jeśli używasz licencjonowania serwera i licencji CAL na SQL Server i masz program Software Assurance, możesz użyć funkcji "Przenieś własną licencję" do obrazu maszyny wirtualnej platformy Azure SQL Server, aby korzystać z mobilności licencji dla tych serwerów, ale nie możesz korzystać z innych cech Korzyść użycia hybrydowego platformy Azure. 
@@ -136,10 +135,6 @@ Ten błąd występuje podczas próby zmiany modelu licencji na SQL Server maszyn
 
 Musisz zarejestrować swoją subskrypcję u dostawcy zasobów, a następnie [zarejestrować maszynę wirtualną SQL Server przy użyciu rozszerzenia programu SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). 
 
-
-**Maszyna wirtualna " \<vmname\> " ma skojarzoną więcej niż jedną kartę sieciową**
-
-Ten błąd występuje na maszynach wirtualnych, które mają więcej niż jedną kartę sieciową. Przed zmianą modelu licencjonowania Usuń jedną z kart sieciowych. Mimo że można dodać kartę sieciową z powrotem do maszyny wirtualnej po zmianie modelu licencji, operacje w Azure Portal, takie jak automatyczne tworzenie kopii zapasowych i stosowanie poprawek, nie będą już obsługiwane. 
 
 
 ## <a name="next-steps"></a>Następne kroki

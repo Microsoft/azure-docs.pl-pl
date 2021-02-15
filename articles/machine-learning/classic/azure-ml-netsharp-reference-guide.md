@@ -3,18 +3,18 @@ title: 'ML Studio (klasyczny): net # Custom neuronowych Networks — Azure'
 description: 'Przewodnik dotyczący składni języka NET # neuronowych Network Specification. Dowiedz się, jak tworzyć niestandardowe modele sieci neuronowych w Azure Machine Learning Studio (klasyczne).'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302796"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519256"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Przewodnik dotyczący języka specyfikacji sieci NET # neuronowych dla Machine Learning Studio (klasyczny)
 
@@ -90,17 +90,17 @@ Na przykład następująca instrukcja definiuje stałą `x` :
 
 `Const X = 28;`
 
-Aby zdefiniować dwie lub więcej stałych jednocześnie, należy ująć nazwy i wartości identyfikatorów w nawiasach klamrowych i oddzielić je średnikami. Przykład:
+Aby zdefiniować dwie lub więcej stałych jednocześnie, należy ująć nazwy i wartości identyfikatorów w nawiasach klamrowych i oddzielić je średnikami. Na przykład:
 
 `Const { X = 28; Y = 4; }`
 
-Prawa strona każdego wyrażenia przypisania może być liczbą całkowitą, liczbą rzeczywistą, wartością logiczną (true lub false) lub wyrażeniem matematycznym. Przykład:
+Prawa strona każdego wyrażenia przypisania może być liczbą całkowitą, liczbą rzeczywistą, wartością logiczną (true lub false) lub wyrażeniem matematycznym. Na przykład:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Deklaracja warstwy
 
-Deklaracja warstwy jest wymagana. Definiuje rozmiar i źródło warstwy, łącznie z pakietami połączeń i atrybutami. Instrukcja deklaracji zaczyna się od nazwy warstwy (dane wejściowe, ukryte lub wyjściowe), po której następuje wymiary warstwy (spójna kolekcja liczb całkowitych). Przykład:
+Deklaracja warstwy jest wymagana. Definiuje rozmiar i źródło warstwy, łącznie z pakietami połączeń i atrybutami. Instrukcja deklaracji zaczyna się od nazwy warstwy (dane wejściowe, ukryte lub wyjściowe), po której następuje wymiary warstwy (spójna kolekcja liczb całkowitych). Na przykład:
 
 ```Net#
 input Data auto;
@@ -266,9 +266,9 @@ Normalizacja odpowiedzi jest używana do uogólniania w sieci neuronowych. Gdy j
 
 Pakiety normalizacji odpowiedzi obsługują wszystkie atrybuty splotowych z wyjątkiem **udostępniania**, **MapCount** i **wag**.
 
-+ Jeśli jądro zawiera neurons w tej samej mapie co **_x_*_, schemat normalizacji jest określany jako _ do* normalizacji mapy**. Aby zdefiniować tę samą normalizację mapy, pierwsza Współrzędna w **InputShape** musi mieć wartość 1.
++ Jeśli jądro zawiera neurons w tej samej mapie jak ***x** _, schemat normalizacji jest określany jako _ * ta sama normalizacja mapy * *. Aby zdefiniować tę samą normalizację mapy, pierwsza Współrzędna w **InputShape** musi mieć wartość 1.
 
-+ Jeśli jądro zawiera neurons w tym samym położeniu przestrzennym co **_x_*_, ale neurons znajdują się w innych mapach, schemat normalizacji jest wywoływany _* między normalizacją Maps**. Ten typ normalizacji odpowiedzi implementuje formę procedury inhibicji bocznej, która jest inspirowana typem znalezionym w rzeczywistości neurons, tworząc konkurs dla dużych poziomów aktywacji między wynikami neuron obliczanymi w różnych mapach. Aby zdefiniować w obrębie normalizacji Maps, pierwsza Współrzędna musi być liczbą całkowitą większą niż 1 i nie większa niż liczba map
++ Jeśli jądro zawiera neurons w tym samym położeniu przestrzennym co ***x** _, ale neurons znajdują się w innych mapach, schemat normalizacji jest wywoływany _ * w przypadku normalizacji Maps * *. Ten typ normalizacji odpowiedzi implementuje formę procedury inhibicji bocznej, która jest inspirowana typem znalezionym w rzeczywistości neurons, tworząc konkurs dla dużych poziomów aktywacji między wynikami neuron obliczanymi w różnych mapach. Aby zdefiniować w obrębie normalizacji Maps, pierwsza Współrzędna musi być liczbą całkowitą większą niż 1 i nie większa niż liczba map
 
 Ponieważ pakiety normalizacji odpowiedzi stosują wstępnie zdefiniowaną funkcję do wartości węzła źródłowego, aby określić wartość węzła docelowego, nie mają stanu do uczenia (wagi lub odchylenia).
 

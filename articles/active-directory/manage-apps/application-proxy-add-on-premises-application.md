@@ -8,22 +8,26 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: f18126448f5a6dca29e798ad80cb53a8760689d8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.custom: contperf-fy21q3-portal
+ms.openlocfilehash: 6bd44ea0217f11a156598a1a6f3703e528dd82d4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576518"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095175"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
-Usługa Azure Active Directory (Azure AD) udostępnia usługę serwera proxy aplikacji, która umożliwia użytkownikom zalogowanym na konto usługi Azure AD dostęp do aplikacji lokalnych. W tym samouczku przygotujemy środowisko do obsługi serwera proxy aplikacji. Gdy środowisko będzie gotowe, za pomocą witryny Azure Portal dodamy aplikację lokalną do dzierżawy usługi Azure AD. Aby **wyświetlić aplikacje i szybko uzyskać szybkie** Zarządzanie aplikacjami na platformie Azure, zapoznaj się z [serią szybki start](view-applications-portal.md).
+Usługa Azure Active Directory (Azure AD) udostępnia usługę serwera proxy aplikacji, która umożliwia użytkownikom zalogowanym na konto usługi Azure AD dostęp do aplikacji lokalnych. Aby dowiedzieć się więcej o serwerze proxy aplikacji, zobacz [co to jest serwer proxy aplikacji?](what-is-application-proxy.md) W tym samouczku przygotujemy środowisko do obsługi serwera proxy aplikacji. Gdy środowisko będzie gotowe, za pomocą witryny Azure Portal dodamy aplikację lokalną do dzierżawy usługi Azure AD. 
 
 :::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Diagram omówienia serwera proxy aplikacji" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
+
+Przed rozpoczęciem upewnij się, że znasz już kwestie dotyczące zarządzania aplikacjami i **jednego Sign-On (SSO)** . Sprawdź następujące linki:
+- [Przewodnik Szybki Start dotyczący zarządzania aplikacjami w usłudze Azure AD](view-applications-portal.md)
+- [Co to jest pojedynczy Sign-On (SSO)?](what-is-single-sign-on.md)
 
 Łączniki są kluczową częścią serwera proxy aplikacji. Aby dowiedzieć się więcej na temat łączników, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-connectors.md).
 

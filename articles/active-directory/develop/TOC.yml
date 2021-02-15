@@ -475,6 +475,10 @@
           href: reference-third-party-cookies-spas.md
         - name: Obsługa zmian plików cookie SameSite w przeglądarce Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Obsługa uwierzytelniania bezhaseł
+      items:
+        - name: Obsługa uwierzytelniania FIDO2
+          href: support-fido2-authentication.md
     - name: Uwierzytelnianie aplikacji i usług
       items:
         - name: Tworzenie jednostki usługi przy użyciu programu Azure PowerShell

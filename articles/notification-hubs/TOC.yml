@@ -151,6 +151,8 @@
       href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: Używanie protokołu VOIP w usłudze APNS za pośrednictwem usługi Notification Hubs
       href: voip-apns.md
+    - name: Włączanie dzienników diagnostycznych dla Notification Hubs
+      href: notification-hubs-diagnostic-logs.md
 - name: Dokumentacja
   items:
     - name: .NET

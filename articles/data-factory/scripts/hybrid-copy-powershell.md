@@ -1,21 +1,18 @@
 ---
 title: Kopiowanie danych ze środowiska lokalnego na platformę Azure przy użyciu programu PowerShell
 description: Ten skrypt programu PowerShell kopiuje dane z bazy danych SQL Server do innej Blob Storage platformy Azure.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: article
 ms.author: jingwang
 author: linda33wj
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632236"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373389"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Tworzenie potoku usługi Data Factory w celu kopiowania danych z SQL Server na platformę Azure przy użyciu programu PowerShell
 
@@ -27,9 +24,9 @@ Ten przykładowy skrypt programu PowerShell tworzy potok w Azure Data Factory, k
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- **SQL Server** . W tym przykładzie używasz bazy danych SQL Server jako **źródła** magazynu danych.
-- **Konto usługi Azure Storage** . W tym przykładzie używasz magazynu obiektów blob platformy Azure jako **miejsca docelowego/ujścia** danych. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z artykułem [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) , aby dowiedzieć się, jak go utworzyć.
-- **Własne środowisko Integration Runtime** . Pobierz plik MSI z [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=39717) i uruchom go, aby zainstalować własne środowisko Integration Runtime na komputerze.  
+- **SQL Server**. W tym przykładzie używasz bazy danych SQL Server jako **źródła** magazynu danych.
+- **Konto usługi Azure Storage**. W tym przykładzie używasz magazynu obiektów blob platformy Azure jako **miejsca docelowego/ujścia** danych. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z artykułem [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) , aby dowiedzieć się, jak go utworzyć.
+- **Własne środowisko Integration Runtime**. Pobierz plik MSI z [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=39717) i uruchom go, aby zainstalować własne środowisko Integration Runtime na komputerze.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Tworzenie przykładowej bazy danych w SQL Server
 1. W bazie danych SQL Server Utwórz tabelę o nazwie **EMP** przy użyciu następującego skryptu SQL:

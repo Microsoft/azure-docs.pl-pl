@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla chmury wiosennej platformy Azure
 description: Wyświetla listę kontroli zgodności z przepisami Azure Policy dostępnych dla chmury wiosennej platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d248e82ed55e243913fc661fbdbf1fbea92a22ab
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: ce7197bc401b41ec4bccc99a2d324e4d2c717ec3
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556758"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099896"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-spring-cloud"></a>Azure Policy kontroli zgodności z przepisami dla chmury wiosennej platformy Azure
 

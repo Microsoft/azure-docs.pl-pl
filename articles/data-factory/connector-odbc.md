@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z i do magazynów danych ODBC przy użyciu Azure Data Factory
 description: Dowiedz się, jak skopiować dane z i do magazynów danych ODBC przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
-ms.openlocfilehash: c92428666f0766f78475be16416027cdc6e71f20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b73e10b0ed539879e9a32d3961b6375828cc153
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85506535"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389624"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopiowanie danych z i do magazynów danych ODBC przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -57,7 +52,7 @@ Dla połączonej usługi ODBC są obsługiwane następujące właściwości:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi być ustawiona na wartość: **ODBC** | Tak |
-| Parametry połączenia | Parametry połączenia z wyjątkiem części poświadczenia. Można określić parametry połączenia z wzorcem `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` lub użyć systemowej nazwy DSN (źródła danych) skonfigurowanego na maszynie Integration Runtime przy użyciu programu `"DSN=<name of the DSN on IR machine>;"` (należy odpowiednio określić część Credential w połączonej usłudze).<br>Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć  `password`   konfigurację z parametrów połączenia.Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md)   .| Tak |
+| Parametry połączenia | Parametry połączenia z wyjątkiem części poświadczenia. Można określić parametry połączenia z wzorcem `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` lub użyć systemowej nazwy DSN (źródła danych) skonfigurowanego na maszynie Integration Runtime przy użyciu programu `"DSN=<name of the DSN on IR machine>;"` (należy odpowiednio określić część Credential w połączonej usłudze).<br>Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md) .| Tak |
 | authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia z magazynem danych ODBC.<br/>Dozwolone wartości to: **podstawowe** i **anonimowe**. | Tak |
 | userName | Określ nazwę użytkownika w przypadku korzystania z uwierzytelniania podstawowego. | Nie |
 | hasło | Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
@@ -154,7 +149,7 @@ Aby skopiować dane z magazynu danych zgodnego z ODBC, w sekcji **Źródło** dz
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **OdbcSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 
@@ -247,7 +242,7 @@ Aby rozwiązać problemy z połączeniem, Użyj karty **Diagnostyka** w **Integr
 1. Uruchom **Configuration Manager Integration Runtime**.
 2. Przejdź na kartę **Diagnostyka** .
 3. W sekcji "Testuj połączenie" Wybierz **Typ** magazynu danych (połączona usługa).
-4. Określ **Parametry połączenia** , które są używane do nawiązywania połączenia z magazynem danych, **Wybierz uwierzytelnianie** i wprowadź **nazwę użytkownika**, **hasło**i/lub **poświadczenia**.
+4. Określ **Parametry połączenia** , które są używane do nawiązywania połączenia z magazynem danych, **Wybierz uwierzytelnianie** i wprowadź **nazwę użytkownika**, **hasło** i/lub **poświadczenia**.
 5. Kliknij przycisk **Test connection** , aby przetestować połączenie z magazynem danych.
 
 ## <a name="next-steps"></a>Następne kroki

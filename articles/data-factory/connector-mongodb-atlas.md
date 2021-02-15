@@ -1,23 +1,18 @@
 ---
 title: Kopiuj dane z MongoDB atlasu
 description: Informacje o kopiowaniu danych z MongoDB Atlas do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 09/28/2020
-ms.openlocfilehash: 34b0c053f4f0fea933a6e1f48d8f93e6352776b9
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b2f77e4bd8df66084937da3dd203ebb71d9a3511
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946794"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368799"
 ---
 # <a name="copy-data-from-mongodb-atlas-using-azure-data-factory"></a>Kopiowanie danych z MongoDB Atlas przy użyciu Azure Data Factory
 

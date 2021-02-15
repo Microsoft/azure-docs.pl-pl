@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36b21196207f65975dae950f43ec0c7094991dad
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537348"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362033"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management
 Możliwość ograniczania żądań przychodzących jest kluczową rolą usługi Azure API Management. Kontrolując częstotliwość żądań lub łączne żądania/przesyłane dane, API Management umożliwia dostawcom interfejsu API ochronę swoich interfejsów API przed nadużyciami i tworzenie wartości dla różnych warstw produktu interfejsu API.
@@ -40,14 +40,14 @@ W ramach usługi Azure API Management limity szybkości są zwykle propagowane s
 > Ze względu na rozproszoną naturę architektury ograniczanie szybkości nie jest nigdy całkowicie dokładne. Różnica między skonfigurowaną i rzeczywistą liczbą dozwolonych żądań różni się w zależności od ilości żądania, liczby opóźnień zaplecza i innych czynników.
 
 ## <a name="product-based-throttling"></a>Ograniczanie na podstawie produktu
-Do tej pory możliwości ograniczania przepustowości zostały ograniczone do zakresu określonej subskrypcji produktu zdefiniowanej w Azure Portal. Jest to przydatne w przypadku, gdy dostawca interfejsu API stosuje limity dla deweloperów, którzy zarejestrowali się w celu korzystania z interfejsu API, ale nie jest to pomocne, na przykład w przypadku ograniczania indywidualnych użytkowników końcowych interfejsu API. Istnieje możliwość, że dla jednego użytkownika aplikacji dewelopera będzie można wykorzystać cały przydział, a następnie uniemożliwić innym klientom dewelopera korzystanie z aplikacji. Ponadto kilku klientów, którzy mogą generować duże ilości żądań, mogą ograniczyć dostęp do użytkowników okazjonalnych.
+Możliwości ograniczania przepustowości, które są objęte zakresem określonej subskrypcji, są przydatne w przypadku, gdy dostawca interfejsu API stosuje limity dla deweloperów, którzy zarejestrowali się w celu korzystania z interfejsu API. Nie jest to jednak pomocne, na przykład w przypadku ograniczania indywidualnych użytkowników końcowych interfejsu API. Pojedynczy użytkownik aplikacji dewelopera może wykorzystać cały przydział, a następnie uniemożliwić innym klientom dewelopera korzystanie z aplikacji. Ponadto kilku klientów, którzy mogą generować duże ilości żądań, mogą ograniczyć dostęp do użytkowników okazjonalnych.
 
 ## <a name="custom-key-based-throttling"></a>Ograniczanie oparte na kluczach
 
 > [!NOTE]
 > `rate-limit-by-key`Zasady i `quota-by-key` nie są dostępne w ramach warstwy zużycia usługi Azure API Management. 
 
-Nowe zasady [Rate-limit-by-Key](./api-management-access-restriction-policies.md#LimitCallRateByKey) i [Quote według klucza](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) zapewniają bardziej elastyczne rozwiązanie do kontroli ruchu. Te nowe zasady umożliwiają definiowanie wyrażeń w celu identyfikowania kluczy, które są używane do śledzenia użycia ruchu sieciowego. Sposób, w jaki to działa, jest najłatwiejszym zilustrowanym przykładem. 
+Zasady [Rate-limit-by-Key](./api-management-access-restriction-policies.md#LimitCallRateByKey) i [Quote według klucza](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) zapewniają bardziej elastyczne rozwiązanie do kontroli ruchu. Te zasady umożliwiają definiowanie wyrażeń w celu identyfikowania kluczy używanych do śledzenia użycia ruchu sieciowego. Sposób, w jaki to działa, jest najłatwiejszym zilustrowanym przykładem. 
 
 ## <a name="ip-address-throttling"></a>Ograniczanie adresów IP
 Poniższe zasady ograniczają pojedynczy adres IP klienta tylko do 10 wywołań co minutę z łączną liczbą wywołań 1 000 000 i 10 000 KB przepustowości miesięcznie. 
@@ -77,7 +77,7 @@ W przypadku uwierzytelnienia użytkownika końcowego klucz ograniczenia przepust
 W tym przykładzie pokazano, jak wyodrębnić nagłówek autoryzacji, przekonwertować go na `JWT` obiekt i użyć podmiotu tokenu, aby zidentyfikować użytkownika i użyć go jako klucza ograniczającego szybkość. Jeśli tożsamość użytkownika jest przechowywana w `JWT` postaci jako jednego z innych oświadczeń, ta wartość może zostać użyta w swoim miejscu.
 
 ## <a name="combined-policies"></a>Połączone zasady
-Mimo że nowe zasady ograniczania przepustowości zapewniają większą kontrolę niż istniejące zasady ograniczania przepustowości, wciąż łączą się funkcje. Ograniczanie według klucza subskrypcji produktu ([ograniczanie liczby wywołań przez subskrypcję](./api-management-access-restriction-policies.md#LimitCallRate) i [Ustawianie przydziału użycia przez subskrypcję](./api-management-access-restriction-policies.md#SetUsageQuota)) to doskonały sposób na umożliwienie zarabiając interfejsu API przez naliczanie opłat na podstawie poziomów użycia. Dokładniejsza kontrola nad możliwością ograniczania przez użytkownika jest uzupełniana i uniemożliwia zachowanie jednego użytkownika z obniżania wydajności innego. 
+Chociaż zasady ograniczania przepustowości oparte na użytkownikach zapewniają większą kontrolę niż zasady ograniczania przepustowości oparte na subskrypcjach, nadal istnieje wartość łącząca obie funkcje. Ograniczanie według klucza subskrypcji produktu ([ograniczanie liczby wywołań przez subskrypcję](./api-management-access-restriction-policies.md#LimitCallRate) i [Ustawianie przydziału użycia przez subskrypcję](./api-management-access-restriction-policies.md#SetUsageQuota)) to doskonały sposób na umożliwienie zarabiając interfejsu API przez naliczanie opłat na podstawie poziomów użycia. Dokładniejsza kontrola nad możliwością ograniczania przez użytkownika jest uzupełniana i uniemożliwia zachowanie jednego użytkownika z obniżania wydajności innego. 
 
 ## <a name="client-driven-throttling"></a>Ograniczanie przepustowości przez klienta
 Gdy klucz ograniczenia jest zdefiniowany przy użyciu [wyrażenia zasad](./api-management-policy-expressions.md), jest to dostawca interfejsu API, który wybiera zakres ograniczania. Jednak deweloper może chcieć kontrolować sposób, w jaki klasyfikują swoich klientów. Może to być możliwe przez dostawcę interfejsu API przez wprowadzenie niestandardowego nagłówka, aby umożliwić aplikacji klienckiej dewelopera komunikowanie się z kluczem do interfejsu API.

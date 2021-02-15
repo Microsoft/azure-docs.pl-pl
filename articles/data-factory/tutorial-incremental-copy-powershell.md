@@ -1,22 +1,18 @@
 ---
 title: Przyrostowe Kopiowanie tabeli przy użyciu programu PowerShell
 description: W tym samouczku utworzysz potok Azure Data Factory, który przyrostowo kopiuje dane z bazy danych Azure SQL Database do usługi Azure Blob Storage.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 50608870fa397ad5586c626f1d1fe5c9d893b4ca
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a3346f3f126b880a5a2983f9dd35aa84f6389a31
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222823"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367728"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Przyrostowe ładowanie danych z Azure SQL Database do magazynu obiektów blob platformy Azure przy użyciu programu PowerShell
 

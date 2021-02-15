@@ -1,23 +1,18 @@
 ---
 title: Wywołaj procedurę składowaną z działania Azure Data Factory Copy
 description: Dowiedz się, jak wywołać procedurę składowaną w Azure SQL Database lub SQL Server z działania kopiowania Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d2b10744222da8e5d85b19e1ded5aa24cf9c9706
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f06b84ac0807a37c7adc603a557894be85a4cea
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637857"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374970"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Wywołaj procedurę składowaną z działania kopiowania w Azure Data Factory
 > [!NOTE]
@@ -29,7 +24,7 @@ Podczas kopiowania danych do [SQL Server](data-factory-sqlserver-connector.md) l
 Poniższy przykład pokazuje, jak wywołać procedurę składowaną w bazie danych SQL Server z potoku Data Factory (działanie kopiowania):  
 
 ## <a name="output-dataset-json"></a>JSON zestawu danych wyjściowych
-W pliku JSON wyjściowego zestawu danych ustaw **Typ** na: **SqlServerName** . Ustaw **wartość azuresqltable** do użycia z Azure SQL Database. Wartość właściwości **TableName** musi być zgodna z nazwą pierwszego parametru procedury składowanej.  
+W pliku JSON wyjściowego zestawu danych ustaw **Typ** na: **SqlServerName**. Ustaw **wartość azuresqltable** do użycia z Azure SQL Database. Wartość właściwości **TableName** musi być zgodna z nazwą pierwszego parametru procedury składowanej.  
 
 ```json
 {
@@ -68,7 +63,7 @@ Zdefiniuj sekcję **sqlsink** w kodzie JSON działania kopiowania w następując
 ```
 
 ## <a name="stored-procedure-definition"></a>Definicja procedury składowanej 
-W bazie danych Zdefiniuj procedurę składowaną o takiej samej nazwie jak **SqlWriterStoredProcedureName** . Procedura składowana obsługuje dane wejściowe z magazynu danych źródłowych i wstawia dane do tabeli w docelowej bazie danych. Nazwa pierwszego parametru procedury składowanej musi być zgodna z nazwą tabeli zdefiniowaną w kodzie JSON zestawu danych (Marketing).
+W bazie danych Zdefiniuj procedurę składowaną o takiej samej nazwie jak **SqlWriterStoredProcedureName**. Procedura składowana obsługuje dane wejściowe z magazynu danych źródłowych i wstawia dane do tabeli w docelowej bazie danych. Nazwa pierwszego parametru procedury składowanej musi być zgodna z nazwą tabeli zdefiniowaną w kodzie JSON zestawu danych (Marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -81,7 +76,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>Definicja typu tabeli
-W swojej bazie danych Zdefiniuj typ tabeli o tej samej nazwie co **SqlWriterTableType** . Schemat typu tabeli musi być zgodny ze schematem wejściowego zestawu danych.
+W swojej bazie danych Zdefiniuj typ tabeli o tej samej nazwie co **SqlWriterTableType**. Schemat typu tabeli musi być zgodny ze schematem wejściowego zestawu danych.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -93,5 +88,5 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującymi artykułami dotyczącymi łączników, które zawierają kompletne przykłady kodu JSON: 
 
-- [Baza danych SQL Azure](data-factory-azure-sql-connector.md)
+- [Azure SQL Database](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

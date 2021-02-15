@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 8a6189a613c9a6768428a13e35e0e009894b8b3f
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 77d4a1cad4843578419be54465a06e87834dd186
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988035"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104522"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Najlepsze rozwiązania dotyczące QnA Maker bazy wiedzy
 
@@ -147,7 +147,7 @@ QnA Maker umożliwia użytkownikom współpracę w bazie wiedzy. Aby uzyskać do
 
 ## <a name="active-learning"></a>Aktywna nauka
 
-[Usługa Active Learning](../How-to/use-active-learning.md) to najlepsze zadanie sugerujące alternatywne pytania, gdy ma szeroki zakres jakości i liczbę zapytań opartych na użytkownikach. Ważne jest, aby zezwolić na uczestnictwo użytkowników aplikacji klienta w aktywnej pętli opinii o uczeniu bez Censorship. Po wybraniu pytań w portalu QnA Maker można **[filtrować według sugestii](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** , a następnie przejrzeć i zaakceptować lub odrzucić te sugestie.
+[Usługa Active Learning](../How-to/use-active-learning.md) to najlepsze zadanie sugerujące alternatywne pytania, gdy ma szeroki zakres jakości i liczbę zapytań opartych na użytkownikach. Ważne jest, aby zezwolić na uczestnictwo użytkowników aplikacji klienta w aktywnej pętli opinii o uczeniu bez Censorship. Po wybraniu pytań w portalu QnA Maker można **[filtrować według sugestii](../How-To/improve-knowledge-base.md)** , a następnie przejrzeć i zaakceptować lub odrzucić te sugestie.
 
 ## <a name="next-steps"></a>Następne kroki
 

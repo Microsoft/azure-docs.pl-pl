@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a0668b3ea651d129dc076e5f2247e38f5ab7d0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725499"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365535"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu
 
@@ -26,7 +26,7 @@ W tym artykule opisano, jak włączyć jednokrotne uwierzytelnianie kodu dostęp
 ![Tworzenie pocztą e-mail jednokrotnego diagramu przeglądu kodu dostępu](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> **Od marca 2021** funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. Jeśli nie chcesz zezwolić na automatyczne włączenie tej funkcji, możesz ją wyłączyć. Zobacz sekcję [wyłączanie jednorazowego kodu dostępu wiadomości e-mail](#disable-email-one-time-passcode) poniżej.
+> **Od października 2021** funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. Jeśli nie chcesz zezwolić na automatyczne włączenie tej funkcji, możesz ją wyłączyć. Zobacz sekcję [wyłączanie jednorazowego kodu dostępu wiadomości e-mail](#disable-email-one-time-passcode) poniżej.
 
 > [!NOTE]
 > Jednorazowy kod dostępu użytkownicy muszą logować się przy użyciu linku zawierającego kontekst dzierżawy (na przykład `https://myapps.microsoft.com/?tenantid=<tenant id>` lub `https://portal.azure.com/<tenant id>` w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com` ). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy-Goście nie mogą obecnie zalogować się za pomocą punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie programu `https://myapps.microsoft.com` `https://portal.azure.com` spowoduje wystąpienie błędu.
@@ -71,7 +71,7 @@ Użytkownik teri@gmail.com -gość jest zapraszany do firmy Fabrikam, która nie
 
 ## <a name="disable-email-one-time-passcode"></a>Wyłącz jednorazowy kod dostępu wiadomości e-mail
 
-Od marca 2021 funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. W tym czasie firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych ("wirusowego" lub "just-in-Time") kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. Włączamy funkcję jednorazowego kodu dostępu wiadomości e-mail, ponieważ zapewnia ona bezproblemową metodę uwierzytelniania dla użytkowników-Gości. Istnieje jednak możliwość wyłączenia tej funkcji, jeśli nie zostanie ona użyta.
+Od października 2021 funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. W tym czasie firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych ("wirusowego" lub "just-in-Time") kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. Włączamy funkcję jednorazowego kodu dostępu wiadomości e-mail, ponieważ zapewnia ona bezproblemową metodę uwierzytelniania dla użytkowników-Gości. Istnieje jednak możliwość wyłączenia tej funkcji, jeśli nie zostanie ona użyta.
 
 > [!NOTE]
 >
@@ -87,10 +87,8 @@ Od marca 2021 funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie w�
 
 4. W obszarze **Wyślij pocztą e-mail jednorazowy kod dostępu dla Gości**, zaznacz opcję **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**.
 
-    ![Wyślij wiadomość e-mail do jednorazowego ustawienia kodu dostępu](media/one-time-passcode/otp-admin-settings.png)
-
    > [!NOTE]
-   > Jeśli zobaczysz następujący przełącznik zamiast opcji przedstawionych powyżej, oznacza to, że wcześniej włączono, wyłączono lub wybrano w wersji zapoznawczej funkcji. Wybierz pozycję **nie** , aby wyłączyć funkcję.
+   > Jeśli zobaczysz następujący przełącznik zamiast opcji jednorazowego kodu dostępu wiadomości e-mail, oznacza to, że wcześniej włączono, wyłączono lub wybrano w wersji zapoznawczej funkcji. Wybierz pozycję **nie** , aby wyłączyć funkcję.
    >
    >![Włącz jednorazowy kod dostępu wiadomości E-mail w programie](media/delegate-invitations/enable-email-otp-opted-in.png)
 
@@ -98,14 +96,14 @@ Od marca 2021 funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie w�
 
 ## <a name="note-for-public-preview-customers"></a>Uwaga dla klientów z publicznej wersji zapoznawczej
 
-Jeśli wcześniej zaznaczono w publicznej wersji zapoznawczej jednorazowego kodu dostępu do wiadomości e-mail, Data 2021 dla automatycznego włączenia funkcji nie ma zastosowania do użytkownika, więc nie ma to wpływu na powiązane procesy biznesowe. Ponadto w Azure Portal w obszarze **wiadomości e-mail jednorazowy kod dostępu dla Gości** nie zobaczysz opcji automatycznego włączania jednokrotnego **dostępu do poczty e-mail dla gości w marcu 2021**. Zamiast tego zobaczysz następujący przełącznik **tak** lub **nie** :
+Jeśli wcześniej zaznaczono w publicznej wersji zapoznawczej jednorazowego kodu dostępu do wiadomości e-mail, Data 2021 dla automatycznego włączenia funkcji nie ma zastosowania do użytkownika, więc nie ma to wpływu na powiązane procesy biznesowe. Ponadto w Azure Portal w obszarze **wiadomości e-mail jednorazowy kod dostępu dla Gości** nie zobaczysz opcji automatycznego włączania jednokrotnego **dostępu do poczty e-mail dla gości w październiku 2021**. Zamiast tego zobaczysz następujący przełącznik **tak** lub **nie** :
 
 ![Włącz jednorazowy kod dostępu wiadomości E-mail w programie](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-Jeśli jednak wolisz zrezygnować z funkcji i zezwolić na jej automatyczne włączenie w marcu 2021, możesz przywrócić ustawienia domyślne za pomocą [typu zasobu konfiguracja Metoda uwierzytelniania poczty e-mail](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Po przywróceniu ustawień domyślnych dostępne są następujące opcje **dla Gości poczty e-mail jednorazowo**:
+Jeśli jednak wolisz zrezygnować z funkcji i zezwolić na jej automatyczne włączenie w październiku 2021, możesz przywrócić ustawienia domyślne za pomocą [typu zasobu konfiguracja Metoda uwierzytelniania poczty e-mail](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Po przywróceniu ustawień domyślnych dostępne są następujące opcje **dla Gości poczty e-mail jednorazowo**:
 
-- **Automatycznie Włącz jednorazowy kod dostępu wiadomości e-mail dla Gości w marcu 2021**. Wartooć Jeśli funkcja jednorazowego kodu dostępu wiadomości e-mail nie została już włączona dla Twojej dzierżawy, zostanie automatycznie włączona w marcu 2021. Jeśli funkcja ma być włączona w tym czasie, nie są wymagane żadne dalsze działania. Jeśli funkcja została już włączona lub wyłączona, ta opcja będzie niedostępna.
+- **Automatycznie Włącz jednorazowy kod dostępu wiadomości e-mail dla Gości w październiku 2021**. Wartooć Jeśli funkcja jednorazowego kodu dostępu wiadomości e-mail nie została już włączona dla Twojej dzierżawy, zostanie automatycznie włączona w październiku 2021. Jeśli funkcja ma być włączona w tym czasie, nie są wymagane żadne dalsze działania. Jeśli funkcja została już włączona lub wyłączona, ta opcja będzie niedostępna.
 
 - **Włącz jednorazowy kod dostępu do wiadomości e-mail dla Gości**. Włącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy.
 
-- **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**. Wyłącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy i uniemożliwia włączenie tej funkcji w marcu 2021.
+- **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**. Wyłącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy i uniemożliwia włączenie tej funkcji w październiku 2021.

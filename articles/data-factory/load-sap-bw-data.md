@@ -1,22 +1,18 @@
 ---
 title: Ładowanie danych z programu SAP Business Warehouse
 description: Używanie Azure Data Factory do kopiowania danych z programu SAP Business Warehouse (BW)
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dabb6d5df0a74cc7ae2fb8b381ad9e0dfe04e63
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360807"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370703"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +33,7 @@ W tym artykule pokazano, jak za pomocą programu Azure Data Factory skopiować d
   - Autoryzacja zdalnych wywołań funkcji (RFC) i SAP BW.
   - Uprawnienia do działania "Execute" obiektu autoryzacji **S_SDSAUTH** .
 
-- ** [Własne środowisko Integration Runtime (IR)](concepts-integration-runtime.md#self-hosted-integration-runtime) z łącznikiem SAP .NET 3,0**. Wykonaj następujące kroki instalacji:
+- **[Własne środowisko Integration Runtime (IR)](concepts-integration-runtime.md#self-hosted-integration-runtime) z łącznikiem SAP .NET 3,0**. Wykonaj następujące kroki instalacji:
 
   1. Zainstaluj i zarejestruj własne środowisko Integration Runtime w wersji 3,13 lub nowszej. (Ten proces jest opisany w dalszej części tego artykułu).
 
@@ -65,7 +61,7 @@ W witrynie Azure Portal przejdź do swojej fabryki danych. Wybierz pozycję **ut
 
       Zgodnie z opisem w sekcji [wymagania wstępne](#prerequisites)upewnij się, że masz łącznik SAP dla Microsoft .NET 3,0 zainstalowany na tym samym komputerze, na którym działa środowisko IR samoobsługowego.
 
-   2. Wprowadź wartość w polu **Nazwa serwera**SAP BW, **numer systemu**, **Identyfikator klienta,** **Język** (jeśli jest inny niż **EN**), **Nazwa użytkownika**i **hasło**.
+   2. Wprowadź wartość w polu **Nazwa serwera** SAP BW, **numer systemu**, **Identyfikator klienta,** **Język** (jeśli jest inny niż **EN**), **Nazwa użytkownika** i **hasło**.
 
    3. Wybierz **Test connection** , aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Zakończ**.
 
@@ -77,7 +73,7 @@ W witrynie Azure Portal przejdź do swojej fabryki danych. Wybierz pozycję **ut
 
 6. Określ filtr, jeśli będzie potrzebny. Jeśli OHD zawiera tylko dane z pojedynczego procesu transferu danych (DTP) z pojedynczym IDENTYFIKATORem żądania, lub jeśli masz pewność, że DTP została zakończona i chcesz skopiować dane, usuń zaznaczenie pola wyboru **Wyklucz ostatnie żądanie** .
 
-   Więcej informacji o tych ustawieniach znajduje się w sekcji [SAP BW Otwórz konfigurację docelową](#sap-bw-open-hub-destination-configurations) w tym artykule. Wybierz pozycję **Weryfikuj** , aby dokładnie sprawdzić, jakie dane zostaną zwrócone. Następnie wybierz pozycję **Dalej**.
+   Więcej informacji o tych ustawieniach znajduje się w sekcji [SAP BW Otwórz konfigurację docelową](#sap-bw-open-hub-destination-configurations) w tym artykule. Wybierz pozycję **Weryfikuj** , aby dokładnie sprawdzić, jakie dane zostaną zwrócone. Następnie wybierz przycisk **Dalej**.
 
    ![Konfigurowanie SAP BW Otwórz filtr centrum](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -88,9 +84,9 @@ W witrynie Azure Portal przejdź do swojej fabryki danych. Wybierz pozycję **ut
    ![Tworzenie strony połączonej usługi ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Wybierz konto z możliwością Data Lake Storage Gen2 z listy rozwijanej **Nazwa** .
-   2. Wybierz pozycję **Zakończ**, aby utworzyć połączenie. Następnie wybierz pozycję **Dalej**.
+   2. Wybierz pozycję **Zakończ**, aby utworzyć połączenie. Następnie wybierz przycisk **Dalej**.
 
-9. Na stronie **Wybieranie pliku lub folderu wyjściowego** wprowadź **copyfromopenhub** jako nazwę folderu wyjściowego. Następnie wybierz pozycję **Dalej**.
+9. Na stronie **Wybieranie pliku lub folderu wyjściowego** wprowadź **copyfromopenhub** jako nazwę folderu wyjściowego. Następnie wybierz przycisk **Dalej**.
 
    ![Strona wybierania folderu wyjściowego](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -98,11 +94,11 @@ W witrynie Azure Portal przejdź do swojej fabryki danych. Wybierz pozycję **ut
 
     ![Strona Określanie formatu ujścia](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Na stronie **Ustawienia** rozwiń węzeł **Ustawienia wydajności**. Wprowadź wartość **stopnia równoległości kopiowania** , taką jak 5, aby załadować ją równolegle do SAP BW. Następnie wybierz pozycję **Dalej**.
+11. Na stronie **Ustawienia** rozwiń węzeł **Ustawienia wydajności**. Wprowadź wartość **stopnia równoległości kopiowania** , taką jak 5, aby załadować ją równolegle do SAP BW. Następnie wybierz przycisk **Dalej**.
 
     ![Konfiguruj ustawienia kopiowania](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Na stronie **Podsumowanie** przejrzyj ustawienia. Następnie wybierz pozycję **Dalej**.
+12. Na stronie **Podsumowanie** przejrzyj ustawienia. Następnie wybierz przycisk **Dalej**.
 
 13. Na stronie **wdrażanie** wybierz pozycję **Monitoruj** , aby monitorować potok.
 
@@ -149,7 +145,7 @@ Na **stronie Wprowadzenie do usługi Data Factory wybierz** pozycję **Utwórz p
 
    ![Kopia przyrostowa z szablonu SAP BW](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
-3. Ten szablon generuje potok z następującymi trzema działaniami i sprawia, że są one powiązane z sukcesem: *Lookup*, *Kopiowanie danych*i *sieci Web*.
+3. Ten szablon generuje potok z następującymi trzema działaniami i sprawia, że są one powiązane z sukcesem: *Lookup*, *Kopiowanie danych* i *sieci Web*.
 
    Przejdź do karty **Parametry** potoku. Zobaczysz wszystkie konfiguracje, które należy podać.
 
@@ -190,7 +186,7 @@ Na **stronie Wprowadzenie do usługi Data Factory wybierz** pozycję **Utwórz p
          }
          ```
 
-      3. Dodaj akcję **Utwórz obiekt BLOB** . W polu **ścieżka folderu** i **Nazwa obiektu BLOB**Użyj tych samych wartości, które zostały wcześniej skonfigurowane w *HighWatermarkBlobContainer + HighWatermarkBlobDirectory* i *HighWatermarkBlobName*.
+      3. Dodaj akcję **Utwórz obiekt BLOB** . W polu **ścieżka folderu** i **Nazwa obiektu BLOB** Użyj tych samych wartości, które zostały wcześniej skonfigurowane w *HighWatermarkBlobContainer + HighWatermarkBlobDirectory* i *HighWatermarkBlobName*.
 
       4. Wybierz pozycję **Zapisz**. Następnie skopiuj wartość **adresu URL post protokołu HTTP** do użycia w potoku Data Factory.
 

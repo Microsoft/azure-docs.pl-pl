@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 02045c7ba2373c57213cc7fffb71a5e6bb5979e6
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 9a937336e1628add54ab5f52cdd6ef475d463f7d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538004"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515992"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Zabezpiecz środowisko szkoleniowe Azure Machine Learning z sieciami wirtualnymi
 
@@ -26,7 +26,7 @@ Ten artykuł jest trzecią częścią serii składającej się z pięciu częśc
 
 Zapoznaj się z innymi artykułami w tej serii:
 
-[1. Omówienie sieci wirtualnej](how-to-network-security-overview.md)  >  [Zabezpiecz obszar roboczy](how-to-secure-workspace-vnet.md)  >  **3. Zabezpiecz środowisko szkoleniowe**  >  [4. Zabezpiecz środowisko inferencing](how-to-secure-inferencing-vnet.md)   >  [5. Włącz funkcje programu Studio](how-to-enable-studio-virtual-network.md)
+[1. Sieć wirtualna — Omówienie](how-to-network-security-overview.md)  >  [2. Zabezpiecz obszar roboczy](how-to-secure-workspace-vnet.md)  >  **3. Zabezpiecz środowisko szkoleniowe**  >  [4. Zabezpiecz środowisko inferencing](how-to-secure-inferencing-vnet.md)   >  [5. Włącz funkcje programu Studio](how-to-enable-studio-virtual-network.md)
 
 W tym artykule opisano sposób zabezpieczania następujących zasobów obliczeniowych szkoleniowych w sieci wirtualnej:
 > [!div class="checklist"]
@@ -273,7 +273,7 @@ Aby używać Azure Databricks w sieci wirtualnej z obszarem roboczym, muszą zos
 > * Jeśli konta usługi Azure Storage dla obszaru roboczego są również zabezpieczone w sieci wirtualnej, muszą znajdować się w tej samej sieci wirtualnej co klaster Azure Databricks.
 > * Poza niektórymi __datakostki — prywatnymi__ i niestandardowymi __—__ podsieciami używanymi Azure Databricks, wymagana jest również __Domyślna__ podsieć utworzona dla sieci wirtualnej.
 
-Aby uzyskać szczegółowe informacje na temat używania Azure Databricks z siecią wirtualną, zobacz [wdrażanie Azure Databricks w Virtual Network platformy Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+Aby uzyskać szczegółowe informacje na temat używania Azure Databricks z siecią wirtualną, zobacz [wdrażanie Azure Databricks w Virtual Network platformy Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 <a id="vmorhdi"></a>
 

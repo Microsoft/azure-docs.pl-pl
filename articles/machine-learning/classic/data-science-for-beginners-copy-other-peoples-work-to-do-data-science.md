@@ -3,25 +3,25 @@ title: Przykłady kopiowania danych w nauce — ML Studio (klasyczny) — Azure
 description: 'Tajemnica handlowa z dziedziny nauki o danych: Uzyskaj inne osoby do pracy. Pobierz przykłady uczenia maszynowego z Azure AI Gallery.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 84caf1ea684e46eec00f8479bd0e7c4123e731b1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2410e5fed48b7ab206360debc3bbeb174b3943cb
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322799"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517063"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiowanie pracy innych osób w celu przeprowadzenia analizy danych
 ## <a name="video-5-data-science-for-beginners-series"></a>Wideo 5: Analiza danych dla początkujących serii
 Jednym z tajemnic handlowych związanych z nauką danych jest uzyskanie innym osobom pracy użytkownika. Znajdź przykład algorytmu klastrowania w Azure AI Gallery, który ma być używany na potrzeby eksperymentu uczenia maszynowego.
 
 > [!IMPORTANT]
-> **Cortana Intelligence Gallery** Zmieniono nazwę Cortana Intelligence Gallery **Azure AI Gallery**. W efekcie tekst i obrazy w tym transkrypcji różnią się nieco od filmu wideo, który używa wcześniejszej nazwy.
+>  Zmieniono nazwę Cortana Intelligence Gallery **Azure AI Gallery**. W efekcie tekst i obrazy w tym transkrypcji różnią się nieco od filmu wideo, który używa wcześniejszej nazwy.
 >
 
 Aby maksymalnie wykorzystać serię, Obejrzyj wszystko. [Przejdź do listy filmów wideo](#other-videos-in-this-series)

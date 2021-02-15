@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 1957adc0effd5b37d7aff3f813267da6ca065e0a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201726"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368969"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 W tym artykule opisano wymagania wstępne i wymagania sprzętowe dotyczące programu Azure Active Directory (Azure AD) Connect.
@@ -73,6 +73,7 @@ Aby dowiedzieć się więcej na temat zabezpieczania środowiska Active Director
     - Należy skonfigurować certyfikaty TLS/SSL. Aby uzyskać więcej informacji, zobacz [Zarządzanie protokołami SSL/TLS i mechanizmami szyfrowania w celu AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) i [zarządzania certyfikatami ssl w programie AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - Należy skonfigurować rozpoznawanie nazw. 
 - Jeśli administratorzy globalni mają włączoną usługę MFA, adres URL https://secure.aadcdn.microsoftonline-p.com *musi* znajdować się na liście zaufanych witryn. Zostanie wyświetlony monit o dodanie tej witryny do listy zaufanych witryn, gdy zostanie wyświetlony monit dotyczący wyzwania usługi MFA i nie został on dodany wcześniej. Możesz użyć programu Internet Explorer, aby dodać go do zaufanych witryn.
+- Jeśli planujesz używać Azure AD Connect Health do synchronizacji, upewnij się, że wymagania wstępne dotyczące Azure AD Connect Health zostały spełnione. Aby uzyskać więcej informacji, zobacz [Azure AD Connect Health instalacji agenta](how-to-connect-health-agent-install.md).
 
 #### <a name="harden-your-azure-ad-connect-server"></a>Ograniczanie funkcjonalności serwera Azure AD Connect 
 Zaleca się, aby zabezpieczyć serwer Azure AD Connect, aby zmniejszyć obszar ataków zabezpieczeń dla tego krytycznego składnika środowiska IT. Poniższe zalecenia ułatwią uniknięcie pewnych zagrożeń bezpieczeństwa w organizacji.

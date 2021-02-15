@@ -1,14 +1,14 @@
 ---
 title: Oferty usługi zarządzanej w witrynie Azure Marketplace
 description: Oferty usługi zarządzanej umożliwiają sprzedawanie ofert zarządzania zasobami klientom w portalu Azure Marketplace.
-ms.date: 07/28/2020
+ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6c3047cd95128f689e75d9c1f5fba5a39f86291c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163326"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375548"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Oferty usługi zarządzanej w witrynie Azure Marketplace
 
@@ -18,7 +18,7 @@ W tym artykule opisano typ oferty **usługi zarządzanej** w [witrynie Azure Mar
 
 Oferty usługi zarządzanej usprawniają proces dołączania klientów do usługi Azure Lighthouse. Gdy klient kupuje ofertę w portalu Azure Marketplace, będzie mógł określić, które subskrypcje i/lub grupy zasobów powinny zostać dołączone.
 
-Następnie użytkownicy w organizacji będą mogli korzystać z tych zasobów z dzierżawy zarządzającej za pośrednictwem [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md), zgodnie z dostępem zdefiniowanym podczas tworzenia oferty. Jest to realizowane za pomocą manifestu, który określa użytkowników, grupy i jednostki usługi Azure Active Directory (Azure AD), które będą miały dostęp do zasobów klienta, wraz z rolami, które definiują poziom dostępu. Przypisując uprawnienia do grupy usługi Azure AD, a nie serii poszczególnych kont użytkowników lub aplikacji, można dodawać lub usuwać poszczególnych użytkowników, gdy zmienią się wymagania dotyczące dostępu.
+Następnie użytkownicy w organizacji będą mogli korzystać z tych zasobów z dzierżawy zarządzającej za pośrednictwem [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md), zgodnie z dostępem zdefiniowanym podczas tworzenia oferty. Jest to realizowane za pomocą manifestu, który określa użytkowników, grupy i jednostki usługi Azure Active Directory (Azure AD), które będą miały dostęp do zasobów klienta, wraz z [rolami](tenants-users-roles.md) , które definiują poziom dostępu.
 
 ## <a name="public-and-private-offers"></a>Oferty publiczne i prywatne
 

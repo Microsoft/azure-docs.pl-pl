@@ -10,12 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ebde8048c26364d77d95b9c7b34f9d1d7a4a20ee
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+adobe-target: true
+ms.openlocfilehash: b597c483354a4bc1763e7b6a4bb3727aaaaf0c51
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326287"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369207"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Samouczek: wprowadzenie do Azure Machine Learning w notesach Jupyter
 
@@ -30,7 +31,7 @@ W tym samouczku zostały wykonane następujące czynności:
 
 Jeśli nie masz subskrypcji Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 
-## <a name="create-a-workspace"></a>Utwórz obszar roboczy
+## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
 Obszar roboczy Azure Machine Learning to podstawowe zasoby w chmurze, za pomocą których można eksperymentować, uczeniować i wdrażać modele uczenia maszynowego. Łączy ona Twoją subskrypcję i grupę zasobów platformy Azure z łatwym w użyciu obiektem w usłudze.
 
@@ -99,7 +100,7 @@ Wykonaj następujące czynności konfiguracyjne i wykonaj kroki opisane w Azure 
 
     1. Wybierz rozmiar maszyny wirtualnej z dostępnych opcji. Dla samouczków jest dobrym rozwiązaniem jest domyślna maszyna wirtualna.
 
-    1. Następnie wybierz przycisk **Utwórz**. Skonfigurowanie maszyny wirtualnej może potrwać około pięciu minut.
+    1. Następnie wybierz pozycję **Utwórz**. Skonfigurowanie maszyny wirtualnej może potrwać około pięciu minut.
 
 1. Gdy maszyna wirtualna jest dostępna, zostanie wyświetlona na górnym pasku narzędzi. Teraz można uruchomić Notes przy użyciu polecenia **Uruchom wszystko** na pasku narzędzi lub **SHIFT + ENTER** w komórkach kodu notesu.
 

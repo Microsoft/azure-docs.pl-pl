@@ -9,18 +9,19 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b824604ce9d0171b5612ab559eace4b35fd01eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+adobe-target: true
+ms.openlocfilehash: 730fcf3fb552b92a02b255ad654f64d5ff7a92fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82890974"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367060"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Arkusz Machine Learning Ściągawka algorytmu dla projektanta Azure Machine Learning
 
 **Arkusz Azure Machine Learning Ściągawka algorytm** ułatwia wybór właściwego algorytmu z projektanta dla modelu analizy predykcyjnej.
 
-Azure Machine Learning ma dużą bibliotekę algorytmów z ***klasyfikacji***, ***systemów zalecanych***, ***klastrowania***, ***wykrywania anomalii***, ***regresji***oraz rodzin ***analizy tekstu*** . Każdy z nich został zaprojektowany w celu rozwiązania innego typu problemu uczenia maszynowego.
+Azure Machine Learning ma dużą bibliotekę algorytmów od ***Klasyfikacja** _, _*_systemy zalecające_*_, _*_klastrowanie_*_, _*_wykrywanie anomalii_*_, _*_regresję_*_ i _ *_tekstowe analizy tekstu_**. Każdy z nich został zaprojektowany w celu rozwiązania innego typu problemu uczenia maszynowego.
 
 Aby uzyskać dodatkowe wskazówki, zobacz [jak wybrać algorytmy](how-to-select-algorithms.md)
 
@@ -42,7 +43,7 @@ Aby dowiedzieć się więcej na temat algorytmów w programie Azure Machine Lear
 
 ## <a name="kinds-of-machine-learning"></a>Rodzaje uczenia maszynowego
 
-Istnieją trzy główne kategorie uczenia maszynowego: *uczenie nadzorowane*, *nienadzorowane uczenie*się i *wzmacnianie*.
+Istnieją trzy główne kategorie uczenia maszynowego: *uczenie nadzorowane*, *nienadzorowane uczenie* się i *wzmacnianie*.
 
 ### <a name="supervised-learning"></a>Uczenie nadzorowane
 

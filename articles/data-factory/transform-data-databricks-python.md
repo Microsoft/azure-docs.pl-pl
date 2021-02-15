@@ -1,27 +1,21 @@
 ---
 title: Przekształcanie danych za pomocą języka Python
-description: Dowiedz się, jak przetwarzać lub przekształcać dane, uruchamiając w języku Python.
-services: data-factory
-documentationcenter: ''
+description: Dowiedz się, jak przetwarzać lub przekształcać dane, uruchamiając działanie języka Python dla elementów datakostks w potoku Azure Data Factory.
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/15/2018
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
-manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: 7e80fad02a186173868a6aa78aedeac0801f199a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 49dfe11ceb01471e3b5afadd30259dcd63e7b82a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496895"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373950"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Przekształcanie danych przez uruchomienie działania języka Python w Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 Działanie języka Python Azure Databricks w [potoku Data Factory](concepts-pipelines-activities.md) uruchamia plik w języku Python w klastrze Azure Databricks. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md) , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji. Azure Databricks to zarządzana platforma do uruchamiania Apache Spark.
 
@@ -110,18 +104,22 @@ W powyższej definicji działań datacegły należy określić następujące typ
 
 ```
 
-Aby uzyskać więcej szczegółowych informacji, zapoznaj się z [dokumentacją](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) dla typów bibliotek.
+Aby uzyskać więcej szczegółowych informacji, zapoznaj się z [dokumentacją](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) dla typów bibliotek.
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Jak przekazać bibliotekę w kostkach
 
-#### <a name="using-databricks-workspace-ui"></a>[Korzystanie z interfejsu użytkownika obszaru roboczego](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+### <a name="you-can-use-the-workspace-ui"></a>Można użyć interfejsu użytkownika obszaru roboczego:
 
-Aby uzyskać ścieżkę dBfs biblioteki dodanej przy użyciu interfejsu użytkownika, można użyć elementu [CLI (instalacja)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+1. [Korzystanie z interfejsu użytkownika obszaru roboczego datakosteks](/azure/databricks/libraries/#create-a-library)
 
-Zazwyczaj biblioteki jar są przechowywane w obszarze dBfs:/FileStore/Jars przy użyciu interfejsu użytkownika. Wszystkie te listę można wyświetlić za pomocą interfejsu wiersza polecenia: *datakosteks FS LS dBfs:/FileStore/Jars* 
+2. Aby uzyskać ścieżkę dBfs biblioteki dodanej przy użyciu interfejsu użytkownika, można użyć [wiersza polecenia datakosteks](/azure/databricks/dev-tools/cli/#install-the-cli).
 
+   Zazwyczaj biblioteki jar są przechowywane w obszarze dBfs:/FileStore/Jars przy użyciu interfejsu użytkownika. Wszystkie te listę można wyświetlić za pomocą interfejsu wiersza polecenia: *datakosteks FS LS dBfs:/FileStore/Job-Jars*
 
+### <a name="or-you-can-use-the-databricks-cli"></a>Można też użyć interfejsu wiersza polecenia datakosteks:
 
-#### <a name="copy-library-using-databricks-cli"></a>[Kopiowanie biblioteki przy użyciu interfejsu wiersza polecenia datakosteks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+1. Wykonaj [kopię biblioteki przy użyciu interfejsu wiersza polecenia datakosteks](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)
 
-Przykład: *datakosteks FS CP sparkpi-Assembly-0,1. jar dBfs:/FileStore/Jars*
+2. Korzystanie z interfejsu wiersza polecenia datakosteks [(kroki instalacji)](/azure/databricks/dev-tools/cli/#install-the-cli)
+
+   Na przykład, aby skopiować plik JAR do dBfs: `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`

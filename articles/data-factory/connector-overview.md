@@ -1,20 +1,17 @@
 ---
 title: Omówienie łącznika Azure Data Factory
 description: Poznaj obsługiwane łączniki w Data Factory.
-services: data-factory
 author: linda33wj
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.reviewer: craigg
-ms.openlocfilehash: 9b346c24b6a363e66e56f6c16b70058df3864c88
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 9dff36704fc0e3163da0439d55452fa82cb40e55
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945836"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381311"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Omówienie łącznika Azure Data Factory
 

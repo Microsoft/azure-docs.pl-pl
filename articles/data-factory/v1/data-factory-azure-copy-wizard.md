@@ -1,24 +1,18 @@
 ---
 title: Kreator kopiowania Data Factory platformy Azure
 description: Informacje na temat używania Kreatora kopiowania Data Factory platformy Azure do kopiowania danych z obsługiwanych źródeł danych do ujścia.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0f95b0d62bc81a8dddc72239491a05ca78945490
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462220"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393381"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Kreator kopiowania Azure Data Factory
 
@@ -74,7 +68,7 @@ Załóżmy, że masz foldery wejściowe w następującym formacie:
 ...
 ```
 
-Kliknij przycisk **Przeglądaj** dla **pliku lub folderu**, przejdź do jednego z tych folderów (na przykład 2016->03->01->02), a następnie kliknij pozycję **Wybierz**. Powinien być widoczny `2016/03/01/02` w polu tekstowym. Teraz Zastąp **2016** ciąg 2016 **{Year}**, **03** przez **{Month}**, **01** z **{Day}** i **02** z **{Hour}**, a następnie naciśnij klawisz **Tab** . Powinny pojawić się listy rozwijane, aby wybrać format dla tych czterech zmiennych:
+Kliknij przycisk **Przeglądaj** dla **pliku lub folderu**, przejdź do jednego z tych folderów (na przykład 2016->03->01->02), a następnie kliknij pozycję **Wybierz**. Powinien być widoczny `2016/03/01/02` w polu tekstowym. Teraz Zastąp  ciąg 2016 **{Year}**, **03** przez **{Month}**, **01** z **{Day}** i **02** z **{Hour}**, a następnie naciśnij klawisz **Tab** . Powinny pojawić się listy rozwijane, aby wybrać format dla tych czterech zmiennych:
 
 ![Używanie zmiennych systemowych](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -115,7 +109,7 @@ W tej sekcji przedstawiono typowe metody rozwiązywania problemów z Kreatorem k
         8.  Zamknij przeglądarkę i uruchom ponownie.
     - Jeśli używasz przeglądarki Firefox, postępuj zgodnie z poniższymi instrukcjami, aby dodać wyjątek dla plików cookie.
         1. W menu Firefox przejdź do pozycji **Narzędzia**  >  **Opcje**.
-        2. W **Privacy** obszarze  >  **historia** prywatności może być widoczne, że bieżące ustawienie **używa ustawień niestandardowych dla historii**.
+        2. W obszarze  >  **historia** prywatności może być widoczne, że bieżące ustawienie **używa ustawień niestandardowych dla historii**.
         3. W obszarze **Zaakceptuj pliki cookie innych firm** bieżące ustawienie może nie być **nigdy**, a następnie kliknij pozycję **wyjątki** po prawej stronie, aby dodać poniższe lokacje.
             - https://login.microsoftonline.com
             - https://login.windows.net

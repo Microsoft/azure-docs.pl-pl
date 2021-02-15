@@ -7,18 +7,45 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653575"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391460"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Informacje o wersji — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="january-2021"></a>Styczeń 2021 r.
+
+### <a name="new-capabilities-and-features"></a>Nowe możliwości i funkcje
+
+Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.3.0. Pobierz pod adresem [https://aka.ms/azdata](https://aka.ms/azdata) . Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+
+
+Dodatkowe aktualizacje obejmują:
+- Zlokalizowany portal dostępny dla 17 nowych języków
+- Drobne zmiany w plikach polecenia-Native. YAML
+- Nowe wersje programu Grafana i Kibana
+- Problemy ze środowiskami języka Python w przypadku używania azdata w notesach w Azure Data Studio rozwiązane
+- Rozszerzenie pg_audit jest teraz dostępne dla PostgreSQL
+- Identyfikator kopii zapasowej nie jest już wymagany podczas wykonywania pełnego przywracania bazy danych PostgreSQL
+- Stan (stan kondycji) jest raportowany dla każdego wystąpienia PostgreSQL, które stanowi grupę serwerów.
+
+   We wcześniejszych wersjach stan został zagregowany na poziomie grupy serwerów, a nie na poziomie węzła PostgreSQL.
+
+- Wdrożenia PostgreSQL teraz uznają parametry rozmiaru woluminu wskazane w poleceniach Create
+- Parametry wersji aparatu są teraz honorowane podczas edytowania grupy serwerów
+- Konwencja nazewnictwa zasobników dla usługi Azure ARC z włączonym skalowaniem PostgreSQL została zmieniona
+
+    Jest teraz w formie: `ServergroupName{c, w}-n` . Na przykład Grupa serwerów z trzema węzłami, jeden węzeł koordynatora i dwa węzły procesu roboczego są reprezentowane jako:
+   - `Postgres01c-0` (węzeł koordynatora)
+   - `Postgres01w-0` (węzeł procesu roboczego)
+   - `Postgres01w-1` (węzeł procesu roboczego)
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 

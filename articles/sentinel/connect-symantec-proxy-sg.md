@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: fe49481357b542ce52de5fc9dab3059cb584c229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 902475ae3e60761fb30620c5ba2fa8cbd905c916
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083909"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099187"
 ---
 # <a name="connect-your-symantec-proxysg-to-azure-sentinel"></a>Połącz swoją firmę Symantec ProxySG z platformą Azure — wskaźnikiem
 
@@ -48,7 +48,7 @@ Po pomyślnym nawiązaniu połączenia dane są wyświetlane w Log Analytics w o
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut. 
+Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut. 
 
 ## <a name="next-steps"></a>Następne kroki
 
