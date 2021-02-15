@@ -3,18 +3,18 @@ title: 'ML Studio (klasyczny): wdrażanie usługi sieci Web — Azure'
 description: Jak przekonwertować eksperyment szkoleniowy na eksperyment predykcyjny, przygotować go do wdrożenia, a następnie wdrożyć jako usługę sieci Web Azure Machine Learning Studio (klasyczną).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: f77c0fb09dddd884335d31d630904ea6aeafeaf5
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 018e292abc7050f5d71c6bf9065618fecf8b5668
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495206"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520446"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Wdrażanie usługi sieci Web Azure Machine Learning Studio (klasycznej)
 

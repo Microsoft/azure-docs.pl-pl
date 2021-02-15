@@ -5,32 +5,33 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/22/2019
+ms.date: 02/09/2021
 ms.author: dech
-ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: references_regions
+ms.openlocfilehash: b8ce745a0a0db96e7f6b9e3a0140d46364246e4a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187820"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379611"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Włącz notesy dla kont Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
-> Wbudowane notesy dla Azure Cosmos DB są obecnie dostępne w następujących regionach platformy Azure: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia Południowe Zjednoczone Królestwo, Europa Zachodnia i zachodnie stany USA 2. Aby korzystać z notesów, [Utwórz nowe konto z notesami](#enable-notebooks-in-a-new-cosmos-account) lub [Włącz Notesy na istniejącym koncie](#enable-notebooks-in-an-existing-cosmos-account) w jednym z tych regionów.
+> Wbudowane notesy dla Azure Cosmos DB są obecnie dostępne w [29 regionach](#supported-regions). Aby korzystać z notesów, [Utwórz nowe konto Cosmos](#create-a-new-cosmos-account) lub [Włącz Notesy na istniejącym koncie](#enable-notebooks-in-an-existing-cosmos-account) w jednym z tych regionów. 
 
 Wbudowane notesy Jupyter w Azure Cosmos DB umożliwiają analizowanie i wizualizowanie danych z Azure Portal. W tym artykule opisano sposób włączania tej funkcji dla konta usługi Azure Cosmos DB.
 
-## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Włącz Notesy na nowym koncie Cosmos
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+## <a name="create-a-new-cosmos-account"></a>Utwórz nowe konto Cosmos
+Od 10 lutego 2021 nowe konta usługi Azure Cosmos utworzone w jednym z [obsługiwanych regionów](#supported-regions) będą automatycznie obsługiwały notesy. Nie jest wymagana dodatkowa konfiguracja umożliwiająca korzystanie z notesów. Aby utworzyć nowe konto, wykonaj następujące instrukcje:
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 1. Wybierz pozycję **Utwórz zasoby**  >  **bazy danych**  >  **Azure Cosmos DB**.
-1. Na stronie **Tworzenie konta Azure Cosmos DB** wybierz pozycję **notesy**. 
+1. Wprowadź ustawienia podstawowe dla konta. 
  
-    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="Strona nowego konta usługi Azure Cosmos DB":::
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Możesz pominąć opcję **Sieć** i **Tagi** . 
+1. Wybierz pozycję **Przejrzyj i utwórz**. Możesz pominąć opcję **Sieć** i **Tagi** . 
 1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz**. Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. 
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Okienko Powiadomienia w witrynie Azure Portal":::
@@ -74,6 +75,45 @@ Możesz również wybrać opcję **Nowy Notes** , aby utworzyć nowy Notes lub p
 
 :::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Utwórz lub Przekaż nowy Notes":::
 
+## <a name="supported-regions"></a>Obsługiwane regiony
+Wbudowane notesy dla Azure Cosmos DB są obecnie dostępne w 29 regionach świadczenia usługi Azure. Nowe konta usługi Azure Cosmos utworzone w tych regionach będą miały automatycznie włączone notesy. Notesy są bezpłatne dla Twojego konta. 
+
+- Australia Środkowa
+- Australia Środkowa 2
+- Australia Wschodnia
+- Australia Południowo-Wschodnia
+- Brazylia Południowa
+- Kanada Środkowa
+- Kanada Wschodnia
+- Indie Środkowe
+- Central US
+- East US
+- Wschodnie stany USA 2
+- Francja Środkowa
+- Francja Południowa
+- Niemcy Północne
+- Niemcy Środkowo-Zachodnie
+- Japonia Zachodnia
+- Korea Południowa
+- Północno-środkowe stany USA
+- Europa Północna
+- Południowo-środkowe stany USA
+- Southeast Asia
+- Szwajcaria Północna
+- Środkowy Zjednoczone Emiraty Arabskie
+- Południowe Zjednoczone Królestwo
+- Zachodnie Zjednoczone Królestwo
+- Zachodnio-środkowe stany USA
+- West Europe
+- Indie Zachodnie
+- Zachodnie stany USA 2
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Poznaj zalety [Azure Cosmos DB notesów Jupyter](cosmosdb-jupyter-notebooks.md)
+* Poznaj zalety [Azure Cosmos DB notesów Jupyter](cosmosdb-jupyter-notebooks.md)
+* [Eksploruj galerię przykładów notesu](https://cosmos.azure.com/gallery.html)
+* [Korzystanie z funkcji i poleceń notesu języka Python](use-python-notebook-features-and-commands.md)
+* [Korzystanie z funkcji i poleceń notesu języka C#](use-csharp-notebook-features-and-commands.md)
+* [Importowanie notesów z repozytorium GitHub](import-github-notebooks.md)
+
+

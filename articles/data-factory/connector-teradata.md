@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z programu Teradata Vantage przy użyciu Azure Data Factory
 description: Łącznik programu Teradata usługi Data Factory umożliwia kopiowanie danych z programu Teradata Vantage do magazynów danych obsługiwanych przez Data Factory jako ujścia.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 430b9a1e567d9a79093f50ae388b4b69119c057d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: c65b295dca16a3453b2ee5472b9a3ee5e8d62df7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695877"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381770"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiowanie danych z programu Teradata Vantage przy użyciu Azure Data Factory
 

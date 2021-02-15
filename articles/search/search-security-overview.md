@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 954d08fa163b481393df28ae22016859badea694
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537310"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097640"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Omówienie zabezpieczeń dla usługi Azure Wyszukiwanie poznawcze
 
@@ -113,12 +113,6 @@ W usłudze Azure Wyszukiwanie poznawcze Menedżer zasobów służy do tworzenia 
 
 > [!Note]
 > Korzystając z mechanizmów opartych na platformie Azure, można zablokować subskrypcję lub zasób, aby zapobiec przypadkowemu lub nieautoryzowanemu usunięciu usługi wyszukiwania przez użytkowników z uprawnieniami administratora. Aby uzyskać więcej informacji, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanemu usunięciu](../azure-resource-manager/management/lock-resources.md).
-
-## <a name="threat-protection"></a>Ochrona przed zagrożeniami
-
-Dostęp do zawartości w usłudze wyszukiwania odbywa się wyłącznie za pomocą zapytań. Jeśli usługa wyszukiwania jest celem ataku z zapytaniem, system będzie porzucał zapytania, ponieważ system zbliża się do pojemności szczytowej. 
-
-Ograniczanie przepływności działa inaczej dla różnych interfejsów API. Interfejsy API zapytań (wyszukiwanie/sugerowanie/Autouzupełnianie) i indeksowanie interfejsów API indeksowania dynamicznie na podstawie obciążenia usługi. Interfejsy API indeksowania i interfejs API operacji usługi mają limity szybkości żądań statycznych. Limity liczby żądań statycznych można sprawdzić w [limitach ograniczania](search-limits-quotas-capacity.md#throttling-limits). Aby uzyskać więcej informacji na temat zachowania ograniczania przepustowości, zobacz [monitorowanie żądań zapytań](search-monitor-queries.md).
 
 <a name="encryption"></a>
 

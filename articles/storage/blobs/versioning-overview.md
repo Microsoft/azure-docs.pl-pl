@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 692a820bea69071485a973a988ae91bd70b74f35
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980282"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380818"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
@@ -28,7 +28,7 @@ Firma Microsoft zaleca używanie funkcji przechowywania wersji obiektów BLOB do
 Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
 
 > [!IMPORTANT]
-> Przechowywanie wersji obiektów BLOB nie pozwala na odzyskanie od przypadkowego usunięcia konta magazynu lub kontenera. Aby zapobiec przypadkowemu usunięciu konta magazynu, Skonfiguruj blokadę **CannotDelete** dla zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów platformy Azure, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
+> Przechowywanie wersji obiektów BLOB nie pozwala na odzyskanie od przypadkowego usunięcia konta magazynu lub kontenera. Aby zapobiec przypadkowemu usunięciu konta magazynu, Skonfiguruj blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów platformy Azure, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md). Aby chronić kontenery przed przypadkowym usunięciem, skonfiguruj nietrwałe usunięcie kontenera dla konta magazynu. Aby uzyskać więcej informacji, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 

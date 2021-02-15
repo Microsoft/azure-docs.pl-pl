@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Dowiedz się, jak utworzyć & wdrożyć udostępnioną pulę usługi Data Science Virtual Machines (DSVMs) jako zasób udostępniony dla zespołu.
 keywords: głębokie uczenie się, AI, narzędzia do nauki o danych, maszyna wirtualna do nauki o danych, analiza geoprzestrzenna, proces nauki o danych zespołowych
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: eb1242189f4c5a38421a7f44e8f5e738c44970b6
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a118d5a3e716a80bda21ffe82a8cefd1da1202f3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705527"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519715"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Tworzenie udostępnionej puli Virtual Machines nauki o danych
 

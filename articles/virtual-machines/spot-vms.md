@@ -1,19 +1,19 @@
 ---
 title: Korzystanie z maszyn wirtualnych platformy Azure
 description: Dowiedz się, jak oszczędzać koszty przy użyciu maszyn wirtualnych platformy Azure.
-author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
-ms.openlocfilehash: 1e3934a8ff91d764a5148b3d490b44f30983a284
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.reviewer: cynthn
+ms.openlocfilehash: 1e82da3bc45bc8fb88b3955bd59091372f56d292
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202134"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375463"
 ---
 # <a name="use-spot-vms-in-azure"></a>Korzystanie z maszyn wirtualnych na platformie Azure
 
@@ -58,7 +58,7 @@ Dodatkowe maszyny wirtualne można wdrożyć w dowolnym regionie, z wyjątkiem M
 Następujące [typy ofert](https://azure.microsoft.com/support/legal/offer-details/) są obecnie obsługiwane:
 
 -   Enterprise Agreement
--   Płatność zgodnie z rzeczywistym użyciem
+-   Kod oferty z opcją płatność zgodnie z rzeczywistym użyciem 003P
 -   Sponsorowan
 - W przypadku dostawcy usług w chmurze (CSP) skontaktuj się z partnerem
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475188"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389743"
 ---
 # <a name="virtual-network-service-tags"></a>Tagi usługi sieci wirtualnej
 <a name="network-service-tags"></a>
@@ -153,6 +153,7 @@ Zakresy adresów IP w tych plikach są w notacji CIDR.
 ### <a name="tips"></a>Porady 
 - Możesz wykryć aktualizacje z jednej publikacji do następnej, zwracając więcej wartości *changeNumber* w pliku JSON. Każda podsekcja (na przykład **Storage. zachodni**) ma własne *changeNumber* , które są zwiększane, gdy wystąpią zmiany. Najwyższy poziom *changeNumber* pliku jest zwiększany, gdy dowolna z podsekcji jest zmieniana.
 - Aby zapoznać się z przykładami sposobu analizowania informacji o tagu usługi (na przykład Pobierz wszystkie zakresy adresów dla magazynu w zachodnich), zobacz dokumentację [interfejsu API odnajdywania tagów usług](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2) w programie PowerShell.
+- Gdy nowe adresy IP zostaną dodane do tagów usługi, nie będą używane na platformie Azure przez co najmniej jeden tydzień. Dzięki temu można aktualizować wszystkie systemy, które mogą wymagać śledzenia adresów IP skojarzonych z tagami usług.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak [utworzyć sieciową grupę zabezpieczeń](tutorial-filter-network-traffic.md).

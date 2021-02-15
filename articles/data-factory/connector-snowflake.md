@@ -1,22 +1,18 @@
 ---
 title: Kopiowanie i Przekształcanie danych w śniegu
 description: Informacje o kopiowaniu i przekształcaniu danych w śniegu przy użyciu Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 49e4a6f7f8c268669a94796257d5740ec6f4e6ff
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 816c9ae25034382763e18ea61055a2a18ccc03d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902089"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388842"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Skopiuj i Przekształć dane w śniegu przy użyciu Azure Data Factory
 
@@ -111,7 +107,7 @@ Następujące właściwości są obsługiwane dla zestawu danych płatka śniegu
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | typ      | Właściwość Type zestawu danych musi być ustawiona na **Płatne**. | Tak                         |
 | schema | Nazwa schematu. Należy pamiętać, że w nazwie schematu jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
-| table (stolik) | Nazwa tabeli/widoku. Zwróć uwagę na to, że w nazwie tabeli jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
+| tabela | Nazwa tabeli/widoku. Zwróć uwagę na to, że w nazwie tabeli jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
 
 **Przykład:**
 
@@ -150,8 +146,8 @@ Aby skopiować dane z płatnych śniegów, w sekcji **Źródło** działania kop
 | typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SnowflakeSource**. | Tak      |
 | query          | Określa zapytanie SQL służące do odczytywania danych z płatki śniegu. Jeśli nazwy schematu, tabeli i kolumn zawierają małe litery, należy pomniejszyć identyfikator obiektu w kwerendzie, np. `select * from "schema"."myTable"` .<br>Wykonywanie procedury składowanej nie jest obsługiwane. | Nie       |
 | exportSettings | Ustawienia zaawansowane używane do pobierania danych z płatki śniegu. Można skonfigurować te obsługiwane przez KOPIę w poleceniu, które Data Factory zostanie przekazane po wywołaniu instrukcji. | Nie       |
-| ***W obszarze `exportSettings` :** _ |  |  |
-| typ | Typ polecenia eksportu, ustawiony na _ * SnowflakeExportCopyCommand * *. | Tak |
+| ***W obszarze `exportSettings` :*** |  |  |
+| typ | Typ polecenia eksportu, ustawiony na **SnowflakeExportCopyCommand**. | Tak |
 | additionalCopyOptions | Dodatkowe opcje kopiowania, które są dostępne jako słownik par klucz-wartość. Przykłady: MAX_FILE_SIZE, Zastąp. Aby uzyskać więcej informacji, zobacz [Opcje kopiowania płatka śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Nie |
 | additionalFormatOptions | Dodatkowe opcje formatu pliku, które są dostępne do kopiowania polecenia jako słownik par klucz-wartość. Przykłady: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Aby uzyskać więcej informacji, zobacz [Opcje formatu śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Nie |
 
@@ -280,8 +276,8 @@ Aby skopiować dane do płatnych śniegów, w sekcji **ujścia** działania kopi
 | typ              | Właściwość Type ujścia działania Copy ustawiona na wartość **SnowflakeSink**. | Tak                                           |
 | preCopyScript     | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych do śniegu w każdym przebiegu. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie                                            |
 | importSettings | Ustawienia zaawansowane służące do zapisywania danych w płatki śniegu. Można skonfigurować te obsługiwane przez KOPIę w poleceniu, które Data Factory zostanie przekazane po wywołaniu instrukcji. | Nie |
-| **_W obszarze `importSettings` :_* _ |                                                              |  |
-| typ | Typ polecenia importowania, ustawiony na _ * SnowflakeImportCopyCommand * *. | Tak |
+| ***W obszarze `importSettings` :*** |                                                              |  |
+| typ | Typ polecenia importowania, ustawiony na **SnowflakeImportCopyCommand**. | Tak |
 | additionalCopyOptions | Dodatkowe opcje kopiowania, które są dostępne jako słownik par klucz-wartość. Przykłady: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Aby uzyskać więcej informacji, zobacz [Opcje kopiowania płatka śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Nie |
 | additionalFormatOptions | Dodatkowe opcje formatu pliku dostarczone do polecenia COPY, dostarczone jako słownik par klucz-wartość. Przykłady: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Aby uzyskać więcej informacji, zobacz [Opcje formatu śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Nie |
 

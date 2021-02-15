@@ -3,36 +3,48 @@
 - name: Omówienie
   items:
     - name: Co to jest Azure Batch?
+      displayName: overview
       href: batch-technical-overview.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
     - name: Uruchamianie zadania usługi Batch — interfejs wiersza polecenia
+      displayName: 'quickstart, first, create'
       href: quick-create-cli.md
     - name: Uruchamianie zadania usługi Batch — portal
+      displayName: 'quickstart, first, create'
       href: quick-create-portal.md
     - name: Uruchamianie zadania usługi Batch — .NET
+      displayName: 'quickstart, first, create, c#, csharp'
       href: quick-run-dotnet.md
     - name: Uruchamianie zadania usługi Batch — Python
+      displayName: 'quickstart, first, create'
       href: quick-run-python.md
     - name: Tworzenie konta usługi Batch — szablon usługi Resource Manager
       href: quick-create-template.md
-      displayName: Resource Manager
+      displayName: 'Resource Manager, quickstart, first, create'
 - name: Samouczki
   items:
     - name: Równoległe przetwarzanie plików — .NET
+      displayName: 'tutorial, hpc, high-performance, large, c#, csharp'
       href: tutorial-parallel-dotnet.md
     - name: Równoległe przetwarzanie plików — Python
+      displayName: 'tutorial, hpc, high-performance, large'
       href: tutorial-parallel-python.md
     - name: Renderowanie scen za pomocą aplikacji Arnold
+      displayName: tutorial
       href: tutorial-rendering-cli.md
     - name: Renderowanie przy użyciu programu Batch Explorer
+      displayName: tutorial
       href: tutorial-rendering-batchexplorer-blender.md
     - name: Równoległa symulacja w środowisku R
+      displayName: 'tutorial, doAzureParallel, rstudio'
       href: tutorial-r-doazureparallel.md
     - name: Funkcja OCR w usługach Batch i Functions
+      displayName: 'trigger, optical'
       href: tutorial-batch-functions.md
     - name: Skrypty w języku Python przy użyciu usługi Data Factory
+      displayName: tutorial
       href: tutorial-run-python-batch-azure-data-factory.md
 - name: Samples
   items:
@@ -68,20 +80,20 @@
         - name: Najlepsze rozwiązania dotyczące zabezpieczeń
           href: security-best-practices.md
     - name: Przepływ pracy i zasoby usługi Batch
-      displayName: developer features
+      displayName: 'developer features, core, component, overview'
       href: batch-service-workflow-features.md
       items:
         - name: Konta usługi Batch
           displayName: storage account
           href: accounts.md
         - name: Węzły i pule
-          displayName: 'compute node, application package, scaling, schedule, os'
+          displayName: 'compute node, application package, scaling, schedule, os, configuration'
           href: nodes-and-pools.md
         - name: Zadania
-          displayName: Batch job
+          displayName: 'Batch job, start task, environment'
           href: jobs-and-tasks.md
         - name: Pliki i katalogi
-          displayName: Batch file
+          displayName: 'Batch file, working directory'
           href: files-and-directories.md
     - name: Interfejsy API i narzędzia
       href: batch-apis-tools.md
@@ -131,26 +143,34 @@
     - name: Tworzenie pul i zarządzanie nimi
       items:
         - name: Automatyczne skalowanie węzłów obliczeniowych
+          displayName: 'scaling, dynamic, formula'
           href: batch-automatic-scaling.md
         - name: Wybieranie rozmiaru maszyny wirtualnej dla węzłów obliczeniowych
           href: batch-pool-vm-sizes.md
         - name: Przejście z usługi w chmurze do pul maszyn wirtualnych
+          displayName: migrate
           href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: Konfigurowanie dostępu do węzłów obliczeniowych
+          displayName: 'rdp, ssh, network, remote'
           href: pool-endpoint-configuration.md
         - name: Tworzenie puli za pomocą usługi Shared Image Gallery
+          displayName: 'managed image, sig'
           href: batch-sig-images.md
         - name: Tworzenie puli z zasobem zarządzanego obrazu
           href: batch-custom-images.md
         - name: Tworzenie puli w Strefy dostępności
+          displayName: 'region, zonal policy'
           href: create-pool-availability-zones.md
         - name: Tworzenie puli z włączonym szyfrowaniem dysku
           href: disk-encryption.md
         - name: Tworzenie puli w sieci wirtualnej
+          displayName: vNet
           href: batch-virtual-network.md
         - name: Tworzenie puli z publicznymi adresami IP
+          displayName: static
           href: create-pool-public-ip.md
         - name: Tworzenie puli z publicznymi adresami IP
+          displayName: private
           href: batch-pool-no-public-ip-address.md
         - name: Instalowanie wirtualnego systemu plików
           href: virtual-file-mount.md
@@ -161,17 +181,21 @@
         - name: Używanie węzłów obliczeniowych z systemem Linux
           href: batch-linux-nodes.md
         - name: Używanie maszyn wirtualnych o niskim priorytecie
+          displayName: 'preempted, surplus, capacity'
           href: batch-low-pri-vms.md
         - name: Sprawdzanie błędów puli i węzła
+          displayName: 'troubleshoot, failure'
           href: batch-pool-node-error-checking.md
     - name: Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla usługi Batch
+      displayName: 'Azure DevOps, devops, continuous'
       href: batch-ci-cd.md
     - name: Zarządzanie zadaniami i zadaniami podrzędnymi
       items:
         - name: Przygotowywanie i wykonywanie zadań
+          displayName: 'release, job release'
           href: batch-job-prep-release.md
         - name: Równoczesne zadania węzła
-          displayName: concurrent
+          displayName: 'variable, maximize'
           href: batch-parallel-node-tasks.md
         - name: Zależności zadań
           href: batch-task-dependencies.md
@@ -182,6 +206,7 @@
         - name: Planowanie zadań pod kątem wydajności
           href: batch-job-schedule.md
         - name: Sprawdzanie pod kątem błędów w zadaniach i zadaniach podrzędnych
+          displayName: 'failure, troubleshoot'
           href: batch-job-task-error-checking.md
     - name: Utrwalanie danych wyjściowych zadań i zadań podrzędnych
       href: batch-task-output.md
@@ -194,29 +219,37 @@
       href: monitoring-overview.md
       items:
         - name: Używanie metryk i dzienników diagnostycznych
+          displayName: 'alert, monitor'
           href: batch-diagnostics.md
         - name: Monitorowanie za pomocą usługi Application Insights
+          displayName: debug
           href: monitor-application-insights.md
         - name: Zliczanie zasobów według stanu
           href: batch-get-resource-counts.md
         - name: Efektywne tworzenie zapytań dotyczących zasobów
+          displayName: 'monitor, queries'
           href: batch-efficient-list-queries.md
     - name: Używanie narzędzi obsługi skryptów
       items:
         - name: Korzystanie z programu Azure PowerShell
+          displayName: 'ps, scripting, cmdlet'
           href: batch-powershell-cmdlets-get-started.md
         - name: Interfejs wiersza polecenia platformy Azure
+          displayName: command line
           href: batch-cli-get-started.md
-          items:
-            - name: Korzystanie z szablonów interfejsu wiersza polecenia usługi Batch
-              href: batch-cli-templates.md
+        - name: Korzystanie z szablonów interfejsu wiersza polecenia usługi Batch
+          diplayName: extension
+          href: batch-cli-templates.md
     - name: Korzystanie z zestawu SDK środowiska Node.js dla usługi Batch
+      displayName: json
       href: batch-nodejs-get-started.md
     - name: Uruchamianie obciążeń
       items:
-        - name: Zadania MPI
+        - name: MPI
+          displayName: 'multi-instance, message passing interface'
           href: batch-mpi.md
         - name: Obciążenia kontenera
+          displayName: docker
           href: batch-docker-container-workloads.md
         - name: Renderowanie
           items:
@@ -231,6 +264,7 @@
             - name: Dokumentacja dotycząca renderowania aplikacji
               href: batch-rendering-application-reference.md
             - name: Usługa Storage i przenoszenie danych
+              displayName: 'rendering, assets'
               href: batch-rendering-storage-data-movement.md
             - name: Renderowanie architektur
               href: batch-rendering-architectures.md

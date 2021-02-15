@@ -1,22 +1,17 @@
 ---
 title: Działanie podczas kopiowania dziennika sesji
 description: Dowiedz się więcej na temat włączania operacji kopiowania w dzienniku sesji w Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 7cb00d62556babbd8e43e2fac2faa815a63943ed
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593659"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385272"
 ---
 #  <a name="session-log-in-copy-activity"></a>Działanie podczas kopiowania dziennika sesji
 
@@ -26,7 +21,7 @@ Nazwy skopiowanych plików można rejestrować w działaniu kopiowania, co może
 
 Po włączeniu ustawienia odporności na uszkodzenia w działaniu kopiowania w celu pominięcia uszkodzonych danych można również zarejestrować pominięte pliki i wiersze pominięte.  Możesz uzyskać więcej szczegółów z [odporności na uszkodzenia w działaniu kopiowania](copy-activity-fault-tolerance.md). 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON umożliwiającą włączenie operacji kopiowania w dzienniku sesji: 
 
 ```json
@@ -102,13 +97,16 @@ Po całkowitym uruchomieniu działania kopiowania można zobaczyć ścieżkę pl
 
 ```
 
+> [!NOTE]
+> Gdy `enableCopyActivityLog` Właściwość jest ustawiona na `Enabled` , nazwy plików dziennika są generowane przez system.
+
 ### <a name="the-schema-of-the-log-file"></a>Schemat pliku dziennika
 
 Poniżej znajduje się Schemat pliku dziennika.
 
 Kolumna | Opis 
 -------- | -----------  
-Timestamp | Sygnatura czasowa odczytywania, zapisywania lub pomijania obiektu ADF.
+Znacznik czasu | Sygnatura czasowa odczytywania, zapisywania lub pomijania obiektu ADF.
 Poziom | Poziom dziennika tego elementu. Może to być "Warning" lub "info".
 OperationName | Zachowanie działania kopiowania APD dla każdego obiektu. Może to być "FileRead", "FileWrite", "FileSkip" lub "TabularRowSkip".
 OperationItem | Nazwy plików lub pominięte wiersze.

@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: daf7a9fe3291850bea8c78680bcf375931383020
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: e926dcd4b05d137c7927bdfe5221923d25d4670c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805607"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093492"
 ---
 # <a name="full-backup-and-restore"></a>Pełna kopia zapasowa i przywracanie
 
@@ -44,9 +44,9 @@ Kopia zapasowa to długotrwała operacja, ale natychmiast zwróci identyfikator 
 Podczas wykonywania kopii zapasowej proces HSM może nie działać przy pełnej przepływności, ponieważ niektóre partycje HSM będą zajęte wykonywanie operacji tworzenia kopii zapasowej.
 
 ```azurecli-interactive
-# time for 30 minutes later for SAS token expiry
+# time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 
@@ -84,9 +84,9 @@ Aby wykonać pełne przywracanie, należy podać następujące informacje:
 Przywracanie jest długotrwałą operacją, ale natychmiast zwróci identyfikator zadania. Stan procesu przywracania można sprawdzić przy użyciu tego identyfikatora zadania. Gdy proces przywracania jest w toku, moduł HSM przechodzi w tryb przywracania i wszystkie polecenia płaszczyzny danych (z wyjątkiem sprawdzenia stanu przywracania) są wyłączone.
 
 ```azurecli-interactive
-#### time for 30 minutes later for SAS token expiry
+#### time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 

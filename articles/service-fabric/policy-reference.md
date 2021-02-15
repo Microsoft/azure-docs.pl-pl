@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure Service Fabric
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Service Fabric platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 782c6aa91e5128be3018fa1a7b6be1671b8f9244
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6a006e704dcfe91cd76daef169b64927a7f6ac62
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556035"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098349"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-fabric"></a>Azure Policy wbudowane definicje dla platformy Azure Service Fabric
 

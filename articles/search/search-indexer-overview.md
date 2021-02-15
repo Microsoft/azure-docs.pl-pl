@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: df393f54e7dfa83c8fc0feab3dbf42a156b296b7
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a274e96defa8b6b74c046923d87f198029399dd4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430466"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098099"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indeksatory w usłudze Azure Cognitive Search
 
@@ -118,6 +118,7 @@ Stan indeksatora można monitorować w portalu lub za pomocą [interfejsu API po
 Po wprowadzeniu, następnym krokiem jest zapoznanie się z właściwościami indeksatora, parametrami, planowaniem i monitorowaniem indeksatora. Alternatywnie można wrócić do listy [obsługiwanych źródeł danych](#supported-data-sources) , aby uzyskać więcej informacji na temat konkretnego źródła.
 
 + [Tworzenie indeksatorów](search-howto-create-indexers.md)
++ [Zresetuj i uruchom indeksatory](search-howto-run-reset-indexers.md)
 + [Planowanie indeksatorów](search-howto-schedule-indexers.md)
 + [Definiuj mapowania pól](search-indexer-field-mappings.md)
 + [Monitorowanie stanu indeksatora](search-howto-monitor-indexers.md)

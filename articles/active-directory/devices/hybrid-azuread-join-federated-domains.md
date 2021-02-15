@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2f7d3ce5f8329038fea4ecbb5242015fb3fd0d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 636f209eeb74ada1b4c7c4232b6aba8738eee10a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860137"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365858"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Samouczek: konfigurowanie dołączania hybrydowego do usługi Azure Active Directory dla domen federacyjnych
 
@@ -40,7 +40,7 @@ Przełączenie urządzeń do usługi Azure AD maksymalizuje produktywność uży
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **Usługi ADFS/Services/Trust/2005/windowstransport** oraz **ADFS/Services/Trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i nie mogą być uwidocznione jako punkty końcowe dla ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej o tym, jak wyłączyć WS-Trust punkty końcowe systemu Windows, zobacz temat [wyłączanie WS-Trust punktów końcowych systemu Windows na serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe można sprawdzić za pomocą konsoli zarządzania AD FS w obszarze **Service**  >  **punkty końcowe** usługi.
+> **Usługi ADFS/Services/Trust/2005/windowstransport** oraz **ADFS/Services/Trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i nie mogą być uwidocznione jako punkty końcowe dla ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej o tym, jak wyłączyć WS-Trust punkty końcowe systemu Windows, zobacz temat [wyłączanie WS-Trust punktów końcowych systemu Windows na serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe można sprawdzić za pomocą konsoli zarządzania AD FS w obszarze   >  **punkty końcowe** usługi.
 
 W tym samouczku dowiesz się, jak skonfigurować sprzężenie hybrydowe usługi Azure AD dla Active Directory urządzeń przyłączonych do domeny w środowisku federacyjnym przy użyciu AD FS.
 
@@ -95,7 +95,7 @@ Jeśli nie korzystasz z usługi WPAD i chcesz skonfigurować ustawienia serwera 
 
 Jeśli Twoja organizacja wymaga dostępu do Internetu za pośrednictwem uwierzytelnionego wychodzącego serwera proxy, musisz upewnić się, że komputery z systemem Windows 10 mogą pomyślnie uwierzytelniać się na wychodzącym serwerze proxy. Ponieważ komputery z systemem Windows 10 uruchamiają rejestrację urządzeń przy użyciu kontekstu komputera, należy skonfigurować uwierzytelnianie serwera proxy wychodzące przy użyciu kontekstu komputera. Skontaktuj się z dostawcą serwera proxy ruchu wychodzącego, aby uzyskać informacje na temat wymagań dotyczących konfiguracji.
 
-Aby sprawdzić, czy urządzenie jest w stanie uzyskać dostęp do powyższych zasobów firmy Microsoft w ramach konta systemowego, można użyć skryptu [łączności rejestracji urządzeń testowych](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) .
+Aby sprawdzić, czy urządzenie jest w stanie uzyskać dostęp do powyższych zasobów firmy Microsoft w ramach konta systemowego, można użyć skryptu [łączności rejestracji urządzeń testowych](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) .
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Konfigurowanie dołączenia hybrydowego do usługi Azure AD
 
@@ -190,7 +190,7 @@ Oto trzy sposoby lokalizowania i weryfikowania stanu urządzenia:
 3. Sprawdź, czy dla obu **AzureAdJoined** i **DomainJoined** ustawiono wartość **tak**.
 4. Można użyć **DeviceID** i porównać stan usługi przy użyciu Azure Portal lub programu PowerShell.
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 1. Przejdź do strony urządzenia za pomocą [linku bezpośredniego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
 2. Informacje dotyczące sposobu lokalizowania urządzenia można znaleźć w temacie [jak zarządzać tożsamościami urządzeń za pomocą Azure Portal](./device-management-azure-portal.md).

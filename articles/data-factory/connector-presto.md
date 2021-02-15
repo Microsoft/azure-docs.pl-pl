@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z Presto za pomocą Azure Data Factory
 description: Informacje o kopiowaniu danych z programu Presto do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: af05983432c0f76a88ff82a3638d86a971ef77f5
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 33e521d418c219be8eb85b79a0e07d999edb1b08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680711"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374273"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory"></a>Kopiowanie danych z Presto za pomocą Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -95,7 +90,7 @@ Aby skopiować dane z Presto, ustaw właściwość Type zestawu danych na **Pres
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **PrestoObject** | Tak |
 | schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| table (stolik) | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**

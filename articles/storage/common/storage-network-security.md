@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 5e08af509487188245b0fad9ba2d0f490944868f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219913"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371791"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
@@ -371,10 +371,12 @@ W niektórych przypadkach aplikacja może zależeć od zasobów platformy Azure,
 
 Typy operacji, które może wykonywać wystąpienie zasobu na danych konta magazynu, są określane przez [przypisania ról platformy Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) wystąpienia zasobu. Wystąpienia zasobów muszą znajdować się w tej samej dzierżawie co konto magazynu, ale mogą należeć do dowolnej subskrypcji w dzierżawie.
 
-Lista obsługiwanych usług platformy Azure jest wyświetlana w obszarze [zaufany dostęp oparty na zarządzanej tożsamości przypisanej do systemu](#trusted-access-system-assigned-managed-identity) w tym artykule.
+> [!NOTE]
+> Ta funkcja jest w publicznej wersji zapoznawczej i jest dostępna we wszystkich regionach chmury publicznej.
 
 > [!NOTE]
-> Ta funkcja jest w publicznej wersji zapoznawczej i jest dostępna we wszystkich regionach chmury publicznej. 
+> Reguły wystąpień zasobów są obecnie obsługiwane tylko w przypadku usługi Azure Synapse. Obsługa innych usług platformy Azure wymienionych w polu [zaufany dostęp opartych na zarządzanej tożsamości przypisanej do systemu](#trusted-access-system-assigned-managed-identity) w tym artykule będzie dostępna w najbliższych tygodniach.
+
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 

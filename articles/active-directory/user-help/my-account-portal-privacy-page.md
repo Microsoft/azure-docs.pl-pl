@@ -9,22 +9,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 5104783aff5684471819ecf04e965670fff2798b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d17c6cb038bf5550f76a8aef7ac2d41244cfda1
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798146"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096569"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Zobacz, jak Twoja organizacja używa danych związanych z prywatnością
 
 Możesz zobaczyć, jak Twoja organizacja używa Twoich danych na stronie **ustawienia & prywatność** w portalu **My Account** .
 
+>[!Note]
+> Jeśli podczas logowania za pomocą osobistego konto Microsoft zostanie wyświetlony komunikat o błędzie, możesz w dalszym ciągu zalogować się przy użyciu nazwy domeny organizacji (takiej jak contoso.com) lub **identyfikatora dzierżawy** organizacji od administratora w jednym z następujących adresów URL:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+
 ## <a name="view-your-privacy-related-info"></a>Wyświetlanie swoich informacji związanych z prywatnością
 
-1. Zaloguj się do swojego konta służbowego, a następnie przejdź do https://myaccount.microsoft.com/ strony.
+1. Zaloguj się do swojego konta służbowego, a następnie przejdź do https://myaccount.microsoft.com/ strony. Jeśli logujesz się za pomocą konto Microsoft osobistych, możesz nadal zalogować się przy użyciu nazwy domeny dla organizacji (takiej jak contoso.com) lub **identyfikatora dzierżawy** organizacji od administratora w jednym z następujących adresów URL:
+
+   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
 
 2. Wybierz pozycję **ustawienia & prywatność** w okienku nawigacji po lewej stronie lub wybierz pozycję Ustawienia **widoku i prywatność** w **ustawieniach & bloku prywatność** .
 

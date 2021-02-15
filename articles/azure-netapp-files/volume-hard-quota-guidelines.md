@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 69a970b7b088795602dfb842b20ad6457d5f27c4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808224"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374494"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Co zmienia się w przydziały twarde dla usługi Azure NetApp Files
 
 Na początku usługi Azure NetApp Files użyto funkcji aprowizacji puli pojemności i mechanizmu automatycznego wzrostu. Woluminy Azure NetApp Files są alokowane elastycznie, w przypadku podwyższenia poziomu puli pojemności obsługiwanej przez klienta wybranej warstwy i rozmiaru. Rozmiary woluminów (przydziały) są używane w celu zapewnienia wydajności i pojemności, a limity przydziału można w dowolnym momencie dostosować do siebie. To zachowanie oznacza, że obecnie przydział woluminu jest dźwignią wydajności służącą do kontrolowania przepustowości do woluminu. Obecnie w przypadku wypełniania pojemności pule pojemności są automatycznie zwiększane.   
 
 > [!IMPORTANT] 
-> Azure NetApp Files zachowanie obsługi puli woluminów i pojemności zmieni się na mechanizm *ręczny* i *kontrolowany* . **Począwszy od 15 marca, 2021 rozmiary woluminów (przydział) będą zarządzać wydajnością przepustowości, a także pojemnością administracyjną, a podstawowe pule pojemności nie będą już automatycznie zwiększane.** 
+> Azure NetApp Files zachowanie obsługi puli woluminów i pojemności zmieni się na mechanizm *ręczny* i *kontrolowany* . **Począwszy od 1 kwietnia 2021, rozmiary woluminów (przydział) będą zarządzać wydajnością przepustowości, a także pojemnością administracyjną, a podstawowe pule pojemności nie będą już zwiększane automatycznie.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Przyczyny zmiany limitu przydziału twardego
 

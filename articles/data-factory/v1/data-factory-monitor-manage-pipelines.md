@@ -1,22 +1,18 @@
 ---
 title: Monitorowanie potoków i zarządzanie nimi przy użyciu Azure Portal i programu PowerShell
 description: Dowiedz się, jak używać Azure Portal i Azure PowerShell do monitorowania fabryk danych platformy Azure i utworzonych potoków oraz zarządzania nimi.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 2a30c755bc19849ad3a821cbbc75b787a3b0bb98
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495858"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380410"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi przy użyciu Azure Portal i programu PowerShell
 > [!div class="op_single_selector"]
@@ -178,7 +174,7 @@ Potoki można wstrzymywać/wstrzymywanie przy użyciu polecenia cmdlet **Suspend
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Przykład:
+Na przykład:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +185,7 @@ Po rozwiązaniu problemu z potokiem można wznowić wstrzymany potok, uruchamiaj
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Przykład:
+Na przykład:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -222,7 +218,7 @@ Jeśli uruchomienie działania nie powiedzie się w potoku, zestaw danych, któr
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Przykład:
+   Na przykład:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -236,7 +232,7 @@ Jeśli uruchomienie działania nie powiedzie się w potoku, zestaw danych, któr
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Przykład:
+    Na przykład:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

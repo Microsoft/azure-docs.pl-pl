@@ -1,22 +1,17 @@
 ---
 title: Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
 description: Dowiedz się więcej na temat sposobu dodawania odporności na uszkodzenia do działania kopiowania w Azure Data Factory, pomijając niezgodne dane.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 0fb6beb776f5a553e85f690d49e3433f93b9ee16
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 0fe1470661c006399ea176af1112d271524b2a1f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809545"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390967"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -59,7 +54,7 @@ Podczas kopiowania plików binarnych między magazynami magazynów można włąc
         "fileMissing": true, 
         "fileForbidden": true, 
         "dataInconsistency": true,
-        "invalidFileName": true     
+        "invalidFileName": true        
     }, 
     "validateDataConsistency": true, 
     "logSettings": {

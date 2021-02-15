@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 12/11/2020
+ms.date: 02/12/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0d0d032c2ab6ae1d6c5e6b1c8b1793a6b3bd7c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 60cd944ecb144a30e872259f6e959a11c3ea6319
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090641"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365433"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Rozwiązywanie problemów Azure Active Directory współpracy B2B
 
@@ -27,7 +27,7 @@ Poniżej przedstawiono niektóre zagadnienia dotyczące typowych problemów zwi�
 
    > [!IMPORTANT]
    > - **Od 4 stycznia 2021** firma Google jest [przestarzałą obsługą logowania do usługi WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). W przypadku korzystania z usługi Google Federation lub samoobsługowego rejestrowania się w usłudze Gmail należy [przetestować natywne aplikacje biznesowe pod kątem zgodności](google-federation.md#deprecation-of-webview-sign-in-support).
-   > - **Od 31 marca 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
+   > - **Od października 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Dodaliśmy użytkownika zewnętrznego, ale nie są one widoczne w mojej globalnej książce adresowej lub w selektorze osób
 
@@ -112,7 +112,7 @@ W chmurze platformy Azure dla instytucji rządowych USA współpraca B2B jest ob
 
 W przypadku korzystania z funkcji samoobsługowego tworzenia nowego konta, takich jak niestandardowe atrybuty użytkownika lub przepływy użytkownika, wywoływana `aad-extensions-app. Do not modify. Used by AAD for storing user data.` jest automatycznie utworzona aplikacja. Są one używane przez tożsamości zewnętrzne usługi Azure AD do przechowywania informacji o użytkownikach, którzy rejestrują i pobierają atrybuty niestandardowe.
 
-Jeśli przypadkowo usunięto `aad-extensions-app` program, masz 30 dni na jego odzyskanie. Aplikację można przywrócić przy użyciu modułu Azure AD PowerShell.
+Jeśli przypadkowo usuniesz aplikację `aad-extensions-app`, masz 30 dni na jej odzyskanie. Aplikację można przywrócić przy użyciu modułu Azure AD PowerShell.
 
 1. Uruchom moduł Azure AD PowerShell i uruchom program `Connect-AzureAD` .
 1. Zaloguj się jako Administrator globalny dzierżawy usługi Azure AD, dla którego chcesz odzyskać usuniętą aplikację.

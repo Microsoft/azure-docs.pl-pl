@@ -5,22 +5,20 @@ description: Zamapuj domenę niestandardową na Blob Storage lub punkt końcowy 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: dcc6f3bca80cb5860679327226d3e034c3e9b14a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 52fc7b9c1229421fd46b8110857a0a7a8a4f916a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95996869"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520429"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage
 
 Domenę niestandardową można zamapować na punkt końcowy usługi BLOB Service lub [statyczny punkt końcowy witryny sieci Web](storage-blob-static-website.md) . 
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > To mapowanie działa tylko dla poddomen (na przykład: `www.contoso.com` ). Jeśli chcesz, aby punkt końcowy sieci Web był dostępny w domenie głównej (na przykład: `contoso.com` ), musisz użyć Azure CDN. Aby uzyskać wskazówki, zobacz sekcję [Mapowanie domeny niestandardowej z włączonym protokołem HTTPS](#enable-https) w tym artykule. Ponieważ przeprowadzisz do tej sekcji tego artykułu, aby włączyć domenę główną domeny niestandardowej, krok w tej sekcji do włączenia protokołu HTTPS jest opcjonalny. 
@@ -61,8 +59,11 @@ Nazwa hosta to adres URL punktu końcowego magazynu bez identyfikatora protokoł
 2. W okienku menu w obszarze **Ustawienia** wybierz pozycję **Właściwości**.  
 
 3. Skopiuj wartość **podstawowego punktu końcowego usługi BLOB** lub **podstawowego statycznego punktu końcowego witryny sieci Web** do pliku tekstowego. 
+  
+   > [!NOTE]
+   > Punkt końcowy magazynu Data Lake nie jest obsługiwany (na przykład: `https://mystorageaccount.dfs.core.windows.net/` ).
 
-4. Usuń identyfikator protokołu (*np.* https) i końcowy ukośnik z tego ciągu. Poniższa tabela zawiera przykłady.
+4. Usuń identyfikator protokołu (na przykład: `HTTPS` ) i końcowy ukośnik z tego ciągu. Poniższa tabela zawiera przykłady.
 
    | Typ punktu końcowego |  endpoint | Nazwa hosta |
    |------------|-----------------|-------------------|
@@ -75,7 +76,7 @@ Nazwa hosta to adres URL punktu końcowego magazynu bez identyfikatora protokoł
 
 #### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>Krok 2. Tworzenie rekordu nazwy kanonicznej (CNAME) z dostawcą domeny
 
-Utwórz rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekordu DNS, który mapuje nazwę domeny źródłowej na nazwę domeny docelowej.
+Utwórz rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekordu systemu nazw domen (DNS), który mapuje nazwę domeny źródłowej na nazwę domeny docelowej.
 
 1. Zaloguj się do witryny sieci Web rejestratora domen, a następnie przejdź do strony, aby zarządzać ustawieniami DNS.
 
@@ -95,9 +96,14 @@ Utwórz rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekor
 
 #### <a name="step-3-register-your-custom-domain-with-azure"></a>Krok 3. Rejestrowanie domeny niestandardowej na platformie Azure
 
+##### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu.
 
-2. W okienku menu w obszarze **Usługa BLOB** wybierz pozycję **domena niestandardowa**.  
+2. W okienku menu w obszarze **Usługa BLOB** wybierz pozycję **domena niestandardowa**.
+
+   > [!NOTE]
+   > Ta opcja nie jest wyświetlana na kontach, na których jest włączona funkcja hierarchicznej przestrzeni nazw. W przypadku tych kont należy wykonać ten krok przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
    ![Opcja domeny niestandardowej](./media/storage-custom-domain-name/custom-domain-button.png "Domena niestandardowa")
 
@@ -111,18 +117,60 @@ Utwórz rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekor
 
    Po rozpropagowaniu rekordu CNAME za pośrednictwem serwerów nazw domen (DNS) i jeśli użytkownicy mają odpowiednie uprawnienia, mogą wyświetlać dane obiektów BLOB przy użyciu domeny niestandardowej.
 
+##### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+Uruchom następujące polecenie programu PowerShell
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $false
+```
+
+- Zastąp `<resource-group-name>` symbol zastępczy nazwą grupy zasobów.
+
+- Zastąp `<storage-account-name>` symbol zastępczy nazwą konta magazynu.
+
+- Zastąp `<custom-domain-name>` symbol zastępczy nazwą domeny niestandardowej, w tym poddomeną.
+
+  Na przykład jeśli Twoja domena to *contoso.com* , a alias domeny podrzędnej to *www*, wprowadź `www.contoso.com` . Jeśli poddomeną są *Zdjęcia*, wprowadź `photos.contoso.com` .
+
+Po rozpropagowaniu rekordu CNAME za pośrednictwem serwerów nazw domen (DNS) i jeśli użytkownicy mają odpowiednie uprawnienia, mogą wyświetlać dane obiektów BLOB przy użyciu domeny niestandardowej.
+
+##### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Uruchom następujące polecenie programu PowerShell
+
+```azurecli
+az storage account update \
+   --resource-group <resource-group-name> \ 
+   --name <storage-account-name> \
+   --custom-domain <custom-domain-name> \
+   --use-subdomain false
+  ```
+
+- Zastąp `<resource-group-name>` symbol zastępczy nazwą grupy zasobów.
+
+- Zastąp `<storage-account-name>` symbol zastępczy nazwą konta magazynu.
+
+- Zastąp `<custom-domain-name>` symbol zastępczy nazwą domeny niestandardowej, w tym poddomeną.
+
+  Na przykład jeśli Twoja domena to *contoso.com* , a alias domeny podrzędnej to *www*, wprowadź `www.contoso.com` . Jeśli poddomeną są *Zdjęcia*, wprowadź `photos.contoso.com` .
+
+Po rozpropagowaniu rekordu CNAME za pośrednictwem serwerów nazw domen (DNS) i jeśli użytkownicy mają odpowiednie uprawnienia, mogą wyświetlać dane obiektów BLOB przy użyciu domeny niestandardowej.
+
+---
+
 #### <a name="step-4-test-your-custom-domain"></a>Krok 4. Testowanie domeny niestandardowej
 
 Aby upewnić się, że domena niestandardowa została zamapowana na punkt końcowy usługi BLOB Service, Utwórz obiekt BLOB w kontenerze publicznym na koncie magazynu. Następnie w przeglądarce internetowej Uzyskuj dostęp do obiektu BLOB przy użyciu identyfikatora URI w następującym formacie: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Na przykład aby uzyskać dostęp do formularza sieci Web w kontenerze *WebForms* w niestandardowej poddomenie *photos.contoso.com* , można użyć następującego identyfikatora URI: `http://photos.contoso.com/myforms/applicationform.htm`
+Na przykład aby uzyskać dostęp do formularza sieci Web w `myforms` kontenerze w niestandardowej poddomenie *photos.contoso.com* , można użyć następującego identyfikatora URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
 <a id="zero-down-time"></a>
 
 ### <a name="map-a-custom-domain-with-zero-downtime"></a>Mapowanie domeny niestandardowej o zero przestoju
 
 > [!NOTE]
-> Jeśli nie obawiasz się, że domena jest chwilowo niedostępna dla użytkowników, rozważ wykonanie kroków opisanych w sekcji [Mapowanie domeny niestandardowej](#map-a-domain) w tym artykule. Jest to prostsze podejście o mniejszej liczbie kroków.  
+> Jeśli nie obawiasz się, że domena jest chwilowo niedostępna dla użytkowników, rozważ użycie kroków z sekcji [Mapowanie domeny niestandardowej](#map-a-domain) w tym artykule. Jest to prostsze podejście o mniejszej liczbie kroków.  
 
 Jeśli domena obsługuje obecnie aplikację z umową dotyczącą poziomu usług (SLA), która wymaga zero przestojów, wykonaj następujące kroki, aby upewnić się, że użytkownicy będą mogli uzyskiwać dostęp do domeny podczas mapowania DNS. 
 
@@ -148,7 +196,10 @@ Nazwa hosta to adres URL punktu końcowego magazynu bez identyfikatora protokoł
 
 3. Skopiuj wartość **podstawowego punktu końcowego usługi BLOB** lub **podstawowego statycznego punktu końcowego witryny sieci Web** do pliku tekstowego. 
 
-4. Usuń identyfikator protokołu (*np.* https) i końcowy ukośnik z tego ciągu. Poniższa tabela zawiera przykłady.
+   > [!NOTE]
+   > Punkt końcowy magazynu Data Lake nie jest obsługiwany (na przykład: `https://mystorageaccount.dfs.core.windows.net/` ).
+
+4. Usuń identyfikator protokołu (na przykład: `HTTPS` ) i końcowy ukośnik z tego ciągu. Poniższa tabela zawiera przykłady.
 
    | Typ punktu końcowego |  endpoint | Nazwa hosta |
    |------------|-----------------|-------------------|
@@ -157,7 +208,7 @@ Nazwa hosta to adres URL punktu końcowego magazynu bez identyfikatora protokoł
   
    Ustaw tę wartość na później.
 
-#### <a name="step-2-create-a-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>Krok 2. Tworzenie pośredniego rekordu nazwy kanonicznej (CNAME) za pomocą dostawcy domeny
+#### <a name="step-2-create-an-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>Krok 2. Tworzenie pośredniego rekordu nazwy kanonicznej (CNAME) za pomocą dostawcy domeny
 
 Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekordu DNS, który mapuje nazwę domeny źródłowej na nazwę domeny docelowej.
 
@@ -179,17 +230,18 @@ Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest 
 
      Dodaj poddomenę `asverify` do nazwy hosta. Na przykład: `asverify.mystorageaccount.blob.core.windows.net`.
 
-4. Aby zarejestrować domenę niestandardową, wybierz przycisk **Zapisz** .
-
-   Jeśli rejestracja zakończyła się pomyślnie, w portalu zostanie wyświetlone powiadomienie o pomyślnym zaktualizowaniu konta magazynu. Domena niestandardowa została zweryfikowana przez platformę Azure, ale ruch do domeny nie jest jeszcze kierowany do konta magazynu.
-
 #### <a name="step-3-pre-register-your-custom-domain-with-azure"></a>Krok 3. wstępne Rejestrowanie domeny niestandardowej na platformie Azure
 
 Po wstępnym zarejestrowaniu domeny niestandardowej na platformie Azure zezwolisz platformie Azure na rozpoznawanie domeny niestandardowej bez konieczności modyfikowania rekordu DNS dla domeny. W ten sposób, gdy modyfikujesz rekord DNS dla domeny, zostanie ona zamapowana na punkt końcowy obiektu BLOB bez przestoju.
 
+##### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu.
 
-2. W okienku menu w obszarze **Usługa BLOB** wybierz pozycję **domena niestandardowa**.  
+2. W okienku menu w obszarze **Usługa BLOB** wybierz pozycję **domena niestandardowa**.
+
+   > [!NOTE]
+   > Ta opcja nie jest wyświetlana na kontach, na których jest włączona funkcja hierarchicznej przestrzeni nazw. W przypadku tych kont należy wykonać ten krok przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
    ![Opcja domeny niestandardowej](./media/storage-custom-domain-name/custom-domain-button.png "Domena niestandardowa")
 
@@ -203,7 +255,49 @@ Po wstępnym zarejestrowaniu domeny niestandardowej na platformie Azure zezwolis
 
 5. Aby zarejestrować domenę niestandardową, wybierz przycisk **Zapisz** .
   
-   Po rozpropagowaniu rekordu CNAME za pośrednictwem serwerów nazw domen (DNS) i jeśli użytkownicy mają odpowiednie uprawnienia, mogą wyświetlać dane obiektów BLOB przy użyciu domeny niestandardowej.
+   Jeśli rejestracja zakończyła się pomyślnie, w portalu zostanie wyświetlone powiadomienie o pomyślnym zaktualizowaniu konta magazynu. Domena niestandardowa została zweryfikowana przez platformę Azure, ale ruch do domeny nie jest jeszcze kierowany do konta magazynu, dopóki nie utworzysz rekordu CNAME u dostawcy domeny. Należy to zrobić w następnej sekcji.
+
+##### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+Uruchom następujące polecenie programu PowerShell
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $true
+```
+
+- Zastąp `<resource-group-name>` symbol zastępczy nazwą grupy zasobów.
+
+- Zastąp `<storage-account-name>` symbol zastępczy nazwą konta magazynu.
+
+- Zastąp `<custom-domain-name>` symbol zastępczy nazwą domeny niestandardowej, w tym poddomeną.
+
+  Na przykład jeśli Twoja domena to *contoso.com* , a alias domeny podrzędnej to *www*, wprowadź `www.contoso.com` . Jeśli poddomeną są *Zdjęcia*, wprowadź `photos.contoso.com` .
+
+Ruch do domeny nie jest jeszcze kierowany do konta magazynu, dopóki nie utworzysz rekordu CNAME u dostawcy domeny. Należy to zrobić w następnej sekcji.
+
+##### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Uruchom następujące polecenie programu PowerShell
+
+```azurecli
+az storage account update \
+   --resource-group <resource-group-name> \ 
+   --name <storage-account-name> \
+   --custom-domain <custom-domain-name> \
+   --use-subdomain true
+  ```
+
+- Zastąp `<resource-group-name>` symbol zastępczy nazwą grupy zasobów.
+
+- Zastąp `<storage-account-name>` symbol zastępczy nazwą konta magazynu.
+
+- Zastąp `<custom-domain-name>` symbol zastępczy nazwą domeny niestandardowej, w tym poddomeną.
+
+  Na przykład jeśli Twoja domena to *contoso.com* , a alias domeny podrzędnej to *www*, wprowadź `www.contoso.com` . Jeśli poddomeną są *Zdjęcia*, wprowadź `photos.contoso.com` .
+
+Ruch do domeny nie jest jeszcze kierowany do konta magazynu, dopóki nie utworzysz rekordu CNAME u dostawcy domeny. Należy to zrobić w następnej sekcji.
+
+---
 
 #### <a name="step-4-create-a-cname-record-with-your-domain-provider"></a>Krok 4. Tworzenie rekordu CNAME z dostawcą domeny
 
@@ -227,15 +321,13 @@ Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta.
 
 Aby upewnić się, że domena niestandardowa została zamapowana na punkt końcowy usługi BLOB Service, Utwórz obiekt BLOB w kontenerze publicznym na koncie magazynu. Następnie w przeglądarce internetowej Uzyskuj dostęp do obiektu BLOB przy użyciu identyfikatora URI w następującym formacie: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Na przykład aby uzyskać dostęp do formularza sieci Web w kontenerze *WebForms* w niestandardowej poddomenie *photos.contoso.com* , można użyć następującego identyfikatora URI: `http://photos.contoso.com/myforms/applicationform.htm`
+Na przykład aby uzyskać dostęp do formularza sieci Web w `myforms` kontenerze w niestandardowej poddomenie *photos.contoso.com* , można użyć następującego identyfikatora URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
 ### <a name="remove-a-custom-domain-mapping"></a>Usuń niestandardowe mapowanie domeny
 
 Aby usunąć niestandardowe mapowanie domeny, należy wyrejestrować domenę niestandardową. Użyj jednej z poniższych procedur.
 
 #### <a name="portal"></a>[Portal](#tab/azure-portal)
-
-Aby usunąć ustawienie domeny niestandardowej, wykonaj następujące czynności:
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu.
 
@@ -246,29 +338,7 @@ Aby usunąć ustawienie domeny niestandardowej, wykonaj następujące czynności
 
 4. Wybierz ikonę **Zapisz**.
 
-Po pomyślnym usunięciu domeny niestandardowej zobaczysz powiadomienie portalu, że konto magazynu zostało pomyślnie zaktualizowane
-
-#### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-Aby usunąć niestandardową rejestrację domeny, użyj polecenia [AZ Storage account Update](/cli/azure/storage/account) CLI polecenie, a następnie określ pusty ciąg ( `""` ) dla `--custom-domain` wartości argumentu.
-
-* Format polecenia:
-
-  ```azurecli
-  az storage account update \
-      --name <storage-account-name> \
-      --resource-group <resource-group-name> \
-      --custom-domain ""
-  ```
-
-* Przykład polecenia:
-
-  ```azurecli
-  az storage account update \
-      --name mystorageaccount \
-      --resource-group myresourcegroup \
-      --custom-domain ""
-  ```
+Po pomyślnym usunięciu domeny niestandardowej zobaczysz powiadomienie portalu, że konto magazynu zostało pomyślnie zaktualizowane.
 
 #### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -293,6 +363,28 @@ Aby usunąć niestandardową rejestrację domeny, należy użyć polecenia cmdle
       -AccountName "mystorageaccount" `
       -CustomDomainName ""
   ```
+
+#### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby usunąć niestandardową rejestrację domeny, użyj polecenia [AZ Storage account Update](/cli/azure/storage/account) CLI polecenie, a następnie określ pusty ciąg ( `""` ) dla `--custom-domain` wartości argumentu.
+
+* Format polecenia:
+
+  ```azurecli
+  az storage account update \
+      --name <storage-account-name> \
+      --resource-group <resource-group-name> \
+      --custom-domain ""
+  ```
+
+* Przykład polecenia:
+
+  ```azurecli
+  az storage account update \
+      --name mystorageaccount \
+      --resource-group myresourcegroup \
+      --custom-domain ""
+  ```
 ---
 
 <a id="enable-https"></a>
@@ -302,8 +394,6 @@ Aby usunąć niestandardową rejestrację domeny, należy użyć polecenia cmdle
 Takie podejście obejmuje więcej czynności, ale umożliwia dostęp do protokołu HTTPS. 
 
 Jeśli nie chcesz, aby użytkownicy mieli dostęp do obiektu BLOB lub zawartości sieci Web przy użyciu protokołu HTTPS, zobacz sekcję [Mapowanie domeny niestandardowej tylko z włączonym protokołem HTTP](#enable-http) w tym artykule. 
-
-Aby zmapować domenę niestandardową i włączyć dostęp do protokołu HTTPS, wykonaj następujące czynności:
 
 1. Włącz [Azure CDN](../../cdn/cdn-overview.md) w obiekcie blob lub w punkcie końcowym sieci Web. 
 

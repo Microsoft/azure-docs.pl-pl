@@ -8,19 +8,19 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2020
-ms.openlocfilehash: 6e397242bd699adcba4737014ebbce72aadc8ec2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 02/11/2021
+ms.openlocfilehash: 4012cd83cf2e6fe438792a503731729b57a1425c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669820"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380597"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Active Directory jednostki usługi przy użyciu usługi Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Obsługa tworzenia użytkowników w usłudze Azure Active Directory (Azure AD) w Azure SQL Database (SQL DB) i [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) w imieniu aplikacji usługi Azure AD (jednostki usługi) jest obecnie dostępna w **publicznej wersji zapoznawczej** .
+Obsługa tworzenia użytkowników w usłudze Azure Active Directory (Azure AD) w Azure SQL Database (SQL DB) i [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) w imieniu aplikacji usługi Azure AD (jednostki usługi) jest obecnie dostępna w **publicznej wersji zapoznawczej**.
 
 > [!NOTE]
 > Ta funkcja jest już obsługiwana w przypadku wystąpienia zarządzanego SQL.
@@ -52,7 +52,7 @@ Obsługa tej funkcji jest przydatna w procesach automatyzacji aplikacji usługi 
 
 Aby umożliwić tworzenie obiektów usługi Azure AD w SQL Database i Azure Synapse w imieniu aplikacji usługi Azure AD, wymagane są następujące ustawienia:
 
-1. Przypisywanie tożsamości serwera
+1. Przypisz tożsamość serwera. Przypisana tożsamość serwera reprezentuje tożsamość systemu zarządzanego (MSI). Obecnie tożsamość serwera usługi Azure SQL nie obsługuje tożsamości zarządzanej przez użytkownika (UMI).
     - Dla nowego serwera logicznego SQL platformy Azure wykonaj następujące polecenie programu PowerShell:
     
     ```powershell

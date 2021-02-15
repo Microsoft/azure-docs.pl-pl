@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 3fca96c6cf11e0b35cd830fe4c0d8ccac8e66bd2
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99548868"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381736"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami
 
@@ -92,7 +92,7 @@ Poniższe kroki wyjaśniają, jak dodać pakiet do monitorowania zgodności z je
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Pulpit nawigacyjny zgodności z przepisami" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
-## <a name="removing-a-standard-from-your-dashboard"></a>Usuwanie standardu z pulpitu nawigacyjnego
+## <a name="remove-a-standard-from-your-dashboard"></a>Usuwanie standardu z pulpitu nawigacyjnego
 
 Jeśli którekolwiek z podanych norm prawnych nie jest istotne dla Twojej organizacji, jest to prosty proces usuwania ich z interfejsu użytkownika. Pozwala to na dalsze dostosowanie pulpitu nawigacyjnego zgodności z przepisami i skoncentrowanie się wyłącznie na standardach, które mają zastosowanie.
 

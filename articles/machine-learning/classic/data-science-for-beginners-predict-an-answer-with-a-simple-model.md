@@ -3,18 +3,18 @@ title: 'ML Studio (klasyczny): przewidywania odpowiedzi z modelami regresji — 
 description: Jak utworzyć prosty model regresji, aby przewidzieć cenę w nauce danych dla początkujących wideo 4. Obejmuje regresję liniową z danymi docelowymi.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c6d78b10b98abe33744673459b3d31d8941aac89
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322816"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520412"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prognozowanie odpowiedzi za pomocą prostego modelu
 
@@ -98,7 +98,7 @@ Aby odpowiedzieć na nasze pytanie, Eyeball 1,35 Carats i Rysuj linię pionową.
 ![Znajdź odpowiedź w modelu](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Utwórz Interwał ufności
-Jest to naturalne, aby zastanawiać się, jak precyzyjne jest to prognozowanie. Warto dowiedzieć się, czy z poziomu rombu 1,35 w karatach jest bardzo blisko $10 000, czy też do większej lub mniejszej ilości. Aby to zrobić, Narysujmy kopertę wokół linii regresji, która zawiera większość kropek. Ta koperta jest nazywana naszym *interwałem ufności* : mamy pewność, że ceny mieszczą się w tej kopercie, ponieważ w przeszłości większość z nich ma. Możemy rysować dwa więcej linii poziomych, od których linia 1,35 w karatach przecina górną i dolną część tej koperty.
+Jest to naturalne, aby zastanawiać się, jak precyzyjne jest to prognozowanie. Warto dowiedzieć się, czy z poziomu rombu 1,35 w karatach jest bardzo blisko $10 000, czy też do większej lub mniejszej ilości. Aby to zrobić, Narysujmy kopertę wokół linii regresji, która zawiera większość kropek. Ta koperta jest nazywana naszym *interwałem ufności*: mamy pewność, że ceny mieszczą się w tej kopercie, ponieważ w przeszłości większość z nich ma. Możemy rysować dwa więcej linii poziomych, od których linia 1,35 w karatach przecina górną i dolną część tej koperty.
 
 ![Interwał ufności](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 

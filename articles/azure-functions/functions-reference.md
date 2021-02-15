@@ -4,12 +4,12 @@ description: Poznaj Azure Functions koncepcje i techniki, które są potrzebne d
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: dd9a517749030f9f99731d36947c4d4ff2f13b01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936740"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386904"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions — przewodnik dla deweloperów
 W Azure Functions określone funkcje udostępniają kilka podstawowych pojęć i składników technicznych, niezależnie od używanego języka lub powiązania. Przed przejściem do szczegółów szczegółowych informacji dotyczących danego języka lub powiązania należy zapoznać się z tym omówieniem, który ma zastosowanie do wszystkich z nich.
@@ -40,11 +40,11 @@ Aby uzyskać więcej informacji, zobacz temat [Azure Functions wyzwalacze i konc
 
 `bindings`Właściwość służy do konfigurowania wyzwalaczy i powiązań. Każde powiązanie udostępnia kilka typowych ustawień i niektóre ustawienia, które są specyficzne dla określonego typu powiązania. Każde powiązanie wymaga następujących ustawień:
 
-| Właściwość | Wartości/typy | Komentarze |
-| --- | --- | --- |
-| `type` |ciąg |Typ powiązania. Na przykład `queueTrigger`. |
-| `direction` |"in", "out" |Wskazuje, czy powiązanie służy do otrzymywania danych do funkcji, czy wysyłania danych z funkcji. |
-| `name` |ciąg |Nazwa, która jest używana dla powiązanych danych w funkcji. W języku C# jest to nazwa argumentu; w przypadku języka JavaScript jest to klucz na liście kluczy/wartości. |
+| Właściwość    | Wartości | Typ | Komentarze|
+|---|---|---|---|
+| typ  | Nazwa powiązania.<br><br>Na przykład `queueTrigger`. | ciąg | |
+| kierunek | `in`, `out`  | ciąg | Wskazuje, czy powiązanie służy do otrzymywania danych do funkcji, czy wysyłania danych z funkcji. |
+| name | Identyfikator funkcji.<br><br>Na przykład `myQueue`. | ciąg | Nazwa, która jest używana dla powiązanych danych w funkcji. W języku C# jest to nazwa argumentu; w przypadku języka JavaScript jest to klucz na liście kluczy/wartości. |
 
 ## <a name="function-app"></a>Aplikacja funkcji
 Aplikacja funkcji udostępnia kontekst wykonywania na platformie Azure, w którym działają funkcje. W związku z tym jest to jednostka wdrażania i zarządzania dla swoich funkcji. Aplikacja funkcji składa się z co najmniej jednej konkretnej funkcji, która jest zarządzana, wdrażana i skalowana ze sobą. Wszystkie funkcje w aplikacji funkcji mają ten sam plan cenowy, metodę wdrażania i wersję środowiska uruchomieniowego. Zastanów się nad aplikacją funkcji, aby zorganizować i wspólnie zarządzać funkcjami. Aby dowiedzieć się więcej, zobacz [jak zarządzać aplikacją funkcji](functions-how-to-use-azure-function-app-settings.md). 
@@ -91,6 +91,83 @@ Oto tabela wszystkich obsługiwanych powiązań.
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
 Masz problemy z błędami pochodzącymi z powiązań? Zapoznaj się z dokumentacją dotyczącą [kodów błędów powiązań Azure Functions](functions-bindings-error-pages.md) .
+
+
+## <a name="connections"></a>Połączenia
+
+Projekt funkcji odwołuje się do informacji o połączeniu według nazwy od jej dostawcy konfiguracji. Nie akceptuje on bezpośrednio informacji o połączeniu, umożliwiając ich zmianę w różnych środowiskach. Na przykład definicja wyzwalacza może zawierać `connection` Właściwość. Może odnosić się do parametrów połączenia, ale nie można ustawić parametrów połączenia bezpośrednio w `function.json` . Zamiast tego należy ustawić `connection` nazwę zmiennej środowiskowej, która zawiera parametry połączenia.
+
+Domyślny dostawca konfiguracji używa zmiennych środowiskowych. Mogą one być ustawiane przez [Ustawienia aplikacji](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) podczas uruchamiania usługi Azure Functions lub z [lokalnego pliku ustawień](functions-run-local.md#local-settings-file) podczas tworzenia lokalnego.
+
+### <a name="connection-values"></a>Wartości połączenia
+
+Gdy nazwa połączenia jest rozpoznawana jako jedna dokładna wartość, środowisko uruchomieniowe identyfikuje wartość jako _Parametry połączenia_, która zwykle zawiera wpis tajny. Szczegóły parametrów połączenia są definiowane przez usługę, z którą chcesz nawiązać połączenie.
+
+Jednak nazwa połączenia może odwoływać się również do kolekcji wielu elementów konfiguracji. Zmienne środowiskowe mogą być traktowane jako kolekcja przy użyciu udostępnionego prefiksu kończącego się znakami podwójnego podkreślenia `__` . Do grupy można odwoływać się, ustawiając nazwę połączenia na ten prefiks.
+
+Na przykład `connection` Właściwość dla definicji wyzwalacza obiektu blob platformy Azure może być `Storage1` . Pod warunkiem `Storage1` , że `Storage1__serviceUri` dla właściwości połączenia zostanie użyta wartość pojedynczego ciągu, która została skonfigurowana jako nazwa `serviceUri` . Właściwości połączenia są różne dla każdej usługi. Zapoznaj się z dokumentacją rozszerzenia, które korzysta z tego połączenia.
+
+### <a name="configure-an-identity-based-connection"></a>Konfigurowanie połączenia opartego na tożsamościach
+
+Niektóre połączenia w Azure Functions są skonfigurowane do używania tożsamości zamiast wpisu tajnego. Obsługa jest zależna od rozszerzenia przy użyciu połączenia. W niektórych przypadkach parametry połączenia nadal mogą być wymagane w funkcjach, mimo że usługa, z którą nawiązujesz połączenie, obsługuje połączenia oparte na tożsamości.
+
+> [!IMPORTANT]
+> Nawet jeśli rozszerzenie powiązania obsługuje połączenia oparte na tożsamościach, ta konfiguracja może nie być jeszcze obsługiwana w planie zużycia. Zapoznaj się z poniższą tabelą pomocy technicznej.
+
+Połączenia oparte na tożsamości są obsługiwane przez następujący wyzwalacz i rozszerzenia powiązań:
+
+| Nazwa rozszerzenia | Wersja rozszerzenia                                                                                     | Obsługa połączeń opartych na tożsamościach w planie zużycia |
+|----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Obiekt bob Azure     | [Wersja 5.0.0-beta1 lub nowsza](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | Nie                                    |
+| Azure Queue    | [Wersja 5.0.0-beta1 lub nowsza](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | Nie                                    |
+
+> [!NOTE]
+> Obsługa połączeń opartych na tożsamościach nie jest jeszcze dostępna dla połączeń magazynu używanych przez środowisko uruchomieniowe funkcji dla zachowań podstawowych. Oznacza to, że `AzureWebJobsStorage` ustawienie musi być parametrami połączenia.
+
+#### <a name="connection-properties"></a>Connection properties (Właściwości połączenia)
+
+Połączenie oparte na tożsamości dla usługi platformy Azure akceptuje następujące właściwości:
+
+| Właściwość    | Zmienna środowiskowa | Jest wymagana | Opis |
+|---|---|---|---|
+| Identyfikator URI usługi | `<CONNECTION_NAME_PREFIX>__serviceUri` | Tak | Identyfikator URI płaszczyzny danych usługi, z którą nawiązujesz połączenie. |
+
+Dodatkowe opcje mogą być obsługiwane dla danego typu połączenia. Zapoznaj się z dokumentacją składnika, który nawiązuje połączenie.
+
+W przypadku hostowania w usłudze Azure Functions połączenia oparte na tożsamościach korzystają z [tożsamości zarządzanej](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). Domyślnie używana jest tożsamość przypisana do systemu. W przypadku uruchamiania w innych kontekstach, takich jak lokalne programowanie, tożsamość dewelopera jest używana zamiast tego, chociaż można ją dostosować przy użyciu alternatywnych parametrów połączenia.
+
+##### <a name="local-development"></a>Programowanie lokalne
+
+W przypadku uruchomienia lokalnego powyższej konfiguracji nakazuje środowisko uruchomieniowe na korzystanie z lokalnej tożsamości dewelopera. Połączenie spróbuje uzyskać token z następujących lokalizacji:
+
+- Lokalna pamięć podręczna współdzielona przez aplikacje firmy Microsoft
+- Bieżący kontekst użytkownika w programie Visual Studio
+- Bieżący kontekst użytkownika w Visual Studio Code
+- Bieżący kontekst użytkownika w interfejsie wiersza polecenia platformy Azure
+
+Jeśli żadna z tych opcji nie powiedzie się, wystąpi błąd.
+
+W niektórych przypadkach warto określić użycie innej tożsamości. Możesz dodać właściwości konfiguracji dla połączenia, które wskazuje na alternatywną tożsamość.
+
+> [!NOTE]
+> Następujące opcje konfiguracji nie są obsługiwane, jeśli są hostowane w usłudze Azure Functions.
+
+Aby nawiązać połączenie przy użyciu jednostki usługi Azure Active Directory przy użyciu identyfikatora klienta i klucza tajnego, zdefiniuj połączenie z następującymi właściwościami:
+
+| Właściwość    | Zmienna środowiskowa | Jest wymagana | Opis |
+|---|---|---|---|
+| Identyfikator URI usługi | `<CONNECTION_NAME_PREFIX>__serviceUri` | Tak | Identyfikator URI płaszczyzny danych usługi, z którą nawiązujesz połączenie. |
+| Identyfikator dzierżawy | `<CONNECTION_NAME_PREFIX>__tenantId` | Tak | Identyfikator dzierżawy Azure Active Directory (katalog). |
+| Identyfikator klienta | `<CONNECTION_NAME_PREFIX>__clientId` | Tak |  Identyfikator klienta (aplikacji) rejestracji aplikacji w dzierżawie. |
+| Klucz tajny klienta | `<CONNECTION_NAME_PREFIX>__clientSecret` | Tak | Wpis tajny klienta wygenerowany dla rejestracji aplikacji. |
+
+#### <a name="grant-permission-to-the-identity"></a>Udziel uprawnienia do tożsamości
+
+Tożsamość, która jest używana, musi mieć uprawnienia do wykonywania zamierzonych akcji. Jest to zazwyczaj realizowane przez przypisanie roli w ramach RBAC platformy Azure lub określenie tożsamości w zasadach dostępu, w zależności od usługi, z którą nawiązujesz połączenie. Zapoznaj się z dokumentacją dla każdej usługi, na której są potrzebne uprawnienia i jak można je ustawić.
+
+> [!IMPORTANT]
+> Niektóre uprawnienia mogą być udostępniane przez usługę, która nie jest wymagana dla wszystkich kontekstów. Jeśli to możliwe, przestrzegaj **zasad najniższych uprawnień**, przyznając tożsamości tylko wymagane uprawnienia. Jeśli na przykład aplikacja musi odczytywać dane z obiektu BLOB, należy użyć roli [czytnika danych obiektów blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) jako [właściciela danych obiektu blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) , który zawiera nadmierne uprawnienia do operacji odczytu.
+
 
 ## <a name="reporting-issues"></a>Raportowanie problemów
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 95e9ef340328bb4c1835e966cc9c3019bca88c09
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131937"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368833"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Tworzenie agenta elastycznego zadania przy użyciu programu PowerShell (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Zadania elastyczne (wersja zapoznawcza)](job-automation-overview.md#elastic-database-jobs-preview) umożliwiają równoległe uruchamianie co najmniej jednego skryptu Transact-SQL (T-SQL) w wielu bazach danych.
+[Zadania elastyczne (wersja zapoznawcza)](job-automation-overview.md) umożliwiają równoległe uruchamianie co najmniej jednego skryptu Transact-SQL (T-SQL) w wielu bazach danych.
 
 W tym samouczku przedstawiono kroki wymagane do uruchomienia zapytania w wielu bazach danych:
 
@@ -63,7 +63,7 @@ Oprócz modułu **AZ. SQL** , ten samouczek wymaga również modułu *SqlServer*
 
 ## <a name="create-required-resources"></a>Tworzenie wymaganych zasobów
 
-Do utworzenia agenta zadań elastycznych wymagana jest baza danych (S0 lub wyższego poziomu) używana jako [baza danych zadań](job-automation-overview.md#job-database).
+Do utworzenia agenta zadań elastycznych wymagana jest baza danych (S0 lub wyższego poziomu) używana jako [baza danych zadań](job-automation-overview.md#elastic-job-database).
 
 Poniższy skrypt tworzy nową grupę zasobów, serwer i bazę danych, która będzie używana jako baza danych zadań. Drugi skrypt tworzy drugi serwer z dwiema pustymi bazami danych, względem których wykonywane są zadania.
 

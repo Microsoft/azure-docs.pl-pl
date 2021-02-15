@@ -1,22 +1,18 @@
 ---
 title: Migrowanie danych z lokalnego klastra Hadoop do usługi Azure Storage
 description: Dowiedz się, jak używać Azure Data Factory do migrowania danych z lokalnego klastra Hadoop do usługi Azure Storage.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 3e691244c4c03635eb87a7905eff6756da5c04f9
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638129"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367796"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Używanie Azure Data Factory do migrowania danych z lokalnego klastra Hadoop do usługi Azure Storage 
 
@@ -27,7 +23,7 @@ Azure Data Factory zapewnia wydajny, niezawodny i ekonomiczny mechanizm migrowan
 Data Factory oferuje dwa podstawowe podejścia do migrowania danych z lokalnego systemu plików HDFS na platformę Azure. Możesz wybrać metodę opartą na Twoim scenariuszu. 
 
 - **Data Factory tryb pomocą distcp** (zalecane): w Data Factory można użyć [pomocą distcp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (kopia rozproszona) do kopiowania plików jako-do magazynu obiektów blob platformy Azure (w tym [kopii przygotowanej](./copy-activity-performance.md#staged-copy)) lub Azure Data Lake Store Gen2. Użyj Data Factory zintegrowane z pomocą distcp, aby skorzystać z istniejącego, wydajnego klastra, aby osiągnąć najlepszą przepustowość kopiowania. Możesz również skorzystać z elastycznego planowania i ujednoliconego środowiska monitorowania z poziomu Data Factory. W zależności od konfiguracji Data Factory działanie Copy automatycznie konstruuje polecenie pomocą distcp, przesyła dane do klastra usługi Hadoop, a następnie monitoruje stan kopiowania. Zalecamy Data Factory tryb pomocą distcp na potrzeby migrowania danych z lokalnego klastra Hadoop do platformy Azure.
-- **Data Factory natywny tryb Integration Runtime** : pomocą distcp nie jest opcją we wszystkich scenariuszach. Na przykład w środowisku sieci wirtualnych platformy Azure narzędzie pomocą distcp nie obsługuje prywatnej komunikacji równorzędnej usługi Azure ExpressRoute z punktem końcowym sieci wirtualnej usługi Azure Storage. Ponadto w niektórych przypadkach nie chcesz używać istniejącego klastra usługi Hadoop jako aparatu do migrowania danych, aby nie umieszczać dużych obciążeń w klastrze, co może mieć wpływ na wydajność istniejących zadań ETL. Zamiast tego można użyć natywnej możliwości Data Factory Integration Runtime jako aparatu, który kopiuje dane z lokalnego systemu plików HDFS na platformę Azure.
+- **Data Factory natywny tryb Integration Runtime**: pomocą distcp nie jest opcją we wszystkich scenariuszach. Na przykład w środowisku sieci wirtualnych platformy Azure narzędzie pomocą distcp nie obsługuje prywatnej komunikacji równorzędnej usługi Azure ExpressRoute z punktem końcowym sieci wirtualnej usługi Azure Storage. Ponadto w niektórych przypadkach nie chcesz używać istniejącego klastra usługi Hadoop jako aparatu do migrowania danych, aby nie umieszczać dużych obciążeń w klastrze, co może mieć wpływ na wydajność istniejących zadań ETL. Zamiast tego można użyć natywnej możliwości Data Factory Integration Runtime jako aparatu, który kopiuje dane z lokalnego systemu plików HDFS na platformę Azure.
 
 Ten artykuł zawiera następujące informacje dotyczące obu metod:
 > [!div class="checklist"]
@@ -110,7 +106,7 @@ Jeśli którekolwiek z zadań kopiowania zakończy się niepowodzeniem z powodu 
 
 W Data Factory trybie pomocą distcp można użyć parametru wiersza polecenia pomocą distcp `-update` , zapisać dane, gdy plik źródłowy i plik docelowy różnią się w rozmiarze na potrzeby migracji danych różnicowych.
 
-W trybie integracji natywnej Data Factory najbardziej wydajny sposób identyfikowania nowych lub zmienionych plików z systemu plików HDFS jest przy użyciu konwencji nazewnictwa z podziałem czasowym. Gdy dane w systemie HDFS zostały podzielone na partycje czasowo z informacjami o wycinku czasowym w nazwie pliku lub folderu (na przykład */yyyy/mm/dd/file.csv* ), potok może łatwo identyfikować, które pliki i foldery mają być kopiowane przyrostowo.
+W trybie integracji natywnej Data Factory najbardziej wydajny sposób identyfikowania nowych lub zmienionych plików z systemu plików HDFS jest przy użyciu konwencji nazewnictwa z podziałem czasowym. Gdy dane w systemie HDFS zostały podzielone na partycje czasowo z informacjami o wycinku czasowym w nazwie pliku lub folderu (na przykład */yyyy/mm/dd/file.csv*), potok może łatwo identyfikować, które pliki i foldery mają być kopiowane przyrostowo.
 
 Alternatywnie, jeśli dane w systemie plików HDFS nie są podzielone na partycje, Data Factory mogą identyfikować nowe lub zmienione pliki przy użyciu ich wartości **LastModifiedDate** . Data Factory skanuje wszystkie pliki z systemu plików HDFS i kopiuje tylko nowe i zaktualizowane pliki, które mają sygnaturę czasową, która jest większa niż określona wartość. 
 

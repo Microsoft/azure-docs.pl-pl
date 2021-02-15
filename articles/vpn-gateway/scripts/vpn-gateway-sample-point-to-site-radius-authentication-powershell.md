@@ -1,24 +1,23 @@
 ---
-title: Przykładowy skrypt programu Azure PowerShell — konfigurowanie sieci VPN typu punkt-lokacja przy użyciu uwierzytelniania nazwy użytkownika/hasła usługi RADIUS | Microsoft Docs
-description: Konfigurowanie sieci VPN typu punkt lokacja przy użyciu uwierzytelniania nazwy użytkownika/hasła usługi RADIUS. W tym artykule używany jest program PowerShell.
+title: Przykładowy skrypt Azure PowerShell — Konfigurowanie sieci VPN P2S z uwierzytelnianiem usługi RADIUS
+titleSuffix: Azure VPN Gateway
+description: Przykład programu PowerShell służący do konfigurowania sieci VPN typu punkt-lokacja przy użyciu uwierzytelniania nazwy użytkownika/hasła usługi RADIUS
 services: vpn-gateway
-documentationcenter: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
-ms.devlang: powershell
 ms.topic: sample
-ms.date: 05/30/2018
+ms.date: 02/10/2021
 ms.author: alzam
-ms.openlocfilehash: 626881d0ba6320b1eb4645105ee56a69a2b249ba
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0a89ce2b73ca9da64f86c81ea00b1f46ea18f996
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660308"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385816"
 ---
-# <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Tworzenie bramy VPN Gateway i dodawanie konfiguracji typu punkt-lokacja za pomocą programu PowerShell
+# <a name="create-a-vpn-gateway-with-p2s-radius-authentication---powershell-script-sample"></a>Tworzenie bramy sieci VPN przy użyciu uwierzytelniania P2S RADIUS — przykład skryptu programu PowerShell
 
-Ten skrypt tworzy usługę VPN Gateway opartą na trasach i dodaje konfigurację typu punkt-lokacja przy użyciu uwierzytelniania nazwy użytkownika/hasła usługi RADIUS
+Ten przykładowy skrypt tworzy bramę sieci VPN opartą na trasach i dodaje konfigurację typu punkt-lokacja przy użyciu uwierzytelniania nazwy użytkownika/hasła usługi RADIUS.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -26,48 +25,46 @@ Ten skrypt tworzy usługę VPN Gateway opartą na trasach i dodaje konfigurację
 # Declare variables
   $VNetName  = "VNet1"
   $FESubName = "FrontEnd"
-  $BESubName = "Backend"
-  $GWSubName = "GatewaySubnet"
-  $VNetPrefix1 = "10.0.0.0/16"
+  $VNetPrefix1 = "10.1.0.0/16"
   $FESubPrefix = "10.1.0.0/24"
-  $BESubPrefix = "10.1.1.0/24"
   $GWSubPrefix = "10.1.255.0/27"
-  $VPNClientAddressPool = "192.168.0.0/24"
+  $VPNClientAddressPool = "172.16.201.0/24"
   $RG = "TestRG1"
   $Location = "East US"
   $GWName = "VNet1GW"
   $GWIPName = "VNet1GWIP"
-  $GWIPconfName = "gwipconf"
+  $RSAddress = "10.51.0.15"
+
 # Create a resource group
-New-AzResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name $RG -Location $Location
 # Create a virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName TestRG1 `
-  -Location EastUS `
-  -Name VNet1 `
-  -AddressPrefix 10.1.0.0/16
+  -ResourceGroupName $RG `
+  -Location $Location `
+  -Name $VNetName `
+  -AddressPrefix $VNetPrefix1
 # Create a subnet configuration
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name Frontend `
-  -AddressPrefix 10.1.0.0/24 `
+  -Name $FESubName `
+  -AddressPrefix $FESubPrefix `
   -VirtualNetwork $virtualNetwork
 # Set the subnet configuration for the virtual network
 $virtualNetwork | Set-AzVirtualNetwork
 # Add a gateway subnet
-$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
-Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $RG -Name $VNetName
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix $GWSubPrefix -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
 $vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' `
+$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location `
  -AllocationMethod Dynamic
 # Create the gateway IP address configuration
-$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
-New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
- -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+ -Location $Location -IpConfigurations $gwipconfig -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 # Create a secure string for the RADIUS secret
 $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
@@ -75,8 +72,8 @@ $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
 # Add the VPN client address pool and the RADIUS server information
 $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
- -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
- -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+ -VpnClientAddressPool $VPNClientAddressPool -VpnClientProtocol @( "SSTP", "IkeV2" ) `
+ -RadiusServerAddress $RSAddress -RadiusServerSecret $Secure_Secret
 ```
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

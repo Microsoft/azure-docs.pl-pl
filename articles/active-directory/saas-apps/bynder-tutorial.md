@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 02/03/2021
 ms.author: jeedes
-ms.openlocfilehash: d9e348d456d517cd20e899648b9e92b3cd802ffb
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: dd4114f417fa266d8d638e28167d513fdf01aa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806309"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380848"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Samouczek: integracja Bynder z usługą Azure Active Directory
 
@@ -30,7 +30,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę Bynder z usługą Azure 
 
 Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz skorzystać z miesięcznej [bezpłatnej wersji](https://azure.microsoft.com/pricing/free-trial/)próbnej.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Bynder.
 
 ## <a name="scenario-description"></a>Opis scenariusza
@@ -40,7 +40,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Aplikacja Bynder obsługuje logowanie jednokrotne inicjowane przez **dostawcę usług oraz dostawcę tożsamości**
 * Aplikacja Bynder obsługuje aprowizowanie użytkowników typu **Just In Time**
 
-## <a name="adding-bynder-from-the-gallery"></a>Dodawanie aplikacji Bynder z galerii
+## <a name="add-bynder-from-the-gallery"></a>Dodaj Bynder z galerii
 
 Aby skonfigurować integrację aplikacji Bynder z usługą Azure AD, musisz dodać aplikację Bynder z galerii do swojej listy zarządzanych aplikacji SaaS.
 
@@ -56,7 +56,7 @@ Aby skonfigurować integrację aplikacji Bynder z usługą Azure AD, musisz doda
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Bynder przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Bynder.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Bynder, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Bynder, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
    1. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
@@ -65,13 +65,13 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
    1. **[Tworzenie użytkownika testowego aplikacji Bynder](#create-bynder-test-user)** — aby mieć w aplikacji Bynder odpowiednik użytkownika Britta Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
 1. W Azure Portal na stronie integracja aplikacji **Bynder** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -163,4 +163,4 @@ Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikacj
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu Bynder można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu Bynder można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -33,8 +33,12 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Konfigurowanie przekierowywania portów w usłudze Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
-    - name: Tworzenie modułu równoważenia obciążenia między regionami — portal
-      href: tutorial-cross-region-portal.md
+    - name: Moduł równoważenia obciążenia między regionami
+      items:
+        - name: Tworzenie modułu równoważenia obciążenia między regionami — portal
+          href: tutorial-cross-region-portal.md
+        - name: Tworzenie międzyregionowego modułu równoważenia obciążenia — PowerShell
+          href: tutorial-cross-region-powershell.md
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -89,6 +93,8 @@
       href: backend-pool-management.md
     - name: Usługa Load Balancer w warstwie Standardowa i usługa Virtual Machine Scale Sets
       href: load-balancer-standard-virtual-machine-scale-sets.md
+    - name: Pobieranie informacji przy użyciu usługi Azure Instance Metadata Service
+      href: instance-metadata-service-load-balancer.md
 - name: Porady
   items:
     - name: Ustawienia portalu
@@ -144,6 +150,8 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego
       href: egress-only.md
+    - name: Pobieranie metadanych przy użyciu usługi Azure IMDS
+      href: howto-load-balancer-imds.md
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z usługą Azure Load Balancer
@@ -181,6 +189,8 @@
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.network/loadbalancers
       displayName: ARM
+    - name: Typowe kody błędów dla Instance Metadata Service platformy Azure (IMDS)
+      href: troubleshoot-load-balancer-imds.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

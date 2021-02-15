@@ -10,12 +10,12 @@ ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 0c15be86c282451440f9b81d57f17e835559b5ae
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979111"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390185"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
 
@@ -28,11 +28,11 @@ Aby kompleksowo chronić dane obiektów blob, firma Microsoft zaleca włączenie
 - Usuwanie nietrwałego obiektu BLOB w celu przywrócenia usuniętego obiektu BLOB lub wersji. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe obiektów blob, zobacz [Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB](soft-delete-blob-enable.md).
 
 > [!WARNING]
-> Nie można cofnąć usunięcia konta magazynu. Usuwanie nietrwałe nie chroni przed usunięciem konta magazynu, ale tylko w odniesieniu do usuwania obiektów danych na tym koncie. Aby chronić konto magazynu przed usunięciem, należy skonfigurować blokadę **CannotDelete** dla zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów Azure Resource Manager, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
+> Nie można cofnąć usunięcia konta magazynu. Usuwanie nietrwałe kontenera nie chroni przed usunięciem konta magazynu, ale tylko w odniesieniu do usuwania kontenerów na tym koncie. Aby chronić konto magazynu przed usunięciem, należy skonfigurować blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów Azure Resource Manager, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Jak działa usuwanie nietrwałe kontenera
 
-Po włączeniu usuwania nietrwałego kontenera można określić okres przechowywania usuniętych kontenerów z przedziału od 1 do 365 dni. Domyślny okres przechowywania wynosi 7 dni. W okresie przechowywania można odzyskać usunięty kontener, wywołując operację **usuwania kontenera** .
+Po włączeniu usuwania nietrwałego kontenera można określić okres przechowywania usuniętych kontenerów z przedziału od 1 do 365 dni. Domyślny okres przechowywania wynosi 7 dni. W okresie przechowywania można odzyskać usunięty kontener, wywołując operację **przywracania kontenera** .
 
 Podczas przywracania kontenera są również przywracane obiekty blob kontenera i wszystkie wersje obiektów BLOB. Można jednak używać tylko nietrwałego usuwania kontenera do przywracania obiektów blob, jeśli kontener został usunięty. Aby przywrócić usunięty obiekt BLOB, gdy jego kontener nadrzędny nie został usunięty, należy użyć usuwania nietrwałego obiektu BLOB lub przechowywania wersji obiektów BLOB.
 

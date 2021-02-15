@@ -9,14 +9,15 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d099d31db3619e14da4fe66e26b25a0e36ee39c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+adobe-target: true
+ms.openlocfilehash: 5d61f330c823aff755a25e637bb58c132aa58100
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250693"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369141"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Samouczek: wprowadzenie do Azure Machine Learning w środowisku programistycznym (część 1 z 4)
 
@@ -68,7 +69,7 @@ pip install azureml-core
 > [!NOTE]
 > Ukończenie instalacji zestawu SDK Azure Machine Learning wymaga około 2 minut.
 >
-> Jeśli zostanie wyświetlony komunikat o błędzie limitu czasu, spróbuj `pip install --default-timeout=100 azureml-core` intstead.
+> Jeśli zostanie wyświetlony komunikat o błędzie limitu czasu, spróbuj `pip install --default-timeout=100 azureml-core` zamiast tego.
 
 
 > [!div class="nextstepaction"]
@@ -78,20 +79,29 @@ pip install azureml-core
 
 Zalecamy skonfigurowanie następującej prostej struktury katalogów dla tego samouczka:
 
-```markdown
-tutorial
-└──.azureml
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-1.png" alt-text="Struktura katalogów: najwyższego poziomu samouczka z podkatalogiem.":::
+
 
 - `tutorial`: Katalog najwyższego poziomu projektu.
 - `.azureml`: Ukryty podkatalog do przechowywania plików konfiguracji Azure Machine Learning.
 
+Na przykład, aby utworzyć ten element w oknie bash:
+
+```bash
+mkdir tutorial
+cd tutorial
+mkdir .azureml
+```
+
 > [!TIP]
-> W oknie terminalu można utworzyć ukryty podkatalog. Azure.  Lub użyj następujących czynności:
+> Aby utworzyć lub wyświetlić strukturę w oknie graficznym, należy najpierw włączyć możliwość wyświetlania i tworzenia ukrytych plików i folderów:
 >
-> * W oknie Wyszukiwacz Mac Użyj **polecenia + Shift +.** Aby przełączać możliwość wyświetlania i tworzenia katalogów rozpoczynających się od kropki.  
+> * W oknie Wyszukiwacz Mac Użyj **polecenia + Shift +.** Aby włączyć wyświetlanie ukrytych plików/folderów.  
 > * W Eksploratorze plików systemu Windows 10 zapoznaj [się z tematem jak wyświetlać ukryte pliki i foldery](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
 > * W interfejsie graficznym systemu Linux Użyj **klawiszy CTRL + h** lub menu **Widok** , a następnie zaznacz pole, aby **wyświetlić ukryte pliki**.
+
+
+
 
 > [!div class="nextstepaction"]
 > [Utworzyłem katalog,](?success=create-dir#workspace) [w którym wystąpił problem](https://www.research.net/r/7C8Z3DN?issue=create-dir)
@@ -138,12 +148,7 @@ python ./01-create-workspace.py
 
 Po pomyślnym uruchomieniu *01-Create-Workspace.py* struktura folderów będzie wyglądać następująco:
 
-```markdown
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-2.png" alt-text="Plik config.json pojawia się w katalogu. usługi Azure po uruchomieniu 01-create-workspace.py":::
 
 Plik `.azureml/config.json` zawiera metadane niezbędne do nawiązania połączenia z obszarem roboczym Azure Machine Learning. A mianowicie zawiera identyfikator subskrypcji, grupę zasobów i nazwę obszaru roboczego. 
 
@@ -196,13 +201,7 @@ python ./02-create-compute.py
 
 Struktura folderów będzie teraz wyglądać następująco:
 
-```bash
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-3.png" alt-text="Dodawanie 02-create-compute.py do katalogu samouczków":::
 
 > [!div class="nextstepaction"]
 > [Klaster obliczeniowy został utworzony](?success=create-compute-cluster#next-steps) [w ramach problemu](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)

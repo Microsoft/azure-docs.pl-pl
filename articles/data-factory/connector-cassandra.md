@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych z Cassandra za pomocą Azure Data Factory
 description: Informacje o kopiowaniu danych z programu Cassandra do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3cd3c3ae28ae302e9469a71d00054152a9b5fb5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417472"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383708"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiowanie danych z Cassandra za pomocą Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -65,7 +60,7 @@ Dla połączonej usługi Cassandra są obsługiwane następujące właściwości
 | typ |Właściwość Type musi mieć wartość: **Cassandra** |Tak |
 | host |Co najmniej jeden adres IP lub nazwa hosta serwerów Cassandra.<br/>Określ rozdzieloną przecinkami listę adresów IP lub nazw hostów, które mają być połączone jednocześnie ze wszystkimi serwerami. |Tak |
 | port |Port TCP, którego serwer Cassandra używa do nasłuchiwania połączeń klientów. |Nie (domyślnie 9042) |
-| authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych Cassandra.<br/>Dozwolone wartości to: **Basic**i **Anonymous**. |Tak |
+| authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych Cassandra.<br/>Dozwolone wartości to: **Basic** i **Anonymous**. |Tak |
 | nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak, Jeśli AuthenticationType ma wartość Basic. |
 | hasło |Określ hasło dla konta użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak, Jeśli AuthenticationType ma wartość Basic. |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
@@ -142,7 +137,7 @@ Aby skopiować dane z Cassandra, ustaw typ źródła w działaniu Copy na **Cass
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **CassandraSource** | Tak |
 | query |Użyj zapytania niestandardowego do odczytywania danych. Zapytanie SQL-92 zapytania lub CQL. Zobacz [CQL Reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>W przypadku korzystania z zapytania SQL określ **nazwę przestrzeni kluczy. nazwa tabeli** do reprezentowania tabeli, którą chcesz zbadać. |Nie (Jeśli określono "TableName" i "przestrzeń kluczy" w zestawie danych). |
-| consistencyLevel |Poziom spójności określa, ile replik musi odpowiedzieć na żądanie odczytu przed zwróceniem danych do aplikacji klienckiej. Cassandra sprawdza określoną liczbę replik dla danych, aby spełnić żądanie odczytu. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie spójności danych](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) .<br/><br/>Dozwolone wartości to: **jeden**, **dwa**, **trzy**, **kworum**, **wszystkie**, **LOCAL_QUORUM**, **EACH_QUORUM**i **LOCAL_ONE**. |Nie (domyślnie `ONE` ) |
+| consistencyLevel |Poziom spójności określa, ile replik musi odpowiedzieć na żądanie odczytu przed zwróceniem danych do aplikacji klienckiej. Cassandra sprawdza określoną liczbę replik dla danych, aby spełnić żądanie odczytu. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie spójności danych](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) .<br/><br/>Dozwolone wartości to: **jeden**, **dwa**, **trzy**, **kworum**, **wszystkie**, **LOCAL_QUORUM**, **EACH_QUORUM** i **LOCAL_ONE**. |Nie (domyślnie `ONE` ) |
 
 **Przykład:**
 
@@ -185,14 +180,14 @@ Podczas kopiowania danych z Cassandra następujące mapowania są używane z typ
 | ASCII |Ciąg |
 | BIGINT |Int64 |
 | TWORZENIA |Byte [] |
-| TYPU |Boolean |
+| TYPU |Wartość logiczna |
 | DOKŁADNOŚCI |Liczba dziesiętna |
 | DOUBLE |Double |
 | FLOAT |Pojedynczy |
 | INET |Ciąg |
 | INT |Int32 |
 | TEKST |Ciąg |
-| ZNACZNIK czasu |DateTime |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid (identyfikator GUID) |
 | INTERFEJSU |Guid (identyfikator GUID) |
 | VARCHAR |Ciąg |

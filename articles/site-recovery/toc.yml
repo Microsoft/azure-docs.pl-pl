@@ -216,7 +216,7 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Konfigurowanie odzyskiwania po awarii maszyn wirtualnych platformy Azure po migracji na platformę Azure
               href: azure-to-azure-replicate-after-migration.md
-            - name: Umożliwianie odzyskiwania po awarii między strefami
+            - name: Odzyskiwanie po awarii strefy do strefy
               href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Zarządzanie
           items:

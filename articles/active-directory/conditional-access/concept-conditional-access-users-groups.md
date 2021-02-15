@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366364"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364583"
 ---
 # <a name="conditional-access-users-and-groups"></a>Dostęp warunkowy: Użytkownicy i grupy
 
@@ -41,6 +41,9 @@ Poniższe opcje są dostępne do uwzględnienia podczas tworzenia zasad dostępu
       - Umożliwia administratorom wybranie określonych ról katalogu usługi Azure AD używanych do określania przypisania. Na przykład organizacje mogą tworzyć bardziej restrykcyjne zasady dla użytkowników, którym przypisano rolę administratora globalnego.
    - Użytkownicy i grupy
       - Umożliwia kierowanie określonych zestawów użytkowników. Na przykład organizacje mogą wybrać grupę, która zawiera wszystkich członków działu kadr, gdy aplikacja usługi kadr zostanie wybrana jako aplikacja w chmurze. Grupa może być dowolnymi grupami w usłudze Azure AD, w tym dynamicznymi lub przypisanymi grupami zabezpieczeń i dystrybucji. Zasady zostaną zastosowane do zagnieżdżonych użytkowników i grup.
+
+> [!IMPORTANT]
+> Podczas wybierania użytkowników i grup uwzględnionych w zasadach dostępu warunkowego istnieje ograniczenie liczby indywidualnych użytkowników, które można dodać bezpośrednio do zasad dostępu warunkowego. W przypadku dużej liczby indywidualnych użytkowników, którzy są musieli dodać bezpośrednio do zasad dostępu warunkowego, zalecamy umieszczenie użytkowników w grupie i przypisanie grupy do zasad dostępu warunkowego.
 
 > [!WARNING]
 > Jeśli użytkownicy lub grupy są członkami ponad 2048 grup, ich dostęp może być zablokowany. Ten limit dotyczy zarówno bezpośrednich, jak i zagnieżdżonych członkostwa w grupach.

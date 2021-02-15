@@ -1,23 +1,18 @@
 ---
 title: Przenoszenie danych — Brama Zarządzanie danymi
 description: Skonfiguruj bramę danych do przenoszenia danych między środowiskiem lokalnym i chmurą. Użyj Zarządzanie danymi Gateway w Azure Data Factory, aby przenieść dane.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
+ms.author: abnarain
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53fce1744ccbf4289b2415e926e084c90d708a13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019688"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380291"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Przenoszenie danych między źródłami lokalnymi i chmurą przy użyciu bramy Zarządzanie danymi
 > [!NOTE]
@@ -236,7 +231,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
             }
         }
     }     
-    ```     
+    ```       
    Pamiętaj o następujących kwestiach:
 
    * **Typ** jest ustawiony na **SqlServerName**.
@@ -384,7 +379,7 @@ W tym kroku utworzysz **potok** z jednym **działaniem kopiowania** , który uż
     Możesz powiększyć, pomniejszyć, powiększyć do 100%, powiększyć do dopasowania, automatycznie pozycjonować potoki i zestawy danych, a także pokazać informacje o położeniu podrzędnym (Podświetl elementy nadrzędne i podrzędne wybranych elementów).  Możesz kliknąć dwukrotnie obiekt (zestaw danych wejściowych/wyjściowych lub potok), aby wyświetlić jego właściwości.
 
 ## <a name="monitor-pipeline"></a>Monitorowanie potoku
-W tym kroku opisano użycie witryny Azure Portal do monitorowania tego, co dzieje się w fabryce danych Azure. Do monitorowania zestawów danych i potoków można również używać poleceń cmdlet programu PowerShell. Aby uzyskać szczegółowe informacje o monitorowaniu, zobacz [monitorowanie potoków i zarządzanie nimi](data-factory-monitor-manage-pipelines.md).
+W tym kroku użyjesz Azure Portal do monitorowania tego, co dzieje się w usłudze Azure Data Factory. Do monitorowania zestawów danych i potoków można również używać poleceń cmdlet programu PowerShell. Aby uzyskać szczegółowe informacje o monitorowaniu, zobacz [monitorowanie potoków i zarządzanie nimi](data-factory-monitor-manage-pipelines.md).
 
 1. Na diagramie kliknij dwukrotnie pozycję **EmpOnPremSQLTable**.  
 

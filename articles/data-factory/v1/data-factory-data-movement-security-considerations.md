@@ -1,22 +1,18 @@
 ---
 title: Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w Azure Data Factory
 description: Informacje na temat zabezpieczania przenoszenia danych w Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c694cf58f4c6b613cbc183753785a34bc15063bd
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093608"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375106"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory — zagadnienia dotyczące zabezpieczeń związane z przenoszeniem danych
 
@@ -33,10 +29,10 @@ Mimo że Data Factory jest dostępna tylko w regionach **zachodnie stany USA**, 
 Azure Data Factory samo nie przechowuje żadnych danych z wyjątkiem poświadczeń połączonej usługi dla magazynów danych w chmurze, które są szyfrowane przy użyciu certyfikatów. Umożliwia tworzenie przepływów pracy opartych na danych w celu organizowania przenoszenia danych między [obsługiwanymi magazynami danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) i przetwarzaniem danych przy użyciu [usług obliczeniowych](data-factory-compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Umożliwia także [monitorowanie przepływów pracy i zarządzanie nimi](data-factory-monitor-manage-pipelines.md) przy użyciu mechanizmów programistycznych i interfejsu użytkownika.
 
 Przenoszenie danych przy użyciu Azure Data Factory jest **certyfikowane** dla:
--   [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
--   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--   [GWIAZDA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-    [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
+-    [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-    [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
+-    [GWIAZDA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Jeśli interesuje Cię zgodność z platformą Azure i sposób, w jaki platforma Azure zabezpiecza własną infrastrukturę, odwiedź [Centrum zaufania firmy Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
@@ -117,12 +113,12 @@ Obecnie Brama Zarządzanie danymi używa jednego **certyfikatu**. Ten certyfikat
 | > = 2.4. xxxx. x | Lokalnie | Zabezpieczone za pomocą funkcji DPAPI | 
   
 
-### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
+### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
 Wszystkie transfery danych są nawiązywane za pośrednictwem protokołu **https** Secure Channel i **TLS over TCP** , aby zapobiec atakom typu man-in-the-Middle podczas komunikacji z usługami platformy Azure.
  
 Aby dodatkowo zabezpieczyć kanał komunikacyjny między siecią lokalną i platformą Azure, można także użyć [protokołu IPSec VPN](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) lub [Express Route](../../expressroute/expressroute-introduction.md) .
 
-Usługa Virtual Network to logiczna reprezentacja sieci w chmurze. Możesz połączyć sieć lokalną z siecią wirtualną platformy Azure, konfigurując sieci VPN IPSec (lokacja-lokacja) lub Express Route (prywatna Komunikacja równorzędna)     
+Usługa Virtual Network to logiczna reprezentacja sieci w chmurze. Możesz połączyć sieć lokalną z siecią wirtualną platformy Azure, konfigurując sieci VPN IPSec (lokacja-lokacja) lub Express Route (prywatna Komunikacja równorzędna)        
 
 Poniższa tabela zawiera podsumowanie zaleceń dotyczących konfiguracji sieci i bramy na podstawie różnych kombinacji lokalizacji źródłowej i docelowej do przenoszenia danych hybrydowych.
 
@@ -144,7 +140,7 @@ Na poniższych ilustracjach przedstawiono użycie bramy Zarządzanie danymi do p
 
 ### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Konfiguracje zapory i filtrowanie adresów IP bramy
 
-#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Wymagania dotyczące zapory dla sieci lokalnej/prywatnej  
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Wymagania dotyczące zapory dla sieci lokalnej/prywatnej    
 W przedsiębiorstwie **firmowa Zapora** jest uruchamiana na centralnym routerze organizacji. Ponadto **Zapora systemu Windows** jest uruchamiana jako demon na komputerze lokalnym, na którym zainstalowano bramę. 
 
 W poniższej tabeli przedstawiono wymagania dotyczące **portów wychodzących** i domen dla **zapory firmowej**.
@@ -154,7 +150,7 @@ W poniższej tabeli przedstawiono wymagania dotyczące **portów wychodzących**
 | `*.servicebus.windows.net` | 443, 80 | Wymagane przez bramę do nawiązywania połączenia z usługami przenoszenia danych w Data Factory |
 | `*.core.windows.net` | 443 | Używane przez bramę do nawiązywania połączenia z kontem usługi Azure Storage w przypadku korzystania z funkcji [kopiowania etapowego](data-factory-copy-activity-performance.md#staged-copy) . | 
 | `*.frontend.clouddatahub.net` | 443 | Wymagane przez bramę do nawiązywania połączenia z usługą Azure Data Factory. | 
-| `*.database.windows.net` | 1433   | (Opcjonalnie) wymagana, gdy lokalizacja docelowa to Azure SQL Database/analiza Synapse Azure. Funkcja kopiowania przemieszczania służy do kopiowania danych do usługi Azure SQL Database/Azure Synapse Analytics bez konieczności otwierania portu 1433. | 
+| `*.database.windows.net` | 1433    | (Opcjonalnie) wymagana, gdy lokalizacja docelowa to Azure SQL Database/analiza Synapse Azure. Funkcja kopiowania przemieszczania służy do kopiowania danych do usługi Azure SQL Database/Azure Synapse Analytics bez konieczności otwierania portu 1433. | 
 | `*.azuredatalakestore.net` | 443 | (Opcjonalnie) wymagana, gdy lokalizacja docelowa to Magazyn Azure Data Lake | 
 
 > [!NOTE] 
