@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 8ee3afcae69ca6c082452e590eb8370bcc122af4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7b609fec2a47dc0685b30dac12f43263127f70ef
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97844510"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523214"
 ---
 # <a name="system-prerequisites"></a>Wymagania wstępne systemu
 W tym artykule wymieniono wymagania wstępne dotyczące uruchamiania usługi Azure Defender for IoT.
@@ -31,7 +31,7 @@ Usługa Defender for IoT kieruje cały ruch ze wszystkich regionów Europy do re
 
 Aby uzyskać więcej informacji, zobacz [IoT Hub obsługiwanych regionów](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Następne kroki
 
-- [Identyfikowanie wymaganych urządzeń](how-to-identify-required-appliances.md)
-- [Informacje o usłudze Azure Defender dla sieci IoT — konfiguracja](how-to-set-up-your-network.md)
+[Identyfikowanie wymaganych urządzeń](how-to-identify-required-appliances.md) 
+ [Informacje o usłudze Azure Defender dla sieci IoT — konfiguracja](how-to-set-up-your-network.md)

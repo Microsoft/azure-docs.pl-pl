@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3d5a29ed26d58f0cbaa57768d4b8ad236283deb9
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621316"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523859"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informacje o usłudze Azure Defender dla sieci IoT — konfiguracja
 
@@ -365,7 +365,7 @@ Do monitorowania portów można także używać agregatorów TAP. Urządzenia te
 
 Te modele zostały przetestowane pod kątem zgodności. Inni dostawcy i modele mogą również być zgodne.
 
-| Obraz | Model |
+| Image (Obraz) | Model |
 |--|--|
 | :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Zrzut ekranu przedstawiający Garland P1GCCAS."::: | Garland P1GCCAS |
 | :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Zrzut ekranu przedstawiający IXIA TPA2-CU3."::: | IXIA TPA2 — CU3 |
@@ -534,24 +534,23 @@ Przejrzyj tę listę przed wdrożeniem lokacji:
 
 | **#** | **Zadanie lub działanie** | **Stan** | **Komentarze** |
 |--|--|--|--|
-| 1 | Podaj globalne. | ☐ |  |
-| 3 | Zamawianie urządzeń. | ☐ |  |
-| 4 | Przygotuj listę podsieci w sieci. | ☐ |  |
-| 5 | Podaj listę sieci VLAN w sieciach produkcyjnych. | ☐ |  |
-| 6 | Podaj listę modeli przełącznika w sieci. | ☐ |  |
-| 7 | Podaj listę dostawców i protokołów sprzętu przemysłowego. | ☐ |  |
-| 8 | Podaj szczegóły sieci dla czujników (adres IP, podsieć, D-GW, DNS). | ☐ |  |
-| 9 | Utwórz niezbędne reguły zapory i listę dostępu. | ☐ |  |
-| 10 | Należy utworzyć łączenie portów na przełącznikach monitorowania portów lub skonfigurować kurki sieci zgodnie z potrzebami. | ☐ |  |
-| 11 | Przygotuj miejsce na stojaku dla urządzeń czujników. | ☐ |  |
-| 12 | Przygotuj stację roboczą dla personelu. | ☐ |  |
-| 13 | Podaj klawiaturę, monitor i mysz dla urządzeń w stojaku usługi IoT. | ☐ |  |
-| 14 | Stelaż i okablowanie urządzeń. | ☐ |  |
-| 15 | Przydzielanie zasobów lokacji w celu obsługi wdrożenia. | ☐ |  |
-| 16 | Tworzenie grup Active Directory lub użytkowników lokalnych. | ☐ |  |
-| 17 | Szkolenia dotyczące konfigurowania (samodzielnego uczenia się). | ☐ |  |
-| 18 | Przejdź lub nie — Przejdź. | ☐ |  |
-| 19 | Zaplanuj datę wdrożenia. | ☐ |  |
+| 1 | Zamawianie urządzeń. | ☐ |  |
+| 2 | Przygotuj listę podsieci w sieci. | ☐ |  |
+| 3 | Podaj listę sieci VLAN w sieciach produkcyjnych. | ☐ |  |
+| 4 | Podaj listę modeli przełącznika w sieci. | ☐ |  |
+| 5 | Podaj listę dostawców i protokołów sprzętu przemysłowego. | ☐ |  |
+| 6 | Podaj szczegóły sieci dla czujników (adres IP, podsieć, D-GW, DNS). | ☐ |  |
+| 7 | Utwórz niezbędne reguły zapory i listę dostępu. | ☐ |  |
+| 8 | Należy utworzyć łączenie portów na przełącznikach monitorowania portów lub skonfigurować kurki sieci zgodnie z potrzebami. | ☐ |  |
+| 9 | Przygotuj miejsce na stojaku dla urządzeń czujników. | ☐ |  |
+| 10 | Przygotuj stację roboczą dla personelu. | ☐ |  |
+| 11 | Podaj klawiaturę, monitor i mysz dla urządzeń w stojaku usługi IoT. | ☐ |  |
+| 12 | Stelaż i okablowanie urządzeń. | ☐ |  |
+| 13 | Przydzielanie zasobów lokacji w celu obsługi wdrożenia. | ☐ |  |
+| 14 | Tworzenie grup Active Directory lub użytkowników lokalnych. | ☐ |  |
+| 15 | Szkolenia dotyczące konfigurowania (samodzielnego uczenia się). | ☐ |  |
+| 16 | Przejdź lub nie — Przejdź. | ☐ |  |
+| 17 | Zaplanuj datę wdrożenia. | ☐ |  |
 
 
 | **Data** | **Uwaga** | **Data wdrożenia** | **Uwaga** |
@@ -564,7 +563,7 @@ Przejrzyj tę listę przed wdrożeniem lokacji:
 
 Omówienie diagramu sieci przemysłowej umożliwi zdefiniowanie odpowiedniej lokalizacji dla sprzętu usługi Defender for IoT.
 
-1.  Wyświetl globalny Diagram sieciowy środowiska nieprzemysłowego. Przykład:
+1.  Wyświetl globalny Diagram sieciowy środowiska nieprzemysłowego. Na przykład:
 
     :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="Diagram środowiska przemysłowego niezwiązanego z siecią globalną.":::
 
@@ -606,7 +605,7 @@ Omówienie diagramu sieci przemysłowej umożliwi zdefiniowanie odpowiedniej lok
 
     Jakie są zasady? __________________________________ 
 
-    Przykład:
+    Na przykład:
 
     - Firmie
 
@@ -696,6 +695,6 @@ Skontaktuj się z administratorem Active Directory, aby utworzyć grupę użytko
 | Aparat fotograficzny | |
 | Maszyna X-ray | |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
 [Informacje o instalacji usługi Defender for IoT](how-to-install-software.md)

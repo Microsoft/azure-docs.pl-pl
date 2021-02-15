@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z alertów w lokalnej konsoli zarządzania
+title: Praca z alertami w lokalnej konsoli zarządzania
 description: Korzystając z lokalnej konsoli zarządzania, można uzyskać wgląd w najnowsze zagrożenia w sieci i lepiej zrozumieć, jak użytkownicy czujnika obsługują te informacje.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: f52e308199ddb8bc21809009ad71918d077ac5b2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: ebd5a0c14b6f9e3a57e3a7df888b5f9d24f9a2df
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842856"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523621"
 ---
-# <a name="work-with-alerts-on-the-on-premises-management-console"></a>Korzystanie z alertów w lokalnej konsoli zarządzania 
+# <a name="work-with-alerts-on-the-on-premises-management-console"></a>Praca z alertami w lokalnej konsoli zarządzania 
 
 W oknie **alerty** w konsoli zarządzania można wykonać następujące czynności:
 
@@ -119,13 +119,34 @@ Aby wyświetlić urządzenia na mapie stref:
 
 ## <a name="manage-alert-events"></a>Zarządzanie zdarzeniami alertów
 
-Można zarządzać zdarzeniami alertów wykrytymi przez czujniki organizacyjne w następujący sposób:
+Dostępne są różne opcje zarządzania zdarzeniami alertów z lokalnej konsoli zarządzania.
 
 - Dowiedz się lub potwierdź zdarzenia alertów. Wybierz pozycję **Dowiedz się, & potwierdzić** , aby poznać wszystkie zdarzenia alertów, które mogą być autoryzowane, i zatwierdzić wszystkie zdarzenia alertów, które nie są obecnie potwierdzone.
 
   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/learn-and-acknowledge.png" alt-text="Wybierz pozycję Dowiedz się, & potwierdzić, aby dowiedzieć się więcej.":::
 
 - Wyciszenie i wyciszenie zdarzeń alertów.
+
+Aby dowiedzieć się więcej na temat uczenia, potwierdzania i wyciszania zdarzeń alertów, zobacz artykuł [dotyczący czujnika zarządzania zdarzeniami](how-to-manage-the-alert-event.md) .
+
+## <a name="export-alert-information"></a>Eksportowanie informacji o alercie
+
+Eksportowanie informacji o alercie do pliku CSV. Możesz wyeksportować informacje o wszystkich alertach wykrytych lub wyeksportować informacje na podstawie filtrowanego widoku. Eksportowane są następujące informacje:
+
+- Adres źródłowy
+- Adres docelowy
+- Tytuł alertu
+- Ważność alertu
+- Komunikat alertu
+- Dodatkowe informacje
+- Stan potwierdzenia
+- Dostępność PCAP
+
+Aby wyeksportować:
+
+1. Z menu po lewej stronie wybierz pozycję alerty.
+1. Wybierz pozycję Eksportuj.
+1. Wybierz pozycję Eksportuj Rozszerzone alerty, aby wyeksportować informacje o alercie w osobnych wierszach dla każdego alertu obejmującego wiele urządzeń. Po wybraniu pozycji Eksportuj alerty rozszerzone zostanie utworzony zduplikowany wiersz alertu z unikatowymi elementami w każdym wierszu. Użycie tej opcji ułatwia badanie wyeksportowanych zdarzeń alertów.  
 
 ## <a name="create-alert-exclusion-rules"></a>Utwórz reguły wykluczania alertu
 
@@ -225,6 +246,6 @@ Reguły tworzone za pomocą interfejsu API pojawiają się w oknie **reguła wyk
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Zrzut ekranu przedstawiający widok reguły wykluczania.":::
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Następne kroki
 
 [Pracuj z alertami na czujniku](how-to-work-with-alerts-on-your-sensor.md)

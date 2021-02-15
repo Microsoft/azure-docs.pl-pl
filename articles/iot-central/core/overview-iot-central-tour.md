@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: c702cb16267d5495feedd8d361092b23b6d4deac
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 569a1365e73acbc2fdaf351f2e2cff21181241e1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372469"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523484"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Przewodnik po interfejsie użytkownika usługi Azure IoT Central
 
@@ -97,8 +97,8 @@ Górne menu jest wyświetlane na każdej stronie:
 
 * Aby wyszukać szablony urządzeń i urządzenia, wprowadź wartość **wyszukiwania** .
 * Aby zmienić język lub motyw interfejsu użytkownika, wybierz ikonę **Ustawienia** . Dowiedz się więcej o [zarządzaniu preferencjami aplikacji](howto-manage-preferences.md)
-* Aby wylogować się z aplikacji, wybierz ikonę **konta** .
 * Aby uzyskać pomoc i pomoc techniczną, wybierz pozycję rozwijaną **Pomoc**, aby uzyskać listę zasobów. Możesz [uzyskać informacje o aplikacji](./howto-get-app-info.md) z linku **Informacje o aplikacji** . W aplikacji w ramach bezpłatnego planu cenowego zasoby pomocy technicznej obejmują dostęp do [rozmowy na żywo](howto-show-hide-chat.md).
+* Aby wylogować się z aplikacji, wybierz ikonę **konta** .
 
 Możesz wybrać jasny lub ciemny motyw interfejsu użytkownika:
 

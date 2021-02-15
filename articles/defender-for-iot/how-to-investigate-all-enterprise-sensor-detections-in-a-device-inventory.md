@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b4d824386a7c14165697f4b93f2e93cf0182a855
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625468"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524029"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Zbadaj wszystkie wykrycia czujnika przedsiębiorstwa w spisie urządzeń
 
@@ -51,7 +51,7 @@ W poniższej tabeli opisano kolumny tabeli w spisie urządzeń.
 
 Funkcje integracji danych pozwalają ulepszyć dane w spisie urządzeń przy użyciu informacji z innych zasobów przedsiębiorstwa. Te źródła obejmują dyrektywy CMDB, DNS, zapory i interfejsy API sieci Web.
 
-Możesz użyć tych informacji, aby dowiedzieć się. Przykład:
+Możesz użyć tych informacji, aby dowiedzieć się. Na przykład:
 
 - Daty zakupu urządzenia i daty końcowej gwarancji
 
@@ -225,6 +225,6 @@ Dostępne są następujące dodatkowe informacje o strefie:
 
 - **Postęp aktualizacji**: jeśli czujnik podłączony jest uaktualniany, zostaną wyświetlone Stany uaktualnienia. Podczas uaktualniania lokalna Konsola zarządzania nie odbiera informacji o urządzeniu z czujnika.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
 [Badanie wykryć czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)
