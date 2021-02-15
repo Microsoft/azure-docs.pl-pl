@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych za pomocą narzędzia Kopiowanie danych platformy Azure
 description: Utwórz Azure Data Factory a następnie użyj narzędzia Kopiowanie danych, aby skopiować dane z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 48624e415649be2fb76aed99c5cb0e1b3b12f04b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013517"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372862"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Szybki Start: Używanie narzędzia Kopiowanie danych do kopiowania danych
 
@@ -58,7 +53,7 @@ W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu witryny Az
 
    Ta lista zawiera tylko lokalizacje, które są obsługiwane przez usługę Data Factory i w których będą przechowywane metadane usługi Azure Data Factory. Skojarzone magazyny danych (np. usługi Azure Storage i Azure SQL Database) i usługi obliczeniowe (np. usługa Azure HDInsight) używane przez Data Factory mogą działać w innych regionach.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Po zakończeniu tworzenia zostanie wyświetlona strona **Data Factory** . Wybierz kafelek **Tworzenie i monitorowanie**, aby na osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Azure Data Factory.
    

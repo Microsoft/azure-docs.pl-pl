@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 02/10/2021
 ms.author: alkohli
-ms.openlocfilehash: ce063e27620c3b0ccec9336e7a45ebb2ee1ad10d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101718"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382824"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrowanie obciążeń z Azure Stack Edge FPGA z krawędzią Pro do Azure Stack
 
@@ -190,8 +190,8 @@ Wykonaj następujące kroki, aby odzyskać dane z udziałów lokalnych:
 
 Po przygotowaniu modułów IoT Edge należy wdrożyć IoT Edge obciążenia na urządzeniu docelowym. Jeśli występują błędy podczas wdrażania modułów IoT Edge, zobacz:
 
-- [Typowe problemy i rozwiązania dla Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md)i 
-- [Błędy środowiska uruchomieniowego IoT Edge] [Zarządzanie urządzeniem z systemem Azure Stack Edge przy użyciu programu Windows PowerShell](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors).
+- [Typowe problemy i rozwiązania dla Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md). 
+- [Błędy środowiska uruchomieniowego IoT Edge](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors).
 
 ## <a name="verify-data"></a>Weryfikacja danych
 

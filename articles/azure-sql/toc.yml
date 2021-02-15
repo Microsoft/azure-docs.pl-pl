@@ -143,8 +143,10 @@
       items:
         - name: Prośba o zwiększenie limitów przydziałów
           href: database/quota-increase-request.md
-        - name: Automatyzacja zadań
+        - name: Automatyzacja zadań z zadaniami elastycznymi
           href: database/job-automation-overview.md
+        - name: Automatyzacja zadań za pomocą programu SQL Agent
+          href: database/job-automation-managed-instances.md
         - name: Ciągłość działalności biznesowej
           items:
             - name: Konfigurowanie grupy trybu failover

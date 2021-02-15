@@ -1,18 +1,18 @@
 ---
 title: Model zasobów dla funkcji przywracania do punktu w czasie Azure Cosmos DB.
-description: W tym artykule wyjaśniono model zasobów dla Azure Cosmos DB funkcji przywracania do punktu w czasie. Wyjaśniono parametry, które obsługują ciągłą kopię zapasową i zasoby, które można przywrócić w Azure Cosmos DB interfejsie API dla kont SQL i MongoDB.
+description: W tym artykule przedstawiono model zasobów dla funkcji przywracania do punktu w czasie w usłudze Azure Cosmos DB. Omówiono w nim parametry, które obsługują ciągłą kopię zapasową, i zasoby, które można przywrócić za pomocą interfejsu API usługi Azure Cosmos DB dla kont SQL i MongoDB.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d838425583638aef5199b52df4869923c826553d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538508"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369972"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Model zasobów dla funkcji przywracania do momentu Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "99538508"
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-W tym artykule wyjaśniono model zasobów dla funkcji przywracania do punktu w czasie Azure Cosmos DB (wersja zapoznawcza). Wyjaśniono parametry, które obsługują ciągłą kopię zapasową i zasoby, które można przywrócić w Azure Cosmos DB interfejsie API dla kont SQL i MongoDB.
+W tym artykule wyjaśniono model zasobów dla funkcji przywracania do punktu w czasie Azure Cosmos DB (wersja zapoznawcza). Omówiono w nim parametry, które obsługują ciągłą kopię zapasową, i zasoby, które można przywrócić za pomocą interfejsu API usługi Azure Cosmos DB dla kont SQL i MongoDB.
 
 ## <a name="database-accounts-resource-model"></a>Model zasobów konta bazy danych
 
@@ -30,14 +30,14 @@ Model zasobów konta bazy danych jest aktualizowany za pomocą kilku dodatkowych
 
 ### <a name="backuppolicy"></a>BackupPolicy
 
-Nowa właściwość w zasadach tworzenia kopii zapasowych na poziomie konta o nazwie "Type" w parametrze "backuppolicy" umożliwia wykonywanie ciągłych kopii zapasowych i funkcji przywracania do określonego momentu. Ten tryb jest nazywany **ciągłą kopią zapasową**. W publicznej wersji zapoznawczej ten tryb można ustawić tylko podczas tworzenia konta. Po jego włączeniu wszystkie kontenery i bazy danych utworzone w ramach tego konta będą mieć domyślnie włączone funkcje przywracania ciągłej kopii zapasowej oraz przywracanie do punktu w czasie.
+Nowa właściwość w zasadach tworzenia kopii zapasowych na poziomie konta o nazwie `Type` w obszarze `backuppolicy` parametr umożliwia ciągłą wykonywanie kopii zapasowych oraz funkcje przywracania do określonego momentu. Ten tryb jest nazywany **ciągłą kopią zapasową**. W publicznej wersji zapoznawczej ten tryb można ustawić tylko podczas tworzenia konta. Po jego włączeniu wszystkie kontenery i bazy danych utworzone w ramach tego konta będą mieć domyślnie włączone funkcje przywracania ciągłej kopii zapasowej oraz przywracanie do punktu w czasie.
 
 > [!NOTE]
 > Obecnie funkcja przywracania do punktu w czasie jest w publicznej wersji zapoznawczej i jest dostępna dla Azure Cosmos DB API for MongoDB i kont SQL. Po utworzeniu konta z trybem ciągłym nie można przełączyć go do trybu okresowego.
 
 ### <a name="createmode"></a>Createmode
 
-Ta właściwość wskazuje, w jaki sposób konto zostało utworzone. Możliwe wartości to "domyślne" i "Przywracanie". Aby wykonać przywracanie, ustaw tę wartość na "Przywróć" i podaj odpowiednie wartości we `RestoreParameters` właściwości.
+Ta właściwość wskazuje, w jaki sposób konto zostało utworzone. Możliwe wartości to *default* i *Restore*. Aby wykonać przywracanie, należy ustawić tę wartość na *Przywróć* i podać odpowiednie wartości we `RestoreParameters` właściwości.
 
 ### <a name="restoreparameters"></a>RestoreParameters
 
@@ -45,7 +45,7 @@ Ta właściwość wskazuje, w jaki sposób konto zostało utworzone. Możliwe wa
 
 |Nazwa właściwości |Opis  |
 |---------|---------|
-|przechowajmode  | Tryb przywracania powinien mieć wartość "PointInTime" |
+|przechowajmode  | Tryb przywracania powinien być *PointInTime* |
 |restoreSource   |  Identyfikator instanceId konta źródłowego, z którego zostanie zainicjowane przywracanie.       |
 |restoreTimestampInUtc  | Punkt w czasie w formacie UTC, do którego ma zostać przywrócone konto. |
 |databasesToRestore   | Lista `DatabaseRestoreSource` obiektów, aby określić, które bazy danych i kontenery mają zostać przywrócone. Jeśli ta wartość jest pusta, całe konto zostanie przywrócone.   |

@@ -1,22 +1,18 @@
 ---
 title: Działanie filtrowania w Azure Data Factory
 description: Działanie filtru filtruje dane wejściowe.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 2026bdd1898df460bfed2ae9d5544f90c532308f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 035ee5a5f1fe193fcb4579f1d46472ad9cd0b8b5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507442"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385595"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Działanie filtrowania w Azure Data Factory
 Możesz użyć działania filtru w potoku, aby zastosować wyrażenie filtru do tablicy wejściowej. 

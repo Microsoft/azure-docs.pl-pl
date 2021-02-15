@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 02/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0b2fa06bc04bdb584367312b1e89939ed386b4f2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1c6dad28ada14151b9a1cca0da490e38972ad54d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952852"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379169"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Skonfiguruj połączenie sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: Azure Portal
 
@@ -48,15 +48,15 @@ Następujących wartości możesz użyć do tworzenia środowiska testowego lub 
 * **Typ połączenia:** Punkt-lokacja
 * **Pula adresów klienta:** 172.16.201.0/24<br>Klienci sieci VPN połączeni z siecią wirtualną, którzy korzystają z tego połączenia punkt-lokacja, otrzymują adresy IP z puli adresów klientów.
 
-## <a name="1-create-a-virtual-network"></a><a name="createvnet"></a>1. Tworzenie sieci wirtualnej
+## <a name="virtual-network"></a><a name="createvnet"></a>Sieć wirtualna
 
-Przed rozpoczęciem sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
+W tej sekcji utworzysz sieć wirtualną.
 
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="2-create-a-virtual-network-gateway"></a><a name="creategw"></a>2. Tworzenie bramy sieci wirtualnej
+## <a name="virtual-network-gateway"></a><a name="creategw"></a>Brama sieci wirtualnej
 
 W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie bramy często może trwać 45 minut lub dłużej, w zależności od wybranej jednostki SKU bramy.
 
@@ -68,9 +68,9 @@ W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie
 
 [!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="3-generate-certificates"></a><a name="generatecert"></a>3. generowanie certyfikatów
+## <a name="generate-certificates"></a><a name="generatecert"></a>Generowanie certyfikatów klienta
 
-Certyfikaty są używane przez platformę Azure do uwierzytelniania klientów łączących się z siecią wirtualną za pośrednictwem połączenia sieci VPN typu punkt-lokacja. Po uzyskaniu certyfikatu głównego należy [przekazać](#uploadfile) informacje o kluczu publicznym do platformy Azure. Certyfikat główny jest następnie uznawany przez platformę Azure za zaufany dla połączeń typu punkt-lokacja z siecią wirtualną. Ponadto certyfikaty klienta są generowane na podstawie zaufanego certyfikatu głównego, a następnie instalowane na każdym komputerze klienckim. Certyfikat klienta jest używany do uwierzytelniania klienta, gdy inicjuje on połączenie z siecią wirtualną. 
+Certyfikaty są używane przez platformę Azure do uwierzytelniania klientów łączących się z siecią wirtualną za pośrednictwem połączenia sieci VPN typu punkt-lokacja. Po uzyskaniu certyfikatu głównego należy [przekazać](#uploadfile) informacje o kluczu publicznym do platformy Azure. Certyfikat główny jest następnie uznawany przez platformę Azure za zaufany dla połączeń typu punkt-lokacja z siecią wirtualną. Ponadto certyfikaty klienta są generowane na podstawie zaufanego certyfikatu głównego, a następnie instalowane na każdym komputerze klienckim. Certyfikat klienta jest używany do uwierzytelniania klienta, gdy inicjuje on połączenie z siecią wirtualną.
 
 ### <a name="generate-a-root-certificate"></a><a name="getcer"></a>Generuj certyfikat główny
 
@@ -80,38 +80,36 @@ Certyfikaty są używane przez platformę Azure do uwierzytelniania klientów ł
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="4-add-the-client-address-pool"></a><a name="addresspool"></a>4. Dodaj pulę adresów klienta
+## <a name="client-address-pool"></a><a name="addresspool"></a>Pula adresów klienta
 
 Pula adresów klienta to określony przez Ciebie zakres prywatnych adresów IP. Klienci łączący się dynamicznie przez połączenie VPN typu punkt-lokacja otrzymują adres IP z tego zakresu. Używaj zakresu prywatnych adresów IP nienakładającego się na lokalizację lokalną, z której się łączysz, ani na sieć wirtualną, z którą chcesz się łączyć. W przypadku skonfigurowania wielu protokołów i protokołu SSTP jest jednym z protokołów, skonfigurowana Pula adresów będzie równo dzielona między skonfigurowanymi protokołami.
 
 1. Po utworzeniu bramy sieci wirtualnej przejdź do sekcji **Ustawienia** na stronie bramy sieci wirtualnej. W obszarze **Ustawienia** wybierz pozycję **Konfiguracja punktu do lokacji**. Wybierz pozycję **Konfiguruj teraz** , aby otworzyć stronę konfiguracja.
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="Strona konfiguracji punkt-lokacja" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
-1. Na stronie **Konfiguracja typu punkt-lokacja** można skonfigurować różne ustawienia. Jeśli na tej stronie nie widzisz typu tunelu lub typu uwierzytelniania, brama używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie obsługuje uwierzytelniania za pomocą protokołu IKEv2 ani usługi RADIUS. Aby użyć tych ustawień, należy usunąć i ponownie utworzyć bramę przy użyciu innej jednostki SKU bramy.
+1. Na stronie **Konfiguracja punktu do lokacji** w polu **Pula adresów** Dodaj zakres prywatnych adresów IP, którego chcesz użyć. Klienci sieci VPN dynamicznie otrzymują adres IP z określonego zakresu. Minimalna maska podsieci to 29 bitów dla aktywnych/pasywnych i 28 bitów w przypadku konfiguracji Active/Active.
+1. Przejdź do następnej sekcji, aby skonfigurować uwierzytelnianie i typy tuneli.
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png" alt-text="Określ pulę adresów" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png":::
-1. W polu **Pula adresów** Dodaj prywatny zakres adresów IP, który ma być używany. Klienci sieci VPN dynamicznie otrzymują adres IP z określonego zakresu. Minimalna maska podsieci to 29 bitów dla aktywnych/pasywnych i 28 bitów w przypadku konfiguracji Active/Active.
-1. Przejdź do następnej sekcji, aby skonfigurować typ tunelu.
+## <a name="authentication-and-tunnel-types"></a><a name="type"></a>Typy uwierzytelniania i tunelowania
 
-## <a name="5-configure-tunnel-type"></a><a name="tunneltype"></a>5. Konfigurowanie typu tunelu
+W tej sekcji należy skonfigurować typ uwierzytelniania i typ tunelu. Jeśli nie widzisz **typu tunelu** lub **typu uwierzytelniania** na stronie **Konfiguracja punktu do lokacji** , brama używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie obsługuje uwierzytelniania za pomocą protokołu IKEv2 ani usługi RADIUS. Aby użyć tych ustawień, należy usunąć i ponownie utworzyć bramę przy użyciu innej jednostki SKU bramy.
 
-Wybierz typ tunelu. Dostępne są opcje tunelu OpenVPN, SSTP i IKEv2.
+### <a name="tunnel-type"></a><a name="tunneltype"></a>Typ tunelu
+
+Na stronie **Konfiguracja punktu do lokacji** wybierz typ tunelu. Dostępne są opcje tunelu OpenVPN, SSTP i IKEv2.
 
 * Klient strongSwan w systemach Android i Linux oraz natywny klient sieci VPN IKEv2 w systemach iOS i OSX będą używać do łączenia się tylko tuneli IKEv2.
 * Klienci z systemem Windows próbują najpierw użyć protokołu IKEv2 i jeśli nie nawiąże połączenia, powracają do protokołu SSTP.
 * Klienta OpenVPN można użyć do nawiązania połączenia z typem tunelu OpenVPN.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunnel-ike.png" alt-text="Typ tunelu":::
-
-## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. Skonfiguruj typ uwierzytelniania
+### <a name="authentication-type"></a><a name="authenticationtype"></a>Typ uwierzytelniania
 
 W obszarze **Typ uwierzytelniania** wybierz pozycję **certyfikat platformy Azure**.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/azure-certificate.png" alt-text="Authentication type"::: (Typ uwierzytelniania)
 
-## <a name="7-upload-the-root-certificate-public-certificate-data"></a><a name="uploadfile"></a>7. Przekaż dane certyfikatu publicznego certyfikatu głównego
+## <a name="root-certificate-data"></a><a name="uploadfile"></a>Dane certyfikatu głównego
 
-Możesz przekazać łącznie do 20 zaufanych certyfikatów głównych. Po przekazaniu danych certyfikatu publicznego platforma Azure może używać go do uwierzytelniania klientów, którzy mają zainstalowany certyfikat klienta wygenerowany na podstawie zaufanego certyfikatu głównego. Przekaż informacje o kluczu publicznym certyfikatu głównego na platformę Azure.
+W tej sekcji przekażesz dane publicznego certyfikatu głównego do platformy Azure. Po przekazaniu danych certyfikatu publicznego platforma Azure może używać go do uwierzytelniania klientów, którzy mają zainstalowany certyfikat klienta wygenerowany na podstawie zaufanego certyfikatu głównego.
 
 1. Certyfikaty są dodawane na stronie **Konfiguracja punktu do lokacji** w sekcji **Certyfikat główny**.
 1. Upewnij się, że certyfikat główny został wyeksportowany jako plik X.509 (cer) zaszyfrowany z użyciem algorytmu Base-64. Certyfikat należy wyeksportować w takim formacie, aby możliwe było jego otwarcie za pomocą edytora tekstów.
@@ -125,7 +123,7 @@ Możesz przekazać łącznie do 20 zaufanych certyfikatów głównych. Po przeka
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png" alt-text="Zapisz konfigurację" border="false":::
 
-## <a name="8-install-an-exported-client-certificate"></a><a name="installclientcert"></a>8. Instalowanie wyeksportowanego certyfikatu klienta
+## <a name="client-certificate"></a><a name="installclientcert"></a>Certyfikat klienta
 
 Jeśli chcesz utworzyć połączenie punkt-lokacja z komputerem klienckim innym niż użyty do wygenerowania certyfikatów klienta, należy zainstalować certyfikat klienta. Podczas instalowania certyfikatu klienta potrzebne jest hasło, które zostało utworzone w trakcie eksportowania certyfikatu klienta.
 
@@ -133,11 +131,13 @@ Upewnij się, że certyfikat klienta został wyeksportowany jako plik pfx wraz z
 
 Aby zapoznać się z krokami instalacji, zobacz [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md) (Instalowanie certyfikatu klienta).
 
-## <a name="9-generate-and-install-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>9. Generowanie i instalowanie pakietu konfiguracji klienta sieci VPN
+## <a name="vpn-client-configuration-package"></a><a name="clientconfig"></a>Pakiet konfiguracji klienta VPN
 
-Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urządzeń pod kątem łączenia się z siecią wirtualną przez połączenie punkt-lokacja. Aby uzyskać instrukcje dotyczące generowania i instalowania plików konfiguracji klienta sieci VPN, zobacz [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md) (Tworzenie i instalowanie plików konfiguracji klienta sieci VPN dla konfiguracji połączeń punkt-lokacja z natywnym uwierzytelnianiem certyfikatów platformy Azure).
+Klienci sieci VPN muszą mieć skonfigurowane ustawienia konfiguracji klienta. Pakiet konfiguracji klienta sieci VPN zawiera pliki z ustawieniami służącymi do konfigurowania klientów sieci VPN w celu nawiązania połączenia z siecią wirtualną za pośrednictwem połączenia usługi P2S.
 
-## <a name="10-connect-to-azure"></a><a name="connect"></a>10. Łączenie z platformą Azure
+Aby uzyskać instrukcje dotyczące generowania i instalowania plików konfiguracji klienta sieci VPN, zobacz [Tworzenie i Instalowanie plików konfiguracji klienta sieci VPN dla natywnej konfiguracji P2S uwierzytelniania certyfikatu platformy Azure](point-to-site-vpn-client-configuration-azure-cert.md).
+
+## <a name="connect-to-azure"></a><a name="connect"></a>Nawiązywanie połączenia z usługą Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Aby połączyć się z klienta sieci VPN w systemie Windows
 
@@ -216,6 +216,8 @@ Certyfikat klienta można odwołać przez dodanie odcisku palca do listy odwoła
 1. Po zakończeniu aktualizowania nie będzie można już używać certyfikatu do nawiązywania połączeń. Klienci, którzy spróbują połączyć się za pomocą tego certyfikatu, zobaczą komunikat informujący o tym, że certyfikat nie jest już ważny.
 
 ## <a name="point-to-site-faq"></a><a name="faq"></a>Często zadawane pytania dotyczące połączeń punkt-lokacja
+
+Ta sekcja zawiera informacje dotyczące często zadawanych pytań dotyczących konfiguracji połączeń punkt-lokacja. Możesz również wyświetlić [VPN Gateway często zadawane pytania](vpn-gateway-vpn-faq.md) , aby uzyskać dodatkowe informacje dotyczące VPN Gateway.
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 

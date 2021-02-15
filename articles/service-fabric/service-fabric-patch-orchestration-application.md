@@ -14,24 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: d64c6383b9a83b759dd8368a4e3e0f1847b5ee16
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791227"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390644"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Poprawianie systemu operacyjnego Windows w klastrze Service Fabric
 
-> 
 > [!IMPORTANT]
-> Od 30 kwietnia 2019, aplikacja aranżacji poprawek w wersji 1,2. * nie jest już obsługiwana. Upewnij się, że uaktualniono do najnowszej wersji.
+> Od 30 kwietnia 2019, aplikacja aranżacji poprawek w wersji 1,2. * nie jest już obsługiwana. Upewnij się, że uaktualniono do najnowszej wersji. Uaktualnienia maszyny wirtualnej, w których "Windows Update" stosuje poprawki systemu operacyjnego bez zastępowania dysku systemu operacyjnego nie są obsługiwane. 
 
 > [!NOTE]
-> Korzystanie z [automatycznych uaktualnień obrazu systemu operacyjnego w zestawie skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to najlepsze rozwiązanie w celu zachowania poprawek systemu operacyjnego na platformie Azure. Automatyczne uaktualnienia obrazu systemu operacyjnego oparte na zestawie skalowania maszyn wirtualnych są wymagane do zastosowania Silver lub wyższej trwałości w zestawie skalowania.
->
+> Korzystanie z [automatycznych uaktualnień obrazu systemu operacyjnego w zestawie skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to najlepsze rozwiązanie w celu zachowania poprawek systemu operacyjnego na platformie Azure. Automatyczne uaktualnienia obrazu systemu operacyjnego oparte na zestawie skalowania maszyn wirtualnych są wymagane do zastosowania Silver lub wyższej trwałości w zestawie skalowania. W przypadku typów węzłów z brązową warstwą trwałości nie jest to obsługiwane. w takim przypadku należy użyć aplikacji aranżacji patch.
 
- Poprawka Orchestration Application (POA) to otoka obejmująca usługę Azure Service Fabric Menedżer naprawy, która umożliwia planowanie poprawek systemu operacyjnego opartych na konfiguracji dla klastrów hostowanych poza platformą Azure. POA nie jest wymagany w przypadku klastrów hostowanych poza platformą Azure, ale planowanie instalacji poprawek przy użyciu domeny aktualizacji jest wymagane do poprawki Service Fabric hostach klastra bez ponoszenia przestojów.
+Poprawka Orchestration Application (POA) to otoka obejmująca usługę Azure Service Fabric Menedżer naprawy, która umożliwia planowanie poprawek systemu operacyjnego opartych na konfiguracji dla klastrów hostowanych poza platformą Azure. POA nie jest wymagany w przypadku klastrów hostowanych poza platformą Azure, ale planowanie instalacji poprawek przy użyciu domeny aktualizacji jest wymagane do poprawki Service Fabric hostach klastra bez ponoszenia przestojów.
 
 POA jest aplikacją Service Fabric, która automatyzuje stosowanie poprawek systemu operacyjnego w klastrze Service Fabric bez ponoszenia przestojów.
 

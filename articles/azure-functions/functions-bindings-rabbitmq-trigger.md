@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760405"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388995"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Wyzwalacz RabbitMQ dla Azure Functions przegląd
 
@@ -27,7 +27,7 @@ Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zoba
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która odczytuje i rejestruje komunikat RabbitMQ jako [zdarzenie RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
+Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która odczytuje i rejestruje komunikat RabbitMQ jako [zdarzenie RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
@@ -207,7 +207,7 @@ Zobacz [przykład](#example) wyzwalacza, aby uzyskać więcej szczegółów.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `RabbitMQTrigger` atrybutu.
 
@@ -229,7 +229,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Domyślny typ komunikatu to [zdarzenie RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), a `Body` Właściwość zdarzenia RabbitMQ może zostać odczytana jako wymienione poniżej typy:
+Domyślny typ komunikatu to [zdarzenie RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), a `Body` Właściwość zdarzenia RabbitMQ może zostać odczytana jako wymienione poniżej typy:
 
 * `An object serializable as JSON` -Komunikat jest dostarczany jako prawidłowy ciąg JSON.
 * `string`
@@ -238,7 +238,7 @@ Domyślny typ komunikatu to [zdarzenie RabbitMQ](https://www.rabbitmq.com/releas
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Domyślny typ komunikatu to [zdarzenie RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), a `Body` Właściwość zdarzenia RabbitMQ może zostać odczytana jako wymienione poniżej typy:
+Domyślny typ komunikatu to [zdarzenie RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), a `Body` Właściwość zdarzenia RabbitMQ może zostać odczytana jako wymienione poniżej typy:
 
 * `An object serializable as JSON` -Komunikat jest dostarczany jako prawidłowy ciąg JSON.
 * `string`

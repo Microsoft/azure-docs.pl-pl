@@ -1,20 +1,17 @@
 ---
 title: Przenoszenie danych z MongoDB
 description: Dowiedz się więcej na temat przenoszenia danych z bazy danych MongoDB przy użyciu Azure Data Factory.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cedb0b99f04df00763a3ee83287eec90bd5fb45d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79281342"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387516"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Przenoszenie danych z MongoDB za pomocą Azure Data Factory
 
@@ -46,7 +43,7 @@ Można utworzyć potok za pomocą działania kopiowania, które przenosi dane z 
 
 Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET**i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET** i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
@@ -293,7 +290,7 @@ Podczas przesuwania danych do MongoDB następujące mapowania są używane z typ
 | Typ MongoDB | Typ programu .NET Framework |
 | --- | --- |
 | Binarne |Byte [] |
-| Boolean (wartość logiczna) |Boolean (wartość logiczna) |
+| Boolean (wartość logiczna) |Wartość logiczna |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
@@ -345,7 +342,7 @@ Tabela "ExampleTable_Invoices":
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |wyskakujący |456 |0,2 |
 | 1111 |1 |124 |laboratoryjn |1235 |0,2 |
-| 2222 |0 |135 |lodówki |12543 |0.0 |
+| 2222 |0 |135 |lodówki |12543 |0,0 |
 
 Tabela "ExampleTable_Ratings":
 

@@ -2,19 +2,16 @@
 title: Obsługiwane formaty plików przez działanie kopiowania w Azure Data Factory
 description: W tym temacie opisano formaty plików i kody kompresji, które są obsługiwane przez działanie kopiowania w Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jingwang
-ms.openlocfilehash: c044208699bf5bebb6383cfef00bf53b744369d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb773d01124b99b4837f393b610e00ecbfa510fb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522447"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364617"
 ---
 # <a name="supported-file-formats-and-compression-codecs-by-copy-activity-in-azure-data-factory"></a>Obsługiwane formaty plików i kodeki kompresji przez działanie kopiowania w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,5 +34,5 @@ Ponadto można również analizować lub generować pliki danego formatu. Można
 
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
 - [Wydajność działania kopiowania](copy-activity-performance.md)

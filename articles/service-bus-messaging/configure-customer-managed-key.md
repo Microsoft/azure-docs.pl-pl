@@ -2,13 +2,13 @@
 title: Skonfiguruj własny klucz szyfrowania danych Azure Service Bus przechowywanych w spoczynku
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Azure Service Bus Rest.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/10/2021
+ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928089"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378319"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania Azure Service Bus danych przechowywanych przy użyciu Azure Portal
 Azure Service Bus Premium zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Service Bus Premium używa usługi Azure Storage do przechowywania danych. Wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli używasz własnego klucza (nazywanego również Bring Your Own Key (BYOK) lub kluczem zarządzanym przez klienta), dane są nadal szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft, ale dodatkowo klucz zarządzany przez firmę Microsoft zostanie zaszyfrowany przy użyciu klucza zarządzanego przez klienta. Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania kluczy zarządzanych przez firmę Microsoft. Włączenie funkcji BYOK to jednorazowy proces konfiguracji w przestrzeni nazw.
@@ -94,6 +94,17 @@ Możesz obrócić klucz w magazynie kluczy przy użyciu mechanizmu rotacji magaz
 Cofnięcie dostępu do kluczy szyfrowania nie spowoduje przeczyszczenia danych z Service Bus. Nie można jednak uzyskać dostępu do danych z przestrzeni nazw Service Bus. Możesz odwołać klucz szyfrowania za pomocą zasad dostępu lub usunąć klucz. Dowiedz się więcej na temat zasad dostępu i zabezpieczania magazynu kluczy, [Aby uzyskać bezpieczny dostęp do magazynu kluczy](../key-vault/general/secure-your-key-vault.md).
 
 Po odwołaniu klucza szyfrowania Usługa Service Bus w zaszyfrowanej przestrzeni nazw stanie się niezależna. Jeśli dostęp do klucza jest włączony lub przywrócono usunięty klucz, Usługa Service Bus wybierze klucz, aby można było uzyskać dostęp do danych z przestrzeni nazw zaszyfrowanej Service Bus.
+
+## <a name="caching-of-keys"></a>Buforowanie kluczy
+Wystąpienie Service Bus sonduje listę kluczy szyfrowania co 5 minut. Przechowuje je w pamięci podręcznej i używa ich do następnej sondy, która jest po 5 minutach. Tak długo, jak co najmniej jeden klucz jest dostępny, kolejki i tematy są dostępne. Jeśli wszystkie wymienione klucze są niedostępne podczas sondowania, wszystkie kolejki i tematy staną się niedostępne. 
+
+Poniżej przedstawiono więcej informacji: 
+
+- Co 5 minut Usługa Service Bus sonduje wszystkie klucze zarządzane przez klienta na liście w rekordzie przestrzeni nazw:
+    - Jeśli klucz został obrócony, rekord zostanie zaktualizowany przy użyciu nowego klucza.
+    - Jeśli klucz został odwołany, klucz zostanie usunięty z rekordu.
+    - Jeśli wszystkie klucze zostały odwołane, stan szyfrowania obszaru nazw jest ustawiony na **odwołane**. Nie można uzyskać dostępu do danych z przestrzeni nazw Service Bus.. 
+    
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>Użyj szablonu Menedżer zasobów, aby włączyć szyfrowanie
 W tej sekcji przedstawiono sposób wykonywania następujących zadań przy użyciu **szablonów Azure Resource Manager**. 

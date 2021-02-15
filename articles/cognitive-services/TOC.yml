@@ -51,7 +51,7 @@
     - name: Tagi obrazów kontenerów i informacje o wersji
       href: ./containers/container-image-tags.md
     - name: Kontener — często zadawane pytania
-      href: ./containers/container-faq.md
+      href: ./containers/container-faq.yml
     - name: Przepisy kontenera
       items:
         - name: Ponowne używanie kontenera

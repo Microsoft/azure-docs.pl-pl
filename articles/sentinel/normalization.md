@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3d9e436d636fbd5414367efb0e122748a8e9e2cb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805094"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390814"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalizacja na platformie Azure — wskaźnik
 
@@ -70,6 +70,9 @@ Odwołanie do schematu zawiera również standaryzację wartości i formatu. Pol
 
 ## <a name="parsers"></a>Parsery
 
+- [Co to jest analiza](#what-is-parsing)
+- [Korzystanie z analizatorów czasu zapytania](#using-query-time-parsers)
+
 ### <a name="what-is-parsing"></a>Co to jest analiza
 
 Po udostępnieniu podstawowego zestawu zdefiniowanych znormalizowanych tabel będzie konieczne przekształcenie (analizowanie/mapowanie) danych do tych tabel. Oznacza to, że wyodrębnisz określone dane ze swojej pierwotnej postaci do dobrze znanych kolumn w znormalizowanym schemacie. Analiza na platformie Azure wskaźnikowa odbywa się w **czasie wykonywania zapytań** — analizatory czasu są kompilowane jako log Analytics funkcje użytkownika (za pomocą Kusto Query Language-KQL), które przekształcają dane w istniejących tabelach (takich jak CommonSecurityLog, tabele dzienników niestandardowych, dziennik systemowy) w schemat znormalizowanych tabel.
@@ -77,6 +80,10 @@ Po udostępnieniu podstawowego zestawu zdefiniowanych znormalizowanych tabel bę
 Inne rodzaje analiz, które nie są jeszcze obsługiwane w przypadku platformy Azure, są w **czasie** pozyskiwania, co umożliwia zbieranie danych bezpośrednio do znormalizowanych tabel, ponieważ są one pozyskiwane ze źródeł danych. Analiza czasu pozyskiwania zapewnia lepszą wydajność, ponieważ model danych jest wysyłany bezpośrednio bez konieczności używania funkcji.
 
 ### <a name="using-query-time-parsers"></a>Korzystanie z analizatorów czasu zapytania
+
+- [Instalowanie parsera](#installing-a-parser)
+- [Korzystanie z analizatorów](#using-the-parsers)
+- [Dostosowywanie analizatorów](#customizing-parsers)
 
 #### <a name="installing-a-parser"></a>Instalowanie parsera
 
@@ -119,6 +126,12 @@ W okienku po prawej stronie rozwiń sekcję "zapisane zapytania" i Znajdź folde
 
 Można klikać poszczególne parsery i zobaczyć podstawową funkcję, która używa, i uruchamiać ją (lub uzyskiwać dostęp bezpośrednio przez jej alias, zgodnie z powyższym opisem). Należy zauważyć, że niektóre analizatory mogą przechowywać oryginalne pola obok znormalizowanych pól dla wygody. Można to łatwo edytować w zapytaniu analizatora składni.
 
+> [!TIP]
+> Możesz użyć zapisanych funkcji zamiast tabel wskaźnikowych platformy Azure w dowolnym zapytaniu, w tym wyszukiwaniu i wykryciu. Aby uzyskać więcej informacji, zobacz:
+>
+> - [Normalizacja danych na platformie Azure — wskaźnik](normalization.md#parsers)
+> - [Analizowanie tekstu w dziennikach Azure Monitor](/azure/azure-monitor/log-query/parse-text)
+>
 #### <a name="customizing-parsers"></a>Dostosowywanie analizatorów
 
 Można powtórzyć powyższe kroki (Znajdowanie analizatora w Eksploratorze zapytań), kliknąć odpowiedni parser i zapoznać się z jego implementacją funkcji.
@@ -131,6 +144,8 @@ Po zmianie funkcji kliknij pozycję "Zapisz" ponownie i Użyj tej samej nazwy, a
 :::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Czy na pewno":::
 
 #### <a name="additional-information"></a>Dodatkowe informacje
+
+Dane JSON, XML i CSV są szczególnie wygodne do analizowania w czasie zapytania. Na platformie Azure Wskaźnikowanie ma wbudowane funkcje analizy dla JSON, XML i CSV, a także narzędzie do analizy JSON.  Aby uzyskać więcej informacji, zobacz [Używanie pól JSON na platformie Azure — wskaźnik](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog). 
 
 Dowiedz się więcej o [zapisanych zapytaniach](../azure-monitor/log-query/example-queries.md) (implementacja analizatorów czasu zapytania) w log Analytics.
 

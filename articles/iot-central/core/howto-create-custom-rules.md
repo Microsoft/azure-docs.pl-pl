@@ -1,20 +1,20 @@
 ---
 title: Zwiększanie IoT Central platformy Azure przy użyciu reguł niestandardowych i powiadomień | Microsoft Docs
 description: Jako deweloper rozwiązań Skonfiguruj aplikację IoT Central do wysyłania powiadomień e-mail, gdy urządzenie przestanie wysyłać dane telemetryczne. To rozwiązanie używa Azure Stream Analytics, Azure Functions i SendGrid.
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/02/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7e3292a9070e6676faad15e73d357e7f6875b5f4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220270"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371688"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Rozszerzanie usługi Azure IoT Central o niestandardowe reguły przy użyciu usług Stream Analytics, Azure Functions i SendGrid
 
@@ -63,7 +63,7 @@ Użyj [Azure Portal, aby utworzyć przestrzeń nazw Event Hubs](https://portal.a
 | Ustawienie | Wartość |
 | ------- | ----- |
 | Nazwa    | Wybierz nazwę przestrzeni nazw |
-| Warstwa cenowa | Podstawowe |
+| Warstwa cenowa | Podstawowa |
 | Subskrypcja | Twoja subskrypcja |
 | Grupa zasobów | DetectStoppedDevices |
 | Lokalizacja | Wschodnie stany USA |
@@ -97,22 +97,18 @@ Użyj [Azure Portal, aby utworzyć aplikację funkcji](https://portal.azure.com/
 | Stos środowiska uruchomieniowego | .NET |
 | Magazyn | Tworzenie nowego elementu |
 
-### <a name="sendgrid-account"></a>Konto SendGrid
+### <a name="sendgrid-account-and-api-keys"></a>SendGrid konta i kluczy interfejsu API
 
-Użyj [Azure Portal, aby utworzyć konto SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) z następującymi ustawieniami:
+Jeśli nie masz konta SendGrid, przed rozpoczęciem Utwórz [bezpłatne konto](https://app.sendgrid.com/) .
 
-| Ustawienie | Wartość |
-| ------- | ----- |
-| Nazwa    | Wybierz nazwę konta SendGrid |
-| Hasło | Utwórz hasło |
-| Subskrypcja | Twoja subskrypcja |
-| Grupa zasobów | DetectStoppedDevices |
-| Warstwa cenowa | Bezpłatna F1 |
-| Informacje kontaktowe | Wypełnij wymagane informacje |
+1. Z ustawień pulpitu nawigacyjnego SendGrid w menu po lewej stronie wybierz pozycję **klucze interfejsu API**.
+1. Kliknij przycisk **Utwórz klucz interfejsu API.**
+1. Nazwij nowy klucz interfejsu API **AzureFunctionAccess.**
+1. Kliknij przycisk **utwórz & widok**.
 
-Po utworzeniu wszystkich wymaganych zasobów Grupa zasobów **DetectStoppedDevices** wygląda podobnie do poniższego zrzutu ekranu:
+    :::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="Zrzut ekranu przedstawiający klucz interfejsu API tworzenia SendGrid.":::
 
-![Wykryj grupę zasobów zatrzymanych urządzeń](media/howto-create-custom-rules/resource-group.png)
+Następnie zostanie nadany klucz interfejsu API. Zapisz ten ciąg do późniejszego użycia.
 
 ## <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
 
@@ -121,21 +117,9 @@ Można skonfigurować aplikację IoT Central, aby ciągle eksportować dane tele
 1. W Azure Portal przejdź do przestrzeni nazw Event Hubs i wybierz pozycję **+ centrum zdarzeń**.
 1. Nazwij **centralexport** centrum zdarzeń, a następnie wybierz pozycję **Utwórz**.
 
-Przestrzeń nazw Event Hubs wygląda następująco:
+Przestrzeń nazw Event Hubs wygląda następująco: 
 
-![Przestrzeń nazw usługi Event Hubs](media/howto-create-custom-rules/event-hubs-namespace.png)
-
-## <a name="get-sendgrid-api-key"></a>Pobierz klucz interfejsu API SendGrid
-
-Aplikacja funkcji wymaga klucza interfejsu API SendGrid do wysyłania wiadomości e-mail. Aby utworzyć klucz interfejsu API SendGrid:
-
-1. W Azure Portal przejdź do swojego konta SendGrid. Następnie wybierz pozycję **Zarządzaj** , aby uzyskać dostęp do konta SendGrid.
-1. Na koncie usługi SendGrid wybierz pozycję **Ustawienia**, a następnie pozycję **klucze interfejsu API**. Wybierz pozycję **Utwórz klucz interfejsu API**:
-
-    ![Utwórz klucz interfejsu API SendGrid](media/howto-create-custom-rules/sendgrid-api-keys.png)
-
-1. Na stronie **Tworzenie klucza interfejsu API** Utwórz klucz o nazwie **AzureFunctionAccess** z uprawnieniami **pełnego dostępu** .
-1. Zanotuj klucz interfejsu API, który jest potrzebny podczas konfigurowania aplikacji funkcji.
+    :::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
 ## <a name="define-the-function"></a>Zdefiniuj funkcję
 
@@ -143,37 +127,22 @@ To rozwiązanie używa aplikacji Azure Functions do wysyłania powiadomień e-ma
 
 1. W Azure Portal przejdź do wystąpienia **App Service** w grupie zasobów **DetectStoppedDevices** .
 1. Wybierz **+** , aby utworzyć nową funkcję.
-1. Na stronie **Wybierz środowisko programistyczne** wybierz pozycję **w portalu** , a następnie wybierz pozycję **Kontynuuj**.
-1. Na stronie **Tworzenie funkcji** wybierz pozycję **element WEBHOOK i interfejs API** , a następnie wybierz pozycję **Utwórz**.
+1. Wybierz **wyzwalacz http**.
+1. Wybierz pozycję **Dodaj**.
+
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Obraz domyślnej funkcji wyzwalacza HTTP"::: 
+
+## <a name="edit-code-for-http-trigger"></a>Edytuj kod dla wyzwalacza HTTP
 
 W portalu zostanie utworzona funkcja domyślna o nazwie **HttpTrigger1**:
 
-![Domyślna funkcja wyzwalacza HTTP](media/howto-create-custom-rules/default-function.png)
+    :::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
 
-### <a name="configure-function-bindings"></a>Konfigurowanie powiązań funkcji
-
-Aby wysyłać wiadomości e-mail za pomocą usługi SendGrid, należy skonfigurować powiązania dla funkcji w następujący sposób:
-
-1. Wybierz pozycję **integracja**, wybierz wyjściowy **protokół http ($Return)**, a następnie wybierz pozycję **Usuń**.
-1. Wybierz pozycję **+ nowe dane wyjściowe**, a następnie wybierz pozycję **SendGrid**, a następnie wybierz **pozycję Wybierz**. Wybierz pozycję **Zainstaluj** , aby zainstalować rozszerzenie SendGrid.
-1. Po zakończeniu instalacji wybierz opcję **Użyj zwracanej wartości funkcji**. Dodaj prawidłowy **adres** do odbierania powiadomień e-mail.  Dodaj prawidłowy **adres od** do użycia jako nadawca wiadomości e-mail.
-1. Wybierz pozycję **Nowy** obok **Ustawienia aplikacji klucz interfejsu API SendGrid**. Wprowadź **SendGridAPIKey** jako klucz i klucz interfejsu API SendGrid zanotowany wcześniej jako wartość. Następnie wybierz pozycję **Utwórz**.
-1. Wybierz pozycję **Zapisz** , aby zapisać powiązania SendGrid dla funkcji.
-
-Ustawienia integracji są podobne do poniższego zrzutu ekranu:
-
-![Integracje aplikacji funkcji](media/howto-create-custom-rules/function-integrate.png)
-
-### <a name="add-the-function-code"></a>Dodawanie kodu funkcji
-
-Aby zaimplementować funkcję, Dodaj kod C# w celu przeanalizowania przychodzącego żądania HTTP i wysłania wiadomości e-mail w następujący sposób:
-
-1. Wybierz funkcję **HttpTrigger1** w aplikacji funkcji i Zastąp kod C# następującym kodem:
+1. Zastąp kod C# następującym kodem:
 
     ```csharp
     #r "Newtonsoft.Json"
-    #r "..\bin\SendGrid.dll"
-
+    #r "SendGrid"
     using System;
     using SendGrid.Helpers.Mail;
     using Microsoft.Azure.WebJobs.Host;
@@ -196,7 +165,7 @@ Aby zaimplementować funkcję, Dodaj kod C# w celu przeanalizowania przychodząc
             content += $"<tr><td>{notification.deviceid}</td><td>{notification.time}</td></tr>";
         }
         content += "</table>";
-        message.AddContent("text/html", content);
+        message.AddContent("text/html", content);  
 
         return message;
     }
@@ -209,8 +178,45 @@ Aby zaimplementować funkcję, Dodaj kod C# w celu przeanalizowania przychodząc
     ```
 
     Po zapisaniu nowego kodu może zostać wyświetlony komunikat o błędzie.
-
 1. Wybierz pozycję **Zapisz** , aby zapisać funkcję.
+
+## <a name="add-sendgrid-key"></a>Dodaj klucz SendGrid
+
+Aby dodać klucz interfejsu API SendGrid, należy dodać go do **kluczy funkcji** w następujący sposób:
+
+1. Wybierz pozycję **klawisze funkcyjne**.
+1. Wybierz pozycję **+ nowy klucz funkcji**.
+1. Wprowadź *nazwę* i *wartość* klucza interfejsu API, który został utworzony wcześniej.
+1. Kliknij przycisk **OK.**
+
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Zrzut ekranu przedstawiający Dodawanie klucza Sangrid.":::
+
+
+## <a name="configure-httptrigger-function-to-use-sendgrid"></a>Skonfiguruj funkcję HttpTrigger, aby używać SendGrid
+
+Aby wysyłać wiadomości e-mail za pomocą usługi SendGrid, należy skonfigurować powiązania dla funkcji w następujący sposób:
+
+1. Wybierz pozycję **Integracja**.
+1. Wybierz pozycję **Dodaj dane wyjściowe** w obszarze **http ($Return)**.
+1. Wybierz pozycję **Usuń.**
+1. Wybierz pozycję **+ nowe dane wyjściowe**.
+1. W obszarze Typ powiązania wybierz pozycję **SendGrid**.
+1. Dla opcji Typ ustawienia klucza interfejsu API SendGrid kliknij pozycję Nowy.
+1. Wprowadź *nazwę* i *wartość* klucza interfejsu API SendGrid.
+1. Dodaj następujące informacje:
+
+| Ustawienie | Wartość |
+| ------- | ----- |
+| Nazwa parametru komunikatu | Wybierz swoją nazwę |
+| Na adres | Wybierz nazwę adresu do |
+| Adres od | Wybierz nazwę adresu od |
+| Temat wiadomości | Wprowadź nagłówek tematu |
+| Tekst komunikatu | Wprowadź komunikat z integracji |
+
+1. Wybierz przycisk **OK**.
+
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Zrzut ekranu przedstawiający Dodawanie SandGrid danych wyjściowych.":::
+
 
 ### <a name="test-the-function-works"></a>Testowanie funkcji działa
 
@@ -222,7 +228,7 @@ Aby przetestować funkcję w portalu, najpierw wybierz pozycję **dzienniki** w 
 
 Komunikaty dziennika funkcji są wyświetlane w panelu **dzienniki** :
 
-![Dane wyjściowe dziennika funkcji](media/howto-create-custom-rules/function-app-logs.png)
+    :::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
 Po kilku minutach **adres e-mail otrzyma wiadomość e-mail z** następującą zawartością:
 
@@ -303,14 +309,14 @@ To rozwiązanie używa zapytania Stream Analytics w celu wykrycia, kiedy urządz
 1. Wybierz pozycję **Zapisz**.
 1. Aby uruchomić zadanie Stream Analytics, wybierz pozycję **Przegląd**, a następnie pozycję Rozpocznij **, a następnie** pozycję **Rozpocznij**:
 
-    ![Stream Analytics](media/howto-create-custom-rules/stream-analytics.png)
+    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Zrzut ekranu przedstawiający Stream Analytics.":::
 
 ## <a name="configure-export-in-iot-central"></a>Konfigurowanie eksportu w IoT Central
 
 W witrynie sieci Web programu [Azure IoT Central Application Manager](https://aka.ms/iotcentral) przejdź do aplikacji IoT Central utworzonej na podstawie szablonu contoso. W tej sekcji skonfigurujesz aplikację do przesyłania strumieniowego danych telemetrycznych z symulowanych urządzeń do centrum zdarzeń. Aby skonfigurować eksport:
 
 1. Przejdź do strony **eksport danych** , wybierz pozycję **+ Nowy**, a następnie opcję **Azure Event Hubs**.
-1. Aby skonfigurować eksport, użyj następujących ustawień, a następnie wybierz pozycję **Zapisz**:
+1. Aby skonfigurować eksport, użyj następujących ustawień, a następnie wybierz pozycję **Zapisz**: 
 
     | Ustawienie | Wartość |
     | ------- | ----- |
@@ -319,14 +325,14 @@ W witrynie sieci Web programu [Azure IoT Central Application Manager](https://ak
     | Przestrzeń nazw usługi Event Hubs | Nazwa przestrzeni nazw Event Hubs |
     | Centrum zdarzeń | centralexport |
     | Miary | Włączone |
-    | Devices | Wyłączone |
+    | Urządzenia | Wyłączone |
     | Szablony urządzeń | Wyłączone |
 
-![Ciągła konfiguracja eksportu danych](media/howto-create-custom-rules/cde-configuration.png)
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Zrzut ekranu przedstawiający konfigurację ciągłego eksportowania danych.":::
 
 Przed kontynuowaniem Zaczekaj, aż stan eksportu zostanie **uruchomiony** .
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testowanie
 
 W celu przetestowania rozwiązania można wyłączyć funkcję ciągłego eksportowania danych z IoT Central, aby symulować zatrzymane urządzenia:
 

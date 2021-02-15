@@ -1,22 +1,18 @@
 ---
 title: Działanie ForEach w Azure Data Factory
 description: Dla każdego działania definiuje powtarzający się przepływ sterowania w potoku. Służy do iterowania kolekcji i wykonywania określonych działań.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 71e96e6245d4cf922b82162e01a972264699f3ac
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499513"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385612"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Działanie ForEach w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -74,7 +70,7 @@ Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
 name | Nazwa działania for-each. | Ciąg | Tak
 typ | Musi być ustawiona na wartość **foreach** | Ciąg | Tak
-issekwencyjne | Określa, czy pętla powinna być wykonywana sekwencyjnie, czy równolegle.  Maksymalnie 20 iteracji pętli można wykonać jednocześnie równolegle). Na przykład jeśli masz działanie ForEach iteracji dla działania kopiowania z 10 różnymi źródłami i ujściami zestawów danych z parametrem **Issekwencyjnym** ustawionym na wartość false, wszystkie kopie są wykonywane jednocześnie. Wartość domyślna to false. <br/><br/> Jeśli wartość "issekwencyjne" ma wartość FAŁSZ, upewnij się, że istnieje poprawna konfiguracja do uruchamiania wielu plików wykonywalnych. W przeciwnym razie ta właściwość powinna być stosowana z zachowaniem ostrożności, aby uniknąć ponoszenia konfliktów zapisu. Aby uzyskać więcej informacji, zobacz sekcję [wykonywanie równoległe](#parallel-execution) . | Boolean (wartość logiczna) | Nie. Wartość domyślna to false.
+issekwencyjne | Określa, czy pętla powinna być wykonywana sekwencyjnie, czy równolegle.  Maksymalnie 20 iteracji pętli można wykonać jednocześnie równolegle). Na przykład jeśli masz działanie ForEach iteracji dla działania kopiowania z 10 różnymi źródłami i ujściami zestawów danych z parametrem **Issekwencyjnym** ustawionym na wartość false, wszystkie kopie są wykonywane jednocześnie. Wartość domyślna to false. <br/><br/> Jeśli wartość "issekwencyjne" ma wartość FAŁSZ, upewnij się, że istnieje poprawna konfiguracja do uruchamiania wielu plików wykonywalnych. W przeciwnym razie ta właściwość powinna być stosowana z zachowaniem ostrożności, aby uniknąć ponoszenia konfliktów zapisu. Aby uzyskać więcej informacji, zobacz sekcję [wykonywanie równoległe](#parallel-execution) . | Wartość logiczna | Nie. Wartość domyślna to false.
 batchCount | Liczba partii do użycia w celu kontrolowania liczby równoległych wykonań (gdy właściwość issekwencyjne ma wartość false). Jest to górny limit współbieżności, ale działanie for-each nie będzie zawsze wykonywane na tym numerze | Integer (maksimum 50) | Nie. Wartość domyślna to 20.
 Elementy | Wyrażenie zwracające tablicę JSON do iteracji. | Wyrażenie (które zwraca tablicę JSON) | Tak
 Działania | Działania do wykonania. | Lista działań | Tak

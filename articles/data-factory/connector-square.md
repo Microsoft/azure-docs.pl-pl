@@ -1,23 +1,18 @@
 ---
 title: Kopiuj dane z kwadratu (wersja zapoznawcza)
 description: Informacje o kopiowaniu danych z kwadratu do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/03/2020
-ms.openlocfilehash: 2bfe9115f38c79618924379837dda8014ee31ed5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac10e42d338e0ddd44cb3c07709645a69653808d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529368"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384796"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Kopiowanie danych z kwadratu przy użyciu Azure Data Factory (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -140,7 +135,7 @@ Aby skopiować dane z kwadratu, ustaw typ źródła w działaniu Copy na **Squar
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SquareSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM Business"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Business"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

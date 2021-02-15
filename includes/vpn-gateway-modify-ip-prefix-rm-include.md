@@ -5,18 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/14/2019
+ms.date: 02/10/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 76a602ae722bd975e634631819ebc703e8896c98
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7dd255e9767309c7b273dccfa0ee5675eed18568
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027083"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380500"
 ---
-### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — brak połączenia bramy
-
 Aby dodać dodatkowe prefiksy adresów:
 
 1. Ustaw wartość zmiennej dla klasy LocalNetworkGateway.
@@ -24,7 +22,7 @@ Aby dodać dodatkowe prefiksy adresów:
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
-2. Zmodyfikuj prefiksy.
+1. Zmodyfikuj prefiksy.
 
    ```azurepowershell-interactive
    Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
@@ -40,50 +38,9 @@ Aby usunąć prefiksy adresów:
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
-2. Ustaw bramę z zaktualizowanymi prefiksami.
+1. Ustaw bramę z zaktualizowanymi prefiksami.
 
    ```azurepowershell-interactive
    Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
    -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
-   ```
-
-### <a name="to-modify-local-network-gateway-ip-address-prefixes---existing-gateway-connection"></a><a name="withconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — istniejące połączenie bramy
-
-Jeśli istnieje już połączenie bramy i chcesz dodać lub usunąć prefiksy adresów IP zawarte w bramie Twojej sieci lokalnej, wykonaj kolejno następujące kroki. Spowoduje to pewien przestój połączenia sieci VPN. W przypadku modyfikowania prefiksów adresów IP nie musisz usuwać bramy sieci VPN. Musisz usunąć tylko połączenie.
-
-1. Usuń połączenie.
-
-   ```azurepowershell-interactive
-   Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
-   ```
-2. Ustaw bramę sieci lokalnej ze zmodyfikowanymi prefiksami adresów.
-   
-   Ustaw wartość zmiennej dla klasy LocalNetworkGateway.
-
-   ```azurepowershell-interactive
-   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-   ```
-   
-   Zmodyfikuj prefiksy.
-   
-   ```azurepowershell-interactive
-   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
-   -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
-   ```
-3. Utwórz połączenie. W tym przykładzie skonfigurujemy połączenie typu IPsec. Podczas ponownego tworzenia połączenia należy użyć typu połączenia, który został określony dla danej konfiguracji. O dodatkowych typach połączeń można przeczytać na stronie [PowerShell cmdlet](/powershell/module/Azurerm.Network/New-AzureRmVirtualNetworkGatewayConnection) (Polecenia cmdlet programu PowerShell).
-   
-   Ustaw wartość zmiennej dla klasy VirtualNetworkGateway.
-
-   ```azurepowershell-interactive
-   $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW  -ResourceGroupName TestRG1
-   ```
-   
-   Utwórz połączenie. W tym przykładzie użyto zmiennej $local ustawionej w kroku 2.
-
-   ```azurepowershell-interactive
-   New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
-   -ResourceGroupName TestRG1 -Location 'East US' `
-   -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-   -ConnectionType IPsec `
-   -RoutingWeight 10 -SharedKey 'abc123'
    ```

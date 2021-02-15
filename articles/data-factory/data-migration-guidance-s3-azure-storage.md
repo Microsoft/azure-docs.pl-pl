@@ -1,22 +1,18 @@
 ---
 title: Migrowanie danych z usługi Amazon S3 do usługi Azure Storage
 description: Użyj Azure Data Factory do migrowania danych z usługi Amazon S3 do magazynu Azure.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: be1cb7abbc243e3f79e183223fbbb32380f5d02d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2be8a9c7476bda6952ed1eaa15d29fe9c01b59a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638044"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371315"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Używanie Azure Data Factory do migrowania danych z usługi Amazon S3 do magazynu Azure 
 
@@ -150,7 +146,7 @@ Oto Szacowana cena oparta na powyższych założeniach:
 - [Kopiuj nowe i zmienione pliki w oparciu o LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Strona cennika ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-## <a name="template"></a>Szablon
+## <a name="template"></a>Template
 
 Oto [szablon](solution-template-migration-s3-azure.md) do rozpoczęcia migracji petabajtów danych składających się z setek milionów plików z usługi Amazon S3 do Azure Data Lake Storage Gen2.
 

@@ -1,23 +1,18 @@
 ---
 title: Przenoszenie danych za pomocą działania kopiowania
 description: 'Dowiedz się więcej na temat przenoszenia danych w potokach Data Factory: migracja danych między magazynami w chmurze a magazynem lokalnym i magazynem w chmurze. Użyj działania kopiowania.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a3fe99896ff244d2e35737919e6797141095acb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195967"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364022"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Przenoszenie danych za pomocą działania kopiowania
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -77,7 +72,7 @@ Działanie kopiowania w usłudze Data Factory kopiuje dane z magazynu danych źr
 ### <a name="supported-file-formats"></a>Obsługiwane formaty plików
 Możesz użyć działania kopiowania, aby **skopiować pliki** między dwoma magazynami danych opartymi na plikach, można pominąć [sekcję format](data-factory-create-datasets.md) w definicjach zestawu danych wejściowych i wyjściowych. Dane są kopiowane efektywnie bez serializacji/deserializacji.
 
-Działanie Copy odczytuje również dane z i zapisuje je w plikach w określonych formatach: Avro **Text, JSON,, Orc i Parquet**oraz kompresji kodery-dekoder w formacie **gzip, Wklęśnięcie, BZip2 i ZipDeflate** . Zobacz [obsługiwane formaty plików i kompresji](data-factory-supported-file-and-compression-formats.md) ze szczegółami.
+Działanie Copy odczytuje również dane z i zapisuje je w plikach w określonych formatach: Avro **Text, JSON,, Orc i Parquet** oraz kompresji kodery-dekoder w formacie **gzip, Wklęśnięcie, BZip2 i ZipDeflate** . Zobacz [obsługiwane formaty plików i kompresji](data-factory-supported-file-and-compression-formats.md) ze szczegółami.
 
 Można na przykład wykonać następujące działania kopiowania:
 
@@ -104,7 +99,7 @@ Gdy magazyny danych źródła i ujścia znajdują się w chmurze, Data Factory u
 | &nbsp; | Zachodnie stany USA 2 | Zachodnie stany USA 2 |
 | Kanada | Kanada Wschodnia | Kanada Środkowa |
 | &nbsp; | Kanada Środkowa | Kanada Środkowa |
-| Brazylia | Brazil South | Brazil South |
+| Brazylia | Brazylia Południowa | Brazylia Południowa |
 | Europa | Europa Północna | Europa Północna |
 | &nbsp; | West Europe | West Europe |
 | Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | Południowe Zjednoczone Królestwo |
@@ -116,8 +111,8 @@ Gdy magazyny danych źródła i ujścia znajdują się w chmurze, Data Factory u
 | Indie | Indie Środkowe | Indie Środkowe |
 | &nbsp; | Indie Zachodnie | Indie Środkowe |
 | &nbsp; | Indie Południowe | Indie Środkowe |
-| Japonia | Japan East | Japonia Wschodnia |
-| &nbsp; | Japonia Zachodnia | Japan East |
+| Japonia | Japonia Wschodnia | Japonia Wschodnia |
+| &nbsp; | Japonia Zachodnia | Japonia Wschodnia |
 | Korea | Korea Środkowa | Korea Środkowa |
 | &nbsp; | Korea Południowa | Korea Środkowa |
 
@@ -186,7 +181,7 @@ Oto przykładowa definicja JSON:
   }
 }
 ```
-Harmonogram zdefiniowany w wyjściowym zestawie danych określa, kiedy działa działanie (na przykład: **codziennie**, częstotliwość jako **dzień**i interwał jako **1**). Działanie kopiuje dane z wejściowego zestawu danych (**Źródło**) do wyjściowego zestawu danych (**ujścia**).
+Harmonogram zdefiniowany w wyjściowym zestawie danych określa, kiedy działa działanie (na przykład: **codziennie**, częstotliwość jako **dzień** i interwał jako **1**). Działanie kopiuje dane z wejściowego zestawu danych (**Źródło**) do wyjściowego zestawu danych (**ujścia**).
 
 Można określić więcej niż jeden wejściowy zestaw danych do działania kopiowania. Są one używane do weryfikowania zależności przed uruchomieniem działania. Jednak tylko dane z pierwszego zestawu danych są kopiowane do docelowego zestawu danych. Aby uzyskać więcej informacji, zobacz [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md).  
 

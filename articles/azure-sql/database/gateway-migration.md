@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575164"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517828"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,23 @@ Najbardziej aktualne informacje będą przechowywane w tabeli [adresy IP bramy A
 ## <a name="status-updates"></a>Aktualizacje stanu
 
 # <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
-## <a name="february-2021"></a>Luty 2021
+## <a name="march-2021"></a>Marzec 2021
+Następujące bramy SQL w wielu regionach są w trakcie dezaktywowania:
+
+- Brazylia Południowa: 104.41.11.5
+- Azja Wschodnia: 191.234.2.139
+- Wschodnie stany USA: 191.238.6.43
+- Japonia Wschodnia: 191.237.240.43
+- Japonia Zachodnia: 191.238.68.11
+- Europa Północna: 191.235.193.75
+- Południowo-środkowe stany USA: 23.98.162.75
+- Azja Południowo-Wschodnia: 23.100.117.95
+- Europa Zachodnia: 191.237.232.75
+- Zachodnie stany USA: 23.99.34.75
+
+Nie ma żadnego wpływu na klientów, ponieważ te bramy (działające na starszym sprzęcie) nie są w stanie routingu żadnego ruchu klienta. Adresy IP dla tych bram są dezaktywowane 15 marca 2021.
+
+## <a name="february-2021"></a>Luty 2021 r.
 Nowe bramy SQL są dodawane do następujących regionów:
 
 - Środkowe stany USA: 13.89.169.20
@@ -95,7 +111,7 @@ Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynaj�
 - Europa Zachodnia: 52.236.184.163 
 - Południowo-środkowe stany USA: 20.45.121.1, 20.49.88.1 
 
-Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach. Te bramy SQL zaczynają akceptować ruch klienta **1 września 2020** :
+Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach. Te bramy SQL zaczynają akceptować ruch klienta **1 września 2020**:
 - Japonia Wschodnia: 40.79.184.8, 40.79.192.5
 
 

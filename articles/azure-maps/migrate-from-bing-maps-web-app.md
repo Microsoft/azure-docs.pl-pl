@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2b072107275fba1ff83ab3ddac63ed8bf7766356
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684828"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389114"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Samouczek: Migrowanie aplikacji internetowej z usługi mapy Bing
 
@@ -33,9 +33,9 @@ Aplikacje sieci Web używające map Bing często korzystają z zestawu Bing SDK 
 
 W przypadku migrowania istniejącej aplikacji sieci Web sprawdź, czy używa ona biblioteki kontroli typu open source, takiej jak cesium, ulotce i OpenLayers. Jeśli jest i wolisz nadal korzystać z tej biblioteki, możesz połączyć ją z usługami kafelków Azure Maps (kafelki satelitarne[kafelków](/rest/api/maps/render/getmaptile) \| [](/rest/api/maps/render/getmapimagerytile)). Poniższe linki zawierają szczegółowe informacje dotyczące korzystania z Azure Maps w niektórych najczęściej używanych bibliotekach kontroli mapy Open Source.
 
-* Cesium — kontrolka mapy 3D dla sieci Web. [Przykładowy kod](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Dokumentacja](https://cesiumjs.org/)
-* Ulotek — uproszczona kontrolka mapy 2D dla sieci Web. [Przykładowy kod](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Dokumentacja](https://leafletjs.com/)
-* OpenLayers — kontrolka mapy 2D dla sieci Web, która obsługuje projekcje. [Przykładowy kod](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Dokumentacja](https://openlayers.org/)
+* [Cesium](https://cesiumjs.org/) — kontrolka mapy 3D dla sieci Web. [Przykłady kodu](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Repozytorium wtyczki]()
+* [Ulotek](https://leafletjs.com/) — uproszczona kontrolka mapy 2D dla sieci Web. [Przykłady kodu](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [Repozytorium wtyczki]()
+* [OpenLayers](https://openlayers.org/) — kontrolka mapy 2D dla sieci Web, która obsługuje projekcje. [Przykłady kodu](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [Repozytorium wtyczki]()
 
 W przypadku opracowywania przy użyciu struktury JavaScript jeden z następujących projektów typu "open source" może być przydatny:
 
@@ -64,7 +64,7 @@ W poniższej tabeli przedstawiono najważniejsze funkcje interfejsu API w usłud
 | Kafelki warstw              | ✓                                                                                      |
 | Warstwa KML                | ✓                                                                                      |
 | Warstwa konturów            | [Samples](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
-| Warstwa pakowania danych       | [Samples](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
+| Warstwa pakowania danych       | Dołączone do [modułu źródła danych gridded](https://github.com/Azure-Samples/azure-maps-gridded-data-source) "Open Azure Maps source"       |
 | Animowana warstwa kafelków      | Uwzględnione w [module animacji](https://github.com/Azure-Samples/azure-maps-animations) Azure Maps "open source" |
 | Narzędzia do rysowania            | ✓                                                                                      |
 | Usługa geocode         | ✓                                                                                      |
@@ -72,10 +72,10 @@ W poniższej tabeli przedstawiono najważniejsze funkcje interfejsu API w usłud
 | Usługa macierzy odległości  | ✓                                                                                      |
 | Usługa danych przestrzennych     | Nie dotyczy                                                                                    |
 | Zdjęcia satelitarne i anteny | ✓                                                                                      |
-| Obraz oka z ptakami         | Planowany                                                                                |
-| Streetside       | Planowany                                                                                |
+| Obraz oka z ptakami         | Nie dotyczy                                                                                |
+| Streetside       | Nie dotyczy                                                                                |
 | Obsługa GEOJSON          | ✓                                                                                      |
-| Obsługa GeoXML           | ✓                                                                                      |
+| Obsługa GeoXML           | [Moduł operacji we/wy](how-to-use-spatial-io-module.md) ✓                                                                                     |
 | Obsługa tekstu Well-Known  | ✓                                                                                      |
 | Niestandardowe style mapy        | Częściowe                                                                                |
 

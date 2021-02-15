@@ -1,22 +1,18 @@
 ---
 title: Utwórz wyzwalacze okna wirowania w Azure Data Factory
 description: Dowiedz się, jak utworzyć wyzwalacz w Azure Data Factory, który uruchamia potok w oknie wirowania.
-services: data-factory
-documentationcenter: ''
 author: chez-charlie
 ms.author: chez
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2020
-ms.openlocfilehash: 4c40d394e48cb0cd8bc02ef7b37e7ed2b27e13c4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f5bc9951229c61dd988f44b06b8fcd40881226ae
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511556"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393704"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Tworzenie wyzwalacza uruchamiającego potok w oknie wirowania
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -100,8 +96,8 @@ Poniższa tabela zawiera ogólne omówienie głównych elementów JSON, które s
 | **runtimeState** | Bieżący stan czasu uruchomienia wyzwalacza.<br/>**Uwaga**: ten element to \<readOnly> . | Ciąg | "Uruchomiona", "zatrzymana", "wyłączona" | Tak |
 | **jaką** | Ciąg, który reprezentuje jednostkę częstotliwości (minuty lub godziny), przy której wyzwalacz powtarza się. Jeśli wartości daty **rozpoczęcia** są bardziej szczegółowe niż wartość **częstotliwości** , daty **rozpoczęcia** są brane pod uwagę podczas obliczania granic okna. Na przykład jeśli wartość **częstotliwości** wynosi co godzinę, a wartość **StartTime** to 2017-09-01T10:10:10Z, pierwsze okno to (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Ciąg | "minuta", "godzina"  | Tak |
 | **dat** | Dodatnia liczba całkowita oznaczająca interwał wartości właściwości **frequency**, która określa częstotliwość uruchamiania wyzwalacza. Jeśli na przykład **Interwał** wynosi 3, a **częstotliwość** to "godzina", wyzwalacz powtarza się co 3 godziny. <br/>**Uwaga**: minimalny interwał okna to 5 minut. | Liczba całkowita | Dodatnia liczba całkowita. | Tak |
-| **Rozpoczęcia**| Pierwsze wystąpienie, które może znajdować się w przeszłości. Pierwszy interwał wyzwalacza to (**StartTime**,   +  **Interwał** StartTime). | Data/godzina | Wartość daty i godziny. | Tak |
-| **endTime**| Ostatnie wystąpienie, które może znajdować się w przeszłości. | Data/godzina | Wartość daty i godziny. | Tak |
+| **Rozpoczęcia**| Pierwsze wystąpienie, które może znajdować się w przeszłości. Pierwszy interwał wyzwalacza to (**StartTime**,   +  **Interwał** StartTime). | DateTime | Wartość daty i godziny. | Tak |
+| **endTime**| Ostatnie wystąpienie, które może znajdować się w przeszłości. | DateTime | Wartość daty i godziny. | Tak |
 | **opóźnienie** | Czas opóźnienia rozpoczęcia przetwarzania danych w oknie. Uruchomienie potoku jest uruchamiane po upływie oczekiwanego czasu wykonania i ilości **opóźnienia**. **Opóźnienie** określa, jak długo wyzwalacz czeka poza czas oczekiwania przed wyzwoleniem nowego uruchomienia. **Opóźnienie** nie zmienia okna **StartTime**. Na przykład wartość **opóźnienia** 00:10:00 oznacza opóźnienie wynoszące 10 minut. | Zakres czasu<br/>(hh: mm: SS)  | Wartość TimeSpan, której wartością domyślną jest 00:00:00. | Nie |
 | **maxConcurrency** | Liczba równoczesnych uruchomień wyzwalaczy, które są teraz uruchamiane dla systemu Windows. Na przykład, aby wypełniać z powrotem przebiegi godzinowe dla wczoraj wyniki w 24 Windows. Jeśli **maxConcurrency** = 10, zdarzenia wyzwalania są uruchamiane tylko dla pierwszych 10 okien (00:00-01:00-09:00-10:00). Po ukończeniu pierwszych 10 wyzwolonych uruchomień potoków uruchomienia wyzwalacza są generowane dla następnych 10 okien (10:00-11:00-19:00-20:00). Kontynuując ten przykład **maxConcurrency** = 10, jeśli jest 10 gotowych do użycia systemu Windows, istnieje 10 całkowitej liczby uruchomień potoku. Jeśli istnieje tylko jedno okno z gotowością, istnieje tylko jedno uruchomienie potoku. | Liczba całkowita | Liczba całkowita z zakresu od 1 do 50. | Tak |
 | **retryPolicy: Count** | Liczba ponownych prób zanim uruchomienie potoku zostanie oznaczone jako "Niepowodzenie".  | Liczba całkowita | Liczba całkowita, gdzie wartość domyślna to 0 (brak ponownych prób). | Nie |

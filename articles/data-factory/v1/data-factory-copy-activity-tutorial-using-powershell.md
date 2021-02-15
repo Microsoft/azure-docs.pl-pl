@@ -1,30 +1,24 @@
 ---
 title: 'Samouczek: Tworzenie potoku w celu przenoszenia danych przy użyciu Azure PowerShell '
 description: Ten samouczek zawiera instrukcje tworzenia potoku usługi Azure Data Factory za pomocą działania kopiowania przy użyciu programu Azure PowerShell.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa97fd2ac12ca73d1a317fb09e03e49d0056ceb1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 54c296ed8013b9962de9487cfec3e2568c03e738
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608633"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377044"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Samouczek: tworzenie potoku usługi Data Factory przenoszącego dane przy użyciu programu Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-> * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
@@ -114,7 +108,7 @@ Pamiętaj o następujących kwestiach:
 * Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli wystąpi poniższy błąd, zmień nazwę (np. twojanazwaADFTutorialDataFactoryPSH). Użyj tej nazwy zamiast ADFTutorialFactoryPSH podczas wykonywania kroków w tym samouczku. Aby uzyskać informacje o artefaktach usługi Data Factory, zobacz artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Data Factory — reguły nazewnictwa).
 
     ```
-    Data factory name “ADFTutorialDataFactoryPSH” is not available
+    Data factory name "ADFTutorialDataFactoryPSH" is not available
     ```
 * Aby tworzyć wystąpienia usługi Data Factory, musisz być współautorem lub administratorem subskrypcji platformy Azure.
 * W przyszłości nazwa fabryki danych może zostać zarejestrowana jako nazwa DNS, a wówczas stanie się widoczna publicznie.
@@ -452,7 +446,7 @@ Obecnie harmonogram jest prowadzony przy użyciu wyjściowego zestawu danych. W 
 **Gratulacje!** Pomyślnie utworzono fabrykę danych Azure przy użyciu potoku w celu skopiowania danych z usługi Azure Blob Storage do Azure SQL Database. 
 
 ## <a name="monitor-the-pipeline"></a>Monitorowanie potoku
-W tym kroku opisano użycie programu Azure PowerShell do monitorowania tego, co dzieje się w fabryce danych platformy Azure.
+W tym kroku użyjesz Azure PowerShell do monitorowania tego, co dzieje się w usłudze Azure Data Factory.
 
 1. Zastąp &lt; element Datafactoryname &gt; nazwą fabryki danych i uruchom polecenie **Get-AzDataFactory** i przypisz dane wyjściowe do zmiennej $DF.
 
@@ -460,7 +454,7 @@ W tym kroku opisano użycie programu Azure PowerShell do monitorowania tego, co 
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
-    Przykład:
+    Na przykład:
     ```powershell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```

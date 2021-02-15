@@ -2,16 +2,15 @@
 title: Rozwiązywanie problemów dotyczących Azure Automation elementu Runbook
 description: W tym artykule opisano sposób rozwiązywania problemów z elementami Runbook Azure Automation.
 services: automation
-ms.subservice: ''
-ms.date: 11/03/2020
+ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 0ae7af848fd3ceb1d5b186a5a326c8fa43a69d24
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053673"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388026"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
 
@@ -224,37 +223,46 @@ Podczas wykonywania elementów Runbook element Runbook nie może zarządzać zas
 
 ### <a name="cause"></a>Przyczyna
 
-Element Runbook nie używa poprawnego kontekstu podczas uruchamiania.
+Element Runbook nie używa poprawnego kontekstu podczas uruchamiania. Może to być spowodowane tym, że element Runbook przypadkowo próbuje uzyskać dostęp do nieprawidłowej subskrypcji.
+
+Mogą pojawić się błędy podobne do tego:
+
+```error
+Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+   ErrorCode: AuthorizationFailed
+   StatusCode: 403
+   ReasonPhrase: Forbidden Operation
+   ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
+```
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Kontekst subskrypcji może zostać utracony, gdy element Runbook wywoła wiele elementów Runbook. Aby zapewnić, że kontekst subskrypcji zostanie przekazany do elementów Runbook, element Runbook klienta przekazuje kontekst do `Start-AzureRmAutomationRunbook` polecenia cmdlet w `AzureRmContext` parametrze. Użyj `Disable-AzureRmContextAutosave` polecenia cmdlet z `Scope` parametrem ustawionym na `Process` , aby upewnić się, że określone poświadczenia są używane tylko dla bieżącego elementu Runbook. Aby uzyskać więcej informacji, zobacz [subskrypcje](../automation-runbook-execution.md#subscriptions).
+Kontekst subskrypcji może zostać utracony, gdy element Runbook wywoła wiele elementów Runbook. Aby uniknąć przypadkowej próby uzyskania dostępu do nieprawidłowej subskrypcji, należy postępować zgodnie z poniższymi wskazówkami.
 
-```azurepowershell-interactive
-# Ensures that any credentials apply only to the execution of this runbook
-Disable-AzContextAutosave –Scope Process
+* Aby uniknąć odwoływania się do nieprawidłowej subskrypcji, należy wyłączyć zapisywanie kontekstu w elementach Runbook usługi Automation przy użyciu następującego kodu na początku każdego elementu Runbook.
 
-# Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+   ```azurepowershell-interactive
+   Disable-AzContextAutosave –Scope Process
+   ```
 
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+* Polecenia cmdlet Azure PowerShell obsługują `-DefaultProfile` parametr. Ta funkcja została dodana do wszystkich poleceń cmdlet AZ i AzureRm w celu obsługi wielu skryptów programu PowerShell w tym samym procesie, co pozwala określić kontekst i subskrypcję używaną dla każdego polecenia cmdlet. Przy użyciu elementów Runbook, należy zapisać obiekt kontekstu w elemencie Runbook po utworzeniu elementu Runbook (to oznacza, gdy logowanie do konta) i za każdym razem, gdy zostanie on zmieniony, i odwołać się do kontekstu po określeniu polecenia AZ cmdlet.
 
-$AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   > [!NOTE]
+   > Należy przekazać obiekt kontekstu nawet podczas manipulowania kontekstem bezpośrednio przy użyciu poleceń cmdlet, takich jak [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) lub [SELECT-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
 
-$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-
-Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
-    -ResourceGroupName 'LabRG' `
-    -AzContext $AzContext `
-    –Parameters $params –wait
-```
-
+   ```azurepowershell-interactive
+   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
+   $context = Add-AzAccount `
+             -ServicePrincipal `
+             -TenantId $servicePrincipalConnection.TenantId `
+             -ApplicationId $servicePrincipalConnection.ApplicationId `
+             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
+             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+   $context = Set-AzContext -SubscriptionName $subscription `
+       -DefaultProfile $context
+   Get-AzVm -DefaultProfile $context
+   ```
+  
 ## <a name="scenario-authentication-to-azure-fails-because-multifactor-authentication-is-enabled"></a><a name="auth-failed-mfa"></a>Scenariusz: uwierzytelnianie na platformie Azure nie powiodło się, ponieważ jest włączone uwierzytelnianie wieloskładnikowe
 
 ### <a name="issue"></a>Problem

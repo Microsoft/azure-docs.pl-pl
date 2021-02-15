@@ -1,22 +1,18 @@
 ---
 title: Kopiuj dane z MongoDB przy użyciu starszej wersji
 description: Informacje o kopiowaniu danych z usługi Mongo DB do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w starszym potoku Azure Data Factory.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e13a1a5a939d314bdf4500c0827fa13201505016
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331985"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368850"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Kopiowanie danych z MongoDB przy użyciu Azure Data Factory (starsza wersja)
 
@@ -61,7 +57,7 @@ Dla połączonej usługi MongoDB są obsługiwane następujące właściwości:
 | serwer |Adres IP lub nazwa hosta serwera MongoDB. |Tak |
 | port |Port TCP, którego serwer MongoDB używa do nasłuchiwania połączeń klientów. |Nie (domyślnie 27017) |
 | Bazy |Nazwa bazy danych MongoDB, do której chcesz uzyskać dostęp. |Tak |
-| authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych MongoDB.<br/>Dozwolone wartości to: **Basic**i **Anonymous**. |Tak |
+| authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych MongoDB.<br/>Dozwolone wartości to: **Basic** i **Anonymous**. |Tak |
 | nazwa użytkownika |Konto użytkownika do uzyskiwania dostępu do MongoDB. |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | hasło |Hasło użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | authSource |Nazwa bazy danych MongoDB, która ma zostać użyta do sprawdzenia poświadczeń w celu uwierzytelnienia. |Nie. W przypadku uwierzytelniania podstawowego wartość domyślna to użycie konta administratora i bazy danych określonej przy użyciu właściwości databaseName. |
@@ -180,7 +176,7 @@ Podczas kopiowania danych z MongoDB następujące mapowania są używane z typó
 | MongoDB — typ danych | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
 | Binarne |Byte [] |
-| Boolean (wartość logiczna) |Boolean (wartość logiczna) |
+| Boolean (wartość logiczna) |Wartość logiczna |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
@@ -232,7 +228,7 @@ W poniższych tabelach przedstawiono tabele wirtualne, które reprezentują oryg
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |wyskakujący |456 |0,2 |
 | 1111 |1 |124 |laboratoryjn |1235 |0,2 |
-| 2222 |0 |135 |lodówki |12543 |0.0 |
+| 2222 |0 |135 |lodówki |12543 |0,0 |
 
 **Tabela "ExampleTable_Ratings":**
 

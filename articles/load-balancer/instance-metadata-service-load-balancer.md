@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: dcc9f71404e5a7c6509e4a8e821d66831ba02382
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0d7d08eb5e77e744fb6ce0abefc550bc79de4c8c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417825"
+ms.locfileid: "100519086"
 ---
 # <a name="retrieve-load-balancer-information-by-using-the-azure-instance-metadata-service"></a>Pobieranie informacji o usłudze równoważenia obciążenia przy użyciu usługi Azure Instance Metadata Service
 
@@ -29,7 +29,7 @@ Metadane obejmują następujące informacje dotyczące maszyn wirtualnych lub ze
 
 ## <a name="access-the-load-balancer-metadata-using-the-imds"></a>Dostęp do metadanych usługi równoważenia obciążenia przy użyciu IMDS
 
-Aby uzyskać więcej informacji na temat uzyskiwania dostępu do metadanych modułu równoważenia obciążenia, zobacz temat [Korzystanie z usługi Azure instance Metadata Service w celu uzyskania dostępu do informacji modułu równoważenia obciążenia.](howto-load-balancer-imds.md) Aby uzyskać dostęp do informacji modułu równoważenia obciążenia.
+Aby uzyskać więcej informacji na temat uzyskiwania dostępu do metadanych modułu równoważenia obciążenia, zobacz temat [Korzystanie z usługi Azure instance Metadata Service w celu uzyskania dostępu do informacji modułu równoważenia obciążenia](howto-load-balancer-imds.md).
 
 ## <a name="troubleshoot-common-error-codes"></a>Rozwiązywanie typowych kodów błędów
 
@@ -40,7 +40,7 @@ Aby uzyskać więcej informacji na temat typowych kodów błędów i ich metod z
 Jeśli nie możesz pobrać odpowiedzi metadanych po wielu próbach, Utwórz problem z pomocą techniczną w Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [usłudze Azure instance Metadata Service](/virtual-machines/windows/instance-metadata-service)
+Dowiedz się więcej o [usłudze Azure instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md)
 
 [Wdrażanie usługi równoważenia obciążenia w warstwie Standardowa](quickstart-load-balancer-standard-public-portal.md)
 

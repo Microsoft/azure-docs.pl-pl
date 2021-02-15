@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: dbe4191b64773b71bc1ae04842d824fbfead8e55
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628169"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373712"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>Konfigurowanie programu Lab for ArcMap\ArcGIS Desktop
 
@@ -55,7 +55,7 @@ Kroki opisane w tej sekcji pokazują, jak skonfigurować maszynę wirtualną sza
 1.  Uruchom szablon VM i Połącz się z maszyną przy użyciu protokołu RDP.
 
 2.  Pobierz i Zainstaluj składniki pulpitu ArcGIS przy użyciu instrukcji z ESRI.  Te kroki obejmują przypisanie Menedżera licencji do licencjonowania współbieżnego użycia: 
-    - [Wprowadzenie do instalowania i konfigurowania pulpitu ArcGIS](https://desktop.arcgis.com/arcmap/latest/get-started/installation-guide/introduction.htm)
+    - [Wprowadzenie do instalowania i konfigurowania pulpitu ArcGIS](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm)
 
 3.  Skonfiguruj zewnętrzny magazyn kopii zapasowych dla uczniów.  Studenci mogą zapisywać pliki bezpośrednio dla przypisanej do nich maszyn wirtualnych, ponieważ wszystkie wprowadzone zmiany są zapisywane między sesjami.  Zaleca się jednak, aby uczniowie tworzyli kopie zapasowe swoich prac do magazynu, który jest zewnętrzny od swojej maszyny wirtualnej z kilku powodów:
     - Aby umożliwić uczniom dostęp do swojej pracy po zakończeniu klasy i laboratorium.  

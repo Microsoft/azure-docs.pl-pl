@@ -1,23 +1,18 @@
 ---
 title: Przenoszenie danych z Cassandra za pomocą Data Factory
 description: Dowiedz się, jak przenieść dane z lokalnej bazy danych Cassandra przy użyciu Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019637"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387414"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Przenoszenie danych z lokalnej bazy danych Cassandra przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -267,11 +262,11 @@ Zobacz [właściwości typu RelationalSource](#copy-activity-properties) , aby u
 | TYPU |Wartość logiczna |
 | DOKŁADNOŚCI |Liczba dziesiętna |
 | DOUBLE |Double |
-| FLOAT |Pojedyncze |
+| FLOAT |Pojedynczy |
 | INET |Ciąg |
 | INT |Int32 |
 | TEKST |Ciąg |
-| ZNACZNIK czasu |DateTime |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid (identyfikator GUID) |
 | INTERFEJSU |Guid (identyfikator GUID) |
 | VARCHAR |Ciąg |

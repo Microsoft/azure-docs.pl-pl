@@ -8,17 +8,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 5aaf31d8c629e0770b913485de175c38f708390c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0a83dd143ae626108fdf8d2645b8cc368a3f3e05
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359629"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516570"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Dostęp do Azure Cosmos DB danych interfejs API Cassandra Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-W tym artykule szczegółowo opisano, jak workwith Azure Cosmos DB interfejs API Cassandra z platformy Spark w [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
+W tym artykule szczegółowo przedstawiono sposób pracy z Azure Cosmos DB interfejs API Cassandra z platformy Spark w [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -62,7 +62,7 @@ Programy Spark uruchamiane jako zautomatyzowane procesy na Azure Databricks są 
 
 Poniżej znajdują się linki ułatwiające rozpoczęcie tworzenia programów Scala platformy Spark w celu współdziałania z interfejs API Cassandra Azure Cosmos DB.
 * [Jak nawiązać połączenie z Azure Cosmos DB interfejs API Cassandra z programu Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
-* [Jak uruchomić program Spark Scala jako zadanie automatyczne na Azure Databricks](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Jak uruchomić program Spark Scala jako zadanie automatyczne na Azure Databricks](/azure/databricks/jobs)
 * [Pełna Lista przykładów kodu do pracy z interfejs API Cassandra](cassandra-spark-generic.md#next-steps)
 
 ## <a name="next-steps"></a>Następne kroki

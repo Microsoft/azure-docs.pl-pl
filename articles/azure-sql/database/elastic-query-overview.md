@@ -11,21 +11,21 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: c8f0bb6e0e58d672faa0929d6266e5e2c5a4f1f1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cac17bbac96d44d8d9bfce2e168de4ea6d4c5c08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781060"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364957"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database Elastic Query — omówienie (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Funkcja zapytania elastycznego (w wersji zapoznawczej) umożliwia uruchomienie zapytania Transact-SQL obejmującego wiele baz danych w Azure SQL Database. Umożliwia wykonywanie zapytań między bazami danych w celu uzyskiwania dostępu do tabel zdalnych oraz łączenie narzędzi firmy Microsoft i innych firm (Excel, Power BI, Tableau itp.) w celu wykonywania zapytań w warstwach danych z wieloma bazami danych. Korzystając z tej funkcji, można skalować zapytania w poziomie do dużych warstw danych i wizualizować wyniki w raportach analizy biznesowej (BI).
+Funkcja zapytania elastycznego (w wersji zapoznawczej) umożliwia uruchomienie zapytania Transact-SQL obejmującego wiele baz danych usługi Azure SQL Database. Umożliwia wykonywanie zapytań między bazami danych w celu uzyskiwania dostępu do tabel zdalnych oraz łączenie narzędzi firmy Microsoft i innych firm (Excel, Power BI, Tableau itp.) w celu wykonywania zapytań w warstwach danych z wieloma bazami danych. Korzystając z tej funkcji, można skalować zapytania w poziomie do dużych warstw danych i wizualizować wyniki w raportach analizy biznesowej (BI).
 
 ## <a name="why-use-elastic-queries"></a>Dlaczego warto używać zapytań elastycznych
 
-### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Database
 
 Wykonaj zapytania między bazami danych w Azure SQL Database całkowicie w języku T-SQL. Pozwala to na wykonywanie zapytań tylko do odczytu zdalnych baz danych i udostępnia opcję dla bieżących SQL Server klientów do migrowania aplikacji przy użyciu nazw składających się z trzech i czterech części lub połączonego serwera w celu SQL Database.
 
@@ -41,7 +41,7 @@ Zapytania elastyczne mogą teraz wypchnąć parametry SQL do zdalnych baz danych
 
 Wykonywanie zdalnych wywołań procedur składowanych lub funkcji zdalnych przy użyciu programu [SP \_ Execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database).
 
-### <a name="flexibility"></a>Wiele możliwości wyboru
+### <a name="flexibility"></a>Elastyczność
 
 Tabele zewnętrzne z zapytaniem elastycznym mogą odwoływać się do tabel zdalnych z inną nazwą schematu lub tabeli.
 
@@ -73,13 +73,13 @@ Elastyczne zapytanie może służyć do tworzenia danych znajdujących się w ba
 > Musisz mieć uprawnienie Zmień każde zewnętrzne źródło danych. To uprawnienie jest dołączone do uprawnienia ALTER DATABASE. Aby odwołać się do bazowego źródła danych, należy zmienić wszystkie uprawnienia zewnętrznych źródeł danych.
 >
 
-**Dane referencyjne** : topologia służy do zarządzania danymi referencyjnymi. Na poniższej ilustracji dwie tabele (T1 i T2) z danymi referencyjnymi są przechowywane w dedykowanej bazie danych. Przy użyciu zapytania elastycznego można teraz uzyskiwać dostęp do tabel T1 i T2 zdalnie z innych baz danych, jak pokazano na rysunku. Użyj topologii 1, jeśli tabele odwołań są małymi lub zdalnymi zapytania w tabeli referencyjnej mają predykaty selektywne.
+**Dane referencyjne**: topologia służy do zarządzania danymi referencyjnymi. Na poniższej ilustracji dwie tabele (T1 i T2) z danymi referencyjnymi są przechowywane w dedykowanej bazie danych. Przy użyciu zapytania elastycznego można teraz uzyskiwać dostęp do tabel T1 i T2 zdalnie z innych baz danych, jak pokazano na rysunku. Użyj topologii 1, jeśli tabele odwołań są małymi lub zdalnymi zapytania w tabeli referencyjnej mają predykaty selektywne.
 
 **Rysunek 2** Partycjonowanie pionowe — używanie elastycznego zapytania do wykonywania zapytań dotyczących danych referencyjnych
 
 ![Partycjonowanie pionowe — używanie elastycznego zapytania do wykonywania zapytań dotyczących danych referencyjnych][3]
 
-**Zapytania między bazami danych** : zapytania elastyczne umożliwiają używanie przypadków użycia wymagających wykonywania zapytań w kilku bazach danych w SQL Database. Rysunek 3 przedstawia cztery różne bazy danych: CRM, spis, HR i produkty. Zapytania wykonywane w jednej z baz danych muszą również mieć dostęp do jednej lub wszystkich innych baz danych. Przy użyciu zapytania elastycznego można skonfigurować bazę danych w tym przypadku, uruchamiając kilka prostych instrukcji języka DDL dla każdej z czterech baz danych. Po tej konfiguracji jednorazowej dostęp do tabeli zdalnej jest prosty w odniesieniu do tabeli lokalnej z zapytań T-SQL lub z narzędzi analizy biznesowej. Ta metoda jest zalecana, jeśli zapytania zdalne nie zwracają dużych wyników.
+**Zapytania między bazami danych**: zapytania elastyczne umożliwiają używanie przypadków użycia wymagających wykonywania zapytań w kilku bazach danych w SQL Database. Rysunek 3 przedstawia cztery różne bazy danych: CRM, spis, HR i produkty. Zapytania wykonywane w jednej z baz danych muszą również mieć dostęp do jednej lub wszystkich innych baz danych. Przy użyciu zapytania elastycznego można skonfigurować bazę danych w tym przypadku, uruchamiając kilka prostych instrukcji języka DDL dla każdej z czterech baz danych. Po tej konfiguracji jednorazowej dostęp do tabeli zdalnej jest prosty w odniesieniu do tabeli lokalnej z zapytań T-SQL lub z narzędzi analizy biznesowej. Ta metoda jest zalecana, jeśli zapytania zdalne nie zwracają dużych wyników.
 
 **Rysunek 3** Partycjonowanie pionowe — używanie elastycznego zapytania do wykonywania zapytań w różnych bazach danych
 
@@ -120,7 +120,7 @@ Więcej informacji na temat kroków wymaganych dla scenariusza partycjonowania p
 Aby rozpocząć kodowanie, zobacz [wprowadzenie do elastycznego zapytania na potrzeby partycjonowania poziomego (fragmentowania)](elastic-query-getting-started.md).
 
 > [!IMPORTANT]
-> Pomyślne wykonanie zapytania elastycznego w dużym zestawie baz danych opiera się na dostępności poszczególnych baz danych podczas wykonywania zapytania. Jeśli jedna z baz danych jest niedostępna, całe zapytanie zakończy się niepowodzeniem. Jeśli planujesz wysyłać zapytania do setek lub tysięcy baz danych jednocześnie, upewnij się, że aplikacja kliencka ma wbudowaną logikę ponowień, lub Rozważ użycie [zadań Elastic Database](./job-automation-overview.md#elastic-database-jobs-preview) (wersja zapoznawcza) i zbadanie mniejszych podzestawów baz danych, skonsolidowanie wyników każdego zapytania w jednym miejscu docelowym.
+> Pomyślne wykonanie zapytania elastycznego w dużym zestawie baz danych opiera się na dostępności poszczególnych baz danych podczas wykonywania zapytania. Jeśli jedna z baz danych jest niedostępna, całe zapytanie zakończy się niepowodzeniem. Jeśli planujesz wysyłać zapytania do setek lub tysięcy baz danych jednocześnie, upewnij się, że aplikacja kliencka ma wbudowaną logikę ponowień, lub Rozważ użycie [zadań Elastic Database](./job-automation-overview.md) (wersja zapoznawcza) i zbadanie mniejszych podzestawów baz danych, skonsolidowanie wyników każdego zapytania w jednym miejscu docelowym.
 
 ## <a name="t-sql-querying"></a>Zapytania T-SQL
 

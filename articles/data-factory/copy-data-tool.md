@@ -1,22 +1,17 @@
 ---
 title: Kopiowanie danych Azure Data Factory narzędzi
 description: Zawiera informacje o narzędziu Kopiowanie danych w interfejsie użytkownika Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: yexu
-ms.openlocfilehash: b0ba14a05ac42e9fccc1a146ad5943716652104d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18d61c7f51547a524e64fc44c98e70e0f5bc2752
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434201"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372998"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Narzędzie do kopiowanie danych w usłudze Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -69,7 +64,7 @@ Schemat źródła danych może nie być taki sam jak schemat miejsca docelowego 
 Narzędzie Kopiowanie danych służy do monitorowania i uczenia się zachowania podczas mapowania kolumn między magazynami źródłowymi i docelowymi. Po wybraniu jednej lub kilku kolumn z magazynu danych źródłowych i zamapowaniu ich na schemat docelowy narzędzie Kopiowanie danych rozpocznie analizowanie wzorców dla par kolumn pobranych z obu stron. Następnie stosuje ten sam wzorzec do reszty kolumn. W związku z tym zobaczysz, że wszystkie kolumny zostały zamapowane na miejsce docelowe w żądany sposób po kilku kliknięciach.  Jeśli nie masz zadowalającego wyboru mapowania kolumn dostarczonego przez narzędzie Kopiowanie danych, możesz je zignorować i kontynuować ręczne Mapowanie kolumn. W tym czasie narzędzie Kopiowanie danych ciągle uczy się i aktualizuje wzorzec, a ostatecznie osiągnie prawy wzorzec dla mapowania kolumn, które chcesz osiągnąć. 
 
 > [!NOTE]
-> W przypadku kopiowania danych z SQL Server lub Azure SQL Database do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), jeśli tabela nie istnieje w magazynie docelowym, narzędzie Kopiowanie danych obsługuje tworzenie tabeli automatycznie przy użyciu schematu źródłowego. 
+> W przypadku kopiowania danych z SQL Server lub Azure SQL Database do usługi Azure Synapse Analytics, jeśli tabela nie istnieje w magazynie docelowym, narzędzie Kopiowanie danych obsługuje tworzenie tabeli automatycznie przy użyciu schematu źródłowego. 
 
 ## <a name="filter-data"></a>Filtrowanie danych
 Można filtrować dane źródłowe, aby wybrać tylko te dane, które muszą zostać skopiowane do magazynu danych ujścia. Filtrowanie zmniejsza ilość danych do skopiowania do magazynu danych ujścia i w związku z tym zwiększa przepływność operacji kopiowania. Narzędzie Kopiowanie danych zapewnia elastyczny sposób filtrowania danych w relacyjnej bazie danych przy użyciu języka zapytań SQL lub plików w folderze obiektów blob platformy Azure. 
@@ -93,7 +88,7 @@ Załóżmy, że masz foldery wejściowe w następującym formacie:
 
 Kliknij przycisk **Przeglądaj** dla **pliku lub folderu**, przejdź do jednego z tych folderów (na przykład 2016->03->01->02), a następnie kliknij pozycję **Wybierz**. W polu tekstowym powinna zostać wyświetlona wartość 2016/03/01/02. 
 
-Następnie zastąp **2016** wartość 2016 **{Year}**, **03** przez **{Month}**, **01** z **{Day}** i **02** z **{Hour}**, a następnie naciśnij klawisz **Tab** . Powinny pojawić się listy rozwijane, aby wybrać format dla tych czterech zmiennych:
+Następnie zastąp  wartość 2016 **{Year}**, **03** przez **{Month}**, **01** z **{Day}** i **02** z **{Hour}**, a następnie naciśnij klawisz **Tab** . Powinny pojawić się listy rozwijane, aby wybrać format dla tych czterech zmiennych:
 
 ![Filtruj plik lub folder](./media/copy-data-tool/filter-file-or-folder.png)
 

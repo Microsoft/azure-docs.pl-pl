@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413381"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378710"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Jak używać kontrolki mapy usługi Azure Maps
 
 Biblioteka JavaScript po stronie klienta kontrolka mapy umożliwia renderowanie map i osadzonych funkcji Azure Maps w aplikacji sieci Web lub mobilnej.
+
+W tej dokumentacji jest używany Azure Maps Web SDK, jednak usługi Azure Maps mogą być używane z dowolną kontrolką mapy. [Poniżej](open-source-projects.md#third-part-map-control-plugins) przedstawiono popularne kontrolki mapy typu "open source", dla których zespół Azure Maps utworzył dla programu wtyczkę.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

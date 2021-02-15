@@ -8,22 +8,22 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: 35e32627eaf26eb6f73ca382f119eab61ebd8711
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5196b03ccd513e4afd93b8b8fcf18f7c2580024a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417828"
+ms.locfileid: "100519222"
 ---
 # <a name="retrieve-load-balancer-metadata-using-the-azure-instance-metadata-service-imds"></a>Pobieranie metadanych modułu równoważenia obciążenia przy użyciu usługi Azure Instance Metadata Service (IMDS)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Użyj [najnowszej wersji interfejsu API](/virtual-machines/windows/instance-metadata-service?tabs=windows#supported-api-versions) dla żądania.
+* Użyj [najnowszej wersji interfejsu API](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#supported-api-versions) dla żądania.
 
 ## <a name="sample-request-and-response"></a>Przykładowe żądanie i odpowiedź
 > [!IMPORTANT]
-> Ten przykład pomija serwery proxy. Podczas wykonywania zapytania dotyczącego IMDS **należy** ominąć serwery proxy. Aby uzyskać więcej informacji, zobacz [proxy](/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
+> Ten przykład pomija serwery proxy. Podczas wykonywania zapytania dotyczącego IMDS **należy** ominąć serwery proxy. Aby uzyskać więcej informacji, zobacz [proxy](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies).
 ### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
@@ -82,9 +82,9 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 ## <a name="next-steps"></a>Następne kroki
 [Typowe kody błędów i kroki rozwiązywania problemów](troubleshoot-load-balancer-imds.md)
 
-Dowiedz się więcej o [usłudze Azure instance Metadata Service](/virtual-machines/windows/instance-metadata-service)
+Dowiedz się więcej o [usłudze Azure instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md)
 
-[Pobierz wszystkie metadane dla wystąpienia](/virtual-machines/windows/instance-metadata-service?tabs=windows#access-azure-instance-metadata-service)
+[Pobierz wszystkie metadane dla wystąpienia](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#access-azure-instance-metadata-service)
 
 [Wdrażanie usługi równoważenia obciążenia w warstwie Standardowa](quickstart-load-balancer-standard-public-portal.md)
 

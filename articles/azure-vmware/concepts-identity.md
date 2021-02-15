@@ -3,12 +3,12 @@ title: Pojęcia — tożsamość i dostęp
 description: Dowiedz się więcej na temat pojęć dotyczących tożsamości i uzyskiwania dostępu do rozwiązania Azure VMware
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 0f58cbdaa641af24cef53c3cfd9604cf1b0c1c3b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 68f4ce9136cca1cf9bf0824395e31704d8ed1a17
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538945"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364889"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure
 
@@ -49,7 +49,7 @@ W tabeli przedstawiono uprawnienia **CloudAdmin** i **CloudGlobalAdmin** .
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Dostęp i tożsamość menedżera NSX-T
 
-Użyj konta "Administrator", aby uzyskać dostęp do Menedżera NSX-T. Ma pełne uprawnienia i umożliwia tworzenie routerów T1, przełączników logicznych i wszystkich usług oraz zarządzanie nimi. Uprawnienia zapewniają dostęp do routera T0 NSX-T. Zmiana w routerze T0 może spowodować spadek wydajności sieci lub brak dostępu do chmury prywatnej. Otwórz żądanie obsługi w Azure Portal, aby zażądać wszelkich zmian w routerze T0 NSX-T.
+Użyj konta *administratora* , aby uzyskać dostęp do Menedżera NSX-T. Ma pełne uprawnienia i umożliwia tworzenie bram (T1), segmentów (przełączników logicznych) i wszystkich usług oraz zarządzanie nimi. Uprawnienia zapewniają dostęp do bramy NSX-T warstwy 0 (T0). Zmiana bramy "T0" może spowodować spadek wydajności sieci lub brak dostępu do chmury prywatnej. Otwórz żądanie obsługi w Azure Portal, aby zażądać wszelkich zmian w bramie "T0" NSX-T.
   
 ## <a name="next-steps"></a>Następne kroki
 
