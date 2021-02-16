@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: 8e5dcb6c9dfa08efc0889fcab779d6cb333d2330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6817601659c841ca98031f4e3e1590743bbed171
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88507539"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530539"
 ---
 # <a name="sample-models"></a>Przykładowe modele
 
@@ -26,7 +26,7 @@ Statystyki modelu:
 
 | Nazwa | Wartość |
 |-----------|:-----------|
-| [Wymagany rozmiar serwera](../how-tos/session-rest-api.md#create-a-session) | Standardowa |
+| [Wymagany rozmiar serwera](../reference/vm-sizes.md) | Standardowa |
 | Liczba trójkątów | 18 700 000 |
 | Liczba ruchomych części | 2073 |
 | Liczba materiałów | 94 |
@@ -40,4 +40,4 @@ Grupa Khronos przechowuje zestaw przykładowych modeli glTF do testowania. ARR o
 ## <a name="next-steps"></a>Następne kroki
 
 * [Szybki Start: renderowanie modelu przy użyciu aparatu Unity](../quickstarts/render-model.md)
-* [Szybki Start: konwertowanie modelu do renderowania](../quickstarts/convert-model.md)
+* [Szybki start: Konwertowanie modelu do renderowania](../quickstarts/convert-model.md)

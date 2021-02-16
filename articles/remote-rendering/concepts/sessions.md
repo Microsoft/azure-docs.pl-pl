@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 321d73c78d0192dcb7a303f4aa70a4ff0f18ecea
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79f3f93338d15562dcc37857d63bc8b2d7e96b05
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593709"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530556"
 ---
 # <a name="remote-rendering-sessions"></a>Sesje usługi Remote Rendering
 
@@ -39,9 +39,9 @@ Każda sesja jest poddawana wielu etapom.
 
 ### <a name="session-startup"></a>Uruchamianie sesji
 
-Po zaproszeniu ARR w celu [utworzenia nowej sesji](../how-tos/session-rest-api.md#create-a-session)pierwszy z nich ma zwrócić [identyfikator UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)sesji. Ten identyfikator UUID umożliwia wykonywanie zapytań dotyczących informacji o sesji. Identyfikator UUID i niektóre podstawowe informacje o sesji są utrwalane przez 30 dni, aby można było wysyłać zapytania do tych informacji nawet po zatrzymaniu sesji. W tym momencie **stan sesji** będzie raportowany jako **uruchamiany**.
+Po zaproszeniu ARR w celu [utworzenia nowej sesji](../how-tos/session-rest-api.md)pierwszy z nich ma zwrócić [identyfikator UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)sesji. Ten identyfikator UUID umożliwia wykonywanie zapytań dotyczących informacji o sesji. Identyfikator UUID i niektóre podstawowe informacje o sesji są utrwalane przez 30 dni, aby można było wysyłać zapytania do tych informacji nawet po zatrzymaniu sesji. W tym momencie **stan sesji** będzie raportowany jako **uruchamiany**.
 
-Następnie zdalne renderowanie na platformie Azure próbuje znaleźć serwer, który może hostować daną sesję. Dla tego wyszukiwania istnieją dwa parametry. Po pierwsze spowoduje to zarezerwowanie serwerów w Twoim [regionie](../reference/regions.md). Wynika to z faktu, że opóźnienie sieci między regionami może być zbyt wysokie, aby zapewnić znośnego środowisko pracy. Drugim czynnikiem jest żądany *rozmiar* określony przez użytkownika. W każdym regionie istnieje ograniczona liczba serwerów, które mogą spełnić żądanie rozmiaru [*standardowego*](../reference/vm-sizes.md) lub [*Premium*](../reference/vm-sizes.md) . W związku z tym, jeśli wszystkie serwery o żądanym rozmiarze są obecnie używane w Twoim regionie, Tworzenie sesji zakończy się niepowodzeniem. Przyczyną niepowodzenia [może być zapytanie](../how-tos/session-rest-api.md#get-sessions-properties).
+Następnie zdalne renderowanie na platformie Azure próbuje znaleźć serwer, który może hostować daną sesję. Dla tego wyszukiwania istnieją dwa parametry. Po pierwsze spowoduje to zarezerwowanie serwerów w Twoim [regionie](../reference/regions.md). Wynika to z faktu, że opóźnienie sieci między regionami może być zbyt wysokie, aby zapewnić znośnego środowisko pracy. Drugim czynnikiem jest żądany *rozmiar* określony przez użytkownika. W każdym regionie istnieje ograniczona liczba serwerów, które mogą spełnić żądanie rozmiaru [*standardowego*](../reference/vm-sizes.md) lub [*Premium*](../reference/vm-sizes.md) . W związku z tym, jeśli wszystkie serwery o żądanym rozmiarze są obecnie używane w Twoim regionie, Tworzenie sesji zakończy się niepowodzeniem. Przyczyną niepowodzenia [może być zapytanie](../how-tos/session-rest-api.md).
 
 > [!IMPORTANT]
 > Jeśli zażądasz *standardowego* rozmiaru serwera i żądanie zakończy się niepowodzeniem z powodu wysokiego zapotrzebowania, nie oznacza to, że żądanie serwera w *warstwie Premium* nie powiedzie się. Dlatego jeśli jest to opcja dla Ciebie, możesz spróbować wrócić do rozmiaru serwera w *warstwie Premium* .
@@ -77,7 +77,7 @@ We wszystkich przypadkach nie będą naliczane dalsze opłaty po zatrzymaniu ses
 
 #### <a name="extend-a-sessions-lease-time"></a>Zwiększ czas dzierżawy sesji
 
-Możesz [wydłużyć czas dzierżawy](../how-tos/session-rest-api.md#modify-and-query-session-properties) aktywnej sesji, jeśli okaże się to konieczne dłużej.
+Możesz [wydłużyć czas dzierżawy](../how-tos/session-rest-api.md) aktywnej sesji, jeśli okaże się to konieczne dłużej.
 
 ## <a name="example-code"></a>Przykładowy kod
 

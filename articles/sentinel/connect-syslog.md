@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 35c8c2aa31887feb294b04b8a88bbe5478659e5e
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: f249a95551916311fab51ebef72b55d9a4343c0b
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807907"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530522"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Zbieranie danych z źródeł opartych na systemie Linux przy użyciu dziennika systemowego
 
@@ -67,17 +67,17 @@ Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego 
 
 ### <a name="configure-the-log-analytics-agent"></a>Konfigurowanie agenta Log Analytics
 
-1. W dolnej części bloku łącznika dziennika systemowego kliknij link **Otwórz konfigurację ustawień zaawansowanych obszaru roboczego >** .
+1. W dolnej części bloku łącznika dziennika systemu kliknij link **otwórz >konfigurację agentów obszaru roboczego** .
 
-1. W bloku **Ustawienia zaawansowane** wybierz pozycję Dziennik systemowy **danych**  >  . Następnie Dodaj obiekty do zebrania dla łącznika.
+1. W bloku **Konfiguracja agentów** wybierz kartę **Dziennik** systemowy. Następnie Dodaj obiekty do zebrania dla łącznika. Wybierz pozycję **Dodaj** funkcję i wybierz pozycję z listy rozwijanej usługi.
     
     - Dodaj obiekty, które urządzenie dziennika systemu zawiera w jego nagłówkach dziennika. 
     
     - Jeśli chcesz użyć nietypowego wykrywania logowania SSH za pomocą zbieranych danych, Dodaj **uwierzytelnianie** i **authpriv**. Aby uzyskać dodatkowe informacje, zobacz [następującą sekcję](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
 
-1. Po dodaniu wszystkich funkcji, które mają być monitorowane, i dostosowaniu wszystkich opcji ważności dla każdej z nich, zaznacz pole wyboru **Zastosuj poniższą konfigurację do moich maszyn**.
+1. Po dodaniu wszystkich obiektów, które mają być monitorowane, sprawdź, czy pola wyboru dla wszystkich żądanych serwerów są oznaczone.
 
-1. Wybierz pozycję **Zapisz**. 
+1. Wybierz przycisk **Zastosuj**. 
 
 1. Na maszynie wirtualnej lub urządzeniu upewnij się, że są wysyłane określone obiekty.
 
@@ -88,7 +88,6 @@ Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego 
 > [!NOTE]
 > **Używanie tego samego komputera do przesyłania zarówno zwykłego dziennika systemowego *, jak i* komunikatów CEF**
 >
->
 > Możesz użyć istniejącego [komputera usługi przesyłania dalej dzienników CEF](connect-cef-agent.md) , aby zbierać i przesyłać dzienniki z dzienników zwykłego dziennika systemu. Należy jednak wykonać następujące czynności, aby uniknąć wysyłania zdarzeń w obu formatach do usługi Azure wskaźnikowej, ponieważ spowoduje to duplikowanie zdarzeń.
 >
 >    Już skonfigurowano [zbieranie danych ze źródeł CEF](connect-common-event-format.md)i skonfigurowano agenta log Analytics w taki sam sposób:
@@ -97,7 +96,6 @@ Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego 
 >
 > 1. Na tych maszynach należy uruchomić następujące polecenie, aby wyłączyć synchronizację agenta z konfiguracją dziennika systemowego na platformie Azure. Dzięki temu zmiana konfiguracji wprowadzona w poprzednim kroku nie zostanie zastępować.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
-
 
 ### <a name="configure-the-syslog-connector-for-anomalous-ssh-login-detection"></a>Konfigurowanie łącznika dziennika systemowego na potrzeby wykrywania nietypowego logowania SSH
 
@@ -113,10 +111,7 @@ Wskaźnik "Azure" może stosować Uczenie maszynowe (ML) do danych dziennika sys
  
 To wykrywanie wymaga określonej konfiguracji łącznika danych dziennika systemowego: 
 
-1. W przypadku kroku 5 w poprzedniej procedurze upewnij się, że zarówno **uwierzytelnianie** , jak i **authpriv** są wybrane jako urządzenia do monitorowania. Zachowaj ustawienia domyślne opcji ważności, aby były zaznaczone. Na przykład:
-    
-    > [!div class="mx-imgBorder"]
-    > ![Urządzenia wymagane do wykrycia nietypowego logowania SSH](./media/connect-syslog/facilities-ssh-detection.png)
+1. Dla kroku 2 w obszarze [Konfigurowanie agenta log Analytics](#configure-the-log-analytics-agent) powyżej upewnij się, że zarówno **uwierzytelnianie** , jak i **authpriv** są wybrane jako urządzenia do monitorowania, i że są wybrane wszystkie. 
 
 2. Zezwalaj na zbieranie informacji dziennika systemu wystarczająco długo. Następnie przejdź do okna badanie **wskaźnikowe platformy Azure** i skopiuj i wklej następujące zapytanie:
     

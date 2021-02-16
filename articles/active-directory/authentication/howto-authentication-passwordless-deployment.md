@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743619"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530352"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planowanie wdrożenia uwierzytelniania bezhaseł w Azure Active Directory
 
@@ -150,7 +150,7 @@ Istnieją trzy typy wdrożeń logowania bez hasła dostępnych w kluczach zabezp
 -    Azure Active Directory aplikacje sieci Web w obsługiwanej przeglądarce
 -    Azure Active Directory dołączonych urządzeń z systemem Windows 10
 -    Hybrydowe Azure Active Directory dołączone do urządzeń z systemem Windows 10 (wersja zapoznawcza)
-     -    Zapewnia dostęp do zasobów lokalnych i w chmurze. Aby uzyskać więcej informacji o dostępie do zasobów lokalnych, zobacz [Logowanie jednokrotne do zasobów lokalnych przy użyciu kluczy FIDOP2](./howto-authentication-passwordless-security-key-on-premises.md)
+     -    Zapewnia dostęp do zasobów lokalnych i w chmurze. Aby uzyskać więcej informacji o dostępie do zasobów lokalnych, zobacz [Logowanie jednokrotne do zasobów lokalnych przy użyciu kluczy FIDO2](./howto-authentication-passwordless-security-key-on-premises.md)
 
 Należy włączyć **zgodne klucze zabezpieczeń FIDO2**. Firma Microsoft ogłosiła [kluczowe partnerstwo z dostawcami kluczy FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 

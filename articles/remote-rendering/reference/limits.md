@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 68c0c04feba2779598a500c84b2ba4a9086b104d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: f62a07ef7109c669c6abc90d4e1b4a2ee83ece23
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593956"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530250"
 ---
 # <a name="limitations"></a>Ograniczenia
 
@@ -36,7 +36,7 @@ Do interfejsu API frontonu (C++ i C#) mają zastosowanie następujące ogranicze
 
 ### <a name="overall-number-of-polygons"></a>Ogólna liczba wielokątów
 
-Dozwolona liczba wielokątów dla wszystkich załadowanych modeli zależy od rozmiaru maszyny wirtualnej, która została przeniesiona do [interfejsu API REST zarządzania sesją](../how-tos/session-rest-api.md#create-a-session):
+Dozwolona liczba wielokątów dla wszystkich załadowanych modeli zależy od rozmiaru maszyny wirtualnej, która została przeniesiona do [interfejsu API REST zarządzania sesją](../how-tos/session-rest-api.md):
 
 | Rozmiar serwera | Maksymalna liczba wielokątów |
 |:--------|:------------------|

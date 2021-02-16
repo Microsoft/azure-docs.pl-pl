@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594031"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530590"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Szybki Start: wdrażanie natywnego przykładu C++ w programie HoloLens
 
@@ -81,7 +81,7 @@ Ponieważ poświadczenia konta są stałe w kodzie źródłowym samouczka, nale�
 W celu zmiany należy zmienić następujące wartości:
 * `init.AccountId`, `init.AccountKey` i `init.AccountDomain` do korzystania z danych konta. Zobacz akapit dotyczący sposobu [pobierania informacji o koncie](../../../how-tos/create-an-account.md#retrieve-the-account-information).
 * Określ, gdzie utworzyć sesję renderowania zdalnego, modyfikując część regionu `init.RemoteRenderingDomain` ciągu dla innych regionów niż `westus2` na przykład `"westeurope.mixedreality.azure.com"` .
-* Ponadto, `m_sessionOverride` można zmienić na istniejący identyfikator sesji. Sesje można utworzyć poza tym przykładem, na przykład za pomocą [skryptu programu PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) lub bezpośrednio przy użyciu [interfejsu API REST sesji](../../../how-tos/session-rest-api.md#create-a-session) .
+* Ponadto, `m_sessionOverride` można zmienić na istniejący identyfikator sesji. Sesje można utworzyć poza tym przykładem, na przykład za pomocą [skryptu programu PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) lub bezpośrednio przy użyciu [interfejsu API REST sesji](../../../how-tos/session-rest-api.md) .
 Tworzenie sesji poza próbką jest zalecane, gdy próbka powinna być uruchamiana wiele razy. Jeśli sesja nie zostanie przeniesiona, podczas każdego uruchomienia przykładu zostanie utworzona nowa sesja, co może potrwać kilka minut.
 
 Teraz można skompilować aplikację.

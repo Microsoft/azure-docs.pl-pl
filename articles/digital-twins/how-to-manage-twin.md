@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8ba291f32456bf2b8432620d1f9ea313629c9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 46c41a4868c80bf9ba1c2c6d4a8286c3a8f47c3d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600516"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530437"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -72,7 +72,7 @@ Klasa pomocnika `BasicDigitalTwin` pozwala na bezpośrednie przechowywanie pól 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
 >[!NOTE]
-> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateOrReplaceDigitalTwinAsync()` wywołania. Przykład:
+> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateOrReplaceDigitalTwinAsync()` wywołania. Na przykład:
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -86,7 +86,7 @@ Możesz uzyskać dostęp do szczegółów dowolnych cyfr cyfrowych poprzez wywo�
 
 To wywołanie zwraca dane z sznurka jako typ obiektu o jednoznacznie określonym typie, taki jak `BasicDigitalTwin` . `BasicDigitalTwin` jest klasą pomocniczą serializacji zawartą w zestawie SDK, która zwróci podstawowe metadane i właściwości w formie wstępnie przeanalizowanej. Oto przykład sposobu użycia tego do wyświetlania szczegółów bliźniaczych:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
 Podczas pobierania sznurka przy użyciu metody są zwracane tylko właściwości, które zostały ustawione co najmniej raz `GetDigitalTwin()` .
 
@@ -208,9 +208,9 @@ Dwa wywołania, które modyfikują *Twin1* są wykonywane jeden po drugim, a dla
 
 Bliźniaczych reprezentacji można usunąć za pomocą `DeleteDigitalTwin()` metody. Można jednak usunąć sznurek tylko wtedy, gdy nie ma więcej relacji. Należy więc najpierw usunąć relacje przychodzące i wychodzące.
 
-Oto przykład kodu do usunięcia bliźniaczych reprezentacji i ich relacji:
+Oto przykład kodu, aby usunąć bliźniaczych reprezentacji i ich relacje. `DeleteDigitalTwin`Wywołanie zestawu SDK zostało wyróżnione w celu wyjaśnienia, gdzie znajduje się w kontekście szerszego przykładu.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin" highlight="7":::
 
 ### <a name="delete-all-digital-twins"></a>Usuń wszystkie bliźniaczych reprezentacji cyfrowe
 

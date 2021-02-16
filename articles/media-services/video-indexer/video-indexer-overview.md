@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 02/05/2021
 ms.author: juliako
-ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98783805"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530233"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Co to jest Azure Media Services Video Indexer?
 
@@ -84,7 +84,7 @@ Na poniższej liście przedstawiono szczegółowe informacje, które można pobr
 * **Wyliczenie głośników**: mapuje i rozumie, które osoby mówiące i kiedy. W pojedynczym pliku audio można wykryć szesnaste głośniki.
 * **Statystyka prelegenta**: zawiera statystykę współczynniki mowy dla głośników.
 * **Moderowanie zawartości tekstowej**: wykrywa jawny tekst w transkrypcji audio.
-* **Efekty audio**: identyfikuje efekty audio, takie jak claps, Speech i wyciszenie.
+* **Efekty audio** (publiczna wersja zapoznawcza): Program wykrywa następujące efekty audio w segmentach niebędących literami mowy zawartości: gunshot, szkło rozbicie, alarm, Siren, rozłożenie, Dog kora, wyróżniony, Laughter, reakcje na zjawisko (cheering, clapping i booing) i wyciszenie. Uwaga: pełny zestaw zdarzeń jest dostępny tylko w przypadku wybrania opcji "Zaawansowana analiza dźwiękowa" w polu Ustawienia wstępne przekazywania. w przeciwnym razie będzie dostępna tylko wartość "wyciszenie" i "reagowanie na działanie".
 * **Wykrywanie rozpoznawania emocji**: identyfikuje emocji w oparciu o mowę (co jest określane) i tonów głosu (jak są używane). Rozpoznawania emocji może być radością, smutek, gniew lub obawą.
 * **Tłumaczenie**: tworzy tłumaczenia transkrypcji audio na 54 języki.
 

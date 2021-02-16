@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: c375595951eb760d5341db424c5572719b97046a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aa57963ce369e4c8f84f4aae5f99fe343181ff6b
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103134"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530505"
 ---
 # <a name="connect-cyberark-enterprise-password-vault-epv-to-azure-sentinel"></a>Łączenie magazynu CyberArk Enterprise Passwords (EPV) z platformą Azure — wskaźnik
 
@@ -36,9 +36,9 @@ ms.locfileid: "93103134"
 
 Dzienniki EPV CyberArk są wysyłane z magazynu na serwer z systemem Linux (z systemem rsyslog lub dziennikiem systemu), z zainstalowanym agentem Log Analytics, który eksportuje dzienniki do usługi Azure wskaźnikowej. Jeśli nie masz takiego serwera przesyłania dalej dzienników, zapoznaj się z [tymi instrukcjami](connect-cef-agent.md) , aby rozpocząć działanie.
 
-1. W portalu wskaźnikowym platformy Azure kliknij pozycję **Łączniki danych** , wybierz pozycję **CYBERARK Enterprise Password EPV (wersja zapoznawcza)** , a następnie **Otwórz stronę łącznik** .
+1. W portalu wskaźnikowym platformy Azure kliknij pozycję **Łączniki danych**, wybierz pozycję **CYBERARK Enterprise Password EPV (wersja zapoznawcza)** , a następnie **Otwórz stronę łącznik**.
 
-1. Postępuj zgodnie z instrukcjami CyberArk EPV, aby skonfigurować wysyłanie danych dziennika systemowego do serwera przesyłania dalej dzienników.
+1. Postępuj zgodnie z [instrukcjami CYBERARK EPV](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) , aby skonfigurować wysyłanie danych dziennika systemowego do serwera przesyłania dalej dzienników.
 
 1. Sprawdź poprawność połączenia i sprawdź pozyskanie danych, korzystając z [tych instrukcji](connect-cef-verify.md). Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut.
 

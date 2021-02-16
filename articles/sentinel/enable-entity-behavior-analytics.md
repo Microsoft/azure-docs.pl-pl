@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 3f3e945a00ec7bba75deebb56118d45aa7ff571d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784732"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530726"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Włącz analizę zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik 
 
 > [!IMPORTANT]
 >
-> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** w programie **_All_* _ lokalizacje geograficzne i regiony.
+> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** we **_wszystkich_** obszarach i regionach platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,13 +33,16 @@ Aby włączyć lub wyłączyć tę funkcję (te wymagania wstępne nie są wymag
 
 - Użytkownik musi być członkiem Azure Active Directory organizacji, a nie użytkownikiem-gościem.
 
-- Użytkownik musi mieć przypisaną rolę "_ *administrator globalny*" lub " **administrator zabezpieczeń** " w usłudze Azure AD.
+- Użytkownik musi mieć przypisane role **administratora globalnego** lub **administratora zabezpieczeń** w usłudze Azure AD.
 
 - Użytkownik musi mieć przypisaną co najmniej jedną z następujących **ról platformy Azure** ([Dowiedz się więcej o funkcji RBAC na platformie Azure](roles.md)):
     - **Współautor Azure wskaźnikowego** na poziomie obszaru roboczego lub grupy zasobów.
     - **Log Analytics współautor** na poziomach grupy zasobów lub subskrypcji.
 
 - Obszar roboczy nie może mieć żadnych zastosowanych blokad zasobów platformy Azure. [Dowiedz się więcej o blokowaniu zasobów platformy Azure](../azure-resource-manager/management/lock-resources.md).
+
+> [!NOTE]
+> Do dodania funkcji UEBA do usługi Azure wskaźnikowej nie jest wymagana specjalna licencja, ale mogą być **naliczane dodatkowe opłaty** .
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Jak włączyć analizy zachowań użytkowników i jednostek
 

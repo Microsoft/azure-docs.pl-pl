@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831570"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530743"
 ---
 # <a name="examine-the-video-indexer-output"></a>Sprawdzanie danych wyjściowych Video Indexer
 
@@ -104,7 +104,7 @@ W tej sekcji przedstawiono podsumowanie szczegółowych informacji.
 |twarze/animatedCharacters|Może zawierać zero lub więcej twarzy. Aby uzyskać szczegółowe informacje, zobacz twarzy [/animatedCharacters](#facesanimatedcharacters).|
 |keywords (słowa kluczowe)|Może zawierać zero lub więcej słów kluczowych. Aby uzyskać szczegółowe informacje, zobacz [słowa kluczowe](#keywords).|
 |mową|Może zawierać zero lub więcej mową. Aby uzyskać szczegółowe informacje, zobacz [mową](#sentiments).|
-|audioEffects| Może zawierać zero lub więcej audioEffects. Aby uzyskać szczegółowe informacje, zobacz [audioEffects](#audioeffects).|
+|audioEffects| Może zawierać zero lub więcej audioEffects. Aby uzyskać szczegółowe informacje, zobacz [audioEffects](#audioeffects-public-preview).|
 |Etykieta| Może zawierać zero lub więcej etykiet. Aby uzyskać szczegółowe informacje, zobacz [etykiety](#labels).|
 |Marek| Może zawierać zero lub więcej marek. Aby uzyskać szczegółowe informacje, zobacz [marki](#brands).|
 |statystyki | Aby uzyskać szczegółowe informacje, zobacz [Statystyka](#statistics).|
@@ -181,7 +181,7 @@ Obiekt może mieć identyfikator, nazwę, miniaturę, inne metadane i listę wys
 |Etykieta|Szczegółowe informacje o [etykietach](#labels) .|
 |zrzutów|Informacje na temat [zrzutów](#shots) .|
 |Marek|Informacje o [marek](#brands) .|
-|audioEffects|[AudioEffects](#audioeffects) wgląd w szczegółowe dane.|
+|audioEffects|[AudioEffects](#audioeffects-public-preview) wgląd w szczegółowe dane.|
 |mową|[Mową](#sentiments) wgląd w szczegółowe dane.|
 |visualContentModeration|[VisualContentModeration](#visualcontentmoderation) wgląd w szczegółowe dane.|
 |textualContentModeration|[TextualContentModeration](#textualcontentmoderation) wgląd w szczegółowe dane.|
@@ -334,7 +334,7 @@ Przykład:
 
 `animatedCharacters` element zastępuje `faces` w przypadku, gdy wideo zostało zindeksowane przy użyciu modelu znaków animowanych. Odbywa się to przy użyciu modelu niestandardowego w Custom Vision, Video Indexer uruchamia go w klatkach kluczowych.
 
-Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa interfejs API rozpoznawania twarzy we wszystkich ramkach wideo, aby wykrywać twarze i osobistości.
+Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa Face API we wszystkich ramkach wideo, aby wykrywać twarze i osobistości.
 
 |Nazwa|Opis|
 |---|---|
@@ -590,26 +590,28 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 |SpeakerLongestMonolog|Najdłuższa monologa. Jeśli prelegent znajduje się w monolog, jest on uwzględniony. Wyciszenie na początku i na końcu monolog zostaje usunięte.| 
 |SpeakerTalkToListenRatio|Obliczenia opierają się na czasie poświęcanym na monolog osoby mówiącej (bez wyciszenia między nimi) podzieloną przez łączny czas wideo. Czas jest zaokrąglany do trzeciego punktu dziesiętnego.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="audioeffects-public-preview"></a>audioEffects (publiczna wersja zapoznawcza)
 
-|Nazwa|Opis|
+|Nazwa|Opis
 |---|---|
-|identyfikator|Identyfikator efektu audio.|
-|typ|Typ efektu audio (na przykład Clapping, Speech, cisz).|
-|Liczba|Lista przedziałów czasu, w których pojawił się ten efekt audio.|
+|identyfikator|Identyfikator efektu audio|
+|typ|Typ efektu audio|
+|Liczba|Lista przedziałów czasu, w których pojawił się ten efekt audio. Każde wystąpienie ma pole zaufania.|
 
 ```json
 "audioEffects": [
 {
     "id": 0,
-    "type": "Clapping",
+    "type": "Siren",
     "instances": [
     {
+       "confidence": 0.87,
         "start": "00:00:00",
         "end": "00:00:03"
     },
     {
-        "start": "00:01:13",
+       "confidence": 0.87,
+       "start": "00:01:13",
         "end": "00:01:21"
     }
     ]
