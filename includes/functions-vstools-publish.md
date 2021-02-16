@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e4231f5c4e947f29a72e581cf461ff737c1a0c82
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956489"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529689"
 ---
-1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Publikuj** i w obszarze **docelowym**, wybierz pozycję **Azure** następnie **dalej**.
 
-1. W obszarze **cel** wybierz pozycję **Azure** :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-1.png" alt-text="Wybierz element docelowy platformy Azure":::
+1. Dla **konkretnego obiektu docelowego** wybierz pozycję **Azure aplikacja funkcji (Windows)**, która tworzy aplikację funkcji działającą w systemie Windows.
 
-1. W obszarze **określony element docelowy** wybierz pozycję **Azure aplikacja funkcji (system Windows)**
+1. W obszarze **Funkcja** wybierz pozycję **Utwórz nową funkcję platformy Azure...** 
 
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Wybierz aplikacja funkcji platformy Azure":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-new-resource.png" alt-text="Utwórz nowe wystąpienie aplikacji funkcji":::
 
-1. W obszarze **Funkcja** wybierz pozycję **Utwórz nową funkcję platformy Azure...** , a następnie użyj wartości określonych w poniższej tabeli:
+1. Utwórz nowe wystąpienie przy użyciu wartości określonych w poniższej tabeli:
 
     | Ustawienie      | Wartość  | Opis                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -36,8 +36,9 @@ ms.locfileid: "97956489"
 
     ![Okno dialogowe Tworzenie usługi App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-1. Wybierz pozycję **Utwórz** , aby utworzyć aplikację funkcji i powiązane z nią zasoby na platformie Azure. 
-1. W **wystąpieniu funkcji** upewnij się, że jest zaznaczone pole wyboru **Uruchom z pliku pakietu** . Aplikacja funkcji jest wdrażana przy użyciu narzędzia [zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) z włączonym trybem [uruchamiania z pakietu](../articles/azure-functions/run-functions-from-deployment-package.md) . Jest to zalecana metoda wdrażania dla projektu usługi Functions, ponieważ powoduje to lepszą wydajność. 
+1. Wybierz pozycję **Utwórz** , aby utworzyć aplikację funkcji i powiązane z nią zasoby na platformie Azure. Stan tworzenia zasobów znajduje się w lewym dolnym rogu okna. 
+
+1. Z powrotem w **wystąpieniu funkcji** upewnij się, że jest zaznaczone pole wyboru **Uruchom z pliku pakietu** . Aplikacja funkcji jest wdrażana przy użyciu narzędzia [zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) z włączonym trybem [uruchamiania z pakietu](../articles/azure-functions/run-functions-from-deployment-package.md) . Jest to zalecana metoda wdrażania dla projektu usługi Functions, ponieważ powoduje to lepszą wydajność. 
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Zakończ tworzenie profilu":::
 

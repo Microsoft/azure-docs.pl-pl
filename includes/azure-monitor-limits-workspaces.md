@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1f461c4870b398a49387472c49d45b90929405c7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356214"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529745"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
 
 | Warstwa | Limit dziennie | Przechowywanie danych | Komentarz |
 |:---|:---|:---|:---|
 | Bieżąca warstwa cenowa za GB<br>(wprowadzono 2018 kwietnia) | Bez ograniczeń | 30-730 dni | Przechowywanie danych przez dłużej niż 31 dni jest dostępne w przypadku dodatkowych opłat. Dowiedz się więcej o cenach Azure Monitor. |
-| Starsze warstwy bezpłatne<br>(wprowadzono 2016 kwietnia) | 500 MB | 7 dni | Gdy obszar roboczy osiągnie limit 500 MB dziennie, pozyskiwanie danych zostaje zatrzymane i wznowione na początku następnego dnia. Dzień jest oparty na czasie UTC. Należy pamiętać, że dane zbierane przez Azure Security Center nie są uwzględniane w tym limicie 500 MB na dzień i będą nadal zbierane powyżej tego limitu.  |
+| Starsze warstwy bezpłatne<br>(wprowadzono 2016 kwietnia) | 500 MB | 7 dni | Gdy obszar roboczy osiągnie limit 500 MB dziennie, pozyskiwanie danych zostaje zatrzymane i wznowione na początku następnego dnia. Dzień jest oparty na czasie UTC. Należy pamiętać, że dane zbierane przez Azure Security Center nie są uwzględniane w tym limicie 500 MB na dzień i będą nadal zbierane powyżej tego limitu.  |
 | Starsza wersja autonomiczna na warstwę GB<br>(wprowadzono 2016 kwietnia) | Bez ograniczeń | od 30 do 730 dni | Przechowywanie danych przez dłużej niż 31 dni jest dostępne w przypadku dodatkowych opłat. Dowiedz się więcej o cenach Azure Monitor. |
 | Starsza wersja na węzeł (OMS)<br>(wprowadzono 2016 kwietnia) | Bez ograniczeń | od 30 do 730 dni | Przechowywanie danych przez dłużej niż 31 dni jest dostępne w przypadku dodatkowych opłat. Dowiedz się więcej o cenach Azure Monitor. |
 | Starsza warstwa standardowa | Bez ograniczeń | 30 dni  | Nie można dostosować przechowywania |
@@ -56,13 +56,19 @@ ms.locfileid: "96356214"
 | Maksymalny czas działania zapytania | 10 minut | Aby uzyskać szczegółowe informacje, zobacz [limity czasu](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) .  |
 | Maksymalna liczba żądań | 200 żądań w ciągu 30 sekund na użytkownika lub adres IP klienta usługi Azure AD | Aby uzyskać szczegółowe informacje, zobacz [limity szybkości](https://dev.loganalytics.io/documentation/Using-the-API/Limits) . |
 
+**Łącznik dzienników usługi Azure Monitor**
+| Kategoria | Limit | Komentarze |
+|:---|:---|:---|
+| Maksymalna liczba rekordów | 500 000 | |
+| Maksymalny limit czasu zapytania | 110 sekund | |
+| Wykresy | | Wizualizacja na stronie dzienniki i łącznik korzysta z różnych bibliotek wykresów, a niektóre funkcje nie są obecnie dostępne w łączniku. |
+
 **Ogólne limity obszaru roboczego**
 
 | Kategoria | Limit | Komentarze |
 |:---|:---|:---|
 | Maksymalna liczba kolumn w tabeli         | 500 | |
 | Maksymalna liczba znaków w nazwie kolumny | 500 | |
-| Eksportowanie danych | Obecnie niedostępne | Agreguj i Eksportuj dane przy użyciu funkcji platformy Azure lub aplikacji logiki. | 
 
 **<a name="data-ingestion-volume-rate">Współczynnik ilości woluminu pozyskiwania danych</a>**
 
