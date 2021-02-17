@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z rozszerzeniami maszyn wirtualnych z obsługą
 description: W tym artykule opisano sposób rozwiązywania problemów z rozszerzeniami maszyn wirtualnych platformy Azure, które powstają w przypadku serwerów z obsługą usługi Azure Arc.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: ffd7db5ff7da3d7f60762117f80d7b9b5af6f646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e5c8ec00a894c6a54c64494edd8f259faf2dc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347454"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584672"
 ---
 # <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Rozwiązywanie problemów z rozszerzeniami maszyn wirtualnych z włączonym łukiem
 
@@ -36,9 +36,9 @@ Poniższe kroki rozwiązywania problemów dotyczą wszystkich rozszerzeń maszyn
 
 ### <a name="log-analytics-agent-for-linux"></a>Agent Log Analytics dla systemu Linux
 
-- Agent Log Analytics w wersji 1.13.9 (odpowiadająca wersja rozszerzenia to 1.13.15) nie oznacza prawidłowo znaku przekazane dane z IDENTYFIKATORem zasobu serwera z włączonym łukiem platformy Azure. Mimo że dzienniki są wysyłane do usługi, podczas próby wyświetlenia danych z wybranego dostępnego serwera po wybraniu **dzienników** lub **szczegółowych**informacji nie są zwracane żadne dane. Dane można wyświetlić, uruchamiając zapytania z dzienników Azure Monitor lub z Azure Monitor dla maszyn wirtualnych, które są objęte zakresem obszaru roboczego.
+- Agent Log Analytics w wersji 1.13.9 (odpowiadająca wersja rozszerzenia to 1.13.15) nie oznacza prawidłowo znaku przekazane dane z IDENTYFIKATORem zasobu serwera z włączonym łukiem platformy Azure. Mimo że dzienniki są wysyłane do usługi, podczas próby wyświetlenia danych z wybranego dostępnego serwera po wybraniu **dzienników** lub **szczegółowych** informacji nie są zwracane żadne dane. Dane można wyświetlić, uruchamiając zapytania z dzienników Azure Monitor lub z Azure Monitor dla maszyn wirtualnych, które są objęte zakresem obszaru roboczego.
 
-- Niektóre dystrybucje nie są obecnie obsługiwane przez agenta Log Analytics dla systemu Linux. Agent wymaga zainstalowania dodatkowych zależności, w tym języka Python 2. Przejrzyj macierz pomocy technicznej i wymagania wstępne w [tym miejscu](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
+- Niektóre dystrybucje nie są obecnie obsługiwane przez agenta Log Analytics dla systemu Linux. Agent wymaga zainstalowania dodatkowych zależności, w tym języka Python 2. Przejrzyj macierz pomocy technicznej i wymagania wstępne w [tym miejscu](../../azure-monitor/agents/agents-overview.md#supported-operating-systems).
 
 - Kod błędu 52 w komunikacie o stanie wskazuje brakującą zależność. Sprawdź dane wyjściowe i dzienniki, aby uzyskać więcej informacji o braku zależności.
 

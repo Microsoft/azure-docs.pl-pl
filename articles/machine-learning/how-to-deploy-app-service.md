@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 5f3861d43715ed68116d25206efe4347ea96805c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cd3e2e552376a03d98673447a1b7b29f7ae3441e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452144"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579212"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Wdróż model uczenia maszynowego w Azure App Service (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Dowiedz się, jak wdrożyć model na podstawie Azure Machine Learning jako aplik
 Za pomocą Azure Machine Learning można tworzyć obrazy platformy Docker z przeszkolonych modeli uczenia maszynowego. Ten obraz zawiera usługę sieci Web, która odbiera dane, przesyła ją do modelu, a następnie zwraca odpowiedź. Azure App Service można użyć do wdrożenia obrazu i zapewnia następujące funkcje:
 
 * Zaawansowane [uwierzytelnianie](../app-service/configure-authentication-provider-aad.md) na potrzeby zwiększonych zabezpieczeń. Metody uwierzytelniania obejmują zarówno Azure Active Directory, jak i uwierzytelnianie wieloskładnikowe.
-* [Skalowanie automatyczne](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) bez konieczności ponownego wdrażania.
+* [Skalowanie automatyczne](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) bez konieczności ponownego wdrażania.
 * [Obsługa protokołu TLS](../app-service/configure-ssl-certificate-in-code.md) w celu zapewnienia bezpiecznej komunikacji między klientami a usługą.
 
 Aby uzyskać więcej informacji na temat funkcji zapewnianych przez Azure App Service, zobacz [omówienie App Service](../app-service/overview.md).
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak skonfigurować aplikację sieci Web w [App Service w](/azure/app-service/containers/) dokumentacji systemu Linux.
-* Dowiedz się więcej na temat skalowania w temacie [wprowadzenie do automatycznego skalowania na platformie Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
+* Dowiedz się więcej na temat skalowania w temacie [wprowadzenie do automatycznego skalowania na platformie Azure](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
 * [W Azure App Service Użyj certyfikatu TLS/SSL](../app-service/configure-ssl-certificate-in-code.md).
 * [Skonfiguruj aplikację App Service, aby używała Azure Active Directory logowania](../app-service/configure-authentication-provider-aad.md).
 * [Korzystanie z modelu ML wdrożonego jako usługa sieci Web](how-to-consume-web-service.md)

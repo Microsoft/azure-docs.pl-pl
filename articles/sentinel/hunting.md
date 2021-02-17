@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: ca483d993290e4d66ba257d4cb5de7fc3c952405
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b88185a09e69b1c7bd6c6c58b8e22190b4a2e394
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660835"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576758"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>W przypadku zagrożeń związanych z platformą Azure — wskaźnikiem
 
@@ -66,7 +66,7 @@ Korzystając z łowiectwa wskaźnikowego platformy Azure, możesz korzystać z n
 
 ## <a name="query-language"></a>Język zapytań 
 
-Łowiectwo na platformie Azure — na podstawie języka zapytań Kusto. Aby uzyskać więcej informacji na temat języka zapytań i obsługiwanych operatorów, zobacz [Dokumentacja języka zapytań](../azure-monitor/log-query/get-started-queries.md).
+Łowiectwo na platformie Azure — na podstawie języka zapytań Kusto. Aby uzyskać więcej informacji na temat języka zapytań i obsługiwanych operatorów, zobacz [Dokumentacja języka zapytań](../azure-monitor/logs/get-started-queries.md).
 
 ## <a name="public-hunting-query-github-repository"></a>Zapytanie dotyczące publicznego polowania w repozytorium GitHub
 

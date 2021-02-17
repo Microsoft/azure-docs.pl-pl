@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388009"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580987"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu runbook
 
@@ -128,7 +128,7 @@ Możliwe są następujące problemy:
 #### <a name="resolution"></a>Rozwiązanie
 
 ##### <a name="mistyped-workspace-id-or-key"></a>Niewpisany identyfikator lub klucz obszaru roboczego
-Aby sprawdzić, czy identyfikator obszaru roboczego agenta lub klucz obszaru roboczego został wpisany jako błąd, zobacz [Dodawanie lub usuwanie obszaru roboczego — Agent systemu](../../azure-monitor/platform/agent-manage.md#windows-agent) Windows dla agenta systemu Windows lub [Dodawanie lub usuwanie agenta obszaru roboczego — Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) Agent dla agenta Linux. Upewnij się, że wybrano pełny ciąg z Azure Portal i skopiuj go i wklej uważnie.
+Aby sprawdzić, czy identyfikator obszaru roboczego agenta lub klucz obszaru roboczego został wpisany jako błąd, zobacz [Dodawanie lub usuwanie obszaru roboczego — Agent systemu](../../azure-monitor/agents/agent-manage.md#windows-agent) Windows dla agenta systemu Windows lub [Dodawanie lub usuwanie agenta obszaru roboczego — Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) Agent dla agenta Linux. Upewnij się, że wybrano pełny ciąg z Azure Portal i skopiuj go i wklej uważnie.
 
 ##### <a name="configuration-not-downloaded"></a>Nie pobrano konfiguracji
 
@@ -169,7 +169,7 @@ Umieść ten plik w tym samym folderze, w którym znajduje się plik wykonywalny
 
 ## <a name="linux"></a>Linux
 
-Hybrydowy proces roboczy elementu Runbook systemu Linux zależy od [agenta log Analytics dla systemu Linux](../../azure-monitor/platform/log-analytics-agent.md) do komunikowania się z kontem usługi Automation w celu zarejestrowania procesu roboczego, odebrania zadań elementu Runbook i stanu raportu. Jeśli rejestracja procesu roboczego nie powiedzie się, poniżej przedstawiono niektóre możliwe przyczyny błędu.
+Hybrydowy proces roboczy elementu Runbook systemu Linux zależy od [agenta log Analytics dla systemu Linux](../../azure-monitor/agents/log-analytics-agent.md) do komunikowania się z kontem usługi Automation w celu zarejestrowania procesu roboczego, odebrania zadań elementu Runbook i stanu raportu. Jeśli rejestracja procesu roboczego nie powiedzie się, poniżej przedstawiono niektóre możliwe przyczyny błędu.
 
 ### <a name="scenario-linux-hybrid-runbook-worker-receives-prompt-for-a-password-when-signing-a-runbook"></a><a name="prompt-for-password"></a>Scenariusz: hybrydowy proces roboczy elementu Runbook systemu Linux odbiera monit o podanie hasła podczas podpisywania elementu Runbook
 
@@ -225,7 +225,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-Hybrydowy proces roboczy elementu Runbook systemu Windows zależy od [agenta log Analytics dla systemu Windows](../../azure-monitor/platform/log-analytics-agent.md) , który komunikuje się z kontem usługi Automation w celu zarejestrowania procesu roboczego, odbierania zadań elementu Runbook i stanu raportu. Jeśli rejestracja procesu roboczego nie powiedzie się, ta sekcja zawiera pewne możliwe przyczyny.
+Hybrydowy proces roboczy elementu Runbook systemu Windows zależy od [agenta log Analytics dla systemu Windows](../../azure-monitor/agents/log-analytics-agent.md) , który komunikuje się z kontem usługi Automation w celu zarejestrowania procesu roboczego, odbierania zadań elementu Runbook i stanu raportu. Jeśli rejestracja procesu roboczego nie powiedzie się, ta sekcja zawiera pewne możliwe przyczyny.
 
 ### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Scenariusz: Agent Log Analytics dla systemu Windows nie jest uruchomiony
 
@@ -253,7 +253,7 @@ Przyczyną tego problemu może być Microsoft Azure przez serwer proxy lub zapor
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Dzienniki są przechowywane lokalnie na każdym hybrydowym procesie roboczym w witrynie C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Możesz sprawdzić, czy w dziennikach zdarzeń **aplikacji i usług Logs\Microsoft-SMA\Operations** oraz **aplikacji i usług Logs\Operations Manager** znajdują się jakieś zdarzenia ostrzegawcze lub błędy. Te dzienniki wskazują łączność lub inny typ problemu, który wpływa na włączenie roli do Azure Automation lub wystąpił problem w ramach normalnych operacji. Aby uzyskać dodatkową pomoc w rozwiązywaniu problemów z agentem Log Analytics, zobacz [Rozwiązywanie problemów z log Analytics agentem systemu Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Dzienniki są przechowywane lokalnie na każdym hybrydowym procesie roboczym w witrynie C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Możesz sprawdzić, czy w dziennikach zdarzeń **aplikacji i usług Logs\Microsoft-SMA\Operations** oraz **aplikacji i usług Logs\Operations Manager** znajdują się jakieś zdarzenia ostrzegawcze lub błędy. Te dzienniki wskazują łączność lub inny typ problemu, który wpływa na włączenie roli do Azure Automation lub wystąpił problem w ramach normalnych operacji. Aby uzyskać dodatkową pomoc w rozwiązywaniu problemów z agentem Log Analytics, zobacz [Rozwiązywanie problemów z log Analytics agentem systemu Windows](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 Hybrydowe procesy robocze wysyłają [dane wyjściowe i komunikaty elementu Runbook](../automation-runbook-output-and-messages.md) do Azure Automation w taki sam sposób, jak zadania elementu Runbook działające w chmurze wysyłają dane wyjściowe i komunikaty. Możesz włączyć strumienie pełnych i postępów tak samo jak w przypadku elementów Runbook.
 

@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 878ae21cfbe55565c4a20064d937d1447f96ce7a
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: fdf482f5afc444aff77c2ab528a4e333a0282c3d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209903"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582358"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Eksploruj Azure Monitor dla Azure Cosmos DB
 
@@ -125,6 +125,6 @@ Wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule doty
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications-portal.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
+* Konfigurowanie [alertów metryk](../alerts/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications-portal.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
 
-* Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).
+* Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../visualize/workbooks-overview.md).

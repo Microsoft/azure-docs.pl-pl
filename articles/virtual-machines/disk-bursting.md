@@ -3,17 +3,17 @@ title: Zarządzanie dyskami zarządzanymi
 description: Dowiedz się więcej na temat obciążeń dysków dla dysków platformy Azure i maszyn wirtualnych platformy Azure.
 author: albecker1
 ms.author: albecker
-ms.date: 09/22/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: dcdbf94e547581cb9ff885ac5896467abdf316ae
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1cedac5814d1c547a28e9b1c894f416af5a924b5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576197"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585060"
 ---
 # <a name="managed-disk-bursting"></a>Zarządzanie dyskami zarządzanymi
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
@@ -30,3 +30,7 @@ W przypadku maszyn wirtualnych, które go obsługują, funkcja przenoszenia jest
 Rozbicie jest również dostępne w [dysków SSD Premium](disks-types.md#premium-ssd) w przypadku dysków o rozmiarach P20 i mniejszych we wszystkich regionach w chmurach publicznych, administracji publicznej i chińskiej platformy Azure. W przypadku wszystkich nowych i istniejących wdrożeń rozmiarów dysków, które go obsługują, funkcja przenoszenia dysków jest domyślnie włączona. 
 
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting-2.md)]
+
+## <a name="next-steps"></a>Następne kroki
+
+Aby dowiedzieć się, jak uzyskać wgląd w zasoby dotyczące zasobów, zobacz [metryki](disks-metrics.md)dotyczące tworzenia dysków.

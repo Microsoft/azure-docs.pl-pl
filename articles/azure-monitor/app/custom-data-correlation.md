@@ -6,12 +6,12 @@ author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 17de697686485d695586ffa798196efb4a34c251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933280b5d3b81098f18f22a72bd2c7f942869e6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092919"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578328"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Skorelowanie danych Application Insights z niestandardowymi źródłami danych
 
@@ -31,19 +31,19 @@ Ponieważ Application Insights jest obsługiwana przez zaawansowaną platformę 
 
 W tej sekcji zawarto informacje na temat pobierania danych do dzienników Azure Monitor.
 
-Jeśli jeszcze tego nie masz, Zainicjuj obsługę nowego obszaru roboczego Log Analytics, wykonując [te instrukcje](../learn/quick-collect-azurevm.md) w systemie i uwzględniając krok "Utwórz obszar roboczy".
+Jeśli jeszcze tego nie masz, Zainicjuj obsługę nowego obszaru roboczego Log Analytics, wykonując [te instrukcje](../vm/quick-collect-azurevm.md) w systemie i uwzględniając krok "Utwórz obszar roboczy".
 
 Aby rozpocząć wysyłanie danych dziennika do Azure Monitor. Istnieje kilka opcji:
 
-- W przypadku mechanizmu synchronicznego można bezpośrednio wywołać [interfejs API modułu zbierającego dane](../platform/data-collector-api.md) lub użyć naszego łącznika aplikacji logiki — po prostu zapoznaj się z tematem "Azure log Analytics" i wybierz opcję "Wyślij dane":
+- W przypadku mechanizmu synchronicznego można bezpośrednio wywołać [interfejs API modułu zbierającego dane](../logs/data-collector-api.md) lub użyć naszego łącznika aplikacji logiki — po prostu zapoznaj się z tematem "Azure log Analytics" i wybierz opcję "Wyślij dane":
 
   ![Wybór i akcja zrzutu ekranu](./media/custom-data-correlation/01-logic-app-connector.png)  
 
-- Dla opcji asynchronicznej Użyj interfejsu API modułu zbierającego dane, aby skompilować potok przetwarzania. Zobacz [ten artykuł](../platform/create-pipeline-datacollector-api.md) , aby uzyskać szczegółowe informacje.
+- Dla opcji asynchronicznej Użyj interfejsu API modułu zbierającego dane, aby skompilować potok przetwarzania. Zobacz [ten artykuł](../logs/create-pipeline-datacollector-api.md) , aby uzyskać szczegółowe informacje.
 
 ## <a name="correlating-data"></a>Korelowanie danych
 
-Application Insights jest oparty na platformie dzienników Azure Monitor. W związku z tym możemy używać [sprzężeń między zasobami](../log-query/cross-workspace-query.md) w celu skorelowania dowolnych danych w Azure monitor z naszymi Application Insights danymi.
+Application Insights jest oparty na platformie dzienników Azure Monitor. W związku z tym możemy używać [sprzężeń między zasobami](../logs/cross-workspace-query.md) w celu skorelowania dowolnych danych w Azure monitor z naszymi Application Insights danymi.
 
 Można na przykład pozyskać nasze spisy i lokalizacje laboratorium w tabeli o nazwie "LabLocations_CL" w obszarze roboczym Log Analytics o nazwie "myLA". Jeśli chcemy przejrzeć nasze żądania śledzone w Application Insights aplikacji o nazwie "myAI" i skorelować nazwy maszyn, które obsługują żądania do lokalizacji tych maszyn przechowywanych w wcześniej wymienionej tabeli niestandardowej, można uruchomić następujące zapytanie z poziomu Application Insights lub Azure Monitor kontekstu:
 
@@ -57,5 +57,5 @@ app('myAI').requests
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Sprawdź informacje o [interfejsie API modułu zbierającego dane](../platform/data-collector-api.md) .
-- Aby uzyskać więcej informacji na temat [sprzężeń między zasobami](../log-query/cross-workspace-query.md).
+- Sprawdź informacje o [interfejsie API modułu zbierającego dane](../logs/data-collector-api.md) .
+- Aby uzyskać więcej informacji na temat [sprzężeń między zasobami](../logs/cross-workspace-query.md).

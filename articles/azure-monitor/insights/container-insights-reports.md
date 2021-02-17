@@ -3,15 +3,15 @@ title: Raporty w Azure Monitor dla kontenerów
 description: Opisuje raporty dostępne do analizowania danych zbieranych przez Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 3cc2f8fb9bfaa278ce06b4a8cd6d379397b7129a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907602"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582307"
 ---
 # <a name="reports-in-azure-monitor-for-containers"></a>Raporty w Azure Monitor dla kontenerów
-Raporty w Azure Monitor for Containers są zalecane dla wbudowanych [skoroszytów platformy Azure](../platform/workbooks-overview.md). W tym artykule opisano różne raporty, które są dostępne, oraz sposób uzyskiwania do nich dostępu.
+Raporty w Azure Monitor for Containers są zalecane dla wbudowanych [skoroszytów platformy Azure](../visualize/workbooks-overview.md). W tym artykule opisano różne raporty, które są dostępne, oraz sposób uzyskiwania do nich dostępu.
 
 ## <a name="viewing-reports"></a>Wyświetlanie raportów
 Z menu **Azure monitor** w Azure Portal wybierz pozycję **Containers (kontenery**). Wybierz pozycję szczegółowe **informacje** w sekcji **monitorowanie** , wybierz konkretny klaster, a następnie wybierz stronę **raporty (wersja zapoznawcza)** . 
@@ -19,7 +19,7 @@ Z menu **Azure monitor** w Azure Portal wybierz pozycję **Containers (kontenery
 [![Strona raporty](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
 ## <a name="create-a-custom-workbook"></a>Tworzenie skoroszytu niestandardowego
-Aby utworzyć niestandardowy skoroszyt oparty na dowolnym z tych skoroszytów, wybierz listę rozwijaną **Wyświetl skoroszyty** , a następnie **Przejdź do galerii AKS** w dolnej części listy rozwijanej. Aby uzyskać więcej informacji na temat skoroszytów i szablonów skoroszytów, zobacz [Azure monitor skoroszytów](../platform/workbooks-overview.md) .
+Aby utworzyć niestandardowy skoroszyt oparty na dowolnym z tych skoroszytów, wybierz listę rozwijaną **Wyświetl skoroszyty** , a następnie **Przejdź do galerii AKS** w dolnej części listy rozwijanej. Aby uzyskać więcej informacji na temat skoroszytów i szablonów skoroszytów, zobacz [Azure monitor skoroszytów](../visualize/workbooks-overview.md) .
 
 [![Galeria AKS](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
 
@@ -78,4 +78,4 @@ Aby utworzyć niestandardowy skoroszyt oparty na dowolnym z tych skoroszytów, w
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać szczegółowe informacje o skoroszytach w Azure Monitor, zobacz [Azure monitor skoroszytów](../platform/workbooks-overview.md) .
+- Aby uzyskać szczegółowe informacje o skoroszytach w Azure Monitor, zobacz [Azure monitor skoroszytów](../visualize/workbooks-overview.md) .

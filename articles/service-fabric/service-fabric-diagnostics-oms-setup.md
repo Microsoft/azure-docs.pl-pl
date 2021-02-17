@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba62ac80b2f8d318d0d13e81e88cc63a8d893a2b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258651"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570344"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Konfigurowanie dzienników Azure Monitor dla klastra
 
@@ -47,13 +47,13 @@ W przypadku korzystania z systemu Windows wykonaj następujące kroki, aby poł�
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Łączenie obszaru roboczego Log Analytics z klastrem 
 
-1. Obszar roboczy musi być połączony z danymi diagnostycznymi pochodzącymi z klastra. Przejdź do grupy zasobów, w której utworzono rozwiązanie Service Fabric Analytics. Wybierz pozycję **servicefabric \<nameOfWorkspace\> ** i przejdź do jej strony przegląd. W tym miejscu możesz zmienić ustawienia rozwiązania, ustawienia obszaru roboczego i uzyskać dostęp do obszaru roboczego Log Analytics.
+1. Obszar roboczy musi być połączony z danymi diagnostycznymi pochodzącymi z klastra. Przejdź do grupy zasobów, w której utworzono rozwiązanie Service Fabric Analytics. Wybierz pozycję **servicefabric \<nameOfWorkspace\>** i przejdź do jej strony przegląd. W tym miejscu możesz zmienić ustawienia rozwiązania, ustawienia obszaru roboczego i uzyskać dostęp do obszaru roboczego Log Analytics.
 
-2. W menu nawigacji po lewej stronie w obszarze **źródła danych obszaru roboczego**wybierz pozycję **dzienniki kont magazynu**.
+2. W menu nawigacji po lewej stronie w obszarze **źródła danych obszaru roboczego** wybierz pozycję **dzienniki kont magazynu**.
 
 3. Na stronie **dzienniki konta magazynu** wybierz pozycję **Dodaj** u góry, aby dodać dzienniki klastra do obszaru roboczego.
 
-4. Wybierz pozycję **konto magazynu** , aby dodać odpowiednie konto utworzone w klastrze. Jeśli została użyta nazwa domyślna, konto magazynu to **sfdg \<resourceGroupName\> **. Można to również potwierdzić przy użyciu szablonu Azure Resource Manager używanego do wdrożenia klastra, sprawdzając wartość używaną dla **applicationDiagnosticsStorageAccountName**. Jeśli nazwa nie zostanie wyświetlona, przewiń w dół i wybierz pozycję **Załaduj więcej**. Wybierz nazwę konta magazynu.
+4. Wybierz pozycję **konto magazynu** , aby dodać odpowiednie konto utworzone w klastrze. Jeśli została użyta nazwa domyślna, konto magazynu to **sfdg \<resourceGroupName\>**. Można to również potwierdzić przy użyciu szablonu Azure Resource Manager używanego do wdrożenia klastra, sprawdzając wartość używaną dla **applicationDiagnosticsStorageAccountName**. Jeśli nazwa nie zostanie wyświetlona, przewiń w dół i wybierz pozycję **Załaduj więcej**. Wybierz nazwę konta magazynu.
 
 5. Określ typ danych. Ustaw ją na **Service Fabric zdarzenia**.
 
@@ -119,9 +119,9 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 Gdy skończysz, wykonaj kroki opisane w poprzedniej sekcji, aby połączyć Azure Monitor dzienniki z odpowiednim kontem magazynu.
 
-Możesz również dodawać inne rozwiązania lub wprowadzać inne modyfikacje w obszarze roboczym Log Analytics za pomocą programu PowerShell. Aby dowiedzieć się więcej, zobacz [Zarządzanie dziennikami Azure monitor przy użyciu programu PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+Możesz również dodawać inne rozwiązania lub wprowadzać inne modyfikacje w obszarze roboczym Log Analytics za pomocą programu PowerShell. Aby dowiedzieć się więcej, zobacz [Zarządzanie dziennikami Azure monitor przy użyciu programu PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wdróż agenta log Analytics](service-fabric-diagnostics-oms-agent.md) w węzłach w celu zebrania liczników wydajności i zebrania statystyk i dzienników platformy Docker dla kontenerów
-* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/log-query/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
-* [Używanie projektanta widoków do tworzenia widoków niestandardowych w dziennikach Azure Monitor](../azure-monitor/platform/view-designer.md)
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/logs/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
+* [Używanie projektanta widoków do tworzenia widoków niestandardowych w dziennikach Azure Monitor](../azure-monitor/visualize/view-designer.md)

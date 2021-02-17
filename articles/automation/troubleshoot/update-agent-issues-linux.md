@@ -5,12 +5,12 @@ services: automation
 ms.date: 01/25/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: 2fd92d79a3322b17f528194b9d39c26bf4c93b0c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: da7c0ea670b4c4201930ce5d0f01e7bd9d9835e9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896261"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581041"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Rozwiązywanie problemów z agentem aktualizacji systemu Linux
 
@@ -62,7 +62,7 @@ Sprawdzanie systemu operacyjnego sprawdza, czy hybrydowy proces roboczy elementu
 
 ### <a name="log-analytics-agent"></a>Agent usługi Log Analytics
 
-Ten test zapewnia, że Agent Log Analytics dla systemu Linux jest zainstalowany. Aby uzyskać instrukcje dotyczące sposobu instalacji, zobacz [Instalowanie agenta dla systemu Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux).
+Ten test zapewnia, że Agent Log Analytics dla systemu Linux jest zainstalowany. Aby uzyskać instrukcje dotyczące sposobu instalacji, zobacz [Instalowanie agenta dla systemu Linux](../../azure-monitor/vm/quick-collect-linux-computer.md#install-the-agent-for-linux).
 
 ### <a name="log-analytics-agent-status"></a>Stan agenta Log Analytics
 

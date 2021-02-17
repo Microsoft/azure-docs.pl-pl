@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2bfd1064a02f0fb4982c9d2747b85707e98b5bcd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954533"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571858"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Samouczek: przechowywanie zdarzeń Azure Media Services na platformie Azure Log Analytics
 
@@ -42,11 +42,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 > * [Subskrypcja platformy Azure](how-to-set-azure-subscription.md)
 > * Konto [Media Services](create-account-howto.md) i Grupa zasobów.
 > * Instalacja programu [Narzędzia FFmpeg](https://ffmpeg.org/download.html) dla systemu operacyjnego.
-> * Obszar roboczy [log Analytics](../../azure-monitor/learn/quick-create-workspace.md)
+> * Obszar roboczy [log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 ## <a name="subscribe-to-a-media-services-event-with-logic-app"></a>Subskrybowanie zdarzenia Media Services za pomocą aplikacji logiki
 
-1. W Azure Portal, jeśli jeszcze tego nie zrobiono, Utwórz [log Analytics](../../azure-monitor/learn/quick-create-workspace.md) obszar roboczy. Będziesz potrzebować identyfikatora obszaru roboczego i jednego z kluczy, więc należy się zadbać o to, aby okno przeglądarki było otwarte. Następnie otwórz Portal na innej karcie lub w oknie.
+1. W Azure Portal, jeśli jeszcze tego nie zrobiono, Utwórz [log Analytics](../../azure-monitor/logs/quick-create-workspace.md) obszar roboczy. Będziesz potrzebować identyfikatora obszaru roboczego i jednego z kluczy, więc należy się zadbać o to, aby okno przeglądarki było otwarte. Następnie otwórz Portal na innej karcie lub w oknie.
 
 1. Przejdź do konta Azure Media Services i wybierz pozycję **zdarzenia**. Spowoduje to wyświetlenie wszystkich metod subskrybowania zdarzeń Azure Media Services.
     > [!div class="mx-imgBorder"]
@@ -143,7 +143,7 @@ Teraz, gdy subskrybujesz zdarzenia, Utwórz akcję.
     > [!div class="mx-imgBorder"]
     > ![Zobacz wszystkie nowe zasoby w grupie zasobów](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testowanie
 
 Aby sprawdzić, jak faktycznie działa, Utwórz wydarzenie na żywo w Azure Media Services. Utwórz wydarzenie RTMP na żywo i użyj narzędzia FFmpeg do wypchnięcia strumienia "Live" na podstawie przykładowego pliku. MP4. Po utworzeniu zdarzenia Uzyskaj adres URL pozyskiwania RTMP.
 
@@ -230,4 +230,4 @@ Jeśli nie chcesz nadal używać zasobów utworzonych w ramach tego samouczka, u
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz tworzyć różne zapytania i je zapisywać. Można je dodać do [pulpitu nawigacyjnego platformy Azure](../../azure-monitor/learn/tutorial-logs-dashboards.md).
+Możesz tworzyć różne zapytania i je zapisywać. Można je dodać do [pulpitu nawigacyjnego platformy Azure](../../azure-monitor/visualize/tutorial-logs-dashboards.md).

@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8bd20e3c7207c75e87a2132fca89906885de2676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446414"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579260"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z połączeniami z platformą Azure IoT Hub
 
@@ -82,7 +82,7 @@ Metryka [*połączone urządzenia (wersja zapoznawcza)*](monitor-iot-hub-referen
 
 Można użyć reguł alertów dotyczących metryk, aby monitorować anomalie rozłączenia urządzenia w skali. Oznacza to, że w przypadku nieoczekiwanego odłączenia dużej liczby urządzeń. Po wykryciu takiego wystąpienia można sprawdzić dzienniki, aby pomóc w rozwiązaniu problemu. Aby monitorować rozłączanie i rozłączanie poszczególnych urządzeń dla urządzeń krytycznych; należy jednak użyć Event Grid. Event Grid również zapewnia więcej doświadczenia w czasie rzeczywistym niż metryki platformy Azure.
 
-Aby dowiedzieć się więcej o alertach z IoT Hub, zobacz [alerty w IoT Hub monitor](monitor-iot-hub.md#alerts). Aby uzyskać szczegółowe instrukcje dotyczące tworzenia alertów w IoT Hub, zobacz [samouczek korzystanie z metryk i dzienników](tutorial-use-metrics-and-diags.md). Aby zapoznać się z bardziej szczegółowym omówieniem alertów, zobacz [Omówienie alertów w Microsoft Azure](../azure-monitor/platform/alerts-overview.md) w dokumentacji Azure monitor.
+Aby dowiedzieć się więcej o alertach z IoT Hub, zobacz [alerty w IoT Hub monitor](monitor-iot-hub.md#alerts). Aby uzyskać szczegółowe instrukcje dotyczące tworzenia alertów w IoT Hub, zobacz [samouczek korzystanie z metryk i dzienników](tutorial-use-metrics-and-diags.md). Aby zapoznać się z bardziej szczegółowym omówieniem alertów, zobacz [Omówienie alertów w Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) w dokumentacji Azure monitor.
 
 ## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Azure Monitor: korzystanie z dzienników w celu rozwiązywania problemów z łącznością
 

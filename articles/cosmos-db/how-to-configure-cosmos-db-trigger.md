@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: f753010eb994c9f3c286ad6eca6392ca7b643075
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 30328db465e0d9bf8c1ce67d92e48c688c51e043
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932915"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574620"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Jak skonfigurować rejestrowanie i łączność z wyzwalaczem Azure Functions dla Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ Po wdrożeniu funkcji platformy Azure przy użyciu zaktualizowanej konfiguracji 
 
 ### <a name="query-the-logs"></a>Wysyłanie zapytań do dzienników
 
-Uruchom następujące zapytanie, aby wykonać zapytanie dotyczące dzienników generowanych przez wyzwalacz Azure Functions dla Cosmos DB na [platformie Azure Application Insights "Analiza](../azure-monitor/log-query/log-query-overview.md):
+Uruchom następujące zapytanie, aby wykonać zapytanie dotyczące dzienników generowanych przez wyzwalacz Azure Functions dla Cosmos DB na [platformie Azure Application Insights "Analiza](../azure-monitor/logs/log-query-overview.md):
 
 ```sql
 traces

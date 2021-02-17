@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8e2144a61d83f6c7dece8f34232031192b51cde8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d36ed6a795c5fa2241ee71751053a4cb5986aaf0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412701"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576820"
 ---
 # <a name="security-control-data-protection"></a>Kontrola zabezpieczeń: Ochrona danych
 
@@ -22,7 +22,7 @@ Zalecenia dotyczące ochrony danych koncentrują się na rozwiązywaniu problem�
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.1 | 13,1 | Klient |
+| 4.1 | 13,1 | Customer |
 
 Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
 
@@ -32,7 +32,7 @@ Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowu
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.2 | 13,2, 2,10 | Klient |
+| 4.2 | 13,2, 2,10 | Customer |
 
 Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). 
 
@@ -52,7 +52,7 @@ Skorzystaj z rozwiązania innej firmy w witrynie Azure Marketplace w sieci obwod
 
 W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i chroniącą przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](../fundamentals/protection-customer-data.md)
+- [Informacje na temat ochrony danych klientów na platformie Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
@@ -82,13 +82,13 @@ Użyj usługi Azure SQL Information Protection, aby pomóc w klasyfikacji i etyk
 
 - [Jak zaimplementować Azure Information Protection](/azure/information-protection/deployment-roadmap)
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](../fundamentals/protection-customer-data.md)
+- [Informacje na temat ochrony danych klientów na platformie Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4,6 | 14,6 | Klient |
+| 4,6 | 14,6 | Customer |
 
 Aby kontrolować dostęp do danych i zasobów przy użyciu kontroli dostępu opartej na rolach (Azure RBAC), w przeciwnym razie użyj metod kontroli dostępu specyficznych dla usługi.
 
@@ -104,17 +104,17 @@ Jeśli jest to wymagane na potrzeby zgodności zasobów obliczeniowych, zaimplem
 
 W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](../fundamentals/protection-customer-data.md)
+- [Informacje na temat ochrony danych klientów na platformie Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: Szyfruj poufne informacje w spoczynku
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.8 | 14,8 | Klient |
+| 4.8 | 14,8 | Customer |
 
 Używaj szyfrowania w spoczynku dla wszystkich zasobów platformy Azure. Firma Microsoft zaleca, aby platforma Azure mogła zarządzać kluczami szyfrowania, jednak istnieje możliwość zarządzania własnymi kluczami w niektórych wystąpieniach. 
 
-- [Informacje o szyfrowaniu na platformie Azure](../fundamentals/encryption-atrest.md)
+- [Informacje o szyfrowaniu danych magazynowanych na platformie Azure](../fundamentals/encryption-atrest.md)
 
 - [Jak skonfigurować klucze szyfrowania zarządzane przez klienta](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
@@ -122,11 +122,11 @@ Używaj szyfrowania w spoczynku dla wszystkich zasobów platformy Azure. Firma M
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4,9 | 14,9 | Klient |
+| 4,9 | 14,9 | Customer |
 
 Użyj Azure Monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące sytuacji, w których zmiany dotyczą najważniejszych zasobów platformy Azure.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 585bdfdd7033f75e5beeba7246c8fbdd03a5e6e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cb979491e247a4d44b9ae9ae27c433fb3f436d1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530036"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579226"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs
 
@@ -125,8 +125,6 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do istniejące
 
     - (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
     {
-        //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
-
         NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
         [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 
@@ -341,7 +339,7 @@ Zwykle powiadomienia są wysyłane przez usługę zaplecza, ale możesz wysyła�
 
     ![Przykładowe powiadomienie w systemie iOS][1]
 
-    Po wybraniu opcji **Subskrybuj**Aplikacja konwertuje wybrane kategorie na Tagi i zażąda nowej rejestracji urządzenia dla wybranych tagów z centrum powiadomień.
+    Po wybraniu opcji **Subskrybuj** Aplikacja konwertuje wybrane kategorie na Tagi i zażąda nowej rejestracji urządzenia dla wybranych tagów z centrum powiadomień.
 
 2. Wprowadź komunikat, który ma być wysyłany jako najświeższe wiadomości, a następnie naciśnij przycisk **Wyślij powiadomienie** . Alternatywnie można uruchomić aplikację konsolową .NET w celu wygenerowania powiadomień.
 
@@ -369,4 +367,4 @@ W tym samouczku wysłano powiadomienia dotyczące emisji do określonych urządz
 [Notification Hubs Guidance]: /previous-versions/azure/azure-services/dn530749(v=azure.100)
 [Notification Hubs How-To for iOS]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [get-started]: ios-sdk-get-started.md
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

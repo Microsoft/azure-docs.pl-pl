@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 725f15d72694534da1fd924b3b6ffe223722fd3d
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0079c123f908a38cc1e4923790439f18352bf3ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104471"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574632"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
@@ -35,7 +35,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
-* Upewnij się, że spełniasz [wymagania dotyczące Active Directory połączeń](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Upewnij się, że spełniasz [wymagania dotyczące Active Directory połączeń](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Utwórz strefę wyszukiwania wstecznego na serwerze DNS, a następnie Dodaj rekord wskaźnika (PTR) maszyny hosta usługi AD do tej strefy wyszukiwania wstecznego. W przeciwnym razie tworzenie dwuprotokołowego woluminu nie powiedzie się.
 * Upewnij się, że klient sieciowego systemu plików jest aktualny i ma najnowsze aktualizacje systemu operacyjnego.
 * Upewnij się, że serwer LDAP Active Directory (AD) jest uruchomiony w usłudze AD. Można to zrobić przez zainstalowanie i skonfigurowanie roli [usługi LDS Active Directory (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na maszynie usługi AD.

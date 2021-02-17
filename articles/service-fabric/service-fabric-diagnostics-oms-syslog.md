@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a98a833baefa9b1c2d1ebd9ff8147206c2106bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258638"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570215"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Zdarzenia klastra Service Fabric systemu Linux w dzienniku systemu
 
@@ -25,7 +25,7 @@ W wersji 6,4 SyslogConsumer został wprowadzony do wysyłania zdarzeń platformy
 Każde zdarzenie dziennika systemu zawiera 4 składniki
 * Urządzenia
 * Tożsamość
-* Wiadomość
+* Komunikat
 * Ważność
 
 SyslogConsumer zapisuje wszystkie zdarzenia platformy przy użyciu funkcji `Local0` . Możesz zaktualizować do dowolnego prawidłowego obiektu, zmieniając konfigurację konfiguracji. Używana tożsamość to `ServiceFabric` . Pole Message zawiera całe zdarzenie serializowane w formacie JSON, tak aby można było wykonywać zapytania i korzystać z różnych narzędzi. 
@@ -87,7 +87,7 @@ Poniżej przedstawiono zmiany, które należy wywoływać
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Integracja dzienników Azure Monitor
-Te zdarzenia dziennika systemowego można odczytać w narzędziu do monitorowania, takim jak dzienniki Azure Monitor. Obszar roboczy Log Analytics można utworzyć przy użyciu witryny Azure Marketplace, korzystając z następujących [instrukcji]. (.. /Azure-monitor/Learn/Quick-Create-Workspace.MD) musisz również dodać agenta Log Analytics do klastra, aby zebrać i wysłać te dane do obszaru roboczego. Jest to ten sam Agent, który służy do zbierania liczników wydajności. 
+Te zdarzenia dziennika systemowego można odczytać w narzędziu do monitorowania, takim jak dzienniki Azure Monitor. Obszar roboczy Log Analytics można utworzyć przy użyciu witryny Azure Marketplace, korzystając z następujących [instrukcji]. (.. /Azure-monitor/Logs/Quick-Create-Workspace.MD) musisz również dodać agenta Log Analytics do klastra, aby zebrać i wysłać te dane do obszaru roboczego. Jest to ten sam Agent, który służy do zbierania liczników wydajności. 
 
 1. Przejdź do `Advanced Settings` bloku
 
@@ -113,6 +113,6 @@ Powyższy przykład dotyczy zdarzenia NodeDown. Pełną listę zdarzeń można z
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wdróż agenta log Analytics](service-fabric-diagnostics-oms-agent.md) w węzłach w celu zebrania liczników wydajności i zebrania statystyk i dzienników platformy Docker dla kontenerów
-* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/log-query/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
-* [Używanie projektanta widoków do tworzenia widoków niestandardowych w dziennikach Azure Monitor](../azure-monitor/platform/view-designer.md)
-* Informacje dotyczące sposobu [Azure Monitornia dzienników integracja z dziennikiem](../azure-monitor/platform/data-sources-syslog.md)systemowym.
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/logs/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
+* [Używanie projektanta widoków do tworzenia widoków niestandardowych w dziennikach Azure Monitor](../azure-monitor/visualize/view-designer.md)
+* Informacje dotyczące sposobu [Azure Monitornia dzienników integracja z dziennikiem](../azure-monitor/agents/data-sources-syslog.md)systemowym.

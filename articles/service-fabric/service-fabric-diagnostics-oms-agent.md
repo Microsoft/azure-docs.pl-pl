@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47017fdb5f1fbaba800e71dea21afe2c39bd91e7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258680"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570151"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitorowanie wydajności za pomocą dzienników Azure Monitor
 
@@ -67,7 +67,7 @@ Możesz pobrać i zmodyfikować ten szablon, aby wdrożyć klaster, który najle
 
 Teraz, po dodaniu agenta Log Analytics, przejdź do portalu Log Analytics, aby wybrać liczniki wydajności, które chcesz zebrać.
 
-1. W Azure Portal przejdź do grupy zasobów, w której utworzono rozwiązanie Service Fabric Analytics. Wybierz pozycję **servicefabric \<nameOfLog AnalyticsWorkspace\> **.
+1. W Azure Portal przejdź do grupy zasobów, w której utworzono rozwiązanie Service Fabric Analytics. Wybierz pozycję **servicefabric \<nameOfLog AnalyticsWorkspace\>**.
 
 2. Kliknij pozycję **Log Analytics**.
 
@@ -91,6 +91,6 @@ Teraz, po dodaniu agenta Log Analytics, przejdź do portalu Log Analytics, aby w
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zbierz odpowiednie [liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md). Aby skonfigurować agenta Log Analytics do zbierania określonych liczników wydajności, zapoznaj się z tematem [Konfigurowanie źródeł danych](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Konfigurowanie dzienników Azure Monitor, aby skonfigurować [Automatyczne alerty](../azure-monitor/platform/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki
+* Zbierz odpowiednie [liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md). Aby skonfigurować agenta Log Analytics do zbierania określonych liczników wydajności, zapoznaj się z tematem [Konfigurowanie źródeł danych](../azure-monitor/agents/agent-data-sources.md#configuring-data-sources).
+* Konfigurowanie dzienników Azure Monitor, aby skonfigurować [Automatyczne alerty](../azure-monitor/alerts/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki
 * Alternatywnie można zbierać liczniki wydajności przy użyciu [rozszerzenia Diagnostyka Azure i wysyłać je do Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

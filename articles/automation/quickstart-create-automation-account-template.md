@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4d7d4b5af9b86fe5116dc29f6ed1a789cdbf2047
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050672"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581097"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Szybki Start: Tworzenie konta usługi Automation przy użyciu szablonu ARM
 
@@ -80,11 +80,11 @@ Szablon JSON określa wartość domyślną dla innych parametrów, które mogą 
 
 Jeśli dopiero zaczynasz Azure Automation i Azure Monitor, ważne jest zapoznanie się z poniższymi szczegółami konfiguracji. Mogą one pomóc uniknąć błędów podczas próby utworzenia, skonfigurowania i użycia obszaru roboczego Log Analytics połączonego z nowym kontem usługi Automation.
 
-* Zapoznaj się z [dodatkowymi szczegółami](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) , aby w pełni zrozumieć opcje konfiguracji obszaru roboczego, takie jak tryb kontroli dostępu, warstwa cenowa, przechowywanie i poziom rezerwacji pojemności.
+* Zapoznaj się z [dodatkowymi szczegółami](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) , aby w pełni zrozumieć opcje konfiguracji obszaru roboczego, takie jak tryb kontroli dostępu, warstwa cenowa, przechowywanie i poziom rezerwacji pojemności.
 
 * Przejrzyj [mapowania obszaru roboczego](how-to/region-mappings.md) , aby określić Obsługiwane regiony w tekście lub w pliku parametrów. Tylko niektóre regiony są obsługiwane na potrzeby łączenia obszaru roboczego Log Analytics i konta usługi Automation w ramach subskrypcji.
 
-* Jeśli dopiero zaczynasz korzystać z dzienników Azure Monitor i nie wdrożono już obszaru roboczego, zapoznaj się z tematem [wskazówki dotyczące projektowania obszaru roboczego](../azure-monitor/platform/design-logs-deployment.md). Pomożemy Ci poznać kontrolę dostępu i zrozumieć strategie implementacji projektu, które zalecamy dla Twojej organizacji.
+* Jeśli dopiero zaczynasz korzystać z dzienników Azure Monitor i nie wdrożono już obszaru roboczego, zapoznaj się z tematem [wskazówki dotyczące projektowania obszaru roboczego](../azure-monitor/logs/design-logs-deployment.md). Pomożemy Ci poznać kontrolę dostępu i zrozumieć strategie implementacji projektu, które zalecamy dla Twojej organizacji.
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 

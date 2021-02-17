@@ -3,12 +3,12 @@ title: Tworzenie nowego Azure Monitor Application Insights zasobów opartych na 
 description: Dowiedz się więcej na temat kroków wymaganych do włączenia nowych Azure Monitor Application Insights zasobów obszaru roboczego.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 23994190df89b47d9c7e90ed62a724545389b1fe
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 3ec0b25a24af13b29a3568165009f8a6d66e0218
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063370"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578347"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Zasoby Application Insights oparte na obszarze roboczym
 
@@ -23,10 +23,10 @@ Pozwala to również na wspólną kontrolę dostępu opartą na rolach (Azure RB
 
 Application Insights oparte na obszarze roboczym umożliwia korzystanie z najnowszych możliwości Azure Monitor i Log Analytics w tym:
 
-* [Klucze zarządzane przez klienta (CMK)](../platform/customer-managed-keys.md) zapewniają szyfrowanie dla danych za pomocą kluczy szyfrowania, do których tylko masz dostęp.
-* [Link prywatny platformy Azure](../platform/private-link-security.md) umożliwia bezpieczne łączenie usług Azure PaaS z siecią wirtualną za pomocą prywatnych punktów końcowych.
+* [Klucze zarządzane przez klienta (CMK)](../logs/customer-managed-keys.md) zapewniają szyfrowanie dla danych za pomocą kluczy szyfrowania, do których tylko masz dostęp.
+* [Link prywatny platformy Azure](../logs/private-link-security.md) umożliwia bezpieczne łączenie usług Azure PaaS z siecią wirtualną za pomocą prywatnych punktów końcowych.
 * Udostępnienie [własnego magazynu (BYOS) dla programu Profiler, a Snapshot Debugger](./profiler-bring-your-own-storage.md) zapewnia pełną kontrolę nad zasadami szyfrowania w trybie spoczynku, zasadami zarządzania istnieniem i dostępem sieciowym dla wszystkich danych skojarzonych z Application Insights Profiler i Snapshot Debugger. 
-* [Warstwy rezerwacji zdolności produkcyjnych](../platform/manage-cost-storage.md#pricing-model) pozwalają zaoszczędzić o 25% w porównaniu z ceną płatność zgodnie z rzeczywistym użyciem. 
+* [Warstwy rezerwacji zdolności produkcyjnych](../logs/manage-cost-storage.md#pricing-model) pozwalają zaoszczędzić o 25% w porównaniu z ceną płatność zgodnie z rzeczywistym użyciem. 
 * Szybsze pozyskiwanie danych przy użyciu pozyskiwania strumieniowego Log Analytics.
 
 ## <a name="create-workspace-based-resource"></a>Utwórz zasób oparty na obszarze roboczym
@@ -36,7 +36,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com)i utwórz zasób Applica
 > [!div class="mx-imgBorder"]
 > ![Zasób Application Insights oparty na obszarze roboczym](./media/create-workspace-resource/create-workspace-based.png)
 
-Jeśli nie masz jeszcze istniejącego obszaru roboczego Log Analytics, [zapoznaj się z dokumentacją dotyczącą tworzenia obszaru roboczego log Analytics](../learn/quick-create-workspace.md).
+Jeśli nie masz jeszcze istniejącego obszaru roboczego Log Analytics, [zapoznaj się z dokumentacją dotyczącą tworzenia obszaru roboczego log Analytics](../logs/quick-create-workspace.md).
 
 **Zasoby oparte na obszarze roboczym są obecnie dostępne we wszystkich regionach komercyjnych i Azure Government**
 
@@ -212,5 +212,5 @@ Starsza Funkcja eksportu ciągłego nie jest obsługiwana w przypadku zasobów o
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Eksploruj metryki](../platform/metrics-charts.md)
-* [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)
+* [Eksploruj metryki](../essentials/metrics-charts.md)
+* [Pisanie zapytań analitycznych](../logs/log-query-overview.md)

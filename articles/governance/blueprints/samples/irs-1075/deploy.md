@@ -3,12 +3,12 @@ title: Przykład wdrażania planu IRS 1075
 description: Wdróż kroki dla przykładowego planu IRS 1075 (Rev. 11-2016), w tym szczegóły parametru artefaktu.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: f4be1b642961b9642ea9d638521653dbc33f0334
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6df2781207c623e10daf0681865b9246be1b1f4c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045210"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571911"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Wdróż przykład planu IRS 1075
 
@@ -94,7 +94,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
 |Inspekcja urzędu skarbowego 1075 (Rev. 11-2016) — kontrolki i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Log Analytics identyfikator obszaru roboczego, dla którego należy skonfigurować maszyny wirtualne|To jest identyfikator (GUID) obszaru roboczego Log Analytics, dla którego należy skonfigurować maszyny wirtualne.|
-|Inspekcja urzędu skarbowego 1075 (Rev. 11-2016) — kontrolki i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|Inspekcja urzędu skarbowego 1075 (Rev. 11-2016) — kontrolki i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |Inspekcja urzędu skarbowego 1075 (Rev. 11-2016) — kontrolki i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista użytkowników, którzy powinni być wykluczeni z grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być wykluczone w grupie lokalnej Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |Inspekcja urzędu skarbowego 1075 (Rev. 11-2016) — kontrolki i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |Wdróż VM Scale Sets Log Analytics agenta dla systemu Linux (VMSS)|Przypisanie zasad|Log Analytics obszar roboczy dla VM Scale Sets systemu Linux (VMSS)|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|

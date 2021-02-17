@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 09651ed5c7472c12d82108fdbd450cca6e84349f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0efc8105295ca7f97e6f465071c31b193173c5cd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447081"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588724"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Wprowadzenie do wielodostępnej aplikacji SaaS, która używa wzorca bazy danych na dzierżawcę z Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,7 +46,7 @@ Po wdrożeniu aplikacji zapoznaj się z poniższymi samouczkami, które kompiluj
 |[Wdrażanie i eksplorowanie aplikacji Wingtip SaaS](./saas-dbpertenant-get-started-deploy.md)|  Wdróż i Eksploruj aplikację Wingtip SaaS z subskrypcją platformy Azure. |
 |[Obsługa administracyjna i dzierżawy katalogu](./saas-dbpertenant-provision-and-catalog.md)| Dowiedz się, jak aplikacja nawiązuje połączenie z dzierżawcami przy użyciu bazy danych wykazu i jak katalog mapuje dzierżawy na swoje dane. |
 |[Monitorowanie wydajności i zarządzanie nią](./saas-dbpertenant-performance-monitoring.md)| Dowiedz się, jak używać funkcji monitorowania SQL Database i ustawiać alerty w przypadku przekroczenia progów wydajności. |
-|[Monitorowanie za pomocą dzienników usługi Azure Monitor](./saas-dbpertenant-log-analytics.md) | Informacje dotyczące monitorowania dużych ilości zasobów w wielu pulach przy użyciu [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md) . |
+|[Monitorowanie za pomocą dzienników usługi Azure Monitor](./saas-dbpertenant-log-analytics.md) | Informacje dotyczące monitorowania dużych ilości zasobów w wielu pulach przy użyciu [dzienników Azure monitor](../../azure-monitor/logs/log-query-overview.md) . |
 |[Przywracanie pojedynczej dzierżawy](./saas-dbpertenant-restore-single-tenant.md)| Dowiedz się, jak przywrócić bazę danych dzierżawy do wcześniejszego punktu w czasie. Dowiedz się również, jak przywrócić bazę danych równoległych, która pozostawia istniejącą dzierżawę w trybie online. |
 |[Zarządzanie schematem bazy danych dzierżawy](saas-tenancy-schema-management.md)| Dowiedz się, jak aktualizować schemat i aktualizować dane referencyjne we wszystkich bazach danych dzierżaw. |
 |[Uruchamianie zapytań rozproszonych między dzierżawcami](saas-tenancy-cross-tenant-reporting.md) | Utwórz bazę danych analizy ad hoc i uruchom rozproszone zapytania w czasie rzeczywistym dla wszystkich dzierżawców.  |

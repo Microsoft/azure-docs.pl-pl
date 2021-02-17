@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: dde9575a70ea80ad262bc01bb9d5d0015c803427
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d311ea3158e1f9d53c51fe239103039849597d11
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543021"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579183"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Wolne dzienniki zapytań w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
 
@@ -27,10 +27,10 @@ Domyślnie dziennik wolnych zapytań jest wyłączony. Aby włączyć dzienniki,
 
 Inne parametry, które można dostosować w celu sterowania zachowaniem rejestrowania wolnych zapytań, obejmują:
 
-- **long_query_time** : Zaloguj zapytanie, jeśli trwa dłużej niż `long_query_time` (w sekundach). Wartość domyślna to 10 sekund.
-- **log_slow_admin_statements** : określa, czy instrukcje administracyjne (np. `ALTER_TABLE`, `ANALYZE_TABLE` ) są rejestrowane.
-- **log_queries_not_using_indexes** : określa, czy rejestrowane są zapytania, które nie używają indeksów.
-- **log_throttle_queries_not_using_indexes** : ogranicza liczbę zapytań nieindeksowanych, które można zapisać w dzienniku wolnych zapytań. Ten parametr obowiązuje, gdy `log_queries_not_using_indexes` jest ustawiony na wartość *włączone*
+- **long_query_time**: Zaloguj zapytanie, jeśli trwa dłużej niż `long_query_time` (w sekundach). Wartość domyślna to 10 sekund.
+- **log_slow_admin_statements**: określa, czy instrukcje administracyjne (np. `ALTER_TABLE`, `ANALYZE_TABLE` ) są rejestrowane.
+- **log_queries_not_using_indexes**: określa, czy rejestrowane są zapytania, które nie używają indeksów.
+- **log_throttle_queries_not_using_indexes**: ogranicza liczbę zapytań nieindeksowanych, które można zapisać w dzienniku wolnych zapytań. Ten parametr obowiązuje, gdy `log_queries_not_using_indexes` jest ustawiony na wartość *włączone*
 
 > [!IMPORTANT]
 > Jeśli tabele nie są indeksowane, ustawienie `log_queries_not_using_indexes` parametrów i na wartość `log_throttle_queries_not_using_indexes` **on** może wpłynąć na wydajność programu MySQL, ponieważ wszystkie zapytania uruchomione względem tych nieindeksowanych tabel zostaną zazapisywane w dzienniku wolnych zapytań.
@@ -39,7 +39,7 @@ Więcej opisów parametrów dziennika wolnych zapytań można znaleźć w [dokum
 
 ## <a name="access-slow-query-logs"></a>Dostęp do dzienników wolnych zapytań
 
-Dzienniki wolnych zapytań są zintegrowane z ustawieniami diagnostycznymi Azure Monitor. Po włączeniu dzienników wolnych zapytań na serwerze elastycznym MySQL można je emitować do Azure Monitor dzienników, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat ustawień diagnostycznych, zobacz [dokumentację dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md). Aby dowiedzieć się więcej na temat włączania ustawień diagnostycznych w Azure Portal, zobacz [artykuł poświęcony witrynie Portal dziennika wolnych zapytań](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
+Dzienniki wolnych zapytań są zintegrowane z ustawieniami diagnostycznymi Azure Monitor. Po włączeniu dzienników wolnych zapytań na serwerze elastycznym MySQL można je emitować do Azure Monitor dzienników, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat ustawień diagnostycznych, zobacz [dokumentację dzienników diagnostycznych](../../azure-monitor/essentials/platform-logs-overview.md). Aby dowiedzieć się więcej na temat włączania ustawień diagnostycznych w Azure Portal, zobacz [artykuł poświęcony witrynie Portal dziennika wolnych zapytań](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
 
 W poniższej tabeli opisano dane wyjściowe dziennika wolnych zapytań. W zależności od metody Output pola uwzględnione i kolejność ich wyświetlania mogą się różnić.
 

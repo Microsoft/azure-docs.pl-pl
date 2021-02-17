@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: a5fdde954d2826f34c671552a88365f9276b89a0
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895227"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579238"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu często zadawane pytania
 
@@ -126,7 +126,7 @@ Tak.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Czy mogę użyć istniejącego obszaru roboczego?
 
-Tak. W przypadku wybrania istniejącego obszaru roboczego upewnij się, że został on zmigrowany do nowego języka zapytań. Jeśli nie chcesz uaktualnić obszaru roboczego, musisz utworzyć nowy. Aby uzyskać więcej informacji o nowym języku zapytań, zobacz artykuł [Azure Monitoring Logs Upgrade to New Search log](../azure-monitor/log-query/log-query-overview.md).
+Tak. W przypadku wybrania istniejącego obszaru roboczego upewnij się, że został on zmigrowany do nowego języka zapytań. Jeśli nie chcesz uaktualnić obszaru roboczego, musisz utworzyć nowy. Aby uzyskać więcej informacji o nowym języku zapytań, zobacz artykuł [Azure Monitoring Logs Upgrade to New Search log](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Czy moje konto usługi Azure Storage znajduje się w jednej subskrypcji, a mój obszar roboczy Log Analytics należy do innej subskrypcji?
 
@@ -262,7 +262,7 @@ Analiza ruchu nie ma wbudowaną obsługę alertów. Jednak ponieważ Analiza ruc
 - Można użyć wypchnięty do Log Analytics w Analiza ruchu. 
 - Użyj [schematu udokumentowanego w tym miejscu](traffic-analytics-schema.md) , aby napisać zapytania 
 - Kliknij pozycję "Nowa reguła alertu", aby utworzyć alert
-- Zapoznaj się z [dokumentacją alertów dziennika](../azure-monitor/platform/alerts-log.md) , aby utworzyć alert
+- Zapoznaj się z [dokumentacją alertów dziennika](../azure-monitor/alerts/alerts-log.md) , aby utworzyć alert
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Jak mogę sprawdzić, które maszyny wirtualne odbierają większość ruchu lokalnego?
 
@@ -403,4 +403,4 @@ Na stronie topologia podsieci wirtualnych znajdują się dwie główne sekcje:
 - Po wybraniu takich węzłów można odwiedzać wszystkie jego połączenia, po jednym przez naciśnięcie `Shift+Left arrow` klawisza. Fokus jest przenoszony do **pola narzędzia informacji** tego połączenia. W dowolnym momencie fokus można przesunąć z powrotem do węzła, naciskając `Shift+Right arrow` ponownie.
 
 ## <a name="are-classic-nsgs-supported"></a>Czy obsługiwane są klasyczne sieciowych grup zabezpieczeń?
-Nie, Analiza ruchu nie obsługuje klasycznej sieciowej grupy zabezpieczeń. Zaleca się migrację zasobów IaaS z klasycznego do Azure Resource Manager, ponieważ zasoby klasyczne będą [przestarzałe](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Zapoznaj się z tym artykułem, aby zrozumieć, [Jak przeprowadzić migrację](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).
+Nie, Analiza ruchu nie obsługuje klasycznej sieciowej grupy zabezpieczeń. Zaleca się migrację zasobów IaaS z klasycznego do Azure Resource Manager, ponieważ zasoby klasyczne będą [przestarzałe](../virtual-machines/classic-vm-deprecation.md). Zapoznaj się z tym artykułem, aby zrozumieć, [Jak przeprowadzić migrację](../virtual-machines/migration-classic-resource-manager-overview.md).

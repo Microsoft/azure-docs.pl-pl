@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: c1d118fa1fb65663f37e33f739bf4a72a14e1c52
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6539815875b87a0d0f525d7e89464fa7d2505746
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998225"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570216"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Monitorowanie kontenerów za pomocą dzienników Azure Monitor
  
@@ -46,7 +46,7 @@ Agent umożliwia zbieranie kilku dzienników specyficznych dla kontenera, które
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [Azure monitor rozwiązaniu kontenerów dzienników](../azure-monitor/insights/containers.md).
+* Dowiedz się więcej o [Azure monitor rozwiązaniu kontenerów dzienników](../azure-monitor/containers/containers.md).
 * Przeczytaj więcej na temat aranżacji kontenerów na Service Fabric- [Service Fabric i kontenerach](service-fabric-containers-overview.md)
-* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/log-query/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
-* Konfigurowanie dzienników Azure Monitor w celu skonfigurowania [zautomatyzowanych reguł alertów](../azure-monitor/platform/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/logs/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
+* Konfigurowanie dzienników Azure Monitor w celu skonfigurowania [zautomatyzowanych reguł alertów](../azure-monitor/alerts/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki

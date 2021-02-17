@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1519e0b5cef6055cf8d8b0aded0d8ad323d548a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e7063cd1ae560fa077bd0b1b1279e4515e70464
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707850"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579026"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Monitorowanie metryk na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -21,13 +21,13 @@ ms.locfileid: "91707850"
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Azure Database for PostgreSQL oferuje różne opcje monitorowania w celu zapewnienia wglądu w zachowanie serwera programu.
 
 ## <a name="metrics"></a>Metryki
-Azure Database for PostgreSQL oferuje różne metryki, które dają wgląd w zachowanie zasobów obsługujących serwer PostgreSQL. Każda Metryka jest emitowana z częstotliwością jednej minuty i ma do [93 dni historii](../../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). Można skonfigurować alerty dotyczące metryk. Inne opcje obejmują Konfigurowanie zautomatyzowanych akcji, wykonywanie zaawansowanych analiz i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../../azure-monitor/platform/data-platform-metrics.md).
+Azure Database for PostgreSQL oferuje różne metryki, które dają wgląd w zachowanie zasobów obsługujących serwer PostgreSQL. Każda Metryka jest emitowana z częstotliwością jednej minuty i ma do [93 dni historii](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). Można skonfigurować alerty dotyczące metryk. Inne opcje obejmują Konfigurowanie zautomatyzowanych akcji, wykonywanie zaawansowanych analiz i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ### <a name="list-of-metrics"></a>Lista metryk
 Następujące metryki są dostępne dla PostgreSQL elastyczny serwer:
 
 
-|Metryka|Nazwa wyświetlana metryki|Jednostka|Opis|
+|Metric|Nazwa wyświetlana metryki|Jednostka|Opis|
 |---|---|---|---|
 | active_connections | Aktywne połączenia | Liczba | Liczba połączeń z serwerem. | 
 | backup_storage_used | Używany magazyn kopii zapasowych | Bajty | Ilość używanych magazynów kopii zapasowych. Ta Metryka przedstawia sumę magazynu zużywanego przez wszystkie pełne kopie zapasowe bazy danych, różnicowe kopie zapasowe i kopie zapasowe dzienników przechowywane na podstawie okresu przechowywania kopii zapasowej ustawionego dla serwera. Częstotliwość wykonywania kopii zapasowych jest zarządzana przez usługę. W przypadku magazynu geograficznie nadmiarowego użycie magazynu kopii zapasowych jest dwa razy większe niż magazyn lokalnie nadmiarowy. |

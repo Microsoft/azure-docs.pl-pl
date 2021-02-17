@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549953"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590349"
 ---
 # <a name="azure-threat-protection"></a>Ochrona przed zagrożeniami platformy Azure
 
@@ -89,7 +89,7 @@ Oprócz zapewniania cennych usług samodzielnie dzienniki Azure Monitor można z
 Dzienniki Azure Monitor ułatwiają szybkie i łatwe zrozumienie ogólnych stan zabezpieczeń w każdym środowisku, a wszystko to w kontekście operacji IT, w tym oceny aktualizacji oprogramowania, oceny ochrony przed złośliwym kodem i linii bazowych konfiguracji. Dane dziennika zabezpieczeń są łatwo dostępne, aby usprawnić procesy inspekcji zabezpieczeń i zgodności.
 
 ### <a name="insight-and-analytics"></a>Wgląd i analiza
-W centrum [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md) jest repozytorium, które jest hostowane przez platformę Azure.
+W centrum [dzienników Azure monitor](../../azure-monitor/logs/log-query-overview.md) jest repozytorium, które jest hostowane przez platformę Azure.
 
 ![Diagram usługi Insight and Analytics](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -98,8 +98,8 @@ Dane można zbierać do repozytorium z połączonych źródeł przez skonfigurow
 Wszystkie źródła danych i rozwiązania tworzą oddzielne typy rekordów z własnymi zestawami właściwości, ale można je analizować razem w zapytaniach do repozytorium. Możesz użyć tych samych narzędzi i metod do pracy z różnymi danymi, które są zbierane przez różne źródła.
 
 Większość interakcji z dziennikami Azure Monitor polega na Azure Portal, które działają w dowolnej przeglądarce i zapewniają dostęp do ustawień konfiguracji oraz wielu narzędzi do analizowania zebranych danych i wykonywania na nich działań. W portalu możesz użyć:
-* [Przeszukiwanie dzienników](../../azure-monitor/log-query/log-query-overview.md) , w których są konstruowane zapytania w celu analizowania zebranych danych.
-* [Pulpity nawigacyjne](../../azure-monitor/learn/tutorial-logs-dashboards.md), które można dostosować za pomocą widoków graficznych najbardziej cennych wyszukiwań.
+* [Przeszukiwanie dzienników](../../azure-monitor/logs/log-query-overview.md) , w których są konstruowane zapytania w celu analizowania zebranych danych.
+* [Pulpity nawigacyjne](../../azure-monitor/visualize/tutorial-logs-dashboards.md), które można dostosować za pomocą widoków graficznych najbardziej cennych wyszukiwań.
 * [Rozwiązania](../../azure-monitor/insights/solutions.md), które oferują dodatkowe funkcje i narzędzia do analizy.
 
 Rozwiązania umożliwiają dodawanie funkcji do dzienników Azure Monitor. Są one wykonywane głównie w chmurze i zapewniają analizę danych zebranych w repozytorium usługi log Analytics. Rozwiązania mogą również definiować nowe typy rekordów do zebrania, które można analizować za pomocą wyszukiwania w dziennikach lub przy użyciu dodatkowego interfejsu użytkownika, który oferuje rozwiązanie na pulpicie nawigacyjnym usługi log Analytics.

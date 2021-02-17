@@ -3,12 +3,12 @@ title: Dołączanie serwera z obsługą usługi Azure Arc do usługi Azure wska�
 description: Dowiedz się, jak dodać serwery z obsługą usługi Azure Arc do usługi Azure wskaźnikowej i aktywnie monitorować ich stan zabezpieczeń.
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60018e710613a27bcb5c00f38ee90be6ff46c61d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2364ba72ac5b10ec4e1f433cc6d591c3ca389ecd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94811054"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584747"
 ---
 # <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Dołączanie serwerów z obsługą usługi Azure Arc do usługi Azure wskaźnikowej
 
@@ -18,7 +18,7 @@ Ten artykuł ma na celu ułatwienie dołączenia serwera z obsługą usługi Azu
 
 Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagania:
 
-- [Obszar roboczy usługi Log Analytics](../../azure-monitor/platform/data-platform-logs.md). Aby uzyskać więcej informacji na temat Log Analytics obszarów roboczych, zobacz [projektowanie Azure monitor dzienników wdrożenia](../../azure-monitor/platform/design-logs-deployment.md).
+- [Obszar roboczy usługi Log Analytics](../../azure-monitor/logs/data-platform-logs.md). Aby uzyskać więcej informacji na temat Log Analytics obszarów roboczych, zobacz [projektowanie Azure monitor dzienników wdrożenia](../../azure-monitor/logs/design-logs-deployment.md).
 
 - [W Twojej subskrypcji jest włączona funkcja](../../sentinel/quickstart-onboard.md)wskaźnikowa platformy Azure.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bf91c0a6e533acb326fe815c3e3c1088c959a603
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197578"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576726"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Podstawa zabezpieczeń platformy Azure dla Site Recovery
 
@@ -66,9 +66,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: monitorowanie wszelkich zmian w konfiguracjach zasobów sieciowych związanych z usługą Site Recovery przy użyciu dzienników aktywności platformy Azure. Utwórz alerty w Azure Monitor, aby powiadomić Cię o zmianie krytycznych zasobów sieciowych Site Recovery.
 
-- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -86,7 +86,7 @@ Użyj danych dziennika aktywności platformy Azure, aby określić "co, kto i ki
 
 Pozyskiwanie Site Recovery dzienników w Azure Monitor do agregowania wygenerowanych danych zabezpieczeń. W Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont magazynu do przechowywania długoterminowego lub archiwizowania. Ponadto możesz włączyć i uzyskać dostęp do danych na platformie Azure, w tym rozwiązania do zarządzania zdarzeniami i zdarzeń związanych z zabezpieczeniami innych firm (SIEM).
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Monitorowanie usługi Site Recovery przy użyciu dzienników usługi Azure Monitor](monitor-log-analytics.md)
 
@@ -104,7 +104,7 @@ Użyj danych dziennika aktywności platformy Azure, aby określić "co, kto i ki
 
 Pozyskiwanie dzienników Site Recovery z Azure Monitor do agregowania wygenerowanych danych zabezpieczeń. W Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont magazynu do przechowywania długoterminowego/archiwizowania. Włączaj i dołączaj dane do usługi Azure wskaźnikowej lub rozwiązania do zarządzania zdarzeniami (SIEM) innych firm.
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Monitorowanie usługi Site Recovery przy użyciu dzienników usługi Azure Monitor](monitor-log-analytics.md)
 
@@ -118,7 +118,7 @@ Pozyskiwanie dzienników Site Recovery z Azure Monitor do agregowania wygenerowa
 
 **Wskazówki**: Ustawianie okresu przechowywania dzienników dla log Analytics obszarów roboczych skojarzonych z magazynami Recovery Services platformy Azure przy użyciu Azure monitor zgodnie z przepisami obowiązującymi w organizacji. 
 
-- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -132,9 +132,9 @@ Wykonuj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trend
 
 - [Monitorowanie usługi Site Recovery](site-recovery-monitor-and-troubleshoot.md)
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -150,7 +150,7 @@ Wizualizuj i badaj wyniki dzienników oraz Konfiguruj alerty w celu podejmowania
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -413,7 +413,7 @@ Tylko klient ma dostęp do klucza szyfrowania podczas korzystania z magazynu Rec
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
 **Wskazówki**: Użyj Azure monitor z dziennikami aktywności platformy Azure, aby utworzyć alerty w przypadku wprowadzenia zmian do zasobów o znaczeniu krytycznym. Te zasoby mogą obejmować wystąpienia produkcyjne Recovery Services magazynów, zasoby usługi Site Recovery i powiązane zasoby.
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

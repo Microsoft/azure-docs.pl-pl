@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7778607b533a836eb5a47a12b73374c2a8299621
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789220"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590562"
 ---
 # <a name="security-alerts-schemas"></a>Schematy alertów zabezpieczeń
 
@@ -24,7 +24,7 @@ Jeśli subskrypcja ma włączoną usługę Azure Defender, otrzymasz alerty zabe
 
 Te alerty zabezpieczeń można wyświetlić na stronach Azure Security Center **ochrony przed zagrożeniami** lub za poorednictwem narzędzi zewnętrznych, takich jak:
 
-- [Wskaźnik platformy Azure](../sentinel/index.yml) — natywny Siem w chmurze firmy Microsoft. Łącznik wskaźnikowego otrzymuje alerty z Azure Security Center i wysyła je do [obszaru roboczego log Analytics](../azure-monitor/learn/quick-create-workspace.md) dla platformy Azure.
+- [Wskaźnik platformy Azure](../sentinel/index.yml) — natywny Siem w chmurze firmy Microsoft. Łącznik wskaźnikowego otrzymuje alerty z Azure Security Center i wysyła je do [obszaru roboczego log Analytics](../azure-monitor/logs/quick-create-workspace.md) dla platformy Azure.
 - Rozwiązań Siem innych firm — Wysyłaj dane do [usługi Azure Event Hubs](../event-hubs/index.yml). Następnie Zintegruj dane centrum zdarzeń z SIEMem innej firmy. Dowiedz się więcej w temacie [alerty przesyłania strumieniowego do rozwiązania do zarządzania usługami Siem, o i IT](export-to-siem.md).
 - [Interfejs API REST](/rest/api/securitycenter/) — Jeśli używasz interfejsu API REST do uzyskiwania dostępu do alertów, zobacz [dokumentację interfejsu API alertów online](/rest/api/securitycenter/alerts).
 
@@ -160,7 +160,7 @@ Zdarzenia alertów zabezpieczeń można wyświetlić w dzienniku aktywności prz
 |**Stany**|Pola wartości i localizedValue są stałe — "aktywne"|
 |**subStatus**|Wartości i podpola localizedValue są puste|
 |**submissionTimestamp**|Sygnatura czasowa UTC zdarzenia przesłania do dziennika aktywności|
-|**Identyfikator**|Identyfikator subskrypcji zasobu, którego bezpieczeństwo zostało naruszone|
+|**subscriptionId**|Identyfikator subskrypcji zasobu, którego bezpieczeństwo zostało naruszone|
 |**aœciwoœci**|Zbiór w formacie JSON z dodatkowymi właściwościami odnoszącymi się do alertu. Mogą one zmieniać się z jednego alertu do drugiego, jednak następujące pola zostaną wyświetlone w obszarze wszystkie alerty:<br>-ważność: ważność ataku<br>-compromisedEntity: nazwa zasobu, którego bezpieczeństwo zostało naruszone<br>-remediationSteps: tablica kroków korygowania do wykonania<br>-Cel: zamierzenie łańcucha kasowania dla alertu. Możliwe intencje są udokumentowane w [tabeli zamiarów](alerts-reference.md#intentions)|
 |**relatedEvents**|Stała — pusta tablica|
 |||
@@ -187,4 +187,4 @@ Aby uzyskać więcej informacji na temat sposobów uzyskiwania dostępu do alert
 - [Wskaźnik platformy Azure](../sentinel/index.yml) — natywny Siem w chmurze firmy Microsoft
 - [Azure Event Hubs](../event-hubs/index.yml) — w pełni zarządzana usługa pozyskiwania danych w czasie rzeczywistym firmy Microsoft
 - [Ciągłe eksportowanie danych Security Center](continuous-export.md)
-- [Log Analytics obszary robocze](../azure-monitor/learn/quick-create-workspace.md) — Azure monitor przechowuje dane dziennika w log Analytics obszarze roboczym, kontener zawierający dane i informacje o konfiguracji
+- [Log Analytics obszary robocze](../azure-monitor/logs/quick-create-workspace.md) — Azure monitor przechowuje dane dziennika w log Analytics obszarze roboczym, kontener zawierający dane i informacje o konfiguracji

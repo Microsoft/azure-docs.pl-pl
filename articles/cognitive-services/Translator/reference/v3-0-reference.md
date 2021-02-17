@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bdfb1ac03ea6f896725d5c86cefe41021204359c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895462"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582205"
 ---
 # <a name="translator-v30"></a>Translator — wersja 3.0
 
@@ -230,7 +230,7 @@ Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie
 | 503000| Usługa jest tymczasowo niedostępna. Spróbuj ponownie. Jeśli błąd będzie się powtarzać, zgłoś ten błąd w polu Data/godzina błędu, identyfikator żądania z nagłówka odpowiedzi X-IdentyfikatorŻądania i identyfikator klienta z nagłówka żądania X-ClientTraceId.|
 
 ## <a name="metrics"></a>Metryki 
-Metryki umożliwiają wyświetlanie informacji dotyczących użycia i dostępności usługi Translator w Azure Portal w obszarze metryki, jak pokazano na poniższym zrzucie ekranu. Aby uzyskać więcej informacji, zobacz [metryki danych i platformy](../../../azure-monitor/platform/data-platform-metrics.md).
+Metryki umożliwiają wyświetlanie informacji dotyczących użycia i dostępności usługi Translator w Azure Portal w obszarze metryki, jak pokazano na poniższym zrzucie ekranu. Aby uzyskać więcej informacji, zobacz [metryki danych i platformy](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Metryki translatora](../media/translatormetrics.png)
 

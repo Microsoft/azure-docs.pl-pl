@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 205f92d4282f0cad00c1dd136636da319e107f3f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391080"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590385"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
 
@@ -55,7 +55,7 @@ Oba te elementy zostały opisane poniżej.
     
     - **Wdrażanie usługi Azure Arc** — można podłączyć dowolną maszynę z systemem Windows do Security Center. Natomiast usługa Azure Arc zapewnia lepszą integrację ze *wszystkimi* środowiskami platformy Azure. W przypadku skonfigurowania usługi Azure Arc zostanie wyświetlona strona **SQL Server — usługa Azure Arc** w portalu, a na tej stronie zostaną wyświetlone **alerty zabezpieczeń.** Dlatego pierwszą i zalecaną opcją jest [skonfigurowanie usługi Azure Arc na hoście](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) i postępuj zgodnie z instrukcjami dotyczącymi **SQL Server w usłudze Azure Arc** powyżej.
         
-    - **Połącz maszynę z systemem Windows bez usługi Azure Arc** — w przypadku wybrania opcji łączenia SQL Server uruchomionego na komputerze z systemem Windows bez korzystania z usługi Azure Arc postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem windows, aby Azure monitor](../azure-monitor/platform/agent-windows.md).
+    - **Połącz maszynę z systemem Windows bez usługi Azure Arc** — w przypadku wybrania opcji łączenia SQL Server uruchomionego na komputerze z systemem Windows bez korzystania z usługi Azure Arc postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem windows, aby Azure monitor](../azure-monitor/agents/agent-windows.md).
 
 
 ### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Krok 2. Włącz opcjonalny plan na stronie cennika i ustawienia Security Center:
@@ -75,7 +75,7 @@ Oba te elementy zostały opisane poniżej.
     Plan zostanie włączony na wszystkich serwerach SQL połączonych z wybranym obszarem roboczym. Ochrona zostanie w pełni aktywna po pierwszym ponownym uruchomieniu wystąpienia SQL Server.
 
     >[!TIP] 
-    > Aby utworzyć nowy obszar roboczy, postępuj zgodnie z instrukcjami w temacie [tworzenie log Analytics obszaru roboczego](../azure-monitor/learn/quick-create-workspace.md).
+    > Aby utworzyć nowy obszar roboczy, postępuj zgodnie z instrukcjami w temacie [tworzenie log Analytics obszaru roboczego](../azure-monitor/logs/quick-create-workspace.md).
 
 
 1. Opcjonalnie możesz skonfigurować powiadomienia e-mail o alertach zabezpieczeń. 

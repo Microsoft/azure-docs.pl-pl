@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 79e3349f009f71c5cd387a7c7265ad4904f2a40d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4761c1fb6d245071a02fc69677fc9cd50a972fdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932138"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574608"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
@@ -165,7 +165,7 @@ Po zakończeniu konfiguracji rejestrowania, jeśli używasz Log Analytics, możn
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integracja zapory platformy Azure z dziennikami Azure Monitor jest przydatna podczas pierwszego działania aplikacji. Szczególnie wtedy, gdy nie ma informacji o wszystkich zależnościach aplikacji. Więcej informacji na temat dzienników Azure Monitor można znaleźć [w temacie Analizowanie danych dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md)
+Integracja zapory platformy Azure z dziennikami Azure Monitor jest przydatna podczas pierwszego działania aplikacji. Szczególnie wtedy, gdy nie ma informacji o wszystkich zależnościach aplikacji. Więcej informacji na temat dzienników Azure Monitor można znaleźć [w temacie Analizowanie danych dzienników w Azure monitor](../azure-monitor/logs/log-query-overview.md)
 
 Aby dowiedzieć się więcej o granicach skalowania zapory platformy Azure i zwiększania żądań, zobacz [ten](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) dokument lub zapoznaj się z [często zadawanymi pytaniami](../firewall/firewall-faq.yml).
 

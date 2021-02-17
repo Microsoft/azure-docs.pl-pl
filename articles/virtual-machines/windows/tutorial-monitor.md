@@ -10,18 +10,18 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 89b33a697e818539ab6666be33fc1542c5bdcc51
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e7d93d7a1d0e804f340a7ce785ccc1165e93ee5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736596"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570118"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Samouczek: monitorowanie maszyny wirtualnej z systemem Windows na platformie Azure
 
 Usługa Azure Monitoring używa agentów do zbierania danych dotyczących rozruchu i wydajności z maszyn wirtualnych platformy Azure, przechowywania tych danych w usłudze Azure Storage i udostępniania ich za pośrednictwem portalu, modułu Azure PowerShell i interfejsu wiersza polecenia platformy Azure. Zaawansowane monitorowanie jest dostarczane z Azure Monitor dla maszyn wirtualnych przez zbieranie metryk wydajności, odnajdywanie składników aplikacji zainstalowanych na maszynie wirtualnej i zawiera wykresy wydajności i mapę zależności.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Włączanie diagnostyki rozruchu na maszynie wirtualnej
@@ -86,18 +86,18 @@ Aby włączyć monitorowanie maszyny wirtualnej platformy Azure przy użyciu Azu
 
 3. Na stronie **Insights (wersja zapoznawcza)** wybierz pozycję **Wypróbuj teraz**.
 
-    ![Włączanie Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![Włączanie Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej](../../azure-monitor/vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. Na stronie Dołączanie do usługi **Azure monitor Insights** , jeśli masz istniejący obszar roboczy log Analytics w tej samej subskrypcji, wybierz go na liście rozwijanej.  
 
     Na tej liście jest wybierany domyślny obszar roboczy i lokalizacja, w której wdrożono maszynę wirtualną w ramach subskrypcji. 
 
     >[!NOTE]
-    >Aby utworzyć nowy obszar roboczy Log Analytics do przechowywania danych monitorowania z maszyny wirtualnej, zobacz [tworzenie log Analytics obszaru roboczego](../../azure-monitor/learn/quick-create-workspace.md). Obszar roboczy musi należeć do jednego z [obsługiwanych regionów](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
+    >Aby utworzyć nowy obszar roboczy Log Analytics do przechowywania danych monitorowania z maszyny wirtualnej, zobacz [tworzenie log Analytics obszaru roboczego](../../azure-monitor/logs/quick-create-workspace.md). Obszar roboczy musi należeć do jednego z [obsługiwanych regionów](../../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
 
 Po włączeniu monitorowania może być konieczne odczekanie kilku minut, zanim będzie można wyświetlić metryki wydajności dla maszyny wirtualnej.
 
-![Włącz przetwarzanie wdrożenia monitorowania Azure Monitor dla maszyn wirtualnych](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Włącz przetwarzanie wdrożenia monitorowania Azure Monitor dla maszyn wirtualnych](../../azure-monitor/vm/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## <a name="view-vm-performance-metrics"></a>Wyświetl metryki wydajności maszyny wirtualnej
 

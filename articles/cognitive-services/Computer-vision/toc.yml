@@ -47,8 +47,8 @@
       items:
         - name: Uwagi dotyczące przezroczystości
           items:
-            - name: Wprowadzenie do analizy przestrzennej
-              href: intro-to-spatial-analysis-public-preview.md
+            - name: Przypadki użycia analizy przestrzennej
+              href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
             - name: Charakterystyka i ograniczenia
               href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
         - name: Integracja i odpowiedzialne użycie
@@ -82,6 +82,8 @@
           displayName: 'container instances, container, containers, images'
     - name: Kontener analizy przestrzennej
       items:
+        - name: Przegląd analizy przestrzennej
+          href: intro-to-spatial-analysis-public-preview.md
         - name: Konfigurowanie komputera-hosta i uruchamianie kontenera
           href: spatial-analysis-container.md
         - name: Konfigurowanie operacji
