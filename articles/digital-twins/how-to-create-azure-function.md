@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1178b0ab5af3642026fe78c7de788f354691b13a
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: ecbf07c1a85c708d4117c83bca546cd8bd6ccd2b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701168"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546078"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Łączenie aplikacji funkcji na platformie Azure na potrzeby przetwarzania danych
 
@@ -121,8 +121,6 @@ Dostęp zabezpieczeń do aplikacji funkcji można skonfigurować przy użyciu in
 Funkcja szkieletu z wcześniejszych przykładów wymaga, aby token okaziciela został przesłany do niego, aby można było uwierzytelniać za pomocą usługi Azure Digital bliźniaczych reprezentacji. Aby upewnić się, że ten token okaziciela jest zakończony, musisz skonfigurować [tożsamość usługi zarządzanej (msi)](../active-directory/managed-identities-azure-resources/overview.md) dla aplikacji funkcji. Należy to zrobić tylko raz dla każdej aplikacji funkcji.
 
 Można utworzyć tożsamość zarządzaną przez system i przypisać tożsamość aplikacji funkcji do roli _**właściciela danych Digital bliźniaczych reprezentacji**_ platformy Azure dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Spowoduje to nadanie uprawnienia aplikacji funkcji w wystąpieniu do wykonywania działań płaszczyzny danych. Następnie Udostępnij adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Użyj [Azure Cloud Shell](https://shell.azure.com) , aby uruchomić polecenia.
 

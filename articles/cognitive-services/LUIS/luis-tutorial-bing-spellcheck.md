@@ -9,18 +9,41 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: f416fe8ef4f6e89d07e6065d4c9435642d9bacb9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ef9cb083c9bbe6eae5c34cd3799debde771231b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179643"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558201"
 ---
-# <a name="correct-misspelled-words-with-bing-search-resource"></a>Poprawianie błędnie napisanych wyrazów za pomocą zasobu Wyszukiwanie Bing
+# <a name="correct-misspelled-words-with-bing-resource"></a>Poprawianie błędnie napisanych wyrazów za pomocą zasobu Bing
 
-Możesz zintegrować swoją aplikację LUIS z [wyszukiwanie Bing](https://ms.portal.azure.com/#create/Microsoft.BingSearch) , aby poprawić błędne słowa w wyrażenia długości, zanim Luis przeanalizuje wynik i jednostki wypowiedź.
+Interfejs API przewidywania v3 obsługuje teraz [interfejs API sprawdzania pisowni usługi Bing](https://docs.microsoft.com/bing/search-apis/bing-spell-check/overview). Dodaj sprawdzanie pisowni do swojej aplikacji, dołączając klucz do zasobu wyszukiwania Bing w nagłówku swoich żądań. Możesz użyć istniejącego zasobu Bing, jeśli jest już własny, lub [utworzyć nowy](https://portal.azure.com/#create/Microsoft.BingSearch) , aby użyć tej funkcji. 
 
-## <a name="create-endpoint-key"></a>Utwórz klucz punktu końcowego
+Przykład danych wyjściowych przewidywania dla błędnego zapytania:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
+
+Poprawki pisowni są wprowadzane przed przewidywaniem LUIS użytkownika wypowiedź. W odpowiedzi można zobaczyć zmiany w oryginalnym wypowiedź, w tym pisownię.
+
+## <a name="create-bing-search-resource"></a>Utwórz zasób Wyszukiwanie Bing
 
 Aby utworzyć zasób Wyszukiwanie Bing w Azure Portal, wykonaj następujące instrukcje:
 
@@ -32,7 +55,8 @@ Aby utworzyć zasób Wyszukiwanie Bing w Azure Portal, wykonaj następujące ins
 
 4. Panel Informacje pojawia się z prawej strony zawierającej informacje, takie jak Uwaga prawna. Wybierz pozycję **Utwórz** , aby rozpocząć proces tworzenia subskrypcji.
 
-    :::image type="content" source="./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png" alt-text="Zasób sprawdzanie pisowni Bing API wersji 7":::
+> [!div class="mx-imgBorder"]
+> ![Zasób sprawdzanie pisowni Bing API wersji 7](./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png)
 
 5. W następnym panelu wprowadź ustawienia usługi. Poczekaj na zakończenie procesu tworzenia usługi.
 
@@ -40,15 +64,23 @@ Aby utworzyć zasób Wyszukiwanie Bing w Azure Portal, wykonaj następujące ins
 
 7. Skopiuj jeden z kluczy do dodania do nagłówka żądania przewidywania. Potrzebny będzie tylko jeden z tych dwóch kluczy.
 
-8. Dodaj klucz do `mkt-bing-spell-check-key` w nagłówku żądania predykcyjnego.
-
 <!--
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
+## <a name="enable-spell-check-from-ui"></a>Włącz sprawdzanie pisowni z poziomu interfejsu użytkownika 
+Możesz włączyć sprawdzanie pisowni dla przykładowego zapytania przy użyciu [portalu Luis](https://www.luis.ai). Wybierz pozycję **Zarządzaj** w górnej części ekranu i **zasoby platformy Azure** w lewym obszarze nawigacji. Po skojarzeniu zasobu przewidywania z aplikacją można wybrać pozycję **Zmień parametry zapytania** w dolnej części strony i wkleić klucz zasobu w polu **Włącz sprawdzanie pisowni** .
+    
+   > [!div class="mx-imgBorder"]
+   > ![Włącz sprawdzanie pisowni](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
+
+
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Dodawanie klucza do adresu URL punktu końcowego
 Dla każdego zapytania, dla którego ma zostać zastosowana korekta pisowni, zapytanie punktu końcowego wymaga klucza zasobu sprawdzania pisowni usługi Bing przesłanego w parametrze nagłówka zapytania. Może być chatbot, który wywołuje LUIS, lub może bezpośrednio wywołać interfejs API punktu końcowego LUIS. Niezależnie od tego, jak jest wywoływany punkt końcowy, każdy i każde wywołanie musi zawierać wymagane informacje w żądaniu w nagłówku, aby poprawki pisowni działały prawidłowo. Należy ustawić wartość klucza **MKT-Bing-pisownia-Check-Key** .
 
+|Klucz nagłówka|Wartość nagłówka|
+|--|--|
+|`mkt-bing-spell-check-key`|Klucze Znalezione w bloku **klucze i punkt końcowy** zasobu|
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Wyślij błędnie wpisane wypowiedź do LUIS
 1. Dodaj błędnie wpisane wypowiedź do zapytania predykcyjnego, które będzie wysyłane na przykład "jak daleko jest mountainn?". W języku angielskim, `mountain` , z jednym `n` , jest poprawną pisownią.

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 01/11/2021
 ms.author: rolyon
-ms.openlocfilehash: b15238a4308fe055f914d1a684b79b38a2c64870
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122253"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556831"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Przypisywanie użytkownika jako administratora subskrypcji platformy Azure
 
@@ -89,6 +89,6 @@ Rola [właściciela](built-in-roles.md#owner) przyznaje pełen dostęp do zarzą
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
 - [Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-list-portal.md)
 - [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md)

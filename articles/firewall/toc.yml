@@ -32,6 +32,12 @@
   items:
     - name: Funkcje usługi Azure Firewall
       href: features.md
+    - name: Funkcje usługi Azure firewall Premium
+      href: premium-features.md
+    - name: Usługa Azure firewall Premium w portalu
+      href: premium-portal.md
+    - name: Certyfikaty usługi Azure firewall Premium
+      href: premium-certificates.md
     - name: Tagi w pełni kwalifikowanych nazw domen
       href: fqdn-tags.md
     - name: Infrastrukturalne nazwy FQDN
@@ -91,6 +97,10 @@
       displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Skoroszyt usługi Azure Firewall
       href: firewall-workbook.md
+    - name: Wdrażanie i Konfigurowanie warstwy Premium zapory
+      href: premium-deploy.md
+    - name: Migrowanie do usługi Azure firewall Premium
+      href: premium-migrate.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
