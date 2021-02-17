@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8e2bf4e451ebc3c9ebba2c01dae6703fc79aa606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d1a0bf437df6bc0b68474e092ca23985493b24
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324135"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559594"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Zmiana powiadomień e-mail dotyczących wykrywania inteligentnego
 
@@ -19,7 +19,7 @@ W oparciu o opinie klientów 1 kwietnia 2019 zmieniamy domyślne role, które od
 
 ## <a name="what-is-changing"></a>Co się zmieni?
 
-Obecnie powiadomienia e-mail dotyczące wykrywania inteligentnego są domyślnie wysyłane do ról _właściciel subskrypcji_, _współautor subskrypcji_i _czytelnik subskrypcji_ . Te role często obejmują użytkowników, którzy nie aktywnie uczestniczą w monitorowaniu, co sprawia, że wielu z tych użytkowników może niepotrzebnie otrzymywać powiadomienia. Aby ulepszyć to środowisko, wprowadzamy zmianę, dzięki czemu powiadomienia e-mail są domyślnie wysyłane tylko do [czytnika monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) i [kontrolowania ról współautor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) .
+Obecnie powiadomienia e-mail dotyczące wykrywania inteligentnego są domyślnie wysyłane do ról _właściciel subskrypcji_, _współautor subskrypcji_ i _czytelnik subskrypcji_ . Te role często obejmują użytkowników, którzy nie aktywnie uczestniczą w monitorowaniu, co sprawia, że wielu z tych użytkowników może niepotrzebnie otrzymywać powiadomienia. Aby ulepszyć to środowisko, wprowadzamy zmianę, dzięki czemu powiadomienia e-mail są domyślnie wysyłane tylko do [czytnika monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) i [kontrolowania ról współautor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) .
 
 ## <a name="scope-of-this-change"></a>Zakres tej zmiany
 
@@ -33,7 +33,7 @@ Ta zmiana wpłynie na wszystkie reguły wykrywania inteligentnego, z wyłączeni
 
 Aby zapewnić, że powiadomienia e-mail z wykrywania inteligentnego są wysyłane do odpowiednich użytkowników, użytkownicy muszą być przypisani do [czytnika monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) lub ról [współautor monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) subskrypcji.
 
-Aby przypisać użytkowników do czytnika monitorowania lub monitorować role współautor za pośrednictwem Azure Portal, wykonaj kroki opisane w artykule [Dodawanie przypisania roli](../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) . Upewnij się, że jako rolę, do której użytkownicy są przypisani, ma zostać wybrany _czytnik monitorowania_ lub _współautor monitorowania_ .
+Aby przypisać użytkowników do czytnika monitorowania lub monitorować role współautor za pośrednictwem Azure Portal, wykonaj kroki opisane w artykule [Przypisywanie ról platformy Azure](../../role-based-access-control/role-assignments-portal.md) . Upewnij się, że jako rolę, do której użytkownicy są przypisani, ma zostać wybrany _czytnik monitorowania_ lub _współautor monitorowania_ .
 
 > [!NOTE]
 > Ta zmiana nie wpłynie na określonych odbiorców powiadomień o inteligentnym wykryciu skonfigurowanych przy użyciu opcji _dodatkowe Adresaci poczty e-mail_ w ustawieniach reguły. Ci adresaci będą nadal otrzymywać powiadomienia e-mail.

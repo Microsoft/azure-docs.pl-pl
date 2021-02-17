@@ -9,38 +9,41 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 894f8b17c3c5e9e3147b66854a5809bf82351fb9
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 34d2a18d2e556b7eb9916d058c4d80fe0956ba55
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012405"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554752"
 ---
 # <a name="teams-interoperability"></a>Współdziałanie usługi Teams
 
 [!INCLUDE [Private Preview Notice](../includes/private-preview-include.md)]
 
-Usługi Azure Communication Services mogą służyć do tworzenia niestandardowych środowisk spotkań, które współpracują z usługą Microsoft Teams. Użytkownicy rozwiązań usług komunikacyjnych mogą współdziałać z zespołami uczestników za pośrednictwem głosu, wideo i udostępniania ekranu.
+Usługi Azure Communication Services mogą służyć do tworzenia niestandardowych środowisk spotkań, które współpracują z usługą Microsoft Teams. Użytkownicy rozwiązań usług komunikacyjnych mogą współdziałać z zespołami uczestników za pośrednictwem głosu, wideo, rozmowy i udostępniania ekranu.
 
-To współdziałanie umożliwia tworzenie niestandardowych aplikacji platformy Azure, które łączą użytkowników z zespołami spotkań. Użytkownicy aplikacji niestandardowych nie muszą mieć Azure Active Directory tożsamości ani zespołów, aby móc korzystać z tej funkcji. Jest to idealne rozwiązanie w celu nadania pracownikom (znającym zespoły) i użytkownikom zewnętrznym (przy użyciu niestandardowego środowiska aplikacji) wraz z bezproblemowe środowisko spotkań. Dzięki temu można tworzyć środowiska podobne do następujących:
+Współdziałanie zespołów pozwala tworzyć niestandardowe aplikacje łączące użytkowników z zespołami spotkań. Użytkownicy aplikacji niestandardowych nie muszą mieć Azure Active Directory tożsamości ani zespołów, aby móc korzystać z tej funkcji. Jest to idealne rozwiązanie w celu nadania pracownikom (znającym zespoły) i użytkownikom zewnętrznym (przy użyciu niestandardowego środowiska aplikacji) wraz z bezproblemowe środowisko spotkań. Na przykład:
 
-1. Pracownicy wykorzystują zespoły do zaplanowania spotkania
-2. Niestandardowa aplikacja usług komunikacyjnych używa Microsoft Graph interfejsów API do uzyskiwania dostępu do szczegółów spotkania
-3. Szczegóły spotkania są udostępniane użytkownikom zewnętrznym za pomocą aplikacji niestandardowej
-4. Użytkownicy zewnętrzni używają niestandardowej aplikacji do dołączania do spotkania zespołów (za pośrednictwem biblioteki klienta wywołującego usługi komunikacyjne)
+1. Pracownicy wykorzystują zespoły do zaplanowania spotkania 
+1. Szczegóły spotkania są udostępniane użytkownikom zewnętrznym za pomocą niestandardowej aplikacji.
+   * **Używanie interfejs API programu Graph** Niestandardowa aplikacja usług komunikacyjnych używa interfejsów API Microsoft Graph, aby uzyskać dostęp do szczegółów spotkania do udostępnienia. 
+   * **Korzystanie z innych opcji** Na przykład link do spotkania można skopiować z kalendarza w usłudze Microsoft Teams.
+1. Użytkownicy zewnętrzni wykorzystują aplikację niestandardową do dołączania do spotkania zespołów (za pośrednictwem bibliotek usługi komunikacyjnej wywołujących i łączących)
 
 Architektura wysokiego poziomu dla tego przypadku użycia wygląda następująco: 
 
 ![Architektura dla zespołów międzyoperacyjnych](./media/call-flows/teams-interop.png)
 
-Niektóre zespoły, takie jak podniesione, tryb razem i pokoje zagadnień, będą dostępne tylko dla użytkowników zespołów, aplikacja niestandardowa będzie miała dostęp do podstawowych możliwości udostępniania dźwięku, wideo i ekranu.
+Niektóre zespoły mogą korzystać z funkcji, takich jak podniesione, tryb razem i pokoje zagadnień, będą dostępne tylko dla użytkowników zespołów, ale aplikacja niestandardowa będzie miała dostęp do podstawowych funkcji związanych z dźwiękiem, wideo, rozmową i udostępnianiem ekranu.
 
-Gdy użytkownik usług komunikacyjnych dołączają się do spotkania zespołów, nazwa wyświetlana podana przez wywołującą bibliotekę klienta będzie pokazywana użytkownikom zespołów. Użytkownik usług komunikacyjnych będzie w przeciwnym razie traktowany jak anonimowy użytkownik w zespołach. Aplikacja niestandardowa powinna rozważyć uwierzytelnianie użytkowników i inne środki bezpieczeństwa w celu ochrony spotkań zespołów. Należy zastanowić się, że implikacje dla użytkowników anonimowych mogą dołączać do spotkań i korzystać z [przewodnika po zabezpieczeniach zespołów](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) w celu skonfigurowania możliwości dostępnych dla użytkowników anonimowych.
+Gdy użytkownik usług komunikacyjnych dołączają się do spotkania zespołów, nazwa wyświetlana podana przez wywołującą bibliotekę klienta będzie pokazywana użytkownikom zespołów. Użytkownik usług komunikacyjnych będzie w przeciwnym razie traktowany jak anonimowy użytkownik w zespołach.  Aplikacja niestandardowa powinna rozważyć uwierzytelnianie użytkowników i inne środki bezpieczeństwa w celu ochrony spotkań zespołów. Należy zastanowić się, że implikacje dla użytkowników anonimowych mogą dołączać do spotkań i korzystać z [przewodnika po zabezpieczeniach zespołów](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) w celu skonfigurowania możliwości dostępnych dla użytkowników anonimowych.
+
+Usługa Communication Services Teams Interop jest obecnie w prywatnej wersji zapoznawczej. Gdy są ogólnie dostępne, użytkownicy usług komunikacyjnych będą traktowani jako "użytkownicy dostępu zewnętrznego". Dowiedz się więcej o dostępie do danych zewnętrznych w programie [Call, rozmowach i współpracy z osobami spoza organizacji w programie Microsoft Teams](https://docs.microsoft.com/microsoftteams/communicate-with-users-from-other-organizations).
 
 Użytkownicy usług komunikacyjnych mogą dołączać do spotkań zaplanowanych zespołów, o ile w [ustawieniach spotkania](/microsoftteams/meeting-settings-in-teams)włączono sprzężenia anonimowe.
 
 ## <a name="teams-in-government-clouds-gcc"></a>Zespoły w chmurach rządowych (w zatoce)
-Współdziałanie usług Azure Communications Services nie jest dozwolone w tym momencie w zespołach wdrożeń korzystających z [Microsoft 365ych chmur dla instytucji rządowych](/MicrosoftTeams/plan-for-government-gcc) . 
+Współdziałanie usług komunikacyjnych platformy Azure nie jest zgodne z wdrożeniami zespołów z użyciem [Microsoft 365 chmury dla instytucji rządowych](/MicrosoftTeams/plan-for-government-gcc) . 
 
 ## <a name="next-steps"></a>Następne kroki
 

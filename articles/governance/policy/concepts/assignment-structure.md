@@ -3,12 +3,12 @@ title: Szczegóły struktury przypisania zasad
 description: Zawiera opis definicji przypisania zasad używanej przez Azure Policy do powiązania definicji zasad i parametrów z zasobami do oceny.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1151c931863e1139b76c34ced12c4e2842f83cc6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219570"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558459"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struktura przypisań usługi Azure Policy
 
@@ -98,7 +98,7 @@ Aby ustawić niestandardowy komunikat opisujący, dlaczego zasób nie jest zgodn
 ]
 ```
 
-Jeśli przypisanie dotyczy inicjatywy, można skonfigurować różne komunikaty dla każdej definicji zasad w ramach inicjatywy. Komunikaty używają `policyDefinitionReferenceId` wartości skonfigurowanej w definicji inicjatywy. Aby uzyskać szczegółowe informacje, zobacz [właściwości definicji właściwości](./initiative-definition-structure.md#policy-definition-properties).
+Jeśli przypisanie dotyczy inicjatywy, można skonfigurować różne komunikaty dla każdej definicji zasad w ramach inicjatywy. Komunikaty używają `policyDefinitionReferenceId` wartości skonfigurowanej w definicji inicjatywy. Aby uzyskać szczegółowe informacje, zobacz [właściwości definicji zasad](./initiative-definition-structure.md#policy-definition-properties).
 
 ```json
 "nonComplianceMessages": [

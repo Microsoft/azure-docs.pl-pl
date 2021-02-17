@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180034"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558892"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publikowanie aktywnej, przeszkolonej aplikacji do tymczasowego lub produkcyjnego punktu końcowego
 
@@ -57,7 +57,6 @@ Na przykład dla aplikacji utworzonej w usłudze [www.Luis.AI](https://www.luis.
 Po wybraniu miejsca Skonfiguruj ustawienia publikowania dla:
 
 * Analiza tonacji
-* [Poprawianie pisowni](luis-tutorial-bing-spellcheck.md)
 * Napełnianiu mowy
 
 Po opublikowaniu te ustawienia są dostępne do przeglądu na stronie **ustawień publikowania** sekcji **Zarządzanie** . Można zmienić ustawienia za pomocą każdej publikacji. Jeśli anulujesz publikowanie, wszelkie zmiany wprowadzone podczas publikowania również zostaną anulowane.
@@ -79,37 +78,6 @@ Nie musisz podawać klucza analiza tekstu i nie ma opłat za rozliczenie dla tej
 Dane tonacji to wynik z zakresu od 1 do 0 wskazujący dodatnie (bliżej 1) lub ujemne (bliżej 0) tonacji danych. Etykieta tonacji `positive` , `neutral` i `negative` jest na obsługiwaną kulturę. Obecnie tylko język angielski obsługuje etykiety tonacji.
 
 Aby uzyskać więcej informacji na temat odpowiedzi punktu końcowego JSON z analizą tonacji, zobacz [tonacji Analysis](luis-reference-prebuilt-sentiment.md)
-
-## <a name="spelling-correction"></a>Poprawianie pisowni
-
-Interfejs API przewidywania v3 obsługuje teraz interfejs API sprawdzania pisowni usługi Bing. Możesz dodać sprawdzanie pisowni do swojej aplikacji, dołączając klucz do zasobu wyszukiwania Bing w nagłówku swoich żądań. Możesz użyć istniejącego zasobu Bing, jeśli jest już własny, lub [utworzyć nowy](https://portal.azure.com/#create/Microsoft.BingSearch) , aby użyć tej funkcji. 
-
-|Klucz nagłówka|Wartość nagłówka|
-|--|--|
-|`mkt-bing-spell-check-key`|Klucze Znalezione w bloku **klucze i punkt końcowy** zasobu|
-
-Przykład danych wyjściowych przewidywania dla błędnego zapytania:
-
-```json
-{
-  "query": "bouk me a fliht to kayro",
-  "prediction": {
-    "alteredQuery": "book me a flight to cairo",
-    "topIntent": "book a flight",
-    "intents": {
-      "book a flight": {
-        "score": 0.9480589
-      }
-      "None": {
-        "score": 0.0332136229
-      }
-    },
-    "entities": {}
-  }
-}
-```
-
-Poprawki pisowni są wprowadzane przed przewidywaniem LUIS użytkownika wypowiedź. W odpowiedzi można zobaczyć zmiany w oryginalnym wypowiedź, w tym pisownię.
 
 ## <a name="speech-priming"></a>Napełnianiu mowy
 

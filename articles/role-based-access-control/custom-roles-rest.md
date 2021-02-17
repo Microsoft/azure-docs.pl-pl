@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab64765fc4e329c8edbf7a4db813113d20d476b3
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790193"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557520"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu API REST
 
@@ -44,7 +44,7 @@ Aby wyświetlić listę wszystkich ról niestandardowych w katalogu, należy uż
 1. Zastąp ciąg *{Filter}* typem roli.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrowanie | Opis |
+    > | Filtr | Opis |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filtr oparty na typie CustomRole |
 
@@ -61,7 +61,7 @@ Aby wyświetlić listę ról niestandardowych w zakresie, użyj interfejsu API R
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, dla którego chcesz wyświetlić listę ról.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupa zasobów |
@@ -71,7 +71,7 @@ Aby wyświetlić listę ról niestandardowych w zakresie, użyj interfejsu API R
 1. Zastąp ciąg *{Filter}* typem roli.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrowanie | Opis |
+    > | Filtr | Opis |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filtr oparty na typie CustomRole |
 
@@ -88,7 +88,7 @@ Aby uzyskać informacje o roli niestandardowej według nazwy wyświetlanej, uży
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, dla którego chcesz wyświetlić listę ról.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupa zasobów |
@@ -98,7 +98,7 @@ Aby uzyskać informacje o roli niestandardowej według nazwy wyświetlanej, uży
 1. Zastąp ciąg *{Filter}* nazwą wyświetlaną roli.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrowanie | Opis |
+    > | Filtr | Opis |
     > | --- | --- |
     > | `$filter=roleName+eq+'{roleDisplayName}'` | Użyj zakodowanego w adresie URL postaci dokładnej nazwy wyświetlanej roli. Na przykład, `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
@@ -117,7 +117,7 @@ Aby uzyskać informacje o roli niestandardowej przy użyciu unikatowego identyfi
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, dla którego chcesz wyświetlić listę ról.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupa zasobów |
@@ -171,7 +171,7 @@ Aby utworzyć rolę niestandardową, użyj [definicji roli — interfejsu API RE
 1. W identyfikatorze URI Zastąp element *{SCOPE}* pierwszą `assignableScopes` rolą niestandardową.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupa zasobów |
@@ -240,7 +240,7 @@ Aby zaktualizować rolę niestandardową, użyj [definicji ról — interfejsu A
 1. W identyfikatorze URI Zastąp element *{SCOPE}* pierwszą `assignableScopes` rolą niestandardową.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupa zasobów |
@@ -330,7 +330,7 @@ Aby usunąć rolę niestandardową, użyj [definicji roli — Usuń](/rest/api/a
 1. W identyfikatorze URI Zastąp element *{SCOPE}* zakresem, dla którego chcesz usunąć rolę niestandardową.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupa zasobów |
@@ -341,5 +341,5 @@ Aby usunąć rolę niestandardową, użyj [definicji roli — Usuń](/rest/api/a
 ## <a name="next-steps"></a>Następne kroki
 
 - [Role niestandardowe platformy Azure](custom-roles.md)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-rest.md)
+- [Przypisywanie ról platformy Azure przy użyciu interfejsu API REST](role-assignments-rest.md)
 - [Dokumentacja interfejsu API REST platformy Azure](/rest/api/azure/)

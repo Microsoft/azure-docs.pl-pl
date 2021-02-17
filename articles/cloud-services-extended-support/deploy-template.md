@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 5c7ecfeace88f613d6f15606382bdbb3117a0cce
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526644"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548781"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu szablonów usługi ARM
 
@@ -134,7 +134,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
     ```
  
 
-4. Dodaj odwołanie do magazynu kluczy w  `OsProfile`   sekcji szablonu ARM. Key Vault jest używany do przechowywania certyfikatów skojarzonych z Cloud Services (obsługa rozszerzona). Dodaj certyfikaty do Key Vault, a następnie odwołując się do odcisków palców certyfikatu w pliku konfiguracji usługi (cscfg). Należy również włączyć Key Vault dla odpowiednich uprawnień, aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikat zapisany jako wpisy tajne z Key Vault. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów z Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
+4. Dodaj odwołanie do magazynu kluczy w  `OsProfile`   sekcji szablonu ARM. Key Vault jest używany do przechowywania certyfikatów skojarzonych z Cloud Services (obsługa rozszerzona). Dodaj certyfikaty do Key Vault, a następnie odwołując się do odcisków palców certyfikatu w pliku konfiguracji usługi (cscfg). Należy również włączyć Key Vault dla odpowiednich uprawnień, aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikat zapisany jako wpisy tajne z Key Vault. Key Vault musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów z Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 

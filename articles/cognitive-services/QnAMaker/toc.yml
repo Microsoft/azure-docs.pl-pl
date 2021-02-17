@@ -8,10 +8,12 @@
       href: whats-new.md
 - name: Przewodniki Szybki start
   items:
-    - name: Tworzenie i zapytanie bazy wiedzy w witrynie QnA Maker Portal
-      href: Quickstarts/create-publish-knowledge-base.md
-    - name: Tworzenie i zapytanie bazy wiedzy przy użyciu bibliotek klienta lub interfejsu API REST
-      href: Quickstarts/quickstart-sdk.md
+    - name: Utwórz i zbadaj bazy wiedzy
+      items:
+        - name: Portal usługi QnA Maker
+          href: Quickstarts/create-publish-knowledge-base.md
+        - name: Biblioteki klienckie lub interfejs API REST
+          href: Quickstarts/quickstart-sdk.md
     - name: Wysyłanie zapytań do bazy wiedzy przy użyciu interfejsów API REST
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
 - name: Samouczki

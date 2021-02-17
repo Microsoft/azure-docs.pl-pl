@@ -1,14 +1,14 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 02/03/2021
+ms.date: 02/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626312"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558504"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -32,6 +32,30 @@ Pakiet agenta połączonej maszyny platformy Azure zawiera kilka składników lo
     * Przypisania są usuwane po 14 dniach i nie są ponownie przypisywane do maszyny po upływie 14 dni.
 
 * Agent rozszerzeń zarządza rozszerzeniami maszyn wirtualnych, w tym Instalowanie, Odinstalowywanie i uaktualnianie. Rozszerzenia są pobierane z platformy Azure i kopiowane do `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folderu w systemie Windows oraz dla systemu Linux do programu `/opt/GC_Ext/downloads` . W systemie Windows rozszerzenie jest instalowane w następującej ścieżce `%SystemDrive%\Packages\Plugins\<extension>` , a w systemie Linux rozszerzenie jest zainstalowane do `/var/lib/waagent/<extension>` .
+
+## <a name="instance-metadata"></a>Metadane wystąpienia
+
+Informacje o metadanych połączonej maszyny są zbierane po zarejestrowaniu agenta połączonej maszyny z serwerami z włączoną funkcją Arc. W szczególności:
+
+* Nazwa, typ i wersja systemu operacyjnego
+* Nazwa komputera
+* W pełni kwalifikowana nazwa domeny komputera (FQDN)
+* Wersja agenta połączonej maszyny
+* Active Directory i w pełni kwalifikowana nazwa domeny DNS (FQDN)
+* UUID (IDENTYFIKATOR SYSTEMU BIOS)
+* Puls agenta połączonej maszyny
+* Wersja agenta połączonej maszyny
+* Klucz publiczny dla tożsamości zarządzanej
+* Szczegóły i stan zgodności zasad (jeśli jest używany Azure Policy zasad konfiguracji gościa)
+
+Agent programu zażądał od platformy Azure następujących informacji dotyczących metadanych:
+
+* Lokalizacja zasobu (region)
+* Identyfikator maszyny wirtualnej
+* Tagi
+* Azure Active Directory certyfikat tożsamości zarządzanej
+* Przypisania zasad konfiguracji gościa
+* Żądania rozszerzeń — Instalowanie, aktualizowanie i usuwanie.
 
 ## <a name="download-agents"></a>Pobierz agentów
 

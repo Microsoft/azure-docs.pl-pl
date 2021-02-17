@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184267"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555890"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problemy z przypisaniami ról platformy Azure
 
-- Jeśli nie można dodać przypisania roli w Azure Portal na **kontroli dostępu (IAM)** , ponieważ opcja **Dodaj**  >  **przypisanie roli** jest wyłączona lub z powodu błędu uprawnień "klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji", sprawdź, czy zalogowano się przy użyciu użytkownika, do którego przypisano rolę z `Microsoft.Authorization/roleAssignments/write` uprawnieniem, takim jak [właściciel](built-in-roles.md#owner) lub [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) w zakresie, w którym próbujesz przypisać rolę.
+- Jeśli nie można przypisać roli w Azure Portal na **kontroli dostępu (IAM)** , ponieważ opcja **Dodaj**  >  **przypisanie roli** jest wyłączona lub z powodu błędu uprawnień "klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji", sprawdź, czy zalogowano się przy użyciu użytkownika, do którego przypisano rolę z `Microsoft.Authorization/roleAssignments/write` uprawnieniem, takim jak [właściciel](built-in-roles.md#owner) lub [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) w zakresie, w którym próbujesz przypisać rolę.
 - Jeśli używasz jednostki usługi do przypisywania ról, może zostać wyświetlony komunikat o błędzie "niewystarczające uprawnienia do ukończenia tej operacji". Załóżmy na przykład, że masz nazwę główną usługi, która ma przypisaną rolę właściciela, i spróbuj utworzyć następujące przypisanie roli jako nazwę główną usługi przy użyciu interfejsu wiersza polecenia platformy Azure:
 
     ```azurecli
@@ -63,7 +63,7 @@ $ras.Count
 
     Istnieją dwa sposoby, aby potencjalnie rozwiązać ten problem. Pierwszy sposób polega na przypisaniu roli [czytniki katalogów](../active-directory/roles/permissions-reference.md#directory-readers) do nazwy głównej usługi, aby mogła ona odczytywać dane w katalogu.
 
-    Drugim sposobem na rozwiązanie tego błędu jest utworzenie przypisania roli przy użyciu `--assignee-object-id` parametru zamiast `--assignee` . Za pomocą `--assignee-object-id` interfejsu wiersza polecenia platformy Azure pominie wyszukiwanie w usłudze Azure AD. Konieczne będzie uzyskanie identyfikatora obiektu użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
+    Drugim sposobem na rozwiązanie tego błędu jest utworzenie przypisania roli przy użyciu `--assignee-object-id` parametru zamiast `--assignee` . Za pomocą `--assignee-object-id` interfejsu wiersza polecenia platformy Azure pominie wyszukiwanie w usłudze Azure AD. Konieczne będzie uzyskanie identyfikatora obiektu użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -151,7 +151,7 @@ Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejs
 }
 ```
 
-Nie jest to problem, aby opuścić te przypisania ról, w których podmiot zabezpieczeń został usunięty. Jeśli chcesz, możesz usunąć te przypisania ról, korzystając z kroków, które są podobne do innych przypisań ról. Informacje o sposobach usuwania przypisań ról można znaleźć w temacie [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)lub [interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-a-role-assignment)
+Nie jest to problem, aby opuścić te przypisania ról, w których podmiot zabezpieczeń został usunięty. Jeśli chcesz, możesz usunąć te przypisania ról, korzystając z kroków, które są podobne do innych przypisań ról. Aby uzyskać informacje o sposobach usuwania przypisań ról, zobacz [usuwanie przypisań ról platformy Azure](role-assignments-remove.md).
 
 W programie PowerShell, jeśli spróbujesz usunąć przypisania roli przy użyciu identyfikatora obiektu i nazwy definicji roli, a więcej niż jedno przypisanie roli jest zgodne z parametrami, zostanie wyświetlony komunikat o błędzie: "podane informacje nie są mapowane na przypisanie roli". Poniższe dane wyjściowe pokazują przykład komunikatu o błędzie:
 
@@ -174,7 +174,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 ## <a name="role-assignment-changes-are-not-being-detected"></a>Zmiany przypisania roli nie są wykrywane
 
-Czasami Azure Resource Manager buforuje konfiguracje i dane w celu zwiększenia wydajności. Dodanie lub usunięcie przypisań ról może potrwać do 30 minut, aby zmiany zaczęły obowiązywać. Jeśli używasz Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, możesz wymusić odświeżenie zmian przypisania roli przez wylogowanie się i zalogowanie się. W przypadku wprowadzania zmian przypisywania ról przy użyciu wywołań interfejsu API REST można wymusić odświeżenie tokenu dostępu.
+Czasami Azure Resource Manager buforuje konfiguracje i dane w celu zwiększenia wydajności. Po przypisaniu ról lub usunięciu przypisań ról może upłynąć do 30 minut, aby zmiany zaczęły obowiązywać. Jeśli używasz Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, możesz wymusić odświeżenie zmian przypisania roli przez wylogowanie się i zalogowanie się. W przypadku wprowadzania zmian przypisywania ról przy użyciu wywołań interfejsu API REST można wymusić odświeżenie tokenu dostępu.
 
 Jeśli dodajesz lub usuniesz przypisanie roli w zakresie grupy zarządzania i rola ma `DataActions` , dostęp na płaszczyźnie danych może nie być aktualizowany przez kilka godzin. Dotyczy to tylko zakresu grupy zarządzania i płaszczyzny danych.
 
@@ -249,5 +249,5 @@ Czytelnik może kliknąć kartę **funkcje platformy** , a następnie kliknąć 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Rozwiązywanie problemów z użytkownikami-Gośćmi](role-assignments-external-users.md#troubleshoot)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
 - [Wyświetlanie dzienników aktywności dla zmian RBAC platformy Azure](change-history-report.md)

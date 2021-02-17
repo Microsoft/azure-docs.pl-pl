@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805794"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546809"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Nawiązywanie połączenia z usługą Azure Resource Manager na urządzeniu z systemem Azure Stack EDGE Pro
 
@@ -93,9 +93,9 @@ Aby nawiązać połączenie z Azure Resource Manager, musisz utworzyć lub pobra
 
 Tylko do celów testowych i programistycznych można użyć programu Windows PowerShell do utworzenia certyfikatów w systemie lokalnym. Podczas tworzenia certyfikatów dla klienta postępuj zgodnie z następującymi wskazówkami:
 
-1. Najpierw musisz utworzyć certyfikat główny dla łańcucha podpisywania. Aby uzyskać więcej informacji, zobacz temat kroki [tworzenia certyfikatów łańcucha podpisywania](azure-stack-edge-j-series-manage-certificates.md#create-signing-chain-certificate).
+1. Najpierw musisz utworzyć certyfikat główny dla łańcucha podpisywania. Aby uzyskać więcej informacji, zobacz temat kroki [tworzenia certyfikatów łańcucha podpisywania](azure-stack-edge-gpu-manage-certificates.md#create-signing-chain-certificate).
 
-2. Można następnie utworzyć certyfikaty punktów końcowych dla obiektu BLOB i Azure Resource Manager. Te punkty końcowe można uzyskać ze strony **urządzenia** w lokalnym interfejsie użytkownika sieci Web. Zapoznaj się z instrukcjami [tworzenia certyfikatów punktów końcowych](azure-stack-edge-j-series-manage-certificates.md#create-signed-endpoint-certificates).
+2. Można następnie utworzyć certyfikaty punktów końcowych dla obiektu BLOB i Azure Resource Manager. Te punkty końcowe można uzyskać ze strony **urządzenia** w lokalnym interfejsie użytkownika sieci Web. Zapoznaj się z instrukcjami [tworzenia certyfikatów punktów końcowych](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates).
 
 3. W przypadku wszystkich tych certyfikatów upewnij się, że nazwa podmiotu i Alternatywna nazwa podmiotu są zgodne z następującymi wskazówkami:
 
@@ -105,26 +105,26 @@ Tylko do celów testowych i programistycznych można użyć programu Windows Pow
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Pojedynczy certyfikat sieci SAN dla obu punktów końcowych|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
-Aby uzyskać więcej informacji na temat certyfikatów, przejdź do sposobu [zarządzania certyfikatami](azure-stack-edge-j-series-manage-certificates.md).
+Aby uzyskać więcej informacji na temat certyfikatów, przejdź do sposobu [zarządzania certyfikatami](azure-stack-edge-gpu-manage-certificates.md).
 
 ### <a name="upload-certificates-on-the-device"></a>Przekazywanie certyfikatów na urządzeniu
 
 Certyfikaty utworzone w poprzednim kroku będą znajdować się w magazynie osobistym klienta. Te certyfikaty należy wyeksportować na kliencie do odpowiednich plików formatu, które można następnie przekazać do urządzenia.
 
-1. Certyfikat główny należy wyeksportować jako plik w formacie DER przy użyciu rozszerzenia pliku *. cer* . Aby uzyskać szczegółowe instrukcje, zobacz [Eksportowanie certyfikatów jako pliku w formacie. cer](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-der-format).
+1. Certyfikat główny należy wyeksportować jako plik w formacie DER przy użyciu rozszerzenia pliku *. cer* . Aby uzyskać szczegółowe instrukcje, zobacz [Eksportowanie certyfikatów jako pliku w formacie. cer](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-der-format).
 
-2. Certyfikaty punktów końcowych muszą być eksportowane jako pliki *PFX* z kluczami prywatnymi. Aby uzyskać szczegółowe instrukcje, zobacz [Eksportowanie certyfikatów jako plik PFX z kluczami prywatnymi](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
+2. Certyfikaty punktów końcowych muszą być eksportowane jako pliki *PFX* z kluczami prywatnymi. Aby uzyskać szczegółowe instrukcje, zobacz [Eksportowanie certyfikatów jako plik PFX z kluczami prywatnymi](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 
-3. Certyfikaty główne i końcowe są następnie przekazywane na urządzeniu przy użyciu opcji **+ Dodaj certyfikat** na stronie **Certyfikaty** w lokalnym interfejsie użytkownika sieci Web. Aby przekazać certyfikaty, wykonaj kroki opisane w sekcji [przekazywanie certyfikatów](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
+3. Certyfikaty główne i końcowe są następnie przekazywane na urządzeniu przy użyciu opcji **+ Dodaj certyfikat** na stronie **Certyfikaty** w lokalnym interfejsie użytkownika sieci Web. Aby przekazać certyfikaty, wykonaj kroki opisane w sekcji [przekazywanie certyfikatów](azure-stack-edge-gpu-manage-certificates.md#upload-certificates).
 
 
 ### <a name="import-certificates-on-the-client-running-azure-powershell"></a>Importowanie certyfikatów na kliencie z uruchomionym Azure PowerShell
 
 Klient systemu Windows, który będzie wywoływał Azure Resource Manager interfejsy API musi ustanowić relację zaufania z urządzeniem. W tym celu certyfikaty utworzone w poprzednim kroku muszą zostać zaimportowane na klienta systemu Windows do odpowiedniego magazynu certyfikatów.
 
-1. Certyfikat główny wyeksportowany jako format DER z rozszerzeniem *CER* powinien zostać teraz zaimportowany do zaufanych głównych urzędów certyfikacji w systemie klienta. Aby uzyskać szczegółowe instrukcje, zobacz [Importowanie certyfikatów do magazynu zaufanych głównych urzędów certyfikacji.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)
+1. Certyfikat główny wyeksportowany jako format DER z rozszerzeniem *CER* powinien zostać teraz zaimportowany do zaufanych głównych urzędów certyfikacji w systemie klienta. Aby uzyskać szczegółowe instrukcje, zobacz [Importowanie certyfikatów do magazynu zaufanych głównych urzędów certyfikacji.](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format)
 
-2. Certyfikaty punktów końcowych, które zostały wyeksportowane jako plik *PFX* , muszą zostać wyeksportowane jako plik *CER*. Następnie *CER* zostanie zaimportowany do **osobistego** magazynu certyfikatów w systemie. Aby uzyskać szczegółowe instrukcje, zobacz [Importowanie certyfikatów do magazynu osobistego](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format).
+2. Certyfikaty punktów końcowych, które zostały wyeksportowane jako plik *PFX* , muszą zostać wyeksportowane jako plik *CER*. Następnie *CER* zostanie zaimportowany do **osobistego** magazynu certyfikatów w systemie. Aby uzyskać szczegółowe instrukcje, zobacz [Importowanie certyfikatów do magazynu osobistego](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format).
 
 ## <a name="step-3-install-powershell-on-the-client"></a>Krok 3. Instalowanie programu PowerShell na kliencie 
 

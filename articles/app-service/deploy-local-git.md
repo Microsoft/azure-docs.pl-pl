@@ -3,15 +3,15 @@ title: Wdróż z lokalnego repozytorium git
 description: Dowiedz się, jak włączyć wdrożenie lokalnego narzędzia Git w Azure App Service. Jednym z najprostszych metod wdrażania kodu z komputera lokalnego.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/16/2021
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 26fd8bc73fad3ea313641fc4b1e0f454ee2c0813
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 5dd6183bf88c167adb2f084c319cd90b94351dfb
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347782"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560468"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokalne wdrożenie narzędzia Git do Azure App Service
 
@@ -24,139 +24,129 @@ Aby wykonać kroki opisane w tym przewodniku:
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
 - [Zainstaluj narzędzie git](https://www.git-scm.com/downloads).
-  
+
 - Posiadanie lokalnego repozytorium git z kodem, który chcesz wdrożyć. Aby pobrać przykładowe repozytorium, uruchom następujące polecenie w lokalnym oknie terminala:
   
   ```bash
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-## <a name="deploy-with-kudu-build-server"></a>Wdróż z serwerem kompilacji kudu
+## <a name="configure-a-deployment-user"></a>Konfigurowanie użytkownika wdrożenia
 
-Najprostszym sposobem włączenia lokalnego wdrożenia narzędzia Git dla aplikacji przy użyciu serwera kudu App Service Build jest użycie Azure Cloud Shell. 
+Zobacz [Konfigurowanie poświadczeń wdrażania dla Azure App Service](deploy-configure-credentials.md). Można użyć poświadczeń zakresu użytkownika lub poświadczeń zakresu aplikacji.
 
-### <a name="configure-a-deployment-user"></a>Konfigurowanie użytkownika wdrożenia
+## <a name="create-a-git-enabled-app"></a>Tworzenie aplikacji z obsługą usługi git
 
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
+Jeśli masz już aplikację App Service i chcesz skonfigurować lokalne wdrożenie narzędzia Git, zobacz sekcję [Konfigurowanie istniejącej aplikacji](#configure-an-existing-app) .
 
-### <a name="get-the-deployment-url"></a>Pobierz adres URL wdrożenia
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/cli)
 
-Aby uzyskać adres URL umożliwiający lokalne wdrożenie narzędzia Git dla istniejącej aplikacji, uruchom polecenie [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) w Cloud Shell. Zastąp \<app-name> \<group-name> wartości i nazwami aplikacji oraz jej grupą zasobów platformy Azure.
+Uruchom [`az webapp create`](/cli/azure/webapp#az_webapp_create) polecenie z `--deployment-local-git` opcją. Na przykład:
+
+```azurecli-interactive
+az webapp create --resource-group <group-name> --plan <plan-name> --name <app-name> --runtime "<runtime-flag>" --deployment-local-git
+```
+
+Dane wyjściowe zawierają adres URL, taki jak: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git` . Użyj tego adresu URL, aby wdrożyć aplikację w następnym kroku.
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Uruchom narzędzie [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) z poziomu katalogu głównego repozytorium git. Na przykład:
+
+```azurepowershell-interactive
+New-AzWebApp -Name <app-name>
+```
+
+Gdy uruchamiasz to polecenie cmdlet z katalogu, który jest repozytorium git, automatycznie tworzy zdalne narzędzie git dla aplikacji App Service, o nazwie `azure` .
+
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+W portalu należy najpierw utworzyć aplikację, a następnie skonfigurować dla niej wdrożenie. Zobacz [Konfigurowanie istniejącej aplikacji](#configure-an-existing-app).
+
+-----
+
+## <a name="configure-an-existing-app"></a>Konfigurowanie istniejącej aplikacji
+
+Jeśli jeszcze nie utworzono aplikacji, zobacz sekcję [Tworzenie aplikacji z obsługą usługi git](#create-a-git-enabled-app) .
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/cli)
+
+Uruchom [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) . Na przykład:
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
-> [!NOTE]
-> Jeśli używasz planu usługi App-Service-system dla systemu Linux, musisz dodać ten parametr:--Runtime Python | 3.7
 
+Dane wyjściowe zawierają adres URL, taki jak: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git` . Użyj tego adresu URL, aby wdrożyć aplikację w następnym kroku.
 
-Lub, aby utworzyć nową aplikację z obsługą git, uruchom polecenie [`az webapp create`](/cli/azure/webapp#az-webapp-create) w Cloud Shell z `--deployment-local-git` parametrem. Zastąp \<app-name> , \<group-name> i \<plan-name> z nazwami nowej aplikacji git, jej grupą zasobów platformy Azure i planem Azure App Service.
+> [!TIP]
+> Ten adres URL zawiera nazwę użytkownika wdrożenia zakresu User. Jeśli chcesz, możesz zamiast tego [użyć poświadczeń zakresu aplikacji](deploy-configure-credentials.md#appscope) . 
 
-```azurecli-interactive
-az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Ustaw `scmType` aplikację, uruchamiając polecenie cmdlet [Set-AzResource](/powershell/module/az.resources/set-azresource) .
+
+```powershell-interactive
+$PropertiesObject = @{
+    scmType = "LocalGit";
+}
+
+Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name> `
+-ResourceType Microsoft.Web/sites/config -ResourceName <app-name>/web `
+-ApiVersion 2015-08-01 -Force
 ```
 
-Każde polecenie zwraca adres URL, na przykład: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git` . Użyj tego adresu URL, aby wdrożyć aplikację w następnym kroku.
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Zamiast używać tego adresu URL na poziomie konta, można również włączyć lokalny git przy użyciu poświadczeń na poziomie aplikacji. Azure App Service automatycznie generuje te poświadczenia dla każdej aplikacji. 
+1. W [Azure Portal](https://portal.azure.com)przejdź do strony zarządzania aplikacji.
 
-Pobierz poświadczenia aplikacji, uruchamiając następujące polecenie w Cloud Shell. Zastąp \<app-name> nazwy i nazwą \<group-name> swojej aplikacji oraz grupą zasobów platformy Azure.
+1. W menu po lewej stronie wybierz pozycję Ustawienia **centrum wdrażania**  >  . Wybierz pozycję **lokalny git** w obszarze **Źródło**, a następnie kliknij przycisk **Zapisz**.
 
-```azurecli-interactive
-az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
-```
+    ![Pokazuje, jak włączyć lokalne wdrożenie narzędzia Git dla App Service w Azure Portal](./media/deploy-local-git/enable-portal.png)
 
-Użyj adresu URL, który powraca do wdrożenia aplikacji w następnym kroku.
+1. W lokalnej sekcji git Skopiuj **identyfikator Uri git clone** w późniejszym czasie. Ten identyfikator URI nie zawiera żadnych poświadczeń.
 
-### <a name="deploy-the-web-app"></a>Wdrażanie aplikacji sieci Web
+-----
 
-1. Otwórz lokalne okno terminalu w lokalnym repozytorium git, a następnie Dodaj element zdalny platformy Azure. W poniższym poleceniu Zastąp \<url> ciąg adresem URL specyficznym dla użytkownika, który został uzyskany z poprzedniego kroku.
+## <a name="deploy-the-web-app"></a>Wdrażanie aplikacji sieci Web
+
+1. W oknie terminalu lokalnego Zmień katalog na katalog główny repozytorium git, a następnie Dodaj element zdalny git przy użyciu adresu URL, który został uzyskany z aplikacji. Jeśli wybrana metoda nie daje adresu URL, użyj `https://<app-name>.scm.azurewebsites.net/<app-name>.git` nazwy aplikacji w `<app-name>` .
    
    ```bash
    git remote add azure <url>
    ```
+
+    > [!NOTE]
+    > Jeśli [utworzono aplikację z obsługą usługi Git w programie PowerShell przy użyciu polecenia New-AzWebApp](#create-a-git-enabled-app), zdalne jest już utworzone.
    
 1. Wypchnij do zdalnego systemu Azure za pomocą usługi `git push azure master` . 
    
-1. W oknie **Menedżer poświadczeń git** wprowadź [hasło użytkownika wdrożenia](#configure-a-deployment-user), a nie hasło logowania do platformy Azure.
+1. W oknie **Menedżer poświadczeń usługi git** wprowadź poświadczenia zakresu [użytkownika lub zakresu aplikacji](#configure-a-deployment-user), a nie poświadczenia logowania do platformy Azure.
+
+    Jeśli zdalny adres URL narzędzia Git zawiera już nazwę użytkownika i hasło, nie zostanie wyświetlony monit. 
    
 1. Przejrzyj dane wyjściowe. Dla `npm install` Node.js i dla języka Python może zostać wyświetlona Automatyzacja specyficzna dla środowiska uruchomieniowego, taka jak MSBuild for ASP.NET `pip install` . 
    
 1. Przejdź do aplikacji w Azure Portal, aby sprawdzić, czy zawartość została wdrożona.
 
-## <a name="deploy-with-azure-pipelines-builds"></a>Wdróż z kompilacjami Azure Pipelines
-
-Jeśli Twoje konto ma wymagane uprawnienia, możesz skonfigurować Azure Pipelines (wersja zapoznawcza), aby włączyć lokalne wdrożenie narzędzia Git dla aplikacji. 
-
-- Twoje konto platformy Azure musi mieć uprawnienia do zapisu w Azure Active Directory i tworzenia usługi. 
-  
-- Twoje konto platformy Azure musi mieć rolę **właściciela** w ramach subskrypcji platformy Azure.
-
-- Musisz być administratorem w projekcie usługi Azure DevOps, którego chcesz użyć.
-
-Aby włączyć lokalne wdrożenie narzędzia Git dla aplikacji przy użyciu Azure Pipelines (wersja zapoznawcza):
-
-1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **App Services**. 
-
-1. Wybierz aplikację Azure App Service i wybierz pozycję **centrum wdrażania** w menu po lewej stronie.
-   
-1. Na stronie **centrum wdrażania** wybierz pozycję **lokalny program git**, a następnie wybierz pozycję **Kontynuuj**. 
-   
-   ![Wybierz pozycję lokalny git, a następnie wybierz pozycję Kontynuuj.](media/app-service-deploy-local-git/portal-enable.png)
-   
-1. Na stronie **dostawca kompilacji** wybierz pozycję **Azure Pipelines (wersja zapoznawcza)**, a następnie wybierz pozycję **Kontynuuj**. 
-   
-   ![Wybierz pozycję Azure Pipelines (wersja zapoznawcza), a następnie wybierz pozycję Kontynuuj.](media/app-service-deploy-local-git/pipeline-builds.png)
-
-1. Na stronie **Konfigurowanie** Skonfiguruj nową organizację usługi Azure DevOps lub określ istniejącą organizację, a następnie wybierz pozycję **Kontynuuj**.
-   
-   > [!NOTE]
-   > Jeśli istniejąca organizacja usługi Azure DevOps nie jest wymieniona, może być konieczne połączenie jej z subskrypcją platformy Azure. Aby uzyskać więcej informacji, zobacz [Definiowanie potoku wydania dysku CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
-   
-1. W zależności od [warstwy cenowej](https://azure.microsoft.com/pricing/details/app-service/plans/)planu App Service może zostać wyświetlona strona **wdrażanie do przemieszczania** . Zdecyduj, czy chcesz [włączyć miejsca wdrożenia](deploy-staging-slots.md), a następnie wybierz pozycję **Kontynuuj**.
-   
-1. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Zakończ**.
-   
-1. Gdy potok platformy Azure jest gotowy, skopiuj adres URL repozytorium git ze strony **centrum wdrażania** , aby użyć go w następnym kroku. 
-   
-   ![Skopiuj adres URL repozytorium git](media/app-service-deploy-local-git/vsts-repo-ready.png)
-
-1. W oknie terminalu lokalnego Dodaj zdalne Azure do lokalnego repozytorium git. W poleceniu Zastąp ciąg \<url> adresem URL repozytorium git uzyskanym w poprzednim kroku.
-   
-   ```bash
-   git remote add azure <url>
-   ```
-   
-1. Wypchnij do zdalnego systemu Azure za pomocą usługi `git push azure master` . 
-   
-1. Na stronie **Menedżer poświadczeń git** Zaloguj się przy użyciu nazwy użytkownika VisualStudio.com. Aby poznać inne metody uwierzytelniania, zobacz [Omówienie uwierzytelniania Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
-   
-1. Po zakończeniu wdrożenia Przejrzyj postęp kompilacji o godzinie `https://<azure_devops_account>.visualstudio.com/<project_name>/_build` i postęp wdrażania o `https://<azure_devops_account>.visualstudio.com/<project_name>/_release` .
-   
-1. Przejdź do aplikacji w Azure Portal, aby sprawdzić, czy zawartość została wdrożona.
-
-[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
-
 ## <a name="troubleshoot-deployment"></a>Rozwiązywanie problemów z wdrażaniem
 
 W przypadku publikowania w aplikacji App Service na platformie Azure przy użyciu narzędzia Git mogą pojawić się następujące typowe komunikaty o błędach:
 
-|Wiadomość|Przyczyna|Rozwiązanie
+|Komunikat|Przyczyna|Rozwiązanie
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|Aplikacja nie działa.|Uruchom aplikację w Azure Portal. Wdrożenie narzędzia Git jest niedostępne, gdy aplikacja sieci Web jest zatrzymana.|
 |`Couldn't resolve host 'hostname'`|Informacje o adresie dla elementu zdalnego "Azure" są nieprawidłowe.|Użyj `git remote -v` polecenia, aby wyświetlić listę wszystkich zdalnych, wraz z skojarzonym adresem URL. Sprawdź, czy adres URL dla zdalnego "Azure" jest prawidłowy. W razie konieczności Usuń i Utwórz ponownie ten zdalny przy użyciu poprawnego adresu URL.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Nie określono gałęzi `git push` w trakcie lub wartość nie została ustawiona `push.default` w `.gitconfig` .|Uruchom `git push` ponownie, określając gałąź główną: `git push azure master` .|
-|`src refspec [branchname] does not match any.`|Podjęto próbę wypchnięcia do gałęzi innej niż główna na pilocie "Azure".|Uruchom `git push` ponownie, określając gałąź główną: `git push azure master` .|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Nie określono gałęzi `git push` w trakcie lub wartość nie została ustawiona `push.default` w `.gitconfig` .|Uruchom `git push` ponownie, określając gałąź główną: `git push azure main` .|
+|`src refspec [branchname] does not match any.`|Podjęto próbę wypchnięcia do gałęzi innej niż główna na pilocie "Azure".|Uruchom `git push` ponownie, określając gałąź główną: `git push azure main` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|Ten błąd może wystąpić, jeśli spróbujesz wypchnąć duże repozytorium Git za pośrednictwem protokołu HTTPS.|Zmień konfigurację Git na komputerze lokalnym, aby zwiększyć `postBuffer` rozmiar. Na przykład: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|Wdrożono aplikację Node.js przy użyciu _package.jsw_ pliku, który określa dodatkowe wymagane moduły.|Sprawdź `npm ERR!` komunikaty o błędach przed tym błędem, aby uzyskać więcej kontekstu w przypadku awarii. Poniżej przedstawiono znane przyczyny tego błędu oraz odpowiadające im `npm ERR!` komunikaty:<br /><br />**Nieprawidłowo sformułowany package.jsw pliku**: `npm ERR! Couldn't read dependencies.`<br /><br />**Moduł macierzysty nie ma dystrybucji binarnej dla systemu Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />lub <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Dokumentacja programu Project kudu](https://github.com/projectkudu/kudu/wiki)
+- [Serwer kompilacji App Service (dokumentacja projektu kudu)](https://github.com/projectkudu/kudu/wiki)
 - [Ciągłe wdrażanie do usługi Azure App Service](deploy-continuous-deployment.md)
 - [Przykład: Tworzenie aplikacji internetowej i wdrażanie kodu z lokalnego repozytorium git (interfejs wiersza polecenia platformy Azure)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
 - [Przykład: Tworzenie aplikacji internetowej i wdrażanie kodu z lokalnego repozytorium git (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

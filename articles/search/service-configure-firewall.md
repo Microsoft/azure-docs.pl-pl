@@ -7,20 +7,19 @@ author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.date: 02/16/2021
+ms.openlocfilehash: 98a516e76d5e4f5c225873b934949759d7fcba8d
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573249"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535335"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Konfigurowanie zapory IP dla usługi Azure Wyszukiwanie poznawcze
 
 Usługa Azure Wyszukiwanie poznawcze obsługuje reguły adresów IP na potrzeby obsługi zapory przychodzącej. Ten model zapewnia dodatkową warstwę zabezpieczeń usługi wyszukiwania podobną do reguł adresów IP, które znajdują się w grupie zabezpieczeń sieci wirtualnej platformy Azure. Za pomocą tych reguł IP można skonfigurować usługę wyszukiwania jako dostępną tylko z zatwierdzonego zestawu maszyn i/lub usług w chmurze. Dostęp do danych przechowywanych w usłudze wyszukiwania z tych zatwierdzonych zestawów maszyn i usług nadal będzie wymagał, aby obiekt wywołujący mógł przedstawić prawidłowy token autoryzacji.
 
-> [!Important]
-> Reguły adresów IP w usłudze Azure Wyszukiwanie poznawcze można skonfigurować przy użyciu Azure Portal lub [interfejsu API REST zarządzania w wersji 2020-03-13](/rest/api/searchmanagement/).
+Reguły adresów IP można ustawić w Azure Portal, zgodnie z opisem w tym artykule. Alternatywnie możesz użyć [interfejsu API REST zarządzania w wersji 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search)lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/search).
 
 ## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Konfigurowanie zapory IP przy użyciu Azure Portal
 

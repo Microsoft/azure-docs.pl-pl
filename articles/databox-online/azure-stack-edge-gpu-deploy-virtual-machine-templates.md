@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 9a347d57de540ed31c862f618be7c8a98b685348
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805200"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546928"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu szablonów
 
@@ -149,7 +149,7 @@ W typowym środowisku skonfigurowano system DNS tak, aby wszystkie konta magazyn
 
 ### <a name="optional-install-certificates"></a>Obowiązkowe Instalowanie certyfikatów
 
-Pomiń ten krok, jeśli zostanie nawiązane połączenie za pośrednictwem Eksplorator usługi Storage przy użyciu *protokołu HTTP*. W przypadku korzystania z *protokołu HTTPS* należy zainstalować odpowiednie certyfikaty w Eksplorator usługi Storage. W takim przypadku należy zainstalować certyfikat punktu końcowego obiektu BLOB. Aby uzyskać więcej informacji, zobacz jak tworzyć i przekazywać certyfikaty w artykule [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md). 
+Pomiń ten krok, jeśli zostanie nawiązane połączenie za pośrednictwem Eksplorator usługi Storage przy użyciu *protokołu HTTP*. W przypadku korzystania z *protokołu HTTPS* należy zainstalować odpowiednie certyfikaty w Eksplorator usługi Storage. W takim przypadku należy zainstalować certyfikat punktu końcowego obiektu BLOB. Aby uzyskać więcej informacji, zobacz jak tworzyć i przekazywać certyfikaty w artykule [Zarządzanie certyfikatami](azure-stack-edge-gpu-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Tworzenie i przekazywanie wirtualnego dysku twardego
 

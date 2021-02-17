@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: a202ee1d708feebc7643fa6f20aafa9d8603fc38
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594454"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546775"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Samouczek: Konfigurowanie sieci dla Azure Stack krawędzi mini R
 
@@ -50,7 +50,7 @@ Wykonaj następujące kroki, aby skonfigurować sieć dla urządzenia.
 
 2. Jeśli wymagana jest aktualizacja zero dni, można to zrobić, konfigurując port danych przy użyciu połączenia przewodowego. Aby uzyskać więcej informacji na temat sposobu konfigurowania połączenia przewodowego dla tego urządzenia, zobacz [kabel urządzenia](azure-stack-edge-mini-r-deploy-install.md#cable-the-device). Po zakończeniu aktualizacji można usunąć połączenie przewodowe.
 
-3. Utwórz certyfikaty dla Wi-Fi i łańcucha podpisywania. Zarówno łańcuch podpisywania, jak i certyfikaty Wi-Fi muszą być w formacie DER z rozszerzeniem *. cer* . Aby uzyskać instrukcje, zobacz [Tworzenie certyfikatów](azure-stack-edge-j-series-manage-certificates.md).
+3. Utwórz certyfikaty dla Wi-Fi i łańcucha podpisywania. Zarówno łańcuch podpisywania, jak i certyfikaty Wi-Fi muszą być w formacie DER z rozszerzeniem *. cer* . Aby uzyskać instrukcje, zobacz [Tworzenie certyfikatów](azure-stack-edge-gpu-manage-certificates.md).
 
 4. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **wprowadzenie**. Na kafelku **zabezpieczenia** wybierz pozycję **Certyfikaty** , a następnie wybierz pozycję **Konfiguruj**. 
 

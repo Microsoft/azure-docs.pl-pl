@@ -1,25 +1,29 @@
 ---
-title: Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager — Azure RBAC
+title: Przypisywanie ról platformy Azure za pomocą szablonów Azure Resource Manager — Azure RBAC
 description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu szablonów Azure Resource Manager i kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
-ms.openlocfilehash: 023aa086cdafc3ab1459c2f748b2181575c14191
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 65b4ec369085e44cdffb0550e9eeaef0196cd35a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675340"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556020"
 ---
-# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager
+# <a name="assign-azure-roles-using-azure-resource-manager-templates"></a>Przypisywanie ról platformy Azure przy użyciu szablonów Azure Resource Manager
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Oprócz używania Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można przypisywać role przy użyciu [szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Szablony mogą być przydatne, jeśli trzeba spójnie i wielokrotnie wdrażać zasoby. W tym artykule opisano sposób przypisywania ról przy użyciu szablonów.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## <a name="get-object-ids"></a>Pobierz identyfikatory obiektów
 
@@ -37,7 +41,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### <a name="group"></a>Grupa
+### <a name="group"></a>Group (Grupa)
 
 Aby uzyskać identyfikator grupy, można użyć poleceń [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) lub [AZ AD Group Show](/cli/azure/ad/group#az-ad-group-show) .
 
@@ -73,13 +77,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="add-a-role-assignment"></a>Dodaj przypisanie roli
+## <a name="assign-an-azure-role"></a>Przypisywanie roli platformy Azure
 
-W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli.
+W celu udzielenia dostępu w usłudze Azure RBAC należy przypisać rolę.
 
 ### <a name="resource-group-scope-without-parameters"></a>Zakres grupy zasobów (bez parametrów)
 
-Poniższy szablon przedstawia podstawowy sposób dodawania przypisania roli. Niektóre wartości są określone w szablonie. Poniższy szablon demonstruje:
+Poniższy szablon przedstawia podstawowy sposób przypisywania roli. Niektóre wartości są określone w szablonie. Poniższy szablon demonstruje:
 
 -  Jak przypisać rolę [czytnika](built-in-roles.md#reader) do użytkownika, grupy lub aplikacji w zakresie grupy zasobów
 
@@ -206,7 +210,7 @@ az deployment sub create --location centralus --template-file rbac-test.json --p
 
 ### <a name="resource-scope"></a>Zakres zasobu
 
-Jeśli konieczne jest dodanie przypisania roli na poziomie zasobu, należy ustawić `scope` Właściwość przypisanie roli na nazwę zasobu.
+Jeśli trzeba przypisać rolę na poziomie zasobu, należy ustawić `scope` Właściwość przypisanie roli na nazwę zasobu.
 
 Poniższy szablon demonstruje:
 
@@ -369,15 +373,6 @@ az deployment group create --resource-group ExampleGroup2 --template-file rbac-t
 Poniżej przedstawiono przykład przypisania roli współautor do nowej jednostki usługi tożsamości zarządzanej po wdrożeniu szablonu.
 
 ![Przypisanie roli dla nowej nazwy głównej usługi tożsamości zarządzanej](./media/role-assignments-template/role-assignment-template-msi.png)
-
-## <a name="remove-a-role-assignment"></a>Usuwanie przypisania roli
-
-W celu usunięcia dostępu do zasobu platformy Azure w usłudze Azure RBAC należy usunąć przypisanie roli. Nie można usunąć przypisania roli przy użyciu szablonu. Aby usunąć przypisanie roli, należy użyć innych narzędzi, takich jak:
-
-- [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
-- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-a-role-assignment)
-- [Interfejs API REST](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Następne kroki
 

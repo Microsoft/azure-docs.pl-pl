@@ -10,6 +10,9 @@
     - name: Bezpieczny koncentrator wirtualny — szablon usługi Resource Manager
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
+    - name: Wdrażanie zapory przy użyciu zasad — szablon ARM
+      displayName: Resource Manager
+      href: quick-firewall-policy.md
 - name: Samouczki
   items:
     - name: Zabezpieczanie wirtualnego koncentratora — portal

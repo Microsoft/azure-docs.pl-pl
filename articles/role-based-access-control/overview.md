@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: a39ae904bb1dd36c3d3e19e8f51ff24e8d975f9b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033922"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559329"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?
 
@@ -27,7 +27,7 @@ Ten film wideo zawiera krótkie omówienie RBAC platformy Azure.
 
 >[!VIDEO https://www.youtube.com/embed/Dzhm-garKBM]
 
-## <a name="what-can-i-do-with-azure-rbac"></a>Co mogę zrobić przy użyciu usługi Azure RBAC?
+## <a name="what-can-i-do-with-azure-rbac"></a>Co mogę zrobić dzięki kontroli dostępu na podstawie ról platformy Azure?
 
 Poniżej przedstawiono kilka przykładów tego, co można zrobić za pomocą usługi Azure RBAC:
 
@@ -38,7 +38,7 @@ Poniżej przedstawiono kilka przykładów tego, co można zrobić za pomocą us�
 
 ## <a name="how-azure-rbac-works"></a>Jak działa usługa Azure RBAC
 
-Sposób kontrolowania dostępu do zasobów przy użyciu funkcji RBAC platformy Azure polega na tworzeniu przypisań ról. Jest to kluczowe koncepcje, które należy zrozumieć — jak są wymuszane uprawnienia. Przypisanie roli składa się z trzech elementów: podmiotu zabezpieczeń, definicji roli i zakresu.
+Sposób kontrolowania dostępu do zasobów przy użyciu funkcji RBAC platformy Azure polega na przypisywaniu ról platformy Azure. Jest to kluczowe koncepcje, które należy zrozumieć — jak są wymuszane uprawnienia. Przypisanie roli składa się z trzech elementów: podmiotu zabezpieczeń, definicji roli i zakresu.
 
 ### <a name="security-principal"></a>Podmiot zabezpieczeń
 
@@ -80,9 +80,9 @@ Na poniższym diagramie przedstawiono przykład przypisania roli. W tym przykła
 
 ![Przypisanie roli w celu kontroli dostępu](./media/overview/rbac-overview.png)
 
-Przypisania ról można tworzyć, korzystając z witryny Azure Portal, interfejsu wiersza polecenia platformy Azure, programu Azure PowerShell, zestawów Azure SDK lub interfejsów API REST.
+Role można przypisywać przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, Azure PowerShell, zestawów SDK platformy Azure lub interfejsów API REST.
 
-Aby uzyskać więcej informacji, zobacz [kroki umożliwiające dodanie przypisania roli](role-assignments-steps.md).
+Aby uzyskać więcej informacji, zobacz [kroki umożliwiające przypisanie roli platformy Azure](role-assignments-steps.md).
 
 ## <a name="multiple-role-assignments"></a>Przypisania wielu ról
 
@@ -122,6 +122,6 @@ Poniżej przedstawiono ogólne kroki używane przez usługę Azure RBAC do okre�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
 - [Omówienie różnych ról](rbac-and-directory-admin-roles.md)
 - [Struktura wdrażania chmury: zarządzanie dostępem do zasobów na platformie Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

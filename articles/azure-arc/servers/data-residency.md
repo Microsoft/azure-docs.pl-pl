@@ -2,14 +2,14 @@
 title: Rezydencja danych
 description: Zamieszkania danych i informacje o serwerach z obsługą usługi Azure Arc.
 ms.topic: reference
-ms.date: 10/08/2020
+ms.date: 02/16/2021
 ms.custom: references_regions
-ms.openlocfilehash: c5ece96acc3ee07ba2896279888363c7d52d737e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4764772473bbf2e5aafe2607a9462c9a6a15203
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856453"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559501"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Serwery z obsługą usługi Azure ARC: dane w miejscu
 
@@ -23,10 +23,16 @@ Serwery z obsługą usługi Azure Arc przechowują ustawienia konfiguracji [rozs
 
 Zbierane są również informacje o metadanych połączonej maszyny. W szczególności:
 
-* Nazwa i wersja systemu operacyjnego
+* Nazwa, typ i wersja systemu operacyjnego
 * Nazwa komputera
 * W pełni kwalifikowana nazwa domeny komputera (FQDN)
 * Wersja agenta połączonej maszyny
+* Active Directory i w pełni kwalifikowana nazwa domeny DNS (FQDN)
+* UUID (IDENTYFIKATOR SYSTEMU BIOS)
+* Puls agenta połączonej maszyny
+* Wersja agenta połączonej maszyny
+* Klucz publiczny dla tożsamości zarządzanej
+* Szczegóły i stan zgodności zasad (jeśli jest używany Azure Policy zasad konfiguracji gościa)
 
 Serwery z włączonymi łukiemmi umożliwiają określenie regionu, w którym będą przechowywane dane. Firma Microsoft może przeprowadzić replikację do innych regionów w celu odporności danych, ale firma Microsoft nie replikuje ani nie przenosi danych poza lokalizację geograficzną. Te dane są przechowywane w regionie, w którym jest skonfigurowany zasób maszyny usługi Azure Arc. Na przykład jeśli maszyna jest zarejestrowana przy użyciu łuku w regionie Wschodnie stany USA, te dane są przechowywane w regionie US.
 

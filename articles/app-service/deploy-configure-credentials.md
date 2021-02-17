@@ -2,28 +2,26 @@
 title: Konfigurowanie poświadczeń wdrożenia
 description: Dowiedz się, jakie typy poświadczeń wdrożenia znajdują się w Azure App Service oraz jak je skonfigurować i jak z nich korzystać.
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 2a53ecb1b3411561da50f7dbf3be79f9d70b42bc
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007997"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560419"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Skonfiguruj poświadczenia wdrażania dla Azure App Service
-[Azure App Service](./overview.md) obsługuje dwa typy poświadczeń dla [lokalnego wdrożenia git](deploy-local-git.md) i [wdrożenia FTP/S](deploy-ftp.md). Te poświadczenia nie są takie same, jak poświadczenia subskrypcji platformy Azure.
+Aby zabezpieczyć wdrożenie aplikacji z komputera lokalnego, [Azure App Service](./overview.md) obsługuje dwa typy poświadczeń na potrzeby wdrożenia w ramach [lokalnego narzędzia Git](deploy-local-git.md) i [wdrożenia protokołu FTP/S](deploy-ftp.md). Te poświadczenia nie są takie same, jak poświadczenia subskrypcji platformy Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
-## <a name="configure-user-level-credentials"></a><a name="userscope"></a>Konfigurowanie poświadczeń na poziomie użytkownika
+## <a name="configure-user-scope-credentials"></a><a name="userscope"></a>Konfigurowanie poświadczeń zakresu użytkownika
 
-Poświadczenia na poziomie użytkownika można skonfigurować na [stronie zasobów](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)dowolnej aplikacji. Niezależnie od tego, która aplikacja zostanie skonfigurowana, ma zastosowanie do wszystkich aplikacji i wszystkich subskrypcji na koncie platformy Azure. 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/cli)
 
-### <a name="in-the-cloud-shell"></a>W Cloud Shell
-
-Aby skonfigurować użytkownika wdrożenia w [Cloud Shell](https://shell.azure.com), uruchom polecenie [AZ webapp Deployment User Set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) . Zastąp \<username> i nazwą \<password> użytkownika i hasłem dla wdrożenia. 
+Uruchom polecenie [AZ webapp Deployment User Set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) . Zastąp \<username> i nazwą \<password> użytkownika i hasłem dla wdrożenia. 
 
 - Nazwa użytkownika musi być unikatowa w ramach platformy Azure, a w przypadku lokalnych powiadomień wypychanych Git nie może zawierać symbolu "@". 
 - Hasło musi składać się z co najmniej ośmiu znaków, a dwa z następujących trzech elementów: litery, cyfry i symbole. 
@@ -32,21 +30,23 @@ Aby skonfigurować użytkownika wdrożenia w [Cloud Shell](https://shell.azure.c
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-Dane wyjściowe JSON przedstawiają hasło jako `null` . Jeśli wystąpił błąd `'Conflict'. Details: 409`, zmień nazwę użytkownika. Jeśli wystąpił błąd `'Bad Request'. Details: 400`, użyj silniejszego hasła. 
+Dane wyjściowe JSON przedstawiają hasło jako `null` .
 
-### <a name="in-the-portal"></a>W portalu
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-W Azure Portal należy mieć co najmniej jedną aplikację, aby można było uzyskać dostęp do strony poświadczeń wdrożenia. Aby skonfigurować poświadczenia na poziomie użytkownika:
+Nie można skonfigurować poświadczeń zakresu użytkownika przy użyciu Azure PowerShell. Użyj innej metody lub Rozważ [użycie poświadczeń zakresu aplikacji](#appscope). 
 
-1. W [Azure Portal](https://portal.azure.com)z menu po lewej stronie wybierz pozycję **App Services**  >  **\<any_app>**  >    >    >  **pulpit nawigacyjny** FTP programu Deployment Center.
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+Poświadczenia zakresu użytkownika można skonfigurować na [stronie zasobów](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)dowolnej aplikacji. Niezależnie od tego, która aplikacja zostanie skonfigurowana, ma zastosowanie do wszystkich aplikacji dla wszystkich subskrypcji na koncie platformy Azure. 
+
+W [Azure Portal](https://portal.azure.com)należy mieć co najmniej jedną aplikację, aby można było uzyskać dostęp do strony poświadczeń wdrożenia. Aby skonfigurować poświadczenia zakresu użytkownika:
+
+1. W menu po lewej stronie aplikacji wybierz pozycję > **Deployment Center**  >  **FTPS poświadczenia** lub **poświadczenia lokalnego narzędzia Git/FTPS**.
 
     ![Pokazuje, w jaki sposób można wybrać pulpit nawigacyjny FTP z centrum wdrażania w usłudze Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
-    Lub, jeśli wdrożenie usługi git zostało już skonfigurowane, wybierz pozycję **App Services**  >  **&lt; any_app>**  >    >  .
-
-    ![Pokazuje, w jaki sposób można wybrać pulpit nawigacyjny FTP z centrum wdrażania w usłudze Azure App Services dla skonfigurowanego wdrożenia usługi git.](./media/app-service-deployment-credentials/access-with-git.png)
-
-2. Wybierz pozycję **poświadczenia użytkownika**, skonfiguruj nazwę użytkownika i hasło, a następnie wybierz pozycję **Zapisz poświadczenia**.
+2. Przewiń w dół do **zakresu użytkowników**, skonfiguruj **nazwę użytkownika** i **hasło**, a następnie wybierz pozycję **Zapisz**.
 
 Po ustawieniu poświadczeń wdrożenia można znaleźć nazwę użytkownika wdrożenia *narzędzia Git* na stronie **Przegląd** aplikacji,
 
@@ -55,24 +55,79 @@ Po ustawieniu poświadczeń wdrożenia można znaleźć nazwę użytkownika wdro
 Jeśli skonfigurowano wdrożenie usługi git, na stronie zostanie wyświetlona **Nazwa użytkownika narzędzia Git/Deployment**; w przeciwnym razie **Nazwa użytkownika FTP/Deployment**.
 
 > [!NOTE]
-> Na platformie Azure nie jest wyświetlane hasło do wdrożenia na poziomie użytkownika. Jeśli zapomnisz hasła, możesz zresetować poświadczenia, wykonując kroki opisane w tej sekcji.
+> Na platformie Azure nie jest wyświetlane hasło do wdrożenia zakresu użytkownika. Jeśli zapomnisz hasła, możesz zresetować poświadczenia, wykonując kroki opisane w tej sekcji.
 >
 > 
 
-## <a name="use-user-level-credentials-with-ftpftps"></a>Korzystanie z poświadczeń na poziomie użytkownika przy użyciu protokołu FTP/FTPS
+-----
 
-Uwierzytelnianie do punktu końcowego FTP/FTPS przy użyciu poświadczeń na poziomie użytkownika nazwa użytkownika w następującym formacie: `<app-name>\<user-name>`
+## <a name="use-user-scope-credentials-with-ftpftps"></a>Korzystanie z poświadczeń zakresu użytkownika przy użyciu protokołu FTP/FTPS
 
-Ponieważ poświadczenia na poziomie użytkownika są połączone z użytkownikiem, a nie konkretnym zasobem, nazwa użytkownika musi być w tym formacie, aby skierować akcję logowania do właściwego punktu końcowego aplikacji.
+Uwierzytelnianie w punkcie końcowym FTP/FTPS przy użyciu poświadczeń zakresu użytkownika wymaga nazwy użytkownika w następującym formacie: `<app-name>\<user-name>`
 
-## <a name="get-and-reset-app-level-credentials"></a><a name="appscope"></a>Pobieranie i resetowanie poświadczeń na poziomie aplikacji
-Aby uzyskać poświadczenia na poziomie aplikacji:
+Ponieważ poświadczenia zakresu użytkownika są połączone z użytkownikiem, a nie konkretnym zasobem, nazwa użytkownika musi być w tym formacie, aby skierować akcję logowania do odpowiedniego punktu końcowego aplikacji.
 
-1. W [Azure Portal](https://portal.azure.com)z menu po lewej stronie wybierz **App Services**  >  **&lt; any_app>**  >  **Deployment**  >  **/FTP/poświadczenia**.
+## <a name="get-application-scope-credentials"></a><a name="appscope"></a>Pobieranie poświadczeń zakresu aplikacji
 
-2. Wybierz pozycję **poświadczenia aplikacji**, a następnie wybierz link **Kopiuj** , aby skopiować nazwę użytkownika lub hasło.
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/cli)
 
-Aby zresetować poświadczenia na poziomie aplikacji, wybierz pozycję **Zresetuj poświadczenia** w tym samym oknie dialogowym.
+Uzyskaj poświadczenia zakresu aplikacji za pomocą polecenia [AZ webapp Deployment list-Publishing-profile](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) . Na przykład:
+
+```azurecli-interactive
+az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
+```
+
+W przypadku [lokalnego wdrożenia narzędzia Git](deploy-local-git.md)można także użyć polecenia [AZ webapp Deployment list-Publishing-Credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) , aby uzyskać zdalny identyfikator URI usługi git dla aplikacji, przy użyciu poświadczeń zakresu aplikacji już osadzonych. Na przykład:
+
+```azurecli-interactive
+az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Pobierz poświadczenia zakresu aplikacji za pomocą polecenia [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) . Na przykład:
+
+```azurepowershell-interactive
+Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
+```
+
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+1. W menu po lewej stronie aplikacji wybierz pozycję **Deployment Center**  >  **FTPS poświadczenia** lub **poświadczenia lokalnego narzędzia Git/FTPS**.
+
+    ![Pokazuje, w jaki sposób można wybrać pulpit nawigacyjny FTP z centrum wdrażania w usłudze Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
+
+2. W sekcji **zakres aplikacji** wybierz link **Kopiuj** , aby skopiować nazwę użytkownika lub hasło.
+
+-----
+
+## <a name="reset-application-scope-credentials"></a>Resetowanie poświadczeń zakresu aplikacji
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/cli)
+
+Zresetuj poświadczenia zakresu aplikacji za pomocą polecenia [AZ Resource Invoke-Action](/cli/azure/resource#az_resource_invoke_action) :
+
+```azurecli-interactive
+az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Zresetuj poświadczenia zakresu aplikacji za pomocą polecenia [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) :
+
+```azurepowershell-interactive
+Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.Web/sites -ResourceName <app-name> -Action newpassword
+```
+
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+1. W menu po lewej stronie aplikacji wybierz pozycję **Deployment Center**  >  **FTPS poświadczenia** lub **poświadczenia lokalnego narzędzia Git/FTPS**.
+
+    ![Pokazuje, w jaki sposób można wybrać pulpit nawigacyjny FTP z centrum wdrażania w usłudze Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
+
+2. W sekcji **zakres aplikacji** wybierz pozycję **Zresetuj**.
+
+-----
 
 ## <a name="disable-basic-authentication"></a>Wyłącz uwierzytelnianie podstawowe
 
@@ -82,7 +137,7 @@ Niektóre organizacje muszą spełniać wymagania dotyczące zabezpieczeń i rac
 
 Aby wyłączyć dostęp do usługi FTP do witryny, uruchom następujące polecenie interfejsu wiersza polecenia. Zamień symbole zastępcze na grupę zasobów i nazwę lokacji. 
 
-```bash
+```azurecli-interactive
 az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
@@ -92,7 +147,7 @@ Aby upewnić się, że dostęp do usługi FTP jest zablokowany, możesz spróbow
 
 Aby wyłączyć podstawowy dostęp uwierzytelniania do witryny webdeploy port i SCM, uruchom następujące polecenie interfejsu wiersza polecenia. Zamień symbole zastępcze na grupę zasobów i nazwę lokacji. 
 
-```bash
+```azurecli-interactive
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 

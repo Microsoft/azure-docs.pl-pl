@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388519"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556447"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -200,7 +200,7 @@ W poniższej tabeli przedstawiono, które opcje nadmiarowości są obsługiwane 
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Ogólnego przeznaczenia, wersja 2<br /> Ogólnego przeznaczenia, wersja 1<br /> Blokuj Magazyn obiektów BLOB<br /> Blob Storage<br /> File Storage | Ogólnego przeznaczenia, wersja 2<br /> Blokuj Magazyn obiektów BLOB<br /> File Storage | Ogólnego przeznaczenia, wersja 2<br /> Ogólnego przeznaczenia, wersja 1<br /> Blob Storage | Ogólnego przeznaczenia, wersja 2 |
+| Ogólnego przeznaczenia, wersja 2<br /> Ogólnego przeznaczenia, wersja 1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | Ogólnego przeznaczenia, wersja 2<br /> BlockBlobStorage<br /> FileStorage | Ogólnego przeznaczenia, wersja 2<br /> Ogólnego przeznaczenia, wersja 1<br /> BlobStorage | Ogólnego przeznaczenia, wersja 2 |
 
 Wszystkie dane dla wszystkich kont magazynu są kopiowane zgodnie z opcją nadmiarowości dla konta magazynu. Są kopiowane obiekty, w tym blokowych obiektów blob, dołączanie obiektów blob, stronicowych obiektów blob, kolejek, tabel i plików. Kopiowane są dane we wszystkich warstwach, w tym warstwa archiwum. Aby uzyskać więcej informacji na temat warstw obiektów blob, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md).
 

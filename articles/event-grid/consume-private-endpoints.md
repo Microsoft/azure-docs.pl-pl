@@ -3,12 +3,12 @@ title: Dostarczanie zdarzeń za pomocą usługi linku prywatnego
 description: W tym artykule opisano sposób obejścia ograniczenia nie można dostarczać zdarzeń za pomocą usługi link prywatny.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: ad6f500830383f60e0350a297d2650bfbeae2f6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4343740ea6c34c9ae282723b79007f7035785b04
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417589"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548622"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Dostarczanie zdarzeń za pomocą usługi linku prywatnego
 Obecnie nie jest możliwe dostarczanie zdarzeń przy użyciu [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md). Oznacza to, że nie ma żadnej obsługi, jeśli masz ścisłe wymagania izolacji sieciowej, gdy ruch zdarzeń nie może opuścić prywatnego obszaru adresów IP. 
@@ -19,7 +19,7 @@ Jeśli jednak wymagania wymagają bezpiecznego sposobu wysyłania zdarzeń za po
 Następnie możesz użyć prywatnego linku skonfigurowanego w Azure Functions lub elementu webhook wdrożonego w sieci wirtualnej do ściągania zdarzeń. Zobacz przykład: [łączenie z prywatnymi punktami końcowymi przy użyciu Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
 
 
-:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.png" alt-text="Dostarczanie za pośrednictwem usługi link prywatny":::
+:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.svg" alt-text="Dostarczanie za pośrednictwem usługi link prywatny":::
 
 
 W ramach tej konfiguracji ruch przechodzi przez publiczny adres IP/Internet z Event Grid do Event Hubs, Service Bus lub Azure Storage, ale kanał może być zaszyfrowany i używana jest tożsamość zarządzana Event Grid. Jeśli skonfigurujesz Azure Functions lub element webhook wdrożony w sieci wirtualnej tak, aby używał Event Hubs, Service Bus lub usługi Azure Storage za pośrednictwem prywatnego linku, ta sekcja ruchu będzie oczywista na platformie Azure.

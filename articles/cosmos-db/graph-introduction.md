@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 11/25/2020
 ms.author: chrande
-ms.openlocfilehash: c2165ea6273ad90cfb95242dfe72538c0a5ef64c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 806904943f4e4a20734d595f835dc9450afdded5
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350062"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547282"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Wprowadzenie do interfejsu API Gremlin w Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
-[Azure Cosmos DB](introduction.md)   to globalnie dystrybuowana, wielomodelowa usługa bazy danych firmy Microsoft dla aplikacji o znaczeniu strategicznym. Jest to wielomodelowa baza danych, która obsługuje modele danych w dokumentach, klucz-wartość, Graf i rodzina kolumn. "Azure Cosmos DB udostępnia usługę bazy danych grafu za pośrednictwem interfejsu API Gremlin w w pełni zarządzanej usłudze bazy danych, która jest przeznaczona dla dowolnej skali.  
+[Azure Cosmos DB](introduction.md)   to globalnie dystrybuowana, wielomodelowa usługa bazy danych firmy Microsoft dla aplikacji o znaczeniu strategicznym. Jest to wielomodelowa baza danych, która obsługuje modele danych w dokumentach, klucz-wartość, Graf i rodzina kolumn. Azure Cosmos DB zapewnia usługę bazy danych grafu za pośrednictwem interfejsu API Gremlin w w pełni zarządzanej usłudze bazy danych zaprojektowanej dla dowolnej skali.  
 
 :::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Architektura grafów w usłudze Azure Cosmos DB" border="false":::
 
