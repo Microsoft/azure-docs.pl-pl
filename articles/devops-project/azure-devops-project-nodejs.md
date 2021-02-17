@@ -3,22 +3,19 @@ title: Utwórz potok ciągłej integracji/ciągłego wdrażania dla programu PWA
 description: Dowiedz się, jak utworzyć NodeJS progresywną aplikację sieci Web (PWA) przy użyciu GatsbyJS i uproszczonego środowiska tworzenia platformy Azure DevOps Starter.
 ms.prod: devops
 ms.technology: devops-cicd
-services: vsts
 documentationcenter: vs-devops-build
-author: arob98
-manager: angrobe
+author: mijacobs
+ms.author: mijacobs
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.author: angrobe
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 6cffa6065f0e1cefc31223553a42a7a78c1dbea8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6d8a10dffa3801fe343b3b479265fac5612b021
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856215"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556570"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania w Azure Pipelines dla Node.js za pomocą usługi Azure DevOps Starter
 
@@ -73,7 +70,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
     ![Pulpit nawigacyjny usługi Azure DevOps](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. W projekcie usługi Azure DevOps możesz zapraszać członków zespołu do współpracy i nawiązywać tablicę Kanban, aby zacząć śledzić swoją pracę. Aby uzyskać więcej informacji, zobacz [tutaj](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+1. W projekcie usługi Azure DevOps możesz zapraszać członków zespołu do współpracy i nawiązywać tablicę Kanban, aby zacząć śledzić swoją pracę. Aby uzyskać więcej informacji, zobacz [tutaj](/azure/devops/user-guide/what-is-azure-devops).
 
 ![Azure DevOps — Omówienie](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -195,4 +192,4 @@ Można usuwać Azure App Service i inne powiązane zasoby, które zostały utwor
 Podczas konfigurowania procesu ciągłej integracji/ciągłego tworzenia potoki kompilacji i wydania są tworzone automatycznie. Możesz zmienić te potoki kompilacji i wydań, aby zaspokoić potrzeby zespołu. Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:
 
 > [!div class="nextstepaction"]
-> [Dostosowywanie procesu ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Dostosowywanie procesu ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process)

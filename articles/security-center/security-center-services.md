@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 7034d1b5f06fcbcead79d85df10042eee3581b0b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369360"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544820"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -131,7 +131,7 @@ Aby uzyskać informacje o tym, kiedy są generowane zalecenia dla każdej z tych
 |[Usługa Azure Defender dla usługi DNS](defender-for-dns-introduction.md)|-|-|
 |[Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |[Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
-|[Ochrona obciążeń Kubernetes](kubernetes-workload-protections.md)|-|-|
+|[Ochrona obciążeń Kubernetes](kubernetes-workload-protections.md)|✔|✔|
 |||
 
 (1) wymaga **usługi Azure Defender dla serwerów**

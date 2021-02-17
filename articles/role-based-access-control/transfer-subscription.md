@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 81224b5e16f3bca5da641bbb2e9c82dd59000e79
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185890"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555896"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
@@ -26,7 +26,7 @@ W tym artykule opisano podstawowe czynności, które można wykonać w celu prze
 > [!NOTE]
 > W przypadku subskrypcji dostawcy rozwiązań w chmurze platformy Azure zmiana katalogu usługi Azure AD dla subskrypcji nie jest obsługiwana.
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 
 Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD to złożony proces, który musi być starannie planowany i wykonywany. Wiele usług platformy Azure wymaga, aby podmioty zabezpieczeń (tożsamości) działały normalnie lub nawet zarządzać innymi zasobami platformy Azure. Ten artykuł próbuje uwzględnić większość usług platformy Azure, które są zależne od podmiotów zabezpieczeń, ale nie są wyczerpujące.
 
@@ -307,9 +307,9 @@ W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docel
     az role definition create --role-definition <role_definition>
     ```
 
-### <a name="create-role-assignments"></a>Tworzenie przypisań roli
+### <a name="assign-roles"></a>Przypisywanie ról
 
-- Użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby utworzyć przypisania roli dla użytkowników, grup i jednostek usługi. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról przy użyciu usług Azure RBAC i interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md).
+- Użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby przypisać role do użytkowników, grup i jednostek usługi. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -325,7 +325,7 @@ W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docel
     | Zestawy skalowania maszyn wirtualnych | [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na zestawie skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Inne usługi | [Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby utworzyć przypisania roli dla tożsamości zarządzanych przypisanych do systemu. Aby uzyskać więcej informacji, zobacz [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby przypisać role do zarządzanych tożsamości przypisanych do systemu. Aby uzyskać więcej informacji, zobacz [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -341,7 +341,7 @@ W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docel
     | Zestawy skalowania maszyn wirtualnych | [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na zestawie skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Inne usługi | [Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Tworzenie, wyświetlanie i usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby utworzyć przypisania roli dla tożsamości zarządzanych przypisanych przez użytkownika. Aby uzyskać więcej informacji, zobacz [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby przypisać role do zarządzanych tożsamości przypisanych przez użytkownika. Aby uzyskać więcej informacji, zobacz [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -361,7 +361,7 @@ W tej sekcji opisano podstawowe kroki aktualizowania magazynów kluczy. Aby uzys
 
 1. Jeśli używasz Azure Data Lake Storage Gen1, przypisz odpowiednie listy ACL. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie danych przechowywanych w Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-secure-data.md).
 
-1. Jeśli używasz Azure Data Lake Storage Gen2, przypisz odpowiednie listy ACL. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
+1. Jeśli używasz Azure Data Lake Storage Gen2, przypisz odpowiednie listy ACL. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu w usłudze Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
 1. Jeśli używasz Azure Files, przypisz odpowiednie listy ACL.
 

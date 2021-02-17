@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/15/2021
-ms.openlocfilehash: 3be043af7b057c47f360ce36db6bb7c3afd80638
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7149233782815deebebde53767a3c654ac2321bb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535352"
+ms.locfileid: "100547761"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
@@ -83,22 +83,19 @@ Wymagania dotyczące nazwy usługi:
 
 ## <a name="choose-a-location"></a>Wybierz lokalizację
 
-Usługa Azure Wyszukiwanie poznawcze jest dostępna w większości regionów. Listę obsługiwanych regionów można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/search/).
+Usługa Azure Wyszukiwanie poznawcze jest dostępna w większości regionów, zgodnie z opisem na [stronie cennika](https://azure.microsoft.com/pricing/details/search/).
 
-> [!Note]
-> Indie Środkowe i Zjednoczone Emiraty Arabskie są obecnie niedostępne dla nowych usług. W przypadku usług znajdujących się już w tych regionach można skalować w górę bez ograniczeń, a usługa jest w pełni obsługiwana w tym regionie. Ograniczenia są tymczasowe i ograniczone tylko do nowych usług. Ta uwaga zostanie usunięta, gdy ograniczenia nie będą już miały zastosowania.
->
-> Podwójne szyfrowanie jest dostępne tylko w określonych regionach. Aby uzyskać więcej informacji, zobacz [podwójne szyfrowanie](search-security-overview.md#double-encryption).
+Ogólnie rzecz biorąc, jeśli używasz wielu usług platformy Azure, wybierz region obsługujący dane lub usługę aplikacji. W ten sposób minimalizuje lub unieważnia opłaty za dane wychodzące (nie są naliczane opłaty za dane wychodzące, gdy usługi znajdują się w tym samym regionie).
 
-### <a name="requirements"></a>Wymagania
+Klienci, którzy mają wymagania dotyczące ciągłości biznesowej i odzyskiwania po awarii (BCDR), powinni tworzyć usługi w [parach regionalnej](../best-practices-availability-paired-regions.md#azure-regional-pairs). Na przykład jeśli pracujesz w Ameryka Północna, możesz wybrać Wschodnie stany USA i zachodnie stany USA, Północno-środkowe stany USA i południowe Central US dla każdej usługi.
 
- Jeśli używasz wzbogacania AI, Utwórz usługę wyszukiwania w tym samym regionie co Cognitive Services. *Współpraca z platformą Azure wyszukiwanie poznawcze i Cognitive Services w tym samym regionie jest wymagana do wzbogacania AI*.
+Następujące funkcje są dostępne tylko w niektórych regionach:
 
- Klienci, którzy mają wymagania dotyczące ciągłości biznesowej i odzyskiwania po awarii (BCDR), powinni tworzyć usługi w [parach regionalnej](../best-practices-availability-paired-regions.md#azure-regional-pairs). Na przykład jeśli pracujesz w Ameryka Północna, możesz wybrać Wschodnie stany USA i zachodnie stany USA, Północno-środkowe stany USA i południowe Central US dla każdej usługi.
+* Wzbogacanie AI wymaga, aby Cognitive Services znajdować się w tym samym regionie co usługa Azure Wyszukiwanie poznawcze. Najpierw wybierz [region dla Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) (lista jest mniejsza), a następnie wybierz ten sam region dla usługi wyszukiwania.
 
-### <a name="recommendations"></a>Zalecenia
+* Podwójne szyfrowanie jest dostępne tylko w określonych regionach. Aby uzyskać więcej informacji, zobacz [podwójne szyfrowanie](search-security-overview.md#double-encryption)
 
-Jeśli używasz wielu usług platformy Azure, wybierz region obsługujący dane lub usługę aplikacji. W ten sposób minimalizuje lub unieważnia opłaty za dane wychodzące (nie są naliczane opłaty za dane wychodzące, gdy usługi znajdują się w tym samym regionie).
+* Obsługa stref dostępności jest oferowana w określonych regionach w usługach utworzonych po określonych datach. Aby uzyskać więcej informacji, zobacz ["strefy dostępności" w obszarze skalowanie wydajności](search-performance-optimization.md#availability-zones).
 
 ## <a name="choose-a-pricing-tier"></a>Wybierz warstwę cenową
 

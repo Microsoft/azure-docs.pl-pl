@@ -5,14 +5,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: f6ea02c32ec7fcb694d63f29c63c3880a7cfff9e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679085"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546656"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Samouczek: Publikowanie wielu wersji interfejsu API 
 
@@ -87,6 +87,32 @@ Na przykład, aby dodać wersję do produktu **nieograniczonego** :
 1. Kliknij pozycję **Wybierz**.
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Dodawanie wersji do produktu":::
+
+## <a name="use-version-sets"></a>Użyj zestawów wersji
+
+Podczas tworzenia wielu wersji Azure Portal tworzy *zestaw wersji*, który reprezentuje zestaw wersji dla jednego logicznego interfejsu API. Wybierz nazwę interfejsu API z wieloma wersjami. Azure Portal wyświetla jego **zestaw wersji**. Można dostosować **nazwę** i **Opis** zestawu wirtualnego.
+
+Można korzystać bezpośrednio z zestawów wersji przy użyciu interfejsu wiersza polecenia platformy Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Aby wyświetlić wszystkie zestawy wersji, uruchom polecenie [AZ APIM API versionset list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list) :
+
+```azurecli
+az apim api versionset list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Gdy Azure Portal tworzy zestaw wersji, przypisze nazwę alfanumeryczną, która jest wyświetlana w kolumnie **Nazwa** listy. Użyj tej nazwy w innych poleceń interfejsu wiersza polecenia platformy Azure.
+
+Aby wyświetlić szczegółowe informacje o zestawie wersji, uruchom polecenie [AZ APIM API versionset show](/api/versionset#az_apim_api_versionset_show) :
+
+```azurecli
+az apim api versionset show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --version-set-id 00000000000000000000000
+```
+
+Aby uzyskać więcej informacji o zestawach wersji, zobacz [wersje na platformie Azure API Management](api-management-versions.md#how-versions-are-represented).
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Przeglądanie portalu dla deweloperów w celu wyświetlenia wersji
 

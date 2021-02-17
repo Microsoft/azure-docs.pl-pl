@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585096"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546027"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Model wbudowanych kart roboczych aparatu rozpoznawania formularzy 
 
@@ -76,7 +76,11 @@ W przypadku wartości pola **stan** **zakończyła się pomyślnie** , odpowied�
 
 ### <a name="sample-json-output"></a>Przykładowe dane wyjściowe JSON
 
-Zobacz następujący przykład pomyślnej odpowiedzi JSON: węzeł "readResults" zawiera wszystkie rozpoznane teksty. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. Węzeł "documentResults" zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. W tym miejscu znajdziesz przydatne informacje kontaktowe, takie jak imię i nazwisko, nazwisko, nazwa firmy itd.
+Odpowiedź na operację uzyskiwania wyników na karcie analiza biznesowa jest strukturalną reprezentacją wizytówki zawierającej wszystkie wyodrębnione informacje.  Zobacz tutaj, aby zapoznać się z [przykładowym plikiem karty biznesowej](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) i danymi wyjściowymi przykładowe dane wyjściowe [karty biznesowej](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
+
+Zobacz następujący przykład pomyślnej odpowiedzi JSON:
+* `"readResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. 
+* `"documentResults"`Węzeł zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. W tym miejscu znajdziesz przydatne informacje kontaktowe, takie jak imię i nazwisko, nazwisko, nazwa firmy itd.
 
 ```json
 {

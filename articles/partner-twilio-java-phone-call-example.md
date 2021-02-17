@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: cad25990d0ba7e27f4a90adc587f0c8a0a2c551a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: fdaa2eeef58599cbff8dbf7daa34f9a30f31b9cb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521074"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548764"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Jak nawiązać połączenie telefoniczne za pomocą Twilio w aplikacji Java na platformie Azure
 Poniższy przykład pokazuje, jak można użyć Twilio do wywołania ze strony sieci Web hostowanej na platformie Azure. Aplikacja wynikowa wyświetli monit dla użytkownika o wartości połączeń telefonicznych, jak pokazano na poniższym zrzucie ekranu.
@@ -32,7 +32,7 @@ Aby użyć kodu w tym temacie, należy wykonać następujące czynności:
    Kod w tym temacie został zapisany przy użyciu wstępnie skompilowanego JAR TwilioJava-3.3.8-with-zależności.
 3. Dodaj plik JAR do ścieżki kompilacji Java.
 4. Jeśli używasz dyrektywy zaćmienie do utworzenia tej aplikacji Java, Dołącz plik JAR Twilio w pliku wdrożenia aplikacji (WAR) przy użyciu funkcji zestawu wdrożeniowego z przeznaczeniem. Jeśli nie korzystasz z programu Zastąp do tworzenia tej aplikacji Java, upewnij się, że Twilio JAR jest zawarty w tej samej roli platformy Azure co aplikacja Java i dodana do ścieżki klasy aplikacji.
-5. Upewnij się, że magazyn kluczy cacerts zawiera certyfikat bezpiecznego urzędu certyfikacji Equifax z sygnaturą zabezpieczeń MD5 67: CB: 9D: C0:13:24:8A: 82:9B: B2:17:1E: D1:1B: EC: D4 (numer seryjny to 35: DE: F4: CF i odcisk palca SHA1 to D2:32:09: AD: 23: D3:14:23:21:74: E4:0D: 7F: 9D: 62:13:97:86:63:3A). Jest to certyfikat urzędu certyfikacji dla [https://api.twilio.com][twilio_api_service] usługi, który jest wywoływany w przypadku korzystania z interfejsów API Twilio. Informacje o dodawaniu tego certyfikatu urzędu certyfikacji do magazynu cacert JDK można znaleźć w temacie [Dodawanie certyfikatu do magazynu certyfikatów urzędu certyfikacji Java][add_ca_cert].
+5. Upewnij się, że magazyn kluczy cacerts zawiera certyfikat bezpiecznego urzędu certyfikacji Equifax z sygnaturą zabezpieczeń MD5 67: CB: 9D: C0:13:24:8A: 82:9B: B2:17:1E: D1:1B: EC: D4 (numer seryjny to 35: DE: F4: CF i odcisk palca SHA1 to D2:32:09: AD: 23: D3:14:23:21:74: E4:0D: 7F: 9D: 62:13:97:86:63:3A). Jest to certyfikat urzędu certyfikacji dla [https://api.twilio.com][twilio_api_service] usługi, który jest wywoływany w przypadku korzystania z interfejsów API Twilio.
 
 Zapoznaj się z informacjami na temat [tworzenia aplikacji Hello World przy użyciu Azure Toolkit for Eclipse][azure_java_eclipse_hello_world]lub z innymi technikami do hostowania aplikacji Java na platformie Azure, jeśli nie używasz funkcji przeliczania.
 
@@ -193,7 +193,6 @@ Aby uzyskać dodatkowe informacje na temat Twilio, zobacz [https://www.twilio.co
 
 ## <a name="see-also"></a>Zobacz też
 * [Jak używać funkcji Twilio do obsługi głosu i programu SMS w języku Java][howto_twilio_voice_sms_java]
-* [Dodawanie certyfikatu do magazynu certyfikatów urzędu certyfikacji Java][add_ca_cert]
 
 [twilio_pricing]: https://www.twilio.com/pricing
 [try_twilio]: https://www.twilio.com/try-twilio
@@ -203,7 +202,6 @@ Aby uzyskać dodatkowe informacje na temat Twilio, zobacz [https://www.twilio.co
 [twimlet_message_url]: https://twimlets.com/message
 [twiml]: https://www.twilio.com/docs/api/twiml
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [azure_java_eclipse_hello_world]: /java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/

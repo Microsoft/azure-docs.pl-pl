@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/12/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491430"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546452"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Powiadomienia wypychane za pomocą usługi Azure Notification Hubs: często zadawane pytania
 
@@ -34,16 +34,16 @@ Usługa Azure Notification Hubs ma dwa poziomy zasobów: centra i przestrzenie n
 
 Najnowsze szczegóły cennika można znaleźć na stronie [cennika Notification Hubs] . Notification Hubs jest rozliczana na poziomie przestrzeni nazw. (Aby zapoznać się z definicją przestrzeni nazw, zobacz "co to jest struktura zasobów Notification Hubs?"). Notification Hubs oferuje trzy warstwy:
 
-* **Bezpłatna** : Ta warstwa jest dobrym punktem wyjścia do eksplorowania funkcji wypychania. Nie jest to zalecane w przypadku aplikacji produkcyjnych. Otrzymujesz 500 urządzeń i 1 000 000 wypchnięcia na przestrzeń nazw miesięcznie, bez gwarancji umowy dotyczącej poziomu usług (SLA).
-* **Podstawowa** : Ta warstwa (lub warstwa standardowa) jest zalecana w przypadku mniejszych aplikacji produkcyjnych. Odbierasz 200 000 urządzeń i 10 000 000 wypchnięcia na przestrzeń nazw miesięcznie jako linia bazowa.
-* **Standardowa** : Ta warstwa jest zalecana dla średnich i dużych aplikacji produkcyjnych. Odbierasz 10 000 000 urządzeń i 10 000 000 wypchnięcia na przestrzeń nazw miesięcznie jako linia bazowa. Obejmuje rozbudowaną telemetrię (dodatkowe dane dotyczące podanego stanu wypychania).
+* **Bezpłatna**: Ta warstwa jest dobrym punktem wyjścia do eksplorowania funkcji wypychania. Nie jest to zalecane w przypadku aplikacji produkcyjnych. Otrzymujesz 500 urządzeń i 1 000 000 wypchnięcia na przestrzeń nazw miesięcznie, bez gwarancji umowy dotyczącej poziomu usług (SLA).
+* **Podstawowa**: Ta warstwa (lub warstwa standardowa) jest zalecana w przypadku mniejszych aplikacji produkcyjnych. Odbierasz 200 000 urządzeń i 10 000 000 wypchnięcia na przestrzeń nazw miesięcznie jako linia bazowa.
+* **Standardowa**: Ta warstwa jest zalecana dla średnich i dużych aplikacji produkcyjnych. Odbierasz 10 000 000 urządzeń i 10 000 000 wypchnięcia na przestrzeń nazw miesięcznie jako linia bazowa. Obejmuje rozbudowaną telemetrię (dodatkowe dane dotyczące podanego stanu wypychania).
 
 Funkcje warstwy standardowej:
 
-* **Rozbudowana Telemetria** : możesz użyć Notification Hubs poszczególnych komunikatów telemetrycznych do śledzenia żądań wypychania i system powiadomień platformy informacji zwrotnych na potrzeby debugowania.
-* **Wielodostępność** : można korzystać z poświadczeń system powiadomień platformy na poziomie przestrzeni nazw. Ta opcja umożliwia łatwe dzielenie dzierżawców w centrach w obrębie tej samej przestrzeni nazw.
-* **Zaplanowane wypychanie** : możesz zaplanować wysyłanie powiadomień w dowolnym czasie.
-* **Operacje zbiorcze** : Włącza funkcje eksportu/importu rejestracji zgodnie z opisem w dokumencie [eksport/import rejestracji] .
+* **Rozbudowana Telemetria**: możesz użyć Notification Hubs poszczególnych komunikatów telemetrycznych do śledzenia żądań wypychania i system powiadomień platformy informacji zwrotnych na potrzeby debugowania.
+* **Wielodostępność**: można korzystać z poświadczeń system powiadomień platformy na poziomie przestrzeni nazw. Ta opcja umożliwia łatwe dzielenie dzierżawców w centrach w obrębie tej samej przestrzeni nazw.
+* **Zaplanowane wypychanie**: możesz zaplanować wysyłanie powiadomień w dowolnym czasie.
+* **Operacje zbiorcze**: Włącza funkcje eksportu/importu rejestracji zgodnie z opisem w dokumencie [eksport/import rejestracji] .
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Co to jest umowa SLA Notification Hubs?
 
@@ -54,7 +54,7 @@ W przypadku warstw Podstawowa i Standardowa Notification Hubs prawidłowo skonfi
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Jak mogę uaktualnić lub obniżyć poziom mojego centrum lub przestrzeni nazw do innej warstwy?
 
-Przejdź do obszaru **[Azure portal]**  >  **nazw Notification Hubs** Azure Portal lub **Notification Hubs**. Wybierz zasób, który chcesz zaktualizować, i przejdź do **warstwy cenowej**. Należy pamiętać o następujących wymaganiach:
+Przejdź do obszaru **[]**  >  **nazw Notification Hubs** Azure Portal lub **Notification Hubs**. Wybierz zasób, który chcesz zaktualizować, i przejdź do **warstwy cenowej**. Należy pamiętać o następujących wymaganiach:
 
 * Zaktualizowana warstwa cenowa ma zastosowanie do *wszystkich* centrów w przestrzeni nazw, z którymi pracujesz.
 * Jeśli liczba urządzeń przekracza limit warstwy, do której należysz, należy usunąć urządzenia przed obniżeniem poziomu.
@@ -102,6 +102,10 @@ PNS nie gwarantuje żadnej umowy SLA dotyczącej dostarczania powiadomień. Wię
 ### <a name="is-there-any-latency-guarantee"></a>Czy istnieje gwarancja opóźnienia?
 
 Ze względu na charakter powiadomień wypychanych (są one dostarczane przez zewnętrzny, specyficzny dla platformy PNS), nie ma gwarancji opóźnienia. Zazwyczaj większość powiadomień wypychanych jest dostarczanych w ciągu kilku minut.
+
+### <a name="where-does-azure-notification-hubs-store-data"></a>Gdzie usługa Azure Notification Hubs przechowuje dane?
+
+Usługa Azure Notification Hubs przechowuje dane rejestracyjne klienta w regionie wybranym przez klienta. Notification Hubs zapewnia pokrycie odzyskiwania po awarii metadanych (nazwa Notification Hubs, parametry połączenia i inne informacje krytyczne). W przypadku wszystkich regionów z wyjątkiem Brazylii Południowe i Południowo-Wschodnia, kopia zapasowa metadanych jest hostowana w innym regionie (zazwyczaj jest to region sparowany na platformie Azure). W regionach Brazylia Południowa i Południowo-Wschodnia kopie zapasowe są przechowywane w tym samym regionie w celu uwzględnienia wymagań zamieszkania danych dla tych regionów.
 
 ### <a name="what-do-i-need-to-consider-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>Co należy wziąć pod uwagę podczas projektowania rozwiązania z przestrzeniami nazw i centrami powiadomień?
 

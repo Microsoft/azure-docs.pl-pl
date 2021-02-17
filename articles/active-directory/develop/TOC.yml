@@ -62,12 +62,16 @@
           href: quickstart-v2-uwp.md
         - name: Aplikacje klasyczne Windows — .NET
           href: quickstart-v2-windows-desktop.md
+        - name: Node.js elektron
+          href: quickstart-v2-nodejs-desktop.md
     - name: Demon lub usługa zaplecza
       items:
         - name: Konsola platformy .NET Core (demon)
           href: quickstart-v2-netcore-daemon.md
         - name: Demon konsoli języka Python
           href: quickstart-v2-python-daemon.md
+        - name: Demon Node.js Console
+          href: quickstart-v2-nodejs-console.md
         - name: Demon konsoli języka Java
           href: quickstart-v2-java-daemon.md
 - name: Samouczki
@@ -88,6 +92,8 @@
           href: tutorial-v2-asp-webapp.md
         - name: Serwer Blazor
           href: tutorial-blazor-server.md
+        - name: Samouczek aplikacji sieci Web Node.js
+          href: tutorial-v2-nodejs-webapp-msal.md
     - name: Aplikacje mobilne i klasyczne
       items:
         - name: Android
@@ -101,10 +107,14 @@
           href: tutorial-v2-windows-desktop.md
         - name: Korzystanie z trybu udostępnionego urządzenia w aplikacji dla systemu Android
           href: tutorial-v2-shared-device-mode.md
+        - name: Aplikacja klasyczna elektron
+          href: tutorial-v2-nodejs-desktop.md
     - name: Demon lub usługa zaplecza
       items:
         - name: Aplikacja internetowa demona platformy ASP.NET
           href: tutorial-v2-aspnet-daemon-web-app.md
+        - name: Demon Node.js Console
+          href: tutorial-v2-nodejs-console.md
 - name: Samples
   href: sample-v2-code.md
 - name: Pojęcia
