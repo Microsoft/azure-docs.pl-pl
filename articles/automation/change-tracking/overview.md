@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896633"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572611"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -34,9 +34,9 @@ Change Tracking i spis używają [Azure Security Center monitorowania integralno
 
 Włączenie wszystkich funkcji uwzględnionych w Change Tracking i spisie może spowodować naliczenie dodatkowych opłat. Przed kontynuowaniem zapoznaj się z [cennikiem usługi Automation](https://azure.microsoft.com/pricing/details/automation/) i [cenami Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Change Tracking i spis przekazuje dane do dzienników Azure Monitor, a zebrane dane są przechowywane w Log Analytics obszarze roboczym. Funkcja monitorowania integralności plików (FIM) jest dostępna tylko wtedy, gdy **usługa Azure Defender dla serwerów** jest włączona. Aby dowiedzieć się więcej, zobacz [cennik](../../security-center/security-center-pricing.md) Azure Security Center. KOD programu FIM przekazuje dane do tego samego obszaru roboczego Log Analytics jak ten utworzony w celu przechowywania danych z Change Tracking i spisu. Zalecamy monitorowanie połączonego obszaru roboczego Log Analytics, aby śledzić dokładne użycie. Aby uzyskać więcej informacji na temat analizowania danych dzienników Azure Monitor, zobacz [Zarządzanie użyciem i kosztem](../../azure-monitor/platform/manage-cost-storage.md).
+Change Tracking i spis przekazuje dane do dzienników Azure Monitor, a zebrane dane są przechowywane w Log Analytics obszarze roboczym. Funkcja monitorowania integralności plików (FIM) jest dostępna tylko wtedy, gdy **usługa Azure Defender dla serwerów** jest włączona. Aby dowiedzieć się więcej, zobacz [cennik](../../security-center/security-center-pricing.md) Azure Security Center. KOD programu FIM przekazuje dane do tego samego obszaru roboczego Log Analytics jak ten utworzony w celu przechowywania danych z Change Tracking i spisu. Zalecamy monitorowanie połączonego obszaru roboczego Log Analytics, aby śledzić dokładne użycie. Aby uzyskać więcej informacji na temat analizowania danych dzienników Azure Monitor, zobacz [Zarządzanie użyciem i kosztem](../../azure-monitor/logs/manage-cost-storage.md).
 
-Maszyny połączone z obszarem roboczym Log Analytics używają [agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md) do zbierania danych o zmianach w zainstalowanym oprogramowaniu, usługach firmy Microsoft, rejestrze i plikach systemu Windows oraz demonach Linux na monitorowanych serwerach. Gdy dane są dostępne, Agent wysyła go do dzienników Azure Monitor do przetworzenia. Azure Monitor dzienników stosuje logikę do danych odebranych, rejestruje ją i udostępnia do analizy.
+Maszyny połączone z obszarem roboczym Log Analytics używają [agenta log Analytics](../../azure-monitor/agents/log-analytics-agent.md) do zbierania danych o zmianach w zainstalowanym oprogramowaniu, usługach firmy Microsoft, rejestrze i plikach systemu Windows oraz demonach Linux na monitorowanych serwerach. Gdy dane są dostępne, Agent wysyła go do dzienników Azure Monitor do przetworzenia. Azure Monitor dzienników stosuje logikę do danych odebranych, rejestruje ją i udostępnia do analizy.
 
 > [!NOTE]
 > Change Tracking i spis wymaga połączenia obszaru roboczego Log Analytics z kontem usługi Automation. Aby uzyskać ostateczną listę obsługiwanych regionów, zobacz [mapowania obszaru roboczego platformy Azure](../how-to/region-mappings.md). Mapowania regionów nie mają wpływu na możliwość zarządzania maszynami wirtualnymi w innym regionie niż konto usługi Automation.
@@ -48,7 +48,7 @@ Change Tracking i spis nie obsługują lub mają następujące ograniczenia:
 - Rekursja śledzenia rejestru systemu Windows
 - Systemy plików sieciowych
 - Różne metody instalacji
-- *pliki *_. exe_* przechowywane w systemie Windows
+- *pliki **. exe** przechowywane w systemie Windows
 - Kolumny **Maksymalny rozmiar pliku** i wartości są nieużywane w bieżącej implementacji.
 - Jeśli spróbujesz zebrać więcej niż 2500 plików w cyklu zbierania danych o 30 minutach, Change Tracking i wydajność spisu może być obniżona.
 - Jeśli ruch sieciowy jest wysoki, wyświetlanie rekordów może potrwać do 6 godzin.
@@ -58,7 +58,7 @@ Change Tracking i spis nie obsługują lub mają następujące ograniczenia:
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Zobacz [obsługiwane systemy operacyjne](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) , aby uzyskać listę wersji systemu operacyjnego Windows i Linux, które są obecnie obsługiwane przez agenta log Analytics.
+Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Zobacz [obsługiwane systemy operacyjne](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) , aby uzyskać listę wersji systemu operacyjnego Windows i Linux, które są obecnie obsługiwane przez agenta log Analytics.
 
 Aby zrozumieć wymagania klienta dotyczące protokołu TLS 1,2, zobacz [Wymuszanie protokołu tls 1,2 dla Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -159,7 +159,7 @@ W poniższej tabeli przedstawiono limity śledzonych elementów na maszynę dla 
 |Usługi|250|
 |Demonów|250|
 
-Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Za pomocą funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Użyj tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
+Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Za pomocą funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Użyj tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](../../azure-monitor/logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dane usługi firmy Microsoft
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616658"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588604"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: rejestrowanie diagnostyczne
 
@@ -35,8 +35,8 @@ Włącz ustawienia diagnostyczne, aby rozpocząć zbieranie dzienników w wystą
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. Na następnej stronie wypełnij następujące wartości:
-     * **Nazwa ustawienia diagnostycznego** : nadaj nazwę ustawień diagnostycznych.
-     * **Szczegóły kategorii** : Wybierz operacje, które chcesz monitorować, i zaznacz pola wyboru, aby włączyć diagnostykę tych operacji. Dla operacji, które mogą być zgłaszane przez ustawienia diagnostyczne, są następujące:
+     * **Nazwa ustawienia diagnostycznego**: nadaj nazwę ustawień diagnostycznych.
+     * **Szczegóły kategorii**: Wybierz operacje, które chcesz monitorować, i zaznacz pola wyboru, aby włączyć diagnostykę tych operacji. Dla operacji, które mogą być zgłaszane przez ustawienia diagnostyczne, są następujące:
         - DigitalTwinsOperation
         - EventRoutesOperation
         - ModelsOperation
@@ -44,7 +44,7 @@ Włącz ustawienia diagnostyczne, aby rozpocząć zbieranie dzienników w wystą
         - AllMetrics
         
         Aby uzyskać więcej informacji na temat tych kategorii i zawartych w nich informacji, zobacz sekcję [*kategorie dzienników*](#log-categories) poniżej.
-     * **Szczegóły lokalizacji docelowej** : Wybierz miejsce, do którego chcesz wysłać dzienniki. Można wybrać dowolną kombinację trzech opcji:
+     * **Szczegóły lokalizacji docelowej**: Wybierz miejsce, do którego chcesz wysłać dzienniki. Można wybrać dowolną kombinację trzech opcji:
         - Wysyłanie do usługi Log Analytics
         - Zarchiwizuj na koncie magazynu
         - Przesyłaj strumieniowo do centrum zdarzeń
@@ -57,7 +57,7 @@ Włącz ustawienia diagnostyczne, aby rozpocząć zbieranie dzienników w wystą
 
 Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym z powrotem na stronie **Ustawienia diagnostyczne** dla danego wystąpienia. 
 
-Aby uzyskać bardziej szczegółowe informacje na temat ustawień diagnostycznych i ich opcji instalacji, można odwiedzić stronę [*Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych*](../azure-monitor/platform/diagnostic-settings.md).
+Aby uzyskać bardziej szczegółowe informacje na temat ustawień diagnostycznych i ich opcji instalacji, można odwiedzić stronę [*Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych*](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## <a name="log-categories"></a>Kategorie dzienników
 
@@ -115,18 +115,18 @@ Oto opisy pól i właściwości dzienników interfejsu API.
 | Nazwa pola | Typ danych | Opis |
 |-----|------|-------------|
 | `Time` | DateTime | Data i godzina wystąpienia tego zdarzenia (UTC) |
-| `ResourceID` | String | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
-| `OperationName` | String  | Typ akcji wykonywanej w ramach zdarzenia |
-| `OperationVersion` | String | Wersja interfejsu API wykorzystana podczas zdarzenia |
-| `Category` | String | Typ emitowanego zasobu |
-| `ResultType` | String | Wynik zdarzenia |
-| `ResultSignature` | String | Kod stanu HTTP dla zdarzenia |
-| `ResultDescription` | String | Dodatkowe szczegóły dotyczące zdarzenia |
-| `DurationMs` | String | Czas trwania zdarzenia w milisekundach |
-| `CallerIpAddress` | String | Maskowany źródłowy adres IP dla zdarzenia |
+| `ResourceID` | Ciąg | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
+| `OperationName` | Ciąg  | Typ akcji wykonywanej w ramach zdarzenia |
+| `OperationVersion` | Ciąg | Wersja interfejsu API wykorzystana podczas zdarzenia |
+| `Category` | Ciąg | Typ emitowanego zasobu |
+| `ResultType` | Ciąg | Wynik zdarzenia |
+| `ResultSignature` | Ciąg | Kod stanu HTTP dla zdarzenia |
+| `ResultDescription` | Ciąg | Dodatkowe szczegóły dotyczące zdarzenia |
+| `DurationMs` | Ciąg | Czas trwania zdarzenia w milisekundach |
+| `CallerIpAddress` | Ciąg | Maskowany źródłowy adres IP dla zdarzenia |
 | `CorrelationId` | Guid (identyfikator GUID) | Klient dostarczył unikatowy identyfikator dla zdarzenia |
-| `Level` | String | Ważność rejestrowania zdarzenia |
-| `Location` | String | Region, w którym miało miejsce zdarzenie |
+| `Level` | Ciąg | Ważność rejestrowania zdarzenia |
+| `Location` | Ciąg | Region, w którym miało miejsce zdarzenie |
 | `RequestUri` | Adresu | Punkt końcowy użyty podczas zdarzenia |
 
 Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
@@ -201,13 +201,13 @@ Jest to schemat `ADTEventRoutesOperation` dzienników. Zawierają one informacje
 |Nazwa pola | Typ danych | Opis |
 |-----|------|-------------|
 | `Time` | DateTime | Data i godzina wystąpienia tego zdarzenia (UTC) |
-| `ResourceId` | String | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
-| `OperationName` | String  | Typ akcji wykonywanej w ramach zdarzenia |
-| `Category` | String | Typ emitowanego zasobu |
-| `ResultDescription` | String | Dodatkowe szczegóły dotyczące zdarzenia |
-| `Level` | String | Ważność rejestrowania zdarzenia |
-| `Location` | String | Region, w którym miało miejsce zdarzenie |
-| `EndpointName` | String | Nazwa punktu końcowego ruchu wychodzącego utworzonego w usłudze Azure Digital bliźniaczych reprezentacji |
+| `ResourceId` | Ciąg | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
+| `OperationName` | Ciąg  | Typ akcji wykonywanej w ramach zdarzenia |
+| `Category` | Ciąg | Typ emitowanego zasobu |
+| `ResultDescription` | Ciąg | Dodatkowe szczegóły dotyczące zdarzenia |
+| `Level` | Ciąg | Ważność rejestrowania zdarzenia |
+| `Location` | Ciąg | Region, w którym miało miejsce zdarzenie |
+| `EndpointName` | Ciąg | Nazwa punktu końcowego ruchu wychodzącego utworzonego w usłudze Azure Digital bliźniaczych reprezentacji |
 
 Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
 
@@ -255,10 +255,10 @@ Poniżej przedstawiono sposób wykonywania zapytań dotyczących dzienników dla
     - Karta *zapytania* zawiera przykładowe zapytania, które można załadować do edytora.
     - Karta *Filtr* pozwala dostosować filtrowany widok danych zwracanych przez zapytanie.
 
-Aby uzyskać bardziej szczegółowe informacje na temat zapytań dzienników i sposobu ich zapisywania, można odwiedzić [*Przegląd zapytań dzienników w Azure monitor*](../azure-monitor/log-query/log-query-overview.md).
+Aby uzyskać bardziej szczegółowe informacje na temat zapytań dzienników i sposobu ich zapisywania, można odwiedzić [*Przegląd zapytań dzienników w Azure monitor*](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji o konfigurowaniu diagnostyki, zobacz [*zbieranie i korzystanie z danych dzienników z zasobów platformy Azure*](../azure-monitor/platform/platform-logs-overview.md).
+* Aby uzyskać więcej informacji o konfigurowaniu diagnostyki, zobacz [*zbieranie i korzystanie z danych dzienników z zasobów platformy Azure*](../azure-monitor/essentials/platform-logs-overview.md).
 * Aby uzyskać informacje na temat metryk bliźniaczych reprezentacji cyfrowych platformy Azure, zobacz [*Rozwiązywanie problemów: wyświetlanie metryk z Azure monitor*](troubleshoot-metrics.md).
 * Aby dowiedzieć się, jak włączyć alerty dla metryk, zobacz [*Rozwiązywanie problemów: Konfigurowanie alertów*](troubleshoot-alerts.md).

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534980"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595944"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Dzienniki wolnych zapytań w usłudze Azure Database for MySQL
 W Azure Database for MySQL dziennik wolnych zapytań jest dostępny dla użytkowników. Dostęp do dziennika transakcji nie jest obsługiwany. Dziennik wolnych zapytań może służyć do identyfikowania wąskich gardeł wydajności w celu rozwiązywania problemów.
@@ -25,11 +25,11 @@ Domyślnie dziennik wolnych zapytań jest wyłączony. Aby włączyć tę opcję
 
 Inne parametry, które można dostosować, obejmują:
 
-- **long_query_time** : Jeśli zapytanie trwa dłużej niż long_query_time (w sekundach), rejestrowane jest zapytanie. Wartość domyślna to 10 sekund.
-- **log_slow_admin_statements** : Jeśli on zawiera instrukcje administracyjne, takie jak ALTER_TABLE i ANALYZE_TABLE w instrukcjach zapisanych do slow_query_log.
-- **log_queries_not_using_indexes** : określa, czy zapytania, które nie używają indeksów są rejestrowane w slow_query_log
-- **log_throttle_queries_not_using_indexes** : ten parametr ogranicza liczbę zapytań, które nie są indeksami, które można zapisać w dzienniku wolnych zapytań. Ten parametr zacznie obowiązywać, gdy log_queries_not_using_indexes jest ustawiona na wartość włączone.
-- **log_output** : Jeśli "plik" umożliwia zapisanie dziennika wolnych zapytań do lokalnego magazynu serwera i Azure monitor dzienników diagnostycznych. Jeśli jest to opcja „None”, dziennik wolnych zapytań zostanie zapisany wyłącznie w dziennikach diagnostycznych usługi Azure Monitor. 
+- **long_query_time**: Jeśli zapytanie trwa dłużej niż long_query_time (w sekundach), rejestrowane jest zapytanie. Wartość domyślna to 10 sekund.
+- **log_slow_admin_statements**: Jeśli on zawiera instrukcje administracyjne, takie jak ALTER_TABLE i ANALYZE_TABLE w instrukcjach zapisanych do slow_query_log.
+- **log_queries_not_using_indexes**: określa, czy zapytania, które nie używają indeksów są rejestrowane w slow_query_log
+- **log_throttle_queries_not_using_indexes**: ten parametr ogranicza liczbę zapytań, które nie są indeksami, które można zapisać w dzienniku wolnych zapytań. Ten parametr zacznie obowiązywać, gdy log_queries_not_using_indexes jest ustawiona na wartość włączone.
+- **log_output**: Jeśli "plik" umożliwia zapisanie dziennika wolnych zapytań do lokalnego magazynu serwera i Azure monitor dzienników diagnostycznych. Jeśli jest to opcja „None”, dziennik wolnych zapytań zostanie zapisany wyłącznie w dziennikach diagnostycznych usługi Azure Monitor. 
 
 > [!IMPORTANT]
 > Jeśli tabele nie są indeksowane, ustawienie `log_queries_not_using_indexes` parametrów i na wartość `log_throttle_queries_not_using_indexes` on może wpłynąć na wydajność programu MySQL, ponieważ wszystkie zapytania uruchomione względem tych nieindeksowanych tabel zostaną zazapisywane w dzienniku wolnych zapytań.<br><br>
@@ -53,7 +53,7 @@ Dzienniki są obracane co 24 godziny lub 7 GB, w zależności od tego, co nastą
 > Powyższe przechowywanie dzienników nie dotyczy dzienników, które są potokowe przy użyciu Azure Monitor dzienników diagnostycznych. Można zmienić okres przechowywania dla ujścia danych emitowanych do (np. Azure Storage).
 
 ## <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
-Azure Database for MySQL jest zintegrowana z Azure Monitor dzienników diagnostycznych. Po włączeniu wolnych dzienników zapytań na serwerze MySQL można wybrać opcję ich emisji do Azure Monitor dzienników, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat włączania dzienników diagnostycznych, zobacz sekcję jak [znaleźć w dokumentacji dzienników diagnostycznych](../azure-monitor/platform/platform-logs-overview.md).
+Azure Database for MySQL jest zintegrowana z Azure Monitor dzienników diagnostycznych. Po włączeniu wolnych dzienników zapytań na serwerze MySQL można wybrać opcję ich emisji do Azure Monitor dzienników, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat włączania dzienników diagnostycznych, zobacz sekcję jak [znaleźć w dokumentacji dzienników diagnostycznych](../azure-monitor/essentials/platform-logs-overview.md).
 
 W poniższej tabeli opisano zawartość poszczególnych dzienników. W zależności od metody Output pola uwzględnione i kolejność ich wyświetlania mogą się różnić.
 

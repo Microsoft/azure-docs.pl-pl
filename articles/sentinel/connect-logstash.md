@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: d388478fb3bc9b4e355d8c3cd3f16c0a785b8b27
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299636"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578916"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Korzystanie z logstash do łączenia źródeł danych z platformą Azure — wskaźnikiem
 
@@ -49,7 +49,7 @@ Silnik logstash składa się z trzech składników:
 Wtyczka Azure wskaźnikowego danych wyjściowych dla logstash wysyła dane sformatowane w formacie JSON do obszaru roboczego Log Analytics przy użyciu Log Analytics interfejsu API REST modułu zbierającego dane HTTP. Dane są pozyskiwane w dziennikach niestandardowych.
 
 - Dowiedz się więcej o [interfejsie API REST log Analytics](/rest/api/loganalytics/create-request).
-- Dowiedz się więcej o [dziennikach niestandardowych](../azure-monitor/platform/data-sources-custom-logs.md).
+- Dowiedz się więcej o [dziennikach niestandardowych](../azure-monitor/agents/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Wdróż wtyczkę wyjściową usługi Azure wskaźnikowej w logstash
 
@@ -57,7 +57,7 @@ Wtyczka Azure wskaźnikowego danych wyjściowych dla logstash wysyła dane sform
 
 Wtyczka danych wyjściowych na platformie Azure jest dostępna w kolekcji logstash.
 
-- Postępuj zgodnie z instrukcjami zawartymi w dokumencie logstash [Work with](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) plugins, aby zainstalować wtyczkę **_[Microsoft-logstash-Output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _.
+- Postępuj zgodnie z instrukcjami zawartymi w dokumencie logstash [Work with](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) plugins, aby zainstalować wtyczkę ***[Microsoft-logstash-Output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)*** .
    
 - Jeśli system logstash nie ma dostępu do Internetu, postępuj zgodnie z instrukcjami zawartymi w dokumencie [Zarządzanie wtyczkami w trybie offline](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) logstash, aby przygotować pakiet wtyczek w trybie offline i korzystać z niego. (Będzie to wymagało skompilowania innego systemu logstash z dostępem do Internetu).
 
@@ -67,7 +67,7 @@ Skorzystaj z informacji w strukturze logstash dokumentu [pliku konfiguracji](htt
 
 | Nazwa pola | Typ danych | Opis |
 |----------------|---------------|-----------------|
-| `workspace_id` | ciąg | Wprowadź identyfikator GUID identyfikatora obszaru roboczego. _ |
+| `workspace_id` | ciąg | Wprowadź identyfikator GUID identyfikatora obszaru roboczego. * |
 | `workspace_key` | ciąg | Wprowadź identyfikator GUID klucza podstawowego obszaru roboczego. * |
 | `custom_log_table_name` | ciąg | Ustaw nazwę tabeli, w której zostaną pozyskane dzienniki. Można skonfigurować tylko jedną nazwę tabeli na wtyczkę wyjściową. Tabela dzienników zostanie wyświetlona w obszarze Azure, w obszarze **dzienniki** **, w tabeli** w kategorii **dzienniki niestandardowe** z `_CL` sufiksem. |
 | `endpoint` | ciąg | Pole opcjonalne. Domyślnie jest to Log Analytics punkt końcowy. To pole służy do ustawiania alternatywnego punktu końcowego. |

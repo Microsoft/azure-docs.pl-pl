@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c1bcde3f2b1f61fd241143e308a508d5f19e7b0c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2a5c31270f18c2e6149d93fa522818704b9747d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090574"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588606"
 ---
 # <a name="azure-security-baseline-for-azure-managed-applications"></a>Podstawa zabezpieczeń platformy Azure dla Azure Managed Applications
 
@@ -415,9 +415,9 @@ Usługa Azure Security Center może również wysyłać alerty dotyczące okreś
 
 **Wskazówki**: dzienniki aktywności, które są automatycznie dostępne, zawierają wszystkie operacje zapisu (Put, post, Delete) dla zasobów aplikacji zarządzanej z wyjątkiem operacji odczytu (Get). Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki użytkownik w organizacji zmodyfikował zasób.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -432,7 +432,7 @@ Ponadto należy włączyć i dołączyć dane do usługi Azure wskaźnikowej lub
 
 Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby danych "gorąca", które są często używane, i usługi Azure Storage dla danych "zimnych", które są rzadziej używane.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../../sentinel/quickstart-onboard.md)
 
@@ -445,7 +445,7 @@ Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby dan
 **Wskazówki**: Upewnij się, że wszystkie konta magazynów lub log Analytics obszary robocze używane do przechowywania dzienników utworzonych przez zasoby aplikacji zarządzanej mają ustawiony okres przechowywania dziennika zgodnie z przepisami obowiązującymi w organizacji.
 W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboczego zgodnie z regulacjami zgodności w organizacji. Użyj usługi Azure Storage Data Lake lub Log Analytics konta obszaru roboczego do przechowywania długoterminowego i archiwizowania.
 
-- [Jak skonfigurować okres przechowywania obszaru roboczego Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
+- [Jak skonfigurować okres przechowywania obszaru roboczego Log Analytics](../../azure-monitor/logs/manage-cost-storage.md)
 
 - [Przechowywanie dzienników zasobów na koncie usługi Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 

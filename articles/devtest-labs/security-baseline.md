@@ -3,12 +3,12 @@ title: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 description: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 09b4e28437c79961d53cf07b068e3169d20fe0c4
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c192f881dd4a8544b9c833eece56fb3765cd07f8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789908"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582022"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 
@@ -34,7 +34,7 @@ Zobacz następujący artykuł, aby dowiedzieć się więcej o konfigurowaniu syn
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 **Wskazówki:** Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje, które zostały wykonane na Azure DevTest Labs wystąpieniach na poziomie płaszczyzny zarządzania. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" w przypadku operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny zarządzania dla wystąpień usługi DevTest Labs.
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](../azure-monitor/platform/diagnostic-settings.md).
+Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](../azure-monitor/essentials/diagnostic-settings.md).
 
 **Monitorowanie Azure Security Center:** Obecnie niedostępne
 
@@ -43,7 +43,7 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w c
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 **Wskazówki:** Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje, które zostały wykonane na Azure DevTest Labs wystąpieniach na poziomie płaszczyzny zarządzania. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny zarządzania dla wystąpień usługi DevTest Labs.
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](../azure-monitor/platform/diagnostic-settings.md).
+Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](../azure-monitor/essentials/diagnostic-settings.md).
 
 **Monitorowanie Azure Security Center:** Obecnie niedostępne
 
@@ -54,7 +54,7 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w c
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły: 
 
-- [Jak zbierać dzienniki wewnętrznego hosta maszyny wirtualnej platformy Azure z Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Jak zbierać dzienniki wewnętrznego hosta maszyny wirtualnej platformy Azure z Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 - [Omówienie zbierania danych Azure Security Center](../security-center/security-center-enable-data-collection.md)
 
 **Monitorowanie Azure Security Center:** Opcję
@@ -62,9 +62,9 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 **Odpowiedzialność:** Dział
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
-**_Wskazówki:_* W Azure Monitor Ustaw okres przechowywania dziennika dla Log Analytics obszarów roboczych skojarzonych z wystąpieniami Azure DevTest Labs zgodnie z regulacjami zgodności w organizacji.
+***Wskazówki:** W Azure Monitor Ustaw okres przechowywania dziennika dla Log Analytics obszarów roboczych skojarzonych z wystąpieniami Azure DevTest Labs zgodnie z regulacjami zgodności w organizacji.
 
-Aby uzyskać więcej informacji, zobacz następujący artykuł: [jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+Aby uzyskać więcej informacji, zobacz następujący artykuł: [jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie Azure Security Center:** Nie dotyczy
 
@@ -75,8 +75,8 @@ Aby uzyskać więcej informacji, zobacz następujący artykuł: [jak ustawić pa
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/diagnostic-settings.md)
-- [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/diagnostic-settings.md)
+- [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Monitorowanie Azure Security Center:** Nie dotyczy
 
@@ -85,7 +85,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2,7: Włączanie alertów dla nietypowego działania
 **Wskazówki:** Za pomocą obszaru roboczego usługi Azure Log Analytics można monitorować i generować alerty o nietypowych działaniach w dziennikach zabezpieczeń oraz zdarzeniach związanych z Azure DevTest Labs.
 
-Aby uzyskać więcej informacji, zobacz następujący artykuł: [jak wysyłać alerty dotyczące danych dziennika usługi log Analytics](../azure-monitor/learn/tutorial-response.md)
+Aby uzyskać więcej informacji, zobacz następujący artykuł: [jak wysyłać alerty dotyczące danych dziennika usługi log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorowanie Azure Security Center:** Obecnie niedostępne
 
@@ -109,8 +109,8 @@ Aby uzyskać więcej informacji, zobacz następujący artykuł: [jak wysyłać a
 **Wskazówki:** Azure DevTest Labs tworzy maszyny obliczeniowe platformy Azure, które są własnością klienta i są przez niego zarządzane. Użyj Microsoft Monitoring Agent na wszystkich obsługiwanych maszynach wirtualnych z systemem Windows Azure, aby zarejestrować zdarzenie tworzenia procesu i `CommandLine` pola. W przypadku obsługiwanych maszyn wirtualnych z systemem Linux na platformie Azure możesz ręcznie skonfigurować rejestrowanie konsoli dla poszczególnych węzłów i użyć dziennika systemowego do przechowywania danych. Należy również użyć obszaru roboczego Log Analytics Azure Monitor, aby przejrzeć dzienniki i uruchamiać zapytania dotyczące zarejestrowanych danych z maszyn wirtualnych platformy Azure.
 
 - [Zbieranie danych w usłudze Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
-- [Jak uruchamiać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-- [Syslog data sources in Azure Monitor (Źródła danych usługi Syslog w usłudze Azure Monitor)](../azure-monitor/platform/data-sources-syslog.md)
+- [Jak uruchamiać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+- [Syslog data sources in Azure Monitor (Źródła danych usługi Syslog w usłudze Azure Monitor)](../azure-monitor/agents/data-sources-syslog.md)
 
 **Monitorowanie Azure Security Center:** Opcję
 
@@ -175,9 +175,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 - [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Monitorowanie Azure Security Center:** _
+**Monitorowanie Azure Security Center:*** tak
 
-A *odpowiedzialność:** klient
+**Odpowiedzialność:** Dział
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Używaj dedykowanych maszyn (uprzywilejowany dostęp do stacji roboczych) dla wszystkich zadań administracyjnych
@@ -353,7 +353,7 @@ Domyślnie wszystkie dyski systemu operacyjnego i danych programu Lab są szyfro
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 **Wskazówki:** Użyj Azure Monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące sytuacji, w których zmiany dotyczą wystąpień DevTest Labs i innych krytycznych lub powiązanych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 - [Jak utworzyć alerty dla zdarzeń dziennika aktywności DevTest Labs](create-alerts.md)
 
 **Monitorowanie Azure Security Center:** Nie dotyczy
@@ -387,7 +387,7 @@ Firma Microsoft przeprowadza zarządzanie lukami w zabezpieczeniach zasobów, kt
 **Odpowiedzialność:** Dział
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5,3: Wdróż zautomatyzowane rozwiązanie do zarządzania poprawkami oprogramowania innych firm
-**_Wskazówki:_* _ jako administrator laboratorium można używać [artefaktów DevTest Labs](add-artifact-vm.md) do automatyzowania aktualizacji niestandardowych obrazów laboratorium, w tym poprawek zabezpieczeń i innych aktualizacji. 
+***Wskazówki:*** Jako administrator laboratorium możesz użyć [artefaktów DevTest Labs](add-artifact-vm.md) , aby zautomatyzować aktualizacje niestandardowych obrazów laboratorium, w tym poprawki zabezpieczeń i inne aktualizacje. 
 
 Dowiedz się więcej o usłudze [DevTest Labs Image Factory](image-factory-create.md), która jest rozwiązaniem typu "Konfiguracja jako kod", które regularnie kompiluje i dystrybuuje obrazy, z uwzględnieniem wszystkich pożądanych konfiguracji. 
 
@@ -396,7 +396,7 @@ Jako administrator subskrypcji możesz także użyć rozwiązania Update Managem
 - [Update Management rozwiązanie na platformie Azure](../automation/update-management/overview.md)
 - [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](../automation/update-management/overview.md)
 
-_ *Azure Security Center monitorowanie:** nie dotyczy
+**Monitorowanie Azure Security Center:** Nie dotyczy
 
 **Odpowiedzialność:** Dział
 

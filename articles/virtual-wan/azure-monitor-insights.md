@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: d14ae86d41caec3c1bd897c2c81bee748dcc312c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6ead00a0979d81ef11ac81fb13a1abe31317691d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050888"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571318"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan"></a>Azure Monitor szczegółowych informacji dotyczących wirtualnej sieci WAN
 
@@ -24,7 +24,7 @@ Metryki na poziomie zasobów wirtualnej sieci WAN są zbierane i prezentowane za
 > Opcja menu **szczegółowych** informacji znajduje się w portalu sieci WAN w obszarze **monitorowanie**. Możesz również uzyskać dostęp do skoroszytu topologii i metryk wirtualnych sieci WAN przy użyciu Azure Monitor dla sieci. Aby uzyskać więcej informacji, zobacz [Azure monitor dla sieci](../azure-monitor/insights/network-insights-overview.md). 
 >
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać kroki opisane w tym artykule, musisz mieć wirtualną sieć WAN z co najmniej jednym koncentratorem. Aby utworzyć wirtualną sieć WAN i centrum, wykonaj kroki opisane w następujących artykułach:
 
@@ -87,5 +87,5 @@ Możesz wybrać opcję **Wyświetl szczegółowe metryki** , aby uzyskać dostę
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
+* Aby dowiedzieć się więcej, zobacz [metryki w Azure monitor](../azure-monitor/essentials/data-platform-metrics.md).
 * Pełny opis wszystkich metryk wirtualnych sieci WAN zawiera temat [wirtualne dzienniki i metryki sieci WAN](logs-metrics.md).

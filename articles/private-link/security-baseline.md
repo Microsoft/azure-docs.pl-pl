@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b38d86402f418e5c2b484bb9101e2b4cc3575d6e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 692b52e8ea6a88a119ca98985864cb9e1daa14c3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196626"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595758"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Azure Security Baseline dla prywatnego linku platformy Azure
 
@@ -28,9 +28,9 @@ Ta linia bazowa zabezpieczeń stosuje wskazówki z [testu porównawczego zabezpi
 
 Utwórz alerty w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w zasobach krytycznych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -50,7 +50,7 @@ Ponadto należy włączyć i dołączyć dane do usługi Azure wskaźnikowej lub
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Rejestrowanie i monitorowanie dla prywatnego linku](private-link-overview.md#logging-and-monitoring)
 
@@ -66,9 +66,9 @@ Ponadto należy włączyć i dołączyć dane do usługi Azure wskaźnikowej lub
 
 **Wskazówki**: Włączanie dzienników aktywności Azure monitor, które operacje dziennika są wykonywane w ramach prywatnych zasobów łączy, takich jak, kto rozpoczął operację, po wystąpieniu operacji, stan operacji oraz inne przydatne informacje dotyczące inspekcji. 
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [Rejestrowanie i monitorowanie dla prywatnego linku](private-link-overview.md#logging-and-monitoring)
 
@@ -80,7 +80,7 @@ Ponadto należy włączyć i dołączyć dane do usługi Azure wskaźnikowej lub
 
 **Wskazówki**: w przypadku dzienników związanych z linkiem prywatnym Ustaw okres przechowywania obszaru roboczego log Analytics zgodnie z regulacjami zgodności organizacji w ramach Azure monitor. Używaj kont usługi Azure Storage do przechowywania długoterminowych/archiwizowania dzienników.
 
-- [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -96,9 +96,9 @@ Innym rozwiązaniem jest umożliwienie i dołączenie danych do produktów wska�
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Informacje o obszarze roboczym Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Informacje o obszarze roboczym Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -114,7 +114,7 @@ Włączaj i dołączaj dane do produktów wskaźnikowych platformy Azure lub SIE
 
 - [Jak zarządzać alertami w Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -192,7 +192,7 @@ Ponadto należy włączyć dostęp just-in-Time/tylko za pomocą usługi Azure A
 
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](../azure-monitor/platform/action-groups.md)
+- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](../azure-monitor/alerts/action-groups.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -318,7 +318,7 @@ Udostępnianie usługi do użycia z innych sieci wirtualnych (tylko uprawnienia 
 
 - [Rejestrowanie diagnostyczne dla sieciowej grupy zabezpieczeń](private-link-overview.md#logging-and-monitoring)
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 

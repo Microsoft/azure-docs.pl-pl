@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: bdc9cbf942b88af93befa34f73eb3a90469cfcef
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 73a9d9c7ab321aebd615922e5d4395c0318e809c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873505"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580442"
 ---
 # <a name="connect-your-proofpoint-on-demand-email-security-pod-solution-to-azure-sentinel"></a>Połącz swoje rozwiązanie z zabezpieczeniami poczty E-mail Proofpoint na żądanie (POD) z platformą Azure — wskaźnikiem
 
@@ -35,7 +35,7 @@ W tym artykule wyjaśniono, jak połączyć urządzenie zabezpieczeń poczty E-m
 
 - Musisz mieć uprawnienia do odczytu i zapisu w obszarze roboczym wskaźnik platformy Azure.
 
-- Użytkownik musi mieć uprawnienia do odczytu kluczy udostępnionych dla obszaru roboczego. [Dowiedz się więcej o kluczach obszarów roboczych](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Użytkownik musi mieć uprawnienia do odczytu kluczy udostępnionych dla obszaru roboczego. [Dowiedz się więcej o kluczach obszarów roboczych](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 - Aby można było utworzyć aplikacja funkcji, musisz mieć uprawnienia do odczytu i zapisu w Azure Functions. [Dowiedz się więcej o Azure Functions](../azure-functions/index.yml).
 

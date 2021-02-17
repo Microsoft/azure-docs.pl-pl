@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
-ms.openlocfilehash: e8f18f56c746f0d12f43cc2fb6ce9088a9b82b45
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: aa18baf9739663c7132a49d3d07434b9d187f02b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492386"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588754"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limity zasobów dla Azure SQL Database i serwerów analiz usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,11 +106,11 @@ Gdy wystąpią błędy braku pamięci, opcje ograniczenia obejmują:
 
 ## <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Użycie zasobów według obciążeń użytkowników i procesów wewnętrznych
 
-Użycie procesora CPU i pamięci przez obciążenia użytkowników w każdej bazie danych jest zgłaszane w widokach [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , w `avg_cpu_percent` i `avg_memory_usage_percent` kolumnach. W przypadku pul elastycznych użycie zasobów na poziomie puli jest raportowane w widoku [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) . Użycie procesora CPU przez obciążenie użytkownikami jest również raportowane za pośrednictwem `cpu_percent` metryki Azure monitor dla [pojedynczych baz danych](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) i [pul elastycznych](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) na poziomie puli.
+Użycie procesora CPU i pamięci przez obciążenia użytkowników w każdej bazie danych jest zgłaszane w widokach [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , w `avg_cpu_percent` i `avg_memory_usage_percent` kolumnach. W przypadku pul elastycznych użycie zasobów na poziomie puli jest raportowane w widoku [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) . Użycie procesora CPU przez obciążenie użytkownikami jest również raportowane za pośrednictwem `cpu_percent` metryki Azure monitor dla [pojedynczych baz danych](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) i [pul elastycznych](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) na poziomie puli.
 
 Azure SQL Database wymaga zasobów obliczeniowych w celu zaimplementowania podstawowych funkcji usługi, takich jak wysoka dostępność i odzyskiwanie po awarii, tworzenie kopii zapasowej i przywracanie bazy danych, monitorowanie, magazyn zapytań, Dostosowywanie automatyczne itd. System przypisuje pewnej ograniczonej części ogólnych zasobów dla tych wewnętrznych procesów przy użyciu mechanizmów nadzoru [zasobów](#resource-governance) , dzięki czemu pozostałe zasoby są dostępne dla obciążeń użytkowników. Czasami gdy wewnętrzne procesy nie używają zasobów obliczeniowych, system udostępni je obciążom użytkowników.
 
-Całkowite użycie procesora i pamięci przez obciążenia użytkowników i procesy wewnętrzne jest zgłaszane w widokach [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , w `avg_instance_cpu_percent` i `avg_instance_memory_percent` kolumnach. Te dane są również raportowane za pośrednictwem `sqlserver_process_core_percent` `sqlserver_process_memory_percent` metryk i Azure monitor dla [pojedynczych baz danych](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) i [pul elastycznych](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) na poziomie puli.
+Całkowite użycie procesora i pamięci przez obciążenia użytkowników i procesy wewnętrzne jest zgłaszane w widokach [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , w `avg_instance_cpu_percent` i `avg_instance_memory_percent` kolumnach. Te dane są również raportowane za pośrednictwem `sqlserver_process_core_percent` `sqlserver_process_memory_percent` metryk i Azure monitor dla [pojedynczych baz danych](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) i [pul elastycznych](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) na poziomie puli.
 
 Bardziej szczegółowy podział użycia zasobów przez obciążenia użytkowników i procesy wewnętrzne jest raportowany w widokach [sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) i [sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database) . Aby uzyskać szczegółowe informacje na temat pul zasobów i grup obciążeń, do których odwołuje się te widoki, zobacz temat [Zarządzanie zasobami](#resource-governance). Te widoki raportują wykorzystanie zasobów według obciążeń użytkowników i określonych procesów wewnętrznych w skojarzonych pulach zasobów i grupach obciążeń.
 

@@ -3,12 +3,12 @@ title: Przykład wdrażania planu multimediów
 description: Wdróż kroki dla przykładu planu multimediów, w tym szczegóły parametrów artefaktu.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5dc3720ceb1bdd8e50ab220288cef64c73e304ff
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 13d50c2a791a72c58d8ebef7a46c592efd0cb9a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035006"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577308"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Wdróż przykład planu multimediów
 
@@ -93,12 +93,12 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux |Przypisanie zasad |Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Linux |Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux |Przypisanie zasad |Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Linux |Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux |Przypisanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu |Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych: `[]` |
 |\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows |Przypisanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu |Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych: `[]` |
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows |Przypisanie zasad |Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Windows |Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows |Przypisanie zasad |Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Windows |Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisanie zasad |Log Analytics identyfikator obszaru roboczego, dla którego należy skonfigurować maszyny wirtualne |To jest identyfikator (GUID) obszaru roboczego Log Analytics, dla którego należy skonfigurować maszyny wirtualne. |
-|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisanie zasad |Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych |Lista typów zasobów, które mają być objęte inspekcją, jeśli ustawienie dziennika diagnostycznego nie jest włączone. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisanie zasad |Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych |Lista typów zasobów, które mają być objęte inspekcją, jeśli ustawienie dziennika diagnostycznego nie jest włączone. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas). |
 |\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisanie zasad |Grupa administratorów |Group. Przykład: `Administrator; myUser1; myUser2` |
 |\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisanie zasad |Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows |Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: `Administrator; myUser1; myUser2` |
 |Wdróż zaawansowaną ochronę przed zagrożeniami na kontach magazynu |Przypisanie zasad |Efekt |Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md). |

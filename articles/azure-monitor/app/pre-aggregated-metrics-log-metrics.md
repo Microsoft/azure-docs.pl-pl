@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: c419411b0956cdc42055f0e97a47fc8e4ddb38c9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027163"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589729"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metryki oparte na dzienniku i metryki wstępnie zagregowane w usłudze Application Insights
 
@@ -30,12 +30,12 @@ W tym samym czasie zbieranie kompletnego zestawu zdarzeń może być niepraktycz
 
 ## <a name="pre-aggregated-metrics"></a>Metryki wstępnie zagregowane
 
-Oprócz metryk opartych na dziennikach w późnej 2018 zespół Application Insights wysłał publiczną wersję zapoznawczą metryk, które są przechowywane w wyspecjalizowanym repozytorium, które jest zoptymalizowane pod kątem szeregów czasowych. Nowe metryki nie są już przechowywane jako pojedyncze zdarzenia z wieloma właściwościami. Zamiast tego są one przechowywane jako seria czasowo agregowane i tylko z kluczowymi wymiarami. To sprawia, że nowe metryki przewyższają czas zapytania: pobieranie danych odbywa się znacznie szybciej i wymaga mniejszej mocy obliczeniowej. W związku z tym umożliwiają nowe scenariusze, takie jak [alerty niemal w czasie rzeczywistym na podstawie wymiarów metryk](../platform/alerts-metric-near-real-time.md), więcej odpowiedzi na [pulpity nawigacyjne](./overview-dashboard.md)i inne.
+Oprócz metryk opartych na dziennikach w późnej 2018 zespół Application Insights wysłał publiczną wersję zapoznawczą metryk, które są przechowywane w wyspecjalizowanym repozytorium, które jest zoptymalizowane pod kątem szeregów czasowych. Nowe metryki nie są już przechowywane jako pojedyncze zdarzenia z wieloma właściwościami. Zamiast tego są one przechowywane jako seria czasowo agregowane i tylko z kluczowymi wymiarami. To sprawia, że nowe metryki przewyższają czas zapytania: pobieranie danych odbywa się znacznie szybciej i wymaga mniejszej mocy obliczeniowej. W związku z tym umożliwiają nowe scenariusze, takie jak [alerty niemal w czasie rzeczywistym na podstawie wymiarów metryk](../alerts/alerts-metric-near-real-time.md), więcej odpowiedzi na [pulpity nawigacyjne](./overview-dashboard.md)i inne.
 
 > [!IMPORTANT]
 > Zarówno metryki oparte na dzienniku, jak i wstępnie zagregowane współistnieją w Application Insights. Aby odróżnić te dwa, w Application Insights środowisku użytkownika metryki wstępnie zagregowane są teraz nazywane "metrykami standardowymi (wersja zapoznawcza)", podczas gdy tradycyjne metryki ze zdarzeń zostały zmienione na "metryki oparte na dziennikach".
 
-Nowsze zestawy SDK ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK lub nowsze dla platformy .NET) wstępnie zagregowane metryki podczas zbierania. Dotyczy to  [standardowych metryk wysyłanych domyślnie](../platform/metrics-supported.md#microsoftinsightscomponents) , tak aby dokładność nie dotyczyła pobierania próbek ani filtrowania. Ma również zastosowanie do metryk niestandardowych wysyłanych przy użyciu funkcji [GetMetric](./api-custom-events-metrics.md#getmetric) , co zmniejsza wzrost ilości danych i obniża koszty.
+Nowsze zestawy SDK ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK lub nowsze dla platformy .NET) wstępnie zagregowane metryki podczas zbierania. Dotyczy to  [standardowych metryk wysyłanych domyślnie](../essentials/metrics-supported.md#microsoftinsightscomponents) , tak aby dokładność nie dotyczyła pobierania próbek ani filtrowania. Ma również zastosowanie do metryk niestandardowych wysyłanych przy użyciu funkcji [GetMetric](./api-custom-events-metrics.md#getmetric) , co zmniejsza wzrost ilości danych i obniża koszty.
 
 W przypadku zestawów SDK, które nie implementują wstępnej agregacji (to jest starsze wersje zestawów SDK Application Insights lub dla Instrumentacji przeglądarki), Application Insights zaplecza nadal wypełnia nowe metryki, agregowanie zdarzeń odebranych przez punkt końcowy zbierania zdarzeń Application Insights. Oznacza to, że chociaż nie korzystasz ze zmniejszonej ilości danych przesyłanych za pośrednictwem sieci, nadal możesz użyć wstępnie zagregowanych metryk i zapewnić lepszą wydajność i obsługę alertów w czasie rzeczywistym, korzystając z zestawów SDK, które nie agregują wstępnie metryk podczas zbierania.
 
@@ -48,7 +48,7 @@ Warto zauważyć, że punkt końcowy kolekcji wstępnie agreguje zdarzenia przed
 | .NET Core i .NET Framework | Obsługiwane (V 2.13.1 +)| Obsługiwane przez [TrackMetric](api-custom-events-metrics.md#trackmetric)| Obsługiwane (V 2.7.2 +) za pomocą metody [GetMetric](get-metric.md) |
 | Java                         | Nieobsługiwane       | Obsługiwane przez [TrackMetric](api-custom-events-metrics.md#trackmetric)| Nieobsługiwane                           |
 | Node.js                      | Nieobsługiwane       | Obsługiwane przez  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Nieobsługiwane                           |
-| Język Python                       | Nieobsługiwane       | Obsługiwane                                 | Obsługiwane przez [OpenCensus. destatystyka](opencensus-python.md#metrics) |  
+| Python                       | Nieobsługiwane       | Obsługiwane                                 | Obsługiwane przez [OpenCensus. destatystyka](opencensus-python.md#metrics) |  
 
 
 ### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabela metryk w nieobsługiwanej postaci bezkodowej
@@ -81,7 +81,7 @@ Kolekcja niestandardowych wymiarów metryk jest domyślnie wyłączona, poniewa�
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Tworzenie wykresów i eksplorowanie metryk przedzagregowanych opartych na dziennikach i standardach
 
-Korzystając z [Azure Monitor Eksplorator metryk](../platform/metrics-getting-started.md) , można wykreślić wykresy z metryk wstępnie zagregowanych i opartych na dziennikach oraz tworzyć pulpity nawigacyjne z użyciem wykresów. Po wybraniu żądanego zasobu Application Insights Użyj selektora przestrzeni nazw, aby przełączać się między standardowym (podglądem) i metrykami opartymi na dzienniku, lub wybrać niestandardową przestrzeń nazw metryki:
+Korzystając z [Azure Monitor Eksplorator metryk](../essentials/metrics-getting-started.md) , można wykreślić wykresy z metryk wstępnie zagregowanych i opartych na dziennikach oraz tworzyć pulpity nawigacyjne z użyciem wykresów. Po wybraniu żądanego zasobu Application Insights Użyj selektora przestrzeni nazw, aby przełączać się między standardowym (podglądem) i metrykami opartymi na dzienniku, lub wybrać niestandardową przestrzeń nazw metryki:
 
 ![Przestrzeń nazw metryki](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
@@ -93,5 +93,5 @@ Wybranie opcji [Włącz alerty dla niestandardowych wymiarów metryk](#custom-me
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Alerty niemal w czasie rzeczywistym](../platform/alerts-metric-near-real-time.md)
+* [Alerty niemal w czasie rzeczywistym](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric i TrackValue](./api-custom-events-metrics.md#getmetric)

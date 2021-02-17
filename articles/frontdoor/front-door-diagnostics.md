@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d1f3e59cc88ea9cb30e7eacbd26591e08d71be61
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483801"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575247"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitorowanie metryk i dzienników na platformie Azure — drzwiczki
 
@@ -29,7 +29,7 @@ Korzystając z usług frontonu platformy Azure, można monitorować zasoby w nas
 
 Metryki to funkcja niektórych zasobów platformy Azure, która umożliwia wyświetlanie liczników wydajności w portalu. Dostępne są następujące metryki czołowych drzwi:
 
-| Metryka | Nazwa wyświetlana metryki | Jednostka | Wymiary | Opis |
+| Metric | Nazwa wyświetlana metryki | Jednostka | Wymiary | Opis |
 | --- | --- | --- | --- | --- |
 | RequestCount | Liczba żądań | Liczba | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Liczba żądań klientów obsłużonych przez tylne drzwi.  |
 | RequestSize | Rozmiar żądania | Bajty | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Liczba bajtów wysłanych jako żądania od klientów do przednich drzwi. |
@@ -59,7 +59,7 @@ Uzyskuj dostęp do dzienników aktywności w swoich drzwiach lub wszystkich dzie
 ## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Dzienniki diagnostyczne
 Dzienniki diagnostyczne zawierają bogate informacje o operacjach i błędach, które są ważne w przypadku inspekcji i rozwiązywania problemów. Dzienniki diagnostyczne różnią się od dzienników aktywności.
 
-Dzienniki aktywności zapewniają wgląd w operacje wykonywane w zasobach platformy Azure. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane przez zasób. Aby uzyskać więcej informacji, zobacz [Azure monitor dzienników diagnostycznych](../azure-monitor/platform/platform-logs-overview.md).
+Dzienniki aktywności zapewniają wgląd w operacje wykonywane w zasobach platformy Azure. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane przez zasób. Aby uzyskać więcej informacji, zobacz [Azure monitor dzienników diagnostycznych](../azure-monitor/essentials/platform-logs-overview.md).
 
 :::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Dzienniki diagnostyczne":::
 

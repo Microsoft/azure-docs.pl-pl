@@ -4,12 +4,12 @@ description: Ostrzega o nietypowych zmianach w przypadku żądań zakończonych 
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 978b63d74e6be4104ff53eef66e9633c78b90eb8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0f4de3aaba4acf86df37048134089326196e87ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510638"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587549"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Wykrywanie inteligentne — anomalie błędów
 [Application Insights](./app-insights-overview.md) automatycznie alarmuje użytkownika w czasie niemal rzeczywistym, jeśli aplikacja sieci Web napotyka nietypowy wzrost liczby żądań zakończonych niepowodzeniem. Wykrywa nietypowy wzrost liczby żądań HTTP lub wywołań zależności zgłaszanych jako zakończone niepowodzeniem. W przypadku żądań żądania zakończone niepowodzeniem zazwyczaj mają kody odpowiedzi 400 lub wyższe. Aby ułatwić Klasyfikacja i zdiagnozowanie problemu, analiza charakterystyk błędów i powiązanych danych aplikacji znajduje się w szczegółach alertu. Istnieją także linki do portalu Application Insights w celu przeprowadzenia dalszej diagnostyki. Ta funkcja nie wymaga konfigurowania ani konfiguracji, ponieważ używa algorytmów uczenia maszynowego do przewidywania normalnego współczynnika niepowodzeń.
@@ -31,7 +31,7 @@ Szczegóły alertu pomogą Ci:
 * Łączy bezpośrednio z odpowiednimi wyszukiwaniami danych w Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Zalety wykrywania inteligentnego
-Zwykłe [alerty dotyczące metryk](../platform/alerts-log.md) informują o problemie. Jednak funkcja inteligentnego wykrywania uruchamia pracę diagnostykę, wykonując wiele analiz, które w przeciwnym razie trzeba wykonać samodzielnie. Wyniki są zapakowane w sposób uporządkowany, co pomaga szybko uzyskać dostęp do katalogu głównego problemu.
+Zwykłe [alerty dotyczące metryk](../alerts/alerts-log.md) informują o problemie. Jednak funkcja inteligentnego wykrywania uruchamia pracę diagnostykę, wykonując wiele analiz, które w przeciwnym razie trzeba wykonać samodzielnie. Wyniki są zapakowane w sposób uporządkowany, co pomaga szybko uzyskać dostęp do katalogu głównego problemu.
 
 ## <a name="how-it-works"></a>Jak to działa
 Inteligentne wykrywanie monitoruje dane otrzymane z aplikacji, a w szczególności współczynnik awarii. Ta zasada zlicza liczbę żądań, dla których `Successful request` Właściwość ma wartość false, oraz liczbę wywołań zależności, dla których `Successful call` Właściwość ma wartość false. W przypadku żądań domyślnie `Successful request == (resultCode < 400)` (chyba że kod niestandardowy nie został zapisany do [filtrowania](./api-filtering-sampling.md#filtering) lub generowania własnych wywołań [TrackRequest](./api-custom-events-metrics.md#trackrequest) ). 
@@ -48,7 +48,7 @@ Gdy usługa jest Instrumentacją tych wywołań, Analizator szuka wyjątku i awa
 
 Wyniki analizy są wysyłane do Ciebie jako alert, chyba że skonfigurowano go w taki sposób, aby nie został skonfigurowany.
 
-Podobnie jak w przypadku [alertów ustawionych ręcznie](../platform/alerts-log.md), można sprawdzić stan wygenerowanego alertu, który można rozwiązać, jeśli problem został rozwiązany. Skonfiguruj reguły alertów na stronie Alerty zasobu Application Insights. Ale w przeciwieństwie do innych alertów nie trzeba konfigurować ani konfigurować inteligentnego wykrywania. Jeśli chcesz, możesz ją wyłączyć lub zmienić docelowe adresy e-mail.
+Podobnie jak w przypadku [alertów ustawionych ręcznie](../alerts/alerts-log.md), można sprawdzić stan wygenerowanego alertu, który można rozwiązać, jeśli problem został rozwiązany. Skonfiguruj reguły alertów na stronie Alerty zasobu Application Insights. Ale w przeciwieństwie do innych alertów nie trzeba konfigurować ani konfigurować inteligentnego wykrywania. Jeśli chcesz, możesz ją wyłączyć lub zmienić docelowe adresy e-mail.
 
 ### <a name="alert-logic-details"></a>Szczegóły logiki alertu
 
@@ -64,11 +64,11 @@ Alerty są wyzwalane przez swój własny algorytm uczenia maszynowego, dlatego n
 
 Regułę alertu inteligentnego wykrywania można wyłączyć z poziomu portalu lub za pomocą Azure Resource Manager ([Zobacz przykład szablonu](./proactive-arm-config.md)).
 
-Ta reguła alertu jest tworzona za pomocą skojarzonej [grupy akcji](../platform/action-groups.md) o nazwie "Application Insights Smart Detection", która zawiera akcje poczty e-mail i elementu webhook, i można ją rozszerzyć, aby wyzwolić dodatkowe akcje po uruchomieniu alertu.
+Ta reguła alertu jest tworzona za pomocą skojarzonej [grupy akcji](../alerts/action-groups.md) o nazwie "Application Insights Smart Detection", która zawiera akcje poczty e-mail i elementu webhook, i można ją rozszerzyć, aby wyzwolić dodatkowe akcje po uruchomieniu alertu.
 
 > [!NOTE]
 > Powiadomienia e-mail wysyłane z tej reguły alertów są teraz domyślnie wysyłane do użytkowników skojarzonych z czytnikiem monitorowania subskrypcji i monitorowaniem ról współautor. Więcej informacji na ten temat można znaleźć [tutaj](./proactive-email-notification.md).
-> Powiadomienia wysyłane z tej reguły alertu są zgodne ze [wspólnym schematem alertów](../platform/alerts-common-schema.md).
+> Powiadomienia wysyłane z tej reguły alertu są zgodne ze [wspólnym schematem alertów](../alerts/alerts-common-schema.md).
 >
 
 Otwórz stronę alerty. Reguły alertów o anomalii błędów są uwzględniane wraz z alertami, które zostały ustawione ręcznie, i można sprawdzić, czy jest ona aktualnie w stanie alertu.
@@ -410,7 +410,7 @@ Kliknij pozycję **alerty** na stronie zasobów Application Insights, aby przej�
 ## <a name="whats-the-difference-"></a>Jaka jest różnica...
 Inteligentne wykrywanie anomalii o awarii uzupełnia inne podobne, ale odrębne funkcje Application Insights.
 
-* [alerty metryk](../platform/alerts-log.md) są ustawiane przez użytkownika i mogą monitorować szeroką gamę metryk, takich jak użycie procesora CPU, stawki żądań, czasy ładowania stron itd. Można z nich skorzystać, aby ostrzec użytkownika, na przykład jeśli trzeba dodać więcej zasobów. Z kolei funkcja inteligentnego wykrywania anomalii o niepowodzeń obejmuje niewielki zakres metryk krytycznych (aktualnie nie zakończonych niepowodzeniem), dzięki czemu można powiadamiać niemal w czasie rzeczywistym o tym, kiedy szybkość żądań zakończonych niepowodzeniem w aplikacji sieci Web zostanie zwiększona w porównaniu z normalnym zachowaniem aplikacji sieci Web. W przeciwieństwie do alertów dotyczących metryk, funkcja inteligentnego wykrywania automatycznie ustawia i aktualizuje progi w reakcji na zmiany w zachowaniu. Funkcja inteligentnego wykrywania uruchamia również pracę diagnostyczną, oszczędzając czas rozwiązywania problemów.
+* [alerty metryk](../alerts/alerts-log.md) są ustawiane przez użytkownika i mogą monitorować szeroką gamę metryk, takich jak użycie procesora CPU, stawki żądań, czasy ładowania stron itd. Można z nich skorzystać, aby ostrzec użytkownika, na przykład jeśli trzeba dodać więcej zasobów. Z kolei funkcja inteligentnego wykrywania anomalii o niepowodzeń obejmuje niewielki zakres metryk krytycznych (aktualnie nie zakończonych niepowodzeniem), dzięki czemu można powiadamiać niemal w czasie rzeczywistym o tym, kiedy szybkość żądań zakończonych niepowodzeniem w aplikacji sieci Web zostanie zwiększona w porównaniu z normalnym zachowaniem aplikacji sieci Web. W przeciwieństwie do alertów dotyczących metryk, funkcja inteligentnego wykrywania automatycznie ustawia i aktualizuje progi w reakcji na zmiany w zachowaniu. Funkcja inteligentnego wykrywania uruchamia również pracę diagnostyczną, oszczędzając czas rozwiązywania problemów.
 
 * [Inteligentne wykrywanie anomalii wydajności](proactive-performance-diagnostics.md) korzysta również z analizy maszynowej w celu odnajdywania nietypowych wzorców w metrykach i nie wymaga konfiguracji. Jednak w przeciwieństwie do inteligentnego wykrywania anomalii związanych z awariami, cel inteligentnego wykrywania anomalii wydajności polega na znalezieniu segmentów przełożenia użycia, które mogą zostać nieprawidłowo obsłużone — na przykład przez określone strony w określonym typie przeglądarki. Analiza jest wykonywana codziennie i w przypadku znalezienia dowolnego wyniku prawdopodobnie będzie znacznie mniej pilna niż alert. Z drugiej strony analiza anomalii związanych z awariami jest wykonywana w sposób ciągły na przychodzących danych aplikacji, a użytkownik zostanie powiadomiony w ciągu kilku minut, jeśli stawki za awarie serwera są większe niż oczekiwano.
 
@@ -441,16 +441,16 @@ Inteligentne wykrywanie anomalii o awarii uzupełnia inne podobne, ale odrębne 
 
 *Niektóre alerty dotyczą znanych problemów i nie chcę ich otrzymywać.*
 
-* Można użyć funkcji pomijania [reguł akcji alertów](../platform/alerts-action-rules.md) .
+* Można użyć funkcji pomijania [reguł akcji alertów](../alerts/alerts-action-rules.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 Te narzędzia diagnostyczne ułatwiają inspekcję danych w aplikacji:
 
-* [Eksplorator metryk](../platform/metrics-charts.md)
+* [Eksplorator metryk](../essentials/metrics-charts.md)
 * [Eksplorator wyszukiwania](./diagnostic-search.md)
-* [Analiza — zaawansowany język zapytań](../log-query/log-analytics-tutorial.md)
+* [Analiza — zaawansowany język zapytań](../logs/log-analytics-tutorial.md)
 
 Inteligentne wykrywanie są automatyczne. Ale być może chcesz skonfigurować więcej alertów?
 
-* [Ręcznie skonfigurowane alerty metryk](../platform/alerts-log.md)
+* [Ręcznie skonfigurowane alerty metryk](../alerts/alerts-log.md)
 * [Testy dostępności sieci Web](./monitor-web-app-availability.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4fb4981925593a22ed65df9d3ed0da5f45062f23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874387"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578929"
 ---
 # <a name="azure-network-security-overview"></a>Omówienie zabezpieczeń sieci platformy Azure
 
@@ -395,7 +395,7 @@ Więcej informacji:
 
 Rejestrowanie na poziomie sieci jest kluczową funkcją dla dowolnego scenariusza zabezpieczeń sieci. Na platformie Azure można rejestrować informacje uzyskane dla sieciowych grup zabezpieczeń, aby uzyskać informacje dotyczące rejestrowania na poziomie sieci. Dzięki rejestrowaniu sieciowej grupy zabezpieczeń uzyskasz informacje z:
 
-* [Dzienniki aktywności](../../azure-monitor/platform/platform-logs-overview.md). Użyj tych dzienników, aby wyświetlić wszystkie operacje przesłane do subskrypcji platformy Azure. Te dzienniki są domyślnie włączone i mogą być używane w Azure Portal. Wcześniej były znane jako inspekcje lub dzienniki operacyjne.
+* [Dzienniki aktywności](../../azure-monitor/essentials/platform-logs-overview.md). Użyj tych dzienników, aby wyświetlić wszystkie operacje przesłane do subskrypcji platformy Azure. Te dzienniki są domyślnie włączone i mogą być używane w Azure Portal. Wcześniej były znane jako inspekcje lub dzienniki operacyjne.
 * Dzienniki zdarzeń. Te dzienniki zawierają informacje o tym, jakie reguły sieciowej grupy zabezpieczeń zostały zastosowane.
 * Dzienniki liczników. Te dzienniki informują o tym, ile razy została zastosowana Każda reguła sieciowej grupy zabezpieczeń, aby odmówić lub zezwolić na ruch.
 

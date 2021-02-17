@@ -3,12 +3,12 @@ title: Ulepszanie Excellency operacyjnego za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zoptymalizować i uzyskać doskonałą komfort działania w ramach subskrypcji platformy Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 0b938a0c7a42182bb8d2a50b48d65a0844d952a6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122623"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579962"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Uzyskiwanie doskonałości operacyjnej przy użyciu Azure Advisor
 
@@ -38,7 +38,7 @@ Jeśli pula używa przestarzałego składnika wewnętrznego, Usuń i ponownie Ut
 
 ## <a name="repair-invalid-log-alert-rules"></a>Napraw nieprawidłowe reguły alertów dziennika
 
-Azure Advisor wykrywa reguły alertów, które mają nieprawidłowe zapytania określone w sekcji warunku. Reguły alertów dzienników można tworzyć w Azure Monitor i używać ich do uruchamiania zapytań analitycznych w określonych odstępach czasu. Wyniki zapytania określają, czy trzeba wyzwolić alert. Zapytania analityczne mogą stać się nieprawidłowe w miarę upływu czasu ze względu na zmiany w przywoływanych zasobach, tabelach lub poleceniach. Usługa Advisor zaleca poprawienie zapytania w regule alertu, aby zapobiec jego automatycznemu wyłączaniu i zapewnić monitorowanie zasobów na platformie Azure. [Dowiedz się więcej o rozwiązywaniu problemów z regułami alertów.](../azure-monitor/platform/alerts-troubleshoot-log.md)
+Azure Advisor wykrywa reguły alertów, które mają nieprawidłowe zapytania określone w sekcji warunku. Reguły alertów dzienników można tworzyć w Azure Monitor i używać ich do uruchamiania zapytań analitycznych w określonych odstępach czasu. Wyniki zapytania określają, czy trzeba wyzwolić alert. Zapytania analityczne mogą stać się nieprawidłowe w miarę upływu czasu ze względu na zmiany w przywoływanych zasobach, tabelach lub poleceniach. Usługa Advisor zaleca poprawienie zapytania w regule alertu, aby zapobiec jego automatycznemu wyłączaniu i zapewnić monitorowanie zasobów na platformie Azure. [Dowiedz się więcej o rozwiązywaniu problemów z regułami alertów.](../azure-monitor/alerts/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>Użyj zaleceń Azure Policy
 

@@ -4,18 +4,18 @@ description: Często zadawane pytania dotyczące Service Fabric zarządzanych kl
 ms.topic: troubleshooting
 ms.author: pepogors
 author: peterpogorski
-ms.date: 09/28/2020
+ms.date: 02/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4dc41d2c13c834657534971041440bb744cfca38
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: aa77896ba88d0ffd0a6f94a84603b5f4a1803357
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319822"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633091"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Service Fabric często zadawane pytania dotyczące klastrów zarządzanych
 
-Istnieje wiele często zadawanych pytań na temat tego, co mogą robić Service Fabric zarządzane klastry (wersja zapoznawcza) i jak powinny być używane. Ten dokument zawiera wiele typowych pytań i odpowiedzi na nie.
+Poniżej przedstawiono kilka często zadawanych pytań i odpowiedzi na Service Fabric zarządzanych klastrów (wersja zapoznawcza).
 
 ## <a name="general"></a>Ogólne
 
@@ -29,11 +29,11 @@ Obsługiwane regiony dla Service Fabric zarządzanych klastrów zapoznawczych ob
 
 ### <a name="can-i-do-an-in-place-migration-of-my-existing-service-fabric-cluster-to-a-managed-cluster-resource"></a>Czy można wykonać migrację w miejscu istniejącego klastra Service Fabric do zarządzanego zasobu klastra?
 
-W tej chwili trzeba utworzyć nowy zasób klastra Service Fabric, aby użyć nowego Service Fabric typu zasobów klastra zarządzanego.
+Nie. W tej chwili trzeba utworzyć nowy zasób klastra Service Fabric, aby użyć nowego Service Fabric typu zasobów klastra zarządzanego.
 
 ### <a name="is-there-an-additional-cost-for-service-fabric-managed-clusters"></a>Czy istnieją dodatkowe koszty Service Fabric zarządzanych klastrów?
 
-Nie. nie ma dodatkowego kosztu związanego z klastrem zarządzanym Service Fabric wykraczający poza koszty zasobów obliczeniowych, magazynu i sieci, które są wymagane przez klaster.
+Nie. Nie ma dodatkowych kosztów związanych z klastrem zarządzanym Service Fabric wykraczających poza koszty zasobów obliczeniowych, magazynu i sieci, które są wymagane przez klaster.
 
 ### <a name="is-there-a-new-sla-introduced-by-the-service-fabric-managed-cluster-resource"></a>Czy istnieje nowa umowa SLA wprowadzona przez Service Fabric zarządzany zasób klastra?
 
@@ -41,33 +41,36 @@ Umowa SLA nie zmienia się z bieżącego modelu zasobów Service Fabric.
 
 ### <a name="what-is-the-difference-between-a-basic-and-standard-sku-cluster"></a>Jaka jest różnica między podstawowym i standardowym klastrem SKU?
 
-Podstawowy klaster SKU oznacza większość konfiguracji udostępnianych przez dostawcę zasobów Service Fabric. Podstawowe klastry SKU są przeznaczone do użycia na potrzeby testowania i środowiska produkcyjnego. Klaster standardowej jednostki SKU umożliwia użytkownikom skonfigurowanie klastra w celu spełnienia wymagań. Aby uzyskać więcej informacji, zobacz [Service Fabric zarządzanych jednostek SKU klastra](./overview-managed-cluster.md#service-fabric-managed-cluster-skus) , aby uzyskać więcej szczegółów.
+Podstawowy klaster SKU oznacza większość konfiguracji udostępnianych przez dostawcę zasobów Service Fabric. Podstawowe klastry SKU są przeznaczone do użycia na potrzeby testowania i środowiska produkcyjnego. Klaster standardowej jednostki SKU umożliwia użytkownikom skonfigurowanie klastra w celu spełnienia wymagań. Aby uzyskać więcej informacji, zobacz [Service Fabric zarządzanych jednostek SKU klastra](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
 
 ## <a name="cluster-deployment-and-management"></a>Wdrażanie i zarządzanie klastrami
 
 ### <a name="i-run-custom-script-extensions-on-my-virtual-machine-scale-set-can-i-continue-to-do-that-with-a-managed-service-fabric-resource"></a>Uruchamiam niestandardowe rozszerzenia skryptów w moim zestawie skalowania maszyn wirtualnych, czy mogę to zrobić z zarządzanym zasobem Service Fabric?
 
-Tak, można nadal określić rozszerzenia maszyn wirtualnych dla typu węzła. Aby uzyskać więcej informacji, zobacz przykład rozszerzenia typu węzła, aby uzyskać więcej szczegółów.
+Tak, możesz określić rozszerzenia maszyn wirtualnych na zarządzanych typach węzłów klastra. Aby uzyskać więcej informacji, zobacz [Dodawanie rozszerzenia zestawu skalowania do Service Fabric typu węzła klastra zarządzanego](how-to-managed-cluster-vmss-extension.md).
 
-### <a name="i-want-to-have-an-internal-only-load-balancer-is-that-possible"></a>Czy chcę mieć tylko wewnętrzny moduł równoważenia obciążenia?
+### <a name="i-want-to-have-an-internal-only-load-balancer-is-that-possible"></a>Czy chcesz mieć tylko wewnętrzny moduł równoważenia obciążenia?
 
-Obecnie nie jest możliwe posiadanie tylko wewnętrznego modułu równoważenia obciążenia. Zalecamy zablokowanie reguł sieciowej grupy zabezpieczeń w celu blokowania dowolnego nieżądanego ruchu przychodzącego/wychodzącego.
+Nie. Obecnie nie jest możliwe posiadanie wyłącznie wewnętrznego modułu równoważenia obciążenia. Zalecamy zablokowanie reguł sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) w celu blokowania dowolnego nieżądanego ruchu przychodzącego/wychodzącego.
 
-### <a name="can-i-autoscale-my-cluster"></a>Czy mogę automatycznie skalować mój klaster? 
+### <a name="can-i-autoscale-my-cluster"></a>Czy mogę automatycznie skalować mój klaster?
+
 Skalowanie automatyczne nie jest obecnie dostępne w wersji zapoznawczej.
 
-### <a name="can-i-deploy-my-cluster-across-availability-zones"></a>Czy mogę wdrożyć klaster w strefach dostępności? 
+### <a name="can-i-deploy-my-cluster-across-availability-zones"></a>Czy mogę wdrożyć klaster w strefach dostępności?
+
 Klastry strefy Cross Availability nie są obecnie dostępne w wersji zapoznawczej.
 
-### <a name="can-i-select-between-automatic-and-manual-upgrades-for-my-cluster-runtime"></a>Czy mogę wybrać automatyczne i ręczne uaktualnienia dla mojego środowiska uruchomieniowego klastra? 
+### <a name="can-i-select-between-automatic-and-manual-upgrades-for-my-cluster-runtime"></a>Czy mogę wybrać automatyczne i ręczne uaktualnienia dla mojego środowiska uruchomieniowego klastra?
+
 W wersji zapoznawczej wszystkie uaktualnienia środowiska uruchomieniowego zostaną wykonane automatycznie.
 
 ## <a name="applications"></a>Aplikacje
 
 ### <a name="is-there-a-local-development-experience-for-service-fabric-managed-clusters"></a>Czy istnieje lokalne środowisko programistyczne dla Service Fabric zarządzanych klastrów?
 
-Lokalne środowisko programistyczne pozostaje niezmienione z istniejących klastrów Service Fabric. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji platformy .NET](./service-fabric-quickstart-dotnet.md) , aby uzyskać więcej informacji na temat lokalnego środowiska programistycznego.
+Lokalne środowisko programistyczne pozostaje niezmienione z istniejących klastrów Service Fabric. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska deweloperskiego](./service-fabric-get-started.md) , aby uzyskać więcej informacji na temat lokalnego środowiska programistycznego.
 
 ### <a name="can-i-deploy-my-applications-as-an-azure-resource-manager-resource"></a>Czy mogę wdrożyć aplikacje jako zasób Azure Resource Manager?
 
-W wersji zapoznawczej nie można wdrażać aplikacji jako zasobów Azure Resource Manager. Aplikacje muszą być wdrażane przez bezpośrednie połączenie z klastrem za pomocą programu PowerShell lub interfejsu wiersza polecenia. Ta funkcja zostanie dodana przed udostępnieniem klastrów Service Fabric, które będą miały dostęp do ogólnej dostępności.
+Tak. Dodano obsługę wdrażania aplikacji jako zasobów Azure Resource Manager (oprócz wdrożenia przy użyciu programu PowerShell i interfejsu wiersza polecenia). Aby rozpocząć, zobacz [wdrażanie aplikacji klastra zarządzanego Service Fabric przy użyciu szablonu usługi ARM](how-to-managed-cluster-app-deployment-template.md).

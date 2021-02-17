@@ -1,19 +1,19 @@
 ---
 title: Tworzenie klasy Azure Files StorageClass w usłudze Azure Red Hat OpenShift 4
 description: Dowiedz się, jak utworzyć Azure Files StorageClass na platformie Azure Red Hat OpenShift
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/16/2020
 author: grantomation
 ms.author: b-grodel
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI, plik platformy Azure
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 201ec3293943f53179bcabde45259d15ce6208a6
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: daaf6d3042b3b8d050173a87d94f0ff6a4ccb2c7
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901287"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633261"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Tworzenie klasy Azure Files StorageClass w usłudze Azure Red Hat OpenShift 4
 
@@ -25,7 +25,7 @@ W tym artykule utworzysz StorageClass dla platformy Azure Red Hat OpenShift 4, k
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Wdróż klaster usługi Azure Red Hat OpenShift 4 w ramach subskrypcji, zobacz [Tworzenie klastra usługi Azure Red Hat OpenShift 4](tutorial-create-cluster.md)
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834089"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570848"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Samouczek: monitorowanie komunikacji sieciowej między dwiema maszynami wirtualnymi przy użyciu witryny Azure Portal
 
@@ -137,7 +137,7 @@ Alerty są tworzone na podstawie reguł alertów na platformie Azure Monitor i m
 2. Kliknij pozycję **Wybierz element docelowy**, a następnie wybierz zasoby docelowe. Wybierz pozycję **Subskrypcja** i ustaw **Typ zasobu**, aby odfiltrować monitor połączeń, którego chcesz używać.
 
     ![ekran alertu z zaznaczonym elementem docelowym](./media/connection-monitor/set-alert-rule.png)
-1. Po wybraniu zasobu docelowego wybierz pozycję **Dodaj kryteria**. Usługa Network Watcher zawiera [metryki, na podstawie których można tworzyć alerty](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). W obszarze **Dostępne sygnały** ustaw metryki ProbesFailedPercent i AverageRoundtripMs:
+1. Po wybraniu zasobu docelowego wybierz pozycję **Dodaj kryteria**. Usługa Network Watcher zawiera [metryki, na podstawie których można tworzyć alerty](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). W obszarze **Dostępne sygnały** ustaw metryki ProbesFailedPercent i AverageRoundtripMs:
 
     ![strona alertów z zaznaczonymi sygnałami](./media/connection-monitor/set-alert-signals.png)
 1. Wypełnij szczegóły alertu, takie jak nazwa, opis i ważność reguły alertu. Do alertu możesz także dodać grupę akcji, aby zautomatyzować i dostosować reakcję na alert.
