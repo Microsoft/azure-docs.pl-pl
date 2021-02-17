@@ -3,12 +3,12 @@ title: Jak mogę... na platformie Azure Application Insights | Microsoft Docs
 description: Często zadawane pytania w Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 134089f4df8f80147182835ca8746322c1de7e50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319256"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584169"
 ---
 # <a name="how-do-i--in-application-insights"></a>Jak mogę (...) w usłudze Application Insights?
 ## <a name="get-an-email-when-"></a>Otrzymuj wiadomość e-mail, gdy...
@@ -16,7 +16,7 @@ ms.locfileid: "87319256"
 Ustaw [test sieci Web dostępności](./monitor-web-app-availability.md).
 
 ### <a name="email-if-my-site-is-overloaded"></a>Wyślij wiadomość e-mail, jeśli moja witryna jest przeciążona
-Ustaw [alert](../platform/alerts-log.md) dotyczący **czasu odpowiedzi serwera**. Wartość progowa z przedziału od 1 do 2 sekund powinna być poprawna.
+Ustaw [alert](../alerts/alerts-log.md) dotyczący **czasu odpowiedzi serwera**. Wartość progowa z przedziału od 1 do 2 sekund powinna być poprawna.
 
 ![Zrzut ekranu pokazujący sposób ustawiania alertu na czas odpowiedzi serwera.](./media/how-do-i/030-server.png)
 
@@ -26,10 +26,10 @@ Jeśli chcesz ustawić alert dla **wyjątków serwera**, może być konieczne wy
 
 ### <a name="email-on-exceptions"></a>Poczta e-mail przy wyjątkach
 1. [Skonfiguruj Monitorowanie wyjątków](./asp-net-exceptions.md)
-2. [Ustawianie alertu](../platform/alerts-log.md) dotyczącego metryki liczby wyjątków
+2. [Ustawianie alertu](../alerts/alerts-log.md) dotyczącego metryki liczby wyjątków
 
 ### <a name="email-on-an-event-in-my-app"></a>Wyślij wiadomość e-mail dotyczącą zdarzenia w mojej aplikacji
-Załóżmy, że chcesz otrzymać wiadomość e-mail po wystąpieniu określonego zdarzenia. Application Insights nie zapewnia bezpośrednio tej funkcji, ale może [wysłać Alert, gdy Metryka przekroczy próg](../platform/alerts-log.md).
+Załóżmy, że chcesz otrzymać wiadomość e-mail po wystąpieniu określonego zdarzenia. Application Insights nie zapewnia bezpośrednio tej funkcji, ale może [wysłać Alert, gdy Metryka przekroczy próg](../alerts/alerts-log.md).
 
 Alerty można ustawiać w [niestandardowych metrykach](./api-custom-events-metrics.md#trackmetric), chociaż nie zdarzeniach niestandardowych. Napisz kod, aby zwiększyć metrykę w przypadku wystąpienia zdarzenia:
 
@@ -51,7 +51,7 @@ Ponieważ alerty mają dwa stany, należy wysłać wartość niską, gdy zostani
 telemetry.TrackMetric("Alarm", 0.5);
 ```
 
-Utwórz wykres w [Eksploratorze metryk](../platform/metrics-charts.md) , aby zobaczyć alarm:
+Utwórz wykres w [Eksploratorze metryk](../essentials/metrics-charts.md) , aby zobaczyć alarm:
 
 ![Zrzut ekranu pokazujący sposób tworzenia wykresu w Eksploratorze metryk, aby zobaczyć alarm.](./media/how-do-i/010-alarm.png)
 
@@ -71,11 +71,11 @@ Oto niektóre ważne kwestie:
 * Ponieważ wiadomości e-mail są wysyłane zarówno w "alertach", jak i w dobrej kondycji, warto rozważyć przemyśleć wydarzenie z jednym z nich jako warunek dwustanowy. Na przykład zamiast zdarzenia "ukończenie zadania" występuje warunek "zadanie w toku", w którym można otrzymywać wiadomości e-mail na początku i na końcu zadania.
 
 ### <a name="set-up-alerts-automatically"></a>Automatyczne Konfigurowanie alertów
-[Tworzenie nowych alertów za pomocą programu PowerShell](../platform/alerts-log.md)
+[Tworzenie nowych alertów za pomocą programu PowerShell](../alerts/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Zarządzanie Application Insights przy użyciu programu PowerShell
 * [Tworzenie nowych zasobów](./create-new-resource.md#creating-a-resource-automatically)
-* [Utwórz nowe alerty](../platform/alerts-log.md)
+* [Utwórz nowe alerty](../alerts/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Oddzielna Telemetria od różnych wersji
 
@@ -88,7 +88,7 @@ Oto niektóre ważne kwestie:
 
 ## <a name="visualize-data"></a>Wizualizowanie danych
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Pulpit nawigacyjny z metrykami z wielu aplikacji
-* W [Eksploratorze metryki](../platform/metrics-charts.md)Dostosuj wykres i Zapisz go jako ulubiony. Przypnij ją do pulpitu nawigacyjnego platformy Azure.
+* W [Eksploratorze metryki](../essentials/metrics-charts.md)Dostosuj wykres i Zapisz go jako ulubiony. Przypnij ją do pulpitu nawigacyjnego platformy Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Pulpit nawigacyjny z danymi z innych źródeł i Application Insights
 * [Wyeksportuj dane telemetryczne do Power BI](./export-power-bi.md).
@@ -165,6 +165,6 @@ Wśród metryk, które można wyświetlić w Eksploratorze metryk jest zestaw li
 * **Serwer UNIX**  -  [Instalacja zebrana](./java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Aby wyświetlić więcej liczników wydajności
-* Najpierw [Dodaj nowy wykres](../platform/metrics-charts.md) i sprawdź, czy licznik znajduje się w podstawowym zestawie oferowanym przez nas.
+* Najpierw [Dodaj nowy wykres](../essentials/metrics-charts.md) i sprawdź, czy licznik znajduje się w podstawowym zestawie oferowanym przez nas.
 * W przeciwnym razie [Dodaj licznik do zestawu zebranego przez moduł licznika wydajności](./performance-counters.md).
 

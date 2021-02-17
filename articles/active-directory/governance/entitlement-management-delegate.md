@@ -16,16 +16,16 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8e6c13600cb5940351d31b54af403584cc68a5f
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 204d83b96e3cbe26759d678126d8826d0b2e492e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515652"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577854"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegowanie i role w zarządzaniu prawami usługi Azure AD
 
-Domyślnie Administratorzy globalni i Administratorzy użytkowników mogą tworzyć wszystkie aspekty zarządzania prawami usługi Azure AD i zarządzać nimi. Jednak użytkownicy z tych ról mogą nie wiedzieć o wszystkich sytuacjach, w których wymagane są pakiety dostępu. Zwykle są to użytkownicy w ramach odpowiednich działów, zespołów lub projektów, które wiedzą, komu pracują z usługą, za pomocą których zasobów i jak długo. Zamiast udzielania nieograniczonych uprawnień administratorom niebędącym administratorami, można udzielić użytkownikom najniższych uprawnień, których potrzebują do wykonywania swoich zadań, i uniknąć tworzenia sprzecznych lub nieodpowiednich praw dostępu.
+Domyślnie Administratorzy globalni i Administratorzy użytkowników mogą tworzyć wszystkie aspekty zarządzania prawami usługi Azure AD i zarządzać nimi. Jednak użytkownicy z tych ról mogą nie wiedzieć o wszystkich sytuacjach, w których wymagane są pakiety dostępu. Zazwyczaj są to użytkownicy w ramach odpowiednich działów, zespołów lub projektów, które wiedzą, komu pracują nad nimi, korzystając z zasobów i jak długo. Zamiast udzielania nieograniczonych uprawnień administratorom niebędącym administratorami, można udzielić użytkownikom najniższych uprawnień, których potrzebują do wykonywania swoich zadań, i uniknąć tworzenia sprzecznych lub nieodpowiednich praw dostępu.
 
 Ten film wideo zawiera omówienie sposobu delegowania dostępu do ładu od administratora IT do użytkowników, którzy nie są administratorami.
 
@@ -39,7 +39,7 @@ Aby zrozumieć, jak można delegować zarządzanie dostępem w usłudze zarządz
 
 Jako administrator IT, Hana ma kontakty w każdym dziale — Mamta w marketingu, Markuje Finanse i Jan, którzy są odpowiedzialni za zasoby tego działu i istotną zawartość biznesową.
 
-Zarządzanie prawami umożliwia delegowanie praw dostępu do tych, które nie są administratorami, ponieważ są one osobami, które wiedzą, którzy użytkownicy potrzebują dostępu, na czas i do jakich zasobów. Zapewnia to właściwym osobom zarządzanie dostępem do swoich działów.
+Zarządzanie prawami umożliwia delegowanie praw dostępu do tych, które nie są administratorami, ponieważ są one osobami, które wiedzą, którzy użytkownicy potrzebują dostępu, na czas i do jakich zasobów. Delegowanie do użytkowników niebędących administratorami zapewnia właściwym osobom zarządzanie dostępem do ich działów.
 
 Oto jeden ze sposobów, w jaki Hana może delegować zarządzanie dostępem do działów marketingu, finansów i przepisów prawnych.
 
@@ -47,15 +47,13 @@ Oto jeden ze sposobów, w jaki Hana może delegować zarządzanie dostępem do d
 
 1. Hana dodaje tę grupę do roli twórcy katalogu.
 
-    Mamta, Mark i Jan mogą teraz tworzyć wykazy dla swoich działów, dodawać zasoby, których działy potrzebują, i przeprowadzenie dalszych delegowania w wykazie.
-
-    Należy zauważyć, że Mamta, Mark i Jan nie mogą zobaczyć katalogów innych.
+    Mamta, Mark i Jan mogą teraz tworzyć wykazy dla swoich działów, dodawać zasoby, których działy potrzebują, i przeprowadzenie dalszych delegowania w wykazie. Nie widzą one żadnych wykazów innych.
 
 1. Mamta tworzy katalog **marketingowy** , który jest kontenerem zasobów.
 
 1. Mamta dodaje zasoby, których dział marketingu należy do tego katalogu.
 
-1. Mamta może dodawać do tego wykazu inne osoby z działu jako właściciele katalogu. Pozwala to na udostępnianie obowiązków związanych z zarządzaniem katalogiem.
+1. Mamta może dodawać inne osoby z działu jako właściciele wykazu dla tego wykazu, co ułatwia udostępnianie obowiązków związanych z zarządzaniem katalogiem.
 
 1. Mamta może dodatkowo delegować tworzenie pakietów dostępu do katalogu Marketing i zarządzanie nimi do menedżerów projektu w dziale marketingu. Można to zrobić, przypisując je do roli menedżera pakietów dostępu. Menedżer pakietów dostępu może tworzyć i zarządzać pakietami dostępu. 
 
@@ -78,19 +76,19 @@ Zarządzanie prawami obejmuje następujące role, które są specyficzne dla zar
 
 | Rola zarządzania uprawnieniami | Opis |
 | --- | --- |
-| Twórca katalogu | Utwórz wykazy i zarządzaj nimi. Zazwyczaj administrator IT, który nie jest administratorem globalnym lub właścicielem zasobu dla kolekcji zasobów. Osoba tworząca katalog automatycznie stanie się pierwszym właścicielem katalogu i może dodać dodatkowych właścicieli katalogu. Autor wykazu nie może zarządzać katalogami, które nie są właścicielami i nie mogą dodawać do nich zasobów. Jeśli twórca katalogu musi zarządzać innym wykazem lub dodać do nich zasoby, które nie są właścicielami, mogą zażądać od współwłaściciela tego katalogu lub zasobu. |
-| Właściciel katalogu | Edytuj istniejące wykazy i zarządzaj nimi. Zazwyczaj administrator IT lub właściciele zasobów lub użytkownik, który wyznaczył właściciela katalogu. |
+| Twórca katalogu | Utwórz wykazy i zarządzaj nimi. Zazwyczaj administrator IT, który nie jest administratorem globalnym, ani właścicielem zasobu dla kolekcji zasobów. Osoba tworząca katalog automatycznie stanie się pierwszym właścicielem katalogu i może dodać więcej właścicieli katalogu. Autor wykazu nie może zarządzać katalogami, które nie są właścicielami i nie mogą dodawać do nich zasobów. Jeśli twórca katalogu musi zarządzać innym wykazem lub dodać do nich zasoby, które nie są właścicielami, mogą zażądać od współwłaściciela tego katalogu lub zasobu. |
+| Właściciel katalogu | Edytuj istniejące wykazy i zarządzaj nimi. Zazwyczaj administrator IT lub właściciele zasobów lub użytkownik, który go utworzył. |
 | Menedżer pakietów dostępu | Edytuj wszystkie istniejące pakiety dostępu i zarządzaj nimi w ramach wykazu. |
 | Menedżer przypisania pakietu dostępu | Edytuj wszystkie przypisania istniejących pakietów dostępu i zarządzaj nimi. |
 
-Ponadto Wyznaczeni osoby zatwierdzające i osoba żądająca pakietu dostępu mają również prawa, chociaż nie są rolami.
+Ponadto wybrana osoba zatwierdzająca i osoba żądająca pakietu dostępu mają prawa, chociaż nie są rolami.
 
 | Prawe | Opis |
 | --- | --- |
 | Osoba zatwierdzająca | Autoryzowany przez zasady do zatwierdzania lub odrzucania żądań dostępu do pakietów, chociaż nie mogą zmieniać definicji pakietów dostępu. |
 | Requestor | Autoryzowane przez zasady pakietu dostępu, aby zażądać tego pakietu dostępu. |
 
-Poniższa tabela zawiera listę zadań, które mogą być wykonywane przez role zarządzania uprawnieniem.
+Poniższa tabela zawiera listę zadań, które mogą wykonywać role zarządzania uprawnieniami.
 
 | Zadanie | Administrator | Twórca katalogu | Właściciel katalogu | Menedżer pakietów dostępu | Menedżer przypisania pakietu dostępu |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -118,9 +116,9 @@ Poniższa tabela zawiera listę zadań, które mogą być wykonywane przez role 
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Role wymagane do dodawania zasobów do wykazu
 
-Administrator globalny może dodawać lub usuwać dowolną grupę (grupy zabezpieczeń utworzone w chmurze lub grupy Microsoft 365 utworzone w chmurze), aplikację lub witrynę usługi SharePoint Online w wykazie. Administrator użytkowników może dodać lub usunąć dowolną grupę lub aplikację w wykazie, z wyjątkiem grup skonfigurowanych jako możliwe do przypisania do roli katalogu. Należy pamiętać, że administrator użytkownika może zarządzać pakietami dostępu w wykazie zawierającym grupy skonfigurowane jako możliwe do przypisania do roli katalogu.
+Administrator globalny może dodawać lub usuwać dowolną grupę (grupy zabezpieczeń utworzone w chmurze lub grupy Microsoft 365 utworzone w chmurze), aplikację lub witrynę usługi SharePoint Online w wykazie. Administrator użytkowników może dodać lub usunąć dowolną grupę lub aplikację w wykazie, z wyjątkiem grup skonfigurowanych jako możliwe do przypisania do roli katalogu. Należy pamiętać, że administrator użytkownika może zarządzać pakietami dostępu w wykazie zawierającym grupy skonfigurowane jako możliwe do przypisania do roli katalogu.  Aby uzyskać więcej informacji na temat grup, które można przypisać do ról, Utwórz grupę z możliwością [przypisywania ról w Azure Active Directory](../roles/groups-create-eligible.md).
 
-Użytkownik, który nie jest administratorem globalnym lub administratorem użytkownika, w celu dodania grup, aplikacji lub witryn usługi SharePoint Online do wykazu, musi mieć *zarówno* wymaganą rolę w katalogu usługi Azure AD, jak i rolę zarządzania uprawnieniem właściciela katalogu. W poniższej tabeli wymieniono kombinacje ról, które są wymagane do dodawania zasobów do wykazu. Aby usunąć zasoby z wykazu, musisz mieć te same role.
+Użytkownik, który nie jest administratorem globalnym lub administratorem użytkownika, w celu dodania grup, aplikacji lub witryn usługi SharePoint Online do wykazu, musi mieć *zarówno* wymaganą rolę usługi Azure AD, jak i rolę zarządzania uprawnieniem właściciela katalogu. W poniższej tabeli wymieniono kombinacje ról, które są wymagane do dodawania zasobów do wykazu. Aby usunąć zasoby z wykazu, musisz mieć te same role.
 
 | Rola katalogu usługi Azure AD | Rola zarządzania uprawnieniami | Może dodać grupę zabezpieczeń | Może dodać grupę Microsoft 365 | Można dodać aplikację | Może dodać witrynę usługi SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |

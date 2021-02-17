@@ -1,19 +1,19 @@
 ---
-title: Planowanie i skalowanie pojemności dla Service Fabric platformy Azure
+title: Planowanie i skalowanie pojemności dla usługi Azure Service Fabric
 description: Najlepsze rozwiązania związane z planowaniem i skalowaniem Service Fabric klastrów i aplikacji.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 32a9c26bb9e89cf4057cc753b02ad3c006d0bae6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784684"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595066"
 ---
-# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planowanie i skalowanie pojemności dla Service Fabric platformy Azure
+# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planowanie i skalowanie pojemności dla usługi Azure Service Fabric
 
 Przed utworzeniem dowolnego klastra usługi Azure Service Fabric lub skalowaniem zasobów obliczeniowych, które obsługują klaster, ważne jest zaplanowanie pojemności. Aby uzyskać więcej informacji o planowaniu pojemności, zobacz [Planowanie pojemności klastra Service Fabric](./service-fabric-cluster-capacity.md). Aby uzyskać dalsze wskazówki dotyczące skalowalności klastra, zobacz [zagadnienia dotyczące skalowalności Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
 
@@ -26,7 +26,7 @@ Używanie skalowania automatycznego za pośrednictwem zestawów skalowania maszy
 
 * Wdrażanie szablonów Menedżer zasobów z wykorzystaniem odpowiednich pojemności nie obsługuje Twojego przypadku użycia.
      
-   Oprócz skalowania ręcznego można skonfigurować [potok ciągłej integracji i dostarczania w Azure DevOps Services przy użyciu projektów wdrażania grupy zasobów platformy Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Ten potok jest często wyzwalany przez aplikację logiki, która używa metryk wydajności maszyny wirtualnej, które są wysyłane z [Azure monitor interfejsu API REST](../azure-monitor/platform/rest-api-walkthrough.md). Potok jest efektywnie skalowany automatycznie na podstawie dowolnych metryk, podczas optymalizacji pod kątem Menedżer zasobów szablonów.
+   Oprócz skalowania ręcznego można skonfigurować [potok ciągłej integracji i dostarczania w Azure DevOps Services przy użyciu projektów wdrażania grupy zasobów platformy Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Ten potok jest często wyzwalany przez aplikację logiki, która używa metryk wydajności maszyny wirtualnej, które są wysyłane z [Azure monitor interfejsu API REST](../azure-monitor/essentials/rest-api-walkthrough.md). Potok jest efektywnie skalowany automatycznie na podstawie dowolnych metryk, podczas optymalizacji pod kątem Menedżer zasobów szablonów.
 * W danym momencie trzeba skalować w poziomie tylko jeden węzeł zestawu skalowania maszyn wirtualnych.
    
    Aby skalować w poziomie o trzy lub więcej węzłów jednocześnie, należy [skalować klaster Service Fabric przez dodanie zestawu skalowania maszyn wirtualnych](virtual-machine-scale-set-scale-node-type-scale-out.md). Najbezpieczniejszym sposobem skalowania i skalowania zestawów skalowania maszyn wirtualnych w poziomie jest jeden węzeł w danym momencie.

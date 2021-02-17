@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 09415c47432f71310b10c86390c10e55f1ccc4b2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9350b5dbcedd2773e94ef9d35cfe26f97fbd97bc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498612"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571615"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Rozwiązywanie typowych problemów z chmurą wiosenną platformy Azure
 
@@ -66,7 +66,7 @@ Gdy debugujesz awarie aplikacji, Zacznij od sprawdzenia stanu uruchomienia i sta
 
 
 
-Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Moja aplikacja używa dużo mocy procesora lub pamięci
 
@@ -88,7 +88,7 @@ Aby uzyskać więcej informacji, zobacz [metryki dla chmury wiosennej platformy 
 
 Jeśli wszystkie wystąpienia są uruchomione, przejdź do usługi Azure Log Analytics, aby wykonać zapytanie dotyczące dzienników aplikacji i przejrzeć logikę kodu. Ułatwi to sprawdzenie, czy którykolwiek z nich może mieć wpływ na partycjonowanie skalowania. Aby uzyskać więcej informacji, zobacz [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](diagnostic-services.md).
 
-Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Wykonaj zapytanie dotyczące dzienników przy użyciu [języka zapytań Kusto](/azure/kusto/query/).
+Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md). Wykonaj zapytanie dotyczące dzienników przy użyciu [języka zapytań Kusto](/azure/kusto/query/).
 
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Lista kontrolna wdrażania aplikacji wiosennej w chmurze Azure wiosennej
 
@@ -163,7 +163,7 @@ Jeśli migrujesz istniejące, sprężynowe rozwiązanie oparte na chmurze na pla
 
 Możesz również sprawdzić dzienniki _usługi Rejestr_ klienta w usłudze Azure log Analytics. Aby uzyskać więcej informacji, zobacz [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](diagnostic-services.md)
 
-Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Wykonaj zapytanie dotyczące dzienników przy użyciu [języka zapytań Kusto](/azure/kusto/query/).
+Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md). Wykonaj zapytanie dotyczące dzienników przy użyciu [języka zapytań Kusto](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Chcę sprawdzić zmienne środowiskowe aplikacji
 
@@ -172,7 +172,7 @@ Zmienne środowiskowe informują platformę chmurową Azure ze sprężyną, dzi�
 > [!WARNING]
 > Ta procedura udostępnia zmienne środowiskowe za pomocą punktu końcowego testu.  Nie należy przechodzić, jeśli punkt końcowy testu jest publicznie dostępny lub jeśli przypisano nazwę domeny do aplikacji.
 
-1. Przejdź do adresu `https://<your application test endpoint>/actuator/health`.  
+1. Przejdź do witryny `https://<your application test endpoint>/actuator/health`.  
     - Odpowiedź podobna do `{"status":"UP"}` wskazuje, że punkt końcowy został włączony.
     - Jeśli odpowiedź jest ujemna, Uwzględnij w pliku *POM.xml* następujący zależność:
 
@@ -223,7 +223,7 @@ Sprawdź, czy `spring-boot-actuator` zależność jest włączona w pakiecie apl
 </dependency>
 ```
 
-Jeśli dzienniki aplikacji można zarchiwizować na koncie magazynu, ale nie są wysyłane do usługi Azure Log Analytics, należy sprawdzić, czy [obszar roboczy został skonfigurowany prawidłowo](../azure-monitor/learn/quick-create-workspace.md). W przypadku korzystania z bezpłatnej warstwy usługi Azure Log Analytics należy pamiętać, że [w warstwie Bezpłatna nie jest oferowana umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+Jeśli dzienniki aplikacji można zarchiwizować na koncie magazynu, ale nie są wysyłane do usługi Azure Log Analytics, należy sprawdzić, czy [obszar roboczy został skonfigurowany prawidłowo](../azure-monitor/logs/quick-create-workspace.md). W przypadku korzystania z bezpłatnej warstwy usługi Azure Log Analytics należy pamiętać, że [w warstwie Bezpłatna nie jest oferowana umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
 ## <a name="next-steps"></a>Następne kroki
 

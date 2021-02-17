@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 21ae8986761483658f5ac4254e4bb378e0bc4ba9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873964"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575066"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Podstawy zabezpieczeń platformy Azure dla Azure DDoS Protection Standard
 
@@ -26,7 +26,7 @@ Ta linia bazowa zabezpieczeń stosuje wskazówki z [testu porównawczego zabezpi
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure i wysyłanie dzienników do obszaru roboczego log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje wykonane w planach Azure DDoS Protection na poziomie płaszczyzny kontroli. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla wystąpień Azure DDoS Protection.
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../../azure-monitor/essentials/activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -40,7 +40,7 @@ Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij
 
 - [Wyświetlanie i konfigurowanie rejestrowania diagnostycznego dotyczącego ataków DDoS](../../ddos-protection/diagnostic-logging.md)
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../../azure-monitor/essentials/activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -50,7 +50,7 @@ Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z planami Azure DDoS Protection zgodnie z regulacjami zgodności w organizacji.
 
-- [Jak ustawić parametry przechowywania dziennika](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -62,9 +62,9 @@ Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij
 
 - [Informacje na temat uzyskiwania dostępu do telemetrii, dzienników i analizy ataków dla usługi DDoS Protection Standard](../../ddos-protection/telemetry.md)
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../../azure-monitor/essentials/activity-log.md)
 
-- [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../../azure-monitor/platform/activity-log.md)
+- [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../../azure-monitor/essentials/activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -80,7 +80,7 @@ Dołączanie obszaru roboczego Log Analytics do funkcji wskaźnikowej platformy 
 
 - [Jak dołączyć wskaźnik na platformie Azure](../../sentinel/quickstart-onboard.md)
 
-- [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor](../../azure-monitor/platform/alerts-log.md)
+- [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor](../../azure-monitor/alerts/alerts-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -276,7 +276,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: Użyj Azure monitor w dzienniku aktywności platformy Azure, aby utworzyć alerty dotyczące zmian w planach Azure DDoS Protection, a także innych krytycznych lub pokrewnych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 

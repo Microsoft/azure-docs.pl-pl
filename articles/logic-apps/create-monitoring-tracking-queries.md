@@ -6,20 +6,20 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5de795811923c965a1473f8d91e3fd654aeef266
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309913"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574555"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Wyświetlaj i twórz zapytania dotyczące monitorowania i śledzenia w Azure Monitor dziennikach dla Azure Logic Apps
 
-Można wyświetlić podstawowe zapytania, które tworzą wyniki z [dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md) i tworzyć zapytania filtrujące wyniki na podstawie określonych kryteriów. Na przykład można znaleźć komunikaty na podstawie określonego numeru kontrolnego wymiany. Zapytania używają [języka zapytań Kusto](/azure/data-explorer/kusto/query/), który można edytować, jeśli chcesz wyświetlić różne wyniki. Aby uzyskać więcej informacji, zobacz [Azure monitor kwerendy dzienników](/azure/data-explorer/kusto/query/).
+Można wyświetlić podstawowe zapytania, które tworzą wyniki z [dzienników Azure monitor](../azure-monitor/logs/log-query-overview.md) i tworzyć zapytania filtrujące wyniki na podstawie określonych kryteriów. Na przykład można znaleźć komunikaty na podstawie określonego numeru kontrolnego wymiany. Zapytania używają [języka zapytań Kusto](/azure/data-explorer/kusto/query/), który można edytować, jeśli chcesz wyświetlić różne wyniki. Aby uzyskać więcej informacji, zobacz [Azure monitor kwerendy dzienników](/azure/data-explorer/kusto/query/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Obszar roboczy usługi Log Analytics. Jeśli nie masz obszaru roboczego Log Analytics, zapoznaj się [z tematem tworzenie log Analytics obszaru roboczego](../azure-monitor/learn/quick-create-workspace.md).
+* Obszar roboczy usługi Log Analytics. Jeśli nie masz obszaru roboczego Log Analytics, zapoznaj się [z tematem tworzenie log Analytics obszaru roboczego](../azure-monitor/logs/quick-create-workspace.md).
 
 * Aplikacja logiki, która została skonfigurowana przy użyciu Azure Monitor rejestrowania i wysyłania tych informacji do Log Analytics obszaru roboczego. Dowiedz się [, jak skonfigurować dzienniki Azure monitor dla aplikacji logiki](../logic-apps/monitor-logic-apps.md).
 
@@ -45,15 +45,15 @@ Aby wyświetlić lub edytować zapytanie, które generuje wyniki w podsumowaniu 
 
 ## <a name="create-your-own-query"></a>Utwórz własne zapytanie
 
-Aby znaleźć lub filtrować wyniki na podstawie określonych właściwości lub wartości, możesz utworzyć własne zapytanie, rozpoczynając od pustego zapytania lub korzystając z istniejącego zapytania. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami dzienników w Azure monitor](../azure-monitor/log-query/get-started-queries.md).
+Aby znaleźć lub filtrować wyniki na podstawie określonych właściwości lub wartości, możesz utworzyć własne zapytanie, rozpoczynając od pustego zapytania lub korzystając z istniejącego zapytania. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami dzienników w Azure monitor](../azure-monitor/logs/get-started-queries.md).
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz obszar roboczy log Analytics.
 
-1. W menu obszaru roboczego w obszarze **Ogólne**wybierz pozycję **dzienniki**.
+1. W menu obszaru roboczego w obszarze **Ogólne** wybierz pozycję **dzienniki**.
 
 1. Zacznij od pustego zapytania lub wszelkich dostępnych istniejących zapytań.
 
-   * Aby sprawdzić, czy istniejące zapytania są dostępne, na pasku narzędzi zapytania wybierz pozycję **przykłady**  >  **historia**zapytań, która pokazuje zapytania z poprzedniego przebiegu zapytania lub wybierz **Eksploratora zapytań**, w którym są wyświetlane wstępnie skompilowane zapytania.
+   * Aby sprawdzić, czy istniejące zapytania są dostępne, na pasku narzędzi zapytania wybierz pozycję **przykłady**  >  **historia** zapytań, która pokazuje zapytania z poprzedniego przebiegu zapytania lub wybierz **Eksploratora zapytań**, w którym są wyświetlane wstępnie skompilowane zapytania.
 
      Na przykład rozwiązanie Logic Apps B2B zapewnia te prekompilowane zapytania:
 

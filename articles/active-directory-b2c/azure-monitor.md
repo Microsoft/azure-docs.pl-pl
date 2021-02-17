@@ -11,21 +11,21 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219234"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572999"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor
 
-Użyj Azure Monitor, aby kierować dzienniki logowania i [inspekcji](view-audit-logs.md) w usłudze Azure Active Directory B2C (Azure AD B2C) do różnych rozwiązań monitorowania. Dzienniki można zachować do długoterminowego użytku lub zintegrować z narzędziami do zarządzania informacjami i zdarzeniami zabezpieczeń innych firm (SIEM), aby uzyskać wgląd w środowisko.
+Użyj Azure Monitor, aby kierować dzienniki logowania i [inspekcji](view-audit-logs.md) w usłudze Azure Active Directory B2C (Azure AD B2C) do różnych rozwiązań monitorowania. Możesz przechowywać dzienniki na potrzeby długoterminowego użytkowania lub zintegrować je z narzędziami do zarządzania informacjami i zdarzeniami zabezpieczeń (SIEM) innych firm, aby uzyskać wgląd w środowisko.
 
 Zdarzenia dziennika można kierować do:
 
 * Konto usługi Azure [Storage](../storage/blobs/storage-blobs-introduction.md).
-* [Obszar roboczy log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (do analizowania danych, tworzenia pulpitów nawigacyjnych i alertów dotyczących określonych zdarzeń).
+* [Obszar roboczy log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) (do analizowania danych, tworzenia pulpitów nawigacyjnych i alertów dotyczących określonych zdarzeń).
 * [Centrum zdarzeń](../event-hubs/event-hubs-about.md) platformy Azure (i integracja z wystąpieniami logiki Splunk i Sumo).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -38,7 +38,7 @@ W tym artykule dowiesz się, jak przenieść dzienniki do obszaru roboczego usł
 
 ## <a name="deployment-overview"></a>Omówienie wdrażania
 
-Azure AD B2C wykorzystuje [monitorowanie Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Aby włączyć *Ustawienia diagnostyczne* w Azure Active Directory w dzierżawie Azure AD B2C, należy użyć [usługi Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) do [delegowania zasobu](../lighthouse/concepts/azure-delegated-resource-management.md), co umożliwi Azure AD B2C ( **dostawcy usług**) Zarządzanie zasobem usługi Azure AD ( **klienta**). Po wykonaniu kroków opisanych w tym artykule będziesz mieć dostęp do grupy zasobów *Azure-AD-B2C-monitor* zawierającej [obszar roboczy Log Analytics](../azure-monitor/learn/quick-create-workspace.md) w portalu **Azure AD B2C** . Będziesz mieć możliwość transferu dzienników z Azure AD B2C do Log Analytics obszaru roboczego.
+Azure AD B2C wykorzystuje [monitorowanie Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Aby włączyć *Ustawienia diagnostyczne* w Azure Active Directory w dzierżawie Azure AD B2C, należy użyć [usługi Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) do [delegowania zasobu](../lighthouse/concepts/azure-delegated-resource-management.md), co umożliwi Azure AD B2C ( **dostawcy usług**) Zarządzanie zasobem usługi Azure AD ( **klienta**). Po wykonaniu kroków opisanych w tym artykule będziesz mieć dostęp do grupy zasobów *Azure-AD-B2C-monitor* zawierającej [obszar roboczy Log Analytics](../azure-monitor/logs/quick-create-workspace.md) w portalu **Azure AD B2C** . Będziesz mieć możliwość transferu dzienników z Azure AD B2C do Log Analytics obszaru roboczego.
 
 Podczas tego wdrożenia autoryzujesz użytkownika lub grupę w katalogu Azure AD B2C, aby skonfigurować wystąpienie obszaru roboczego Log Analytics w ramach dzierżawy zawierającej subskrypcję platformy Azure. Aby utworzyć autoryzację, należy wdrożyć szablon [Azure Resource Manager](../azure-resource-manager/index.yml) w dzierżawie usługi Azure AD zawierającym subskrypcję programu.
 
@@ -62,7 +62,7 @@ Najpierw utwórz lub wybierz grupę zasobów zawierającą Log Analytics docelow
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Na pasku narzędzi portalu wybierz ikonę **katalogów i subskrypcji** , a następnie wybierz katalog zawierający **dzierżawę usługi Azure AD**.
-1. [Utwórz obszar roboczy log Analytics](../azure-monitor/learn/quick-create-workspace.md). Ten przykład używa Log Analytics obszaru roboczego o nazwie *AzureAdB2C* w grupie zasobów o nazwie *Azure-AD-B2C-monitor*.
+1. [Utwórz obszar roboczy log Analytics](../azure-monitor/logs/quick-create-workspace.md). Ten przykład używa Log Analytics obszaru roboczego o nazwie *AzureAdB2C* w grupie zasobów o nazwie *Azure-AD-B2C-monitor*.
 
 ## <a name="3-delegate-resource-management"></a>3. delegowanie zarządzania zasobami
 
@@ -144,9 +144,9 @@ Po wdrożeniu szablonu i poczekaniu kilku minut na ukończenie projekcji zasobó
 
 Ustawienia diagnostyczne definiują, gdzie należy wysyłać dzienniki i metryki dla zasobu. Możliwe miejsca docelowe to:
 
-- [Konto usługi Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-- Rozwiązania [centrów zdarzeń](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
-- [Log Analytics obszar roboczy](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
+- [Konto usługi Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+- Rozwiązania [centrów zdarzeń](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
+- [Log Analytics obszar roboczy](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 W tym przykładzie użyjemy obszaru roboczego Log Analytics, aby utworzyć pulpit nawigacyjny.
 
@@ -171,7 +171,7 @@ Aby skonfigurować ustawienia monitorowania dla Azure AD B2C dzienników aktywno
 1. Wybierz pozycję **Zapisz**.
 
 > [!NOTE]
-> Po wydaniu zdarzenia [w obszarze roboczym log Analytics](../azure-monitor/platform/data-ingestion-time.md)może upłynąć do 15 minut. Dowiedz się więcej o [Active Directory opóźnień raportowania](../active-directory/reports-monitoring/reference-reports-latencies.md), które mogą mieć wpływ na nieaktualność danych i odgrywają ważną rolę w raportowaniu.
+> Po wydaniu zdarzenia [w obszarze roboczym log Analytics](../azure-monitor/logs/data-ingestion-time.md)może upłynąć do 15 minut. Dowiedz się więcej o [Active Directory opóźnień raportowania](../active-directory/reports-monitoring/reference-reports-latencies.md), które mogą mieć wpływ na nieaktualność danych i odgrywają ważną rolę w raportowaniu.
 
 Jeśli zostanie wyświetlony komunikat o błędzie "Aby skonfigurować ustawienia diagnostyczne do korzystania z Azure Monitor dla katalogu Azure AD B2C, należy skonfigurować zarządzanie zasobami delegowanymi". Upewnij się, że logujesz się przy użyciu użytkownika, który jest członkiem [grupy zabezpieczeń](#32-select-a-security-group) , i [Wybierz swoją subskrypcję](#4-select-your-subscription).
 
@@ -181,7 +181,7 @@ Teraz można skonfigurować obszar roboczy Log Analytics do wizualizacji danych 
 
 ### <a name="61-create-a-query"></a>6,1 Tworzenie zapytania
 
-Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebranych w dziennikach Azure Monitor. Zaawansowany język zapytań umożliwia sprzęganie danych z wielu tabel, agregowanie dużych zestawów danych i wykonywanie złożonych operacji przy minimalnym kodzie. Niemal każde pytanie może być odpowiedzią i analizą wykonywaną, o ile dane pomocnicze zostały zebrane, i zrozumieć, jak utworzyć odpowiednie zapytanie. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami dzienników w Azure monitor](../azure-monitor/log-query/get-started-queries.md).
+Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebranych w dziennikach Azure Monitor. Zaawansowany język zapytań umożliwia sprzęganie danych z wielu tabel, agregowanie dużych zestawów danych i wykonywanie złożonych operacji przy minimalnym kodzie. Niemal każde pytanie może być odpowiedzią i analizą wykonywaną, o ile dane pomocnicze zostały zebrane, i zrozumieć, jak utworzyć odpowiednie zapytanie. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami dzienników w Azure monitor](../azure-monitor/logs/get-started-queries.md).
 
 1. W **obszarze roboczym log Analytics** wybierz pozycję **dzienniki**
 1. W edytorze zapytań Wklej następujące zapytanie dotyczące [języka zapytań Kusto](/azure/data-explorer/kusto/query/) . To zapytanie pokazuje użycie zasad według operacji w ciągu ostatnich x dni. Domyślny czas trwania wynosi 90 dni (90d). Zwróć uwagę, że zapytanie jest skoncentrowane tylko na operacji, w której token/kod jest wystawiony przez zasady.
@@ -228,7 +228,7 @@ Aby uzyskać więcej przykładów, zobacz [repozytorium Azure AD B2C Siem](https
 
 ### <a name="62-create-a-workbook"></a>6,2 Tworzenie skoroszytu
 
-Skoroszyty udostępniają elastyczną kanwę do analizy danych i tworzenia zaawansowanych raportów wizualnych w witrynie Azure Portal. Umożliwiają one naciskanie na wiele źródeł danych z platformy Azure i łączenie ich w ujednolicone interaktywne środowiska. Aby uzyskać więcej informacji, zobacz [Azure monitor skoroszytów](../azure-monitor/platform/workbooks-overview.md).
+Skoroszyty udostępniają elastyczną kanwę do analizy danych i tworzenia zaawansowanych raportów wizualnych w witrynie Azure Portal. Umożliwiają one naciskanie na wiele źródeł danych z platformy Azure i łączenie ich w ujednolicone interaktywne środowiska. Aby uzyskać więcej informacji, zobacz [Azure monitor skoroszytów](../azure-monitor/visualize/workbooks-overview.md).
 
 Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć nowy skoroszyt przy użyciu szablonu galerii JSON. Ten skoroszyt zawiera pulpit nawigacyjny usługi **User Insights** i **uwierzytelniania** dla dzierżawy Azure AD B2C.
 
@@ -259,10 +259,10 @@ Skoroszyt będzie wyświetlał raporty w formie pulpitu nawigacyjnego.
 
 ## <a name="create-alerts"></a>Tworzenie alertów
 
-Alerty są tworzone na podstawie reguł alertów na platformie Azure Monitor i mogą automatycznie uruchamiać zapisane zapytania lub niestandardowe wyszukiwania dziennika w regularnych odstępach czasu. Możesz utworzyć alerty w oparciu o konkretne metryki wydajności lub w momencie, w którym zostają utworzone określone zdarzenia, w przypadku braku zdarzenia, a także w sytuacji, w której wiele zdarzeń zostaje utworzonych w danym przedziale czasu. Na przykład można użyć alertów, aby powiadomić Cię, gdy średnia liczba logowań przekroczy określony próg. Aby uzyskać więcej informacji, zobacz [tworzenie alertów](../azure-monitor/learn/tutorial-response.md).
+Alerty są tworzone na podstawie reguł alertów na platformie Azure Monitor i mogą automatycznie uruchamiać zapisane zapytania lub niestandardowe wyszukiwania dziennika w regularnych odstępach czasu. Możesz utworzyć alerty w oparciu o konkretne metryki wydajności lub w momencie, w którym zostają utworzone określone zdarzenia, w przypadku braku zdarzenia, a także w sytuacji, w której wiele zdarzeń zostaje utworzonych w danym przedziale czasu. Na przykład można użyć alertów, aby powiadomić Cię, gdy średnia liczba logowań przekroczy określony próg. Aby uzyskać więcej informacji, zobacz [tworzenie alertów](../azure-monitor/alerts/tutorial-response.md).
 
 
-Skorzystaj z poniższych instrukcji, aby utworzyć nowy Alert platformy Azure, który wyśle [wiadomość e-mail z powiadomieniem](../azure-monitor/platform/action-groups.md#configure-notifications) za każdym razem, gdy w **łączu** do poprzedniego okresu zostanie wyświetlonych 25% żądań. Alert będzie uruchamiany co 5 minut i poszukiwany w ciągu ostatnich 24 godzin. Alerty są tworzone przy użyciu języka zapytań Kusto.
+Skorzystaj z poniższych instrukcji, aby utworzyć nowy Alert platformy Azure, który wyśle [wiadomość e-mail z powiadomieniem](../azure-monitor/alerts/action-groups.md#configure-notifications) za każdym razem, gdy w **łączu** do poprzedniego okresu zostanie wyświetlonych 25% żądań. Alert będzie uruchamiany co 5 minut i poszukiwany w ciągu ostatnich 24 godzin. Alerty są tworzone przy użyciu języka zapytań Kusto.
 
 
 1. W **obszarze roboczym log Analytics** wybierz pozycję **dzienniki**. 
@@ -296,7 +296,7 @@ Po utworzeniu alertu przejdź do **obszaru roboczego log Analytics** i wybierz p
 
 ### <a name="configure-action-groups"></a>Konfiguruj grupy akcji
 
-Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Możesz uwzględnić wysyłanie połączenia głosowego, wiadomości e-mail i poczty elektronicznej. lub wyzwalając różne typy zautomatyzowanych akcji. Postępuj zgodnie ze wskazówkami [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](../azure-monitor/platform/action-groups.md)
+Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Możesz uwzględnić wysyłanie połączenia głosowego, wiadomości e-mail i poczty elektronicznej. lub wyzwalając różne typy zautomatyzowanych akcji. Postępuj zgodnie ze wskazówkami [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](../azure-monitor/alerts/action-groups.md)
 
 Oto przykład wiadomości e-mail z powiadomieniem o alercie. 
 
@@ -306,7 +306,7 @@ Oto przykład wiadomości e-mail z powiadomieniem o alercie.
 
 Aby dołączyć wiele Azure AD B2C dzienników dzierżawy do tego samego obszaru roboczego Log Analytics (lub konta usługi Azure Storage lub centrum zdarzeń), należy wykonać oddzielne wdrożenia z różnymi wartościami **nazw oferty msp** . Upewnij się, że obszar roboczy Log Analytics znajduje się w tej samej grupie zasobów co ta, która została skonfigurowana w obszarze [Utwórz lub wybierz grupę zasobów](#1-create-or-choose-resource-group).
 
-Podczas pracy z wieloma obszarami roboczymi Log Analytics Użyj [zapytania między obszarami roboczymi](../azure-monitor/log-query/cross-workspace-query.md) , aby utworzyć zapytania, które działają w wielu obszarach roboczych. Na przykład następujące zapytanie wykonuje sprzężenie dwóch dzienników inspekcji z różnych dzierżawców na podstawie tej samej kategorii (na przykład uwierzytelniania):
+Podczas pracy z wieloma obszarami roboczymi Log Analytics Użyj [zapytania między obszarami roboczymi](../azure-monitor/logs/cross-workspace-query.md) , aby utworzyć zapytania, które działają w wielu obszarach roboczych. Na przykład następujące zapytanie wykonuje sprzężenie dwóch dzienników inspekcji z różnych dzierżawców na podstawie tej samej kategorii (na przykład uwierzytelniania):
 
 ```kusto
 workspace("AD-B2C-TENANT1").AuditLogs
@@ -316,12 +316,12 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Zmienianie okresu przechowywania danych)
 
-Dzienniki Azure Monitor są przeznaczone do skalowania i obsługi zbierania, indeksowania i przechowywania dużych ilości danych dziennie z dowolnego źródła w przedsiębiorstwie lub wdrożonego na platformie Azure. Domyślnie dzienniki są przechowywane przez 30 dni, ale czas przechowywania można zwiększyć do maksymalnie dwóch lat. Dowiedz się [, jak zarządzać użyciem i kosztami za pomocą dzienników Azure monitor](../azure-monitor/platform/manage-cost-storage.md). Po wybraniu warstwy cenowej można [zmienić okres przechowywania danych](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period).
+Dzienniki Azure Monitor są przeznaczone do skalowania i obsługi zbierania, indeksowania i przechowywania dużych ilości danych dziennie z dowolnego źródła w przedsiębiorstwie lub wdrożonego na platformie Azure. Domyślnie dzienniki są przechowywane przez 30 dni, ale czas przechowywania można zwiększyć do maksymalnie dwóch lat. Dowiedz się [, jak zarządzać użyciem i kosztami za pomocą dzienników Azure monitor](../azure-monitor/logs/manage-cost-storage.md). Po wybraniu warstwy cenowej można [zmienić okres przechowywania danych](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Więcej przykładów znajdziesz w Galerii Azure AD B2C [Siem](https://aka.ms/b2csiem). 
 
-* Aby uzyskać więcej informacji na temat dodawania i konfigurowania ustawień diagnostycznych w Azure Monitor, zobacz [Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure](../azure-monitor/insights/monitor-azure-resource.md).
+* Aby uzyskać więcej informacji na temat dodawania i konfigurowania ustawień diagnostycznych w Azure Monitor, zobacz [Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure](../azure-monitor/essentials/monitor-azure-resource.md).
 
 * Aby uzyskać informacje o przesyłaniu strumieniowym dzienników usługi Azure AD do centrum zdarzeń, zobacz [Samouczek: przesyłanie strumieniowe dzienników Azure Active Directory do centrum zdarzeń platformy Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 905261058c2de0afae18cbc5572c64962bef8834
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181173"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580027"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analizowanie dzienników aktywności usługi Azure AD za pomocą dzienników Azure Monitor
 
@@ -36,9 +36,9 @@ W tym artykule dowiesz się, jak analizować dzienniki aktywności usługi Azure
 
 Aby wykonać następujące czynności, potrzebne są:
 
-* Log Analytics obszar roboczy w ramach subskrypcji platformy Azure. Dowiedz się [, jak utworzyć obszar roboczy log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
+* Log Analytics obszar roboczy w ramach subskrypcji platformy Azure. Dowiedz się [, jak utworzyć obszar roboczy log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
 * Najpierw wykonaj kroki umożliwiające [kierowanie dzienników aktywności usługi Azure AD do obszaru roboczego log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Dostęp](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) do obszaru roboczego usługi log Analytics
+*  [Dostęp](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) do obszaru roboczego usługi log Analytics
 * Poniższe role w Azure Active Directory (Jeśli uzyskujesz dostęp do Log Analytics za pomocą portalu Azure Active Directory)
     - Administrator zabezpieczeń
     - Czytelnik zabezpieczeń
@@ -96,7 +96,7 @@ Możesz również skonfigurować alerty w zapytaniu. Na przykład, aby skonfigur
 
 3. Wprowadź nazwę i opis alertu, a następnie wybierz poziom ważności. W naszym przykładzie możemy ustawić ją na **informacyjną**.
 
-4. Wybierz **grupę akcji** , która będzie otrzymywać alerty w przypadku wystąpienia sygnału. Możesz wybrać powiadomienie zespołu za pośrednictwem poczty e-mail lub wiadomości SMS lub można zautomatyzować akcję za pomocą elementów webhook, Azure Functions lub Logic Apps. Dowiedz się więcej na temat [tworzenia grup alertów i zarządzania nimi w Azure Portal](../../azure-monitor/platform/action-groups.md).
+4. Wybierz **grupę akcji** , która będzie otrzymywać alerty w przypadku wystąpienia sygnału. Możesz wybrać powiadomienie zespołu za pośrednictwem poczty e-mail lub wiadomości SMS lub można zautomatyzować akcję za pomocą elementów webhook, Azure Functions lub Logic Apps. Dowiedz się więcej na temat [tworzenia grup alertów i zarządzania nimi w Azure Portal](../../azure-monitor/alerts/action-groups.md).
 
 5. Po skonfigurowaniu alertu wybierz pozycję **Utwórz alert** , aby go włączyć. 
 
@@ -110,6 +110,6 @@ Skoroszyty zawierają kilka raportów związanych z typowymi scenariuszami zwią
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozpoczynanie pracy z zapytaniami w dziennikach Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
-* [Tworzenie grup alertów i zarządzanie nimi w Azure Portal](../../azure-monitor/platform/action-groups.md)
+* [Rozpoczynanie pracy z zapytaniami w dziennikach Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
+* [Tworzenie grup alertów i zarządzanie nimi w Azure Portal](../../azure-monitor/alerts/action-groups.md)
 * [Instalowanie i Używanie widoków usługi log Analytics na potrzeby Azure Active Directory](howto-install-use-log-analytics-views.md)

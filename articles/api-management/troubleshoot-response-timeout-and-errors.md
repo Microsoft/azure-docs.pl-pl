@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: apimpm
 ms.service: api-management
-ms.openlocfilehash: 770a8191b1b07a7ebc779b84f443ae96d66d1c97
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 6cace4a02c8d45cacbbc34e9778b5c4a78ada27f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841492"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576513"
 ---
 # <a name="troubleshooting-client-response-timeouts-and-errors-with-api-management"></a>Rozwiązywanie problemów z limitami czasu i błędami odpowiedzi klienta przy użyciu API Management
 
@@ -24,7 +24,7 @@ Aplikacje klienckie wywołujące interfejsy API za pomocą usługi API Managemen
 * Sporadyczne błędy HTTP 500
 * Komunikaty o błędach limitu czasu
 
-Objawy te występują jako wystąpienia `BackendConnectionFailure` w [dziennikach zasobów Azure monitor](../azure-monitor/platform/resource-logs.md).
+Objawy te występują jako wystąpienia `BackendConnectionFailure` w [dziennikach zasobów Azure monitor](../azure-monitor/essentials/resource-logs.md).
 
 ## <a name="cause"></a>Przyczyna
 
@@ -81,7 +81,7 @@ Jeśli jest to zrozumiałe dla scenariusza biznesowego, można zaimplementować 
 
 Aby uzyskać więcej informacji, zobacz [zasady ograniczeń dostępu API Management](api-management-access-restriction-policies.md) .
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Azure Load Balancer: Rozwiązywanie problemów z błędami połączeń wychodzących](../load-balancer/troubleshoot-outbound-connection.md)
 * [Azure App Service: Rozwiązywanie problemów sporadycznie wychodzące błędy połączeń](../app-service/troubleshoot-intermittent-outbound-connection-errors.md)

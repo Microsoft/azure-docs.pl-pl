@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1818dc558ba45e318b71e1443556cc48feaede8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367677"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571357"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Rozwiązywanie problemów z Azure Monitor dla pulpitu wirtualnego systemu Windows (wersja zapoznawcza)
 
@@ -26,9 +26,9 @@ Jeśli skoroszyt konfiguracji nie działa prawidłowo w celu zautomatyzowania in
 
 - Aby ręcznie włączyć diagnostykę lub uzyskać dostęp do obszaru roboczego Log Analytics, zobacz [wysyłanie diagnostyki pulpitu wirtualnego systemu Windows do log Analytics](diagnostics-log-analytics.md).
 - Aby ręcznie zainstalować rozszerzenie Log Analytics na hoście, zobacz [log Analytics rozszerzenie maszyny wirtualnej dla systemu Windows](../virtual-machines/extensions/oms-windows.md).
-- Aby skonfigurować nowy obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
-- Aby dodać lub usunąć liczniki wydajności, zobacz [Konfigurowanie liczników wydajności](../azure-monitor/platform/data-sources-performance-counters.md).
-- Aby skonfigurować zdarzenia dla obszaru roboczego Log Analytics, zobacz [zbieranie źródeł danych dziennika zdarzeń systemu Windows z agentem log Analytics](../azure-monitor/platform/data-sources-windows-events.md).
+- Aby skonfigurować nowy obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
+- Aby dodać lub usunąć liczniki wydajności, zobacz [Konfigurowanie liczników wydajności](../azure-monitor/agents/data-sources-performance-counters.md).
+- Aby skonfigurować zdarzenia dla obszaru roboczego Log Analytics, zobacz [zbieranie źródeł danych dziennika zdarzeń systemu Windows z agentem log Analytics](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="my-data-isnt-displaying-properly"></a>Moje dane nie są prawidłowo wyświetlane
 
@@ -44,7 +44,7 @@ Jeśli dane nie są wyświetlane prawidłowo, sprawdź konfigurację, uprawnieni
 
 - Może być konieczne otwarcie portów wychodzących w zaporze serwera, aby umożliwić Azure Monitor wysyłanie danych do portalu, zobacz [porty wychodzące](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
 
-- Nie widzisz danych z ostatniej aktywności? Możesz poczekać 15 minut i odświeżyć źródło danych. Azure Monitor zawiera 15-minutowy okres opóźnienia do wypełniania danych dziennika. Aby dowiedzieć się więcej, zobacz czas pozyskiwania [danych dziennika w Azure monitor](../azure-monitor/platform/data-ingestion-time.md).
+- Nie widzisz danych z ostatniej aktywności? Możesz poczekać 15 minut i odświeżyć źródło danych. Azure Monitor zawiera 15-minutowy okres opóźnienia do wypełniania danych dziennika. Aby dowiedzieć się więcej, zobacz czas pozyskiwania [danych dziennika w Azure monitor](../azure-monitor/logs/data-ingestion-time.md).
 
 Jeśli nie masz żadnych informacji, ale dane nadal nie są wyświetlane prawidłowo, może wystąpić problem z kwerendą lub źródłami danych. Przejrzyj nasze znane problemy i ograniczenia. 
 
@@ -52,7 +52,7 @@ Jeśli nie masz żadnych informacji, ale dane nadal nie są wyświetlane prawid�
 
 Azure Monitor dla pulpitu wirtualnego systemu Windows używa Azure Monitor skoroszytów. Skoroszyty umożliwiają zapisywanie kopii szablonu skoroszytu pulpitu wirtualnego systemu Windows i tworzenie własnych dostosowań.
 
-Zgodnie z projektem niestandardowe szablony skoroszytów nie będą automatycznie przyjmować aktualizacji z grupy produkty. Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów opartych na skoroszycie](../azure-monitor/insights/troubleshoot-workbooks.md) i [Omówienie skoroszytów](../azure-monitor/platform/workbooks-overview.md).
+Zgodnie z projektem niestandardowe szablony skoroszytów nie będą automatycznie przyjmować aktualizacji z grupy produkty. Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów opartych na skoroszycie](../azure-monitor/insights/troubleshoot-workbooks.md) i [Omówienie skoroszytów](../azure-monitor/visualize/workbooks-overview.md).
 
 ## <a name="i-cant-interpret-the-data"></a>Nie można zinterpretować danych
 

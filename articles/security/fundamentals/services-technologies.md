@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498799"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585420"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Usługi i technologie zabezpieczeń dostępne na platformie Azure
 
@@ -35,7 +35,7 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 |--------|--------|
 |[&nbsp;Centrum zabezpieczeń &nbsp; Azure](../../security-center/security-center-introduction.md)| Rozwiązanie do ochrony obciążeń w chmurze, które zapewnia zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami w ramach obciążeń chmury hybrydowej.|
 |[Usługa Azure Key Vault](../../key-vault/general/overview.md)| Bezpieczne przechowywanie wpisów tajnych dla haseł, parametrów połączenia i innych informacji potrzebnych do działania aplikacji. |
-|[Dzienniki usługi Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)|Usługa monitorowania, która zbiera dane telemetryczne i inne, oraz udostępnia język zapytań i aparat analityczny do dostarczania usługi Operational Insights dla aplikacji i zasobów. Może być używany samodzielnie lub z innymi usługami, takimi jak Security Center. |
+|[Dzienniki usługi Azure Monitor](../../azure-monitor/logs/log-query-overview.md)|Usługa monitorowania, która zbiera dane telemetryczne i inne, oraz udostępnia język zapytań i aparat analityczny do dostarczania usługi Operational Insights dla aplikacji i zasobów. Może być używany samodzielnie lub z innymi usługami, takimi jak Security Center. |
 |[Azure Dev/Test Labs](../../devtest-labs/devtest-lab-overview.md)|Usługa, która pomaga deweloperom i testerom szybko tworzyć środowiska na platformie Azure, jednocześnie minimalizując straty i kontrolując koszty.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -49,7 +49,7 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 | [Sygnatury dostępu współdzielonego usługi Azure Storage](../../storage/common/storage-sas-overview.md)|Sygnatura dostępu współdzielonego zapewnia delegowany dostęp do zasobów na koncie magazynu.  |
 |[Klucze konta usługi Azure Storage](../../storage/common/storage-account-create.md)| Metoda kontroli dostępu do usługi Azure Storage, która jest używana do uwierzytelniania podczas uzyskiwania dostępu do konta magazynu. |
 |[Udziały plików platformy Azure z szyfrowaniem SMB 3,0](../../storage/files/storage-files-introduction.md)|Technologia zabezpieczeń sieci, która umożliwia automatyczne szyfrowanie sieci na potrzeby protokołu udostępniania plików bloku komunikatów serwera (SMB). |
-|[analityka magazynu platformy Azure](/rest/api/storageservices/Storage-Analytics)| Rejestrowanie i technologia generowania metryk dla danych na koncie magazynu. |
+|[Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics)| Rejestrowanie i technologia generowania metryk dla danych na koncie magazynu. |
 
 <!------>
 
@@ -71,7 +71,7 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Oparte na chmurze repozytorium uwierzytelniania obsługujące wiele dzierżawców, opartych na chmurze katalogów i wielu usług zarządzania tożsamościami na platformie Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Usługa zarządzania tożsamościami, która umożliwia kontrolę nad sposobem tworzenia kont i logowania klientów oraz zarządzania ich profilami w przypadku korzystania z aplikacji opartych na platformie Azure.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| Oparta na chmurze i zarządzana wersja Active Directory Domain Services. |
-| [Uwierzytelnianie wieloskładnikowe w usłudze Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)| Inicjowanie obsługi administracyjnej, która wykorzystuje kilka różnych form uwierzytelniania i weryfikacji przed zezwoleniem na dostęp do zabezpieczonych informacji. |
+| [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| Inicjowanie obsługi administracyjnej, która wykorzystuje kilka różnych form uwierzytelniania i weryfikacji przed zezwoleniem na dostęp do zabezpieczonych informacji. |
 
 ## <a name="backup-and-disaster-recovery"></a>Tworzenie kopii zapasowych i odzyskiwanie po awarii
 |Usługa|Opis|
@@ -79,7 +79,7 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 | [&nbsp;Kopia zapasowa Azure](../../backup/backup-overview.md)| Usługa oparta na platformie Azure służąca do tworzenia kopii zapasowych i przywracania danych w chmurze platformy Azure. |
 | [Usługa Azure &nbsp; site &nbsp; Recovery](../../site-recovery/site-recovery-overview.md)|Usługa online, która replikuje obciążenia uruchomione na maszynach fizycznych i wirtualnych z lokacji głównej do pomocniczej lokalizacji, aby umożliwić odzyskanie usług po awarii. |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 |Usługa|Opis|
 |------|--------|
 | [Sieciowe &nbsp; &nbsp; grupy zabezpieczeń](../../virtual-network/virtual-network-vnet-plan-design-arm.md)| Funkcja kontroli dostępu opartej na sieci przy użyciu krotki 5, aby podejmować decyzje dotyczące zezwalania lub odmowy.  |

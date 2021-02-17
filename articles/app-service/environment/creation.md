@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 021c85037ea105ff7d8ff642e3a9f28ed3ebe991
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020183"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594100"
 ---
 # <a name="create-an-app-service-environment"></a>Tworzenie App Service Environment
 
@@ -86,4 +86,4 @@ W środowisku ASE można korzystać z aplikacji systemu Windows, aplikacji z sys
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

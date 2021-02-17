@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 82edc70befb7fce95869b238d26c9154ec999c7b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0151e7b3a30cd4b00dba75b7490563923cd5b8ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966840"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580296"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Azure Monitor rozszerzenie maszyny wirtualnej zależności dla systemu Windows
 
@@ -28,7 +28,7 @@ Funkcja mapy Azure Monitor dla maszyn wirtualnych pobiera swoje dane z programu 
 
 ## <a name="operating-system"></a>System operacyjny
 
-Rozszerzenie agenta zależności maszyny wirtualnej platformy Azure dla systemu Windows można uruchomić w odniesieniu do obsługiwanych systemów operacyjnych wymienionych w sekcji [obsługiwane systemy operacyjne](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) w artykule Wdrażanie Azure monitor dla maszyn wirtualnych.
+Rozszerzenie agenta zależności maszyny wirtualnej platformy Azure dla systemu Windows można uruchomić w odniesieniu do obsługiwanych systemów operacyjnych wymienionych w sekcji [obsługiwane systemy operacyjne](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) w artykule Wdrażanie Azure monitor dla maszyn wirtualnych.
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 

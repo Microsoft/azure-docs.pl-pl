@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184547"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577877"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Włącz rejestrowanie zasobów na platformie Azure Traffic Manager
 
@@ -64,7 +64,7 @@ Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.az
 
 ## <a name="traffic-manager-log-schema"></a>Traffic Manager schematu dziennika
 
-Wszystkie dzienniki zasobów dostępne za pomocą Azure Monitor współdzielą wspólny schemat najwyższego poziomu, z elastycznością dla każdej usługi do emitowania unikatowych właściwości dla własnych zdarzeń. Aby uzyskać schemat dzienników zasobów najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure](../azure-monitor/platform/resource-logs-schema.md).
+Wszystkie dzienniki zasobów dostępne za pomocą Azure Monitor współdzielą wspólny schemat najwyższego poziomu, z elastycznością dla każdej usługi do emitowania unikatowych właściwości dla własnych zdarzeń. Aby uzyskać schemat dzienników zasobów najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure](../azure-monitor/essentials/resource-logs-schema.md).
 
 W poniższej tabeli przedstawiono schemat dzienników specyficzny dla zasobu profilu usługi Azure Traffic Manager.
 

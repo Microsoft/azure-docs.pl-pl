@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 3d9e436d636fbd5414367efb0e122748a8e9e2cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 35b3f4fe5703e9ce902553f992dfa44cea7db78f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390814"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570447"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalizacja na platformie Azure — wskaźnik
 
@@ -147,7 +147,7 @@ Po zmianie funkcji kliknij pozycję "Zapisz" ponownie i Użyj tej samej nazwy, a
 
 Dane JSON, XML i CSV są szczególnie wygodne do analizowania w czasie zapytania. Na platformie Azure Wskaźnikowanie ma wbudowane funkcje analizy dla JSON, XML i CSV, a także narzędzie do analizy JSON.  Aby uzyskać więcej informacji, zobacz [Używanie pól JSON na platformie Azure — wskaźnik](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog). 
 
-Dowiedz się więcej o [zapisanych zapytaniach](../azure-monitor/log-query/example-queries.md) (implementacja analizatorów czasu zapytania) w log Analytics.
+Dowiedz się więcej o [zapisanych zapytaniach](../azure-monitor/logs/example-queries.md) (implementacja analizatorów czasu zapytania) w log Analytics.
 
 
 ## <a name="next-steps"></a>Następne kroki

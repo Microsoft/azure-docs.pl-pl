@@ -4,12 +4,12 @@ description: Monitorowanie usługi Azure łańcucha bloków za pomocą Azure Mon
 ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05147f48c4cde4cc97bf6cc9cae5c8220a389ebd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076921"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594928"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitoruj usługę Azure łańcucha bloków za pomocą Azure Monitor  
 
@@ -17,20 +17,20 @@ Klienci, którzy uruchamiają scenariusze łańcucha bloków klasy produkcyjnej 
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
 
-Usługa Azure łańcucha bloków tworzy dane monitorowania za pomocą Azure Monitor, który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure. Aby uzyskać więcej informacji na temat Azure Monitor, zobacz [monitorowanie zasobów platformy Azure przy użyciu Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+Usługa Azure łańcucha bloków tworzy dane monitorowania za pomocą Azure Monitor, który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure. Aby uzyskać więcej informacji na temat Azure Monitor, zobacz [monitorowanie zasobów platformy Azure przy użyciu Azure monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
  
 
 Poniższe sekcje dotyczą tego artykułu, opisując szczegółowe dane zebrane z usługi Azure łańcucha bloków Service i dostarczając przykłady konfigurowania zbierania danych i analizowania tych danych przy użyciu narzędzi platformy Azure.
 
 ## <a name="monitor-data-collected-from-azure-blockchain-service"></a>Monitoruj dane zebrane z usługi Azure łańcucha bloków Service  
 
-Usługa Azure łańcucha bloków gromadzi dane monitorowania tego samego rodzaju jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data) z zasobów platformy Azure. Aby uzyskać szczegółowe informacje o dziennikach i metrykach utworzonych przez usługę Azure łańcucha bloków, zobacz artykuł [monitorowanie usługi Azure łańcucha bloków Data Reference](#monitor-azure-blockchain-service-data-reference) .
+Usługa Azure łańcucha bloków gromadzi dane monitorowania tego samego rodzaju jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data) z zasobów platformy Azure. Aby uzyskać szczegółowe informacje o dziennikach i metrykach utworzonych przez usługę Azure łańcucha bloków, zobacz artykuł [monitorowanie usługi Azure łańcucha bloków Data Reference](#monitor-azure-blockchain-service-data-reference) .
 
 Strona przegląd w Azure Portal dla każdego zasobu elementu członkowskiego usługi Azure łańcucha bloków zawiera krótki widok transakcji, w tym żądania obsługiwane i przetworzone bloki. Niektóre z tych danych są zbierane automatycznie i dostępne do analizy po utworzeniu zasobu elementu członkowskiego usługi Azure łańcucha bloków, podczas gdy można włączyć dodatkowe zbieranie danych z dodatkową konfiguracją.
 
 ## <a name="diagnostic-settings"></a>Ustawienia diagnostyczne  
 
-Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell.
+Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](../../azure-monitor/essentials/diagnostic-settings.md) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell.
 
 Podczas tworzenia ustawienia diagnostycznego należy określić, które kategorie dzienników mają być zbierane. Poniżej wymieniono kategorie usługi Azure łańcucha bloków Service.
 
@@ -42,13 +42,13 @@ Podczas tworzenia ustawienia diagnostycznego należy określić, które kategori
 
 ## <a name="analyze-metric-data"></a>Analizowanie danych metryki  
 
-Metryki dla usługi Azure łańcucha bloków Service można analizować za pomocą Eksploratora metryk, przejdź do karty metryki w obszarze monitorowanie w bloku zasoby ABS. Zobacz Rozpoczynanie [pracy z usługą Azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md) , aby uzyskać szczegółowe informacje na temat korzystania z narzędzia. Kompletne metryki dla usługi Azure łańcucha bloków są wymienione w obszarze nazw metryki usługi Azure łańcucha bloków Service w warstwie Standardowa.
+Metryki dla usługi Azure łańcucha bloków Service można analizować za pomocą Eksploratora metryk, przejdź do karty metryki w obszarze monitorowanie w bloku zasoby ABS. Zobacz Rozpoczynanie [pracy z usługą Azure Eksplorator metryk](../../azure-monitor/essentials/metrics-getting-started.md) , aby uzyskać szczegółowe informacje na temat korzystania z narzędzia. Kompletne metryki dla usługi Azure łańcucha bloków są wymienione w obszarze nazw metryki usługi Azure łańcucha bloków Service w warstwie Standardowa.
 
 Wymiaru **węzła** można użyć podczas dodawania filtru lub dzielenia metryk, co zasadniczo zapewnia wartości metryk dla węzłów transakcji i węzłów modułu sprawdzania poprawności elementu członkowskiego ABS.
 
 ## <a name="analyze-log-data"></a>Analizowanie danych dzienników
 
-Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku przeszukiwania dzienników, aby ułatwić monitorowanie członków usługi Azure łańcucha bloków. Te zapytania działają w [nowym języku](../../azure-monitor/log-query/log-query-overview.md).
+Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku przeszukiwania dzienników, aby ułatwić monitorowanie członków usługi Azure łańcucha bloków. Te zapytania działają w [nowym języku](../../azure-monitor/logs/log-query-overview.md).
 
 Aby zbadać warunki błędu w dziennikach aplikacji łańcucha bloków, użyj poniższego zapytania:
 
@@ -74,7 +74,7 @@ Ten artykuł zawiera informacje dotyczące danych dzienników i metryk zbieranyc
 
 ### <a name="resource-logs"></a>Dzienniki zasobów
 
-Wszystkie dzienniki zasobów udostępniają wspólny schemat najwyższego poziomu z kilkoma unikatowymi właściwościami specyficznymi dla usługi łańcucha bloków. Można zapoznać się z artykułem [schemat dzienników zasobów najwyższego poziomu](../../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema), szczegółowe informacje o określonych właściwościach usługi Azure łańcucha bloków.  
+Wszystkie dzienniki zasobów udostępniają wspólny schemat najwyższego poziomu z kilkoma unikatowymi właściwościami specyficznymi dla usługi łańcucha bloków. Można zapoznać się z artykułem [schemat dzienników zasobów najwyższego poziomu](../../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema), szczegółowe informacje o określonych właściwościach usługi Azure łańcucha bloków.  
 
 W poniższej tabeli wymieniono właściwości dzienników serwera proxy usługi Azure łańcucha bloków, które są zbierane w dziennikach Azure Monitor lub usłudze Azure Storage.  
 
@@ -124,7 +124,7 @@ W poniższej tabeli wymieniono właściwości dzienników aplikacji Azure łańc
 
 W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure łańcucha bloków Service. Wszystkie metryki są przechowywane w obszarze nazw metryki **usługi Azure łańcucha bloków Service** w warstwie Standardowa.
 
-Listę wszystkich Azure Monitor obsługiwanych metryk (w tym usługi Azure łańcucha bloków Service) można znaleźć w temacie [Azure monitor Supported Metrics](../../azure-monitor/platform/metrics-supported.md).
+Listę wszystkich Azure Monitor obsługiwanych metryk (w tym usługi Azure łańcucha bloków Service) można znaleźć w temacie [Azure monitor Supported Metrics](../../azure-monitor/essentials/metrics-supported.md).
 
 ### <a name="blockchain-metrics"></a>Metryki łańcucha bloków
 
@@ -134,8 +134,8 @@ Poniższa tabela zawiera listę metryk łańcucha bloków, które są zbierane d
 | Nazwa metryki | Jednostka  |  Typ agregacji| Opis   |
 |---|---|---|---|
 | Oczekujące transakcje   | Liczba  |  Średnia | Liczba transakcji, które oczekują na analizowane pod.   |
-| Przetworzone bloki   | Liczba  | Suma  |  Liczba bloków przetworzonych w każdym przedziale czasu. Obecnie rozmiar bloku wynosi 5 sekund, dlatego w minucie każdy węzeł będzie przetwarzać 12 bloków i 60 bloków w ciągu 5 minut.   |
-|Przetworzone transakcje    | Liczba  | Suma  | Liczba transakcji przetworzonych w bloku.    |
+| Przetworzone bloki   | Liczba  | Sum  |  Liczba bloków przetworzonych w każdym przedziale czasu. Obecnie rozmiar bloku wynosi 5 sekund, dlatego w minucie każdy węzeł będzie przetwarzać 12 bloków i 60 bloków w ciągu 5 minut.   |
+|Przetworzone transakcje    | Liczba  | Sum  | Liczba transakcji przetworzonych w bloku.    |
 |Transakcje w kolejce    |  Liczba | Średnia  | Liczba transakcji, które nie mogą być natychmiast analizowane pod. Może to być spowodowane faktem, że nie dotarły one do kolejności, a przyszła transakcja oczekuje na nadejście poprzedniej transakcji. Lub może to być dwa transakcje mają tę samą wartość tylko raz (jednorazowy) i tą samą wartością gazu, dlatego drugi nie może być analizowane pod.   |
 
 ### <a name="connection-metrics"></a>Metryki połączeń  
@@ -145,10 +145,10 @@ W poniższej tabeli wymieniono różne metryki połączenia, które są zbierane
 
 | Nazwa metryki | Jednostka  |  Typ agregacji| Opis |
 |---|---|---|---|
-| Zaakceptowane połączenia   | Liczba  |  Suma | Całkowita liczba zaakceptowanych połączeń klientów.   |
+| Zaakceptowane połączenia   | Liczba  |  Sum | Całkowita liczba zaakceptowanych połączeń klientów.   |
 | Aktywne połączenia  | Liczba  | Średnia  |  Bieżąca liczba aktywnych połączeń klienta, w tym połączeń oczekujących.    |
-|Obsłużone połączenia    | Liczba  | Suma  | Całkowita liczba obsłużonych połączeń. Ogólnie rzecz biorąc, wartość parametru jest taka sama jak w przypadku akceptowanych połączeń, o ile nie osiągnięto limitów zasobów.     |
-|Obsłużone żądania     |  Liczba | Suma  | Całkowita liczba żądań klientów.  |
+|Obsłużone połączenia    | Liczba  | Sum  | Całkowita liczba obsłużonych połączeń. Ogólnie rzecz biorąc, wartość parametru jest taka sama jak w przypadku akceptowanych połączeń, o ile nie osiągnięto limitów zasobów.     |
+|Obsłużone żądania     |  Liczba | Sum  | Całkowita liczba żądań klientów.  |
 
 
 ### <a name="performance-metrics"></a>Metryki wydajności
@@ -159,8 +159,8 @@ W poniższej tabeli przedstawiono metryki wydajności, które są zbierane dla k
 | Nazwa metryki | Jednostka  |  Typ agregacji| Opis   |
 |---|---|---|---|
 | Procent użycia procesora CPU   | Procent  |  Maks. | Procent użycia procesora CPU.     |
-| Bajty odczytu we/wy   | Kilobajtach   | Suma  |  Suma bajtów odczytu we wszystkich węzłach zasobu elementu członkowskiego łańcucha bloków.      |
-|Bajty zapisu we/wy     | Kilobajtach   | Suma  | Suma operacji we/wy zapisuje bajty we wszystkich węzłach zasobu elementu członkowskiego łańcucha bloków.     |
+| Bajty odczytu we/wy   | Kilobajtach   | Sum  |  Suma bajtów odczytu we wszystkich węzłach zasobu elementu członkowskiego łańcucha bloków.      |
+|Bajty zapisu we/wy     | Kilobajtach   | Sum  | Suma operacji we/wy zapisuje bajty we wszystkich węzłach zasobu elementu członkowskiego łańcucha bloków.     |
 |Limit pamięci       |  Gigabajtach   | Średnia    | Maksymalna ilość pamięci dostępnej dla procesu łańcucha bloków na węzeł. |
 |Użycie pamięci     | Gigabajtach  |  Średnia | Ilość używanej pamięci średnia dla wszystkich węzłów.  |
 | Procent użycia pamięci     | Procent   | Średnia  |  Wartość procentowa używanej pamięci (średnia) we wszystkich węzłach.       |

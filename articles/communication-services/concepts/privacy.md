@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7c522abd04f4a3e480bb5c3e14e78cc03dbd5d86
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888644"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572027"
 ---
 # <a name="region-availability-and-data-residency"></a>Dostępność w poszczególnych regionach i miejsce przechowywania danych
 
@@ -73,7 +73,7 @@ Komunikacja audio i wideo jest nieulotnie przetwarzana przez usługę, a żadne 
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor i Log Analytics
 
-Usługi komunikacyjne platformy Azure będą pokazywać dane rejestrowania Azure Monitor w celu poznania kondycji operacyjnej i wykorzystania usługi. Niektóre z tych dzienników obejmują tożsamości usługi komunikacyjnej i numery telefonów jako dane pól. Aby usunąć wszystkie potencjalnie dane osobowe, [Użyj tych procedur dla Azure monitor](../../azure-monitor/platform/personal-data-mgmt.md). Możesz również skonfigurować [domyślny okres przechowywania dla Azure monitor](../../azure-monitor/platform/manage-cost-storage.md).
+Usługi komunikacyjne platformy Azure będą pokazywać dane rejestrowania Azure Monitor w celu poznania kondycji operacyjnej i wykorzystania usługi. Niektóre z tych dzienników obejmują tożsamości usługi komunikacyjnej i numery telefonów jako dane pól. Aby usunąć wszystkie potencjalnie dane osobowe, [Użyj tych procedur dla Azure monitor](../../azure-monitor/logs/personal-data-mgmt.md). Możesz również skonfigurować [domyślny okres przechowywania dla Azure monitor](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

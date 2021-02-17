@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 5ad3e1a5a4ff47fe3d5fee8b8bc79235838995b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660457"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593622"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Kliknij opcję wtyczka Autocollection Analytics dla Application Insights JavaScript SDK
 
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - Zapoznaj się z [repozytorium GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) i [pakietem npm](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) dla wtyczki kliknij pozycję analiza Autocollection.
 - [Analiza zdarzeń w środowisku użycia](usage-segmentation.md) służy do analizowania górnych kliknięć i wycinków według dostępnych wymiarów.
-- Znajdź pozycję dane w obszarze pole zawartości w atrybucie customDimensions w tabeli CustomEvents w [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query). Zobacz [przykładową aplikację](https://go.microsoft.com/fwlink/?linkid=2152871) , aby uzyskać dodatkowe wskazówki.
-- Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby utworzyć niestandardowe wizualizacje danych do kliknięcia.
+- Znajdź pozycję dane w obszarze pole zawartości w atrybucie customDimensions w tabeli CustomEvents w [log Analytics](../logs/log-analytics-tutorial.md#write-a-query). Zobacz [przykładową aplikację](https://go.microsoft.com/fwlink/?linkid=2152871) , aby uzyskać dodatkowe wskazówki.
+- Utwórz [skoroszyt](../visualize/workbooks-overview.md) , aby utworzyć niestandardowe wizualizacje danych do kliknięcia.

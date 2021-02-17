@@ -3,12 +3,12 @@ title: Adresy IP używane przez Azure Monitor
 description: Wyjątki zapory serwera wymagane przez Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 0e7028c59b4588ac23424a63f4e3ce240391dfb8
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 72f825630ec94b5c32a949a4395c431318afa87f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220806"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584131"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Adresy IP używane przez Azure Monitor
 [Azure monitor](../overview.md) używa wielu adresów IP. Azure Monitor składa się z podstawowych metryk platformy i dzienników oprócz Log Analytics i Application Insights. Może być konieczne poznanie tych adresów, jeśli monitorowana aplikacja lub infrastruktura jest hostowana za zaporą.
@@ -254,21 +254,21 @@ Zarządzanie zmianami źródłowych adresów IP może być czasochłonne. Korzys
    1. Dodaj nazwę grupy zasobów, a następnie wprowadź *szczegóły wystąpienia*.
    1. Kliknij przycisk **Przegląd + Utwórz** , a następnie kliknij przycisk *Utwórz*.
    
-   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Przykład tworzenia sieciowej grupy zabezpieczeń."border="true":::
+   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="Przykład tworzenia sieciowej grupy zabezpieczeń."border="true":::
 
 3. Przejdź do grupy zasobów, a następnie kliknij utworzoną *grupę zabezpieczeń sieci* .
 
     1. Wybierz pozycję *reguły zabezpieczeń dla ruchu przychodzącego*.
     1. Kliknij przycisk **Dodaj**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Przykład dodawania znacznika usługi."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Przykład dodawania znacznika usługi."border="true":::
 
 4. Nowe okno zostanie otwarte w okienku po prawej stronie.
     1.  Wybierz źródło: **tag usługi**
     1.  Tag usługi źródłowej: **ActionName**
     1.  Kliknij pozycję **Dodaj**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Przykład dotyczący dodawania tagu usługi."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="Przykład dotyczący dodawania tagu usługi."border="true":::
 
 
 ## <a name="profiler"></a>Profiler

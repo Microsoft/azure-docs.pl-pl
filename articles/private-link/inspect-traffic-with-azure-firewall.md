@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879177"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575119"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Używanie zapory platformy Azure do sprawdzania ruchu kierowanego do prywatnego punktu końcowego
 
@@ -106,7 +106,7 @@ Należy zastosować takie same kwestie jak w scenariuszu 2 powyżej. W tym scena
 * Subskrypcja platformy Azure.
 * Obszar roboczy usługi Log Analytics.  
 
-Zobacz temat [Tworzenie obszaru roboczego log Analytics w Azure Portal](../azure-monitor/learn/quick-create-workspace.md) , aby utworzyć obszar roboczy, jeśli nie znajduje się on w subskrypcji.
+Zobacz temat [Tworzenie obszaru roboczego log Analytics w Azure Portal](../azure-monitor/logs/quick-create-workspace.md) , aby utworzyć obszar roboczy, jeśli nie znajduje się on w subskrypcji.
 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure

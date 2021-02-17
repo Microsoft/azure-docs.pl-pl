@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b172f1f7137b53e98384d92c9c709694eaf0b7e9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87029284"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594493"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Automatyczne skalowanie w pionie za pomocą zestawów skalowania maszyn wirtualnych
 
@@ -118,7 +118,7 @@ Po zaimportowaniu elementów Runbook Dodaj element webhook do elementu Runbook, 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Dodawanie alertu do zestawu skalowania maszyn wirtualnych
 
-Poniżej znajduje się skrypt programu PowerShell, który pokazuje, jak dodać alert do zestawu skalowania maszyn wirtualnych. Zapoznaj się z następującym artykułem, aby uzyskać nazwę metryki, na której ma zostać wyzwolony alert: [Azure monitor automatyczne skalowanie metryk](../azure-monitor/platform/autoscale-common-metrics.md).
+Poniżej znajduje się skrypt programu PowerShell, który pokazuje, jak dodać alert do zestawu skalowania maszyn wirtualnych. Zapoznaj się z następującym artykułem, aby uzyskać nazwę metryki, na której ma zostać wyzwolony alert: [Azure monitor automatyczne skalowanie metryk](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -153,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 Aby uzyskać więcej informacji na temat tworzenia alertów, zobacz następujące artykuły:
 
-* [Przykłady programu Azure Monitor PowerShell](../azure-monitor/samples/powershell-samples.md)
-* [Azure Monitor Międzyplatformowe przykłady interfejsu wiersza polecenia](../azure-monitor/samples/cli-samples.md)
+* [Przykłady programu Azure Monitor PowerShell](../azure-monitor/powershell-samples.md)
+* [Azure Monitor Międzyplatformowe przykłady interfejsu wiersza polecenia](../azure-monitor/cli-samples.md)
 
 ## <a name="summary"></a>Podsumowanie
 

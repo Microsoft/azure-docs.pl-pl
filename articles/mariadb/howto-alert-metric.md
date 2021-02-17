@@ -3,15 +3,15 @@ title: Konfigurowanie alertów metryk — Azure Portal-Azure Database for MariaD
 description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do alertów metryk dla Azure Database for MariaDB z Azure Portal.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 1e7dafaba6b6792afdec1f1866629fac9ba5a577
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 689e830d2486420be8d551d1f88dccba8d982428
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664422"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593065"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for MariaDB
 
@@ -25,8 +25,8 @@ Można skonfigurować alert, aby wykonał następujące akcje po jego wyzwoleniu
 * Wywołanie elementu webhook
 
 Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
-* [Witryna Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Interfejs wiersza polecenia platformy Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Witryna Azure Portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Interfejs wiersza polecenia platformy Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Tworzenie reguły alertu dotyczącej metryki
@@ -85,5 +85,5 @@ Po utworzeniu alertu możesz go zaznaczyć i wykonać następujące czynności:
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../azure-monitor/platform/alerts-webhooks.md).
-* Zapoznaj się z [omówieniem kolekcji metryk](../azure-monitor/platform/data-platform.md) , aby upewnić się, że usługa jest dostępna i odpowiada.
+* Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../azure-monitor/alerts/alerts-webhooks.md).
+* Zapoznaj się z [omówieniem kolekcji metryk](../azure-monitor/data-platform.md) , aby upewnić się, że usługa jest dostępna i odpowiada.

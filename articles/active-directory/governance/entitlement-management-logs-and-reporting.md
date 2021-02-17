@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577870"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiwizuj dzienniki i raporty dotyczące zarządzania prawami usługi Azure AD w Azure Monitor
 
@@ -59,7 +59,7 @@ Archiwizowanie dzienników inspekcji usługi Azure AD wymaga, aby Azure Monitor 
 
 ## <a name="view-events-for-an-access-package"></a>Wyświetlanie zdarzeń dla pakietu dostępu  
 
-Aby wyświetlić zdarzenia dotyczące pakietu dostępu, musisz mieć dostęp do odpowiedniego obszaru roboczego usługi Azure monitor (zobacz [Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) informacji) i w jednej z następujących ról: 
+Aby wyświetlić zdarzenia dotyczące pakietu dostępu, musisz mieć dostęp do odpowiedniego obszaru roboczego usługi Azure monitor (zobacz [Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) informacji) i w jednej z następujących ról: 
 
 - Administrator globalny  
 - Administrator zabezpieczeń  
@@ -128,7 +128,7 @@ Aby ustawić przypisanie roli i utworzyć zapytanie, wykonaj następujące czynn
 
     ![Dodaj przypisanie roli](./media/entitlement-management-logs-and-reporting/workspace-set-role-assignment.png)
 
-### <a name="install-azure-powershell-module"></a>Instalowanie modułu programu Azure PowerShell
+### <a name="install-azure-powershell-module"></a>Zainstaluj moduł Azure PowerShell
 
 Gdy masz odpowiednie przypisanie roli, uruchom program PowerShell i [Zainstaluj moduł Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (jeśli jeszcze tego nie zrobiono), wpisując:
 
@@ -189,4 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Następne kroki:
-- [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
+- [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md)

@@ -3,12 +3,12 @@ title: Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: f25b64bc28535d125c7883f16c9e747d6250ca96
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789742"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577100"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis usługi Azure Policy dla klastrów Kubernetes
 
@@ -122,7 +122,7 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 
 Po zakończeniu powyższych kroków wymagań wstępnych Zainstaluj dodatek Azure Policy w klastrze AKS, którym chcesz zarządzać.
 
-- Witryna Azure Portal
+- Azure Portal
 
   1. Uruchom usługę AKS w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **usługi Kubernetes Services**.
 
@@ -447,7 +447,7 @@ Niektóre inne zagadnienia:
 ## <a name="logging"></a>Rejestrowanie
 
 Jako kontroler Kubernetes/kontener, zarówno _usługa Azure-Policy_ , jak i _strażnik_ , przechowują dzienniki w klastrze Kubernetes. Dzienniki mogą być uwidocznione na stronie **wglądu** w klaster Kubernetes.
-Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności klastra Kubernetes za pomocą Azure monitor dla kontenerów](../../../azure-monitor/insights/container-insights-analyze.md).
+Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności klastra Kubernetes za pomocą Azure monitor dla kontenerów](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Aby wyświetlić dzienniki dodatków, użyj `kubectl` :
 
@@ -471,7 +471,7 @@ Aby uzyskać więcej informacji na temat rozwiązywania problemów z dodatkiem d
 
 Aby usunąć dodatek Azure Policy z klastra AKS, użyj Azure Portal lub interfejsu wiersza polecenia platformy Azure:
 
-- Witryna Azure Portal
+- Azure Portal
 
   1. Uruchom usługę AKS w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **usługi Kubernetes Services**.
 

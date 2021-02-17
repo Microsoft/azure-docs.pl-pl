@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: f75ad90a562a39f940e1006a2e4d9123eff2b47c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 202cdc341ce31c2347552e6fbc430c679ef28d7f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202185"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580091"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Linux
 
@@ -37,7 +37,7 @@ Dzienniki Azure Monitor udostępniają funkcje monitorowania, alertów i korygow
 
 ### <a name="operating-system"></a>System operacyjny
 
-Aby uzyskać szczegółowe informacje o obsługiwanych dystrybucjach systemu Linux, zobacz artykuł [Omówienie agentów Azure monitor](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
+Aby uzyskać szczegółowe informacje o obsługiwanych dystrybucjach systemu Linux, zobacz artykuł [Omówienie agentów Azure monitor](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Wersja rozszerzenia agenta i maszyny wirtualnej
 Poniższa tabela zawiera mapowanie wersji rozszerzenia maszyny wirtualnej Log Analytics i pakietu agenta Log Analytics dla każdej wersji. Dołączono link do informacji o wersji dla wersji pakietu agenta Log Analytics. Informacje o wersji zawierają szczegóły poprawek błędów i nowych funkcji dostępnych dla danej wersji agenta.  
@@ -76,7 +76,7 @@ Rozszerzenie agenta Log Analytics dla systemu Linux wymaga, aby docelowa maszyna
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
-Poniższy kod JSON przedstawia schemat rozszerzenia agenta Log Analytics. Rozszerzenie wymaga identyfikatora obszaru roboczego i klucza obszaru roboczego z obszaru roboczego Log Analytics docelowego; te wartości można [znaleźć w obszarze roboczym log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) w Azure Portal. Ponieważ klucz obszaru roboczego powinien być traktowany jako poufne dane, powinien on być przechowywany w konfiguracji chronionego ustawienia. Dane ustawienia chronionego rozszerzenia maszyny wirtualnej platformy Azure są szyfrowane i odszyfrowywane tylko na docelowej maszynie wirtualnej. Należy pamiętać, że w **Identyfikator obszaru roboczego** i **workspaceKey** jest rozróżniana wielkość liter.
+Poniższy kod JSON przedstawia schemat rozszerzenia agenta Log Analytics. Rozszerzenie wymaga identyfikatora obszaru roboczego i klucza obszaru roboczego z obszaru roboczego Log Analytics docelowego; te wartości można [znaleźć w obszarze roboczym log Analytics](../../azure-monitor/vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key) w Azure Portal. Ponieważ klucz obszaru roboczego powinien być traktowany jako poufne dane, powinien on być przechowywany w konfiguracji chronionego ustawienia. Dane ustawienia chronionego rozszerzenia maszyny wirtualnej platformy Azure są szyfrowane i odszyfrowywane tylko na docelowej maszynie wirtualnej. Należy pamiętać, że w **Identyfikator obszaru roboczego** i **workspaceKey** jest rozróżniana wielkość liter.
 
 ```json
 {
@@ -221,7 +221,7 @@ Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku:
 | 53 | To rozszerzenie nie powiodło się z powodu braku lub nieprawidłowych parametrów konfiguracji | Sprawdź dane wyjściowe i dzienniki, aby uzyskać więcej informacji na temat tego, co poszło źle. Sprawdź również prawidłowość identyfikatora obszaru roboczego i sprawdź, czy komputer jest połączony z Internetem. |
 | 55 | Nie można nawiązać połączenia z usługą Azure Monitor lub brakuje wymaganych pakietów lub Menedżer pakietów serwerach dpkg jest zablokowany| Sprawdź, czy system ma dostęp do Internetu lub czy podano prawidłowy serwer proxy HTTP. Sprawdź poprawność identyfikatora obszaru roboczego i sprawdź, czy zainstalowano narzędzia Zastąp i tar. |
 
-Dodatkowe informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku rozwiązywania problemów log Analytics-Agent-for-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
+Dodatkowe informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku rozwiązywania problemów log Analytics-Agent-for-Linux](../../azure-monitor/visualize/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Pomoc techniczna
 

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 843e11e7f2df404a6bf1866da7b383ee9d1097de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234005"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574792"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące konfiguracji i zarządzania dla Web Apps na platformie Azure
 
@@ -292,7 +292,7 @@ Najszybszym sposobem znalezienia wersji Microsoft .NET zainstalowanej w App Serv
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Dlaczego automatyczne skalowanie nie działa zgodnie z oczekiwaniami?
 
-Jeśli funkcja automatycznego skalowania platformy Azure nie została przeskalowana w poziomie lub przeskalujesz wystąpienie aplikacji sieci Web zgodnie z oczekiwaniami, może się zdarzyć, że Pracujesz w scenariuszu, w którym celowo wybierzesz nie skalować, aby uniknąć nieskończonej pętli z powodu "niestabilny". Zwykle zdarza się to, gdy nie ma odpowiedniego marginesu między progami skalowania w poziomie i skalowania w poziomie. Aby dowiedzieć się, jak uniknąć "niestabilny" i zapoznać się z innymi najlepszymi rozwiązaniami automatycznego skalowania, zobacz [najlepsze rozwiązania dotyczące skalowania automatycznego](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
+Jeśli funkcja automatycznego skalowania platformy Azure nie została przeskalowana w poziomie lub przeskalujesz wystąpienie aplikacji sieci Web zgodnie z oczekiwaniami, może się zdarzyć, że Pracujesz w scenariuszu, w którym celowo wybierzesz nie skalować, aby uniknąć nieskończonej pętli z powodu "niestabilny". Zwykle zdarza się to, gdy nie ma odpowiedniego marginesu między progami skalowania w poziomie i skalowania w poziomie. Aby dowiedzieć się, jak uniknąć "niestabilny" i zapoznać się z innymi najlepszymi rozwiązaniami automatycznego skalowania, zobacz [najlepsze rozwiązania dotyczące skalowania automatycznego](../azure-monitor/autoscale/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Dlaczego automatyczne skalowanie jest czasami skalowane tylko częściowo?
 

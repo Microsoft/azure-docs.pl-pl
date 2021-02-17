@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: f8840d5115cb552ed203705d37f8c692b3418947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ca3cc2873fbc6db72b10c80daecddf1471e30ff4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492339"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577059"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Dzienniki w Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -34,5 +34,5 @@ Wybierz nazwę nowych ustawień diagnostycznych i zaznacz pole **PostgreSQLLogs*
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie do zapytań usługi log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Wprowadzenie do zapytań usługi log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 - Informacje o [centrach zdarzeń platformy Azure](../event-hubs/event-hubs-about.md)

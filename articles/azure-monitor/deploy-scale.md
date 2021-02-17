@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f06ed85e362f15e36e030cd11639d9d17348e938
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993245"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573617"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Wdróż Azure Monitor na dużą skalę przy użyciu Azure Policy
 Niektóre funkcje Azure Monitor są konfigurowane raz lub ograniczoną liczbę razy, inne muszą być powtórzone dla każdego zasobu, który ma być monitorowany. W tym artykule opisano metody używania Azure Policy do implementowania Azure Monitor na dużą skalę w celu zapewnienia spójnego i dokładnego monitorowania dla wszystkich zasobów platformy Azure.
@@ -33,19 +33,19 @@ Azure Policy składa się z obiektów w poniższej tabeli. Zobacz [Azure Policy 
 | Przypisanie | Definicja zasad lub inicjatywa nie zacznie obowiązywać, dopóki nie zostanie przypisana do zakresu. Na przykład Przypisz zasady do grupy zasobów, aby zastosować je do wszystkich zasobów utworzonych w tym zasobie, lub zastosować je do subskrypcji, aby zastosować je do wszystkich zasobów w tej subskrypcji.  Aby uzyskać więcej informacji, zobacz [Azure Policy struktury przypisywania](../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Wbudowane definicje zasad dla Azure Monitor
-Azure Policy zawiera kilka wstępnie skompilowanych definicji związanych z Azure Monitor. Te definicje zasad można przypisać do istniejącej subskrypcji lub użyć ich jako podstawy do utworzenia własnych definicji niestandardowych. Aby zapoznać się z pełną listą wbudowanych polityka w kategorii **monitorowanie** , zobacz [Azure Policy wbudowane definicje zasad dla Azure monitor](./samples/policy-reference.md).
+Azure Policy zawiera kilka wstępnie skompilowanych definicji związanych z Azure Monitor. Te definicje zasad można przypisać do istniejącej subskrypcji lub użyć ich jako podstawy do utworzenia własnych definicji niestandardowych. Aby zapoznać się z pełną listą wbudowanych polityka w kategorii **monitorowanie** , zobacz [Azure Policy wbudowane definicje zasad dla Azure monitor](.//policy-reference.md).
 
 Aby wyświetlić wbudowane definicje zasad związane z monitorowaniem, wykonaj następujące czynności:
 
 1. Przejdź do **Azure Policy** w Azure Portal.
 2. Wybierz pozycję **definicje**.
-3. W **polu Typ**wybierz pozycję *wbudowane* i dla **kategorii**wybierz pozycję *monitorowanie*.
+3. W **polu Typ** wybierz pozycję *wbudowane* i dla **kategorii** wybierz pozycję *monitorowanie*.
 
   ![Zrzut ekranu strony definicje Azure Policy w Azure Portal przedstawiający listę definicji zasad dla kategorii monitorowania i typu wbudowanego.](media/deploy-scale/builtin-policies.png)
 
 
 ## <a name="diagnostic-settings"></a>Ustawienia diagnostyczne
-[Ustawienia diagnostyczne](platform/diagnostic-settings.md) umożliwiają zbieranie dzienników zasobów i metryk z zasobów platformy Azure do wielu lokalizacji, zwykle do obszaru roboczego log Analytics, który umożliwia analizowanie danych za pomocą [zapytań dziennika](log-query/log-query-overview.md) i [alertów dziennika](platform/alerts-log.md). Użyj zasad, aby automatycznie utworzyć ustawienia diagnostyczne za każdym razem, gdy tworzysz zasób.
+[Ustawienia diagnostyczne](essentials/diagnostic-settings.md) umożliwiają zbieranie dzienników zasobów i metryk z zasobów platformy Azure do wielu lokalizacji, zwykle do obszaru roboczego log Analytics, który umożliwia analizowanie danych za pomocą [zapytań dziennika](logs/log-query-overview.md) i [alertów dziennika](alerts/alerts-log.md). Użyj zasad, aby automatycznie utworzyć ustawienia diagnostyczne za każdym razem, gdy tworzysz zasób.
 
 Każdy typ zasobu platformy Azure ma unikatowy zestaw kategorii, które muszą być wymienione w ustawieniu diagnostyki. Z tego względu każdy typ zasobu wymaga oddzielnej definicji zasad. Niektóre typy zasobów mają wbudowane definicje zasad, które można przypisać bez modyfikacji. W przypadku innych typów zasobów należy utworzyć niestandardową definicję.
 
@@ -122,7 +122,7 @@ Inicjatywa będzie miała zastosowanie do każdej maszyny wirtualnej, która zos
 
 
 ## <a name="azure-monitor-for-vms"></a>Usługa Azure Monitor dla maszyn wirtualnych
-[Azure monitor dla maszyn wirtualnych](insights/vminsights-overview.md) to podstawowe narzędzie w Azure monitor do monitorowania maszyn wirtualnych. Włączenie Azure Monitor dla maszyn wirtualnych powoduje zainstalowanie zarówno agenta Log Analytics, jak i agenta zależności. Zamiast wykonywać te zadania ręcznie, należy użyć Azure Policy, aby mieć pewność, że każda maszyna wirtualna została skonfigurowana podczas jej tworzenia.
+[Azure monitor dla maszyn wirtualnych](vm/vminsights-overview.md) to podstawowe narzędzie w Azure monitor do monitorowania maszyn wirtualnych. Włączenie Azure Monitor dla maszyn wirtualnych powoduje zainstalowanie zarówno agenta Log Analytics, jak i agenta zależności. Zamiast wykonywać te zadania ręcznie, należy użyć Azure Policy, aby mieć pewność, że każda maszyna wirtualna została skonfigurowana podczas jej tworzenia.
 
 > [!NOTE]
 > Azure Monitor dla maszyn wirtualnych obejmuje funkcję o nazwie **pokrycie zasad Azure monitor dla maszyn wirtualnych** , która umożliwia odnajdywanie i korygowanie niezgodnych maszyn wirtualnych w środowisku. Tej funkcji można użyć zamiast pracy bezpośrednio z Azure Policyami dla maszyn wirtualnych platformy Azure oraz hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. W przypadku zestawów skalowania maszyn wirtualnych platformy Azure należy utworzyć przypisanie przy użyciu Azure Policy.
@@ -139,7 +139,7 @@ Azure Monitor dla maszyn wirtualnych obejmuje następujące wbudowane inicjatywy
 ### <a name="virtual-machines"></a>Maszyny wirtualne
 Zamiast tworzyć przydziały dla tych inicjatyw przy użyciu interfejsu Azure Policy, Azure Monitor dla maszyn wirtualnych zawiera funkcję, która umożliwia sprawdzenie liczby maszyn wirtualnych w każdym zakresie w celu ustalenia, czy inicjatywa została zastosowana. Następnie można skonfigurować obszar roboczy i utworzyć wszystkie wymagane przypisania przy użyciu tego interfejsu.
 
-Aby uzyskać szczegółowe informacje o tym procesie, zobacz [włączanie Azure monitor dla maszyn wirtualnych przy użyciu Azure Policy](./insights/vminsights-enable-policy.md).
+Aby uzyskać szczegółowe informacje o tym procesie, zobacz [włączanie Azure monitor dla maszyn wirtualnych przy użyciu Azure Policy](./vm/vminsights-enable-policy.md).
 
 ![Zasady Azure Monitor dla maszyn wirtualnych](media/deploy-scale/vminsights-policy.png)
 
@@ -148,7 +148,7 @@ Aby użyć Azure Policy do włączenia monitorowania dla zestawów skalowania ma
 
 ![Zrzut ekranu strony Przypisywanie inicjatywy w Azure Portal. Definicja inicjatywy została ustawiona tak, aby włączyć Azure Monitor dla zestawów skalowania maszyn wirtualnych.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-Wybierz obszar roboczy, do którego będą wysyłane dane. W tym obszarze roboczym musi być zainstalowane rozwiązanie *VMInsights* zgodnie z opisem w temacie []() .
+Wybierz obszar roboczy, do którego będą wysyłane dane. W tym obszarze roboczym musi być zainstalowane rozwiązanie *VMInsights* , zgodnie z opisem w artykule [Konfigurowanie log Analytics obszaru roboczego dla Azure monitor dla maszyn wirtualnych](vm/vminsights-configure-workspace.md).
 
 ![Wybór obszaru roboczego](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
@@ -181,4 +181,4 @@ Możesz mieć scenariusze, w których chcesz zainstalować agenta Log Analytics,
 ## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj więcej na temat [Azure Policy](../governance/policy/overview.md).
-- Przeczytaj więcej na temat [ustawień diagnostycznych](platform/diagnostic-settings.md).
+- Przeczytaj więcej na temat [ustawień diagnostycznych](essentials/diagnostic-settings.md).
