@@ -55,13 +55,13 @@
           href: role-assignments-list-cli.md
         - name: Interfejs API REST
           href: role-assignments-list-rest.md
-    - name: Dodawanie lub usuwanie przypisań ról
+    - name: Przypisywanie ról
       items:
-        - name: Kroki umożliwiające dodanie przypisania roli
+        - name: Procedura przypisywania roli
           href: role-assignments-steps.md
         - name: Portal
           items:
-            - name: Dodawanie lub usuwanie przypisań ról
+            - name: Przypisywanie ról
               href: role-assignments-portal.md
             - name: Administrator subskrypcji
               href: role-assignments-portal-subscription-admin.md
@@ -78,6 +78,8 @@
         - name: Szablon ARM
           displayName: Resource Manager
           href: role-assignments-template.md
+    - name: Usuwanie przypisań ról
+      href: role-assignments-remove.md
     - name: Lista przypisań odmowy
       items:
         - name: Omówienie

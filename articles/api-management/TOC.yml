@@ -27,8 +27,10 @@
     - name: 1 — Importowanie pierwszego interfejsu API
       href: import-and-publish.md
     - name: 2 — Tworzenie i publikowanie produktu
+      displayName: 'Azure CLI, az apim product'
       href: api-management-howto-add-products.md
     - name: 3 — Pozorowanie odpowiedzi interfejsu API
+      displayName: 'Azure CLI, az apim api operation'
       href: mock-api-responses.md
     - name: 4 — Ochrona interfejsu API
       href: transform-api.md
@@ -37,8 +39,10 @@
     - name: 6 — Debugowanie interfejsów API
       href: api-management-howto-api-inspector.md
     - name: 7 — Dodawanie poprawek
+      displayName: 'Azure CLI, az apim api release'
       href: api-management-get-started-revise-api.md
     - name: 8 — Dodawanie wielu wersji
+      displayName: 'Azure CLI, az apim api versionset'
       href: api-management-get-started-publish-versions.md
     - name: 9 — Dostosowywanie portalu deweloperów
       href: api-management-howto-developer-portal-customize.md
@@ -225,6 +229,7 @@
         - name: Korzystanie z usług zewnętrznych
           href: api-management-sample-send-request.md
         - name: Zarządzanie wpisami tajnymi przy użyciu nazwanych wartości
+          displayName: 'Azure CLI, az apim nv'
           href: api-management-howto-properties.md
         - name: Zasady ograniczeń dostępu
           href: api-management-access-restriction-policies.md

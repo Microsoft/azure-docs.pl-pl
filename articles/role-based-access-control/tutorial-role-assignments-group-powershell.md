@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 9b1a2f87498d7869b21e6a8ab44fc1f9660456ad
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e25db6213c99afaa46732831534956b01adba0b4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648320"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555220"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>Samouczek: udzielanie grupie dostępu do zasobów platformy Azure przy użyciu Azure PowerShell
 
@@ -48,8 +48,8 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy utworzyć przypisanie r
 
 | Podmiot zabezpieczeń | Definicja roli | Zakres |
 | --- | --- | --- |
-| Grupa<br>(Grupa samouczka kontroli dostępu opartej na rolach) | [Czytelnik](built-in-roles.md#reader) | Subskrypcja |
-| Grupa<br>(Grupa samouczka kontroli dostępu opartej na rolach)| [Współautor](built-in-roles.md#contributor) | Grupa zasobów<br>(rbac-tutorial-resource-group) |
+| Group (Grupa)<br>(Grupa samouczka kontroli dostępu opartej na rolach) | [Czytelnik](built-in-roles.md#reader) | Subskrypcja |
+| Group (Grupa)<br>(Grupa samouczka kontroli dostępu opartej na rolach)| [Współautor](built-in-roles.md#contributor) | Grupa zasobów<br>(rbac-tutorial-resource-group) |
 
    ![Przypisania ról dla grupy](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 
@@ -294,4 +294,4 @@ Aby wyczyścić zasoby utworzone w tym samouczku, usuń grupę zasobów i grupę
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu programu Azure PowerShell](role-assignments-powershell.md)
+> [Przypisywanie ról platformy Azure przy użyciu Azure PowerShell](role-assignments-powershell.md)

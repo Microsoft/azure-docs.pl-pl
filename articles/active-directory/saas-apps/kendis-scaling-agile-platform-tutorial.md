@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą platformy Kendis-Scaling Agile | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Kendis-Scaling platformą Agile.
+title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Kendis — integracja z usługą Azure AD | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory Kendis i integracją z usługą Azure AD.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 02/12/2021
 ms.author: jeedes
-ms.openlocfilehash: e02ff4926897fafc72e1a5081366faad5d2f03ba
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 802ccc1989bf0930e8c0c9818227a49eb03fc1c8
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509785"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534842"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis-scaling-agile-platform"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu platformy Kendis-Scaling Agile
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis---azure-ad-integration"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Kendis — integracja z usługą Azure AD
 
-W tym samouczku dowiesz się, jak zintegrować Kendis-Scaling platformę Agile z Azure Active Directory (Azure AD). Integracja Kendis-Scalingj platformy Agile z usługą Azure AD pozwala:
+W tym samouczku dowiesz się, jak zintegrować integrację usługi Kendis z usługą Azure AD z usługą Azure Active Directory (Azure AD). Po zintegrowaniu integracji usługi Kendis z usługą Azure AD z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do Kendis-Scalingej platformy Agile.
-* Zezwól użytkownikom na automatyczne logowanie do Kendis-Scaling platformy Agile przy użyciu kont usługi Azure AD.
+* Kontrolka w usłudze Azure AD, która ma dostęp do integracji usługi Azure AD Kendis.
+* Zezwól użytkownikom na automatyczne logowanie do integracji usługi Kendis z usługą Azure AD przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -31,46 +31,46 @@ W tym samouczku dowiesz się, jak zintegrować Kendis-Scaling platformę Agile z
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Kendis-Scaling subskrypcję obsługującą Logowanie jednokrotne (SSO) platformy Agile.
+* Kendis — subskrypcja z włączonym logowaniem jednokrotnym (SSO) w usłudze Azure AD.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Kendis-Scaling platforma Agile obsługuje logowanie jednokrotne **z użyciem SP i dostawcy tożsamości**
-* Kendis-Scaling platforma Agile obsługuje funkcję aprowizacji użytkowników **just in Time**
+* Kendis — integracja z usługą Azure AD obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
+* Kendis — integracja z usługą Azure AD obsługuje funkcję aprowizacji użytkowników **just in Time**
 
 
-## <a name="adding-kendis-scaling-agile-platform-from-the-gallery"></a>Dodawanie Kendis-Scaling platformy Agile z galerii
+## <a name="adding-kendis---azure-ad-integration-from-the-gallery"></a>Dodawanie Kendis — integracja z usługą Azure AD z galerii
 
-Aby skonfigurować integrację Kendis-Scalingj platformy Agile z usługą Azure AD, musisz dodać Kendis-Scaling platformę Agile z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację Kendis z integracją usługi Azure AD z usługą Azure AD, musisz dodać integrację Kendis-Azure AD z galerii do listy zarządzanych aplikacji SaaS.
 
 1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **Kendis-skalować platformę Agile** w polu wyszukiwania.
-1. Wybierz pozycję **Kendis — skalowanie platformy Agile** z poziomu panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **Kendis — integracja z usługą Azure AD** w polu wyszukiwania.
+1. Wybierz pozycję **Kendis — integracja z usługą Azure AD** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-kendis-scaling-agile-platform"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla Kendis-Scalingej platformy Agile
+## <a name="configure-and-test-azure-ad-sso-for-kendis---azure-ad-integration"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla Kendis — integracja z usługą Azure AD
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą platformy Kendis-Scaling Agile przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Kendis-Scalingj platformie Agile.
+Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Kendis — integracja z usługą Azure AD przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Kendis — integracja z usługą Azure AD.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu platformy Kendis-Scaling Agile, wykonaj następujące czynności:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą usługi Kendis — integracja z usługą Azure AD, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj Kendis-Scaling funkcję rejestracji jednokrotnej platformy Agile](#configure-kendis-scaling-agile-platform-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz Kendis-Scaling użytkownika testowego platformy Agile](#create-kendis-scaling-agile-platform-test-user)** , aby uzyskać odpowiednik metody B. Simon w Kendis-Scalingej platformie Agile, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Konfigurowanie Kendis-Azure rejestracji jednokrotnej integracji usługi AD](#configure-kendis-azure-ad-integration-sso)** w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz Kendis-Azure użytkownika testowego integracji usługi AD](#create-kendis-azure-ad-integration-test-user)** , aby uzyskać odpowiednik elementu B. Simon w usłudze Kendis — integracja z usługą Azure AD, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W Azure Portal na stronie **Kendis-skalowanie aplikacji platformy Agile** , Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **Azure AD Integration Kendis** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
@@ -87,13 +87,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.kendis.io/login`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Kontakt z [Kendisem — zespół obsługi klienta platformy Agile](mailto:support@kendis.io) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Contact [Kendis — zespół obsługi klienta integracji usługi Azure AD](mailto:support@kendis.io) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. Na stronie **konfigurowanie Kendis-Scaling Agile** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W sekcji **Konfigurowanie usługi Kendis — integracja z usługą Azure AD** skopiuj odpowiednie adresy URL na podstawie wymagania.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -111,19 +111,19 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do Kendis-Scalingej platformy Agile.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do integracji usługi Kendis z usługą Azure AD.
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **Kendis — platforma Agile**.
+1. Na liście Aplikacje wybierz pozycję **Kendis — integracja z usługą Azure AD**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-kendis-scaling-agile-platform-sso"></a>Konfigurowanie Kendis-Scaling rejestracji jednokrotnej platformy Agile
+## <a name="configure-kendis-azure-ad-integration-sso"></a>Konfigurowanie Kendis-Azure rejestracji jednokrotnej integracji z usługą AD
 
-1. W innym oknie przeglądarki sieci Web Zaloguj się do Kendis-Scaling witryny firmy Agile platformy jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy Kendis-Azure AD Integration jako administrator.
 
 1. Przejdź do **ustawień > konfiguracjami protokołu SAML**.
 
@@ -145,9 +145,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. Kliknij pozycję **Zapisz**.
 
-### <a name="create-kendis-scaling-agile-platform-test-user"></a>Utwórz użytkownika testowego platformy Kendis-Scaling Agile
+### <a name="create-kendis-azure-ad-integration-test-user"></a>Utwórz użytkownika testowego integracji usługi AD Kendis-Azure
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Kendis-Scalingej platformie Agile. Kendis-Scaling platforma Agile obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w Kendis-Scalingej platformie Agile, zostanie utworzony nowy po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w usłudze Kendis — integracji z usługą Azure AD. Kendis — integracja z usługą Azure AD obsługuje funkcję aprowizacji użytkowników just-in-Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w usłudze Kendis — integracja z usługą Azure AD, po uwierzytelnieniu zostanie utworzony nowy.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -155,19 +155,19 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 #### <a name="sp-initiated"></a>Zainicjowano SP:
 
-* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do Kendis-Scaling adres URL logowania platformy Agile, w którym można zainicjować przepływ logowania.  
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie na adres URL logowania do usługi Azure AD Kendis, w którym można zainicjować przepływ logowania.  
 
-* Przejdź bezpośrednio do Kendis-Scaling adres URL logowania do platformy Agile i zainicjuj tam przepływ logowania.
+* Przejdź do Kendis — adres URL logowania do usługi Azure AD Integration bezpośrednio i zainicjuj tam przepływ logowania.
 
 #### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do platformy Kendis-Scaling Agile, dla której skonfigurowano Logowanie jednokrotne 
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do integracji usługi Kendis — Azure AD, dla której skonfigurowano Logowanie jednokrotne 
 
-Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Kendis-Scaling Agile w obszarze Moje aplikacje, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli jest skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do platformy Kendis-Scaling Agile, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka integracja Kendis-Azure AD w obszarze Moje aplikacje, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania i skonfigurowania w trybie dostawcy tożsamości, należy automatycznie zalogować się do integracji z usługą Azure AD, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu Kendis-Scalingj platformy Agile można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu integracji usługi Azure AD Kendis można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 

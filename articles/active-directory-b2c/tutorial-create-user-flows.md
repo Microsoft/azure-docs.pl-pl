@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 6b0bdc5a5b58c205d888c8892a4333225a9b316f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614272"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557148"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Samouczek: Tworzenie przepływów użytkowników w Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ W tym samouczku przedstawiono sposób tworzenia niektórych zalecanych przepływ
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
-> Zmieniono sposób odwołania do wersji przepływu użytkownika. Wcześniej oferujemy wersje V1 (produkcyjne gotowe) i wersje 1.1 i v2 (wersja zapoznawcza). Teraz zostały skonsolidowane przepływy użytkowników w **zalecane** wersje (wersja zapoznawcza nowej generacji) i **standardowe** (ogólnie dostępne). Wszystkie przepływy użytkowników starszej wersji programu V 1.1 i V2 są w ścieżce do wycofania od **1 sierpnia 2021**. Aby uzyskać szczegółowe informacje, zobacz [wersje przepływu użytkowników w Azure AD B2C](user-flow-versions.md).
+> Zmieniliśmy sposób odwoływania się do wersji przepływów użytkownika. Wcześniej oferowaliśmy wersje V1 (gotowe do zastosowań produkcyjnych) oraz wersje V1.1 i V2 (wersje zapoznawcze). Teraz zostały skonsolidowane przepływy użytkowników w **zalecane** wersje (wersja zapoznawcza nowej generacji) i **standardowe** (ogólnie dostępne). Wszystkie przepływy użytkowników starszej wersji programu V 1.1 i V2 są w ścieżce do wycofania od **1 sierpnia 2021**. Aby uzyskać szczegółowe informacje, zobacz [wersje przepływu użytkowników w Azure AD B2C](user-flow-versions.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -133,7 +133,7 @@ W tym artykule zawarto informacje na temat wykonywania następujących czynnośc
 > * Tworzenie przepływu użytkownika dotyczącego edytowania profilu
 > * Tworzenie przepływu użytkownika dotyczącego resetowania haseł
 
-Następnie Dowiedz się więcej o dodawaniu dostawców tożsamości do aplikacji, aby umożliwić użytkownikom logowanie się z dostawcami, takimi jak Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft lub Twitter.
+Następnie Dowiedz się, jak używać Azure AD B2C do logowania się i rejestrowania użytkowników w aplikacji. Postępuj zgodnie z poniższą aplikacją sieci Web ASP.NET lub przejdź do innej aplikacji w spisie treści w obszarze **uwierzytelnianie użytkowników**.
 
 > [!div class="nextstepaction"]
-> [Dodawanie dostawców tożsamości do aplikacji >](tutorial-add-identity-providers.md)
+> [Samouczek: Włączanie uwierzytelniania w aplikacji sieci Web przy użyciu Azure AD B2C >](tutorial-web-app-dotnet.md)

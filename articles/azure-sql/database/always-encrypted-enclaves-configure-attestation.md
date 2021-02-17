@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733827"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555665"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Konfigurowanie zaświadczania platformy Azure dla serwera logicznego usługi Azure SQL
 
@@ -114,7 +114,7 @@ Podczas przepływu pracy zaświadczania serwer logiczny usługi Azure SQL zawier
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Użyj Azure Portal, aby przypisać uprawnienia
 
-Aby przypisać tożsamość serwera SQL Azure do roli czytelnik zaświadczania dla dostawcy zaświadczania, postępuj zgodnie z ogólnymi instrukcjami w temacie [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md). Gdy jesteś w okienku **Dodaj przypisanie roli** :
+Aby przypisać tożsamość serwera SQL platformy Azure do roli czytelnik zaświadczania dla dostawcy zaświadczania, postępuj zgodnie z ogólnymi instrukcjami zawartymi w temacie [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md). Gdy jesteś w okienku **Dodaj przypisanie roli** :
 
 1. Z listy rozwijanej **rola** wybierz rolę **czytelnik zaświadczania** .
 1. W polu **Wybierz** wprowadź nazwę serwera SQL Azure, w którym ma zostać wyszukane.
@@ -143,12 +143,12 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples).
+Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zarządzanie kluczami dla funkcji Always Encrypted z bezpiecznymi enklawami](/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Samouczek: wprowadzenie do Always Encrypted za pomocą bezpiecznego enclaves w Azure SQL Database](always-encrypted-enclaves-getting-started.md)

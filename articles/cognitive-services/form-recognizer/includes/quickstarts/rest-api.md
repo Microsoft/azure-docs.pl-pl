@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 3112c93e0877a8441875e3c7627c2a7b84ac8ab1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 8ba24d5a59beade1429b9d86ed549f1dae3c2f1f
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808492"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551719"
 ---
 > [!NOTE]
 > W tym przewodniku zastosowano zwinięcie, aby wykonać wywołania interfejsu API REST. Istnieje również [przykładowy kod w usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest) , który ilustruje sposób wywoływania interfejsów API REST w języku Python.
@@ -85,9 +85,14 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyzeR
 
 Otrzymasz `200 (success)` odpowiedź z zawartością JSON.
 
-Zapoznaj się z poniższym obrazem faktury i odpowiednimi danymi wyjściowymi JSON. Wynik został skrócony do uproszczenia. `"readResults"`Węzeł zawiera każdy wiersz tekstu z odpowiednim umieszczaniem pola ograniczenia na stronie. `"selectionMarks"`Węzeł (w wersji zapoznawczej programu v 2.1) pokazuje każdy znacznik wyboru (CheckBox, znacznik radiowy) i czy jego stan to "selected" lub "Unselected". `"pageResults"`Sekcja zawiera wyodrębnione tabele. Dla każdej tabeli jest wyodrębniany tekst, wiersz i indeks kolumny, łączenie wierszy i kolumn.
+Zapoznaj się z poniższym obrazem faktury i odpowiednimi danymi wyjściowymi JSON.
+* `"readResults"`Węzeł zawiera każdy wiersz tekstu z odpowiednim umieszczaniem pola ograniczenia na stronie. 
+* `"selectionMarks"`Węzeł (w wersji zapoznawczej programu v 2.1) pokazuje każdy znacznik wyboru (CheckBox, znacznik radiowy) i czy jego stan to "selected" lub "Unselected". 
+* `"pageResults"`Sekcja zawiera wyodrębnione tabele. Dla każdej tabeli jest wyodrębniany tekst, wiersz i indeks kolumny, łączenie wierszy i kolumn.
 
 :::image type="content" source="../../media/contoso-invoice.png" alt-text="Dokument programu contoso Project Statement z tabelą.":::
+
+To wyjście zostało skrócone dla uproszczenia. Zobacz [pełne przykładowe dane wyjściowe w serwisie GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout-output.json).
 
 # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)    
 ```json
@@ -355,11 +360,16 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoic
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Otrzymasz `200 (Success)` odpowiedź z danymi wyjściowymi JSON. `"readResults"`Pole zawiera wszystkie wiersze tekstu wyodrębnione z faktury, w tym `"pageResults"` znaczniki tabele i zaznaczenia wyodrębnione z faktury, a `"documentResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części faktury.
+Otrzymasz `200 (Success)` odpowiedź z danymi wyjściowymi JSON. 
+* `"readResults"`Pole zawiera wszystkie wiersze tekstu wyodrębnione z faktury.
+* `"pageResults"`Obejmuje znaczniki tabel i wyborów wyodrębnione z faktury.
+* `"documentResults"`Pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części faktury.
 
-Zapoznaj się z następującym dokumentem faktury i odpowiednimi danymi wyjściowymi JSON. Zawartość JSON została skrócona pod kątem czytelności.
+Zapoznaj się z następującym dokumentem faktury i odpowiednimi danymi wyjściowymi JSON. 
 
 * [Przykładowa faktura](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice.pdf)
+
+Ta zawartość JSON została skrócona pod kątem czytelności. Zobacz [pełne przykładowe dane wyjściowe w serwisie GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-invoice-output.json).
 
 ```json
 {
@@ -716,7 +726,7 @@ Otrzymasz `200 (Success)` odpowiedź z treścią JSON w następującym formacie.
 
 W modelach niestandardowych przeszkolonych bez etykiet, skojarzenia pary klucz/wartość i tabele znajdują się w `"pageResults"` węźle danych wyjściowych JSON. W modelach niestandardowych przeszkolonych za pomocą etykiet, skojarzenia pary klucz/wartość znajdują się w `"documentResults"` węźle. Jeśli określono również zwykłe Wyodrębnianie tekstu za pomocą parametru adresu URL *includeTextDetails* , w `"readResults"` węźle będzie wyświetlana zawartość i położenie całego tekstu w dokumencie.
 
-Te przykładowe dane wyjściowe JSON zostały skrócone dla uproszczenia.
+Te przykładowe dane wyjściowe JSON zostały skrócone dla uproszczenia. Zobacz [pełne przykładowe dane wyjściowe w serwisie GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/analyze-result-invoice-6.pdf.json).
 
 # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 ```JSON
@@ -1041,13 +1051,15 @@ curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/a
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Otrzymasz `200 (Success)` odpowiedź z danymi wyjściowymi JSON. Pierwsze pole, `"status"` , wskazuje stan operacji. Jeśli operacja zostanie ukończona, `"readResults"` pole zawiera wszystkie wiersze tekstu wyodrębnione z paragonu, a `"documentResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części paragonu. Jeśli operacja nie zostanie ukończona, wartość `"status"` będzie `"running"` lub `"notStarted"` i należy ponownie wywołać interfejs API, ręcznie lub za pomocą skryptu. Zalecamy przedziału co najmniej jednej sekundy między wywołaniami.
+Otrzymasz `200 (Success)` odpowiedź z danymi wyjściowymi JSON. Pierwsze pole, `"status"` , wskazuje stan operacji. Jeśli operacja nie zostanie ukończona, wartość `"status"` będzie `"running"` lub `"notStarted"` i należy ponownie wywołać interfejs API, ręcznie lub za pomocą skryptu. Zalecamy przedziału co najmniej jednej sekundy między wywołaniami.
 
-Zapoznaj się z poniższym obrazem paragonu i odpowiednimi danymi wyjściowymi JSON. Dane wyjściowe zostały skrócone w celu zapewnienia czytelności.
+`"readResults"`Węzeł zawiera cały rozpoznany tekst (w przypadku ustawienia opcjonalnego parametru *includeTextDetails* na `true` ). Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"documentResults"`Węzeł zawiera wartości specyficzne dla paragonu wykryte przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
+
+Zapoznaj się z poniższym obrazem paragonu i odpowiednimi danymi wyjściowymi JSON.
 
 ![Potwierdzenie ze sklepu contoso](../../media/contoso-allinone.jpg)
 
-`"readResults"`Węzeł zawiera cały rozpoznany tekst (w przypadku ustawienia opcjonalnego parametru *includeTextDetails* na `true` ). Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"documentResults"`Węzeł zawiera wartości specyficzne dla paragonu wykryte przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
+Ten wynik został skrócony do czytelności. Zobacz [pełne przykładowe dane wyjściowe w serwisie GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
 
 ```json
 {
@@ -1386,11 +1398,11 @@ Zapoznaj się z poniższym obrazem paragonu i odpowiednimi danymi wyjściowymi J
 W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z angielskiej karty biznesowej przy użyciu wstępnie nauczonego modelu. Aby uzyskać więcej informacji na temat analizy karty biznesowej, zobacz [Przewodnik po pojęciach dotyczących wizytówek](../../concept-business-cards.md). Aby rozpocząć analizowanie karty biznesowej, należy wywołać interfejs API **[analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)** przy użyciu poniższego polecenia. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
-1. Zamień `{your receipt URL}` na adres URL obrazu paragonu.
+1. Zamień `{your business card URL}` na adres URL obrazu paragonu.
 1. Zamień `{subscription key}` na klucz subskrypcji skopiowany z poprzedniego kroku.
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your business card URL}'}"
 ```
 
 Otrzymasz odpowiedź obejmującą `202 (Success)` nagłówek **operacji** am. Wartość tego nagłówka zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników.
@@ -1414,11 +1426,13 @@ curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/formrecognizer
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Otrzymasz `200 (Success)` odpowiedź z danymi wyjściowymi JSON. `"readResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"documentResults"`Węzeł zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. W tym miejscu znajdziesz przydatne informacje kontaktowe, takie jak nazwa firmy, imię, nazwisko, numer telefonu itd.
+Otrzymasz `200 (Success)` odpowiedź z danymi wyjściowymi JSON. 
+
+`"readResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"documentResults"`Węzeł zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. W tym miejscu znajdziesz przydatne informacje kontaktowe, takie jak nazwa firmy, imię, nazwisko, numer telefonu itd.
 
 ![Wizytówka firmy Contoso](../../media/business-card-english.jpg)
 
-Ten przykład ilustruje dane wyjściowe JSON zwrócone przez aparat rozpoznawania formularza. Zostało obcięte na potrzeby czytelności.
+Te przykładowe dane wyjściowe JSON zostały skrócone w celu zapewnienia czytelności. Zobacz [pełne przykładowe dane wyjściowe w serwisie GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
 
 ```json
 {

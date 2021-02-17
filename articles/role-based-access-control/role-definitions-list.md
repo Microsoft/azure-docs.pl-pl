@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369280"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555958"
 ---
 # <a name="list-azure-role-definitions"></a>Wyświetlanie listy definicji ról platformy Azure
 
@@ -476,7 +476,7 @@ Poniżej przedstawiono przykład danych wyjściowych:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Role wbudowane platformy Azure](built-in-roles.md)
+- [Wbudowane role platformy Azure](built-in-roles.md)
 - [Role niestandardowe platformy Azure](custom-roles.md)
 - [Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-list-portal.md)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)

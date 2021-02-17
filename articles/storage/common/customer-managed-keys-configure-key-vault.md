@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 24fbe843986b732a04c9e356c54f3d768d6739be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843387"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558177"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Konfigurowanie szyfrowania za pomocą kluczy zarządzanych przez klienta przechowywanych w usłudze Azure Key Vault
 
@@ -175,10 +175,11 @@ Usługa Azure Storage może automatycznie zaktualizować klucz zarządzany przez
 Aby skonfigurować klucze zarządzane przez klienta z automatyczną aktualizacją wersji klucza w Azure Portal, wykonaj następujące kroki:
 
 1. Przejdź do konta magazynu.
-1. W bloku **Ustawienia** dla konta magazynu kliknij pozycję **szyfrowanie**. Wybierz opcję **klucze zarządzane przez klienta** , jak pokazano na poniższej ilustracji.
+1. W bloku **Ustawienia** dla konta magazynu kliknij pozycję **szyfrowanie**. Domyślnie zarządzanie kluczami jest ustawione na **klucze zarządzane przez firmę Microsoft**, jak pokazano na poniższej ilustracji.
 
     ![Zrzut ekranu portalu przedstawiający opcję szyfrowania](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
+1. Wybierz opcję **klucze zarządzane przez klienta** .
 1. Wybierz opcję **Wybierz z Key Vault** .
 1. Wybierz pozycję **Wybierz magazyn kluczy i klucz**.
 1. Wybierz magazyn kluczy zawierający klucz, którego chcesz użyć.

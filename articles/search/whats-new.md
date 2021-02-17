@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 2b6685952aee1c8600321070794f001e0881604b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104607"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535216"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -77,7 +77,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 |Listopad | [Umiejętność tłumaczenia tekstu](cognitive-search-skill-text-translation.md) | Umiejętności poznawcze używane podczas indeksowania, które oblicza i tłumaczy tekst. Ogólnie dostępna.|
 |Listopad | [Szablony Power BI](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Szablon wizualizacji zawartości w sklepie z bazami danych |
 |Listopad | [Azure Data Lake Storage Gen2 (wersja zapoznawcza)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (wersja zapoznawcza)](search-howto-index-cosmosdb.md)i [Cosmos DB interfejs API Cassandra (wersja zapoznawcza)](search-howto-index-cosmosdb.md) | Nowe źródła danych indeksatora w publicznej wersji zapoznawczej. |
-|Lipiec | [Obsługa Azure Government w chmurze](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | Ogólnie dostępna.|
+|Lipiec | [Obsługa Azure Government w chmurze](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Ogólnie dostępna.|
 
 <a name="new-service-name"></a>
 

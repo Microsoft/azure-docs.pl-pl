@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856158"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555927"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Opis zakresu kontroli RBAC platformy Azure
 
@@ -32,7 +32,7 @@ Grupy zarządzania to poziom zakresu powyżej subskrypcji, ale grupy zarządzani
 
 ## <a name="scope-format"></a>Format zakresu
 
-W przypadku dodawania przypisań ról przy użyciu wiersza polecenia należy określić zakres. W przypadku narzędzi wiersza polecenia Scope jest potencjalnie długim ciągiem, który identyfikuje dokładny zakres przypisania roli. W Azure Portal ten zakres jest zwykle wymieniony jako *Identyfikator zasobu*.
+Jeśli przypiszesz role przy użyciu wiersza polecenia, musisz określić zakres. W przypadku narzędzi wiersza polecenia Scope jest potencjalnie długim ciągiem, który identyfikuje dokładny zakres przypisania roli. W Azure Portal ten zakres jest zwykle wymieniony jako *Identyfikator zasobu*.
 
 Zakres składa się z serii identyfikatorów oddzielonych znakiem ukośnika (/). Ten ciąg można traktować jako wyrażenie następującej hierarchii, gdzie tekst bez symboli zastępczych ( `{}` ) jest stałymi identyfikatorami:
 
@@ -122,6 +122,6 @@ Można stosunkowo łatwo określić zakres dla grupy zarządzania, subskrypcji l
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Kroki umożliwiające dodanie przypisania roli](role-assignments-steps.md)
+- [Procedura przypisywania roli platformy Azure](role-assignments-steps.md)
 - [Dostawcy zasobów dla usług platformy Azure](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Co to są grupy zarządzania platformy Azure?](../governance/management-groups/overview.md)

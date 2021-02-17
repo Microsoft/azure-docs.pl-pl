@@ -4,14 +4,14 @@ description: W tym samouczku utworzysz i opublikujesz produkt na platformie Azur
 author: mikebudzynski
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d0420b92fc94e0a1a9c8a4057f419a57a9909223
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993554"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545160"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Samouczek: Tworzenie i publikowanie produktu  
 
@@ -34,6 +34,8 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="create-and-publish-a-product"></a>Tworzenie i publikowanie produktu
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Zaloguj się do Azure Portal i przejdź do wystąpienia API Management.
 1. W lewym okienku nawigacji wybierz pozycję **produkty**  >  **+ Dodaj**.
 1.  W oknie **Dodawanie produktu** wprowadź wartości opisane w poniższej tabeli, aby utworzyć produkt.
@@ -53,10 +55,53 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 3. Wybierz pozycję **Utwórz** , aby utworzyć nowy produkt.
 
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby rozpocząć korzystanie z interfejsu wiersza polecenia platformy Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Aby utworzyć produkt, uruchom polecenie [AZ APIM Product Create](/cli/azure/apim/product#az_apim_product_create) :
+
+```azurecli
+az apim product create --resource-group apim-hello-word-resource-group \
+    --product-name "Contoso product" --product-id contoso-product \
+    --service-name apim-hello-world --subscription-required true \
+    --state published --description "This is a test."
+```
+
+Możesz określić różne wartości dla produktu:
+
+   | Parametr | Opis |
+   |-----------|-------------|
+   | `--product-name` | Nazwa, która ma być wyświetlana w [portalu dla deweloperów](api-management-howto-developer-portal.md). |
+   | `--description`  | Podaj informacje o produkcie, takie jak jego przeznaczenie, interfejsy API, do których zapewnia dostęp, oraz inne szczegóły. |
+   | `--state`        | Wybierz pozycję **opublikowano** , jeśli chcesz opublikować produkt. Aby możliwe było wywołanie interfejsów API w produkcie, produkt musi zostać najpierw opublikowany. Domyślnie nowe produkty nie są publikowane i są widoczne tylko dla grupy  **administratorzy** . |
+   | `--subscription-required` | Wybierz, czy użytkownik musi subskrybować korzystanie z produktu. |
+   | `--approval-required` | Wybierz, czy chcesz, aby administrator przeglądał i akceptował lub odrzucał próby subskrypcji tego produktu. Jeśli nie zostanie wybrana, próby subskrypcji są zatwierdzane domyślnie. |
+   | `--subscriptions-limit` | Opcjonalnie można ograniczyć liczbę równoczesnych subskrypcji.|
+   | `--legal-terms`         | Możesz uwzględnić warunki użytkowania produktu, które jego subskrybenci muszą zaakceptować, aby z niego korzystać. |
+
+Aby wyświetlić bieżące produkty, użyj polecenia [AZ APIM Product List](/cli/azure/apim/product#az_apim_product_list) :
+
+```azurecli
+az apim product list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Produkt można usunąć za pomocą polecenia [AZ APIM Product Delete](/cli/azure/apim/product#az_apim_product_delete) :
+
+```azurecli
+az apim product delete --product-id contoso-product \
+    --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --delete-subscriptions true
+```
+
+---
+
 ### <a name="add-more-configurations"></a>Dodawanie dodatkowych konfiguracji
 
 Kontynuuj Konfigurowanie produktu po jego zapisaniu. W wystąpieniu API Management wybierz produkt z okna **produkty** . Dodaj lub zaktualizuj:
-
 
 |Element   |Opis  |
 |---------|---------|
@@ -74,6 +119,7 @@ Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskr
 
 ### <a name="add-an-api-to-an-existing-product"></a>Dodawanie interfejsu API do istniejącego produktu
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Na lewym pasku nawigacyjnym wystąpienia API Management wybierz pozycję **produkty**.
 1. Wybierz produkt, a następnie wybierz pozycję **interfejsy API**.
@@ -81,6 +127,40 @@ Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskr
 1. Wybierz co najmniej jeden interfejs API, a następnie **Wybierz opcję**.
 
 :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Dodawanie interfejsu API do istniejącego produktu":::
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+1. Aby wyświetlić zarządzane interfejsy API, użyj polecenia [AZ APIM API list](/cli/azure/apim/api#az_apim_api_list) :
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+1. Aby dodać interfejs API do produktu, uruchom polecenie [AZ APIM Product API Add](/cli/azure/apim/product/api#az_apim_product_api_add) :
+
+   ```azurecli
+   az apim product api add --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --product-id contoso-product \
+       --service-name apim-hello-world
+   ```
+
+1. Sprawdź dodanie przy użyciu polecenia [AZ APIM Product API list](/cli/azure/apim/product/api#az_apim_product_api_list) :
+
+   ```azurecli
+   az apim product api list --resource-group apim-hello-word-resource-group \
+       --product-id contoso-product --service-name apim-hello-world --output table
+   ```
+
+Interfejs API można usunąć z produktu przy użyciu polecenia [AZ APIM Product API Delete](/cli/azure/apim/product/api#az_apim_product_api_delete) :
+
+```azurecli
+az apim product api delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --product-id contoso-product \
+    --service-name apim-hello-world
+```
+
+---
 
 > [!TIP]
 > Możesz utworzyć lub zaktualizować subskrypcję użytkownika do produktu przy użyciu niestandardowych kluczy subskrypcji za pomocą [interfejsu API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) lub polecenia programu PowerShell.

@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 26c4e154deec02b0642e6c131ced50acb02f9899
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: d69675d7ab07e4097556d269c97c3ecb66dc2fc6
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98951539"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545838"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi Weibo za pomocą Azure Active Directory B2C
 
@@ -32,19 +32,19 @@ ms.locfileid: "98951539"
 
 ## <a name="create-a-weibo-application"></a>Tworzenie aplikacji Weibo
 
-Aby włączyć Logowanie użytkowników przy użyciu konta usługi Weibo w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [portalu Weibo Developer](https://open.weibo.com/). Jeśli nie masz jeszcze konta Weibo, możesz zarejestrować się w usłudze [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
+Aby włączyć Logowanie użytkowników przy użyciu konta usługi Weibo w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w portalu Weibo developer. Jeśli nie masz jeszcze konta Weibo, możesz zarejestrować się w usłudze [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
 
-1. Zaloguj się do [portalu deweloperów Weibo](https://open.weibo.com/) przy użyciu poświadczeń konta Weibo.
+1. Zaloguj się do portalu deweloperów Weibo przy użyciu poświadczeń konta Weibo.
 1. Po zalogowaniu wybierz swoją nazwę wyświetlaną w prawym górnym rogu.
 1. Z listy rozwijanej wybierz pozycję **编辑开发者信息** (Edytuj informacje dla deweloperów).
 1. Wprowadź wymagane informacje i wybierz pozycję **提交** (Prześlij).
 1. Ukończ proces weryfikacji poczty e-mail.
-1. Przejdź do [strony weryfikacji tożsamości](https://open.weibo.com/developers/identity/edit).
+1. Przejdź do strony weryfikacji tożsamości.
 1. Wprowadź wymagane informacje i wybierz pozycję **提交** (Prześlij).
 
 ### <a name="register-a-weibo-application"></a>Rejestrowanie aplikacji Weibo
 
-1. Przejdź do [strony Nowa rejestracja aplikacji Weibo](https://open.weibo.com/apps/new).
+1. Przejdź do strony Nowa rejestracja aplikacji Weibo.
 1. Wprowadź wymagane informacje o aplikacji.
 1. Wybierz pozycję **创建** (Utwórz).
 1. Skopiuj wartości **klucza aplikacji** i **wpisu tajnego aplikacji**. Musisz mieć oba te elementy, aby dodać dostawcę tożsamości do dzierżawy.

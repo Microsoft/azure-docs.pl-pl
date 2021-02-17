@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: eba3958ae5dd307b80b04371d3659a129d5acf89
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5a7cfec6acb4cd8735c039f5eab30bac4ccf55b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797865"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556137"
 ---
 # <a name="write-client-app-authentication-code"></a>Napisz kod uwierzytelniania aplikacji klienckiej
 
@@ -117,5 +117,5 @@ Jeśli wyróżnione scenariusze uwierzytelniania powyżej nie obejmują potrzeb 
 Dowiedz się więcej o tym, jak działa zabezpieczenia w usłudze Azure Digital bliźniaczych reprezentacji:
 * [*Koncepcje: zabezpieczenia rozwiązań Digital bliźniaczych reprezentacji na platformie Azure*](concepts-security.md)
 
-Lub teraz, gdy uwierzytelnianie jest skonfigurowane, przejdź do w celu utworzenia modeli w wystąpieniu:
-* [*Instrukcje: Zarządzanie modelami niestandardowymi*](how-to-manage-model.md)
+Lub teraz, gdy uwierzytelnianie jest skonfigurowane, przejdź do, aby utworzyć modele i zarządzać nimi w wystąpieniu:
+* [*Instrukcje: Zarządzanie modelami DTDL*](how-to-manage-model.md)

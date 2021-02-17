@@ -9,6 +9,7 @@
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie jednostkami wystąpień BareMetal na platformie Azure
+      displayName: 'Azure CLI, az baremetalinstance, az baremetalinstance restart'
       href: baremetal-infrastructure-portal.md
 - name: Dokumentacja
   items:

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 4f3ecb6c9aa4ec200cd1a53b82d7c81a2c8d4dcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953941"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546792"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Szybki Start: Rozpoczynanie pracy z usługą Azure Stack EDGE Pro z procesorem GPU 
 
@@ -64,7 +64,7 @@ Przed wdrożeniem programu upewnij się, że są spełnione następujące wymaga
 10. **Konfigurowanie certyfikatów**: w przypadku zmiany nazwy urządzenia i/lub domeny DNS należy wygenerować certyfikaty lub dodać certyfikaty w celu aktywowania urządzenia. 
 
     - Aby przetestować obciążenia inne niż produkcyjne, użyj [opcji Generuj certyfikaty](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates). 
-    - W przypadku przenoszenia własnych certyfikatów, w tym łańcuchów podpisywania, należy [dodać certyfikaty](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) w odpowiednim formacie. Upewnij się, że najpierw przekaż łańcuch podpisywania. Zobacz [Tworzenie certyfikatów](azure-stack-edge-j-series-create-certificates-tool.md) i [przekazywanie certyfikatów za pośrednictwem lokalnego interfejsu użytkownika](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
+    - W przypadku przenoszenia własnych certyfikatów, w tym łańcuchów podpisywania, należy [dodać certyfikaty](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) w odpowiednim formacie. Upewnij się, że najpierw przekaż łańcuch podpisywania. Zobacz [Tworzenie certyfikatów](azure-stack-edge-gpu-create-certificates-tool.md) i [przekazywanie certyfikatów za pośrednictwem lokalnego interfejsu użytkownika](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
 
 11. **Aktywuj**: Aby uzyskać klucz aktywacji 
 
@@ -73,7 +73,7 @@ Przed wdrożeniem programu upewnij się, że są spełnione następujące wymaga
 
 12. **Konfigurowanie obliczeń**: w Azure Portal przejdź do **omówienia > urządzenie**. Sprawdź, czy urządzenie jest w **trybie online**. W okienku po lewej stronie przejdź do pozycji **obliczenia graniczne > wprowadzenie > Konfigurowanie obliczeń brzegowych > Oblicz**. Podaj istniejącą lub nową usługę IoT Hub i poczekaj około 20 minut na skonfigurowanie obliczeń. Zobacz więcej informacji na temat [samouczka: Konfigurowanie obliczeń na urządzeniu Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md)
 
-Możesz przystąpić do wdrażania obciążeń obliczeniowych na urządzeniu [za pośrednictwem IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [za pośrednictwem `kubectl` ](azure-stack-edge-gpu-create-kubernetes-cluster.md) lub [za pośrednictwem usługi Azure Arc Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Jeśli podczas instalacji wystąpią jakiekolwiek problemy, przejdź do obszaru [Rozwiązywanie]()problemów z urządzeniami, [zamawianie](azure-stack-edge-gpu-troubleshoot.md)problemów, [problemy z certyfikatami](azure-stack-edge-j-series-certificate-troubleshooting.md)lub problemy z Kubernetes. 
+Możesz przystąpić do wdrażania obciążeń obliczeniowych na urządzeniu [za pośrednictwem IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [za pośrednictwem `kubectl` ](azure-stack-edge-gpu-create-kubernetes-cluster.md) lub [za pośrednictwem usługi Azure Arc Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Jeśli podczas instalacji wystąpią jakiekolwiek problemy, przejdź do obszaru [Rozwiązywanie]()problemów z urządzeniami, [zamawianie](azure-stack-edge-gpu-troubleshoot.md)problemów, [problemy z certyfikatami](azure-stack-edge-gpu-certificate-troubleshooting.md)lub problemy z Kubernetes. 
 
 ## <a name="next-steps"></a>Następne kroki
 

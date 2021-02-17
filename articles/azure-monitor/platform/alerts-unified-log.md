@@ -4,14 +4,14 @@ description: Wyzwalaj wiadomości e-mail, powiadomienia, wywołaj adresy URL wit
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 5/31/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 0f81dd14988b069931bddf5f5636cb1bab426641
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857430"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544872"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
 
@@ -51,7 +51,7 @@ Zapytanie [log Analytics](../log-query/log-analytics-tutorial.md) używane do ob
 - Wiele zasobów przy użyciu [zapytania między zasobami](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
-> Zapytania alertów mają ograniczenia, aby zapewnić optymalną wydajność i znaczenie wyników. [Dowiedz się więcej tutaj](./alerts-log-query.md).
+> Zapytania alertów mają ograniczenia, aby zapewnić optymalną wydajność i znaczenie wyników. [Więcej informacji można znaleźć tutaj](./alerts-log-query.md).
 
 > [!IMPORTANT]
 > Zamiar zasobów i [zapytania między zasobami](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) są obsługiwane tylko przy użyciu bieżącego interfejsu API scheduledQueryRules. W przypadku korzystania z starszego [interfejsu API log Analytics alertów](api-alerts.md)należy przełączyć. [Dowiedz się więcej o przełączaniu](./alerts-log-api-switch.md)
@@ -64,7 +64,7 @@ Podobnie jak w przypadku usługi log Analytics, zakres czasu ogranicza dane zapy
 
 Na przykład zapytanie skanuje 60 minut, gdy zakres czasu wynosi 60 minut, nawet jeśli tekst zawiera **temu (1D)**. Zakres czasu i filtrowanie czasu zapytania muszą być zgodne. W przykładzie w przypadku zmiany **okresu**  /  **przesłonięcia zapytania** do jednego dnia program będzie działał zgodnie z oczekiwaniami.
 
-### <a name="measure"></a>Miara
+### <a name="measure"></a>Measure
 
 Alerty dziennika umożliwiają logowanie do wartości liczbowych, które można ocenić. Można mierzyć dwie różne rzeczy:
 

@@ -7,23 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/23/2021
-ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/15/2021
+ms.openlocfilehash: 3be043af7b057c47f360ce36db6bb7c3afd80638
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746700"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535352"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
 [Azure wyszukiwanie poznawcze](search-what-is-azure-search.md) to zasób platformy Azure używany do dodawania obsługi wyszukiwania pełnotekstowego do aplikacji niestandardowych. Można łatwo zintegrować ją z innymi usługami platformy Azure, które zapewniają dane lub dodatkowe przetwarzanie, z aplikacjami na serwerach sieciowych lub z oprogramowaniem działającym na innych platformach w chmurze.
 
-W tym artykule dowiesz się, jak utworzyć usługę wyszukiwania w [Azure Portal](https://portal.azure.com/).
+Usługę wyszukiwania można utworzyć przy użyciu [Azure Portal](https://portal.azure.com/)omówionej w tym artykule. Możesz również użyć [Azure PowerShell](search-manage-powershell.md), [interfejsu wiersza polecenia platformy Azure](/cli/azure/search)lub [szablonu usługi Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
 [![Animowany plik GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
-
-Preferujesz program PowerShell? Użyj [szablonu usługi](https://azure.microsoft.com/resources/templates/101-azure-search-create/) Azure Resource Manager. Aby uzyskać pomoc dotyczącą rozpoczynania pracy, zobacz [Zarządzanie usługą Azure wyszukiwanie poznawcze przy użyciu programu PowerShell](search-manage-powershell.md).
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -136,9 +134,9 @@ Klucz i punkt końcowy nie są wymagane do zadań wykonywanych w portalu. Portal
 
 Po aprowizacji usługi można ją skalować stosownie do potrzeb. W przypadku wybrania warstwy Standardowa usługi Azure Wyszukiwanie poznawcze można skalować usługę w dwóch wymiarach: Replicas i partitions. Wybór warstwy podstawowej oznaczałby, że można dodawać wyłącznie repliki. W razie aprowizacji bezpłatnej usługi skalowanie nie jest dostępne.
 
-**_Partycje_* _ pozwalają usłudze na przechowywanie i wyszukiwanie więcej dokumentów.
+***Partycje*** umożliwiają usłudze przechowywanie i przeszukiwanie większej liczby dokumentów.
 
-_*_Repliki_*_ umożliwiają usłudze obsługę wyższego obciążenia zapytań wyszukiwania.
+***Repliki*** umożliwiają usłudze obsługę większego obciążenia zapytaniami wyszukiwania.
 
 Dodawanie zasobów wiąże się z dodaniem opłat do rachunku miesięcznego. [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/) pomaga w określeniu, jaki wpływ na rozliczenia będzie miało dodanie zasobów. Pamiętaj, że możesz też dostosowywać zasoby do obciążenia. Możesz na przykład zwiększyć ilość zasobów na czas początkowego tworzenia pełnego indeksu, a następnie zmniejszyć ją do poziomu dostosowanego do potrzeb indeksowania przyrostowego.
 
@@ -146,7 +144,7 @@ Dodawanie zasobów wiąże się z dodaniem opłat do rachunku miesięcznego. [Ka
 > Usługa musi mieć [2 repliki w ramach umowy SLA tylko do odczytu oraz 3 repliki w ramach umowy SLA do odczytu/zapisu](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Przejdź do strony usługi wyszukiwania w witrynie Azure Portal.
-2. W okienku nawigacji po lewej stronie wybierz pozycję _ *Ustawienia** > **skalowanie**.
+2. W okienku nawigacji po lewej stronie wybierz pozycję **Ustawienia**  >  **Skala**.
 3. Użyj suwaka, aby dodać zasoby wybranego typu.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Dodawanie pojemności przy użyciu replik i partycji" border="false":::

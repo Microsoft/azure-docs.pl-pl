@@ -9,12 +9,12 @@ ms.topic: sample
 ms.service: virtual-machines
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2fdb968d5bc8b13dad995b30942ce9beb67e37e7
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: e70284a3a89c30d0f1d1363a15652449a6a1d4f5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99580806"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558091"
 ---
 # <a name="move-a-marketplace-azure-virtual-machine-to-another-subscription"></a>Przenoszenie maszyny wirtualnej platformy Azure w portalu Marketplace do innej subskrypcji
 
@@ -144,4 +144,4 @@ az group delete --name $destinationResourceGroup --subscription $destinationSubs
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przenoszenie maszyn wirtualnych do innego regionu platformy Azure](../site-recovery/azure-to-azure-tutorial-migrate.md)
-- [Przenoszenie maszyny wirtualnej do innej subskrypcji lub grupy zasobów](/linux/move-vm.md)
+- [Przenoszenie maszyny wirtualnej do innej subskrypcji lub grupy zasobów](./linux/move-vm.md)

@@ -1,17 +1,17 @@
 ---
 title: Symulowanie błędów w mikrousługach platformy Azure
 description: W tym artykule omówiono akcje dotyczące testowania, które znajdują się w Microsoft Azure Service Fabric.
-author: motanv
+author: georgewallace
 ms.topic: conceptual
 ms.date: 06/07/2017
-ms.author: motanv
+ms.author: gwallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea918f75ad9c8aa58b5201d2fdd967794085438
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022177"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547081"
 ---
 # <a name="testability-actions"></a>Akcje dotyczące testowania
 W celu zasymulowania niezawodnej infrastruktury usługa Azure Service Fabric zapewnia deweloperom sposoby symulowania różnych rzeczywistych awarii i przejść do stanu. Są one dostępne jako akcje testowania. Akcje są interfejsami API niskiego poziomu, które powodują konkretną iniekcję błędów, zmianę stanu lub weryfikację. Łącząc te akcje, można napisać kompleksowe scenariusze testów dla usług.
