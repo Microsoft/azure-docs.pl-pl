@@ -2,18 +2,18 @@
 title: Szybki Start — Dodawanie rozmowy głosowej do aplikacji
 titleSuffix: An Azure Communication Services quickstart
 description: W tym przewodniku szybki start dowiesz się, jak dodać możliwości wywoływania do aplikacji przy użyciu usług Azure Communications Services.
-author: matthewrobertson
-ms.author: marobert
+author: GrantMeStrength
+ms.author: jken
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: e9f552d6be897b5d9fd462e9168b61fc0b934987
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 419997bf06dd951092661903f5a06ca86538de4f
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761984"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548504"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>Szybki Start: Dodawanie połączenia głosowego do aplikacji
 

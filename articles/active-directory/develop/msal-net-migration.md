@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 2b8577af2c8a6296ae6f4f090e8ff233e51ee6fb
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 64107c3f667dd7e59fcf6d191e83457029b3a277
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583929"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546350"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrowanie aplikacji do MSAL.NET
 
@@ -59,7 +59,7 @@ Możliwe jest również, że w MSAL.NET dostęp do zasobów w wersji 1.0. Zobacz
 
 - ADAL.NET używa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) jako reprezentacji połączenia z usługą tokenu zabezpieczającego (STS) lub serwerem autoryzacji za pośrednictwem urzędu. W przeciwieństwie do MSAL.NET jest przeznaczony dla [aplikacji klienckich](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Oferuje dwie osobne klasy: `PublicClientApplication` i `ConfidentialClientApplication`
 
-- Uzyskiwanie tokenów: ADAL.NET i MSAL.NET mają takie same wywołania uwierzytelniania ( `AcquireTokenAsync` oraz  `AcquireTokenSilentAsync` dla ADAL.NET, i `AcquireTokenInteractive` i `AcquireTokenSilent` w MSAL.NET), ale z innymi wymaganymi parametrami. Jedną z różnic jest fakt, że w MSAL.NET nie jest już konieczne przekazywanie `ClientID` aplikacji w każdym AcquireTokenXXym wywołaniu. Rzeczywiście, `ClientID` jest ustawiana tylko raz podczas kompilowania ( `IPublicClientApplication` lub `IConfidentialClientApplication` ).
+- Uzyskiwanie tokenów: ADAL.NET i MSAL.NET mają takie same wywołania uwierzytelniania ( `AcquireTokenAsync` oraz `AcquireTokenSilentAsync` dla ADAL.NET, i `AcquireTokenInteractive` i `AcquireTokenSilent` w MSAL.NET), ale z innymi wymaganymi parametrami. Jedną z różnic jest fakt, że w MSAL.NET nie jest już konieczne przekazywanie `ClientID` aplikacji w każdym AcquireTokenXXym wywołaniu. Rzeczywiście, `ClientID` jest ustawiana tylko raz podczas kompilowania ( `IPublicClientApplication` lub `IConfidentialClientApplication` ).
 
 ### <a name="iaccount-not-iuser"></a>IAccount nie IUser
 
@@ -170,7 +170,7 @@ Jeśli chcesz uzyskać tokeny dla aplikacji akceptującej tokeny w wersji 1.0 (n
 Aby na przykład uzyskać dostęp do nazwy użytkownika interfejsu API sieci Web w wersji 1.0, który ma identyfikator URI aplikacji `ResourceId` , należy użyć:
 
 ```csharp
-var scopes = new [] {  ResourceId+"/user_impersonation"};
+var scopes = new [] { ResourceId+"/user_impersonation" };
 ```
 
 Jeśli chcesz odczytywać i zapisywać MSAL.NET Azure Active Directory przy użyciu interfejsu API Microsoft Graph ( https://graph.microsoft.com/) można utworzyć listę zakresów, jak w poniższym fragmencie kodu:
@@ -205,7 +205,7 @@ Na przykład jeśli chcesz uzyskać token dla wszystkich zakresów statycznych a
 
 ```csharp
 ResourceId = "someAppIDURI";
-var scopes = new [] {  ResourceId+"/.default"};
+var scopes = new [] { ResourceId+"/.default" };
 ```
 
 ### <a name="scopes-to-request-in-the-case-of-client-credential-flow--daemon-app"></a>Zakresy do żądania w przypadku aplikacji przepływ poświadczeń klienta/demon

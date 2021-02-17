@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593641"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559458"
 ---
-# <a name="call-flows"></a>Przepływy połączenia
+# <a name="call-flow-basics"></a>Podstawowe informacje o przepływie wywołań
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -76,6 +76,14 @@ Jeśli Biblioteka klienta nie może używać protokołu UDP dla multimediów z p
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram przedstawiający przepływ procesu multimediów TCP w ramach usług komunikacyjnych.":::
 
+### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Przypadek 5: Biblioteka klienta usług komunikacyjnych i zespół firmy Microsoft w zaplanowanym spotkaniu zespołów
+
+Sygnalizowanie przepływów przez kontroler sygnalizujący. Nośniki są przesyłane przez procesor multimediów. Kontroler sygnalizujący i procesor nośników są współużytkowane przez usługi komunikacyjne i Microsoft Teams. 
+
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagram przedstawiający bibliotekę klienta usług komunikacyjnych i klienta zespołów w zaplanowanym spotkaniu zespołów.":::
+
+
+
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
@@ -85,3 +93,4 @@ Następujące dokumenty mogą być interesujące:
 
 - Dowiedz się więcej o [typach wywołań](../concepts/voice-video-calling/about-call-types.md)
 - Informacje o [architekturze klient-serwer](./client-and-server-architecture.md)
+- Informacje o [topologii przepływu wywołań](./detailed-call-flows.md)

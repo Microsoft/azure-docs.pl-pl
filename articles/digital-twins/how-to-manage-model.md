@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie modelami niestandardowymi
+title: Zarządzanie modelami DTDL
 titleSuffix: Azure Digital Twins
 description: Zobacz jak tworzyć, edytować i usuwać model w usłudze Azure Digital bliźniaczych reprezentacji.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c193565035435b29f77177086c535fae0903ccd4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: be8f4ba8552521d25992d7c3a405dc2628fbbb85
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737782"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560819"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 

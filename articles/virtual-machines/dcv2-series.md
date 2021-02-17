@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fecd707d96b03eef4f093c0b256e32f11bb8a3f7
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 84987b12657a37264d3a1ca67fdc423ed8085662
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095860"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557907"
 ---
 # <a name="dcsv2-series"></a>Seria DCsv2
 
@@ -21,15 +21,15 @@ Seria DCsv2 może pomóc w ochronie poufności i integralności danych oraz kodu
 
 Przykładowe przypadki użycia obejmują: poufne udostępnianie danych wieloczęściowych, wykrywanie oszustw, pranie antypieniężne, łańcucha bloków, poufne analizy użycia, analizę analizy oraz poufne Uczenie maszynowe.
 
-[Premium Storage](premium-storage-performance.md): obsługiwane *<br>
-[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
-[Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
-[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 2<br>
-[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
+[Premium Storage](premium-storage-performance.md): obsługiwane *<br> 
+ [buforowanie Premium Storage](premium-storage-performance.md): obsługiwane <br> 
+ [migracja na żywo](maintenance-and-updates.md): nieobsługiwane <br> 
+ [Aktualizacje pamięci](maintenance-and-updates.md): nieobsługiwana <br> 
+ [Obsługa generacji maszyny wirtualnej](generation-2.md): <br> 
+ [przyspieszona sieć](../virtual-network/create-vm-accelerated-networking-cli.md)generacji 2: obsługiwane (* wymaga co najmniej 4 vCPU *) <br>
 [Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): obsługiwane <br>
 
-* Z wyjątkiem Standard_DC8_v2
+* Z wyjątkiem Standard_DC8_v2 <br>
 
 | Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) | Pamięć EPC (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

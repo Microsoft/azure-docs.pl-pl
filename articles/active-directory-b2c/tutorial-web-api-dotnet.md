@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ada4226500437e7733605a29988ee7cacae40761
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 84bf0ddd194cd59a7e728c0c50dbe3cbad2afa4a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994326"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555644"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Samouczek: udzielanie dostępu do interfejsu API sieci Web ASP.NET przy użyciu Azure Active Directory B2C
 
@@ -166,4 +166,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Konfigurowanie przykładu korzystania z aplikacji
 
 > [!div class="nextstepaction"]
-> [Samouczek: Dodawanie dostawców tożsamości do aplikacji w Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Dodawanie dostawców tożsamości do aplikacji w Azure Active Directory B2C](add-identity-provider.md)

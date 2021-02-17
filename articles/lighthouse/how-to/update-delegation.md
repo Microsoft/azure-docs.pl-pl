@@ -1,14 +1,14 @@
 ---
 title: Aktualizowanie delegacji
 description: Dowiedz się, jak zaktualizować delegowanie dla klienta, który został wcześniej dołączony do usługi Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791343"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555765"
 ---
 # <a name="update-a-delegation"></a>Aktualizowanie delegacji
 
@@ -48,7 +48,7 @@ Jeśli aktualizujesz ofertę, aby dostosować tylko autoryzacje i zachować te s
 Usuwanie dostępu do delegowania może odbywać się przez dowolnego użytkownika w dzierżawie zarządzającej, który udzielił [roli usuwanie przypisania rejestracji usług zarządzanych](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) w ramach oryginalnego delegowania. Jeśli żaden użytkownik w dzierżawie nie ma tej roli, możesz polecić klientowi [usunięcie dostępu do oferty w Azure Portal](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 > [!TIP]
-> Jeśli poprzednie delegowanie zostało usunięte zgodnie z powyższymi krokami i nadal nie można wdrożyć nowego szablonu ARM, może być konieczne [całkowite usunięcie definicji rejestracji](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Można to zrobić przez dowolnego użytkownika z rolą właściciela w dzierżawie klienta.  
+> Jeśli poprzednie delegowanie zostało usunięte zgodnie z powyższymi krokami i nadal nie można wdrożyć nowego szablonu ARM, może być konieczne [całkowite usunięcie definicji rejestracji](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Można to zrobić przez dowolnego użytkownika z rolą, która ma `Microsoft.Authorization/roleAssignments/write` uprawnienie, takie jak [właściciel](../../role-based-access-control/built-in-roles.md#owner), w dzierżawie klienta.  
 
 ## <a name="deploy-the-arm-template"></a>Wdrażanie szablonu usługi ARM
 

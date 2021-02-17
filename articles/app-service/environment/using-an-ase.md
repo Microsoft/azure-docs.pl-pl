@@ -4,15 +4,15 @@ description: Dowiedz się, jak tworzyć, publikować i skalować aplikacje w App
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 5/10/2020
+ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4653419d974db2e597111487c64682c75ffc40b
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: e8cc42500b9d8bfc507683b5cc96c7b12f95909b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826004"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548458"
 ---
 # <a name="use-an-app-service-environment"></a>Używanie środowiska usługi App Service
 
@@ -161,7 +161,7 @@ Bez dodatkowych zmian internetowe systemy CI, takie jak GitHub i Azure DevOps, n
 
 Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Zobaczysz ją w profilu publikowania aplikacji i w okienku portalu aplikacji (w temacie **Omówienie**  >  **podstawowe** i również w obszarze **Właściwości**).
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Środowisko ASE ma 1 TB magazynu dla wszystkich aplikacji w środowisku ASE. Plan App Service w odizolowanej cenie SKU ma limit wynoszący 250 GB. W środowisku ASE 250 GB miejsca do magazynowania jest dodawane App Service planowanie do limitu 1 TB. Możesz mieć więcej App Service planów niż tylko cztery, ale nie Dodaliśmy więcej miejsca poza limit 1 TB.
 
@@ -169,7 +169,7 @@ Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modu
 
 Możesz zintegrować środowisko ASE z Azure Monitor, aby wysyłać dzienniki dotyczące środowiska ASE do usługi Azure Storage, Azure Event Hubs lub Log Analytics. Te elementy są rejestrowane Dzisiaj:
 
-| Istniał | Wiadomość |
+| Istniał | Komunikat |
 |---------|----------|
 | Środowisko ASE jest w złej kondycji | Określony środowisko ASE jest w złej kondycji ze względu na nieprawidłową konfigurację sieci wirtualnej. Środowisko ASE zostanie zawieszone w przypadku kontynuowania stanu złej kondycji. Upewnij się, że zostały wykonane następujące wytyczne: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | Za mało miejsca w podsieci ASE | Określone środowisko ASE znajduje się w podsieci, która jest w prawie nieprawidłowym miejscu. Istnieją {0} adresy. Po wyczerpaniu tych adresów środowisko ASE nie będzie w stanie skalować.  |
@@ -218,7 +218,7 @@ Jeśli używasz programu https://resources.azure.com , wykonaj następujące kro
 1. Przejdź do resources.azure.com i zaloguj się przy użyciu konta platformy Azure.
 1. Zapoznaj się z tematem Resources for subscriptions \/ \[ name \] \/ resourceGroups nazwa \/ \[ grupy zasobów \] \/ providers \/ Microsoft. Web \/ hostingEnvironments \/ \[ ASE Name \] .
 1. Na górze wybierz pozycję **Odczyt/zapis** .
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 1. Ustaw **upgradePreference** na jedną z trzech wartości, które chcesz.
 1. Wybierz pozycję **poprawka**.
 
@@ -250,7 +250,7 @@ Aby usunąć środowisko ASE:
 
     ![Usuwanie środowiska ASE][3]
 
-1. Wybierz pozycję **OK**.
+1. Wybierz przycisk **OK**.
 
 ## <a name="ase-cli"></a>INTERFEJS WIERSZA POLECENIA ŚRODOWISKA ASE
 

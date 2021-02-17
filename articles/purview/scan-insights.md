@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 00f72e1de230cdc68f86010b7b25d86debaa5eb5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 7807659a30127f39bb79ad99bdb733c12eb1d25d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575792"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548695"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Skanuj szczegółowe dane na platformie Azure kontrolą
 
@@ -37,7 +37,7 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie źródłami danych w usłu
 
 W usłudze Azure kontrolą można rejestrować i skanować typy źródłowe. Możesz wyświetlić stan skanowania w czasie w usłudze skanowania szczegółowych informacji. Szczegółowe informacje informują o tym, jak wiele skanów zakończyło się niepowodzeniem, powiodło się lub anulowane w określonym przedziale czasu.
 
-### <a name="view-scan-insights"></a>Wyświetl szczegółowe informacje o skanowaniu
+### <a name="view-scan-insights"></a>Wyświetlanie analiz skanowania
 
 1. Przejdź do ekranu wystąpienia **usługi Azure kontrolą** w Azure Portal i wybierz swoje konto kontrolą.
 
@@ -51,15 +51,27 @@ W usłudze Azure kontrolą można rejestrować i skanować typy źródłowe. Mo�
 
 1. W obszarze usługi **Insights** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false"::: Wybierz pozycję **skany** , aby wyświetlić raport kontrolą **Scan Insights** .
 
-### <a name="view-high-level-kpis-to-show-count-of-scans-by-status"></a>Wyświetlanie kluczowych wskaźników wydajności do wyświetlania liczby skanów według stanu
+### <a name="view-high-level-kpis-to-show-count-of-scans-by-status-and-deep-dive-into-each-scan"></a>Wyświetl kluczowe wskaźniki wydajności, aby pokazać liczbę skanów według stanu i głębokiego szczegółowe w każdym skanowaniu
  
-Wskaźniki KPI wysokiego poziomu pokazują łączne uruchomienia skanowania w danym okresie. Czas jest domyślnie określony w ciągu ostatnich 30 dni. Można jednak wybrać również opcję ostatnich siedmiu dni. W oparciu o filtr czasu wartości wskaźnika KPI odzwierciedlają odpowiednio liczbę skanów.
+1. Wskaźniki KPI wysokiego poziomu pokazują łączne uruchomienia skanowania w danym okresie. Czas jest domyślnie określony w ciągu ostatnich 30 dni. Można jednak wybrać również opcję ostatnich siedmiu dni. W oparciu o filtr czasu wartości wskaźnika KPI odzwierciedlają odpowiednio liczbę skanów.
 
 
-W oparciu o wybraną wartość filtru czasu można zobaczyć rozkład udanych, niepowodzeniem i anulowanych skanów według tygodnia lub według dnia na wykresie.
+1. W oparciu o wybraną wartość filtru czasu można zobaczyć rozkład udanych, niepowodzeniem i anulowanych skanów według tygodnia lub według dnia na wykresie.
 
-   :::image type="content" source="./media/scan-insights/scan-insights.png" alt-text="Wyświetl szczegółowe informacje o skanowaniu":::
+1. W dolnej części wykresu znajduje się link **Wyświetl więcej** , aby dowiedzieć się więcej. Link spowoduje otwarcie strony  **stanu skanowania** w ramach funkcji Skanuj szczegółowe dane. W tym miejscu możesz zobaczyć nazwę skanowania i liczbę wystąpień zakończonych powodzeniem, Niepowodzenie lub anulowane w ciągu ostatnich 30 dni.
+
+    :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="Wyświetl stan skanowania w czasie":::
+
+4. Aby bardziej szczegółowo zapoznać się z konkretnym skanem, kliknij **nazwę skanowania** , która spowoduje połączenie z historią skanowania w ramach środowiska ze **źródłami** platformy Azure kontrolą. Na stronie Historia uruchamiania można uzyskać identyfikator uruchomienia, który pomoże w dalszej analizie niepowodzeń.
+
+    :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="Wyświetl szczegóły skanowania":::
+
+5. Na koniec możesz wrócić do strony Skanuj szczegółowe informacje o **stanie skanowania** , wykonując następujące czynności: chleb Crumbs w lewym górnym rogu strony historia uruchamiania.
+
+    :::image type="content" source="./media/scan-insights/scan-history.png" alt-text="Wyświetl historię skanowania"::: 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o raportach usługi Azure kontrolą Insights ze [szczegółowymi informacjami o zasobach](./asset-insights.md)
+* Dowiedz się więcej o usłudze Azure kontrolą **Insights** za pomocą [szczegółowych](./concept-insights.md) informacji
+
+* Dowiedz się więcej na temat **środowiska usługi** Azure kontrolą w zakresie [zarządzania źródłami danych](./manage-data-sources.md)

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: a7937745e839b54d9ee7b6f056d10ff627e191d3
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 54aca389ea56594b004212c1479d5cc2568a2527
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327335"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560890"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>Samouczek: Konfigurowanie bastionu i nawiązywanie połączenia z maszyną wirtualną z systemem Windows za pomocą przeglądarki
 
@@ -47,8 +47,8 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 Ta sekcja pomaga utworzyć obiekt bastionu w sieci wirtualnej. Jest to wymagane w celu utworzenia bezpiecznego połączenia z maszyną wirtualną w sieci wirtualnej.
 
 1. Na stronie **głównej** wybierz pozycję **+ Utwórz zasób**.
-1. Na **nowej** stronie w polu wyszukiwania wpisz **bastionu**, a następnie wybierz **klawisz ENTER** , aby przejść do wyników wyszukiwania. W wyniku **bastionu**upewnij się, że Wydawca jest firmą Microsoft.
-1. Wybierz pozycję **Utwórz**.
+1. Na **nowej** stronie w polu wyszukiwania wpisz **bastionu**, a następnie wybierz **klawisz ENTER** , aby przejść do wyników wyszukiwania. W wyniku **bastionu** upewnij się, że Wydawca jest firmą Microsoft.
+1. Wybierz przycisk **Utwórz**.
 1. Na stronie **Tworzenie bastionu** Skonfiguruj nowy zasób bastionu.
 
    :::image type="content" source="./media/tutorial-create-host-portal/bastion-basics.png" alt-text="Tworzenie hosta usługi Bastion" lightbox="./media/tutorial-create-host-portal/bastion-basics.png":::
@@ -64,13 +64,13 @@ Ta sekcja pomaga utworzyć obiekt bastionu w sieci wirtualnej. Jest to wymagane 
          * Podsieć musi mieć co najmniej/27 lub większą.
 
       Nie musisz wypełniać dodatkowych pól. Wybierz pozycję **OK** , a następnie w górnej części strony wybierz pozycję **Utwórz bastionu** , aby powrócić do strony Konfiguracja bastionu.
-    * **Publiczny adres IP**: publiczny IP zasobu bastionu, w którym będzie dostępny protokół RDP/SSH (za pośrednictwem portu 443). Utwórz nowy publiczny adres IP. Publiczny adres IP musi znajdować się w tym samym regionie co tworzony zasób bastionu. Ten adres IP nie ma nic robić z żadną z maszyn wirtualnych, z którymi chcesz się połączyć. Jest to publiczny adres IP dla zasobu hosta bastionu.
+    * **Publiczny adres IP**: publiczny IP zasobu bastionu, w którym będzie dostępny protokół RDP/SSH (za pośrednictwem portu 443). Utwórz nowy publiczny adres IP. Publiczny adres IP musi znajdować się w tym samym regionie co tworzony zasób bastionu. Ten adres IP nie ma niczego do wykonania z dowolnymi maszynami wirtualnymi, z którymi chcesz nawiązać połączenie. Jest to publiczny adres IP dla zasobu hosta bastionu.
     * **Nazwa publicznego adresu IP**: nazwa zasobu publicznego adresu IP. W tym samouczku można pozostawić wartość domyślną.
     * **Jednostka SKU publicznego adresu IP**: to ustawienie jest wstępnie wypełniane domyślnie **standardem**. Usługa Azure bastionu używa/obsługuje tylko w przypadku standardowej jednostki SKU publicznego adresu IP.
     * **Przypisanie**: to ustawienie jest wstępnie wypełniane domyślnie **statycznie**.
 
 1. Po zakończeniu określania ustawień wybierz pozycję **Przegląd + Utwórz**. Spowoduje to zweryfikowanie wartości. Po zakończeniu walidacji można utworzyć zasób bastionu.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. Utworzenie i wdrożenie zasobu bastionu trwa około 5 minut.
 
 ## <a name="connect-to-a-vm"></a>Łączenie z maszyną wirtualną
