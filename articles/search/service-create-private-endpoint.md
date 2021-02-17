@@ -3,17 +3,17 @@ title: Utwórz prywatny punkt końcowy dla bezpiecznego połączenia
 titleSuffix: Azure Cognitive Search
 description: Skonfiguruj prywatny punkt końcowy w sieci wirtualnej w celu nawiązania bezpiecznego połączenia z usługą Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 02/16/2021
+ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779944"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545534"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Utwórz prywatny punkt końcowy dla bezpiecznego połączenia z platformą Azure Wyszukiwanie poznawcze
 
@@ -21,8 +21,10 @@ W tym artykule opisano Azure Portal tworzenia nowego wystąpienia usługi Azure 
 
 Prywatne punkty końcowe są udostępniane przez [łącze prywatne platformy Azure](../private-link/private-link-overview.md)jako oddzielna usługa. Aby uzyskać więcej informacji o kosztach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/private-link/).
 
-> [!Important]
-> Obsługę prywatnego punktu końcowego dla usługi Azure Wyszukiwanie poznawcze można skonfigurować przy użyciu Azure Portal lub [interfejsu API REST zarządzania w wersji 2020-03-13](/rest/api/searchmanagement/). Gdy punkt końcowy usługi jest prywatny, niektóre funkcje portalu są wyłączone. Będziesz mieć możliwość wyświetlania informacji o poziomie usług i zarządzania nimi, ale dostęp portalu do danych indeksu i różne składniki usługi, takie jak indeks, indeksator i definicje zestawu umiejętności, są ograniczone ze względów bezpieczeństwa. Jako alternatywę dla portalu można użyć [rozszerzenia vs Code](https://aka.ms/vscode-search) , aby korzystać z różnych składników usługi.
+Możesz utworzyć prywatny punkt końcowy w Azure Portal, zgodnie z opisem w tym artykule. Alternatywnie możesz użyć [interfejsu API REST zarządzania w wersji 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search)lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/search).
+
+> [!NOTE]
+> Gdy punkt końcowy usługi jest prywatny, niektóre funkcje portalu są wyłączone. Można wyświetlać i zarządzać informacjami o poziomie usług, ale informacje dotyczące indeksowania, indeksatora i zestawu umiejętności są ukryte ze względów bezpieczeństwa. Jako alternatywę dla portalu można użyć [rozszerzenia vs Code](https://aka.ms/vscode-search) , aby korzystać z różnych składników usługi.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Dlaczego należy używać prywatnego punktu końcowego na potrzeby bezpiecznego dostępu?
 
@@ -123,7 +125,7 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region (Region) | Wybierz pozycję **zachodnie stany USA** lub region, którego używasz. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw domyślną wartość **Standard DS1 v2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -218,7 +220,7 @@ Gdy punkt końcowy usługi wyszukiwania jest prywatny, niektóre funkcje portalu
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 Gdy skończysz korzystać z prywatnego punktu końcowego, usługi wyszukiwania i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
-1. Wprowadź  *myResourceGroup*   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów  *myResourceGroup*   z wyników wyszukiwania. 
+1. Wprowadź  **   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów  **   z wyników wyszukiwania. 
 1. Wybierz pozycję **Usuń grupę zasobów**. 
 1. Wprowadź wartość  *Webresourcename*   **, aby wpisać nazwę grupy zasobów** , a następnie wybierz pozycję **Usuń**.
 

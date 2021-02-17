@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 2b6685952aee1c8600321070794f001e0881604b
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: d37b39f596a9986f001663847e0b8e6ae8adb987
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535216"
+ms.locfileid: "100545517"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -24,7 +24,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Opis | Dostępność  |
 |------------------------------|---------------|---------------|
 | [Resetuj dokumenty (wersja zapoznawcza)](search-howto-run-reset-indexers.md) |  Przetwarza ponownie pojedyncze wybrane dokumenty wyszukiwania w obciążeniach indeksatora. | [Search 2020-06-30 API REST — wersja zapoznawcza](/rest/api/searchservice/index-preview) |
-| [Strefy dostępności](search-performance-optimization.md#availability-zones)| Usługi wyszukiwania z co najmniej dwiema replikami w określonych regionach, jak opisano w [tym artykule](search-performance-optimization.md#availability-zones), mają odporność na awarie w dwóch lub większej liczbie odrębnych lokalizacji fizycznych.  | Aby określić dostępność, region i Data tworzenia usługi wyszukiwania. Aby uzyskać szczegółowe informacje, zobacz dokument dostrajania wydajności. |
+| [Strefy dostępności](search-performance-optimization.md#availability-zones)| Usługi wyszukiwania z co najmniej dwiema replikami w niektórych regionach, jak wymieniono w obszarze [skalowanie pod kątem wydajności, zapewnianie](search-performance-optimization.md#availability-zones)odporności przez posiadanie replik w dwóch lub większej liczbie różnych lokalizacji fizycznych.  | Aby określić dostępność, region i Data tworzenia usługi wyszukiwania. Szczegółowe informacje znajdują się w artykule skalowanie do wydajności. |
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 

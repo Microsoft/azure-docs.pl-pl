@@ -8,14 +8,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 3804bfb2a269c431b1a00947f5c7613566a78f49
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: acb121bb00df481c926ebed9594bf0fe1b9b17ed
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377509"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546639"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Samouczek: bezpieczne wprowadzanie nieprzerwanych zmian interfejsu API
 Gdy interfejs API jest gotowy i zaczyna być używany przez deweloperów, zazwyczaj musisz wprowadzać zmiany w tym interfejsie API i jednocześnie nie zakłócać pracy wywołującym interfejs API. Ponadto warto poinformować deweloperów o wprowadzanych zmianach. 
@@ -24,7 +24,7 @@ Na platformie Azure API Management Użyj *poprawek* , aby wprowadzić niekrytycz
 
 W przypadku programu w tle zobacz [wersje & poprawki](https://azure.microsoft.com/blog/versions-revisions/) i [wersja interfejsu API za pomocą usługi Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Dodawanie nowej poprawki
@@ -51,10 +51,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
    :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-01-add-new-revision.png" alt-text="Dodawanie poprawki interfejsu API":::
 
     > [!TIP]
-    > Możesz również wybrać pozycję **Dodaj poprawkę** w menu kontekstowym ( **...** ) interfejsu API.
+    > Możesz również wybrać pozycję **Dodaj poprawkę** w menu kontekstowym (**...**) interfejsu API.
 
 5. Podaj opis nowej poprawki, aby łatwiej zapamiętać, do czego służy.
-6. Wybierz pozycję **Utwórz** ,
+6. Wybierz pozycję **Utwórz**,
 7. Nowa poprawka zostanie utworzona.
 
     > [!NOTE]
@@ -69,7 +69,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     > [!TIP]
     > Za pomocą selektora poprawek możesz przełączać się pomiędzy poprawkami, nad którymi chcesz pracować.
 1. Wybierz opcję **+ Dodaj operację**.
-1. Ustaw nową operację na **POST** , a nazwę, nazwę wyświetlaną i adres URL operacji na **test**.
+1. Ustaw nową operację na **POST**, a nazwę, nazwę wyświetlaną i adres URL operacji na **test**.
 1. **Zapisz** nową operację.
 
    :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-02-make-changes.png" alt-text="Modyfikowanie poprawki":::
@@ -78,14 +78,71 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Ustawianie poprawki jako bieżącej oraz dodawanie wpisu dziennika zmian
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Wybierz kartę **Poprawki** w menu w górnej części strony.
-1. Otwórz menu kontekstowe ( **...** ) dla poprawki **Poprawka 2**.
+1. Otwórz menu kontekstowe (**...**) dla poprawki **Poprawka 2**.
 1. Wybierz pozycję **Ustaw jako bieżącą**.
 1. Zaznacz pole wyboru **Publikuj w publicznym dzienniku zmian tego interfejsu API** , jeśli chcesz opublikować uwagi dotyczące tej zmiany. Podaj opis zmiany, którą widzą deweloperzy, na przykład: **testowanie poprawek. Dodano nową operację "test".**
 1. **Poprawka 2** jest teraz bieżącą poprawką.
 
     :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Menu poprawki w oknie poprawki":::
 
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby rozpocząć korzystanie z interfejsu wiersza polecenia platformy Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Użyj tej procedury, aby utworzyć i zaktualizować wydanie.
+
+1. Uruchom polecenie [AZ APIM API list](/cli/azure/apim/api#az_apim_api_list) , aby wyświetlić identyfikatory interfejsów API:
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+   IDENTYFIKATORem interfejsu API do użycia w następnym poleceniu jest `Name` wartość. Poprawka interfejsu API znajduje się w `ApiRevision` kolumnie.
+
+1. Aby utworzyć wydanie, z uwagą do wersji, uruchom polecenie [AZ APIM API Release Create](/cli/azure/apim/api/release#az_apim_api_release_create) :
+
+   ```azurecli
+   az apim api release create --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --api-revision 2 --service-name apim-hello-world \
+       --notes 'Testing revisions. Added new "test" operation.'
+   ```
+
+   Wersja, którą zwolnisz, jest bieżącą poprawką.
+
+1. Aby wyświetlić swoje wersje, użyj polecenia [AZ APIM API Release list](/cli/azure/apim/api/release#az_apim_api_release_list) :
+
+   ```azurecli
+   az apim api release list --resource-group apim-hello-word-resource-group \
+       --api-id echo-api --service-name apim-hello-world --output table
+   ```
+
+   Określone uwagi są wyświetlane w dziennikach zmian. Są one widoczne w danych wyjściowych poprzedniego polecenia.
+
+1. Gdy tworzysz wydanie, `--notes` parametr jest opcjonalny. Możesz dodać lub zmienić uwagi później za pomocą polecenia [AZ APIM API Release Update](/cli/azure/apim/api/release#az_apim_api_release_update) :
+
+   ```azurecli
+   az apim api release update --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --release-id 00000000000000000000000000000000 \
+       --service-name apim-hello-world --notes "Revised notes."
+   ```
+
+   Użyj wartości w `Name` kolumnie identyfikatora zlecenia.
+
+Możesz usunąć dowolną wersję, uruchamiając polecenie [AZ APIM API Release Delete ](/cli/azure/apim/api/release#az_apim_api_release_delete) :
+
+```azurecli
+az apim api release delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --release-id 00000000000000000000000000000000 
+    --service-name apim-hello-world
+```
+
+---
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Przeglądanie portalu dla deweloperów w celu wyświetlenia zmian i dziennika zmian
 
@@ -93,7 +150,7 @@ Jeśli w [portalu dla deweloperów](api-management-howto-developer-portal-custom
 
 1. W Azure Portal wybierz pozycję **interfejsy API**.
 1. W górnym menu wybierz pozycję **Portal dla deweloperów** .
-1. W portalu dla deweloperów wybierz opcję **interfejsy API** , a następnie wybierz pozycję **interfejs API konferencji demonstracyjnej**.
+1. W portalu dla deweloperów wybierz opcję **interfejsy API**, a następnie wybierz pozycję **interfejs API konferencji demonstracyjnej**.
 1. Zauważ, że nowa operacja **test** jest teraz dostępna.
 1. Wybierz pozycję **Dziennik zmian** obok nazwy interfejsu API.
 1. Zauważ, że na liście pojawia się wpis dziennika zmian.

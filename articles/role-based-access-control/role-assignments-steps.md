@@ -1,5 +1,5 @@
 ---
-title: Procedura dodawania przypisania roli — Azure RBAC
+title: Procedura przypisywania roli platformy Azure — kontrola RBAC na platformie Azure
 description: Zapoznaj się z instrukcjami przypisywania ról platformy Azure użytkownikom, grupom, podmiotom usług lub tożsamościom zarządzanym przy użyciu kontroli dostępu opartej na rolach (Azure RBAC).
 services: active-directory
 author: rolyon
@@ -7,18 +7,18 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 081335779ffc4b3a6ddf09e56b773c6d34b210be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117252"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556041"
 ---
-# <a name="steps-to-add-a-role-assignment"></a>Kroki umożliwiające dodanie przypisania roli
+# <a name="steps-to-assign-an-azure-role"></a>Procedura przypisywania roli platformy Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] W tym artykule opisano procedurę wysokiego poziomu służącą do dodawania przypisania roli przy użyciu [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), interfejsu [wiersza polecenia platformy Azure](role-assignments-cli.md)lub [interfejsu API REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] W tym artykule opisano procedurę wysokiego poziomu służącą do przypisywania ról platformy Azure przy użyciu [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), interfejsu [wiersza polecenia platformy Azure](role-assignments-cli.md)lub [interfejsu API REST](role-assignments-rest.md).
 
 ## <a name="step-1-determine-who-needs-access"></a>Krok 1. Określanie, kto potrzebuje dostępu
 
@@ -79,16 +79,16 @@ Aby przypisać role, należy zalogować się do użytkownika, do którego przypi
 
 Jeśli Twoje konto użytkownika nie ma uprawnień do przypisania roli w ramach subskrypcji, zostanie wyświetlony komunikat o błędzie informujący, że Twoje konto "nie ma autoryzacji do wykonania akcji" Microsoft. Authorization/roleAssignments/Write ". W takim przypadku należy skontaktować się z administratorami subskrypcji, ponieważ mogą oni przypisywać uprawnienia w Twoim imieniu.
 
-## <a name="step-5-add-role-assignment"></a>Krok 5. Dodaj przypisanie roli
+## <a name="step-5-assign-role"></a>Krok 5. Przypisywanie roli
 
-Po poznaniu podmiotu zabezpieczeń, roli i zakresu można przypisać rolę. Przypisania ról można dodawać przy użyciu interfejsów API Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure, zestawów SDK platformy Azure lub protokołu REST. W każdej subskrypcji można korzystać z maksymalnie **2000** przypisań ról. Ten limit obejmuje przypisania ról w ramach subskrypcji, grupy zasobów i zakresów zasobów. W każdej grupie zarządzania może istnieć maksymalnie **500** przypisań ról.
+Po poznaniu podmiotu zabezpieczeń, roli i zakresu można przypisać rolę. Role można przypisywać za pomocą Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure, zestawów SDK platformy Azure lub interfejsów API REST. W każdej subskrypcji można korzystać z maksymalnie **2000** przypisań ról. Ten limit obejmuje przypisania ról w ramach subskrypcji, grupy zasobów i zakresów zasobów. W każdej grupie zarządzania może istnieć maksymalnie **500** przypisań ról.
 
-Zapoznaj się z następującymi artykułami, aby uzyskać szczegółowe instrukcje dotyczące dodawania przypisań ról.
+Zapoznaj się z następującymi artykułami, aby uzyskać szczegółowe instrukcje dotyczące sposobu przypisywania ról.
 
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu programu Azure PowerShell](role-assignments-powershell.md)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-rest.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure PowerShell](role-assignments-powershell.md)
+- [Przypisywanie ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md)
+- [Przypisywanie ról platformy Azure przy użyciu interfejsu API REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

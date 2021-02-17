@@ -1,22 +1,22 @@
 ---
-title: Modele niestandardowe
+title: Modele DTDL
 titleSuffix: Azure Digital Twins
-description: Dowiedz się, jak usługa Azure Digital bliźniaczych reprezentacji używa modeli zdefiniowanych przez użytkownika do opisywania jednostek w danym środowisku.
+description: Dowiedz się, w jaki sposób usługa Azure Digital bliźniaczych reprezentacji używa modeli niestandardowych do opisywania jednostek w środowisku.
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131393"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558143"
 ---
-# <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
+# <a name="understand-twin-models-in-azure-digital-twins"></a>Opis modeli cyfrowej reprezentacji bliźniaczej w usłudze Azure Digital Twins
 
-Kluczową cechą usługi Azure Digital bliźniaczych reprezentacji jest możliwość definiowania własnego słownictwa i tworzenia grafu bliźniaczyego w samodzielnych warunkach firmy. Ta możliwość jest dostępna za poorednictwem **modeli** zdefiniowanych przez użytkownika. Można traktować modele jako rzeczowniki w opisie świata. 
+Kluczową cechą usługi Azure Digital bliźniaczych reprezentacji jest możliwość definiowania własnego słownictwa i tworzenia grafu bliźniaczyego w samodzielnych warunkach firmy. Ta możliwość jest dostępna za poorednictwem **modeli** udostępnianych przez użytkownika. Można traktować modele jako rzeczowniki w opisie świata. 
 
 Model jest podobny do **klasy** w języku programowania zorientowanym obiektowo, definiując kształt danych dla jednej konkretnej koncepcji w rzeczywistym środowisku pracy. Modele mają nazwy (na przykład *pomieszczenie* lub *czujnik temperatury*) i zawierają takie elementy, jak właściwości, dane telemetryczne/zdarzenia i polecenia opisujące, co może zrobić ten typ jednostki w środowisku. Później te modele są używane do tworzenia [**cyfrowych bliźniaczych reprezentacji**](concepts-twins-graph.md) , które reprezentują konkretne jednostki, które spełniają opis tego typu.
 
@@ -24,7 +24,7 @@ Modele bliźniaczych reprezentacji cyfrowych platformy Azure są reprezentowane 
 
 ## <a name="digital-twin-definition-language-dtdl-for-models"></a>Digital bliźniaczy Definition Language (DTDL) for models
 
-Modele dla usługi Azure Digital bliźniaczych reprezentacji są zdefiniowane przy użyciu języka Digital bliźniaczych reprezentacji Definition Language (DTDL). DTDL jest oparta na formacie JSON-LD i nie jest zależna od języka programowania. Usługa DTDL nie jest wyłączana wyłącznie do usługi Azure Digital bliźniaczych reprezentacji, ale jest również używana do reprezentowania danych urządzenia w innych usługach IoT, takich jak [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
+Modele dla usługi Azure Digital Twins są zdefiniowane przy użyciu języka Digital Twins Definition Language (DTDL). Język DTDL jest oparty na formacie JSON-LD i nie jest zależny od języka programowania. Usługa DTDL nie jest wyłączana wyłącznie do usługi Azure Digital bliźniaczych reprezentacji, ale jest również używana do reprezentowania danych urządzenia w innych usługach IoT, takich jak [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
 Usługa Azure Digital bliźniaczych reprezentacji używa **DTDL w _wersji 2_**. Aby uzyskać więcej informacji na temat tej wersji programu DTDL, zapoznaj się z dokumentacją dotyczącą specyfikacji w witrynie GitHub: [*Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Korzystanie z DTDL w _wersji 1_ z usługą Azure Digital bliźniaczych reprezentacji jest obecnie przestarzałe.
 
@@ -136,23 +136,31 @@ Podczas projektowania modeli w celu odzwierciedlenia jednostek w środowisku prz
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="integrating-with-industry-standard-models"></a>Integracja z modelami standardowymi branżowymi
+## <a name="tools-for-models"></a>Narzędzia dla modeli 
 
-Korzystanie z modeli opartych na standardach branżowych lub użycie standardowej reprezentacji Ontology, takiej jak RDF lub OWL, zapewnia rozbudowany punkt początkowy podczas projektowania modeli bliźniaczych reprezentacji cyfrowych platformy Azure. Korzystanie z modeli branżowych ułatwia również standaryzację i udostępnianie informacji.
+Dostępnych jest kilka przykładów, które ułatwiają korzystanie z modeli i ontologie. Znajdują się one w tym repozytorium: [Narzędzia dla języka Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
 
-Aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji, model musi być przedstawiony w formacie JSON-LD-based [**Digital bliźniaczych reprezentacji Definition Language (DTDL)**](concepts-models.md). W związku z tym, aby użyć modelu branżowego, należy najpierw przekonwertować go na DTDL, aby można było z niego korzystać w usłudze Azure Digital bliźniaczych reprezentacji. Model DTDL służy następnie jako źródło prawdy dla modelu w usłudze Azure Digital bliźniaczych reprezentacji.
+W tej sekcji opisano bieżący zestaw przykładów w bardziej szczegółowy sposób.
 
-Istnieją dwie główne ścieżki do integrowania modeli standardowych branżowych z DTDL, w zależności od sytuacji:
-* Jeśli nie masz jeszcze możliwości tworzenia modeli, możesz je zaprojektować wokół **istniejących starterów DTDL ontologie** , które zawierają język charakterystyczny dla Twojej branży.
-* Jeśli masz już istniejące modele, które są oparte na standardzie branżowym, musisz **przekonwertować je na DTDL** , aby przenieść je do usługi Azure Digital bliźniaczych reprezentacji.
+### <a name="model-uploader"></a>Obiektu przekazującego modelu 
 
-Aby uzyskać więcej informacji na temat obu tych procesów, zobacz [*How to: integracja modeli branżowych Standard*](how-to-integrate-models.md).
+_**Przekazywanie modeli do usługi Azure Digital bliźniaczych reprezentacji**_
+
+Po zakończeniu tworzenia, rozszerzania lub wybierania modeli można przekazać je do wystąpienia usługi Azure Digital bliźniaczych reprezentacji, aby udostępnić je do użycia w rozwiązaniu. Odbywa się to za pomocą [cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji](how-to-use-apis-sdks.md), zgodnie z opisem w temacie [*How to: Manage DTDL models*](how-to-manage-model.md#upload-models).
+
+Jeśli jednak masz wiele modeli do przekazania — lub jeśli masz wiele współzależności, które spowodują porządkowanie poszczególnych przeciążeń, możesz użyć tego przykładu do przekazania wielu modeli jednocześnie: [**Azure Digital bliźniaczych reprezentacji model obiektu przekazującego**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Postępuj zgodnie z instrukcjami podanymi w przykładzie, aby skonfigurować i użyć tego projektu do przekazywania modeli do własnego wystąpienia.
+
+### <a name="model-visualizer"></a>Wizualizator modelu 
+
+_**Dla modeli wizualizacji**_
+
+Po przekazaniu modeli do wystąpienia usługi Azure Digital bliźniaczych reprezentacji można wyświetlić modele w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, w tym wszelkie dziedziczenie i relacje modelu przy użyciu [**wizualizatora modelu ADT**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Ten przykład jest obecnie w stanie wersji roboczej. Zachęcamy społeczność ds. projektowania Digital bliźniaczych reprezentacji do rozwinięcia i współtworzenia przykładu. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz, jak zarządzać modelami przy użyciu interfejsów API DigitalTwinModels:
-* [*Instrukcje: Zarządzanie modelami niestandardowymi*](how-to-manage-model.md)
+* Dowiedz się więcej o tworzeniu modeli opartych na standardach branżowych ontologie: [ *koncepcje: co to jest Ontology?*](concepts-ontologies.md)
 
-Można też dowiedzieć się, jak są tworzone cyfrowe bliźniaczych reprezentacji na podstawie modeli:
-* [*Pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy*](concepts-twins-graph.md)
+* Szczegółowe bardziej szczegółowe Zarządzanie modelami przy użyciu operacji interfejsu API: [ *How to: Manage DTDL models*](how-to-manage-model.md)
+
+* Dowiedz się, jak modele są używane do tworzenia cyfrowych bliźniaczych reprezentacji: [ *pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy*](concepts-twins-graph.md)
 

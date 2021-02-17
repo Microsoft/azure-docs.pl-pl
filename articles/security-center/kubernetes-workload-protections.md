@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/12/2020
+ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 99e217c6d8065d19f7b03419306f4992735cb587
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: f024457ed9f20e6bab0852a53ab6a60ac85ed25a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526736"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546265"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Ochrona obciążeń Kubernetes
 
@@ -39,7 +39,7 @@ Security Center oferuje więcej funkcji zabezpieczeń kontenerów po włączeniu
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|**Właściciel** lub **administrator zabezpieczeń** , który edytuje przypisanie<br>**Czytnik** do wyświetlania zaleceń|
 |Wymagania dotyczące środowiska:|Wymagany jest Kubernetes w wersji 1.14 (lub nowszej)<br>Brak zasobu PodSecurityPolicy (stary model PSP) w klastrach<br>Węzły systemu Windows nie są obsługiwane|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 

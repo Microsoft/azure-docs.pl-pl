@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 9f89d84fc7033645b2b094e9f40a1d85b076623b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788234"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544837"
 ---
 # <a name="azure-firewall-features"></a>Funkcje usługi Azure Firewall
 
@@ -22,24 +22,25 @@ ms.locfileid: "98788234"
 
 Zapora platformy Azure obejmuje następujące funkcje:
 
-- [Wbudowana wysoka dostępność](#built-in-high-availability)
-- [Strefy dostępności](#availability-zones)
-- [Nieograniczona skalowalność chmury](#unrestricted-cloud-scalability)
-- [Reguły filtrowania w pełni kwalifikowanych nazw domen aplikacji](#application-fqdn-filtering-rules)
-- [Reguły filtrowania ruchu sieciowego](#network-traffic-filtering-rules)
-- [Tagi w pełni kwalifikowanych nazw domen](#fqdn-tags)
-- [Tagi usługi](#service-tags)
-- [Analiza zagrożeń](#threat-intelligence)
-- [Obsługa translacji adresów sieciowych źródła (SNAT) dla ruchu wychodzącego](#outbound-snat-support)
-- [Obsługa technologii DNAT dla ruchu przychodzącego](#inbound-dnat-support)
-- [Wiele publicznych adresów IP](#multiple-public-ip-addresses)
-- [Rejestrowanie Azure Monitor](#azure-monitor-logging)
-- [Wymuszone tunelowanie](#forced-tunneling)
-- [Certyfikaty](#certifications)
+- Wbudowana wysoka dostępność
+- Strefy dostępności
+- Skalowalność w chmurze bez ograniczeń
+- Reguły filtrowania w pełni kwalifikowanych nazw domen aplikacji
+- Reguły filtrowania ruchu sieciowego
+- Tagi w pełni kwalifikowanych nazw domen
+- Tagi usługi
+- Analiza zagrożeń
+- Obsługa translacji adresów sieciowych źródła (SNAT) dla ruchu wychodzącego
+- Obsługa technologii DNAT dla ruchu przychodzącego
+- Wiele publicznych adresów IP
+- Rejestrowanie w usłudze Azure Monitor
+- Wymuszone tunelowanie
+- Kategorie sieci Web (wersja zapoznawcza)
+- Certyfikaty
 
 ## <a name="built-in-high-availability"></a>Wbudowana wysoka dostępność
 
-Wysoka dostępność jest wbudowana, więc nie są wymagane żadne dodatkowe moduły równoważenia obciążenia i nie trzeba konfigurować żadnych usług.
+Wysoka dostępność jest wbudowana, więc nie są wymagane żadne dodatkowe moduły równoważenia obciążenia i nie trzeba już konfigurować.
 
 ## <a name="availability-zones"></a>Strefy dostępności
 
@@ -47,7 +48,7 @@ Zaporę platformy Azure można skonfigurować podczas wdrażania w celu rozdziel
 
 Można także skojarzyć zaporę platformy Azure z określoną strefą tylko z przyczyn bliskości przy użyciu standardowej umowy SLA usługi 99,95%.
 
-Dla zapory wdrożonej w strefie dostępności nie ma dodatkowych kosztów. Istnieją jednak dodatkowe koszty dla przychodzących i wychodzących transferów danych skojarzonych z Strefy dostępności. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/bandwidth/)dotyczącego przepustowości.
+Dla zapory wdrożonej w strefie dostępności nie ma dodatkowych kosztów. Istnieją jednak koszty dla przychodzących i wychodzących transferów danych skojarzonych z Strefy dostępności. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/bandwidth/)dotyczącego przepustowości.
 
 Strefy dostępności zapory platformy Azure są dostępne w regionach, które obsługują Strefy dostępności. Aby uzyskać więcej informacji, zobacz [regiony obsługujące strefy dostępności na platformie Azure](../availability-zones/az-region.md)
 
@@ -97,7 +98,7 @@ Za pomocą zapory można skojarzyć [wiele publicznych adresów IP](deploy-multi
 Dzięki temu można wykonać następujące scenariusze:
 
 - **DNAT** — wiele standardowych wystąpień portów można przetłumaczyć na serwery zaplecza. Jeśli na przykład masz dwa publiczne adresy IP, możesz wykonać translację portu TCP 3389 (RDP) dla obu adresów IP.
-- Reportcy **adresów sieciowych** — dodatkowe porty są dostępne dla wychodzących połączeń z reportem adresów sieciowych, co zmniejsza prawdopodobieństwo wyczerpania portów dla tego elementu. W tej chwili Zapora platformy Azure losowo wybiera źródłowy publiczny adres IP, który ma być używany w połączeniu. Jeśli w sieci występuje jakiekolwiek filtrowanie w kierunku do klienta, musisz zezwolić na wszystkie publiczne adresy IP skojarzone z zaporą. Rozważ użycie [prefiksu publicznego adresu IP](../virtual-network/public-ip-address-prefix.md) , aby uprościć tę konfigurację.
+- Dla wychodzących **połączeń z reportem równorzędnym** są dostępne dodatkowe porty, co zmniejsza prawdopodobieństwo wyczerpania portów przez przystawkę. W tej chwili Zapora platformy Azure losowo wybiera źródłowy publiczny adres IP, który ma być używany w połączeniu. Jeśli w sieci występuje jakiekolwiek filtrowanie w kierunku do klienta, musisz zezwolić na wszystkie publiczne adresy IP skojarzone z zaporą. Rozważ użycie [prefiksu publicznego adresu IP](../virtual-network/public-ip-address-prefix.md) , aby uprościć tę konfigurację.
 
 ## <a name="azure-monitor-logging"></a>Rejestrowanie w usłudze Azure Monitor
 
@@ -110,6 +111,24 @@ Skoroszyt zapory platformy Azure zapewnia elastyczną kanwę do analizy danych w
 ## <a name="forced-tunneling"></a>Wymuszone tunelowanie
 
 Zaporę platformy Azure można skonfigurować tak, aby rozsyłać cały ruch związany z Internetem do określonego następnego przeskoku zamiast bezpośrednio do Internetu. Na przykład lokalna Zapora brzegowa lub inne wirtualne urządzenie sieciowe (urządzenie WUS) mogą przetwarzać ruch sieciowy przed przekazaniem go do Internetu. Aby uzyskać więcej informacji, zobacz [tunelowanie wymuszone przez zaporę platformy Azure](forced-tunneling.md).
+
+## <a name="web-categories-preview"></a>Kategorie sieci Web (wersja zapoznawcza)
+
+Kategorie sieci Web umożliwiają administratorom Zezwalanie na dostęp użytkowników do kategorii witryn sieci Web, takich jak witryny typu hazard, witryny internetowe mediów społecznościowych i inne osoby. Kategorie sieci Web są zawarte w standardzie zapory platformy Azure, ale bardziej dostrojone w wersji zapoznawczej usługi Azure firewall Premium. W przeciwieństwie do kategorii sieci Web w standardowej jednostce SKU, która jest zgodna z kategorią opartą na nazwie FQDN, jednostka SKU Premium dopasowuje kategorię zgodnie z całym adresem URL dla ruchu HTTP i HTTPS. Aby uzyskać więcej informacji na temat usługi Azure firewall Premium w wersji zapoznawczej, zobacz [funkcje usługi Azure firewall Premium Preview](premium-features.md).
+
+Na przykład jeśli Zapora platformy Azure przechwytuje żądanie HTTPS dla `www.google.com/news` , oczekiwana jest następująca Kategoryzacja: 
+
+- Zapora standardowa — zostanie zbadana tylko część nazwy FQDN, więc `www.google.com` zostanie ona skategoryzowana jako *aparat wyszukiwania*. 
+
+- Zapora Premium — zostanie sprawdzony pełny adres URL, więc `www.google.com/news` zostanie on skategoryzowany jako *wiadomości*.
+
+Kategorie są zorganizowane na podstawie ważności **odpowiedzialności**, **dużej przepustowości**, **użycia w firmie**, **utraty produktywności**, **ogólnego żeglowania** i bez **kategorii**.
+
+### <a name="category-exceptions"></a>Wyjątki kategorii
+
+Można utworzyć wyjątki dla reguł kategorii sieci Web. Utwórz oddzielną kolekcję reguł Zezwól lub Odmów z wyższym priorytetem w grupie kolekcji reguł. Można na przykład skonfigurować kolekcję reguł, która umożliwia korzystanie `www.linkedin.com` z priorytetu 100 z kolekcją reguł, która odmówi **sieci społecznościowych** z priorytetem 200. Spowoduje to utworzenie wyjątku dla wstępnie zdefiniowanej kategorii sieci Web **Sieć społecznościowa** .
+
+
 
 ## <a name="certifications"></a>Certyfikaty
 
