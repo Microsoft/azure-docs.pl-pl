@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575809"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545942"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -124,8 +124,6 @@ Wróć do okna programu Visual Studio, w którym otwarty jest projekt _**AdtE2ES
 ### <a name="assign-permissions-to-the-function-app"></a>Przypisywanie uprawnień do aplikacji funkcji
 
 Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji, następnym krokiem jest skonfigurowanie ustawienia aplikacji, przypisanie aplikacji do tożsamości usługi Azure AD zarządzanego przez system i nadanie tej tożsamości roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Ta rola jest wymagana dla każdego użytkownika lub funkcji, które chcą wykonywać wiele działań na płaszczyźnie danych w wystąpieniu. Więcej informacji na temat przypisań zabezpieczeń i ról można znaleźć w tematach [*: Security for Azure Digital bliźniaczych reprezentacji Solutions*](concepts-security.md).
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie aplikacji, które będzie używane przez aplikację funkcji do odwoływania się do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Wypełnij symbole zastępcze szczegółami dotyczącymi zasobów (Pamiętaj, że adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest nazwą hosta poprzedzoną przez *https://*).
 

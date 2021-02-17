@@ -2,19 +2,19 @@
 title: Omówienie usługi Azure ARC z włączonym Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 02/15/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
 description: Ten artykuł zawiera omówienie usługi Azure Arc Kubernetes.
 keywords: Kubernetes, łuk, Azure, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: 7e48ebf98f12e79cb154fb50d8e6dbdfaea1cd95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 54b439d73ed5dfb0709d33dea1f588b8bdf4489f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371311"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560270"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Co to jest platforma Kubernetes z usługą Azure Arc (w wersji zapoznawczej)?
 
@@ -35,7 +35,7 @@ Funkcja Kubernetes z funkcją Azure Arc została przetestowana przez zespół Ar
 * RedHat OpenShift 4,3
 * Rancher RKE 1.0.8
 * Kanoniczny panel Kubernetes 1,18
-* Aparat AKS
+* Aparat usługi AKS
 * Aparat AKS w centrum Azure Stack
 * AKS na Azure Stack HCL
 * Dostawca interfejsu API klastra Azure
@@ -60,22 +60,6 @@ Usługa Azure ARC z włączonym Kubernetes jest obecnie obsługiwana w następuj
 
 * East US 
 * West Europe
-
-## <a name="frequently-asked-questions"></a>Często zadawane pytania
-
-* Jaka jest różnica między funkcją Azure Arc Kubernetes a usługą Azure Kubernetes Service (AKS)?
-
-    Usługa Azure Kubernetes Service (AKS) to oferta zarządzana Kubernetes oferowana przez platformę Azure. AKS ułatwia wdrażanie zarządzanego klastra Kubernetes na platformie Azure. Usługa AKS zmniejsza złożoność i nakłady operacyjne związane z zarządzaniem rozwiązaniem Kubernetes, przenosząc znaczną część tej odpowiedzialności na platformę Azure. Wzorce rozwiązania Kubernetes są zarządzane przez platformę Azure. Zarządzasz tylko węzłami agentów i obsługujesz je.
-
-    Usługa Azure Arc Kubernetes umożliwia łączenie klastrów Kubernetes z platformą Azure w celu rozszerzania możliwości zarządzania platformy Azure, takich jak Azure Monitor i Azure Policy. Konserwacja bazowego klastra Kubernetes jest wykonywana przez użytkownika.
-
-* Czy muszę połączyć klastry usługi Azure Kubernetes z systemem na platformie Azure z usługą Azure Arc?
-
-    Nie. Wszystkie funkcje usługi Azure ARC z włączonym Kubernetes, takie jak Azure Monitor, Azure Policy (strażnik) są natywnie dostępne dla AKS, który już ma reprezentację zasobów na platformie Azure.
-    
-* Czy należy połączyć klaster AKS na Azure Stack HCL do usługi Azure Arc? Co o klastrach Kubernetes działających na Azure Stack centrum lub Azure Stack Edge?
-
-    Tak, połączenie tych klastrów z usługą Azure Arc ma zalety. Zapewnia reprezentację zasobów dla tych klastrów Kubernetes w Azure Resource Manager. Przy użyciu tej reprezentacji zasobów można rozszerzyć takie możliwości jak konfiguracja klastra, Azure Monitor, Azure Policy (strażnik) do tych klastrów Kubernetes
 
 ## <a name="next-steps"></a>Następne kroki
 

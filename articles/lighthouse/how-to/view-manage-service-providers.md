@@ -1,51 +1,45 @@
 ---
 title: Wyświetlanie dostawców usług i zarządzanie nimi
 description: Klienci mogą używać strony dostawcy usług w Azure Portal do wyświetlania informacji o dostawcach usług, ofertach dostawcy usług i delegowanych zasobach.
-ms.date: 12/16/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 5ee897503c997ab10fdb489f7921c9d2d001e472
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: f6ee5fb154d75ff715acf99c5184cd1652ccdb80
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617208"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555586"
 ---
 # <a name="view-and-manage-service-providers"></a>Wyświetlanie dostawców usług i zarządzanie nimi
 
-Strona **dostawcy usług** w [Azure Portal](https://portal.azure.com) zapewnia klientom kontrolę i widoczność dla dostawców usług korzystających z [usługi Azure Lighthouse](../overview.md). Klienci mogą wyświetlać szczegółowe informacje o dostawcach usług, delegować określone zasoby, kupować nowe oferty dostawców usług, usuwać dostęp dostawcy usług i nie tylko.
+Strona **dostawcy usług** w [Azure Portal](https://portal.azure.com) zapewnia klientom kontrolę i widoczność dla dostawców usług korzystających z [usługi Azure Lighthouse](../overview.md). Klienci mogą wyświetlać szczegółowe informacje o dostawcach usług, delegować określone zasoby, wyszukiwać nowe oferty, usuwać dostęp dostawcy usług i nie tylko.
 
-> [!TIP]
-> Mimo że będziemy odnieść się do dostawców usług i klientów w tym miejscu, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą używać tego samego procesu do konsolidacji ich środowiska zarządzania.
-
-Aby uzyskać dostęp do strony **dostawcy usług** w Azure Portal, klient może wybrać **wszystkie usługi**, a następnie wyszukać **dostawców usług** i wybrać ją. Można je również znaleźć, wprowadzając "dostawcy usług" lub "Azure Lighthouse" w polu wyszukiwania w górnej części Azure Portal.
+Aby wyświetlić stronę **dostawcy usług** w Azure Portal, wybierz pozycję **wszystkie usługi**, a następnie wyszukaj **dostawców usług** i wybierz ją. Możesz również znaleźć Tę stronę, wprowadzając "dostawcy usług" lub "Azure Lighthouse" w polu wyszukiwania w górnej części Azure Portal.
 
 > [!NOTE]
 > Aby wyświetlić stronę **dostawcy usług** , użytkownik w dzierżawie klienta musi mieć [wbudowaną rolę czytnika](../../role-based-access-control/built-in-roles.md#reader) (lub inną wbudowaną rolę, która obejmuje dostęp do czytnika).
 >
-> Aby dodać lub zaktualizować oferty, delegować zasoby i usuwać oferty, użytkownik musi mieć [wbudowaną rolę właściciela](../../role-based-access-control/built-in-roles.md#owner) subskrypcji.
+> Aby dodać lub zaktualizować oferty, delegować zasoby i usuwać oferty, użytkownik musi mieć rolę z `Microsoft.Authorization/roleAssignments/write` uprawnieniem, takim jak [właściciel](../../role-based-access-control/built-in-roles.md#owner).
 
-Należy pamiętać, że na stronie **dostawcy usług** są wyświetlane tylko informacje o dostawcach usług, którzy mają dostęp do subskrypcji lub grup zasobów klienta za pomocą usługi Azure Lighthouse. Jeśli klient współpracuje z dodatkowymi dostawcami usług, którzy nie korzystają z usługi Azure Lighthouse w celu uzyskania dostępu do zasobów klienta, informacje o tych dostawcach usług nie są wyświetlane w tym miejscu.
-
-> [!TIP]
-> Dostawcy usług mogą przeglądać informacje o swoich klientach, przechodząc do obszaru **moi klienci** w Azure Portal. Aby uzyskać więcej informacji, zobacz [Wyświetlanie i zarządzanie klientami oraz delegowanymi zasobami](view-manage-customers.md).
+Należy pamiętać, że na stronie **dostawcy usług** są wyświetlane tylko informacje o dostawcach usług, którzy mają dostęp do subskrypcji lub grup zasobów klienta za pomocą usługi Azure Lighthouse. Jeśli klient współpracuje z dodatkowymi dostawcami usług, którzy nie korzystają z usługi Azure Lighthouse, informacje o tych dostawcach usług nie będą widoczne w tym miejscu.
 
 ## <a name="view-service-provider-details"></a>Wyświetl szczegóły dostawcy usług
 
-Aby wyświetlić szczegółowe informacje o dostawcach usług, klient może wybrać **oferty dostawcy usług** po lewej stronie strony **dostawcy usług** .
+Aby wyświetlić szczegółowe informacje o bieżących dostawcach usług przy użyciu usługi Azure Lighthouse do pracy z dzierżawcą klienta, wybierz pozycję **oferty dostawcy usług** w lewej części strony **dostawcy usług** .
 
-Dla każdej oferty dostawcy usług klient zobaczy nazwę dostawcy usług i skojarzoną z nim ofertę, a także nazwę wprowadzoną przez klienta podczas procesu dołączania.
+Dla każdej oferty zobaczysz nazwę dostawcy usług i skojarzoną z nią ofertę. Możesz wybrać ofertę, aby wyświetlić opis i inne szczegóły, w tym przydziały ról, do których przyznano dostawcę usług.
 
-W kolumnie **delegacje** klient widzi, ile subskrypcji i/lub grup zasobów zostało delegowanych do dostawcy usług dla tej oferty. Dostawca usług będzie mógł uzyskiwać dostęp do tych subskrypcji i/lub grup zasobów oraz nimi zarządzać zgodnie z poziomami dostępu określonymi w ofercie.
+W kolumnie **delegacje** można zobaczyć, ile subskrypcji i/lub grup zasobów zostały delegowane do dostawcy usług dla tej oferty. Dostawca usług będzie mógł uzyskiwać dostęp do tych subskrypcji i/lub grup zasobów oraz nimi zarządzać zgodnie z poziomami dostępu określonymi w ofercie.
 
 ## <a name="add-or-remove-service-provider-offers"></a>Dodaj lub Usuń oferty dostawcy usług
 
-Klient może dodać nową ofertę dostawcy usług na stronie **oferty dostawcy usług** , wybierając pozycję **Dodaj ofertę**. Dostawca usług musi mieć opublikowaną ofertę dla tego klienta. Klient może następnie wybrać tę ofertę na ekranie **oferty prywatne** , a następnie wybrać pozycję **Utwórz**.
+Aby dodać nową ofertę dostawcy usług na stronie **oferty dostawcy usług** , wybierz pozycję **Dodaj ofertę**. Wybierz pozycję **oferty prywatne** , aby wyświetlić oferty, które dostawca usług opublikował dla tego klienta. Następnie możesz wybrać tę ofertę na ekranie **oferty prywatne** , a następnie wybrać pozycję **Skonfiguruj + Subskrybuj**.
 
-Jeśli klient chce usunąć ofertę dostawcy usług, może to zrobić w dowolnym momencie, wybierając ikonę kosza w wierszu dla tej oferty. Po potwierdzeniu usunięcia ten dostawca usług nie będzie już miał dostępu do zasobów klienta, które były wcześniej delegowane dla tej oferty.
+W dowolnym momencie możesz usunąć ofertę dostawcy usług, wybierając ikonę kosza w wierszu dla tej oferty. Po potwierdzeniu usunięcia ten dostawca usług nie będzie już miał dostępu do zasobów, które były wcześniej delegowane dla tej oferty.
 
 ## <a name="delegate-resources"></a>Delegowanie zasobów
 
-Zanim dostawca usług będzie mógł uzyskać dostęp do zasobów klienta i zarządzać nim, muszą być delegowane. Jeśli klient zaakceptuje ofertę, ale nie oddelegowano jeszcze żadnych zasobów, zobaczy uwagę w górnej części sekcji **oferty dostawcy usług** . Pozwala to klientowi na uzyskanie dostępu do dowolnych zasobów klienta, którzy muszą podjąć odpowiednie działania.
+Aby dostawca usług mógł uzyskać dostęp do zasobów klienta i zarządzać nimi, należy delegować co najmniej jedną określoną subskrypcję i grupę zasobów. Jeśli klient zaakceptuje ofertę, ale nie oddelegowano jeszcze żadnych zasobów, zobaczy uwagę w górnej części sekcji **oferty dostawcy usług** . Pozwala to klientowi na uzyskanie dostępu do dowolnych zasobów klienta, którzy muszą podjąć odpowiednie działania.
 
 Aby delegować subskrypcje lub grupy zasobów:
 
@@ -57,11 +51,11 @@ Aby delegować subskrypcje lub grupy zasobów:
 
 ## <a name="update-service-provider-offers"></a>Oferty aktualizacji dostawcy usług
 
-Po dodaniu oferty przez klienta dostawca usług może opublikować zaktualizowaną wersję tej samej oferty w witrynie Azure Marketplace. Na przykład mogą chcieć dodać nową definicję roli. Jeśli nowa wersja oferty została opublikowana, na stronie **oferty dostawcy usług** zostanie wyświetlona ikona "Aktualizacja" w wierszu dla tej oferty. Klient może wybrać tę ikonę, aby zobaczyć różnice między bieżącą wersją oferty a nową.
+Po dodaniu oferty przez klienta dostawca usług może opublikować zaktualizowaną wersję tej samej oferty w witrynie Azure Marketplace. Na przykład mogą chcieć dodać nową definicję roli. Jeśli nowa wersja oferty została opublikowana, na stronie **oferty dostawcy usług** zostanie wyświetlona ikona "Aktualizacja" w wierszu dla tej oferty. Wybierz tę ikonę, aby zobaczyć różnice między bieżącą wersją oferty a nową.
 
  ![Ikona aktualizacji oferty](../media/update-offer.jpg)
 
-Po przejrzeniu zmian klient może zdecydować się na zaktualizowanie nowej wersji. Po wykonaniu tych czynności autoryzacje i inne ustawienia określone w nowej wersji będą stosowane do wszystkich subskrypcji i/lub grup zasobów, które zostały delegowane dla tej oferty.
+Po przejrzeniu zmian klient może zdecydować się na zaktualizowanie nowej wersji. Autoryzacje i inne ustawienia określone w nowej wersji będą następnie stosowane do wszystkich subskrypcji i/lub grup zasobów, które zostały delegowane dla tej oferty.
 
 ## <a name="view-delegations"></a>Wyświetl delegowania
 
@@ -87,3 +81,5 @@ Aby uzyskać więcej informacji na temat sposobu przypisywania zasad i wyświetl
 - Dowiedz się więcej o [usłudze Azure Lighthouse](../overview.md).
 - Dowiedz się, jak [przeprowadzić inspekcję działania dostawcy usług](view-service-provider-activity.md).
 - Dowiedz się, jak dostawcy usług mogą [wyświetlać klientów i zarządzać nimi](view-manage-customers.md) na stronie **moi klienci** w Azure Portal.
+- Dowiedz się, jak [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z usługi Azure Lighthouse, aby skonsolidować swoje środowisko zarządzania.
+

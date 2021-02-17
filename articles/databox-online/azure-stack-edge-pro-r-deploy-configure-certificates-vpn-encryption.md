@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: fad3e5dcb0ecda82f3fb35cadf1719a62c99bd97
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: abea192f209b968c6842e985620c067c93990687
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468460"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548152"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-r"></a>Samouczek: Konfigurowanie certyfikatów dla Azure Stack EDGE Pro R
 
@@ -37,7 +37,7 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia z systemem Azure Stack EDG
 
 * Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w temacie [Install Azure Stack EDGE Pro R](azure-stack-edge-pro-r-deploy-install.md).
 * Jeśli planujesz przeprowadzenie własnych certyfikatów:
-    - Certyfikaty powinny być gotowe w odpowiednim formacie, łącznie z certyfikatem łańcucha podpisywania. Aby uzyskać szczegółowe informacje na temat certyfikatu, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md)
+    - Certyfikaty powinny być gotowe w odpowiednim formacie, łącznie z certyfikatem łańcucha podpisywania. Aby uzyskać szczegółowe informacje na temat certyfikatu, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-gpu-manage-certificates.md)
 
 
 
@@ -60,7 +60,7 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia z systemem Azure Stack EDG
     - Jeśli zmieniono nazwę urządzenia lub domenę DNS, a użytkownik nie przyniesie własnych certyfikatów, **Aktywacja zostanie zablokowana**.
 
     
-#### <a name="bring-your-own-certificates"></a>Przenoszenie własnych certyfikatów
+#### <a name="bring-your-own-certificates"></a>Korzystanie z własnego certyfikatu
 
 Wykonaj następujące kroki, aby dodać własne certyfikaty, w tym łańcuch podpisywania.
 

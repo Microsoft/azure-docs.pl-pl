@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 22e012c36f5c2c6f195a7e3b21afe9001a4cad0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0a942daae6b106bce928f8214e92c0c6294203d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077963"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555716"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Wymagaj bezpiecznego transferu w celu zapewnienia bezpiecznych połączeń
 
@@ -38,15 +38,15 @@ Właściwość **Required Secure transfer** można włączyć podczas tworzenia 
 ### <a name="require-secure-transfer-for-a-new-storage-account"></a>Wymagaj bezpiecznego transferu dla nowego konta magazynu
 
 1. Otwórz okienko **Tworzenie konta magazynu** w Azure Portal.
-1. W obszarze **wymagany bezpieczny transfer**wybierz pozycję **włączone**.
+1. W obszarze **wymagany bezpieczny transfer** wybierz pozycję **włączone**.
 
    ![Utwórz blok konta magazynu](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Wymagaj bezpiecznego transferu dla istniejącego konta magazynu
 
 1. Wybierz istniejące konto magazynu w Azure Portal.
-1. W okienku menu konto magazynu w obszarze **Ustawienia**wybierz pozycję **Konfiguracja**.
-1. W obszarze **wymagany bezpieczny transfer**wybierz pozycję **włączone**.
+1. W okienku menu konto magazynu w obszarze **Ustawienia** wybierz pozycję **Konfiguracja**.
+1. W obszarze **wymagany bezpieczny transfer** wybierz pozycję **włączone**.
 
    ![Okienko menu konta magazynu](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
@@ -57,7 +57,7 @@ Aby wymagać bezpiecznego transferu programowo, należy ustawić właściwość 
 * [Interfejs API REST](/rest/api/storagerp/storageaccounts)
 * [Program PowerShell](/powershell/module/az.storage/set-azstorageaccount)
 * [Interfejs wiersza polecenia](/cli/azure/storage/account)
-* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)
+* [NodeJS](https://www.npmjs.com/package/@azure/arm-storage/)
 * [Zestaw SDK platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
 * [Zestaw SDK dla języka Python](https://pypi.org/project/azure-mgmt-storage)
 * [Zestaw SDK dla języka Ruby](https://rubygems.org/gems/azure_mgmt_storage)

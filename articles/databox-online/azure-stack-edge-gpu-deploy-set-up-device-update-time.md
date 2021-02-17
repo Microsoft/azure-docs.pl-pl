@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: dd4078d414048d858c46f6757daa0a87a698eaab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ceaa16ee2a54886cde45f37ea90ed617abafffc1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976083"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546911"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Samouczek: Konfigurowanie ustawień urządzenia dla Azure Stack brzeg Pro z procesorem GPU
 
@@ -82,7 +82,7 @@ Wykonaj następujące kroki, aby skonfigurować ustawienia dotyczące urządzeń
         ![Lokalny interfejs użytkownika sieci Web "serwer aktualizacji" — Strona 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
-        > Jeśli jest skonfigurowany oddzielny serwer Windows Update i w przypadku wybrania opcji nawiązywania połączenia za pośrednictwem *protokołu HTTPS* (zamiast *protokołu HTTP*) wymagane jest Podpisywanie certyfikatów łańcucha wymaganych do nawiązania połączenia z serwerem aktualizacji. Aby uzyskać informacje na temat tworzenia i przekazywania certyfikatów, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md). 
+        > Jeśli jest skonfigurowany oddzielny serwer Windows Update i w przypadku wybrania opcji nawiązywania połączenia za pośrednictwem *protokołu HTTPS* (zamiast *protokołu HTTP*) wymagane jest Podpisywanie certyfikatów łańcucha wymaganych do nawiązania połączenia z serwerem aktualizacji. Aby uzyskać informacje na temat tworzenia i przekazywania certyfikatów, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-gpu-manage-certificates.md). 
 
 2. Wybierz przycisk **Zastosuj**.
 3. Po skonfigurowaniu serwera aktualizacji wybierz pozycję **Dalej: czas**.

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7071675d4573ebee297217fe216552482cb76406
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: e738a3e18d4ee16b2bbfd7edb6cc32152bb82b48
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096883"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557800"
 ---
 # <a name="fsv2-series"></a>Seria Fsv2
 
@@ -26,7 +26,7 @@ Maszyny wirtualne z serii Fsv2 oferują technologię Intel® Hyper-Threading.
 [Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
-[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
+[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane (*wymaga co najmniej 4 vCPU*)<br>
 [Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): obsługiwane <br>
 <br>
 

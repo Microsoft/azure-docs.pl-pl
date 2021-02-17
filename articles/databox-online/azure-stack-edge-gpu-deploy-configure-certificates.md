@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7854aff0b4194efae7c4df653dee18e2676fdd41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d21f9eea0258175195529c4d8b72ee9085dc77
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446313"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546979"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>Samouczek: Konfigurowanie certyfikatów dla Azure Stack brzeg Pro z procesorem GPU
 
@@ -35,10 +35,10 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro przy 
 
 * Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w temacie [Install Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-install.md).
 * Jeśli planujesz przeprowadzenie własnych certyfikatów:
-    - Certyfikaty powinny być gotowe w odpowiednim formacie, łącznie z certyfikatem łańcucha podpisywania. Aby uzyskać szczegółowe informacje na temat certyfikatu, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md)
+    - Certyfikaty powinny być gotowe w odpowiednim formacie, łącznie z certyfikatem łańcucha podpisywania. Aby uzyskać szczegółowe informacje na temat certyfikatu, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-gpu-manage-certificates.md)
 
 <!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
-    For details on certificate, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).-->
+    For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).-->
 
 
 ## <a name="configure-certificates-for-device"></a>Konfigurowanie certyfikatów dla urządzenia
@@ -78,7 +78,7 @@ Wykonaj następujące kroki, aby ponownie wygenerować i pobrać certyfikaty urz
 
     ![Generowanie i pobieranie certyfikatu 1](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-3.png)
 
-2. W obszarze **Generuj certyfikaty urządzenia**wybierz pozycję **Generuj**. 
+2. W obszarze **Generuj certyfikaty urządzenia** wybierz pozycję **Generuj**. 
 
     ![Generowanie i pobieranie certyfikatu 2](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-4.png)
 
@@ -120,16 +120,16 @@ Wykonaj następujące kroki, aby ponownie wygenerować i pobrać certyfikaty urz
 
 Należy zainstalować te certyfikaty w systemie klienckim, z którego korzystasz, aby uzyskać dostęp do punktów końcowych na urządzeniu ASE. Te certyfikaty ustanawiają relację zaufania między klientem a urządzeniem.
 
-Aby zaimportować i zainstalować te certyfikaty na kliencie używanym do uzyskiwania dostępu do urządzenia, wykonaj czynności opisane w temacie [Importowanie certyfikatów na klientach uzyskujących dostęp do urządzenia z Azure Stack EDGE Pro](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
+Aby zaimportować i zainstalować te certyfikaty na kliencie używanym do uzyskiwania dostępu do urządzenia, wykonaj czynności opisane w temacie [Importowanie certyfikatów na klientach uzyskujących dostęp do urządzenia z Azure Stack EDGE Pro](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
 
 W przypadku korzystania z Eksplorator usługi Azure Storage należy zainstalować certyfikaty na kliencie w formacie PEM i należy przekonwertować certyfikaty wygenerowane przez urządzenie w formacie PEM. 
 
 > [!IMPORTANT]
 > - Link do pobierania jest dostępny tylko dla certyfikatów generowanych przez urządzenia, a nie w przypadku ich posiadania.
-> - Można zdecydować, czy ma zostać utworzone połączenie certyfikatów i utworzyć własne certyfikaty, o ile są spełnione inne wymagania dotyczące certyfikatu. Aby uzyskać więcej informacji, przejdź do [wymagań dotyczących certyfikatów](azure-stack-edge-j-series-certificate-requirements.md).
+> - Można zdecydować, czy ma zostać utworzone połączenie certyfikatów i utworzyć własne certyfikaty, o ile są spełnione inne wymagania dotyczące certyfikatu. Aby uzyskać więcej informacji, przejdź do [wymagań dotyczących certyfikatów](azure-stack-edge-gpu-certificate-requirements.md).
     
 
-### <a name="bring-your-own-certificates"></a>Przenoszenie własnych certyfikatów
+### <a name="bring-your-own-certificates"></a>Korzystanie z własnego certyfikatu
 
 Wykonaj następujące kroki, aby dodać własne certyfikaty, w tym łańcuch podpisywania.
 
@@ -165,7 +165,7 @@ Wykonaj następujące kroki, aby dodać własne certyfikaty, w tym łańcuch pod
     > Poza chmurą publiczną platformy Azure w przypadku wszystkich konfiguracji chmury (Azure Government lub Azure Stack) należy wprowadzić certyfikaty łańcucha podpisywania.
 
 
-Urządzenie jest teraz gotowe do aktywacji. Wybierz pozycję **< z powrotem, aby**rozpocząć.
+Urządzenie jest teraz gotowe do aktywacji. Wybierz pozycję **< z powrotem, aby** rozpocząć.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -10,24 +10,24 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 418446e0d465b606b8d580297cebd73c466d4841
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 9bd436b972dfb1549232831b1f07c3726ff459dd
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109016"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556491"
 ---
 # <a name="create-a-user-flow-in-azure-active-directory-b2c"></a>Tworzenie przepływu użytkownika w Azure Active Directory B2C
 
 Możesz tworzyć [przepływy użytkowników](user-flow-overview.md) różnych typów w dzierżawie Azure Active Directory B2C (Azure AD B2C) i używać ich w aplikacjach zgodnie z potrzebami. Przepływy użytkowników mogą być ponownie używane między aplikacjami.
 
 > [!IMPORTANT]
-> Zmieniono sposób odwołania do wersji przepływu użytkownika. Wcześniej oferujemy wersje V1 (produkcyjne gotowe) i wersje 1.1 i v2 (wersja zapoznawcza). Teraz zostały skonsolidowane przepływy użytkowników w **zalecane** wersje (wersja zapoznawcza nowej generacji) i **standardowe** (ogólnie dostępne). Wszystkie przepływy użytkowników starszej wersji programu V 1.1 i V2 są w ścieżce do wycofania od **1 sierpnia 2021**. Aby uzyskać szczegółowe informacje, zobacz [wersje przepływu użytkowników w Azure AD B2C](user-flow-versions.md).
+> Zmieniliśmy sposób odwoływania się do wersji przepływów użytkownika. Wcześniej oferowaliśmy wersje V1 (gotowe do zastosowań produkcyjnych) oraz wersje V1.1 i V2 (wersje zapoznawcze). Teraz zostały skonsolidowane przepływy użytkowników w **zalecane** wersje (wersja zapoznawcza nowej generacji) i **standardowe** (ogólnie dostępne). Wszystkie przepływy użytkowników starszej wersji programu V 1.1 i V2 są w ścieżce do wycofania od **1 sierpnia 2021**. Aby uzyskać szczegółowe informacje, zobacz [wersje przepływu użytkowników w Azure AD B2C](user-flow-versions.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 - **Zarejestruj aplikację** , której chcesz użyć do przetestowania nowego przepływu użytkownika. Aby zapoznać się z przykładem, zobacz [Samouczek: rejestrowanie aplikacji sieci Web w Azure AD B2C](tutorial-register-applications.md).
-- **Dodaj zewnętrznych dostawców tożsamości** , jeśli chcesz włączyć Logowanie użytkowników z dostawcami, takimi jak Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft lub Twitter. Aby zapoznać się z przykładem, zobacz [Samouczek: Dodawanie dostawców tożsamości do aplikacji w Azure AD B2C](tutorial-add-identity-providers.md).
+- **Dodaj zewnętrznych dostawców tożsamości** , jeśli chcesz włączyć Logowanie użytkowników z dostawcami, takimi jak Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft lub Twitter. Zobacz [Dodawanie dostawców tożsamości do aplikacji w Azure AD B2C](add-identity-provider.md).
 - **Skonfiguruj dostawcę tożsamości konta lokalnego** , aby określić typy tożsamości (adres e-mail, nazwa użytkownika, numer telefonu), które mają być obsługiwane dla kont lokalnych w dzierżawie. Następnie można wybrać spośród tych obsługiwanych typów tożsamości podczas tworzenia poszczególnych przepływów użytkowników. Po zakończeniu przepływu użytkownika w katalogu Azure AD B2C jest tworzone konto lokalne, a dostawca tożsamości **konta lokalnego** uwierzytelnia informacje o użytkowniku. Skonfiguruj dostawcę tożsamości konta lokalnego dzierżawy, wykonując następujące kroki:
 
    1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). 
@@ -66,7 +66,7 @@ Możesz tworzyć [przepływy użytkowników](user-flow-overview.md) różnych ty
 
    - **Konto lokalne**. Jeśli chcesz zezwolić użytkownikom na tworzenie kont lokalnych w dzierżawie Azure AD B2C, wybierz Typ identyfikatora, który ma być używany (na przykład adres e-mail, identyfikator użytkownika lub telefon). Wyświetlane są tylko te typy tożsamości, które są skonfigurowane w ustawieniach [dostawcy tożsamości konta lokalnego](#before-you-begin) .
 
-   - **Dostawcy tożsamości społecznościowej**. Jeśli chcesz zezwolić użytkownikom na logowanie za pomocą [dostawców tożsamości społecznościowych, które zostały dodane](tutorial-add-identity-providers.md), takich jak Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft lub Twitter, wybierz dostawców z listy.
+   - **Dostawcy tożsamości społecznościowej**. Jeśli chcesz zezwolić użytkownikom na logowanie za pomocą [dostawców tożsamości społecznościowych, które zostały dodane](add-identity-provider.md), takich jak Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft lub Twitter, wybierz dostawców z listy.
 
 9. W polu **atrybuty użytkownika i oświadczenia** wybierz oświadczenia i atrybuty, które mają być zbierane i wysyłane przez użytkownika podczas tworzenia konta. Wybierz pozycję **Pokaż więcej**. Wybierz atrybuty i oświadczenia, a następnie wybierz przycisk **OK**.
 

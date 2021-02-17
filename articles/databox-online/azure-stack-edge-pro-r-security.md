@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 891885dce52ee57fa163bb71b427591156091651
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362867"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548645"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Bezpieczeństwo i ochrona danych dla Azure Stack EDGE Pro R i Azure Stack Edge mini R
 
@@ -77,7 +77,7 @@ Oto co możesz zrobić:
 
 ### <a name="establish-trust-with-the-device-via-certificates"></a>Ustanawianie relacji zaufania z urządzeniem za pośrednictwem certyfikatów
 
-Azure Stack urządzenia z niezrównaną krawędzią pozwala korzystać z własnych certyfikatów i instalować je do użycia dla wszystkich publicznych punktów końcowych. Aby uzyskać więcej informacji, przejdź do pozycji [Przekaż certyfikat](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). Aby zapoznać się z listą wszystkich certyfikatów, które można zainstalować na urządzeniu, przejdź do obszaru [Zarządzanie certyfikatami na urządzeniu](azure-stack-edge-j-series-manage-certificates.md).
+Azure Stack urządzenia z niezrównaną krawędzią pozwala korzystać z własnych certyfikatów i instalować je do użycia dla wszystkich publicznych punktów końcowych. Aby uzyskać więcej informacji, przejdź do pozycji [Przekaż certyfikat](azure-stack-edge-gpu-manage-certificates.md#upload-certificates). Aby zapoznać się z listą wszystkich certyfikatów, które można zainstalować na urządzeniu, przejdź do obszaru [Zarządzanie certyfikatami na urządzeniu](azure-stack-edge-gpu-manage-certificates.md).
 
 - Podczas konfigurowania obliczeń na urządzeniu tworzone jest urządzenie IoT i urządzenie IoT Edge. Do tych urządzeń są automatycznie przypisywane klucze dostępu symetrycznego. Ze względów bezpieczeństwa te klucze są regularnie obracane za pośrednictwem usługi IoT Hub.
 

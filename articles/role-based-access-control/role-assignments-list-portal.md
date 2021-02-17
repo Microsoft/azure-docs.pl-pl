@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.openlocfilehash: adb3691625d6cdde03c803480ae948bb1911cc7d
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964375"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556174"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal
 
@@ -185,5 +185,5 @@ Wykonaj następujące kroki, aby pobrać przypisania ról w zakresie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
 - [Rozwiązywanie problemów z usługą Azure RBAC](troubleshooting.md)

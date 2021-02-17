@@ -6,15 +6,15 @@ documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 578bb511175d88a1507af9520265a1acd068b27c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87098000"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547200"
 ---
 # <a name="versions-in-azure-api-management"></a>Wersje na platformie Azure API Management
 
@@ -64,9 +64,13 @@ W przypadku dodania wersji do interfejsu API bez wersji, `Original` wersja zosta
 
 ## <a name="how-versions-are-represented"></a>Jak są reprezentowane wersje
 
-Usługa Azure API Management obsługuje zasób o nazwie *zestaw wersji*, który reprezentuje zestaw wersji jednego logicznego interfejsu API. Jeśli używasz Azure Portal do zarządzania wersjami, w których nie widzisz zestawu wersji, ale jeśli korzystasz z usługi API Management przy użyciu programu PowerShell, szablonów Menedżer zasobów lub interfejsu API Azure Resource Manager, możesz bezpośrednio wyświetlać zestawy wersji i zarządzać nimi. Zestaw wersji zawiera nazwę wyświetlaną interfejsu API z wersjami, a także [schemat przechowywania wersji służący](#versioning-schemes) do bezpośredniego żądania do określonych wersji.
+Usługa Azure API Management obsługuje zasób o nazwie *zestaw wersji*, który reprezentuje zestaw wersji jednego logicznego interfejsu API. Zestaw wersji zawiera nazwę wyświetlaną interfejsu API z wersjami oraz [schemat przechowywania wersji służący](#versioning-schemes) do kierowania żądań do określonych wersji.
 
-Każda wersja interfejsu API jest utrzymywana jako własny zasób interfejsu API, który następnie jest skojarzony z zestawem wersji. Zestaw wersji może zawierać interfejsy API z bardzo różnymi operacjami lub zasadami, co odzwierciedla fakt, że można wprowadzać znaczące zmiany między wersjami interfejsu API.
+Każda wersja interfejsu API jest utrzymywana jako własny zasób interfejsu API, który następnie jest skojarzony z zestawem wersji. Zestaw wersji może zawierać interfejsy API z różnymi operacjami lub zasadami. Mogą wprowadzać znaczące zmiany między wersjami w zestawie.
+
+Azure Portal tworzy zestawy wersji. Możesz zmodyfikować nazwę i opis wersji ustawionej w Azure Portal.
+
+Zestawy wersji można wyświetlać i zarządzać nimi bezpośrednio przy użyciu interfejsu [wiersza polecenia platformy Azure](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), [szablonów Menedżer zasobów](/azure/templates/microsoft.apimanagement/service/apiversionsets)lub [Azure Resource Manager API](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
 
 ### <a name="migrating-a-non-versioned-api-to-a-versioned-api"></a>Migrowanie interfejsu API bez wersji do interfejsu API z wersjami
 

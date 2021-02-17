@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 70aaa528fc86c9e543267b68b5b4cf157ec2dc65
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630280"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535267"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Automatyczne etykietowanie danych w usłudze Azure kontrolą
 
@@ -41,17 +41,17 @@ Etykiety czułości w usłudze Azure kontrolą mogą służyć do automatycznego
 Aby uzyskać więcej informacji, zobacz:
 
 - [Dowiedz się więcej na temat etykiet czułości](/microsoft-365/compliance/sensitivity-labels) w dokumentacji Microsoft 365
-- [Co to są reguły autoetykietowania?](#what-are-autolabeling-rules)
+- [Co to są reguły automatycznego etykietowania?](#what-are-auto-labeling-rules)
 - [Obsługiwane typy danych dla etykiet czułości na platformie Azure kontrolą](#supported-data-types-for-sensitivity-labels-in-azure-purview)
 - [Etykietowanie kolumn usługi SQL Database](#labeling-for-sql-database-columns)
 
-#### <a name="what-are-autolabeling-rules"></a>Co to są reguły autoetykietowania?
+#### <a name="what-are-auto-labeling-rules"></a>Co to są reguły automatycznego etykietowania?
 
 Twoje dane ciągle rośnie i zmieniają się. Śledzenie danych, które są obecnie bez etykiet, i podejmowanie akcji ręcznego stosowania etykiet nie jest tylko skomplikowane, ale jest również niezbędną kłopotliwej. 
 
-Reguły autoetykietowania są określonymi warunkami, co oznacza, że należy zastosować konkretną etykietę. Gdy te warunki są spełnione, etykieta zostanie automatycznie przypisana do danych, zachowując spójne etykiety czułości danych na dużą skalę.
+Reguły automatycznego etykietowania są określone przez użytkownika, co oznacza, że należy zastosować konkretną etykietę. Gdy te warunki są spełnione, etykieta zostanie automatycznie przypisana do danych, zachowując spójne etykiety czułości danych na dużą skalę.
 
-Podczas tworzenia etykiet upewnij się, że definiują reguły autoetykietowania zarówno dla [plików](#define-autolabeling-rules-for-files) , jak i [kolumn baz danych](#define-autolabeling-rules-for-database-columns) , aby automatycznie stosować etykiety przy każdym skanowaniu danych. 
+Podczas tworzenia etykiet upewnij się, że definiują reguły automatycznego etykietowania zarówno dla [plików](#define-auto-labeling-rules-for-files) , jak i [kolumn baz danych](#define-auto-labeling-rules-for-database-columns) , aby automatycznie stosować etykiety przy każdym skanowaniu danych. 
 
 Po przeskanowaniu danych w programie kontrolą można wyświetlić etykiety, które są automatycznie stosowane w wykazie kontrolą i raportach szczegółowych.
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Obsługiwane typy danych dla etykiet czułości na platformie Azure kontrolą
@@ -104,7 +104,7 @@ Rozszerzając etykiety czułości MCI z usługą Azure kontrolą, organizacje mo
 
 W Microsoft 365 przejdź do strony **Information Protection** . W oknie dialogowym **Rozwiń etykietowanie do elementów zawartości w usłudze Azure kontrolą** wybierz przycisk **Włącz** , a następnie wybierz pozycję **tak** w wyświetlone okno dialogowe potwierdzenia.
 
-Przykład:
+Na przykład:
 
 :::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="SELECT * * Włącz * *, aby zwiększyć etykiety czułości do kontrolą" lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
@@ -123,10 +123,10 @@ Po dodaniu etykietowania do elementów zawartości w usłudze Azure kontrolą mo
 
 1. Postępuj zgodnie z pozostałymi instrukcjami wyświetlanymi w kreatorze dla ustawień etykiet. 
 
-    Zdefiniuj reguły autoetykietowania dla plików i kolumn bazy danych:
+    Zdefiniuj reguły automatycznego etykietowania dla plików i kolumn bazy danych:
 
-    - [Definiuj reguły autoetykietowania dla plików](#define-autolabeling-rules-for-files)
-    - [Definiowanie reguł autoetykietowania dla kolumn bazy danych](#define-autolabeling-rules-for-database-columns)
+    - [Definiuj reguły automatycznego etykietowania dla plików](#define-auto-labeling-rules-for-files)
+    - [Definiowanie reguł automatycznego etykietowania dla kolumn bazy danych](#define-auto-labeling-rules-for-database-columns)
 
     Więcej informacji o opcjach kreatora [można](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) znaleźć w dokumentacji Microsoft 365.
 
@@ -156,21 +156,21 @@ Kontynuuj [skanowanie danych, aby automatycznie zastosować etykiety](#scan-your
 - [Wyświetl etykiety zasobów](#view-labels-on-assets)
 - [Wyświetl raporty szczegółowe dotyczące klasyfikacji i etykiet informacji o czułości](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
-#### <a name="define-autolabeling-rules-for-files"></a>Definiuj reguły autoetykietowania dla plików
+#### <a name="define-auto-labeling-rules-for-files"></a>Definiuj reguły automatycznego etykietowania dla plików
 
-Zdefiniuj reguły autoetykietowania dla plików w Kreatorze podczas tworzenia lub edytowania etykiety. 
+Zdefiniuj reguły automatycznego etykietowania dla plików w Kreatorze podczas tworzenia lub edytowania etykiety. 
 
 Na stronie **automatyczne etykietowanie aplikacji pakietu Office** Włącz **automatyczne etykietowanie aplikacji pakietu Office,** a następnie zdefiniuj warunki, w których etykieta ma być automatycznie stosowana do danych.
 
-Przykład:
+Na przykład:
 
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Zdefiniuj reguły autoetykietowania dla plików w centrum zabezpieczeń i zgodności Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Definiuj reguły automatycznego etykietowania dla plików w centrum zabezpieczeń i zgodności Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
 Aby uzyskać więcej informacji, zobacz [Automatyczne stosowanie etykiety czułości do danych](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) w dokumentacji Microsoft 365. 
 
-#### <a name="define-autolabeling-rules-for-database-columns"></a>Definiowanie reguł autoetykietowania dla kolumn bazy danych
+#### <a name="define-auto-labeling-rules-for-database-columns"></a>Definiowanie reguł automatycznego etykietowania dla kolumn bazy danych
 
-Zdefiniuj reguły autoetykietowania dla kolumn bazy danych w Kreatorze podczas tworzenia lub edytowania etykiety. 
+Zdefiniuj reguły automatycznego etykietowania dla kolumn bazy danych w Kreatorze podczas tworzenia lub edytowania etykiety. 
 
 W obszarze **zasoby usługi Azure kontrolą (wersja zapoznawcza)** :
 
@@ -178,13 +178,13 @@ W obszarze **zasoby usługi Azure kontrolą (wersja zapoznawcza)** :
 
 1. Wybierz pozycję **Sprawdź typy informacji poufnych** , aby wybrać typy informacji poufnych, które chcesz zastosować do etykiety.
 
-Przykład:
+Na przykład:
         
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Definiowanie reguł autoetykietowania dla kolumn SQL w centrum zabezpieczeń i zgodności Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Definiowanie reguł automatycznego etykietowania dla kolumn SQL w centrum zabezpieczeń i zgodności Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
 ## <a name="scan-your-data-to-apply-labels-automatically"></a>Skanuj dane, aby automatycznie stosować etykiety
 
-Skanuj dane w usłudze Azure kontrolą, aby automatycznie zastosować utworzone etykiety na podstawie zdefiniowanych reguł autoetykietowania. 
+Skanuj dane w usłudze Azure kontrolą, aby automatycznie zastosować utworzone etykiety na podstawie zdefiniowanych reguł automatycznego etykietowania. 
 
 Aby uzyskać więcej informacji na temat sposobu konfigurowania skanowania dla różnych zasobów w usłudze Azure kontrolą, zobacz:
 
@@ -197,15 +197,15 @@ Aby uzyskać więcej informacji na temat sposobu konfigurowania skanowania dla r
 
 ## <a name="view-labels-on-assets"></a>Wyświetl etykiety zasobów
 
-Po zdefiniowaniu reguł autoetykietowania dla etykiet w Microsoft 365 i przeskanowaniu danych w usłudze Azure kontrolą etykiety są automatycznie stosowane do zasobów. 
+Po zdefiniowaniu reguł automatycznego etykietowania dla etykiet w Microsoft 365 i przeskanowaniu danych w usłudze Azure kontrolą etykiety są automatycznie stosowane do zasobów. 
 
 **Aby wyświetlić etykiety zastosowane do zasobów w katalogu usługi Azure kontrolą:**
 
-W katalogu usługi Azure kontrolą Użyj opcji filtrowania **etykiet** , aby wyświetlić tylko pliki z określonymi etykietami. Przykład: 
+W katalogu usługi Azure kontrolą Użyj opcji filtrowania **etykiet** , aby wyświetlić tylko pliki z określonymi etykietami. Na przykład: 
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="Wyszukaj zasoby według etykiety" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-Przykład:
+Na przykład:
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="Wyświetlanie etykiety czułości pliku na Blob Storage platformy Azure" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 

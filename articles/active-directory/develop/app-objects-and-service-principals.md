@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0345362e0e5bce9912a247fc90dee63943a1cb3b
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355770"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557841"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Obiekty aplikacji i jednostki usługi w usłudze Azure Active Directory
 
@@ -27,9 +27,9 @@ W tym artykule opisano rejestrację aplikacji, obiekty aplikacji i jednostki us�
 ## <a name="application-registration"></a>Rejestracja aplikacji
 Aby delegować funkcje zarządzania tożsamościami i dostępem do usługi Azure AD, należy zarejestrować aplikację w [dzierżawie](developer-glossary.md#tenant)usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD tworzysz konfigurację tożsamości dla aplikacji, która umożliwia integrację z usługą Azure AD. Po zarejestrowaniu aplikacji w [Azure Portal][AZURE-Portal]należy określić, czy jest to jedyna dzierżawa (dostępna tylko w dzierżawie) czy wiele dzierżawców (dostępną w innych dzierżawcach) i opcjonalnie może ustawić identyfikator URI przekierowania (do którego jest wysyłany token dostępu).
 
-:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Zrzut ekranu przedstawiający okienko rejestrowania aplikacji Azure Portal":::
+Instrukcje krok po kroku dotyczące rejestrowania aplikacji można znaleźć w temacie [Rejestracja aplikacji — szybki start](quickstart-register-app.md).
 
-Po zakończeniu rejestracji aplikacji masz globalne, unikatowe wystąpienie aplikacji (obiektu aplikacji), które znajdują się w dzierżawie lub katalogu głównym.  Masz również globalnie unikatowy identyfikator dla aplikacji (Identyfikator aplikacji lub klienta).  W portalu możesz dodać wpisy tajne lub certyfikaty i zakresy, aby umożliwić działanie aplikacji, dostosować znakowanie aplikacji w oknie dialogowym logowania i nie tylko.
+Po zakończeniu rejestracji aplikacji masz globalne, unikatowe wystąpienie aplikacji ( [obiektu aplikacji](#application-object)), które znajdują się w dzierżawie lub katalogu głównym.  Masz również globalnie unikatowy identyfikator dla aplikacji (Identyfikator aplikacji lub klienta).  W portalu możesz dodać wpisy tajne lub certyfikaty i zakresy, aby umożliwić działanie aplikacji, dostosować znakowanie aplikacji w oknie dialogowym logowania i nie tylko.
 
 Jeśli aplikacja zostanie zarejestrowana w portalu, obiekt aplikacji oraz obiekt główny usługi są tworzone automatycznie w dzierżawie głównej.  Jeśli zarejestrujesz/utworzysz aplikację przy użyciu Microsoft Graph interfejsów API, tworzenie obiektu głównego usługi jest osobnym krokiem.
 

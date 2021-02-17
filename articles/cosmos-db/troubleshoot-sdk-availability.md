@@ -3,17 +3,17 @@ title: Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK
 description: Więcej informacji o zachowaniu dostępności zestawu SDK usługi Azure Cosmos w przypadku korzystania z wielu środowisk regionalnych.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/20/2020
+ms.date: 02/16/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097893"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559697"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK usługi Azure Cosmos w środowiskach wieloregionowych
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,7 @@ Po ustawieniu preferencji regionalnych klient będzie łączył się z regionem,
 | Pojedynczy region zapisu | Preferowany region | Region podstawowy  |
 | Wiele regionów zapisu | Preferowany region | Preferowany region  |
 
-Jeśli **nie ustawisz preferowanego regionu** , klient zestawu SDK domyślnie będzie regionem podstawowym:
+Jeśli **nie ustawisz preferowanego regionu**, klient zestawu SDK domyślnie będzie regionem podstawowym:
 
 |Typ konta |Odczyty |Zapisy |
 |------------------------|--|--|
@@ -47,11 +47,11 @@ Jeśli **nie ustawisz preferowanego regionu** , klient zestawu SDK domyślnie b�
 
 W normalnych warunkach klient zestawu SDK będzie łączył się z preferowanym regionem (Jeśli ustawiona jest preferencja regionalna) lub do regionu podstawowego (jeśli nie ustawiono preferencji), a operacje będą ograniczone do tego regionu, chyba że wystąpi którykolwiek z poniższych scenariuszy.
 
-W takich przypadkach klient korzystający z zestawu SDK usługi Azure Cosmos udostępnia dzienniki i zawiera informacje o ponownych próbach w ramach **informacji diagnostycznych dotyczących operacji** :
+W takich przypadkach klient korzystający z zestawu SDK usługi Azure Cosmos udostępnia dzienniki i zawiera informacje o ponownych próbach w ramach **informacji diagnostycznych dotyczących operacji**:
 
 * Właściwość *RequestDiagnosticsString* na odpowiedziach w zestawie SDK platformy .net v2.
 * Właściwość *diagnostyki* odpowiedzi i wyjątków w programie .NET v3 SDK.
-* Metoda *Getdiagnostics ()* w przypadku odpowiedzi i wyjątków w zestawie SDK języka Java v4.
+* Metoda *getDiagnostics()* w zakresie odpowiedzi i wyjątków w zestawie SDK języka Java w wersji 4.
 
 Podczas określania następnego regionu w kolejności preferencji klient zestawu SDK użyje listy regionów konta, aby określić priorytety preferowanych regionów (jeśli istnieją).
 
@@ -83,9 +83,9 @@ W przypadku korzystania ze [spójności sesji](consistency-levels.md#guarantees-
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Przejściowe problemy z łącznością w protokole TCP
 
-W scenariuszach, w których klient usługi Azure Cosmos SDK jest skonfigurowany do korzystania z protokołu TCP, w przypadku danego żądania mogą wystąpić sytuacje, w których warunki sieci tymczasowo wpływają na komunikację z określonym punktem końcowym. Te tymczasowe warunki sieciowe mogą być takie same jak limity czasu protokołu TCP. Klient ponowi próbę wykonania żądania lokalnie w tym samym punkcie końcowym przez kilka sekund.
+W scenariuszach, w których klient usługi Azure Cosmos SDK jest skonfigurowany do korzystania z protokołu TCP, w przypadku danego żądania mogą wystąpić sytuacje, w których warunki sieci tymczasowo wpływają na komunikację z określonym punktem końcowym. Te tymczasowe warunki sieciowe mogą być takie jak limity czasu protokołu TCP i niedostępność usługi (HTTP 503). Klient ponowi próbę wykonania żądania lokalnie w tym samym punkcie końcowym przez kilka sekund przed wyświetleniem błędu.
 
-Jeśli użytkownik skonfigurował listę preferowanych regionów z więcej niż jednym regionem, a konto usługi Azure Cosmos ma wiele regionów zapisu lub pojedynczy region zapisu, a operacja jest żądaniem odczytu, klient ponowi próbę wykonania pojedynczej operacji w następnym regionie z listy preferencji.
+Jeśli użytkownik skonfigurował listę preferowanych regionów z więcej niż jednym regionem, a konto usługi Azure Cosmos ma wiele regionów zapisu lub pojedynczy region zapisu, a operacja jest żądaniem odczytu, klient wykryje awarię lokalną i spróbuje ponownie wykonać operację pojedynczą w następnym regionie z listy preferencji.
 
 ## <a name="next-steps"></a>Następne kroki
 

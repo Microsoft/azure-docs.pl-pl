@@ -1,20 +1,20 @@
 ### YamlMime:Landing
-title: Platforma Kubernetes z usługą Azure Arc (wersja zapoznawcza)
+title: Platforma Kubernetes z obsługą usługi Azure Arc (wersja zapoznawcza)
 summary: Dowiedz się, jak zarządzać klastrami Kubernetes przy użyciu usługi Azure Arc
 metadata:
-  title: Platforma Kubernetes z usługą Azure Arc
+  title: Platforma Kubernetes z włączoną usługą Azure Arc
   description: Dowiedz się, jak zarządzać komputerami lokalnymi na platformie Azure
-  author: 
+  author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
-  ms.author: 
-  ms.openlocfilehash: 9eeddfefe451eb524484df8a1986c7ec736c4c0f
-  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-  ms.translationtype: HT
+  ms.date: 02/15/2021
+  ms.author: shasb
+  ms.openlocfilehash: 97343e8c23e202e70ec30bb0a522105889ea08b3
+  ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/18/2020
-  ms.locfileid: "97674376"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100560232"
 landingContent:
 - title: Łączenie klastrów Kubernetes z platformą Azure przy użyciu usługi Azure Arc
   linkLists:
@@ -22,10 +22,22 @@ landingContent:
     links:
     - text: Co to jest platforma Kubernetes z włączoną usługą Azure Arc?
       url: overview.md
+  - linkListType: concept
+    links:
+    - text: Architektura agentów
+      url: conceptual-agent-architecture.md
+    - text: Konfiguracje i GitOps
+      url: conceptual-configurations.md
+    - text: Często zadawane pytania
+      url: faq.md
+- title: Rozpoczęcie pracy
+  linkLists:
   - linkListType: quickstart
     links:
     - text: Połączenie klastra
       url: connect-cluster.md
+- title: Konfigurowanie, zarządzanie i monitorowanie klastrów
+  linkLists:
   - linkListType: how-to-guide
     links:
     - text: Wdrażanie konfiguracji przy użyciu metodyki GitOps

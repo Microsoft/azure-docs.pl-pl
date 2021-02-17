@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f63c97fd23d56ff508de8d5953eefac6b15ae1aa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1a9faf24c5a82b815b40afe15769480b69074dc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188453"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552060"
 ---
 W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) dla .NET Framework (Windows). Jeśli chcesz, aby nazwa pakietu została już uruchomiona, uruchom polecenie `Install-Package Microsoft.CognitiveServices.Speech` w konsoli programu NuGet.
 
@@ -26,6 +26,7 @@ W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/arti
 
 Ten przewodnik Szybki start wymaga następujących elementów:
 
+* W systemie Windows wymagany jest [Microsoft Visual C++ redystrybucyjny dla programu Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) dla danej platformy. Zainstalowanie tego po raz pierwszy może wymagać ponownego uruchomienia.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Tworzenie projektu programu Visual Studio i Instalowanie zestawu Speech SDK

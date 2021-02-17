@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585045"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546010"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Model odbioru prekompilowanego aparatu rozpoznawania formularzy
 
@@ -115,7 +115,12 @@ Gdy wartość w polu **stan** zostanie **zakończona pomyślnie** , odpowiedź J
 
 ### <a name="sample-json-output"></a>Przykładowe dane wyjściowe JSON
 
-Zobacz następujący przykład pomyślnej odpowiedzi JSON: węzeł "readResults" zawiera wszystkie rozpoznane teksty. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. Węzeł "documentResults" zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. W tym miejscu znajdziesz przydatne pary klucz/wartość, takie jak imię, nazwisko, nazwa firmy i inne.
+
+Odpowiedź na wynik operacji Pobierz analizę wyniku przyjęcia będzie strukturalną reprezentacją przyjęcia ze wszystkimi wyodrębnionymi informacjami.  Zobacz tutaj, aby znaleźć [przykładowy plik paragonu](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) i jego strukturalne [dane wyjściowe otrzymanego przykładu](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
+
+Zobacz następujący przykład pomyślnej odpowiedzi JSON:
+* `"readResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. 
+* `"documentResults"`Węzeł zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. W tym miejscu znajdziesz przydatne pary klucz/wartość, takie jak imię, nazwisko, nazwa firmy i inne.
 
 ```json
 { 

@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 883be25716d94130984baef5e7a1eab80888a2b9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126194"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558475"
 ---
 # <a name="pricing-scenarios"></a>Scenariusze cen
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Ceny usług Azure Communication Services są ogólnie oparte na modelu z płatność zgodnie z rzeczywistym użyciem.
+Ceny usług Azure Communication Services są ogólnie oparte na modelu z płatność zgodnie z rzeczywistym użyciem. Ceny w poniższych przykładach są przeznaczone do celów ilustracyjnych i mogą nie odzwierciedlać najnowszych cen platformy Azure.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Połączenie głosowe/wideo i udostępnianie ekranu
 
@@ -48,9 +48,32 @@ Alicja dokonała wywołania grupy z jej współpracownikami, Robert i Charlie. A
 
 **Łączny koszt wywołania grupy**: $0,48 + $0,172 = $0,652
 
+### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Przykład cen: użytkownik biblioteki klienckiej usługi Communication Services JS dołącza zaplanowaną spotkanie Microsoft Teams
+
+Alicja jest lekarzem spotkania z pacjentem, Robert. Alicja będzie dołączać do wizyty z poziomu aplikacji Team Desktop. Robert otrzyma link do sprzężenia przy użyciu witryny sieci Web dostawcy usług opieki zdrowotnej, która łączy się ze spotkaniem przy użyciu biblioteki klienckiej usługi Communication Services JS. Robert będzie używać swojego telefonu komórkowego do wprowadzania spotkania przy użyciu przeglądarki sieci Web (iPhone z programem Safari). Czat będzie dostępny podczas odwiedzin wirtualnych. 
+
+- Wywołanie trwa łącznie 30 minut.
+- Alicja i Robert uczestniczą w całym wywołaniu. Alicja włącza swoje wideo pięć minut po rozpoczęciu wywołania i udostępni jego ekran przez 13 minut. Robert ma swoje wideo dla całego wywołania.
+- Alicja wysyła pięć wiadomości, Robert odpowiedzi z trzema komunikatami.
+
+
+**Obliczenia kosztów**
+
+- 1 uczestnik (Robert) x 30 minut x $0,004 na uczestnika = $0,12 [opłata za wideo i dźwięk jest naliczana w tej samej stawce]
+- 1 uczestnik (Alicja) x 30 minut x $0,000 na uczestnika na minutę = $0,0 *. 
+- 1 uczestnik (Robert) x 3 komunikaty czatu x $0,0008 = $0,0024.
+- 1 uczestnik (Alicja) x 5 wiadomości czatu x $0,000 = $0,0 *. 
+
+* Uczestnictwo Alicja jest objęte licencją zespołów. Na fakturze platformy Azure będą wyświetlane minuty i komunikaty rozmowy, które umożliwiają zespołom użytkowników usług komunikacyjnych dla wygody użytkownika, ale te minuty i komunikaty pochodzące od klientów zespołów nie będą kosztowały kosztów.
+
+**Łączny koszt dla wizyty**: 
+- Przyłączanie użytkownika przy użyciu biblioteki klienckiej JS usług komunikacyjnych: $0,12 + $0,0024 = $0,1224
+- Przyłączanie użytkowników do aplikacji klasycznych zespołów: $0 (objętych przez licencję zespołów) 
+
+
 ## <a name="chat"></a>Czat
 
-Dzięki usługom komunikacyjnym można ulepszyć aplikację, umożliwiając wysyłanie i odbieranie komunikatów rozmowy między 2 lub większą liczbą użytkowników. Biblioteki klienckie programu Chat są dostępne dla języków JavaScript, .NET, Python i Java. Zapoznaj się z [tą stroną, aby dowiedzieć się więcej o bibliotekach klienta](./sdk-options.md)
+Dzięki usługom komunikacyjnym można ulepszyć aplikację, umożliwiając wysyłanie i odbieranie komunikatów rozmowy między dwoma lub większą liczbą użytkowników. Biblioteki klienckie programu Chat są dostępne dla języków JavaScript, .NET, Python i Java. Zapoznaj się z [tą stroną, aby dowiedzieć się więcej o bibliotekach klienta](./sdk-options.md)
 
 ### <a name="price"></a>Cena
 
@@ -58,7 +81,7 @@ Opłata jest naliczana $0,0008 dla każdej wysyłanej wiadomości czatu.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Przykład cen: rozmowa między dwoma użytkownikami 
 
-Geeta uruchamia wątek rozmowy z Emily w celu udostępnienia aktualizacji i wysłania 5 komunikatów. Czat trwa 10 minut, w którym Geeta i Emily wysyła kolejne 15 komunikatów.
+Geeta uruchamia wątek rozmowy z Emily w celu udostępnienia aktualizacji i wysłania 5 komunikatów. Rozmowa trwa 10 minut. Geeta i Emily wysyłaj kolejne 15 komunikatów.
 
 **Obliczenia kosztów** 
 - Liczba wysłanych komunikatów (5 + 15 + 15) x $0,0008 = $0,028

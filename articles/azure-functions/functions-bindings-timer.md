@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: c6b3bd61386cbde0e8de63055eee9218e372dfcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874087"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547846"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions
 
@@ -252,7 +252,7 @@ Atrybuty nie są obsługiwane przez język Python.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `TimerTrigger` atrybutu.
 
@@ -347,7 +347,7 @@ Jest to ciąg, który jest `TimeSpan` `hh:mm:ss` `hh` mniejszy niż 24. Gdy dwie
 
 ## <a name="scale-out"></a>Skalowanie w poziomie
 
-Jeśli aplikacja funkcji jest skalowana do wielu wystąpień, tylko jedno wystąpienie funkcji wyzwalanej przez czasomierz jest uruchamiane we wszystkich wystąpieniach.
+Jeśli aplikacja funkcji jest skalowana do wielu wystąpień, tylko jedno wystąpienie funkcji wyzwalanej przez czasomierz jest uruchamiane we wszystkich wystąpieniach. Nie zostanie ono wyzwolone ponownie, jeśli wystąpi zaległe wywołanie.
 
 ## <a name="function-apps-sharing-storage"></a>Magazyn udostępniania aplikacji funkcji
 

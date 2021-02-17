@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da85abdff3d1022659f2d4e83fd14c5ae6003fc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372028"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546061"
 ---
 # <a name="machine-learning-features"></a>Funkcje uczenia maszynowego
 
@@ -160,11 +160,9 @@ Adres wysyłkowy (poznanie maszynowe)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Wymagana funkcja przy użyciu wstępnie utworzonych jednostek
 
-Miasto, Województwo i kraj/region są zwykle zamkniętym zestawem list, co oznacza, że nie zmieniają się znacznie w czasie. Te jednostki mogą mieć odpowiednie zalecane funkcje, a te funkcje mogą być oznaczone jako wymagane. Oznacza to, że cały adres wysyłkowy nie jest zwracany, jeśli nie można znaleźć jednostek, które mają wymagane funkcje.
+Wstępnie utworzone jednostki, takie jak miasto, Województwo i kraj/region, są zwykle zamkniętym zestawem list, co oznacza, że nie zmieniają się znacznie w czasie. Te jednostki mogą mieć odpowiednie zalecane funkcje, a te funkcje mogą być oznaczone jako wymagane. Jednak `isRequired` flaga jest odnosi się tylko do jednostki, do której jest przypisana, i nie ma wpływu na hierarchię. Jeśli nie można znaleźć funkcji prekompilowanej jednostki podrzędnej, nie będzie to miało wpływu na wykrywanie i zwracanie jednostki nadrzędnej.
 
-Co się stanie, jeśli miasto, Województwo lub kraj/region znajdują się w wypowiedź, ale znajdują się one w lokalizacji lub żargonu, że LUIS nie jest oczekiwane? Jeśli chcesz udostępnić przetwarzanie końcowe, aby pomóc w rozwiązaniu jednostki, ze względu na wynik o niskim poziomie pewności od LUIS, nie zaznaczaj tej funkcji zgodnie z potrzebami.
-
-Innym przykładem wymaganej funkcji adresu wysyłkowego jest numer ulicy wymagany, [wstępnie zbudowany](luis-reference-prebuilt-entities.md) numer. Dzięki temu użytkownik może wprowadzić wartość "1 Microsoft" lub "jeden Microsoft". Oba elementy są rozpoznawane jako cyfry "1" dla podjednostki numeru ulicy.
+Jako przykład wymaganej funkcji należy rozważyć wykrycie adresów. Możesz rozważyć utworzenie numeru ulicy jako wymagania. Dzięki temu użytkownik może wprowadzić wartość "1 Microsoft" lub "jeden Microsoft", a obie byłyby do cyfry "1" dla podjednostki. Aby uzyskać więcej informacji, zobacz artykuł [prekompilowanego obiektu ](luis-reference-prebuilt-entities.md) .
 
 ### <a name="required-feature-using-list-entities"></a>Wymagana funkcja przy użyciu jednostek listy
 
@@ -201,7 +199,7 @@ Aby opisać cechę lub koncepcję, można użyć więcej niż jednej funkcji. Ty
 
 ### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Przykład: funkcje jednostki rezerwacji biletów dla aplikacji podróży  
 
-Jako podstawowy przykład rozważmy aplikację do rezerwacji lotu z _zamiarem_ rezerwacji lotu i _jednostką_rezerwacji biletów. Jednostka rezerwacja biletów przechwytuje informacje w celu zaksięgowania biletu samolotowego w systemie rezerwacji. 
+Jako podstawowy przykład rozważmy aplikację do rezerwacji lotu z _zamiarem_ rezerwacji lotu i _jednostką_ rezerwacji biletów. Jednostka rezerwacja biletów przechwytuje informacje w celu zaksięgowania biletu samolotowego w systemie rezerwacji. 
 
 Jednostka uczenia maszynowego dla księgi biletów ma dwie podjednostki, aby przechwycić lokalizację początkową i docelową. Funkcje należy dodać do każdej podjednostki, a nie jednostki najwyższego poziomu.
 
@@ -209,7 +207,7 @@ Jednostka uczenia maszynowego dla księgi biletów ma dwie podjednostki, aby prz
 
 Jednostka rezerwacji biletów jest jednostką uczenia maszynowego, z podjednostkami, w tym _źródła_ i _miejsca docelowego_. Te podjednostki wskazują lokalizację geograficzną. Aby ułatwić wyodrębnienie lokalizacji i odróżnienie między elementami _początkowymi_ i _docelowymi_, każda podjednostka powinna mieć funkcje.
 
-|Type|Podjednostka pochodzenie |Podjednostka docelowa|
+|Typ|Podjednostka pochodzenie |Podjednostka docelowa|
 |--|--|--|
 |Model jako funkcja|wstępnie utworzona jednostka [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|wstępnie utworzona jednostka [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|
 |Lista fraz|**Słowa źródłowe**: `start at` , `begin from` , `leave`|**Słowa docelowe**: `to` ,,,,, `arrive` `land at` `go` `going` `stay` , `heading`|
@@ -226,7 +224,7 @@ Po utworzeniu jednostki uczenia maszynowego należy dodać przykład wyrażenia 
 
 W przypadku przykładowego rezerwacji biletu etykieta przykład wyrażenia długości w zamierzeniu z `TicketBooking` jednostką i podjednostkami w tekście.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Schemat jednostki Ticketbooking":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Przykład etykiety wyrażenia długości":::
 
 ### <a name="example-pizza-ordering-app"></a>Przykład: Pizza Porządkowanie aplikacji
 
@@ -234,13 +232,13 @@ W drugim przykładzie Rozważmy aplikację dla restauracji Pizza, która otrzymu
 
 Jednostka uczenia maszynowego w tym przykładzie jest bardziej złożona z zagnieżdżonymi podjednostkami, listami fraz, wstępnie skompilowanymi jednostkami i jednostkami niestandardowymi.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schemat jednostki Ticketbooking":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schemat jednostki Pizza Order":::
 
 W tym przykładzie są stosowane funkcje na poziomie podjednostki i element podrzędny elementu podrzędnego poziomu. Na poziomie tego, jakiego rodzaju Lista wyrazów lub model jako funkcja jest istotną częścią projektu jednostki.
 
 Chociaż jednostki podjednostek mogą mieć wiele list fraz jako funkcje, które ułatwiają wykrycie jednostki, każda podjednostka ma tylko jeden model jako funkcję. W tej [aplikacji Pizza](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)te modele są wymieniane głównie.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Schemat jednostki Ticketbooking":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="ZaPizza kolejności z etykietami przykład wyrażenia długości":::
 
 Prawidłowo oznaczony przykład wyrażenia długości jest wyświetlany w sposób, aby pokazać, jak jednostki są zagnieżdżone. 
 

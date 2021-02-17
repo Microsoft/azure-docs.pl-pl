@@ -1,6 +1,6 @@
 ---
-title: Używanie szablonu do wdrażania maszyn wirtualnych usługi Azure spot
-description: Dowiedz się, jak za pomocą szablonu wdrożyć maszyny wirtualne w celu oszczędności kosztów.
+title: Użyj szablonu, aby wdrożyć Virtual Machines platformy Azure Azure
+description: Dowiedz się, jak za pomocą szablonu wdrożyć Virtual Machines w miejscu na platformie Azure, aby zaoszczędzić koszty.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0cf6fc1b37064ef6193f35334711dcc5b8d01088
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 44134e73f2e654d7bfdb9119942a5c3982859c7a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200791"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557749"
 ---
-# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Wdrażanie maszyn wirtualnych przy użyciu szablonu Menedżer zasobów
+# <a name="deploy-azure-spot-virtual-machines-using-a-resource-manager-template"></a>Wdrażanie Virtual Machines w miejscu na platformie Azure przy użyciu szablonu Menedżer zasobów
 
-Korzystanie z [maszyn wirtualnych na miejscu](../spot-vms.md) pozwala korzystać z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure wymaga przywrócenia pojemności, infrastruktura platformy Azure wyłączy maszyny wirtualne. W związku z tym maszyny wirtualne są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
+Korzystanie z [usługi Azure Spot Virtual Machines](../spot-vms.md) umożliwia korzystanie z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure potrzebuje pojemności z powrotem, infrastruktura platformy Azure wyłączy Virtual Machines na platformie Azure. Z tego względu Virtual Machines na platformie Azure są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
 
-Ceny maszyn wirtualnych na miejscu są zmienne, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik maszyn wirtualnych dla [systemów](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) i Windows.
+Cennik usługi Azure Virtual Machines w miejscu to zmienna, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik maszyn wirtualnych dla [systemów](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) i Windows.
 
-Dla maszyny wirtualnej można ustawić maksymalną cenę, która ma być płacona za godzinę. Maksymalna cena maszyny wirtualnej na miejscu może być ustawiona w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość będzie `0.98765` Cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1` , maszyna wirtualna nie zostanie wykluczona na podstawie ceny. Cena maszyny wirtualnej to aktualna cena za ilość miejsca lub cena standardowej maszyny wirtualnej, która kiedykolwiek jest mniejsza, o ile jest dostępna pojemność i przydział. Aby uzyskać więcej informacji na temat ustawiania ceny maksymalnej, zobacz [punkt maszyny wirtualne — Cennik](../spot-vms.md#pricing).
+Dla maszyny wirtualnej można ustawić maksymalną cenę, która ma być płacona za godzinę. Maksymalna cena maszyny wirtualnej usługi Azure Spot można ustawić w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość będzie `0.98765` Cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1` , maszyna wirtualna nie zostanie wykluczona na podstawie ceny. Cena maszyny wirtualnej to bieżąca cena za usługę Azure Virtual Machines lub cena standardowej maszyny wirtualnej, która kiedykolwiek jest mniejsza, o ile będzie dostępna pojemność i przydział. Aby uzyskać więcej informacji na temat ustawiania ceny maksymalnej, zobacz [Virtual Machines platformy Azure — cennik](../spot-vms.md#pricing).
 
 
 ## <a name="use-a-template"></a>Korzystanie z szablonu
 
-W przypadku wdrożeń szablonów dodatkowych Użyj programu `"apiVersion": "2019-03-01"` lub nowszego. Dodaj `priority` `evictionPolicy` `billingProfile` właściwości i do w szablonie:
+W przypadku wdrożeń szablonów maszyn wirtualnych platformy Azure, użyj `"apiVersion": "2019-03-01"` lub nowszej. Dodaj `priority` `evictionPolicy` `billingProfile` właściwości i do w szablonie:
 
 ```json
 "priority": "Spot",
@@ -36,7 +36,7 @@ W przypadku wdrożeń szablonów dodatkowych Użyj programu `"apiVersion": "2019
 }
 ```
 
-Oto przykładowy szablon z dodanymi właściwościami dla maszyny wirtualnej. Zastąp nazwy zasobów własnymi i `<password>` hasłem dla konta administratora lokalnego na maszynie wirtualnej.
+Oto przykładowy szablon z dodatkowymi właściwościami dla maszyny wirtualnej platformy Azure. Zastąp nazwy zasobów własnymi i `<password>` hasłem dla konta administratora lokalnego na maszynie wirtualnej.
 
 ```json
 {
@@ -175,7 +175,7 @@ Oto przykładowy szablon z dodanymi właściwościami dla maszyny wirtualnej. Za
 
 ## <a name="simulate-an-eviction"></a>Symulowanie wykluczenia
 
-Możesz [symulować wykluczenie](/rest/api/compute/virtualmachines/simulateeviction) maszyny wirtualnej na miejscu, aby przetestować, w jaki sposób aplikacja będzie odistnieć do nagłego wykluczenia. 
+Można [symulować wykluczenie](/rest/api/compute/virtualmachines/simulateeviction) maszyny wirtualnej platformy Azure w celu przetestowania, w jaki sposób aplikacja będzie odstawa w przypadku nagłego wykluczenia. 
 
 Zastąp następujące informacje następującymi informacjami: 
 
@@ -190,8 +190,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz również utworzyć maszynę wirtualną na miejscu przy użyciu [Azure PowerShell](../windows/spot-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](spot-cli.md).
+Możesz również utworzyć maszynę wirtualną platformy Azure w miejscu przy użyciu [Azure PowerShell](../windows/spot-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](spot-cli.md).
 
-Zapoznaj się z bieżącymi informacjami o cenach przy użyciu [interfejsu API cen detalicznych platformy Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) , aby uzyskać informacje o cenach dodatkowych. Elementy `meterName` i `skuName` będą zawierać `Spot` .
+Zapoznaj się z bieżącymi informacjami o cenach przy użyciu [interfejsu API cen detalicznych platformy Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) , aby uzyskać informacje o cenach maszyn wirtualnych platformy Azure. Elementy `meterName` i `skuName` będą zawierać `Spot` .
 
 Jeśli wystąpi błąd, zobacz [kody błędów](../error-codes-spot.md).
